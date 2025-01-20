@@ -2,8 +2,10 @@ from itertools import chain
 
 import pytest
 from caluma.caluma_core.relay import extract_global_id
+from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.extensions.visibilities import CustomVisibility, CustomVisibilityBE
+from camac.caluma.utils import visible_inquiries_expression
 from camac.user.models import Service
 
 
@@ -204,3 +206,88 @@ def test_inquiry_visibility_so(
     )
 
     assert expected_service_ids == visible_service_ids
+
+
+def test_inquiry_visibility_ag(
+    db,
+    ag_distribution_settings,
+    case_factory,
+    group,
+    service_factory,
+    settings,
+    snapshot,
+    task_factory,
+    work_item_factory,
+):
+    settings.APPLICATION_NAME = "kt_ag"
+    task = task_factory(pk=ag_distribution_settings["INQUIRY_TASK"])
+
+    authority = service_factory(service_group__name="municipality")
+    authority_subservice = service_factory(
+        service_group__name="municipality", service_parent=authority
+    )
+    municipality = service_factory(service_group__name="municipality")
+    municipality_subservice = service_factory(
+        service_group__name="municipality", service_parent=municipality
+    )
+
+    afb = service_factory(service_group__name="service-afb")
+    afb_subservice = service_factory(
+        service_group__name="service-afb", service_parent=afb
+    )
+
+    canton = service_factory(service_group__name="service-cantonal")
+    canton_subservice = service_factory(
+        service_group__name="service-cantonal", service_parent=canton
+    )
+
+    external = service_factory(service_group__name="service-external")
+    external_subservice = service_factory(
+        service_group__name="service-external", service_parent=external
+    )
+
+    _case = case_factory()
+
+    for name, controlling, addressed in [
+        ("authority-to-municipality", authority, municipality),
+        ("authority-to-subservice", authority, authority_subservice),
+        ("authority-to-canton", authority, canton),
+        ("authority-to-afb", authority, afb),
+        ("authority-to-external", authority, external),
+        ("municipality-to-subservice", municipality, municipality_subservice),
+        ("afb-to-canton", afb, canton),
+        ("afb-to-external", afb, external),
+        ("afb-to-subservice", afb, afb_subservice),
+        ("canton-to-subservice", canton, canton_subservice),
+        ("external-to-subservice", external, external_subservice),
+    ]:
+        work_item_factory(
+            task=task,
+            case=_case,
+            name=name,
+            addressed_groups=[str(addressed.pk)],
+            controlling_groups=[str(controlling.pk)],
+        )
+
+    services = dict(
+        authority=authority,
+        authority_subservice=authority_subservice,
+        municipality=municipality,
+        municipality_subservice=municipality_subservice,
+        afb=afb,
+        afb_subservice=afb_subservice,
+        canton=canton,
+        canton_subservice=canton_subservice,
+        external=external,
+        external_subservice=external_subservice,
+    )
+
+    for name, service in services.items():
+        group.service = service
+        inquiries = WorkItem.objects.filter(task_id=task, case=_case).filter(
+            visible_inquiries_expression(group)
+        )
+
+        assert sorted(set(inquiries.values_list("name__de", flat=True))) == snapshot(
+            name=name
+        )
