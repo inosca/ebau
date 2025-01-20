@@ -293,6 +293,22 @@ DISTRIBUTION = {
         "INQUIRY_ANSWER_CHECK_TASK": "check-inquiry",
         "INQUIRY_ANSWER_REVISE_TASK": "revise-inquiry",
         "INQUIRY_ANSWER_ALTER_TASK": "alter-inquiry",
+        "QUESTIONS": {
+            "STATUS": "inquiry-answer-status",
+            "REMARKS": "inquiry-answer-remarks",
+        },
+        "ANSWERS": {
+            "STATUS": {
+                "POSITIVE": "inquiry-answer-status-positive",
+                "POSITIVE_SANCTIONS": "inquiry-answer-status-positive-sanctions",
+                "POSITIVE_PARTIALLY": "inquiry-answer-status-positive-partially",
+                "NEGATIVE": "inquiry-answer-status-negative",
+                "NEGATIVE_DECONSTRUCTION": "inquiry-answer-status-negative-deconstruction",
+                "STATEMENT": "inquiry-answer-status-statement",
+                "CLAIM": "inquiry-answer-status-claim",
+                "NOT_INVOLVED": "inquiry-answer-status-not-involved",
+            },
+        },
         "HISTORY": {
             "COMPLETE_DISTRIBUTION": _("Circulation completed"),
             "SKIP_DISTRIBUTION": _("Circulation skipped"),

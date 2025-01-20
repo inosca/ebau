@@ -92,5 +92,14 @@ PLACEHOLDERS = {
     "kt_bern": {"ENABLED": True},
     "kt_gr": {"ENABLED": True},
     "kt_uri": {"ENABLED": True},
+    "kt_ag": {
+        "ENABLED": True,
+        "INQUIRY_DEFAULT_FIELDS": [
+            ("remarks", "BEMERKUNGEN"),
+        ],
+        "INQUIRY_FIELD_MAPPINGS": {
+            "remarks": ("inquiry-answer", "REMARKS"),
+        },
+    },
     "test": {"ENABLED": True},
 }
