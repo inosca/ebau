@@ -64055,7 +64055,10 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"<p class=\\\"uk-margin-remove-bottom\\\">Bitte drucken Sie das Unterschriftenblatt aus und schicken Sie es per Papierpost <strong>mit den erforderlichen Unterschriften</strong> der zust\\u00e4ndigen Baubeh\\u00f6rde.</p>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "hiddenInternal": true,
+        "widgetOverride": "be-download-pdf"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -64088,6 +64091,7 @@
       "configuration": {},
       "meta": {
         "template": "signatures",
+        "hiddenInternal": true,
         "widgetOverride": "be-download-pdf"
       },
       "data_source": null,
