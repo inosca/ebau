@@ -2825,7 +2825,7 @@ TOKEN_EXCHANGE_CLIENT = env.str("TOKEN_EXCHANGE_CLIENT", default="token-exchange
 TOKEN_EXCHANGE_CLIENT_SECRET = env.str(
     "TOKEN_EXCHANGE_CLIENT_SECRET",
     default=default(
-        "76e3ScwJqsP0EMsYHKmEyBjlE1bNeOU1", require_if(ENABLE_TOKEN_EXCHANGE)
+        "jgN5b7a2wLe3rKpwGXogTZY1kl1bn34K", require_if(ENABLE_TOKEN_EXCHANGE)
     ),
 )
 TOKEN_EXCHANGE_USERNAME_PREFIX = "egov:"
