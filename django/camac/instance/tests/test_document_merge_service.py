@@ -43,6 +43,7 @@ def caluma_form_fixture(db):
         "config/caluma_solar_plants_form_v2.json",
         "config/caluma_heat_generator_form.json",
         "config/caluma_heat_generator_form_v2.json",
+        "config/caluma_heat_generator_form_v3.json",
         "config/caluma_hecken_feldgehoelze_baeume_form.json",
         "config/caluma_hecken_feldgehoelze_baeume_form_v2.json",
         "config/caluma_reklamegesuch_form.json",
