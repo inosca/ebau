@@ -722,9 +722,11 @@ class InstanceView(
         ).values("value")
 
         emails = [
-            field["value"][0].get("email")
+            personality.get("email")
             for field in form_fields_value
-            if field["value"] and field["value"][0].get("email")
+            if field.get("value")
+            for personality in field["value"]
+            if personality.get("email")
         ]
 
         return emails
@@ -740,11 +742,13 @@ class InstanceView(
         )
 
         for email in involved_emails:
-            applicant, created = Applicant.objects.get_or_create(
+            applicant, created = Applicant.objects.update_or_create(
                 instance=instance,
-                user=instance.user,
-                email=email,
                 invitee=User.objects.filter(email=email).first(),
+                defaults={
+                    "user": instance.user,
+                    "email": email,
+                },
             )
 
             if created:
