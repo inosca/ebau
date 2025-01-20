@@ -1,5 +1,6 @@
 from camac.permissions.conditions import (
     Always,
+    Callback,
     HasApplicantRole,
     HasRole,
     RequireInstanceState,
@@ -40,6 +41,13 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead", "municipality-clerk"])
 MODULE_AUDIT = NO_CORRECTION & (
     (RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY)
     | RequireWorkItem("formal-exam", "completed")
+)
+MODULE_CANTONAL_EXAM = RequireWorkItem("cantonal-exam") & (
+    Callback(
+        lambda userinfo: userinfo.service.slug == "afb",
+        allow_caching=True,
+        name="is_afb",
+    )
 )
 MODULE_COMMUNICATIONS = STATES_ALL & ROLES_NO_READONLY
 MODULE_CORRECTIONS = (
@@ -94,6 +102,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
         ],
         "distribution-service": [
+            ("cantonal-exam-read", MODULE_CANTONAL_EXAM),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("decision-read", MODULE_DECISION),

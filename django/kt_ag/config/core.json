@@ -131,7 +131,7 @@
       "template": "/ember-camac-ng/corrections.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 2000000,
       "require_permission": "corrections-read"
     }
@@ -147,7 +147,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 2000000,
       "require_permission": "distribution-read"
     }
@@ -163,7 +163,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 2000000,
       "require_permission": "decision-read"
     }
@@ -182,6 +182,22 @@
       "sort": 2,
       "form_group": 2000000,
       "require_permission": "communications-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 15000003,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 8,
+      "form_group": 2000000,
+      "require_permission": "cantonal-exam-read"
     }
   },
   {
@@ -259,7 +275,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 2000000,
       "require_permission": "journal-read"
     }
@@ -275,7 +291,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 2000000,
       "require_permission": "history-read"
     }
@@ -291,7 +307,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 2000000,
       "require_permission": "permissions-read"
     }
@@ -353,6 +369,16 @@
       "instance_resource": 15000002,
       "language": "de",
       "name": "Kommunikation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000003,
+    "fields": {
+      "instance_resource": 15000003,
+      "language": "de",
+      "name": "Kantonale Prüfung",
       "description": null
     }
   },
@@ -438,6 +464,13 @@
     "pk": 15000001,
     "fields": {
       "task": "decision"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 15000003,
+    "fields": {
+      "task": "cantonal-exam"
     }
   },
   {

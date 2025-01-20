@@ -432,3 +432,11 @@ def test_dynamic_group_abm_zs_uri(
     assert CustomDynamicGroups().resolve("abm-zs-uri")(
         None, ur_instance.case, None, None, None
     ) == [str(uri_constants.ABM_ZS_SERVICE_ID)]
+
+
+def test_dynamic_group_afb_ag(db, service_factory, instance):
+    service = service_factory(slug="afb")
+
+    assert CustomDynamicGroups().resolve("afb")(
+        None, instance.case, None, None, None
+    ) == [str(service.pk)]
