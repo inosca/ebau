@@ -44,6 +44,7 @@ const canton =
       { value: "so", name: "Solothurn" },
       { value: "sz", name: "Schwyz" },
       { value: "ur", name: "Uri" },
+      { value: "ag", name: "Aargau" },
     ],
   }));
 
