@@ -400,7 +400,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
     def get_prop_value(self, inquiry, prop):
         prop_mapping = {
             "service": lambda i: self.get_service(i, "addressed_groups"),
-            "service_with_prefix": lambda i: f"- {self.get_service(i,'addressed_groups')}",
+            "service_with_prefix": lambda i: f"- {self.get_service(i, 'addressed_groups')}",
             "deadline": lambda i: i.deadline.strftime("%d.%m.%Y"),
             "creation_date": lambda i: i.created_at.strftime("%d.%m.%Y"),
             "completion_date": lambda i: (
