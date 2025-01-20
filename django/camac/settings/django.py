@@ -3009,6 +3009,7 @@ ECH_EXCLUDED_FORMS = [
     "solaranlagen-meldung-v2",
     "heat-generator",
     "heat-generator-v2",
+    "heat-generator-v3",
     "reklamegesuch",
     "benuetzung-oeffentlichem-terrain-meldung",
 ]

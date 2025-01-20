@@ -3,6 +3,7 @@ BE_DISTRIBUTION_SUGGESIONS = {
     "FORM": {
         "heat-generator": [20046],
         "heat-generator-v2": [20046],
+        "heat-generator-v3": [20046],
     },
     "QUESTIONS": {
         (

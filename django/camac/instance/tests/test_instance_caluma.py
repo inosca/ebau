@@ -3315,7 +3315,7 @@ def test_send_notifications(
     )
     application_settings["NOTIFICATIONS"]["SUBMIT_HEAT_GENERATOR"] = config_2
     case_factory(
-        instance=instance, document=document_factory(form__slug="heat-generator-v2")
+        instance=instance, document=document_factory(form__slug="heat-generator-v3")
     )
 
     if allow_notification:
