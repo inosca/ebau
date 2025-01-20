@@ -104,8 +104,15 @@ def test_reject_instance(
     notification_template,
     mailoutbox,
     allow_revert,
+    work_item_factory,
 ):
     instance_state_factory(name=rejection_settings["INSTANCE_STATE"])
+
+    work_item = work_item_factory(
+        case=be_instance.case,
+        status=WorkItem.STATUS_READY,
+        child_case=None,
+    )
 
     rejection_settings["ALLOW_REVERT"] = allow_revert
     rejection_settings["ALLOWED_INSTANCE_STATES"] = [be_instance.instance_state.name]
@@ -117,6 +124,7 @@ def test_reject_instance(
             }
         ]
     }
+    rejection_settings["WORK_ITEM"] = {"TASK": work_item.task_id}
 
     response = admin_client.post(
         reverse("instance-rejection", args=[be_instance.pk]),
@@ -132,12 +140,14 @@ def test_reject_instance(
     assert response.status_code == status.HTTP_200_OK
 
     be_instance.refresh_from_db()
+    work_item.refresh_from_db()
 
     if allow_revert:
         assert be_instance.case.status == Case.STATUS_SUSPENDED
     else:
         assert be_instance.case.status == Case.STATUS_CANCELED
 
+    assert work_item.status == WorkItem.STATUS_COMPLETED
     assert be_instance.instance_state.name == rejection_settings["INSTANCE_STATE"]
     assert (
         be_instance.history.filter(history_type=HistoryActionConfig.HISTORY_TYPE_STATUS)
