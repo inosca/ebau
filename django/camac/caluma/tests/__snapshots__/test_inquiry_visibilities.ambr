@@ -1,0 +1,69 @@
+# serializer version: 1
+# name: test_inquiry_visibility_ag[afb]
+  list([
+    'afb-to-canton',
+    'afb-to-external',
+    'afb-to-subservice',
+    'authority-to-afb',
+    'authority-to-canton',
+    'authority-to-external',
+    'canton-to-subservice',
+  ])
+# ---
+# name: test_inquiry_visibility_ag[afb_subservice]
+  list([
+    'afb-to-subservice',
+  ])
+# ---
+# name: test_inquiry_visibility_ag[authority]
+  list([
+    'authority-to-afb',
+    'authority-to-canton',
+    'authority-to-external',
+    'authority-to-municipality',
+    'authority-to-subservice',
+  ])
+# ---
+# name: test_inquiry_visibility_ag[authority_subservice]
+  list([
+    'authority-to-subservice',
+  ])
+# ---
+# name: test_inquiry_visibility_ag[canton]
+  list([
+    'afb-to-canton',
+    'afb-to-external',
+    'authority-to-afb',
+    'authority-to-canton',
+    'authority-to-external',
+    'canton-to-subservice',
+  ])
+# ---
+# name: test_inquiry_visibility_ag[canton_subservice]
+  list([
+    'canton-to-subservice',
+  ])
+# ---
+# name: test_inquiry_visibility_ag[external]
+  list([
+    'afb-to-external',
+    'authority-to-external',
+    'external-to-subservice',
+  ])
+# ---
+# name: test_inquiry_visibility_ag[external_subservice]
+  list([
+    'external-to-subservice',
+  ])
+# ---
+# name: test_inquiry_visibility_ag[municipality]
+  list([
+    'authority-to-municipality',
+    'municipality-to-subservice',
+  ])
+# ---
+# name: test_inquiry_visibility_ag[municipality_subservice]
+  list([
+    'municipality-to-subservice',
+  ])
+# ---
