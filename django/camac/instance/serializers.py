@@ -1595,6 +1595,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if case.document.form_id in [
             "heat-generator",
             "heat-generator-v2",
+            "heat-generator-v3",
         ]:
             self._send_heat_generator_notifications(case)
             notification_key = "SUBMIT_HEAT_GENERATOR"
