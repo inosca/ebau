@@ -1,7 +1,7 @@
 # Permissions module - configuration
 
 The configuration can be found in the module-specific settings
-file under `(project-root)/django/camac/settings_permissions.py`.
+file under `(project-root)/django/camac/settings/modules/permissions/<application-name>.py`.
 
 There are two aspects of configuration you need to look into:
 First, there are the **access level** configs. These
