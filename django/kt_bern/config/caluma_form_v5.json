@@ -5972,16 +5972,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "spezialformulare-v5.zivilschutz",
+    "pk": "spezialformulare-v5.zivilschutz-v5",
     "fields": {
-      "created_at": "2024-06-25T15:13:44.607Z",
-      "modified_at": "2024-06-25T15:13:44.607Z",
+      "created_at": "2025-01-16T13:16:33.928Z",
+      "modified_at": "2025-01-16T13:16:33.928Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "spezialformulare-v5",
-      "question": "zivilschutz",
+      "question": "zivilschutz-v5",
       "sort": 26
     }
   },
@@ -6177,7 +6177,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "ableitung-in-guellegrube-v2",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -6192,7 +6192,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "aussenlaerm",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -6222,7 +6222,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "bauten-mit-mehr-als-30-grossvieheinheiten",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -6312,7 +6312,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "brandbelastung",
-      "sort": 38
+      "sort": 39
     }
   },
   {
@@ -6327,7 +6327,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "feuerungsanlagen",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -6342,7 +6342,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "gefaehrliche-stoffe",
-      "sort": 36
+      "sort": 37
     }
   },
   {
@@ -6447,7 +6447,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "ist-ein-fumoir-betroffen",
-      "sort": 39
+      "sort": 40
     }
   },
   {
@@ -6477,7 +6477,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "maschinelle-arbeitsmittel",
-      "sort": 37
+      "sort": 38
     }
   },
   {
@@ -6492,7 +6492,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "maschinen-aus-den-folgenden-kategorien",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -6507,22 +6507,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "nutzungsart",
-      "sort": 43
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "triage-v5.schutzraum-pflicht",
-    "fields": {
-      "created_at": "2024-07-22T19:38:44.469Z",
-      "modified_at": "2024-07-22T19:38:44.469Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "form": "triage-v5",
-      "question": "schutzraum-pflicht",
-      "sort": 24
+      "sort": 44
     }
   },
   {
@@ -6537,7 +6522,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "sind-belange-des-gewaesserschutzes-betroffen-v2",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -6657,7 +6642,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "um-was-fuer-ein-gebaeude-handelt-es-sich",
-      "sort": 40
+      "sort": 41
     }
   },
   {
@@ -6672,7 +6657,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "verunreinigte-abluft",
-      "sort": 35
+      "sort": 36
     }
   },
   {
@@ -6687,7 +6672,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "was-fuer-ein-vorhaben",
-      "sort": 42
+      "sort": 43
     }
   },
   {
@@ -6702,7 +6687,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "wassergefaehrdende-explosive-stoffe",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -6717,7 +6702,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "weitere-vorhaben",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -6732,7 +6717,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "welche-art-vorhaben",
-      "sort": 41
+      "sort": 42
     }
   },
   {
@@ -6767,6 +6752,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "triage-v5.werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5",
+    "fields": {
+      "created_at": "2025-01-16T10:46:05.280Z",
+      "modified_at": "2025-01-16T10:46:05.280Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v5",
+      "question": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "triage-v5.werden-neue-hofduengeranlagen-erstellt",
     "fields": {
       "created_at": "2024-07-22T19:38:44.421Z",
@@ -6777,7 +6777,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "werden-neue-hofduengeranlagen-erstellt",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -6792,7 +6792,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "werden-siloanlagen-erstellt",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -11727,6 +11727,40 @@
     "fields": {
       "created_at": "2024-10-18T11:22:50.607Z",
       "modified_at": "2024-10-18T11:23:19.815Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5-ja",
+    "fields": {
+      "created_at": "2025-01-16T10:46:05.144Z",
+      "modified_at": "2025-01-16T10:49:46.550Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5-nein",
+    "fields": {
+      "created_at": "2025-01-16T10:46:05.147Z",
+      "modified_at": "2025-01-16T10:49:46.553Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -21044,6 +21078,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5",
+    "fields": {
+      "created_at": "2025-01-16T10:46:05.211Z",
+      "modified_at": "2025-01-16T12:51:09.011Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden im Bauprojekt Wohnraum oder Pflegebauten (Spit\\u00e4ler, Heime usw.) erstellt?\", \"fr\": \"Si le projet de construction comprend des logements ou des b\\u00e2timents de soins (h\\u00f4pitaux, foyers, etc.) ?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "!(\n  'vorabklaerung' in form ||\n  'is-paper'|answer == 'is-paper-yes' ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&  \n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-abbruchvorhaben\"]' &&  \n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-abbruch\"]'\n  )\n)",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5",
     "fields": {
       "created_at": "2024-10-18T11:16:23.143Z",
@@ -21397,6 +21462,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-v5",
+    "fields": {
+      "created_at": "2025-01-16T13:16:33.877Z",
+      "modified_at": "2025-01-21T12:39:37.648Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zivilschutz\", \"fr\": \"Protection civile\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\n  'werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5-ja' == 'werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "zivilschutz",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -25131,6 +25227,36 @@
       "modified_by_group": null,
       "question": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5",
       "option": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5.werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5-ja",
+    "fields": {
+      "created_at": "2025-01-16T12:51:09.017Z",
+      "modified_at": "2025-01-16T12:51:09.017Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5",
+      "option": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5.werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5-nein",
+    "fields": {
+      "created_at": "2025-01-16T12:51:09.014Z",
+      "modified_at": "2025-01-16T12:51:09.014Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5",
+      "option": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5-nein",
       "sort": 1
     }
   },
