@@ -243,6 +243,10 @@ module.exports = function (environment) {
           "nachweis-raumakustik-dokument-begruendung-v5",
           "kataster-werkleitungsplaene-dokument-begruendung-v5",
           "situationsplan-grabflaeche-strassenterrainflaeche-dokument-begruendung-v5",
+          "heat-generator-minergie-document-begruendung-v3",
+          "heat-generator-geak-document-begruendung-v3",
+          "heat-generator-standard-solution-document-begruendung-v3",
+          "heat-generator-more-renewable-gas-document-begruendung-v3",
         ],
       },
       instanceStates: instanceStatesBe,
@@ -273,7 +277,11 @@ module.exports = function (environment) {
           ],
         },
       ],
-      staticSupportIds: { "heat-generator": 20046, "heat-generator-v2": 20046 },
+      staticSupportIds: {
+        "heat-generator": 20046,
+        "heat-generator-v2": 20046,
+        "heat-generator-v3": 20046,
+      },
     },
     kt_uri: {
       name: "ur",
