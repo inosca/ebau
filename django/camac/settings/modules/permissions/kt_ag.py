@@ -63,6 +63,7 @@ MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL | RequireInstanceState(["correction"])
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
+MODULE_BILLING = STATES_ALL & ROLES_NO_READONLY
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
 MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
 MODULE_WORK_ITEMS = STATES_ALL & ROLES_NO_READONLY
@@ -102,6 +103,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
         ],
         "distribution-service": [
+            ("billing-read", MODULE_BILLING),
             ("cantonal-exam-read", MODULE_CANTONAL_EXAM),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
@@ -118,6 +120,7 @@ AG_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": [
             ("audit-read", MODULE_AUDIT),
+            ("billing-read", MODULE_BILLING),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("corrections-read", MODULE_CORRECTIONS),
