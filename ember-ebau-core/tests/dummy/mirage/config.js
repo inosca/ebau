@@ -62,12 +62,15 @@ export default function makeServer(config) {
 
         return json;
       });
-      this.patch(
-        "billing-v2-entries/:id/charge",
+      this.post(
+        "billing-v2-entries/charge-bulk",
         ({ billingV2Entries }, request) => {
-          const entry = billingV2Entries.find(request.params.id);
-          entry.update({ dateCharged: DateTime.now().toISO() });
-          return;
+          const entryIds = JSON.parse(request.requestBody).entry_ids;
+          const newDateCharged = DateTime.now().toISO();
+
+          billingV2Entries.find(entryIds).update({
+            dateCharged: newDateCharged,
+          });
         },
         204,
       );

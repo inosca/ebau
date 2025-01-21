@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-24 12:05+0200\n"
+"POT-Creation-Date: 2025-01-22 11:50+0100\n"
 "PO-Revision-Date: 2024-09-12 16:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -123,6 +123,10 @@ msgstr "%(percentage)s de %(total)s %(tax-suffix)s"
 #: camac/billing/serializers.py
 msgid "No coordinates available"
 msgstr ""
+
+#: camac/billing/views.py
+msgid "All entries to charge must belong to the same instance"
+msgstr "Toutes les entrées à facturer doivent appartenir au même dossier"
 
 #: camac/caluma/extensions/data_sources.py
 #: camac/instance/document_merge_service.py camac/notification/serializers.py

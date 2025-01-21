@@ -217,18 +217,6 @@ def test_billing_entry_visibilities(
 
 
 @pytest.mark.freeze_time("2023-11-06")
-@pytest.mark.parametrize("role__name", [("Municipality")])
-def test_billing_entry_charge(db, admin_client, billing_v2_entry):
-    url = reverse("billing-v2-entry-charge", args=[billing_v2_entry.pk])
-    response = admin_client.patch(url)
-
-    assert response.status_code == status.HTTP_204_NO_CONTENT
-
-    billing_v2_entry.refresh_from_db()
-    assert billing_v2_entry.date_charged == timezone.now().date()
-
-
-@pytest.mark.freeze_time("2023-11-06")
 @pytest.mark.parametrize(
     "role__name,is_charged,is_other_group,expect_forbidden",
     [
