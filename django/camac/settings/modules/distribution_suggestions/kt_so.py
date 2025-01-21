@@ -4,55 +4,55 @@ SO_DISTRIBUTION_SUGGESIONS = {
         (
             "fumoir",
             "fumoir-ja",
-        ): [114],
+        ): ["gesundheitsamt"],
         (
             "infrastrukturanlagen-landschaft",
             "infrastrukturanlagen-landschaft-trinkwasser",
-        ): [114],
+        ): ["gesundheitsamt"],
         (
             "gefahrenstufen",
             "gefahrenstufen-geringe-gefaehrdung",
-        ): [115],
+        ): ["sgv"],
         (
             "gefahrenstufen",
             "gefahrenstufen-mittlere-gefaehrdung",
-        ): [115],
+        ): ["sgv"],
         (
             "gefahrenstufen",
             "gefahrenstufen-erhebliche-gefaehrdung",
-        ): [115],
+        ): ["sgv"],
         (
             "gefahrenstufen",
             "gefahrenstufen-restgefaehrdung",
-        ): [115],
+        ): ["sgv"],
         (
             "naturgefahrengefaehrdung",
             "naturgefahrengefaehrdung-ja",
-        ): [108, 112, 115],
+        ): ["afu", "awjf", "sgv"],
         (
             "gefaehrdung-durch-oberflaechenabfluss",
             "gefaehrdung-durch-oberflaechenabfluss-ja",
-        ): [115],
+        ): ["sgv"],
         (
             "objektschutzmassnahmen-geplant",
             "objektschutzmassnahmen-geplant-ja",
-        ): [115],
+        ): ["sgv"],
         (
             "objektschutzmassnahmen-beratung",
             "objektschutzmassnahmen-beratung-ja",
-        ): [115],
+        ): ["sgv"],
         (
             "mindest-und-grenzabstaende",
             "mindest-und-grenzabstaende-gebaeudeabstand",
-        ): [115],
+        ): ["svg"],
         (
             "brandschutzplaene",
             "brandschutzplaene-ja",
-        ): [115],
+        ): ["sgv"],
         (
             "aushublagerplaetze-oder-baupisten",
             "aushublagerplaetze-oder-baupisten-ja",
-        ): [109],
-        ("bab", "bab-ja"): [109],
+        ): ["arp-bab"],
+        ("bab", "bab-ja"): ["arp-bab"],
     },
 }
