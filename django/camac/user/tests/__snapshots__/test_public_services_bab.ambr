@@ -1,0 +1,120 @@
+# serializer version: 1
+# name: test_so_distribution_services[authority_bab]
+  set({
+    'my-subservice',
+    'some-cantonal-service',
+    'some-extra-cantonal-service',
+    'some-municipality',
+  })
+# ---
+# name: test_so_distribution_services[authority_bab_with_appeal]
+  set({
+    'arp-bab',
+    'my-subservice',
+    'some-cantonal-service',
+    'some-extra-cantonal-service',
+    'some-municipality',
+  })
+# ---
+# name: test_so_distribution_services[authority_bab_with_completed_and_running_publication]
+  set({
+    'my-subservice',
+    'some-cantonal-service',
+    'some-extra-cantonal-service',
+    'some-municipality',
+  })
+# ---
+# name: test_so_distribution_services[authority_bab_with_completed_publication]
+  set({
+    'arp-bab',
+    'my-subservice',
+    'some-cantonal-service',
+    'some-extra-cantonal-service',
+    'some-municipality',
+  })
+# ---
+# name: test_so_distribution_services[authority_bab_with_running_publication]
+  set({
+    'my-subservice',
+    'some-cantonal-service',
+    'some-extra-cantonal-service',
+    'some-municipality',
+  })
+# ---
+# name: test_so_distribution_services[authority_bib]
+  set({
+    'afu',
+    'alw',
+    'arp-fuss-und-wanderwege',
+    'arp-heimatschutz',
+    'arp-naturschutz',
+    'arp-nutzungsplanung',
+    'avt',
+    'awjf',
+    'denkmalpflege',
+    'gesundheitsamt',
+    'my-subservice',
+    'some-cantonal-service',
+    'some-extra-cantonal-service',
+    'some-municipality',
+  })
+# ---
+# name: test_so_distribution_services[municipality]
+  set({
+    'my-subservice',
+  })
+# ---
+# name: test_so_distribution_services[service-bab]
+  set({
+    'afu',
+    'alw',
+    'arp',
+    'arp-fuss-und-wanderwege',
+    'arp-heimatschutz',
+    'arp-naturschutz',
+    'arp-nutzungsplanung',
+    'avt',
+    'awjf',
+    'denkmalpflege',
+    'gesundheitsamt',
+    'my-subservice',
+    'some-cantonal-service',
+    'some-extra-cantonal-service',
+  })
+# ---
+# name: test_so_distribution_services[service-cantonal]
+  set({
+    'afu',
+    'alw',
+    'arp',
+    'arp-fuss-und-wanderwege',
+    'arp-heimatschutz',
+    'arp-naturschutz',
+    'arp-nutzungsplanung',
+    'avt',
+    'awjf',
+    'denkmalpflege',
+    'gesundheitsamt',
+    'my-subservice',
+    'some-cantonal-service',
+    'some-extra-cantonal-service',
+  })
+# ---
+# name: test_so_distribution_services[service-extra-cantonal]
+  set({
+    'afu',
+    'alw',
+    'arp',
+    'arp-fuss-und-wanderwege',
+    'arp-heimatschutz',
+    'arp-naturschutz',
+    'arp-nutzungsplanung',
+    'avt',
+    'awjf',
+    'denkmalpflege',
+    'gesundheitsamt',
+    'my-subservice',
+    'some-cantonal-service',
+    'some-extra-cantonal-service',
+  })
+# ---

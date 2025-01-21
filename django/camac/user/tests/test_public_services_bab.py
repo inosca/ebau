@@ -6,97 +6,114 @@ from django.urls import reverse
 from rest_framework import status
 
 
+@pytest.fixture
+def so_services(service_factory, service):
+    service_factory(
+        name="my-subservice",
+        service_group=service.service_group,
+        service_parent=service,
+    )
+
+    for service_group, name in [
+        # Restricted BaB services
+        ("service-bab", "arp-bab"),
+        # Restricted cantonal services
+        ("service-cantonal", "arp"),
+        ("service-cantonal", "arp-naturschutz"),
+        ("service-cantonal", "arp-heimatschutz"),
+        ("service-cantonal", "arp-nutzungsplanung"),
+        ("service-cantonal", "arp-fuss-und-wanderwege"),
+        ("service-cantonal", "denkmalpflege"),
+        ("service-cantonal", "afu"),
+        ("service-cantonal", "awjf"),
+        ("service-cantonal", "gesundheitsamt"),
+        ("service-cantonal", "avt"),
+        ("service-cantonal", "alw"),
+        # Unrestricted services
+        ("municipality", "some-municipality"),
+        ("service-cantonal", "some-cantonal-service"),
+        ("service-extra-cantonal", "some-extra-cantonal-service"),
+    ]:
+        parent_service = service_factory(
+            name=name,
+            slug=name,
+            service_group__name=service_group,
+        )
+
+        service_factory(
+            name=f"{name}-subservice",
+            service_group__name=service_group,
+            service_parent=parent_service,
+        )
+
+
 @pytest.mark.parametrize(
-    "is_bab,is_bab_service,has_completed_publication,has_running_publication,is_appeal,expected_services",
+    "service_group__name,conditions,expected_count",
     [
-        (
-            False,
-            False,
-            False,
-            False,
-            False,
-            {"excluded", "not-excluded", "bab-service"},
+        pytest.param("municipality", ["authority"], 14, id="authority_bib"),
+        pytest.param("municipality", ["authority", "bab"], 4, id="authority_bab"),
+        pytest.param(
+            "municipality",
+            ["authority", "bab", "appeal"],
+            5,
+            id="authority_bab_with_appeal",
         ),
-        (
-            True,
-            False,
-            False,
-            False,
-            False,
-            {"not-excluded"},
+        pytest.param(
+            "municipality",
+            ["authority", "bab", "completed_publication"],
+            5,
+            id="authority_bab_with_completed_publication",
         ),
-        (
-            True,
-            False,
-            True,
-            False,
-            False,
-            {"not-excluded", "bab-service"},
+        pytest.param(
+            "municipality",
+            ["authority", "bab", "running_publication"],
+            4,
+            id="authority_bab_with_running_publication",
         ),
-        (
-            True,
-            False,
-            True,
-            True,
-            False,
-            {"not-excluded"},
+        pytest.param(
+            "municipality",
+            ["authority", "bab", "completed_publication", "running_publication"],
+            4,
+            id="authority_bab_with_completed_and_running_publication",
         ),
-        (
-            True,
-            True,
-            False,
-            False,
-            False,
-            {"not-excluded", "excluded"},
-        ),
-        (
-            True,
-            False,
-            False,
-            False,
-            True,
-            {"not-excluded", "bab-service"},
-        ),
+        pytest.param("service-cantonal", [], 14, id="service-cantonal"),
+        pytest.param("service-extra-cantonal", [], 14, id="service-extra-cantonal"),
+        pytest.param("municipality", [], 1, id="municipality"),
+        pytest.param("service-bab", [], 14, id="service-bab"),
     ],
 )
-def test_public_services_available_in_distribution_for_instance(
+def test_so_distribution_services(
+    db,
     admin_client,
-    expected_services,
-    is_bab_service,
-    service,
-    has_running_publication,
-    has_completed_publication,
+    conditions,
+    expected_count,
+    mocker,
     service_factory,
+    service,
+    snapshot,
+    so_appeal_settings,
+    so_bab_settings,
+    so_distribution_settings,
     so_instance,
-    bab_settings,
-    is_bab,
-    is_appeal,
     so_publication_settings,
-    work_item_factory,
+    so_services,
     utils,
-    application_settings,
+    work_item_factory,
 ):
-    application_settings["SHORT_NAME"] = "so"
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service if "authority" in conditions else service_factory(),
+    )
 
-    if is_bab:
+    if "bab" in conditions:
         so_instance.case.meta["is-bab"] = True
         so_instance.case.save()
 
-    if is_appeal:
+    if "appeal" in conditions:
         so_instance.case.meta["is-appeal"] = True
         so_instance.case.save()
 
-    if is_bab_service:
-        bab_service = service
-    else:
-        bab_service = service_factory(name="bab-service")
-
-    bab_settings["SERVICE_GROUP"] = bab_service.service_group.name
-
-    service_factory(name="not-excluded")
-    bab_settings["EXCLUDED_IN_DISTRIBUTION"] = [service_factory(name="excluded").pk]
-
-    if has_completed_publication:
+    if "completed_publication" in conditions:
         work_item = work_item_factory(
             task_id=so_publication_settings["FILL_TASKS"][0],
             status=WorkItem.STATUS_COMPLETED,
@@ -109,7 +126,7 @@ def test_public_services_available_in_distribution_for_instance(
             date.today() - timedelta(days=1),
         )
 
-    if has_running_publication:
+    if "running_publication" in conditions:
         work_item = work_item_factory(
             task_id=so_publication_settings["FILL_TASKS"][0],
             status=WorkItem.STATUS_COMPLETED,
@@ -136,7 +153,8 @@ def test_public_services_available_in_distribution_for_instance(
     )
 
     assert response.status_code == status.HTTP_200_OK
-    assert (
-        set([i["attributes"]["name"] for i in response.json()["data"]])
-        == expected_services
-    )
+
+    data = response.json()["data"]
+
+    assert len(data) == expected_count
+    assert set([i["attributes"]["name"] for i in data]) == snapshot

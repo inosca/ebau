@@ -257,6 +257,71 @@ DISTRIBUTION = {
             },
         },
         "SUGGESTIONS": SO_DISTRIBUTION_SUGGESIONS,
+        "AVAILABLE_SERVICES_FOR_INQUIRY": {
+            "authority": [
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            [
+                                "municipality",
+                                "service-cantonal",
+                                "service-extra-cantonal",
+                                "service-bab",
+                            ],
+                        )
+                    ]
+                },
+                # Never show ARP
+                {"exclude": [("services", ["arp"])]},
+                # Hide some ARP and other cantonal services in BaB dossiers
+                {
+                    "conditions": [{"name": "is_bab"}],
+                    "exclude": [
+                        (
+                            "services",
+                            [
+                                "arp-naturschutz",
+                                "arp-heimatschutz",
+                                "arp-nutzungsplanung",
+                                "arp-fuss-und-wanderwege",
+                                "denkmalpflege",
+                                "afu",
+                                "awjf",
+                                "gesundheitsamt",
+                                "avt",
+                                "alw",
+                            ],
+                        )
+                    ],
+                },
+                # Only show ARP BaB service in BaB dossier if the publication is done
+                {
+                    "conditions": [
+                        {"name": "is_bab"},
+                        {"name": "is_appeal", "invert": True},
+                        {"name": "publication_is_done", "invert": True},
+                    ],
+                    "exclude": [("services", ["arp-bab"])],
+                },
+                # Never show ARP BaB service in BiB dossiers
+                {
+                    "conditions": [{"name": "is_bab", "invert": True}],
+                    "exclude": [("services", ["arp-bab"])],
+                },
+            ],
+            "municipality": [],
+            "default": [
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            ["service-cantonal", "service-extra-cantonal"],
+                        )
+                    ]
+                },
+            ],
+        },
     },
     "kt_uri": {
         "ENABLED": True,
@@ -327,25 +392,36 @@ DISTRIBUTION = {
             "service-afb": 60,
         },
         "AVAILABLE_SERVICES_FOR_INQUIRY": {
-            "authority": {
-                "service_groups": ["service-afb", "municipality"],
-                "services": [
-                    "agv-bs",
-                    "agv-esp",
-                    "bks-dp",
-                    "bks-ka",
-                    "dvi-awa-iga",
-                    "amb",
-                    "aew",
-                    "axpo",
-                    "gvm",
-                    "dgs-avs-vet",
-                    "dgs-avs-lmi",
-                ],
-            },
-            "service-afb": {
-                "service_groups": ["service-cantonal", "service-external"],
-            },
+            "authority": [
+                {
+                    "include": [
+                        ("service_groups", ["service-afb", "municipality"]),
+                        (
+                            "services",
+                            [
+                                "agv-bs",
+                                "agv-esp",
+                                "bks-dp",
+                                "bks-ka",
+                                "dvi-awa-iga",
+                                "amb",
+                                "aew",
+                                "axpo",
+                                "gvm",
+                                "dgs-avs-vet",
+                                "dgs-avs-lmi",
+                            ],
+                        ),
+                    ]
+                }
+            ],
+            "service-afb": [
+                {
+                    "include": [
+                        ("service_groups", ["service-cantonal", "service-external"])
+                    ]
+                }
+            ],
         },
     },
     "demo": {"ENABLED": True},

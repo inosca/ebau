@@ -1,7 +1,7 @@
 from functools import reduce
 
 from caluma.caluma_form.models import Answer
-from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.models import Exists, OuterRef, Q, Subquery
@@ -16,7 +16,6 @@ from django_filters.rest_framework import (
 
 from camac.billing.views import BillingV2EntryViewset
 from camac.constants import kt_uri as uri_constants
-from camac.core.utils import canton_aware
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
 from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
@@ -132,7 +131,6 @@ class PublicServiceFilterSet(FilterSet):
     def _available_in_distribution_for_coordination(self, queryset, name, value):
         return self._get_public_services_base(queryset, name, value)
 
-    @canton_aware
     def filter_available_in_distribution_for_instance(self, queryset, name, value):
         config = settings.DISTRIBUTION.get("AVAILABLE_SERVICES_FOR_INQUIRY")
 
@@ -146,43 +144,56 @@ class PublicServiceFilterSet(FilterSet):
         if instance.responsible_service() == service:
             service_group = "authority"
 
-        applied_config = config.get(service_group, {})
-        service_filters = Q(service_parent=service)
+        applied_config = config.get(service_group, config.get("default", []))
 
-        if service_groups := applied_config.get("service_groups"):
-            service_filters |= Q(
-                Q(service_parent__isnull=True)
-                & Q(service_group__name__in=service_groups)
-            )
+        filters = {
+            "include": Q(service_parent=service),
+            "exclude": Q(),
+        }
 
-        if services := applied_config.get("services"):
-            service_filters |= Q(Q(service_parent__isnull=True) & Q(slug__in=services))
+        for config_part in applied_config:
+            conditions = config_part.get("conditions", [])
 
-        return queryset.filter(service_filters)
+            if len(conditions) and not all(
+                (
+                    getattr(self, f"_condition_{condition['name']}")(instance)
+                    != condition.get("invert", False)
+                    for condition in conditions
+                )
+            ):
+                continue
 
-    def filter_available_in_distribution_for_instance_so(self, queryset, name, value):
+            for filter_type in ["include", "exclude"]:
+                for type, values in config_part.get(filter_type, []):
+                    if type == "services":
+                        filters[filter_type] |= Q(
+                            service_parent__isnull=True,
+                            slug__in=values,
+                        )
+                    elif type == "service_groups":
+                        filters[filter_type] |= Q(
+                            service_parent__isnull=True,
+                            service_group__name__in=values,
+                        )
+
+        return queryset.filter(filters["include"]).exclude(filters["exclude"])
+
+    def _condition_is_bab(self, instance):
         if not settings.BAB:  # pragma: no cover
-            return queryset
+            return False
 
-        case = Case.objects.get(instance__pk=value)
+        return instance.case.meta.get("is-bab", False)
 
-        if (
-            not case.meta.get("is-bab")
-            or self.request.group.service.service_group.name
-            == settings.BAB["SERVICE_GROUP"]
-        ):
-            return queryset
+    def _condition_is_appeal(self, instance):
+        if not settings.APPEAL:  # pragma: no cover
+            return False
 
-        # If the instance is BaB, a fix set of service can only be included in
-        # distribution of the BaB service
-        queryset = queryset.exclude(pk__in=settings.BAB["EXCLUDED_IN_DISTRIBUTION"])
+        return instance.case.meta.get("is-appeal", False)
 
-        if case.meta.get("is-appeal"):
-            return queryset
-
+    def _condition_publication_is_done(self, instance):
         publication_work_items = WorkItem.objects.filter(
             **{
-                "case": case,
+                "case": instance.case,
                 "task_id__in": settings.PUBLICATION["FILL_TASKS"],
                 "meta__is-published": True,
                 "status": WorkItem.STATUS_COMPLETED,
@@ -220,15 +231,7 @@ class PublicServiceFilterSet(FilterSet):
             )
         ).exists()
 
-        # If the instance is BaB, the BaB service can only be included in the
-        # distribution soon as a publication is already done and there is no
-        # other currently running publication.
-        if not has_completed_publication or has_running_publication:
-            queryset = queryset.exclude(
-                service_group__name=settings.BAB["SERVICE_GROUP"]
-            )
-
-        return queryset
+        return not has_running_publication and has_completed_publication
 
     def filter_suggestion_for_instance(self, queryset, name, value):
         suggested_service_ids_or_slugs = get_service_suggestions(
