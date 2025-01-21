@@ -5864,6 +5864,38 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 604,
+    "fields": {
+      "role": 9,
+      "service": 132,
+      "disabled": 0,
+      "name": "",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 605,
+    "fields": {
+      "role": 10,
+      "service": 132,
+      "disabled": 0,
+      "name": "",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 4,
     "fields": {
@@ -9209,7 +9241,7 @@
     "fields": {
       "group": 563,
       "language": "de",
-      "name": "Sachbearbeitung Procap",
+      "name": "Sachbearbeitung Fachstelle Hindernisfreies Bauen Procap",
       "city": null
     }
   },
@@ -9219,7 +9251,7 @@
     "fields": {
       "group": 564,
       "language": "de",
-      "name": "Administration Procap",
+      "name": "Administration Fachstelle Hindernisfreies Bauen Procap",
       "city": null
     }
   },
@@ -9289,7 +9321,7 @@
     "fields": {
       "group": 572,
       "language": "de",
-      "name": "Administration Kanton Solothurn",
+      "name": "Administration ARP, Kantonale Baubehörde (Leitbehörde)",
       "city": null
     }
   },
@@ -9299,7 +9331,7 @@
     "fields": {
       "group": 573,
       "language": "de",
-      "name": "Sachbearbeitung Kanton Solothurn",
+      "name": "Sachbearbeitung ARP, Kantonale Baubehörde (Leitbehörde)",
       "city": null
     }
   },
@@ -9309,7 +9341,7 @@
     "fields": {
       "group": 574,
       "language": "de",
-      "name": "Einsichtsberechtigte Gemeinde Solothurn",
+      "name": "Einsichtsberechtigte ARP, Kantonale Baubehörde (Leitbehörde)",
       "city": null
     }
   },
@@ -9359,7 +9391,7 @@
     "fields": {
       "group": 591,
       "language": "de",
-      "name": "Einsichtsberechtigte Kanton Solothurn",
+      "name": "Einsichtsberechtigte ARP, Kantonale Baubehörde (Leitbehörde)",
       "city": null
     }
   },
@@ -9429,7 +9461,7 @@
     "fields": {
       "group": 598,
       "language": "de",
-      "name": "Sachbearbeitung ARP, Fachstelle Nutzungsplanung - Kreisplanung",
+      "name": "Sachbearbeitung ARP, Abt. Nutzungsplanung - Kreisplanung",
       "city": null
     }
   },
@@ -9439,7 +9471,7 @@
     "fields": {
       "group": 599,
       "language": "de",
-      "name": "Administration ARP, Fachstelle Nutzungsplanung - Kreisplanung",
+      "name": "Administration ARP, Abt. Nutzungsplanung - Kreisplanung",
       "city": null
     }
   },
@@ -9480,6 +9512,26 @@
       "group": 603,
       "language": "de",
       "name": "Sachbearbeitung SBB Immobilien, Grundstücksmanagement, Grundstückbestand & Potentiale",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 604,
+    "fields": {
+      "group": 604,
+      "language": "de",
+      "name": "Administration Kantonale Koordinationsstelle Bauen ausserhalb Bauzone",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 605,
+    "fields": {
+      "group": 605,
+      "language": "de",
+      "name": "Sachbearbeitung Kantonale Koordinationsstelle Bauen ausserhalb Bauzone",
       "city": null
     }
   },
@@ -12090,7 +12142,7 @@
     "model": "user.service",
     "pk": 108,
     "fields": {
-      "slug": null,
+      "slug": "afu",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12113,8 +12165,8 @@
     "model": "user.service",
     "pk": 109,
     "fields": {
-      "slug": null,
-      "service_group": 4,
+      "slug": "arp",
+      "service_group": 2,
       "service_parent": null,
       "name": null,
       "description": null,
@@ -12182,7 +12234,7 @@
     "model": "user.service",
     "pk": 112,
     "fields": {
-      "slug": null,
+      "slug": "awjf",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12205,7 +12257,7 @@
     "model": "user.service",
     "pk": 113,
     "fields": {
-      "slug": null,
+      "slug": "denkmalpflege",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12228,7 +12280,7 @@
     "model": "user.service",
     "pk": 114,
     "fields": {
-      "slug": null,
+      "slug": "gesundheitsamt",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12251,7 +12303,7 @@
     "model": "user.service",
     "pk": 115,
     "fields": {
-      "slug": null,
+      "slug": "sgv",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12435,7 +12487,7 @@
     "model": "user.service",
     "pk": 123,
     "fields": {
-      "slug": null,
+      "slug": "arp-leitbehoerde",
       "service_group": 5,
       "service_parent": null,
       "name": null,
@@ -12458,7 +12510,7 @@
     "model": "user.service",
     "pk": 124,
     "fields": {
-      "slug": null,
+      "slug": "alw",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12481,7 +12533,7 @@
     "model": "user.service",
     "pk": 125,
     "fields": {
-      "slug": null,
+      "slug": "avt",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12504,7 +12556,7 @@
     "model": "user.service",
     "pk": 126,
     "fields": {
-      "slug": null,
+      "slug": "arp-naturschutz",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12527,7 +12579,7 @@
     "model": "user.service",
     "pk": 127,
     "fields": {
-      "slug": null,
+      "slug": "arp-fuss-und-wanderwege",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12550,7 +12602,7 @@
     "model": "user.service",
     "pk": 128,
     "fields": {
-      "slug": null,
+      "slug": "arp-heimatschutz",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12573,7 +12625,7 @@
     "model": "user.service",
     "pk": 129,
     "fields": {
-      "slug": null,
+      "slug": "arp-nutzungsplanung",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12625,6 +12677,29 @@
       "name": null,
       "description": null,
       "sort": 16,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 132,
+    "fields": {
+      "slug": "arp-bab",
+      "service_group": 4,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 17,
       "phone": null,
       "zip": null,
       "city": null,
@@ -13898,8 +13973,8 @@
     "fields": {
       "service": 116,
       "language": "de",
-      "name": "Procap",
-      "description": "Procap",
+      "name": "Fachstelle Hindernisfreies Bauen Procap",
+      "description": "Fachstelle Hindernisfreies Bauen Procap",
       "city": null
     }
   },
@@ -13975,8 +14050,8 @@
     "fields": {
       "service": 123,
       "language": "de",
-      "name": "Kanton Solothurn",
-      "description": "Kanton Solothurn",
+      "name": "ARP, Kantonale Baubehörde (Leitbehörde)",
+      "description": "ARP, Kantonale Baubehörde (Leitbehörde)",
       "city": null
     }
   },
@@ -14041,8 +14116,8 @@
     "fields": {
       "service": 129,
       "language": "de",
-      "name": "ARP, Fachstelle Nutzungsplanung - Kreisplanung",
-      "description": "ARP, Fachstelle Nutzungsplanung - Kreisplanung",
+      "name": "ARP, Abt. Nutzungsplanung - Kreisplanung",
+      "description": "ARP, Abt. Nutzungsplanung - Kreisplanung",
       "city": null
     }
   },
@@ -14065,6 +14140,17 @@
       "language": "de",
       "name": "SBB Immobilien, Grundstücksmanagement, Grundstückbestand & Potentiale",
       "description": "SBB Immobilien, Grundstücksmanagement, Grundstückbestand & Potentiale",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 132,
+    "fields": {
+      "service": 132,
+      "language": "de",
+      "name": "Kantonale Koordinationsstelle Bauen ausserhalb Bauzone",
+      "description": "Kantonale Koordinationsstelle Bauen ausserhalb Bauzone",
       "city": null
     }
   }
