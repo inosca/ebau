@@ -82,7 +82,7 @@
           'level': 3,
         }),
       ]),
-      'dossier_id': 9,
+      'dossier_id': '9',
       'status': 'success',
     }),
   ])
@@ -200,7 +200,7 @@
           'level': 3,
         }),
       ]),
-      'dossier_id': 9,
+      'dossier_id': '9',
       'status': 'success',
     }),
   ])
@@ -318,7 +318,7 @@
           'level': 3,
         }),
       ]),
-      'dossier_id': 9,
+      'dossier_id': '9',
       'status': 'success',
     }),
   ])
@@ -436,7 +436,7 @@
           'level': 3,
         }),
       ]),
-      'dossier_id': 9,
+      'dossier_id': '9',
       'status': 'success',
     }),
   ])
@@ -582,7 +582,7 @@
           'level': 3,
         }),
       ]),
-      'dossier_id': 9,
+      'dossier_id': '9',
       'status': 'success',
     }),
   ])
@@ -700,7 +700,7 @@
           'level': 3,
         }),
       ]),
-      'dossier_id': 9,
+      'dossier_id': '9',
       'status': 'success',
     }),
   ])
