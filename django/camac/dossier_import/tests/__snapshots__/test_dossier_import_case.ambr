@@ -940,7 +940,7 @@
           'level': 3,
         }),
       ]),
-      'dossier_id': 9,
+      'dossier_id': '9',
       'status': 'success',
     }),
   ])
@@ -1059,7 +1059,7 @@
       'details': list([
         dict({
           'code': 'update-dossier',
-          'detail': 9,
+          'detail': '9',
           'field': 'ID',
           'level': 2,
         }),
@@ -1070,7 +1070,7 @@
           'level': 1,
         }),
       ]),
-      'dossier_id': 9,
+      'dossier_id': '9',
       'status': 'success',
     }),
   ])
