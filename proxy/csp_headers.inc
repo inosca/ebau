@@ -80,6 +80,9 @@ if ($csp_use_google_fonts = "true") {
   set $csp_style_src "${csp_style_src} https://fonts.googleapis.com";
 }
 
+# iframe
+set $csp_frame_src "frame-src 'self'";
+
 set $csp_portal_styles "";
 if ($csp_portal_allow_inline_style = "true") {
   set $csp_portal_styles "'unsafe-inline'";
@@ -93,8 +96,10 @@ if ($csp_php_allow_unsafe_eval = "true") {
 
 # Scripting: Localhost components may need unsafe eval
 set $csp_php_style_src "";
+set $csp_php_frame_src "";
 if ($csp_php_allow_localhost_scripts = "true") {
   set $csp_php_style_src "http://localhost:4200 http://localhost:4300";
+  set $csp_php_frame_src "http://localhost:4200 http://ebau-keycloak.local";
   # ebau.local:4300 is required for Ember live reload
   set $csp_php_script_eval "${csp_php_script_eval} http://localhost:4200 http://localhost:4300 http://ebau.local:4300";
   set $csp_connect_src "${csp_connect_src} ws://ebau.local:4300";
@@ -126,6 +131,7 @@ set $csp_header_php "${csp_header_php}; ${csp_style_src} ${csp_php_style_src} 'u
 set $csp_header_php "${csp_header_php}; ${csp_fonts_src}";
 set $csp_header_php "${csp_header_php}; ${csp_img_default}";
 set $csp_header_php "${csp_header_php}; ${csp_connect_src}";
+set $csp_header_php "${csp_header_php}; ${csp_frame_src} ${csp_php_frame_src}";
 
 # Portal
 set $csp_header_portal "${csp_default_self}";
