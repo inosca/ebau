@@ -90,3 +90,8 @@ billing:
     createdAfter:
     createdBefore:
     service: Organizzazione
+
+  templates:
+    info:
+    select:
+    apply:

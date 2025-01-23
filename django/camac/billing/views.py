@@ -4,15 +4,24 @@ from django.utils.translation import gettext as _
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, PermissionDenied, ValidationError
-from rest_framework_json_api.views import ModelViewSet
+from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.billing.filters import BillingV2EntryFilterSet
-from camac.billing.models import BillingV2Entry
+from camac.billing.models import BillingV2Entry, BillingV2EntryTemplate
 from camac.billing.serializers import (
     BillingV2BulkEntryIdsSerializer,
     BillingV2EntrySerializer,
+    BillingV2EntryTemplateSerializer,
 )
 from camac.instance.mixins import InstanceQuerysetMixin
+
+
+class BillingV2EntryTemplateViewset(ReadOnlyModelViewSet):
+    serializer_class = BillingV2EntryTemplateSerializer
+    queryset = BillingV2EntryTemplate.objects.all().order_by("name")
+
+    def get_queryset(self):
+        return self.queryset.filter(service=self.request.group.service)
 
 
 class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):

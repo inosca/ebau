@@ -92,3 +92,8 @@ billing:
     createdAfter: Erstellung von
     createdBefore: Erstellung bis
     service: Organisation
+
+  templates:
+    info: Eine Vorlage anwenden
+    select: Vorlage auswählen
+    apply: Vorlage anwenden

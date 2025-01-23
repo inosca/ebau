@@ -62,8 +62,10 @@ DJANGO_ADMIN = {
             "alexandria_core.Category",
             "core.InstanceResource",
             "core.Resource",
+            "billing.BillingV2EntryTemplate",
             "gis.GISDataSource",
             "notification.NotificationTemplate",
         ],
+        "CUSTOMER_MANAGED_MODELS": ["billing.BillingV2EntryTemplate"],
     },
 }

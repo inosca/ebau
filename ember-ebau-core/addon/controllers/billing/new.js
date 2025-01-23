@@ -4,6 +4,7 @@ import { service } from "@ember/service";
 import { camelize } from "@ember/string";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
+import { findAll } from "ember-data-resources";
 
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
@@ -24,6 +25,8 @@ export default class BillingNewController extends Controller {
   @service notification;
 
   @tracked newEntry = null;
+  @tracked entryTemplates = findAll(this, "billing-v2-entry-template");
+  @tracked selectedTemplate = null;
 
   calculations = ["flat", "hourly", "percentage"];
   taxRates = hasFeature("billing.reducedTaxRate") ? [8.1, 2.6] : [8.1];
@@ -72,6 +75,26 @@ export default class BillingNewController extends Controller {
     } else {
       this.newEntry[camelize(name)] = value ? value : null;
     }
+  }
+
+  @action
+  selectTemplate({ target: { value } }) {
+    if (!value) {
+      this.selectedTemplate = null;
+    }
+
+    this.selectedTemplate = this.entryTemplates.records.find(
+      (template) => parseInt(template.get("id")) === parseInt(value),
+    );
+  }
+
+  @action
+  applyTemplate() {
+    if (!this.selectedTemplate) {
+      return;
+    }
+
+    this.newEntry.applyTemplate(this.selectedTemplate);
   }
 
   save = dropTask(this, async (e) => {

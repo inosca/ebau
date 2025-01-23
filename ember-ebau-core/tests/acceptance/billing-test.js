@@ -160,4 +160,210 @@ module("Acceptance | billing", function (hooks) {
     await click("button[data-test-submit]");
     assert.dom("table[data-test-billing-table] tbody tr").exists({ count: 3 });
   });
+
+  module("templates", function (hooks) {
+    const templateDefaults = {
+      billingType: "direct",
+      costCenter: "1000123",
+      legalBasis: "Test §§100",
+      organization: "municipal",
+      taxMode: "exempt",
+      taxRate: 0,
+      finalRate: undefined,
+      hours: undefined,
+      hourlyRate: undefined,
+      percentage: undefined,
+      totalCost: undefined,
+    };
+
+    hooks.beforeEach(function () {
+      this.templates = [
+        this.server.create("billing-v2-entry-template", {
+          ...templateDefaults,
+          name: "Flat example template",
+          hint: "A hint for the flat rate example",
+          calculation: "flat",
+          totalCost: 1000.5,
+        }),
+        this.server.create("billing-v2-entry-template", {
+          ...templateDefaults,
+          name: "Percentage example template",
+          hint: "A hint for the percentage rate example",
+          calculation: "percentage",
+          percentage: 10.5,
+          totalCost: 1000.5,
+          taxMode: "exclusive",
+          taxRate: 8.1,
+        }),
+        this.server.create("billing-v2-entry-template", {
+          ...templateDefaults,
+          name: "Hourly example template",
+          hint: "A hint for the hourly rate example",
+          calculation: "hourly",
+          hours: 1.5,
+          hourlyRate: 150.5,
+          taxMode: "inclusive",
+          taxRate: 8.1,
+        }),
+      ];
+
+      this.features.enable(
+        "billing.organization",
+        "billing.billingType",
+        "billing.legalBasis",
+        "billing.costCenter",
+      );
+    });
+
+    test("it can load and display template choices when present", async function (assert) {
+      await visit("/billing");
+      assert
+        .dom("table[data-test-billing-table] tbody tr td")
+        .exists({ count: 1 });
+      assert
+        .dom("table[data-test-billing-table] tbody tr td")
+        .hasText(t("global.empty"));
+
+      await click("a[data-test-add]");
+      assert.strictEqual(currentURL(), "/billing/new");
+
+      assert.dom("select[name=entry-template] option").exists({ count: 4 });
+      assert.strictEqual(
+        this.element
+          .querySelectorAll("select[name=entry-template] option")[1]
+          .textContent.trim(),
+        this.templates[0].name,
+      );
+      assert.strictEqual(
+        this.element
+          .querySelectorAll("select[name=entry-template] option")[2]
+          .textContent.trim(),
+        this.templates[1].name,
+      );
+      assert.strictEqual(
+        this.element
+          .querySelectorAll("select[name=entry-template] option")[3]
+          .textContent.trim(),
+        this.templates[2].name,
+      );
+
+      // empty by default
+      assert.dom("input[name=text]").hasValue("");
+      assert.dom("select[name=organization]").hasValue("municipal");
+      assert.dom("select[name=billing-type]").hasValue("by_authority");
+      assert.dom("select[name=calculation]").hasValue("flat");
+      assert.dom("select[name=tax-mode]").hasValue("exempt:0");
+      assert.dom("input[name=total-cost]").hasValue("");
+    });
+
+    test("it can handle a template with a flat rate", async function (assert) {
+      await visit("/billing");
+      await click("a[data-test-add]");
+      assert.strictEqual(currentURL(), "/billing/new");
+
+      await fillIn("select[name=entry-template]", this.templates[0].id);
+      assert
+        .dom("div[data-test-template-hint]")
+        .hasText("A hint for the flat rate example");
+      await click("button[data-test-apply-template]");
+
+      assert.dom("input[name=text]").hasValue(this.templates[0].text);
+      assert.dom("select[name=organization]").hasValue("municipal");
+      assert.dom("select[name=billing-type]").hasValue("direct");
+      assert.dom("select[name=calculation]").hasValue("flat");
+      assert.dom("select[name=tax-mode]").hasValue("exempt:0");
+      await click("button[data-test-submit]");
+      assert.strictEqual(currentURL(), "/billing");
+      assert
+        .dom("table[data-test-billing-table] tbody tr")
+        .exists({ count: 1 });
+    });
+
+    test("it can handle a template with a percentage rate", async function (assert) {
+      await visit("/billing");
+      await click("a[data-test-add]");
+      assert.strictEqual(currentURL(), "/billing/new");
+      await fillIn("select[name=entry-template]", this.templates[1].id);
+      assert
+        .dom("div[data-test-template-hint]")
+        .hasText("A hint for the percentage rate example");
+      await click("button[data-test-apply-template]");
+
+      assert.dom("input[name=text]").hasValue(this.templates[1].text);
+      assert.dom("select[name=organization]").hasValue("municipal");
+      assert.dom("select[name=billing-type]").hasValue("direct");
+      assert.dom("select[name=calculation]").hasValue("percentage");
+      assert.dom("select[name=tax-mode]").hasValue("exclusive:8.1");
+      assert.dom("input[name=percentage]").hasValue("10.5");
+      assert.dom("input[name=total-cost]").hasValue("1000.5");
+      await click("button[data-test-submit]");
+      assert.strictEqual(currentURL(), "/billing");
+      assert
+        .dom("table[data-test-billing-table] tbody tr")
+        .exists({ count: 1 });
+    });
+
+    test("it can handle a template with an hourly rate", async function (assert) {
+      await visit("/billing");
+      await click("a[data-test-add]");
+      assert.strictEqual(currentURL(), "/billing/new");
+      await fillIn("select[name=entry-template]", this.templates[2].id);
+      assert
+        .dom("div[data-test-template-hint]")
+        .hasText("A hint for the hourly rate example");
+      await click("button[data-test-apply-template]");
+
+      assert.dom("input[name=text]").hasValue(this.templates[2].text);
+      assert.dom("select[name=organization]").hasValue("municipal");
+      assert.dom("select[name=billing-type]").hasValue("direct");
+      assert.dom("select[name=calculation]").hasValue("hourly");
+      assert.dom("select[name=tax-mode]").hasValue("inclusive:8.1");
+      assert.dom("input[name=hours]").hasValue("1.5");
+      assert.dom("input[name=hourly-rate]").hasValue("150.5");
+      await click("button[data-test-submit]");
+      assert.strictEqual(currentURL(), "/billing");
+      assert
+        .dom("table[data-test-billing-table] tbody tr")
+        .exists({ count: 1 });
+    });
+
+    test("it can not continue on a partial template without filling the hours field", async function (assert) {
+      this.templates.push(
+        this.server.create("billing-v2-entry-template", {
+          ...templateDefaults,
+          name: "Hourly example template",
+          hint: "A hint for the hourly rate example without hours filled",
+          calculation: "hourly",
+          hourlyRate: 150.5,
+          taxMode: "inclusive",
+          taxRate: 8.1,
+        }),
+      ),
+        await visit("/billing");
+      await click("a[data-test-add]");
+      assert.strictEqual(currentURL(), "/billing/new");
+
+      await fillIn("select[name=entry-template]", this.templates[3].id);
+      assert
+        .dom("div[data-test-template-hint]")
+        .hasText("A hint for the hourly rate example without hours filled");
+      await click("button[data-test-apply-template]");
+
+      assert.dom("input[name=text]").hasValue(this.templates[3].text);
+      assert.dom("select[name=organization]").hasValue("municipal");
+      assert.dom("select[name=billing-type]").hasValue("direct");
+      assert.dom("select[name=calculation]").hasValue("hourly");
+      assert.dom("select[name=tax-mode]").hasValue("inclusive:8.1");
+      assert.dom("input[name=hours]").hasValue("");
+      assert.dom("input[name=hourly-rate]").hasValue("150.5");
+      await click("button[data-test-submit]");
+
+      // does not continue, because hours field is not filled.
+      assert.strictEqual(currentURL(), "/billing/new");
+
+      await fillIn("input[name=hours]", 5);
+      await click("button[data-test-submit]");
+      assert.strictEqual(currentURL(), "/billing");
+    });
+  });
 });

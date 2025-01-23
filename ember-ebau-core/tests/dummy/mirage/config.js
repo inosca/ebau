@@ -30,6 +30,8 @@ export default function makeServer(config) {
       this.resource("notification-templates", { only: ["index", "show"] });
 
       this.resource("billing-v2-entries");
+      this.resource("billing-v2-entry-templates", { only: ["index"] });
+
       this.post(
         "billing-v2-entries",
         function ({ billingV2Entries }) {

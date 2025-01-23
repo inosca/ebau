@@ -1,4 +1,57 @@
-<form class="uk-form-horizontal" {{on "submit" (perform this.save)}}>
+{{#if this.entryTemplates.records.length}}
+  <form class="uk-form-stacked" aria-label={{t "billing.templates.select"}}>
+    <label class="uk-form-label" for="entry-template">
+      {{t "billing.templates.info"}}
+    </label>
+    <div class="uk-grid-small" uk-grid>
+      <div class="uk-width-expand uk-form-controls">
+        <select
+          class="uk-select"
+          id="entry-template"
+          name="entry-template"
+          {{on "change" this.selectTemplate}}
+        >
+          <option value="">
+            {{t "billing.templates.select"}}
+          </option>
+          {{#each this.entryTemplates.records as |entryTemplate|}}
+            <option
+              value="{{entryTemplate.id}}"
+              selected={{eq this.selectedTemplate.id entryTemplate.id}}
+            >
+              {{entryTemplate.name}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+
+      <div>
+        <UkButton
+          name="apply-template"
+          {{on "click" this.applyTemplate}}
+          @type="button"
+          @label="{{t 'billing.templates.apply'}}"
+          data-test-apply-template
+        />
+      </div>
+    </div>
+  </form>
+
+  <div class="uk-margin-top uk-margin-bottom master-data-divider" />
+{{/if}}
+
+{{#if this.selectedTemplate.hint}}
+  <div
+    class="uk-alert uk-alert-warning multi-line-text"
+    data-test-template-hint
+  >{{this.selectedTemplate.hint}}</div>
+{{/if}}
+
+<form
+  id="add-charge-entry-form"
+  class="uk-form-horizontal"
+  {{on "submit" (perform this.save)}}
+>
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold" for="text">
       {{t "billing.position"}}
@@ -64,7 +117,10 @@
         {{on "change" this.update}}
       >
         {{#each this.calculations as |calculation|}}
-          <option value={{calculation}}>
+          <option
+            value={{calculation}}
+            selected={{eq this.newEntry.calculation calculation}}
+          >
             {{t (concat "billing.calculations.titles." calculation)}}
           </option>
         {{/each}}
@@ -170,7 +226,13 @@
         {{on "change" this.update}}
       >
         {{#each this.taxModeOptions as |taxMode|}}
-          <option value={{taxMode.value}}>{{taxMode.label}}</option>
+          <option
+            value={{taxMode.value}}
+            selected={{eq
+              (concat this.newEntry.taxMode ":" this.newEntry.taxRate)
+              taxMode.value
+            }}
+          >{{taxMode.label}}</option>
         {{/each}}
       </select>
     </div>
@@ -188,13 +250,18 @@
           id="organization"
           {{on "change" this.update}}
         >
-          <option value=""></option>
-          <option value="cantonal">{{t
-              "billing.organizations.cantonal"
-            }}</option>
-          <option value="municipal">{{t
-              "billing.organizations.municipal"
-            }}</option>
+          <option
+            value=""
+            selected="{{eq this.newEntry.organization null}}"
+          ></option>
+          <option
+            value="cantonal"
+            selected="{{eq this.newEntry.organization 'cantonal'}}"
+          >{{t "billing.organizations.cantonal"}}</option>
+          <option
+            value="municipal"
+            selected="{{eq this.newEntry.organization 'municipal'}}"
+          >{{t "billing.organizations.municipal"}}</option>
         </select>
       </div>
     </div>
@@ -215,9 +282,10 @@
           {{on "change" this.update}}
         >
           {{#each (array "by_authority" "forwarded" "direct") as |type|}}
-            <option value={{type}}>{{t
-                (concat "billing.billing-types." type)
-              }}</option>
+            <option
+              value={{type}}
+              selected={{eq this.newEntry.billingType type}}
+            >{{t (concat "billing.billing-types." type)}}</option>
           {{/each}}
         </select>
         <CfField::Info @text={{t "billing.billing-type-info"}} />

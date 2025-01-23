@@ -112,6 +112,26 @@ def test_get_totals():
     }
 
 
+@pytest.mark.parametrize("role__name", ["service"])
+def test_billing_entry_template_list(
+    db,
+    billing_v2_entry_template_factory,
+    admin_client,
+    service,
+    service_factory,
+):
+    # Create 5 entries with the same service
+    billing_v2_entry_template_factory.create_batch(5, service=service)
+
+    # Create 5 more entries with different services to check if the filtering works
+    billing_v2_entry_template_factory.create_batch(5, service=service_factory())
+
+    url = reverse("billing-v2-entry-template-list")
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == 5
+
+
 @pytest.mark.parametrize(
     "role__name,expected_status,expected_count",
     [
