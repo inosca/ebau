@@ -14905,10 +14905,10 @@
     "pk": "hinweis-gebuehren",
     "fields": {
       "created_at": "2024-08-15T12:23:04.941Z",
-      "modified_at": "2025-01-14T10:30:21.747Z",
+      "modified_at": "2025-01-23T10:54:50.986Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "jasmin.leuthard@ag.ch",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis Geb\\u00fchren\", \"fr\": null, \"it\": \"Nota tasse\"}",
       "type": "static",
@@ -14918,7 +14918,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">\\n\\tEs wird darauf hingewiesen, dass im Baubewilligungsverfahren und in weiteren baupolizeilichen Verfahren Geb\\u00fchren anfallen k\\u00f6nnen (Art. 96 KRG - Verfahrenskosten).\\n</div>\", \"fr\": \"\", \"it\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">\\n\\tSi rende attenti al fatto che durante la procedura per il rilascio della licenza edilizia e durante altre procedure di polizia edilizia possono derivare delle spese (art.\\u00a096 LPTC - spese di procedura).\\n</div>\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">\\n\\tEs wird darauf hingewiesen, dass im Baubewilligungsverfahren und in weiteren baupolizeilichen Verfahren Geb\\u00fchren anfallen k\\u00f6nnen.\\n</div>\", \"fr\": \"\", \"it\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">\\n\\tSi rende attenti al fatto che durante la procedura per il rilascio della licenza edilizia e durante altre procedure di polizia edilizia possono derivare delle spese (art.\\u00a096 LPTC - spese di procedura).\\n</div>\"}",
       "configuration": {},
       "meta": {
         "hideLabel": true
