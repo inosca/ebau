@@ -43,7 +43,8 @@ export default class CommunicationMessageModel extends Model {
         .slice()
         .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
       this.documentAttachmentsToSave = this.documentAttachmentsToSave.map(
-        (attachment) => files.findBy("document.id", attachment)?.id,
+        (attachment) =>
+          files.find((file) => file.document.id === attachment)?.id,
       );
     }
 
