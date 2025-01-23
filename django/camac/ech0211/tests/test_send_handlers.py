@@ -657,11 +657,69 @@ def test_task_send_handler(
             handler.apply()
 
 
+def test_task_send_handler_gr_skips_formal_exam(
+    db,
+    admin_user,
+    caluma_admin_user,
+    ech_instance_gr,
+    instance_state_factory,
+    notification_template_factory,
+    service_factory,
+    set_application_gr,
+    gr_distribution_settings,
+    gr_ech0211_settings,
+    gr_additional_demand_settings,
+):
+    notification_template_factory(slug="verfahrensablauf-fachstelle")
+    notification_template_factory(slug="verfahrensablauf-uso")
+    notification_template_factory(slug="bericht-erstellt")
+    notification_template_factory(slug="zirkulation-abgebrochen")
+
+    state = instance_state_factory(name="subm")
+    instance_state_factory(name="circulation")
+    ech_instance_gr.instance_state = state
+    ech_instance_gr.save()
+
+    group = admin_user.groups.first()
+    group.service = ech_instance_gr.services.first()
+    target_service = service_factory()
+    group.save()
+
+    workflow_api.complete_work_item(
+        work_item=ech_instance_gr.case.work_items.first(),  # submit work item
+        user=caluma_admin_user,
+    )
+
+    xml = xml_data("task")
+    xml = xml.replace(
+        "<serviceId>23</serviceId>", f"<serviceId>{target_service.pk}</serviceId>"
+    )
+    data = CreateFromDocument(xml)
+
+    handler = TaskSendHandler(
+        data=data,
+        queryset=Instance.objects,
+        user=admin_user,
+        group=group,
+        auth_header="Bearer: some token",
+        caluma_user=caluma_admin_user,
+        request=None,
+    )
+
+    handler.apply()
+
+    assert (
+        ech_instance_gr.case.work_items.get(task_id="formal-exam").status
+        == WorkItem.STATUS_SKIPPED
+    )
+
+
 def test_task_send_handler_no_permission(
     admin_user,
     ech_instance_be,
     be_ech0211_settings,
     caluma_admin_user,
+    set_application_be,
 ):
     group = admin_user.groups.first()
     group.service = ech_instance_be.services.first()
