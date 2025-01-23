@@ -8654,7 +8654,7 @@
     "model": "user.service",
     "pk": 40,
     "fields": {
-      "slug": null,
+      "slug": "dgs-avs-lmi",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -8723,7 +8723,7 @@
     "model": "user.service",
     "pk": 43,
     "fields": {
-      "slug": null,
+      "slug": "dgb-avs-vet",
       "service_group": 1,
       "service_parent": null,
       "name": null,

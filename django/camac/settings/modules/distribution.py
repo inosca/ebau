@@ -339,6 +339,8 @@ DISTRIBUTION = {
                     "aew",
                     "axpo",
                     "gvm",
+                    "dgs-avs-vet",
+                    "dgs-avs-lmi",
                 ],
             },
             "service-afb": {
