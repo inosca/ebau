@@ -1055,7 +1055,7 @@
       "description": null,
       "template": "/ember-camac-ng/legal-submission.phtml",
       "class_field": "menu-category-process",
-      "hidden": 0,
+      "hidden": 1,
       "sort": 10,
       "form_group": 2000000,
       "require_permission": "legal-submissions-read"
