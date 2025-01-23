@@ -49,7 +49,12 @@ def get_worksheet_headings_and_rows(file) -> Tuple[List[str], List[dict]]:
 
     headings = [clean_heading(heading) for heading in worksheet[0]]
     rows = [
-        dict(zip(headings, [clean_value(cell) for cell in row]))
+        {
+            key: str(value) if key == "ID" else value
+            for key, value in dict(
+                zip(headings, [clean_value(cell) for cell in row])
+            ).items()
+        }
         for row in worksheet[1:]
     ]
 
