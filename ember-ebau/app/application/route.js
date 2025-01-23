@@ -1,5 +1,6 @@
 import Route from "@ember/routing/route";
 import { service } from "@ember/service";
+import AGInquiryServiceGroupWarningComponent from "ember-ebau-core/components/ag-inquiry-service-group-warning";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordinates-placeholder";
@@ -118,6 +119,11 @@ export default class ApplicationRoute extends Route {
       label: "Infotext direkte Erledigung",
       component: "direct-inquiry-info",
       componentClass: DirectInquiryInfoComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "AG: Zirkulation Warnung Organisationstyp",
+      component: "ag-inquiry-service-group-warning",
+      componentClass: AGInquiryServiceGroupWarningComponent,
     });
   }
 }

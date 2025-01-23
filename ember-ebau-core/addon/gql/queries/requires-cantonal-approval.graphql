@@ -1,0 +1,17 @@
+query RequiresCantonalApproval($instanceId: GenericScalar!) {
+  allWorkItems(
+    first: 1
+    filter: [
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+      { task: "formal-exam" }
+      {
+        documentHasAnswer: {
+          question: "vorlaeufige-pruefung-kantonale-zustimmung"
+          value: "vorlaeufige-pruefung-kantonale-zustimmung-ja"
+        }
+      }
+    ]
+  ) {
+    totalCount
+  }
+}
