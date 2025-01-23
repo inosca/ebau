@@ -252,6 +252,7 @@ module.exports = function (environment) {
           "baumfaellbegruendung-dokument-begruendung-v2",
           "situationsplan-ersatzpflanzung-und-rodung-dokument-begruendung-v2",
           "entfernen-von-hecken-und-feldgehoelzen-dokument-begruendung-v2",
+          "solaranlagen-tabelle-grundriss-ansichtsplan-dokument-begruendung-v2",
         ],
       },
       instanceStates: instanceStatesBe,
