@@ -153,8 +153,8 @@ class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     list_per_page = 20
     ordering = ["pk"]
     prefetch_related_ml = ["trans", "service_group__trans"]
-    search_fields = ["name", "email", "pk"]
-    search_fields_ml = ["trans__name", "email"]
+    search_fields = ["name", "email", "pk", "slug"]
+    search_fields_ml = ["trans__name", "email", "slug"]
     select_related = ["service_group"]
     actions = ["disable", "enable", "disable_notifications", "enable_notifications"]
 
