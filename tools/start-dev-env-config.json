@@ -23,6 +23,10 @@
     "kt_so": {
       "compose": "compose/kt_so.yml:compose/kt_so-dev.yml",
       "loadconfig": "make loadconfig"
+    },
+    "kt_ag": {
+      "compose": "compose/kt_ag.yml:compose/kt_ag-dev.yml",
+      "loadconfig": "make loadconfig"
     }
   },
   "profiles": {
