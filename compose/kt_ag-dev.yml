@@ -80,7 +80,6 @@ services:
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
       DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
       DJANGO_Q_ENABLE_SYNC: ${DJANGO_Q_ENABLE_SYNC:-false}
-      DJANGO_EXCLUDED_IN_DISTRIBUTION: 113,108,112,114
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
       ENABLE_HISTORICAL_API: true
       ENV: dev # needed for manabi dev mode

@@ -170,8 +170,10 @@ def test_distribution_services(
     )
 
     distribution_settings["AVAILABLE_SERVICES_FOR_INQUIRY"] = {
-        "service": {"service_groups": ["service"]},
-        "authority": {"service_groups": ["external"], "services": ["service-3"]},
+        "service": [{"include": [("service_groups", ["service"])]}],
+        "authority": [
+            {"include": [("service_groups", ["external"]), ("services", ["service-3"])]}
+        ],
     }
 
     for slug, service_group_name, service_parent in [
