@@ -413,6 +413,10 @@ ECH0211 = {
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },
+        "TASK_SEND": {
+            "SKIP_WORK_ITEMS": ["formal-exam"],
+            "COMPLETE_WORK_ITEMS": ["init-distribution"],
+        },
         "JUDGEMENT_MAPPING": {
             "inquiry-answer-status-approved": 1,
             "inquiry-answer-status-positive": 1,

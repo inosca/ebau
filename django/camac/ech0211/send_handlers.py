@@ -491,7 +491,10 @@ class TaskSendHandler(BaseSendHandler):
     def has_permission(self):
         if not super().has_permission()[0]:  # pragma: no cover
             return False, None
-        if not self.instance.instance_state.name == "circulation":
+        if (
+            settings.APPLICATION_NAME == "kt_bern"
+            and not self.instance.instance_state.name == "circulation"
+        ):
             return (
                 False,
                 'You can only send a "Task" for instances in the state "In Zirkulation".',
@@ -544,6 +547,24 @@ class TaskSendHandler(BaseSendHandler):
                 "Services can't create inquiries for themselves!"
             )
 
+        if settings.ECH0211.get("TASK_SEND"):
+            for setting_key, fun in (
+                ("SKIP_WORK_ITEMS", workflow_api.skip_work_item),
+                ("COMPLETE_WORK_ITEMS", workflow_api.complete_work_item),
+            ):
+                for task in settings.ECH0211["TASK_SEND"].get(setting_key):
+                    if work_item := WorkItem.objects.filter(
+                        task_id=task,
+                        case__family__instance=self.instance,
+                        addressed_groups__contains=[str(self.group.service.pk)],
+                        status=WorkItem.STATUS_READY,
+                    ).first():
+                        fun(
+                            work_item=work_item,
+                            user=self.caluma_user,
+                            context={"addressed_groups": [str(self.group.service.pk)]},
+                        )
+
         workflow_api.complete_work_item(
             work_item=self._get_create_inquiry(),
             user=self.caluma_user,
@@ -584,7 +605,10 @@ class KindOfProceedingsSendHandler(
         if not super().has_permission():  # pragma: no cover
             return False, None
 
-        if self.instance.instance_state.name != "circulation_init":
+        if (
+            settings.APPLICATION_NAME == "kt_bern"
+            and self.instance.instance_state.name != "circulation_init"
+        ):
             return (
                 False,
                 'You can only send a "KindOfProceedings" for instances in the state "Zirkulation initialisieren".',
