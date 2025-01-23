@@ -7,6 +7,7 @@ Diese Schnittstelle entspricht in weiten Teilen der Gemeindeschnittstelle des Ka
 - Auf den "group" Parameter kann verzichtet werden, da im Kt. GR keine dedizierte "Baukontrolle"-Rolle existiert
 - Dokumente werden über `ech/v1/files` hoch/runtergeladen (statt über `api/v1/attachments`), da im Kt. GR ein modernisiertes Dokumentenmodul eingesetzt wird
 - Gemeinden können Gesuche, welche über ihr eigenes Portal eingereicht wurden, mit der POST Message `submit` an eBau weiterleiten.
+- Auf die POST Meldung `kindOfProceedings` kann verzichtet werden.
 
 ## Authentifizierung
 
