@@ -1,0 +1,1415 @@
+interactions:
+- request:
+    body: geometry=2654642%2C1244045%2C2654644%2C1244047&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1022'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:22:10 GMT
+      ETag:
+      - '"e371e2c2"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:23:09 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5106df18ee63a4619e48d547cebef02a6db2315408b60831b936a5e43a52206d462f1e74d1ca85ef20322f1265d352fada665637909e71ce312f1f319aeb7b59310;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510031f3b1993a252a66174a319e75b183f2315408b60831b936a5e43a52206d462f012c5db330df31609114283e56e45fb9d42177e5e88340b3200907c90ec988d;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654623%2C1244026%2C2654663%2C1244066&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510031f3b1993a252a66174a319e75b183f2315408b60831b936a5e43a52206d462f012c5db330df31609114283e56e45fb9d42177e5e88340b3200907c90ec988d;
+        TS014419e9=0100bce5106df18ee63a4619e48d547cebef02a6db2315408b60831b936a5e43a52206d462f1e74d1ca85ef20322f1265d352fada665637909e71ce312f1f319aeb7b59310;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388.1\",\"attributes\":{\"OBJECTID\":\"63329384\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2388.1\",\"ART\":\"SelbstRecht.Baurecht\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"63330568\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2280\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388\",\"attributes\":{\"OBJECTID\":\"61067466\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902388\",\"NUMMER\":\"2388\",\"EGRID\":\"CH511187050705\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1219\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1219.126068\",\"SHAPE.STLength()\":\"158.266939\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"706\",\"attributes\":{\"OBJECTID\":\"61067417\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900706\",\"NUMMER\":\"706\",\"EGRID\":\"CH330507117132\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1920\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1919.84049\",\"SHAPE.STLength()\":\"319.798978\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"75\",\"attributes\":{\"OBJECTID\":\"61065286\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900075\",\"NUMMER\":\"75\",\"EGRID\":\"CH320776051101\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47414\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47414.236635\",\"SHAPE.STLength()\":\"9918.242505\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"51198097\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"ART\":\"Gebaeude\",\"ASSNR\":\"477\",\"ORI\":\"352.1\",\"Shape\":\"Point\",\"EGID\":\"597492\"}},{\"layerId\":74,\"layerName\":\"Bachkataster\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"8221\",\"NAME\":\"Aabach\",\"BNUM\":\"2.06.000\",\"MUTDATUM\":\"27.09.2017\",\"BENUTZER\":\"rbsj\",\"Shape\":\"Polyline\",\"SHAPE.STLength()\":\"15069.992136\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35704\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"2\",\"BUFF_DIST\":\"14.75\",\"ART\":\"Bach\",\"FAKTOR\":\"1.5\",\"NAT_GSB\":\"9\",\"GEWR_BREITE\":\"29.5\",\"GEWR_RADIUS\":\"14.75\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0183\",\"AbschLength\":\"50\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2157.039301\",\"SHAPE.STLength()\":\"192.537012\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Geissmattkanal\",\"attributes\":{\"OBJECTID\":\"35564\",\"NAME\":\"Geissmattkanal\",\"SBREITE\":\"Null\",\"BNUM\":\"2.06.125\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5586.000265\",\"SHAPE.STLength()\":\"949.776514\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35671\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"3\",\"BUFF_DIST\":\"18.5\",\"ART\":\"Bach\",\"FAKTOR\":\"2\",\"NAT_GSB\":\"12\",\"GEWR_BREITE\":\"37\",\"GEWR_RADIUS\":\"18.5\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0182\",\"AbschLength\":\"35\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2369.434974\",\"SHAPE.STLength()\":\"186.216907\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19857\",\"ID\":\"36465\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"43731.54858\",\"SHAPE.STLength()\":\"6206.072208\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19883\",\"ID\":\"23010\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5869.922341\",\"SHAPE.STLength()\":\"2659.564107\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19902\",\"ID\":\"43285\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14208.748038\",\"SHAPE.STLength()\":\"3936.763168\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19848\",\"ID\":\"30052\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1262.554784\",\"SHAPE.STLength()\":\"507.189474\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"4 Aabach\",\"attributes\":{\"OBJECTID\":\"64291\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1611\",\"KTAbk\":\"GF\",\"KTBez\":\"Gr\xFCnzone,
+        Freihaltezone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"161101\",\"GDEBez\":\"Gr\xFCnzone\",\"GDEAbk\":\"Gr\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"4
+        Aabach\",\"ES\":\"ES_II\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1919.83311\",\"Shape.STLength()\":\"319.799027\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64298\",\"attributes\":{\"OBJECTID\":\"64298\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1629\",\"KTAbk\":\"Gbz\",\"KTBez\":\"Gew\xE4sser
+        innerhalb Bauzone\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"162901\",\"GDEBez\":\"Gew\xE4sser\",\"GDEAbk\":\"Gew\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3916.580114\",\"Shape.STLength()\":\"1155.603498\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2090'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:22:10 GMT
+      ETag:
+      - '"8d5c4a3a"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:23:10 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5106df18ee63a4619e48d547cebef02a6db2315408b60831b936a5e43a52206d462f1e74d1ca85ef20322f1265d352fada665637909e71ce312f1f319aeb7b59310;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510031f3b1993a252a66174a319e75b183f2315408b60831b936a5e43a52206d462f012c5db330df31609114283e56e45fb9d42177e5e88340b3200907c90ec988d;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654642%2C1244045%2C2654644%2C1244047&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1022'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:25:01 GMT
+      ETag:
+      - '"e371e2c2"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:26:01 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510ff91fea8d0c84e7a232809e1b3ab443a79836ca17a7345f92692b4ad93233d23aef43941dcfcd3a21399caf8ffaf321abd5c057a30662a1b42c7e394e7285aaf;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5105a7993559a02f9ac2b18e1309ad4d02c79836ca17a7345f92692b4ad93233d232e21f1bf8c3e6cb17eb138e58409a9bfa366c59cb5527b2a5490e8d81d2d2790;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654623%2C1244026%2C2654663%2C1244066&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5105a7993559a02f9ac2b18e1309ad4d02c79836ca17a7345f92692b4ad93233d232e21f1bf8c3e6cb17eb138e58409a9bfa366c59cb5527b2a5490e8d81d2d2790;
+        TS014419e9=0100bce510ff91fea8d0c84e7a232809e1b3ab443a79836ca17a7345f92692b4ad93233d23aef43941dcfcd3a21399caf8ffaf321abd5c057a30662a1b42c7e394e7285aaf;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388.1\",\"attributes\":{\"OBJECTID\":\"63329384\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2388.1\",\"ART\":\"SelbstRecht.Baurecht\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"63330568\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2280\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388\",\"attributes\":{\"OBJECTID\":\"61067466\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902388\",\"NUMMER\":\"2388\",\"EGRID\":\"CH511187050705\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1219\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1219.126068\",\"SHAPE.STLength()\":\"158.266939\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"706\",\"attributes\":{\"OBJECTID\":\"61067417\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900706\",\"NUMMER\":\"706\",\"EGRID\":\"CH330507117132\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1920\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1919.84049\",\"SHAPE.STLength()\":\"319.798978\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"75\",\"attributes\":{\"OBJECTID\":\"61065286\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900075\",\"NUMMER\":\"75\",\"EGRID\":\"CH320776051101\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47414\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47414.236635\",\"SHAPE.STLength()\":\"9918.242505\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"51198097\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"ART\":\"Gebaeude\",\"ASSNR\":\"477\",\"ORI\":\"352.1\",\"Shape\":\"Point\",\"EGID\":\"597492\"}},{\"layerId\":74,\"layerName\":\"Bachkataster\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"8221\",\"NAME\":\"Aabach\",\"BNUM\":\"2.06.000\",\"MUTDATUM\":\"27.09.2017\",\"BENUTZER\":\"rbsj\",\"Shape\":\"Polyline\",\"SHAPE.STLength()\":\"15069.992136\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35704\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"2\",\"BUFF_DIST\":\"14.75\",\"ART\":\"Bach\",\"FAKTOR\":\"1.5\",\"NAT_GSB\":\"9\",\"GEWR_BREITE\":\"29.5\",\"GEWR_RADIUS\":\"14.75\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0183\",\"AbschLength\":\"50\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2157.039301\",\"SHAPE.STLength()\":\"192.537012\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Geissmattkanal\",\"attributes\":{\"OBJECTID\":\"35564\",\"NAME\":\"Geissmattkanal\",\"SBREITE\":\"Null\",\"BNUM\":\"2.06.125\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5586.000265\",\"SHAPE.STLength()\":\"949.776514\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35671\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"3\",\"BUFF_DIST\":\"18.5\",\"ART\":\"Bach\",\"FAKTOR\":\"2\",\"NAT_GSB\":\"12\",\"GEWR_BREITE\":\"37\",\"GEWR_RADIUS\":\"18.5\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0182\",\"AbschLength\":\"35\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2369.434974\",\"SHAPE.STLength()\":\"186.216907\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19857\",\"ID\":\"36465\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"43731.54858\",\"SHAPE.STLength()\":\"6206.072208\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19883\",\"ID\":\"23010\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5869.922341\",\"SHAPE.STLength()\":\"2659.564107\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19902\",\"ID\":\"43285\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14208.748038\",\"SHAPE.STLength()\":\"3936.763168\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19848\",\"ID\":\"30052\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1262.554784\",\"SHAPE.STLength()\":\"507.189474\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"4 Aabach\",\"attributes\":{\"OBJECTID\":\"64291\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1611\",\"KTAbk\":\"GF\",\"KTBez\":\"Gr\xFCnzone,
+        Freihaltezone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"161101\",\"GDEBez\":\"Gr\xFCnzone\",\"GDEAbk\":\"Gr\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"4
+        Aabach\",\"ES\":\"ES_II\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1919.83311\",\"Shape.STLength()\":\"319.799027\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64298\",\"attributes\":{\"OBJECTID\":\"64298\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1629\",\"KTAbk\":\"Gbz\",\"KTBez\":\"Gew\xE4sser
+        innerhalb Bauzone\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"162901\",\"GDEBez\":\"Gew\xE4sser\",\"GDEAbk\":\"Gew\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3916.580114\",\"Shape.STLength()\":\"1155.603498\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2090'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:25:02 GMT
+      ETag:
+      - '"8d5c4a3a"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:26:01 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510ff91fea8d0c84e7a232809e1b3ab443a79836ca17a7345f92692b4ad93233d23aef43941dcfcd3a21399caf8ffaf321abd5c057a30662a1b42c7e394e7285aaf;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5105a7993559a02f9ac2b18e1309ad4d02c79836ca17a7345f92692b4ad93233d232e21f1bf8c3e6cb17eb138e58409a9bfa366c59cb5527b2a5490e8d81d2d2790;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654642%2C1244045%2C2654644%2C1244047&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1022'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 07:39:25 GMT
+      ETag:
+      - '"e371e2c2"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 07:40:21 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5107f15423bb813f1cfdf68399d82966fc063e7361d41c7e556a3d8e100c12e8121cc37451ef7e6351603b0e1f3f8df0a13cb0d94b7cf36d3d083999bf440f84fa3;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510d1db543d92a568714bcd8d5c4351342e63e7361d41c7e556a3d8e100c12e81218ee2921872c01be63fcbf361ae621f1ae13b3830e0c305e3ee9bce3bc5bf3e0a;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654623%2C1244026%2C2654663%2C1244066&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510d1db543d92a568714bcd8d5c4351342e63e7361d41c7e556a3d8e100c12e81218ee2921872c01be63fcbf361ae621f1ae13b3830e0c305e3ee9bce3bc5bf3e0a;
+        TS014419e9=0100bce5107f15423bb813f1cfdf68399d82966fc063e7361d41c7e556a3d8e100c12e8121cc37451ef7e6351603b0e1f3f8df0a13cb0d94b7cf36d3d083999bf440f84fa3;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388.1\",\"attributes\":{\"OBJECTID\":\"63329384\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2388.1\",\"ART\":\"SelbstRecht.Baurecht\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"63330568\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2280\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388\",\"attributes\":{\"OBJECTID\":\"61067466\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902388\",\"NUMMER\":\"2388\",\"EGRID\":\"CH511187050705\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1219\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1219.126068\",\"SHAPE.STLength()\":\"158.266939\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"706\",\"attributes\":{\"OBJECTID\":\"61067417\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900706\",\"NUMMER\":\"706\",\"EGRID\":\"CH330507117132\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1920\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1919.84049\",\"SHAPE.STLength()\":\"319.798978\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"75\",\"attributes\":{\"OBJECTID\":\"61065286\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900075\",\"NUMMER\":\"75\",\"EGRID\":\"CH320776051101\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47414\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47414.236635\",\"SHAPE.STLength()\":\"9918.242505\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"51198097\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"ART\":\"Gebaeude\",\"ASSNR\":\"477\",\"ORI\":\"352.1\",\"Shape\":\"Point\",\"EGID\":\"597492\"}},{\"layerId\":74,\"layerName\":\"Bachkataster\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"8221\",\"NAME\":\"Aabach\",\"BNUM\":\"2.06.000\",\"MUTDATUM\":\"27.09.2017\",\"BENUTZER\":\"rbsj\",\"Shape\":\"Polyline\",\"SHAPE.STLength()\":\"15069.992136\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35704\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"2\",\"BUFF_DIST\":\"14.75\",\"ART\":\"Bach\",\"FAKTOR\":\"1.5\",\"NAT_GSB\":\"9\",\"GEWR_BREITE\":\"29.5\",\"GEWR_RADIUS\":\"14.75\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0183\",\"AbschLength\":\"50\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2157.039301\",\"SHAPE.STLength()\":\"192.537012\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Geissmattkanal\",\"attributes\":{\"OBJECTID\":\"35564\",\"NAME\":\"Geissmattkanal\",\"SBREITE\":\"Null\",\"BNUM\":\"2.06.125\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5586.000265\",\"SHAPE.STLength()\":\"949.776514\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35671\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"3\",\"BUFF_DIST\":\"18.5\",\"ART\":\"Bach\",\"FAKTOR\":\"2\",\"NAT_GSB\":\"12\",\"GEWR_BREITE\":\"37\",\"GEWR_RADIUS\":\"18.5\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0182\",\"AbschLength\":\"35\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2369.434974\",\"SHAPE.STLength()\":\"186.216907\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19857\",\"ID\":\"36465\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"43731.54858\",\"SHAPE.STLength()\":\"6206.072208\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19883\",\"ID\":\"23010\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5869.922341\",\"SHAPE.STLength()\":\"2659.564107\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19902\",\"ID\":\"43285\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14208.748038\",\"SHAPE.STLength()\":\"3936.763168\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19848\",\"ID\":\"30052\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1262.554784\",\"SHAPE.STLength()\":\"507.189474\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"4 Aabach\",\"attributes\":{\"OBJECTID\":\"64291\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1611\",\"KTAbk\":\"GF\",\"KTBez\":\"Gr\xFCnzone,
+        Freihaltezone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"161101\",\"GDEBez\":\"Gr\xFCnzone\",\"GDEAbk\":\"Gr\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"4
+        Aabach\",\"ES\":\"ES_II\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1919.83311\",\"Shape.STLength()\":\"319.799027\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64298\",\"attributes\":{\"OBJECTID\":\"64298\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1629\",\"KTAbk\":\"Gbz\",\"KTBez\":\"Gew\xE4sser
+        innerhalb Bauzone\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"162901\",\"GDEBez\":\"Gew\xE4sser\",\"GDEAbk\":\"Gew\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3916.580114\",\"Shape.STLength()\":\"1155.603498\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2090'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 07:39:26 GMT
+      ETag:
+      - '"8d5c4a3a"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 07:40:26 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5107f15423bb813f1cfdf68399d82966fc063e7361d41c7e556a3d8e100c12e8121cc37451ef7e6351603b0e1f3f8df0a13cb0d94b7cf36d3d083999bf440f84fa3;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510d1db543d92a568714bcd8d5c4351342e63e7361d41c7e556a3d8e100c12e81218ee2921872c01be63fcbf361ae621f1ae13b3830e0c305e3ee9bce3bc5bf3e0a;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654642%2C1244045%2C2654644%2C1244047&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1022'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:49 GMT
+      ETag:
+      - '"e371e2c2"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:48 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5102c663ad90636623899f9b29e627562d31019d8eff87fea0d24b34f1c224f4050c1111f90d70ab43f33f9373fe43d7e7e7691b7a38d5851749ef51fe58a98bb2a;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ac7a6136a0af83baef6837cfba4e6d5e1019d8eff87fea0d24b34f1c224f4050e124718716734151c427f1804cbf031382cd0b1278aac93fc54a50b5f6c99005;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654623%2C1244026%2C2654663%2C1244066&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510ac7a6136a0af83baef6837cfba4e6d5e1019d8eff87fea0d24b34f1c224f4050e124718716734151c427f1804cbf031382cd0b1278aac93fc54a50b5f6c99005;
+        TS014419e9=0100bce5102c663ad90636623899f9b29e627562d31019d8eff87fea0d24b34f1c224f4050c1111f90d70ab43f33f9373fe43d7e7e7691b7a38d5851749ef51fe58a98bb2a;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388.1\",\"attributes\":{\"OBJECTID\":\"63329384\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2388.1\",\"ART\":\"SelbstRecht.Baurecht\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"63330568\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2280\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388\",\"attributes\":{\"OBJECTID\":\"61067466\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902388\",\"NUMMER\":\"2388\",\"EGRID\":\"CH511187050705\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1219\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1219.126068\",\"SHAPE.STLength()\":\"158.266939\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"706\",\"attributes\":{\"OBJECTID\":\"61067417\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900706\",\"NUMMER\":\"706\",\"EGRID\":\"CH330507117132\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1920\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1919.84049\",\"SHAPE.STLength()\":\"319.798978\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"75\",\"attributes\":{\"OBJECTID\":\"61065286\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900075\",\"NUMMER\":\"75\",\"EGRID\":\"CH320776051101\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47414\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47414.236635\",\"SHAPE.STLength()\":\"9918.242505\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"51198097\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"ART\":\"Gebaeude\",\"ASSNR\":\"477\",\"ORI\":\"352.1\",\"Shape\":\"Point\",\"EGID\":\"597492\"}},{\"layerId\":74,\"layerName\":\"Bachkataster\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"8221\",\"NAME\":\"Aabach\",\"BNUM\":\"2.06.000\",\"MUTDATUM\":\"27.09.2017\",\"BENUTZER\":\"rbsj\",\"Shape\":\"Polyline\",\"SHAPE.STLength()\":\"15069.992136\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35704\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"2\",\"BUFF_DIST\":\"14.75\",\"ART\":\"Bach\",\"FAKTOR\":\"1.5\",\"NAT_GSB\":\"9\",\"GEWR_BREITE\":\"29.5\",\"GEWR_RADIUS\":\"14.75\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0183\",\"AbschLength\":\"50\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2157.039301\",\"SHAPE.STLength()\":\"192.537012\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Geissmattkanal\",\"attributes\":{\"OBJECTID\":\"35564\",\"NAME\":\"Geissmattkanal\",\"SBREITE\":\"Null\",\"BNUM\":\"2.06.125\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5586.000265\",\"SHAPE.STLength()\":\"949.776514\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35671\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"3\",\"BUFF_DIST\":\"18.5\",\"ART\":\"Bach\",\"FAKTOR\":\"2\",\"NAT_GSB\":\"12\",\"GEWR_BREITE\":\"37\",\"GEWR_RADIUS\":\"18.5\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0182\",\"AbschLength\":\"35\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2369.434974\",\"SHAPE.STLength()\":\"186.216907\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19857\",\"ID\":\"36465\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"43731.54858\",\"SHAPE.STLength()\":\"6206.072208\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19883\",\"ID\":\"23010\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5869.922341\",\"SHAPE.STLength()\":\"2659.564107\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19902\",\"ID\":\"43285\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14208.748038\",\"SHAPE.STLength()\":\"3936.763168\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19848\",\"ID\":\"30052\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1262.554784\",\"SHAPE.STLength()\":\"507.189474\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"4 Aabach\",\"attributes\":{\"OBJECTID\":\"64291\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1611\",\"KTAbk\":\"GF\",\"KTBez\":\"Gr\xFCnzone,
+        Freihaltezone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"161101\",\"GDEBez\":\"Gr\xFCnzone\",\"GDEAbk\":\"Gr\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"4
+        Aabach\",\"ES\":\"ES_II\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1919.83311\",\"Shape.STLength()\":\"319.799027\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64298\",\"attributes\":{\"OBJECTID\":\"64298\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1629\",\"KTAbk\":\"Gbz\",\"KTBez\":\"Gew\xE4sser
+        innerhalb Bauzone\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"162901\",\"GDEBez\":\"Gew\xE4sser\",\"GDEAbk\":\"Gew\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3916.580114\",\"Shape.STLength()\":\"1155.603498\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2090'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:50 GMT
+      ETag:
+      - '"8d5c4a3a"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:49 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5102c663ad90636623899f9b29e627562d31019d8eff87fea0d24b34f1c224f4050c1111f90d70ab43f33f9373fe43d7e7e7691b7a38d5851749ef51fe58a98bb2a;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ac7a6136a0af83baef6837cfba4e6d5e1019d8eff87fea0d24b34f1c224f4050e124718716734151c427f1804cbf031382cd0b1278aac93fc54a50b5f6c99005;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654642%2C1244045%2C2654644%2C1244047&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1022'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:51 GMT
+      ETag:
+      - '"e371e2c2"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:51 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51075e60beba6537b3f57a7afa8e77887550406cbc63680ff6e6693a9e61e91daf2cca93cd4bf0907347de38bff5445bf63201f8f315eeb110dc6473cb743b27fd5;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ef007fe9478c37606f47d6913d8392520406cbc63680ff6e6693a9e61e91daf2d91f226a708a5bbbabc76cfbd5b2b76554650ee63ec95de1148416e8162fb6c8;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654623%2C1244026%2C2654663%2C1244066&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510ef007fe9478c37606f47d6913d8392520406cbc63680ff6e6693a9e61e91daf2d91f226a708a5bbbabc76cfbd5b2b76554650ee63ec95de1148416e8162fb6c8;
+        TS014419e9=0100bce51075e60beba6537b3f57a7afa8e77887550406cbc63680ff6e6693a9e61e91daf2cca93cd4bf0907347de38bff5445bf63201f8f315eeb110dc6473cb743b27fd5;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388.1\",\"attributes\":{\"OBJECTID\":\"63329384\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2388.1\",\"ART\":\"SelbstRecht.Baurecht\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"63330568\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2280\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388\",\"attributes\":{\"OBJECTID\":\"61067466\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902388\",\"NUMMER\":\"2388\",\"EGRID\":\"CH511187050705\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1219\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1219.126068\",\"SHAPE.STLength()\":\"158.266939\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"706\",\"attributes\":{\"OBJECTID\":\"61067417\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900706\",\"NUMMER\":\"706\",\"EGRID\":\"CH330507117132\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1920\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1919.84049\",\"SHAPE.STLength()\":\"319.798978\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"75\",\"attributes\":{\"OBJECTID\":\"61065286\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900075\",\"NUMMER\":\"75\",\"EGRID\":\"CH320776051101\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47414\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47414.236635\",\"SHAPE.STLength()\":\"9918.242505\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"51198097\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"ART\":\"Gebaeude\",\"ASSNR\":\"477\",\"ORI\":\"352.1\",\"Shape\":\"Point\",\"EGID\":\"597492\"}},{\"layerId\":74,\"layerName\":\"Bachkataster\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"8221\",\"NAME\":\"Aabach\",\"BNUM\":\"2.06.000\",\"MUTDATUM\":\"27.09.2017\",\"BENUTZER\":\"rbsj\",\"Shape\":\"Polyline\",\"SHAPE.STLength()\":\"15069.992136\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35704\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"2\",\"BUFF_DIST\":\"14.75\",\"ART\":\"Bach\",\"FAKTOR\":\"1.5\",\"NAT_GSB\":\"9\",\"GEWR_BREITE\":\"29.5\",\"GEWR_RADIUS\":\"14.75\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0183\",\"AbschLength\":\"50\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2157.039301\",\"SHAPE.STLength()\":\"192.537012\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Geissmattkanal\",\"attributes\":{\"OBJECTID\":\"35564\",\"NAME\":\"Geissmattkanal\",\"SBREITE\":\"Null\",\"BNUM\":\"2.06.125\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5586.000265\",\"SHAPE.STLength()\":\"949.776514\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35671\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"3\",\"BUFF_DIST\":\"18.5\",\"ART\":\"Bach\",\"FAKTOR\":\"2\",\"NAT_GSB\":\"12\",\"GEWR_BREITE\":\"37\",\"GEWR_RADIUS\":\"18.5\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0182\",\"AbschLength\":\"35\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2369.434974\",\"SHAPE.STLength()\":\"186.216907\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19857\",\"ID\":\"36465\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"43731.54858\",\"SHAPE.STLength()\":\"6206.072208\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19883\",\"ID\":\"23010\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5869.922341\",\"SHAPE.STLength()\":\"2659.564107\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19902\",\"ID\":\"43285\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14208.748038\",\"SHAPE.STLength()\":\"3936.763168\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19848\",\"ID\":\"30052\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1262.554784\",\"SHAPE.STLength()\":\"507.189474\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"4 Aabach\",\"attributes\":{\"OBJECTID\":\"64291\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1611\",\"KTAbk\":\"GF\",\"KTBez\":\"Gr\xFCnzone,
+        Freihaltezone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"161101\",\"GDEBez\":\"Gr\xFCnzone\",\"GDEAbk\":\"Gr\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"4
+        Aabach\",\"ES\":\"ES_II\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1919.83311\",\"Shape.STLength()\":\"319.799027\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64298\",\"attributes\":{\"OBJECTID\":\"64298\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1629\",\"KTAbk\":\"Gbz\",\"KTBez\":\"Gew\xE4sser
+        innerhalb Bauzone\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"162901\",\"GDEBez\":\"Gew\xE4sser\",\"GDEAbk\":\"Gew\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3916.580114\",\"Shape.STLength()\":\"1155.603498\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2090'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:52 GMT
+      ETag:
+      - '"8d5c4a3a"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:51 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51075e60beba6537b3f57a7afa8e77887550406cbc63680ff6e6693a9e61e91daf2cca93cd4bf0907347de38bff5445bf63201f8f315eeb110dc6473cb743b27fd5;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ef007fe9478c37606f47d6913d8392520406cbc63680ff6e6693a9e61e91daf2d91f226a708a5bbbabc76cfbd5b2b76554650ee63ec95de1148416e8162fb6c8;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654642%2C1244045%2C2654644%2C1244047&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1022'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:52:17 GMT
+      ETag:
+      - '"e371e2c2"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:53:16 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5103e8a5e6d60703b318125fd7034398850a441d8cf14ba562a4db309e68e56c18b87e4abed62a626ea4b7c5ecd85a0fd8e435a73d44d60cca50c130f072dd92c82;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5106ff5bc74c89250212669fdbe82dad5c2a441d8cf14ba562a4db309e68e56c18b46704556f3341bb42bf78647d2ffcef44f092505fb7c1cbc514139c204e5a993;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654623%2C1244026%2C2654663%2C1244066&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5106ff5bc74c89250212669fdbe82dad5c2a441d8cf14ba562a4db309e68e56c18b46704556f3341bb42bf78647d2ffcef44f092505fb7c1cbc514139c204e5a993;
+        TS014419e9=0100bce5103e8a5e6d60703b318125fd7034398850a441d8cf14ba562a4db309e68e56c18b87e4abed62a626ea4b7c5ecd85a0fd8e435a73d44d60cca50c130f072dd92c82;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388.1\",\"attributes\":{\"OBJECTID\":\"63329384\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2388.1\",\"ART\":\"SelbstRecht.Baurecht\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"63330568\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2280\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388\",\"attributes\":{\"OBJECTID\":\"61067466\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902388\",\"NUMMER\":\"2388\",\"EGRID\":\"CH511187050705\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1219\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1219.126068\",\"SHAPE.STLength()\":\"158.266939\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"706\",\"attributes\":{\"OBJECTID\":\"61067417\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900706\",\"NUMMER\":\"706\",\"EGRID\":\"CH330507117132\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1920\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1919.84049\",\"SHAPE.STLength()\":\"319.798978\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"75\",\"attributes\":{\"OBJECTID\":\"61065286\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900075\",\"NUMMER\":\"75\",\"EGRID\":\"CH320776051101\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47414\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47414.236635\",\"SHAPE.STLength()\":\"9918.242505\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"51198097\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"ART\":\"Gebaeude\",\"ASSNR\":\"477\",\"ORI\":\"352.1\",\"Shape\":\"Point\",\"EGID\":\"597492\"}},{\"layerId\":74,\"layerName\":\"Bachkataster\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"8221\",\"NAME\":\"Aabach\",\"BNUM\":\"2.06.000\",\"MUTDATUM\":\"27.09.2017\",\"BENUTZER\":\"rbsj\",\"Shape\":\"Polyline\",\"SHAPE.STLength()\":\"15069.992136\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35704\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"2\",\"BUFF_DIST\":\"14.75\",\"ART\":\"Bach\",\"FAKTOR\":\"1.5\",\"NAT_GSB\":\"9\",\"GEWR_BREITE\":\"29.5\",\"GEWR_RADIUS\":\"14.75\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0183\",\"AbschLength\":\"50\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2157.039301\",\"SHAPE.STLength()\":\"192.537012\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Geissmattkanal\",\"attributes\":{\"OBJECTID\":\"35564\",\"NAME\":\"Geissmattkanal\",\"SBREITE\":\"Null\",\"BNUM\":\"2.06.125\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5586.000265\",\"SHAPE.STLength()\":\"949.776514\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35671\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"3\",\"BUFF_DIST\":\"18.5\",\"ART\":\"Bach\",\"FAKTOR\":\"2\",\"NAT_GSB\":\"12\",\"GEWR_BREITE\":\"37\",\"GEWR_RADIUS\":\"18.5\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0182\",\"AbschLength\":\"35\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2369.434974\",\"SHAPE.STLength()\":\"186.216907\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19857\",\"ID\":\"36465\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"43731.54858\",\"SHAPE.STLength()\":\"6206.072208\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19883\",\"ID\":\"23010\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5869.922341\",\"SHAPE.STLength()\":\"2659.564107\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19902\",\"ID\":\"43285\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14208.748038\",\"SHAPE.STLength()\":\"3936.763168\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19848\",\"ID\":\"30052\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1262.554784\",\"SHAPE.STLength()\":\"507.189474\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"4 Aabach\",\"attributes\":{\"OBJECTID\":\"64291\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1611\",\"KTAbk\":\"GF\",\"KTBez\":\"Gr\xFCnzone,
+        Freihaltezone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"161101\",\"GDEBez\":\"Gr\xFCnzone\",\"GDEAbk\":\"Gr\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"4
+        Aabach\",\"ES\":\"ES_II\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1919.83311\",\"Shape.STLength()\":\"319.799027\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64298\",\"attributes\":{\"OBJECTID\":\"64298\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1629\",\"KTAbk\":\"Gbz\",\"KTBez\":\"Gew\xE4sser
+        innerhalb Bauzone\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"162901\",\"GDEBez\":\"Gew\xE4sser\",\"GDEAbk\":\"Gew\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3916.580114\",\"Shape.STLength()\":\"1155.603498\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2090'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:52:18 GMT
+      ETag:
+      - '"8d5c4a3a"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:53:17 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5103e8a5e6d60703b318125fd7034398850a441d8cf14ba562a4db309e68e56c18b87e4abed62a626ea4b7c5ecd85a0fd8e435a73d44d60cca50c130f072dd92c82;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5106ff5bc74c89250212669fdbe82dad5c2a441d8cf14ba562a4db309e68e56c18b46704556f3341bb42bf78647d2ffcef44f092505fb7c1cbc514139c204e5a993;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654642%2C1244045%2C2654644%2C1244047&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1022'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 10:55:09 GMT
+      ETag:
+      - '"e371e2c2"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 10:56:08 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510def90a9966af356183faf4082099dbaa427f97a2af86309c76c78e0cde335b47868cb2304ede20fb0c087e2f795e587e13b8d0400efdf52c4396d362991d7de7;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5105bce4eafc75a824987b24f4aa4101cf4427f97a2af86309c76c78e0cde335b47faeb054d966e1840be9e1076a5d794a1c15fcbd9701d3162e68d75a62b3ec6d1;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654623%2C1244026%2C2654663%2C1244066&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5105bce4eafc75a824987b24f4aa4101cf4427f97a2af86309c76c78e0cde335b47faeb054d966e1840be9e1076a5d794a1c15fcbd9701d3162e68d75a62b3ec6d1;
+        TS014419e9=0100bce510def90a9966af356183faf4082099dbaa427f97a2af86309c76c78e0cde335b47868cb2304ede20fb0c087e2f795e587e13b8d0400efdf52c4396d362991d7de7;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388.1\",\"attributes\":{\"OBJECTID\":\"63329384\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2388.1\",\"ART\":\"SelbstRecht.Baurecht\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"63330568\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2280\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388\",\"attributes\":{\"OBJECTID\":\"61067466\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902388\",\"NUMMER\":\"2388\",\"EGRID\":\"CH511187050705\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1219\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1219.126068\",\"SHAPE.STLength()\":\"158.266939\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"706\",\"attributes\":{\"OBJECTID\":\"61067417\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900706\",\"NUMMER\":\"706\",\"EGRID\":\"CH330507117132\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1920\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1919.84049\",\"SHAPE.STLength()\":\"319.798978\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"75\",\"attributes\":{\"OBJECTID\":\"61065286\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900075\",\"NUMMER\":\"75\",\"EGRID\":\"CH320776051101\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47414\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47414.236635\",\"SHAPE.STLength()\":\"9918.242505\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"51198097\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"ART\":\"Gebaeude\",\"ASSNR\":\"477\",\"ORI\":\"352.1\",\"Shape\":\"Point\",\"EGID\":\"597492\"}},{\"layerId\":74,\"layerName\":\"Bachkataster\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"8221\",\"NAME\":\"Aabach\",\"BNUM\":\"2.06.000\",\"MUTDATUM\":\"27.09.2017\",\"BENUTZER\":\"rbsj\",\"Shape\":\"Polyline\",\"SHAPE.STLength()\":\"15069.992136\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35704\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"2\",\"BUFF_DIST\":\"14.75\",\"ART\":\"Bach\",\"FAKTOR\":\"1.5\",\"NAT_GSB\":\"9\",\"GEWR_BREITE\":\"29.5\",\"GEWR_RADIUS\":\"14.75\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0183\",\"AbschLength\":\"50\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2157.039301\",\"SHAPE.STLength()\":\"192.537012\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Geissmattkanal\",\"attributes\":{\"OBJECTID\":\"35564\",\"NAME\":\"Geissmattkanal\",\"SBREITE\":\"Null\",\"BNUM\":\"2.06.125\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5586.000265\",\"SHAPE.STLength()\":\"949.776514\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35671\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"3\",\"BUFF_DIST\":\"18.5\",\"ART\":\"Bach\",\"FAKTOR\":\"2\",\"NAT_GSB\":\"12\",\"GEWR_BREITE\":\"37\",\"GEWR_RADIUS\":\"18.5\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0182\",\"AbschLength\":\"35\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2369.434974\",\"SHAPE.STLength()\":\"186.216907\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19857\",\"ID\":\"36465\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"43731.54858\",\"SHAPE.STLength()\":\"6206.072208\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19883\",\"ID\":\"23010\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5869.922341\",\"SHAPE.STLength()\":\"2659.564107\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19902\",\"ID\":\"43285\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14208.748038\",\"SHAPE.STLength()\":\"3936.763168\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19848\",\"ID\":\"30052\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1262.554784\",\"SHAPE.STLength()\":\"507.189474\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"4 Aabach\",\"attributes\":{\"OBJECTID\":\"64291\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1611\",\"KTAbk\":\"GF\",\"KTBez\":\"Gr\xFCnzone,
+        Freihaltezone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"161101\",\"GDEBez\":\"Gr\xFCnzone\",\"GDEAbk\":\"Gr\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"4
+        Aabach\",\"ES\":\"ES_II\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1919.83311\",\"Shape.STLength()\":\"319.799027\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64298\",\"attributes\":{\"OBJECTID\":\"64298\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1629\",\"KTAbk\":\"Gbz\",\"KTBez\":\"Gew\xE4sser
+        innerhalb Bauzone\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"162901\",\"GDEBez\":\"Gew\xE4sser\",\"GDEAbk\":\"Gew\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3916.580114\",\"Shape.STLength()\":\"1155.603498\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2090'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 10:55:09 GMT
+      ETag:
+      - '"8d5c4a3a"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 10:56:09 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510def90a9966af356183faf4082099dbaa427f97a2af86309c76c78e0cde335b47868cb2304ede20fb0c087e2f795e587e13b8d0400efdf52c4396d362991d7de7;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5105bce4eafc75a824987b24f4aa4101cf4427f97a2af86309c76c78e0cde335b47faeb054d966e1840be9e1076a5d794a1c15fcbd9701d3162e68d75a62b3ec6d1;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654642%2C1244045%2C2654644%2C1244047&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1022'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 10:59:10 GMT
+      ETag:
+      - '"e371e2c2"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:00:09 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510afdf6be07c270776be2659615c7d01eb48c6f097201f132f8197916f8147c64d4bad4c061b1eb65304440473ae6e0d07aacb5a7e451a42c99f71a5667f392b15;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51073f31a0cb550daaba915543d479b694d48c6f097201f132f8197916f8147c64d0249e1213f765d4eb87862435df1af55664fbbd4db6455d8e75b0af51d07382b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654623%2C1244026%2C2654663%2C1244066&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce51073f31a0cb550daaba915543d479b694d48c6f097201f132f8197916f8147c64d0249e1213f765d4eb87862435df1af55664fbbd4db6455d8e75b0af51d07382b;
+        TS014419e9=0100bce510afdf6be07c270776be2659615c7d01eb48c6f097201f132f8197916f8147c64d4bad4c061b1eb65304440473ae6e0d07aacb5a7e451a42c99f71a5667f392b15;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388.1\",\"attributes\":{\"OBJECTID\":\"63329384\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2388.1\",\"ART\":\"SelbstRecht.Baurecht\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"63330568\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2280\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388\",\"attributes\":{\"OBJECTID\":\"61067466\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902388\",\"NUMMER\":\"2388\",\"EGRID\":\"CH511187050705\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1219\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1219.126068\",\"SHAPE.STLength()\":\"158.266939\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"706\",\"attributes\":{\"OBJECTID\":\"61067417\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900706\",\"NUMMER\":\"706\",\"EGRID\":\"CH330507117132\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1920\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1919.84049\",\"SHAPE.STLength()\":\"319.798978\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"75\",\"attributes\":{\"OBJECTID\":\"61065286\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900075\",\"NUMMER\":\"75\",\"EGRID\":\"CH320776051101\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47414\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47414.236635\",\"SHAPE.STLength()\":\"9918.242505\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"51198097\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"ART\":\"Gebaeude\",\"ASSNR\":\"477\",\"ORI\":\"352.1\",\"Shape\":\"Point\",\"EGID\":\"597492\"}},{\"layerId\":74,\"layerName\":\"Bachkataster\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"8221\",\"NAME\":\"Aabach\",\"BNUM\":\"2.06.000\",\"MUTDATUM\":\"27.09.2017\",\"BENUTZER\":\"rbsj\",\"Shape\":\"Polyline\",\"SHAPE.STLength()\":\"15069.992136\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35704\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"2\",\"BUFF_DIST\":\"14.75\",\"ART\":\"Bach\",\"FAKTOR\":\"1.5\",\"NAT_GSB\":\"9\",\"GEWR_BREITE\":\"29.5\",\"GEWR_RADIUS\":\"14.75\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0183\",\"AbschLength\":\"50\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2157.039301\",\"SHAPE.STLength()\":\"192.537012\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Geissmattkanal\",\"attributes\":{\"OBJECTID\":\"35564\",\"NAME\":\"Geissmattkanal\",\"SBREITE\":\"Null\",\"BNUM\":\"2.06.125\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5586.000265\",\"SHAPE.STLength()\":\"949.776514\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35671\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"3\",\"BUFF_DIST\":\"18.5\",\"ART\":\"Bach\",\"FAKTOR\":\"2\",\"NAT_GSB\":\"12\",\"GEWR_BREITE\":\"37\",\"GEWR_RADIUS\":\"18.5\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0182\",\"AbschLength\":\"35\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2369.434974\",\"SHAPE.STLength()\":\"186.216907\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19857\",\"ID\":\"36465\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"43731.54858\",\"SHAPE.STLength()\":\"6206.072208\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19883\",\"ID\":\"23010\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5869.922341\",\"SHAPE.STLength()\":\"2659.564107\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19902\",\"ID\":\"43285\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14208.748038\",\"SHAPE.STLength()\":\"3936.763168\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19848\",\"ID\":\"30052\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1262.554784\",\"SHAPE.STLength()\":\"507.189474\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"4 Aabach\",\"attributes\":{\"OBJECTID\":\"64291\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1611\",\"KTAbk\":\"GF\",\"KTBez\":\"Gr\xFCnzone,
+        Freihaltezone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"161101\",\"GDEBez\":\"Gr\xFCnzone\",\"GDEAbk\":\"Gr\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"4
+        Aabach\",\"ES\":\"ES_II\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1919.83311\",\"Shape.STLength()\":\"319.799027\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64298\",\"attributes\":{\"OBJECTID\":\"64298\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1629\",\"KTAbk\":\"Gbz\",\"KTBez\":\"Gew\xE4sser
+        innerhalb Bauzone\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"162901\",\"GDEBez\":\"Gew\xE4sser\",\"GDEAbk\":\"Gew\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3916.580114\",\"Shape.STLength()\":\"1155.603498\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2090'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 10:59:10 GMT
+      ETag:
+      - '"8d5c4a3a"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:00:10 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510afdf6be07c270776be2659615c7d01eb48c6f097201f132f8197916f8147c64d4bad4c061b1eb65304440473ae6e0d07aacb5a7e451a42c99f71a5667f392b15;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51073f31a0cb550daaba915543d479b694d48c6f097201f132f8197916f8147c64d0249e1213f765d4eb87862435df1af55664fbbd4db6455d8e75b0af51d07382b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654642%2C1244045%2C2654644%2C1244047&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1022'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 11:00:27 GMT
+      ETag:
+      - '"e371e2c2"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:01:27 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51048c3b21528209539557da15e61f508622ddd1cd6b52cd1b23658470c9b1e8584e907f7d769c6c8bf06a445f1c2c4f500492bd669f0ae07f8c0eb825795912bb2;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510cf194dc5987135194960fdad1590f8ed2ddd1cd6b52cd1b23658470c9b1e858449c7cb12c29959814ee6d29d240572cb204418f3fcf82c3a95ad00de80cd52e0;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654623%2C1244026%2C2654663%2C1244066&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510cf194dc5987135194960fdad1590f8ed2ddd1cd6b52cd1b23658470c9b1e858449c7cb12c29959814ee6d29d240572cb204418f3fcf82c3a95ad00de80cd52e0;
+        TS014419e9=0100bce51048c3b21528209539557da15e61f508622ddd1cd6b52cd1b23658470c9b1e8584e907f7d769c6c8bf06a445f1c2c4f500492bd669f0ae07f8c0eb825795912bb2;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388.1\",\"attributes\":{\"OBJECTID\":\"63329384\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2388.1\",\"ART\":\"SelbstRecht.Baurecht\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"63330568\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"NUMMER\":\"2280\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2388\",\"attributes\":{\"OBJECTID\":\"61067466\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902388\",\"NUMMER\":\"2388\",\"EGRID\":\"CH511187050705\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1219\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1219.126068\",\"SHAPE.STLength()\":\"158.266939\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"706\",\"attributes\":{\"OBJECTID\":\"61067417\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900706\",\"NUMMER\":\"706\",\"EGRID\":\"CH330507117132\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1920\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1919.84049\",\"SHAPE.STLength()\":\"319.798978\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"75\",\"attributes\":{\"OBJECTID\":\"61065286\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420900075\",\"NUMMER\":\"75\",\"EGRID\":\"CH320776051101\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47414\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47414.236635\",\"SHAPE.STLength()\":\"9918.242505\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2280\",\"attributes\":{\"OBJECTID\":\"61067247\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902280\",\"NUMMER\":\"2280\",\"EGRID\":\"CH520787051128\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1452\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1452.27471\",\"SHAPE.STLength()\":\"175.522953\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"51198097\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"ART\":\"Gebaeude\",\"ASSNR\":\"477\",\"ORI\":\"352.1\",\"Shape\":\"Point\",\"EGID\":\"597492\"}},{\"layerId\":74,\"layerName\":\"Bachkataster\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"8221\",\"NAME\":\"Aabach\",\"BNUM\":\"2.06.000\",\"MUTDATUM\":\"27.09.2017\",\"BENUTZER\":\"rbsj\",\"Shape\":\"Polyline\",\"SHAPE.STLength()\":\"15069.992136\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35704\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"2\",\"BUFF_DIST\":\"14.75\",\"ART\":\"Bach\",\"FAKTOR\":\"1.5\",\"NAT_GSB\":\"9\",\"GEWR_BREITE\":\"29.5\",\"GEWR_RADIUS\":\"14.75\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0183\",\"AbschLength\":\"50\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2157.039301\",\"SHAPE.STLength()\":\"192.537012\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Geissmattkanal\",\"attributes\":{\"OBJECTID\":\"35564\",\"NAME\":\"Geissmattkanal\",\"SBREITE\":\"Null\",\"BNUM\":\"2.06.125\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5586.000265\",\"SHAPE.STLength()\":\"949.776514\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Aabach\",\"attributes\":{\"OBJECTID\":\"35671\",\"NAME\":\"Aabach\",\"SBREITE\":\"6\",\"BNUM\":\"2.06.000\",\"KLASSE\":\"3\",\"BUFF_DIST\":\"18.5\",\"ART\":\"Bach\",\"FAKTOR\":\"2\",\"NAT_GSB\":\"12\",\"GEWR_BREITE\":\"37\",\"GEWR_RADIUS\":\"18.5\",\"Bauzone\":\"0\",\"GEWR_TYP\":\"mB\",\"RECHT\":\"GSchV\",\"KEY\":\"2.06.000-0182\",\"AbschLength\":\"35\",\"GDENR\":\"4209\",\"GEMEINDEZ\":\"Seon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2369.434974\",\"SHAPE.STLength()\":\"186.216907\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19857\",\"ID\":\"36465\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"43731.54858\",\"SHAPE.STLength()\":\"6206.072208\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19883\",\"ID\":\"23010\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5869.922341\",\"SHAPE.STLength()\":\"2659.564107\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19815\",\"ID\":\"16659\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1286.650185\",\"SHAPE.STLength()\":\"459.993489\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19902\",\"ID\":\"43285\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF Colenco
+        AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14208.748038\",\"SHAPE.STLength()\":\"3936.763168\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19848\",\"ID\":\"30052\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1262.554784\",\"SHAPE.STLength()\":\"507.189474\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"4 Aabach\",\"attributes\":{\"OBJECTID\":\"64291\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1611\",\"KTAbk\":\"GF\",\"KTBez\":\"Gr\xFCnzone,
+        Freihaltezone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"161101\",\"GDEBez\":\"Gr\xFCnzone\",\"GDEAbk\":\"Gr\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"4
+        Aabach\",\"ES\":\"ES_II\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1919.83311\",\"Shape.STLength()\":\"319.799027\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64266\",\"attributes\":{\"OBJECTID\":\"64266\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Kernzone\",\"GDEAbk\":\"K\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"9064.011772\",\"Shape.STLength()\":\"403.006942\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"64298\",\"attributes\":{\"OBJECTID\":\"64298\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"16\",\"HNBez\":\"Eingeschr\xE4nkte Bauzonen\",\"KTAAbk\":\"Gr\xFCnfl\xE4chen
+        und Freihaltezonen\",\"KTCode\":\"1629\",\"KTAbk\":\"Gbz\",\"KTBez\":\"Gew\xE4sser
+        innerhalb Bauzone\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"162901\",\"GDEBez\":\"Gew\xE4sser\",\"GDEAbk\":\"Gew\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3916.580114\",\"Shape.STLength()\":\"1155.603498\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2090'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 11:00:28 GMT
+      ETag:
+      - '"8d5c4a3a"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:01:27 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51048c3b21528209539557da15e61f508622ddd1cd6b52cd1b23658470c9b1e8584e907f7d769c6c8bf06a445f1c2c4f500492bd669f0ae07f8c0eb825795912bb2;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510cf194dc5987135194960fdad1590f8ed2ddd1cd6b52cd1b23658470c9b1e858449c7cb12c29959814ee6d29d240572cb204418f3fcf82c3a95ad00de80cd52e0;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+version: 1

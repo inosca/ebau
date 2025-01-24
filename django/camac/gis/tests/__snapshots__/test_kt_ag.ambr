@@ -1,0 +1,610 @@
+# serializer version: 1
+# name: test_ag_client[scenario0]
+  dict({
+    'gemeinde': dict({
+      'displayValue': 'Aarburg',
+      'hidden': False,
+      'label': 'gemeinde',
+      'value': '1',
+    }),
+    'ort-grundstueck': dict({
+      'hidden': False,
+      'label': 'ort-grundstueck',
+      'value': 'Aarburg',
+    }),
+    'parzelle': dict({
+      'hidden': False,
+      'label': None,
+      'value': list([
+        dict({
+          'e-grid-nr': dict({
+            'label': 'e-grid-nr',
+            'value': 'CH607706874573',
+          }),
+          'gemeinde': dict({
+            'displayValue': 'Aarburg',
+            'label': 'gemeinde',
+            'value': '1',
+          }),
+          'parzellennummer': dict({
+            'label': 'parzellennummer',
+            'value': '646',
+          }),
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_ag_client[scenario10]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Hochstammobstbestand, Kantonales Denkmalschutzobjekt (Retterswil 8, Meierhof)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario11]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Geschütztes Naturobjekt im Kulturlandplan (Einzelbaum, geschützt), Landschaftsschutzzone',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario12]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Geschütztes Kulturobjekt im Kulturlandplan (Brunnen, geschützt), Landschaftsschutzzone',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario13]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Amphibienlaichgebiet von nationaler Bedeutung, Naturschutzgebiet von kant. Bedeutung (NkB), Flachmoor von nationaler Bedeutung, Archäologische Fundstelle (52(B)12)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario14]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Amphibienlaichgebiet von nationaler Bedeutung, Naturschutzgebiet von kant. Bedeutung (NkB), Flachmoor von nationaler Bedeutung, Archäologische Fundstelle (52(B)12)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario15]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Hecke im Kulturlandplan, Weilerzone, Archäologische Fundstelle (6(B)10 b)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario16]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Übrige Zonen innerhalb Dekretsgebiet (kant. NP), Landschaften und Naturdenkmäler von nationaler Bedeutung (BLN), Waldnaturschutzinventar (Moos), Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung, Amphibienlaichgebiet von nationaler Bedeutung, Auengebiet von nationaler Bedeutung',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario17]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Waldnaturschutzinventar (Fischbacher Moos), Wildtierkorridor (AG-R09), Amphibienlaichgebiet von nationaler Bedeutung, Naturschutzgebiet von kant. Bedeutung (NkB), Flachmoor von nationaler Bedeutung, Hoch- oder Übergangsmoor von nationaler Bedeutung',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario18]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Wildtierkorridor (AG-R13), Vernetzungszone, Hochstammobstbestand, Landschaftsschutzzone',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario19]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Bauinventarobjekt (Leutwilerstrasse 2), Gebäude mit Substanzschutz, Archäologische Fundstelle (100(A)7)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario1]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Naturschutzzone innerhalb Dekretsgebiet (kant. NP), Landschaften und Naturdenkmäler von nationaler Bedeutung (BLN), Waldnaturschutzinventar (Moordorf Risle), Amphibienlaichgebiet von nationaler Bedeutung, Naturschutzgebiet von kant. Bedeutung (NkB), Naturwaldgemässe Bestockung, Archäologische Fundstelle (154(A)1)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario20]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Bauinventarobjekt (Schulhaus), Gebäude mit Substanzschutz, Archäologische Fundstelle (100(A)7)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario21]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Kurzinventar Denkmalpflege (Alte Post)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario22]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Hecke im Kulturlandplan, Landschaftsschutzzone, Archäologische Fundstelle (100(A)3)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario23]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Hochstammobstbestand, Kantonales Denkmalschutzobjekt (Retterswil 8, Meierhof)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario24]
+  dict({
+    'das-bauvorhaben-befindet-sich-in': dict({
+      'hidden': False,
+      'label': 'das-bauvorhaben-befindet-sich-in',
+      'value': list([
+        dict({
+          'displayValue': 'gewaesserraum',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserraum',
+        }),
+        dict({
+          'displayValue': 'gewaesserschutzbereich',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich',
+        }),
+        dict({
+          'displayValue': 'gefahrenzone',
+          'value': 'das-bauvorhaben-befindet-sich-in-gefahrenzone',
+        }),
+      ]),
+    }),
+    'plan-der-gefahrenkommission': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Hochwasser (Restgefährdung), Hochwasser (geringe Gefährdung), Hochwasser (mittlere Gefährdung)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario25]
+  dict({
+    'zonenplan': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Wohnzone 2',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario26]
+  dict({
+    'das-bauvorhaben-befindet-sich-in': dict({
+      'hidden': False,
+      'label': 'das-bauvorhaben-befindet-sich-in',
+      'value': list([
+        dict({
+          'displayValue': 'gewaesserschutzbereich',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich',
+        }),
+        dict({
+          'displayValue': 'gefahrenzone-massenbewegungen',
+          'value': 'das-bauvorhaben-befindet-sich-in-gefahrenzone-massenbewegungen',
+        }),
+      ]),
+    }),
+    'plan-der-gefahrenkommission': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Permanente Rutschung (permanenter Rutsch)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario27]
+  dict({
+    'gebaeude': dict({
+      'hidden': False,
+      'label': None,
+      'value': list([
+        dict({
+          'amtliche-gebaeudenummer': dict({
+            'label': None,
+            'value': '754',
+          }),
+          'egid-nr': dict({
+            'label': None,
+            'value': '613891',
+          }),
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_ag_client[scenario28]
+  dict({
+    'gestaltungs-und-erschliessungsplan': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'KNP K204 Wiggertalstrasse Aarburg Oftringen Zofingen',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario29]
+  dict({
+    'das-bauvorhaben-befindet-sich-in': dict({
+      'hidden': False,
+      'label': 'das-bauvorhaben-befindet-sich-in',
+      'value': list([
+        dict({
+          'displayValue': 'gewaesserschutzbereich',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich',
+        }),
+        dict({
+          'displayValue': 'pruefperimeter-bodenaushub',
+          'value': 'das-bauvorhaben-befindet-sich-in-pruefperimeter-bodenaushub',
+        }),
+        dict({
+          'displayValue': 'eisenbahnlinie',
+          'value': 'das-bauvorhaben-befindet-sich-in-eisenbahnlinie',
+        }),
+        dict({
+          'displayValue': 'risikokataster-chemiesicherheit',
+          'value': 'das-bauvorhaben-befindet-sich-in-risikokataster-chemiesicherheit',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_ag_client[scenario2]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Landschaftsschutzzone innerhalb Dekretsgebiet (kant. NP), Landschaften und Naturdenkmäler von nationaler Bedeutung (BLN)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario30]
+  dict({
+    'das-bauvorhaben-befindet-sich-in': dict({
+      'hidden': False,
+      'label': 'das-bauvorhaben-befindet-sich-in',
+      'value': list([
+        dict({
+          'displayValue': 'gewaesserschutzbereich',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich',
+        }),
+        dict({
+          'displayValue': 'grundwasserschutzzone',
+          'value': 'das-bauvorhaben-befindet-sich-in-grundwasserschutzzone',
+        }),
+        dict({
+          'displayValue': 'pruefperimeter-bodenaushub',
+          'value': 'das-bauvorhaben-befindet-sich-in-pruefperimeter-bodenaushub',
+        }),
+        dict({
+          'displayValue': 'risikokataster-chemiesicherheit',
+          'value': 'das-bauvorhaben-befindet-sich-in-risikokataster-chemiesicherheit',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_ag_client[scenario31]
+  dict({
+    'das-bauvorhaben-befindet-sich-in': dict({
+      'hidden': False,
+      'label': 'das-bauvorhaben-befindet-sich-in',
+      'value': list([
+        dict({
+          'displayValue': 'gewaesserraum',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserraum',
+        }),
+        dict({
+          'displayValue': 'gewaesserschutzbereich',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich',
+        }),
+        dict({
+          'displayValue': 'grundwasserschutzzone',
+          'value': 'das-bauvorhaben-befindet-sich-in-grundwasserschutzzone',
+        }),
+        dict({
+          'displayValue': 'pruefperimeter-bodenaushub',
+          'value': 'das-bauvorhaben-befindet-sich-in-pruefperimeter-bodenaushub',
+        }),
+        dict({
+          'displayValue': 'risikokataster-chemiesicherheit',
+          'value': 'das-bauvorhaben-befindet-sich-in-risikokataster-chemiesicherheit',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_ag_client[scenario32]
+  dict({
+    'das-bauvorhaben-befindet-sich-in': dict({
+      'hidden': False,
+      'label': 'das-bauvorhaben-befindet-sich-in',
+      'value': list([
+        dict({
+          'displayValue': 'gewaesserraum',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserraum',
+        }),
+        dict({
+          'displayValue': 'gewaesserschutzbereich',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich',
+        }),
+        dict({
+          'displayValue': 'pruefperimeter-bodenaushub',
+          'value': 'das-bauvorhaben-befindet-sich-in-pruefperimeter-bodenaushub',
+        }),
+        dict({
+          'displayValue': 'gefahrenzone',
+          'value': 'das-bauvorhaben-befindet-sich-in-gefahrenzone',
+        }),
+        dict({
+          'displayValue': 'risikokataster-chemiesicherheit',
+          'value': 'das-bauvorhaben-befindet-sich-in-risikokataster-chemiesicherheit',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_ag_client[scenario33]
+  dict({
+    'das-bauvorhaben-befindet-sich-in': dict({
+      'hidden': False,
+      'label': 'das-bauvorhaben-befindet-sich-in',
+      'value': list([
+        dict({
+          'displayValue': 'gewaesserraum',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserraum',
+        }),
+        dict({
+          'displayValue': 'gewaesserschutzbereich',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich',
+        }),
+        dict({
+          'displayValue': 'kataster-belasteter-standorte',
+          'value': 'das-bauvorhaben-befindet-sich-in-kataster-belasteter-standorte',
+        }),
+        dict({
+          'displayValue': 'pruefperimeter-bodenaushub',
+          'value': 'das-bauvorhaben-befindet-sich-in-pruefperimeter-bodenaushub',
+        }),
+        dict({
+          'displayValue': 'gefahrenzone',
+          'value': 'das-bauvorhaben-befindet-sich-in-gefahrenzone',
+        }),
+        dict({
+          'displayValue': 'risikokataster-chemiesicherheit',
+          'value': 'das-bauvorhaben-befindet-sich-in-risikokataster-chemiesicherheit',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_ag_client[scenario34]
+  dict({
+    'das-bauvorhaben-befindet-sich-in': dict({
+      'hidden': False,
+      'label': 'das-bauvorhaben-befindet-sich-in',
+      'value': list([
+        dict({
+          'displayValue': 'gewaesserraum',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserraum',
+        }),
+        dict({
+          'displayValue': 'gewaesserschutzbereich',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich',
+        }),
+        dict({
+          'displayValue': 'pruefperimeter-bodenaushub',
+          'value': 'das-bauvorhaben-befindet-sich-in-pruefperimeter-bodenaushub',
+        }),
+        dict({
+          'displayValue': 'gefahrenzone',
+          'value': 'das-bauvorhaben-befindet-sich-in-gefahrenzone',
+        }),
+        dict({
+          'displayValue': 'risikokataster-chemiesicherheit',
+          'value': 'das-bauvorhaben-befindet-sich-in-risikokataster-chemiesicherheit',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_ag_client[scenario35]
+  dict({
+    'das-bauvorhaben-befindet-sich-in': dict({
+      'hidden': False,
+      'label': 'das-bauvorhaben-befindet-sich-in',
+      'value': list([
+        dict({
+          'displayValue': 'gewaesserraum',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserraum',
+        }),
+        dict({
+          'displayValue': 'gewaesserschutzbereich',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich',
+        }),
+        dict({
+          'displayValue': 'pruefperimeter-bodenaushub',
+          'value': 'das-bauvorhaben-befindet-sich-in-pruefperimeter-bodenaushub',
+        }),
+        dict({
+          'displayValue': 'gefahrenzone',
+          'value': 'das-bauvorhaben-befindet-sich-in-gefahrenzone',
+        }),
+        dict({
+          'displayValue': 'risikokataster-chemiesicherheit',
+          'value': 'das-bauvorhaben-befindet-sich-in-risikokataster-chemiesicherheit',
+        }),
+      ]),
+    }),
+    'kantonsstrassen': dict({
+      'displayValue': 'ja',
+      'hidden': False,
+      'label': 'kantonsstrassen',
+      'value': 'kantonsstrassen-ja',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario36]
+  dict({
+    'waldareal': dict({
+      'displayValue': 'ja',
+      'hidden': False,
+      'label': 'waldareal',
+      'value': 'waldareal-ja',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario37]
+  dict({
+    'das-bauvorhaben-befindet-sich-in': dict({
+      'hidden': False,
+      'label': 'das-bauvorhaben-befindet-sich-in',
+      'value': list([
+        dict({
+          'displayValue': 'gewaesserraum',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserraum',
+        }),
+        dict({
+          'displayValue': 'gewaesserschutzbereich',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich',
+        }),
+        dict({
+          'displayValue': 'pruefperimeter-bodenaushub',
+          'value': 'das-bauvorhaben-befindet-sich-in-pruefperimeter-bodenaushub',
+        }),
+        dict({
+          'displayValue': 'eisenbahnlinie',
+          'value': 'das-bauvorhaben-befindet-sich-in-eisenbahnlinie',
+        }),
+        dict({
+          'displayValue': 'gefahrenzone',
+          'value': 'das-bauvorhaben-befindet-sich-in-gefahrenzone',
+        }),
+        dict({
+          'displayValue': 'risikokataster-chemiesicherheit',
+          'value': 'das-bauvorhaben-befindet-sich-in-risikokataster-chemiesicherheit',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_ag_client[scenario38]
+  dict({
+    'das-bauvorhaben-befindet-sich-in': dict({
+      'hidden': False,
+      'label': 'das-bauvorhaben-befindet-sich-in',
+      'value': list([
+        dict({
+          'displayValue': 'gewaesserraum',
+          'value': 'das-bauvorhaben-befindet-sich-in-gewaesserraum',
+        }),
+        dict({
+          'displayValue': 'kataster-belasteter-standorte',
+          'value': 'das-bauvorhaben-befindet-sich-in-kataster-belasteter-standorte',
+        }),
+        dict({
+          'displayValue': 'gefahrenzone',
+          'value': 'das-bauvorhaben-befindet-sich-in-gefahrenzone',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_ag_client[scenario3]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Landschaften und Naturdenkmäler von nationaler Bedeutung (BLN), Landschaftsschutzzone',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario4]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Landschaftsschutzzone innerhalb Dekretsgebiet (kant. NP), Landschaften und Naturdenkmäler von nationaler Bedeutung (BLN), Wildtierkorridor (AG-R12), Naturschutzgebiet von kant. Bedeutung (NkB)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario5]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Wasserzone innerhalb Dekretsgebiet (kant. NP), Landschaften und Naturdenkmäler von nationaler Bedeutung (BLN), Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung, Auengebiet von nationaler Bedeutung',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario6]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Landschaften und Naturdenkmäler von nationaler Bedeutung (BLN), Trockenwiese oder -weide von nationaler Bedeutung, Hecke im Kulturlandplan, Naturschutzgebiet von kant. Bedeutung (NkB)',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario7]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Waldnaturschutzinventar (Zurlindeninsel), Amphibienlaichgebiet von nationaler Bedeutung, Auengebiet von nationaler Bedeutung, Weitere überlagerte Schutzzone, Feucht- und Nassstandort',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario8]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Amphibienlaichgebiet von nationaler Bedeutung',
+    }),
+  })
+# ---
+# name: test_ag_client[scenario9]
+  dict({
+    'ueberlagerte-schutzzonen-und-schutzobjekte': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Hecke im Kulturlandplan, Landschaftsschutzzone',
+    }),
+  })
+# ---

@@ -1,0 +1,866 @@
+interactions:
+- request:
+    body: geometry=2650102%2C1238631%2C2650104%2C1238633&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '968'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 13:41:25 GMT
+      ETag:
+      - '"45289c0e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 13:42:25 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510bd84901be7c08e95169e1ed86619a46be29461ad611818b48153b685eba7065f33db21b7f3f047b9ee9f508f6f1ea1036a963b0e5d43cbe9c6eedc6165469b94;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51027e7515988d57965036f9a59b8679100e29461ad611818b48153b685eba7065f5a74e1760ff85ca208b85ffd7d58c9b7ef3543d08f87770966d0ef078ebf95f7;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650083%2C1238612%2C2650123%2C1238652&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce51027e7515988d57965036f9a59b8679100e29461ad611818b48153b685eba7065f5a74e1760ff85ca208b85ffd7d58c9b7ef3543d08f87770966d0ef078ebf95f7;
+        TS014419e9=0100bce510bd84901be7c08e95169e1ed86619a46be29461ad611818b48153b685eba7065f33db21b7f3f047b9ee9f508f6f1ea1036a963b0e5d43cbe9c6eedc6165469b94;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":1,\"layerName\":\"Gemeinden
+        (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oberkulm\",\"attributes\":{\"OBJECTID\":\"36\",\"GDENR\":\"4140\",\"GEMEINDE\":\"Oberkulm\",\"GEMEINDEZ\":\"Oberkulm\",\"GEMEINDEU\":\"Oberkulm\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9413301.319156\",\"SHAPE.STLength()\":\"15224.789428\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"63105061\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"NUMMER\":\"14\",\"ART\":\"Liegenschaft\",\"ORI\":\"334.8\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"84\",\"attributes\":{\"OBJECTID\":\"60849902\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000084\",\"NUMMER\":\"84\",\"EGRID\":\"CH873981707603\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"8973\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"8972.515762\",\"SHAPE.STLength()\":\"466.57634\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"60848589\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000014\",\"NUMMER\":\"14\",\"EGRID\":\"CH757076813990\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2141\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2141.473471\",\"SHAPE.STLength()\":\"1345.842669\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37167\",\"attributes\":{\"OBJECTID\":\"37167\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"GeschNr\":\"BVUARE.86.440\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3111\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1258957.915253\",\"SHAPE.STLength()\":\"21543.157655\"}},{\"layerId\":492,\"layerName\":\"Gesch\xFCtzte
+        Kulturobjekte im Kulturlandplan\",\"displayFieldName\":\"NameNummer\",\"value\":\"132\",\"attributes\":{\"OBJECTID\":\"9083\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"82\",\"HNBez\":\"Kulturobjekte\",\"KTCode\":\"8223\",\"KTAbk\":\"Brkl\",\"KTBez\":\"Brunnen,
+        gesch\xFCtzt\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"822301\",\"GDEBez\":\"Brunnen\",\"GDEAbk\":\"BRU\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"132\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"GeschNr\":\"BVUARE.97.1548\",\"Bemerkungen\":\"Null\",\"SHAPE\":\"Point\",\"KTLabel\":\"Null\",\"KTAAbk\":\"KO\",\"Geolink\":\"975\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"ja\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"2791243\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"Gemeinde\":\"Schlossrued\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4142\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"414.101857\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"1500\",\"NUMMER\":\"021.261\",\"TYP\":\"S2\",\"TYPKANT\":\"S2\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9838.354715\",\"SHAPE.STLength()\":\"536.657416\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"849\",\"NUMMER\":\"021.261\",\"TYP\":\"S3\",\"TYPKANT\":\"S3\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"20228.046095\",\"SHAPE.STLength()\":\"959.257361\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154659\",\"attributes\":{\"OBJECTID\":\"154659\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone
+        I\",\"GDEAbk\":\"LWZI\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.440\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3111\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1964426.408708\",\"Shape.STLength()\":\"28852.084518\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1973'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 13:41:26 GMT
+      ETag:
+      - '"e6b62ea1"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 13:42:25 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510bd84901be7c08e95169e1ed86619a46be29461ad611818b48153b685eba7065f33db21b7f3f047b9ee9f508f6f1ea1036a963b0e5d43cbe9c6eedc6165469b94;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51027e7515988d57965036f9a59b8679100e29461ad611818b48153b685eba7065f5a74e1760ff85ca208b85ffd7d58c9b7ef3543d08f87770966d0ef078ebf95f7;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650102%2C1238631%2C2650104%2C1238633&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '968'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:08:54 GMT
+      ETag:
+      - '"45289c0e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:09:54 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510267b4bbe72940ecb0c767845f7164557da7f44168e1c8b3cf47bcc94c5f6ebd50c81c465cde2cb8906eb008173224d3aed8b9d0ffd72445cf1de4cf82e53971f;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ce2746c994ce37bb42b0b8f0f96eec0cda7f44168e1c8b3cf47bcc94c5f6ebd5643f4a80c2bb0ea6cd970fee91c04c6dcbd6fcda8bb4c3df81270eb289b12829;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650083%2C1238612%2C2650123%2C1238652&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510ce2746c994ce37bb42b0b8f0f96eec0cda7f44168e1c8b3cf47bcc94c5f6ebd5643f4a80c2bb0ea6cd970fee91c04c6dcbd6fcda8bb4c3df81270eb289b12829;
+        TS014419e9=0100bce510267b4bbe72940ecb0c767845f7164557da7f44168e1c8b3cf47bcc94c5f6ebd50c81c465cde2cb8906eb008173224d3aed8b9d0ffd72445cf1de4cf82e53971f;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":1,\"layerName\":\"Gemeinden
+        (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oberkulm\",\"attributes\":{\"OBJECTID\":\"36\",\"GDENR\":\"4140\",\"GEMEINDE\":\"Oberkulm\",\"GEMEINDEZ\":\"Oberkulm\",\"GEMEINDEU\":\"Oberkulm\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9413301.319156\",\"SHAPE.STLength()\":\"15224.789428\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"63105061\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"NUMMER\":\"14\",\"ART\":\"Liegenschaft\",\"ORI\":\"334.8\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"84\",\"attributes\":{\"OBJECTID\":\"60849902\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000084\",\"NUMMER\":\"84\",\"EGRID\":\"CH873981707603\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"8973\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"8972.515762\",\"SHAPE.STLength()\":\"466.57634\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"60848589\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000014\",\"NUMMER\":\"14\",\"EGRID\":\"CH757076813990\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2141\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2141.473471\",\"SHAPE.STLength()\":\"1345.842669\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37167\",\"attributes\":{\"OBJECTID\":\"37167\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"GeschNr\":\"BVUARE.86.440\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3111\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1258957.915253\",\"SHAPE.STLength()\":\"21543.157655\"}},{\"layerId\":492,\"layerName\":\"Gesch\xFCtzte
+        Kulturobjekte im Kulturlandplan\",\"displayFieldName\":\"NameNummer\",\"value\":\"132\",\"attributes\":{\"OBJECTID\":\"9083\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"82\",\"HNBez\":\"Kulturobjekte\",\"KTCode\":\"8223\",\"KTAbk\":\"Brkl\",\"KTBez\":\"Brunnen,
+        gesch\xFCtzt\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"822301\",\"GDEBez\":\"Brunnen\",\"GDEAbk\":\"BRU\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"132\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"GeschNr\":\"BVUARE.97.1548\",\"Bemerkungen\":\"Null\",\"SHAPE\":\"Point\",\"KTLabel\":\"Null\",\"KTAAbk\":\"KO\",\"Geolink\":\"975\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"ja\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"2791243\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"Gemeinde\":\"Schlossrued\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4142\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"414.101857\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"1500\",\"NUMMER\":\"021.261\",\"TYP\":\"S2\",\"TYPKANT\":\"S2\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9838.354715\",\"SHAPE.STLength()\":\"536.657416\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"849\",\"NUMMER\":\"021.261\",\"TYP\":\"S3\",\"TYPKANT\":\"S3\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"20228.046095\",\"SHAPE.STLength()\":\"959.257361\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154659\",\"attributes\":{\"OBJECTID\":\"154659\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone
+        I\",\"GDEAbk\":\"LWZI\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.440\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3111\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1964426.408708\",\"Shape.STLength()\":\"28852.084518\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1973'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:08:55 GMT
+      ETag:
+      - '"e6b62ea1"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:09:54 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510267b4bbe72940ecb0c767845f7164557da7f44168e1c8b3cf47bcc94c5f6ebd50c81c465cde2cb8906eb008173224d3aed8b9d0ffd72445cf1de4cf82e53971f;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ce2746c994ce37bb42b0b8f0f96eec0cda7f44168e1c8b3cf47bcc94c5f6ebd5643f4a80c2bb0ea6cd970fee91c04c6dcbd6fcda8bb4c3df81270eb289b12829;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650102%2C1238631%2C2650104%2C1238633&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '968'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:28 GMT
+      ETag:
+      - '"45289c0e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:27 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5103fa45a5051df241cf60446889eaf2498e74519b179b845848e80147b81ce19ef500b05ce83c5827a1ebadac1b71f22cdec585fcae6f9f3822272088e64535fb2;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510e904a235b5d2436c48e96cd9e2212aa4e74519b179b845848e80147b81ce19efd4cbfc238e0529b635619c53b700d1a9a3c8fbbed6c1c8e6cb19af30dd9420ea;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650083%2C1238612%2C2650123%2C1238652&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510e904a235b5d2436c48e96cd9e2212aa4e74519b179b845848e80147b81ce19efd4cbfc238e0529b635619c53b700d1a9a3c8fbbed6c1c8e6cb19af30dd9420ea;
+        TS014419e9=0100bce5103fa45a5051df241cf60446889eaf2498e74519b179b845848e80147b81ce19ef500b05ce83c5827a1ebadac1b71f22cdec585fcae6f9f3822272088e64535fb2;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":1,\"layerName\":\"Gemeinden
+        (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oberkulm\",\"attributes\":{\"OBJECTID\":\"36\",\"GDENR\":\"4140\",\"GEMEINDE\":\"Oberkulm\",\"GEMEINDEZ\":\"Oberkulm\",\"GEMEINDEU\":\"Oberkulm\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9413301.319156\",\"SHAPE.STLength()\":\"15224.789428\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"63105061\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"NUMMER\":\"14\",\"ART\":\"Liegenschaft\",\"ORI\":\"334.8\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"84\",\"attributes\":{\"OBJECTID\":\"60849902\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000084\",\"NUMMER\":\"84\",\"EGRID\":\"CH873981707603\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"8973\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"8972.515762\",\"SHAPE.STLength()\":\"466.57634\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"60848589\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000014\",\"NUMMER\":\"14\",\"EGRID\":\"CH757076813990\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2141\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2141.473471\",\"SHAPE.STLength()\":\"1345.842669\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37167\",\"attributes\":{\"OBJECTID\":\"37167\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"GeschNr\":\"BVUARE.86.440\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3111\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1258957.915253\",\"SHAPE.STLength()\":\"21543.157655\"}},{\"layerId\":492,\"layerName\":\"Gesch\xFCtzte
+        Kulturobjekte im Kulturlandplan\",\"displayFieldName\":\"NameNummer\",\"value\":\"132\",\"attributes\":{\"OBJECTID\":\"9083\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"82\",\"HNBez\":\"Kulturobjekte\",\"KTCode\":\"8223\",\"KTAbk\":\"Brkl\",\"KTBez\":\"Brunnen,
+        gesch\xFCtzt\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"822301\",\"GDEBez\":\"Brunnen\",\"GDEAbk\":\"BRU\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"132\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"GeschNr\":\"BVUARE.97.1548\",\"Bemerkungen\":\"Null\",\"SHAPE\":\"Point\",\"KTLabel\":\"Null\",\"KTAAbk\":\"KO\",\"Geolink\":\"975\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"ja\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"2791243\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"Gemeinde\":\"Schlossrued\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4142\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"414.101857\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"1500\",\"NUMMER\":\"021.261\",\"TYP\":\"S2\",\"TYPKANT\":\"S2\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9838.354715\",\"SHAPE.STLength()\":\"536.657416\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"849\",\"NUMMER\":\"021.261\",\"TYP\":\"S3\",\"TYPKANT\":\"S3\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"20228.046095\",\"SHAPE.STLength()\":\"959.257361\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154659\",\"attributes\":{\"OBJECTID\":\"154659\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone
+        I\",\"GDEAbk\":\"LWZI\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.440\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3111\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1964426.408708\",\"Shape.STLength()\":\"28852.084518\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1973'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:29 GMT
+      ETag:
+      - '"e6b62ea1"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:28 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5103fa45a5051df241cf60446889eaf2498e74519b179b845848e80147b81ce19ef500b05ce83c5827a1ebadac1b71f22cdec585fcae6f9f3822272088e64535fb2;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510e904a235b5d2436c48e96cd9e2212aa4e74519b179b845848e80147b81ce19efd4cbfc238e0529b635619c53b700d1a9a3c8fbbed6c1c8e6cb19af30dd9420ea;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650102%2C1238631%2C2650104%2C1238633&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '968'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:30 GMT
+      ETag:
+      - '"45289c0e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:29 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5101172c3e7d8fca829bcbbedad9ae7984e29c39acee8848a0874cf1fc97a8b79ff3d9c68bda2cf1dc497f20cba6534325ecb3ad953546c8ea12fcc7fe1c2bae15e;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51011ad793878d20e5b1a9360ae2d2088e429c39acee8848a0874cf1fc97a8b79ff04f62215715d78ba372c19d9a71a0d98b3dff6934a81c54a500d637280c0d79a;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650083%2C1238612%2C2650123%2C1238652&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce51011ad793878d20e5b1a9360ae2d2088e429c39acee8848a0874cf1fc97a8b79ff04f62215715d78ba372c19d9a71a0d98b3dff6934a81c54a500d637280c0d79a;
+        TS014419e9=0100bce5101172c3e7d8fca829bcbbedad9ae7984e29c39acee8848a0874cf1fc97a8b79ff3d9c68bda2cf1dc497f20cba6534325ecb3ad953546c8ea12fcc7fe1c2bae15e;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":1,\"layerName\":\"Gemeinden
+        (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oberkulm\",\"attributes\":{\"OBJECTID\":\"36\",\"GDENR\":\"4140\",\"GEMEINDE\":\"Oberkulm\",\"GEMEINDEZ\":\"Oberkulm\",\"GEMEINDEU\":\"Oberkulm\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9413301.319156\",\"SHAPE.STLength()\":\"15224.789428\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"63105061\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"NUMMER\":\"14\",\"ART\":\"Liegenschaft\",\"ORI\":\"334.8\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"84\",\"attributes\":{\"OBJECTID\":\"60849902\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000084\",\"NUMMER\":\"84\",\"EGRID\":\"CH873981707603\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"8973\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"8972.515762\",\"SHAPE.STLength()\":\"466.57634\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"60848589\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000014\",\"NUMMER\":\"14\",\"EGRID\":\"CH757076813990\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2141\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2141.473471\",\"SHAPE.STLength()\":\"1345.842669\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37167\",\"attributes\":{\"OBJECTID\":\"37167\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"GeschNr\":\"BVUARE.86.440\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3111\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1258957.915253\",\"SHAPE.STLength()\":\"21543.157655\"}},{\"layerId\":492,\"layerName\":\"Gesch\xFCtzte
+        Kulturobjekte im Kulturlandplan\",\"displayFieldName\":\"NameNummer\",\"value\":\"132\",\"attributes\":{\"OBJECTID\":\"9083\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"82\",\"HNBez\":\"Kulturobjekte\",\"KTCode\":\"8223\",\"KTAbk\":\"Brkl\",\"KTBez\":\"Brunnen,
+        gesch\xFCtzt\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"822301\",\"GDEBez\":\"Brunnen\",\"GDEAbk\":\"BRU\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"132\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"GeschNr\":\"BVUARE.97.1548\",\"Bemerkungen\":\"Null\",\"SHAPE\":\"Point\",\"KTLabel\":\"Null\",\"KTAAbk\":\"KO\",\"Geolink\":\"975\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"ja\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"2791243\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"Gemeinde\":\"Schlossrued\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4142\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"414.101857\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"1500\",\"NUMMER\":\"021.261\",\"TYP\":\"S2\",\"TYPKANT\":\"S2\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9838.354715\",\"SHAPE.STLength()\":\"536.657416\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"849\",\"NUMMER\":\"021.261\",\"TYP\":\"S3\",\"TYPKANT\":\"S3\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"20228.046095\",\"SHAPE.STLength()\":\"959.257361\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154659\",\"attributes\":{\"OBJECTID\":\"154659\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone
+        I\",\"GDEAbk\":\"LWZI\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.440\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3111\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1964426.408708\",\"Shape.STLength()\":\"28852.084518\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1973'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:30 GMT
+      ETag:
+      - '"e6b62ea1"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:30 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5101172c3e7d8fca829bcbbedad9ae7984e29c39acee8848a0874cf1fc97a8b79ff3d9c68bda2cf1dc497f20cba6534325ecb3ad953546c8ea12fcc7fe1c2bae15e;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51011ad793878d20e5b1a9360ae2d2088e429c39acee8848a0874cf1fc97a8b79ff04f62215715d78ba372c19d9a71a0d98b3dff6934a81c54a500d637280c0d79a;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650102%2C1238631%2C2650104%2C1238633&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '968'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:51:57 GMT
+      ETag:
+      - '"45289c0e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:52:57 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510df595bbb971945fa21dce7fcc6f74fcfe7c988e964df084455b6ef36b60ef283c8fbfae29d318c060019f64b84736cfa48a16662001d074c6181e3c347986ca4;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51059b00fbe59b29079575c2978b9e1aea0e7c988e964df084455b6ef36b60ef28365b6466e53405d5654a11b754e7358deb3e01e8b4c9e41ac262f4fe72b910a50;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650083%2C1238612%2C2650123%2C1238652&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce51059b00fbe59b29079575c2978b9e1aea0e7c988e964df084455b6ef36b60ef28365b6466e53405d5654a11b754e7358deb3e01e8b4c9e41ac262f4fe72b910a50;
+        TS014419e9=0100bce510df595bbb971945fa21dce7fcc6f74fcfe7c988e964df084455b6ef36b60ef283c8fbfae29d318c060019f64b84736cfa48a16662001d074c6181e3c347986ca4;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":1,\"layerName\":\"Gemeinden
+        (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oberkulm\",\"attributes\":{\"OBJECTID\":\"36\",\"GDENR\":\"4140\",\"GEMEINDE\":\"Oberkulm\",\"GEMEINDEZ\":\"Oberkulm\",\"GEMEINDEU\":\"Oberkulm\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9413301.319156\",\"SHAPE.STLength()\":\"15224.789428\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"63105061\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"NUMMER\":\"14\",\"ART\":\"Liegenschaft\",\"ORI\":\"334.8\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"84\",\"attributes\":{\"OBJECTID\":\"60849902\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000084\",\"NUMMER\":\"84\",\"EGRID\":\"CH873981707603\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"8973\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"8972.515762\",\"SHAPE.STLength()\":\"466.57634\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"60848589\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000014\",\"NUMMER\":\"14\",\"EGRID\":\"CH757076813990\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2141\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2141.473471\",\"SHAPE.STLength()\":\"1345.842669\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37167\",\"attributes\":{\"OBJECTID\":\"37167\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"GeschNr\":\"BVUARE.86.440\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3111\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1258957.915253\",\"SHAPE.STLength()\":\"21543.157655\"}},{\"layerId\":492,\"layerName\":\"Gesch\xFCtzte
+        Kulturobjekte im Kulturlandplan\",\"displayFieldName\":\"NameNummer\",\"value\":\"132\",\"attributes\":{\"OBJECTID\":\"9083\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"82\",\"HNBez\":\"Kulturobjekte\",\"KTCode\":\"8223\",\"KTAbk\":\"Brkl\",\"KTBez\":\"Brunnen,
+        gesch\xFCtzt\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"822301\",\"GDEBez\":\"Brunnen\",\"GDEAbk\":\"BRU\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"132\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"GeschNr\":\"BVUARE.97.1548\",\"Bemerkungen\":\"Null\",\"SHAPE\":\"Point\",\"KTLabel\":\"Null\",\"KTAAbk\":\"KO\",\"Geolink\":\"975\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"ja\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"2791243\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"Gemeinde\":\"Schlossrued\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4142\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"414.101857\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"1500\",\"NUMMER\":\"021.261\",\"TYP\":\"S2\",\"TYPKANT\":\"S2\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9838.354715\",\"SHAPE.STLength()\":\"536.657416\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"849\",\"NUMMER\":\"021.261\",\"TYP\":\"S3\",\"TYPKANT\":\"S3\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"20228.046095\",\"SHAPE.STLength()\":\"959.257361\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154659\",\"attributes\":{\"OBJECTID\":\"154659\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone
+        I\",\"GDEAbk\":\"LWZI\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.440\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3111\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1964426.408708\",\"Shape.STLength()\":\"28852.084518\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1973'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:51:58 GMT
+      ETag:
+      - '"e6b62ea1"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:52:57 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510df595bbb971945fa21dce7fcc6f74fcfe7c988e964df084455b6ef36b60ef283c8fbfae29d318c060019f64b84736cfa48a16662001d074c6181e3c347986ca4;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51059b00fbe59b29079575c2978b9e1aea0e7c988e964df084455b6ef36b60ef28365b6466e53405d5654a11b754e7358deb3e01e8b4c9e41ac262f4fe72b910a50;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650102%2C1238631%2C2650104%2C1238633&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '968'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 10:59:57 GMT
+      ETag:
+      - '"45289c0e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:00:57 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510d831b3eb260ebbdd2efe4dd1d5c25405156be2b29bab55dd3b04e806b02c7806f17a53d67e511261ca988a7c1d2c1d902d1dac7c2c3146df7bab158928abb472;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51077d2436d7d598020c95a408232ec6d4a156be2b29bab55dd3b04e806b02c7806e1a5d8dc59edef03805009719b601933b91d4efe16386c65d750e4f782ee53a8;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650083%2C1238612%2C2650123%2C1238652&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce51077d2436d7d598020c95a408232ec6d4a156be2b29bab55dd3b04e806b02c7806e1a5d8dc59edef03805009719b601933b91d4efe16386c65d750e4f782ee53a8;
+        TS014419e9=0100bce510d831b3eb260ebbdd2efe4dd1d5c25405156be2b29bab55dd3b04e806b02c7806f17a53d67e511261ca988a7c1d2c1d902d1dac7c2c3146df7bab158928abb472;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"30\",\"GDENR\":\"4142\",\"GEMEINDE\":\"Schlossrued\",\"GEMEINDEZ\":\"Schlossrued\",\"GEMEINDEU\":\"Schlossrued\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7246092.943553\",\"SHAPE.STLength()\":\"15875.13273\"}},{\"layerId\":1,\"layerName\":\"Gemeinden
+        (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oberkulm\",\"attributes\":{\"OBJECTID\":\"36\",\"GDENR\":\"4140\",\"GEMEINDE\":\"Oberkulm\",\"GEMEINDEZ\":\"Oberkulm\",\"GEMEINDEU\":\"Oberkulm\",\"BZNR\":\"1905\",\"BEZIRK\":\"Kulm\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9413301.319156\",\"SHAPE.STLength()\":\"15224.789428\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"63105061\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"NUMMER\":\"14\",\"ART\":\"Liegenschaft\",\"ORI\":\"334.8\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"408\",\"attributes\":{\"OBJECTID\":\"60850844\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"GDENRPARZ\":\"414200408\",\"NUMMER\":\"408\",\"EGRID\":\"CH468676397362\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"279513\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"279512.947144\",\"SHAPE.STLength()\":\"3126.274032\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"84\",\"attributes\":{\"OBJECTID\":\"60849902\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000084\",\"NUMMER\":\"84\",\"EGRID\":\"CH873981707603\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"8973\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"8972.515762\",\"SHAPE.STLength()\":\"466.57634\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"14\",\"attributes\":{\"OBJECTID\":\"60848589\",\"FILEID\":\"175\",\"GDENR\":\"4140\",\"GDENRPARZ\":\"414000014\",\"NUMMER\":\"14\",\"EGRID\":\"CH757076813990\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2141\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2141.473471\",\"SHAPE.STLength()\":\"1345.842669\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37167\",\"attributes\":{\"OBJECTID\":\"37167\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"GeschNr\":\"BVUARE.86.440\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3111\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1258957.915253\",\"SHAPE.STLength()\":\"21543.157655\"}},{\"layerId\":492,\"layerName\":\"Gesch\xFCtzte
+        Kulturobjekte im Kulturlandplan\",\"displayFieldName\":\"NameNummer\",\"value\":\"132\",\"attributes\":{\"OBJECTID\":\"9083\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"82\",\"HNBez\":\"Kulturobjekte\",\"KTCode\":\"8223\",\"KTAbk\":\"Brkl\",\"KTBez\":\"Brunnen,
+        gesch\xFCtzt\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"822301\",\"GDEBez\":\"Brunnen\",\"GDEAbk\":\"BRU\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"132\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"GeschNr\":\"BVUARE.97.1548\",\"Bemerkungen\":\"Null\",\"SHAPE\":\"Point\",\"KTLabel\":\"Null\",\"KTAAbk\":\"KO\",\"Geolink\":\"975\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"ja\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Schlossrued\",\"attributes\":{\"OBJECTID\":\"2791243\",\"FILEID\":\"80\",\"GDENR\":\"4142\",\"Gemeinde\":\"Schlossrued\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4142\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"414.101857\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"1500\",\"NUMMER\":\"021.261\",\"TYP\":\"S2\",\"TYPKANT\":\"S2\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"9838.354715\",\"SHAPE.STLength()\":\"536.657416\"}},{\"layerId\":92,\"layerName\":\"Grundwasserschutzzonen\",\"displayFieldName\":\"NUMMER\",\"value\":\"021.261\",\"attributes\":{\"OBJECTID\":\"849\",\"NUMMER\":\"021.261\",\"TYP\":\"S3\",\"TYPKANT\":\"S3\",\"ISTARECHT\":\"falsch\",\"RECHTSSTAT\":\"inKraft\",\"RECHTDATUM\":\"13.05.2015\",\"BEMSTATUS\":\"Null\",\"GEOLINK\":\"543\",\"BEZEICHNUNG\":\"Quellwasserfassung
+        Junkernwald\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"20228.046095\",\"SHAPE.STLength()\":\"959.257361\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"1002\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"1002\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"154066.709084\",\"SHAPE.STLength()\":\"1734.082467\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154659\",\"attributes\":{\"OBJECTID\":\"154659\",\"GDENR\":\"Oberkulm
+        4140\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone
+        I\",\"GDEAbk\":\"LWZI\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000492\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.440\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3111\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3111.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1964426.408708\",\"Shape.STLength()\":\"28852.084518\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"28215\",\"attributes\":{\"OBJECTID\":\"28215\",\"GDENR\":\"Schlossrued
+        4142\",\"HNCode\":\"44\",\"HNBez\":\"Wald\",\"KTAAbk\":\"Wald\",\"KTCode\":\"4491\",\"KTAbk\":\"Wa\",\"KTBez\":\"Wald\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"449101\",\"GDEBez\":\"Wald\",\"GDEAbk\":\"Wald\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001317\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.97.1548\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"975\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/975.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"301597.213293\",\"Shape.STLength()\":\"3604.894913\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1973'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 10:59:58 GMT
+      ETag:
+      - '"e6b62ea1"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:00:57 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510d831b3eb260ebbdd2efe4dd1d5c25405156be2b29bab55dd3b04e806b02c7806f17a53d67e511261ca988a7c1d2c1d902d1dac7c2c3146df7bab158928abb472;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51077d2436d7d598020c95a408232ec6d4a156be2b29bab55dd3b04e806b02c7806e1a5d8dc59edef03805009719b601933b91d4efe16386c65d750e4f782ee53a8;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+version: 1
