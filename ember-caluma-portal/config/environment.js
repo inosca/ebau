@@ -584,6 +584,7 @@ module.exports = function (environment) {
             "plangenehmigungsverfahren-gas",
             "vorabklaerung",
             "anfrage-intern",
+            "baugesuch-migration",
           ],
         },
       ],
