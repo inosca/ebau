@@ -1,0 +1,1058 @@
+interactions:
+- request:
+    body: geometry=2665945%2C1245958%2C2665947%2C1245960&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar der
+        Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2415'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 13:41:37 GMT
+      ETag:
+      - '"6e5b9892"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 13:42:37 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5107c7558a1398cd802ba959c1294b00a655f2de029ad372e7f0505891c92efd64a0d051d153906e8c8d28215534e76617479523fb064a723aa036d2e800456e652;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5107c147282f8785f82db5db3232aa344c85f2de029ad372e7f0505891c92efd64a0904c6295fe2f8f460757221d5c3d73a13a2809b8d6966d455972ba1800c3ddf;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2665926%2C1245939%2C2665966%2C1245979&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5107c147282f8785f82db5db3232aa344c85f2de029ad372e7f0505891c92efd64a0904c6295fe2f8f460757221d5c3d73a13a2809b8d6966d455972ba1800c3ddf;
+        TS014419e9=0100bce5107c7558a1398cd802ba959c1294b00a655f2de029ad372e7f0505891c92efd64a0d051d153906e8c8d28215534e76617479523fb064a723aa036d2e800456e652;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"63351084\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"NUMMER\":\"303\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar der
+        Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"913\",\"ObjNummer\":\"2769\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-flachmoore/objectsheets/2020revision/nr2769.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"01.11.2017\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27896.803908\",\"Shape.STLength()\":\"1443.149171\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2987\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"11\",\"HM_KE\":\"11\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"17650.791975\",\"Shape.STLength()\":\"1448.317538\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2991\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"18\",\"HM_KE\":\"18\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3731.187276\",\"Shape.STLength()\":\"302.752798\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2985\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"7\",\"HM_KE\":\"7\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"5180.422391\",\"Shape.STLength()\":\"402.546747\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"12534\",\"attributes\":{\"OBJECTID\":\"12534\",\"NAME\":\"Null\",\"SBREITE\":\"Null\",\"BNUM\":\"Null\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"See\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4067\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12508.417556\",\"SHAPE.STLength()\":\"1647.042078\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2801'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 13:41:38 GMT
+      ETag:
+      - '"714bb7b5"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 13:42:37 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5107c7558a1398cd802ba959c1294b00a655f2de029ad372e7f0505891c92efd64a0d051d153906e8c8d28215534e76617479523fb064a723aa036d2e800456e652;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5107c147282f8785f82db5db3232aa344c85f2de029ad372e7f0505891c92efd64a0904c6295fe2f8f460757221d5c3d73a13a2809b8d6966d455972ba1800c3ddf;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2665945%2C1245958%2C2665947%2C1245960&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar der
+        Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2415'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:09:03 GMT
+      ETag:
+      - '"6e5b9892"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:10:02 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5102bd17c47e55de885c501f346697d62866f5817f46293294e74acbb172743c2808ebfa464d1a012898d31aeb1a3ee409501ec7929c9337776777ac2a556a220b2;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51023fec49e96072f1c4e6920aa8dcfe48e6f5817f46293294e74acbb172743c28096c19967e010a47f93409966cd8a82018cab9170709625701bc40df190bf0e40;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2665926%2C1245939%2C2665966%2C1245979&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce51023fec49e96072f1c4e6920aa8dcfe48e6f5817f46293294e74acbb172743c28096c19967e010a47f93409966cd8a82018cab9170709625701bc40df190bf0e40;
+        TS014419e9=0100bce5102bd17c47e55de885c501f346697d62866f5817f46293294e74acbb172743c2808ebfa464d1a012898d31aeb1a3ee409501ec7929c9337776777ac2a556a220b2;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"63351084\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"NUMMER\":\"303\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar der
+        Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"913\",\"ObjNummer\":\"2769\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-flachmoore/objectsheets/2020revision/nr2769.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"01.11.2017\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27896.803908\",\"Shape.STLength()\":\"1443.149171\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2987\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"11\",\"HM_KE\":\"11\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"17650.791975\",\"Shape.STLength()\":\"1448.317538\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2991\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"18\",\"HM_KE\":\"18\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3731.187276\",\"Shape.STLength()\":\"302.752798\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2985\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"7\",\"HM_KE\":\"7\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"5180.422391\",\"Shape.STLength()\":\"402.546747\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"12534\",\"attributes\":{\"OBJECTID\":\"12534\",\"NAME\":\"Null\",\"SBREITE\":\"Null\",\"BNUM\":\"Null\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"See\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4067\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12508.417556\",\"SHAPE.STLength()\":\"1647.042078\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2801'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:09:03 GMT
+      ETag:
+      - '"714bb7b5"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:10:03 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5102bd17c47e55de885c501f346697d62866f5817f46293294e74acbb172743c2808ebfa464d1a012898d31aeb1a3ee409501ec7929c9337776777ac2a556a220b2;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51023fec49e96072f1c4e6920aa8dcfe48e6f5817f46293294e74acbb172743c28096c19967e010a47f93409966cd8a82018cab9170709625701bc40df190bf0e40;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2665945%2C1245958%2C2665947%2C1245960&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar der
+        Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2415'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:37 GMT
+      ETag:
+      - '"6e5b9892"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:37 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510fba8afb9db6ca125dfc0da7cf4d2869f0c3d8c0b7940332998fc88e27421118001402b29cb0660b5bcc00ee6a81f646548ef5044fb9f31e7e229eba56a411d08;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510a24cc2c49f41089fcb3edc6b42d023720c3d8c0b7940332998fc88e274211180b104cf6a60038bfddd37c4edfa6ecc19e695bf7c1473c16619fd613d12696e4b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2665926%2C1245939%2C2665966%2C1245979&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510a24cc2c49f41089fcb3edc6b42d023720c3d8c0b7940332998fc88e274211180b104cf6a60038bfddd37c4edfa6ecc19e695bf7c1473c16619fd613d12696e4b;
+        TS014419e9=0100bce510fba8afb9db6ca125dfc0da7cf4d2869f0c3d8c0b7940332998fc88e27421118001402b29cb0660b5bcc00ee6a81f646548ef5044fb9f31e7e229eba56a411d08;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"63351084\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"NUMMER\":\"303\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar der
+        Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"913\",\"ObjNummer\":\"2769\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-flachmoore/objectsheets/2020revision/nr2769.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"01.11.2017\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27896.803908\",\"Shape.STLength()\":\"1443.149171\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2987\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"11\",\"HM_KE\":\"11\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"17650.791975\",\"Shape.STLength()\":\"1448.317538\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2991\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"18\",\"HM_KE\":\"18\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3731.187276\",\"Shape.STLength()\":\"302.752798\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2985\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"7\",\"HM_KE\":\"7\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"5180.422391\",\"Shape.STLength()\":\"402.546747\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"12534\",\"attributes\":{\"OBJECTID\":\"12534\",\"NAME\":\"Null\",\"SBREITE\":\"Null\",\"BNUM\":\"Null\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"See\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4067\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12508.417556\",\"SHAPE.STLength()\":\"1647.042078\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2801'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:38 GMT
+      ETag:
+      - '"714bb7b5"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:37 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510fba8afb9db6ca125dfc0da7cf4d2869f0c3d8c0b7940332998fc88e27421118001402b29cb0660b5bcc00ee6a81f646548ef5044fb9f31e7e229eba56a411d08;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510a24cc2c49f41089fcb3edc6b42d023720c3d8c0b7940332998fc88e274211180b104cf6a60038bfddd37c4edfa6ecc19e695bf7c1473c16619fd613d12696e4b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2665945%2C1245958%2C2665947%2C1245960&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar der
+        Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2415'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:39 GMT
+      ETag:
+      - '"6e5b9892"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:39 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510b7aa8ff9122648c4ee8538cec9f06daccc7d49b6b808c181f8fb1ce14e742f6bf9196761fcc44e85b19a0ada61b4a5329264b281399b14d9d687e6ba26fcfa44;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5106a88f09d6b094c17a56bce214428b703cc7d49b6b808c181f8fb1ce14e742f6b657e1380983300dacd3debbf2ad17e36d4ec67ffd325c5601c57726190fe12f6;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2665926%2C1245939%2C2665966%2C1245979&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5106a88f09d6b094c17a56bce214428b703cc7d49b6b808c181f8fb1ce14e742f6b657e1380983300dacd3debbf2ad17e36d4ec67ffd325c5601c57726190fe12f6;
+        TS014419e9=0100bce510b7aa8ff9122648c4ee8538cec9f06daccc7d49b6b808c181f8fb1ce14e742f6bf9196761fcc44e85b19a0ada61b4a5329264b281399b14d9d687e6ba26fcfa44;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"63351084\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"NUMMER\":\"303\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar der
+        Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"913\",\"ObjNummer\":\"2769\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-flachmoore/objectsheets/2020revision/nr2769.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"01.11.2017\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27896.803908\",\"Shape.STLength()\":\"1443.149171\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2987\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"11\",\"HM_KE\":\"11\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"17650.791975\",\"Shape.STLength()\":\"1448.317538\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2991\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"18\",\"HM_KE\":\"18\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3731.187276\",\"Shape.STLength()\":\"302.752798\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2985\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"7\",\"HM_KE\":\"7\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"5180.422391\",\"Shape.STLength()\":\"402.546747\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"12534\",\"attributes\":{\"OBJECTID\":\"12534\",\"NAME\":\"Null\",\"SBREITE\":\"Null\",\"BNUM\":\"Null\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"See\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4067\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12508.417556\",\"SHAPE.STLength()\":\"1647.042078\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2801'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:40 GMT
+      ETag:
+      - '"714bb7b5"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:40 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510b7aa8ff9122648c4ee8538cec9f06daccc7d49b6b808c181f8fb1ce14e742f6bf9196761fcc44e85b19a0ada61b4a5329264b281399b14d9d687e6ba26fcfa44;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5106a88f09d6b094c17a56bce214428b703cc7d49b6b808c181f8fb1ce14e742f6b657e1380983300dacd3debbf2ad17e36d4ec67ffd325c5601c57726190fe12f6;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2665945%2C1245958%2C2665947%2C1245960&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar der
+        Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2415'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:52:05 GMT
+      ETag:
+      - '"6e5b9892"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:53:04 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5107f7abb201b782eba83cac3c64492e0a1044da9a94fe80a19842b30ef3517d47e9035e80ed2e7d016c25643a44a2baf4ab36d1a051a4172ffaa470a8e2ddb130d;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51053fde915b50f599e57caed82dec42b96044da9a94fe80a19842b30ef3517d47e337b54494231a6abab302519b532783fa29444afb7c5fb209295aaf3b7978c93;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2665926%2C1245939%2C2665966%2C1245979&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce51053fde915b50f599e57caed82dec42b96044da9a94fe80a19842b30ef3517d47e337b54494231a6abab302519b532783fa29444afb7c5fb209295aaf3b7978c93;
+        TS014419e9=0100bce5107f7abb201b782eba83cac3c64492e0a1044da9a94fe80a19842b30ef3517d47e9035e80ed2e7d016c25643a44a2baf4ab36d1a051a4172ffaa470a8e2ddb130d;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"63351084\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"NUMMER\":\"303\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar der
+        Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"913\",\"ObjNummer\":\"2769\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-flachmoore/objectsheets/2020revision/nr2769.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"01.11.2017\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27896.803908\",\"Shape.STLength()\":\"1443.149171\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2987\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"11\",\"HM_KE\":\"11\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"17650.791975\",\"Shape.STLength()\":\"1448.317538\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2991\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"18\",\"HM_KE\":\"18\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3731.187276\",\"Shape.STLength()\":\"302.752798\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2985\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"7\",\"HM_KE\":\"7\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"5180.422391\",\"Shape.STLength()\":\"402.546747\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"12534\",\"attributes\":{\"OBJECTID\":\"12534\",\"NAME\":\"Null\",\"SBREITE\":\"Null\",\"BNUM\":\"Null\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"See\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4067\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12508.417556\",\"SHAPE.STLength()\":\"1647.042078\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2801'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:52:06 GMT
+      ETag:
+      - '"714bb7b5"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:53:05 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5107f7abb201b782eba83cac3c64492e0a1044da9a94fe80a19842b30ef3517d47e9035e80ed2e7d016c25643a44a2baf4ab36d1a051a4172ffaa470a8e2ddb130d;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51053fde915b50f599e57caed82dec42b96044da9a94fe80a19842b30ef3517d47e337b54494231a6abab302519b532783fa29444afb7c5fb209295aaf3b7978c93;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2665945%2C1245958%2C2665947%2C1245960&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar der
+        Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2415'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 11:00:10 GMT
+      ETag:
+      - '"6e5b9892"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:01:08 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510ac0a04dc07796709e29a790bf8840183230df4d8fde662905c24de5dc0b7bb9c6fdec12b51673f811f0c20787c62db514a456119d01eb08477376c425caa3681;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5108e3d3001bcf8cf852bc94970bc438984230df4d8fde662905c24de5dc0b7bb9c734a9117f501fe4bf4ca0bb014d93276f6e631562a2e6197f57fe488f3b44d2b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2665926%2C1245939%2C2665966%2C1245979&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5108e3d3001bcf8cf852bc94970bc438984230df4d8fde662905c24de5dc0b7bb9c734a9117f501fe4bf4ca0bb014d93276f6e631562a2e6197f57fe488f3b44d2b;
+        TS014419e9=0100bce510ac0a04dc07796709e29a790bf8840183230df4d8fde662905c24de5dc0b7bb9c6fdec12b51673f811f0c20787c62db514a456119d01eb08477376c425caa3681;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Fischbach-G\xF6slikon\",\"attributes\":{\"OBJECTID\":\"80\",\"GDENR\":\"4067\",\"GEMEINDE\":\"Fischbach-G\xF6slikon\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"GEMEINDEU\":\"Fischbach-Goeslikon\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3070272.32013\",\"SHAPE.STLength()\":\"11252.77665\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"63351084\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"NUMMER\":\"303\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"303\",\"attributes\":{\"OBJECTID\":\"61086307\",\"FILEID\":\"428\",\"GDENR\":\"4067\",\"GDENRPARZ\":\"406700303\",\"NUMMER\":\"303\",\"EGRID\":\"CH691576785022\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"72632\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"72631.994522\",\"SHAPE.STLength()\":\"1291.596771\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"59\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"Shape\":\"Polygon\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"SHAPE.STArea()\":\"103736.381252\",\"SHAPE.STLength()\":\"1542.739408\",\"FlurnameAV\":\"Fischbacher
+        Moos\",\"NKBNr\":\"95\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar der
+        Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"913\",\"ObjNummer\":\"2769\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-flachmoore/objectsheets/2020revision/nr2769.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"01.11.2017\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27896.803908\",\"Shape.STLength()\":\"1443.149171\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2990\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"2\",\"Einheit\":\"6\",\"HM_KE\":\"26\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1054.850467\",\"Shape.STLength()\":\"139.309524\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2987\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"11\",\"HM_KE\":\"11\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"17650.791975\",\"Shape.STLength()\":\"1448.317538\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2991\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"18\",\"HM_KE\":\"18\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3731.187276\",\"Shape.STLength()\":\"302.752798\"}},{\"layerId\":46,\"layerName\":\"Bundesinventar
+        der Hoch- und \xDCbergangsmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"2985\",\"ObjNummer\":\"83\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-hochmoore/objectsheets/2017revision/nr83.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"Ia\",\"Inkraftsetzungsdatum\":\"01.02.1991\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Einheit\":\"7\",\"HM_KE\":\"7\",\"TeilObjNummer\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"5180.422391\",\"Shape.STLength()\":\"402.546747\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Fischbacher
+        Moos\",\"attributes\":{\"OBJECTID\":\"29\",\"ObjNummer\":\"AG203\",\"Name\":\"Fischbacher
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag203.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"85557.273922\",\"SHAPE.STLength()\":\"1310.373232\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R09\",\"attributes\":{\"OBJECTID\":\"26\",\"WTK_Nr\":\"AG-R09\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Bremgarten\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3150898.661005\",\"Shape.STLength()\":\"7551.736558\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Fischbacher Moos\",\"attributes\":{\"OBJECTID\":\"986\",\"OBJNR\":\"406703\",\"FLUSSTALID\":\"999\",\"GDENR\":\"4067\",\"FKREIS\":\"6\",\"WALDFLA\":\"49\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"19.05.1992\",\"AUTOR\":\"1\",\"OBJFLA\":\"1\",\"FLNAM\":\"Fischbacher
+        Moos\",\"HVON\":\"400\",\"HBIS\":\"0\",\"ANOBJNR1\":\"0\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4105-4106-4107-4108\",\"WP1\":\"0\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"1\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"0\",\"TOTLST30\":\"0\",\"TOTLI15\":\"1\",\"TOTLI30\":\"0\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"0\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"0\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"0\",\"ARTSAEUG\":\"0\",\"ARTORG\":\"0\",\"ELGEOM\":\"1\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"1\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"0\",\"WALDRES\":\"
+        \",\"HIR12A\":\"4\",\"HIR2B\":\"0\",\"HIR3\":\"3\",\"HIR4\":\"0.5\",\"HIRUEB\":\"0\",\"KUM12A\":\"4\",\"KUM2B\":\"0\",\"KUM3\":\"6\",\"KUM4\":\"6\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"0\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"0\",\"E29\":\"0\",\"E30\":\"0\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"0\",\"E45\":\"50\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"0\",\"E29NDH\":\"0\",\"E30NDH\":\"0\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"5\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"0.5\",\"BESTJ\":\"2\",\"BESTBH\":\"5\",\"BESTA\":\"0\",\"MWNW1\":\"0\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12590.875931\",\"SHAPE.STLength()\":\"414.951454\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"12534\",\"attributes\":{\"OBJECTID\":\"12534\",\"NAME\":\"Null\",\"SBREITE\":\"Null\",\"BNUM\":\"Null\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"See\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4067\",\"GEMEINDEZ\":\"Fischbach-G\xF6slikon\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"12508.417556\",\"SHAPE.STLength()\":\"1647.042078\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"30\",\"OBJECTID\":\"71\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"68700949.046403\",\"SHAPE.STLength()\":\"126609.560082\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"157331\",\"attributes\":{\"OBJECTID\":\"157331\",\"GDENR\":\"Fischbach-G\xF6slikon
+        4067\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiet\",\"GDEAbk\":\"F\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2023-000618\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.11.171\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"5002\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5002.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11895.653483\",\"Shape.STLength()\":\"700.201239\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2801'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 11:00:11 GMT
+      ETag:
+      - '"714bb7b5"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:01:10 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510ac0a04dc07796709e29a790bf8840183230df4d8fde662905c24de5dc0b7bb9c6fdec12b51673f811f0c20787c62db514a456119d01eb08477376c425caa3681;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5108e3d3001bcf8cf852bc94970bc438984230df4d8fde662905c24de5dc0b7bb9c734a9117f501fe4bf4ca0bb014d93276f6e631562a2e6197f57fe488f3b44d2b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+version: 1

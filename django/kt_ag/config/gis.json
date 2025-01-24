@@ -1,1 +1,481 @@
-[]
+[
+  {
+    "model": "gis.gisdatasource",
+    "pk": "21456464-9d9c-4813-a604-00df27e5775f",
+    "fields": {
+      "description": "AGIS",
+      "client": "camac.gis.clients.ag.AgGisClient",
+      "config": [
+        {
+          "mapper": "properties",
+          "identifier": "Gemeinden (Einzelflächen)",
+          "properties": [
+            {
+              "question": "ort-grundstueck",
+              "propertyName": "GEMEINDE"
+            },
+            {
+              "question": "gemeinde",
+              "propertyName": "GEMEINDE"
+            }
+          ]
+        },
+        {
+          "type": "Choice",
+          "answer": "ja",
+          "mapper": "exists",
+          "question": "kantonsstrassen",
+          "identifier": "Kantons- und Nationalstrassennetz",
+          "answer_else": "nein",
+          "in_20m_radius": true
+        },
+        {
+          "identifier": "Bauzonen: Grundnutzung",
+          "properties": [
+            {
+              "question": "zonenplan",
+              "propertyName": "KTBez"
+            }
+          ]
+        },
+        {
+          "type": "MultipleChoice",
+          "answer": "gewaesserschutzbereich",
+          "mapper": "exists",
+          "question": "das-bauvorhaben-befindet-sich-in",
+          "identifier": "Gewässerschutzbereich Au",
+          "in_20m_radius": true
+        },
+        {
+          "type": "MultipleChoice",
+          "answer": "gewaesserraum",
+          "mapper": "exists",
+          "question": "das-bauvorhaben-befindet-sich-in",
+          "identifiers": ["Bachkataster", "Gewässerraum", "Dolungen"],
+          "in_20m_radius": true
+        },
+        {
+          "type": "MultipleChoice",
+          "answer": "grundwasserschutzzone",
+          "mapper": "exists",
+          "question": "das-bauvorhaben-befindet-sich-in",
+          "identifier": "Grundwasserschutzzonen",
+          "in_20m_radius": true
+        },
+        {
+          "type": "Choice",
+          "answer": "waldabstandsbereich",
+          "mapper": "exists",
+          "question": "waldareal",
+          "answer_else": "nein",
+          "identifiers": [
+            "Waldgrenze",
+            "WALD",
+            "Waldnaturschutzinventar (Flächen)"
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "type": "Choice",
+          "answer": "ja",
+          "mapper": "exists",
+          "question": "waldareal",
+          "identifiers": [
+            "Waldgrenze",
+            "WALD",
+            "Waldnaturschutzinventar (Flächen)"
+          ]
+        },
+        {
+          "type": "Choice",
+          "answer": "ja",
+          "mapper": "exists",
+          "question": "denkmalschutzobjekt",
+          "identifier": "Kantonale Denkmalschutzobjekte",
+          "answer_else": "nein"
+        },
+        {
+          "type": "Choice",
+          "answer": "ja",
+          "mapper": "exists",
+          "question": "ausserhalb-bauzone",
+          "identifier": "Kulturlandplan: zusammengefasste Legende (6 Kategorien)",
+          "answer_else": "nein"
+        },
+        {
+          "type": "MultipleChoice",
+          "answer": "kataster-belasteter-standorte",
+          "mapper": "exists",
+          "question": "das-bauvorhaben-befindet-sich-in",
+          "identifier": "Belastete Standorte (KBS)",
+          "in_20m_radius": true
+        },
+        {
+          "type": "MultipleChoice",
+          "answer": "laermvorbelastetes-gebiet",
+          "mapper": "exists",
+          "question": "das-bauvorhaben-befindet-sich-in",
+          "identifier": "Bauzonen: Lärmvorbelastete Gebiete",
+          "in_20m_radius": true
+        },
+        {
+          "type": "MultipleChoice",
+          "answer": "pruefperimeter-bodenaushub",
+          "mapper": "exists",
+          "question": "das-bauvorhaben-befindet-sich-in",
+          "identifiers": [
+            "Militärische Schiessplätze",
+            "Rebbaugebiete",
+            "Eisenbahn",
+            "Familiengärten",
+            "Hopfenanbau",
+            "Gärtnereien",
+            "Strassen",
+            "Vorhandene Untersuchungen von Einzelemittenten",
+            "Schiessanlagen Schützenhäuser",
+            "Schiessanlagen Kugelfänge 300m (< 15'000 Schuss)",
+            "Schiessanlagen Kugelfänge 300m (> 40'000 Schuss)",
+            "Schiessanlagen Kugelfänge 300m (15'000 - 40'000 Schuss)",
+            "Schiessanlagen Kugelfänge 25m und 50m ",
+            "Jagdschiessanlagen",
+            "Stahlbrücken",
+            "Umspannwerke",
+            "Stahlmasten",
+            "Siedlungsgebiete und Industrie sowie Gewerbe"
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "type": "MultipleChoice",
+          "answer": "eisenbahnlinie",
+          "mapper": "exists",
+          "question": "das-bauvorhaben-befindet-sich-in",
+          "identifier": "Zuglinien",
+          "in_20m_radius": true
+        },
+        {
+          "type": "MultipleChoice",
+          "answer": "archaeologische-fundstelle",
+          "mapper": "exists",
+          "question": "das-bauvorhaben-befindet-sich-in",
+          "identifier": "Archäologische Fundstellen nach Typ, mit Denkmalschutz",
+          "in_20m_radius": true
+        },
+        {
+          "type": "MultipleChoice",
+          "answer": "gefahrenzone-massenbewegungen",
+          "mapper": "exists",
+          "question": "das-bauvorhaben-befindet-sich-in",
+          "identifier": "Gefahrenhinweiskarte: Prozess permanente Rutschungen",
+          "in_20m_radius": true
+        },
+        {
+          "type": "MultipleChoice",
+          "answer": "gefahrenzone",
+          "mapper": "exists",
+          "question": "das-bauvorhaben-befindet-sich-in",
+          "identifier": "Gefahrenkarte Ist-Zustand",
+          "in_20m_radius": true
+        },
+        {
+          "type": "MultipleChoice",
+          "answer": "risikokataster-chemiesicherheit",
+          "mapper": "exists",
+          "question": "das-bauvorhaben-befindet-sich-in",
+          "identifiers": [
+            "Risikokataster: Stationäre Betriebe",
+            "Risikokataster: Konsultationsbereich Betriebsareal",
+            "Risokokataster: Konsultationsbereich Eisenbahn",
+            "Risikokataster: Konsultationsbereich Strasse",
+            "Risikokataster: Konsultationsbereich Gasleitung"
+          ]
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Bereiche rechtsgültiger Sondernutzungspläne",
+          "properties": [
+            {
+              "question": "gestaltungs-und-erschliessungsplan",
+              "propertyName": "GDEBez"
+            }
+          ]
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Kantonaler Nutzungsplan Verkehr",
+          "properties": [
+            {
+              "question": "gestaltungs-und-erschliessungsplan",
+              "propertyName": "KNPName"
+            }
+          ]
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Landschaftsschutzdekrete (detailliert Legende)",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "propertyName": "Zonenbezeichnung Kanton"
+            }
+          ]
+        },
+        {
+          "type": "Text",
+          "answer": "Landschaften und Naturdenkmäler von nationaler Bedeutung (BLN)",
+          "mapper": "exists",
+          "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+          "identifier": "BLN - Bundesinventar der Landschaften und Naturdenkmäler von nationaler Bedeutung",
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Waldnaturschutzinventar (Flächen)",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "template": "Waldnaturschutzinventar ({{property}})",
+              "propertyName": "FLNAM"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Wildtierkorridore: Perimeter und Warteräume",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "template": "Wildtierkorridor ({{property}})",
+              "propertyName": "WTK_Nr"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "type": "Text",
+          "answer": "Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung",
+          "mapper": "exists",
+          "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+          "identifier": "Bundesinventar der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung",
+          "in_20m_radius": true
+        },
+        {
+          "type": "Text",
+          "answer": "Trockenwiese oder -weide von nationaler Bedeutung",
+          "mapper": "exists",
+          "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+          "identifier": "Bundesinventar der Trockenwiesen und -weiden von nationaler Bedeutung",
+          "in_20m_radius": true
+        },
+        {
+          "type": "Text",
+          "answer": "Amphibienlaichgebiet von nationaler Bedeutung",
+          "mapper": "exists",
+          "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+          "identifier": "Bundesinventar der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte",
+          "in_20m_radius": true
+        },
+        {
+          "type": "Text",
+          "answer": "Amphibienlaichgebiet von nationaler Bedeutung",
+          "mapper": "exists",
+          "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+          "identifier": "Bundesinventar der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte",
+          "in_20m_radius": true
+        },
+        {
+          "type": "Text",
+          "answer": "Hecke im Kulturlandplan",
+          "mapper": "exists",
+          "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+          "identifier": "Hecke im Kulturlandplan",
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Geschützte Naturobjekte im Kulturlandplan",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "template": "Geschütztes Naturobjekt im Kulturlandplan ({{property}})",
+              "propertyName": "KTBez"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Geschützte Kulturobjekte im Kulturlandplan",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "template": "Geschütztes Kulturobjekt im Kulturlandplan ({{property}})",
+              "propertyName": "KTBez"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Naturschutzgebiet von kant. Bedeutung (NkB) Richtplan L 2.5",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "propertyName": "RP_AUSSAGE"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "type": "Text",
+          "answer": "Flachmoor von nationaler Bedeutung",
+          "mapper": "exists",
+          "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+          "identifier": "Bundesinventar der Flachmoore von nationaler Bedeutung",
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Weilerzone",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "propertyName": "KTBez"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "type": "Text",
+          "answer": "Auengebiet von nationaler Bedeutung",
+          "mapper": "exists",
+          "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+          "identifier": "Auengebiete von nationaler Bedeutung",
+          "in_20m_radius": true
+        },
+        {
+          "type": "Text",
+          "answer": "Hoch- oder Übergangsmoor von nationaler Bedeutung",
+          "mapper": "exists",
+          "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+          "identifier": "Bundesinventar der Hoch- und Übergangsmoore von nationaler Bedeutung",
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Überlagerte Schutzräume für Lebensräume und Landschaften (ohne Gewässerraum)",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "propertyName": "KTBez"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Bauinventarobjekte",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "template": "Bauinventarobjekt ({{property}})",
+              "propertyName": "Titel"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Gebäude unter Schutz",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "propertyName": "KTBez"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Kurzinventar Denkmalpflege",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "template": "Kurzinventar Denkmalpflege ({{property}})",
+              "propertyName": "Titel"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Archäologische Fundstellen nach Typ, mit Denkmalschutz",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "template": "Archäologische Fundstelle ({{property}})",
+              "propertyName": "FST_SIGNAT"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Kantonale Denkmalschutzobjekte",
+          "properties": [
+            {
+              "question": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "template": "Kantonales Denkmalschutzobjekt ({{property}})",
+              "propertyName": "Titel"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Gefahrenkarte Ist-Zustand",
+          "properties": [
+            {
+              "question": "plan-der-gefahrenkommission",
+              "template": "Hochwasser ({{property}})",
+              "propertyName": "FARBE"
+            }
+          ],
+          "in_20m_radius": true
+        },
+        {
+          "mapper": "properties",
+          "identifier": "Gefahrenhinweiskarte: Prozess permanente Rutschungen",
+          "properties": [
+            {
+              "question": "plan-der-gefahrenkommission",
+              "template": "Permanente Rutschung ({{property}})",
+              "propertyName": "Klasse"
+            }
+          ],
+          "in_20m_radius": true
+        }
+      ],
+      "disabled": false,
+      "sort": 1
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "5b7b702b-c849-402c-a5e8-3aa844aaf9ec",
+    "fields": {
+      "description": "AGIS Parameter",
+      "client": "camac.gis.clients.param.ParamGisClient",
+      "config": [
+        {
+          "hidden": true,
+          "question": "gis-map",
+          "parameterName": "query"
+        }
+      ],
+      "disabled": false,
+      "sort": 2
+    }
+  }
+]

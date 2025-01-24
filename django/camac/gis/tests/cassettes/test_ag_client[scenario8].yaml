@@ -1,0 +1,2378 @@
+interactions:
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 20 Jan 2025 14:25:44 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Mon, 20 Jan 2025 14:26:43 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5108fd1a4ce7d03d6a46c830a5441549e07096aaed4beecdd032a2fba8898c77b78f9ba6a7a063c7ccf57ebe5fc3f91389c4323c84572c50c47a69d8bae83f4efe6;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5100db0588c54792c2ccbbd4e03b577ae96096aaed4beecdd032a2fba8898c77b78cf7f2043bb7942c5fbc3aa04493b45a1a6c84c57c318f6d499d997ec2206ef89;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5100db0588c54792c2ccbbd4e03b577ae96096aaed4beecdd032a2fba8898c77b78cf7f2043bb7942c5fbc3aa04493b45a1a6c84c57c318f6d499d997ec2206ef89;
+        TS014419e9=0100bce5108fd1a4ce7d03d6a46c830a5441549e07096aaed4beecdd032a2fba8898c77b78f9ba6a7a063c7ccf57ebe5fc3f91389c4323c84572c50c47a69d8bae83f4efe6;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 20 Jan 2025 14:25:44 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Mon, 20 Jan 2025 14:26:44 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5108fd1a4ce7d03d6a46c830a5441549e07096aaed4beecdd032a2fba8898c77b78f9ba6a7a063c7ccf57ebe5fc3f91389c4323c84572c50c47a69d8bae83f4efe6;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5100db0588c54792c2ccbbd4e03b577ae96096aaed4beecdd032a2fba8898c77b78cf7f2043bb7942c5fbc3aa04493b45a1a6c84c57c318f6d499d997ec2206ef89;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 20 Jan 2025 14:28:46 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Mon, 20 Jan 2025 14:29:45 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5108096fb765c1b23f4a96f0b35c20d14668a20b2d08cead831d3a1f5dab4c2b1801697c8aced83728b252861b3da27decaa79a351aa2c23090ab7b82f3c183353c;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ea859bf9014ae6cb1cafef627388d53d8a20b2d08cead831d3a1f5dab4c2b180dffb56b09e02584e58f605ef9b3e4be50adaf1ceadc6740496be38bb5c0cd74b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510ea859bf9014ae6cb1cafef627388d53d8a20b2d08cead831d3a1f5dab4c2b180dffb56b09e02584e58f605ef9b3e4be50adaf1ceadc6740496be38bb5c0cd74b;
+        TS014419e9=0100bce5108096fb765c1b23f4a96f0b35c20d14668a20b2d08cead831d3a1f5dab4c2b1801697c8aced83728b252861b3da27decaa79a351aa2c23090ab7b82f3c183353c;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 20 Jan 2025 14:28:47 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Mon, 20 Jan 2025 14:29:46 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5108096fb765c1b23f4a96f0b35c20d14668a20b2d08cead831d3a1f5dab4c2b1801697c8aced83728b252861b3da27decaa79a351aa2c23090ab7b82f3c183353c;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ea859bf9014ae6cb1cafef627388d53d8a20b2d08cead831d3a1f5dab4c2b180dffb56b09e02584e58f605ef9b3e4be50adaf1ceadc6740496be38bb5c0cd74b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 20 Jan 2025 14:31:24 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Mon, 20 Jan 2025 14:32:24 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510c4e7413fd073b77818ef4370395aebe4592bdf713fe93e9d9bc74ccc6071837f5205e2a6f6403622a5c8d4aab034da4e5c7aa9f3848150c8d73e605e3e5c6202;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510876990406f348e952eab82efddcf0def592bdf713fe93e9d9bc74ccc6071837f5ad06e534e27436bda2710e5e0377b97b495c7b7ead72f79b8d8cb7a2b7b4783;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510876990406f348e952eab82efddcf0def592bdf713fe93e9d9bc74ccc6071837f5ad06e534e27436bda2710e5e0377b97b495c7b7ead72f79b8d8cb7a2b7b4783;
+        TS014419e9=0100bce510c4e7413fd073b77818ef4370395aebe4592bdf713fe93e9d9bc74ccc6071837f5205e2a6f6403622a5c8d4aab034da4e5c7aa9f3848150c8d73e605e3e5c6202;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 20 Jan 2025 14:31:25 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Mon, 20 Jan 2025 14:32:24 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510c4e7413fd073b77818ef4370395aebe4592bdf713fe93e9d9bc74ccc6071837f5205e2a6f6403622a5c8d4aab034da4e5c7aa9f3848150c8d73e605e3e5c6202;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510876990406f348e952eab82efddcf0def592bdf713fe93e9d9bc74ccc6071837f5ad06e534e27436bda2710e5e0377b97b495c7b7ead72f79b8d8cb7a2b7b4783;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 20 Jan 2025 15:08:19 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Mon, 20 Jan 2025 15:09:18 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51015ca5b85bfc5c72865e95aa82e813292b41abf1a321082fc1032538c8dc8e44588a47cbe4492f65ee9956ab8b647ccdadc4179e7ec9c65ee315999b7c90aa0a7;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ff2150382347b9e7c7b8efe722790a49b41abf1a321082fc1032538c8dc8e44520555fd3a594389a6e35448debf20637dc68e16487d619e1ca56dd071268eb3b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510ff2150382347b9e7c7b8efe722790a49b41abf1a321082fc1032538c8dc8e44520555fd3a594389a6e35448debf20637dc68e16487d619e1ca56dd071268eb3b;
+        TS014419e9=0100bce51015ca5b85bfc5c72865e95aa82e813292b41abf1a321082fc1032538c8dc8e44588a47cbe4492f65ee9956ab8b647ccdadc4179e7ec9c65ee315999b7c90aa0a7;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 20 Jan 2025 15:08:20 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Mon, 20 Jan 2025 15:09:19 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51015ca5b85bfc5c72865e95aa82e813292b41abf1a321082fc1032538c8dc8e44588a47cbe4492f65ee9956ab8b647ccdadc4179e7ec9c65ee315999b7c90aa0a7;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ff2150382347b9e7c7b8efe722790a49b41abf1a321082fc1032538c8dc8e44520555fd3a594389a6e35448debf20637dc68e16487d619e1ca56dd071268eb3b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 09:14:28 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 09:15:28 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51094afefa6437bf7fff333b88175d09d9cdecdf6570dbdee347690bbfefddb795515e48726821265c4138574f364910332313a25ac64686e0b11f9b46cf29c6ec8;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510250e90beea0286de3fa2682b3387f3e4decdf6570dbdee347690bbfefddb7955e851f35b48681bec78a654dfa861a175bd0965eecd08d8fe793c52a48c483ff3;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510250e90beea0286de3fa2682b3387f3e4decdf6570dbdee347690bbfefddb7955e851f35b48681bec78a654dfa861a175bd0965eecd08d8fe793c52a48c483ff3;
+        TS014419e9=0100bce51094afefa6437bf7fff333b88175d09d9cdecdf6570dbdee347690bbfefddb795515e48726821265c4138574f364910332313a25ac64686e0b11f9b46cf29c6ec8;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 09:14:29 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 09:15:28 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51094afefa6437bf7fff333b88175d09d9cdecdf6570dbdee347690bbfefddb795515e48726821265c4138574f364910332313a25ac64686e0b11f9b46cf29c6ec8;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510250e90beea0286de3fa2682b3387f3e4decdf6570dbdee347690bbfefddb7955e851f35b48681bec78a654dfa861a175bd0965eecd08d8fe793c52a48c483ff3;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 09:19:43 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 09:20:42 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5106afdd29c080551149aa8954c19a50c8dcd7055498ec3c137d2b3b52efee13f4e81d31f741bdfc0b9b22a93c1b4963b7b1487949b3fa79e278613190105e9211e;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510a3428894ce36e445780aa16db219e5e2cd7055498ec3c137d2b3b52efee13f4ebc8136407c46600ed0201f41bf2841a51aee1b282c7e076f14f07eb76ea1efb6;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510a3428894ce36e445780aa16db219e5e2cd7055498ec3c137d2b3b52efee13f4ebc8136407c46600ed0201f41bf2841a51aee1b282c7e076f14f07eb76ea1efb6;
+        TS014419e9=0100bce5106afdd29c080551149aa8954c19a50c8dcd7055498ec3c137d2b3b52efee13f4e81d31f741bdfc0b9b22a93c1b4963b7b1487949b3fa79e278613190105e9211e;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 09:19:44 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 09:20:43 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5106afdd29c080551149aa8954c19a50c8dcd7055498ec3c137d2b3b52efee13f4e81d31f741bdfc0b9b22a93c1b4963b7b1487949b3fa79e278613190105e9211e;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510a3428894ce36e445780aa16db219e5e2cd7055498ec3c137d2b3b52efee13f4ebc8136407c46600ed0201f41bf2841a51aee1b282c7e076f14f07eb76ea1efb6;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 09:24:48 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 09:25:48 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5109b80f7684aed1d6847c72a319ccd30ea2622417049a902ece439980cbe955cc5d5e7763b6a13314cdf9dbb6d4234b23e7df075d88f641a73eafc1d289e606f15;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510eb4945d691467d8494a4252f895afc302622417049a902ece439980cbe955cc58967646aac48707039c6e5f0311b06039ee3d63c5029d08a3b89a2293c308d9a;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510eb4945d691467d8494a4252f895afc302622417049a902ece439980cbe955cc58967646aac48707039c6e5f0311b06039ee3d63c5029d08a3b89a2293c308d9a;
+        TS014419e9=0100bce5109b80f7684aed1d6847c72a319ccd30ea2622417049a902ece439980cbe955cc5d5e7763b6a13314cdf9dbb6d4234b23e7df075d88f641a73eafc1d289e606f15;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 09:24:49 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 09:25:48 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5109b80f7684aed1d6847c72a319ccd30ea2622417049a902ece439980cbe955cc5d5e7763b6a13314cdf9dbb6d4234b23e7df075d88f641a73eafc1d289e606f15;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510eb4945d691467d8494a4252f895afc302622417049a902ece439980cbe955cc58967646aac48707039c6e5f0311b06039ee3d63c5029d08a3b89a2293c308d9a;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 09:28:51 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 09:29:50 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510c3fb7c7662b4454a4c67ab8978e21d64e69cf38a0d94c7103c666f729c951e63f07629b524c357471fdc18d8a29e2402455039a55f52a1fb1b68a0af545c5ad4;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510671366ca9a497d81388baa4624146302e69cf38a0d94c7103c666f729c951e63b2b2622648ab39b0e049132e521ca6ee1bbcce14535b46685b4d98cc115a8315;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510671366ca9a497d81388baa4624146302e69cf38a0d94c7103c666f729c951e63b2b2622648ab39b0e049132e521ca6ee1bbcce14535b46685b4d98cc115a8315;
+        TS014419e9=0100bce510c3fb7c7662b4454a4c67ab8978e21d64e69cf38a0d94c7103c666f729c951e63f07629b524c357471fdc18d8a29e2402455039a55f52a1fb1b68a0af545c5ad4;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 09:28:52 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 09:29:51 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510c3fb7c7662b4454a4c67ab8978e21d64e69cf38a0d94c7103c666f729c951e63f07629b524c357471fdc18d8a29e2402455039a55f52a1fb1b68a0af545c5ad4;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510671366ca9a497d81388baa4624146302e69cf38a0d94c7103c666f729c951e63b2b2622648ab39b0e049132e521ca6ee1bbcce14535b46685b4d98cc115a8315;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 10:24:03 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 10:25:02 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5106c343d541b6e37801d902ca3f5ce714fc415168a931db1487884e5b11e0f680fcf53143500a05e65712e1e662e89eb42fd216913f8f1b0c387de08e8dd9ae9fa;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5105411a4ebf969dfec787972dcd269432ec415168a931db1487884e5b11e0f680f75dbb68b642f25e354c3e45a064268d23cebb691df2ef06dd9c5105d9b48af9c;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5105411a4ebf969dfec787972dcd269432ec415168a931db1487884e5b11e0f680f75dbb68b642f25e354c3e45a064268d23cebb691df2ef06dd9c5105d9b48af9c;
+        TS014419e9=0100bce5106c343d541b6e37801d902ca3f5ce714fc415168a931db1487884e5b11e0f680fcf53143500a05e65712e1e662e89eb42fd216913f8f1b0c387de08e8dd9ae9fa;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 10:24:03 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 10:25:03 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5106c343d541b6e37801d902ca3f5ce714fc415168a931db1487884e5b11e0f680fcf53143500a05e65712e1e662e89eb42fd216913f8f1b0c387de08e8dd9ae9fa;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5105411a4ebf969dfec787972dcd269432ec415168a931db1487884e5b11e0f680f75dbb68b642f25e354c3e45a064268d23cebb691df2ef06dd9c5105d9b48af9c;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 10:26:55 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 10:27:55 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5108821184b76dd7da378b1161d8f320647968fc597bdcbd31faf5d761b3e6ab9f553796b0387ad21f6f6f373fe67f48d326cf9c88140154272cb400ed463f18578;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5101dd8fc1e692ca7768b0635ed98c410e9968fc597bdcbd31faf5d761b3e6ab9f56cc5c75b2579ffd4c7d6092253b79a99377ac7bea2e44538fedb346f6764f790;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5101dd8fc1e692ca7768b0635ed98c410e9968fc597bdcbd31faf5d761b3e6ab9f56cc5c75b2579ffd4c7d6092253b79a99377ac7bea2e44538fedb346f6764f790;
+        TS014419e9=0100bce5108821184b76dd7da378b1161d8f320647968fc597bdcbd31faf5d761b3e6ab9f553796b0387ad21f6f6f373fe67f48d326cf9c88140154272cb400ed463f18578;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 10:26:56 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 10:27:55 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5108821184b76dd7da378b1161d8f320647968fc597bdcbd31faf5d761b3e6ab9f553796b0387ad21f6f6f373fe67f48d326cf9c88140154272cb400ed463f18578;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5101dd8fc1e692ca7768b0635ed98c410e9968fc597bdcbd31faf5d761b3e6ab9f56cc5c75b2579ffd4c7d6092253b79a99377ac7bea2e44538fedb346f6764f790;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 11:01:12 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 11:02:12 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510cfc31cd21d852985673345748648902a096120f2f81eacd015814371a629c2ab85ff35a60fc0c530fdaf970872119252c9d0c27b10a8fe80a35d5c0b04af7610;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5109379caee771e86b8d8cd04ec42368ff0096120f2f81eacd015814371a629c2ab588c80d868353ea7b4c893f90cf8c7013bd2670d5b032e3dfe4587150339581b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5109379caee771e86b8d8cd04ec42368ff0096120f2f81eacd015814371a629c2ab588c80d868353ea7b4c893f90cf8c7013bd2670d5b032e3dfe4587150339581b;
+        TS014419e9=0100bce510cfc31cd21d852985673345748648902a096120f2f81eacd015814371a629c2ab85ff35a60fc0c530fdaf970872119252c9d0c27b10a8fe80a35d5c0b04af7610;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 11:01:13 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 11:02:13 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510cfc31cd21d852985673345748648902a096120f2f81eacd015814371a629c2ab85ff35a60fc0c530fdaf970872119252c9d0c27b10a8fe80a35d5c0b04af7610;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5109379caee771e86b8d8cd04ec42368ff0096120f2f81eacd015814371a629c2ab588c80d868353ea7b4c893f90cf8c7013bd2670d5b032e3dfe4587150339581b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 11:19:43 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 11:20:43 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51012946dfa28c18bab3e1e70c19019cb1b7dade316dd996ab4127f3b30f6b77ae0672c47f15ba0d431e95dde4be3a1133f524b1816a63ca51dcb1e2a2198768fc0;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510967e6dc7b0d3f076b5bd1559fbf4faf77dade316dd996ab4127f3b30f6b77ae00f3a07e69218378b6df47f6b9f0075aac34495f7c77373be41536ebaedbcb0e8;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510967e6dc7b0d3f076b5bd1559fbf4faf77dade316dd996ab4127f3b30f6b77ae00f3a07e69218378b6df47f6b9f0075aac34495f7c77373be41536ebaedbcb0e8;
+        TS014419e9=0100bce51012946dfa28c18bab3e1e70c19019cb1b7dade316dd996ab4127f3b30f6b77ae0672c47f15ba0d431e95dde4be3a1133f524b1816a63ca51dcb1e2a2198768fc0;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 11:19:44 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 11:20:43 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51012946dfa28c18bab3e1e70c19019cb1b7dade316dd996ab4127f3b30f6b77ae0672c47f15ba0d431e95dde4be3a1133f524b1816a63ca51dcb1e2a2198768fc0;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510967e6dc7b0d3f076b5bd1559fbf4faf77dade316dd996ab4127f3b30f6b77ae00f3a07e69218378b6df47f6b9f0075aac34495f7c77373be41536ebaedbcb0e8;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 13:41:09 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 13:42:08 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5105185f571eaeb4fee3d7eb5969b07b6be073eeb7565e54d6cad3afd9d399569bc4308b9c1e2a38671de826a5d88814835a8b54d745fdb515e8657c5cf0239b166;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510de7945ba50a70a9de5ce2b7cc89c20fc073eeb7565e54d6cad3afd9d399569bcca880bda8263541ddbfca93f50047456c2b221e1dc7bb08737d4b7a751888460;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510de7945ba50a70a9de5ce2b7cc89c20fc073eeb7565e54d6cad3afd9d399569bcca880bda8263541ddbfca93f50047456c2b221e1dc7bb08737d4b7a751888460;
+        TS014419e9=0100bce5105185f571eaeb4fee3d7eb5969b07b6be073eeb7565e54d6cad3afd9d399569bc4308b9c1e2a38671de826a5d88814835a8b54d745fdb515e8657c5cf0239b166;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 13:41:11 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 13:42:10 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5105185f571eaeb4fee3d7eb5969b07b6be073eeb7565e54d6cad3afd9d399569bc4308b9c1e2a38671de826a5d88814835a8b54d745fdb515e8657c5cf0239b166;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510de7945ba50a70a9de5ce2b7cc89c20fc073eeb7565e54d6cad3afd9d399569bcca880bda8263541ddbfca93f50047456c2b221e1dc7bb08737d4b7a751888460;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:08:48 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:09:47 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510be7f1a19fee4f23c99c629883c9184ae4a23c459c36c2ba3e53083f6ad9769716196beca3b9f5f72a75c33f68617c695e547b39bafe6b61a23b917fd4597a74a;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510f589fbecf7722b8ba043ebf2ec3b30314a23c459c36c2ba3e53083f6ad97697189156cb3ed622b815aa978a56a4f6ad4b04afec0b38d93dd7dbac1694fdd06d8;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510f589fbecf7722b8ba043ebf2ec3b30314a23c459c36c2ba3e53083f6ad97697189156cb3ed622b815aa978a56a4f6ad4b04afec0b38d93dd7dbac1694fdd06d8;
+        TS014419e9=0100bce510be7f1a19fee4f23c99c629883c9184ae4a23c459c36c2ba3e53083f6ad9769716196beca3b9f5f72a75c33f68617c695e547b39bafe6b61a23b917fd4597a74a;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:08:48 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:09:48 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510be7f1a19fee4f23c99c629883c9184ae4a23c459c36c2ba3e53083f6ad9769716196beca3b9f5f72a75c33f68617c695e547b39bafe6b61a23b917fd4597a74a;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510f589fbecf7722b8ba043ebf2ec3b30314a23c459c36c2ba3e53083f6ad97697189156cb3ed622b815aa978a56a4f6ad4b04afec0b38d93dd7dbac1694fdd06d8;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:21 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:20 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510edec2b7760bbe7f8a2880ad24f30db90207e6046f498f0b2980e1b1e3465698e51af3a619cbe9ee5a3468be2f041e892dcd55672f53b0046f40e59c9827607b2;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5108756cfb337577a9c73e02bf4f03534b7207e6046f498f0b2980e1b1e3465698e256f744a23bbe3c206cf243fc8c3dbee827836dd4058becbfcd07f4f192dbe18;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5108756cfb337577a9c73e02bf4f03534b7207e6046f498f0b2980e1b1e3465698e256f744a23bbe3c206cf243fc8c3dbee827836dd4058becbfcd07f4f192dbe18;
+        TS014419e9=0100bce510edec2b7760bbe7f8a2880ad24f30db90207e6046f498f0b2980e1b1e3465698e51af3a619cbe9ee5a3468be2f041e892dcd55672f53b0046f40e59c9827607b2;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:22 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:21 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510edec2b7760bbe7f8a2880ad24f30db90207e6046f498f0b2980e1b1e3465698e51af3a619cbe9ee5a3468be2f041e892dcd55672f53b0046f40e59c9827607b2;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5108756cfb337577a9c73e02bf4f03534b7207e6046f498f0b2980e1b1e3465698e256f744a23bbe3c206cf243fc8c3dbee827836dd4058becbfcd07f4f192dbe18;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:21 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:20 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510b5491a37aec1f4d919c54fef706a8d6517cd0a5fa6c417776d7c8a69aa4a4aa9d26f0115985b1c05c269331bf2b6992286a57124bd03499df3e9bbb662932633;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510daf8e22746dc584415b5fbf9aab5972b17cd0a5fa6c417776d7c8a69aa4a4aa9c1eb756d5523dde218d5e8cbb462661dea648c484f40de6ff3c124471f221ed0;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510daf8e22746dc584415b5fbf9aab5972b17cd0a5fa6c417776d7c8a69aa4a4aa9c1eb756d5523dde218d5e8cbb462661dea648c484f40de6ff3c124471f221ed0;
+        TS014419e9=0100bce510b5491a37aec1f4d919c54fef706a8d6517cd0a5fa6c417776d7c8a69aa4a4aa9d26f0115985b1c05c269331bf2b6992286a57124bd03499df3e9bbb662932633;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:22 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:21 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510b5491a37aec1f4d919c54fef706a8d6517cd0a5fa6c417776d7c8a69aa4a4aa9d26f0115985b1c05c269331bf2b6992286a57124bd03499df3e9bbb662932633;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510daf8e22746dc584415b5fbf9aab5972b17cd0a5fa6c417776d7c8a69aa4a4aa9c1eb756d5523dde218d5e8cbb462661dea648c484f40de6ff3c124471f221ed0;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:51:50 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:52:49 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51039225339cf81527bf574add1ef4a93c30bd32cffed3f576ea4cfd28d143c7e97872677ed6cd4b5d1652ecc2ccfe6e03f108805e540df4b3cb57b0c345b787827;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5102fcd8d5fa1583fece16ec34390e1062a0bd32cffed3f576ea4cfd28d143c7e9724ff9b81ba0631a2dc1b6f7398a04d06dd63f20d1f00a5c24a3eeedebda55ce4;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5102fcd8d5fa1583fece16ec34390e1062a0bd32cffed3f576ea4cfd28d143c7e9724ff9b81ba0631a2dc1b6f7398a04d06dd63f20d1f00a5c24a3eeedebda55ce4;
+        TS014419e9=0100bce51039225339cf81527bf574add1ef4a93c30bd32cffed3f576ea4cfd28d143c7e97872677ed6cd4b5d1652ecc2ccfe6e03f108805e540df4b3cb57b0c345b787827;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:51:51 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:52:50 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51039225339cf81527bf574add1ef4a93c30bd32cffed3f576ea4cfd28d143c7e97872677ed6cd4b5d1652ecc2ccfe6e03f108805e540df4b3cb57b0c345b787827;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5102fcd8d5fa1583fece16ec34390e1062a0bd32cffed3f576ea4cfd28d143c7e9724ff9b81ba0631a2dc1b6f7398a04d06dd63f20d1f00a5c24a3eeedebda55ce4;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650150%2C1244548%2C2650152%2C1244550&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '943'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 10:59:51 GMT
+      ETag:
+      - '"90717715"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:00:50 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510892e0ec6ad68a592ee8770af8c99072447839fef390a36efe2a39a858a03d4d202a0fea74bed41c61edac4dc0ef12a771d1f4c3762cb157aede25b9bfd8339a6;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5109eda0cbe12531bbefd42a2b8e4b0a01447839fef390a36efe2a39a858a03d4d2ebcaf4a63416981d29c9120cdedc9725e05b3700e24c667ef1cca520b952dbf9;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2650131%2C1244529%2C2650171%2C1244569&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5109eda0cbe12531bbefd42a2b8e4b0a01447839fef390a36efe2a39a858a03d4d2ebcaf4a63416981d29c9120cdedc9725e05b3700e24c667ef1cca520b952dbf9;
+        TS014419e9=0100bce510892e0ec6ad68a592ee8770af8c99072447839fef390a36efe2a39a858a03d4d202a0fea74bed41c61edac4dc0ef12a771d1f4c3762cb157aede25b9bfd8339a6;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"79\",\"GDENR\":\"4006\",\"GEMEINDE\":\"Gr\xE4nichen\",\"GEMEINDEZ\":\"Gr\xE4nichen\",\"GEMEINDEU\":\"Graenichen\",\"BZNR\":\"1901\",\"BEZIRK\":\"Aarau\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"17233146.903595\",\"SHAPE.STLength()\":\"20718.396533\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"142\",\"attributes\":{\"OBJECTID\":\"60948563\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"GDENRPARZ\":\"400600142\",\"NUMMER\":\"142\",\"EGRID\":\"CH145223880095\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"2550818\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2550821.597845\",\"SHAPE.STLength()\":\"15840.11074\"}},{\"layerId\":49,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: Wanderobjekte\",\"displayFieldName\":\"Name\",\"value\":\"Kiesgrube
+        Moortel\",\"attributes\":{\"Shape\":\"Point\",\"ObjNummer\":\"AG243\",\"Name\":\"Kiesgrube
+        Moortel\",\"OBJECTID\":\"3\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien_wanderobjekte/objectsheets/2017revision/ag243.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Gr\xE4nichen\",\"attributes\":{\"OBJECTID\":\"2805684\",\"FILEID\":\"156\",\"GDENR\":\"4006\",\"Gemeinde\":\"Gr\xE4nichen\",\"Rechtskrft\":\"19911025\",\"Status\":\"projektiert\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"AW282\",\"Bezeich\":\"4006\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"4608\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"366.996292\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"131081\",\"attributes\":{\"OBJECTID\":\"131081\",\"GDENR\":\"Gr\xE4nichen
+        4006\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"Materialabbau und Deponie\",\"KTCode\":\"4921\",\"KTAbk\":\"M\",\"KTBez\":\"Materialabbau
+        und Rekultivierung\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"492101\",\"GDEBez\":\"Materialabbauzone\",\"GDEAbk\":\"M\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_IV\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2022-000220\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.31\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"4326\",\"Geolink_ES\":\"2943\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/4326.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"43885.047809\",\"Shape.STLength()\":\"1038.600219\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1314'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 10:59:51 GMT
+      ETag:
+      - '"71729a16"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:00:51 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510892e0ec6ad68a592ee8770af8c99072447839fef390a36efe2a39a858a03d4d202a0fea74bed41c61edac4dc0ef12a771d1f4c3762cb157aede25b9bfd8339a6;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5109eda0cbe12531bbefd42a2b8e4b0a01447839fef390a36efe2a39a858a03d4d2ebcaf4a63416981d29c9120cdedc9725e05b3700e24c667ef1cca520b952dbf9;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+version: 1

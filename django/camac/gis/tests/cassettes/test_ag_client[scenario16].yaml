@@ -1,0 +1,1124 @@
+interactions:
+- request:
+    body: geometry=2670174%2C1242186%2C2670176%2C1242188&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1880'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 13:41:35 GMT
+      ETag:
+      - '"403f0dd7"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 13:42:33 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5100a16fda3d4fa912b4edfa98cd34427fa9fee57bb241752c01e48f6460ad9c0fd0c1292ec82f6490ba88216dd68c401e62f352c85407bf03406da2e497ac1145b;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5104ad8f26d6280a2380002177925b7f7059fee57bb241752c01e48f6460ad9c0fd83e8efb2d5a940d6c4876e7662be20a766e1e92401acfeebd589ba6c60a06a35;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670155%2C1242167%2C2670195%2C1242207&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5104ad8f26d6280a2380002177925b7f7059fee57bb241752c01e48f6460ad9c0fd83e8efb2d5a940d6c4876e7662be20a766e1e92401acfeebd589ba6c60a06a35;
+        TS014419e9=0100bce5100a16fda3d4fa912b4edfa98cd34427fa9fee57bb241752c01e48f6460ad9c0fd0c1292ec82f6490ba88216dd68c401e62f352c85407bf03406da2e497ac1145b;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"235\",\"attributes\":{\"OBJECTID\":\"60807417\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800235\",\"NUMMER\":\"235\",\"EGRID\":\"CH969756327090\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"303434\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"303433.938008\",\"SHAPE.STLength()\":\"2488.984088\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"313\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5281\",\"Zonenbezeichnung
+        Kanton\":\"Naturschutzzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Naturschutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"312854.138033\",\"Shape.STLength()\":\"2574.566451\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"2618806\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"Gemeinde\":\"Rottenschwil\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4238\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"6291.029216\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Moos\",\"attributes\":{\"OBJECTID\":\"596\",\"OBJNR\":\"423803\",\"FLUSSTALID\":\"1\",\"GDENR\":\"4238\",\"FKREIS\":\"6\",\"WALDFLA\":\"80\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"31.07.1992\",\"AUTOR\":\"4\",\"OBJFLA\":\"12\",\"FLNAM\":\"Moos\",\"HVON\":\"380\",\"HBIS\":\"380\",\"ANOBJNR1\":\"406901\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4064-4051-4071-4132\",\"WP1\":\"1959\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"4\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"3\",\"TOTLST30\":\"2\",\"TOTLI15\":\"3\",\"TOTLI30\":\"1\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"4000\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"4\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"1\",\"ARTSAEUG\":\"1\",\"ARTORG\":\"1\",\"ELGEOM\":\"0\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"0\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"1\",\"WALDRES\":\"429-\",\"HIR12A\":\"6\",\"HIR2B\":\"0\",\"HIR3\":\"0\",\"HIR4\":\"0\",\"HIRUEB\":\"0\",\"KUM12A\":\"6\",\"KUM2B\":\"2\",\"KUM3\":\"6\",\"KUM4\":\"5\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"9992\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"9992\",\"E29\":\"9992\",\"E30\":\"9992\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"9991\",\"E45\":\"0\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"3\",\"E29NDH\":\"3\",\"E30NDH\":\"3\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"0\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"3\",\"BESTJ\":\"3\",\"BESTBH\":\"4\",\"BESTA\":\"0.5\",\"MWNW1\":\"2\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"113077.159536\",\"SHAPE.STLength()\":\"4887.666015\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"32037\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4238\",\"GEMEINDEZ\":\"Rottenschwil\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"256335.229539\",\"SHAPE.STLength()\":\"7271.450152\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"23916\",\"ID\":\"10417\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes Reusstal\",\"BEARBEITER\":\"Basler
+        & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"746347.570892\",\"SHAPE.STLength()\":\"8193.3139\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"31893\",\"attributes\":{\"OBJECTID\":\"31893\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"kantonaler Nutzungsplan\",\"KTCode\":\"4971\",\"KTAbk\":\"kNPDG\",\"KTBez\":\"Kantonaler
+        Nutzungsplan \xFCber die Dekrete\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"497101\",\"GDEBez\":\"Dekretsgebiet\",\"GDEAbk\":\"DG\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"kNP\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"304649.021033\",\"Shape.STLength()\":\"2497.11222\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '3396'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 13:41:36 GMT
+      ETag:
+      - '"cc60eb86"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 13:42:35 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5100a16fda3d4fa912b4edfa98cd34427fa9fee57bb241752c01e48f6460ad9c0fd0c1292ec82f6490ba88216dd68c401e62f352c85407bf03406da2e497ac1145b;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5104ad8f26d6280a2380002177925b7f7059fee57bb241752c01e48f6460ad9c0fd83e8efb2d5a940d6c4876e7662be20a766e1e92401acfeebd589ba6c60a06a35;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670174%2C1242186%2C2670176%2C1242188&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1880'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:09:01 GMT
+      ETag:
+      - '"403f0dd7"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:10:00 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510fca6e10fbe8dbde5da23cab6fc625f1a7491376b532d66a5c4009fb23a4df55817d862e3b67653a5e567a6cb4c812c541b1309cb189227c7ab8343dbfbd08322;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510951acaad4a6220eb553f4cf306a665f77491376b532d66a5c4009fb23a4df558d5750ad83b61750c963df5aaa1441ff51f3142a707cce77219904570311ffc79;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670155%2C1242167%2C2670195%2C1242207&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510951acaad4a6220eb553f4cf306a665f77491376b532d66a5c4009fb23a4df558d5750ad83b61750c963df5aaa1441ff51f3142a707cce77219904570311ffc79;
+        TS014419e9=0100bce510fca6e10fbe8dbde5da23cab6fc625f1a7491376b532d66a5c4009fb23a4df55817d862e3b67653a5e567a6cb4c812c541b1309cb189227c7ab8343dbfbd08322;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"235\",\"attributes\":{\"OBJECTID\":\"60807417\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800235\",\"NUMMER\":\"235\",\"EGRID\":\"CH969756327090\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"303434\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"303433.938008\",\"SHAPE.STLength()\":\"2488.984088\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"313\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5281\",\"Zonenbezeichnung
+        Kanton\":\"Naturschutzzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Naturschutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"312854.138033\",\"Shape.STLength()\":\"2574.566451\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"2618806\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"Gemeinde\":\"Rottenschwil\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4238\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"6291.029216\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Moos\",\"attributes\":{\"OBJECTID\":\"596\",\"OBJNR\":\"423803\",\"FLUSSTALID\":\"1\",\"GDENR\":\"4238\",\"FKREIS\":\"6\",\"WALDFLA\":\"80\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"31.07.1992\",\"AUTOR\":\"4\",\"OBJFLA\":\"12\",\"FLNAM\":\"Moos\",\"HVON\":\"380\",\"HBIS\":\"380\",\"ANOBJNR1\":\"406901\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4064-4051-4071-4132\",\"WP1\":\"1959\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"4\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"3\",\"TOTLST30\":\"2\",\"TOTLI15\":\"3\",\"TOTLI30\":\"1\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"4000\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"4\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"1\",\"ARTSAEUG\":\"1\",\"ARTORG\":\"1\",\"ELGEOM\":\"0\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"0\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"1\",\"WALDRES\":\"429-\",\"HIR12A\":\"6\",\"HIR2B\":\"0\",\"HIR3\":\"0\",\"HIR4\":\"0\",\"HIRUEB\":\"0\",\"KUM12A\":\"6\",\"KUM2B\":\"2\",\"KUM3\":\"6\",\"KUM4\":\"5\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"9992\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"9992\",\"E29\":\"9992\",\"E30\":\"9992\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"9991\",\"E45\":\"0\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"3\",\"E29NDH\":\"3\",\"E30NDH\":\"3\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"0\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"3\",\"BESTJ\":\"3\",\"BESTBH\":\"4\",\"BESTA\":\"0.5\",\"MWNW1\":\"2\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"113077.159536\",\"SHAPE.STLength()\":\"4887.666015\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"32037\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4238\",\"GEMEINDEZ\":\"Rottenschwil\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"256335.229539\",\"SHAPE.STLength()\":\"7271.450152\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"23916\",\"ID\":\"10417\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes Reusstal\",\"BEARBEITER\":\"Basler
+        & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"746347.570892\",\"SHAPE.STLength()\":\"8193.3139\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"31893\",\"attributes\":{\"OBJECTID\":\"31893\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"kantonaler Nutzungsplan\",\"KTCode\":\"4971\",\"KTAbk\":\"kNPDG\",\"KTBez\":\"Kantonaler
+        Nutzungsplan \xFCber die Dekrete\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"497101\",\"GDEBez\":\"Dekretsgebiet\",\"GDEAbk\":\"DG\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"kNP\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"304649.021033\",\"Shape.STLength()\":\"2497.11222\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '3396'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:09:02 GMT
+      ETag:
+      - '"cc60eb86"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:10:01 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510fca6e10fbe8dbde5da23cab6fc625f1a7491376b532d66a5c4009fb23a4df55817d862e3b67653a5e567a6cb4c812c541b1309cb189227c7ab8343dbfbd08322;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510951acaad4a6220eb553f4cf306a665f77491376b532d66a5c4009fb23a4df558d5750ad83b61750c963df5aaa1441ff51f3142a707cce77219904570311ffc79;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670174%2C1242186%2C2670176%2C1242188&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1880'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:35 GMT
+      ETag:
+      - '"403f0dd7"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:35 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51094fe70f759e182c5248b0f7547fcaf8b94a9bd12d3f94adf67fefa2986d8b0adcc5dec9d36ff46d4fb59f5118fbdcd9b985b6d25ed827f417028f3907396ff86;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5106efcfb006883ffb087f8f1707b785b1a94a9bd12d3f94adf67fefa2986d8b0ad86cdf1e80e4fdc23c60dd59bd635502c0b8fc326b1ef4f932612ccab6410f7d0;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670155%2C1242167%2C2670195%2C1242207&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5106efcfb006883ffb087f8f1707b785b1a94a9bd12d3f94adf67fefa2986d8b0ad86cdf1e80e4fdc23c60dd59bd635502c0b8fc326b1ef4f932612ccab6410f7d0;
+        TS014419e9=0100bce51094fe70f759e182c5248b0f7547fcaf8b94a9bd12d3f94adf67fefa2986d8b0adcc5dec9d36ff46d4fb59f5118fbdcd9b985b6d25ed827f417028f3907396ff86;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"235\",\"attributes\":{\"OBJECTID\":\"60807417\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800235\",\"NUMMER\":\"235\",\"EGRID\":\"CH969756327090\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"303434\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"303433.938008\",\"SHAPE.STLength()\":\"2488.984088\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"313\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5281\",\"Zonenbezeichnung
+        Kanton\":\"Naturschutzzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Naturschutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"312854.138033\",\"Shape.STLength()\":\"2574.566451\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"2618806\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"Gemeinde\":\"Rottenschwil\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4238\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"6291.029216\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Moos\",\"attributes\":{\"OBJECTID\":\"596\",\"OBJNR\":\"423803\",\"FLUSSTALID\":\"1\",\"GDENR\":\"4238\",\"FKREIS\":\"6\",\"WALDFLA\":\"80\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"31.07.1992\",\"AUTOR\":\"4\",\"OBJFLA\":\"12\",\"FLNAM\":\"Moos\",\"HVON\":\"380\",\"HBIS\":\"380\",\"ANOBJNR1\":\"406901\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4064-4051-4071-4132\",\"WP1\":\"1959\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"4\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"3\",\"TOTLST30\":\"2\",\"TOTLI15\":\"3\",\"TOTLI30\":\"1\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"4000\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"4\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"1\",\"ARTSAEUG\":\"1\",\"ARTORG\":\"1\",\"ELGEOM\":\"0\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"0\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"1\",\"WALDRES\":\"429-\",\"HIR12A\":\"6\",\"HIR2B\":\"0\",\"HIR3\":\"0\",\"HIR4\":\"0\",\"HIRUEB\":\"0\",\"KUM12A\":\"6\",\"KUM2B\":\"2\",\"KUM3\":\"6\",\"KUM4\":\"5\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"9992\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"9992\",\"E29\":\"9992\",\"E30\":\"9992\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"9991\",\"E45\":\"0\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"3\",\"E29NDH\":\"3\",\"E30NDH\":\"3\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"0\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"3\",\"BESTJ\":\"3\",\"BESTBH\":\"4\",\"BESTA\":\"0.5\",\"MWNW1\":\"2\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"113077.159536\",\"SHAPE.STLength()\":\"4887.666015\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"32037\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4238\",\"GEMEINDEZ\":\"Rottenschwil\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"256335.229539\",\"SHAPE.STLength()\":\"7271.450152\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"23916\",\"ID\":\"10417\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes Reusstal\",\"BEARBEITER\":\"Basler
+        & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"746347.570892\",\"SHAPE.STLength()\":\"8193.3139\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"31893\",\"attributes\":{\"OBJECTID\":\"31893\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"kantonaler Nutzungsplan\",\"KTCode\":\"4971\",\"KTAbk\":\"kNPDG\",\"KTBez\":\"Kantonaler
+        Nutzungsplan \xFCber die Dekrete\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"497101\",\"GDEBez\":\"Dekretsgebiet\",\"GDEAbk\":\"DG\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"kNP\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"304649.021033\",\"Shape.STLength()\":\"2497.11222\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '3396'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:36 GMT
+      ETag:
+      - '"cc60eb86"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:36 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51094fe70f759e182c5248b0f7547fcaf8b94a9bd12d3f94adf67fefa2986d8b0adcc5dec9d36ff46d4fb59f5118fbdcd9b985b6d25ed827f417028f3907396ff86;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5106efcfb006883ffb087f8f1707b785b1a94a9bd12d3f94adf67fefa2986d8b0ad86cdf1e80e4fdc23c60dd59bd635502c0b8fc326b1ef4f932612ccab6410f7d0;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670174%2C1242186%2C2670176%2C1242188&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1880'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:37 GMT
+      ETag:
+      - '"403f0dd7"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:37 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510ebb8468fd5f1d5b44975c0e2847e77e740e49947b2c291489f26255b4e17135eabf3ef8c4a36ae400ec3cc5e7979d5c6bc100c736f396ed2723fbe2767eb310e;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510b403f3931ad2da65adc530e22b76a3a940e49947b2c291489f26255b4e17135eaadd2524dccefaec28cc75afd467fefd1cb52ab4964554be1a2f21b53730e448;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670155%2C1242167%2C2670195%2C1242207&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510b403f3931ad2da65adc530e22b76a3a940e49947b2c291489f26255b4e17135eaadd2524dccefaec28cc75afd467fefd1cb52ab4964554be1a2f21b53730e448;
+        TS014419e9=0100bce510ebb8468fd5f1d5b44975c0e2847e77e740e49947b2c291489f26255b4e17135eabf3ef8c4a36ae400ec3cc5e7979d5c6bc100c736f396ed2723fbe2767eb310e;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"235\",\"attributes\":{\"OBJECTID\":\"60807417\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800235\",\"NUMMER\":\"235\",\"EGRID\":\"CH969756327090\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"303434\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"303433.938008\",\"SHAPE.STLength()\":\"2488.984088\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"313\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5281\",\"Zonenbezeichnung
+        Kanton\":\"Naturschutzzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Naturschutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"312854.138033\",\"Shape.STLength()\":\"2574.566451\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"2618806\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"Gemeinde\":\"Rottenschwil\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4238\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"6291.029216\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Moos\",\"attributes\":{\"OBJECTID\":\"596\",\"OBJNR\":\"423803\",\"FLUSSTALID\":\"1\",\"GDENR\":\"4238\",\"FKREIS\":\"6\",\"WALDFLA\":\"80\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"31.07.1992\",\"AUTOR\":\"4\",\"OBJFLA\":\"12\",\"FLNAM\":\"Moos\",\"HVON\":\"380\",\"HBIS\":\"380\",\"ANOBJNR1\":\"406901\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4064-4051-4071-4132\",\"WP1\":\"1959\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"4\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"3\",\"TOTLST30\":\"2\",\"TOTLI15\":\"3\",\"TOTLI30\":\"1\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"4000\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"4\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"1\",\"ARTSAEUG\":\"1\",\"ARTORG\":\"1\",\"ELGEOM\":\"0\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"0\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"1\",\"WALDRES\":\"429-\",\"HIR12A\":\"6\",\"HIR2B\":\"0\",\"HIR3\":\"0\",\"HIR4\":\"0\",\"HIRUEB\":\"0\",\"KUM12A\":\"6\",\"KUM2B\":\"2\",\"KUM3\":\"6\",\"KUM4\":\"5\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"9992\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"9992\",\"E29\":\"9992\",\"E30\":\"9992\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"9991\",\"E45\":\"0\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"3\",\"E29NDH\":\"3\",\"E30NDH\":\"3\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"0\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"3\",\"BESTJ\":\"3\",\"BESTBH\":\"4\",\"BESTA\":\"0.5\",\"MWNW1\":\"2\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"113077.159536\",\"SHAPE.STLength()\":\"4887.666015\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"32037\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4238\",\"GEMEINDEZ\":\"Rottenschwil\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"256335.229539\",\"SHAPE.STLength()\":\"7271.450152\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"23916\",\"ID\":\"10417\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes Reusstal\",\"BEARBEITER\":\"Basler
+        & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"746347.570892\",\"SHAPE.STLength()\":\"8193.3139\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"31893\",\"attributes\":{\"OBJECTID\":\"31893\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"kantonaler Nutzungsplan\",\"KTCode\":\"4971\",\"KTAbk\":\"kNPDG\",\"KTBez\":\"Kantonaler
+        Nutzungsplan \xFCber die Dekrete\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"497101\",\"GDEBez\":\"Dekretsgebiet\",\"GDEAbk\":\"DG\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"kNP\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"304649.021033\",\"Shape.STLength()\":\"2497.11222\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '3396'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:38 GMT
+      ETag:
+      - '"cc60eb86"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:38 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510ebb8468fd5f1d5b44975c0e2847e77e740e49947b2c291489f26255b4e17135eabf3ef8c4a36ae400ec3cc5e7979d5c6bc100c736f396ed2723fbe2767eb310e;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510b403f3931ad2da65adc530e22b76a3a940e49947b2c291489f26255b4e17135eaadd2524dccefaec28cc75afd467fefd1cb52ab4964554be1a2f21b53730e448;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670174%2C1242186%2C2670176%2C1242188&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1880'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:52:03 GMT
+      ETag:
+      - '"403f0dd7"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:53:03 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51048a26d98732e4970a06965722174504404886af95a7e5cce40963b56fb26e821e2e257e946b4686d886f7fe29c199ebe1cafd95d3654d8d1aa8a72aa9ab9c207;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510cdd38e8dec398d82adc5a733f4c53b4a04886af95a7e5cce40963b56fb26e821664f01a2366a80a720f6d86977ffc4dd1ec97412fa7853ff97daab17d7939a6d;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670155%2C1242167%2C2670195%2C1242207&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510cdd38e8dec398d82adc5a733f4c53b4a04886af95a7e5cce40963b56fb26e821664f01a2366a80a720f6d86977ffc4dd1ec97412fa7853ff97daab17d7939a6d;
+        TS014419e9=0100bce51048a26d98732e4970a06965722174504404886af95a7e5cce40963b56fb26e821e2e257e946b4686d886f7fe29c199ebe1cafd95d3654d8d1aa8a72aa9ab9c207;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"235\",\"attributes\":{\"OBJECTID\":\"60807417\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800235\",\"NUMMER\":\"235\",\"EGRID\":\"CH969756327090\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"303434\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"303433.938008\",\"SHAPE.STLength()\":\"2488.984088\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"313\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5281\",\"Zonenbezeichnung
+        Kanton\":\"Naturschutzzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Naturschutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"312854.138033\",\"Shape.STLength()\":\"2574.566451\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"2618806\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"Gemeinde\":\"Rottenschwil\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4238\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"6291.029216\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Moos\",\"attributes\":{\"OBJECTID\":\"596\",\"OBJNR\":\"423803\",\"FLUSSTALID\":\"1\",\"GDENR\":\"4238\",\"FKREIS\":\"6\",\"WALDFLA\":\"80\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"31.07.1992\",\"AUTOR\":\"4\",\"OBJFLA\":\"12\",\"FLNAM\":\"Moos\",\"HVON\":\"380\",\"HBIS\":\"380\",\"ANOBJNR1\":\"406901\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4064-4051-4071-4132\",\"WP1\":\"1959\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"4\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"3\",\"TOTLST30\":\"2\",\"TOTLI15\":\"3\",\"TOTLI30\":\"1\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"4000\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"4\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"1\",\"ARTSAEUG\":\"1\",\"ARTORG\":\"1\",\"ELGEOM\":\"0\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"0\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"1\",\"WALDRES\":\"429-\",\"HIR12A\":\"6\",\"HIR2B\":\"0\",\"HIR3\":\"0\",\"HIR4\":\"0\",\"HIRUEB\":\"0\",\"KUM12A\":\"6\",\"KUM2B\":\"2\",\"KUM3\":\"6\",\"KUM4\":\"5\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"9992\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"9992\",\"E29\":\"9992\",\"E30\":\"9992\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"9991\",\"E45\":\"0\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"3\",\"E29NDH\":\"3\",\"E30NDH\":\"3\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"0\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"3\",\"BESTJ\":\"3\",\"BESTBH\":\"4\",\"BESTA\":\"0.5\",\"MWNW1\":\"2\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"113077.159536\",\"SHAPE.STLength()\":\"4887.666015\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"32037\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4238\",\"GEMEINDEZ\":\"Rottenschwil\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"256335.229539\",\"SHAPE.STLength()\":\"7271.450152\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"23916\",\"ID\":\"10417\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes Reusstal\",\"BEARBEITER\":\"Basler
+        & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"746347.570892\",\"SHAPE.STLength()\":\"8193.3139\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"31893\",\"attributes\":{\"OBJECTID\":\"31893\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"kantonaler Nutzungsplan\",\"KTCode\":\"4971\",\"KTAbk\":\"kNPDG\",\"KTBez\":\"Kantonaler
+        Nutzungsplan \xFCber die Dekrete\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"497101\",\"GDEBez\":\"Dekretsgebiet\",\"GDEAbk\":\"DG\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"kNP\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"304649.021033\",\"Shape.STLength()\":\"2497.11222\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '3396'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:52:04 GMT
+      ETag:
+      - '"cc60eb86"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:53:03 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51048a26d98732e4970a06965722174504404886af95a7e5cce40963b56fb26e821e2e257e946b4686d886f7fe29c199ebe1cafd95d3654d8d1aa8a72aa9ab9c207;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510cdd38e8dec398d82adc5a733f4c53b4a04886af95a7e5cce40963b56fb26e821664f01a2366a80a720f6d86977ffc4dd1ec97412fa7853ff97daab17d7939a6d;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670174%2C1242186%2C2670176%2C1242188&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1880'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 11:00:07 GMT
+      ETag:
+      - '"403f0dd7"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:01:06 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510bcb52738cff6ca27becab6f7b584439d3514b9cdb584bc280f945838c165885337012e92f4dea1413b6e9909aef10a73c93f84fc2863c30c1262fa5aff366f94;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510f9806522660f88d4a9ca70e80db21a063514b9cdb584bc280f945838c165885348f5a82107f1b4d44c8b13e194ce601e2e12851041c14636077a0137bcceffba;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670155%2C1242167%2C2670195%2C1242207&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510f9806522660f88d4a9ca70e80db21a063514b9cdb584bc280f945838c165885348f5a82107f1b4d44c8b13e194ce601e2e12851041c14636077a0137bcceffba;
+        TS014419e9=0100bce510bcb52738cff6ca27becab6f7b584439d3514b9cdb584bc280f945838c165885337012e92f4dea1413b6e9909aef10a73c93f84fc2863c30c1262fa5aff366f94;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"51\",\"GDENR\":\"4238\",\"GEMEINDE\":\"Rottenschwil\",\"GEMEINDEZ\":\"Rottenschwil\",\"GEMEINDEU\":\"Rottenschwil\",\"BZNR\":\"1908\",\"BEZIRK\":\"Muri\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4493471.35088\",\"SHAPE.STLength()\":\"10580.555874\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"234\",\"attributes\":{\"OBJECTID\":\"60807263\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800234\",\"NUMMER\":\"234\",\"EGRID\":\"CH335697327707\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"37800\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"37799.750031\",\"SHAPE.STLength()\":\"1664.568038\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"235\",\"attributes\":{\"OBJECTID\":\"60807417\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"GDENRPARZ\":\"423800235\",\"NUMMER\":\"235\",\"EGRID\":\"CH969756327090\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"303434\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"303433.938008\",\"SHAPE.STLength()\":\"2488.984088\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"146\",\"ObjNummer\":\"AG815\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-amphibien/objectsheets/2017revision/ag815.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"
+        \",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"321759.874355\",\"SHAPE.STLength()\":\"2685.394913\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"313\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5281\",\"Zonenbezeichnung
+        Kanton\":\"Naturschutzzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Naturschutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"312854.138033\",\"Shape.STLength()\":\"2574.566451\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"451\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5284\",\"Zonenbezeichnung
+        Kanton\":\"\xDCbrige Zonen innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"\xDCbriges Gebiet\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18462312.30872\",\"Shape.STLength()\":\"63205.452869\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Rottenschwil\",\"attributes\":{\"OBJECTID\":\"2618806\",\"FILEID\":\"108\",\"GDENR\":\"4238\",\"Gemeinde\":\"Rottenschwil\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4238\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"6291.029216\"}},{\"layerId\":63,\"layerName\":\"Waldnaturschutzinventar
+        (Fl\xE4chen)\",\"displayFieldName\":\"FLNAM\",\"value\":\"Moos\",\"attributes\":{\"OBJECTID\":\"596\",\"OBJNR\":\"423803\",\"FLUSSTALID\":\"1\",\"GDENR\":\"4238\",\"FKREIS\":\"6\",\"WALDFLA\":\"80\",\"WALDPRIV\":\"0\",\"AUFDAT\":\"31.07.1992\",\"AUTOR\":\"4\",\"OBJFLA\":\"12\",\"FLNAM\":\"Moos\",\"HVON\":\"380\",\"HBIS\":\"380\",\"ANOBJNR1\":\"406901\",\"ANOBJNR2\":\"0\",\"ANOBJNR3\":\"0\",\"REFER\":\"4064-4051-4071-4132\",\"WP1\":\"1959\",\"WP2\":\"0\",\"WP3\":\"0\",\"BEKA\":\"3\",\"VEGKA\":\"4\",\"NATRAUMZI\":\"2\",\"E1NDH\":\"0\",\"TOTLST15\":\"3\",\"TOTLST30\":\"2\",\"TOTLI15\":\"3\",\"TOTLI30\":\"1\",\"AE1\":\"0\",\"HW2\":\"0\",\"AENDH\":\"0\",\"TOT2ST15\":\"0\",\"TOT2ST30\":\"0\",\"TOT2LI15\":\"0\",\"TOT2LI30\":\"0\",\"WGRENZ\":\"4000\",\"AUFSTUF\":\"0\",\"VERZFG\":\"1\",\"VERZMW\":\"0\",\"VERZVK\":\"0\",\"STRASSE\":\"4\",\"ARTPFL\":\"1\",\"ARTAMPH\":\"1\",\"ARTREPT\":\"1\",\"ARTVOEG\":\"1\",\"ARTSAEUG\":\"1\",\"ARTORG\":\"1\",\"ELGEOM\":\"0\",\"ELBACH\":\"0\",\"ELTOB\":\"0\",\"ELWEIH\":\"0\",\"ELQUEL\":\"0\",\"ELTUFF\":\"0\",\"ELFEUCHT\":\"1\",\"ELFELS\":\"0\",\"ELGEROE\":\"0\",\"ELRUTSCH\":\"0\",\"ELDOL\":\"0\",\"ELMAUR\":\"0\",\"ELRAS\":\"0\",\"ELWEIT\":\"1\",\"WALDRES\":\"429-\",\"HIR12A\":\"6\",\"HIR2B\":\"0\",\"HIR3\":\"0\",\"HIR4\":\"0\",\"HIRUEB\":\"0\",\"KUM12A\":\"6\",\"KUM2B\":\"2\",\"KUM3\":\"6\",\"KUM4\":\"5\",\"KATEGORIE\":\"A\",\"E29G\":\"0\",\"E29H\":\"9992\",\"E1\":\"0\",\"E2\":\"0\",\"E9\":\"0\",\"E10W\":\"0\",\"E10\":\"0\",\"E11\":\"0\",\"E12\":\"0\",\"E13NS\":\"0\",\"E14W\":\"0\",\"E14\":\"0\",\"E15\":\"0\",\"E16\":\"0\",\"E17\":\"0\",\"E20\":\"0\",\"E22\":\"0\",\"E22X\":\"0\",\"E25\":\"0\",\"E26\":\"0\",\"E27\":\"0\",\"E28\":\"9992\",\"E29\":\"9992\",\"E30\":\"9992\",\"E31\":\"0\",\"E35\":\"0\",\"E38\":\"0\",\"E39\":\"0\",\"E41\":\"0\",\"E43\":\"0\",\"E44\":\"9991\",\"E45\":\"0\",\"E46\":\"0\",\"E48\":\"0\",\"E61\":\"0\",\"E62\":\"0\",\"E65\":\"0\",\"E66\":\"0\",\"E2NDH\":\"0\",\"E9NDH\":\"0\",\"E10WNDH\":\"0\",\"E10NDH\":\"0\",\"E11NDH\":\"0\",\"E12NDH\":\"0\",\"E13NSNDH\":\"0\",\"E14NDH\":\"0\",\"E15NDH\":\"0\",\"E16NDH\":\"0\",\"E17NDH\":\"0\",\"E20NDH\":\"0\",\"E22NDH\":\"0\",\"E22XNDH\":\"0\",\"E25NDH\":\"0\",\"E26NDH\":\"0\",\"E27NDH\":\"0\",\"E28NDH\":\"3\",\"E29NDH\":\"3\",\"E30NDH\":\"3\",\"E31NDH\":\"0\",\"E35NDH\":\"0\",\"E38NDH\":\"0\",\"E39NDH\":\"0\",\"E41NDH\":\"0\",\"E43NDH\":\"0\",\"E44NDH\":\"0\",\"E45NDH\":\"0\",\"E46NDH\":\"0\",\"E48NDH\":\"0\",\"E61NDH\":\"0\",\"E62NDH\":\"0\",\"E65NDH\":\"0\",\"E66NDH\":\"0\",\"NATNAH1\":\"3\",\"BESTJ\":\"3\",\"BESTBH\":\"4\",\"BESTA\":\"0.5\",\"MWNW1\":\"2\",\"AE6\":\"0\",\"AE7\":\"0\",\"AE8\":\"0\",\"AE9\":\"0\",\"AE10\":\"0\",\"AE11\":\"0\",\"AE12\":\"0\",\"AE13A\":\"0\",\"AE14\":\"0\",\"AE46\":\"0\",\"MNW2\":\"0\",\"ALTHWVON\":\"0\",\"ALTHWBIS\":\"0\",\"ALTMNWVON\":\"0\",\"ALTMNWBIS\":\"0\",\"OSNDHFI\":\"0\",\"OSNDHFOE\":\"0\",\"OSNDHTA\":\"0\",\"OSNDHUEB\":\"0\",\"UHNDHFI\":\"0\",\"UHNDHFOE\":\"0\",\"UHNDHTA\":\"0\",\"UHNDHUEB\":\"0\",\"OSLBHAH\":\"0\",\"OSLBHBU\":\"0\",\"OSLBHEI\":\"0\",\"OSLBHES\":\"0\",\"OSLBHKI\":\"0\",\"OSLBHLI\":\"0\",\"OSLBHUL\":\"0\",\"OSLBHUESH\":\"0\",\"OSLBHUESF\":\"0\",\"UHLBHAH\":\"0\",\"UHLBHEI\":\"0\",\"UHLBHES\":\"0\",\"UHLBHKI\":\"0\",\"UHLBHLI\":\"0\",\"UHLBHUL\":\"0\",\"UHLBHUESH\":\"0\",\"UHLBHUESF\":\"0\",\"NATRAH2\":\"0\",\"ST50\":\"0\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"113077.159536\",\"SHAPE.STLength()\":\"4887.666015\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"32037\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4238\",\"GEMEINDEZ\":\"Rottenschwil\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"256335.229539\",\"SHAPE.STLength()\":\"7271.450152\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"23916\",\"ID\":\"10417\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes Reusstal\",\"BEARBEITER\":\"Basler
+        & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"746347.570892\",\"SHAPE.STLength()\":\"8193.3139\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"24010\",\"ID\":\"35378\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Oberes
+        Reusstal\",\"BEARBEITER\":\"Basler & Hofmann, Esslingen\",\"DATUM\":\"06.07.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7418.591303\",\"SHAPE.STLength()\":\"926.046691\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"H\",\"attributes\":{\"OBJECTID\":\"23394\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume und
+        Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3111\",\"KTAbk\":\"MT\",\"KTBez\":\"Magerwiese
+        / Trockenstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311101\",\"GDEBez\":\"Magerwiese\",\"GDEAbk\":\"MW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"H\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"M\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"28566.719219\",\"Shape.STLength()\":\"2773.489184\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"31893\",\"attributes\":{\"OBJECTID\":\"31893\",\"GDENR\":\"Rottenschwil
+        4238\",\"HNCode\":\"49\",\"HNBez\":\"Weitere Zonen nach Art. 18 Abs. 1 RPG
+        ausserhalb der Bauzonen\",\"KTAAbk\":\"kantonaler Nutzungsplan\",\"KTCode\":\"4971\",\"KTAbk\":\"kNPDG\",\"KTBez\":\"Kantonaler
+        Nutzungsplan \xFCber die Dekrete\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"497101\",\"GDEBez\":\"Dekretsgebiet\",\"GDEAbk\":\"DG\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2000-001905\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.96.1189\",\"UB\":\"Null\",\"KTLabel\":\"kNP\",\"Geolink\":\"2622\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2622.html\",\"OEREBexport\":\"nein\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"304649.021033\",\"Shape.STLength()\":\"2497.11222\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '3396'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 11:00:08 GMT
+      ETag:
+      - '"cc60eb86"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:01:07 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510bcb52738cff6ca27becab6f7b584439d3514b9cdb584bc280f945838c165885337012e92f4dea1413b6e9909aef10a73c93f84fc2863c30c1262fa5aff366f94;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510f9806522660f88d4a9ca70e80db21a063514b9cdb584bc280f945838c165885348f5a82107f1b4d44c8b13e194ce601e2e12851041c14636077a0137bcceffba;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+version: 1
