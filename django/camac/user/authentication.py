@@ -224,13 +224,13 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 class DjangoAdminOIDCAuthenticationBackend(
     OIDCAuthenticationBackend
 ):  # pragma: no cover
-    def get_userinfo_or_introspection(self, access_token):
+    def get_userinfo_cached(self, access_token):
         return self.cached_request(self.get_userinfo, access_token, "auth.userinfo")
 
     def get_or_create_user(self, access_token, id_token, payload):
         """Verify claims and return user, otherwise raise an Exception."""
 
-        claims = self.get_userinfo_or_introspection(access_token)
+        claims = self.get_userinfo_cached(access_token)
 
         users = self.filter_users_by_claims(claims)
 
