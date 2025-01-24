@@ -2992,6 +2992,13 @@ SO_GIS_VERIFY_SSL = env.bool("SO_GIS_VERIFY_SSL", default=True)
 ADMIN_GIS_BASE_URL = env.str("ADMIN_GIS_BASE_URL", default="https://api3.geo.admin.ch")
 ADMIN_GIS_VERIFY_SSL = env.bool("ADMIN_GIS_VERIFY_SSL", default=True)
 
+
+# GIS API (KT. AG)
+AG_GIS_BASE_URL = env.str(
+    "AG_GIS_BASE_URL",
+    default="https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer",
+)
+
 DOCUMENT_MERGE_SERVICE_URL = build_url(
     env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")
 )
