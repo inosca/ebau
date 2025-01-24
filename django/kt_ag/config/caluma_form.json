@@ -820,6 +820,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "weitere-angaben-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:44:47.920Z",
+      "modified_at": "2025-01-24T13:44:47.920Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Weitere Angaben Migration\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "wohnen",
     "fields": {
       "created_at": "2024-11-06T13:36:39.887Z",
@@ -2186,7 +2204,7 @@
       "modified_by_group": null,
       "form": "baugesuch-migration",
       "question": "allgemeine-informationen-migration",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -2201,7 +2219,7 @@
       "modified_by_group": null,
       "form": "baugesuch-migration",
       "question": "bauzonen-migration-form",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -2216,7 +2234,7 @@
       "modified_by_group": null,
       "form": "baugesuch-migration",
       "question": "beschreibung-form-migration",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -2276,7 +2294,7 @@
       "modified_by_group": null,
       "form": "baugesuch-migration",
       "question": "gebaeudetechnik-migration-form",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -2291,7 +2309,22 @@
       "modified_by_group": null,
       "form": "baugesuch-migration",
       "question": "kontakte-migration",
-      "sort": 7
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-migration.weitere-angaben-migration-form",
+    "fields": {
+      "created_at": "2025-01-24T13:45:28.740Z",
+      "modified_at": "2025-01-24T13:45:28.740Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-migration",
+      "question": "weitere-angaben-migration-form",
+      "sort": 4
     }
   },
   {
@@ -6601,6 +6634,666 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.angaben-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:49:07.143Z",
+      "modified_at": "2025-01-24T13:49:07.144Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "angaben-headline-migration",
+      "sort": 44
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.angaben-zur-sicherheit-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:02:16.938Z",
+      "modified_at": "2025-01-24T14:02:16.938Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "angaben-zur-sicherheit-headline-migration",
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.baukosten-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:25:22.836Z",
+      "modified_at": "2025-01-24T14:25:22.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "baukosten-headline-migration",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.baukosten-ohne-land-inkl-allfaellige-abbruchkosten-in-chf-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:27:15.423Z",
+      "modified_at": "2025-01-24T14:27:15.423Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "baukosten-ohne-land-inkl-allfaellige-abbruchkosten-in-chf-migration",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.bauten-ausserhalb-der-bauzone",
+    "fields": {
+      "created_at": "2025-01-24T14:17:44.729Z",
+      "modified_at": "2025-01-24T14:17:44.729Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "bauten-ausserhalb-der-bauzone",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:17:21.935Z",
+      "modified_at": "2025-01-24T14:17:21.935Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.bemerkungen-und-hinweise-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:29:16.175Z",
+      "modified_at": "2025-01-24T14:29:16.175Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "bemerkungen-und-hinweise-migration",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.bemerkung-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:29:01.691Z",
+      "modified_at": "2025-01-24T14:29:01.691Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "bemerkung-headline-migration",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:22:08.782Z",
+      "modified_at": "2025-01-24T14:22:08.782Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.einleitung-querung-und-oder-wasserentnahme-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:21:20.566Z",
+      "modified_at": "2025-01-24T14:21:20.566Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "einleitung-querung-und-oder-wasserentnahme-migration",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:53:26.493Z",
+      "modified_at": "2025-01-24T13:53:26.493Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
+      "sort": 38
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:18:42.771Z",
+      "modified_at": "2025-01-24T14:18:42.771Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:18:13.041Z",
+      "modified_at": "2025-01-24T14:18:13.041Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:10:08.010Z",
+      "modified_at": "2025-01-24T14:10:08.010Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:07:50.634Z",
+      "modified_at": "2025-01-24T14:07:50.634Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
+      "sort": 31
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.ist-ein-energienachweis-erforderlich-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:59:33.602Z",
+      "modified_at": "2025-01-24T13:59:33.602Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "ist-ein-energienachweis-erforderlich-migration",
+      "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:14:39.136Z",
+      "modified_at": "2025-01-24T14:14:39.136Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.ist-ein-luftfahrthindernis-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:22:32.052Z",
+      "modified_at": "2025-01-24T14:22:32.052Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "ist-ein-luftfahrthindernis-geplant-migration",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.ist-ein-materialabbau-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:55:21.626Z",
+      "modified_at": "2025-01-24T13:55:21.626Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "ist-ein-materialabbau-geplant-migration",
+      "sort": 35
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:20:55.590Z",
+      "modified_at": "2025-01-24T14:20:55.590Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:08:45.983Z",
+      "modified_at": "2025-01-24T14:08:45.983Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.kantonsstrasse-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:12:44.308Z",
+      "modified_at": "2025-01-24T14:12:44.308Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "kantonsstrasse-headline-migration",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.kantonsstrassen",
+    "fields": {
+      "created_at": "2025-01-24T14:13:27.774Z",
+      "modified_at": "2025-01-24T14:13:27.775Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "kantonsstrassen",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.kommunale-randschutzbewilligung-erforderlich-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:09:36.465Z",
+      "modified_at": "2025-01-24T14:09:36.465Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "kommunale-randschutzbewilligung-erforderlich-migration",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:11:49.482Z",
+      "modified_at": "2025-01-24T14:11:49.482Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:19:11.663Z",
+      "modified_at": "2025-01-24T14:19:11.663Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.schutzraumbaupflicht-ersatzabgabepflicht-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:12:16.646Z",
+      "modified_at": "2025-01-24T14:12:16.646Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "schutzraumbaupflicht-ersatzabgabepflicht-migration",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.sind-altlasten-betroffen-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:52:46.106Z",
+      "modified_at": "2025-01-24T13:52:46.106Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "sind-altlasten-betroffen-migration",
+      "sort": 39
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.sind-eingriffe-in-den-boden-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:53:56.904Z",
+      "modified_at": "2025-01-24T13:53:56.904Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "sind-eingriffe-in-den-boden-geplant-migration",
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.sind-erdsonden-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:50:44.183Z",
+      "modified_at": "2025-01-24T13:50:44.183Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "sind-erdsonden-geplant-migration",
+      "sort": 42
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.sind-laermschutzmassnahmen-erforderlich-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:54:17.699Z",
+      "modified_at": "2025-01-24T13:54:17.699Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "sind-laermschutzmassnahmen-erforderlich-migration",
+      "sort": 36
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:14:58.151Z",
+      "modified_at": "2025-01-24T14:14:58.151Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:51:39.715Z",
+      "modified_at": "2025-01-24T13:51:39.715Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
+      "sort": 41
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:19:34.225Z",
+      "modified_at": "2025-01-24T14:19:34.225Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.solaranlage-photovoltaikanalge-geplant",
+    "fields": {
+      "created_at": "2025-01-24T13:51:52.998Z",
+      "modified_at": "2025-01-24T13:51:52.998Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "solaranlage-photovoltaikanalge-geplant",
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:56:01.992Z",
+      "modified_at": "2025-01-24T13:56:01.992Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.stoerfallverordnung-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:11:19.040Z",
+      "modified_at": "2025-01-24T14:11:19.041Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "stoerfallverordnung-migration",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.total-in-chf-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:28:39.603Z",
+      "modified_at": "2025-01-24T14:28:39.603Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "total-in-chf-migration",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.umgebungsarbeiten-in-chf-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:28:17.130Z",
+      "modified_at": "2025-01-24T14:28:17.130Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "umgebungsarbeiten-in-chf-migration",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.umweltrechtliche-angaben-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:50:02.260Z",
+      "modified_at": "2025-01-24T13:50:02.260Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "umweltrechtliche-angaben-headline-migration",
+      "sort": 43
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.wald-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:15:31.162Z",
+      "modified_at": "2025-01-24T14:15:31.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "wald-headline-migration",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.weitere-angaben-gewaesser-denkmalschutz-luftfahrthindernis-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:20:02.630Z",
+      "modified_at": "2025-01-24T14:20:02.630Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "weitere-angaben-gewaesser-denkmalschutz-luftfahrthindernis-headline-migration",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:17:00.272Z",
+      "modified_at": "2025-01-24T14:17:00.272Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:14:08.827Z",
+      "modified_at": "2025-01-24T14:14:08.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "wohnen.ausnuetzung",
     "fields": {
       "created_at": "2024-11-06T14:54:42.818Z",
@@ -8110,6 +8803,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:17:21.777Z",
+      "modified_at": "2025-01-24T14:17:21.777Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:17:21.772Z",
+      "modified_at": "2025-01-24T14:17:21.772Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "beleuchtung-angeleuchtet",
     "fields": {
       "created_at": "2024-11-06T14:49:52.715Z",
@@ -9249,6 +9976,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:22:08.631Z",
+      "modified_at": "2025-01-24T14:22:08.631Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:22:08.629Z",
+      "modified_at": "2025-01-24T14:22:08.629Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "denkmalschutzobjekt-sichtbeziehung",
     "fields": {
       "created_at": "2024-11-06T12:48:51.640Z",
@@ -9373,6 +10134,40 @@
       "created_at": "2024-11-20T13:36:21.827Z",
       "modified_at": "2024-11-20T13:36:21.827Z",
       "created_by_user": "jana.lux@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "einleitung-querung-und-oder-wasserentnahme-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:21:20.399Z",
+      "modified_at": "2025-01-24T14:21:20.399Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "einleitung-querung-und-oder-wasserentnahme-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:21:20.416Z",
+      "modified_at": "2025-01-24T14:21:20.416Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
@@ -10048,6 +10843,108 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:53:26.353Z",
+      "modified_at": "2025-01-24T13:53:26.353Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:53:26.359Z",
+      "modified_at": "2025-01-24T13:53:26.359Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:18:42.599Z",
+      "modified_at": "2025-01-24T14:18:42.599Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:18:42.598Z",
+      "modified_at": "2025-01-24T14:18:42.598Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:18:12.857Z",
+      "modified_at": "2025-01-24T14:18:12.857Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:18:12.876Z",
+      "modified_at": "2025-01-24T14:18:12.876Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "hochwassergefaehrdung-auswahl-migration-ja",
     "fields": {
       "created_at": "2025-01-24T07:56:46.629Z",
@@ -10201,6 +11098,244 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:10:07.858Z",
+      "modified_at": "2025-01-24T14:10:07.858Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:10:07.862Z",
+      "modified_at": "2025-01-24T14:10:07.862Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:07:50.497Z",
+      "modified_at": "2025-01-24T14:07:50.497Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:07:50.493Z",
+      "modified_at": "2025-01-24T14:07:50.493Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-ein-energienachweis-erforderlich-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:59:33.445Z",
+      "modified_at": "2025-01-24T13:59:33.445Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-ein-energienachweis-erforderlich-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:59:33.447Z",
+      "modified_at": "2025-01-24T13:59:33.447Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:14:39.008Z",
+      "modified_at": "2025-01-24T14:14:39.008Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:14:39.012Z",
+      "modified_at": "2025-01-24T14:14:39.012Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-ein-luftfahrthindernis-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:22:31.894Z",
+      "modified_at": "2025-01-24T14:22:31.894Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-ein-luftfahrthindernis-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:22:31.896Z",
+      "modified_at": "2025-01-24T14:22:31.896Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-ein-materialabbau-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:55:21.462Z",
+      "modified_at": "2025-01-24T13:55:21.462Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-ein-materialabbau-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:55:21.460Z",
+      "modified_at": "2025-01-24T13:55:21.460Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:20:55.452Z",
+      "modified_at": "2025-01-24T14:20:55.452Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:20:55.458Z",
+      "modified_at": "2025-01-24T14:20:55.458Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "kanalisation-bestehend",
     "fields": {
       "created_at": "2024-11-20T12:23:23.716Z",
@@ -10346,6 +11481,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht bekannt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:08:45.833Z",
+      "modified_at": "2025-01-24T14:08:45.833Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:08:45.814Z",
+      "modified_at": "2025-01-24T14:08:45.814Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -10609,6 +11778,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "kommunale-randschutzbewilligung-erforderlich-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:09:36.315Z",
+      "modified_at": "2025-01-24T14:09:36.315Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kommunale-randschutzbewilligung-erforderlich-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:09:36.310Z",
+      "modified_at": "2025-01-24T14:09:36.310Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "konformitaetserklaerung-von-neu-und-erweiterungsbauten-ja",
     "fields": {
       "created_at": "2024-11-27T14:30:48.480Z",
@@ -10720,6 +11923,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nicht ben\\u00f6tigt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:11:49.318Z",
+      "modified_at": "2025-01-24T14:11:49.318Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:11:49.326Z",
+      "modified_at": "2025-01-24T14:11:49.326Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -11408,6 +12645,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:19:11.501Z",
+      "modified_at": "2025-01-24T14:19:11.501Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:19:11.508Z",
+      "modified_at": "2025-01-24T14:19:11.508Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "parkplaetze-betroffen-ja",
     "fields": {
       "created_at": "2024-11-05T07:44:03.392Z",
@@ -11578,6 +12849,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "schutzraumbaupflicht-ersatzabgabepflicht-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:12:16.504Z",
+      "modified_at": "2025-01-24T14:12:16.504Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "schutzraumbaupflicht-ersatzabgabepflicht-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:12:16.486Z",
+      "modified_at": "2025-01-24T14:12:16.486Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-altlasten-betroffen-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:52:45.948Z",
+      "modified_at": "2025-01-24T13:52:45.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-altlasten-betroffen-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:52:45.946Z",
+      "modified_at": "2025-01-24T13:52:45.946Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "sind-arbeitnehmende-betroffen-ja",
     "fields": {
       "created_at": "2024-11-19T09:59:57.956Z",
@@ -11646,6 +12985,210 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "sind-eingriffe-in-den-boden-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:53:56.745Z",
+      "modified_at": "2025-01-24T13:53:56.745Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-eingriffe-in-den-boden-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:53:56.726Z",
+      "modified_at": "2025-01-24T13:53:56.726Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-erdsonden-geplant-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:50:44.045Z",
+      "modified_at": "2025-01-24T13:50:44.045Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-erdsonden-geplant-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:50:44.047Z",
+      "modified_at": "2025-01-24T13:50:44.047Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-laermschutzmassnahmen-erforderlich-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:54:17.326Z",
+      "modified_at": "2025-01-24T13:54:17.326Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-laermschutzmassnahmen-erforderlich-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:54:17.332Z",
+      "modified_at": "2025-01-24T13:54:17.332Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:14:58.001Z",
+      "modified_at": "2025-01-24T14:14:58.002Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:14:58.011Z",
+      "modified_at": "2025-01-24T14:14:58.011Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:51:39.579Z",
+      "modified_at": "2025-01-24T13:51:39.579Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:51:39.585Z",
+      "modified_at": "2025-01-24T13:51:39.585Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:19:34.032Z",
+      "modified_at": "2025-01-24T14:19:34.032Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:19:34.038Z",
+      "modified_at": "2025-01-24T14:19:34.038Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "situationsplan-mit-eingetragenen-reklamepositionen-ja",
     "fields": {
       "created_at": "2024-11-27T14:54:28.345Z",
@@ -11685,6 +13228,74 @@
       "created_at": "2024-11-20T16:00:47.105Z",
       "modified_at": "2024-11-20T16:00:47.105Z",
       "created_by_user": "jana.lux@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:56:01.830Z",
+      "modified_at": "2025-01-24T13:56:01.830Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:56:01.835Z",
+      "modified_at": "2025-01-24T13:56:01.835Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stoerfallverordnung-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:11:18.884Z",
+      "modified_at": "2025-01-24T14:11:18.884Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stoerfallverordnung-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:11:18.877Z",
+      "modified_at": "2025-01-24T14:11:18.877Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
@@ -12972,6 +14583,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:17:00.125Z",
+      "modified_at": "2025-01-24T14:17:00.125Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:17:00.131Z",
+      "modified_at": "2025-01-24T14:17:00.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:14:08.668Z",
+      "modified_at": "2025-01-24T14:14:08.668Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:14:08.673Z",
+      "modified_at": "2025-01-24T14:14:08.673Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "wird-material-zugefuehrt-ja",
     "fields": {
       "created_at": "2024-11-07T15:45:08.011Z",
@@ -13603,6 +15282,102 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "angaben-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:49:07.078Z",
+      "modified_at": "2025-01-24T13:49:28.989Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angaben\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Angaben\\n---\\nBitte beantworten Sie die Fragen zu den untenstehenden Themenbereichen, soweit sie das Bauvorhaben betreffen. Diese Angaben helfen die notwendigen Formulare und Merkbl\\u00e4tter unter \\\"7. Dokumente\\\" bereitzustellen und Unterlagenerg\\u00e4nzungen zu vermeiden.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "angaben-zur-sicherheit-brandschutz-arbeitnehmer-chemie-hochwasser-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:00:17.986Z",
+      "modified_at": "2025-01-24T14:00:17.986Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angaben zur Sicherheit (Brandschutz, Arbeitnehmer, Chemie, Hochwasser)\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"---\\n### Angaben zur Sicherheit (Brandschutz, Arbeitnehmer, Chemie, Hochwasser)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "angaben-zur-sicherheit-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:02:16.872Z",
+      "modified_at": "2025-01-24T14:02:16.872Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angaben zur Sicherheit (Brandschutz, Arbeitnehmer, Chemie, Hochwasser)\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"---\\n### Angaben zur Sicherheit (Brandschutz, Arbeitnehmer, Chemie, Hochwasser)\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -14719,6 +16494,73 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "baukosten-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:25:22.765Z",
+      "modified_at": "2025-01-24T14:25:22.765Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baukosten\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Baukosten\\n**(Bitte detaillierte Berechnung im Schritt 7 hochladen)**\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baukosten-ohne-land-inkl-allfaellige-abbruchkosten-in-chf-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:27:15.336Z",
+      "modified_at": "2025-01-24T14:27:15.336Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baukosten ohne Land (inkl. allf\\u00e4llige Abbruchkosten) (in CHF)*\", \"fr\": null, \"it\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0.0
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "baumassenziffer-gemaess-bauprojekt-migration",
     "fields": {
       "created_at": "2025-01-24T08:00:19.052Z",
@@ -14804,6 +16646,37 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauten-ausserhalb-der-bauzone",
+    "fields": {
+      "created_at": "2025-01-24T14:17:44.665Z",
+      "modified_at": "2025-01-24T14:17:44.665Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauten ausserhalb der Bauzone\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Bauten ausserhalb der Bauzone\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -15066,6 +16939,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:17:21.849Z",
+      "modified_at": "2025-01-24T14:17:21.849Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Befindet sich das geplante Bauvorhaben im Wald?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "begruendung-bei-nicht-bekannt-migration",
     "fields": {
       "created_at": "2025-01-23T15:34:25.762Z",
@@ -15182,6 +17086,71 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-und-hinweise-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:29:16.118Z",
+      "modified_at": "2025-01-24T14:29:16.118Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen und Hinweise\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkung-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:29:01.617Z",
+      "modified_at": "2025-01-24T14:29:01.617Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Bemerkung\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -16539,6 +18508,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:22:08.698Z",
+      "modified_at": "2025-01-24T14:22:08.698Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich beim Bauvorhaben um ein Denkmalschutzobjekt oder steht ein Denkmalschutz in Sichtbeziehung?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dichteziffern-headline-migration",
     "fields": {
       "created_at": "2025-01-24T07:59:13.886Z",
@@ -16929,6 +18929,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einleitung-querung-und-oder-wasserentnahme-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:21:20.482Z",
+      "modified_at": "2025-01-24T14:21:20.482Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist eine Einleitung, Querung und / oder Wasserentnahme geplant? Falls ja, reichen Sie bitte mit den Gesuchsunterlagen den Entw\\u00e4sserungsplan mit vollst\\u00e4ndigem Eintrag der Leitung bis zum Gew\\u00e4sser ein.\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -18516,6 +20547,99 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:53:26.425Z",
+      "modified_at": "2025-01-24T13:53:26.425Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind Einbauten ins Grundwasser/vor\\u00fcbergehende Grundwasserabsenkungen (Bauwasserhaltung) erforderlich?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:18:42.685Z",
+      "modified_at": "2025-01-24T14:18:42.685Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um eine besitzstandsgesch\\u00fctzte Liegenschaft (Art. 24c RPG), Pferdehaltung in der Landwirtschaftszone, standortgebundene Bauten und / oder gewerblichen Besitzstand?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:18:12.949Z",
+      "modified_at": "2025-01-24T14:18:12.949Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um einen landwirtschaftlichen Betrieb?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "heizungen",
     "fields": {
       "created_at": "2024-11-20T16:06:56.200Z",
@@ -19085,6 +21209,223 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:10:07.935Z",
+      "modified_at": "2025-01-24T14:10:07.935Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist ein Betrieb betroffen und besch\\u00e4ftigt der Betrieb Arbeitnehmende?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:07:50.568Z",
+      "modified_at": "2025-01-24T14:07:50.568Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist eine kantonale Brandschutzbewilligung f\\u00fcr das Vorhaben erforderlich?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-ein-energienachweis-erforderlich-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:59:33.512Z",
+      "modified_at": "2025-01-24T13:59:33.512Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist ein Energienachweis erforderlich?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:14:39.071Z",
+      "modified_at": "2025-01-24T14:14:39.071Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist eine neue Erschliessung an die Kantonsstrasse geplant oder wird eine bestehende Erschliessung st\\u00e4rker frequentiert (\\u00a7 113 Baug)?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-ein-luftfahrthindernis-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:22:31.971Z",
+      "modified_at": "2025-01-24T14:22:31.971Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist ein Luftfahrthindernis (z.B. Kran) geplant?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-ein-materialabbau-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:55:21.548Z",
+      "modified_at": "2025-01-24T13:55:21.548Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist ein Materialabbau geplant?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:20:55.518Z",
+      "modified_at": "2025-01-24T14:20:55.518Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist mit dem Vorhaben ein \\u00f6ffentliches Gew\\u00e4sser betroffen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kaelteanlage-kaeltemittel",
     "fields": {
       "created_at": "2024-11-19T10:08:11.747Z",
@@ -19277,6 +21618,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:08:45.907Z",
+      "modified_at": "2025-01-24T14:08:45.907Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist eine kantonale Brandschutzbewilligung f\\u00fcr eine Feuerungsanlage erforderlich?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kantonale-brandschutzbewilligung-nutzungen",
     "fields": {
       "created_at": "2024-11-19T13:12:55.133Z",
@@ -19308,6 +21680,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "kantonsstrasse-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:12:44.239Z",
+      "modified_at": "2025-01-24T14:12:44.239Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kantonsstrasse\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Kantonsstrasse\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kantonsstrassen",
     "fields": {
       "created_at": "2023-04-12T08:10:14.647Z",
@@ -19324,6 +21727,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kommunale-randschutzbewilligung-erforderlich-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:09:36.387Z",
+      "modified_at": "2025-01-24T14:09:36.387Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist eine kommunale Brandschutzbewilligung f\\u00fcr das Vorhaben erforderlich? (Falls ja, legen Sie den Gesuchsunterlagen bitte das kommunale Brandschutzkonzept bei).\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -19742,6 +22176,37 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Liegenschaft\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:11:49.391Z",
+      "modified_at": "2025-01-24T14:11:49.391Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Liegt das Bauvorhaben in einem hochwassergef\\u00e4hrdeten Gebiet?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -20266,6 +22731,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:19:11.583Z",
+      "modified_at": "2025-01-24T14:19:11.583Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um ein oben nicht genanntes Bauvorhaben ausserhalb der Bauzone?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -20832,6 +23328,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "schutzraumbaupflicht-ersatzabgabepflicht-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:12:16.579Z",
+      "modified_at": "2025-01-24T14:12:16.579Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Besteht bei diesem Bauvorhaben eine Schutzraumbaupflicht / Ersatzabgabepflicht?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sind-altlasten-betroffen-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:52:46.020Z",
+      "modified_at": "2025-01-24T13:52:46.020Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind Altlasten betroffen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "sind-arbeitnehmende-betroffen",
     "fields": {
       "created_at": "2024-11-19T09:59:58.003Z",
@@ -20879,6 +23437,192 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sind-eingriffe-in-den-boden-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:53:56.821Z",
+      "modified_at": "2025-01-24T13:53:56.821Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind Eingriffe in den Boden geplant?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sind-erdsonden-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:50:44.108Z",
+      "modified_at": "2025-01-24T13:52:11.533Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind Erdsonden geplant?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sind-laermschutzmassnahmen-erforderlich-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:54:17.416Z",
+      "modified_at": "2025-01-24T13:54:17.417Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind L\\u00e4rmschutzmassnahmen erforderlich?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:14:58.079Z",
+      "modified_at": "2025-01-24T14:14:58.079Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind Reklamen im Einflussbereich der Kantonsstrasse geplant?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:51:39.648Z",
+      "modified_at": "2025-01-24T13:52:15.732Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind Sondierbohrungen (W\\u00e4rmepumpen) oder Pumpversuche vorgesehen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:19:34.122Z",
+      "modified_at": "2025-01-24T14:19:34.122Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind Terrainver\\u00e4nderungen ausserhalb der Bauzone geplant?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -20943,6 +23687,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:56:01.904Z",
+      "modified_at": "2025-01-24T13:56:01.904Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Soll eine \\u00f6ffentliche Kanalisation gebaut oder ge\\u00e4ndert werden?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -21040,6 +23815,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n### Standort\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "stoerfallverordnung-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:11:18.960Z",
+      "modified_at": "2025-01-24T14:11:18.961Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist ein Betrieb / Vorhaben betroffen, der / das der St\\u00f6rfallverordnung untersteht, bzw. liegt die Bauparzelle an einer SBB-Strecke oder Autobahn?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -21205,6 +24011,42 @@
         "min_length": null
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "total-in-chf-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:28:39.538Z",
+      "modified_at": "2025-01-24T14:28:39.538Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Total (in CHF)\", \"fr\": null, \"it\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0.0
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -21412,6 +24254,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "umgebungsarbeiten-in-chf-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:28:17.042Z",
+      "modified_at": "2025-01-24T14:28:17.042Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umgebungsarbeiten (in CHF)\", \"fr\": null, \"it\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0.0
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "umgebungsplan",
     "fields": {
       "created_at": "2024-11-27T14:57:46.926Z",
@@ -21433,6 +24311,37 @@
       "meta": {
         "hideLabel": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "umweltrechtliche-angaben-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T13:50:02.198Z",
+      "modified_at": "2025-01-24T13:50:02.198Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umweltrechtliche Angaben\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Umweltrechtliche Angaben\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -21949,6 +24858,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wald-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:15:31.093Z",
+      "modified_at": "2025-01-24T14:15:31.093Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wald\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Wald\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "wasseranschluss",
     "fields": {
       "created_at": "2024-11-20T16:02:41.502Z",
@@ -22033,6 +24973,68 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "weitere-angaben-gewaesser-denkmalschutz-luftfahrthindernis-headline-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:20:02.561Z",
+      "modified_at": "2025-01-24T14:20:40.472Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere Angaben (Gew\\u00e4sser, Denkmalschutz, Luftfahrthindernis)\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n### Weitere Angaben (Gew\\u00e4sser, Denkmalschutz, Luftfahrthindernis)\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "weitere-angaben-migration-form",
+    "fields": {
+      "created_at": "2025-01-24T13:45:28.667Z",
+      "modified_at": "2025-01-24T13:45:28.667Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere Angaben\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "weitere-angaben-migration",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -22156,6 +25158,68 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:17:00.202Z",
+      "modified_at": "2025-01-24T14:17:00.202Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird der Mindestabstand zum Wald (\\u00a7 48 BauG) unterschritten?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
+    "fields": {
+      "created_at": "2025-01-24T14:14:08.738Z",
+      "modified_at": "2025-01-24T14:14:08.738Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird der Mindestabstand zur Kantonsstrasse unterschritten (\\u00a7 111 BauG) oder werden Baulinien \\u00fcberschritten?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -23774,6 +26838,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration.befindet-sich-das-geplante-bauvorhaben-im-wald-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:17:21.861Z",
+      "modified_at": "2025-01-24T14:17:21.861Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
+      "option": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration.befindet-sich-das-geplante-bauvorhaben-im-wald-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:17:21.856Z",
+      "modified_at": "2025-01-24T14:17:21.856Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
+      "option": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "beleuchtung.beleuchtung-angeleuchtet",
     "fields": {
       "created_at": "2024-12-06T09:33:43.272Z",
@@ -24794,6 +27888,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration.denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:22:08.711Z",
+      "modified_at": "2025-01-24T14:22:08.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
+      "option": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration.denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:22:08.706Z",
+      "modified_at": "2025-01-24T14:22:08.706Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
+      "option": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "eigenverwendung.eigenverwendung-bestehend",
     "fields": {
       "created_at": "2024-12-06T09:51:47.561Z",
@@ -24894,6 +28018,36 @@
       "modified_by_group": null,
       "question": "einbau-grundwasserspiegel",
       "option": "einbau-grundwasserspiegel-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "einleitung-querung-und-oder-wasserentnahme-migration.einleitung-querung-und-oder-wasserentnahme-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:21:20.498Z",
+      "modified_at": "2025-01-24T14:21:20.498Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einleitung-querung-und-oder-wasserentnahme-migration",
+      "option": "einleitung-querung-und-oder-wasserentnahme-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "einleitung-querung-und-oder-wasserentnahme-migration.einleitung-querung-und-oder-wasserentnahme-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:21:20.493Z",
+      "modified_at": "2025-01-24T14:21:20.493Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einleitung-querung-und-oder-wasserentnahme-migration",
+      "option": "einleitung-querung-und-oder-wasserentnahme-migration-nein",
       "sort": 1
     }
   },
@@ -25484,6 +28638,96 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration.grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:53:26.433Z",
+      "modified_at": "2025-01-24T13:53:26.433Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
+      "option": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration.grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:53:26.429Z",
+      "modified_at": "2025-01-24T13:53:26.429Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
+      "option": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration.handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:18:42.701Z",
+      "modified_at": "2025-01-24T14:18:42.701Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
+      "option": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration.handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:18:42.695Z",
+      "modified_at": "2025-01-24T14:18:42.695Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
+      "option": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration.handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:18:12.963Z",
+      "modified_at": "2025-01-24T14:18:12.963Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
+      "option": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration.handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:18:12.958Z",
+      "modified_at": "2025-01-24T14:18:12.958Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
+      "option": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "hochwassergefaehrdung-auswahl-migration.hochwassergefaehrdung-auswahl-migration-ja",
     "fields": {
       "created_at": "2025-01-24T07:56:46.722Z",
@@ -25619,6 +28863,216 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration.ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:10:07.948Z",
+      "modified_at": "2025-01-24T14:10:07.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
+      "option": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration.ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:10:07.944Z",
+      "modified_at": "2025-01-24T14:10:07.944Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
+      "option": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration.ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:07:50.578Z",
+      "modified_at": "2025-01-24T14:07:50.578Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
+      "option": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration.ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:07:50.575Z",
+      "modified_at": "2025-01-24T14:07:50.575Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
+      "option": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-ein-energienachweis-erforderlich-migration.ist-ein-energienachweis-erforderlich-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:59:33.527Z",
+      "modified_at": "2025-01-24T13:59:33.527Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-ein-energienachweis-erforderlich-migration",
+      "option": "ist-ein-energienachweis-erforderlich-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-ein-energienachweis-erforderlich-migration.ist-ein-energienachweis-erforderlich-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:59:33.522Z",
+      "modified_at": "2025-01-24T13:59:33.522Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-ein-energienachweis-erforderlich-migration",
+      "option": "ist-ein-energienachweis-erforderlich-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration.ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:14:39.080Z",
+      "modified_at": "2025-01-24T14:14:39.080Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
+      "option": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration.ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:14:39.075Z",
+      "modified_at": "2025-01-24T14:14:39.075Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
+      "option": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-ein-luftfahrthindernis-geplant-migration.ist-ein-luftfahrthindernis-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:22:31.983Z",
+      "modified_at": "2025-01-24T14:22:31.983Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-ein-luftfahrthindernis-geplant-migration",
+      "option": "ist-ein-luftfahrthindernis-geplant-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-ein-luftfahrthindernis-geplant-migration.ist-ein-luftfahrthindernis-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:22:31.976Z",
+      "modified_at": "2025-01-24T14:22:31.976Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-ein-luftfahrthindernis-geplant-migration",
+      "option": "ist-ein-luftfahrthindernis-geplant-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-ein-materialabbau-geplant-migration.ist-ein-materialabbau-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:55:21.560Z",
+      "modified_at": "2025-01-24T13:55:21.560Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-ein-materialabbau-geplant-migration",
+      "option": "ist-ein-materialabbau-geplant-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-ein-materialabbau-geplant-migration.ist-ein-materialabbau-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:55:21.555Z",
+      "modified_at": "2025-01-24T13:55:21.555Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-ein-materialabbau-geplant-migration",
+      "option": "ist-ein-materialabbau-geplant-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration.ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:20:55.528Z",
+      "modified_at": "2025-01-24T14:20:55.528Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
+      "option": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration.ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:20:55.524Z",
+      "modified_at": "2025-01-24T14:20:55.524Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
+      "option": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "kanalisation.kanalisation-bestehend",
     "fields": {
       "created_at": "2024-12-06T09:51:43.349Z",
@@ -25749,6 +29203,36 @@
       "modified_by_group": null,
       "question": "kantonale-brandschutzbewilligung-erforderlich",
       "option": "kantonale-brandschutzbewilligung-erforderlich-nicht-bekannt",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration.kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:08:45.917Z",
+      "modified_at": "2025-01-24T14:08:45.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
+      "option": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration.kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:08:45.913Z",
+      "modified_at": "2025-01-24T14:08:45.913Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
+      "option": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-nein",
       "sort": 1
     }
   },
@@ -25979,6 +29463,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "kommunale-randschutzbewilligung-erforderlich-migration.kommunale-randschutzbewilligung-erforderlich-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:09:36.395Z",
+      "modified_at": "2025-01-24T14:09:36.395Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kommunale-randschutzbewilligung-erforderlich-migration",
+      "option": "kommunale-randschutzbewilligung-erforderlich-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kommunale-randschutzbewilligung-erforderlich-migration.kommunale-randschutzbewilligung-erforderlich-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:09:36.391Z",
+      "modified_at": "2025-01-24T14:09:36.391Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kommunale-randschutzbewilligung-erforderlich-migration",
+      "option": "kommunale-randschutzbewilligung-erforderlich-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "konformitaetserklaerung-von-neu-und-erweiterungsbauten.konformitaetserklaerung-von-neu-und-erweiterungsbauten-ja",
     "fields": {
       "created_at": "2025-01-14T09:25:21.655Z",
@@ -26080,6 +29594,36 @@
       "question": "liegenschaft-migration",
       "option": "liegenschaft-migration-nicht-benoetigt",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration.liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:11:49.405Z",
+      "modified_at": "2025-01-24T14:11:49.405Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
+      "option": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration.liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:11:49.399Z",
+      "modified_at": "2025-01-24T14:11:49.399Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
+      "option": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-nein",
+      "sort": 1
     }
   },
   {
@@ -26684,6 +30228,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration.oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:19:11.596Z",
+      "modified_at": "2025-01-24T14:19:11.596Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
+      "option": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration.oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:19:11.591Z",
+      "modified_at": "2025-01-24T14:19:11.591Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
+      "option": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "parkplaetze-betroffen.parkplaetze-betroffen-ja",
     "fields": {
       "created_at": "2024-12-04T13:57:52.692Z",
@@ -26834,6 +30408,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "schutzraumbaupflicht-ersatzabgabepflicht-migration.schutzraumbaupflicht-ersatzabgabepflicht-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:12:16.585Z",
+      "modified_at": "2025-01-24T14:12:16.585Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "schutzraumbaupflicht-ersatzabgabepflicht-migration",
+      "option": "schutzraumbaupflicht-ersatzabgabepflicht-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "schutzraumbaupflicht-ersatzabgabepflicht-migration.schutzraumbaupflicht-ersatzabgabepflicht-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:12:16.583Z",
+      "modified_at": "2025-01-24T14:12:16.583Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "schutzraumbaupflicht-ersatzabgabepflicht-migration",
+      "option": "schutzraumbaupflicht-ersatzabgabepflicht-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-altlasten-betroffen-migration.sind-altlasten-betroffen-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:52:46.032Z",
+      "modified_at": "2025-01-24T13:52:46.032Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-altlasten-betroffen-migration",
+      "option": "sind-altlasten-betroffen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-altlasten-betroffen-migration.sind-altlasten-betroffen-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:52:46.028Z",
+      "modified_at": "2025-01-24T13:52:46.028Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-altlasten-betroffen-migration",
+      "option": "sind-altlasten-betroffen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "sind-arbeitnehmende-betroffen-pgv-gas.sind-arbeitnehmende-betroffen-pgv-gas-ja",
     "fields": {
       "created_at": "2024-12-12T12:46:27.265Z",
@@ -26894,6 +30528,186 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "sind-eingriffe-in-den-boden-geplant-migration.sind-eingriffe-in-den-boden-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:53:56.836Z",
+      "modified_at": "2025-01-24T13:53:56.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-eingriffe-in-den-boden-geplant-migration",
+      "option": "sind-eingriffe-in-den-boden-geplant-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-eingriffe-in-den-boden-geplant-migration.sind-eingriffe-in-den-boden-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:53:56.831Z",
+      "modified_at": "2025-01-24T13:53:56.831Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-eingriffe-in-den-boden-geplant-migration",
+      "option": "sind-eingriffe-in-den-boden-geplant-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-erdsonden-geplant-migration.sind-erdsonden-geplant-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:52:11.538Z",
+      "modified_at": "2025-01-24T13:52:11.538Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-erdsonden-geplant-migration",
+      "option": "sind-erdsonden-geplant-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-erdsonden-geplant-migration.sind-erdsonden-geplant-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:52:11.541Z",
+      "modified_at": "2025-01-24T13:52:11.541Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-erdsonden-geplant-migration",
+      "option": "sind-erdsonden-geplant-nein",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-laermschutzmassnahmen-erforderlich-migration.sind-laermschutzmassnahmen-erforderlich-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:54:17.432Z",
+      "modified_at": "2025-01-24T13:54:17.432Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-laermschutzmassnahmen-erforderlich-migration",
+      "option": "sind-laermschutzmassnahmen-erforderlich-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-laermschutzmassnahmen-erforderlich-migration.sind-laermschutzmassnahmen-erforderlich-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:54:17.426Z",
+      "modified_at": "2025-01-24T13:54:17.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-laermschutzmassnahmen-erforderlich-migration",
+      "option": "sind-laermschutzmassnahmen-erforderlich-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration.sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:14:58.090Z",
+      "modified_at": "2025-01-24T14:14:58.090Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
+      "option": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration.sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:14:58.085Z",
+      "modified_at": "2025-01-24T14:14:58.085Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
+      "option": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration.sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:52:15.736Z",
+      "modified_at": "2025-01-24T13:52:15.736Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
+      "option": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration.sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:52:15.739Z",
+      "modified_at": "2025-01-24T13:52:15.739Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
+      "option": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-nein",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration.sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:19:34.139Z",
+      "modified_at": "2025-01-24T14:19:34.139Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
+      "option": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration.sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:19:34.131Z",
+      "modified_at": "2025-01-24T14:19:34.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
+      "option": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "situationsplan-mit-eingetragenen-reklamepositionen.situationsplan-mit-eingetragenen-reklamepositionen-ja",
     "fields": {
       "created_at": "2024-11-28T09:32:51.951Z",
@@ -26934,6 +30748,66 @@
       "modified_by_group": null,
       "question": "solaranlage-photovoltaikanalge-geplant",
       "option": "solaranlage-photovoltaikanalge-geplant-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration.soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T13:56:01.918Z",
+      "modified_at": "2025-01-24T13:56:01.918Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
+      "option": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration.soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T13:56:01.913Z",
+      "modified_at": "2025-01-24T13:56:01.913Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
+      "option": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stoerfallverordnung-migration.stoerfallverordnung-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:11:18.974Z",
+      "modified_at": "2025-01-24T14:11:18.974Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stoerfallverordnung-migration",
+      "option": "stoerfallverordnung-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stoerfallverordnung-migration.stoerfallverordnung-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:11:18.970Z",
+      "modified_at": "2025-01-24T14:11:18.970Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stoerfallverordnung-migration",
+      "option": "stoerfallverordnung-migration-nein",
       "sort": 1
     }
   },
@@ -28075,6 +31949,66 @@
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-videokameras",
       "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration.wird-der-mindestabstand-zum-wald-4-unterschritten-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:17:00.209Z",
+      "modified_at": "2025-01-24T14:17:00.209Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
+      "option": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration.wird-der-mindestabstand-zum-wald-4-unterschritten-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:17:00.206Z",
+      "modified_at": "2025-01-24T14:17:00.206Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
+      "option": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration.wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-ja",
+    "fields": {
+      "created_at": "2025-01-24T14:14:08.751Z",
+      "modified_at": "2025-01-24T14:14:08.751Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
+      "option": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration.wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-nein",
+    "fields": {
+      "created_at": "2025-01-24T14:14:08.746Z",
+      "modified_at": "2025-01-24T14:14:08.746Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
+      "option": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-nein",
+      "sort": 1
     }
   },
   {
