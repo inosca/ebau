@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-16 16:07+0100\n"
-"PO-Revision-Date: 2024-09-12 15:00+0200\n"
+"POT-Creation-Date: 2025-01-24 10:19+0100\n"
+"PO-Revision-Date: 2025-01-24 10:24+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -757,6 +757,11 @@ msgid "Error %(code)s while fetching data from the geo.admin.ch API"
 msgstr ""
 "Fehler %(code)s beim Abrufen der Daten von der geo.admin.ch Schnittstelle"
 
+#: camac/gis/clients/ag.py
+msgid "An error occured while fetching data from the AGIS API."
+msgstr ""
+"Beim Abrufen der Daten von der AGIS Schnittstelle ist ein Fehler aufgetreten."
+
 #: camac/gis/clients/sogis.py
 #, python-format
 msgid "Error %(code)s while fetching data from the geo.so.ch API"
@@ -769,6 +774,10 @@ msgstr "Geoportal des Kanton Solothurn"
 #: camac/gis/models.py
 msgid "GIS Canton GR"
 msgstr "Geoportal des Kanton Graubünden"
+
+#: camac/gis/models.py
+msgid "GIS Canton AG"
+msgstr "Geoportal des Kanton Aargau"
 
 #: camac/gis/models.py
 msgid "GIS Canton Bern"
@@ -872,17 +881,17 @@ msgid "Draft"
 msgstr "Entwurf"
 
 #: camac/instance/document_merge_service.py
-#, python-format
-msgid "No template specified for form '%(form_slug)s'."
-msgstr "Keine Druckvorlage für das Caluma Formular %(form_slug)s spezifiziert."
-
-#: camac/instance/document_merge_service.py
 msgid "Signature page"
 msgstr "Unterschriftenblatt"
 
 #: camac/instance/document_merge_service.py
 msgid "Additional demand"
 msgstr "Nachforderung"
+
+#: camac/instance/document_merge_service.py
+#, python-format
+msgid "No template specified for form '%(form_slug)s'."
+msgstr "Keine Druckvorlage für das Caluma Formular %(form_slug)s spezifiziert."
 
 #: camac/instance/document_merge_service.py
 #: camac/instance/tests/test_document_merge_service.py

@@ -140,8 +140,8 @@ export default class AgGisComponent extends Component {
   @action
   updateMarkers(e) {
     this.searchHighlight = null;
-    this.markers.clear();
-    this.markers.pushObject({ lat: e.latlng.lat, lng: e.latlng.lng });
+    this.markers = [];
+    this.markers.push({ lat: e.latlng.lat, lng: e.latlng.lng });
   }
 
   get geometry() {
