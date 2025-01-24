@@ -217,7 +217,7 @@
     "pk": "baugesuch-migration",
     "fields": {
       "created_at": "2025-01-23T08:56:32.842Z",
-      "modified_at": "2025-01-23T08:56:40.919Z",
+      "modified_at": "2025-01-24T15:06:15.787Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -230,7 +230,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
       "source": "baugesuch"
     }
@@ -2204,7 +2204,7 @@
       "modified_by_group": null,
       "form": "baugesuch-migration",
       "question": "allgemeine-informationen-migration",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -2219,7 +2219,7 @@
       "modified_by_group": null,
       "form": "baugesuch-migration",
       "question": "bauzonen-migration-form",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -2234,36 +2234,21 @@
       "modified_by_group": null,
       "form": "baugesuch-migration",
       "question": "beschreibung-form-migration",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-migration.bestaetigung",
+    "pk": "baugesuch-migration.dokumente-ohne-pflichtdokumente",
     "fields": {
-      "created_at": "2025-01-23T08:56:32.887Z",
-      "modified_at": "2025-01-23T08:56:32.887Z",
+      "created_at": "2025-01-24T14:57:13.327Z",
+      "modified_at": "2025-01-24T14:57:13.327Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-migration",
-      "question": "bestaetigung",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baugesuch-migration.dokumente",
-    "fields": {
-      "created_at": "2025-01-23T08:56:32.881Z",
-      "modified_at": "2025-01-23T08:56:32.881Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "form": "baugesuch-migration",
-      "question": "dokumente",
+      "question": "dokumente-ohne-pflichtdokumente",
       "sort": 3
     }
   },
@@ -2294,7 +2279,7 @@
       "modified_by_group": null,
       "form": "baugesuch-migration",
       "question": "gebaeudetechnik-migration-form",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -2309,7 +2294,7 @@
       "modified_by_group": null,
       "form": "baugesuch-migration",
       "question": "kontakte-migration",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -2324,7 +2309,7 @@
       "modified_by_group": null,
       "form": "baugesuch-migration",
       "question": "weitere-angaben-migration-form",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -15303,7 +15288,7 @@
     "pk": "angaben-headline-migration",
     "fields": {
       "created_at": "2025-01-24T13:49:07.078Z",
-      "modified_at": "2025-01-24T13:49:28.989Z",
+      "modified_at": "2025-01-24T15:03:17.127Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -15316,7 +15301,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n### Angaben\\n---\\nBitte beantworten Sie die Fragen zu den untenstehenden Themenbereichen, soweit sie das Bauvorhaben betreffen. Diese Angaben helfen die notwendigen Formulare und Merkbl\\u00e4tter unter \\\"7. Dokumente\\\" bereitzustellen und Unterlagenerg\\u00e4nzungen zu vermeiden.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"### Angaben\\n\\nBitte beantworten Sie die Fragen zu den untenstehenden Themenbereichen, soweit sie das Bauvorhaben betreffen. Diese Angaben helfen die notwendigen Formulare und Merkbl\\u00e4tter unter \\\"7. Dokumente\\\" bereitzustellen und Unterlagenerg\\u00e4nzungen zu vermeiden.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
