@@ -26,6 +26,7 @@ from django.db.models.functions import Cast, Concat
 from django.utils.timezone import now
 from tqdm import tqdm
 
+from camac.caluma.utils import date_to_deadline
 from camac.core import models as core_models
 from camac.instance.models import HistoryEntry
 from camac.lookups import Any
@@ -505,16 +506,13 @@ class Command(BaseCommand):
                         else WorkItem.STATUS_READY
                     ),
                     meta=self.config.META,
-                    deadline=pytz.utc.localize(
-                        datetime.combine(
-                            (
-                                previous_work_item_closed_at
-                                + timedelta(
-                                    seconds=self.config.DISTRIBUTION_INIT_TASK.lead_time
-                                )
-                            ).date(),
-                            datetime.min.time(),
-                        )
+                    deadline=date_to_deadline(
+                        (
+                            previous_work_item_closed_at
+                            + timedelta(
+                                seconds=self.config.DISTRIBUTION_INIT_TASK.lead_time
+                            )
+                        ).date()
                     ),
                     closed_at=earliest_activation_sent_start_date
                     or distribution_closed_at,
@@ -610,16 +608,11 @@ class Command(BaseCommand):
             # The "check-inquiries" work item only has a deadline if all of the
             # activation that were created by this service are answered
             if not has_pending_activations and last_answered_activation:
-                deadline = pytz.utc.localize(
-                    datetime.combine(
-                        (
-                            last_answered_activation.end_date
-                            + timedelta(
-                                seconds=self.config.CHECK_INQUIRIES_TASK.lead_time
-                            )
-                        ).date(),
-                        datetime.min.time(),
-                    )
+                deadline = date_to_deadline(
+                    (
+                        last_answered_activation.end_date
+                        + timedelta(seconds=self.config.CHECK_INQUIRIES_TASK.lead_time)
+                    ).date()
                 )
             else:
                 deadline = None
@@ -745,12 +738,7 @@ class Command(BaseCommand):
                 ),
                 document=document,
                 created_by_group=str(activation.service_parent_id),
-                deadline=pytz.utc.localize(
-                    datetime.combine(
-                        activation.deadline_date.date(),
-                        datetime.min.time(),
-                    )
-                ),
+                deadline=date_to_deadline(activation.deadline_date.date()),
                 closed_at=activation.end_date,
             )
 
@@ -1526,8 +1514,8 @@ class Command(BaseCommand):
                         f"Couldn't parse activation.review_date {activation.review_date} for activation {activation.pk}"
                     )
                     tqdm.write(f"Manually fix {self.config.FILL_INQUIRY_TASK} task")
-                    activation_answer_draft_completed = pytz.utc.localize(
-                        datetime.combine(datetime.min.date(), datetime.min.time())
+                    activation_answer_draft_completed = date_to_deadline(
+                        datetime.min.date()
                     )
 
         activation_is_running = activation_state == "RUN"
@@ -1595,13 +1583,10 @@ class Command(BaseCommand):
                         closed_by_group=str(activation.service_id)
                         if activation.end_date
                         else None,
-                        deadline=pytz.utc.localize(
-                            datetime.combine(
-                                activation_answer_draft_completed
-                                + timedelta(
-                                    seconds=self.config.CHECK_INQUIRY_TASK.lead_time
-                                ),
-                                datetime.min.time(),
+                        deadline=date_to_deadline(
+                            activation_answer_draft_completed
+                            + timedelta(
+                                seconds=self.config.CHECK_INQUIRY_TASK.lead_time
                             )
                         ),
                     ),
@@ -1643,12 +1628,7 @@ class Command(BaseCommand):
                         status=WorkItem.STATUS_CANCELED
                         if case_is_depreciated
                         else WorkItem.STATUS_READY,
-                        deadline=pytz.utc.localize(
-                            datetime.combine(
-                                datetime.now().date(),
-                                datetime.min.time(),
-                            )
-                        ),
+                        deadline=date_to_deadline(datetime.now().date()),
                     )
                 )
 

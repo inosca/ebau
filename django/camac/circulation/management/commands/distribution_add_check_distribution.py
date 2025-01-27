@@ -1,6 +1,5 @@
-from datetime import datetime, timedelta
+from datetime import timedelta
 
-import pytz
 from caluma.caluma_workflow.models import Case, Task, WorkItem
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
@@ -9,6 +8,7 @@ from django.db.models import Case as DjangoCase, CharField, Exists, F, OuterRef,
 from django.db.models.functions import Cast
 from tqdm import tqdm
 
+from camac.caluma.utils import date_to_deadline
 from camac.core.models import InstanceService
 from camac.responsible.models import ResponsibleService
 
@@ -115,16 +115,11 @@ class Command(BaseCommand):
                         assigned_users=assigned_users,
                         case=distribution_case,
                         status=WorkItem.STATUS_READY,
-                        deadline=pytz.utc.localize(
-                            datetime.combine(
-                                (
-                                    last_completed_inquiry_closed_at
-                                    + timedelta(
-                                        seconds=check_distribution_task.lead_time
-                                    )
-                                ).date(),
-                                datetime.min.time(),
-                            )
+                        deadline=date_to_deadline(
+                            (
+                                last_completed_inquiry_closed_at
+                                + timedelta(seconds=check_distribution_task.lead_time)
+                            ).date()
                         ),
                         previous_work_item=last_completed_inquiry,
                         meta={

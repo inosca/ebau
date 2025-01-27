@@ -1,6 +1,5 @@
-from datetime import datetime, timedelta
+from datetime import timedelta
 
-import pytz
 from caluma.caluma_core.events import send_event
 from caluma.caluma_core.validations import BaseValidation, validation_for
 from caluma.caluma_form.api import save_answer
@@ -18,7 +17,11 @@ from django.db.models import Q
 from django.utils.translation import gettext_noop
 from rest_framework import exceptions
 
-from camac.caluma.utils import CamacRequest, sync_inquiry_deadline
+from camac.caluma.utils import (
+    CamacRequest,
+    date_to_deadline,
+    sync_inquiry_deadline,
+)
 from camac.core.translations import get_translations
 from camac.ech0211.signals import file_subsequently
 from camac.notification.utils import send_mail
@@ -33,10 +36,6 @@ NOTIFICATION_CLAIM_IN_PROGRESS_MUNICIPALITY = (
     "03-zusaetzliche-unterlagen-notwendig-gemeinde"
 )
 NOTIFICATION_CLAIM_ANSWERED = "03-nachforderung-beantwortet-leitbehorde"
-
-
-def date_to_deadline(date):
-    return pytz.utc.localize(datetime.combine(date, datetime.min.time()))
 
 
 class CustomValidation(BaseValidation):
