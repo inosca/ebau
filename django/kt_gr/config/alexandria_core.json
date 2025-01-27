@@ -118,19 +118,14 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "category", "files"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags"],
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "category",
+                  "files",
+                  "tags"
+                ],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -232,21 +227,10 @@
                   "description",
                   "date",
                   "category",
+                  "files",
                   "tags",
                   "marks"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -549,6 +533,18 @@
                 "scope": "All",
                 "fields": ["title", "description", "date", "tags", "marks"],
                 "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true,
                   "~InstanceState": [
                     "rejected",
                     "finished",
@@ -1512,6 +1508,18 @@
               },
               {
                 "scope": "All",
+                "condition": {
+                  "PaperInstance": true,
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
                 "fields": ["title", "description", "date", "tags", "marks"],
                 "condition": {
                   "~InstanceState": [
@@ -1985,6 +1993,7 @@
                   "category",
                   "title",
                   "description",
+                  "files",
                   "date",
                   "marks"
                 ],
@@ -2013,6 +2022,18 @@
           "uso": {
             "visibility": "all",
             "permissions": [
+              {
+                "scope": "Service",
+                "fields": ["files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
               {
                 "scope": "All",
                 "fields": ["tags"],
