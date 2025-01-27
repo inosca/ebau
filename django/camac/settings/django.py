@@ -2419,7 +2419,7 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main"],
+            "FORM_PERMISSIONS": ["main", "kantonale-pruefung"],
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
@@ -2428,7 +2428,6 @@ APPLICATIONS = {
             "PRE_COMPLETE": {
                 "check-inquiry": {"cancel": ["revise-inquiry"]},
                 "revise-inquiry": {"cancel": ["check-inquiry"]},
-                "decision": {"skip": ["cantonal-exam"]},
             },
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {

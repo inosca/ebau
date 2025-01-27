@@ -653,7 +653,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Stellungnahmen pr\\u00fcfen\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Eingegangene Stellungnahmen pr\\u00fcfen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
       "meta": {
@@ -681,7 +681,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Stellungnahme pr\\u00fcfen\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Stellungnahme freigeben\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
       "meta": {

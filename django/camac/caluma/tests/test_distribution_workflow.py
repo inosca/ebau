@@ -1243,3 +1243,52 @@ def test_set_deadline_for_check_inquiries_work_item(
     assert (
         check_task_work_item.deadline is not None
     ), "completing an inquiry should set a deadline on check items which do not have a deadline yet"
+
+
+@pytest.mark.freeze_time("2025-01-24")
+@pytest.mark.parametrize(
+    "is_afb,has_deadline,did_update_deadline",
+    [
+        (False, False, False),
+        (True, True, False),
+        (True, False, True),
+    ],
+)
+def test_set_cantonal_exam_deadline(
+    db,
+    caluma_admin_user,
+    did_update_deadline,
+    disable_additional_demand_settings,
+    disable_ech0211_settings,
+    has_deadline,
+    inquiry_factory_gr,
+    is_afb,
+    service_factory,
+    settings,
+    work_item_factory,
+):
+    settings.APPLICATION_NAME = "kt_ag"
+
+    service = service_factory(slug="afb" if is_afb else "abc")
+    inquiry = inquiry_factory_gr(service)
+    cantonal_exam = work_item_factory(
+        task__slug="cantonal-exam",
+        case=inquiry.case.family,
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[str(service.pk)],
+    )
+
+    if has_deadline:
+        cantonal_exam.deadline = now()
+        cantonal_exam.save()
+
+    resume_work_item(inquiry, caluma_admin_user)
+
+    cantonal_exam.refresh_from_db()
+
+    if did_update_deadline:
+        assert cantonal_exam.deadline.date().isoformat() == "2025-01-29"
+    elif not has_deadline:
+        assert cantonal_exam.deadline is None
+    else:
+        assert cantonal_exam.deadline == now()

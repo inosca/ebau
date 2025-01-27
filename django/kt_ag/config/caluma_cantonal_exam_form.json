@@ -18,111 +18,93 @@
     }
   },
   {
-    "model": "caluma_form.form",
-    "pk": "kantonale-pruefung-formelle-vorpruefung",
-    "fields": {
-      "created_at": "2025-01-16T11:57:47.690Z",
-      "modified_at": "2025-01-16T11:57:47.690Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Formelle Vorpr\\u00fcfung\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
     "model": "caluma_form.formquestion",
-    "pk": "kantonale-pruefung-formelle-vorpruefung.kantonale-pruefung-anlagentyp-uvpv",
+    "pk": "kantonale-pruefung.kantonale-pruefung-abschliessen",
     "fields": {
-      "created_at": "2025-01-16T12:01:26.007Z",
-      "modified_at": "2025-01-16T12:01:26.007Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "kantonale-pruefung-formelle-vorpruefung",
-      "question": "kantonale-pruefung-anlagentyp-uvpv",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "kantonale-pruefung-formelle-vorpruefung.kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
-    "fields": {
-      "created_at": "2025-01-16T12:00:43.615Z",
-      "modified_at": "2025-01-16T12:00:43.615Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "kantonale-pruefung-formelle-vorpruefung",
-      "question": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "kantonale-pruefung-formelle-vorpruefung.kantonale-pruefung-gesuchscodes",
-    "fields": {
-      "created_at": "2025-01-16T12:00:01.821Z",
-      "modified_at": "2025-01-16T12:00:01.821Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "kantonale-pruefung-formelle-vorpruefung",
-      "question": "kantonale-pruefung-gesuchscodes",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "kantonale-pruefung-formelle-vorpruefung.kantonale-pruefung-nachtraegliches-baugesuch",
-    "fields": {
-      "created_at": "2025-01-16T12:01:07.732Z",
-      "modified_at": "2025-01-16T12:01:07.732Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "kantonale-pruefung-formelle-vorpruefung",
-      "question": "kantonale-pruefung-nachtraegliches-baugesuch",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "kantonale-pruefung-formelle-vorpruefung.kantonale-pruefung-triage-bemerkungen",
-    "fields": {
-      "created_at": "2025-01-16T12:00:22.097Z",
-      "modified_at": "2025-01-16T12:00:22.097Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "kantonale-pruefung-formelle-vorpruefung",
-      "question": "kantonale-pruefung-triage-bemerkungen",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "kantonale-pruefung.kantonale-pruefung-formelle-vorpruefung",
-    "fields": {
-      "created_at": "2025-01-16T11:58:43.140Z",
-      "modified_at": "2025-01-16T11:58:43.140Z",
+      "created_at": "2025-01-23T15:14:19.513Z",
+      "modified_at": "2025-01-23T15:14:19.513Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "kantonale-pruefung",
-      "question": "kantonale-pruefung-formelle-vorpruefung",
+      "question": "kantonale-pruefung-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung.kantonale-pruefung-anlagentyp-uvpv",
+    "fields": {
+      "created_at": "2025-01-23T15:12:50.217Z",
+      "modified_at": "2025-01-23T15:12:50.217Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung",
+      "question": "kantonale-pruefung-anlagentyp-uvpv",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung.kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
+    "fields": {
+      "created_at": "2025-01-23T15:12:45.974Z",
+      "modified_at": "2025-01-23T15:12:45.974Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung",
+      "question": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung.kantonale-pruefung-gesuchscodes",
+    "fields": {
+      "created_at": "2025-01-23T15:12:41.769Z",
+      "modified_at": "2025-01-23T15:12:41.769Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung",
+      "question": "kantonale-pruefung-gesuchscodes",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung.kantonale-pruefung-nachtraegliches-baugesuch",
+    "fields": {
+      "created_at": "2025-01-23T15:12:48.253Z",
+      "modified_at": "2025-01-23T15:12:48.253Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung",
+      "question": "kantonale-pruefung-nachtraegliches-baugesuch",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung.kantonale-pruefung-triage-bemerkungen",
+    "fields": {
+      "created_at": "2025-01-23T15:12:43.821Z",
+      "modified_at": "2025-01-23T15:12:43.821Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung",
+      "question": "kantonale-pruefung-triage-bemerkungen",
+      "sort": 5
     }
   },
   {
@@ -1640,6 +1622,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "kantonale-pruefung-abschliessen",
+    "fields": {
+      "created_at": "2025-01-23T15:14:19.454Z",
+      "modified_at": "2025-01-23T15:14:19.454Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kantonale Pr\\u00fcfung abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kantonale-pruefung-anlagentyp-uvpv",
     "fields": {
       "created_at": "2025-01-16T12:01:25.948Z",
@@ -1696,37 +1714,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "kantonale-pruefung-formelle-vorpruefung",
-    "fields": {
-      "created_at": "2025-01-16T11:58:43.072Z",
-      "modified_at": "2025-01-16T11:58:43.072Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Formelle Vorpr\\u00fcfung\", \"fr\": null, \"it\": null}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "kantonale-pruefung-formelle-vorpruefung",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,

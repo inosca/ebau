@@ -107,7 +107,8 @@
         "directLink": {
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
-        }
+        },
+        "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
@@ -183,7 +184,8 @@
         "directLink": {
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
-        }
+        },
+        "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
@@ -235,7 +237,8 @@
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
         },
-        "is-manually-completable": true
+        "is-manually-completable": true,
+        "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",

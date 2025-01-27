@@ -45,8 +45,9 @@ mutation CreateCantonalExamTask {
     input: {
       slug: "cantonal-exam"
       form: "kantonale-pruefung"
-      name: "Kantonale Prüfung"
+      name: "Eingang neues Gesuch prüfen"
       addressGroups: "[\"afb\"]|groups"
+      controlGroups: "[\"afb\"]|groups"
       meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
     }
   ) {

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@9.15.4",
   "//": {
     "@ember/string": [
       "This resolution is needed because certain addons in our dependency",
