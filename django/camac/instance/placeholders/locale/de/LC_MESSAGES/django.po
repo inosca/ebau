@@ -1505,6 +1505,10 @@ msgid "NEIGHBORS"
 msgstr "ALLE_NACHBARN"
 
 #: camac/instance/placeholders/serializers.py
+msgid "Name and address of all the neighbors"
+msgstr "Name und Adresse aller Nachbarn"
+
+#: camac/instance/placeholders/serializers.py
 msgid "All legal submissions of the type \"objection\""
 msgstr "Alle Rechtsbegehren vom Typ \"Einsprache\""
 

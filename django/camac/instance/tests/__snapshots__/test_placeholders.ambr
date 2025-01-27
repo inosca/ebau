@@ -3299,7 +3299,10 @@
           'fr': 'VOISINS_TOUS',
         }),
       ]),
-      'description': None,
+      'description': dict({
+        'de': 'Name und Adresse aller Nachbarn',
+        'fr': 'Nom et adresse de tous les voisins',
+      }),
       'nested_aliases': dict({
         'ADDRESS_1': list([
           dict({
