@@ -145,18 +145,6 @@
   },
   {
     "model": "notification.notificationtemplate",
-    "pk": 29,
-    "fields": {
-      "slug": "complete-construction-step-schlussabnahme",
-      "purpose": "Abschluss Schussabnahme Baubegleitung",
-      "subject": "Gesuch {{identifier}}: Abschluss Schlussabnahme",
-      "body": "Im Gesuch {{ identifier }}, {{field_bezeichnung}}, {{ location }} wurde die Schlussabnahme gemacht.",
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
     "pk": 30,
     "fields": {
       "slug": "notify-appeal-deadline",
@@ -391,6 +379,30 @@
       "purpose": "Gesuch entschieden",
       "subject": "Gesuch {{identifier}}: Entscheidung Gesuch",
       "body": "Im Gesuch {{identifier}}, {{field_bezeichnung}}, {{location}} hat die Gemeinde über das Gesuch entschieden (die Beschwerdefrist läuft noch).",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 53,
+    "fields": {
+      "slug": "complete-construction-step-schlussabnahme-gebaeude",
+      "purpose": "Abschluss Schussabnahme Baubegleitung (Gebäude)",
+      "subject": "Gesuch {{identifier}}: Abschluss Schlussabnahme (Gebäude)",
+      "body": "Im Gesuch {{ identifier }}, {{field_bezeichnung}}, {{ location }} wurde die Schlussabnahme des Gebäudes gemacht.",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 54,
+    "fields": {
+      "slug": "complete-construction-step-schlussabnahme-projekt",
+      "purpose": "Abschluss Schussabnahme Baubegleitung (Projekt)",
+      "subject": "Gesuch {{identifier}}: Abschluss Schlussabnahme (Projekt)",
+      "body": "Im Gesuch {{ identifier }}, {{field_bezeichnung}}, {{ location }} wurde die Schlussabnahme des Projekts gemacht.",
       "service": null,
       "type": "email"
     }

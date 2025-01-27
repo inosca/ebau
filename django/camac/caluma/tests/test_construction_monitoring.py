@@ -196,6 +196,7 @@ def test_complete_construction_stage(
     db,
     sz_instance,
     sz_construction_monitoring_settings,
+    notification_template,
     construction_monitoring_initialized_case_sz,
     construction_stage_factory_sz,
     caluma_admin_schema_executor,
@@ -205,8 +206,16 @@ def test_complete_construction_stage(
     cancel,
     utils,
 ):
-    case = sz_instance.case
+    sz_construction_monitoring_settings["NOTIFICATIONS"][
+        sz_construction_monitoring_settings["CONSTRUCTION_STAGE_WORKFLOW"]
+    ] = [
+        {
+            "template_slug": notification_template.slug,
+            "recipient_types": ["leitbehoerde"],
+        },
+    ]
 
+    case = sz_instance.case
     construction_stage = case.work_items.filter(
         task_id=sz_construction_monitoring_settings["CONSTRUCTION_STAGE_TASK"]
     ).first()
@@ -281,6 +290,8 @@ def test_complete_construction_stage(
     construction_stage_factory_sz(case)
     complete_construction_monitoring.refresh_from_db()
     assert complete_construction_monitoring.deadline is None
+
+    assert len(mail.outbox) == (0 if cancel else 1)
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])

@@ -35,9 +35,18 @@ CONSTRUCTION_MONITORING = {
                     "recipient_types": ["involved_in_construction_step"],
                 }
             ],
-            "construction-stage": [
+            "construction-step-schlussabnahme-gebaeude": [
                 {
-                    "template_slug": "complete-construction-step-schlussabnahme",
+                    "template_slug": "complete-construction-step-schlussabnahme-gebaeude",
+                    "recipient_types": [
+                        "involved_in_construction_step",
+                        "localized_geometer",
+                    ],
+                },
+            ],
+            "construction-step-schlussabnahme-projekt": [
+                {
+                    "template_slug": "complete-construction-step-schlussabnahme-projekt",
                     "recipient_types": [
                         "involved_in_construction_step",
                         "localized_geometer",
@@ -79,7 +88,7 @@ CONSTRUCTION_MONITORING = {
                     "require_involvement": True,
                 },
             ],
-            "construction-stage": [
+            "construction-step-schlussabnahme-gebaeude": [
                 # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
                 {
                     "service_id": 10,
@@ -91,7 +100,32 @@ CONSTRUCTION_MONITORING = {
                     "require_involvement": True,
                 },
                 # Amt für Arbeit
-                {"service_id": 4, "require_involvement": True},
+                {
+                    "service_id": 4,
+                    "require_involvement": True,
+                },
+                # Laboratorium der Urkantone
+                {
+                    "service_id": 22,
+                    "require_involvement": True,
+                },
+            ],
+            "construction-step-schlussabnahme-projekt": [
+                # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
+                {
+                    "service_id": 10,
+                    "require_involvement": True,
+                },
+                # Amt für Militär, Feuer- und Zivilschutz (Schutzbauten)
+                {
+                    "service_id": 79,
+                    "require_involvement": True,
+                },
+                # Amt für Arbeit
+                {
+                    "service_id": 4,
+                    "require_involvement": True,
+                },
                 # Laboratorium der Urkantone
                 {
                     "service_id": 22,

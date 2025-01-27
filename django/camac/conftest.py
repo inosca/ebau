@@ -1887,7 +1887,9 @@ def construction_monitoring_case_sz(
     sz_construction_monitoring_settings,
 ):
     notification_template_factory(slug="einladung-zur-stellungnahme")
-    notification_template_factory(slug="complete-construction-step-schlussabnahme")
+    notification_template_factory(
+        slug="complete-construction-step-schlussabnahme-projekt"
+    )
 
     instance_state_factory(name="circ")
     instance_state_factory(name="redac")
