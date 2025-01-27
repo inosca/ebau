@@ -33,7 +33,7 @@
     "model": "api.template",
     "pk": "vorlage-baubewilligung",
     "fields": {
-      "description": "Verfügungsvorlage",
+      "description": "Baubewilligungsvorlage",
       "template": "urec_systemvorlage_baubewilligung_240912.docx",
       "engine": "docx-template",
       "meta": {}
