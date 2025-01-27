@@ -63,6 +63,7 @@ MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL | RequireInstanceState(["correction"])
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
+MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_BILLING = STATES_ALL & ROLES_NO_READONLY
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
 MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
@@ -116,6 +117,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
             ("journal-read", MODULE_JOURNAL),
+            ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
@@ -138,6 +140,7 @@ AG_PERMISSIONS_SETTINGS = {
             ),
             ("history-read", MODULE_HISTORY),
             ("journal-read", MODULE_JOURNAL),
+            ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("permissions-grant-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),
             ("permissions-read", MODULE_PERMISSIONS),
@@ -155,6 +158,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("applicant-remove", Always()),
             ("documents-read", Always()),
             ("documents-write", Always()),
+            ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("form-read", Always()),
             ("form-write", Always()),
             ("history-read", Always()),
