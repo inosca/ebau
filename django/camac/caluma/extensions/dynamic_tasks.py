@@ -280,7 +280,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         # avoid duplicates, the dynamic group of the "init-additional-demand"
         # task makes sure to not filter out services that already have such a
         # work item
-        if set(context["addressed_groups"]) - set(
+        if settings.ADDITIONAL_DEMAND and set(context["addressed_groups"]) - set(
             chain(
                 *case.work_items.filter(
                     addressed_groups__overlap=context["addressed_groups"],

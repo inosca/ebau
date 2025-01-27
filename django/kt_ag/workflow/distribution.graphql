@@ -113,7 +113,7 @@ mutation CheckInquiryTask {
   saveSimpleTask(
     input: {
       slug: "check-inquiry"
-      name: "Stellungnahme prüfen"
+      name: "Stellungnahme freigeben"
       addressGroups: "info.prev_work_item.addressed_groups"
       controlGroups: "info.prev_work_item.addressed_groups"
       leadTime: 259200 # 3 days
@@ -128,7 +128,7 @@ mutation CheckInquiriesTask {
   saveSimpleTask(
     input: {
       slug: "check-inquiries"
-      name: "Stellungnahmen prüfen"
+      name: "Eingegangene Stellungnahmen prüfen"
       addressGroups: "info.prev_work_item.controlling_groups"
       controlGroups: "info.prev_work_item.controlling_groups"
       leadTime: 864000 # 10 days

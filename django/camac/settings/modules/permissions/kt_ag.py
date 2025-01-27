@@ -112,6 +112,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("dms-generate-read", MODULE_DMS_GENERATE),
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
+            ("form-kantonale-pruefung-write", MODULE_CANTONAL_EXAM),
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
             ("journal-read", MODULE_JOURNAL),

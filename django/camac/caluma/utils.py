@@ -118,9 +118,7 @@ def sync_inquiry_deadline(
             question_id=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
         ).date
 
-    inquiry.deadline = pytz.utc.localize(
-        datetime.combine(deadline, datetime.min.time())
-    )
+    inquiry.deadline = date_to_deadline(deadline)
     inquiry.save(update_fields=["deadline"])
 
     sync_to_answer_tasks = settings.DISTRIBUTION.get(
@@ -132,14 +130,9 @@ def sync_inquiry_deadline(
             task_id__in=sync_to_answer_tasks.keys(),
         )
         for work_item in inquiry_answer_work_items:
-            work_item.deadline = pytz.utc.localize(
-                datetime.combine(
-                    deadline
-                    + sync_to_answer_tasks[work_item.task_id].get(
-                        "TIME_DELTA", timedelta()
-                    ),
-                    datetime.min.time(),
-                )
+            work_item.deadline = date_to_deadline(
+                deadline
+                + sync_to_answer_tasks[work_item.task_id].get("TIME_DELTA", timedelta())
             )
             work_item.save(update_fields=["deadline"])
 
@@ -323,3 +316,7 @@ def filter_by_task_base(settings_keys, get_settings):
     return filter_events(
         lambda work_item: work_item.task_id in get_settings(settings_keys)
     )
+
+
+def date_to_deadline(date: date) -> datetime:
+    return pytz.utc.localize(datetime.combine(date, datetime.min.time()))

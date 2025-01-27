@@ -1,6 +1,5 @@
 from datetime import datetime, timedelta
 
-import pytz
 from caluma.caluma_core.events import on
 from caluma.caluma_workflow.api import skip_work_item, start_case
 from caluma.caluma_workflow.events import (
@@ -14,7 +13,11 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext as _
 
-from camac.caluma.utils import filter_by_task_base, filter_by_workflow_base
+from camac.caluma.utils import (
+    date_to_deadline,
+    filter_by_task_base,
+    filter_by_workflow_base,
+)
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import construction_monitoring_started
 from camac.notification.utils import send_mail_without_request
@@ -256,11 +259,7 @@ def set_complete_construction_monitoring_deadline(case):
 
     deadline = None
     if not has_running_construction_stages:
-        deadline = pytz.utc.localize(
-            datetime.combine(
-                datetime.now() + timedelta(seconds=864000), datetime.min.time()
-            )
-        )
+        deadline = date_to_deadline(datetime.now().date() + timedelta(days=10))
 
     complete_construction_monitoring.deadline = deadline
     complete_construction_monitoring.save()
@@ -372,11 +371,7 @@ def post_create_construction_control(sender, work_item, user, context, **kwargs)
             date_string = date_answer.strftime("%d.%m.%Y")
 
             work_item.name = f"{work_item.name} (Kontrolle vom: {date_string})"
-            work_item.deadline = pytz.utc.localize(
-                datetime.combine(
-                    date_answer + timedelta(seconds=864000), datetime.min.time()
-                )
-            )
+            work_item.deadline = date_to_deadline(date_answer + timedelta(days=10))
             work_item.save(update_fields=["name", "deadline"])
 
 

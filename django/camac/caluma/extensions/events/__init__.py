@@ -6,6 +6,7 @@ from . import (  # noqa: F401
     additional_demand,
     audit,
     caluma_workflow_notifications,
+    cantonal_exam,
     complete_check,
     construction_acceptance,
     construction_monitoring,

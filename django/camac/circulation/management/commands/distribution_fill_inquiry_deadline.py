@@ -1,11 +1,12 @@
-from datetime import datetime, timedelta
+from datetime import timedelta
 
-import pytz
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 from tqdm import tqdm
+
+from camac.caluma.utils import date_to_deadline
 
 
 class Command(BaseCommand):
@@ -54,14 +55,11 @@ class Command(BaseCommand):
                     question_id=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
                 ).date
 
-                work_item.deadline = pytz.utc.localize(
-                    datetime.combine(
-                        deadline
-                        + sync_to_answer_tasks[
-                            settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"]
-                        ].get("TIME_DELTA", timedelta()),
-                        datetime.min.time(),
-                    )
+                work_item.deadline = date_to_deadline(
+                    deadline
+                    + sync_to_answer_tasks[
+                        settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"]
+                    ].get("TIME_DELTA", timedelta())
                 )
 
                 work_item.controlling_groups = work_item.addressed_groups

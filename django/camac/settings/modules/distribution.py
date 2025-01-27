@@ -383,11 +383,6 @@ DISTRIBUTION = {
             "REOPEN_TASKS": ["check-inquiry", "revise-inquiry"],
             "COMPLETE_TASKS": ["revise-inquiry"],
         },
-        "SYNC_INQUIRY_DEADLINE_TO_ANSWER_TASKS": {
-            "fill-inquiry": {
-                "TIME_DELTA": timedelta(days=-3)  # check-inquiry lead-time
-            }
-        },
         "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES": {
             "service-afb": 60,
         },
