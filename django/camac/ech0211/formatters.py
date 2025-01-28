@@ -201,6 +201,7 @@ def get_alexandria_documents(documents, request):
                 keyword=list(
                     CustomAlexandriaVisibility()
                     .filter_queryset_for_tag(doc.tags, request)
+                    .order_by("name")
                     .values_list("name", flat=True)
                 )
             )
