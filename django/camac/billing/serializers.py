@@ -200,3 +200,11 @@ class BillingV2EntryExportSerializer(BillingV2EntrySerializer):
             "coordinates",
             "lead_authority",
         )
+
+
+class BillingV2BulkEntryIdsSerializer(serializers.Serializer):
+    entry_ids = serializers.ListField(
+        child=serializers.IntegerField(),
+        allow_empty=False,
+        help_text="List of entry IDs to charge",
+    )
