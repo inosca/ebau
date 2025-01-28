@@ -296,12 +296,12 @@
   					<ns6:files>
   						<ns6:file>
   							<ns6:pathFileName>http://ember-ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns6:pathFileName>
-  							<ns6:mimeType>application/octet-stream</ns6:mimeType>
+  							<ns6:mimeType>video/mpeg</ns6:mimeType>
   						</ns6:file>
   					</ns6:files>
   					<ns6:keywords>
-  						<ns7:keyword>Cheryl Foster</ns7:keyword>
   						<ns7:keyword>Tammy White</ns7:keyword>
+  						<ns7:keyword>Cheryl Foster</ns7:keyword>
   					</ns6:keywords>
   					<ns6:documentKind>Beilagen zum Gesuch</ns6:documentKind>
   				</ns1:document>
@@ -747,7 +747,7 @@
   					<ns7:files>
   						<ns7:file>
   							<ns7:pathFileName>http://ember-ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns7:pathFileName>
-  							<ns7:mimeType>application/octet-stream</ns7:mimeType>
+  							<ns7:mimeType>multipart/alternative</ns7:mimeType>
   						</ns7:file>
   					</ns7:files>
   					<ns7:keywords>

@@ -213,7 +213,7 @@ def get_alexandria_documents(documents, request):
                             settings.INTERNAL_BASE_URL,
                             reverse("ech-file-detail", args=[file.pk]),
                         ),
-                        mimeType="application/octet-stream",
+                        mimeType=file.mime_type,
                     )
                     for file in doc.files.filter(variant="original").order_by(
                         "-created_at"
