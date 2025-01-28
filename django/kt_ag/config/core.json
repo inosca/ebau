@@ -337,7 +337,7 @@
       "name": null,
       "description": null,
       "template": "/ember-camac-ng/linked-instances.phtml",
-      "class_field": "menu-category-analysis",
+      "class_field": "menu-category-meta",
       "hidden": 0,
       "sort": 2,
       "form_group": 2000000,
@@ -501,16 +501,6 @@
       "instance_resource": 23000001,
       "language": "de",
       "name": "Verknüpfte Dossiers",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 23000002,
-    "fields": {
-      "instance_resource": 23000001,
-      "language": "fr",
-      "name": "Dossiers liés",
       "description": null
     }
   },
