@@ -11,7 +11,7 @@
   	<ns1:files>
   		<ns1:file>
   			<ns1:pathFileName>http://ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
-  			<ns1:mimeType>application/octet-stream</ns1:mimeType>
+  			<ns1:mimeType>model/mesh</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>
   	<ns1:documentKind>Erin Wilson</ns1:documentKind>
@@ -31,7 +31,7 @@
   	<ns1:files>
   		<ns1:file>
   			<ns1:pathFileName>http://ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
-  			<ns1:mimeType>application/octet-stream</ns1:mimeType>
+  			<ns1:mimeType>text/css</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>
   	<ns1:documentKind>Erin Wilson</ns1:documentKind>
@@ -51,7 +51,7 @@
   	<ns1:files>
   		<ns1:file>
   			<ns1:pathFileName>http://ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
-  			<ns1:mimeType>application/octet-stream</ns1:mimeType>
+  			<ns1:mimeType>image/svg+xml</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>
   	<ns1:documentKind>Erin Wilson</ns1:documentKind>

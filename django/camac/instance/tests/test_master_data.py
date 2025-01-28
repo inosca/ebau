@@ -602,6 +602,7 @@ def so_master_data_case(
                 "gebaeude-bezeichnung": "Villa",
                 "art-der-arbeiten": ["art-der-arbeiten-neubau"],
                 "gebaeudekategorie": "gebaeudekategorie-ohne-wohnnutzung",
+                "egid": 1234,
             }
         ],
     )

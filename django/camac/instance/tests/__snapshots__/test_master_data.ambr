@@ -464,6 +464,7 @@
     'buildings': list([
       dict({
         'building_category': 1060,
+        'egid': 1234,
         'name': 'Villa',
         'proposal': list([
           6001,
@@ -742,6 +743,7 @@
     'buildings': list([
       dict({
         'building_category': 1060,
+        'egid': 1234,
         'name': 'Villa',
         'proposal': list([
           6001,

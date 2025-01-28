@@ -201,6 +201,7 @@ def get_alexandria_documents(documents, request):
                 keyword=list(
                     CustomAlexandriaVisibility()
                     .filter_queryset_for_tag(doc.tags, request)
+                    .order_by("name")
                     .values_list("name", flat=True)
                 )
             )
@@ -213,7 +214,7 @@ def get_alexandria_documents(documents, request):
                             settings.INTERNAL_BASE_URL,
                             reverse("ech-file-detail", args=[file.pk]),
                         ),
-                        mimeType="application/octet-stream",
+                        mimeType=file.mime_type,
                     )
                     for file in doc.files.filter(variant="original").order_by(
                         "-created_at"
@@ -907,6 +908,19 @@ class CantonSpecific:
     @canton_aware
     def building_information(cls, instance, md):
         return []
+
+    @classmethod
+    def building_information_so(cls, instance, md):
+        return [
+            ns_application.buildingInformationType(
+                building=ns_objektwesen.buildingType(
+                    EGID=building.get("egid"),
+                    name=building.get("name"),
+                    buildingCategory=building.get("building_category"),
+                )
+            )
+            for building in md.buildings
+        ]
 
     @classmethod
     def building_information_be(cls, instance, md):

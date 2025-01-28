@@ -388,7 +388,7 @@ def ech_instance_so(
     )
     utils.add_table_answer(
         ech_instance.case.document,
-        "parzelle",
+        "parzellen",
         [{"parzellennummer": "1586", "e-grid": "CH123456789"}],
     )
     utils.add_answer(ech_instance.case.document, "strasse-flurname", "Musterstrasse")
@@ -410,6 +410,18 @@ def ech_instance_so(
         ech_instance.case.document,
         "tiefbauten",
         [{"tiefbau-siedlung-art": "tiefbau-siedlung-art-parkplaetze"}],
+    )
+    utils.add_table_answer(
+        ech_instance.case.document,
+        "gebaeude",
+        [
+            {
+                "gebaeude-bezeichnung": "Villa Rosengarten",
+                "art-der-arbeiten": ["art-der-arbeiten-neubau"],
+                "gebaeudekategorie": "gebaeudekategorie-ausschliessliche-wohnnutzung",
+                "egid": 1234,
+            }
+        ],
     )
 
     document = DocumentFactory(
