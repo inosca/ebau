@@ -16,6 +16,21 @@ REJECTION = {
             "REVERTED": [],
         },
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "ALLOWED_INSTANCE_STATES": [
+            "subm",
+        ],
+        "INSTANCE_STATE_REJECTION_COMPLETE": None,
+        "NOTIFICATIONS": {
+            "REJECTED": [
+                {
+                    "recipient_types": ["applicant"],
+                    "template_slug": "rueckweisung",
+                }
+            ]
+        },
+    },
     "kt_bern": {
         "ENABLED": True,
         "ALLOWED_INSTANCE_STATES": ["circulation", "circulation_init"],

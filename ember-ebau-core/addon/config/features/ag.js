@@ -10,5 +10,10 @@ export default {
   permissions: {
     applicantRoles: true,
   },
+  rejection: {
+    useLegacyClaims: false,
+    snippets: false,
+    revert: true,
+  },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
 };
