@@ -2654,6 +2654,7 @@ MASTER_DATA = {
                 {
                     "column_mapping": {
                         "name": "gebaeude-bezeichnung",
+                        "egid": "egid",
                         "proposal": (
                             "art-der-arbeiten",
                             {

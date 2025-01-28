@@ -909,6 +909,19 @@ class CantonSpecific:
         return []
 
     @classmethod
+    def building_information_so(cls, instance, md):
+        return [
+            ns_application.buildingInformationType(
+                building=ns_objektwesen.buildingType(
+                    EGID=building.get("egid"),
+                    name=building.get("name"),
+                    buildingCategory=building.get("building_category"),
+                )
+            )
+            for building in md.buildings
+        ]
+
+    @classmethod
     def building_information_be(cls, instance, md):
         document = instance.case.document
 
