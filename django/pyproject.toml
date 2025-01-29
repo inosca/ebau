@@ -121,9 +121,7 @@ exclude_lines = [
     "def __unicode__",
     "def __repr__",
 ]
-exclude_also = [
-    "\\A(?s:.*# pragma: exclude file.*)\\Z",
-]
+exclude_also = ["\\A(?s:.*# pragma: exclude file.*)\\Z"]
 omit = [
     "*/postgresql_dbdefaults/*",
     "*/migrations/*",
@@ -245,6 +243,7 @@ omit = [
     "camac/core/management/commands/correction_of_koor_dossiers_ur.py",
     "camac/core/management/commands/clean_dangling_objects.py",
     "camac/permissions//management/commands/grant_read_permissions_to_tax_administration_if_involved.py",
+    "camac/core/management/commands/migrate_rejection_feedback_ur.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
