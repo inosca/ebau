@@ -55,7 +55,7 @@ from camac.instance.validators import transform_coordinates
 from camac.lookups import Any
 from camac.permissions.models import InstanceACL
 from camac.user.models import Group, Role, Service, User
-from camac.user.utils import unpack_service_emails
+from camac.user.utils import get_tax_administration, unpack_service_emails
 from camac.utils import build_url, clean_join, flatten, get_responsible_koor_service_id
 
 from ..core import models as core_models
@@ -1624,9 +1624,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             )
 
     def _get_recipients_tax_administration(self, instance):
-        service = Service.objects.filter(
-            pk=settings.APPLICATION.get("TAX_ADMINISTRATION")
-        ).first()
+        service = get_tax_administration()
         if service:
             return self._get_responsible(instance, service)
 

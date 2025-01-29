@@ -8,7 +8,7 @@ from django.core.cache import cache
 from django.db.models import Q
 
 from camac.instance.validators import FormDataValidator
-from camac.user.models import Role
+from camac.user.models import Role, Service
 
 from . import models
 from .permissions import is_public_access
@@ -210,9 +210,15 @@ def get_service_suggestions_camac_ng(instance, suggestions):
     return suggested_services
 
 
-def get_support_role():
+def get_support_role() -> Role | None:
     """Find the correct support role via ROLE_PERMISSIONS setting."""
 
     role_perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
     role_name = next(k for k, v in role_perms.items() if v == "support")
     return Role.objects.get(name=role_name)
+
+
+def get_tax_administration() -> Service | None:
+    return Service.objects.filter(
+        slug=settings.APPLICATION.get("TAX_ADMINISTRATION")
+    ).first()

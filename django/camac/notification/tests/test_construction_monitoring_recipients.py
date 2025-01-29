@@ -74,8 +74,10 @@ def test_recipient_tax_administration(
     service_factory,
     application_settings,
 ):
-    tax_administration_service = service_factory(email="tax-administration@example.com")
-    application_settings["TAX_ADMINISTRATION"] = tax_administration_service.pk
+    tax_administration_service = service_factory(
+        email="tax-administration@example.com", slug="tax-administration"
+    )
+    application_settings["TAX_ADMINISTRATION"] = tax_administration_service.slug
 
     serializer = PermissionlessNotificationTemplateSendmailSerializer(
         data={

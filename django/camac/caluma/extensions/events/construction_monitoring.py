@@ -21,6 +21,7 @@ from camac.caluma.utils import (
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import construction_monitoring_started
 from camac.notification.utils import send_mail_without_request
+from camac.permissions import events as permissions_events
 from camac.user.models import User
 
 from .general import get_instance
@@ -103,6 +104,19 @@ def can_perform_construction_monitoring(instance):
 
     form_family = instance.form.family
     return form_family and form_family.name in allow_forms
+
+
+def is_tax_administration_involved(work_item: WorkItem):
+    """Check if on instance completion the tax administration was involved."""
+    return (
+        work_item
+        and work_item.document.answers.filter(
+            question_id="steuerverwaltung-informieren",
+            value__contains=[
+                "steuerverwaltung-informieren-steuerverwaltung-informieren"
+            ],
+        ).exists()
+    )
 
 
 CONSTRUCTION_STEP_TRANSLATIONS = {
@@ -318,15 +332,7 @@ def post_complete_instance(
                 camac_user,
             )
 
-    if (
-        work_item
-        and work_item.document.answers.filter(
-            question_id="steuerverwaltung-informieren",
-            value__contains=[
-                "steuerverwaltung-informieren-steuerverwaltung-informieren"
-            ],
-        ).exists()
-    ):
+    if is_tax_administration_involved(work_item):
         notifications.append(
             {
                 "template_slug": "notify-complete-instance",
@@ -343,6 +349,8 @@ def post_complete_instance(
             instance={"id": instance.pk, "type": "instances"},
             work_item={"id": work_item.pk, "type": "work-items"},
         )
+
+    permissions_events.Trigger.instance_completed(None, instance)
 
 
 @on(post_create_work_item, raise_exception=True)
