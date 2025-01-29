@@ -132,6 +132,11 @@
       'label': None,
       'value': 'Naturschutzzone innerhalb Dekretsgebiet (kant. NP), Landschaften und Naturdenkmäler von nationaler Bedeutung (BLN), Waldnaturschutzinventar (Moordorf Risle), Amphibienlaichgebiet von nationaler Bedeutung, Naturschutzgebiet von kant. Bedeutung (NkB), Naturwaldgemässe Bestockung, Archäologische Fundstelle (154(A)1)',
     }),
+    'zonenplan': dict({
+      'hidden': False,
+      'label': None,
+      'value': 'Wald',
+    }),
   })
 # ---
 # name: test_ag_client[scenario20]

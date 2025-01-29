@@ -39,6 +39,15 @@
           ]
         },
         {
+          "identifier": "Kulturlandplan: zusammengefasste Legende (6 Kategorien)",
+          "properties": [
+            {
+              "question": "zonenplan",
+              "propertyName": "KTBez"
+            }
+          ]
+        },
+        {
           "type": "MultipleChoice",
           "answer": "gewaesserschutzbereich",
           "mapper": "exists",
