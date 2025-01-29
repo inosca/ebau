@@ -243,9 +243,9 @@ def admin_user(admin_user, group, group_location, user_group_factory):
 
 
 @pytest.fixture
-def token(admin_user):
+def token(admin_user, settings):
     return jwt_encode(
-        {"aud": admin_user.groups.first().name, "username": "joël-tester"}, "secret"
+        {"azp": admin_user.groups.first().name, "username": "joël-tester"}, "secret"
     )
 
 
