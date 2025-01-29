@@ -22,7 +22,10 @@ TEST_SCENARIOS = [
     {
         # Waldnaturschutzinventar
         "coords": (2657749, 1240978),
-        "checked_questions": ["ueberlagerte-schutzzonen-und-schutzobjekte"],
+        "checked_questions": [
+            "zonenplan",
+            "ueberlagerte-schutzzonen-und-schutzobjekte",
+        ],
     },
     {
         # Landschaftsschutzdekrete (detailliert Legende)
