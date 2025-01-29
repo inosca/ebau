@@ -1,4 +1,4 @@
-import adapterFactory from "ember-alexandria/adapters/document";
+import adapterFactory from "ember-alexandria/adapters/search-result";
 
 import ApplicationAdapter from "./application";
 
