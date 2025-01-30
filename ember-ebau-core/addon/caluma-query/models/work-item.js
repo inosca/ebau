@@ -72,7 +72,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   get createdByUser() {
     return this.store
       .peekAll("public-user")
-      .find((user) => user.username === this.raw.closedByUser);
+      .find((user) => user.username === this.raw.createdByUser);
   }
 
   get createdByGroup() {
