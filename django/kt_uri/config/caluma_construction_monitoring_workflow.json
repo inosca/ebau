@@ -749,8 +749,7 @@
           "index": 1,
           "total": 2
         },
-        "construction-step-id": "construction-step-baubeginn",
-        "is-actionable-for-control": false
+        "construction-step-id": "construction-step-baubeginn"
       },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
@@ -840,8 +839,7 @@
           "index": 1,
           "total": 2
         },
-        "construction-step-id": "construction-step-gebaeudeabbruch",
-        "is-actionable-for-control": false
+        "construction-step-id": "construction-step-gebaeudeabbruch"
       },
       "address_groups": "['municipality', 'applicant']|groups",
       "control_groups": "['municipality']|groups",
