@@ -64,9 +64,7 @@ export default class CaseDashboardComponent extends Component {
   }
 
   get journalInstanceResourceId() {
-    return mainConfig.instanceResourceRedirects.journal[
-      this.shoebox.content.roleId
-    ];
+    return mainConfig.instanceResourceRedirects.journal;
   }
 
   get processingDeadline() {
