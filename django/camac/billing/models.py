@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class BillingV2Entry(models.Model):
+class BillingV2CommonEntry(models.Model):
     TAX_MODE_INCLUSIVE = "inclusive"
     TAX_MODE_EXCLUSIVE = "exclusive"
     TAX_MODE_EXEMPT = "exempt"
@@ -31,25 +31,20 @@ class BillingV2Entry(models.Model):
         "blank": True,
     }
 
-    # Structural: Which instance is the item billed to?
-    instance = models.ForeignKey("instance.Instance", models.CASCADE, related_name="+")
-
-    # Organisation: Who charged the item?
-    group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
-    user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
-
     # Billing text
     text = models.TextField()
     cost_center = models.TextField(blank=True, null=True)
     legal_basis = models.TextField(blank=True, null=True)
-    date_added = models.DateField(auto_now_add=True)
-    date_charged = models.DateField(null=True, blank=True)
 
     # Tax mode = calculation model for tax
-    tax_mode = models.CharField(choices=TAX_MODE_CHOICES, max_length=20)
+    tax_mode = models.CharField(
+        choices=TAX_MODE_CHOICES, max_length=20, null=True, blank=True
+    )
 
     # Calculation mode
-    calculation = models.CharField(choices=CALCULATION_CHOICES, max_length=20)
+    calculation = models.CharField(
+        choices=CALCULATION_CHOICES, max_length=20, null=True, blank=True
+    )
 
     # Tax rate (percentage)
     tax_rate = models.DecimalField(**DECIMAL_FORMAT)
@@ -69,7 +64,7 @@ class BillingV2Entry(models.Model):
     # Organization: either municipal or cantonal but can be NULL
     # Used to distinguish which oranization collects part of the bill
     organization = models.CharField(
-        choices=ORGANIZATION_CHOICES, max_length=20, null=True
+        choices=ORGANIZATION_CHOICES, max_length=20, null=True, blank=True
     )
 
     # The billing entry must be added to the invoice of the authority
@@ -86,5 +81,33 @@ class BillingV2Entry(models.Model):
 
     # Billing type: determine how the entry is being billed (e.g directly, or by the authority)
     billing_type = models.CharField(
-        choices=BILLING_TYPE_CHOICES, max_length=20, null=True
+        choices=BILLING_TYPE_CHOICES, max_length=20, null=True, blank=True
     )
+
+    class Meta:
+        abstract = True
+
+
+class BillingV2Entry(BillingV2CommonEntry):
+    # Date when the item was added
+    date_added = models.DateField(auto_now_add=True)
+
+    # Date when the item was charged
+    date_charged = models.DateField(null=True, blank=True)
+
+    # Organisation: Who charged the item?
+    group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
+    user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
+
+    # Structural: Which instance is the item billed to?
+    instance = models.ForeignKey("instance.Instance", models.CASCADE, related_name="+")
+
+
+class BillingV2EntryTemplate(BillingV2CommonEntry):
+    # Visual representation name of the template
+    name = models.TextField()
+
+    # Hint to describe the template's purpose
+    hint = models.TextField(blank=True, null=True)
+
+    service = models.ForeignKey("user.Service", models.CASCADE, related_name="+")

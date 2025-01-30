@@ -4,22 +4,17 @@ import pytz
 from factory import Faker, LazyAttribute, Maybe, SubFactory, fuzzy
 from factory.django import DjangoModelFactory
 
-from camac.billing.models import BillingV2Entry
+from camac.billing.models import BillingV2Entry, BillingV2EntryTemplate
 from camac.billing.utils import add_taxes_to_final_rate, calculate_final_rate
 from camac.instance.factories import InstanceFactory
-from camac.user.factories import GroupFactory, UserFactory
+from camac.user.factories import GroupFactory, ServiceFactory, UserFactory
 
 
 def choice_keys(choices: tuple):
     return [choice[0] for choice in choices]
 
 
-class BillingV2EntryFactory(DjangoModelFactory):
-    instance = SubFactory(InstanceFactory)
-    user = SubFactory(UserFactory)
-    group = SubFactory(GroupFactory)
-    date_added = Faker("past_datetime", tzinfo=pytz.UTC)
-    date_charged = None
+class BillingV2CommonEntryFactory(DjangoModelFactory):
     organization = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.ORGANIZATION_CHOICES))
     billing_type = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.BILLING_TYPE_CHOICES))
     text = Faker("word")
@@ -75,9 +70,6 @@ class BillingV2EntryFactory(DjangoModelFactory):
         )
     )
 
-    class Meta:
-        model = BillingV2Entry
-
     class Params:
         is_flat = LazyAttribute(
             lambda e: e.calculation == BillingV2Entry.CALCULATION_FLAT
@@ -92,3 +84,24 @@ class BillingV2EntryFactory(DjangoModelFactory):
         is_tax_exempt = LazyAttribute(
             lambda e: e.tax_mode == BillingV2Entry.TAX_MODE_EXEMPT
         )
+
+
+class BillingV2EntryFactory(BillingV2CommonEntryFactory):
+    group = SubFactory(GroupFactory)
+    user = SubFactory(UserFactory)
+    instance = SubFactory(InstanceFactory)
+
+    date_added = Faker("past_datetime", tzinfo=pytz.UTC)
+    date_charged = None
+
+    class Meta:
+        model = BillingV2Entry
+
+
+class BillingV2EntryTemplateFactory(BillingV2CommonEntryFactory):
+    service = SubFactory(ServiceFactory)
+    name = Faker("word")
+    hint = Faker("sentence")
+
+    class Meta:
+        model = BillingV2EntryTemplate

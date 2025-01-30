@@ -80,3 +80,8 @@ billing:
     createdAfter: Date de réception (par)
     createdBefore: Date de réception (jusque)
     service: Organisation
+
+  templates:
+    info: Appliquer un modèle
+    select: Sélectionner un modèle
+    apply: Appliquer le modèle
