@@ -54,13 +54,17 @@ class Command(BaseCommand):
                 task_id="check-gwr-relevancy"
             ).first()
 
+            complete_check_work_item = instance.case.work_items.filter(
+                task_id="complete-check"
+            ).first()
+
             if not gwr_relevancy_work_item:
                 instance.case.work_items.create(
                     task=check_gwr_relevancy_task,
                     name=check_gwr_relevancy_task.name,
                     status=WorkItem.STATUS_READY,
-                    addressed_groups=[instance.group.service.pk],
-                    controlling_groups=[],
+                    addressed_groups=complete_check_work_item.addressed_groups,
+                    controlling_groups=complete_check_work_item.addressed_groups,
                     created_at=now(),
                     created_by_user=user,
                     created_by_group=user.group,
