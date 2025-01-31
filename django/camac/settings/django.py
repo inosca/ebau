@@ -2539,6 +2539,12 @@ APPLICATIONS = {
                 },
             ],
             "CHANGE_RESPONSIBLE_USER": {"template_slug": "zustaedigkeit-wechsel"},
+            "PERMISSION_ACL_GRANTED": [
+                {
+                    "template_slug": "invited-via-permission-acl",
+                    "recipient_types": ["acl_authorized"],
+                }
+            ],
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "DOCUMENT_BACKEND": "alexandria",

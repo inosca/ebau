@@ -27,7 +27,6 @@ class ApplicantsEventHandlerMixin:
                 access_level=APPLICANT_ACCESS_LEVEL,
                 user=applicant.invitee,
                 event_name="applicant_added",
-                metainfo={"disable-notification-on-creation": True},
             )
         except AccessLevel.DoesNotExist:
             log.warning(f"Access level '{APPLICANT_ACCESS_LEVEL}' is not configured")

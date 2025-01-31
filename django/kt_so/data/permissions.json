@@ -447,9 +447,7 @@
       "grant_type": "USER",
       "created_at": "2024-08-07T15:00:02.590Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -473,9 +471,7 @@
       "grant_type": "USER",
       "created_at": "2024-08-07T15:00:09.678Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -499,9 +495,7 @@
       "grant_type": "USER",
       "created_at": "2024-08-07T15:01:06.983Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -525,9 +519,7 @@
       "grant_type": "USER",
       "created_at": "2024-08-07T15:01:15.179Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -551,9 +543,7 @@
       "grant_type": "USER",
       "created_at": "2024-08-07T15:01:22.222Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -577,9 +567,7 @@
       "grant_type": "USER",
       "created_at": "2024-08-07T15:01:28.898Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -603,9 +591,7 @@
       "grant_type": "USER",
       "created_at": "2024-08-07T15:01:36.049Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -629,9 +615,7 @@
       "grant_type": "USER",
       "created_at": "2024-08-07T15:01:41.289Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -655,9 +639,7 @@
       "grant_type": "USER",
       "created_at": "2024-08-07T15:01:48.079Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -681,9 +663,7 @@
       "grant_type": "USER",
       "created_at": "2024-08-07T15:01:56.653Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -707,9 +687,7 @@
       "grant_type": "USER",
       "created_at": "2024-09-06T08:13:00.968Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -757,9 +735,7 @@
       "grant_type": "USER",
       "created_at": "2024-09-06T08:25:38.163Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -783,9 +759,7 @@
       "grant_type": "USER",
       "created_at": "2024-09-06T08:25:45.797Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   }
 ]

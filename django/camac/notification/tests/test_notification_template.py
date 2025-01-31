@@ -1429,7 +1429,6 @@ def test_recipient_geometer_acl_services(
             instance=be_instance,
             access_level=access_level_factory(slug="geometer"),
             service=geometer_service,
-            metainfo={"disable-notification-on-creation": True},
         )
         permissions_settings["geometer"] = [("foo", ["*"])]
 

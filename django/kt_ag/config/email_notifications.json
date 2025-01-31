@@ -276,6 +276,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 24,
+    "fields": {
+      "slug": "invited-via-permission-acl",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -549,6 +561,18 @@
       "purpose": "Rückzug ausgelöst",
       "subject": "Rückzug ausgelöst (Dossier-Nummer {{ DOSSIER_NR }})",
       "body": "Guten Tag\n\nIm eBau wurde das Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} zurückgezogen.\n\n{{ INTERNAL_DOSSIER_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 24,
+    "fields": {
+      "template": 24,
+      "template_slug": "invited-via-permission-acl",
+      "language": "de",
+      "purpose": "Benachrichtigung über Zugang via Berechtigung",
+      "subject": "Zugriff auf Dossier",
+      "body": "Guten Tag\r\n\r\nIhnen wurde Zugriff auf das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erteilt.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
     }
   }
 ]

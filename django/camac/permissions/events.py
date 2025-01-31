@@ -241,7 +241,10 @@ def acl_created(sender, instance, created, **kwargs):
     acl = instance
     del instance  # just to avoid confusion
 
-    if acl.metainfo and acl.metainfo.get("disable-notification-on-creation"):
+    if (
+        not settings.PERMISSIONS
+        or acl.created_by_event not in settings.PERMISSIONS["EVENTS_WITH_NOTIFICATION"]
+    ):
         # useful for setting up test acls
         return
 

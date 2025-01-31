@@ -29,7 +29,10 @@ def test_notification_of_new_acl(
     group = group_factory(service=service)
     group.users.add(admin_user, through_defaults={"default_group": True})
 
+    event_name = "my-custom-event"
+
     # Configure permisisons module
+    permissions_settings["EVENTS_WITH_NOTIFICATION"] = [event_name]
     permissions_settings["ACCESS_LEVELS"] = {
         access_level.pk: [
             # No fancy permissions required, just... *something*
@@ -51,6 +54,7 @@ def test_notification_of_new_acl(
         access_level=access_level,
         user=(admin_user if grant_type == "USER" else None),
         service=(service if grant_type == "SERVICE" else None),
+        event_name=event_name,
     )
     if not acl_active:
         permissions_api.revoke(the_acl)

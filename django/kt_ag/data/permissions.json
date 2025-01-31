@@ -20,9 +20,7 @@
       "grant_type": "USER",
       "created_at": "2025-01-14T12:14:57.047Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
@@ -94,9 +92,7 @@
       "grant_type": "USER",
       "created_at": "2025-01-14T12:21:56.589Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {
