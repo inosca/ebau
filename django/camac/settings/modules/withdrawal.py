@@ -57,6 +57,14 @@ WITHDRAWAL = {
             }
         ],
     },
+    # "kt_ag": {
+    #     "NOTIFICATIONS": [
+    #         {
+    #             "template_slug": "rueckzug",
+    #             "recipient_types": ["leitbehoerde", "involved_in_distribution"],
+    #         }
+    #     ],
+    # },
     "test": {
         "ENABLED": True,
         "ALLOWED_INSTANCE_STATES": ["subm"],

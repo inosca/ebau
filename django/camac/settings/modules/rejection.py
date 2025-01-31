@@ -111,6 +111,16 @@ REJECTION = {
             ]
         },
     },
+    # "kt_ag": {
+    #     "NOTIFICATIONS": {
+    #         "REJECTED": [
+    #             {
+    #                 "recipient_types": ["applicant"],
+    #                 "template_slug": "rueckweisung",
+    #             }
+    #         ]
+    #     },
+    # },
     "test": {
         "ENABLED": True,
         "ALLOWED_INSTANCE_STATES": ["circulation_init"],
