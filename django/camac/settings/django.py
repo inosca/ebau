@@ -2439,6 +2439,12 @@ APPLICATIONS = {
             "PRE_COMPLETE": {
                 "check-inquiry": {"cancel": ["revise-inquiry"]},
                 "revise-inquiry": {"cancel": ["check-inquiry"]},
+                "decision": {
+                    "cancel": [
+                        "init-additional-demand",
+                        "additional-demand",
+                    ]
+                },
             },
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {
@@ -2452,20 +2458,20 @@ APPLICATIONS = {
                 "complete-distribution": {
                     "next_instance_state": "decision",
                 },
-                # "send-additional-demand": {
-                #     "history_text": _("Additional demand sent"),
-                #     "notification": {
-                #         "template_slug": "send-additional-demand",
-                #         "recipient_types": ["applicant", "additional_demand_inviter"],
-                #     },
-                # },
-                # "fill-additional-demand": {
-                #     "history_text": _("Additional demand was answered"),
-                #     "notification": {
-                #         "template_slug": "fill-additional-demand",
-                #         "recipient_types": ["work_item_controlling"],
-                #     },
-                # },
+                "send-additional-demand": {
+                    "history_text": _("Additional demand sent"),
+                    "notification": {
+                        "template_slug": "send-additional-demand",
+                        "recipient_types": ["applicant", "additional_demand_inviter"],
+                    },
+                },
+                "fill-additional-demand": {
+                    "history_text": _("Additional demand was answered"),
+                    "notification": {
+                        "template_slug": "fill-additional-demand",
+                        "recipient_types": ["work_item_controlling"],
+                    },
+                },
             },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,
