@@ -162,12 +162,48 @@
       "created_at": "2020-08-04T13:24:00.690Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-12-20T13:25:59.706Z",
+      "modified_at": "2025-01-31T13:29:09.046Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "sort": 5,
         "access": {
+          "afb": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "category", "marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
           "support": {
             "visibility": "all",
             "permissions": [
