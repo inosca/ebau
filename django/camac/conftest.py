@@ -911,6 +911,9 @@ def caluma_forms_ur(settings):
         "review-building-commission",
         "geometer-final-measurement",
         "zs-ersatzbeitrag-pruefen",
+        "check-gwr-relevancy",
+        "open-gwr-construction-project",
+        "update-gwr-status",
     ]:
         caluma_form_models.Form.objects.create(slug=form, name=form)
 

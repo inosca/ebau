@@ -159,6 +159,7 @@ CONSTRUCTION_MONITORING = {
     "kt_uri": {
         "ENABLED": True,
         "CONSTRUCTION_CONTROL_TASK": "construction-control",
+        "CONSTRUCTION_STEP_AV_STATUS_TASK": "construction-step-av-status-demolition",
         "PREVIOUS_INSTANCE_STATE": "done",
         "AFTER_INSTANCE_STATE": "arch",
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "control",

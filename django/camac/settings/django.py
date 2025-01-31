@@ -1422,6 +1422,15 @@ APPLICATIONS = {
                         },
                     }
                 ],
+                "construction-step-gebaeudeabbruch": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "8-gebaeudeabbruch",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
                 "construction-step-kanalisation-kontrollieren": [
                     {
                         "event": "created",

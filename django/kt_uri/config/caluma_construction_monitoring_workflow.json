@@ -1,6 +1,32 @@
 [
   {
     "model": "caluma_workflow.flow",
+    "pk": "007c68f6-2cba-4161-ae9a-6376ef1f88af",
+    "fields": {
+      "created_at": "2023-10-30T10:52:04.042Z",
+      "modified_at": "2023-10-30T10:52:04.042Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "093d1336-07f1-4d38-a0c9-83bda52b0154",
+    "fields": {
+      "created_at": "2024-06-17T07:05:43.122Z",
+      "modified_at": "2024-06-17T07:05:43.122Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['construction-step-av-status-building']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "0dc97019-e51c-4cc0-bb7d-8674da468620",
     "fields": {
       "created_at": "2023-10-27T15:32:57.477Z",
@@ -48,7 +74,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-baubeginn-melden', 'after-construction-step']|tasks"
     }
   },
   {
@@ -139,7 +165,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step', 'liegenschaftsschaetzung']|tasks"
+      "next": "['after-schlussabnahme-gebaeude', 'after-construction-step', 'liegenschaftsschaetzung']|tasks"
     }
   },
   {
@@ -170,6 +196,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "b8fddc78-5381-4728-94b3-9afd60a14953",
+    "fields": {
+      "created_at": "2025-01-08T07:05:43.122Z",
+      "modified_at": "2025-01-08T07:05:43.122Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-gebaeudeabbruch-melden', 'construction-step-av-status-demolition']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "c194c42e-d4db-44e2-9d18-770eeec7e73e",
     "fields": {
       "created_at": "2023-10-30T10:52:04.042Z",
@@ -178,7 +217,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-schlussabnahme-project', 'construction-step-av-state-project']|tasks"
     }
   },
   {
@@ -204,7 +243,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
+      "next": "['after-construction-step', 'construction-step-av-projeziert-pruefen', 'after-plan-construction-stage']|tasks"
     }
   },
   {
@@ -353,37 +392,6 @@
   },
   {
     "model": "caluma_workflow.task",
-    "pk": "construction-monitoring-update-gwr-state-complete",
-    "fields": {
-      "created_at": "2024-06-14T09:36:44.828Z",
-      "modified_at": "2024-06-14T09:36:44.828Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Projektabschluss)\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "type": "complete_task_form",
-      "meta": {
-        "construction-step": {
-          "next": [],
-          "index": 0,
-          "total": 1
-        },
-        "construction-step-id": "construction-step-update-gwr-state-completion",
-        "redirectToWorkItemsAfterCompletion": true
-      },
-      "address_groups": "['municipality']|groups",
-      "control_groups": "['municipality']|groups",
-      "is_archived": false,
-      "form": "construction-monitoring-update-gwr-state-complete",
-      "lead_time": 432000,
-      "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
     "pk": "construction-stage",
     "fields": {
       "created_at": "2023-10-27T15:31:54.523Z",
@@ -407,6 +415,160 @@
   },
   {
     "model": "caluma_workflow.task",
+    "pk": "construction-step-av-projeziert-pruefen",
+    "fields": {
+      "created_at": "2024-12-13T15:32:11.878Z",
+      "modified_at": "2024-12-13T15:32:11.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"AV projeziert pr\\u00fcfen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": ["construction-step-baufreigabe"],
+          "index": 1,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-plan-construction-stage",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'geometer-ur']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-av-projeziert-pruefen",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-av-state-project",
+    "fields": {
+      "created_at": "2023-10-27T15:32:30.022Z",
+      "modified_at": "2023-10-27T15:32:30.022Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"AV definitiv nachf\\u00fchren (Teil/Gesamtprojekt)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": [],
+          "index": 3,
+          "total": 4
+        },
+        "construction-step-id": "construction-step-schlussabnahme-projekt"
+      },
+      "address_groups": "['geometer-ur','municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-av-state-project",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-av-status-building",
+    "fields": {
+      "created_at": "2024-12-13T15:32:11.878Z",
+      "modified_at": "2024-12-13T15:32:11.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"AV Status nachf\\u00fchren (Geb\\u00e4ude)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": ["construction-step-schlussabnahme-projekt"],
+          "index": 3,
+          "total": 4
+        },
+        "construction-step-id": "construction-step-schlussabnahme-gebaeude",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'geometer-ur']|groups",
+      "control_groups": "['municipality', '']|groups",
+      "is_archived": false,
+      "form": "construction-step-av-status-building",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-av-status-demolition",
+    "fields": {
+      "created_at": "2024-12-13T15:32:11.878Z",
+      "modified_at": "2024-12-13T15:32:11.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"AV Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": ["construction-step-baubeginn"],
+          "index": 1,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-gebaeudeabbruch",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'geometer-ur']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-av-status-demolition",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-av-status-nachfuehren",
+    "fields": {
+      "created_at": "2024-12-13T15:32:11.878Z",
+      "modified_at": "2024-12-13T15:32:11.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"AV Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": ["construction-step-baubeginn"],
+          "index": 1,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-gebaeudeabbruch",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'geometer-ur']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-av-status-nachfuehren",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
     "pk": "construction-step-baubeginn-melden",
     "fields": {
       "created_at": "2023-10-27T15:32:11.878Z",
@@ -425,7 +587,7 @@
             "construction-step-schnurgeruestabnahme"
           ],
           "index": 0,
-          "total": 1
+          "total": 2
         },
         "construction-step-id": "construction-step-baubeginn",
         "is-actionable-for-control": false
@@ -454,7 +616,10 @@
       "type": "complete_task_form",
       "meta": {
         "construction-step": {
-          "next": ["construction-step-baubeginn"],
+          "next": [
+            "construction-step-gebaeudeabbruch",
+            "construction-step-baubeginn"
+          ],
           "index": 1,
           "total": 2,
           "needs-approval": "construction-step-baufreigabe-is-approved"
@@ -496,6 +661,190 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-baufreigabe-beantragen",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-gebaeudeabbruch-melden",
+    "fields": {
+      "created_at": "2024-12-13T15:32:11.878Z",
+      "modified_at": "2024-12-13T15:32:11.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Geb\\u00e4udeabbruch melden\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": ["construction-step-baubeginn"],
+          "index": 0,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-gebaeudeabbruch",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'applicant']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-gebaeudeabbruch-melden",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-gwr-state-building",
+    "fields": {
+      "created_at": "2023-10-27T15:32:25.169Z",
+      "modified_at": "2023-10-27T15:32:25.169Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Geb\\u00e4ude)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": ["construction-step-schlussabnahme-projekt"],
+          "index": 2,
+          "total": 4
+        },
+        "construction-step-id": "construction-step-schlussabnahme-gebaeude"
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-schlussabnahme-gebaeude-melden",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-gwr-state-construction-start",
+    "fields": {
+      "created_at": "2024-12-13T15:32:11.878Z",
+      "modified_at": "2024-12-13T15:32:11.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Baubeginn)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": [
+            "construction-step-kanalisationsabnahme",
+            "construction-step-schnurgeruestabnahme"
+          ],
+          "index": 1,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-baubeginn"
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-gwr-state-construction-start",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-gwr-state-demolition",
+    "fields": {
+      "created_at": "2024-12-13T15:32:11.878Z",
+      "modified_at": "2024-12-13T15:32:11.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Geb\\u00e4udeabbruch)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": ["construction-step-baubeginn"],
+          "index": 1,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-gebaeudeabbruch"
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-gwr-state-demolition",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-gwr-state-project",
+    "fields": {
+      "created_at": "2023-10-27T15:32:30.022Z",
+      "modified_at": "2023-10-27T15:32:30.022Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Gesamtprojekt)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": [],
+          "index": 3,
+          "total": 4
+        },
+        "construction-step-id": "construction-step-schlussabnahme-projekt"
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-gwr-state-project",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-gwr-status-nachfuehren",
+    "fields": {
+      "created_at": "2024-12-13T15:32:11.878Z",
+      "modified_at": "2024-12-13T15:32:11.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Geb\\u00e4udeabbruch)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "construction-step": {
+          "next": ["construction-step-baubeginn"],
+          "index": 1,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-gebaeudeabbruch"
+      },
+      "address_groups": "['municipality', 'applicant']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-gwr-status-nachfuehren",
       "lead_time": 2592000,
       "is_multiple_instance": false,
       "continue_async": false
@@ -581,11 +930,10 @@
         "construction-step": {
           "next": [
             "construction-step-baufreigabe",
-            "construction-step-update-gwr-state-begin",
-            "construction-step-update-gwr-state-completion"
+            "construction-step-update-gwr-state-begin"
           ],
           "index": 0,
-          "total": 1
+          "total": 2
         },
         "construction-step-id": "construction-step-plan-construction-stage"
       },
@@ -677,7 +1025,7 @@
         "construction-step": {
           "next": ["construction-step-schlussabnahme-projekt"],
           "index": 1,
-          "total": 2,
+          "total": 4,
           "needs-approval": "construction-step-schlussabnahme-gebaeude-is-approved"
         },
         "construction-step-id": "construction-step-schlussabnahme-gebaeude"
@@ -708,7 +1056,7 @@
         "construction-step": {
           "next": ["construction-step-schlussabnahme-projekt"],
           "index": 0,
-          "total": 2
+          "total": 4
         },
         "construction-step-id": "construction-step-schlussabnahme-gebaeude",
         "is-actionable-for-control": false
@@ -739,7 +1087,7 @@
         "construction-step": {
           "next": [],
           "index": 2,
-          "total": 3,
+          "total": 4,
           "needs-approval": "construction-step-schlussabnahme-projekt-is-approved"
         },
         "construction-step-id": "construction-step-schlussabnahme-projekt"
@@ -770,7 +1118,7 @@
         "construction-step": {
           "next": [],
           "index": 0,
-          "total": 3
+          "total": 4
         },
         "construction-step-id": "construction-step-schlussabnahme-projekt",
         "is-actionable-for-control": false
@@ -801,7 +1149,7 @@
         "construction-step": {
           "next": [],
           "index": 1,
-          "total": 3
+          "total": 4
         },
         "construction-step-id": "construction-step-schlussabnahme-projekt"
       },
@@ -1011,6 +1359,22 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "0b7a25ee-0959-47c8-bc05-34f421bbe6d4",
+    "fields": {
+      "created_at": "2023-10-30T10:52:04.043Z",
+      "modified_at": "2023-10-30T10:52:04.043Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-gwr-state-project",
+      "flow": "007c68f6-2cba-4161-ae9a-6376ef1f88af",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "23896513-00d1-479d-bb22-a21756e38b59",
     "fields": {
       "created_at": "2023-10-27T15:32:52.502Z",
@@ -1171,6 +1535,22 @@
   },
   {
     "model": "caluma_workflow.taskflow",
+    "pk": "8691ce31-99e6-473b-a953-430dae06897d",
+    "fields": {
+      "created_at": "2025-01-08T07:05:43.132Z",
+      "modified_at": "2025-01-08T07:05:43.132Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-gebaeudeabbruch-melden",
+      "flow": "b8fddc78-5381-4728-94b3-9afd60a14953",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
     "pk": "900e4fae-1192-4191-b401-c892a2e8d412",
     "fields": {
       "created_at": "2023-10-30T10:52:01.926Z",
@@ -1214,6 +1594,22 @@
       "workflow": "construction-stage",
       "task": "construction-step-rohbau-kontrollieren",
       "flow": "c829b937-d5a7-4a53-97f3-60bdb349c546",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "ba4b6d07-4211-4ed4-8353-4d360f5647d5",
+    "fields": {
+      "created_at": "2023-10-30T10:52:04.043Z",
+      "modified_at": "2023-10-30T10:52:04.043Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-gwr-state-building",
+      "flow": "093d1336-07f1-4d38-a0c9-83bda52b0154",
       "redoable": null
     }
   },

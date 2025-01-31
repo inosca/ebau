@@ -466,5 +466,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1496,
+    "fields": {
+      "slug": "8-gebaeudeabbruch",
+      "purpose": "8 Gebäudeabbruch ",
+      "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Gebäudeabbruch",
+      "body": "URec System Info 8 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\n)\r\n\r\nSCHNURGERÜSTABNAHME ERFOLGT\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
   }
 ]
