@@ -419,5 +419,19 @@ DISTRIBUTION = {
             ],
         },
     },
+    "NOTIFICATIONS": {
+        "INQUIRY_SENT": {
+            "template_slug": "verfahrensablauf-fachstelle",
+            "recipient_types": ["inquiry_addressed"],
+        },
+        "INQUIRY_ANSWERED": {
+            "template_slug": "bericht-erstellt",
+            "recipient_types": ["inquiry_controlling"],
+        },
+        "CANCELED_DISTRIBUTION": {
+            "template_slug": "zirkulation-abgebrochen",
+            "recipient_types": ["services_with_incomplete_inquiries"],
+        },
+    },
     "demo": {"ENABLED": True},
 }

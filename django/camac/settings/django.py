@@ -2441,6 +2441,20 @@ APPLICATIONS = {
                 "complete-distribution": {
                     "next_instance_state": "decision",
                 },
+                "send-additional-demand": {
+                    "history_text": _("Additional demand sent"),
+                    "notification": {
+                        "template_slug": "send-additional-demand",
+                        "recipient_types": ["applicant", "additional_demand_inviter"],
+                    },
+                },
+                "fill-additional-demand": {
+                    "history_text": _("Additional demand was answered"),
+                    "notification": {
+                        "template_slug": "fill-additional-demand",
+                        "recipient_types": ["work_item_controlling"],
+                    },
+                },
             },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,
@@ -2475,7 +2489,47 @@ APPLICATIONS = {
         },
         "CUSTOM_NOTIFICATION_TYPES": [],
         "NOTIFICATIONS": {
-            "SUBMIT": [],
+            "SUBMIT": [
+                {
+                    "template_slug": "empfang-anfragebaugesuch-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "empfang-anfragebaugesuch-behorden",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
+            "APPLICANT": {
+                "NEW": "gesuchsbearbeitungs-einladung-neu",
+                "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
+            },
+            "DECISION": [
+                {
+                    "template_slug": "entscheid-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "entscheid-behoerden",
+                    "recipient_types": ["involved_in_distribution"],
+                },
+            ],
+            "NON_BUILDING_PERMIT_DECISION": [
+                {
+                    "template_slug": "beurteilung-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "decision-completed-bauanzeige-vorlaeufige-beurteilung",
+                    "recipient_types": ["involved_in_distribution"],
+                },
+            ],
+            "CONSTRUCTION_ACCEPTANCE": [
+                {
+                    "template_slug": "bauabnahme-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+            ],
+            "CHANGE_RESPONSIBLE_USER": {"template_slug": "zustaedigkeit-wechsel"},
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "DOCUMENT_BACKEND": "alexandria",

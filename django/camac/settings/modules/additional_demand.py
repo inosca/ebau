@@ -88,4 +88,25 @@ ADDITIONAL_DEMAND = {
             ],
         },
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "HISTORY_ENTRIES": {
+            "ACCEPTED": _("Additional demand accepted"),
+            "REJECTED": _("Additional demand rejected"),
+        },
+        "NOTIFICATIONS": {
+            "ACCEPTED": [
+                {
+                    "recipient_types": ["additional_demand_inviter"],
+                    "template_slug": "additional-demand-decision-accept",
+                }
+            ],
+            "REJECTED": [
+                {
+                    "recipient_types": ["applicant"],
+                    "template_slug": "additional-demand-decision-reject",
+                }
+            ],
+        },
+    },
 }

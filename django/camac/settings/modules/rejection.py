@@ -106,7 +106,7 @@ REJECTION = {
             "REJECTED": [
                 {
                     "recipient_types": ["applicant"],
-                    "template_slug": "2-4-dossier-zurueckgewiesen",
+                    "template_slug": "rueckweisung",
                 }
             ]
         },
