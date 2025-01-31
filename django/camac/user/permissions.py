@@ -2,6 +2,7 @@ from functools import wraps
 
 from django.conf import settings
 from rest_framework import permissions
+from rest_framework.exceptions import PermissionDenied
 
 from camac.request import get_request
 from camac.token_exchange.permissions import RequireLoT
@@ -221,6 +222,24 @@ def IsApplication(*applications):
     return DynamicPermission
 
 
+def HasSharedSecret(**kwargs):
+    class DynamicPermission(permissions.BasePermission):
+        def has_permission(self, request, view):
+            shared_secret_header = kwargs.get("shared_secret_header")
+            shared_secret_settings_key = kwargs.get("settings_key")
+
+            shared_secret = request.headers.get(shared_secret_header)
+            expected_secret = getattr(settings, shared_secret_settings_key)
+
+            if shared_secret != expected_secret:
+                raise PermissionDenied(
+                    f"Invalid or missing {shared_secret_header} header."
+                )
+            return True
+
+    return DynamicPermission
+
+
 def IsView(*views):
     class DynamicPermission(permissions.BasePermission):
         def has_permission(self, request, view):
@@ -282,5 +301,14 @@ PublicationPermission = IsPublicAccess & (
             & permissions.IsAuthenticated
             & IsAllowedClientToken
         )
+    )
+)
+
+HasEebaPermission = (
+    IsApplication("kt_gr")
+    & permissions.IsAuthenticated
+    & ReadOnly
+    & HasSharedSecret(
+        settings_key="EEBA_SHARED_SECRET", shared_secret_header="X-EBAU-EEBA-SECRET"
     )
 )

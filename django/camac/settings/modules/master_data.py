@@ -1925,6 +1925,37 @@ MASTER_DATA = {
                     }
                 },
             ),
+            "invoice_recipients": (
+                "table",
+                "personalien-rechnungsempfaenger",
+                {
+                    "column_mapping": {
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
+                        "is_juristic_person": (
+                            "juristische-person-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
+                    }
+                },
+            ),
             "legal_representatives": (
                 "table",
                 "personalien-vertreterin-mit-vollmacht",
@@ -1979,6 +2010,15 @@ MASTER_DATA = {
             "zip": ("answer", "plz"),
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten"),
+            "deconstruction_material": ("answer", "rueckbaumaterial-volumen"),
+            "removed_topsoil": ("answer", "abgetragener-oberboden-volumen"),
+            "excavation": ("answer", "aushub-volumen"),
+            "road_surface": ("answer", "strasse-belag-volumen"),
+            "track_excavation": ("answer", "gleisaushub-volumen"),
+            "year_of_construction_oldest_affected_object": (
+                "answer",
+                "baujahr-aeltestes-betroffenes-objekt",
+            ),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -1988,6 +2028,11 @@ MASTER_DATA = {
                 "answer",
                 "gemeinde",
                 {"value_parser": "dynamic_option", "prop": "slug"},
+            ),
+            "construction_zone": (
+                "answer",
+                "das-bauvorhaben-befindet-sich-in",
+                {"value_parser": "option", "prop": "slug"},
             ),
             "plot_data": (
                 "table",

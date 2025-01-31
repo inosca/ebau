@@ -448,6 +448,8 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
                 "nummer-gesuchstellerin": 321,
                 "ort-gesuchstellerin": "Testingen",
                 "plz-gesuchstellerin": 4321,
+                "e-mail-gesuchstellerin": "example@example.com",
+                "telefon-oder-mobile-gesuchstellerin": "+417878787",
             }
         ],
     )
@@ -477,6 +479,24 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
                 "plz-gesuchstellerin": 2222,
                 "ort-gesuchstellerin": "Beispieldorf",
             },
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "personalien-rechnungsempfaenger",
+        [
+            {
+                "vorname-gesuchstellerin": "Invoice",
+                "name-gesuchstellerin": "Master",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Rechnung AG",
+                "strasse-gesuchstellerin": "Hauptstrasse",
+                "nummer-gesuchstellerin": 12,
+                "ort-gesuchstellerin": "Zizers",
+                "plz-gesuchstellerin": 2312,
+                "e-mail-gesuchstellerin": "invoice@example.com",
+                "telefon-oder-mobile-gesuchstellerin": "+417979797",
+            }
         ],
     )
     utils.add_table_answer(
