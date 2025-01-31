@@ -145,6 +145,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-pruefung-formelle-vorpruefung.vorlaeufige-pruefung-kantonale-zustimmung",
+    "fields": {
+      "created_at": "2025-01-23T12:19:35.611Z",
+      "modified_at": "2025-01-23T12:19:35.611Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-pruefung-formelle-vorpruefung",
+      "question": "vorlaeufige-pruefung-kantonale-zustimmung",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorlaeufige-pruefung-formelle-vorpruefung.vorlaeufige-pruefung-kontrolle-profilierung",
     "fields": {
       "created_at": "2025-01-16T10:01:50.267Z",
@@ -275,7 +290,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-verfahrensart",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -1612,6 +1627,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "vorlaeufige-pruefung-kantonale-zustimmung-ja",
+    "fields": {
+      "created_at": "2025-01-23T12:19:35.386Z",
+      "modified_at": "2025-01-23T12:19:35.386Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorlaeufige-pruefung-kantonale-zustimmung-nein",
+    "fields": {
+      "created_at": "2025-01-23T12:19:35.387Z",
+      "modified_at": "2025-01-23T12:19:35.387Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "vorlaeufige-pruefung-lage-des-vorhabens-korrekt-ja",
     "fields": {
       "created_at": "2025-01-16T10:03:50.020Z",
@@ -1819,10 +1868,10 @@
     "pk": "vorlaeufige-pruefung-abschliessen",
     "fields": {
       "created_at": "2025-01-13T14:22:40.415Z",
-      "modified_at": "2025-01-13T14:22:40.415Z",
+      "modified_at": "2025-01-29T09:33:28.691Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorl\\u00e4ufige Pr\\u00fcfung abschliessen\", \"fr\": null, \"it\": null}",
       "type": "action_button",
@@ -1830,14 +1879,14 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "color": "primary",
         "action": "complete",
-        "show_validation": false,
-        "validate_on_enter": false
+        "show_validation": true,
+        "validate_on_enter": true
       },
       "meta": {},
       "data_source": null,
@@ -2718,6 +2767,37 @@
       "label": "{\"de\": \"Ist das Bauvorhaben zonenkonform?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorlaeufige-pruefung-kantonale-zustimmung",
+    "fields": {
+      "created_at": "2025-01-23T12:19:35.516Z",
+      "modified_at": "2025-01-23T12:19:35.516Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ben\\u00f6tigt das Bauvorhaben eine kantonale Zustimmung gem\\u00e4ss \\u00a7 63 BauG?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -3978,6 +4058,36 @@
       "question": "vorlaeufige-pruefung-ist-das-bauvorhaben-zonenkonform",
       "option": "vorlaeufige-pruefung-ist-das-bauvorhaben-zonenkonform-wird-durch-kanton-geprueft",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorlaeufige-pruefung-kantonale-zustimmung.vorlaeufige-pruefung-kantonale-zustimmung-ja",
+    "fields": {
+      "created_at": "2025-01-23T12:19:35.537Z",
+      "modified_at": "2025-01-23T12:19:35.537Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorlaeufige-pruefung-kantonale-zustimmung",
+      "option": "vorlaeufige-pruefung-kantonale-zustimmung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorlaeufige-pruefung-kantonale-zustimmung.vorlaeufige-pruefung-kantonale-zustimmung-nein",
+    "fields": {
+      "created_at": "2025-01-23T12:19:35.529Z",
+      "modified_at": "2025-01-23T12:19:35.529Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorlaeufige-pruefung-kantonale-zustimmung",
+      "option": "vorlaeufige-pruefung-kantonale-zustimmung-nein",
+      "sort": 1
     }
   },
   {

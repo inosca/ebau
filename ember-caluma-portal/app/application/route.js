@@ -2,6 +2,7 @@ import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { service } from "@ember/service";
 import AgGisComponent from "ember-ebau-core/components/ag-gis";
+import AGInquiryServiceGroupWarningComponent from "ember-ebau-core/components/ag-inquiry-service-group-warning";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import CamacAdditionalDemandFilesComponent from "ember-ebau-core/components/camac-additional-demand-files";
@@ -279,6 +280,11 @@ export default class ApplicationRoute extends Route {
       label: "Infotext Belastungswerte",
       component: "info-belastungswerte",
       componentClass: InfoBelastungswerteComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "AG: Zirkulation Warnung Organisationstyp",
+      component: "ag-inquiry-service-group-warning",
+      componentClass: AGInquiryServiceGroupWarningComponent,
     });
   }
 }

@@ -85,6 +85,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "inquiry.inquiry-cantonal-approval-hint",
+    "fields": {
+      "created_at": "2025-01-29T09:37:24.717Z",
+      "modified_at": "2025-01-29T09:37:24.718Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "inquiry",
+      "question": "inquiry-cantonal-approval-hint",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "inquiry.inquiry-deadline",
     "fields": {
       "created_at": "2025-01-13T16:22:23.830Z",
@@ -305,6 +320,39 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "inquiry-answer-status"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "inquiry-cantonal-approval-hint",
+    "fields": {
+      "created_at": "2025-01-29T09:37:24.657Z",
+      "modified_at": "2025-01-29T13:49:46.202Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kantonale Zustimmung Hinweis\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-danger uk-margin-remove\\\"><strong>Achtung:</strong> F\\u00fcr dieses Bauvorhaben ist eine kantonale Zustimmung gem\\u00e4ss \\u00a7 63 BauG erforderlich. Die Stellungnahmen der kantonalen Fachstellen werden von der Abteilung f\\u00fcr Baubewilligungen koordiniert. Bitte fordern Sie keine Stellungnahmen direkt bei kantonalen Fachstellen an.</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "ag-inquiry-service-group-warning"
       },
       "data_source": null,
       "row_form": null,
