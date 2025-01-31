@@ -7,6 +7,9 @@ export default {
     related: false,
     disableAuthentication: true,
   },
+  rejection: {
+    revert: true,
+  },
   constructionMonitoring: true,
   additionalDemands: true,
   workItems: {

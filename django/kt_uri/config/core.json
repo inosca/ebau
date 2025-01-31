@@ -1,22 +1,6 @@
 [
   {
     "model": "core.aformtransition",
-    "pk": 12000002,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 31
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 12000003,
-    "fields": {
-      "current_instance_state": 31,
-      "next_instance_state": null
-    }
-  },
-  {
-    "model": "core.aformtransition",
     "pk": 12000061,
     "fields": {
       "current_instance_state": null,
@@ -59,15 +43,6 @@
     "model": "core.alocation",
     "pk": 1009,
     "fields": {}
-  },
-  {
-    "model": "core.anotification",
-    "pk": 12000004,
-    "fields": {
-      "template": "2-4-dossier-zurueckgewiesen",
-      "recipient_type": "Notification_Manager_Applicant",
-      "processor": "Notification_Processor_SendEmailAPI"
-    }
   },
   {
     "model": "core.anotification",
@@ -271,90 +246,6 @@
   },
   {
     "model": "core.action",
-    "pk": 1375,
-    "fields": {
-      "available_action": "workitem",
-      "button": 12000001,
-      "name": "Complete ruckweisung work item",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 12000000,
-    "fields": {
-      "available_action": "save",
-      "button": 12000000,
-      "name": "Save",
-      "description": null,
-      "success_message": "Speichern erfolgreich",
-      "error_message": "Beim Speichern ist ein Fehler aufgetreten",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 12000001,
-    "fields": {
-      "available_action": "save",
-      "button": 12000001,
-      "name": "Save",
-      "description": null,
-      "success_message": null,
-      "error_message": "Beim Speichern ist ein Fehler aufgetreten",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 12000002,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 12000001,
-      "name": "Reset State to \"Zurückgewiesen\"",
-      "description": null,
-      "success_message": "Dossier erfolgreich zurückgewiesen",
-      "error_message": "Bei der Änderung vom Dossierstatus ist ein Fehler aufgetreten",
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 12000003,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 12000002,
-      "name": "Reset state \"Zurückgewiesen\" to previous state",
-      "description": null,
-      "success_message": "Dossier Zurückweisung wurde erfolgreich aufgehoben",
-      "error_message": "Bei der Änderung vom Dossierstatus ist ein Fehler aufgetreten",
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 12000004,
-    "fields": {
-      "available_action": "notification",
-      "button": 12000001,
-      "name": "E-Mail an Gesuchsteller schicken",
-      "description": null,
-      "success_message": null,
-      "error_message": "Beim Verschicken der E-Mail ist ein Fehler aufgetreten",
-      "execute_always": 0,
-      "sort": 3
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 12000009,
     "fields": {
       "available_action": "notification",
@@ -449,20 +340,6 @@
       "error_message": "Statusänderung konnte nicht ausgeführt werden",
       "execute_always": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 13000010,
-    "fields": {
-      "available_action": "case",
-      "button": 12000002,
-      "name": "Resume case",
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
     }
   },
   {
@@ -589,23 +466,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
-    }
-  },
-  {
-    "model": "core.actioncase",
-    "pk": 13000010,
-    "fields": {
-      "process_type": "resume"
-    }
-  },
-  {
-    "model": "core.actionworkitem",
-    "pk": 1375,
-    "fields": {
-      "tasks": "[\"reject\"]",
-      "process_type": "complete",
-      "process_all": false,
-      "fail_on_empty": false
     }
   },
   {
@@ -7047,96 +6907,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 671,
-    "fields": {
-      "button": 12000001,
-      "role": 6,
-      "instance_state": 31
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 672,
-    "fields": {
-      "button": 12000001,
-      "role": 1061,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 673,
-    "fields": {
-      "button": 12000001,
-      "role": 1129,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 674,
-    "fields": {
-      "button": 12000001,
-      "role": 1127,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000000,
-    "fields": {
-      "button": 12000001,
-      "role": 6,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000001,
-    "fields": {
-      "button": 12000001,
-      "role": 6,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000002,
-    "fields": {
-      "button": 12000001,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000003,
-    "fields": {
-      "button": 12000001,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000004,
-    "fields": {
-      "button": 12000001,
-      "role": 6,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 12000005,
-    "fields": {
-      "button": 12000002,
-      "role": 1,
-      "instance_state": 31
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 12000016,
     "fields": {
       "button": 12000004,
@@ -8458,42 +8228,6 @@
       "class_field": "downloady",
       "hidden": 0,
       "sort": 19
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 12000000,
-    "fields": {
-      "instance_resource": 12000000,
-      "name": "Speichern",
-      "description": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 12000001,
-    "fields": {
-      "instance_resource": 12000000,
-      "name": "Dossier zurückweisen",
-      "description": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 12000002,
-    "fields": {
-      "instance_resource": 12000000,
-      "name": "Rückweisung aufheben",
-      "description": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 2
     }
   },
   {
@@ -12928,22 +12662,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 12000000,
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "resource": 12000003,
-      "name": "Dossier zurückweisen",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 9,
-      "form_group": 161,
-      "require_permission": null
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 12000001,
     "fields": {
       "available_instance_resource": "taskform",
@@ -12953,7 +12671,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 17,
+      "sort": 18,
       "form_group": 161,
       "require_permission": null
     }
@@ -12969,7 +12687,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 26,
+      "sort": 27,
       "form_group": 161,
       "require_permission": null
     }
@@ -12985,9 +12703,25 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 18,
+      "sort": 19,
       "form_group": 161,
       "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000004,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 12000003,
+      "name": "Dossier zurückweisen",
+      "description": null,
+      "template": "/ember-camac-ng/rejection.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 9,
+      "form_group": 161,
+      "require_permission": "rejection-read"
     }
   },
   {
@@ -13113,7 +12847,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 161,
       "require_permission": null
     }
@@ -13145,7 +12879,7 @@
       "template": null,
       "class_field": null,
       "hidden": 1,
-      "sort": 11,
+      "sort": 12,
       "form_group": 161,
       "require_permission": null
     }
@@ -13177,7 +12911,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 161,
       "require_permission": null
     }
@@ -13193,7 +12927,7 @@
       "template": "/ember-camac-ng/gwr.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 14,
+      "sort": 15,
       "form_group": 161,
       "require_permission": null
     }
@@ -13209,7 +12943,7 @@
       "template": "/ember-camac-ng/responsible.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 15,
+      "sort": 16,
       "form_group": 161,
       "require_permission": null
     }
@@ -13225,7 +12959,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 161,
       "require_permission": null
     }
@@ -13241,7 +12975,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 16,
+      "sort": 17,
       "form_group": 161,
       "require_permission": null
     }
@@ -13257,7 +12991,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": "gemeinde_als_fachstelle",
       "hidden": 0,
-      "sort": 19,
+      "sort": 20,
       "form_group": 161,
       "require_permission": null
     }
@@ -13273,7 +13007,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 20,
+      "sort": 21,
       "form_group": 161,
       "require_permission": null
     }
@@ -13289,7 +13023,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": "gemeinde_als_fachstelle",
       "hidden": 0,
-      "sort": 21,
+      "sort": 22,
       "form_group": 161,
       "require_permission": null
     }
@@ -13305,7 +13039,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 22,
+      "sort": 23,
       "form_group": 161,
       "require_permission": null
     }
@@ -13321,7 +13055,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 23,
+      "sort": 24,
       "form_group": 161,
       "require_permission": null
     }
@@ -13337,7 +13071,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 24,
+      "sort": 25,
       "form_group": 161,
       "require_permission": null
     }
@@ -13353,7 +13087,7 @@
       "template": "/ember-camac-ng/construction-monitoring.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 25,
+      "sort": 26,
       "form_group": 161,
       "require_permission": null
     }
@@ -13369,7 +13103,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 28,
+      "sort": 29,
       "form_group": 161,
       "require_permission": null
     }
@@ -13385,7 +13119,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 27,
+      "sort": 28,
       "form_group": 161,
       "require_permission": null
     }
@@ -13401,7 +13135,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 29,
+      "sort": 30,
       "form_group": 161,
       "require_permission": null
     }
@@ -13417,7 +13151,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 31,
+      "sort": 32,
       "form_group": 161,
       "require_permission": null
     }
@@ -13433,7 +13167,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 30,
+      "sort": 31,
       "form_group": 161,
       "require_permission": null
     }
@@ -13449,7 +13183,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 32,
+      "sort": 33,
       "form_group": 161,
       "require_permission": null
     }
@@ -13465,7 +13199,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 33,
+      "sort": 34,
       "form_group": 161,
       "require_permission": null
     }
@@ -15657,14 +15391,6 @@
     }
   },
   {
-    "model": "core.ireditformpage",
-    "pk": 12000000,
-    "fields": {
-      "page": 12000000,
-      "pdf_class": null
-    }
-  },
-  {
     "model": "core.irformpage",
     "pk": 225,
     "fields": {
@@ -15691,6 +15417,13 @@
   {
     "model": "core.irpage",
     "pk": 2000003,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000004,
     "fields": {
       "pdf_class": null
     }
@@ -17875,33 +17608,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 1270,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 1061,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1271,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 1129,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1272,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 1127,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 1281,
     "fields": {
       "instance_resource": 14000013,
@@ -18852,51 +18558,6 @@
       "instance_resource": 14000010,
       "role": 4,
       "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000002,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000003,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 31
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000004,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000005,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12000006,
-    "fields": {
-      "instance_resource": 12000000,
-      "role": 6,
-      "instance_state": 30
     }
   },
   {
@@ -33810,6 +33471,69 @@
       "instance_resource": 14000014,
       "role": 1107,
       "instance_state": 33
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002209,
+    "fields": {
+      "instance_resource": 12000004,
+      "role": 1129,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002210,
+    "fields": {
+      "instance_resource": 12000004,
+      "role": 1061,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002211,
+    "fields": {
+      "instance_resource": 12000004,
+      "role": 1127,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002212,
+    "fields": {
+      "instance_resource": 12000004,
+      "role": 6,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002213,
+    "fields": {
+      "instance_resource": 12000004,
+      "role": 6,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002214,
+    "fields": {
+      "instance_resource": 12000004,
+      "role": 6,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002215,
+    "fields": {
+      "instance_resource": 12000004,
+      "role": 6,
+      "instance_state": 31
     }
   },
   {
