@@ -67,7 +67,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     "inquiry-answer-notices-for-authority-arp",
     "inquiry-answer-forward",
   ];
-  static distributionInfoQuestionsAG = ["inquiry-answer-remarks"];
+  static distributionInfoQuestionsAG = ["inquiry-answer-status"];
 
   @cantonAware
   static distributionStatusMapping = {};

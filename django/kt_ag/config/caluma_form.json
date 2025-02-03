@@ -5084,7 +5084,7 @@
       "modified_by_group": null,
       "form": "grundstueckentwaesserung-formular",
       "question": "dach-und-sickerwasser",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -5099,7 +5099,7 @@
       "modified_by_group": null,
       "form": "grundstueckentwaesserung-formular",
       "question": "eigenverwendung",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -5114,7 +5114,7 @@
       "modified_by_group": null,
       "form": "grundstueckentwaesserung-formular",
       "question": "in-oeffentliches-gewaesser",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -5129,7 +5129,7 @@
       "modified_by_group": null,
       "form": "grundstueckentwaesserung-formular",
       "question": "kanalisation",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -5144,6 +5144,21 @@
       "modified_by_group": null,
       "form": "grundstueckentwaesserung-formular",
       "question": "kanalisationsanschluss",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "grundstueckentwaesserung-formular.schmutzwasser",
+    "fields": {
+      "created_at": "2025-02-03T09:02:23.582Z",
+      "modified_at": "2025-02-03T09:02:23.582Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "grundstueckentwaesserung-formular",
+      "question": "schmutzwasser",
       "sort": 7
     }
   },
@@ -5159,7 +5174,7 @@
       "modified_by_group": null,
       "form": "grundstueckentwaesserung-formular",
       "question": "versickerung",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -23301,6 +23316,37 @@
       "meta": {
         "hideLabel": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "schmutzwasser",
+    "fields": {
+      "created_at": "2025-02-03T09:02:23.520Z",
+      "modified_at": "2025-02-03T09:02:31.449Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schmutzwasser\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Schmutzwasser\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
