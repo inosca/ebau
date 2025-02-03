@@ -7,6 +7,10 @@ COPY ember-camac-ng/package.json /myapp/ember-camac-ng/
 COPY ember-ebau/package.json /myapp/ember-ebau/
 COPY ember-ebau-core/package.json /myapp/ember-ebau-core/
 
+# TODO: Remove this when https://github.com/pnpm/pnpm/issues/9029 resp.
+# https://github.com/nodejs/corepack/issues/612 is fixed
+RUN npm i -g corepack@latest
+
 # Fetch all workspace dependencies
 RUN --mount=type=cache,target=.pnpm-store,sharing=locked \
   corepack enable && \
