@@ -66,6 +66,7 @@ MODULE_JOURNAL = STATES_ALL
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_BILLING = STATES_ALL & ROLES_NO_READONLY
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
+MODULE_REJECTION = STATES_ALL
 MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
 MODULE_WORK_ITEMS = STATES_ALL & ROLES_NO_READONLY
 
@@ -145,6 +146,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("permissions-read-any", MODULE_PERMISSIONS),
             ("permissions-read", MODULE_PERMISSIONS),
             ("permissions-revoke-read", MODULE_PERMISSIONS),
+            ("rejection-read", MODULE_REJECTION),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
