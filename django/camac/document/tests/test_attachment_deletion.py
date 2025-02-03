@@ -124,7 +124,7 @@ from .data import django_file
             lfc("service_factory"),
             "running",
             permissions.AdminInternalBusinessControlPermission,
-            status.HTTP_403_FORBIDDEN,
+            status.HTTP_404_NOT_FOUND,
         ),
         (
             "internal",
