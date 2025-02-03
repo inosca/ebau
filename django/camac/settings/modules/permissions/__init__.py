@@ -29,6 +29,7 @@ PERMISSIONS: PermissionsConfig = {
         "MIGRATION": {},
         "EVENT_HANDLER": None,
         "ACCESS_LEVELS": {},
+        "EVENTS_WITH_NOTIFICATION": ["manual-creation"],
     },
     "demo": {
         "ACCESS_LEVELS": {

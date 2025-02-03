@@ -60,6 +60,7 @@ class GeometerPermissionEventHandlerBE(
                 grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
                 access_level="geometer",
                 service=geometer_service,
+                event_name="grant-geometer-access",
             )
 
     def _grant_construction_control(self, instance):

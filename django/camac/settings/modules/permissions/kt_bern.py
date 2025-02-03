@@ -265,6 +265,7 @@ BE_PERMISSIONS_SETTINGS = {
             ("decision-read", POST_DECISION_STATES),
         ],
     },
+    "EVENTS_WITH_NOTIFICATION": ["manual-creation", "grant-geometer-access"],
     "EVENT_HANDLER": "camac.permissions.config.kt_bern.GeometerPermissionEventHandlerBE",
     "ENABLED": True,
     # Map INTERNAL -> CANTON access level names. The INTERNAL ones

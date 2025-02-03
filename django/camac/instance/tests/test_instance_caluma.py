@@ -1588,7 +1588,6 @@ def test_instance_report(
             instance=be_instance,
             access_level=access_level_factory(slug="geometer"),
             service=geometer_service,
-            metainfo={"disable-notification-on-creation": True},
         )
         permissions_settings["geometer"] = [("foo", ["*"])]
 
@@ -1733,7 +1732,6 @@ def test_instance_finalize(
             instance=be_instance,
             access_level=access_level_factory(slug="geometer"),
             service=geometer_service,
-            metainfo={"disable-notification-on-creation": True},
         )
         permissions_settings["geometer"] = [("foo", ["*"])]
 
