@@ -442,6 +442,30 @@ PERMISSIONS = {
     "test": {"applicant": {AdminPermission: [250, 251]}},
 }
 
+PERMISSIONS_BY_ACCESSLEVEL = {
+    "kt_bern": {
+        "read": {
+            # TODO proper definition of permissions
+            ReadPermission: [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14],
+            ReadInternalPermission: [4],
+        },
+    }
+}
+
+
+def get_accesslevel_permissions(level_slug) -> dict[type[Permission], list[int]]:
+    """Return a dict that maps permission types to a list of applicable sections.
+
+    If no config is defined for the given access level, an empty dict is returned.
+    """
+    app_name = settings.APPLICATION_NAME
+
+    canton_config = PERMISSIONS_BY_ACCESSLEVEL.get(app_name, {})
+    level_config = canton_config.get(level_slug, {})
+
+    return level_config
+
+
 # Loosen filters allow additional visibility. They are used as an "OR"
 # to the other filters, and as such can be used to allow additional
 # access to attachments.

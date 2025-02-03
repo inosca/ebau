@@ -4,7 +4,7 @@ from typing import List, Optional, Union
 
 from django.conf import ImproperlyConfigured, settings
 from django.core.cache import cache
-from django.db.models import QuerySet, Subquery
+from django.db.models import Q, QuerySet, Subquery
 from django.utils import timezone
 from rest_framework.exceptions import PermissionDenied
 
@@ -336,7 +336,7 @@ class PermissionManager:
         )
 
         if only_level:
-            filter = filter & models.Q(**{f"{acl_prefix}__access_level_id": only_level})
+            filter = filter & Q(**{f"{acl_prefix}__access_level_id": only_level})
         return filter
 
     def current_access_levels(self) -> list[str]:
@@ -348,7 +348,7 @@ class PermissionManager:
         return list(
             models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
             .distinct("access_level_id")
-            .values("access_level_id")
+            .values_list("access_level_id", flat=True)
         )
 
     def involved_services(self, instance: Instance) -> QuerySet:
