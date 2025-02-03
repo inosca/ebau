@@ -316,7 +316,7 @@ class PermissionManager:
 
         return queryset.filter(self.get_q_object(instance_prefix)).distinct()
 
-    def get_q_object(self, instance_prefix):
+    def get_q_object(self, instance_prefix, only_level=None):
         """Return a Q object to only show the entries with active ACL.
 
         The Q object will filter a queryset such that only entries are returned
@@ -325,13 +325,31 @@ class PermissionManager:
         In contrast to the `filter_queryset()` method above, this is useful if
         you need to invert the filtering mechanism, or combine it with other
         expressions (combine using OR to extend visibilities for example)
+
+        If you pass `only_level="some_access_level"`, only ACLs with the
+        given level are considered.
         """
 
         acl_prefix = f"{instance_prefix}__acls" if instance_prefix else "acls"
         filter = InstanceACL.filter_for_current_user(
             **self.userinfo.to_kwargs(), acl_prefix=acl_prefix
         )
+
+        if only_level:
+            filter = filter & models.Q(**{f"{acl_prefix}__access_level_id": only_level})
         return filter
+
+    def current_access_levels(self) -> list[str]:
+        """Return a list of access level slugs relevant for the current user.
+
+        The list spans all access levels that the user has in any possible
+        situation. Useful for building visibility queries.
+        """
+        return list(
+            models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
+            .distinct("access_level_id")
+            .values("access_level_id")
+        )
 
     def involved_services(self, instance: Instance) -> QuerySet:
         """Return a queryset of involved services for the given instance.
