@@ -1,9 +1,11 @@
 import logging
+import re
 from datetime import timedelta
 
 from caluma.caluma_form.models import Document
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.core.management import call_command
 from django.db import transaction
 from django.db.models import Q
 from django.db.models.functions import Collate
@@ -204,6 +206,65 @@ class ServiceView(MultilangMixin, ModelViewSet):
             return self._task_to_response(task, status_code=status.HTTP_202_ACCEPTED)
 
         return self._task_to_response(task, status_code=status.HTTP_200_OK)
+
+    @permission_aware
+    def has_merge_municipality_permission(self):
+        return False
+
+    def has_merge_municipality_permission_for_support(self):
+        return True
+
+    @action(
+        methods=["POST"],
+        detail=False,
+        url_path="merge-municipality",
+        url_name="merge-municipality",
+    )
+    def merge_municipality(self, request):
+        serializer = serializers.MergeMunicipalitySerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        validated_data = serializer.validated_data
+        from_municipality = validated_data["from_municipality"]
+        to_municipality = validated_data["to_municipality"]
+        mapping = validated_data["mapping"]
+
+        self._migrate_service(from_municipality, to_municipality)
+
+        output = {
+            "adopt": 0,
+            "merge": 0,
+        }
+        for entry in mapping:
+            from_service = entry["from_service"]
+            to_service = entry["to_service"]
+            action = entry["action"]
+
+            self._rename_service(from_service, from_municipality, to_municipality)
+            if action == "adopt":
+                from_service.service_parent = to_municipality
+                from_service.save()
+                output["adopt"] += 1
+            else:
+                self._migrate_service(from_service, to_service)
+                output["merge"] += 1
+
+        return response.Response(status=status.HTTP_200_OK, data=output)
+
+    def _rename_service(self, from_service, from_municipality, to_municipality):
+        from_municipality_name = re.escape(from_municipality.get_name())
+        pattern = rf" \({from_municipality_name}\)$"
+        replacement = f" ({to_municipality.get_name()})"
+        from_service.name = re.sub(pattern, replacement, from_service.get_name())
+        from_service.save()
+
+    def _migrate_service(self, from_service, to_service):
+        call_command(
+            "migrate_service",
+            source=str(from_service.pk),
+            target=str(to_service.pk),
+            exec=True,
+            disable=True,
+        )
 
 
 class PublicServiceView(MultilangMixin, ReadOnlyModelViewSet):

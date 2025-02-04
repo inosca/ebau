@@ -619,3 +619,196 @@ def test_check_change_geometer_status(
     if task_status == "failed":
         assert resp.data["errors"] == "There is an error"
     assert resp.status_code == expected_status
+
+
+@pytest.mark.parametrize(
+    "role__name,expected_status",
+    [
+        ("Applicant", status.HTTP_403_FORBIDDEN),
+        ("Municipality", status.HTTP_403_FORBIDDEN),
+        ("Service", status.HTTP_403_FORBIDDEN),
+        ("Canton", status.HTTP_403_FORBIDDEN),
+        ("Support", status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_service_merge_municipality_permission(admin_client, expected_status):
+    url = reverse("service-merge-municipality")
+    response = admin_client.post(url)
+
+    assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize("role__name", ["Support"])
+@pytest.mark.parametrize(
+    "expected_result,expected_status",
+    [
+        ("municipality_not_found", status.HTTP_400_BAD_REQUEST),
+        ("municipality_same", status.HTTP_400_BAD_REQUEST),
+        ("invalid_mapping", status.HTTP_400_BAD_REQUEST),
+        ("mapping_service_not_found", status.HTTP_400_BAD_REQUEST),
+        ("merge_with_self", status.HTTP_400_BAD_REQUEST),
+        ("merge_empty", status.HTTP_400_BAD_REQUEST),
+        ("adopt_nonempty", status.HTTP_400_BAD_REQUEST),
+        ("adopt_to_service", status.HTTP_400_BAD_REQUEST),
+        ("success", status.HTTP_200_OK),
+    ],
+)
+def test_service_merge_municipality(
+    admin_client,
+    service_factory,
+    attachment_factory,
+    expected_result,
+    expected_status,
+):
+    municipality_1 = service_factory(service_group__name="municipality")
+    municipality_2 = service_factory(service_group__name="municipality")
+
+    service_1 = service_factory(
+        name=f"From service 1 merge to 4 ({municipality_1.name})"
+    )
+    service_1_attachment = attachment_factory(service=service_1)
+    service_2 = service_factory(
+        name=f"From service 2 merge to 5 ({municipality_1.name})"
+    )
+    service_2_attachment = attachment_factory(service=service_2)
+    service_3 = service_factory(name=f"From service 3 to adopt ({municipality_1.name})")
+    service_3_attachment = attachment_factory(service=service_3)
+    service_4 = service_factory(name=f"To service 4 ({municipality_2.name})")
+    service_4_attachment = attachment_factory(service=service_4)
+    service_5 = service_factory(name=f"To service 5 ({municipality_2.name})")
+    service_5_attachment = attachment_factory(service=service_5)
+
+    # link service parents to municipalities
+    service_1.service_parent = municipality_1
+    service_1.save()
+    service_2.service_parent = municipality_1
+    service_2.save()
+    service_3.service_parent = municipality_1
+    service_3.save()
+    service_4.service_parent = municipality_2
+    service_4.save()
+    service_5.service_parent = municipality_2
+    service_5.save()
+
+    # default succesful payload
+    payload = {
+        "data": {
+            "type": "services",
+            "attributes": {
+                "from_municipality": municipality_1.pk,
+                "to_municipality": municipality_2.pk,
+                "mapping": [
+                    {
+                        "from_service": service_1.pk,
+                        "to_service": service_4.pk,
+                        "action": "merge",
+                    },
+                    {
+                        "from_service": service_2.pk,
+                        "to_service": service_5.pk,
+                        "action": "merge",
+                    },
+                    {
+                        "from_service": service_3.pk,
+                        "to_service": None,
+                        "action": "adopt",
+                    },
+                ],
+            },
+        }
+    }
+
+    # non-existing municipality id
+    if expected_result == "municipality_not_found":
+        payload["data"]["attributes"]["from_municipality"] = 9999
+
+    # from and to municipality are the same
+    elif expected_result == "municipality_same":
+        payload["data"]["attributes"]["to_municipality"] = municipality_1.pk
+
+    # mapping is invalid or incomplete in the request
+    elif expected_result == "invalid_mapping":
+        payload["data"]["attributes"]["mapping"] = [
+            {
+                "action": "merge",
+            }
+        ]
+
+    # mapping contains a non-existing service id
+    elif expected_result == "mapping_service_not_found":
+        payload["data"]["attributes"]["mapping"][0]["from_service"] = 9999
+
+    # merge service with itself
+    elif expected_result == "merge_with_self":
+        payload["data"]["attributes"]["mapping"][0]["to_service"] = service_1.pk
+
+    # merge service with empty target
+    elif expected_result == "merge_empty":
+        payload["data"]["attributes"]["mapping"][0]["to_service"] = None
+
+    # adopt service with a non-empty target
+    elif expected_result == "adopt_nonempty":
+        payload["data"]["attributes"]["mapping"][2]["to_service"] = service_3.pk
+
+    # adopt a service that is not in the from municipality
+    elif expected_result == "adopt_to_service":
+        payload["data"]["attributes"]["mapping"][2]["from_service"] = service_4.pk
+
+    response = admin_client.post(
+        reverse("service-merge-municipality"),
+        data=payload,
+    )
+
+    assert response.status_code == expected_status
+
+    if expected_result == "success":
+        json_response = response.json()
+
+        # expected result counts of the merge result
+        assert json_response["data"]["merge"] == 2
+        assert json_response["data"]["adopt"] == 1
+
+        # reload models after the command has executed raw queries
+        service_1.refresh_from_db()
+        service_1_attachment.refresh_from_db()
+        service_2.refresh_from_db()
+        service_2_attachment.refresh_from_db()
+        service_3.refresh_from_db()
+        service_3_attachment.refresh_from_db()
+        service_4.refresh_from_db()
+        service_4_attachment.refresh_from_db()
+        service_5.refresh_from_db()
+        service_5_attachment.refresh_from_db()
+
+        # merged services keep their service parent
+        assert service_1.service_parent.pk == municipality_1.pk
+        assert service_2.service_parent.pk == municipality_1.pk
+
+        # adopted services get the target municipality as service parent
+        assert service_3.service_parent.pk == municipality_2.pk
+
+        # unchanged services keep their service parent
+        assert service_4.service_parent.pk == municipality_2.pk
+        assert service_5.service_parent.pk == municipality_2.pk
+
+        # merged services their attachments will be moved
+        assert service_1_attachment.service.pk == service_4.pk
+        assert service_2_attachment.service.pk == service_5.pk
+
+        # adopted/retained/unchanged services keep their attachments as is
+        assert service_3_attachment.service.pk == service_3.pk
+        assert service_4_attachment.service.pk == service_4.pk
+        assert service_5_attachment.service.pk == service_5.pk
+
+        # assert service names
+        assert (
+            service_1.get_name() == f"From service 1 merge to 4 ({municipality_2.name})"
+        )
+        assert (
+            service_2.get_name() == f"From service 2 merge to 5 ({municipality_2.name})"
+        )
+        assert (
+            service_3.get_name() == f"From service 3 to adopt ({municipality_2.name})"
+        )
+        assert service_4.get_name() == f"To service 4 ({municipality_2.name})"
+        assert service_5.get_name() == f"To service 5 ({municipality_2.name})"

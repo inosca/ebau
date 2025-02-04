@@ -188,6 +188,16 @@ export default function makeServer(config) {
       this.resource("suspensions");
       this.resource("instance-deadlines");
 
+      this.post("services/merge-municipality", (_schema, request) => {
+        const payload = JSON.parse(request.requestBody);
+        const mapping = payload.data.attributes.mapping;
+
+        const adopt = mapping.filter((m) => m.action === "adopt").length;
+        const merge = mapping.filter((m) => m.action === "merge").length;
+
+        return new Response(200, {}, { adopt, merge });
+      });
+
       this.namespace = ""; // reset namespace
 
       this.post("/graphql", graphqlHandler(this), 200);

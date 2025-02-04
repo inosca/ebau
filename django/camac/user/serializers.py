@@ -683,3 +683,99 @@ class KeycloakApplySerializer(RestSerializer):
         rep = super().to_representation(instance)
         rep["questions"] = instance["questions"]
         return rep
+
+
+class MergeMunicipalityMappingSerializer(serializers.Serializer):
+    from_service = serializers.IntegerField()
+    to_service = serializers.IntegerField(allow_null=True, required=False)
+    action = serializers.ChoiceField(choices=["merge", "adopt"])
+
+    def validate(self, data):
+        action = data.get("action")
+        to_service = data.get("to_service")
+
+        if action == "merge" and to_service is None:
+            raise serializers.ValidationError(
+                {"to_service": "This field is required when action is 'merge'."}
+            )
+        elif action == "adopt" and to_service is not None:
+            raise serializers.ValidationError(
+                {"to_service": "This field is not allowed when action is 'adopt'."}
+            )
+
+        return data
+
+
+class MergeMunicipalitySerializer(serializers.Serializer):
+    from_municipality = serializers.IntegerField()
+    to_municipality = serializers.IntegerField()
+    mapping = serializers.ListField(child=MergeMunicipalityMappingSerializer())
+
+    def validate(self, data):
+        from_municipality_pk = data.get("from_municipality")
+        to_municipality_pk = data.get("to_municipality")
+        mapping = data.get("mapping")
+
+        from_municipality, to_municipality = self._validate_municipalities(
+            from_municipality_pk, to_municipality_pk
+        )
+        data["from_municipality"] = from_municipality
+        data["to_municipality"] = to_municipality
+
+        resolved_mapping = []
+        for entry in mapping:
+            from_service, to_service, action = self._validate_mapping_entry(
+                from_municipality, to_municipality, entry
+            )
+
+            resolved_mapping.append(
+                {
+                    "action": action,
+                    "from_service": from_service,
+                    "to_service": to_service,
+                }
+            )
+
+        data["mapping"] = resolved_mapping
+
+        return data
+
+    def _validate_municipalities(self, from_municipality_pk, to_municipality_pk):
+        queryset = models.Service.objects.filter(service_group__name="municipality")
+        from_municipality = queryset.filter(pk=from_municipality_pk).first()
+        to_municipality = queryset.filter(pk=to_municipality_pk).first()
+
+        if not from_municipality or not to_municipality:
+            raise serializers.ValidationError(
+                "Could not find one or both of the municipalities"
+            )
+
+        if from_municipality == to_municipality:
+            raise serializers.ValidationError("Cannot merge a municipality with itself")
+
+        return from_municipality, to_municipality
+
+    def _validate_mapping_entry(self, from_municipality, to_municipality, entry):
+        from_service_pk = entry.get("from_service")
+        to_service_pk = entry.get("to_service")
+        action = entry.get("action")
+
+        queryset_from = models.Service.objects.filter(service_parent=from_municipality)
+        queryset_to = models.Service.objects.filter(service_parent=to_municipality)
+
+        if action == "merge" and from_service_pk == to_service_pk:
+            raise serializers.ValidationError("Cannot merge a service with itself")
+
+        if action == "merge":
+            from_service = queryset_from.filter(pk=from_service_pk).first()
+            to_service = queryset_to.filter(pk=to_service_pk).first()
+        elif action == "adopt":
+            from_service = queryset_from.filter(pk=from_service_pk).first()
+            to_service = from_service
+
+        if not from_service or not to_service:
+            raise serializers.ValidationError(
+                "Could not find one or both of the services to merge"
+            )
+
+        return from_service, to_service, action
