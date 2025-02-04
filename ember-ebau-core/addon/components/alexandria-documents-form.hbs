@@ -6,6 +6,11 @@
       {{t "documents.confirm" count=this.allRequiredTags.length}}
     {{/if}}
   </p>
+  {{#if (t "documents.no-special-forms")}}
+    <div class="uk-padding-small uk-margin-bottom border-highlight">
+      {{t "documents.no-special-forms"}}
+    </div>
+  {{/if}}
   {{#if (t "documents.uploadPlansIndividually")}}
     <div class="uk-padding-small uk-margin-bottom border-highlight">
       {{t "documents.uploadPlansIndividually"}}
