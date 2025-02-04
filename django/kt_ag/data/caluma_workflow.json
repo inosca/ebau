@@ -80,6 +80,38 @@
   },
   {
     "model": "caluma_workflow.workitem",
+    "pk": "3ec0732e-e2ab-4741-bb05-e3f75505567a",
+    "fields": {
+      "created_at": "2025-01-14T12:21:31.822Z",
+      "modified_at": "2025-01-14T12:21:31.822Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Neue Nachforderung\", \"fr\": null, \"it\": \"Nuova richiesta di precisazioni\"}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "init-additional-demand",
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"55\"]",
+      "controlling_groups": "[\"55\"]",
+      "assigned_users": "[]",
+      "case": "914d9c83-cc06-4d38-a50c-5a0974338d8d",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": "06f780d3-6004-4173-b218-584e2fa46054"
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
     "pk": "92082eb9-a845-41e9-8ab5-80c0906e3552",
     "fields": {
       "created_at": "2025-01-14T12:21:31.822Z",

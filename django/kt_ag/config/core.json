@@ -202,6 +202,22 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 15000004,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/additional-demand.phtml",
+      "class_field": "menu-category-extraordinary",
+      "hidden": 0,
+      "sort": 12,
+      "form_group": 2000000,
+      "require_permission": "additional-demands-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 22000000,
     "fields": {
       "available_instance_resource": "workitemlistinstance",
@@ -427,6 +443,16 @@
       "instance_resource": 15000003,
       "language": "de",
       "name": "Kantonale Prüfung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000004,
+    "fields": {
+      "instance_resource": 15000004,
+      "language": "de",
+      "name": "Nachforderungen",
       "description": null
     }
   },

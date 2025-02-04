@@ -38,6 +38,7 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead", "municipality-clerk"])
 # 2. Form rules
 # 3. Role rules
 # 4. Other
+MODULE_ADDITIONAL_DEMANDS = NO_CORRECTION & RequireWorkItem("init-additional-demand")
 MODULE_AUDIT = NO_CORRECTION & (
     (RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY)
     | RequireWorkItem("formal-exam", "completed")
@@ -70,14 +71,19 @@ MODULE_REJECTION = RequireInstanceState(["subm", "rejected"])
 MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
 MODULE_WORK_ITEMS = STATES_ALL & ROLES_NO_READONLY
 
+MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
+MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
+    MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+)
 MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN"])
 MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
 MODULE_PORTAL_COMMUNICATIONS_WRITE = (
     MODULE_PORTAL_COMMUNICATIONS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
 )
-MODULE_PORTAL_DOCUMENTS_WRITE = RequireWorkItem("submit", "ready") & HasApplicantRole(
-    ["ADMIN", "EDITOR"]
-)
+MODULE_PORTAL_DOCUMENTS_WRITE = (
+    RequireWorkItem("submit", "ready")
+    | RequireWorkItem("fill-additional-demand", "ready")
+) & HasApplicantRole(["ADMIN", "EDITOR"])
 MODULE_PORTAL_FORM_READ = Always()
 MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & HasApplicantRole(
     ["ADMIN", "EDITOR"]
@@ -93,6 +99,8 @@ AG_PERMISSIONS_SETTINGS = {
     "ENABLED": True,
     "ACCESS_LEVELS": {
         "applicant": [
+            ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
+            ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
             ("applicant-add", MODULE_PORTAL_APPLICANTS),
             ("applicant-read", MODULE_PORTAL_APPLICANTS),
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
@@ -123,6 +131,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "lead-authority": [
+            ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
+            ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
             ("audit-read", MODULE_AUDIT),
             ("billing-read", MODULE_BILLING),
             ("communications-read", MODULE_COMMUNICATIONS),

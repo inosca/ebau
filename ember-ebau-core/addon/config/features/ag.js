@@ -18,4 +18,5 @@ export default {
     revert: true,
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
+  additionalDemands: true,
 };
