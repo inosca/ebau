@@ -2,11 +2,6 @@ export default {
   showTaskFilter: true,
   availableTasks: {
     roles: {
-      "authority-bab": [
-        "inquiry",
-        "check-inquiries",
-        "check-additional-demand",
-      ],
       municipality: [
         "formal-exam",
         "publication",
@@ -19,7 +14,9 @@ export default {
       subservice: ["inquiry"],
       uso: ["inquiry"],
     },
-    services: [],
+    services: {
+      1: ["inquiry", "check-inquiries", "check-additional-demand"],
+    },
   },
   columns(status, role) {
     return [
