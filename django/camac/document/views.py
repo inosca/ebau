@@ -3,8 +3,11 @@ import logging
 import mimetypes
 import os
 import zipfile
+from collections import defaultdict
+from functools import reduce
 
 from django.conf import settings
+from django.core.exceptions import operator
 from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
 from django.http import HttpResponse
@@ -95,53 +98,25 @@ class AttachmentQuerysetMixin:
         permission_info = permissions.section_permissions(
             self.request.group, self.request.query_params.get("instance")
         )
-        readable_sections = [
-            sec
-            for sec, perm in permission_info.items()
-            if perm
-            not in (
-                permissions.AdminInternalPermission,
-                permissions.ReadInternalPermission,
-                "applicant",
-            )
-        ]
+        # TODO refactor `permissions.section_permissions()` to return a
+        # dict[Permission, list[integer]] instead - would be easier to deal with
+        # here, but it's used in other places as well so we keep as is for now
 
-        # internal sections must be special-cased to also include the section in
-        # the filter so it cannot be used with the other sections
-        internal_sections = {
-            section_id: permission
-            for (section_id, permission) in permission_info.items()
-            if permission
-            in [permissions.AdminInternalPermission, permissions.ReadInternalPermission]
-        }
-
-        # applicant is a role relative to the instance, so must be specialcased
-        applicant_sections = {
-            section_id: permission
-            for (section_id, permission) in permission_info.items()
-            if permission == "applicant"
-        }
+        permissions_to_sections = defaultdict(list)
+        # TODO: Also extend with user's access levels
+        for section_id, permission in permission_info.items():
+            permissions_to_sections[permission].append(section_id)
 
         af = self._get_attachment_field()
 
-        return queryset.filter(
-            # first: directly readable sections
-            Q(**{f"{af}attachment_sections__in": readable_sections})
-            # second: sections where only documents from my own service are readable
-            | Q(
-                **{
-                    f"{af}attachment_sections__in": internal_sections,
-                    f"{af}service": self.request.group.service,
-                }
-            )
-            # third: documents where i'm invitee
-            | Q(
-                Q(**{f"{af}attachment_sections__in": applicant_sections}),
-                Q(**{f"{af}instance__involved_applicants__invitee": self.request.user})
-                | Q(**{f"{af}instance__user": self.request.user}),
-            )
-            | self.get_loosen_filter()
-        ).distinct()
+        permission_exprs = [
+            Q(**{f"{af}attachment_sections__in": section_ids})
+            & perm.build_q(self.request.group, af)
+            for perm, section_ids in permissions_to_sections.items()
+        ]
+        combined = reduce(operator.or_, permission_exprs, Q(pk=0))
+
+        return queryset.filter(combined | self.get_loosen_filter()).distinct()
 
     def get_loosen_filter(self):
         # loosen_filter can be used to allow more

@@ -12,6 +12,21 @@ from camac.instance.models import Instance
 # name here must be mapped to JS permission class)
 
 
+class SameServiceQSMixin:
+    """Mixin to provide filter API for same-service-only document visibility.
+
+    Implement the `build_q()` method such that only attachments are visible
+    that belong to the same service as the current user.
+
+    This is generally also referred to as the "Internal" mode
+    """
+
+    @classmethod
+    def build_q(cls, group, attachment_prefix):
+        # Internal - user's service must match
+        return Q(**{f"{attachment_prefix}service": group.service})
+
+
 class Permission:
     write = False
     destroy = False
@@ -24,6 +39,10 @@ class Permission:
     def can_destroy(cls, attachment, group) -> bool:
         return cls.destroy
 
+    @classmethod
+    def build_q(cls, group, attachment_prefix):
+        return Q()
+
 
 class ReadPermission(Permission):
     """Read permission."""
@@ -31,7 +50,7 @@ class ReadPermission(Permission):
     pass
 
 
-class ReadInternalPermission(Permission):
+class ReadInternalPermission(SameServiceQSMixin, Permission):
     """Read permission on attachments owned by the current service."""
 
     pass
@@ -64,7 +83,7 @@ class AdminServicePermission(AdminPermission):
         )
 
 
-class AdminInternalPermission(AdminServicePermission):
+class AdminInternalPermission(SameServiceQSMixin, AdminServicePermission):
     """Read, write and delete permission on attachments owned by the current service."""
 
     @classmethod
@@ -80,10 +99,13 @@ class AdminBeforeDecisionPermission(AdminPermission):
     """Read and write permission, but delete only before the decision."""
 
     @classmethod
+    def _get_states(cls):
+        return settings.APPLICATION.get("ATTACHMENT_AFTER_DECISION_STATES", [])
+
+    @classmethod
     def is_before_decision(cls, attachment, group) -> bool:
         return not attachment or (
-            attachment.instance.instance_state.name
-            not in settings.APPLICATION.get("ATTACHMENT_AFTER_DECISION_STATES", [])
+            attachment.instance.instance_state.name not in cls._get_states()
         )
 
     @classmethod
