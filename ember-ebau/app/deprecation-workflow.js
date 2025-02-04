@@ -9,5 +9,6 @@ setupDeprecationWorkflow({
       handler: "silence",
       matchId: "ember-data:deprecate-promise-many-array-behaviors",
     }, // used in ember-alexandria
+    { handler: "silence", matchId: "new-helper-names" }, // Deprecation in `ember-render-helpers` used in `ember-leaflet`
   ],
 });

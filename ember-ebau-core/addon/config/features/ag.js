@@ -5,6 +5,7 @@ export default {
     charge: true,
     reducedTaxRate: true,
     displayService: true,
+    applyConstructionCosts: true,
   },
   communications: {
     enabled: true,

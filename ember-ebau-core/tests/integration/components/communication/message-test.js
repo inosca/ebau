@@ -84,14 +84,14 @@ module("Integration | Component | communication/message", function (hooks) {
     await click("[data-test-mark-read]");
 
     const requests = this.server.pretender.handledRequests;
-    const { url, response } = requests[requests.length - 1];
+    const { url, response } = requests.find((r) => r.url.endsWith("/read"));
 
     assert.deepEqual(
       url,
       `/api/v1/communications-messages/${this.message.id}/read`,
     );
     assert.ok(JSON.parse(response)?.data?.attributes?.["read-at"]);
-    assert.strictEqual(this.refresh.callCount, 0);
+    assert.strictEqual(this.refresh.callCount, 1);
   });
 
   test("it marks a message as unread", async function (assert) {
@@ -107,7 +107,7 @@ module("Integration | Component | communication/message", function (hooks) {
     await click("[data-test-mark-unread]");
 
     const requests = this.server.pretender.handledRequests;
-    const { url, response } = requests[requests.length - 1];
+    const { url, response } = requests.find((r) => r.url.endsWith("/unread"));
 
     assert.deepEqual(
       url,

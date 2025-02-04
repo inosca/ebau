@@ -199,15 +199,32 @@
         <span class="uk-text-danger">*</span>
       </label>
       <div class="uk-form-controls">
-        <Input
-          @type="number"
-          @value={{this.newEntry.totalCost}}
-          id="total-cost"
-          name="total-cost"
-          class="uk-input"
-          step="0.01"
-          required
-        />
+        <div class="uk-inline uk-width-1">
+          {{#if
+            (and
+              (has-feature "billing.applyConstructionCosts")
+              (eq this.newEntry.calculation "percentage")
+            )
+          }}
+            <a
+              href=""
+              class="uk-form-icon uk-form-icon-flip"
+              uk-icon="pull"
+              data-test-apply-construction-costs
+              {{uk-tooltip (t "billing.apply-construction-costs")}}
+              {{on "click" this.applyConstructionCosts.perform}}
+            ><span hidden>{{t "billing.apply-construction-costs"}}</span></a>
+          {{/if}}
+          <Input
+            @type="number"
+            @value={{this.newEntry.totalCost}}
+            id="total-cost"
+            name="total-cost"
+            class="uk-input"
+            step="0.01"
+            required
+          />
+        </div>
       </div>
     </div>
   {{/if}}

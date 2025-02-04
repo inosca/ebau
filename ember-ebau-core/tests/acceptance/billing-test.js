@@ -161,6 +161,26 @@ module("Acceptance | billing", function (hooks) {
     assert.dom("table[data-test-billing-table] tbody tr").exists({ count: 3 });
   });
 
+  test("it can apply construction costs into total cost", async function (assert) {
+    this.features.enable("billing.applyConstructionCosts");
+
+    await visit("/billing/new");
+
+    const costs = 123456;
+
+    this.server.get("/api/v1/instances/:id/master-data", {
+      construction_costs: costs,
+    });
+
+    await fillIn("select[name=calculation]", "percentage");
+
+    assert.dom("input[name=total-cost]").hasValue("");
+
+    await click("[data-test-apply-construction-costs]");
+
+    assert.dom("input[name=total-cost]").hasValue(String(costs));
+  });
+
   module("templates", function (hooks) {
     const templateDefaults = {
       billingType: "direct",

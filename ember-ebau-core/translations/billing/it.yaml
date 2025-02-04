@@ -33,6 +33,8 @@ billing:
   delete-error: Errore nel tentativo di eliminare la tassa
   charge-error: Errore nel tentativo di fatturare la tassa
   paginationInfo: "<strong>{count}</strong> su {total}"
+  apply-construction-costs: Adottare i costi di costruzione dal modulo
+  apply-construction-costs-empty: Non è stato possibile reperire i costi di costruzione nel modulo
 
   organizations:
     cantonal: Cantonale
