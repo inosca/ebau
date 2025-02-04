@@ -29,6 +29,7 @@ documents:
   download: Datei herunterladen
   downloadError: Beim Herunterladen der Datei ist etwas schief gelaufen
   downloadSuccess: Die Datei wurde erfolgreich heruntergeladen
+  no-special-forms: ""
   setConfidential: Als vertraulich markieren
   setNonConfidential: Vertraulich Markierung entfernen
   uploadError: Beim Hochladen der Datei ist etwas schief gelaufen
