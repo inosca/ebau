@@ -988,6 +988,30 @@ class InstanceView(
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
 
+    @swagger_auto_schema(auto_schema=None)
+    @action(
+        methods=["get"],
+        detail=True,
+        url_path="master-data",
+        renderer_classes=[JSONRenderer],
+    )
+    def master_data(self, request, pk=None):
+        if not settings.MASTER_DATA:  # pragma: no cover
+            raise NotFound()
+
+        instance = self.get_object()
+        fields = request.query_params.get("fields")
+
+        if fields:
+            fields = fields.split(",")
+
+        try:
+            data = MasterData(instance.case).to_dict(fields=fields)
+        except AttributeError as e:
+            raise ValidationError(str(e)) from e
+
+        return response.Response(data=data, status=status.HTTP_200_OK)
+
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     serializer_class = serializers.InstanceResponsibilitySerializer
