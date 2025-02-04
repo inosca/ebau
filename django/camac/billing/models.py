@@ -1,5 +1,12 @@
 from django.db import models
 
+DECIMAL_FORMAT = {
+    "max_digits": 10,
+    "decimal_places": 2,
+    "null": True,
+    "blank": True,
+}
+
 
 class BillingV2CommonEntry(models.Model):
     TAX_MODE_INCLUSIVE = "inclusive"
@@ -14,22 +21,17 @@ class BillingV2CommonEntry(models.Model):
     CALCULATION_FLAT = "flat"
     CALCULATION_PERCENTAGE = "percentage"
     CALCULATION_HOURLY = "hourly"
+    CALCULATION_AG_PROCESSING_FEE = "ag_processing_fee"
     CALCULATION_CHOICES = (
         (CALCULATION_FLAT, "Flat rate"),
         (CALCULATION_PERCENTAGE, "Percentage"),
         (CALCULATION_HOURLY, "Hourly"),
+        (CALCULATION_AG_PROCESSING_FEE, "AG processing fee"),
     )
 
     MUNICIPAL = "municipal"
     CANTONAL = "cantonal"
     ORGANIZATION_CHOICES = ((MUNICIPAL, "Municipal"), (CANTONAL, "Cantonal"))
-
-    DECIMAL_FORMAT = {
-        "max_digits": 10,
-        "decimal_places": 2,
-        "null": True,
-        "blank": True,
-    }
 
     # Billing text
     text = models.TextField()
@@ -55,11 +57,8 @@ class BillingV2CommonEntry(models.Model):
 
     # Calculation mode: percentage of total cost
     percentage = models.DecimalField(**DECIMAL_FORMAT)
+    # Total cost is also used in "flat" calculation mode
     total_cost = models.DecimalField(**DECIMAL_FORMAT)
-
-    # Final rate (may be entered directly in "flat" mode, otherwise it's
-    # calculated. We store it for easier handling in the output however.
-    final_rate = models.DecimalField(**DECIMAL_FORMAT)
 
     # Organization: either municipal or cantonal but can be NULL
     # Used to distinguish which oranization collects part of the bill
@@ -89,6 +88,10 @@ class BillingV2CommonEntry(models.Model):
 
 
 class BillingV2Entry(BillingV2CommonEntry):
+    # Final rate: is always calculated on creation of the billing entry.
+    # We store it for easier handling in the output however.
+    final_rate = models.DecimalField(**DECIMAL_FORMAT)
+
     # Date when the item was added
     date_added = models.DateField(auto_now_add=True)
 

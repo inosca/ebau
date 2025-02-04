@@ -25,6 +25,7 @@ const DATA = {
   activationIds: null,
   serviceGroupId: null,
   serviceParentId: null,
+  slug: null,
   logo: null,
 };
 

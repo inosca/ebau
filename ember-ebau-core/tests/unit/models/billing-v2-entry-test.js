@@ -49,6 +49,14 @@ module("Unit | Model | billing-v2-entry", function (hooks) {
         "2.50 Std à 175.50 nicht MWSt-pflichtig",
         "2,50 heures à 175,50 non soumis à la TVA",
       ],
+      [
+        "ag_processing_fee",
+        "exempt",
+        "0.0",
+        { totalCost: "1500000.50" },
+        "1’500’000.50 CHF Baukosten, davon<br> 0-133'334.95 CHF = 400.00 CHF<br> 133'335 - 2Mio. = 3‰<br> 2-5Mio. = 2.5‰<br> >5Mio = 1.5‰",
+        "",
+      ],
     ],
     async function (assert, [calculation, taxMode, taxRate, args, de, fr]) {
       const store = this.owner.lookup("service:store");
@@ -59,11 +67,15 @@ module("Unit | Model | billing-v2-entry", function (hooks) {
         ...args,
       });
 
+      const cleanText = (text) =>
+        String(text) // String casting is necessary because we use `htmlSave`
+          .replace(/\s/g, " ") // ember-intl adds weird whitespaces in french
+          .replace(/\n/g, ""); // remove newlines of multiline translations for comparison
+
       setLocale(["de-ch", "de"]);
-      assert.strictEqual(model.amount, de);
+      assert.strictEqual(cleanText(model.amount), de);
       setLocale(["de-fr", "fr"]);
-      // ember-intl adds weird whitespaces
-      assert.strictEqual(model.amount.replace(/\s/g, " "), fr);
+      assert.strictEqual(cleanText(model.amount), fr);
     },
   );
 });

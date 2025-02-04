@@ -10,6 +10,7 @@ from camac.billing.utils import (
     calculate_final_rate,
     get_totals,
 )
+from camac.instance.master_data import MasterData
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
     GroupResourceRelatedField,
@@ -19,23 +20,6 @@ from camac.user.serializers import CurrentGroupDefault
 
 class BillingV2CommonEntrySerializer(serializers.ModelSerializer):
     tax_rate = serializers.ChoiceField(choices=[0, 2.5, 2.6, 7.7, 8.1])
-
-    def validate(self, data):
-        validated_data = super().validate(data)
-
-        validated_data["final_rate"] = add_taxes_to_final_rate(
-            calculate_final_rate(
-                calculation=validated_data["calculation"],
-                total_cost=validated_data.get("total_cost"),
-                percentage=validated_data.get("percentage"),
-                hours=validated_data.get("hours"),
-                hourly_rate=validated_data.get("hourly_rate"),
-            ),
-            tax_mode=validated_data["tax_mode"],
-            tax_rate=Decimal(validated_data["tax_rate"]),
-        )
-
-        return validated_data
 
 
 class BillingV2EntryTemplateSerializer(BillingV2CommonEntrySerializer):
@@ -53,6 +37,37 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
         "user": "camac.user.serializers.UserSerializer",
         "group": "camac.user.serializers.GroupSerializer",
     }
+
+    def validate(self, data):
+        validated_data = super().validate(data)
+
+        if (
+            validated_data["calculation"]
+            == BillingV2Entry.CALCULATION_AG_PROCESSING_FEE
+        ):
+            construction_costs = (
+                MasterData(validated_data["instance"].case).construction_costs
+                if settings.MASTER_DATA
+                else None
+            )
+
+            validated_data["total_cost"] = (
+                construction_costs if construction_costs is not None else 0
+            )
+
+        validated_data["final_rate"] = add_taxes_to_final_rate(
+            calculate_final_rate(
+                calculation=validated_data["calculation"],
+                total_cost=validated_data.get("total_cost"),
+                percentage=validated_data.get("percentage"),
+                hours=validated_data.get("hours"),
+                hourly_rate=validated_data.get("hourly_rate"),
+            ),
+            tax_mode=validated_data["tax_mode"],
+            tax_rate=Decimal(validated_data["tax_rate"]),
+        )
+
+        return validated_data
 
     def get_root_meta(self, resource, many):
         """Calculate totals for the returned data.

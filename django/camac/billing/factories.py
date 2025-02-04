@@ -56,20 +56,6 @@ class BillingV2CommonEntryFactory(DjangoModelFactory):
         no_declaration=None,
     )
 
-    final_rate = LazyAttribute(
-        lambda e: add_taxes_to_final_rate(
-            calculate_final_rate(
-                calculation=e.calculation,
-                total_cost=e.total_cost,
-                percentage=e.percentage,
-                hours=e.hours,
-                hourly_rate=e.hourly_rate,
-            ),
-            tax_mode=e.tax_mode,
-            tax_rate=e.tax_rate,
-        )
-    )
-
     class Params:
         is_flat = LazyAttribute(
             lambda e: e.calculation == BillingV2Entry.CALCULATION_FLAT
@@ -90,6 +76,19 @@ class BillingV2EntryFactory(BillingV2CommonEntryFactory):
     group = SubFactory(GroupFactory)
     user = SubFactory(UserFactory)
     instance = SubFactory(InstanceFactory)
+    final_rate = LazyAttribute(
+        lambda e: add_taxes_to_final_rate(
+            calculate_final_rate(
+                calculation=e.calculation,
+                total_cost=e.total_cost,
+                percentage=e.percentage,
+                hours=e.hours,
+                hourly_rate=e.hourly_rate,
+            ),
+            tax_mode=e.tax_mode,
+            tax_rate=e.tax_rate,
+        )
+    )
 
     date_added = Faker("past_datetime", tzinfo=pytz.UTC)
     date_charged = None
