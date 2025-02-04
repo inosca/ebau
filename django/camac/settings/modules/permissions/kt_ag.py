@@ -89,6 +89,9 @@ MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & HasApplicantRole
     ["ADMIN", "EDITOR"]
 )
 
+ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(
+    ["rejected"]
+) & HasApplicantRole(["ADMIN"])
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & HasApplicantRole(["ADMIN"])
 ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & HasApplicantRole(
     ["ADMIN"]
@@ -109,6 +112,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
             ("form-read", MODULE_PORTAL_FORM_READ),
             ("form-write", MODULE_PORTAL_FORM_WRITE),
+            ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
         ],
