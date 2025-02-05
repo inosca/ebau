@@ -1653,11 +1653,6 @@
       "configuration": {},
       "meta": {
         "columnsToDisplay": [
-          "name-grundeigentuemerin",
-          "vorname-grundeigentuemerin",
-          "telefon-oder-mobile-grundeigentuemerin",
-          "e-mail-grundeigentuemerin",
-          "name-juristische-person-gesuchstellerin",
           "name-gesuchstellerin",
           "vorname-gesuchstellerin",
           "telefon-oder-mobile-gesuchstellerin",
@@ -1696,11 +1691,6 @@
       "configuration": {},
       "meta": {
         "columnsToDisplay": [
-          "name-projektverfasserin",
-          "vorname-projektverfasserin",
-          "telefon-oder-mobile-projektverfasserin",
-          "e-mail-projektverfasserin",
-          "name-juristische-person-gesuchstellerin",
           "name-gesuchstellerin",
           "vorname-gesuchstellerin",
           "telefon-oder-mobile-gesuchstellerin",
@@ -1742,8 +1732,7 @@
           "name-gesuchstellerin",
           "vorname-gesuchstellerin",
           "telefon-oder-mobile-gesuchstellerin",
-          "e-mail-gesuchstellerin",
-          "name-juristische-person-gesuchstellerin"
+          "e-mail-gesuchstellerin"
         ]
       },
       "data_source": null,

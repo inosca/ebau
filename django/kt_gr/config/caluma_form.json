@@ -51114,7 +51114,14 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -55191,7 +55198,14 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -58078,7 +58092,14 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -61598,8 +61619,8 @@
         "columnsToDisplay": [
           "name-gesuchstellerin",
           "vorname-gesuchstellerin",
-          "telefon-oder-mobile-gesuchstellerin",
-          "e-mail-gesuchstellerin"
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
         ]
       },
       "data_source": null,
@@ -61632,7 +61653,14 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -68106,11 +68134,10 @@
       "configuration": {},
       "meta": {
         "columnsToDisplay": [
-          "name-juristische-person-gesuchstellerin",
           "name-gesuchstellerin",
           "vorname-gesuchstellerin",
-          "telefon-oder-mobile-gesuchstellerin",
-          "e-mail-gesuchstellerin"
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
         ]
       },
       "data_source": null,
@@ -74069,7 +74096,14 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -74100,7 +74134,14 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -77902,11 +77943,10 @@
       "configuration": {},
       "meta": {
         "columnsToDisplay": [
-          "name-juristische-person-gesuchstellerin",
           "name-gesuchstellerin",
           "vorname-gesuchstellerin",
-          "telefon-oder-mobile-gesuchstellerin",
-          "e-mail-gesuchstellerin"
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
         ]
       },
       "data_source": null,
