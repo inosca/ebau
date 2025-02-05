@@ -7302,7 +7302,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "anzahl-anschluesse-kaltwasser-v5",
-      "sort": 23
+      "sort": 19
     }
   },
   {
@@ -7317,7 +7317,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "anzahl-anschluesse-warmwasser-v5",
-      "sort": 22
+      "sort": 18
     }
   },
   {
@@ -7332,7 +7332,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "beschrieb-spezialinstallation-v5",
-      "sort": 10
+      "sort": 7
     }
   },
   {
@@ -7347,7 +7347,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "bw-kaltwasser-calculation-v5",
-      "sort": 15
+      "sort": 12
     }
   },
   {
@@ -7362,7 +7362,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "bw-kaltwasser-v5",
-      "sort": 16
+      "sort": 13
     }
   },
   {
@@ -7377,7 +7377,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "bw-pro-anschluss-v5",
-      "sort": 19
+      "sort": 16
     }
   },
   {
@@ -7392,7 +7392,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "bw-total-v5",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -7407,7 +7407,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "bw-warmwasser-calculation-v5",
-      "sort": 11
+      "sort": 8
     }
   },
   {
@@ -7422,7 +7422,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "bw-warmwasser-v5",
-      "sort": 12
+      "sort": 9
     }
   },
   {
@@ -7437,7 +7437,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "infotext-bw-total-spezialinstallation-v5",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -7452,7 +7452,22 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "infotext-lu-total-spezialinstallation-v5",
-      "sort": 5
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zustand-tabelle-v5.installationen-untertitel-v5",
+    "fields": {
+      "created_at": "2025-02-05T15:58:29.922Z",
+      "modified_at": "2025-02-05T15:58:29.922Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zustand-tabelle-v5",
+      "question": "installationen-untertitel-v5",
+      "sort": 21
     }
   },
   {
@@ -7467,7 +7482,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "installation-v5",
-      "sort": 24
+      "sort": 20
     }
   },
   {
@@ -7482,7 +7497,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "l-pro-min-spezialinstallation-v5",
-      "sort": 9
+      "sort": 6
     }
   },
   {
@@ -7497,7 +7512,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "lu-kaltwasser-calculation-v5",
-      "sort": 17
+      "sort": 14
     }
   },
   {
@@ -7512,7 +7527,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "lu-kaltwasser-v5",
-      "sort": 18
+      "sort": 15
     }
   },
   {
@@ -7527,7 +7542,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "lu-pro-anschluss-v5",
-      "sort": 20
+      "sort": 17
     }
   },
   {
@@ -7542,7 +7557,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "lu-total-v5",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -7557,7 +7572,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "lu-warmwasser-calculation-v5",
-      "sort": 13
+      "sort": 10
     }
   },
   {
@@ -7572,7 +7587,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "lu-warmwasser-v5",
-      "sort": 14
+      "sort": 11
     }
   },
   {
@@ -7587,7 +7602,7 @@
       "modified_by_group": null,
       "form": "zustand-tabelle-v5",
       "question": "spezialinstallation-calculation-v5",
-      "sort": 8
+      "sort": 5
     }
   },
   {
@@ -9819,7 +9834,24 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "installation-v5-handwaschbecken",
+    "pk": "installation-v5-handwaschbecken-bw",
+    "fields": {
+      "created_at": "2025-02-10T17:08:41.172Z",
+      "modified_at": "2025-02-10T17:08:56.796Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handwaschbecken\", \"fr\": \"Lave-mains/lavabo\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-handwaschbecken-lu",
     "fields": {
       "created_at": "2024-11-21T11:13:46.541Z",
       "modified_at": "2024-11-28T16:25:59.615Z",
@@ -9870,7 +9902,24 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "installation-v5-kuehl-und-klimaanlage",
+    "pk": "installation-v5-kuehl-und-klimaanlage-bw",
+    "fields": {
+      "created_at": "2025-02-10T18:06:41.928Z",
+      "modified_at": "2025-02-10T18:07:00.867Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"K\\u00fchl- und Klimaanlage\", \"fr\": \"Inst. frigorifique et de climatisation\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-kuehl-und-klimaanlage-lu",
     "fields": {
       "created_at": "2024-11-21T11:13:46.944Z",
       "modified_at": "2024-11-28T16:25:59.818Z",
@@ -9887,7 +9936,24 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "installation-v5-laufender-brunnen",
+    "pk": "installation-v5-laufender-brunnen-bw",
+    "fields": {
+      "created_at": "2025-02-10T18:06:41.929Z",
+      "modified_at": "2025-02-10T18:07:00.876Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Laufender Brunnen\", \"fr\": \"Fontaine\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-laufender-brunnen-lu",
     "fields": {
       "created_at": "2024-11-21T11:13:46.741Z",
       "modified_at": "2024-11-28T16:25:59.770Z",
@@ -9921,15 +9987,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "installation-v5-spuelbecken",
+    "pk": "installation-v5-spuelbecken-bw",
     "fields": {
-      "created_at": "2024-11-21T11:13:46.634Z",
-      "modified_at": "2024-11-28T16:25:59.621Z",
+      "created_at": "2025-02-10T17:08:41.175Z",
+      "modified_at": "2025-02-10T17:08:56.802Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Sp\\u00fclbecken\", \"fr\": \"\\u00c9vier, lavabo utilitaire\", \"it\": null}",
+      "label": "{\"de\": \"Sp\\u00fclbecken\", \"fr\": \"\\u00c9vier\", \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -9955,15 +10021,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "installation-v5-spuelkasten",
+    "pk": "installation-v5-spuelbecken-lu",
     "fields": {
-      "created_at": "2025-01-16T15:00:42.644Z",
-      "modified_at": "2025-01-16T15:11:48.090Z",
+      "created_at": "2024-11-21T11:13:46.634Z",
+      "modified_at": "2024-11-28T16:25:59.621Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Spu\\u0308lkasten\", \"fr\": \"R\\u00e9servoir de chasse\", \"it\": null}",
+      "label": "{\"de\": \"Sp\\u00fclbecken\", \"fr\": \"\\u00c9vier, lavabo utilitaire\", \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -10074,10 +10140,27 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "installation-v5-wc-spuelkasten",
+    "pk": "installation-v5-wc-spuelkasten-bw",
     "fields": {
       "created_at": "2024-11-21T11:13:46.544Z",
       "modified_at": "2024-11-28T16:25:59.648Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"WC-Sp\\u00fclkasten\", \"fr\": \"WC avec r\\u00e9servoir de chasse\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "installation-v5-wc-spuelkasten-lu",
+    "fields": {
+      "created_at": "2025-01-16T15:00:42.644Z",
+      "modified_at": "2025-02-10T17:06:36.364Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -12644,7 +12727,7 @@
     "pk": "anzahl-anschluesse-kaltwasser-v5",
     "fields": {
       "created_at": "2024-11-21T11:36:54.448Z",
-      "modified_at": "2025-01-16T16:43:39.523Z",
+      "modified_at": "2025-02-10T17:10:56.872Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -12652,7 +12735,7 @@
       "label": "{\"de\": \"Anzahl Anschl\\u00fcsse (Kaltwasser)\", \"fr\": \"Nombre de raccordements (eau froide)\", \"it\": null}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "!([\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage',\n  'installation-v5-spuelkasten',\n  'installation-v5-pissoir-mit-elektr-direktspuelung',\n  'installation-v5-garten-und-garageventil',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!([\n  'installation-v5-handwaschbecken-bw',\n  'installation-v5-handwaschbecken-lu',\n  'installation-v5-wc-spuelkasten-bw',\n  'installation-v5-wc-spuelkasten-lu',\n  'installation-v5-spuelbecken-lu',\n  'installation-v5-spuelbecken-bw',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage',\n  'installation-v5-pissoir-mit-elektr-direktspuelung',\n  'installation-v5-garten-und-garageventil',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -12678,7 +12761,7 @@
     "pk": "anzahl-anschluesse-warmwasser-v5",
     "fields": {
       "created_at": "2024-11-21T11:40:33.058Z",
-      "modified_at": "2025-01-16T15:41:10.197Z",
+      "modified_at": "2025-02-10T17:11:19.384Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -12686,7 +12769,7 @@
       "label": "{\"de\": \"Anzahl Anschl\\u00fcsse (Warmwasser)\", \"fr\": \"Nombre de raccordements (eau chaude)\", \"it\": null}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "!([\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!([\n  'installation-v5-handwaschbecken-lu',\n  'installation-v5-handwaschbecken-bw',\n  'installation-v5-spuelbecken-lu',\n  'installation-v5-spuelbecken-bw',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-dusche',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -13827,7 +13910,7 @@
     "pk": "beschrieb-spezialinstallation-v5",
     "fields": {
       "created_at": "2024-11-22T14:50:30.135Z",
-      "modified_at": "2025-01-16T16:45:37.558Z",
+      "modified_at": "2025-02-10T18:07:55.158Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -13835,7 +13918,7 @@
       "label": "{\"de\": \"Beschrieb\", \"fr\": \"Description\", \"it\": null}",
       "type": "textarea",
       "is_required": "true",
-      "is_hidden": "!([\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!([\n  'installation-v5-kuehl-und-klimaanlage-lu',\n  'installation-v5-kuehl-und-klimaanlage-bw',\n  'installation-v5-laufender-brunnen-lu',\n  'installation-v5-laufender-brunnen-bw',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -14629,7 +14712,7 @@
     "pk": "bw-kaltwasser-v5",
     "fields": {
       "created_at": "2024-11-22T13:44:09.641Z",
-      "modified_at": "2025-01-16T16:44:32.919Z",
+      "modified_at": "2025-02-10T17:16:21.304Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -14637,7 +14720,7 @@
       "label": "{\"de\": \"BW (Kaltwasser)\", \"fr\": \"UR (eau froide)\", \"it\": null}",
       "type": "calculated_float",
       "is_required": "false",
-      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage',\n  'installation-v5-spuelkasten',\n  'installation-v5-pissoir-mit-elektr-direktspuelung',\n  'installation-v5-garten-und-garageventil',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken-bw',\n  'installation-v5-handwaschbecken-lu',\n  'installation-v5-wc-spuelkasten-bw',\n  'installation-v5-wc-spuelkasten-lu',\n  'installation-v5-spuelbecken-lu',\n  'installation-v5-spuelbecken-bw',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage',\n  'installation-v5-spuelkasten',\n  'installation-v5-pissoir-mit-elektr-direktspuelung',\n  'installation-v5-garten-und-garageventil',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -14660,7 +14743,7 @@
     "pk": "bw-pro-anschluss-v5",
     "fields": {
       "created_at": "2024-11-22T13:43:02.629Z",
-      "modified_at": "2025-01-17T11:01:59.268Z",
+      "modified_at": "2025-02-10T17:15:25.885Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -14668,7 +14751,7 @@
       "label": "{\"de\": \"BW pro Anschluss\", \"fr\": \"Unit\\u00e9 par raccord\", \"it\": null}",
       "type": "calculated_float",
       "is_required": "false",
-      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage',\n  'installation-v5-spuelkasten',\n  'installation-v5-pissoir-mit-elektr-direktspuelung',\n  'installation-v5-garten-und-garageventil',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken-bw',\n  'installation-v5-handwaschbecken-lu',\n  'installation-v5-wc-spuelkasten-bw',\n  'installation-v5-wc-spuelkasten-lu',\n  'installation-v5-spuelbecken-lu',\n  'installation-v5-spuelbecken-bw',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage',\n  'installation-v5-spuelkasten',\n  'installation-v5-pissoir-mit-elektr-direktspuelung',\n  'installation-v5-garten-und-garageventil',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -14682,7 +14765,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "('installation-v5'|answer == 'installation-v5-handwaschbecken' ? 1 : \n     'installation-v5'|answer == 'installation-v5-spuelbecken' ? 2 :\n     'installation-v5'|answer == 'installation-v5-spuelkasten' ? 1 :\n     'installation-v5'|answer == 'installation-v5-pissoir-mit-elektr-direktspuelung' ? 4 :\n     'installation-v5'|answer == 'installation-v5-garten-und-garageventil' ? 5 :\n     'installation-v5'|answer == 'installation-v5-bidet' ? 1 :\n     'installation-v5'|answer == 'installation-v5-vieh-normal-selbsttraenke' ? 1 :\n     'installation-v5'|answer == 'installation-v5-ausgussbecken' ? 2 :\n     'installation-v5'|answer == 'installation-v5-geschirrspuelmaschine' ? 2 :\n     'installation-v5'|answer == 'installation-v5-duschbatterie' ? 3 :\n     'installation-v5'|answer == 'installation-v5-waschautomat-bis-6-kg' ? 4 :\n     'installation-v5'|answer == 'installation-v5-wandausguss' ? 4 :\n     'installation-v5'|answer == 'installation-v5-durchlauferwaermer' ? 4 :\n     'installation-v5'|answer == 'installation-v5-badebatterie' ? 4 :\n     'installation-v5'|answer == 'installation-v5-anschluss-12' ? 5 : 0\n\n)",
+      "calc_expression": "('installation-v5'|answer == 'installation-v5-handwaschbecken-bw' ? 1 : \n     'installation-v5'|answer == 'installation-v5-wc-spuelkasten-bw' ? 1 :\n     'installation-v5'|answer == 'installation-v5-spuelbecken-bw' ? 2 :\n     'installation-v5'|answer == 'installation-v5-pissoir-mit-elektr-direktspuelung' ? 4 :\n     'installation-v5'|answer == 'installation-v5-garten-und-garageventil' ? 5 :\n     'installation-v5'|answer == 'installation-v5-bidet' ? 1 :\n     'installation-v5'|answer == 'installation-v5-vieh-normal-selbsttraenke' ? 1 :\n     'installation-v5'|answer == 'installation-v5-ausgussbecken' ? 2 :\n     'installation-v5'|answer == 'installation-v5-geschirrspuelmaschine' ? 2 :\n     'installation-v5'|answer == 'installation-v5-duschbatterie' ? 3 :\n     'installation-v5'|answer == 'installation-v5-waschautomat-bis-6-kg' ? 4 :\n     'installation-v5'|answer == 'installation-v5-wandausguss' ? 4 :\n     'installation-v5'|answer == 'installation-v5-durchlauferwaermer' ? 4 :\n     'installation-v5'|answer == 'installation-v5-badebatterie' ? 4 :\n     'installation-v5'|answer == 'installation-v5-anschluss-12' ? 5 : 0\n\n)",
       "calc_dependents": "[\"bw-kaltwasser-calculation-v5\", \"bw-warmwasser-calculation-v5\", \"bw-kaltwasser-v5\", \"bw-warmwasser-v5\"]"
     }
   },
@@ -14691,7 +14774,7 @@
     "pk": "bw-total-v5",
     "fields": {
       "created_at": "2025-01-07T20:15:20.688Z",
-      "modified_at": "2025-01-16T16:51:03.288Z",
+      "modified_at": "2025-02-10T18:08:51.007Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -14713,7 +14796,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([])) ? \n\n(([\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer) ? \n\n('spezialinstallation-calculation-v5'|answer(0)) :\n\n('bw-kaltwasser-calculation-v5'|answer(0) + 'bw-warmwasser-calculation-v5'|answer(0))) : null",
+      "calc_expression": "('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([])) ? \n\n(([\n  'installation-v5-kuehl-und-klimaanlage-lu',\n  'installation-v5-kuehl-und-klimaanlage-bw',\n  'installation-v5-laufender-brunnen-lu',\n  'installation-v5-laufender-brunnen-bw',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer) ? \n\n('spezialinstallation-calculation-v5'|answer(0)) :\n\n('bw-kaltwasser-calculation-v5'|answer(0) + 'bw-warmwasser-calculation-v5'|answer(0))) : null",
       "calc_dependents": "[\"sollzustand-total-belastungswerte-bw-v5\", \"aufnahme-istzustand-total-belastungswerte-bw-v5\"]"
     }
   },
@@ -14755,7 +14838,7 @@
     "pk": "bw-warmwasser-v5",
     "fields": {
       "created_at": "2024-11-22T13:54:59.595Z",
-      "modified_at": "2025-01-16T15:28:23.854Z",
+      "modified_at": "2025-02-10T17:16:49.116Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -14763,7 +14846,7 @@
       "label": "{\"de\": \"BW (Warmwasser)\", \"fr\": \"UR (eau chaude)\", \"it\": null}",
       "type": "calculated_float",
       "is_required": "false",
-      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken-lu',\n  'installation-v5-handwaschbecken-bw',\n  'installation-v5-spuelbecken-lu',\n  'installation-v5-spuelbecken-bw',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-dusche',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -17079,7 +17162,7 @@
     "pk": "infotext-belastungswerte-v5",
     "fields": {
       "created_at": "2024-11-20T17:38:56.268Z",
-      "modified_at": "2024-11-21T10:12:28.776Z",
+      "modified_at": "2025-02-18T08:44:58.336Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17092,7 +17175,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Wenn n\\u00f6tig, k\\u00f6nnen sie hier sowohl LU als auch BW erfassen. \\n\\nBitte konsultieren Sie das Abwasser- resp. Wasserreglement der Standortgemeinde, ob hier Belastungswerte (BW) oder Loading Units (LU) zu erfassen sind.\", \"fr\": \"Si n\\u00e9cessaire, vous pouvez saisir ici tant LU que UR. Veuillez consulter le r\\u00e8glement sur les eaux us\\u00e9es ou le r\\u00e8glement sur l'alimentation en eau de la commune concern\\u00e9e pour savoir si les unit\\u00e9s de raccordement (UR) ou les Loading Units (LU) doivent \\u00eatre saisies ici.\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Bitte beachten Sie, dass in der Regel nur ein K\\u00e4stchen anzuw\\u00e4hlen ist. Allerdings k\\u00f6nnen Sie, wenn n\\u00f6tig, hier sowohl LU als auch BW erfassen. Bitte konsultieren Sie das Abwasser- resp. Wasserreglement der Standortgemeinde, ob hier Belastungswerte (BW) oder Loading Units (LU) zu erfassen sind\", \"fr\": \"Veuillez noter qu'en r\\u00e8gle g\\u00e9n\\u00e9rale, une seule case doit \\u00eatre coch\\u00e9e. Toutefois, si n\\u00e9cessaire, vous pouvez saisir \\u00e0 la fois des unit\\u00e9s de charge (LU) et des valeurs de charge (UR). Veuillez consulter le r\\u00e8glement sur les eaux us\\u00e9es ou le r\\u00e8glement sur l\\u2019alimentation en eau de la commune concern\\u00e9e pour savoir s'il faut saisir des valeurs de charge (UR) ou des unit\\u00e9s de charge (LU).\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "widgetOverride": "info-belastungswerte"
@@ -17112,7 +17195,7 @@
     "pk": "infotext-bw-total-spezialinstallation-v5",
     "fields": {
       "created_at": "2024-11-28T16:07:12.843Z",
-      "modified_at": "2025-01-17T09:48:29.199Z",
+      "modified_at": "2025-02-10T18:08:30.792Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17120,7 +17203,7 @@
       "label": "{\"de\": \"Infotext BW Total\", \"fr\": \"Infotext BW Total\", \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-bw' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-kuehl-und-klimaanlage-lu',\n  'installation-v5-kuehl-und-klimaanlage-bw',\n  'installation-v5-laufender-brunnen-lu',\n  'installation-v5-laufender-brunnen-bw',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -17143,7 +17226,7 @@
     "pk": "infotext-lu-total-spezialinstallation-v5",
     "fields": {
       "created_at": "2024-11-28T16:03:52.374Z",
-      "modified_at": "2025-01-16T16:49:14.309Z",
+      "modified_at": "2025-02-10T18:08:22.039Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17151,7 +17234,7 @@
       "label": "{\"de\": \"Infotext LU Total\", \"fr\": \"Infotext LU Total\", \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-kuehl-und-klimaanlage-lu',\n  'installation-v5-kuehl-und-klimaanlage-bw',\n  'installation-v5-laufender-brunnen-lu',\n  'installation-v5-laufender-brunnen-bw',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -17171,10 +17254,43 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "installationen-untertitel-v5",
+    "fields": {
+      "created_at": "2025-02-05T15:58:29.872Z",
+      "modified_at": "2025-02-10T18:12:26.899Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Installationen Untertitel\", \"fr\": \"Installationen Untertitel\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<style>\\n    label:has(input[value=\\\"installation-v5-ausgussbecken-stand-und-wandausguss\\\"])::before {\\n        display: block;\\n        content: \\\"Belastungswerte nach SVGW W3 2013 (LU)\\\";\\n        margin-top: 5px;\\n        margin-bottom: 5px;\\n    }\\n    label:has(input[value=\\\"installation-v5-anschluss-12\\\"])::before {\\n        display: block;\\n        content: \\\"Belastungswerte nach W3 SVGW (BW)\\\";\\n        margin-top: 10px;\\n        margin-bottom: 5px;\\n    }\\n</style>\", \"fr\": \"<style>\\n    label:has(input[value=\\\"installation-v5-ausgussbecken-stand-und-wandausguss\\\"])::before {\\n        display: block;\\n        content: \\\"Unit\\u00e9s de raccordement selon la directive W3 2013 de la SSIGE (LU)\\\";\\n        margin-top: 5px;\\n        margin-bottom: 5px;\\n    }\\n    label:has(input[value=\\\"installation-v5-anschluss-12\\\"])::before {\\n        display: block;\\n        content: \\\"Unit\\u00e9s de raccordement selon SSIGE W3 (UR)\\\";\\n        margin-top: 10px;\\n        margin-bottom: 5px;\\n    }\\n</style>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "installation-v5",
     "fields": {
       "created_at": "2024-11-21T11:13:47.066Z",
-      "modified_at": "2025-01-17T09:49:04.454Z",
+      "modified_at": "2025-02-10T18:11:34.584Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17610,7 +17726,7 @@
     "pk": "l-pro-min-spezialinstallation-v5",
     "fields": {
       "created_at": "2024-11-22T15:03:29.360Z",
-      "modified_at": "2025-01-16T16:47:30.779Z",
+      "modified_at": "2025-02-10T18:08:04.706Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17618,7 +17734,7 @@
       "label": "{\"de\": \"l/min\", \"fr\": null, \"it\": null}",
       "type": "float",
       "is_required": "true",
-      "is_hidden": "!([\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!([\n  'installation-v5-kuehl-und-klimaanlage-lu',\n  'installation-v5-kuehl-und-klimaanlage-bw',\n  'installation-v5-laufender-brunnen-lu',\n  'installation-v5-laufender-brunnen-bw',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -17678,7 +17794,7 @@
     "pk": "lu-kaltwasser-v5",
     "fields": {
       "created_at": "2024-11-21T13:14:00.556Z",
-      "modified_at": "2025-01-16T16:44:17.085Z",
+      "modified_at": "2025-02-10T17:16:09.089Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17686,7 +17802,7 @@
       "label": "{\"de\": \"LU (Kaltwasser)\", \"fr\": \"LU (eau froide)\", \"it\": null}",
       "type": "calculated_float",
       "is_required": "false",
-      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage',\n  'installation-v5-spuelkasten',\n  'installation-v5-pissoir-mit-elektr-direktspuelung',\n  'installation-v5-garten-und-garageventil',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken-bw',\n  'installation-v5-handwaschbecken-lu',\n  'installation-v5-wc-spuelkasten-bw',\n  'installation-v5-wc-spuelkasten-lu',\n  'installation-v5-spuelbecken-lu',\n  'installation-v5-spuelbecken-bw',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage',\n  'installation-v5-spuelkasten',\n  'installation-v5-pissoir-mit-elektr-direktspuelung',\n  'installation-v5-garten-und-garageventil',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -17709,7 +17825,7 @@
     "pk": "lu-pro-anschluss-v5",
     "fields": {
       "created_at": "2024-11-21T12:27:03.380Z",
-      "modified_at": "2025-01-17T12:54:08.344Z",
+      "modified_at": "2025-02-10T17:14:55.607Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17717,7 +17833,7 @@
       "label": "{\"de\": \"LU pro Anschluss\", \"fr\": \"LU par raccord\", \"it\": null}",
       "type": "calculated_float",
       "is_required": "false",
-      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken',\n  'installation-v5-wc-spuelkasten',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage',\n  'installation-v5-spuelkasten',\n  'installation-v5-pissoir-mit-elektr-direktspuelung',\n  'installation-v5-garten-und-garageventil',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken-bw',\n  'installation-v5-handwaschbecken-lu',\n  'installation-v5-wc-spuelkasten-bw',\n  'installation-v5-wc-spuelkasten-lu',\n  'installation-v5-spuelbecken-lu',\n  'installation-v5-spuelbecken-bw',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-haushaltgeschirrspueler',\n  'installation-v5-haushaltwaschautomat',\n  'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse',\n  'installation-v5-dusche',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-urinoir-spuelung',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-entnahmearmatur-fuer-garten-und-garage',\n  'installation-v5-spuelkasten',\n  'installation-v5-pissoir-mit-elektr-direktspuelung',\n  'installation-v5-garten-und-garageventil',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -17731,7 +17847,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "('installation-v5'|answer == 'installation-v5-handwaschbecken' ? 1 : \n     'installation-v5'|answer == 'installation-v5-wc-spuelkasten' ? 1 :\n     'installation-v5'|answer == 'installation-v5-getraenkeautomat' ? 1 :\n     'installation-v5'|answer == 'installation-v5-bidet-coiffeurbrause' ? 1 :\n     'installation-v5'|answer == 'installation-v5-haushaltgeschirrspueler' ? 1 :\n     'installation-v5'|answer == 'installation-v5-haushaltwaschautomat' ? 2 :\n     'installation-v5'|answer == 'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse' ? 2 :\n     'installation-v5'|answer == 'installation-v5-dusche' ? 2 :\n     'installation-v5'|answer == 'installation-v5-spuelbecken' ? 2 :\n     'installation-v5'|answer == 'installation-v5-waschtrog' ? 2 :\n     'installation-v5'|answer == 'installation-v5-ausgussbecken-stand-und-wandausguss' ? 2 :\n     'installation-v5'|answer == 'installation-v5-urinoir-spuelung' ? 3 :\n     'installation-v5'|answer == 'installation-v5-badewanne' ? 3 :\n     'installation-v5'|answer == 'installation-v5-spuelbecken-fuer-gewerbe' ? 4 :\n     'installation-v5'|answer == 'installation-v5-geschirrbrause' ? 4 :\n     'installation-v5'|answer == 'installation-v5-entnahmearmatur-fuer-garten-und-garage' ? 5 : 0\n    )",
+      "calc_expression": "('installation-v5'|answer == 'installation-v5-handwaschbecken-lu' ? 1 : \n     'installation-v5'|answer == 'installation-v5-wc-spuelkasten-lu' ? 1 :\n     'installation-v5'|answer == 'installation-v5-spuelbecken-lu' ? 2 :\n     'installation-v5'|answer == 'installation-v5-getraenkeautomat' ? 1 :\n     'installation-v5'|answer == 'installation-v5-bidet-coiffeurbrause' ? 1 :\n     'installation-v5'|answer == 'installation-v5-haushaltgeschirrspueler' ? 1 :\n     'installation-v5'|answer == 'installation-v5-haushaltwaschautomat' ? 2 :\n     'installation-v5'|answer == 'installation-v5-entnahmearmatur-fuer-balkon-und-terrasse' ? 2 :\n     'installation-v5'|answer == 'installation-v5-dusche' ? 2 :\n     'installation-v5'|answer == 'installation-v5-waschtrog' ? 2 :\n     'installation-v5'|answer == 'installation-v5-ausgussbecken-stand-und-wandausguss' ? 2 :\n     'installation-v5'|answer == 'installation-v5-urinoir-spuelung' ? 3 :\n     'installation-v5'|answer == 'installation-v5-badewanne' ? 3 :\n     'installation-v5'|answer == 'installation-v5-spuelbecken-fuer-gewerbe' ? 4 :\n     'installation-v5'|answer == 'installation-v5-geschirrbrause' ? 4 :\n     'installation-v5'|answer == 'installation-v5-entnahmearmatur-fuer-garten-und-garage' ? 5 : 0\n    )",
       "calc_dependents": "[\"lu-kaltwasser-calculation-v5\", \"lu-kaltwasser-v5\", \"lu-warmwasser-calculation-v5\", \"lu-warmwasser-v5\"]"
     }
   },
@@ -17740,7 +17856,7 @@
     "pk": "lu-total-v5",
     "fields": {
       "created_at": "2025-01-07T15:29:34.038Z",
-      "modified_at": "2025-01-16T16:50:12.599Z",
+      "modified_at": "2025-02-10T18:08:43.033Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17762,7 +17878,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([])) ? \n\n(([\n  'installation-v5-kuehl-und-klimaanlage',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-laufender-brunnen',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer) ? \n\n('spezialinstallation-calculation-v5'|answer(0)) :\n\n('lu-kaltwasser-calculation-v5'|answer(0) + 'lu-warmwasser-calculation-v5'|answer(0))) : null",
+      "calc_expression": "('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([])) ? \n\n(([\n  'installation-v5-kuehl-und-klimaanlage-lu',\n  'installation-v5-kuehl-und-klimaanlage-bw',\n  'installation-v5-laufender-brunnen-lu',\n  'installation-v5-laufender-brunnen-bw',\n  'installation-v5-vieh-selbsttraenke',\n  'installation-v5-bassin'\n] intersects 'installation-v5'|answer) ? \n\n('spezialinstallation-calculation-v5'|answer(0)) :\n\n('lu-kaltwasser-calculation-v5'|answer(0) + 'lu-warmwasser-calculation-v5'|answer(0))) : null",
       "calc_dependents": "[\"aufnahme-istzustand-total-belastungswerte-lu-v5\", \"sollzustand-total-belastungswerte-lu-v5\"]"
     }
   },
@@ -17805,7 +17921,7 @@
     "pk": "lu-warmwasser-v5",
     "fields": {
       "created_at": "2024-11-21T13:17:49.498Z",
-      "modified_at": "2025-01-16T15:27:55.876Z",
+      "modified_at": "2025-02-10T17:16:37.657Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -17813,7 +17929,7 @@
       "label": "{\"de\": \"LU (Warmwasser)\", \"fr\": \"LU (eau chaude)\", \"it\": null}",
       "type": "calculated_float",
       "is_required": "false",
-      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-dusche',\n  'installation-v5-spuelbecken',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
+      "is_hidden": "!('richtlinie-belastungswerte-v5-belastungswerte-lu' in 'richtlinie-belastungswerte-v5'|answer([]) && \n[\n  'installation-v5-handwaschbecken-lu',\n  'installation-v5-handwaschbecken-bw',\n  'installation-v5-spuelbecken-lu',\n  'installation-v5-spuelbecken-bw',\n  'installation-v5-getraenkeautomat',\n  'installation-v5-bidet-coiffeurbrause',\n  'installation-v5-dusche',\n  'installation-v5-waschtrog',\n  'installation-v5-ausgussbecken-stand-und-wandausguss',\n  'installation-v5-badewanne',\n  'installation-v5-spuelbecken-fuer-gewerbe',\n  'installation-v5-geschirrbrause',\n  'installation-v5-bidet',\n  'installation-v5-vieh-normal-selbsttraenke',\n  'installation-v5-ausgussbecken',\n  'installation-v5-geschirrspuelmaschine',\n  'installation-v5-duschbatterie',\n  'installation-v5-waschautomat-bis-6-kg',\n  'installation-v5-wandausguss',\n  'installation-v5-durchlauferwaermer',\n  'installation-v5-badebatterie',\n  'installation-v5-anschluss-12'\n] intersects 'installation-v5'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -19838,19 +19954,19 @@
     "pk": "sprinkleranlage-anschluss-trinkwasserinstallation-v5",
     "fields": {
       "created_at": "2024-12-12T15:44:55.554Z",
-      "modified_at": "2024-12-12T15:47:17.675Z",
+      "modified_at": "2025-02-05T14:56:40.920Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Sprinkleranlage\", \"fr\": \"Installation d\\u2019arrosage\", \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -23287,233 +23403,233 @@
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-anschluss-12",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.461Z",
-      "modified_at": "2025-01-17T09:49:04.461Z",
+      "created_at": "2025-02-10T18:11:34.607Z",
+      "modified_at": "2025-02-10T18:11:34.607Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-anschluss-12",
-      "sort": 2
+      "sort": 18
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-ausgussbecken",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.479Z",
-      "modified_at": "2025-01-17T09:49:04.479Z",
+      "created_at": "2025-02-10T18:11:34.606Z",
+      "modified_at": "2025-02-10T18:11:34.606Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-ausgussbecken",
-      "sort": 11
+      "sort": 17
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-ausgussbecken-stand-und-wandausguss",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.497Z",
-      "modified_at": "2025-01-17T09:49:04.497Z",
+      "created_at": "2025-02-10T18:11:34.628Z",
+      "modified_at": "2025-02-10T18:11:34.628Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-ausgussbecken-stand-und-wandausguss",
-      "sort": 23
+      "sort": 37
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-badebatterie",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.469Z",
-      "modified_at": "2025-01-17T09:49:04.469Z",
+      "created_at": "2025-02-10T18:11:34.605Z",
+      "modified_at": "2025-02-10T18:11:34.605Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-badebatterie",
-      "sort": 5
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-badewanne",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.495Z",
-      "modified_at": "2025-01-17T09:49:04.495Z",
+      "created_at": "2025-02-10T18:11:34.627Z",
+      "modified_at": "2025-02-10T18:11:34.627Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-badewanne",
-      "sort": 21
+      "sort": 36
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-bassin",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.459Z",
-      "modified_at": "2025-01-17T09:49:04.459Z",
+      "created_at": "2025-02-10T18:11:34.604Z",
+      "modified_at": "2025-02-10T18:11:34.604Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-bassin",
-      "sort": 1
+      "sort": 15
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-bidet",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.482Z",
-      "modified_at": "2025-01-17T09:49:04.482Z",
+      "created_at": "2025-02-10T18:11:34.603Z",
+      "modified_at": "2025-02-10T18:11:34.603Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-bidet",
-      "sort": 13
+      "sort": 14
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-bidet-coiffeurbrause",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.506Z",
-      "modified_at": "2025-01-17T09:49:04.506Z",
+      "created_at": "2025-02-10T18:11:34.626Z",
+      "modified_at": "2025-02-10T18:11:34.626Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-bidet-coiffeurbrause",
-      "sort": 30
+      "sort": 35
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-durchlauferwaermer",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.471Z",
-      "modified_at": "2025-01-17T09:49:04.471Z",
+      "created_at": "2025-02-10T18:11:34.601Z",
+      "modified_at": "2025-02-10T18:11:34.601Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-durchlauferwaermer",
-      "sort": 6
+      "sort": 13
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-duschbatterie",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.475Z",
-      "modified_at": "2025-01-17T09:49:04.475Z",
+      "created_at": "2025-02-10T18:11:34.600Z",
+      "modified_at": "2025-02-10T18:11:34.600Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-duschbatterie",
-      "sort": 9
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-dusche",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.500Z",
-      "modified_at": "2025-01-17T09:49:04.500Z",
+      "created_at": "2025-02-10T18:11:34.625Z",
+      "modified_at": "2025-02-10T18:11:34.625Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-dusche",
-      "sort": 26
+      "sort": 34
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-entnahmearmatur-fuer-balkon-und-terrasse",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.502Z",
-      "modified_at": "2025-01-17T09:49:04.502Z",
+      "created_at": "2025-02-10T18:11:34.624Z",
+      "modified_at": "2025-02-10T18:11:34.624Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-entnahmearmatur-fuer-balkon-und-terrasse",
-      "sort": 27
+      "sort": 33
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-entnahmearmatur-fuer-garten-und-garage",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.491Z",
-      "modified_at": "2025-01-17T09:49:04.491Z",
+      "created_at": "2025-02-10T18:11:34.623Z",
+      "modified_at": "2025-02-10T18:11:34.623Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-entnahmearmatur-fuer-garten-und-garage",
-      "sort": 18
+      "sort": 32
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-garten-und-garageventil",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.464Z",
-      "modified_at": "2025-01-17T09:49:04.464Z",
+      "created_at": "2025-02-10T18:11:34.599Z",
+      "modified_at": "2025-02-10T18:11:34.599Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-garten-und-garageventil",
-      "sort": 3
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-geschirrbrause",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.493Z",
-      "modified_at": "2025-01-17T09:49:04.493Z",
+      "created_at": "2025-02-10T18:11:34.622Z",
+      "modified_at": "2025-02-10T18:11:34.622Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-geschirrbrause",
-      "sort": 19
+      "sort": 31
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-geschirrspuelmaschine",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.477Z",
-      "modified_at": "2025-01-17T09:49:04.477Z",
+      "created_at": "2025-02-10T18:11:34.598Z",
+      "modified_at": "2025-02-10T18:11:34.598Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -23527,158 +23643,203 @@
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-getraenkeautomat",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.507Z",
-      "modified_at": "2025-01-17T09:49:04.507Z",
+      "created_at": "2025-02-10T18:11:34.621Z",
+      "modified_at": "2025-02-10T18:11:34.621Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-getraenkeautomat",
-      "sort": 31
+      "sort": 30
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "installation-v5.installation-v5-handwaschbecken",
+    "pk": "installation-v5.installation-v5-handwaschbecken-bw",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.509Z",
-      "modified_at": "2025-01-17T09:49:04.509Z",
+      "created_at": "2025-02-10T18:11:34.597Z",
+      "modified_at": "2025-02-10T18:11:34.597Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
-      "option": "installation-v5-handwaschbecken",
-      "sort": 33
+      "option": "installation-v5-handwaschbecken-bw",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-handwaschbecken-lu",
+    "fields": {
+      "created_at": "2025-02-10T18:11:34.619Z",
+      "modified_at": "2025-02-10T18:11:34.619Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-handwaschbecken-lu",
+      "sort": 29
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-haushaltgeschirrspueler",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.504Z",
-      "modified_at": "2025-01-17T09:49:04.504Z",
+      "created_at": "2025-02-10T18:11:34.618Z",
+      "modified_at": "2025-02-10T18:11:34.618Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-haushaltgeschirrspueler",
-      "sort": 29
+      "sort": 28
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-haushaltwaschautomat",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.503Z",
-      "modified_at": "2025-01-17T09:49:04.503Z",
+      "created_at": "2025-02-10T18:11:34.617Z",
+      "modified_at": "2025-02-10T18:11:34.617Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-haushaltwaschautomat",
-      "sort": 28
+      "sort": 27
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "installation-v5.installation-v5-kuehl-und-klimaanlage",
+    "pk": "installation-v5.installation-v5-kuehl-und-klimaanlage-bw",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.490Z",
-      "modified_at": "2025-01-17T09:49:04.490Z",
+      "created_at": "2025-02-10T18:11:34.596Z",
+      "modified_at": "2025-02-10T18:11:34.596Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
-      "option": "installation-v5-kuehl-und-klimaanlage",
-      "sort": 17
+      "option": "installation-v5-kuehl-und-klimaanlage-bw",
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "installation-v5.installation-v5-laufender-brunnen",
+    "pk": "installation-v5.installation-v5-kuehl-und-klimaanlage-lu",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.487Z",
-      "modified_at": "2025-01-17T09:49:04.487Z",
+      "created_at": "2025-02-10T18:11:34.616Z",
+      "modified_at": "2025-02-10T18:11:34.616Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
-      "option": "installation-v5-laufender-brunnen",
-      "sort": 15
+      "option": "installation-v5-kuehl-und-klimaanlage-lu",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-laufender-brunnen-bw",
+    "fields": {
+      "created_at": "2025-02-10T18:11:34.595Z",
+      "modified_at": "2025-02-10T18:11:34.595Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-laufender-brunnen-bw",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-laufender-brunnen-lu",
+    "fields": {
+      "created_at": "2025-02-10T18:11:34.615Z",
+      "modified_at": "2025-02-10T18:11:34.615Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-laufender-brunnen-lu",
+      "sort": 25
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-pissoir-mit-elektr-direktspuelung",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.466Z",
-      "modified_at": "2025-01-17T09:49:04.466Z",
+      "created_at": "2025-02-10T18:11:34.594Z",
+      "modified_at": "2025-02-10T18:11:34.594Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-pissoir-mit-elektr-direktspuelung",
-      "sort": 4
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "installation-v5.installation-v5-spuelbecken",
+    "pk": "installation-v5.installation-v5-spuelbecken-bw",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.499Z",
-      "modified_at": "2025-01-17T09:49:04.499Z",
+      "created_at": "2025-02-10T18:11:34.593Z",
+      "modified_at": "2025-02-10T18:11:34.593Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
-      "option": "installation-v5-spuelbecken",
-      "sort": 25
+      "option": "installation-v5-spuelbecken-bw",
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-spuelbecken-fuer-gewerbe",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.494Z",
-      "modified_at": "2025-01-17T09:49:04.494Z",
+      "created_at": "2025-02-10T18:11:34.612Z",
+      "modified_at": "2025-02-10T18:11:34.612Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-spuelbecken-fuer-gewerbe",
-      "sort": 20
+      "sort": 23
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "installation-v5.installation-v5-spuelkasten",
+    "pk": "installation-v5.installation-v5-spuelbecken-lu",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.485Z",
-      "modified_at": "2025-01-17T09:49:04.485Z",
+      "created_at": "2025-02-10T18:11:34.614Z",
+      "modified_at": "2025-02-10T18:11:34.614Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
-      "option": "installation-v5-spuelkasten",
-      "sort": 14
+      "option": "installation-v5-spuelbecken-lu",
+      "sort": 24
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-urinoir-spuelung",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.496Z",
-      "modified_at": "2025-01-17T09:49:04.496Z",
+      "created_at": "2025-02-10T18:11:34.611Z",
+      "modified_at": "2025-02-10T18:11:34.611Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -23692,90 +23853,105 @@
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-vieh-normal-selbsttraenke",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.481Z",
-      "modified_at": "2025-01-17T09:49:04.481Z",
+      "created_at": "2025-02-10T18:11:34.591Z",
+      "modified_at": "2025-02-10T18:11:34.591Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-vieh-normal-selbsttraenke",
-      "sort": 12
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-vieh-selbsttraenke",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.489Z",
-      "modified_at": "2025-01-17T09:49:04.489Z",
+      "created_at": "2025-02-10T18:11:34.610Z",
+      "modified_at": "2025-02-10T18:11:34.610Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-vieh-selbsttraenke",
-      "sort": 16
+      "sort": 21
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-wandausguss",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.473Z",
-      "modified_at": "2025-01-17T09:49:04.473Z",
+      "created_at": "2025-02-10T18:11:34.590Z",
+      "modified_at": "2025-02-10T18:11:34.590Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-wandausguss",
-      "sort": 7
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-waschautomat-bis-6-kg",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.474Z",
-      "modified_at": "2025-01-17T09:49:04.474Z",
+      "created_at": "2025-02-10T18:11:34.589Z",
+      "modified_at": "2025-02-10T18:11:34.589Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-waschautomat-bis-6-kg",
-      "sort": 8
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "installation-v5.installation-v5-waschtrog",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.498Z",
-      "modified_at": "2025-01-17T09:49:04.498Z",
+      "created_at": "2025-02-10T18:11:34.609Z",
+      "modified_at": "2025-02-10T18:11:34.609Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
       "option": "installation-v5-waschtrog",
-      "sort": 24
+      "sort": 20
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "installation-v5.installation-v5-wc-spuelkasten",
+    "pk": "installation-v5.installation-v5-wc-spuelkasten-bw",
     "fields": {
-      "created_at": "2025-01-17T09:49:04.508Z",
-      "modified_at": "2025-01-17T09:49:04.508Z",
+      "created_at": "2025-02-10T18:11:34.587Z",
+      "modified_at": "2025-02-10T18:11:34.587Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "question": "installation-v5",
-      "option": "installation-v5-wc-spuelkasten",
-      "sort": 32
+      "option": "installation-v5-wc-spuelkasten-bw",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "installation-v5.installation-v5-wc-spuelkasten-lu",
+    "fields": {
+      "created_at": "2025-02-10T18:11:34.608Z",
+      "modified_at": "2025-02-10T18:11:34.608Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "installation-v5",
+      "option": "installation-v5-wc-spuelkasten-lu",
+      "sort": 19
     }
   },
   {
@@ -24652,8 +24828,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sprinkleranlage-anschluss-trinkwasserinstallation-v5.sprinkleranlage-anschluss-trinkwasserinstallation-v5-bestehend",
     "fields": {
-      "created_at": "2024-12-12T15:47:17.684Z",
-      "modified_at": "2024-12-12T15:47:17.684Z",
+      "created_at": "2025-02-05T14:56:40.927Z",
+      "modified_at": "2025-02-05T14:56:40.927Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -24667,8 +24843,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sprinkleranlage-anschluss-trinkwasserinstallation-v5.sprinkleranlage-anschluss-trinkwasserinstallation-v5-neu",
     "fields": {
-      "created_at": "2024-12-12T15:47:17.682Z",
-      "modified_at": "2024-12-12T15:47:17.682Z",
+      "created_at": "2025-02-05T14:56:40.924Z",
+      "modified_at": "2025-02-05T14:56:40.924Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
