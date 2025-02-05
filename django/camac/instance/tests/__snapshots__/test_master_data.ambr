@@ -1303,6 +1303,22 @@
     ]),
   })
 # ---
+# name: test_master_data_api[query0-200-Municipality]
+  dict({
+    'some_other_property': 'Bar',
+    'some_property': 'Foo',
+  })
+# ---
+# name: test_master_data_api[query1-200-Municipality]
+  dict({
+    'some_property': 'Foo',
+  })
+# ---
+# name: test_master_data_api[query2-400-Municipality]
+  list([
+    "Key 'not_configured' is not configured in master data config. Available keys are: some_property, some_other_property",
+  ])
+# ---
 # name: test_master_data_parsers
   dict({
     'date': datetime.date(2021, 8, 18),

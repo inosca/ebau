@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from operator import attrgetter
+from typing import List, Optional
 
 from caluma.caluma_form import models as form_models
 from caluma.caluma_form.validators import DocumentValidator
@@ -652,3 +653,9 @@ class MasterData(object):
             None,
         )
         return self._return_option(dynamic_option, value, prop, default)
+
+    def to_dict(self, fields: Optional[List[str]] = None) -> dict:
+        if not fields:
+            fields = settings.MASTER_DATA["CONFIG"].keys()
+
+        return {key: getattr(self, key) for key in fields}

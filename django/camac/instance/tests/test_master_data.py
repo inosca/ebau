@@ -7,8 +7,10 @@ from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
+from django.urls import reverse
 from django.utils.translation import override
 from pytest_lazy_fixtures import lf
+from rest_framework import status
 from syrupy.filters import paths
 
 from camac.tests.data import so_personal_row_factory
@@ -976,10 +978,7 @@ def test_master_data(
 
         master_data = MasterData(case)
 
-        assert {
-            key: getattr(master_data, key)
-            for key in canton_master_data_settings["CONFIG"].keys()
-        } == snapshot(
+        assert master_data.to_dict() == snapshot(
             exclude=paths(
                 "landowners.0.row_id",
                 "applicants.0.row_id",
@@ -1004,3 +1003,34 @@ def test_disable_answer_visibility(
     md.disable_answer_visibility = disable_answer_visibility
 
     assert md.municipality
+
+
+@pytest.mark.parametrize("role__name", [("Municipality")])
+@pytest.mark.parametrize(
+    "query,expected_status",
+    [
+        ({}, status.HTTP_200_OK),
+        ({"fields": "some_property"}, status.HTTP_200_OK),
+        ({"fields": "not_configured"}, status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_master_data_api(
+    db,
+    admin_client,
+    expected_status,
+    instance,
+    master_data_settings,
+    query,
+    snapshot,
+):
+    master_data_settings["CONFIG"] = {
+        "some_property": ("static", "Foo"),
+        "some_other_property": ("static", "Bar"),
+    }
+
+    response = admin_client.get(
+        reverse("instance-master-data", args=[instance.pk]), data=query
+    )
+
+    assert response.status_code == expected_status
+    assert response.json() == snapshot
