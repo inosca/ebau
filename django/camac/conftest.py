@@ -50,6 +50,7 @@ from camac.document.tests.data import django_file
 from camac.dossier_import import factories as dossier_import_factories
 from camac.ech0211 import factories as ech_factories
 from camac.faker import FreezegunAwareDatetimeProvider
+from camac.fixtures.generated.settings_fixtures import *  # noqa F403, F401
 from camac.gis import factories as gis_factories
 from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
@@ -62,7 +63,7 @@ from camac.permissions import factories as permissions_factories
 from camac.permissions.models import AccessLevel
 from camac.responsible import factories as responsible_factories
 from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
-from camac.settings.testing import *  # noqa F403, F401
+from camac.settings.utils import get_enabled_modules_for_canton
 from camac.tags import factories as tags_factories
 from camac.user import factories as user_factories
 from camac.user.models import Group, User
@@ -357,13 +358,10 @@ def any_application(request):
     app_key = request.param
     app_short = settings.APPLICATIONS[app_key]["SHORT_NAME"]
 
-    from camac.settings.testing import MODULE_CONFIG_FIXTURES
-
-    for mod, cantons in MODULE_CONFIG_FIXTURES.items():
+    for module_name in get_enabled_modules_for_canton(app_key):
         # Any module config that's available for the current canton
         # will be loaded
-        if app_key in cantons:
-            request.getfixturevalue(f"{app_short}_{mod}_settings")
+        request.getfixturevalue(f"{app_short}_{module_name}_settings")
 
     # Application *must* be present and will be loaded and returned
     return request.getfixturevalue(f"set_application_{app_short}")

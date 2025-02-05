@@ -395,3 +395,7 @@ gr-extract-translations: # Export translation files
 scan-images: ## Scan docker images with trivy
 	@pnpm -C tools -s install
 	@node tools/bin/scan-images.js
+
+.PHONY: generate-fixtures
+generate-fixtures: ## Generate dynamic fixtures for pytest
+	@docker compose exec django python manage.py generate_fixtures
