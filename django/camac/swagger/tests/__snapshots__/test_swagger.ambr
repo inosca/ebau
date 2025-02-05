@@ -76,5 +76,19 @@
 # ---
 # name: test_swagger_paths[test]
   list([
+    '/api/v1/attachment-sections',
+    '/api/v1/attachment-sections/{attachment_section_id}',
+    '/api/v1/attachments',
+    '/api/v1/attachments/files/',
+    '/api/v1/attachments/{attachment_id}',
+    '/api/v1/groups',
+    '/api/v1/groups/{group_id}',
+    '/api/v1/me',
+    '/api/v1/public-services',
+    '/api/v1/public-services/{service_id}',
+    '/ech/v1/application/{instance_id}/',
+    '/ech/v1/applications',
+    '/ech/v1/message/',
+    '/ech/v1/send/',
   ])
 # ---

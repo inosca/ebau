@@ -123,6 +123,7 @@ INSTALLED_APPS = [
     "adminsortable2",
     "django_json_widget",
     "hurricane",
+    "camac.fixtures.apps.FixturesConfig",
 ]
 
 if DEBUG:  # pragma: no cover
