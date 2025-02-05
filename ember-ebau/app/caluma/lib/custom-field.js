@@ -51,7 +51,7 @@ export default class CustomField extends Field {
 
       const { form } = this.caseInformation.value;
 
-      if (form === "baugesuch") {
+      if (form.startsWith("baugesuch")) {
         // Baugesuche
         return [
           "decision-decision-approved",
