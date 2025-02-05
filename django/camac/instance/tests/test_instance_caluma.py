@@ -929,7 +929,7 @@ def test_instance_submit_heat_extraction_ur(
     group_factory,
     role_factory,
     instance_factory,
-    question_factory,
+    caluma_question_factory,
     instance_state_factory,
     service_factory,
     authority_location_factory,
@@ -973,7 +973,7 @@ def test_instance_submit_heat_extraction_ur(
     if form_slug == "konzession-waermeentnahme":
         source_instance = instance_factory()
 
-        instance_id_question = question_factory(
+        instance_id_question = caluma_question_factory(
             slug="dossier-id-der-bohrbewilligung",
             type=caluma_form_models.Question.TYPE_INTEGER,
         )
@@ -1555,10 +1555,10 @@ def test_instance_report(
     be_decision_settings,
     be_ech0211_settings,
     service_factory,
-    question_factory,
+    caluma_question_factory,
     instance_acl_factory,
     access_level_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     permissions_settings,
     geometer_is_unnecessary,
     expected_emails,
@@ -1591,7 +1591,7 @@ def test_instance_report(
         )
         permissions_settings["geometer"] = [("foo", ["*"])]
 
-        geometer_work_item = work_item_factory(
+        geometer_work_item = caluma_work_item_factory(
             task_id="geometer",
             status="completed",
             case=be_instance.case,
@@ -1604,7 +1604,7 @@ def test_instance_report(
             )
 
         save_answer(
-            question=question_factory(
+            question=caluma_question_factory(
                 slug="geometer-beurteilung-notwendigkeit-vermessung"
             ),
             document=geometer_work_item.document,
@@ -1681,16 +1681,16 @@ def test_instance_finalize(
     mock_generate_and_store_pdf,
     caluma_admin_user,
     create_awa_workitem,
-    form_question_factory,
+    caluma_form_question_factory,
     decision_factory,
     settings,
     be_decision_settings,
     be_ech0211_settings,
     service_factory,
-    question_factory,
+    caluma_question_factory,
     instance_acl_factory,
     access_level_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     permissions_settings,
     geometer_is_unnecessary,
     expected_emails,
@@ -1735,7 +1735,7 @@ def test_instance_finalize(
         )
         permissions_settings["geometer"] = [("foo", ["*"])]
 
-        geometer_work_item = work_item_factory(
+        geometer_work_item = caluma_work_item_factory(
             task_id="geometer",
             status="completed",
             case=be_instance.case,
@@ -1748,7 +1748,7 @@ def test_instance_finalize(
             )
 
         save_answer(
-            question=question_factory(
+            question=caluma_question_factory(
                 slug="geometer-beurteilung-notwendigkeit-vermessung"
             ),
             document=geometer_work_item.document,
@@ -1780,7 +1780,7 @@ def test_instance_finalize(
         table_form = caluma_form_models.Form.objects.create(
             slug="lagerung-von-stoffen-tabelle-v2"
         )
-        form_question_factory(
+        caluma_form_question_factory(
             form=be_instance.case.document.form,
             question=caluma_form_models.Question.objects.create(
                 slug="lagerung-von-stoffen-v2",
@@ -1840,7 +1840,7 @@ def test_generate_and_store_pdf(
     service,
     group,
     attachment_section_factory,
-    document_factory,
+    caluma_document_factory,
     mocker,
     form_slug,
     paper,
@@ -2059,8 +2059,8 @@ def test_oereb_legal_state_filter_ur(
     admin_client,
     ur_instance,
     instance_with_case,
-    question_factory,
-    answer_factory,
+    caluma_question_factory,
+    caluma_answer_factory,
     instance_factory,
     filter,
     expected,
@@ -2069,21 +2069,21 @@ def test_oereb_legal_state_filter_ur(
     instance_2 = instance_with_case(instance_factory(user=admin_user))
     instance_3 = instance_with_case(instance_factory(user=admin_user))
 
-    question = question_factory(
+    question = caluma_question_factory(
         slug="typ-des-verfahrens",
         type=caluma_form_models.Question.TYPE_CHOICE,
     )
-    answer_factory(
+    caluma_answer_factory(
         document=instance_1.case.document,
         question=question,
         value="typ-des-verfahrens-anpassung",
     )
-    answer_factory(
+    caluma_answer_factory(
         document=instance_2.case.document,
         question=question,
         value="typ-des-verfahrens-festsetzung",
     )
-    answer_factory(
+    caluma_answer_factory(
         document=instance_3.case.document,
         question=question,
         value="typ-des-verfahrens-anpassung",
@@ -2192,7 +2192,7 @@ def test_generate_pdf_action(
     group,
     be_instance,
     caluma_form,
-    document_factory,
+    caluma_document_factory,
     form_factory,
     form_slug,
     expected_status,
@@ -2231,7 +2231,7 @@ def test_generate_pdf_action(
     data = {"form-slug": form_slug} if form_slug else {}
 
     if has_document_id:
-        document_id = document_factory(form__slug="mp-form").pk
+        document_id = caluma_document_factory(form__slug="mp-form").pk
         data = {"document-id": document_id}
 
     response = admin_client.get(url, data)
@@ -2444,7 +2444,7 @@ def test_be_copy_responsible_user_on_submit(
     application_settings,
     submit_date_question,
     rejection_settings,
-    work_item_factory,
+    caluma_work_item_factory,
     user_factory,
     disable_ech0211_settings,
 ):
@@ -2476,7 +2476,7 @@ def test_be_copy_responsible_user_on_submit(
     )
 
     # Create Work Item
-    work_item_factory(case=source_instance.case, addressed_groups=[service.pk])
+    caluma_work_item_factory(case=source_instance.case, addressed_groups=[service.pk])
 
     # Assign state
     source_instance.instance_state = rejected_state
@@ -2901,7 +2901,7 @@ def test_filter_inquiry_answer(
     instance_with_case,
     service,
     distribution_settings,
-    answer_factory,
+    caluma_answer_factory,
 ):
     for inquiry_answer in [
         "inquiry-answer-status-claim",
@@ -2913,7 +2913,7 @@ def test_filter_inquiry_answer(
 
         inquiry = active_inquiry_factory(for_instance=instance)
 
-        answer_factory(
+        caluma_answer_factory(
             document=inquiry.child_case.document,
             question_id=distribution_settings["QUESTIONS"]["STATUS"],
             value=inquiry_answer,
@@ -3080,7 +3080,7 @@ def test_instance_submit_so_canton(
     admin_client,
     application_settings,
     disable_ech0211_settings,
-    dynamic_option_factory,
+    caluma_dynamic_option_factory,
     instance_state_factory,
     master_data_is_visible_mock,
     mock_generate_and_store_pdf,
@@ -3108,7 +3108,7 @@ def test_instance_submit_so_canton(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
     )
 
-    dynamic_option_factory(
+    caluma_dynamic_option_factory(
         question_id="gemeinde",
         document=so_instance.case.document,
         slug=str(municipality_service.pk),
@@ -3291,9 +3291,9 @@ def test_send_notifications(
     db,
     application_settings,
     instance,
-    case_factory,
-    answer_factory,
-    document_factory,
+    caluma_case_factory,
+    caluma_answer_factory,
+    caluma_document_factory,
     notification_template,
     mocker,
     allow_notification,
@@ -3312,12 +3312,13 @@ def test_send_notifications(
         config_1
     )
     application_settings["NOTIFICATIONS"]["SUBMIT_HEAT_GENERATOR"] = config_2
-    case_factory(
-        instance=instance, document=document_factory(form__slug="heat-generator-v3")
+    caluma_case_factory(
+        instance=instance,
+        document=caluma_document_factory(form__slug="heat-generator-v3"),
     )
 
     if allow_notification:
-        answer_factory(
+        caluma_answer_factory(
             question__slug="heat-generator-combustion-database-v2",
             value="heat-generator-combustion-database-v2-ja",
             document=instance.case.document,

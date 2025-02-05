@@ -12,7 +12,7 @@ def test_migrate_schwyz_instances(
     issue,
     instance_factory,
     form_factory,
-    workflow_factory,
+    caluma_workflow_factory,
     instance_state_factory,
     circulation_factory,
     circulation_state_factory,

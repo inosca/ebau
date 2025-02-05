@@ -29,12 +29,18 @@ def test_condition_is_paper(db, is_paper, so_instance, userinfo, utils):
     ],
 )
 def test_condition_require_work_item(
-    db, expected_result, has_work_item, so_instance, status, userinfo, work_item_factory
+    db,
+    expected_result,
+    has_work_item,
+    so_instance,
+    status,
+    userinfo,
+    caluma_work_item_factory,
 ):
     task_id = "test-work-item"
 
     if has_work_item:
-        work_item_factory(
+        caluma_work_item_factory(
             case=so_instance.case, task_id=task_id, status=WorkItem.STATUS_READY
         )
 

@@ -107,17 +107,17 @@ def test_instance_list_for_uso_gr(
     gr_instance,
     group_factory,
     service_factory,
-    case_factory,
-    work_item_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
     workitem_status,
     role,
     deadline_date,
     expected_count,
     distribution_settings,
 ):
-    gr_instance.case = case_factory(workflow_id="inquiry")
+    gr_instance.case = caluma_case_factory(workflow_id="inquiry")
     gr_instance.case.work_items.add(
-        work_item_factory(
+        caluma_work_item_factory(
             task_id="inquiry",
             addressed_groups=[gr_instance.group.service.pk],
             deadline=deadline_date,
@@ -141,17 +141,19 @@ def test_instance_detail_uso(
     admin_client,
     instance,
     gr_instance,
-    case_factory,
+    caluma_case_factory,
     access_level,
-    work_item_factory,
+    caluma_work_item_factory,
     distribution_settings,
     gr_permissions_settings,
     settings,
 ):
     settings.APPLICATION_NAME = "kt_gr"
-    distribution_case = case_factory(workflow_id="inquiry", family=gr_instance.case)
+    distribution_case = caluma_case_factory(
+        workflow_id="inquiry", family=gr_instance.case
+    )
     deadline_date = "2023-12-02"
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task_id="inquiry",
         addressed_groups=[gr_instance.group.service.pk],
         deadline=make_aware(datetime.strptime(deadline_date, "%Y-%m-%d")),
@@ -542,7 +544,7 @@ def test_keyword_search_filter_sz(
     expected_count,
     sz_distribution_settings,
     active_inquiry_factory,
-    answer_factory,
+    caluma_answer_factory,
     service_group_factory,
     settings,
     application_settings,
@@ -645,7 +647,7 @@ def test_keyword_search_filter_sz(
         status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
     )
 
-    answer_factory(
+    caluma_answer_factory(
         document=inquiry1.child_case.document,
         question_id=caluma_form_models.Question.objects.get(
             pk=sz_distribution_settings.get("QUESTIONS")["ANCILLARY_CLAUSES"]
@@ -653,7 +655,7 @@ def test_keyword_search_filter_sz(
         value="Inquiry answer 1",
     )
 
-    answer_factory(
+    caluma_answer_factory(
         document=inquiry2.child_case.document,
         question_id=caluma_form_models.Question.objects.get(
             pk=sz_distribution_settings.get("QUESTIONS")["REASON"]
@@ -661,7 +663,7 @@ def test_keyword_search_filter_sz(
         value="Inquiry answer 2",
     )
 
-    answer_factory(
+    caluma_answer_factory(
         document=inquiry3.child_case.document,
         question_id=caluma_form_models.Question.objects.get(
             pk=sz_distribution_settings.get("QUESTIONS")["REQUEST"]
@@ -695,10 +697,10 @@ def test_with_cantonal_participation_filter(
     ur_distribution_settings,
     with_cantonal_participation,
     expected_count,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     if with_cantonal_participation:
-        work_item_factory(
+        caluma_work_item_factory(
             case=ur_instance.case,
             task_id=ur_distribution_settings["INQUIRY_TASK"],
             status=caluma_workflow_models.WorkItem.STATUS_READY,
@@ -1652,7 +1654,7 @@ def test_instance_generate_identifier(
     db,
     instance,
     instance_factory,
-    case_factory,
+    caluma_case_factory,
     application_settings,
     short_dossier_number,
     form_field_factory,
@@ -1695,7 +1697,7 @@ def test_instance_generate_identifier(
     identifier = separator.join(elements)
 
     if use_caluma or caluma_instance_forms:
-        instance.case = case_factory(meta={"dossier-number": identifier})
+        instance.case = caluma_case_factory(meta={"dossier-number": identifier})
         instance.save()
     else:
         instance_factory(identifier=identifier)
@@ -1731,7 +1733,7 @@ def test_instance_generate_identifier_sz(
     db,
     instance,
     instance_factory,
-    case_factory,
+    caluma_case_factory,
     application_settings,
     short_dossier_number,
     form_field_factory,
@@ -1778,7 +1780,7 @@ def test_instance_generate_identifier_sz(
     identifier = separator.join(elements)
 
     if use_caluma or caluma_instance_forms:
-        instance.case = case_factory(meta={"dossier-number": identifier})
+        instance.case = caluma_case_factory(meta={"dossier-number": identifier})
         instance.save()
     else:
         instance_factory(identifier=identifier)
@@ -1809,7 +1811,7 @@ def test_instance_generate_identifier_gr(
     db,
     gr_instance,
     instance,
-    case_factory,
+    caluma_case_factory,
     existing_dossier_numbers,
     expected_dossier_number,
     application_settings,
@@ -1817,7 +1819,7 @@ def test_instance_generate_identifier_gr(
     application_settings["SHORT_NAME"] = "gr"
     if existing_dossier_numbers:
         for nr in existing_dossier_numbers:
-            case_factory(meta={"dossier-number": nr})
+            caluma_case_factory(meta={"dossier-number": nr})
 
     assert (
         domain_logic.CreateInstanceLogic.generate_identifier(instance)
@@ -2103,9 +2105,9 @@ def test_instance_list_commission(db, admin_client, has_assignment, request, ins
 
 @pytest.mark.parametrize("role__name", ["building_commission"])
 def test_instance_list_building_commission(
-    db, admin_client, request, ur_instance, work_item_factory
+    db, admin_client, request, ur_instance, caluma_work_item_factory
 ):
-    work_item_factory(
+    caluma_work_item_factory(
         addressed_groups=[str(admin_client.user.groups.first().service.pk)],
         case=ur_instance.case,
     )
@@ -2344,11 +2346,11 @@ def test_has_inquiry(
     db,
     gr_instance,
     service_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     gr_distribution_settings,
 ):
     service = service_factory()
-    inquiry = work_item_factory(
+    inquiry = caluma_work_item_factory(
         task=caluma_workflow_models.Task.objects.get(slug="inquiry"),
         case=gr_instance.case,
         addressed_groups=[str(service.pk)],
@@ -2387,9 +2389,9 @@ def test_inquiry_state_filter(
     caluma_workflow_config_gr,
     instance_with_case,
     instance_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     gr_distribution_settings,
-    document_factory,
+    caluma_document_factory,
     inquiry_state,
     has_open_work_item,
     expected,
@@ -2399,33 +2401,33 @@ def test_inquiry_state_filter(
     instance = instance_with_case(instance_factory(user=admin_user))
 
     # unrelated work item (wrong task)
-    work_item_factory(
+    caluma_work_item_factory(
         case=instance.case,
         task_id="foo",
         status=caluma_workflow_models.WorkItem.STATUS_READY,
         addressed_groups=[str(admin_client.user.groups.first().service_id)],
     )
     # unrelated work item (wrong addressed group)
-    work_item_factory(
+    caluma_work_item_factory(
         case=instance.case,
         task_id="inquiry",
         status=caluma_workflow_models.WorkItem.STATUS_READY,
         addressed_groups=["432985034"],
     )
     # unrelated work item (wrong case)
-    work_item_factory(
+    caluma_work_item_factory(
         task_id="inquiry",
         status=caluma_workflow_models.WorkItem.STATUS_READY,
         addressed_groups=[str(admin_client.user.groups.first().service_id)],
     )
     if has_open_work_item:
-        work_item_factory(
+        caluma_work_item_factory(
             case=instance.case,
             task_id="inquiry",
             status=caluma_workflow_models.WorkItem.STATUS_READY,
             addressed_groups=[str(admin_client.user.groups.first().service_id)],
         )
-    work_item_factory(
+    caluma_work_item_factory(
         case=instance.case,
         task_id="inquiry",
         status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,

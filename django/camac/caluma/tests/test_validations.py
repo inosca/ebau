@@ -8,21 +8,23 @@ from caluma.caluma_workflow.models import WorkItem
 
 
 @pytest.fixture
-def appeal_deadline_factory(answer_factory, be_appeal_settings, document_factory):
+def appeal_deadline_factory(
+    caluma_answer_factory, be_appeal_settings, caluma_document_factory
+):
     def wrapper(deadline):
-        row = document_factory(form_id=be_appeal_settings["ROW_FORM"])
+        row = caluma_document_factory(form_id=be_appeal_settings["ROW_FORM"])
 
-        answer_factory(
+        caluma_answer_factory(
             document=row,
             question_id=be_appeal_settings["QUESTIONS"]["AUTHORITY"],
             value=be_appeal_settings["ANSWERS"]["AUTHORITY"]["LEGAL_DEPARTEMENT"],
         )
-        answer_factory(
+        caluma_answer_factory(
             document=row,
             question_id=be_appeal_settings["QUESTIONS"]["TYPE"],
             value=be_appeal_settings["ANSWERS"]["TYPE"]["DEADLINE"],
         )
-        answer_factory(
+        caluma_answer_factory(
             document=row,
             question_id=be_appeal_settings["QUESTIONS"]["DATE"],
             date=deadline,
@@ -36,13 +38,13 @@ def appeal_deadline_factory(answer_factory, be_appeal_settings, document_factory
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_validate_create_inquiry_context(
     db,
-    work_item_factory,
+    caluma_work_item_factory,
     service,
     be_instance,
     caluma_admin_schema_executor,
     distribution_settings,
 ):
-    work_item = work_item_factory(case=be_instance.case, child_case=None)
+    work_item = caluma_work_item_factory(case=be_instance.case, child_case=None)
 
     distribution_settings["INQUIRY_CREATE_TASK"] = work_item.task_id
 
@@ -77,17 +79,17 @@ def test_appeal_work_item(
     gql,
     mocker,
     service,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
     mocker.patch("caluma.caluma_core.mutation.Mutation.permission_classes", [AllowAny])
 
-    work_item = work_item_factory(case=be_instance.case, child_case=None)
+    work_item = caluma_work_item_factory(case=be_instance.case, child_case=None)
 
     dates = [date(2023, 4, 20), date(2023, 5, 1)]
     rows = [str(appeal_deadline_factory(deadline).pk) for deadline in dates]
 
-    work_item_to_delete = work_item_factory(
+    work_item_to_delete = caluma_work_item_factory(
         case=be_instance.case,
         task_id=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
         meta={
@@ -145,14 +147,14 @@ def test_appeal_work_item_update(
     caluma_admin_schema_executor,
     gql,
     mocker,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
     mocker.patch("caluma.caluma_core.mutation.Mutation.permission_classes", [AllowAny])
 
     row = appeal_deadline_factory(date(2023, 4, 21))
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=be_instance.case,
         task_id=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
         meta={"is-appeal-statement-deadline": True, "appeal-row-id": str(row.pk)},

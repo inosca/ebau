@@ -37,26 +37,26 @@ def test_view_structure(
     admin_client,
     gis_data_source_factory,
     mocker,
-    question_factory,
+    caluma_question_factory,
     gis_snapshot,
 ):
-    question_factory(
+    caluma_question_factory(
         slug="text-question",
         label="Text Question",
         type=Question.TYPE_TEXT,
     )
-    question_factory(
+    caluma_question_factory(
         slug="table-question",
         label="Table Question",
         type=Question.TYPE_TABLE,
         row_form__slug="table-form",
     )
-    question_factory(
+    caluma_question_factory(
         slug="table-question-1",
         label="Question 1 in table",
         type=Question.TYPE_TEXT,
     )
-    question_factory(
+    caluma_question_factory(
         slug="table-question-2",
         label="Question 2 in table",
         type=Question.TYPE_TEXT,

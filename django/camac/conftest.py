@@ -222,7 +222,7 @@ def request_mock(mocker, admin_user, group):
             user=admin_user,
             group=group,
             auth=auth,
-            META={"HTTP_AUTHORIZATION": f"Bearer {jwt_encode(auth,'secret')}"},
+            META={"HTTP_AUTHORIZATION": f"Bearer {jwt_encode(auth, 'secret')}"},
         ),
     )
 
@@ -559,7 +559,7 @@ def caluma_workflow_config_ur(
     application_settings,
     notification_template,
     use_instance_service,
-    form_question_factory,
+    caluma_form_question_factory,
 ):
     def transform_notifications(notifications):
         if isinstance(notifications, dict):
@@ -1459,7 +1459,7 @@ def ur_master_data_case(
 
 
 @pytest.fixture
-def decision_factory(be_instance, document_factory, work_item_factory):
+def decision_factory(be_instance, caluma_document_factory, caluma_work_item_factory):
     call_command(
         "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_decision_form.json")
     )
@@ -1474,11 +1474,11 @@ def decision_factory(be_instance, document_factory, work_item_factory):
         work_item = instance.case.work_items.filter(task_id="decision").first()
 
         if not work_item:
-            work_item = work_item_factory(
+            work_item = caluma_work_item_factory(
                 case=instance.case,
                 task_id="decision",
                 status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
-                document=document_factory(form_id="decision"),
+                document=caluma_document_factory(form_id="decision"),
             )
 
         if decision:
@@ -1576,7 +1576,11 @@ def ur_construction_monitoring_settings(settings, construction_monitoring_settin
 
 @pytest.fixture
 def active_inquiry_factory(
-    instance, service, distribution_settings, work_item_factory, answer_factory
+    instance,
+    service,
+    distribution_settings,
+    caluma_work_item_factory,
+    caluma_answer_factory,
 ):
     def factory(
         for_instance=instance,
@@ -1589,7 +1593,7 @@ def active_inquiry_factory(
         ).first()
 
         if not distribution_work_item:
-            distribution_work_item = work_item_factory(
+            distribution_work_item = caluma_work_item_factory(
                 task_id=distribution_settings["DISTRIBUTION_TASK"],
                 status=caluma_workflow_models.WorkItem.STATUS_READY,
                 case=for_instance.case,
@@ -1600,7 +1604,7 @@ def active_inquiry_factory(
 
         assert distribution_work_item.child_case.family == for_instance.case
 
-        inquiry = work_item_factory(
+        inquiry = caluma_work_item_factory(
             case=distribution_work_item.child_case,
             task_id=distribution_settings["INQUIRY_TASK"],
             addressed_groups=[str(addressed_service.pk)],
@@ -1620,7 +1624,7 @@ def active_inquiry_factory(
             inquiry.child_case.created_at = kwargs.get("created_at")
             inquiry.child_case.save()
 
-        answer_factory(
+        caluma_answer_factory(
             document=inquiry.document,
             question_id=distribution_settings["QUESTIONS"]["DEADLINE"],
             value=None,

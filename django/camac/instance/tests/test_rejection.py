@@ -58,9 +58,9 @@ def test_validate(
     db,
     be_instance,
     active_inquiry_factory,
-    document_factory,
-    answer_factory,
-    work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+    caluma_work_item_factory,
     settings,
     reason,
     module_settings,
@@ -69,19 +69,19 @@ def test_validate(
     if reason == "inquiry":
         active_inquiry_factory(be_instance)
     elif reason == "claim":
-        work_item_factory(
+        caluma_work_item_factory(
             case=be_instance.case,
             task__slug=module_settings["TASK"],
             status=WorkItem.STATUS_READY,
         )
     elif reason == "claim_legacy":
         settings.APPLICATION_NAME = "kt_bern"
-        document = document_factory(form_id="nfd")
+        document = caluma_document_factory(form_id="nfd")
 
-        work_item_factory(case=be_instance.case, document=document)
+        caluma_work_item_factory(case=be_instance.case, document=document)
 
-        answer_factory(
-            document=document_factory(form__slug="nfd-tabelle", family=document),
+        caluma_answer_factory(
+            document=caluma_document_factory(form__slug="nfd-tabelle", family=document),
             question__slug="nfd-tabelle-status",
             value="nfd-tabelle-status-in-bearbeitung",
         )
@@ -104,11 +104,11 @@ def test_reject_instance(
     notification_template,
     mailoutbox,
     allow_revert,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     instance_state_factory(name=rejection_settings["INSTANCE_STATE"])
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=be_instance.case,
         status=WorkItem.STATUS_READY,
         child_case=None,

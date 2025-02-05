@@ -45,8 +45,8 @@ def test_milestones_ur(
     settings,
     application_settings,
     snapshot,
-    answer_factory,
-    document_factory,
+    caluma_answer_factory,
+    caluma_document_factory,
     publication_entry_factory,
     attachment_factory,
     attachment_download_history_factory,
@@ -58,7 +58,7 @@ def test_milestones_ur(
     complete_check_outcome,
     open_additional_demands,
 ):
-    answer_factory(
+    caluma_answer_factory(
         document=ur_instance.case.document,
         question_id="is-paper",
         value=is_paper_answer,
@@ -74,9 +74,9 @@ def test_milestones_ur(
         case=ur_instance.case,
         closed_at=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form_id="complete-check"),
+        document=caluma_document_factory(form_id="complete-check"),
     )
-    answer_factory(
+    caluma_answer_factory(
         document=complete_check_work_item.document,
         question__slug="complete-check-vollstaendigkeitspruefung",
         value=complete_check_outcome,
@@ -95,7 +95,7 @@ def test_milestones_ur(
         closed_at=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
         status=WorkItem.STATUS_COMPLETED,
     )
-    answer_factory(
+    caluma_answer_factory(
         document=decision_work_item.document,
         question__slug="decision-task-nachfuehrungsgeometer",
         value="decision-task-nachfuehrungsgeometer-ja",
@@ -229,13 +229,13 @@ def test_milestones_ur(
 
     # Receipt confirmations
     if receipt_confirmation_of_decision_documents:
-        answer_factory(
+        caluma_answer_factory(
             document=decision_work_item.document,
             question__slug="decision-task-feedback-type",
             value="decision-task-feedback-type-bau-und-einspracheentscheid",
         )
     else:
-        answer_factory(
+        caluma_answer_factory(
             document=decision_work_item.document,
             question__slug="decision-task-feedback-type",
             value="decision-task-feedback-type-stellungnahme-vorentscheid",
@@ -257,20 +257,26 @@ def test_get_date_of_downloaded_decision_document(
     attachment_factory,
     attachment_download_history_factory,
     instance_factory,
-    case_factory,
+    caluma_case_factory,
 ):
-    instance = instance_factory(case=case_factory())
+    instance = instance_factory(case=caluma_case_factory())
     attachment = attachment_factory(instance=instance, context={"isDecision": True})
     attachment_download_history_factory(attachment=attachment, date_time=timezone.now())
     assert _get_date_of_downloaded_decision_document(instance) == timezone.now()
 
 
 def test_check_decision_answer(
-    db, work_item_factory, answer_factory, instance_factory, case_factory
+    db,
+    caluma_work_item_factory,
+    caluma_answer_factory,
+    instance_factory,
+    caluma_case_factory,
 ):
-    instance = instance_factory(case=case_factory())
-    decision_work_item = work_item_factory(task__slug="decision", case=instance.case)
-    answer_factory(
+    instance = instance_factory(case=caluma_case_factory())
+    decision_work_item = caluma_work_item_factory(
+        task__slug="decision", case=instance.case
+    )
+    caluma_answer_factory(
         document=decision_work_item.document,
         question__slug="decision-task-feedback-type",
         value="decision-task-feedback-type-bau-und-einspracheentscheid",
@@ -286,10 +292,10 @@ def test_check_decision_answer(
 
 @pytest.mark.freeze_time("2024-08-29")
 def test_decision_work_item_closed_at(
-    db, work_item_factory, case_factory, instance_factory
+    db, caluma_work_item_factory, caluma_case_factory, instance_factory
 ):
-    instance = instance_factory(case=case_factory())
-    decision_work_item = work_item_factory(
+    instance = instance_factory(case=caluma_case_factory())
+    decision_work_item = caluma_work_item_factory(
         task__slug="decision",
         case=instance.case,
         status="completed",
@@ -301,9 +307,9 @@ def test_decision_work_item_closed_at(
 
 @pytest.mark.freeze_time("2024-08-29")
 def test_get_publication_date(
-    db, publication_entry_factory, instance_factory, case_factory
+    db, publication_entry_factory, instance_factory, caluma_case_factory
 ):
-    instance = instance_factory(case=case_factory())
+    instance = instance_factory(case=caluma_case_factory())
     publication_entry_factory(
         publication_date=timezone.now(),
         instance=instance,

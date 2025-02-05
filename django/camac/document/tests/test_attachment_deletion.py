@@ -159,14 +159,14 @@ def test_attachment_delete(
     mocker,
     acl_mode,
     case_status,
-    case_factory,
+    caluma_case_factory,
     application_settings,
 ):
     application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
     application_settings["ATTACHMENT_DELETEABLE_STATES"] = ["new"]
 
     if case_status:
-        attachment_attachment_sections.attachment.instance.case = case_factory(
+        attachment_attachment_sections.attachment.instance.case = caluma_case_factory(
             status=case_status
         )
         attachment_attachment_sections.attachment.instance.save()

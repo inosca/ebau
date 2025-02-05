@@ -120,24 +120,28 @@ def test_billing_export(
 @pytest.fixture
 def instance_with_document_for_billing(
     instance,
-    question_factory,
-    answer_factory,
+    caluma_question_factory,
+    caluma_answer_factory,
     form_factory,
-    case_factory,
-    form_question_factory,
+    caluma_case_factory,
+    caluma_form_question_factory,
 ):
-    instance.case = case_factory()
+    instance.case = caluma_case_factory()
     instance.save()
-    parcel_table = question_factory(type="table")
+    parcel_table = caluma_question_factory(type="table")
     parcel_field = partial(
-        form_question_factory, form=parcel_table.row_form, question__type="integer"
+        caluma_form_question_factory,
+        form=parcel_table.row_form,
+        question__type="integer",
     )
     parcel_field(question__slug="parzellennummer")
     parcel_field(question__slug="lagekoordinaten-ost")
     parcel_field(question__slug="lagekoordinaten-nord")
     instance.case.document.form.questions.add(parcel_table)
 
-    parcel_ans = answer_factory(document=instance.case.document, question=parcel_table)
+    parcel_ans = caluma_answer_factory(
+        document=instance.case.document, question=parcel_table
+    )
     return instance, parcel_ans
 
 

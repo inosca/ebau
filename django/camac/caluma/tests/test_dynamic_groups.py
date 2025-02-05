@@ -39,9 +39,9 @@ def test_dynamic_group_distribution_create_inquiry(
     has_context,
     service_factory,
     service,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
-    prev_work_item = work_item_factory(
+    prev_work_item = caluma_work_item_factory(
         case=be_instance.case, addressed_groups=[str(service.pk)]
     )
     context = {}
@@ -51,7 +51,7 @@ def test_dynamic_group_distribution_create_inquiry(
         target_subservice = service_factory(service_parent=service_factory())
         target_existing = service_factory()
 
-        work_item_factory(
+        caluma_work_item_factory(
             task_id=distribution_settings["INQUIRY_CREATE_TASK"],
             case=be_instance.case,
             addressed_groups=[str(target_existing.pk)],
@@ -89,7 +89,7 @@ def test_dynamic_group_distribution_create_inquiry(
 @pytest.mark.parametrize("allow_subservices", [True, False])
 def test_dynamic_create_additional_demand(
     db,
-    work_item_factory,
+    caluma_work_item_factory,
     service_factory,
     distribution_settings,
     additional_demand_settings,
@@ -105,7 +105,7 @@ def test_dynamic_create_additional_demand(
     additional_demand_settings["ALLOW_SUBSERVICES"] = allow_subservices
 
     # create already existing "init-additional-demand" work item
-    work_item_factory(
+    caluma_work_item_factory(
         task_id=additional_demand_settings["CREATE_TASK"],
         case=be_instance.case,
         addressed_groups=[str(target_existing.pk)],
@@ -143,7 +143,7 @@ def test_dynamic_create_additional_demand(
             task=None,
             case=be_instance.case,
             user=caluma_admin_user,
-            prev_work_item=work_item_factory(
+            prev_work_item=caluma_work_item_factory(
                 task_id=application_settings["CALUMA"]["SUBMIT_TASKS"][0],
             ),
             context={},
@@ -161,7 +161,7 @@ def test_dynamic_create_additional_demand(
             task=None,
             case=be_instance.case,
             user=caluma_admin_user,
-            prev_work_item=work_item_factory(
+            prev_work_item=caluma_work_item_factory(
                 task_id=additional_demand_settings["CREATE_TASK"],
                 addressed_groups=[
                     str(target_service.pk),
@@ -184,7 +184,7 @@ def test_dynamic_create_additional_demand(
             task=None,
             case=be_instance.case,
             user=caluma_admin_user,
-            prev_work_item=work_item_factory(
+            prev_work_item=caluma_work_item_factory(
                 task_id=distribution_settings["INQUIRY_CREATE_TASK"]
             ),
             context=context,
@@ -345,26 +345,26 @@ def test_dynamic_group_schnurgeruestabnahme_uri(
     db,
     service_factory,
     ur_instance,
-    answer_factory,
-    work_item_factory,
-    document_factory,
+    caluma_answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
     mocker,
     construction_monitoring_settings,
 ):
     service = service_factory()
     ur_instance.responsible_service = mocker.PropertyMock(return_value=service)
 
-    planning_work_item = work_item_factory(
+    planning_work_item = caluma_work_item_factory(
         case=ur_instance.case,
         task_id=construction_monitoring_settings[
             "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
         ],
-        document=document_factory(),
+        document=caluma_document_factory(),
     )
 
     question = Question.objects.get(pk="schnurgeruestabnahme-durch")
 
-    answer_factory(
+    caluma_answer_factory(
         document=planning_work_item.document,
         question=question,
         value="schnurgeruestabnahme-durch-gemeinde",
@@ -378,7 +378,7 @@ def test_dynamic_group_schnurgeruestabnahme_uri(
 
     geometer_service = service_factory(pk=uri_constants.GEOMETER_SERVICE_ID)
 
-    answer_factory(
+    caluma_answer_factory(
         document=planning_work_item.document,
         question=question,
         value="wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",

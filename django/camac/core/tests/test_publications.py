@@ -194,16 +194,16 @@ def test_publication_no_publication(
     application_settings,
     admin_client,
     publication_entry,
-    work_item_factory,
-    task_factory,
-    case_factory,
+    caluma_work_item_factory,
+    caluma_task_factory,
+    caluma_case_factory,
 ):
-    task = task_factory()
-    case = case_factory()
+    task = caluma_task_factory()
+    case = caluma_case_factory()
     publication_entry.instance.case = case
     publication_entry.instance.save()
     application_settings["CALUMA"] = {"PUBLICATION_TASK_SLUG": task.slug}
-    work_item_factory(status="ready", task=task, case=case, child_case=None)
+    caluma_work_item_factory(status="ready", task=task, case=case, child_case=None)
 
     url = reverse("publication-no-publication")
 

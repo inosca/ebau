@@ -145,7 +145,7 @@ def test_post_complete_sb1(
     be_instance,
     decision_factory,
     caluma_admin_user,
-    document_factory,
+    caluma_document_factory,
     service_factory,
     instance_service_factory,
     settings,
@@ -176,7 +176,7 @@ def test_post_complete_sb1(
     work_item = caluma_workflow_models.WorkItem.objects.filter(
         task_id="legal-submission"
     ).first()
-    row_document = document_factory(
+    row_document = caluma_document_factory(
         form_id="legal-submission-form", family=work_item.document
     )
     document_answer = work_item.document.answers.create(
@@ -342,8 +342,8 @@ def test_copy_tank_installation(
     be_instance,
     caluma_admin_user,
     caluma_workflow_config_be,
-    question_factory,
-    form_question_factory,
+    caluma_question_factory,
+    caluma_form_question_factory,
     bewilligungspflichtig_hidden,
     expect_copy,
     decision_factory,
@@ -357,7 +357,7 @@ def test_copy_tank_installation(
     table_form = caluma_form_models.Form.objects.create(
         slug="lagerung-von-stoffen-tabelle-v2"
     )
-    form_question_factory(
+    caluma_form_question_factory(
         form=case.document.form,
         question=caluma_form_models.Question.objects.create(
             slug="lagerung-von-stoffen-v2",
@@ -366,14 +366,14 @@ def test_copy_tank_installation(
         ),
     )
 
-    form_question_factory(
+    caluma_form_question_factory(
         form=table_form,
         question=caluma_form_models.Question.objects.create(
             slug="lagerstoff", type=caluma_form_models.Question.TYPE_TEXT
         ),
     )
 
-    form_question_factory(
+    caluma_form_question_factory(
         form=table_form,
         question=caluma_form_models.Question.objects.create(
             slug="bewilligungspflichtig-v2",
@@ -429,7 +429,7 @@ def test_notify_completed_work_item(
     service_factory,
     user_factory,
     instance,
-    work_item_factory,
+    caluma_work_item_factory,
     mailoutbox,
     application_settings,
     notify_completed,
@@ -444,7 +444,7 @@ def test_notify_completed_work_item(
 
     service = service_factory()
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         status="ready",
         controlling_groups=[str(service.pk)],
         child_case=None,
@@ -474,11 +474,11 @@ def test_notify_created_work_item(
     caluma_admin_user,
     service_factory,
     instance,
-    work_item_factory,
+    caluma_work_item_factory,
     mailoutbox,
     application_settings,
     notification_template,
-    task_factory,
+    caluma_task_factory,
 ):
     application_settings["NOTIFICATIONS"]["CREATE_MANUAL_WORK_ITEM"] = [
         {
@@ -489,8 +489,8 @@ def test_notify_created_work_item(
 
     service = service_factory()
 
-    work_item = work_item_factory(
-        task=task_factory(
+    work_item = caluma_work_item_factory(
+        task=caluma_task_factory(
             slug=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
         ),
         status="ready",
@@ -517,12 +517,12 @@ def test_notify_created_work_item(
 
 def test_set_is_published(
     caluma_admin_user,
-    work_item_factory,
+    caluma_work_item_factory,
     service_factory,
-    task_factory,
+    caluma_task_factory,
 ):
-    work_item = work_item_factory(
-        task=task_factory(slug="fill-publication"),
+    work_item = caluma_work_item_factory(
+        task=caluma_task_factory(slug="fill-publication"),
         status="ready",
         controlling_groups=[service_factory().pk],
         child_case=None,
@@ -554,15 +554,15 @@ def test_set_is_published(
 def test_set_meta_attributes(
     db,
     caluma_admin_user,
-    task_factory,
-    work_item_factory,
+    caluma_task_factory,
+    caluma_work_item_factory,
     task_slug,
     existing_meta,
     context,
     expected_meta,
     application_settings,
 ):
-    work_item = work_item_factory(task__slug=task_slug, meta=existing_meta)
+    work_item = caluma_work_item_factory(task__slug=task_slug, meta=existing_meta)
 
     send_event(
         post_create_work_item,
@@ -589,7 +589,7 @@ def test_set_assigned_user(
     caluma_admin_user,
     user,
     user_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     instance_responsibility_factory,
     responsible_service_factory,
     has_assigned_users,
@@ -608,7 +608,7 @@ def test_set_assigned_user(
     if has_addressed_groups:
         addressed_groups = [service.pk] if service else [123]
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         addressed_groups=addressed_groups, assigned_users=assigned_users
     )
 
@@ -645,12 +645,12 @@ def test_audit_history(
     db,
     instance,
     caluma_admin_user,
-    work_item_factory,
+    caluma_work_item_factory,
     process_type,
     expected_text,
     application_settings,
 ):
-    work_item = work_item_factory()
+    work_item = caluma_work_item_factory()
 
     application_settings["CALUMA"]["AUDIT_TASK"] = work_item.task_id
 
@@ -698,8 +698,8 @@ def test_complete_simple_workflow(
     role,
     multilang,
     instance_state_factory,
-    work_item_factory,
-    task_factory,
+    caluma_work_item_factory,
+    caluma_task_factory,
     task,
     notification_template,
     mailoutbox,
@@ -708,7 +708,7 @@ def test_complete_simple_workflow(
     expected_history_text,
     be_ech0211_settings,
 ):
-    work_item = work_item_factory(task=task_factory(slug=task))
+    work_item = caluma_work_item_factory(task=caluma_task_factory(slug=task))
     instance_state = instance_state_factory(name=expected_instance_state)
 
     notification = {
@@ -745,15 +745,17 @@ def test_complete_simple_workflow(
 
 
 def test_reopen_redo_unread(
-    db, work_item_factory, case_factory, caluma_admin_user, mocker
+    db, caluma_work_item_factory, caluma_case_factory, caluma_admin_user, mocker
 ):
     mocker.patch(
         "caluma.caluma_workflow.domain_logic.RedoWorkItemLogic.is_work_item_redoable",
         return_value=True,
     )
 
-    case_to_reopen = case_factory(status=caluma_workflow_models.Case.STATUS_COMPLETED)
-    case_work_items = work_item_factory.create_batch(
+    case_to_reopen = caluma_case_factory(
+        status=caluma_workflow_models.Case.STATUS_COMPLETED
+    )
+    case_work_items = caluma_work_item_factory.create_batch(
         2,
         case=case_to_reopen,
         meta={"not-viewed": False},
@@ -768,7 +770,7 @@ def test_reopen_redo_unread(
         assert work_item.status == caluma_workflow_models.WorkItem.STATUS_READY
         assert work_item.meta["not-viewed"]
 
-    work_item_to_redo = work_item_factory(
+    work_item_to_redo = caluma_work_item_factory(
         child_case=None,
         meta={"not-viewed": False},
         status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
@@ -792,7 +794,7 @@ def test_reopen_redo_unread(
 def test_role_dependent_default_leadtime(
     caluma_admin_user,
     application_settings,
-    work_item_factory,
+    caluma_work_item_factory,
     settings,
     be_distribution_settings,
     be_instance,
@@ -804,7 +806,7 @@ def test_role_dependent_default_leadtime(
     addressed_group = service_factory(
         service_group__name=service_group_name,
     )
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task=inquiry_task,
         addressed_groups=[addressed_group.pk],
     )
@@ -838,7 +840,7 @@ def test_role_dependent_default_leadtime(
 def test_post_create_reject_work_item(
     caluma_admin_user,
     so_rejection_settings,
-    work_item_factory,
+    caluma_work_item_factory,
     so_instance,
     instance_state_factory,
 ):
@@ -847,7 +849,7 @@ def test_post_create_reject_work_item(
     send_event(
         post_create_work_item,
         sender="post_create_work_item",
-        work_item=work_item_factory(
+        work_item=caluma_work_item_factory(
             task_id=so_rejection_settings["WORK_ITEM"]["TASK"],
             case=so_instance.case,
         ),
@@ -885,10 +887,10 @@ def test_post_create_reject_work_item(
 )
 def test_convert_special_form_to_construction_permit_ur(
     db,
-    work_item_factory,
-    question_factory,
-    answer_factory,
-    document_factory,
+    caluma_work_item_factory,
+    caluma_question_factory,
+    caluma_answer_factory,
+    caluma_document_factory,
     ur_instance,
     caluma_admin_user,
     form_factory,
@@ -903,24 +905,26 @@ def test_convert_special_form_to_construction_permit_ur(
     form_factory(form_id=form_id)
     instance_state_factory(name="comm")
 
-    complete_check_document = document_factory()
+    complete_check_document = caluma_document_factory()
     ur_instance.form_id = form_id
     ur_instance.save()
-    answer_factory(
+    caluma_answer_factory(
         document=complete_check_document,
-        question=question_factory(slug="complete-check-baubewilligungspflichtig"),
+        question=caluma_question_factory(
+            slug="complete-check-baubewilligungspflichtig"
+        ),
         value="complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
     )
-    answer_factory(
+    caluma_answer_factory(
         document=ur_instance.case.document,
         question_id="form-type",
         value="form-type-building-permit-canton",
     )
-    question_factory(
+    caluma_question_factory(
         slug=question_slug,
         type=caluma_form_models.Question.TYPE_TEXT,
     )
-    complete_check_work_item = work_item_factory(
+    complete_check_work_item = caluma_work_item_factory(
         task_id="complete-check",
         document=complete_check_document,
         case=ur_instance.case,
@@ -961,22 +965,24 @@ def test_suspend_circulation_based_on_complete_check(
     distribution_settings,
     caluma_admin_user,
     set_application_ur,
-    work_item_factory,
-    document_factory,
-    answer_factory,
-    question_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+    caluma_question_factory,
 ):
-    distribution_init_work_item = work_item_factory(
+    distribution_init_work_item = caluma_work_item_factory(
         task__slug=distribution_settings["DISTRIBUTION_INIT_TASK"]
     )
-    complete_check_work_item = work_item_factory(
+    complete_check_work_item = caluma_work_item_factory(
         task__slug=settings.APPLICATION["CALUMA"]["COMPLETE_CHECK_TASK"],
-        document=document_factory(),
+        document=caluma_document_factory(),
         case=distribution_init_work_item.case,
     )
-    answer_factory(
+    caluma_answer_factory(
         document=complete_check_work_item.document,
-        question=question_factory(slug="complete-check-vollstaendigkeitspruefung"),
+        question=caluma_question_factory(
+            slug="complete-check-vollstaendigkeitspruefung"
+        ),
         value=answer,
     )
 
@@ -992,25 +998,27 @@ def test_suspend_circulation_based_on_complete_check(
 
 
 def test_post_create_review_building_commission(
-    case_factory,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     caluma_admin_user,
     set_application_ur,
     application_settings,
 ):
-    caluma_case = case_factory()
+    caluma_case = caluma_case_factory()
     application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {}
-    release_work_item = work_item_factory(
-        task__slug="release-for-bk", case=caluma_case, document=document_factory()
+    release_work_item = caluma_work_item_factory(
+        task__slug="release-for-bk",
+        case=caluma_case,
+        document=caluma_document_factory(),
     )
-    review_work_item = work_item_factory(
+    review_work_item = caluma_work_item_factory(
         task__slug="review-building-commission",
         case=caluma_case,
-        document=document_factory(),
+        document=caluma_document_factory(),
     )
-    answer_factory(
+    caluma_answer_factory(
         document=release_work_item.document,
         question__slug="release-for-bk-meeting-date",
         date="2023-01-01",
@@ -1032,17 +1040,19 @@ def test_post_create_review_building_commission(
 def test_post_decision_ur(
     db,
     caluma_admin_user,
-    case_factory,
-    work_item_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
     set_application_ur,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    caluma_case = case_factory()
-    decision_work_item = work_item_factory(case=caluma_case, task__slug="decision")
-    unfinished_release_for_bk_work_item = work_item_factory(
+    caluma_case = caluma_case_factory()
+    decision_work_item = caluma_work_item_factory(
+        case=caluma_case, task__slug="decision"
+    )
+    unfinished_release_for_bk_work_item = caluma_work_item_factory(
         case=caluma_case, task__slug="release-for-bk", child_case=None
     )
-    unfininished_review_building_commission_work_item = work_item_factory(
+    unfininished_review_building_commission_work_item = caluma_work_item_factory(
         case=caluma_case, task__slug="review-building-commission", child_case=None
     )
 
@@ -1067,17 +1077,19 @@ def test_post_decision_ur(
 
 def test_complete_check_ur(
     db,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     mocker,
     set_application_ur,
     ur_instance,
 ):
-    work_item = work_item_factory(
-        task_id="complete-check", document=document_factory(), case=ur_instance.case
+    work_item = caluma_work_item_factory(
+        task_id="complete-check",
+        document=caluma_document_factory(),
+        case=ur_instance.case,
     )
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question__slug="complete-check-vollstaendigkeitspruefung",
         value="complete-check-vollstaendigkeitspruefung-complete",
@@ -1098,7 +1110,12 @@ def test_complete_check_ur(
 
 
 def test_post_create_caluma_workflow_notifications(
-    db, application_settings, ur_instance, document_factory, work_item_factory, mocker
+    db,
+    application_settings,
+    ur_instance,
+    caluma_document_factory,
+    caluma_work_item_factory,
+    mocker,
 ):
     application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {
         "send-additional-demand": [
@@ -1111,9 +1128,9 @@ def test_post_create_caluma_workflow_notifications(
             }
         ]
     }
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task_id="send-additional-demand",
-        document=document_factory(),
+        document=caluma_document_factory(),
         case=ur_instance.case,
     )
     send_notification_mock = mocker.patch(
@@ -1132,7 +1149,12 @@ def test_post_create_caluma_workflow_notifications(
 
 
 def test_post_complete_caluma_workflow_notifications(
-    db, application_settings, ur_instance, document_factory, work_item_factory, mocker
+    db,
+    application_settings,
+    ur_instance,
+    caluma_document_factory,
+    caluma_work_item_factory,
+    mocker,
 ):
     application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {
         "complete-distribution": [
@@ -1145,9 +1167,9 @@ def test_post_complete_caluma_workflow_notifications(
             }
         ]
     }
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task_id="complete-distribution",
-        document=document_factory(),
+        document=caluma_document_factory(),
         case=ur_instance.case,
     )
     send_notification_mock = mocker.patch(

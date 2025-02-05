@@ -4,14 +4,14 @@ from camac.core import utils
 
 
 @pytest.mark.freeze_time("2020-10-16")
-def test_max_ebau_nr(db, case_factory, instance_factory, question, chapter):
+def test_max_ebau_nr(db, caluma_case_factory, instance_factory, question, chapter):
     assert utils.generate_ebau_nr(None, 2020) == "2020-1"
 
-    case_factory(meta={"ebau-number": "2020-123"})
-    case_factory(meta={"ebau-number": "2020-99"})
+    caluma_case_factory(meta={"ebau-number": "2020-123"})
+    caluma_case_factory(meta={"ebau-number": "2020-99"})
     assert utils.generate_ebau_nr(None, 2020) == "2020-124"
 
-    case_factory(meta={"ebau-number": "2019-100"})
+    caluma_case_factory(meta={"ebau-number": "2019-100"})
     assert utils.generate_ebau_nr(None, 2019) == "2019-101"
     assert utils.generate_ebau_nr(None, 2020) == "2020-124"
     assert utils.generate_ebau_nr(None, 2021) == "2021-1"
@@ -21,7 +21,7 @@ def test_max_ebau_nr(db, case_factory, instance_factory, question, chapter):
 def test_assign_ebau_nr(
     db,
     question,
-    case_factory,
+    caluma_case_factory,
     chapter,
     instance_with_case,
     instance_factory,
@@ -44,7 +44,7 @@ def test_assign_ebau_nr(
     inst3 = instance_with_case(instance_factory())
     assert utils.assign_ebau_nr(inst3, 2019) == "2019-1"
 
-    case_factory(meta={"ebau-number": "2017-420"})
+    caluma_case_factory(meta={"ebau-number": "2017-420"})
     inst4 = instance_with_case(instance_factory())
     assert utils.assign_ebau_nr(inst4, 2017) == "2017-421"
 
@@ -71,11 +71,11 @@ def test_canton_aware_decorator(db, role, expected, canton, application_settings
 
 
 @pytest.mark.freeze_time("2020-10-16")
-def test_generate_sort_key(db, case_factory):
+def test_generate_sort_key(db, caluma_case_factory):
     assert utils.generate_sort_key(utils.generate_ebau_nr(None, 2020)) == 2020000001
 
-    case_factory(meta={"ebau-number": "2020-123"})
-    case_factory(meta={"ebau-number": "2020-99"})
+    caluma_case_factory(meta={"ebau-number": "2020-123"})
+    caluma_case_factory(meta={"ebau-number": "2020-99"})
     assert utils.generate_sort_key(utils.generate_ebau_nr(None, 2020)) == 2020000124
 
     assert utils.generate_sort_key("2020-999999") == 2020999999

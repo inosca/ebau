@@ -11,35 +11,41 @@ from camac.utils import build_url
 
 
 @pytest.fixture
-def gis_apply_data(form_question_factory, question_option_factory, caluma_forms_so):
+def gis_apply_data(
+    caluma_form_question_factory, caluma_question_option_factory, caluma_forms_so
+):
     main_form = Form.objects.get(pk="main-form")
     plot_form = Form.objects.create(slug="parzelle")
 
-    form_question_factory(
+    caluma_form_question_factory(
         form=plot_form,
         question__slug="e-grid",
         question__type=Question.TYPE_TEXT,
     )
 
-    form_question_factory(
+    caluma_form_question_factory(
         form=main_form,
         question__slug="ort",
         question__type=Question.TYPE_TEXT,
     )
-    form_question_factory(
+    caluma_form_question_factory(
         form=main_form,
         question__slug="schutzzone",
         question__type=Question.TYPE_MULTIPLE_CHOICE,
     )
-    form_question_factory(
+    caluma_form_question_factory(
         form=main_form,
         question__slug="parzellen",
         question__type=Question.TYPE_TABLE,
         question__row_form=plot_form,
     )
 
-    question_option_factory(question_id="schutzzone", option__slug="schutzzone-ueb")
-    question_option_factory(question_id="schutzzone", option__slug="schutzzone-au")
+    caluma_question_option_factory(
+        question_id="schutzzone", option__slug="schutzzone-ueb"
+    )
+    caluma_question_option_factory(
+        question_id="schutzzone", option__slug="schutzzone-au"
+    )
 
     data = {
         "ort": {

@@ -196,7 +196,7 @@ def test_event_handlers(
 def test_accompanying_report_event_handler(
     db,
     active_inquiry_factory,
-    answer_factory,
+    caluma_answer_factory,
     attachment_factory,
     attachment_section_factory,
     be_distribution_settings,
@@ -257,19 +257,19 @@ def test_accompanying_report_event_handler(
         addressed_service=parent_service,
     )
 
-    answer_factory(
+    caluma_answer_factory(
         document=inquiry.child_case.document,
         question_id=be_distribution_settings["QUESTIONS"]["STATUS"],
         value=be_distribution_settings["ANSWERS"]["STATUS"]["UNKNOWN"],
     )
 
     if notices_exists:
-        answer_factory(
+        caluma_answer_factory(
             document=inquiry.child_case.document,
             question_id=be_distribution_settings["QUESTIONS"]["STATEMENT"],
             value="lorem ipsum " * 100,  # 1200 characters
         )
-        answer_factory(
+        caluma_answer_factory(
             document=inquiry.child_case.document,
             question_id=be_distribution_settings["QUESTIONS"]["ANCILLARY_CLAUSES"],
             value="nebenbestimmung\r\nblablabla\r\nblu; yeah ",
@@ -400,7 +400,7 @@ def test_skip_events_sz(
 def test_accompanying_report_event_handler_alexandria(
     db,
     active_inquiry_factory,
-    answer_factory,
+    caluma_answer_factory,
     so_distribution_settings,
     ech_instance_so,
     so_ech0211_settings,
@@ -470,7 +470,7 @@ def test_accompanying_report_event_handler_alexandria(
         addressed_service=service,
     )
 
-    answer_factory(
+    caluma_answer_factory(
         document=inquiry.child_case.document,
         question_id=so_distribution_settings["QUESTIONS"]["STATUS"],
         value=so_distribution_settings["ANSWERS"]["STATUS"]["UNKNOWN"],

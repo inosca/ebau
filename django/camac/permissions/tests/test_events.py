@@ -203,7 +203,7 @@ def test_decision_event_handler_gr(
     instance_state_factory,
     settings,
     application_settings,
-    answer_factory,
+    caluma_answer_factory,
     service_factory,
     caluma_admin_user,
     access_level_factory,
@@ -223,7 +223,7 @@ def test_decision_event_handler_gr(
         )
 
     if checkbox_checked:
-        answer_factory(
+        caluma_answer_factory(
             document=gr_instance.case.work_items.filter(task_id="decision")
             .first()
             .document,
@@ -260,7 +260,7 @@ def test_construction_acceptance_event_handler_gr(
     gr_distribution_settings,
     instance_state_factory,
     settings,
-    answer_factory,
+    caluma_answer_factory,
     service_factory,
     caluma_admin_user,
     gr_decision_settings,
@@ -282,7 +282,7 @@ def test_construction_acceptance_event_handler_gr(
 
     instance_state_factory(name="construction-acceptance")
 
-    answer_factory(
+    caluma_answer_factory(
         document=gr_instance.case.work_items.filter(task_id="decision")
         .first()
         .document,
@@ -296,7 +296,7 @@ def test_construction_acceptance_event_handler_gr(
     )
 
     if checkbox_checked:
-        answer_factory(
+        caluma_answer_factory(
             document=gr_instance.case.work_items.filter(
                 task_id="construction-acceptance"
             )
@@ -616,14 +616,16 @@ def test_completed_involve_tax_administration_sz(
     sz_instance,
     set_application_sz,
     service_factory,
-    work_item_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_answer_factory,
 ):
     tax_administration = service_factory.create(
         slug=set_application_sz["TAX_ADMINISTRATION"]
     )
-    work_item = work_item_factory(case=sz_instance.case, task_id="complete-instance")
-    answer = answer_factory(
+    work_item = caluma_work_item_factory(
+        case=sz_instance.case, task_id="complete-instance"
+    )
+    answer = caluma_answer_factory(
         question_id="steuerverwaltung-informieren",
         value=["steuerverwaltung-informieren-steuerverwaltung-informieren"],
     )

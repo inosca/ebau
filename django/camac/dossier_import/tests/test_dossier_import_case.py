@@ -481,7 +481,7 @@ def test_record_loading_be(
     snapshot,
     is_empty,
     mocker,
-    work_item_factory,
+    caluma_work_item_factory,
     master_data_is_visible_mock,
 ):
     """Load data from import record, make persistant and verify with master_data API."""
@@ -503,7 +503,7 @@ def test_record_loading_be(
         foreign_instance.case.save()
 
     if expected_target == "decision_date":
-        work_item_factory(task_id="decision", case=camac_instance.case)
+        caluma_work_item_factory(task_id="decision", case=camac_instance.case)
 
     # test overwriting values
     if not is_empty:
@@ -537,7 +537,7 @@ IMPORT_ROWS_SO = [
 @pytest.mark.parametrize("config,camac_instance", [("kt_so", lf("so_instance"))])
 @pytest.mark.parametrize("dossier_row_patch,expected_target", IMPORT_ROWS_SO)
 def test_record_loading_so(
-    work_item_factory,
+    caluma_work_item_factory,
     dossier,
     setup_dossier_writer,
     master_data_is_visible_mock,
@@ -555,7 +555,7 @@ def test_record_loading_so(
     writer = setup_dossier_writer(config)
 
     if expected_target == "decision_date":
-        work_item_factory(task_id="decision", case=camac_instance.case)
+        caluma_work_item_factory(task_id="decision", case=camac_instance.case)
 
     # test overwriting values
     if not is_empty:
@@ -617,7 +617,7 @@ def test_record_loading_sz(
     dossier_row_patch,
     target,
     is_empty,
-    work_item_factory,
+    caluma_work_item_factory,
     master_data_is_visible_mock,
 ):
     """Load data from import record, make persistent and verify with master_data API."""
@@ -628,7 +628,7 @@ def test_record_loading_sz(
         mocker.patch.object(writer, "existing_dossier", camac_instance)
 
     dossier_row_sparse.update(dossier_row_patch)
-    work_item_factory(task_id="building-authority", case=camac_instance.case)
+    caluma_work_item_factory(task_id="building-authority", case=camac_instance.case)
     dossier = dossier_loader._load_dossier(dossier_row_sparse)
     writer.write_fields(camac_instance, dossier)
     md = MasterData(camac_instance.case)
@@ -672,7 +672,7 @@ def test_record_loading_all_empty(
 def test_reimport_delete_values(
     db,
     setup_dossier_writer,
-    work_item_factory,
+    caluma_work_item_factory,
     camac_instance,
     dossier_row_full,
     dossier_row_sparse,
@@ -690,7 +690,7 @@ def test_reimport_delete_values(
     deletable_fields = {key: "<LÖSCHEN>" for key in dossier_row_full.keys()}
     orig_values = {}
     dossier_row_sparse.update(deletable_fields)
-    work_item_factory(task_id="building-authority", case=camac_instance.case)
+    caluma_work_item_factory(task_id="building-authority", case=camac_instance.case)
     md = MasterData(camac_instance.case)
     targets = set(
         [
@@ -753,7 +753,7 @@ def test_delete_case_meta_field(
 def test_reimport_ignores_empty(
     db,
     setup_dossier_writer,
-    work_item_factory,
+    caluma_work_item_factory,
     camac_instance,
     dossier_row_full,
     dossier_row_sparse,
@@ -765,13 +765,13 @@ def test_reimport_ignores_empty(
     writer = setup_dossier_writer(config)
     loader = XlsxFileDossierLoader()
     if config == "kt_bern":
-        work_item_factory(task_id="decision", case=camac_instance.case)
+        caluma_work_item_factory(task_id="decision", case=camac_instance.case)
     dossier = loader._load_dossier(dossier_row_full)
     writer.write_fields(camac_instance, dossier)
     empty_rows = {key: None for key in dossier_row_full.keys() if key != "ID"}
     orig_values = {}
     dossier_row_sparse.update(empty_rows)
-    work_item_factory(task_id="building-authority", case=camac_instance.case)
+    caluma_work_item_factory(task_id="building-authority", case=camac_instance.case)
     md = MasterData(camac_instance.case)
     targets = set(
         [target for _, target in IMPORT_ROWS_BE + IMPORT_ROWS_SZ + IMPORT_ROWS_SO]

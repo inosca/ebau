@@ -535,7 +535,7 @@ def test_attachment_create(
     acl_mode,
     role,
     mocker,
-    case_factory,
+    caluma_case_factory,
     application_settings,
 ):
     url = reverse("attachment-list")
@@ -549,7 +549,7 @@ def test_attachment_create(
     application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
     application_settings["ATTACHMENT_MAX_SIZE"] = 0.9 * 1024 * 1024
     if case_status:
-        sz_instance.case = case_factory(status=case_status)
+        sz_instance.case = caluma_case_factory(status=case_status)
         sz_instance.save()
 
     path = django_file(filename)

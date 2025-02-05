@@ -445,7 +445,7 @@ def test_number_separator(
     db,
     ch_locale,
     dms_settings,
-    form_question_factory,
+    caluma_form_question_factory,
     so_instance,
     use_number_separator,
     utils,
@@ -453,12 +453,12 @@ def test_number_separator(
     dms_settings["FORM"] = {"baugesuch": {"forms": ["main-form"]}}
     dms_settings["USE_NUMBER_SEPARATOR"] = use_number_separator
 
-    form_question_factory(
+    caluma_form_question_factory(
         form_id="main-form",
         question__slug="integer",
         question__type=Question.TYPE_INTEGER,
     )
-    form_question_factory(
+    caluma_form_question_factory(
         form_id="main-form",
         question__slug="float",
         question__type=Question.TYPE_FLOAT,

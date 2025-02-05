@@ -151,7 +151,7 @@ def test_copy_applicants(
 def test_instance_generate_identifier_so(
     db,
     so_instance,
-    case_factory,
+    caluma_case_factory,
     service,
     existing_dossier_numbers,
     expected_dossier_number,
@@ -161,7 +161,7 @@ def test_instance_generate_identifier_so(
 
     if existing_dossier_numbers:
         for nr in existing_dossier_numbers:
-            case_factory(meta={"dossier-number": nr})
+            caluma_case_factory(meta={"dossier-number": nr})
 
     assert (
         CreateInstanceLogic.generate_identifier(so_instance) == expected_dossier_number
