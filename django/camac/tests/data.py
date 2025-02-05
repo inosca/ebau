@@ -85,3 +85,22 @@ def so_personal_row_factory(
             )
 
     return data
+
+
+def ag_personal_row_factory(is_juristic: bool = False) -> dict:
+    fake = Faker()
+
+    return {
+        "name-gesuchstellerin": fake.last_name(),
+        "vorname-gesuchstellerin": fake.first_name(),
+        "strasse-gesuchstellerin": fake.street_name(),
+        "nummer-gesuchstellerin": fake.building_number(),
+        "plz-gesuchstellerin": fake.pyint(min_value=1000, max_value=9999),
+        "ort-gesuchstellerin": fake.city(),
+        "e-mail-gesuchstellerin": fake.email(),
+        "telefon-oder-mobile-gesuchstellerin": fake.phone_number(),
+        "juristische-person-gesuchstellerin": f"juristische-person-gesuchstellerin-{'ja' if is_juristic else 'nein'}",
+        "name-juristische-person-gesuchstellerin": fake.company()
+        if is_juristic
+        else None,
+    }
