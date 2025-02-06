@@ -94,6 +94,7 @@ export default class InquiryAnswerStatusComponent extends Component {
             "inquiry-answer-status-negative-deconstruction",
             "inquiry-answer-status-statement",
             "inquiry-answer-status-claim",
+            "inquiry-answer-status-not-involved",
           ]
         : [
             "inquiry-answer-status-positive",
