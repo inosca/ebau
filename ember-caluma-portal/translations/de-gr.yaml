@@ -1,3 +1,7 @@
+caluma:
+  form:
+    optional: "optional"
+
 global:
   title: "ebau GR"
   page-title: "ebau-GR"
