@@ -702,6 +702,8 @@ DUMP = {
                 "user.GroupT",
                 "user.Service",
                 "user.ServiceT",
+                "notification.NotificationTemplate",
+                "notification.NotificationTemplateT",
             ],
         },
     },

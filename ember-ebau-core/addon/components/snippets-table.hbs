@@ -1,0 +1,26 @@
+{{#if this.snippets.isLoading}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio="2" />
+  </div>
+{{else}}
+  {{#each-in this.categories as |category snippets|}}
+    <SnippetsTable::Category
+      @editable={{@editable}}
+      @category={{category}}
+      @snippets={{snippets}}
+      @refresh={{this.refresh}}
+    />
+  {{else}}
+    <p class="uk-text-center uk-text-meta">{{t "snippets.empty"}}</p>
+  {{/each-in}}
+
+  {{#if @editable}}
+    <LinkTo
+      @route={{module-route "snippets-admin" "new"}}
+      class="uk-button uk-button-primary"
+      data-test-new-category
+    >
+      {{t "snippets.new-category"}}
+    </LinkTo>
+  {{/if}}
+{{/if}}

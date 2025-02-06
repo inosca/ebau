@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import graphqlHandler from "@projectcaluma/ember-testing/mirage-graphql";
 import { discoverEmberDataModels } from "ember-cli-mirage";
 import { DateTime } from "luxon";
-import { createServer } from "miragejs";
+import { createServer, Response } from "miragejs";
 
 import mainConfig from "ember-ebau-core/config/main";
 import applyTestQueryParamsFilter from "ember-ebau-core/utils/apply-test-query-params-filter";
@@ -27,7 +27,25 @@ export default function makeServer(config) {
       this.resource("public-users");
       this.resource("public-services");
       this.resource("public-groups");
-      this.resource("notification-templates", { only: ["index", "show"] });
+      this.resource("notification-templates");
+      this.delete(
+        "notification-templates/delete_by_purpose",
+        function ({ notificationTemplates }, { queryParams: { purpose } }) {
+          notificationTemplates.where({ purpose }).destroy();
+
+          return new Response(204);
+        },
+      );
+      this.get(
+        "notification-templates/update_purposes",
+        function ({ notificationTemplates }, { queryParams }) {
+          notificationTemplates
+            .where({ purpose: queryParams.current })
+            .update({ purpose: queryParams.new });
+
+          return new Response(204);
+        },
+      );
 
       this.resource("billing-v2-entries");
       this.resource("billing-v2-entry-templates", { only: ["index"] });
