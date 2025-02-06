@@ -229,18 +229,6 @@
   },
   {
     "model": "notification.notificationtemplate",
-    "pk": 20,
-    "fields": {
-      "slug": "decision-completed-baubewilligung-solaranlage",
-      "purpose": null,
-      "subject": null,
-      "body": null,
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
     "pk": 21,
     "fields": {
       "slug": "decision-completed-bauanzeige-vorlaeufige-beurteilung",
@@ -296,7 +284,7 @@
       "language": "de",
       "purpose": "Empfang Baugesuch (Gesuchsteller)",
       "subject": "Erfolgreiche Einreichung",
-      "body": "Guten Tag\n\nIhr Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde erfolgreich übermittelt. Bitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn die Eingabequittung ausgedruckt und unterzeichnet bei der Standortgemeinde eingereicht wurde.\n\n{{PUBLIC_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\n\nIhr Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde erfolgreich übermittelt. Wir bestätigen Ihnen hiermit den Empfang.\n\n{{PUBLIC_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
     }
   },
   {
@@ -308,7 +296,7 @@
       "language": "de",
       "purpose": "Empfang Baugesuch (Behörden)",
       "subject": "Neu eingegangen ({{FORM_NAME_DE}})",
-      "body": "Guten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\n\n{{INTERNAL_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+      "body": "Guten Tag\n\nIn DIBA gibt es einen neuen Eingang mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\n\n{{INTERNAL_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
@@ -320,7 +308,7 @@
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung, Bestehend",
       "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ DOSSIER_NR }})",
-      "body": "Guten Tag\n\nSie haben von {{GESUCHSTELLER}} den Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+      "body": "Guten Tag\n\nSie haben von {{GESUCHSTELLER}} den Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen und mitbearbeiten.\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
@@ -332,7 +320,7 @@
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung, Neu",
       "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ DOSSIER_NR }})",
-      "body": "Guten Tag\n\nSie haben von {{GESUCHSTELLER}} den Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten.\n\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Aargau erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+      "body": "Guten Tag\n\nSie haben von {{GESUCHSTELLER}} den Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen und mitbearbeiten.\n\nUm das Dossier einsehen zu können, ist eine Registrierung auf dem DIBA-Portal des Kantons Argau erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
@@ -344,7 +332,7 @@
       "language": "de",
       "purpose": "Verfahrensablauf (Fachstelle)",
       "subject": "Hinweis zum Verfahrensablauf (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nSie erhalten das Dossier mit der Dossier-Nr. {{DOSSIER_NR}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zur Ausarbeitung einer Stellungnahme, eines Amts-/ Fachberichtes oder einer Verfügung.\n\nBemerkung: {{INQUIRY_REMARK}}\n\n{{INQUIRY_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{CURRENT_SERVICE_DE}}"
+      "body": "Guten Tag\n\nSie haben in DIBA das Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zur Stellungnahme erhalten.\n\nBemerkung: {{INQUIRY_REMARK}}\n\n{{INQUIRY_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
@@ -356,7 +344,7 @@
       "language": "de",
       "purpose": "Vernehmlassung abgeschlossen",
       "subject": "Vernehmlassung abgeschlossen (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nFür das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurden die gemäss Leitverfahren eingeforderten\nStellungnahmen, Amts- und Fachberichte und Verfügungen erstellt: {{ INQUIRY_ANSWER_DE }}.\n\n{{INQUIRY_LINK}}\n\n{{DISTRIBUTION_STATUS_DE}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{CURRENT_SERVICE_DE}}"
+      "body": "Guten Tag\n\nFür das Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}})  wurde der eingeforderte kantonale Entscheid bzw. die kantonale Stellungnahme erstellt.\n\n{{INQUIRY_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{CURRENT_SERVICE_DE}}"
     }
   },
   {
@@ -368,7 +356,7 @@
       "language": "de",
       "purpose": "Entscheid (Gesuchsteller)",
       "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDer Bauentscheid ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\n{{PUBLIC_DOSSIER_LINK}}/feedback\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\n\nDer Bauentscheid zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid  des Gemeinderates finden Sie in den DIBA-Dokumenten. Bitte beachten Sie, dass mit der Eröffnung des Bauentscheids die Rechtsmittelfrist  zu laufen beginnt. \n\n{{PUBLIC_DOSSIER_LINK}}/feedback\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
     }
   },
   {
@@ -380,7 +368,7 @@
       "language": "de",
       "purpose": "Entscheid (Behörden)",
       "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDer Bauentscheid zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\n\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\n\nDer Bauentscheid zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt. Der Entscheid des Gemeinderates ist in DIBA abgelegt.\n\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse \n{{LEITBEHOERDE_NAME_DE}}"
     }
   },
   {
@@ -392,7 +380,7 @@
       "language": "de",
       "purpose": "Nachforderung, Neu",
       "subject": "Neue Nachforderung (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nIm eBau gibt es eine neue Nachforderung im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\n\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau"
+      "body": "Guten Tag\n\nIm DIBA gibt es eine neue Unterlagenergänzung im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\n\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse \nDIBA"
     }
   },
   {
@@ -404,7 +392,7 @@
       "language": "de",
       "purpose": "Nachforderung beantwortet",
       "subject": "Nachforderung beantwortet (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nIm eBau wurde die Nachforderung beantwortet im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\n\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+      "body": "Guten Tag\n\nIn DIBA wurde im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) eine Unterlagergänzung eingereicht.\n\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
@@ -416,7 +404,7 @@
       "language": "de",
       "purpose": "Nachforderung geprüft positiv",
       "subject": "Nachforderung akzeptiert (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nIm eBau wurde die Nachforderung angeschlossen im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\n\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+      "body": "Guten Tag\n\nIn DIBA wurde Ihre Unterlagenergänzung akzeptiert im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\n\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
@@ -428,7 +416,7 @@
       "language": "de",
       "purpose": "Nachforderung geprüft negativ",
       "subject": "Nachforderung abgelehnt (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nIm eBau wurde ihre Nachforderung abgelehnt im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\n\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+      "body": "Guten Tag\n\nIm eBau wurde Ihre Unterlagenergänzung abgelehnt im Dossier-Nr. {DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\n\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
@@ -440,7 +428,7 @@
       "language": "de",
       "purpose": "Beurteilung Vorabklärung, Bauanzeige, Solaranlage (Gesuchsteller)",
       "subject": "Information über Beurteilung (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDie Beurteilung ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\n\n{{PUBLIC_DOSSIER_LINK}}/feedback\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\n\nDie Beurteilung zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\n\n{{PUBLIC_DOSSIER_LINK}}/feedback\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
     }
   },
   {
@@ -452,7 +440,7 @@
       "language": "de",
       "purpose": "Beurteilung Vorabklärung, Bauanzeige (Behörden)",
       "subject": "Information über Beurteilung (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDie Beurteilung zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\n\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\n\nDie Beurteilung zum Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\n\n{{INTERNAL_DOSSIER_LINK}}?instance-resource-name=documents\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
     }
   },
   {
@@ -464,7 +452,7 @@
       "language": "de",
       "purpose": "Rückweisung (Gesuchsteller)",
       "subject": "Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDie Baubewilligungsbehörde ({{LEITBEHOERDE_NAME_DE}}) hat das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zurückgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\n\n{{PUBLIC_DOSSIER_LINK}}\n\nMitteilung der Baubewilligungsbehörde:\n\n{{REJECTION_FEEDBACK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
+      "body": "Guten Tag\n\nDie Baubewilligungsbehörde ({{LEITBEHOERDE_NAME_DE}}) hat das Dossier Nr. {{DOSSIER_NR}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zurückgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\n\n{{PUBLIC_DOSSIER_LINK}}\n\nMitteilung der Baubewilligungsbehörde:\n\n{{REJECTION_FEEDBACK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
     }
   },
   {
@@ -476,7 +464,7 @@
       "language": "de",
       "purpose": "Neue Nachricht (Gesuchsteller)",
       "subject": "Neue Nachricht (Dossier-Nr. {{ DOSSIER_NR }})",
-      "body": "Guten Tag\n\nSie haben eine neue Nachricht auf dem Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.\n\n{{ PUBLIC_DOSSIER_LINK }}/communications\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+      "body": "Guten Tag\n\nSie haben eine neue Nachricht im Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.\n\n{{ PUBLIC_DOSSIER_LINK }}/communications\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
@@ -488,7 +476,7 @@
       "language": "de",
       "purpose": "Neue Nachricht (Behörden)",
       "subject": "Neue Nachricht (Dossier-Nr. {{ DOSSIER_NR }})",
-      "body": "Guten Tag\n\nSie haben eine neue Nachricht auf dem Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.\n\n{{ INTERNAL_DOSSIER_LINK }}/communications\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+      "body": "Guten Tag\n\nSie haben eine neue Nachricht im Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.\n\n{{ INTERNAL_DOSSIER_LINK }}/communications\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
@@ -500,7 +488,7 @@
       "language": "de",
       "purpose": "Bauabnahme (Gesuchsteller)",
       "subject": "Information über Bauabnahme (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDie Bauabnahme zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen.\n\nDie Dokumente finden Sie unter folgendem Link:\n\n{{PUBLIC_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\n\nDie Bauabnahme zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen.\n\nDie Dokumente finden Sie unter folgendem Link:\n\n{{PUBLIC_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
     }
   },
   {
@@ -512,19 +500,7 @@
       "language": "de",
       "purpose": "Dossier-Zuständigkeit",
       "subject": "Neue Zuständigkeit bei eBau-Dossier",
-      "body": "Guten Tag\n\nVon ihrer Organisation wurde Ihnen die Zuständigkeit für das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) zugewiesen.\n\n{{ INTERNAL_DOSSIER_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
-    }
-  },
-  {
-    "model": "notification.notificationtemplatet",
-    "pk": 20,
-    "fields": {
-      "template": 20,
-      "template_slug": "decision-completed-baubewilligung-solaranlage",
-      "language": "de",
-      "purpose": "Entscheid verfügt Baubewilligung und Solaranlage",
-      "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDer Bauentscheid ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt.\n\n{{INTERNAL_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\n\nIhnen wurde die Zuständigkeit für das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}})  zugewiesen.\n\n{{ INTERNAL_DOSSIER_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
@@ -536,7 +512,7 @@
       "language": "de",
       "purpose": "Entscheid verfügt Bauanzeige und vorläufige Beurteilung",
       "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDie Beurteilung ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\n\n{{INTERNAL_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag\n\nDie Beurteilung zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Den Entscheid  des Gemeinderates finden Sie in den DIBA-Dokumenten. Sie finden die Dokumente unter folgendem Link:\n\n{{INTERNAL_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{LEITBEHOERDE_NAME_DE}}"
     }
   },
   {
@@ -548,7 +524,7 @@
       "language": "de",
       "purpose": "Zirkulation abgebrochen",
       "subject": "Information über vorzeitiger Abbruch der Stellungnahme (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDie Gemeinde {{MUNICIPALITY_DE}} hat die Anfrage zur Stellungnahme zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) vorzeitig beendet. Weitere Informationen finden Sie unter folgendem Link:\n\n{{DISTRIBUTION_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde {{MUNICIPALITY_DE}}"
+      "body": "Guten Tag\n\nDie Gemeinde {{MUNICIPALITY_DE}} hat Ihre offene Aufforderung zur Stellungnahme zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) vorzeitig beendet. Weitere Informationen finden Sie unter folgendem Link:\n\n{{DISTRIBUTION_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde {{MUNICIPALITY_DE}}"
     }
   },
   {
@@ -560,7 +536,7 @@
       "language": "de",
       "purpose": "Rückzug ausgelöst",
       "subject": "Rückzug ausgelöst (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\n\nIm eBau wurde das Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} zurückgezogen.\n\n{{ INTERNAL_DOSSIER_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse"
+      "body": "Guten Tag\n\nIn DIBA wurde das Dossier Nr. {{ DOSSIER_NR }} zurückgezogen.\n\n{{ INTERNAL_DOSSIER_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
@@ -572,7 +548,7 @@
       "language": "de",
       "purpose": "Benachrichtigung über Zugang via Berechtigung",
       "subject": "Zugriff auf Dossier",
-      "body": "Guten Tag\r\n\r\nIhnen wurde Zugriff auf das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erteilt.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
+      "body": "Guten Tag\n\nIhnen wurde Zugriff auf das Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erteilt.\n\n{{INTERNAL_DOSSIER_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
     }
   }
 ]
