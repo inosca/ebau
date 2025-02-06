@@ -503,6 +503,13 @@ def caluma_config_so(
 
 
 @pytest.fixture
+def caluma_config_ag(
+    settings, application_settings, use_caluma_form, ag_master_data_settings
+):
+    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_ag"]["CALUMA"])
+
+
+@pytest.fixture
 def use_instance_service(application_settings):
     application_settings["USE_INSTANCE_SERVICE"] = True
     application_settings["ACTIVE_SERVICES"] = deepcopy(
@@ -689,6 +696,31 @@ def caluma_workflow_config_so(
     workflow.save()
 
     caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
+
+    yield workflow
+
+    caluma_workflow_models.Case.objects.all().delete()
+    caluma_workflow_models.Workflow.objects.all().delete()
+
+
+@pytest.fixture
+def caluma_workflow_config_ag(
+    settings,
+    caluma_forms_ag,
+    caluma_config_ag,
+):
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_ag/config/caluma_workflow.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_distribution.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_additional_demand.json"),
+    )
+
+    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
+    main_form = caluma_form_models.Form.objects.get(pk="main-form")
+
+    workflow.allow_forms.set([main_form])
+    workflow.save()
 
     yield workflow
 
@@ -1083,6 +1115,65 @@ def caluma_forms_so(settings):
 
 
 @pytest.fixture
+def caluma_forms_ag(settings, caluma_form_factory):
+    caluma_form_models.Form.objects.create(
+        slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
+    )
+
+    for slug in [
+        # Main forms
+        "anfrage",
+        "anfrage-intern",
+        "baugesuch",
+        "baugesuch-mit-uvp",
+        "plangenehmigungsverfahren-bund",
+        "plangenehmigungsverfahren-gas",
+        "reklame",
+        "vorentscheid",
+        # Task forms
+        "entscheid",
+        "kantonale-pruefung",
+        "vorlaeufige-pruefung",
+    ]:
+        caluma_form_models.Form.objects.create(slug=slug)
+
+    # dynamic choice options get cached, so we clear them
+    # to ensure the new "gemeinde" options will be valid
+    cache.clear()
+
+    # questions
+    caluma_form_models.Question.objects.create(
+        slug="gemeinde",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
+        data_source="Municipalities",
+    )
+    settings.DATA_SOURCE_CLASSES = [
+        "camac.caluma.extensions.data_sources.Municipalities"
+    ]
+
+    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
+        question = caluma_form_models.Question.objects.create(
+            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
+        )
+        options = [
+            caluma_form_models.Option.objects.create(
+                slug=f"{slug}-{yes(lang)}", label="Ja"
+            ),
+            caluma_form_models.Option.objects.create(
+                slug=f"{slug}-{no(lang)}", label="Nein"
+            ),
+        ]
+        for option in options:
+            caluma_form_models.QuestionOption.objects.create(
+                question=question, option=option
+            )
+
+    caluma_form_models.Question.objects.create(
+        slug="beschreibung-bauvorhaben", type=caluma_form_models.Question.TYPE_TEXT
+    )
+
+
+@pytest.fixture
 def portal_group(application_settings, group_factory):
     group = group_factory()
     application_settings["PORTAL_GROUP"] = group.pk
@@ -1161,6 +1252,11 @@ def gr_instance(instance, caluma_workflow_config_gr, instance_with_case):
 
 @pytest.fixture
 def so_instance(instance, caluma_workflow_config_so, instance_with_case):
+    return instance_with_case(instance)
+
+
+@pytest.fixture
+def ag_instance(instance, caluma_workflow_config_ag, instance_with_case):
     return instance_with_case(instance)
 
 

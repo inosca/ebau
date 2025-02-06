@@ -2832,6 +2832,11 @@ MASTER_DATA = {
                 "vertreterin-mit-vollmacht",
                 {"column_mapping": AG_PERSONAL_DATA_MAPPING},
             ),
+            "municipality_name": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "label"},
+            ),
             "municipality_slug": (
                 "answer",
                 "gemeinde",
@@ -2848,7 +2853,6 @@ MASTER_DATA = {
                 },
             ),
             "dossier_number": ("case_meta", "dossier-number"),
-            "project": ("answer", "baubeschrieb", {"value_parser": "option"}),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
             "remark": ("answer", "beschreibung-bauvorhaben-details"),
             "proceeding_type": (
@@ -2856,14 +2860,10 @@ MASTER_DATA = {
                 "vorlaeufige-pruefung-verfahrensart",
                 {
                     "document_from_work_item": "formal-exam",
+                    "value_parser": "option",
+                    "prop": "label",
                 },
             ),
-            "profile_approval_date": ("static", None),
-            "parking_lots": ("static", ""),
-            "nature_risk": ("static", []),
-            "construction_start_date": ("static", None),
-            "construction_duration": ("static", ""),
-            "usage_type": ("static", ""),
             "usage_zone": ("answer", "zonenplan"),
             "joined_street_and_number": ("static", True),
             "street": ("answer", "street-and-housenumber"),
@@ -2871,11 +2871,6 @@ MASTER_DATA = {
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten"),
             "submit_date": ("case_meta", "submit-date", {"value_parser": "datetime"}),
-            "paper_submit_date": (
-                "case_meta",
-                "paper-submit-date",
-                {"value_parser": "datetime"},
-            ),
             "is_paper": (
                 "answer",
                 "is-paper",
@@ -2886,10 +2881,9 @@ MASTER_DATA = {
                     )
                 },
             ),
-            "description_modification": ("answer", "beschreibung-projektaenderung"),
             "decision_date": (
                 "answer",
-                "decision-date",
+                "entscheid-datum",
                 {
                     "document_from_work_item": "decision",
                     "value_key": "date",

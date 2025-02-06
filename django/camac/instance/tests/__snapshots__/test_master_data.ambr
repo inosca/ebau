@@ -1,5 +1,100 @@
 # serializer version: 1
-# name: test_master_data[be_master_data_settings-de-be_master_data_case-select_related0-prefetch_related0-10]
+# name: test_master_data[AG]
+  dict({
+    'applicants': list([
+      dict({
+        'email': 'amychurch@example.com',
+        'first_name': 'Diana',
+        'is_juristic_person': True,
+        'juristic_name': 'Johnson PLC',
+        'last_name': 'Wright',
+        'street': 'Brown Forest',
+        'street_number': '06642',
+        'tel': '753.307.5013x727',
+        'town': 'Lambside',
+        'zip': 2472,
+      }),
+    ]),
+    'city': 'Aarburg',
+    'construction_costs': 12000000,
+    'decision_date': datetime.date(2025, 2, 5),
+    'dossier_number': '2025-1',
+    'invoice_recipients': list([
+      dict({
+        'email': 'abigailwheeler@example.net',
+        'first_name': 'Marcus',
+        'is_juristic_person': False,
+        'juristic_name': None,
+        'last_name': 'Bennett',
+        'street': 'Rachel Inlet',
+        'street_number': '719',
+        'tel': '+1-926-863-2396x957',
+        'town': 'East Michael',
+        'zip': 7706,
+      }),
+    ]),
+    'is_paper': False,
+    'joined_street_and_number': True,
+    'landowners': list([
+      dict({
+        'email': 'karen50@example.org',
+        'first_name': 'Nicholas',
+        'is_juristic_person': False,
+        'juristic_name': None,
+        'last_name': 'Lee',
+        'street': 'Garcia Points',
+        'street_number': '73769',
+        'tel': '001-294-244-7910x2979',
+        'town': 'Burgessville',
+        'zip': 5550,
+      }),
+    ]),
+    'legal_representatives': list([
+      dict({
+        'email': 'ppaul@example.com',
+        'first_name': 'Jordan',
+        'is_juristic_person': True,
+        'juristic_name': 'Garcia, Brown and Martinez',
+        'last_name': 'Thomas',
+        'street': 'Arthur Cape',
+        'street_number': '05285',
+        'tel': '708.782.3152',
+        'town': 'Kerrymouth',
+        'zip': 6996,
+      }),
+    ]),
+    'municipality_name': 'Aarburg',
+    'municipality_slug': '55',
+    'plot_data': list([
+      dict({
+        'egrid_number': 'CH270677774577',
+        'plot_number': '1338',
+      }),
+    ]),
+    'proceeding_type': 'Ordentliches Verfahren',
+    'project_authors': list([
+      dict({
+        'email': 'jenniferwhitehead@example.net',
+        'first_name': 'Willie',
+        'is_juristic_person': True,
+        'juristic_name': 'Oconnor, Hansen and Lucas',
+        'last_name': 'Garcia',
+        'street': 'Jennifer Crest',
+        'street_number': '603',
+        'tel': '+1-997-597-8788x493',
+        'town': 'Guerreroburgh',
+        'zip': 4115,
+      }),
+    ]),
+    'proposal': 'Überbauung Westfeld',
+    'remark': 'Testdossier 1',
+    'street': 'Teststrasse 12',
+    'submit_date': datetime.datetime(2025, 2, 5, 9, 18, 8, tzinfo=tzutc()),
+    'usage_zone': 'Wohnzone 2',
+    'zip': '4663',
+  })
+# ---
+# name: test_master_data[BE DE]
   dict({
     'alcohol_serving': 'mit',
     'applicants': list([
@@ -211,7 +306,7 @@
     'zip': 3000,
   })
 # ---
-# name: test_master_data[be_master_data_settings-fr-be_master_data_case-select_related1-prefetch_related1-10]
+# name: test_master_data[BE FR]
   dict({
     'alcohol_serving': 'mit',
     'applicants': list([
@@ -423,7 +518,7 @@
     'zip': 3000,
   })
 # ---
-# name: test_master_data[so_master_data_settings-de-so_master_data_case-select_related5-prefetch_related5-17]
+# name: test_master_data[SO]
   dict({
     'applicants': list([
       dict({
@@ -702,286 +797,7 @@
     'zip': '1234',
   })
 # ---
-# name: test_master_data[so_master_data_settings-de-so_master_data_case-select_related6-prefetch_related6-17]
-  dict({
-    'applicants': list([
-      dict({
-        'country': 'Schweiz',
-        'country_code': 'CH',
-        'email': 'victoria99@example.org',
-        'first_name': 'Dwayne',
-        'has_representative': True,
-        'is_juristic_person': True,
-        'juristic_name': 'Barber PLC',
-        'last_name': 'Clay',
-        'po_box': '6967',
-        'representative_country': 'Schweiz',
-        'representative_country_code': 'CH',
-        'representative_email': 'ywilliams@example.net',
-        'representative_first_name': 'Jody',
-        'representative_is_juristic_person': False,
-        'representative_juristic_name': None,
-        'representative_last_name': 'Allen',
-        'representative_po_box': '9231',
-        'representative_salutation': 'Frau',
-        'representative_street': 'Andrew Plains',
-        'representative_street_number': '6774',
-        'representative_tel': '762-554-0471x11711',
-        'representative_title': 'Mrs.',
-        'representative_town': 'Port Albert',
-        'representative_zip': 5361,
-        'salutation': 'Herr',
-        'street': 'Williams Estates',
-        'street_number': '532',
-        'tel': '001-639-497-0365x202',
-        'title': 'Mr.',
-        'town': 'Butlershire',
-        'zip': 5764,
-      }),
-    ]),
-    'application_type': 'Baugesuch',
-    'buildings': list([
-      dict({
-        'building_category': 1060,
-        'egid': 1234,
-        'name': 'Villa',
-        'proposal': list([
-          6001,
-        ]),
-      }),
-    ]),
-    'category': list([
-      6011,
-      6010,
-    ]),
-    'city': 'Musterdorf',
-    'civil_engineering': list([
-      dict({
-        'is_parking_lot': True,
-      }),
-      dict({
-        'is_parking_lot': False,
-      }),
-    ]),
-    'completion_date': None,
-    'construction_costs': 129000,
-    'construction_duration': 18,
-    'construction_start_date': None,
-    'decision_date': None,
-    'dossier_number': '2024-1',
-    'dwellings': list([
-      dict({
-        'area': '420',
-        'floor_number': '2',
-        'floor_type': 3101,
-        'has_kitchen_facilities': True,
-        'kitchen_facilities': 'kocheinrichtung-kochnische-greater-4-m2',
-        'location_on_floor': 'Süd',
-        'multiple_floors': True,
-        'name_of_building': 'Villa',
-        'number_of_rooms': '20',
-        'usage_limitation': 3401,
-      }),
-      dict({
-        'area': '72',
-        'floor_number': None,
-        'floor_type': 3100,
-        'has_kitchen_facilities': False,
-        'kitchen_facilities': 'kocheinrichtung-keine-kocheinrichtung',
-        'location_on_floor': 'Nord',
-        'multiple_floors': False,
-        'name_of_building': 'Villa',
-        'number_of_rooms': '10',
-        'usage_limitation': 3402,
-      }),
-    ]),
-    'energy_devices': list([
-      dict({
-        'energy_source': 7511,
-        'information_source': 869,
-        'is_heating': False,
-        'is_heating_and_warm_water': True,
-        'is_main_heating': True,
-        'is_warm_water': False,
-        'name_of_building': 'Villa',
-        'type': 'anlagetyp-heizung-und-warmwasseraufbereitung',
-      }),
-      dict({
-        'energy_source': 7570,
-        'information_source': 869,
-        'is_heating': True,
-        'is_heating_and_warm_water': False,
-        'is_main_heating': False,
-        'is_warm_water': False,
-        'name_of_building': 'Villa',
-        'type': 'anlagetyp-hauptheizung',
-      }),
-      dict({
-        'energy_source': 7580,
-        'information_source': 869,
-        'is_heating': False,
-        'is_heating_and_warm_water': False,
-        'is_main_heating': False,
-        'is_warm_water': True,
-        'name_of_building': 'Villa',
-        'type': 'anlagetyp-warmwasser',
-      }),
-    ]),
-    'final_approval_date': None,
-    'invoice_recipients': list([
-      dict({
-        'country': 'Schweiz',
-        'country_code': 'CH',
-        'email': 'patriciawilliams@example.com',
-        'first_name': 'Kyle',
-        'has_representative': False,
-        'is_juristic_person': False,
-        'juristic_name': None,
-        'last_name': 'Anderson',
-        'po_box': '968',
-        'representative_country': None,
-        'representative_country_code': 'CH',
-        'representative_email': None,
-        'representative_first_name': None,
-        'representative_is_juristic_person': None,
-        'representative_juristic_name': None,
-        'representative_last_name': None,
-        'representative_po_box': None,
-        'representative_salutation': None,
-        'representative_street': None,
-        'representative_street_number': None,
-        'representative_tel': None,
-        'representative_title': None,
-        'representative_town': None,
-        'representative_zip': None,
-        'salutation': 'Herr',
-        'street': 'Christopher Forges',
-        'street_number': '52028',
-        'tel': '510-944-9862x77197',
-        'title': 'Mr.',
-        'town': 'New Deborah',
-        'zip': 7255,
-      }),
-    ]),
-    'is_bab': True,
-    'is_bab_location': True,
-    'is_bab_temporary': False,
-    'is_paper': False,
-    'joined_street_and_number': False,
-    'land_use_planning_land_use': 'Wohnzone 3 - AZ 0.6',
-    'land_use_planning_land_use_canton': 'N112_Wohnzone_3_G',
-    'landowners': list([
-      dict({
-        'country': 'Schweiz',
-        'country_code': 'CH',
-        'email': 'christinapayne@example.net',
-        'first_name': 'Amanda',
-        'has_representative': True,
-        'is_juristic_person': False,
-        'juristic_name': None,
-        'last_name': 'Newman',
-        'po_box': '7213',
-        'representative_country': 'Schweiz',
-        'representative_country_code': 'CH',
-        'representative_email': 'ejones@example.net',
-        'representative_first_name': 'Ronnie',
-        'representative_is_juristic_person': True,
-        'representative_juristic_name': 'Thomas-Santos',
-        'representative_last_name': 'Anderson',
-        'representative_po_box': '662',
-        'representative_salutation': 'Herr',
-        'representative_street': 'Patterson Light',
-        'representative_street_number': '08354',
-        'representative_tel': '001-288-289-9123x62420',
-        'representative_title': 'Dr.',
-        'representative_town': 'Smithside',
-        'representative_zip': 4022,
-        'salutation': 'Frau',
-        'street': 'Jeffrey Station',
-        'street_number': '485',
-        'tel': '(255)406-0724x166',
-        'title': 'Mrs.',
-        'town': 'East Jeffrey',
-        'zip': 3246,
-      }),
-    ]),
-    'legal_representatives': list([
-    ]),
-    'municipality': dict({
-      'label': 'Solothurn',
-      'slug': '1',
-    }),
-    'municipality_name': 'Solothurn',
-    'municipality_slug': '1',
-    'nature_risk': list([
-      dict({
-        'risk_type': 'Murgang',
-      }),
-    ]),
-    'organization_category': 'ebauso',
-    'plot_data': list([
-      dict({
-        'coord_east': 2690970.9,
-        'coord_north': 1192891.9,
-        'egrid_number': 'CH123456789',
-        'plot_number': 123456789,
-        'zip': '4500',
-      }),
-    ]),
-    'proceeding_type': None,
-    'profile_approval_date': None,
-    'project_authors': list([
-      dict({
-        'country': 'Schweiz',
-        'country_code': 'CH',
-        'email': 'ejames@example.org',
-        'first_name': 'George',
-        'has_representative': False,
-        'is_juristic_person': False,
-        'juristic_name': None,
-        'last_name': 'Fitzpatrick',
-        'po_box': '7209',
-        'representative_country': None,
-        'representative_country_code': 'CH',
-        'representative_email': None,
-        'representative_first_name': None,
-        'representative_is_juristic_person': None,
-        'representative_juristic_name': None,
-        'representative_last_name': None,
-        'representative_po_box': None,
-        'representative_salutation': None,
-        'representative_street': None,
-        'representative_street_number': None,
-        'representative_tel': None,
-        'representative_title': None,
-        'representative_town': None,
-        'representative_zip': None,
-        'salutation': 'Herr',
-        'street': 'Crystal Radial',
-        'street_number': '5800',
-        'tel': '234-472-3346x0690',
-        'title': 'Dr.',
-        'town': 'Port Sarahmouth',
-        'zip': 6024,
-      }),
-    ]),
-    'proposal': 'Grosses Haus',
-    'publication_date': None,
-    'remark': 'Das Haus ist wirklich gross..',
-    'street': 'Musterstrasse',
-    'street_number': 4,
-    'submit_date': datetime.datetime(2024, 2, 22, 13, 17, 8, tzinfo=tzutc()),
-    'type_of_construction': list([
-      dict({
-        'art_der_hochbaute': 6235,
-      }),
-    ]),
-    'usage_type': 'Wohnen',
-    'usage_zone': 'Wohnzone 3 - AZ 0.6',
-    'zip': '1234',
-  })
-# ---
-# name: test_master_data[sz_master_data_settings-de-sz_master_data_case_gwr-select_related3-prefetch_related3-5]
+# name: test_master_data[SZ GWR v1]
   dict({
     'applicants': list([
       dict({
@@ -1078,7 +894,7 @@
     'zip': None,
   })
 # ---
-# name: test_master_data[sz_master_data_settings-de-sz_master_data_case_gwr_v2-select_related4-prefetch_related4-5]
+# name: test_master_data[SZ GWR v2]
   dict({
     'applicants': list([
       dict({
@@ -1183,7 +999,7 @@
     'zip': None,
   })
 # ---
-# name: test_master_data[ur_master_data_settings-de-ur_master_data_case-select_related2-prefetch_related2-8]
+# name: test_master_data[UR]
   dict({
     'applicants': list([
       dict({

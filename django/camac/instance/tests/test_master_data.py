@@ -13,7 +13,7 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 from syrupy.filters import paths
 
-from camac.tests.data import so_personal_row_factory
+from camac.tests.data import ag_personal_row_factory, so_personal_row_factory
 
 from ..master_data import MasterData
 
@@ -508,11 +508,11 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
 @pytest.fixture
 def so_master_data_case(
     db,
+    caluma_dynamic_option_factory,
+    caluma_question_factory,
     master_data_is_visible_mock,
     so_instance,
     utils,
-    caluma_question_factory,
-    caluma_dynamic_option_factory,
 ):
     so_instance.case.meta = {
         "dossier-number": "2024-1",
@@ -701,6 +701,77 @@ def so_master_data_case(
 
 
 @pytest.fixture
+def ag_master_data_case(
+    db,
+    master_data_is_visible_mock,
+    ag_instance,
+    utils,
+    caluma_dynamic_option_factory,
+    caluma_work_item_factory,
+):
+    ag_instance.case.meta = {
+        "dossier-number": "2025-1",
+        "submit-date": "2025-02-05T09:18:08+0000",
+    }
+    ag_instance.case.save()
+
+    document = ag_instance.case.document
+
+    utils.add_answer(document, "is-paper", "is-paper-no")
+    utils.add_answer(document, "beschreibung-bauvorhaben", "Überbauung Westfeld")
+    utils.add_answer(document, "beschreibung-bauvorhaben-details", "Testdossier 1")
+    utils.add_answer(document, "zonenplan", "Wohnzone 2")
+    utils.add_answer(document, "street-and-housenumber", "Teststrasse 12")
+    utils.add_answer(document, "plz", "4663")
+    utils.add_answer(document, "ort-grundstueck", "Aarburg")
+    utils.add_answer(document, "baukosten", 12_000_000)
+
+    # Plot data
+    utils.add_table_answer(
+        document,
+        "parzelle",
+        [{"parzellennummer": "1338", "e-grid-nr": "CH270677774577"}],
+    )
+
+    # Personal details
+    for i, table in enumerate(
+        [
+            "personalien-gesuchstellerin",
+            "personalien-grundeigentumerin",
+            "personalien-projektverfasserin",
+            "personalien-rechnungsempfaenger",
+            "vertreterin-mit-vollmacht",
+        ]
+    ):
+        is_juristic = i % 2 == 0  # every 2nd person is juristic
+        utils.add_table_answer(document, table, [ag_personal_row_factory(is_juristic)])
+
+    # Municipality
+    utils.add_answer(document, "gemeinde", "55")
+    caluma_dynamic_option_factory(
+        question_id="gemeinde",
+        document=ag_instance.case.document,
+        slug="55",
+        label={"de": "Aarburg"},
+    )
+
+    # Formal exam
+    exam = caluma_work_item_factory(task_id="formal-exam", case=ag_instance.case)
+    utils.add_answer(
+        exam.document,
+        "vorlaeufige-pruefung-verfahrensart",
+        "verfahrensart-ordentliches-verfahren",
+        label="Ordentliches Verfahren",
+    )
+
+    # Decision
+    decision = caluma_work_item_factory(task_id="decision", case=ag_instance.case)
+    utils.add_answer(decision.document, "entscheid-datum", date(2025, 2, 5))
+
+    return ag_instance.case
+
+
+@pytest.fixture
 def ur_master_data_case_gwr(
     ur_instance, ur_master_data_case, workflow_entry_factory, utils
 ):
@@ -826,7 +897,7 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
 @pytest.mark.parametrize(
     "canton_master_data_settings,language,case,select_related,prefetch_related,num_queries",
     [
-        (
+        pytest.param(
             lf("be_master_data_settings"),
             "de",
             lf("be_master_data_case"),
@@ -852,8 +923,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             # 9. Query for fetching main form
             # 10. ?
             10,
+            id="BE DE",
         ),
-        (
+        pytest.param(
             lf("be_master_data_settings"),
             "fr",
             lf("be_master_data_case"),
@@ -869,8 +941,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
                 "work_items__document__answers__answerdocument_set__document__answers",
             ],
             10,
+            id="BE FR",
         ),
-        (
+        pytest.param(
             lf("ur_master_data_settings"),
             "de",
             lf("ur_master_data_case"),
@@ -892,8 +965,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             # 7. Query for prefetching workflow entries
             # 8. Query for prefetching camac core answers
             8,
+            id="UR",
         ),
-        (
+        pytest.param(
             lf("sz_master_data_settings"),
             "de",
             lf("sz_master_data_case_gwr"),
@@ -905,8 +979,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             # 4. Query for prefetching work_items
             # 5. Query for selecting form
             5,
+            id="SZ GWR v1",
         ),
-        (
+        pytest.param(
             lf("sz_master_data_settings"),
             "de",
             lf("sz_master_data_case_gwr_v2"),
@@ -918,8 +993,9 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
             # 4. Query for prefetching work_items
             # 5. Query for selecting form
             5,
+            id="SZ GWR v2",
         ),
-        (
+        pytest.param(
             lf("so_master_data_settings"),
             "de",
             lf("so_master_data_case"),
@@ -936,11 +1012,12 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
                 "work_items__document__answers__answerdocument_set__document__answers",
             ],
             17,
+            id="SO",
         ),
-        (
-            lf("so_master_data_settings"),
+        pytest.param(
+            lf("ag_master_data_settings"),
             "de",
-            lf("so_master_data_case"),
+            lf("ag_master_data_case"),
             ["document"],
             [
                 "document__answers",
@@ -953,7 +1030,8 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
                 "work_items__document__answers__answerdocument_set",
                 "work_items__document__answers__answerdocument_set__document__answers",
             ],
-            17,
+            16,
+            id="AG",
         ),
     ],
 )
