@@ -2372,6 +2372,7 @@ APPLICATIONS = {
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
+        "LINK_INSTANCES_ON_COPY": True,
         # "STORE_PDF": {
         #     "SECTION": {
         #         "MAIN": {
