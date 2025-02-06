@@ -5,6 +5,8 @@ import config from "dummy/config/environment";
 import registerBilling from "ember-ebau-core/modules/billing";
 import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerRejection from "ember-ebau-core/modules/rejection";
+import registerSnippets from "ember-ebau-core/modules/snippets";
+import registerSnippetsAdmin from "ember-ebau-core/modules/snippets-admin";
 
 export default class Router extends EmberRouter {
   @service ebauModules;
@@ -35,4 +37,6 @@ Router.map(function () {
   registerBilling(this);
   registerRejection(this);
   registerPermissions(this);
+  registerSnippetsAdmin(this);
+  registerSnippets(this);
 });

@@ -277,7 +277,7 @@
   },
   {
     "model": "notification.notificationtemplate",
-    "pk": 24,
+    "pk": 100,
     "fields": {
       "slug": "invited-via-permission-acl",
       "purpose": null,
@@ -565,9 +565,9 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 24,
+    "pk": 100,
     "fields": {
-      "template": 24,
+      "template": 100,
       "template_slug": "invited-via-permission-acl",
       "language": "de",
       "purpose": "Benachrichtigung über Zugang via Berechtigung",

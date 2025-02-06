@@ -8,13 +8,14 @@ export default {
   },
   communications: {
     enabled: true,
+    snippets: true,
   },
   permissions: {
     applicantRoles: true,
   },
   rejection: {
     useLegacyClaims: false,
-    snippets: false,
+    snippets: true,
     revert: true,
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
