@@ -150,7 +150,8 @@ export default class GrGisComponent extends Component {
   @action
   updateMarkers(e) {
     this.searchHighlight = null;
-    this.markers.pushObject({ lat: e.latlng.lat, lng: e.latlng.lng });
+    // Do not use .push here as it breaks reactivity
+    this.markers = [...this.markers, { lat: e.latlng.lat, lng: e.latlng.lng }];
   }
 
   get geometry() {
