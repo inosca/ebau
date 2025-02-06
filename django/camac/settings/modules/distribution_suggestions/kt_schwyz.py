@@ -1,4 +1,4 @@
-SZ_DISTRIBUTION_SUGGESIONS = {
+SZ_DISTRIBUTION_SUGGESTIONS = {
     # For the suggestions services ids or slugs can be used but they shouldn't be mixed.
     "SUBMODULES": [
         ("fachthemen.landwirtschaft", [9]),

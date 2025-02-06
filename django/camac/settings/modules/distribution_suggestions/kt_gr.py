@@ -1,4 +1,4 @@
-GR_DISTRIBUTION_SUGGESIONS = {
+GR_DISTRIBUTION_SUGGESTIONS = {
     # For the suggestions services ids or slugs can be used but they shouldn't be mixed.
     "QUESTIONS": {
         ("ausserhalb-bauzone", "ausserhalb-bauzone-ja"): ["are"],

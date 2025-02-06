@@ -8,11 +8,11 @@ from camac.utils import (
     is_lead_role,
 )
 
-from .distribution_suggestions.kt_bern import BE_DISTRIBUTION_SUGGESIONS
-from .distribution_suggestions.kt_gr import GR_DISTRIBUTION_SUGGESIONS
-from .distribution_suggestions.kt_schwyz import SZ_DISTRIBUTION_SUGGESIONS
-from .distribution_suggestions.kt_so import SO_DISTRIBUTION_SUGGESIONS
-from .distribution_suggestions.kt_uri import UR_DISTRIBUTION_SUGGESIONS
+from .distribution_suggestions.kt_bern import BE_DISTRIBUTION_SUGGESTIONS
+from .distribution_suggestions.kt_gr import GR_DISTRIBUTION_SUGGESTIONS
+from .distribution_suggestions.kt_schwyz import SZ_DISTRIBUTION_SUGGESTIONS
+from .distribution_suggestions.kt_so import SO_DISTRIBUTION_SUGGESTIONS
+from .distribution_suggestions.kt_uri import UR_DISTRIBUTION_SUGGESTIONS
 
 """
 WARNING: Any key that is either "TASK or ends with "_TASK" will be picked up by the visibilty filter for work items (see django/camac/extensions/visibilities.py).
@@ -105,7 +105,7 @@ DISTRIBUTION = {
                 "recipient_types": ["inquiry_controlling"],
             },
         },
-        "SUGGESTIONS": BE_DISTRIBUTION_SUGGESIONS,
+        "SUGGESTIONS": BE_DISTRIBUTION_SUGGESTIONS,
         "PERMISSIONS": {
             "CompleteWorkItem": {
                 "INQUIRY_ANSWER_FILL_TASK": lambda group, *_: is_lead_role(group),
@@ -137,7 +137,7 @@ DISTRIBUTION = {
             "HINT": "inquiry-answer-hint",
         },
         "DEFAULT_SUGGESTIONS": [7],  # Baugesuchszentrale
-        "SUGGESTIONS": SZ_DISTRIBUTION_SUGGESIONS,
+        "SUGGESTIONS": SZ_DISTRIBUTION_SUGGESTIONS,
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
                 "template_slug": "einladung-zur-stellungnahme",
@@ -206,7 +206,7 @@ DISTRIBUTION = {
                 "UNKNOWN": "inquiry-answer-status-unknown",
             },
         },
-        "SUGGESTIONS": GR_DISTRIBUTION_SUGGESIONS,
+        "SUGGESTIONS": GR_DISTRIBUTION_SUGGESTIONS,
     },
     "kt_so": {
         "ENABLED": True,
@@ -256,7 +256,7 @@ DISTRIBUTION = {
                 "recipient_types": ["inquiry_controlling"],
             },
         },
-        "SUGGESTIONS": SO_DISTRIBUTION_SUGGESIONS,
+        "SUGGESTIONS": SO_DISTRIBUTION_SUGGESTIONS,
         "AVAILABLE_SERVICES_FOR_INQUIRY": {
             "authority": [
                 {
@@ -350,7 +350,7 @@ DISTRIBUTION = {
             },
         },
         "DEFAULT_SUGGESTIONS": [1],  # KOOR BG
-        "SUGGESTIONS": UR_DISTRIBUTION_SUGGESIONS,
+        "SUGGESTIONS": UR_DISTRIBUTION_SUGGESTIONS,
     },
     "kt_ag": {
         "ENABLED": True,

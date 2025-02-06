@@ -1,4 +1,4 @@
-SO_DISTRIBUTION_SUGGESIONS = {
+SO_DISTRIBUTION_SUGGESTIONS = {
     # For the suggestions services ids or slugs can be used but they shouldn't be mixed.
     "QUESTIONS": {
         (

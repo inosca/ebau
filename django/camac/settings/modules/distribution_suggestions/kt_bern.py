@@ -1,4 +1,4 @@
-BE_DISTRIBUTION_SUGGESIONS = {
+BE_DISTRIBUTION_SUGGESTIONS = {
     # For the suggestions services ids or slugs can be used but they shouldn't be mixed.
     "FORM": {
         "heat-generator": [20046],
