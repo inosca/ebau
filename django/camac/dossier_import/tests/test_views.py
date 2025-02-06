@@ -60,11 +60,16 @@ def test_api_get_views(
 
 @pytest.mark.parametrize("role__name", ["Support"])
 def test_imported_instance_be_get_name(
-    db, be_instance, form_factory, document_factory, question_factory, admin_client
+    db,
+    be_instance,
+    form_factory,
+    caluma_document_factory,
+    caluma_question_factory,
+    admin_client,
 ):
     # for coverage CalumaInstanceSerializer.get_name()
-    question = question_factory(pk="geschaeftstyp-import")
-    be_instance.case.document = document_factory(form_id="migriertes-dossier")
+    question = caluma_question_factory(pk="geschaeftstyp-import")
+    be_instance.case.document = caluma_document_factory(form_id="migriertes-dossier")
     be_instance.case.document.answers.create(question=question, value="geschaeftstyp")
 
     serializer = CalumaInstanceSerializer()
@@ -394,7 +399,7 @@ def test_state_transitions(
     status_before,
     expected_response_code,
     status_after,
-    case_factory,
+    caluma_case_factory,
     host,
     mailoutbox,
 ):
@@ -409,8 +414,8 @@ def test_state_transitions(
     )
 
     if action == "undo":
-        case_factory.create_batch(2, meta={"import-id": str(dossier_import.pk)})
-        case_factory()  # unrelated case
+        caluma_case_factory.create_batch(2, meta={"import-id": str(dossier_import.pk)})
+        caluma_case_factory()  # unrelated case
 
     resp = admin_client.post(
         reverse(f"dossier-import-{action}", args=(dossier_import.pk,))
@@ -547,13 +552,13 @@ def test_delete_import(
     admin_client,
     archive_file,
     dossier_import,
-    case_factory,
+    caluma_case_factory,
     instance_with_case,
     has_case,
     expected_status,
 ):
     if has_case:
-        case_factory(meta={"import-id": str(dossier_import.pk)})
+        caluma_case_factory(meta={"import-id": str(dossier_import.pk)})
     resp = admin_client.delete(
         reverse("dossier-import-detail", args=(str(dossier_import.pk),))
     )

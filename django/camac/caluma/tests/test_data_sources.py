@@ -328,8 +328,8 @@ def test_preliminary_clarfication_targets(db, caluma_admin_user, service_factory
     assert data[4][1]["de"] == "Procap"
 
 
-def test_buildings(db, caluma_admin_user, question_factory, so_instance, utils):
-    question = question_factory(
+def test_buildings(db, caluma_admin_user, caluma_question_factory, so_instance, utils):
+    question = caluma_question_factory(
         slug="gebaeude",
         type=caluma_form_models.Question.TYPE_TABLE,
     )
@@ -359,21 +359,21 @@ def test_buildings(db, caluma_admin_user, question_factory, so_instance, utils):
 def test_services_for_final_report(
     db,
     caluma_admin_user,
-    question_factory,
+    caluma_question_factory,
     utils,
     ur_instance,
-    work_item_factory,
+    caluma_work_item_factory,
     service_factory,
     ur_distribution_settings,
 ):
     services_that_wants_to_be_invited = service_factory()
 
-    distribution = work_item_factory(
+    distribution = caluma_work_item_factory(
         task_id="distribution",
         case=ur_instance.case,
     )
 
-    inquiry_1 = work_item_factory(
+    inquiry_1 = caluma_work_item_factory(
         task_id="inquiry",
         case=distribution.child_case,
         addressed_groups=[str(services_that_wants_to_be_invited.pk)],
@@ -387,7 +387,7 @@ def test_services_for_final_report(
 
     data = ServicesForFinalReport().get_data(
         caluma_admin_user,
-        question_factory(),
+        caluma_question_factory(),
         {"instanceId": ur_instance.pk},
     )
 

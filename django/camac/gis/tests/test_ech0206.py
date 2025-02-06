@@ -10,7 +10,10 @@ from camac.gis.models import GISDataSource
 
 @pytest.fixture
 def ech0206_data_sources(
-    question_factory, question_option_factory, option_factory, settings
+    caluma_question_factory,
+    caluma_question_option_factory,
+    caluma_option_factory,
+    settings,
 ):
     gis_questions = [
         ("egid-nr", Question.TYPE_TEXT),
@@ -112,19 +115,19 @@ def ech0206_data_sources(
     for config in gis_questions:
         slug = config[0]
         question_type = config[1]
-        q = question_factory(slug=slug, type=question_type, label=slug)
+        q = caluma_question_factory(slug=slug, type=question_type, label=slug)
         if len(config) == 3:
             for option in config[2]:
-                question_option_factory(
+                caluma_question_option_factory(
                     question=q,
-                    option=option_factory(slug=f"{slug}-{option}", label=option),
+                    option=caluma_option_factory(slug=f"{slug}-{option}", label=option),
                 )
 
     return GISDataSource.objects.all()
 
 
 @pytest.fixture
-def ech0206__config(gis_data_source_factory, question_factory):
+def ech0206__config(gis_data_source_factory, caluma_question_factory):
     gis_data_source_factory(
         client=GISDataSource.CLIENT_KT_GR,
         config=[

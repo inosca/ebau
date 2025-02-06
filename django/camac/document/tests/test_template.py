@@ -130,8 +130,8 @@ def test_template_merge(
     active_inquiry_factory,
     billing_entry,
     publication_entry,
-    work_item_factory,
-    document_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
     snapshot,
     settings,
     unoconv_pdf_mock,
@@ -212,8 +212,10 @@ def test_template_merge(
     add_address_field(name="projektverfasser-planer")
     add_address_field(name="projektverfasser-planer-v2")
 
-    work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
-    work_item.document = document_factory(form_id="bauverwaltung")
+    work_item = caluma_work_item_factory(
+        task_id="building-authority", case=sz_instance.case
+    )
+    work_item.document = caluma_document_factory(form_id="bauverwaltung")
     work_item.save()
     utils.add_answer(work_item.document, "bewilligungsverfahren-gr-sitzung-nummer", 12)
     utils.add_answer(

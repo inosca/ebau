@@ -366,12 +366,12 @@ def test_send_inquiry(
     inquiry_factory_be,
     mailoutbox,
     service_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     service,
     be_ech0211_settings,
 ):
     addressed_service = service_factory()
-    work_item_factory(
+    caluma_work_item_factory(
         task_id=be_distribution_settings["DISTRIBUTION_CHECK_TASK"],
         case=distribution_child_case_be,
         status=WorkItem.STATUS_READY,
@@ -413,7 +413,7 @@ def test_send_inquiry_gr(
     mailoutbox,
     service_factory,
     group_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     service,
     settings,
     set_application_gr,
@@ -421,7 +421,7 @@ def test_send_inquiry_gr(
     gr_additional_demand_settings,
 ):
     addressed_service = service_factory(service_group__name="uso")
-    work_item_factory(
+    caluma_work_item_factory(
         task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
         case=distribution_child_case_gr,
         status=WorkItem.STATUS_READY,
@@ -528,7 +528,7 @@ def test_complete_inquiry(
     mailoutbox,
     service,
     has_multiple_inquiries,
-    work_item_factory,
+    caluma_work_item_factory,
     service_factory,
     is_lead_authority,
 ):
@@ -549,7 +549,7 @@ def test_complete_inquiry(
         else None
     )
 
-    addressed_check_work_item = work_item_factory(
+    addressed_check_work_item = caluma_work_item_factory(
         task_id=be_distribution_settings["INQUIRY_CHECK_TASK"],
         case=inquiry1.case,
         status=WorkItem.STATUS_READY,
@@ -558,7 +558,7 @@ def test_complete_inquiry(
         child_case=None,
     )
 
-    addressed_redo_work_item = work_item_factory(
+    addressed_redo_work_item = caluma_work_item_factory(
         task_id=be_distribution_settings["INQUIRY_REDO_TASK"],
         case=inquiry1.case,
         status=WorkItem.STATUS_READY,
@@ -665,7 +665,7 @@ def test_complete_distribution(
     inquiry_factory_be,
     mailoutbox,
     service_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     be_ech0211_settings,
 ):
     service = service_factory()
@@ -675,7 +675,7 @@ def test_complete_distribution(
         to_service=service, sent=True
     )  # sent - will be skipped
 
-    check_distribution = work_item_factory(
+    check_distribution = caluma_work_item_factory(
         task_id=be_distribution_settings["DISTRIBUTION_CHECK_TASK"],
         case=distribution_child_case_be,
         status=WorkItem.STATUS_READY,
@@ -744,12 +744,12 @@ def test_send_aborting_distribution_sends_notification(
     gr_distribution_settings,
     mailoutbox,
     service_factory,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     settings.DISTRIBUTION["NOTIFY_ON_CANCELLATION"] = True
     service = service_factory()
 
-    inquiry_workitem = work_item_factory(
+    inquiry_workitem = caluma_work_item_factory(
         task_id=gr_distribution_settings["INQUIRY_TASK"],
         case=distribution_child_case_gr,
         status=WorkItem.STATUS_READY,
@@ -888,7 +888,7 @@ def test_reopen_distribution(
     service_factory,
     service,
     instance_state_factory,
-    task_factory,
+    caluma_task_factory,
     be_ech0211_settings,
 ):
     instance_state_distribution = instance_state_factory()
@@ -898,7 +898,7 @@ def test_reopen_distribution(
     )
     be_distribution_settings["HISTORY"] = {"REDO_DISTRIBUTION": "reopen"}
     be_distribution_settings["REDO_DISTRIBUTION"] = {
-        "CREATE_TASKS": [task_factory().slug]
+        "CREATE_TASKS": [caluma_task_factory().slug]
     }
 
     service_with_sent_inquiry = service_factory()
@@ -1080,7 +1080,7 @@ def test_cancel_inquiry(
     be_distribution_settings,
     inquiry_factory_be,
     service_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     is_subservice,
     inquiry_count,
     has_multiple_create_work_items,
@@ -1103,7 +1103,7 @@ def test_cancel_inquiry(
 
     # provoke error
     if has_multiple_create_work_items:
-        work_item_factory(
+        caluma_work_item_factory(
             case=distribution_child_case_be,
             addressed_groups=[str(service.pk)],
             task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
@@ -1208,7 +1208,7 @@ def test_set_deadline_for_check_inquiries_work_item(
     be_ech0211_settings,
     inquiry_factory_be,
     service,
-    work_item_factory,
+    caluma_work_item_factory,
     service_factory,
 ):
     inquiry = inquiry_factory_be(
@@ -1226,7 +1226,7 @@ def test_set_deadline_for_check_inquiries_work_item(
             user=caluma_admin_user,
         )
 
-    check_task_work_item = work_item_factory(
+    check_task_work_item = caluma_work_item_factory(
         task_id=be_distribution_settings["INQUIRY_CHECK_TASK"],
         case=inquiry.case,
         status=WorkItem.STATUS_READY,
@@ -1265,13 +1265,13 @@ def test_set_cantonal_exam_deadline(
     is_afb,
     service_factory,
     settings,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     settings.APPLICATION_NAME = "kt_ag"
 
     service = service_factory(slug="afb" if is_afb else "abc")
     inquiry = inquiry_factory_gr(service)
-    cantonal_exam = work_item_factory(
+    cantonal_exam = caluma_work_item_factory(
         task__slug="cantonal-exam",
         case=inquiry.case.family,
         status=WorkItem.STATUS_READY,

@@ -165,8 +165,8 @@ def test_caluma_export_sz(
     workflow_item_factory,
     form_factory,
     location_factory,
-    work_item_factory,
-    document_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
     snapshot,
     has_overrides,
     role,
@@ -261,8 +261,10 @@ def test_caluma_export_sz(
             instance=sz_instance,
         )
 
-    work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
-    work_item.document = document_factory(form_id="bauverwaltung")
+    work_item = caluma_work_item_factory(
+        task_id="building-authority", case=sz_instance.case
+    )
+    work_item.document = caluma_document_factory(form_id="bauverwaltung")
     work_item.save()
     utils.add_answer(
         work_item.document,

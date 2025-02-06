@@ -289,9 +289,9 @@ def test_dynamic_task_after_ebau_number(
     caluma_admin_user,
     expected_tasks,
     is_appeal,
-    case_factory,
+    caluma_case_factory,
 ):
-    case = case_factory(meta={"is-appeal": True} if is_appeal else {})
+    case = caluma_case_factory(meta={"is-appeal": True} if is_appeal else {})
 
     tasks = set(
         CustomDynamicTasks().resolve_after_ebau_number(
@@ -360,7 +360,7 @@ def test_dynamic_task_after_submit(
     expected_tasks,
     is_appeal,
     is_bab,
-    case_factory,
+    caluma_case_factory,
     form_slug,
     so_instance,
 ):
@@ -396,17 +396,17 @@ def test_dynamic_task_after_submit(
 def test_dynamic_task_after_check_additional_demand(
     db,
     additional_demand_settings,
-    answer_factory,
+    caluma_answer_factory,
     decision,
     expected_tasks,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
-    answer = answer_factory(
+    answer = caluma_answer_factory(
         question__slug=additional_demand_settings["QUESTIONS"]["DECISION"],
         value=additional_demand_settings["ANSWERS"]["DECISION"][decision],
     )
 
-    work_item = work_item_factory(document=answer.document)
+    work_item = caluma_work_item_factory(document=answer.document)
 
     tasks = set(
         CustomDynamicTasks().resolve_after_check_additional_demand(
@@ -430,14 +430,14 @@ def test_dynamic_task_after_create_inquiry(
     db,
     additional_demand_settings,
     distribution_settings,
-    work_item_factory,
+    caluma_work_item_factory,
     gr_instance,
     passed_addressed_groups,
     groups_with_existing,
     create_additional_demand,
 ):
     for group in groups_with_existing:
-        work_item_factory(
+        caluma_work_item_factory(
             case=gr_instance.case,
             addressed_groups=[group],
             task_id=additional_demand_settings["CREATE_TASK"],
@@ -479,19 +479,19 @@ def test_dynamic_task_after_create_inquiry(
 )
 def test_dynamic_task_after_exam(
     db,
-    answer_factory,
+    caluma_answer_factory,
     expected_tasks,
     has_rejection_answer,
     root_form,
     so_instance,
     so_rejection_settings,
     task_id,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
-    work_item = work_item_factory(task_id=task_id, case=so_instance.case)
+    work_item = caluma_work_item_factory(task_id=task_id, case=so_instance.case)
 
     if has_rejection_answer:
-        answer_factory(
+        caluma_answer_factory(
             document=work_item.document,
             question__slug=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][0],
             value=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][1],
@@ -515,17 +515,17 @@ def test_dynamic_task_after_exam(
 )
 def test_dynamic_task_after_check_sb2(
     db,
-    answer_factory,
+    caluma_answer_factory,
     expected_tasks,
     perform_cadastral_survey,
     be_instance,
-    work_item_factory,
+    caluma_work_item_factory,
     caluma_admin_user,
 ):
-    geometer_work_item = work_item_factory(
+    geometer_work_item = caluma_work_item_factory(
         task_id="geometer", case=be_instance.case, child_case=None
     )
-    answer_factory(
+    caluma_answer_factory(
         document=geometer_work_item.document,
         question__slug="geometer-beurteilung-notwendigkeit-vermessung",
         value=(
@@ -536,7 +536,7 @@ def test_dynamic_task_after_check_sb2(
     )
 
     complete_work_item(geometer_work_item, user=caluma_admin_user)
-    work_item = work_item_factory(task_id="check-sb2", case=be_instance.case)
+    work_item = caluma_work_item_factory(task_id="check-sb2", case=be_instance.case)
 
     assert (
         CustomDynamicTasks().resolve_after_check_sb2(
@@ -561,30 +561,30 @@ def test_dynamic_task_after_check_sb2(
 )
 def test_dynamic_task_after_decision_ur(
     db,
-    work_item_factory,
-    document_factory,
-    question_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_question_factory,
+    caluma_answer_factory,
     ur_instance,
     caluma_admin_user,
     expected_tasks,
     gwr_answer,
 ):
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=ur_instance.case,
         task_id="decision",
     )
-    work_item.document = document_factory()
+    work_item.document = caluma_document_factory()
     work_item.save()
 
     if gwr_answer == "fuer-gwr-relevant-ja":
-        gwr_relevancy_work_item = work_item_factory(
+        gwr_relevancy_work_item = caluma_work_item_factory(
             case=ur_instance.case,
             task_id="check-gwr-relevancy",
         )
-        answer_factory(
+        caluma_answer_factory(
             document=gwr_relevancy_work_item.document,
-            question=question_factory(slug="fuer-gwr-relevant"),
+            question=caluma_question_factory(slug="fuer-gwr-relevant"),
             value=gwr_answer,
         )
 
@@ -612,33 +612,33 @@ def test_dynamic_task_after_decision_ur(
 )
 def test_after_complete_construction_monitoring_ur(
     db,
-    case_factory,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     #
     involve_geometer,
     involve_gebaeudeschaetzung,
     expected_tasks,
 ):
-    decision_work_item = work_item_factory(
+    decision_work_item = caluma_work_item_factory(
         task__slug="decision",
-        document=document_factory(),
-        case=case_factory(),
+        document=caluma_document_factory(),
+        case=caluma_case_factory(),
     )
-    answer_factory(
+    caluma_answer_factory(
         question__slug="decision-task-nachfuehrungsgeometer",
         value=involve_geometer,
         document=decision_work_item.document,
     )
-    answer_factory(
+    caluma_answer_factory(
         document=decision_work_item.document,
         question__slug="decision-task-gebaudeschaetzung",
         value=involve_gebaeudeschaetzung,
     )
 
     result = CustomDynamicTasks().resolve_after_complete_construction_monitoring_ur(
-        decision_work_item.case, None, work_item_factory(), None
+        decision_work_item.case, None, caluma_work_item_factory(), None
     )
 
     for task in expected_tasks:
@@ -680,26 +680,30 @@ def test_after_complete_construction_monitoring_ur(
 )
 def test_dynamic_task_after_complete_check_ur(
     db,
-    work_item_factory,
-    document_factory,
-    question_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_question_factory,
+    caluma_answer_factory,
     caluma_admin_user,
     complete_check_answer,
     main_form_slug,
     should_generate_additional_demand_task,
-    case_factory,
+    caluma_case_factory,
     should_generate_bk_task,
     should_generate_reject_task,
 ):
-    caluma_case = case_factory(document__form__slug=main_form_slug)
-    work_item = work_item_factory(
-        case=caluma_case, task__slug="complete-check", document=document_factory()
+    caluma_case = caluma_case_factory(document__form__slug=main_form_slug)
+    work_item = caluma_work_item_factory(
+        case=caluma_case,
+        task__slug="complete-check",
+        document=caluma_document_factory(),
     )
 
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
-        question=question_factory(slug="complete-check-vollstaendigkeitspruefung"),
+        question=caluma_question_factory(
+            slug="complete-check-vollstaendigkeitspruefung"
+        ),
         value=complete_check_answer,
     )
 
@@ -844,7 +848,7 @@ def test_dynamic_task_after_construction_step(
 )
 def test_dynamic_task_after_formal_exam(
     db,
-    work_item_factory,
+    caluma_work_item_factory,
     gr_instance,
     gr_publication_settings,
     gr_distribution_settings,
@@ -855,7 +859,7 @@ def test_dynamic_task_after_formal_exam(
     gr_instance.case.document.form.slug = form_slug
     gr_instance.case.document.form.save()
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=gr_instance.case,
         task_id="formal-exam",
     )
@@ -883,15 +887,15 @@ def test_dynamic_task_after_formal_exam(
 def test_after_complete_instance(
     db,
     caluma_admin_user,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     #
     expected_value,
     answer,
 ):
-    work_item = work_item_factory(document=document_factory())
-    answer_factory(
+    work_item = caluma_work_item_factory(document=caluma_document_factory())
+    caluma_answer_factory(
         document=work_item.document, question__slug="complete-instance-ac", value=answer
     )
     result = CustomDynamicTasks().after_complete_instance(
@@ -913,15 +917,15 @@ def test_after_complete_instance(
 def test_construction_control(
     db,
     caluma_admin_user,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     #
     expected_value,
     answer,
 ):
-    work_item = work_item_factory(document=document_factory())
-    answer_factory(
+    work_item = caluma_work_item_factory(document=caluma_document_factory())
+    caluma_answer_factory(
         document=work_item.document,
         question__slug="construction-control-control",
         value=answer,
@@ -950,9 +954,9 @@ def test_after_schnurgeruestabnahme_kontrollieren_uri(
     caluma_admin_user,
     ur_instance,
     notification_template,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     expected_value,
     massnahmen_answer,
     schutzraum_answer,
@@ -960,13 +964,13 @@ def test_after_schnurgeruestabnahme_kontrollieren_uri(
     notification_template.slug = "6-411-schnurgeruestabnahme-erfolgt"
     notification_template.save()
 
-    work_item = work_item_factory(document=document_factory())
-    answer_factory(
+    work_item = caluma_work_item_factory(document=caluma_document_factory())
+    caluma_answer_factory(
         document=ur_instance.case.document,
         question__slug="schutzraumrelevante-massnahmen",
         value=massnahmen_answer,
     )
-    answer_factory(
+    caluma_answer_factory(
         document=ur_instance.case.document,
         question__slug="schutzraum",
         value=schutzraum_answer,
@@ -988,17 +992,17 @@ def test_after_plan_construction_stage(
     notification_template,
     expected_value,
     geometer_answer,
-    document_factory,
-    work_item_factory,
-    answer_factory,
+    caluma_document_factory,
+    caluma_work_item_factory,
+    caluma_answer_factory,
 ):
     notification_template.slug = "5-1-av-projektiert-pruefen"
     notification_template.save()
 
-    work_item = work_item_factory(
-        case=ur_instance.case, task_id="decision", document=document_factory()
+    work_item = caluma_work_item_factory(
+        case=ur_instance.case, task_id="decision", document=caluma_document_factory()
     )
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question__slug="decision-task-nachfuehrungsgeometer",
         value=geometer_answer,
@@ -1023,23 +1027,23 @@ def test_after_gebaeudeabbruch_melden(
     work_item_exists,
     gwr_answer,
     expected_value,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     instance_factory,
-    case_factory,
-    task_factory,
+    caluma_case_factory,
+    caluma_task_factory,
 ):
-    instance = instance_factory(case=case_factory())
+    instance = instance_factory(case=caluma_case_factory())
 
     if work_item_exists:
-        work_item = work_item_factory(
+        work_item = caluma_work_item_factory(
             case=instance.case,
-            task=task_factory(slug="check-gwr-relevancy"),
-            document=document_factory(),
+            task=caluma_task_factory(slug="check-gwr-relevancy"),
+            document=caluma_document_factory(),
             status="completed",
         )
-        answer_factory(
+        caluma_answer_factory(
             document=work_item.document,
             question__slug="fuer-gwr-relevant",
             value=gwr_answer,
@@ -1069,23 +1073,23 @@ def test_after_baubeginn_melden(
     work_item_exists,
     gwr_answer,
     expected_value,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     instance_factory,
-    case_factory,
-    task_factory,
+    caluma_case_factory,
+    caluma_task_factory,
 ):
-    instance = instance_factory(case=case_factory())
+    instance = instance_factory(case=caluma_case_factory())
 
     if work_item_exists:
-        work_item = work_item_factory(
+        work_item = caluma_work_item_factory(
             case=instance.case,
-            task=task_factory(slug="check-gwr-relevancy"),
-            document=document_factory(),
+            task=caluma_task_factory(slug="check-gwr-relevancy"),
+            document=caluma_document_factory(),
             status="completed",
         )
-        answer_factory(
+        caluma_answer_factory(
             document=work_item.document,
             question__slug="fuer-gwr-relevant",
             value=gwr_answer,
@@ -1111,23 +1115,23 @@ def test_after_schlussabnahme_gebaeude(
     work_item_exists,
     gwr_answer,
     expected_value,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     instance_factory,
-    case_factory,
-    task_factory,
+    caluma_case_factory,
+    caluma_task_factory,
 ):
-    instance = instance_factory(case=case_factory())
+    instance = instance_factory(case=caluma_case_factory())
 
     if work_item_exists:
-        work_item = work_item_factory(
+        work_item = caluma_work_item_factory(
             case=instance.case,
-            task=task_factory(slug="check-gwr-relevancy"),
-            document=document_factory(),
+            task=caluma_task_factory(slug="check-gwr-relevancy"),
+            document=caluma_document_factory(),
             status="completed",
         )
-        answer_factory(
+        caluma_answer_factory(
             document=work_item.document,
             question__slug="fuer-gwr-relevant",
             value=gwr_answer,
@@ -1153,23 +1157,23 @@ def test_after_schlussabnahme_project(
     work_item_exists,
     gwr_answer,
     expected_value,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     instance_factory,
-    case_factory,
-    task_factory,
+    caluma_case_factory,
+    caluma_task_factory,
 ):
-    instance = instance_factory(case=case_factory())
+    instance = instance_factory(case=caluma_case_factory())
 
     if work_item_exists:
-        work_item = work_item_factory(
+        work_item = caluma_work_item_factory(
             case=instance.case,
-            task=task_factory(slug="check-gwr-relevancy"),
-            document=document_factory(),
+            task=caluma_task_factory(slug="check-gwr-relevancy"),
+            document=caluma_document_factory(),
             status="completed",
         )
-        answer_factory(
+        caluma_answer_factory(
             document=work_item.document,
             question__slug="fuer-gwr-relevant",
             value=gwr_answer,
@@ -1195,23 +1199,23 @@ def test_after_check_gwr_relevancy(
     work_item_exists,
     gwr_answer,
     expected_value,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     instance_factory,
-    case_factory,
-    task_factory,
+    caluma_case_factory,
+    caluma_task_factory,
 ):
-    instance = instance_factory(case=case_factory())
+    instance = instance_factory(case=caluma_case_factory())
 
     if work_item_exists:
-        work_item = work_item_factory(
+        work_item = caluma_work_item_factory(
             case=instance.case,
-            task=task_factory(slug="check-gwr-relevancy"),
-            document=document_factory(),
+            task=caluma_task_factory(slug="check-gwr-relevancy"),
+            document=caluma_document_factory(),
             status="completed",
         )
-        answer_factory(
+        caluma_answer_factory(
             document=work_item.document,
             question__slug="fuer-gwr-relevant",
             value=gwr_answer,

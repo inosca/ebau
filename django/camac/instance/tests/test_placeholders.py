@@ -113,10 +113,10 @@ def test_dms_placeholders_gr(
     snapshot,
     gr_distribution_settings,
     service_factory,
-    work_item_factory,
-    document_factory,
-    question_factory,
-    form_question_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_question_factory,
+    caluma_form_question_factory,
     active_inquiry_factory,
     gr_dms_config,
     group,
@@ -231,21 +231,21 @@ def test_dms_placeholders_gr(
     )
 
     # decision
-    decision_work_item = work_item_factory(
+    decision_work_item = caluma_work_item_factory(
         case=gr_instance.case,
         task_id="decision",
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form_id="decision"),
+        document=caluma_document_factory(form_id="decision"),
     )
-    decision_question = question_factory(
+    decision_question = caluma_question_factory(
         slug="decision-decision", type=Question.TYPE_CHOICE
     )
-    decision_date_question = question_factory(
+    decision_date_question = caluma_question_factory(
         slug="decision-date", type=Question.TYPE_DATE
     )
     Option.objects.create(slug="decision-decision-approved", label="Bewilligt")
-    form_question_factory(form_id="decision", question=decision_question)
-    form_question_factory(form_id="decision", question=decision_date_question)
+    caluma_form_question_factory(form_id="decision", question=decision_question)
+    caluma_form_question_factory(form_id="decision", question=decision_date_question)
     decision_work_item.document.answers.create(
         question_id="decision-decision",
         value="decision-decision-approved",
@@ -293,12 +293,12 @@ def test_dms_placeholders_gr(
         AnswerFactory(
             document=inquiry.child_case.document,
             question=stellungnahme_question,
-            value=f"Stellungnahme {i+1}",
+            value=f"Stellungnahme {i + 1}",
         )
         AnswerFactory(
             document=inquiry.child_case.document,
             question=nebenbestimmungen_question,
-            value=f"Nebenbestimmungen {i+1}",
+            value=f"Nebenbestimmungen {i + 1}",
         )
 
     url = reverse("instance-dms-placeholders", args=[gr_instance.pk])
@@ -324,12 +324,12 @@ def test_dms_placeholders_so(
     so_dms_config,
     so_instance,
     service_factory,
-    work_item_factory,
-    dynamic_option_factory,
+    caluma_work_item_factory,
+    caluma_dynamic_option_factory,
     mocker,
     multilang,
     utils,
-    document_factory,
+    caluma_document_factory,
     active_inquiry_factory,
 ):
     # Authority
@@ -352,7 +352,7 @@ def test_dms_placeholders_so(
     # Municipality
     municipality = service_factory(website="https://gemeinde.ch")
     utils.add_answer(so_instance.case.document, "gemeinde", str(municipality.pk))
-    dynamic_option_factory(
+    caluma_dynamic_option_factory(
         slug=str(municipality.pk),
         question_id="gemeinde",
         document=so_instance.case.document,
@@ -404,7 +404,7 @@ def test_dms_placeholders_so(
     )
 
     # Objection
-    objections_work_item = work_item_factory(
+    objections_work_item = caluma_work_item_factory(
         task__pk="einsprachen",
         document__form_id="einsprachen",
         case=so_instance.case,
@@ -440,7 +440,7 @@ def test_dms_placeholders_so(
     )
 
     # Publication
-    publication_work_item = work_item_factory(
+    publication_work_item = caluma_work_item_factory(
         case=so_instance.case,
         task_id="fill-publication",
         status=WorkItem.STATUS_COMPLETED,
@@ -522,11 +522,11 @@ def test_dms_placeholders_so(
     )
 
     # Decision
-    decision_work_item = work_item_factory(
+    decision_work_item = caluma_work_item_factory(
         case=so_instance.case,
         task_id="decision",
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form_id="entscheid"),
+        document=caluma_document_factory(form_id="entscheid"),
     )
     utils.add_answer(decision_work_item.document, "entscheid-datum", date(2024, 4, 18))
 
@@ -812,12 +812,12 @@ def test_dms_placeholders(
         AnswerFactory(
             document=inquiry.child_case.document,
             question=stellungnahme_question,
-            value=f"Stellungnahme {i+1}",
+            value=f"Stellungnahme {i + 1}",
         )
         AnswerFactory(
             document=inquiry.child_case.document,
             question=nebenbestimmungen_question,
-            value=f"Nebenbestimmungen {i+1}",
+            value=f"Nebenbestimmungen {i + 1}",
         )
 
     for service_inquiry in service_inquiries:
@@ -951,12 +951,12 @@ def test_dms_placeholders_ur(
     ur_instance,
     ur_distribution_settings,
     utils,
-    dynamic_option_factory,
+    caluma_dynamic_option_factory,
     service_factory,
     group_factory,
     location_factory,
     ur_master_data_case,
-    question_factory,
+    caluma_question_factory,
 ):
     # Municipality
     municipality = service_factory(

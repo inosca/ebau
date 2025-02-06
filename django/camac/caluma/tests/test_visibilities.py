@@ -350,8 +350,8 @@ def test_work_item_additional_demand_visibility(
     caluma_workflow_config_gr,
     gr_instance,
     applicant_factory,
-    work_item_factory,
-    case_factory,
+    caluma_work_item_factory,
+    caluma_case_factory,
     role,
     mocker,
     settings,
@@ -367,7 +367,7 @@ def test_work_item_additional_demand_visibility(
 
     # create child case which is not yet visible to applicant,
     # because additional demand has not been sent yet
-    child_case_hidden = case_factory(
+    child_case_hidden = caluma_case_factory(
         family=gr_instance.case, workflow_id="additional-demand"
     )
     # base work item, visible for municipality
@@ -384,7 +384,9 @@ def test_work_item_additional_demand_visibility(
 
     # create another child case which is visible to the applicant,
     # because additional demand has been sent
-    child_case = case_factory(family=gr_instance.case, workflow_id="additional-demand")
+    child_case = caluma_case_factory(
+        family=gr_instance.case, workflow_id="additional-demand"
+    )
     # base work item, visible for applicant now as well
     visible_base = caluma_workflow_factories.WorkItemFactory(
         task_id="additional-demand", case=gr_instance.case, child_case=child_case
@@ -794,8 +796,8 @@ def test_case_keyword_filter_sz(
     journal_entry_factory,
     issue_factory,
     service_factory,
-    form_question_factory,
-    document_factory,
+    caluma_form_question_factory,
+    caluma_document_factory,
     mocker,
 ):
     mocker.patch(
@@ -806,12 +808,12 @@ def test_case_keyword_filter_sz(
     # Caluma
     form = Form.objects.get(pk="voranfrage")
 
-    document = document_factory.create(form=form)
-    question_a = form_question_factory(
+    document = caluma_document_factory.create(form=form)
+    question_a = caluma_form_question_factory(
         question__type=Question.TYPE_TEXT, form=form
     ).question
 
-    question_b = form_question_factory(
+    question_b = caluma_form_question_factory(
         question__type=Question.TYPE_INTEGER, form=form
     ).question
 
@@ -858,7 +860,7 @@ def test_case_keyword_filter_sz(
 def test_public_document_visibility(
     db,
     admin_user,
-    answer_factory,
+    caluma_answer_factory,
     applicant_factory,
     publication_settings,
     settings,
@@ -875,8 +877,8 @@ def test_public_document_visibility(
     applicant_factory(instance=be_instance, invitee=admin_user)
 
     document = be_instance.case.document
-    answer_factory.create_batch(2, document=document)
-    scrubbed_answers = answer_factory.create_batch(3, document=document)
+    caluma_answer_factory.create_batch(2, document=document)
+    scrubbed_answers = caluma_answer_factory.create_batch(3, document=document)
     scrubbed_questions = [answer.question_id for answer in scrubbed_answers]
 
     publication_settings["SCRUBBED_ANSWERS"] = scrubbed_questions
@@ -911,12 +913,12 @@ def test_publication_visibility(
     be_instance,
     caluma_admin_public_schema_executor,
     create_caluma_publication,  # noqa: F811
-    work_item_factory,
-    document_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
     gql,
 ):
     create_caluma_publication(be_instance)
-    work_item_factory(case=be_instance.case, document=document_factory())
+    caluma_work_item_factory(case=be_instance.case, document=caluma_document_factory())
 
     result = caluma_admin_public_schema_executor(gql("publication"))
 
@@ -1159,7 +1161,7 @@ def test_work_item_filter_with_tasks(
     role,
     filter,
     ur_additional_demand_settings,
-    work_item_factory,
+    caluma_work_item_factory,
     application_settings,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
@@ -1171,7 +1173,7 @@ def test_work_item_filter_with_tasks(
         work_item=ur_instance.case.work_items.get(task_id="submit"),
         user=caluma_admin_user,
     )
-    work_item_factory(
+    caluma_work_item_factory(
         task_id=ur_additional_demand_settings["CHECK_TASK"],
         case=ur_instance.case,
         deadline=make_aware(datetime(2024, 10, 17)),

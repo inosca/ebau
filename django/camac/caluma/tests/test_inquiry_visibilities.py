@@ -211,16 +211,16 @@ def test_inquiry_visibility_so(
 def test_inquiry_visibility_ag(
     db,
     ag_distribution_settings,
-    case_factory,
+    caluma_case_factory,
     group,
     service_factory,
     settings,
     snapshot,
-    task_factory,
-    work_item_factory,
+    caluma_task_factory,
+    caluma_work_item_factory,
 ):
     settings.APPLICATION_NAME = "kt_ag"
-    task = task_factory(pk=ag_distribution_settings["INQUIRY_TASK"])
+    task = caluma_task_factory(pk=ag_distribution_settings["INQUIRY_TASK"])
 
     authority = service_factory(service_group__name="municipality")
     authority_subservice = service_factory(
@@ -246,7 +246,7 @@ def test_inquiry_visibility_ag(
         service_group__name="service-external", service_parent=external
     )
 
-    _case = case_factory()
+    _case = caluma_case_factory()
 
     for name, controlling, addressed in [
         ("authority-to-municipality", authority, municipality),
@@ -261,7 +261,7 @@ def test_inquiry_visibility_ag(
         ("canton-to-subservice", canton, canton_subservice),
         ("external-to-subservice", external, external_subservice),
     ]:
-        work_item_factory(
+        caluma_work_item_factory(
             task=task,
             case=_case,
             name=name,

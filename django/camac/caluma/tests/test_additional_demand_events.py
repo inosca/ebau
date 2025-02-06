@@ -5,14 +5,14 @@ from camac.caluma.extensions.events import additional_demand
 
 def test_creating_an_additional_demand_sets_the_correct_instance_state(
     db,
-    work_item_factory,
-    workflow_factory,
+    caluma_work_item_factory,
+    caluma_workflow_factory,
     caluma_admin_user,
     ur_additional_demand_settings,
     ur_instance,
     instance_state_factory,
 ):
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=ur_instance.case, task_id=ur_additional_demand_settings["TASK"]
     )
     instance_state_factory(
@@ -32,29 +32,29 @@ def test_creating_an_additional_demand_sets_the_correct_instance_state(
 
 def test_post_complete_check_additional_demand_ur(
     db,
-    work_item_factory,
-    workflow_factory,
+    caluma_work_item_factory,
+    caluma_workflow_factory,
     caluma_admin_user,
     ur_additional_demand_settings,
     ur_instance,
     instance_state_factory,
     admin_user,
-    answer_factory,
+    caluma_answer_factory,
     set_application_ur,
     ur_distribution_settings,
 ):
     ur_additional_demand_settings["NOTIFICATIONS"] = {}
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=ur_instance.case,
         task_id=ur_additional_demand_settings["CHECK_TASK"],
         status=WorkItem.STATUS_COMPLETED,
     )
-    distribution_init_work_item = work_item_factory(
+    distribution_init_work_item = caluma_work_item_factory(
         case=ur_instance.case,
         task_id=ur_distribution_settings["DISTRIBUTION_INIT_TASK"],
         status=WorkItem.STATUS_SUSPENDED,
     )
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question_id=ur_additional_demand_settings["QUESTIONS"]["DECISION"],
         value=ur_additional_demand_settings["ANSWERS"]["DECISION"]["ACCEPTED"],

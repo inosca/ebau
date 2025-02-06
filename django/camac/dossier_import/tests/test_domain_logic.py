@@ -19,9 +19,9 @@ from camac.instance.master_data import MasterData
 from camac.settings.modules.master_data import MASTER_DATA
 
 
-def test_undo_import(db, dossier_import, case_factory, instance_with_case):
-    case_factory.create_batch(2, meta={"import-id": str(dossier_import.pk)})
-    case_factory()  # unrelated case
+def test_undo_import(db, dossier_import, caluma_case_factory, instance_with_case):
+    caluma_case_factory.create_batch(2, meta={"import-id": str(dossier_import.pk)})
+    caluma_case_factory()  # unrelated case
     undo_import(dossier_import)
     assert not Case.objects.filter(
         **{"meta__import-id": str(dossier_import.pk)}

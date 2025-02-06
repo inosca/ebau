@@ -1,7 +1,10 @@
+import inspect
 import os
+from importlib import import_module
 
 from django.conf import settings
 from django.core.management.base import BaseCommand, CommandError
+from factory.base import FactoryMetaClass
 from inflection import humanize
 from jinja2 import FileSystemLoader
 from jinja2.sandbox import SandboxedEnvironment
@@ -37,39 +40,18 @@ class Command(BaseCommand):
         self.engine.filters["humanize"] = humanize
 
     def handle(self, *args, **options):
-        check = options.get("check", False)
+        self.check_only = options.get("check", False)
 
-        self.generate_settings_fixtures(check)
+        self.generate_settings_fixtures()
+        self.generate_external_factories()
 
-    def generate_settings_fixtures(self, check: bool):
-        filename = "settings_fixtures.py"
-
-        template = self.engine.get_template(f"{filename}.j2")
-
-        content = template.render(modules=self.get_settings_fixtures_config())
-        content = content.strip() + "\n"
-
-        output_file = os.path.join(OUTPUT_DIR, filename)
-
-        if check:
-            with open(output_file, "r") as f:
-                if f.read() != content:
-                    raise CommandError(
-                        "The fixtures for the module settings do not match the "
-                        "current configuration. Please run `./manage.py "
-                        "generate_fixtures` and commit the changes."
-                    )
-        else:
-            with open(output_file, "w") as f:
-                f.write(content)
-
-    def get_settings_fixtures_config(self):
+    def generate_settings_fixtures(self):
         default_fixture_config = [
             {"prefix": "", "canton": None, "disable": False},
             {"prefix": "disable_", "canton": None, "disable": True},
         ]
 
-        return {
+        modules = {
             module_name: default_fixture_config
             + [
                 {
@@ -81,3 +63,59 @@ class Command(BaseCommand):
             ]
             for module_name in get_all_modules()
         }
+
+        template = self.engine.get_template("settings_fixtures.py.j2")
+        content = template.render(modules=modules)
+
+        self.write_or_check_file(
+            os.path.join(OUTPUT_DIR, "settings_fixtures.py"), content
+        )
+
+    def generate_external_factories(self):
+        imports = []
+        classes = []
+
+        for path, import_name, prefix in settings.EXTERNAL_FACTORY_MODULES:
+            path_parts = path.split(".")
+            imports.append(
+                {
+                    "path": ".".join(path_parts[:-1]),
+                    "name": path_parts[-1],
+                    "alias": import_name,
+                }
+            )
+
+            for name, cls in inspect.getmembers(import_module(path), inspect.isclass):
+                if (
+                    isinstance(cls, FactoryMetaClass)  # Only factories
+                    and not cls._meta.abstract  # No abstract factories
+                    and cls.__module__ == path  # Ignore imported factories
+                ):
+                    classes.append(
+                        {"name": name, "path": import_name, "prefix": prefix}
+                    )
+
+        template = self.engine.get_template("external_factories.py.j2")
+        content = template.render(
+            imports=imports,
+            classes=classes,
+        )
+
+        self.write_or_check_file(
+            os.path.join(OUTPUT_DIR, "external_factories.py"), content
+        )
+
+    def write_or_check_file(self, file: str, content: str):
+        content = content.strip() + "\n"
+
+        if self.check_only:
+            with open(file, "r") as f:
+                if f.read() != content:
+                    raise CommandError(
+                        f"The generated file `{file}` does not match the "
+                        "current configuration. Please run `./manage.py "
+                        "generate_fixtures` and commit the changes."
+                    )
+        else:
+            with open(file, "w") as f:
+                f.write(content)

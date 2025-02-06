@@ -7,10 +7,10 @@ from camac.gis.models import GISDataSource
 
 
 @pytest.fixture
-def param_data_source(gis_data_source_factory, question_factory):
-    question_factory(slug="parzellen", type=Question.TYPE_TABLE)
-    question_factory(slug="lagekoordinaten-ost", type=Question.TYPE_FLOAT)
-    question_factory(slug="lagekoordinaten-nord", type=Question.TYPE_FLOAT)
+def param_data_source(gis_data_source_factory, caluma_question_factory):
+    caluma_question_factory(slug="parzellen", type=Question.TYPE_TABLE)
+    caluma_question_factory(slug="lagekoordinaten-ost", type=Question.TYPE_FLOAT)
+    caluma_question_factory(slug="lagekoordinaten-nord", type=Question.TYPE_FLOAT)
 
     return gis_data_source_factory(
         client=GISDataSource.CLIENT_PARAM,

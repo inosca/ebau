@@ -57,9 +57,9 @@ def test_complete_decision(
     caluma_admin_user,
     mailoutbox,
     notification_template,
-    work_item_factory,
-    document_factory,
-    question_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_question_factory,
     instance_state_factory,
     decision,
     decision_settings,
@@ -78,13 +78,13 @@ def test_complete_decision(
     gr_instance.case.workflow = Workflow.objects.get(pk="building-permit")
     gr_instance.case.save()
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=gr_instance.case,
         task_id=decision_settings["TASK"],
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form_id="decision"),
+        document=caluma_document_factory(form_id="decision"),
     )
-    decision_question = question_factory(
+    decision_question = caluma_question_factory(
         slug=decision_settings["QUESTIONS"]["DECISION"],
         label="Entscheid",
         type=Question.TYPE_TEXT,
@@ -165,7 +165,7 @@ def test_complete_decision_be(
     application_settings,
     mailoutbox,
     notification_template,
-    work_item_factory,
+    caluma_work_item_factory,
     instance_state_factory,
     workflow,
     decision,
@@ -208,7 +208,7 @@ def test_complete_decision_be(
     )
 
     if workflow == "internal":
-        ebau_number_work_item = work_item_factory(case=be_instance.case)
+        ebau_number_work_item = caluma_work_item_factory(case=be_instance.case)
         application_settings["CALUMA"]["EBAU_NUMBER_TASK"] = (
             ebau_number_work_item.task_id
         )
@@ -355,34 +355,36 @@ def test_complete_decision_appeal(
 )
 def test_should_continue_after_decision_so(
     db,
-    document_factory,
-    question_factory,
+    caluma_document_factory,
+    caluma_question_factory,
     so_decision_settings,
-    task_factory,
-    work_item_factory,
+    caluma_task_factory,
+    caluma_work_item_factory,
     decision,
     bauabschlag,
     expected,
     instance,
     form_slug,
 ):
-    work_item = work_item_factory(
-        task=task_factory(slug=so_decision_settings["TASK"]),
+    work_item = caluma_work_item_factory(
+        task=caluma_task_factory(slug=so_decision_settings["TASK"]),
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form=FormFactory(slug="decision")),
+        document=caluma_document_factory(form=FormFactory(slug="decision")),
     )
 
     work_item.case.document.form = FormFactory(slug=form_slug)
     work_item.case.document.save()
 
     work_item.document.answers.create(
-        question=question_factory(slug=so_decision_settings["QUESTIONS"]["DECISION"]),
+        question=caluma_question_factory(
+            slug=so_decision_settings["QUESTIONS"]["DECISION"]
+        ),
         value=so_decision_settings["ANSWERS"]["DECISION"][decision],
     )
 
     if bauabschlag:
         work_item.document.answers.create(
-            question=question_factory(
+            question=caluma_question_factory(
                 slug=so_decision_settings["QUESTIONS"]["BAUABSCHLAG"]
             ),
             value=so_decision_settings["ANSWERS"]["BAUABSCHLAG"][bauabschlag],
@@ -397,26 +399,28 @@ def test_should_continue_after_decision_so(
 def test_complete_decision_withdrawn(
     db,
     caluma_admin_user,
-    document_factory,
+    caluma_document_factory,
     instance_state_factory,
-    question_factory,
+    caluma_question_factory,
     so_decision_settings,
     so_instance,
     withdrawal_settings,
-    work_item_factory,
+    caluma_work_item_factory,
     disable_ech0211_settings,
 ):
     instance_state_factory(name=withdrawal_settings["INSTANCE_STATE_CONFIRMED"])
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=so_instance.case,
         task_id=so_decision_settings["TASK"],
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form=FormFactory(slug="decision")),
+        document=caluma_document_factory(form=FormFactory(slug="decision")),
     )
 
     work_item.document.answers.create(
-        question=question_factory(slug=so_decision_settings["QUESTIONS"]["DECISION"]),
+        question=caluma_question_factory(
+            slug=so_decision_settings["QUESTIONS"]["DECISION"]
+        ),
         value=so_decision_settings["ANSWERS"]["DECISION"]["WITHDRAWAL"],
     )
 
@@ -480,7 +484,7 @@ def test_complete_decision_appeal_so(
     so_construction_monitoring_settings,
     so_decision_settings,
     so_instance,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SHORT_NAME"] = "so"
@@ -493,7 +497,9 @@ def test_complete_decision_appeal_so(
     instance_state_factory(name="init-distribution")
 
     # Prepare "normal" instance that got an appeal after the decision
-    work_item_factory(task_id=so_decision_settings["TASK"], case=so_instance.case)
+    caluma_work_item_factory(
+        task_id=so_decision_settings["TASK"], case=so_instance.case
+    )
     decision_factory_so(
         so_instance, so_decision_settings["ANSWERS"]["DECISION"][previous_decision]
     )
@@ -563,7 +569,7 @@ def test_complete_decision_simplified_workflow_so(
     settings,
     so_decision_settings,
     so_instance,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SHORT_NAME"] = "so"
@@ -579,7 +585,7 @@ def test_complete_decision_simplified_workflow_so(
         so_instance.case.work_items.filter(task_id="submit").first(),
         caluma_admin_user,
     )
-    decision_work_item = work_item_factory(
+    decision_work_item = caluma_work_item_factory(
         task_id=so_decision_settings["TASK"],
         case=so_instance.case,
         child_case=None,
@@ -618,7 +624,7 @@ def test_complete_decision_simplified_workflow_so(
     ],
 )
 def test_decision_work_item_name(
-    work_item_factory,
+    caluma_work_item_factory,
     caluma_admin_user,
     is_appeal,
     form_slug,
@@ -633,7 +639,7 @@ def test_decision_work_item_name(
     Form.objects.filter(pk="meldung").update(name={"de": "Meldung (Anzeige)"})
     Form.objects.filter(pk="meldung-pv").update(name={"de": "Meldung PV-Anlage"})
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task_id=so_decision_settings["TASK"], case=so_instance.case
     )
 

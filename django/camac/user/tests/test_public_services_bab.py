@@ -98,7 +98,7 @@ def test_so_distribution_services(
     so_publication_settings,
     so_services,
     utils,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
@@ -114,7 +114,7 @@ def test_so_distribution_services(
         so_instance.case.save()
 
     if "completed_publication" in conditions:
-        work_item = work_item_factory(
+        work_item = caluma_work_item_factory(
             task_id=so_publication_settings["FILL_TASKS"][0],
             status=WorkItem.STATUS_COMPLETED,
             case=so_instance.case,
@@ -127,7 +127,7 @@ def test_so_distribution_services(
         )
 
     if "running_publication" in conditions:
-        work_item = work_item_factory(
+        work_item = caluma_work_item_factory(
             task_id=so_publication_settings["FILL_TASKS"][0],
             status=WorkItem.STATUS_COMPLETED,
             case=so_instance.case,

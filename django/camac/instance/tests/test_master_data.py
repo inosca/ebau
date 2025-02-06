@@ -511,8 +511,8 @@ def so_master_data_case(
     master_data_is_visible_mock,
     so_instance,
     utils,
-    question_factory,
-    dynamic_option_factory,
+    caluma_question_factory,
+    caluma_dynamic_option_factory,
 ):
     so_instance.case.meta = {
         "dossier-number": "2024-1",
@@ -556,7 +556,7 @@ def so_master_data_case(
 
     # Municipality
     utils.add_answer(document, "gemeinde", "1")
-    dynamic_option_factory(
+    caluma_dynamic_option_factory(
         question_id="gemeinde",
         document=so_instance.case.document,
         slug="1",
@@ -659,14 +659,14 @@ def so_master_data_case(
         ],
     )
 
-    building_question = question_factory(
+    building_question = caluma_question_factory(
         slug="dazugehoeriges-gebaeude-auswahl", type=Question.TYPE_DYNAMIC_CHOICE
     )
     building_slug = str(buildings.documents.first().pk)
 
     for row in dwellings.documents.all().union(energy_devices.documents.all()):
         utils.add_answer(row, building_question.pk, building_slug)
-        dynamic_option_factory(
+        caluma_dynamic_option_factory(
             question=building_question,
             document=row,
             slug=building_slug,

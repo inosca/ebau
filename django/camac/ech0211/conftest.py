@@ -27,7 +27,7 @@ def ech_instance_sz(
     instance_with_case,
     instance_group,
     caluma_config_sz,
-    work_item_factory,
+    caluma_work_item_factory,
     location,
     utils,
 ):
@@ -51,7 +51,7 @@ def ech_instance_sz(
     ech_instance.form = form_factory(name="application_type")
     attachment_factory(instance=ech_instance)
     call_command("loaddata", "/app/kt_schwyz/config/buildingauthority.json")
-    ba_work_item = work_item_factory(
+    ba_work_item = caluma_work_item_factory(
         task_id="building-authority", case=ech_instance.case
     )
     utils.add_table_answer(
@@ -360,7 +360,7 @@ def ech_instance_so(
     caluma_workflow_config_so,
     utils,
     decision_factory_so,
-    work_item_factory,
+    caluma_work_item_factory,
     group,
     service_factory,
     so_alexandria_settings,
@@ -455,7 +455,9 @@ def ech_instance_so(
         category__metainfo={},
     )
 
-    work_item_factory(task_id="decision", case=ech_instance.case, status="completed")
+    caluma_work_item_factory(
+        task_id="decision", case=ech_instance.case, status="completed"
+    )
     decision_factory_so(ech_instance)
 
     return ech_instance

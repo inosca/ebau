@@ -1133,7 +1133,7 @@ def test_condition_ready_work_item(
     gr_instance,
     mocker,
     status_code,
-    work_item_factory,
+    caluma_work_item_factory,
     work_item_status,
 ):
     mocker.patch(
@@ -1142,7 +1142,7 @@ def test_condition_ready_work_item(
     )
 
     if work_item_status:
-        work_item_factory(
+        caluma_work_item_factory(
             task__pk="some-work-item", case=gr_instance.case, status=work_item_status
         )
 
@@ -1195,7 +1195,7 @@ def test_condition_ready_work_item_additional_demand(
     method,
     mocker,
     status_code,
-    work_item_factory,
+    caluma_work_item_factory,
     work_item_status,
 ):
     mocker.patch(
@@ -1203,7 +1203,7 @@ def test_condition_ready_work_item_additional_demand(
         return_value=[gr_instance.pk],
     )
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task=Task.objects.get(slug="fill-additional-demand"),
         case=gr_instance.case,
         status=work_item_status,

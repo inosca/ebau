@@ -146,31 +146,31 @@ def test_services_with_incomplete_inquiries(
     distribution_settings,
     instance_factory,
     service_factory,
-    case_factory,
-    work_item_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
     notification_template,
     system_operation_user,
 ):
-    completed_case = case_factory()
-    skipped_case = case_factory()
-    parent_case = case_factory()
+    completed_case = caluma_case_factory()
+    skipped_case = caluma_case_factory()
+    parent_case = caluma_case_factory()
     instance_factory(case=completed_case)
     skipped_instance = instance_factory(case=skipped_case)
     completed_service = service_factory(email="completed@example.com")
     skipped_service = service_factory(email="skipped@example.com")
 
-    parent_work_item = work_item_factory(case=parent_case)
+    parent_work_item = caluma_work_item_factory(case=parent_case)
     parent_work_item.child_case = skipped_case
     parent_work_item.save()
 
-    work_item_factory(
+    caluma_work_item_factory(
         task__slug=distribution_settings["INQUIRY_TASK"],
         case=skipped_case,
         status=WorkItem.STATUS_SKIPPED,
         addressed_groups=[str(skipped_service.pk)],
     )
 
-    work_item_factory(
+    caluma_work_item_factory(
         task=Task.objects.get(pk=distribution_settings["INQUIRY_TASK"]),
         case=completed_case,
         status=WorkItem.STATUS_COMPLETED,

@@ -552,7 +552,7 @@ def test_task_send_handler(
     notification_template_factory,
     service_factory,
     set_application_be,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     notification_template_factory(slug="03-verfahrensablauf-fachstelle")
 
@@ -591,7 +591,7 @@ def test_task_send_handler(
             task_id=be_distribution_settings["INQUIRY_CREATE_TASK"]
         ).delete()
     elif test_case == "multiple_create_inquiry":
-        work_item_factory(
+        caluma_work_item_factory(
             task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
             status=WorkItem.STATUS_READY,
             case=distribution_case,
@@ -878,7 +878,7 @@ def test_accompanying_report_send_handler(
     service,
     set_application_be,
     user_group_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     settings,
     #
     has_attachment,
@@ -896,7 +896,7 @@ def test_accompanying_report_send_handler(
             addressed_service=user_group.group.service,
         )
 
-        work_item_factory(
+        caluma_work_item_factory(
             task_id=be_distribution_settings["INQUIRY_ANSWER_FILL_TASK"],
             case=existing_inquiry.child_case,
             child_case=None,
@@ -1028,7 +1028,7 @@ def test_submit_send_handler(
     caluma_admin_user,
     ech_snapshot,
     instance_state_factory,
-    question_factory,
+    caluma_question_factory,
     mocked_request_object,
     mailoutbox,
     notification_template_factory,
@@ -1046,10 +1046,10 @@ def test_submit_send_handler(
     gr_ech0211_settings["SUBMIT_PLANNING_PERMISSION_APPLICATION"]["FORM_ID"] = form.pk
     instance_state_factory(name="new")
     instance_state_factory(name="subm")
-    question_factory(slug="material-question-exam")
-    question_factory(slug="complete-material-exam")
-    question_factory(slug="oeffentliche-auflage")
-    question_factory(slug="fuer-gvg-freigeben")
+    caluma_question_factory(slug="material-question-exam")
+    caluma_question_factory(slug="complete-material-exam")
+    caluma_question_factory(slug="oeffentliche-auflage")
+    caluma_question_factory(slug="fuer-gvg-freigeben")
     call_command(
         "loaddata",
         settings.ROOT_DIR("kt_gr/config/caluma_form.json"),

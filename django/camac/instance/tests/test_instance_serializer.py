@@ -33,7 +33,7 @@ def test_get_authority(
     db,
     ur_instance,
     form_slug,
-    answer_factory,
+    caluma_answer_factory,
     expected_authority_pk,
     caluma_workflow_config_ur,
     mocker,
@@ -42,7 +42,7 @@ def test_get_authority(
     ur_instance.case.document.save()
     mocker.patch.object(uri_constants, "KOOR_AFG_GROUP_ID", ur_instance.group.pk)
 
-    answer_factory(
+    caluma_answer_factory(
         document=ur_instance.case.document,
         question=ur_instance.case.document.form.questions.get(slug="municipality"),
         value=uri_constants.BFS_NR_DIVERSE_GEMEINDEN,
@@ -80,7 +80,7 @@ def test_ur_get_responsible_service(
     utils,
     set_application_ur,
     veranstaltungs_art,
-    form_question_factory,
+    caluma_form_question_factory,
 ):
     serializer = CalumaInstanceSubmitSerializer()
     mock_service = service_factory()
@@ -92,7 +92,7 @@ def test_ur_get_responsible_service(
     mocker.patch.object(uri_constants, "KOOR_AFG_GROUP_ID", ur_instance.group.pk)
 
     if veranstaltungs_art:
-        form_question_factory(
+        caluma_form_question_factory(
             form=ur_instance.case.document.form,
             question__slug="veranstaltung-art",
         )

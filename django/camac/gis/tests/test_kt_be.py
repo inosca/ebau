@@ -10,7 +10,10 @@ from camac.gis.models import GISDataSource
 
 @pytest.fixture
 def be_data_sources(
-    question_factory, question_option_factory, option_factory, settings
+    caluma_question_factory,
+    caluma_question_option_factory,
+    caluma_option_factory,
+    settings,
 ):
     call_command("loaddata", settings.ROOT_DIR("kt_bern/config/gis.json"))
     gis_questions = [
@@ -48,12 +51,12 @@ def be_data_sources(
     for config in gis_questions:
         slug = config[0]
         type = config[1]
-        q = question_factory(slug=slug, type=type, label=slug)
+        q = caluma_question_factory(slug=slug, type=type, label=slug)
         if len(config) == 3:
             for i, option in enumerate(reversed(config[2])):
-                question_option_factory(
+                caluma_question_option_factory(
                     question=q,
-                    option=option_factory(slug=f"{slug}-{option}", label=option),
+                    option=caluma_option_factory(slug=f"{slug}-{option}", label=option),
                     sort=i,
                 )
 

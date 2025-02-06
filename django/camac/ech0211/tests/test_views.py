@@ -611,7 +611,7 @@ def test_application_retrieve_full_sz(
     snapshot,
     mocker,
     request,
-    work_item_factory,
+    caluma_work_item_factory,
     master_data_is_visible_mock,
     reload_ech0211_urls,
 ):
@@ -633,7 +633,7 @@ def test_application_retrieve_full_sz(
     if decision and decision.get("date"):
         # determinining decision date in SZ requires a value from
         # the work_item document of task "building-authority"
-        work_item_factory(
+        caluma_work_item_factory(
             task_id="make-decision",
             case=ech_instance_sz.case,
             status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
@@ -660,17 +660,17 @@ def test_send_submit(
     form,
     instance_state_factory,
     notification_template_factory,
-    question_factory,
+    caluma_question_factory,
     mocker,
     ech_instance_gr,
     caluma_workflow_config_gr,
     caluma_admin_user,
     reload_ech0211_urls,
 ):
-    question_factory(slug="material-question-exam")
-    question_factory(slug="complete-material-exam")
-    question_factory(slug="oeffentliche-auflage")
-    question_factory(slug="fuer-gvg-freigeben")
+    caluma_question_factory(slug="material-question-exam")
+    caluma_question_factory(slug="complete-material-exam")
+    caluma_question_factory(slug="oeffentliche-auflage")
+    caluma_question_factory(slug="fuer-gvg-freigeben")
     call_command(
         "loaddata",
         settings.ROOT_DIR("kt_gr/config/caluma_form.json"),

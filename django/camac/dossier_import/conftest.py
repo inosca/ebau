@@ -116,8 +116,8 @@ def load_fixtures_so(
     settings,
     caluma_workflow_config_so,
     so_dossier_import_settings,
-    document_factory,
-    dynamic_option_factory,
+    caluma_document_factory,
+    caluma_dynamic_option_factory,
     service_factory,
     so_decision_settings,
     so_construction_monitoring_settings,
@@ -134,8 +134,8 @@ def load_fixtures_so(
 
     caluma_workflow_config_so.allow_forms.add("migriertes-dossier")
     service = service_factory(service_group__name="municipality")
-    dynamic_option_factory(
-        slug=str(service.pk), question_id="gemeinde", document=document_factory()
+    caluma_dynamic_option_factory(
+        slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
     )
 
     so_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory(
@@ -172,8 +172,8 @@ def load_fixtures_be(
     decision_factory,
     service_factory,
     construction_control_for,
-    document_factory,
-    dynamic_option_factory,
+    caluma_document_factory,
+    caluma_dynamic_option_factory,
     be_permissions_settings,
     application_settings,
 ):
@@ -190,8 +190,8 @@ def load_fixtures_be(
     ]
     service = service_factory(service_group__name="municipality")
     construction_control_for(service)
-    dynamic_option_factory(
-        slug=str(service.pk), question_id="gemeinde", document=document_factory()
+    caluma_dynamic_option_factory(
+        slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
     )
     yield service, django_fixture_paths
 

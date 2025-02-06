@@ -730,21 +730,21 @@ def test_fix_work_items(
 )
 def test_instance_convert_modification(
     admin_client,
-    answer_factory,
+    caluma_answer_factory,
     be_instance,
     expected_status,
 ):
-    answer_factory(
+    caluma_answer_factory(
         question_id="beschreibung-bauvorhaben",
         value="foo",
         document_id=be_instance.case.document.pk,
     )
-    answer_factory(
+    caluma_answer_factory(
         question_id="projektaenderung",
         value="projektaenderung-ja",
         document_id=be_instance.case.document.pk,
     )
-    answer_factory(
+    caluma_answer_factory(
         question__slug="beschreibung-projektaenderung",
         value="bar",
         document_id=be_instance.case.document.pk,

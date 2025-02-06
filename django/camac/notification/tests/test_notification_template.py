@@ -140,8 +140,8 @@ def test_notification_template_merge(
     application_settings,
     form_field_factory,
     publication_entry,
-    work_item_factory,
-    document_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
     settings,
     snapshot,
     utils,
@@ -183,8 +183,10 @@ def test_notification_template_merge(
         }
     }
 
-    work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
-    work_item.document = document_factory(form_id="bauverwaltung")
+    work_item = caluma_work_item_factory(
+        task_id="building-authority", case=sz_instance.case
+    )
+    work_item.document = caluma_document_factory(form_id="bauverwaltung")
     work_item.save()
     utils.add_answer(
         work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo"
@@ -454,7 +456,7 @@ def test_notification_template_construction_acceptance(
     set_application_gr,
     gr_decision_settings,
     gr_distribution_settings,
-    answer_factory,
+    caluma_answer_factory,
     released_for_aib,
     service_factory,
 ):
@@ -487,7 +489,7 @@ def test_notification_template_construction_acceptance(
         )
 
     if released_for_aib:
-        answer_factory(
+        caluma_answer_factory(
             document=gr_instance.case.work_items.filter(
                 task_id="construction-acceptance"
             )
@@ -570,9 +572,9 @@ def test_recipient_schnurgeruestabnahme_uri(
     ur_instance,
     construction_monitoring_settings,
     check_by_geometer,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     service_factory,
     notification_template,
 ):
@@ -587,20 +589,20 @@ def test_recipient_schnurgeruestabnahme_uri(
             "subject": "test",
             "work_item": {
                 "type": "work-items",
-                "id": work_item_factory(case=ur_instance.case).pk,
+                "id": caluma_work_item_factory(case=ur_instance.case).pk,
             },
         }
     )
     serializer.is_valid()
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=ur_instance.case,
-        document=document_factory(),
+        document=caluma_document_factory(),
         task_id=settings.CONSTRUCTION_MONITORING[
             "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
         ],
     )
     ago_service = service_factory(name="AGO (Geometer)")
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question_id="schnurgeruestabnahme-durch",
         value="wer-fuehrt-die-schnurgeruestabnahme-durch-geometer"
@@ -878,7 +880,7 @@ def test_notification_placeholders(
     billing_v2_entry_factory,
     objection,
     objection_participant_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     distribution_settings,
     utils,
 ):
@@ -897,14 +899,14 @@ def test_notification_placeholders(
         workflow_date=timezone.make_aware(datetime(2019, 9, 24, 10)),
     ).workflow_item.pk
 
-    work_item_factory(
+    caluma_work_item_factory(
         case=sz_instance.case,
         status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
         task_id=distribution_settings["DISTRIBUTION_INIT_TASK"],
         closed_at=timezone.make_aware(datetime(2019, 9, 24, 10)),
     )
 
-    building_authority_work_item = work_item_factory(
+    building_authority_work_item = caluma_work_item_factory(
         case=sz_instance.case,
         status=caluma_workflow_models.WorkItem.STATUS_READY,
         task_id="building-authority",
@@ -1245,11 +1247,11 @@ def test_recipient_type_work_item_addressed(
     be_instance,
     service,
     addressed_service,
-    work_item_factory,
+    caluma_work_item_factory,
     notification_template,
     user_group,
 ):
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         addressed_groups=[str(service.pk), addressed_service],
     )
     be_instance.responsible_services.create(
@@ -1289,7 +1291,12 @@ def test_recipient_type_work_item_addressed(
 
 
 def test_recipient_type_work_item_controlling(
-    db, be_instance, service, work_item_factory, notification_template, user_group
+    db,
+    be_instance,
+    service,
+    caluma_work_item_factory,
+    notification_template,
+    user_group,
 ):
     be_instance.responsible_services.create(
         service=service, responsible_user=user_group.user
@@ -1708,8 +1715,8 @@ def test_notification_bauverwaltung_placeholders(
     sz_instance,
     notification_template,
     application_settings,
-    work_item_factory,
-    document_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
     settings,
     utils,
 ):
@@ -1724,8 +1731,10 @@ def test_notification_bauverwaltung_placeholders(
         }
     }
 
-    work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
-    work_item.document = document_factory(form_id="bauverwaltung")
+    work_item = caluma_work_item_factory(
+        task_id="building-authority", case=sz_instance.case
+    )
+    work_item.document = caluma_document_factory(form_id="bauverwaltung")
     work_item.save()
     utils.add_answer(
         work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo"
@@ -1835,8 +1844,8 @@ def test_notification_additional_demand(
     gr_instance,
     service,
     service_factory,
-    case_factory,
-    work_item_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
     notification_template,
     user_group,
     active_inquiry_factory,
@@ -1844,9 +1853,9 @@ def test_notification_additional_demand(
 ):
     inviter = service_factory()
     active_inquiry_factory(gr_instance, service, inviter)
-    case = case_factory()
-    work_item_factory(addressed_groups=[str(service.pk)], child_case=case)
-    work_item = work_item_factory(case=case)
+    case = caluma_case_factory()
+    caluma_work_item_factory(addressed_groups=[str(service.pk)], child_case=case)
+    work_item = caluma_work_item_factory(case=case)
 
     serializer = serializers.NotificationTemplateSendmailSerializer(
         data={
@@ -1883,19 +1892,19 @@ def test_notifications_without_receivers_sz(
 def test_get_schlussabnahme_uhrzeit(
     db,
     instance_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     construction_monitoring_settings,
-    document_factory,
-    answer_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
 ):
     instance = instance_factory()
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task__slug=construction_monitoring_settings[
             "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
         ],
-        document=document_factory(),
+        document=caluma_document_factory(),
     )
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question__slug="construction-step-schlussabnahme-projekt-planen-zeit-der-abnahme",
         value="09:00",
@@ -1911,19 +1920,19 @@ def test_get_schlussabnahme_uhrzeit(
 def test_get_schlussabnahme_datum(
     db,
     instance_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     construction_monitoring_settings,
-    document_factory,
-    answer_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
 ):
     instance = instance_factory()
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task__slug=construction_monitoring_settings[
             "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
         ],
-        document=document_factory(),
+        document=caluma_document_factory(),
     )
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question__slug="construction-step-schlussabnahme-projekt-planen-datum-der-abnahme",
         date="2024-01-01",
@@ -1940,22 +1949,22 @@ def test_get_recipients_invited_to_schlussabnahme_projekt(
     db,
     notification_template,
     instance_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     construction_monitoring_settings,
-    document_factory,
-    answer_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     service_factory,
-    case_factory,
+    caluma_case_factory,
 ):
-    instance = instance_factory(case=case_factory())
+    instance = instance_factory(case=caluma_case_factory())
     service = service_factory()
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task__slug=construction_monitoring_settings[
             "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
         ],
-        document=document_factory(),
+        document=caluma_document_factory(),
     )
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question__slug="construction-step-schlussabnahme-projekt-planen-fachstellen",
         value=[service.pk],

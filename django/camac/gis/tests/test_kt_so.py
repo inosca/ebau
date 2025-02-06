@@ -98,7 +98,7 @@ TEST_SCENARIOS = [
 
 
 @pytest.fixture
-def so_data_sources(question_factory, settings, mock_municipalities):
+def so_data_sources(caluma_question_factory, settings, mock_municipalities):
     call_command("loaddata", settings.ROOT_DIR("kt_so/config/gis.json"))
 
     gis_questions = [
@@ -128,7 +128,7 @@ def so_data_sources(question_factory, settings, mock_municipalities):
     ]
 
     for slug, type in gis_questions:
-        question_factory(slug=slug, type=type)
+        caluma_question_factory(slug=slug, type=type)
 
     Question.objects.filter(slug="gemeinde").update(data_source="Municipalities")
     mock_municipalities(["Solothurn"])
@@ -167,8 +167,8 @@ def test_sogis_client(
 
 
 @pytest.fixture
-def so_fake_data_source(gis_data_source_factory, question_factory):
-    question_factory(
+def so_fake_data_source(gis_data_source_factory, caluma_question_factory):
+    caluma_question_factory(
         slug="gemeinde",
         type=Question.TYPE_DYNAMIC_CHOICE,
         data_source="Municipalities",
