@@ -253,15 +253,6 @@
   },
   {
     "model": "core.araction",
-    "pk": 150001,
-    "fields": {
-      "available_resource": "textcomponentadmin",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.araction",
     "pk": 15000000,
     "fields": {
       "available_resource": "emberlist",
@@ -501,15 +492,6 @@
       "module_name": "default",
       "controller_name": "index",
       "description": "(PHP) Page from template"
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "textcomponentadmin",
-    "fields": {
-      "module_name": "textcomponentadmin",
-      "controller_name": "textcomponentadmin",
-      "description": "(Vue) Text component admin"
     }
   },
   {
