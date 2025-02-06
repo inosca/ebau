@@ -14094,7 +14094,7 @@
     "pk": "bestand-in-quadratmeter-v5",
     "fields": {
       "created_at": "2024-07-17T17:19:13.464Z",
-      "modified_at": "2024-07-17T17:31:05.283Z",
+      "modified_at": "2025-02-06T14:44:32.633Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -14109,6 +14109,7 @@
       "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "step": 0.5,
         "max_value": null,
         "min_value": null
       },
@@ -20265,7 +20266,7 @@
     "pk": "veraenderung-aufhebung-in-quadratmeter-v5",
     "fields": {
       "created_at": "2024-07-17T17:22:37.908Z",
-      "modified_at": "2024-07-17T17:31:17.745Z",
+      "modified_at": "2025-02-06T14:44:47.253Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -20280,6 +20281,7 @@
       "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "step": 0.5,
         "max_value": null,
         "min_value": null
       },
@@ -20299,7 +20301,7 @@
     "pk": "veraenderung-neu-in-quadratmeter-v5",
     "fields": {
       "created_at": "2024-07-17T17:20:20.315Z",
-      "modified_at": "2024-07-17T17:31:11.777Z",
+      "modified_at": "2025-02-06T14:44:39.667Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -20314,6 +20316,7 @@
       "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
+        "step": 0.5,
         "max_value": null,
         "min_value": null
       },
