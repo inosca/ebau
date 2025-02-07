@@ -905,6 +905,46 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 22000011,
+    "fields": {
+      "resource": 22000004,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000012,
+    "fields": {
+      "resource": 22000004,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000013,
+    "fields": {
+      "resource": 22000004,
+      "role": 12
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000014,
+    "fields": {
+      "resource": 22000004,
+      "role": 20000
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000015,
+    "fields": {
+      "resource": 22000004,
+      "role": 10000
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 2000000,
     "fields": {
@@ -940,7 +980,7 @@
       "template": "/ember-camac-ng/communications-global.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 6
+      "sort": 3
     }
   },
   {
@@ -953,7 +993,7 @@
       "template": "/ember-camac-ng/service-permissions.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -966,7 +1006,7 @@
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -979,7 +1019,7 @@
       "template": "/ember-camac-ng/snippets-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -992,7 +1032,7 @@
       "template": "/ember-camac-ng/snippets.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -1005,7 +1045,7 @@
       "template": "/dashboard/news.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -1018,7 +1058,7 @@
       "template": "/dashboard/help.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -1031,7 +1071,20 @@
       "template": "/dashboard/faq.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 5
+      "sort": 7
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 22000004,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/alexandria-search.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 4
     }
   },
   {
@@ -1131,6 +1184,16 @@
       "resource": 22000003,
       "language": "de",
       "name": "FAQ",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 22000003,
+    "fields": {
+      "resource": 22000004,
+      "language": "de",
+      "name": "Dokumente",
       "description": null
     }
   }
