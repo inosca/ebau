@@ -13,6 +13,7 @@ from rest_framework import status
 
 from camac.document import models, permissions, serializers
 from camac.permissions.conditions import Always
+from camac.permissions.models import GRANT_CHOICES
 from camac.utils import build_url
 
 from .data import django_file
@@ -48,11 +49,11 @@ def _configure_geometer_access(
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", lf("admin_user"), 14),
-        ("Reader", lf("user"), 14),
-        ("Canton", lf("user"), 14),
-        ("Municipality", lf("user"), 14),
-        ("Service", lf("user"), 14),
+        ("Applicant", lf("admin_user"), 16),
+        ("Reader", lf("user"), 16),
+        ("Canton", lf("user"), 16),
+        ("Municipality", lf("user"), 16),
+        ("Service", lf("user"), 16),
         ("Geometer", lf("user"), 16),
     ],
 )
@@ -1576,3 +1577,77 @@ def test_convert_docx_to_word(
     response = admin_client.post(url)
 
     assert response.status_code == status.HTTP_201_CREATED
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_accesslevel_based_permission(
+    admin_client,
+    attachment_section_factory,
+    instance,
+    attachment_factory,
+    mocker,
+    access_level_factory,
+    service_factory,
+    instance_acl_factory,
+):
+    """
+    Testing the accesslevel based document visibility.
+
+    If a user has an ACL on a given instance, the corresponding access level
+    may also grant some document ("attachment") visibility. We test that
+    two different permission types (ReadPermission and AdminInternalPermission)
+    work as expected.
+    """
+    section_a = attachment_section_factory(name="Section A")
+    section_b = attachment_section_factory(name="Section B")
+
+    my_service = admin_client.user.get_default_group().service
+    other_service = service_factory()
+
+    instance.location = admin_client.user.get_default_group().locations.first()
+    instance.save()
+
+    def af(name, service, section):
+        att = attachment_factory(name=name, service=service, instance=instance)
+        att.attachment_sections.set([section])
+        return att
+
+    doc_a_same = af("Doc A Same", my_service, section_a)
+    doc_a_othr = af("Doc A Othr", other_service, section_a)
+    doc_b_same = af("Doc B Same", my_service, section_b)
+    doc_b_othr = af("Doc B Othr", other_service, section_b)  # noqa
+
+    url = reverse("attachment-list")
+
+    level = access_level_factory(name="mylevel", slug="mylevel")
+
+    instance_acl_factory(
+        instance=instance,
+        service=my_service,
+        access_level=level,
+        grant_type=GRANT_CHOICES.SERVICE.value,
+    )
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS_BY_ACCESSLEVEL",
+        {
+            "test": {
+                level.slug: {
+                    permissions.ReadPermission: [section_a.pk],
+                    permissions.AdminInternalPermission: [section_b.pk],
+                }
+            }
+        },
+    )
+
+    response = admin_client.get(url)
+
+    resp_data = response.json()
+    resp_ids = set([rec["id"] for rec in resp_data["data"]])
+
+    expect_ids = set([str(doc_a_same.pk), str(doc_a_othr.pk), str(doc_b_same.pk)])
+    # doc_b_othr should NOT be part of the result - section B as "admin internal"
+    # permissions, so should only see same-service documents
+
+    assert resp_ids == expect_ids

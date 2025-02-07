@@ -114,9 +114,34 @@ class AttachmentQuerysetMixin:
             & perm.build_q(self.request.group, af)
             for perm, section_ids in permissions_to_sections.items()
         ]
-        combined = reduce(operator.or_, permission_exprs, Q(pk=0))
 
-        return queryset.filter(combined | self.get_loosen_filter()).distinct()
+        # Extend permission expressions to use access levels from the
+        # permission module as well.
+        levels = self.permissions_manager().current_access_levels()
+
+        for level in levels:
+            level_perms = permissions.get_accesslevel_permissions(level)
+            level_q = self.permissions_manager().get_q_object(
+                instance_prefix=f"{af}instance", only_level=level
+            )
+            level_perm_qs = []
+            for perm, section_ids in level_perms.items():
+                level_perm_qs.append(
+                    # relevant section ids...
+                    Q(**{f"{af}attachment_sections__in": section_ids})
+                    # ... and whatever the permission defines
+                    & perm.build_q(self.request.group, af)
+                )
+            if level_perm_qs:
+                permission_exprs.append(level_q & reduce(operator.or_, level_perm_qs))
+
+        filters = (
+            reduce(operator.or_, permission_exprs) | self.get_loosen_filter()
+            if permission_exprs
+            else self.get_loosen_filter()
+        )
+
+        return queryset.filter(filters).distinct()
 
     def get_loosen_filter(self):
         # loosen_filter can be used to allow more
