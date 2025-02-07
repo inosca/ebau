@@ -1002,9 +1002,9 @@ def test_instance_submit_heat_extraction_ur(
 
     if form_slug == "konzession-waermeentnahme":
         source_instance.refresh_from_db()
-        assert (
-            ur_instance.instance_group == source_instance.instance_group
-        ), 'for "konzessionsgesuche" the "konzessionsdossier" should be linked with the "bohrbewilligungsdossier"'
+        assert ur_instance.instance_group == source_instance.instance_group, (
+            'for "konzessionsgesuche" the "konzessionsdossier" should be linked with the "bohrbewilligungsdossier"'
+        )
 
 
 @pytest.mark.parametrize("service_group__name", ["applicant"])
@@ -1212,9 +1212,9 @@ def test_set_instance_service_ur_bgbb(
 
     assert ur_instance.responsible_service() is None
     serializer._set_instance_service(ur_instance.case, ur_instance)
-    assert (
-        ur_instance.responsible_service() == koor_afg_group.service
-    ), "should assign the KOOR AFG as the responsible service"
+    assert ur_instance.responsible_service() == koor_afg_group.service, (
+        "should assign the KOOR AFG as the responsible service"
+    )
 
 
 @pytest.mark.parametrize("form_slug", ["oereb", "oereb-verfahren-gemeinde"])
@@ -2384,9 +2384,9 @@ def test_rejection(
         {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}},
     )
 
-    assert (
-        create_response.status_code == status.HTTP_201_CREATED
-    ), create_response.content
+    assert create_response.status_code == status.HTTP_201_CREATED, (
+        create_response.content
+    )
 
     source_instance_id = int(create_response.json()["data"]["id"])
     source_instance = Instance.objects.get(pk=source_instance_id)
@@ -2461,9 +2461,9 @@ def test_be_copy_responsible_user_on_submit(
         {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}},
     )
 
-    assert (
-        create_response.status_code == status.HTTP_201_CREATED
-    ), create_response.content
+    assert create_response.status_code == status.HTTP_201_CREATED, (
+        create_response.content
+    )
 
     source_instance_id = int(create_response.json()["data"]["id"])
     source_instance = Instance.objects.get(pk=source_instance_id)

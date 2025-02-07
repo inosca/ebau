@@ -67,7 +67,7 @@ class Command(BaseCommand):
                 meta={
                     "camac-instance-id": instance.pk,
                     "submit-date": now().strftime("%Y-%m-%dT%H:%M:%S%z"),
-                    "ebau-number": f"{now().year}-{randint(100,200)}",
+                    "ebau-number": f"{now().year}-{randint(100, 200)}",
                 },
             )
 

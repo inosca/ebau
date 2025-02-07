@@ -50,9 +50,9 @@ def test_get_authority(
 
     serializer = CalumaInstanceSubmitSerializer()
 
-    assert (
-        serializer._get_authority_pk(ur_instance) == expected_authority_pk
-    ), "it sets the correct authority for the dossier type"
+    assert serializer._get_authority_pk(ur_instance) == expected_authority_pk, (
+        "it sets the correct authority for the dossier type"
+    )
 
 
 @pytest.mark.parametrize(

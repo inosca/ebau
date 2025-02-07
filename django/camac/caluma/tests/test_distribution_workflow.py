@@ -1145,7 +1145,7 @@ def test_sync_inquiry_deadline(
         return_value=True,
     )
     be_distribution_settings["SYNC_INQUIRY_DEADLINE_TO_ANSWER_TASKS"] = {
-        f'{be_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]}': {
+        f"{be_distribution_settings['INQUIRY_ANSWER_FILL_TASK']}": {
             "TIME_DELTA": timedelta(days=-5)
         }
     }
@@ -1240,9 +1240,9 @@ def test_set_deadline_for_check_inquiries_work_item(
 
     check_task_work_item.refresh_from_db()
 
-    assert (
-        check_task_work_item.deadline is not None
-    ), "completing an inquiry should set a deadline on check items which do not have a deadline yet"
+    assert check_task_work_item.deadline is not None, (
+        "completing an inquiry should set a deadline on check items which do not have a deadline yet"
+    )
 
 
 @pytest.mark.freeze_time("2025-01-24")

@@ -72,7 +72,7 @@ def assure_string_length(value, min_length=1, max_length=0):
         str(value)
     )  # Handle None and bool and also computed values
     if len(value) > max_length:
-        return f"{value[:max_length - 1]}…"
+        return f"{value[: max_length - 1]}…"
     elif len(value) < min_length:
         return f"{value}{'.' * (min_length - len(value))}"  # TODO cover
     return value
@@ -539,7 +539,7 @@ def person_to_ech0129_personIdentifcationType(person):
                 person.get("juristic_name", ""), max_length=255
             ),
             organisationAdditionalName=assure_string_length(
-                f'{person.get("first_name", "")} {person.get("last_name", "")}'.strip(),
+                f"{person.get('first_name', '')} {person.get('last_name', '')}".strip(),
                 max_length=255,
             ),
             uid=ns_company_identification.uidStructureType(

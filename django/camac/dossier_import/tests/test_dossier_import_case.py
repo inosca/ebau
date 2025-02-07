@@ -1181,9 +1181,9 @@ def test_set_workflow_state_so(
 
     for task_id, expected_status in expected_work_items_states:
         work_item = so_instance.case.work_items.get(task_id=task_id)
-        assert (
-            work_item.status == expected_status
-        ), f"Expected status {expected_status} for work item {task_id} but got {work_item.status}"
+        assert work_item.status == expected_status, (
+            f"Expected status {expected_status} for work item {task_id} but got {work_item.status}"
+        )
 
     assert so_instance.case.status == expected_case_status
 

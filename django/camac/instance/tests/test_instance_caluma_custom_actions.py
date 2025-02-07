@@ -870,9 +870,9 @@ def test_grant_municipality_access(
         )
 
         assert acl
-        assert (
-            acl.end_time.isoformat() == "2024-06-06T16:00:00+00:00"
-        ), '"municipality-before-submission" permission should be revoked automatically 8 hours after creation'
+        assert acl.end_time.isoformat() == "2024-06-06T16:00:00+00:00", (
+            '"municipality-before-submission" permission should be revoked automatically 8 hours after creation'
+        )
 
     revoke_response = admin_client.delete(url)
     assert revoke_response.status_code == expected_status

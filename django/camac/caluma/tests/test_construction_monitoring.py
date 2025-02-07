@@ -527,12 +527,12 @@ def test_post_create_construction_control(
     )
     construction_control_work_item.refresh_from_db()
 
-    assert (
-        construction_control_work_item.name != old_name
-    ), "the name should have been updated."
-    assert (
-        construction_control_work_item.deadline != old_deadline
-    ), "the deadline should have been set accordingly."
+    assert construction_control_work_item.name != old_name, (
+        "the name should have been updated."
+    )
+    assert construction_control_work_item.deadline != old_deadline, (
+        "the deadline should have been set accordingly."
+    )
 
 
 def test_post_complete_construction_control(

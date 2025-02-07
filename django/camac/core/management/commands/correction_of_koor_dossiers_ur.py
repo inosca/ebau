@@ -112,7 +112,7 @@ class Command(BaseCommand):
             new_service = Service.objects.get(pk=dossier["new_service"])
             instance.instance_services.update(service=new_service)
             self.stdout.write(
-                f'{dossier["dossier_nr"]}: old service: {old_service.pk}, new service: {new_service.pk}'
+                f"{dossier['dossier_nr']}: old service: {old_service.pk}, new service: {new_service.pk}"
             )
 
             # Add service to addressed_groups and controlling_groups

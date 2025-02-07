@@ -409,9 +409,9 @@ def test_submit_create_acl_be(
         ]
     )
 
-    assert (
-        logged_discrepancies == expected_discrepancies
-    ), "There are permissions module discrepancies that are either unexpected or are expected but weren't logged"
+    assert logged_discrepancies == expected_discrepancies, (
+        "There are permissions module discrepancies that are either unexpected or are expected but weren't logged"
+    )
 
     # After submission, there must be municipality access unless it's a paper instance
     if is_paper:

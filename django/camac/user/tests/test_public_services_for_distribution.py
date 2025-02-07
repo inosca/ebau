@@ -124,26 +124,26 @@ def test_ur_municipality_coordination_suggestions(
     data = response.json()["data"]
 
     if role.name == "Sekretariat der Gemeindebaubehörde":
-        assert any(
-            item["attributes"]["name"] == "ARE KOOR BG" for item in data
-        ), "ARE KOOR BG should be visible for municipalities"
-        assert any(
-            item["attributes"]["name"] == "ARE KOOR NP" for item in data
-        ), "ARE KOOR NP should be visible for municipalities"
-        assert not any(
-            item["attributes"]["name"] == "ARE KOOR BD" for item in data
-        ), "ARE KOOR BD should not be visible for municipalities"
+        assert any(item["attributes"]["name"] == "ARE KOOR BG" for item in data), (
+            "ARE KOOR BG should be visible for municipalities"
+        )
+        assert any(item["attributes"]["name"] == "ARE KOOR NP" for item in data), (
+            "ARE KOOR NP should be visible for municipalities"
+        )
+        assert not any(item["attributes"]["name"] == "ARE KOOR BD" for item in data), (
+            "ARE KOOR BD should not be visible for municipalities"
+        )
 
     if role.name == "Koordinationsstelle Baudirektion BD":
-        assert any(
-            item["attributes"]["name"] == "ARE KOOR BG" for item in data
-        ), "ARE KOOR BG should always be visible for KOORS"
-        assert any(
-            item["attributes"]["name"] == "ARE KOOR NP" for item in data
-        ), "ARE KOOR NP should always be visible for KOORS"
-        assert any(
-            item["attributes"]["name"] == "ARE KOOR BD" for item in data
-        ), "ARE KOOR BD should always be visible for KOORS"
+        assert any(item["attributes"]["name"] == "ARE KOOR BG" for item in data), (
+            "ARE KOOR BG should always be visible for KOORS"
+        )
+        assert any(item["attributes"]["name"] == "ARE KOOR NP" for item in data), (
+            "ARE KOOR NP should always be visible for KOORS"
+        )
+        assert any(item["attributes"]["name"] == "ARE KOOR BD" for item in data), (
+            "ARE KOOR BD should always be visible for KOORS"
+        )
 
 
 @pytest.mark.parametrize(
