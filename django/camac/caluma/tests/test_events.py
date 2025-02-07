@@ -1066,9 +1066,9 @@ def test_post_decision_ur(
     unfinished_release_for_bk_work_item.refresh_from_db()
     unfininished_review_building_commission_work_item.refresh_from_db()
 
-    assert (
-        unfinished_release_for_bk_work_item.status == WorkItem.STATUS_SKIPPED
-    ), "any open release work items need to be skipped."
+    assert unfinished_release_for_bk_work_item.status == WorkItem.STATUS_SKIPPED, (
+        "any open release work items need to be skipped."
+    )
     assert (
         unfininished_review_building_commission_work_item.status
         == WorkItem.STATUS_SKIPPED

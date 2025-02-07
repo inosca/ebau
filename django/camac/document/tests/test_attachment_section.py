@@ -351,7 +351,7 @@ def test_attachment_modification_by_activation_involvement(
 
     # ensure that deletion of the attachment fails
     del_resp = admin_client.delete(
-        f'{reverse("attachment-detail", args=[create_res.json()["data"]["id"]])}?instance={be_instance.pk}'
+        f"{reverse('attachment-detail', args=[create_res.json()['data']['id']])}?instance={be_instance.pk}"
     )
     assert del_resp.status_code == status.HTTP_403_FORBIDDEN
 

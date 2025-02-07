@@ -52,6 +52,6 @@ def test_dump_and_load(
 
             with open(test_filepath, "r") as test_dumped, open(filepath, "r") as dumped:
                 #  verify that dump is still the same
-                assert json.load(test_dumped) == json.load(
-                    dumped
-                ), f"Dumped file '{filename}' does not match '{filepath}'"
+                assert json.load(test_dumped) == json.load(dumped), (
+                    f"Dumped file '{filename}' does not match '{filepath}'"
+                )

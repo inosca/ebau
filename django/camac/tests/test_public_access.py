@@ -108,9 +108,9 @@ def test_public_urls(
         # leak unintentionally. Pull in the corresponding factory in the
         # `public_data` fixture above and instantiate it with a link to
         # `be_instance` so this test can do it's magic.
-        assert (
-            model.objects.exists()
-        ), f"No object found for model {model.__name__} - please create one"
+        assert model.objects.exists(), (
+            f"No object found for model {model.__name__} - please create one"
+        )
 
         url_tpl, args = url_config
         url_tpl = f"/{url_tpl}"
@@ -135,6 +135,6 @@ def test_public_urls(
                 status.HTTP_405_METHOD_NOT_ALLOWED,
             ], f"{url_tpl} is accessible for public users"
         else:
-            assert (
-                response.status_code == status.HTTP_200_OK
-            ), f"{url_tpl} is not accessible for public users"
+            assert response.status_code == status.HTTP_200_OK, (
+                f"{url_tpl} is not accessible for public users"
+            )

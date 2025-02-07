@@ -68,7 +68,7 @@ class GrGisClient(GISBaseClient):
         geometry_type = query["geometry"]
         form = self.params.get("form")
         response = self.session.get(
-            f"{base_url}{self.get_geometry_query_param(markers,geometry_type)}"
+            f"{base_url}{self.get_geometry_query_param(markers, geometry_type)}"
         )
 
         try:

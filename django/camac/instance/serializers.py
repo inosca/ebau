@@ -1018,7 +1018,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             "case-meta": self._get_case_meta_permissions(instance),
             **{
                 form: sorted(
-                    getattr(self, f"_get_{form.replace('-','_')}_form_permissions")(
+                    getattr(self, f"_get_{form.replace('-', '_')}_form_permissions")(
                         instance
                     )
                 )

@@ -169,7 +169,7 @@ class Command(BaseCommand):
             self.stdout.write(
                 self.style.SUCCESS(f"{len(success)} instances successfully migrated:")
             )
-            self.stdout.write(self.style.SUCCESS(f" - {', '.join(map(str,success))}"))
+            self.stdout.write(self.style.SUCCESS(f" - {', '.join(map(str, success))}"))
 
         warning = [
             i for i in instance_ids if i in self.failures and len(self.failures[i]) < 5
@@ -196,4 +196,4 @@ class Command(BaseCommand):
             self.stdout.write(
                 self.style.ERROR(f"{len(fail)} instances could not be migrated:")
             )
-            self.stdout.write(self.style.ERROR(f" - {', '.join(map(str,fail))}"))
+            self.stdout.write(self.style.ERROR(f" - {', '.join(map(str, fail))}"))

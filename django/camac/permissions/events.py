@@ -59,8 +59,7 @@ def decision_dispatch_method(fn: Callable) -> Callable:
             name = fn.__name__
 
             raise MissingEventHandler(
-                f"{owner}.{name}: No implementation "
-                f"registered for {decision_result!r}"
+                f"{owner}.{name}: No implementation registered for {decision_result!r}"
             )
         impl = _registry[decision_result]
         return impl(self, *args, **kwargs)

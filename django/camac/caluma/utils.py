@@ -109,9 +109,9 @@ def sync_inquiry_deadline(
     if not settings.DISTRIBUTION:  # pragma: no cover
         return inquiry
 
-    assert (
-        inquiry.task_id == settings.DISTRIBUTION["INQUIRY_TASK"]
-    ), f"Passed work item must be of task {settings.DISTRIBUTION['INQUIRY_TASK']}"
+    assert inquiry.task_id == settings.DISTRIBUTION["INQUIRY_TASK"], (
+        f"Passed work item must be of task {settings.DISTRIBUTION['INQUIRY_TASK']}"
+    )
 
     if not deadline:
         deadline = inquiry.document.answers.get(

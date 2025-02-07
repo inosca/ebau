@@ -226,9 +226,9 @@ def test_form_field_create(admin_client, instance, form_field_name, status_code)
         json = response.json()
 
         field = models.FormField.objects.get(pk=json["data"]["id"])
-        assert (
-            field.value == json["data"]["attributes"]["value"]
-        ), "json value on database is not equal to what is stored in database"
+        assert field.value == json["data"]["attributes"]["value"], (
+            "json value on database is not equal to what is stored in database"
+        )
 
 
 @pytest.mark.parametrize("instance_state__name", ["new"])

@@ -135,7 +135,7 @@ class Command(BaseCommand):
 
             self.stdout.write(
                 self.style.SUCCESS(
-                    f"Successfully migrated audit of instance {instance.pk}\t({i+1} / {count})"
+                    f"Successfully migrated audit of instance {instance.pk}\t({i + 1} / {count})"
                 )
             )
 

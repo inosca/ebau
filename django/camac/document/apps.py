@@ -25,7 +25,7 @@ def _monkeypatch_sorl():
         # it was not done in the _get_exif_orientation() method. Speeds up
         # multi-page calls significantly
         args = settings.THUMBNAIL_IDENTIFY.split()
-        args.extend(["-format", "%[exif:orientation]", f'{image["source"]}[0]'])
+        args.extend(["-format", "%[exif:orientation]", f"{image['source']}[0]"])
         p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         p.wait()
         result = p.stdout.read().strip()
