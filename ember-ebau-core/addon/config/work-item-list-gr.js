@@ -10,13 +10,11 @@ export default {
         "decision",
         "construction-acceptance",
       ],
-      service: ["inquiry", "check-inquiries"],
+      service: ["inquiry", "check-inquiries", "check-additional-demand"],
       subservice: ["inquiry"],
       uso: ["inquiry"],
     },
-    services: {
-      1: ["inquiry", "check-inquiries", "check-additional-demand"],
-    },
+    services: [],
   },
   columns(status, role) {
     return [
