@@ -59,6 +59,8 @@ module.exports = function (environment) {
     constructionAcceptance: 120010,
     finished: 120006,
     rejected: 120011,
+    withdrawn: 120012,
+    withdrawal: 120013,
   };
   const instanceStatesSo = {
     new: 1,
@@ -555,7 +557,12 @@ module.exports = function (environment) {
           instanceStatesAg.decision,
         ],
         decided: [instanceStatesAg.constructionAcceptance],
-        done: [instanceStatesAg.finished, instanceStatesAg.rejected],
+        done: [
+          instanceStatesAg.finished,
+          instanceStatesAg.rejected,
+          instanceStatesAg.withdrawal,
+          instanceStatesAg.withdrawn,
+        ],
       },
       completePreliminaryClarificationSlugs: [],
       selectableGroups: {

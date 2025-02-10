@@ -547,6 +547,18 @@ def gr_decision_settings(settings, request):
 
 
 @pytest.fixture
+def ag_decision_settings(settings, request):
+    """Module-specific settings for decision (canton AG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="decision",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def test_decision_settings(settings, request):
     """Module-specific settings for decision (canton TEST)."""
     return generate_module_settings(
@@ -1874,6 +1886,18 @@ def gr_withdrawal_settings(settings, request):
         request=request,
         module_name="withdrawal",
         canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ag_withdrawal_settings(settings, request):
+    """Module-specific settings for withdrawal (canton AG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="withdrawal",
+        canton="kt_ag",
         disable=False,
     )
 

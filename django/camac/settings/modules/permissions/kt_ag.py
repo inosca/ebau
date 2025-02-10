@@ -19,6 +19,8 @@ STATES_ALL = RequireInstanceState(
         "init-distribution",
         "construction-acceptance",
         "rejected",
+        "withdrawal",
+        "withdrawn",
     ]
 )
 NO_CORRECTION = ~RequireInstanceState(["correction"])
@@ -97,6 +99,16 @@ ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & HasApplicantRole(
     ["ADMIN"]
 )
 
+ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
+    [
+        "subm",
+        "init-distribution",
+        "circulation",
+        "correction",
+        "decision",
+    ]
+) & HasApplicantRole(["ADMIN"])
+
 # Actual config
 AG_PERMISSIONS_SETTINGS = {
     "ENABLED": True,
@@ -115,6 +127,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
+            ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
         ],
         "distribution-service": [
             ("billing-read", MODULE_BILLING),
@@ -163,6 +176,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("rejection-read", MODULE_REJECTION),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
+            ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
         ],
         "read": [
             ("documents-read", MODULE_DOCUMENTS),

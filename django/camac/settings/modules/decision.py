@@ -100,6 +100,26 @@ DECISION = {
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "construction-acceptance",
         "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-acceptance"],
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "QUESTIONS": {
+            "DECISION": "entscheid-entscheid",
+            "DATE": "entscheid-datum",
+        },
+        "ANSWERS": {
+            "DECISION": {
+                "APPROVED": "entscheid-entscheid-baubewilligung-erteilt",
+                "REJECTED": "entscheid-entscheid-abweisung",
+                "PARTIALLY_APPROVED": "entscheid-entscheid-teilbaubewilligung",
+                "WITHDRAWAL": "entscheid-entscheid-rueckzug",
+                # Only for preliminary clarification and construction notification
+                # "POSITIVE": "entscheid-entscheid-positiv",
+                # "NEGATIVE": "entscheid-entscheid-negativ",
+            },
+        },
+        # "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "construction-acceptance",
+        # "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-acceptance"],
+    },
     "test": {
         "ENABLED": True,
         "ENABLE_STATS": True,
