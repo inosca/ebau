@@ -1623,29 +1623,29 @@ APPLICATIONS = {
             },
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "BAB_MUNICIPALITY_MAPPING": {
-                # location_id: "Service name"
-                6: "ARE BaB Kreis 1",  # Erstfeld
-                16: "ARE BaB Kreis 1",  # Silenen
-                9: "ARE BaB Kreis 1",  # Gurtnellen
-                20: "ARE BaB Kreis 1",  # Wassen
-                8: "ARE BaB Kreis 1",  # Göschenen
-                2: "ARE BaB Kreis 1",  # Andermatt
-                10: "ARE BaB Kreis 1",  # Hospental
-                12: "ARE BaB Kreis 1",  # Realp
-                17: "ARE BaB Kreis 2",  # Sisikon
-                7: "ARE BaB Kreis 2",  # Flüelen
-                1: "ARE BaB Kreis 2",  # Altdorf
-                18: "ARE BaB Kreis 2",  # Spiringen
-                19: "ARE BaB Kreis 2",  # Unterschächen
-                13: "ARE BaB Kreis 3",  # Schattdorf
-                14: "ARE BaB Kreis 3",  # Seedorf
-                4: "ARE BaB Kreis 3",  # Seedorf (Ortsteil Bauen)
-                11: "ARE BaB Kreis 3",  # Isenhal
-                15: "ARE BaB Kreis 3",  # Seelisberg
-                5: "ARE BaB Kreis 3",  # Bürglen
-                3: "ARE BaB Kreis 3",  # Attinghausen
-                21: "ARE BaB Kreis 1",  # Diverse Gemeinden
-                22: "ARE BaB Kreis 1",  # Alle Gemeinden
+                # location_id: "Service slug"
+                6: "bab-kreis-1",  # Erstfeld
+                16: "bab-kreis-1",  # Silenen
+                9: "bab-kreis-1",  # Gurtnellen
+                20: "bab-kreis-1",  # Wassen
+                8: "bab-kreis-1",  # Göschenen
+                2: "bab-kreis-1",  # Andermatt
+                10: "bab-kreis-1",  # Hospental
+                12: "bab-kreis-1",  # Realp
+                17: "bab-kreis-2",  # Sisikon
+                7: "bab-kreis-2",  # Flüelen
+                1: "bab-kreis-2",  # Altdorf
+                18: "bab-kreis-2",  # Spiringen
+                19: "bab-kreis-2",  # Unterschächen
+                13: "bab-kreis-3",  # Schattdorf
+                14: "bab-kreis-3",  # Seedorf
+                4: "bab-kreis-3",  # Seedorf (Ortsteil Bauen)
+                11: "bab-kreis-3",  # Isenhal
+                15: "bab-kreis-3",  # Seelisberg
+                5: "bab-kreis-3",  # Bürglen
+                3: "bab-kreis-3",  # Attinghausen
+                21: "bab-kreis-1",  # Diverse Gemeinden
+                22: "bab-kreis-1",  # Alle Gemeinden
             },
         },
         "STORE_PDF": {

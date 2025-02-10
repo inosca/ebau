@@ -182,7 +182,7 @@ class CustomDynamicGroups(BaseDynamicGroups):
         return [
             str(service.pk)
             for service in Service.objects.filter(
-                name=settings.APPLICATION["CALUMA"]["BAB_MUNICIPALITY_MAPPING"][
+                slug=settings.APPLICATION["CALUMA"]["BAB_MUNICIPALITY_MAPPING"][
                     case.instance.location_id
                 ]
             )
