@@ -1,3 +1,9 @@
+export async function fetchSingleIfNotCached(modelName, id, store) {
+  return (
+    store.peekRecord(modelName, id) ?? (await store.findRecord(modelName, id))
+  );
+}
+
 export default async function fetchIfNotCached(
   modelName,
   idFilter,

@@ -1,6 +1,9 @@
 import { service } from "@ember/service";
 import Model, { attr, belongsTo } from "@ember-data/model";
 import { DateTime } from "luxon";
+import { trackedFunction } from "reactiveweb/function";
+
+import { fetchSingleIfNotCached } from "ember-ebau-core/utils/fetch-if-not-cached";
 
 export const AVAILABLE_GRANT_TYPES = [
   "ANONYMOUS-PUBLIC",
@@ -16,6 +19,7 @@ export const EVENT_TYPES = {
 };
 
 export default class InstanceAclModel extends Model {
+  @service session;
   @service store;
   @service fetch;
   @service intl;
@@ -141,15 +145,32 @@ export default class InstanceAclModel extends Model {
 
   get entityEmail() {
     const placeholder = this.intl.t("permissions.placeholder.email");
-    switch (this.grantType) {
-      case "USER":
-        return this.user.get("email") ?? placeholder;
-      case "SERVICE":
-        return this.service.get("email") ?? placeholder;
-      default:
-        return placeholder;
-    }
+
+    return this.#entityEmail.value ?? placeholder;
   }
+
+  #entityEmail = trackedFunction(this, async () => {
+    if (!this.session.isInternal) {
+      return null;
+    }
+
+    if (["USER", "SERVICE"].includes(this.grantType)) {
+      const rel = this.belongsTo(this.grantType.toLowerCase());
+
+      // Fetch non-public type (e.g. "user" instead of "public-user") that
+      // includes the email for displaying it in the details modal. This is only
+      // available to internal users.
+      return (
+        await fetchSingleIfNotCached(
+          rel.type.replace(/^public-/, ""),
+          rel.id(),
+          this.store,
+        )
+      )?.email;
+    }
+
+    return null;
+  });
 
   get revokeable() {
     return (

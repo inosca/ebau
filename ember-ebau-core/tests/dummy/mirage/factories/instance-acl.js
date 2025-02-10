@@ -36,10 +36,14 @@ export default Factory.extend({
   }),
 
   afterCreate: (instanceAcl, server) => {
-    const existingAccessLevels = server.schema.accessLevels.all()?.models;
-    const accessLevel = existingAccessLevels.length
-      ? faker.helpers.arrayElement(existingAccessLevels)
-      : server.create("access-level");
+    let accessLevel = instanceAcl.accessLevel;
+
+    if (!accessLevel) {
+      const existingAccessLevels = server.schema.accessLevels.all()?.models;
+      accessLevel = existingAccessLevels.length
+        ? faker.helpers.arrayElement(existingAccessLevels)
+        : server.create("access-level");
+    }
 
     instanceAcl.update({
       accessLevel,
