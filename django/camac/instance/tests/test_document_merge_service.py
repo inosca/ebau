@@ -406,6 +406,17 @@ def test_eingabebestaetigung_gr(
         gr_instance.case.document, "beschreibung-bauvorhaben", "Bau Einfamilienhaus"
     )
 
+    # Prepare situationsplan image
+    alexandria_situationsplan_category = CategoryFactory(pk="system")
+    FileFactory(
+        document=DocumentFactory(
+            title="Situationsplan.png",
+            category=alexandria_situationsplan_category,
+            metainfo={"camac-instance-id": gr_instance.pk, "situationsplan": "true"},
+        ),
+        checksum=f"sha256:{faker.Faker().sha256()}",
+    )
+
     # Municipality
     utils.add_answer(gr_instance.case.document, "gemeinde", "1")
     DynamicOption.objects.create(
@@ -425,6 +436,10 @@ def test_eingabebestaetigung_gr(
             gr_instance, gr_instance.case.document, BaseUser(), group.service
         )
     )
+
+    files = DMSHandler().get_files(gr_instance)
+    assert files[0][1][0] == "municipality_logo"
+    assert files[1][1][0] == "situationsplan"
 
 
 def test_document_merge_service_unauthorized(db, requests_mock):
