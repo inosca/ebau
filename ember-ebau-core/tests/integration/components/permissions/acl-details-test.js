@@ -11,9 +11,13 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
   setupMirage(hooks);
 
   hooks.beforeEach(function () {
-    this.server.create("access-level", {
+    this.serviceAccessLevel = this.server.create("access-level", {
       slug: "service",
-      requiredGrantType: "service",
+      requiredGrantType: "SERVICE",
+    });
+    this.userAccessLevel = this.server.create("access-level", {
+      slug: "user",
+      requiredGrantType: "USER",
     });
     this.instance = this.server.create("instance");
   });
@@ -91,5 +95,52 @@ module("Integration | Component | permissions/acl-details", function (hooks) {
             : ""
         }`,
       );
+  });
+
+  test("it displays entity email for an instance-acl", async function (assert) {
+    this.owner.lookup("service:session").isInternal = true;
+
+    const serviceId = this.server.create("service", {
+      email: "service@example.com",
+    }).id;
+    const userId = this.server.create("user", { email: "user@example.com" }).id;
+
+    const serviceAclId = this.server.create("instance-acl", {
+      instance: this.instance,
+      accessLevelId: this.serviceAccessLevel.id,
+      serviceId,
+    }).id;
+    const userAclId = this.server.create("instance-acl", {
+      instance: this.instance,
+      accessLevelId: this.userAccessLevel.id,
+      userId,
+    }).id;
+
+    this.serviceAcl = await this.owner
+      .lookup("service:store")
+      .findRecord("instance-acl", serviceAclId, { include: "access_level" });
+    this.userAcl = await this.owner
+      .lookup("service:store")
+      .findRecord("instance-acl", userAclId, { include: "access_level" });
+
+    this.onHide = () => {};
+
+    await render(hbs`<Permissions::AclDetails
+  @instanceAcl={{this.serviceAcl}}
+  @onHide={{this.onHide}}
+  data-test-service-acl
+/>
+<Permissions::AclDetails
+  @instanceAcl={{this.userAcl}}
+  @onHide={{this.onHide}}
+  data-test-user-acl
+/>`);
+
+    assert
+      .dom("[data-test-service-acl] [data-test-instance-acl-modal-email]")
+      .containsText("service@example.com");
+    assert
+      .dom("[data-test-user-acl] [data-test-instance-acl-modal-email]")
+      .containsText("user@example.com");
   });
 });
