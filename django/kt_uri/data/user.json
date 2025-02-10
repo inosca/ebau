@@ -5304,7 +5304,7 @@
     "model": "user.service",
     "pk": 88,
     "fields": {
-      "slug": null,
+      "slug": "bab-kreis-1",
       "service_group": 61,
       "service_parent": null,
       "name": "ARE BaB Kreis 1",
@@ -5948,7 +5948,7 @@
     "model": "user.service",
     "pk": 261,
     "fields": {
-      "slug": null,
+      "slug": "bab-kreis-2",
       "service_group": 61,
       "service_parent": null,
       "name": "ARE BaB Kreis 2",
@@ -5971,7 +5971,7 @@
     "model": "user.service",
     "pk": 262,
     "fields": {
-      "slug": null,
+      "slug": "bab-kreis-3",
       "service_group": 61,
       "service_parent": null,
       "name": "ARE BaB Kreis 3",

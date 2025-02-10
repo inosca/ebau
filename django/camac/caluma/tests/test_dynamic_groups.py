@@ -305,15 +305,21 @@ def test_dynamic_group_service_bab(
 
 
 @pytest.mark.parametrize(
-    "location_id,bab_name",
+    "location_id,bab_name,service_slug",
     [
-        (1, "ARE BaB Kreis 2"),
-        (2, "ARE BaB Kreis 1"),
-        (3, "ARE BaB Kreis 3"),
+        (1, "ARE BaB Kreis 2", "bab-kreis-2"),
+        (2, "ARE BaB Kreis 1", "bab-kreis-1"),
+        (3, "ARE BaB Kreis 3", "bab-kreis-3"),
     ],
 )
 def test_dynamic_group_service_bab_ur(
-    db, service_factory, ur_instance, location_id, bab_name, location_factory
+    db,
+    service_factory,
+    ur_instance,
+    location_id,
+    bab_name,
+    service_slug,
+    location_factory,
 ):
     ur_instance.location_id = location_id
     ur_instance.save()
@@ -321,7 +327,9 @@ def test_dynamic_group_service_bab_ur(
     location_factory(pk=location_id)
 
     bab_service = service_factory(
-        name=bab_name, service_group__name="Fachstellen Justizdirektion"
+        name=bab_name,
+        slug=service_slug,
+        service_group__name="Fachstellen Justizdirektion",
     )
 
     assert CustomDynamicGroups().resolve("service-bab-ur")(
