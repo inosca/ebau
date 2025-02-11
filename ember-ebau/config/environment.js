@@ -29,7 +29,9 @@ module.exports = function (environment) {
         en: "m/d/Y",
       },
       FLATPICKR_DATE_FORMAT_DEFAULT: "d.m.Y",
-      USE_MANDATORY_ASTERISK: process.env.APPLICATION === "kt_ag",
+      USE_MANDATORY_ASTERISK: ["kt_ag", "kt_gr"].includes(
+        process.env.APPLICATION,
+      ),
     },
     apollo: {
       apiURL: "/graphql/",
