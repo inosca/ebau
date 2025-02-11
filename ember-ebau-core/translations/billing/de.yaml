@@ -33,6 +33,8 @@ billing:
   delete-error: Fehler beim Löschen des Gebühreneintrag
   charge-error: Fehler beim Verrechnen des Gebühreneintrag
   paginationInfo: "<strong>{count}</strong> von {total}"
+  apply-construction-costs: Baukosten aus Formular übernehmen
+  apply-construction-costs-empty: Es konnten keine Baukosten im Formular gefunden werden
 
   organizations:
     cantonal: Kantonal

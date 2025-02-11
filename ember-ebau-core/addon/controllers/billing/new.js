@@ -20,6 +20,7 @@ const orderByRate = (a, b) => getRate(b.value) - getRate(a.value);
 export default class BillingNewController extends Controller {
   @service intl;
   @service store;
+  @service fetch;
   @service router;
   @service ebauModules;
   @service notification;
@@ -96,6 +97,25 @@ export default class BillingNewController extends Controller {
 
     this.newEntry.applyTemplate(this.selectedTemplate);
   }
+
+  applyConstructionCosts = dropTask(this, async (event) => {
+    event.preventDefault();
+
+    const response = await this.fetch.fetch(
+      `/api/v1/instances/${this.ebauModules.instanceId}/master-data?fields=construction_costs`,
+      { method: "GET", headers: { accept: "application/json" } },
+    );
+    const data = await response.json();
+    const costs = data.construction_costs;
+
+    if (costs) {
+      this.newEntry.totalCost = costs;
+    } else {
+      this.notification.warning(
+        this.intl.t("billing.apply-construction-costs-empty"),
+      );
+    }
+  });
 
   save = dropTask(this, async (e) => {
     e.preventDefault();
