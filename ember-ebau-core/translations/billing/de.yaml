@@ -44,11 +44,18 @@ billing:
     flat: "{totalCost, number, ::.00} {taxMode}"
     percentage: "{percentage, number, ::.00 % scale/0.01} von {totalCost, number, ::.00} {taxMode}"
     hourly: "{hours, number, ::.00} Std à {hourlyRate, number, ::.00} {taxMode}"
+    ag_processing_fee: |-
+      {totalCost, number, ::.00} CHF Baukosten, davon<br>
+      0-133'334.95 CHF = 400.00 CHF<br>
+      133'335 - 2Mio. = 3‰<br>
+      2-5Mio. = 2.5‰<br>
+      >5Mio = 1.5‰
 
     titles:
       flat: pauschal
       percentage: prozentual
       hourly: nach Aufwand
+      ag_processing_fee: Behandlungsgebühr BG BVUAFB
 
   tax-modes:
     exempt: nicht MWSt-pflichtig

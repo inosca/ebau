@@ -1,0 +1,23 @@
+[
+  {
+    "model": "billing.billingv2entrytemplate",
+    "pk": 1,
+    "fields": {
+      "text": "Behandlungsgebühr",
+      "cost_center": "",
+      "legal_basis": "",
+      "tax_mode": "exempt",
+      "calculation": "ag_processing_fee",
+      "tax_rate": null,
+      "hours": null,
+      "hourly_rate": null,
+      "percentage": null,
+      "total_cost": null,
+      "organization": null,
+      "billing_type": null,
+      "name": "Behandlungsgebühr BG BVUAFB",
+      "hint": "Max Gebühr 60'000.00",
+      "service": 1
+    }
+  }
+]

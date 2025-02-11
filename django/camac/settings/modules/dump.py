@@ -341,6 +341,7 @@ DUMP = {
                 "alexandria_core",
                 "gis",
                 "permissions",
+                "billing",
             ],
             # List of models that are included in "APPS" but should not be
             # dumped into the data dump files

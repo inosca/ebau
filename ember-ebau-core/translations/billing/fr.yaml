@@ -49,11 +49,13 @@ billing:
     flat: "{totalCost, number, ::.00} {taxMode}"
     percentage: "{percentage, number, ::.00 % scale/0.01} de {totalCost, number, ::.00} {taxMode}"
     hourly: "{hours, number, ::.00} heures à {hourlyRate, number, ::.00} {taxMode}"
+    ag_processing_fee: ""
 
     titles:
       flat: forfait (montant)
       percentage: pourcentage (des coûts totaux)
       hourly: selon le temps employé (heures * taux horaire)
+      ag_processing_fee: ""
 
   tax-modes:
     exempt: non soumis à la TVA

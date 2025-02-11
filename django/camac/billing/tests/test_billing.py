@@ -38,6 +38,33 @@ def test_calculate_final_rate():
     assert empty is None
 
 
+@pytest.mark.parametrize(
+    "construction_costs,expected_final_rate",
+    [
+        # Minimum of 400
+        (0, 400),
+        # 133'335 - 2'000'000
+        (1_000_000, 3_000),
+        # 2'000'000 - 5'000'000
+        (4_000_000, 11_000),
+        # 5'000'000+
+        (9_000_000, 19_500),
+        # Maximum of 60'000
+        (40_000_000, 60_000),
+    ],
+)
+def test_calculate_final_rate_ag_processing_fee(
+    db, construction_costs, expected_final_rate
+):
+    assert (
+        calculate_final_rate(
+            total_cost=construction_costs,
+            calculation=BillingV2Entry.CALCULATION_AG_PROCESSING_FEE,
+        )
+        == expected_final_rate
+    )
+
+
 def test_add_taxes_to_final_rate():
     final_rate = Decimal(100)
     tax_rate = Decimal(7.7)
@@ -272,3 +299,31 @@ def test_billing_entry_delete(
         BillingV2Entry.objects.filter(pk=billing_v2_entry.pk).exists()
         == expect_forbidden
     )
+
+
+@pytest.mark.parametrize("role__name", [("Municipality")])
+def test_billing_entry_create_with_ag_processing_fee(
+    db, admin_client, ag_instance, master_data_is_visible_mock, utils
+):
+    utils.add_answer(ag_instance.case.document, "baukosten", 25_000_000)
+
+    response = admin_client.post(
+        reverse("billing-v2-entry-list"),
+        data={
+            "data": {
+                "type": "billing-v2-entries",
+                "attributes": {
+                    "calculation": BillingV2Entry.CALCULATION_AG_PROCESSING_FEE,
+                    "tax-mode": BillingV2Entry.TAX_MODE_EXEMPT,
+                    "tax-rate": 0,
+                    "text": "Test",
+                },
+                "relationships": {
+                    "instance": {"data": {"id": ag_instance.pk, "type": "instances"}}
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_201_CREATED
+    assert response.json()["data"]["attributes"]["final-rate"] == "43500.00"

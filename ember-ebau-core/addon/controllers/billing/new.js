@@ -2,6 +2,7 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { camelize } from "@ember/string";
+import { getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { findAll } from "ember-data-resources";
@@ -29,8 +30,20 @@ export default class BillingNewController extends Controller {
   @tracked entryTemplates = findAll(this, "billing-v2-entry-template");
   @tracked selectedTemplate = null;
 
-  calculations = ["flat", "hourly", "percentage"];
   taxRates = hasFeature("billing.reducedTaxRate") ? [8.1, 2.6] : [8.1];
+
+  get calculations() {
+    const calculations = ["flat", "hourly", "percentage"];
+
+    if (
+      getOwnConfig().application === "ag" &&
+      this.ebauModules.serviceSlug === "afb"
+    ) {
+      calculations.push("ag_processing_fee");
+    }
+
+    return calculations;
+  }
 
   constructor(...args) {
     super(...args);

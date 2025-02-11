@@ -375,6 +375,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "responsibility_construction_control",
             "disabled",
             "logo",
+            "slug",
         )
         read_only_fields = (
             "users",
@@ -383,6 +384,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "service_group",
             "municipality",
             "logo",
+            "slug",
         )
 
 

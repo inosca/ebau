@@ -6,6 +6,7 @@ import BillingV2CommonEntryModel from "./billing-v2-common-entry";
 export default class BillingV2EntryModel extends BillingV2CommonEntryModel {
   @attr dateAdded;
   @attr dateCharged;
+  @attr finalRate;
 
   @belongsTo("group", { inverse: null, async: true }) group;
   @belongsTo("user", { inverse: null, async: true }) user;

@@ -44,11 +44,13 @@ billing:
     flat: "{totalCost, number, ::.00} {taxMode}"
     percentage: "{percentage, number, ::.00 % scale/0.01} su {totalCost, number, ::.00} {taxMode}"
     hourly: "{hours, number, ::.00} h a {hourlyRate, number, ::.00} {taxMode}"
+    ag_processing_fee: ""
 
     titles:
       flat: forfait
       percentage: percentuale
       hourly: in base al dispendio
+      ag_processing_fee: ""
 
   tax-modes:
     exempt: non soggetto a IVA

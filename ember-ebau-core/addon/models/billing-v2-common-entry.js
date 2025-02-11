@@ -14,7 +14,6 @@ export default class BillingV2CommonEntryModel extends Model {
   @attr hourlyRate;
   @attr percentage;
   @attr totalCost;
-  @attr finalRate;
   @attr organization;
   @attr billingType;
 
@@ -29,6 +28,7 @@ export default class BillingV2CommonEntryModel extends Model {
       hours: parseFloat(this.hours),
       hourlyRate: parseFloat(this.hourlyRate),
       taxMode,
+      htmlSafe: true,
     });
   }
 }
