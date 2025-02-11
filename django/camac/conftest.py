@@ -183,6 +183,7 @@ CALUMA_FORM_TYPES_SLUGS = [
     "baupolizeiliches-verfahren",
     "klaerung-baubewilligungspflicht",
     "zutrittsermaechtigung",
+    "zutrittsermaechtigung-v2",
     "verlaengerung-geltungsdauer",
     "building-permit",
     "solaranlagen-meldung",

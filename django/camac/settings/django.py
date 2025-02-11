@@ -1086,6 +1086,7 @@ APPLICATIONS = {
             "INTERNAL_FORMS": [
                 "baupolizeiliches-verfahren",
                 "zutrittsermaechtigung",
+                "zutrittsermaechtigung-v2",
                 "klaerung-baubewilligungspflicht",
             ],
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
@@ -3093,6 +3094,7 @@ ECH_EXCLUDED_FORMS = [
     "hecken-feldgehoelze-baeume-v2",
     "klaerung-baubewilligungspflicht",
     "zutrittsermaechtigung",
+    "zutrittsermaechtigung-v2",
     "solaranlagen-meldung",
     "solaranlagen-meldung-v2",
     "heat-generator",

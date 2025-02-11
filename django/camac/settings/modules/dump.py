@@ -402,6 +402,10 @@ DUMP = {
                     regex=r"^(hecken-feldgehoelze-baeume|baeume-hecken|dokumente-hecken-feldgehoelze-baeume)",
                     version=2,
                 ),
+                "caluma_zutrittsermaechtigung_form_v2": generate_form_dump_config(
+                    regex=r"^zutrittsermaechtigung(-)?",
+                    version=2,
+                ),
                 "caluma_form_v2": generate_form_dump_config(version=2),
                 "caluma_form_v3": generate_form_dump_config(version=3),
                 "caluma_form_v4": generate_form_dump_config(version=4),
@@ -421,6 +425,9 @@ DUMP = {
                 ),
                 "caluma_hecken_feldgehoelze_baeume_form": generate_form_dump_config(
                     regex=r"^(hecken-feldgehoelze-baeume|baeume-hecken|dokumente-hecken-feldgehoelze-baeume)"
+                ),
+                "caluma_zutrittsermaechtigung_form": generate_form_dump_config(
+                    regex=r"^zutrittsermaechtigung(-)?"
                 ),
                 "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
                 "caluma_audit_form": generate_form_dump_config(

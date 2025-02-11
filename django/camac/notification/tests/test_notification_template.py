@@ -738,6 +738,7 @@ def test_recipient_geometer_uri(
         "hecken-feldgehoelze-baeume",
         "klaerung-baubewilligungspflicht",
         "zutrittsermaechtigung",
+        "zutrittsermaechtigung-v2",
     ],
 )
 def test_notification_template_sendmail_rsta_forms(

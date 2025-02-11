@@ -102,6 +102,7 @@ DMS = {
                     "hecken-feldgehoelze-baeume-v2",
                     "baupolizeiliches-verfahren",
                     "zutrittsermaechtigung",
+                    "zutrittsermaechtigung-v2",
                     "klaerung-baubewilligungspflicht",
                     "verlaengerung-geltungsdauer",
                 ],

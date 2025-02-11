@@ -4,7 +4,7 @@ mutation CreateInternalWorkflow {
       slug: "internal"
       name: "Internes Verfahren"
       startTasks: ["submit"]
-      allowForms: ["baupolizeiliches-verfahren", "zutrittsermaechtigung"]
+      allowForms: ["baupolizeiliches-verfahren", "zutrittsermaechtigung", "zutrittsermaechtigung-v2"]
       isPublished: true
     }
   ) {

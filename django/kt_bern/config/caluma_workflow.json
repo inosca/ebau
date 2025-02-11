@@ -1234,7 +1234,7 @@
       "is_archived": false,
       "allow_all_forms": false,
       "start_tasks": ["submit"],
-      "allow_forms": ["baupolizeiliches-verfahren", "zutrittsermaechtigung"]
+      "allow_forms": ["baupolizeiliches-verfahren", "zutrittsermaechtigung", "zutrittsermaechtigung-v2"]
     }
   },
   {
