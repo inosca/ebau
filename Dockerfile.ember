@@ -9,7 +9,7 @@ COPY ember-ebau-core/package.json /myapp/ember-ebau-core/
 
 # TODO: Remove this when https://github.com/pnpm/pnpm/issues/9029 resp.
 # https://github.com/nodejs/corepack/issues/612 is fixed
-RUN npm i -g corepack@latest
+RUN npm i -g corepack@v0.31.0
 
 # Fetch all workspace dependencies
 RUN --mount=type=cache,target=.pnpm-store,sharing=locked \
