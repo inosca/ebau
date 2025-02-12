@@ -86,7 +86,7 @@
     "ember-cli-sass": "11.0.1",
     "ember-cli-showdown": "9.0.1",
     "ember-cli-terser": "4.0.2",
-    "ember-composable-helpers": "5.0.0",
+    "@nullvoxpopuli/ember-composable-helpers": "5.2.8",
     "ember-concurrency": "4.0.2",
     "ember-data": "4.12.8",
     "ember-ebau-core": "workspace:*",
