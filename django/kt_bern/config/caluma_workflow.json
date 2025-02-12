@@ -1234,7 +1234,12 @@
       "is_archived": false,
       "allow_all_forms": false,
       "start_tasks": ["submit"],
-      "allow_forms": ["baupolizeiliches-verfahren", "zutrittsermaechtigung", "zutrittsermaechtigung-v2"]
+      "allow_forms": [
+        "baupolizeiliches-verfahren",
+        "baupolizeiliches-verfahren-v2",
+        "zutrittsermaechtigung",
+        "zutrittsermaechtigung-v2"
+      ]
     }
   },
   {
@@ -1288,6 +1293,7 @@
         "hecken-feldgehoelze-baeume",
         "hecken-feldgehoelze-baeume-v2",
         "klaerung-baubewilligungspflicht",
+        "klaerung-baubewilligungspflicht-v2",
         "migriertes-dossier",
         "reklamegesuch",
         "solaranlagen-meldung",

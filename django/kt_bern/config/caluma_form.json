@@ -283,29 +283,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "baupolizeiliches-verfahren",
-    "fields": {
-      "created_at": "2020-10-12T11:08:17.405Z",
-      "modified_at": "2020-10-12T11:08:17.405Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Baupolizeiliches Verfahren\", \"fr\": \"Proc\\u00e9dure de police des constructions\", \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {
-        "order": 4,
-        "category": "special-procedure",
-        "is-creatable": true,
-        "is-main-form": true
-      },
-      "is_published": true,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "bauvorhaben",
     "fields": {
       "created_at": "2019-03-11T09:21:12.560Z",
@@ -424,24 +401,6 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "dokumente-vorabklaerung",
-    "fields": {
-      "created_at": "2019-10-08T12:22:59.032Z",
-      "modified_at": "2019-10-09T08:11:27.333Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Dokumente (Vorabkl\\u00e4rung)\", \"fr\": \"Documents (Demandes pr\\u00e9alables)\", \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -714,29 +673,6 @@
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "klaerung-baubewilligungspflicht",
-    "fields": {
-      "created_at": "2020-10-15T14:09:35.141Z",
-      "modified_at": "2025-02-12T10:54:14.075Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "name": "{\"de\": \"Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": \"Clarification de l'octroi d'un permis de construire\", \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "meta": {
-        "order": 6,
-        "category": "special-procedure",
-        "is-creatable": true,
-        "is-main-form": true
-      },
-      "is_published": true,
       "is_archived": false,
       "source": null
     }
@@ -4223,66 +4159,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baupolizeiliches-verfahren.8-freigabequittung",
-    "fields": {
-      "created_at": "2020-10-12T11:10:13.700Z",
-      "modified_at": "2020-10-12T11:10:13.700Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baupolizeiliches-verfahren",
-      "question": "8-freigabequittung",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baupolizeiliches-verfahren.allgemeine-angaben-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-12T11:15:25.797Z",
-      "modified_at": "2020-10-12T11:15:25.797Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baupolizeiliches-verfahren",
-      "question": "allgemeine-angaben-kurz-formular",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baupolizeiliches-verfahren.dokumente-vorabklaerung-form",
-    "fields": {
-      "created_at": "2020-10-19T12:21:52.205Z",
-      "modified_at": "2020-10-19T12:21:52.205Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baupolizeiliches-verfahren",
-      "question": "dokumente-vorabklaerung-form",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baupolizeiliches-verfahren.personalien-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-12T11:09:19.942Z",
-      "modified_at": "2020-10-12T11:09:19.942Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baupolizeiliches-verfahren",
-      "question": "personalien-kurz-formular",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "bauvorhaben.baubeschrieb",
     "fields": {
       "created_at": "2019-09-25T10:19:34.539Z",
@@ -5537,21 +5413,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "dokumente-sb1",
-      "question": "dokumente-platzhalter",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-vorabklaerung.dokumente-platzhalter",
-    "fields": {
-      "created_at": "2019-10-08T12:23:20.905Z",
-      "modified_at": "2019-10-08T12:23:20.905Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-vorabklaerung",
       "question": "dokumente-platzhalter",
       "sort": 1
     }
@@ -8058,66 +7919,6 @@
       "modified_by_group": null,
       "form": "immissionsschutz",
       "question": "wird-aussenlaerm-erzeugt",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "klaerung-baubewilligungspflicht.8-freigabequittung",
-    "fields": {
-      "created_at": "2020-10-15T14:10:01.260Z",
-      "modified_at": "2020-10-15T14:10:01.260Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "klaerung-baubewilligungspflicht",
-      "question": "8-freigabequittung",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "klaerung-baubewilligungspflicht.allgemeine-angaben-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-15T14:10:38.871Z",
-      "modified_at": "2020-10-15T14:10:38.871Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "klaerung-baubewilligungspflicht",
-      "question": "allgemeine-angaben-kurz-formular",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "klaerung-baubewilligungspflicht.dokumente-vorabklaerung-form",
-    "fields": {
-      "created_at": "2020-10-16T06:44:58.838Z",
-      "modified_at": "2020-10-16T06:44:58.838Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "klaerung-baubewilligungspflicht",
-      "question": "dokumente-vorabklaerung-form",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "klaerung-baubewilligungspflicht.personalien-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-15T14:10:54.642Z",
-      "modified_at": "2020-10-15T14:10:54.643Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "klaerung-baubewilligungspflicht",
-      "question": "personalien-kurz-formular",
       "sort": 4
     }
   },

@@ -1085,9 +1085,11 @@ APPLICATIONS = {
             },
             "INTERNAL_FORMS": [
                 "baupolizeiliches-verfahren",
+                "baupolizeiliches-verfahren-v2",
                 "zutrittsermaechtigung",
                 "zutrittsermaechtigung-v2",
                 "klaerung-baubewilligungspflicht",
+                "klaerung-baubewilligungspflicht-v2",
             ],
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
             "COPY_PERSONAL": [
@@ -3090,9 +3092,11 @@ ECH_EXCLUDED_FORMS = [
     "verlaengerung-geltungsdauer",
     "migriertes-dossier",
     "baupolizeiliches-verfahren",
+    "baupolizeiliches-verfahren-v2",
     "hecken-feldgehoelze-baeume",
     "hecken-feldgehoelze-baeume-v2",
     "klaerung-baubewilligungspflicht",
+    "klaerung-baubewilligungspflicht-v2",
     "zutrittsermaechtigung",
     "zutrittsermaechtigung-v2",
     "solaranlagen-meldung",
