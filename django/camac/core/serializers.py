@@ -1,3 +1,4 @@
+import re
 from urllib.parse import urlencode
 
 from caluma.caluma_form import models as caluma_form_models
@@ -136,10 +137,10 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
         resource_type = obj.available_resource_id
 
         if resource_type == "page":
+            if match := re.match(r"\/dashboard\/(.*).phtml", obj.template):
+                return f"/static-content/{match.groups()[0]}"
+
             type_mapping = {
-                "/dashboard/faq.phtml": "/static-content/faq",
-                "/dashboard/help.phtml": "/static-content/help",
-                "/dashboard/news.phtml": "/static-content/news",
                 "/ember-camac-ng/dms-admin.phtml": "/dms-admin",
                 "/ember-camac-ng/service-permissions.phtml": "/service-permissions",
                 "/ember-camac-ng/gwr-global.phtml": "/gwr",
