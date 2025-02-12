@@ -207,6 +207,25 @@ DISTRIBUTION = {
             },
         },
         "SUGGESTIONS": GR_DISTRIBUTION_SUGGESTIONS,
+        "AVAILABLE_SERVICES_FOR_INQUIRY": {
+            "default": [
+                # Never show AIB
+                {"exclude": [("services", ["aib"])]},
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            [
+                                "municipality",
+                                "service",
+                                "authority-bab",
+                                "uso",
+                            ],
+                        )
+                    ]
+                },
+            ],
+        },
     },
     "kt_so": {
         "ENABLED": True,
