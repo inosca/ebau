@@ -6,12 +6,10 @@ import {
   getAnswerDisplayValue,
 } from "ember-ebau-core/utils/get-answer";
 
-export function getApplicants(document) {
-  const applicants =
-    getAnswer(document, mainConfig.answerSlugs.personalDataApplicant)?.node
-      .value ?? [];
+export function getNames(document, questionSlug) {
+  const people = getAnswer(document, questionSlug)?.node.value ?? [];
 
-  const applicantNames = applicants.map((row) => {
+  const applicantNames = people.map((row) => {
     const firstName = getAnswerDisplayValue(
       row,
       mainConfig.answerSlugs.firstNameApplicant,
@@ -20,19 +18,30 @@ export function getApplicants(document) {
       row,
       mainConfig.answerSlugs.lastNameApplicant,
     );
+    const fullName = [firstName, lastName]
+      .filter(Boolean)
+      .map((name) => name.trim())
+      .join(" ");
+
     const juristicName =
       getAnswerDisplayValue(
         row,
         mainConfig.answerSlugs.juristicNameApplicant,
       )?.trim() ?? null;
+    const isJuristic =
+      getAnswerDisplayValue(row, mainConfig.answerSlugs.isJuristicApplicant) ===
+      mainConfig.answerSlugs.isJuristicApplicantYes;
 
-    return isEmpty(juristicName)
-      ? [firstName, lastName]
-          .filter(Boolean)
-          .map((name) => name.trim())
-          .join(" ")
-      : juristicName;
+    if (isJuristic) {
+      return isEmpty(juristicName) ? fullName : juristicName;
+    }
+
+    return fullName;
   });
 
   return applicantNames.filter(Boolean).join(", ");
+}
+
+export function getApplicants(document) {
+  return getNames(document, mainConfig.answerSlugs.personalDataApplicant);
 }

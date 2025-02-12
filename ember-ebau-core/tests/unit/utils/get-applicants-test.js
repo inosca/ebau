@@ -21,6 +21,12 @@ const testDocument = {
                       stringValue: "ACME Inc.",
                     },
                   },
+                  {
+                    node: {
+                      question: { slug: "is-juristic" },
+                      stringValue: "is-juristic-yes",
+                    },
+                  },
                 ],
               },
             },
@@ -45,6 +51,42 @@ const testDocument = {
                       stringValue: "  ",
                     },
                   },
+                  {
+                    node: {
+                      question: { slug: "is-juristic" },
+                      stringValue: "is-juristic-yes",
+                    },
+                  },
+                ],
+              },
+            },
+            {
+              answers: {
+                edges: [
+                  {
+                    node: {
+                      question: { slug: "first-name" },
+                      stringValue: "Mary",
+                    },
+                  },
+                  {
+                    node: {
+                      question: { slug: "last-name" },
+                      stringValue: " ",
+                    },
+                  },
+                  {
+                    node: {
+                      question: { slug: "juristic-name" },
+                      stringValue: "Company",
+                    },
+                  },
+                  {
+                    node: {
+                      question: { slug: "is-juristic" },
+                      stringValue: "is-juristic-no",
+                    },
+                  },
                 ],
               },
             },
@@ -65,10 +107,15 @@ module("Unit | Utility | get-applicants", function (hooks) {
       firstNameApplicant: "first-name",
       lastNameApplicant: "last-name",
       juristicNameApplicant: "juristic-name",
+      isJuristicApplicant: "is-juristic",
+      isJuristicApplicantYes: "is-juristic-yes",
     });
   });
 
   test("it works for natural and juristic persons", function (assert) {
-    assert.strictEqual(getApplicants(testDocument), "ACME Inc., John Doe");
+    assert.strictEqual(
+      getApplicants(testDocument),
+      "ACME Inc., John Doe, Mary ",
+    );
   });
 });
