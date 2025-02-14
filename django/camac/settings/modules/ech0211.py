@@ -406,7 +406,7 @@ ECH0211 = {
             r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",
             r"dossier-check/<int:instance_id>/": "/cases/%(instance_id)i/task-form/formal-exam",
         },
-        "ALLOWED_CATEGORIES": ["beteiligte-behörden", "intern"],
+        "ALLOWED_CATEGORIES": ["beteiligte-behörden", "intern", "beilagen-zum-gesuch"],
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["decision", "circulation"],
             "ONLY_DECLINE": ["distribution-init"],
