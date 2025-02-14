@@ -663,8 +663,11 @@ class InstanceFilterSet(FilterSet):
     )
     keyword_search = InstanceKeywordSearchFilter()
     intent_sz = CharFilter(method="filter_intent_sz")
-    plot_sz = FormFieldListValueFilter(
-        form_field_names=["parzellen"], keys=["number", "egrid"]
+    plot_egrid_sz = FormFieldListValueFilter(
+        form_field_names=["parzellen"], keys=["egrid"]
+    )
+    plot_number_sz = FormFieldListValueFilter(
+        form_field_names=["parzellen"], keys=["number"]
     )
     builder_sz = FormFieldListValueFilter(
         form_field_names=[
@@ -834,7 +837,8 @@ class InstanceFilterSet(FilterSet):
             "responsible_service_user",
             "address_sz",
             "intent_sz",
-            "plot_sz",
+            "plot_egrid_sz",
+            "plot_number_sz",
             "builder_sz",
             "landowner_sz",
             "applicant_sz",

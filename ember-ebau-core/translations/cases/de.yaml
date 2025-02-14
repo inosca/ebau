@@ -103,6 +103,8 @@ cases:
     paper-placeholder: ""
     paper: "Papier"
     parcel-placeholder: ""
+    parcel_property_number-placeholder: ""
+    parcel_egrid-placeholder: ""
     parcel: "Parzellen- / Baurechtsnummer"
     pendingSanctionsControlInstance-placeholder: ""
     pendingSanctionsControlInstance: "Auflagen zur Kontrolle"
