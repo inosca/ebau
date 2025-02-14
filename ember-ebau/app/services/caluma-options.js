@@ -130,6 +130,9 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           municipality: {
             label: "distribution.municipalities",
           },
+          service: {
+            label: "distribution.services",
+          },
           subservice: {
             label: "distribution.subservices",
           },
