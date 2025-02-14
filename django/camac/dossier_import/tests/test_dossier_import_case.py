@@ -86,7 +86,7 @@ def test_create_instance_dossier_import_case(
 ):
     if config == "kt_bern":
         perm_settings["EVENT_HANDLER"] = (
-            "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+            "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
         )
     # The test import file features faulty lines
     # 7 lines total. duplicate IDs are ignored
@@ -1010,7 +1010,7 @@ def test_set_workflow_state_be(
     be_permissions_settings,
 ):
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
     # This test skips instance creation where the instance's instance_state is set to the correct
     # state.

@@ -89,6 +89,54 @@ def test_instance_submit(db, instance, access_level, permissions_settings):
 
 
 @pytest.mark.parametrize(
+    "involve_feuerungskontrolle,expected_count", [(True, 1), (False, 0)]
+)
+def test_permission_event_handler_be(
+    db,
+    be_instance,
+    involve_feuerungskontrolle,
+    permissions_settings,
+    expected_count,
+    service_factory,
+    access_level_factory,
+    caluma_question_factory,
+):
+    access_level_factory(slug="read")
+    be_instance.case.document.form.slug = "heat-generator"
+    be_instance.case.document.form.save()
+    be_instance.case.document.answers.create(
+        question=caluma_question_factory(pk="heat-generator-combustion-database-v2"),
+        value="heat-generator-combustion-database-v2-ja"
+        if involve_feuerungskontrolle
+        else "heat-generator-combustion-database_v2-nein",
+    )
+    service_factory(
+        slug="feuerungskontrolle-weu",
+    )
+
+    permissions_settings["EVENT_HANDLER"] = (
+        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+    )
+
+    assert InstanceACL.objects.filter(instance=be_instance).count() == 0
+
+    CustomTrigger.instance_submitted(None, instance=be_instance)
+
+    be_instance.refresh_from_db()
+
+    assert InstanceACL.objects.filter(instance=be_instance).count() == expected_count
+
+    assert (
+        InstanceACL.objects.filter(
+            instance=be_instance,
+            service__slug="feuerungskontrolle-weu",
+            access_level_id="read",
+        ).exists()
+        == involve_feuerungskontrolle
+    )
+
+
+@pytest.mark.parametrize(
     "involve_geometer,geometer_relation_exists,expected_count",
     [(True, True, 2), (True, False, 1), (False, True, 1)],
 )
@@ -115,7 +163,7 @@ def test_decision_event_handler_be(
     application_settings["SHORT_NAME"] = "be"
     instance_state_factory(name="sb1")
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
 
     be_instance.case.document.answers.create(
@@ -369,7 +417,7 @@ def test_submit_create_acl_be(
 
     # Event handler so we actually get the ACL
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
 
     be_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.LOGGING
@@ -433,7 +481,7 @@ def test_change_responsible_service(
     be_permissions_settings,
 ):
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
     new_responsible = service_factory()
 
@@ -506,7 +554,7 @@ def test_create_instance_event_be(
     service_group,
 ):
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
     if is_paper:
         service_group.name = "municipality"
@@ -566,7 +614,7 @@ def test_send_inquiry(
     mocker,
 ):
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
     mocker.patch(
         "camac.notification.management.commands.send_inquiry_reminders.TEMPLATE_REMINDER_CIRCULATION",
@@ -660,7 +708,7 @@ def test_copy_be(
 ):
     be_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
 
     # support role will get access to the new instance

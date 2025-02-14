@@ -26,7 +26,7 @@
       "name": "Us",
       "surname": "Er",
       "email": "email@example.ch",
-      "phone": null,
+      "phone": "",
       "disabled": 0,
       "language": "de",
       "last_login": "2024-07-03T13:29:12.895Z",
@@ -51412,6 +51412,22 @@
       "city": null,
       "address": null,
       "email": "email@example.com",
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 23277,
+    "fields": {
+      "role": 20000,
+      "service": 20993,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
       "website": null
     }
   },
@@ -115646,6 +115662,16 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 26541,
+    "fields": {
+      "group": 23277,
+      "language": "de",
+      "name": "Feuerungskontrolle Kanton Bern - Immissionsschutz (Amt für Umwelt und Energie, Abteilung Energie)",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -115907,6 +115933,73 @@
       "default_group": 0,
       "created_at": "2023-12-04T12:27:07.866Z",
       "created_by": 2
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 20134,
+    "fields": {
+      "user": 2,
+      "group": 23277,
+      "default_group": 0,
+      "created_at": "2025-01-22T09:31:09.214Z",
+      "created_by": 2
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 1,
+    "fields": {
+      "modification_date": "2025-01-09T08:33:30Z",
+      "user_id": 2,
+      "action": "u",
+      "data": "{\"DEFAULT_GROUP\":1}",
+      "id1": 2,
+      "field1": "USER_ID",
+      "id2": 20003,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 2,
+    "fields": {
+      "modification_date": "2025-01-09T08:33:30Z",
+      "user_id": 2,
+      "action": "u",
+      "data": "{\"DEFAULT_GROUP\":0}",
+      "id1": 2,
+      "field1": "USER_ID",
+      "id2": 1,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 3,
+    "fields": {
+      "modification_date": "2025-01-22T09:19:49Z",
+      "user_id": 2,
+      "action": "u",
+      "data": "{\"DEFAULT_GROUP\":1}",
+      "id1": 2,
+      "field1": "USER_ID",
+      "id2": 1,
+      "field2": "GROUP_ID"
+    }
+  },
+  {
+    "model": "user.usergrouplog",
+    "pk": 4,
+    "fields": {
+      "modification_date": "2025-01-22T09:19:49Z",
+      "user_id": 2,
+      "action": "u",
+      "data": "{\"DEFAULT_GROUP\":0}",
+      "id1": 2,
+      "field1": "USER_ID",
+      "id2": 20003,
+      "field2": "GROUP_ID"
     }
   },
   {
@@ -137125,6 +137218,52 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 20992,
+    "fields": {
+      "slug": "amt-fuer-umwelt-und-energie-abteilung-energie",
+      "service_group": 1,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 760,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "amt-fuer-umwelt-und-energie-abteilung-energie@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 20993,
+    "fields": {
+      "slug": "feuerungskontrolle-weu",
+      "service_group": 1,
+      "service_parent": 20992,
+      "name": null,
+      "description": null,
+      "sort": 761,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "feuerungskontrolle@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 2,
     "fields": {
@@ -157428,6 +157567,39 @@
       "name": "Géomètre conservateur Test",
       "description": "Géomètre conservateur Test",
       "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 21966,
+    "fields": {
+      "service": 20992,
+      "language": "de",
+      "name": "Amt für Umwelt und Energie, Abteilung Energie",
+      "description": "Amt für Umwelt und Energie, Abteilung Energie",
+      "city": "Bern"
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 21967,
+    "fields": {
+      "service": 20992,
+      "language": "fr",
+      "name": "Office de l'environnementale et de l’énergie, section Energie",
+      "description": "Office de l'environnementale et de l’énergie, section Energie",
+      "city": "Berne"
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 21968,
+    "fields": {
+      "service": 20993,
+      "language": "de",
+      "name": "Feuerungskontrolle Kanton Bern - Immissionsschutz (Amt für Umwelt und Energie, Abteilung Energie)",
+      "description": "Feuerungskontrolle Kanton Bern - Immissionsschutz (Amt für Umwelt und Energie, Abteilung Energie)",
+      "city": "Bern"
     }
   }
 ]

@@ -1444,15 +1444,35 @@ def test_recipient_geometer_acl_services(
     assert serializer._get_recipients_geometer_acl_services(be_instance) == expected
 
 
+@pytest.mark.parametrize(
+    "has_heat_generator_service,expected",
+    [(True, [{"to": "feuerungskontrolle@example.ch"}]), (False, [])],
+)
 def test_recipient_immissionsschutz(
     db,
     be_instance,
+    has_heat_generator_service,
+    expected,
+    service_factory,
+    instance_acl_factory,
+    access_level_factory,
+    permissions_settings,
 ):
+    if has_heat_generator_service:
+        feuerungskontrolle_service = service_factory(
+            email="feuerungskontrolle@example.ch",
+            slug="feuerungskontrolle-weu",
+        )
+        instance_acl_factory(
+            instance=be_instance,
+            access_level=access_level_factory(slug="read"),
+            service=feuerungskontrolle_service,
+            metainfo={"disable-notification-on-creation": True},
+        )
+        permissions_settings["read"] = [("foo", ["*"])]
     serializer = serializers.NotificationTemplateSendmailSerializer()
 
-    assert serializer._get_recipients_immissionsschutz_be(be_instance) == [
-        {"to": "info.luft@be.ch"}
-    ]
+    assert serializer._get_recipients_immissionsschutz_be(be_instance) == expected
 
 
 @pytest.mark.parametrize("service__email", ["test@example.com"])

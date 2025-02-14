@@ -266,7 +266,7 @@ BE_PERMISSIONS_SETTINGS = {
         ],
     },
     "EVENTS_WITH_NOTIFICATION": ["manual-creation", "grant-geometer-access"],
-    "EVENT_HANDLER": "camac.permissions.config.kt_bern.GeometerPermissionEventHandlerBE",
+    "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
     "ENABLED": True,
     # Map INTERNAL -> CANTON access level names. The INTERNAL ones
     # are directly referenced by the migration tooling and may differ from

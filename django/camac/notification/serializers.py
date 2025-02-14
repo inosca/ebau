@@ -1649,7 +1649,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return []  # pragma: no cover
 
     def _get_recipients_immissionsschutz_be(self, instance):
-        return [{"to": "info.luft@be.ch"}]
+        service = Service.objects.filter(slug="feuerungskontrolle-weu").first()
+        if service:
+            return [{"to": service.email}]
+        return []
 
     def _get_recipients_schnurgeruestabnahme_uri(self, instance):
         work_item = self.validated_data.get("work_item")
