@@ -49,7 +49,7 @@
     "ember-can": "7.0.0",
     "ember-cli-babel": "8.2.0",
     "ember-cli-htmlbars": "6.3.0",
-    "ember-composable-helpers": "5.0.0",
+    "@nullvoxpopuli/ember-composable-helpers": "5.2.8",
     "ember-concurrency": "4.0.2",
     "ember-data": "4.12.8",
     "ember-data-resources": "5.2.1",
