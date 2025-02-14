@@ -428,7 +428,14 @@ def test_get_access_levels(
         ("be", True, "any", "FULL", "Municipality", "ALL"),
         ("be", False, "any", "FULL", "Municipality", "ALL"),
         # Permission mode is OFF: Old mode, can't filter except by role
-        ("be", True, "geometer", "OFF", "Municipality", 1),  # BE muni: only geometer
+        (
+            "be",
+            True,
+            "geometer",
+            "OFF",
+            "Municipality",
+            2,  # BE muni: only geometer and read
+        ),
         ("be", True, "geometer", "OFF", "Geometer", 0),
         ("be", False, "geometer", "OFF", "Municipality", "ALL"),
         # AccessLevelViewset.get_queryset() is @permission_aware, therefore
