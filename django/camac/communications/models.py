@@ -1,10 +1,12 @@
 import os.path
 
-from alexandria.core.api import make_signature_components
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.urls import reverse
+from django_presigned_url.presign_urls import (
+    make_presigned_url,
+)
 
 
 def entity_for_current_user(request):
@@ -111,14 +113,10 @@ class CommunicationsAttachment(models.Model):
         if self.alexandria_file:
             return self.alexandria_file.get_download_url(request)
 
-        url, expires, signature = make_signature_components(
-            str(self.pk),
-            request.get_host(),
-            scheme=request.META.get("wsgi.url_scheme", "http"),
-            download_path=reverse("communications-attachment-download", args=[self.pk]),
+        return make_presigned_url(
+            reverse("communications-attachment-download", args=[self.pk]),
+            request,
         )
-
-        return f"{url}?expires={expires}&signature={signature}"
 
     @property
     def filename(self):
