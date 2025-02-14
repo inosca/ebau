@@ -385,7 +385,8 @@ export default class CaseTableComponent extends Component {
       ...(macroCondition(getOwnConfig().application === "sz")
         ? {
             address_sz: this.args.filter.address,
-            plot_sz: this.args.filter.parcel,
+            plot_egrid_sz: this.args.filter.parcel_egrid,
+            plot_number_sz: this.args.filter.parcel_property_number,
             builder_sz: this.args.filter.builder,
             landowner_sz: this.args.filter.landowner,
             applicant_sz: this.args.filter.applicant,

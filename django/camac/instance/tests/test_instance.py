@@ -458,18 +458,17 @@ def test_instance_intent_filter(
     "plot,expected_count",
     [
         ("CH9", 2),
-        ("4", 2),
+        ("4", 1),
         ("ch967722307039  ", 1),
-        (" 420", 1),
+        ("420", 0),
+        ("650", 0),
         ("7899", 1),
-        # Works because of key value concatenation
-        ("420 ch967722307039", 1),
-        ("420  ch967722307039", 1),
+        ("420 ch967722307039", 0),
         ("ch9677223070390", 0),
         ("651", 0),
     ],
 )
-def test_instance_plot_filter(
+def test_instance_plot_egrid_filter(
     application_settings,
     admin_client,
     instance,
@@ -493,7 +492,53 @@ def test_instance_plot_filter(
     )
 
     url = reverse("instance-list")
-    response = admin_client.get(url, {"plot_sz": plot})
+    response = admin_client.get(url, {"plot_egrid_sz": plot})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
+@pytest.mark.parametrize(
+    "plot,expected_count",
+    [
+        ("CH9", 0),
+        ("4", 1),
+        ("ch967722307039  ", 0),
+        (" 420", 1),
+        ("7899", 0),
+        ("420 ch967722307039", 0),
+        ("ch967722307039", 0),
+        ("651", 0),
+        ("650", 1),
+    ],
+)
+def test_instance_plot_number_filter(
+    application_settings,
+    admin_client,
+    instance,
+    plot,
+    expected_count,
+    form_field_factory,
+    instance_factory,
+):
+    instance_1 = instance
+    instance_2 = instance_factory(user=instance.user)
+
+    form_field_factory(
+        name="parzellen",
+        value=[{"egrid": "CH967722307039", "number": 420, "municipality": "Schwyz"}],
+        instance=instance_1,
+    )
+    form_field_factory(
+        name="parzellen",
+        value=[{"egrid": "CH912734307899", "number": 650, "municipality": "Schwyz"}],
+        instance=instance_2,
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, {"plot_number_sz": plot})
 
     assert response.status_code == status.HTTP_200_OK
     data = response.json()["data"]

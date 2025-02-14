@@ -11,6 +11,8 @@ export default {
   freetext: { type: "input" },
   landowner: { type: "input" },
   parcel: { type: "input" },
+  parcel_egrid: { type: "input" },
+  parcel_property_number: { type: "input" },
   keywordSearch: { type: "input" },
   calumaKeywordSearch: { type: "input" },
   personalDetails: { type: "input" },
