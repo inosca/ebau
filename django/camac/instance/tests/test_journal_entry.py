@@ -17,6 +17,7 @@ def test_journal_entry_visibility(
     service_factory,
     instance,
     journal_entry_factory,
+    settings,
 ):
     journal_entry_factory(
         instance=instance, visibility="own_organization", service=service_factory()
@@ -33,10 +34,16 @@ def test_journal_entry_visibility(
         instance=instance, visibility="all", service=service_factory()
     )
 
-    url = reverse("journal-entry-list")
+    user = admin_user
+    token = {"azp": settings.KEYCLOAK_CLIENT}
+
+    if is_portal:
+        user = portal_user
+        token = {"azp": settings.KEYCLOAK_PORTAL_CLIENT}
+
     client = APIClient()
-    client.force_authenticate(user=portal_user if is_portal else admin_user)
-    response = client.get(url)
+    client.force_authenticate(user=user, token=token)
+    response = client.get(reverse("journal-entry-list"))
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()

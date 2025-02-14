@@ -5,11 +5,19 @@ from caluma.caluma_user.views import AuthenticationGraphQLView, HttpResponseUnau
 from django.conf import settings
 from django.http.response import HttpResponse
 from graphene_django.views import HttpError
-from rest_framework import status
+from rest_framework.exceptions import PermissionDenied
 
 from camac.caluma.utils import CamacRequest, extend_user
 from camac.token_exchange.permissions import has_required_lot
 from camac.user.models import User
+from camac.user.permissions import is_allowed_client
+
+
+class HttpResponseForbidden(HttpResponse):
+    status_code = PermissionDenied.status_code
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(PermissionDenied.default_detail, *args, **kwargs)
 
 
 class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
@@ -38,7 +46,9 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
             # Raise a 401 error if the user was not found in the CAMAC database
             raise HttpError(HttpResponseUnauthorized())
 
-        if not has_required_lot(request.camac_request):
-            raise HttpError(HttpResponse(status=status.HTTP_403_FORBIDDEN))
+        if not has_required_lot(request.camac_request) or not is_allowed_client(
+            request.camac_request
+        ):
+            raise HttpError(HttpResponseForbidden())
 
         return oidc_user

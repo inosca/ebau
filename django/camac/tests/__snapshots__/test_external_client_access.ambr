@@ -1,0 +1,78 @@
+# serializer version: 1
+# name: test_external_client_access[ag]
+  list([
+    '/api/redoc/',
+    '/api/swagger/',
+  ])
+# ---
+# name: test_external_client_access[be]
+  list([
+    '/api/redoc/',
+    '/api/swagger/',
+    '/api/v1/attachment-sections',
+    '/api/v1/attachments',
+    '/api/v1/attachments/files/',
+    '/api/v1/groups',
+    '/api/v1/me',
+    '/api/v1/public-services',
+    '/ech/v1/application/%(instance_id)s',
+    '/ech/v1/applications',
+    '/ech/v1/event/%(instance_id)s/%(event_type)s',
+    '/ech/v1/files',
+    '/ech/v1/message/',
+    '/ech/v1/send/',
+  ])
+# ---
+# name: test_external_client_access[gr]
+  list([
+    '/api/redoc/',
+    '/api/swagger/',
+    '/api/v1/groups',
+    '/api/v1/me',
+    '/api/v1/public-services',
+    '/ech/v1/application/%(instance_id)s',
+    '/ech/v1/applications',
+    '/ech/v1/event/%(instance_id)s/%(event_type)s',
+    '/ech/v1/files',
+    '/ech/v1/message/',
+    '/ech/v1/send/',
+  ])
+# ---
+# name: test_external_client_access[so]
+  list([
+    '/api/redoc/',
+    '/api/swagger/',
+    '/api/v1/groups',
+    '/api/v1/me',
+    '/api/v1/public-services',
+    '/ech/v1/application/%(instance_id)s',
+    '/ech/v1/applications',
+    '/ech/v1/event/%(instance_id)s/%(event_type)s',
+    '/ech/v1/files',
+    '/ech/v1/message/',
+    '/ech/v1/send/',
+  ])
+# ---
+# name: test_external_client_access[sz]
+  list([
+    '/api/redoc/',
+    '/api/swagger/',
+    '/api/v1/attachments',
+    '/api/v1/attachments/files/',
+    '/api/v1/groups',
+    '/api/v1/me',
+    '/ech/v1/application/%(instance_id)s',
+    '/ech/v1/applications',
+    '/ech/v1/event/%(instance_id)s/%(event_type)s',
+    '/ech/v1/files',
+    '/ech/v1/message/',
+    '/ech/v1/send/',
+  ])
+# ---
+# name: test_external_client_access[ur]
+  list([
+    '/api/redoc/',
+    '/api/swagger/',
+    '/api/v1/public-caluma-instances',
+  ])
+# ---

@@ -64,8 +64,8 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
     queryset = Message.objects
     serializer_class = Serializer
     renderer_classes = (XMLRenderer,)
-
     throttle_classes = [ECHMessageThrottle]
+    allow_external_clients = True
 
     @decorator_from_middleware(GeofenceMiddleware)
     def dispatch(self, *args, **kwargs):
@@ -118,6 +118,7 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
     renderer_classes = (XMLRenderer,)
     instance_field = None
     queryset = Instance.objects
+    allow_external_clients = True
 
     @decorator_from_middleware(GeofenceMiddleware)
     def dispatch(self, *args, **kwargs):
@@ -170,6 +171,7 @@ class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet)
     queryset = Instance.objects
     instance_field = None
     filter_backends = []
+    allow_external_clients = True
 
     @decorator_from_middleware(GeofenceMiddleware)
     def dispatch(self, *args, **kwargs):
@@ -199,6 +201,7 @@ class EventView(ECHInstanceQuerysetMixin, GenericViewSet):
     queryset = Instance.objects
     parser_classes = (JSONParser,)
     serializer_class = Serializer
+    allow_external_clients = True
 
     @decorator_from_middleware(GeofenceMiddleware)
     def dispatch(self, *args, **kwargs):
@@ -235,6 +238,7 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
     renderer_classes = (XMLRenderer,)
     parser_classes = (ECHXMLParser,)
     serializer_class = Serializer
+    allow_external_clients = True
 
     @classmethod
     def include_in_swagger(cls):
@@ -300,6 +304,7 @@ class ECHFileView(
     serializer_class = ECHFileSerializer
     parser_classes = [MultiPartParser]
     renderer_classes = [JSONRenderer]
+    allow_external_clients = True
 
     @classmethod
     def include_in_swagger(cls):

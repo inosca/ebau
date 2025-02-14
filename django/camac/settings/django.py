@@ -2841,6 +2841,7 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
+        "camac.user.permissions.IsAllowedClientToken",
         "camac.user.permissions.IsGroupMember",
         "camac.user.permissions.ViewPermissions",
         "camac.token_exchange.permissions.RequireLoT",
@@ -2887,6 +2888,10 @@ KEYCLOAK_URL = build_url(
 KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
 KEYCLOAK_PORTAL_CLIENT = env.str("KEYCLOAK_PORTAL_CLIENT", default="portal")
+# Client used by PHP to do privileged actions
+KEYCLOAK_CAMAC_ADMIN_CLIENT = env.str(
+    "KEYCLOAK_CAMAC_ADMIN_CLIENT", default="camac-admin"
+)
 
 KEYCLOAK_OIDC_TOKEN_URL = build_url(
     KEYCLOAK_URL, f"/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
@@ -3330,4 +3335,17 @@ EXTERNAL_FACTORY_MODULES = [
     ("alexandria.core.factories", "alexandria_factories", "Alexandria"),
     ("caluma.caluma_form.factories", "form_factories", "Caluma"),
     ("caluma.caluma_workflow.factories", "workflow_factories", "Caluma"),
+]
+
+# Client permission settings used to determine allowed clients in
+# `camac/user/permissions.py::IsAllowedClientToken`
+KEYCLOAK_ADDITIONAL_ALLOWED_CLIENTS = env.list(
+    "KEYCLOAK_ADDITIONAL_ALLOWED_CLIENTS", default=[]
+)
+KEYCLOAK_ALLOWED_CLIENTS = [
+    KEYCLOAK_CLIENT,
+    KEYCLOAK_PORTAL_CLIENT,
+    KEYCLOAK_CAMAC_ADMIN_CLIENT,
+    DOSSIER_IMPORT_CLIENT_ID,
+    *KEYCLOAK_ADDITIONAL_ALLOWED_CLIENTS,
 ]

@@ -50,7 +50,6 @@ from camac.user.permissions import (
     DefaultPermission,
     IsApplication,
     PublicationPermission,
-    ViewedPublicationCountPermissions,
     permission_aware,
 )
 from camac.utils import DocxRenderer
@@ -119,6 +118,13 @@ class InstanceView(
     Instance field is actually model itself.
     """
     instance_editable_permission = "instance"
+
+    @property
+    def allow_external_clients(self):
+        if self.include_in_swagger():
+            return ["generate_pdf"]
+
+        return False
 
     @classmethod
     def include_in_swagger(cls):
@@ -1547,7 +1553,7 @@ class PublicCalumaInstanceView(
     @action(
         methods=["post"],
         detail=True,
-        permission_classes=[ViewedPublicationCountPermissions],
+        permission_classes=[PublicationPermission],
     )
     def viewed(self, request, pk=None):
         PublicationEntry.objects.select_related("instance__case").filter(

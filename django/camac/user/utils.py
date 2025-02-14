@@ -70,7 +70,7 @@ def get_group(request):
 
 
 def is_portal_client(request):
-    if not getattr(request, "auth"):
+    if not getattr(request, "auth"):  # pragma: no cover
         return False
 
     return request.auth.get("azp") == settings.KEYCLOAK_PORTAL_CLIENT
