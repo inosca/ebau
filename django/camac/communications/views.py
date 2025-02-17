@@ -1,10 +1,10 @@
-from alexandria.core.api import verify_signed_components
 from django.conf import settings
 from django.db import transaction
 from django.db.models import Exists, OuterRef
 from django.http import FileResponse
 from django.urls import reverse
 from django.utils.translation import gettext
+from django_presigned_url.presign_urls import verify_presigned_request
 from rest_framework import response
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, PermissionDenied, ValidationError
@@ -181,18 +181,14 @@ class AttachmentView(
 
     @action(methods=["get"], detail=True, permission_classes=[])
     def download(self, request, pk=None):
-        if not (token_sig := request.query_params.get("signature")):
+        if not verify_presigned_request(
+            reverse("communications-attachment-download", args=[pk]),
+            request,
+        ):
             raise PermissionDenied(
                 gettext("For downloading a file use the presigned download URL.")
             )
-        verify_signed_components(
-            pk,
-            request.get_host(),
-            expires=int(request.query_params.get("expires")),
-            scheme=request.META.get("wsgi.url_scheme", "http"),
-            token_sig=token_sig,
-            download_path=reverse("communications-attachment-download", args=[pk]),
-        )
+
         obj = models.CommunicationsAttachment.objects.get(pk=pk)
 
         if obj.document_attachment:
