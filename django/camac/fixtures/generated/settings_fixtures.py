@@ -583,6 +583,18 @@ def ag_correction_settings(settings, request):
 
 
 @pytest.fixture
+def be_correction_settings(settings, request):
+    """Module-specific settings for correction (canton BE)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="correction",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def test_correction_settings(settings, request):
     """Module-specific settings for correction (canton TEST)."""
     return generate_module_settings(

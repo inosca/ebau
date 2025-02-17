@@ -1,22 +1,6 @@
 [
   {
     "model": "core.aformtransition",
-    "pk": 20102,
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 20007
-    }
-  },
-  {
-    "model": "core.aformtransition",
-    "pk": 20103,
-    "fields": {
-      "current_instance_state": 20007,
-      "next_instance_state": null
-    }
-  },
-  {
-    "model": "core.aformtransition",
     "pk": 1200002,
     "fields": {
       "current_instance_state": null,
@@ -86,20 +70,6 @@
   },
   {
     "model": "core.aphp",
-    "pk": 15000001,
-    "fields": {
-      "php_class": "CheckHasRunningInquiries"
-    }
-  },
-  {
-    "model": "core.aphp",
-    "pk": 15000002,
-    "fields": {
-      "php_class": "CheckDocumentValidity"
-    }
-  },
-  {
-    "model": "core.aphp",
     "pk": 15000003,
     "fields": {
       "php_class": "CheckHasOpenCadastralSurvey"
@@ -138,34 +108,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20102,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 20046,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 20103,
-    "fields": {
-      "available_action": "formtransition",
-      "button": 20047,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 2
     }
   },
   {
@@ -254,34 +196,6 @@
   },
   {
     "model": "core.action",
-    "pk": 150042,
-    "fields": {
-      "available_action": "case",
-      "button": 20046,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 150043,
-    "fields": {
-      "available_action": "case",
-      "button": 20047,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 1
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 150047,
     "fields": {
       "available_action": "pageredirect",
@@ -320,20 +234,6 @@
       "error_message": null,
       "execute_always": 0,
       "sort": 2
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 1200108,
-    "fields": {
-      "available_action": "addhistory",
-      "button": 20047,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 3
     }
   },
   {
@@ -464,34 +364,6 @@
   },
   {
     "model": "core.action",
-    "pk": 15000001,
-    "fields": {
-      "available_action": "php",
-      "button": 20046,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
-    "pk": 15000002,
-    "fields": {
-      "available_action": "php",
-      "button": 20047,
-      "name": null,
-      "description": null,
-      "success_message": null,
-      "error_message": null,
-      "execute_always": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.action",
     "pk": 15000003,
     "fields": {
       "available_action": "php",
@@ -547,20 +419,6 @@
     }
   },
   {
-    "model": "core.actioncase",
-    "pk": 150042,
-    "fields": {
-      "process_type": "suspend"
-    }
-  },
-  {
-    "model": "core.actioncase",
-    "pk": 150043,
-    "fields": {
-      "process_type": "resume"
-    }
-  },
-  {
     "model": "core.actiont",
     "pk": 20022,
     "fields": {
@@ -582,30 +440,6 @@
       "description": null,
       "success_message": null,
       "error_message": "Beim Speichern ist ein Fehler aufgetreten."
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20102,
-    "fields": {
-      "action": 20102,
-      "language": "de",
-      "name": "Dossier State \"In Korrektur\"",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 20103,
-    "fields": {
-      "action": 20103,
-      "language": "de",
-      "name": "Go to previous state",
-      "description": null,
-      "success_message": null,
-      "error_message": null
     }
   },
   {
@@ -682,30 +516,6 @@
   },
   {
     "model": "core.actiont",
-    "pk": 150048,
-    "fields": {
-      "action": 150042,
-      "language": "de",
-      "name": "Suspend case",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 150049,
-    "fields": {
-      "action": 150043,
-      "language": "de",
-      "name": "Resume case",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
     "pk": 150053,
     "fields": {
       "action": 150047,
@@ -735,30 +545,6 @@
       "action": 1200003,
       "language": "de",
       "name": "Go to state \"zum Abschluss\"",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200111,
-    "fields": {
-      "action": 1200108,
-      "language": "de",
-      "name": "History: Korrigiert",
-      "description": null,
-      "success_message": null,
-      "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 1200112,
-    "fields": {
-      "action": 1200108,
-      "language": "fr",
-      "name": "Entrée de histoire: Corrigé",
       "description": null,
       "success_message": null,
       "error_message": null
@@ -906,54 +692,6 @@
       "description": null,
       "success_message": null,
       "error_message": null
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 15000001,
-    "fields": {
-      "action": 15000001,
-      "language": "de",
-      "name": "Validation",
-      "description": null,
-      "success_message": null,
-      "error_message": "Das Dossier kann nicht korrigiert werden solange noch eine Zirkulation läuft."
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 15000002,
-    "fields": {
-      "action": 15000001,
-      "language": "fr",
-      "name": "Validation",
-      "description": null,
-      "success_message": null,
-      "error_message": "Le dossier ne peut être corrigé tant que des demandes complémentaires sont encore ouvertes."
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 15000003,
-    "fields": {
-      "action": 15000002,
-      "language": "de",
-      "name": "Validation",
-      "description": null,
-      "success_message": null,
-      "error_message": "Das Formular wurde nicht vollständig ausgefüllt. Bitte überprüfen Sie Ihre Eingaben und versuchen Sie den Abschluss der Dossierkorrektur erneut. Um die Vollständigkeit zu prüfen, navigieren Sie zum Abschnitt \"Einreichen\" im Formular."
-    }
-  },
-  {
-    "model": "core.actiont",
-    "pk": 15000004,
-    "fields": {
-      "action": 15000002,
-      "language": "fr",
-      "name": "Validation",
-      "description": null,
-      "success_message": null,
-      "error_message": "Le formulaire n'a pas été rempli complètement. Veuillez vérifier vos entrées et essayer à nouveau de clore la correction du dossier. Pour vérifier si le dossier est complet, naviguez vers la rubrique « Envoyer » du formulaire."
     }
   },
   {
@@ -38417,15 +38155,6 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 20045,
-    "fields": {
-      "button": 20047,
-      "role": 3,
-      "instance_state": 20007
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 20046,
     "fields": {
       "button": 20048,
@@ -38435,47 +38164,11 @@
   },
   {
     "model": "core.broleacl",
-    "pk": 20059,
-    "fields": {
-      "button": 20046,
-      "role": 3,
-      "instance_state": 20003
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 150028,
-    "fields": {
-      "button": 20046,
-      "role": 3,
-      "instance_state": 120001
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 150029,
-    "fields": {
-      "button": 20047,
-      "role": 3,
-      "instance_state": 120001
-    }
-  },
-  {
-    "model": "core.broleacl",
     "pk": 150030,
     "fields": {
       "button": 20013,
       "role": 3,
       "instance_state": 120001
-    }
-  },
-  {
-    "model": "core.broleacl",
-    "pk": 150032,
-    "fields": {
-      "button": 20046,
-      "role": 3,
-      "instance_state": 20004
     }
   },
   {
@@ -38515,15 +38208,6 @@
     }
   },
   {
-    "model": "core.broleacl",
-    "pk": 12000002,
-    "fields": {
-      "button": 20046,
-      "role": 3,
-      "instance_state": 120002
-    }
-  },
-  {
     "model": "core.button",
     "pk": 20013,
     "fields": {
@@ -38545,30 +38229,6 @@
       "class_field": null,
       "hidden": 0,
       "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20046,
-    "fields": {
-      "instance_resource": 20074,
-      "name": null,
-      "description": null,
-      "class_field": "active_leitbehoerde_only no_running_inquiries correction_modal",
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.button",
-    "pk": 20047,
-    "fields": {
-      "instance_resource": 20074,
-      "name": null,
-      "description": null,
-      "class_field": "active_leitbehoerde_only",
-      "hidden": 0,
-      "sort": 1
     }
   },
   {
@@ -38653,26 +38313,6 @@
   },
   {
     "model": "core.buttont",
-    "pk": 20046,
-    "fields": {
-      "button": 20046,
-      "language": "de",
-      "name": "Dossier korrigieren",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 20047,
-    "fields": {
-      "button": 20047,
-      "language": "de",
-      "name": "Korrektur abschliessen",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
     "pk": 20048,
     "fields": {
       "button": 20048,
@@ -38728,26 +38368,6 @@
       "button": 20014,
       "language": "fr",
       "name": "Enregistrer",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120041,
-    "fields": {
-      "button": 20046,
-      "language": "fr",
-      "name": "Corriger le dossier",
-      "description": null
-    }
-  },
-  {
-    "model": "core.buttont",
-    "pk": 120042,
-    "fields": {
-      "button": 20047,
-      "language": "fr",
-      "name": "Clore la correction",
       "description": null
     }
   },
@@ -46002,15 +45622,6 @@
   },
   {
     "model": "core.historyactionconfig",
-    "pk": 1200108,
-    "fields": {
-      "title": null,
-      "body": null,
-      "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfig",
     "pk": 1200118,
     "fields": {
       "title": null,
@@ -46034,26 +45645,6 @@
       "title": null,
       "body": null,
       "history_type": "status-change"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 3,
-    "fields": {
-      "action": 1200108,
-      "title": "Korrigiert",
-      "body": null,
-      "language": "de"
-    }
-  },
-  {
-    "model": "core.historyactionconfigt",
-    "pk": 4,
-    "fields": {
-      "action": 1200108,
-      "title": "Corrigé",
-      "body": null,
-      "language": "fr"
     }
   },
   {
@@ -46700,7 +46291,7 @@
       "resource": 20006,
       "name": null,
       "description": null,
-      "template": "/ember-camac-ng/support.phtml",
+      "template": "/ember-camac-ng/corrections.phtml",
       "class_field": "menu-category-primary active_leitung_leitbehoerde_only",
       "hidden": 0,
       "sort": 24,

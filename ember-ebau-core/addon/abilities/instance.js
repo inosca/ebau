@@ -14,7 +14,7 @@ export function hasInstanceState(instance, instanceState) {
     .map((slug) => parseInt(mainConfig.instanceStates[slug]))
     .filter(Boolean);
 
-  return ids.includes(parseInt(instance.belongsTo("instanceState").id()));
+  return ids.includes(parseInt(instance?.belongsTo("instanceState").id()));
 }
 
 export function isAuthority(instance, serviceId) {
@@ -92,7 +92,7 @@ export default class InstanceAbility extends Ability {
     return (this.model.meta?.permissions?.main || []).includes("write");
   }
 
-  // GR & SO
+  // GR & SO & BE
   get canCorrect() {
     return (
       // disabled until isMunicipalityLeadRole works in ember-ebau

@@ -44,4 +44,12 @@ export default {
       errorMessage: "dms.downloadError",
     },
   },
+  corrections: {
+    archiveInstance: false,
+    changeDossierNumber: false,
+    changeForm: false,
+    convertModification: false,
+    correctForm: true,
+    withdrawInstance: true,
+  },
 };

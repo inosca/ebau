@@ -26,7 +26,12 @@ export default {
     showMainForm: true,
   },
   corrections: {
+    archiveInstance: false,
+    changeDossierNumber: false,
     changeForm: true,
+    convertModification: false,
+    correctForm: true,
+    withdrawInstance: true,
   },
   internalCaseCreation: true,
   dms: {

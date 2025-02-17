@@ -1,0 +1,30 @@
+<p class="uk-text-large">{{t "corrections.ebau-number.title"}}</p>
+<p>{{t "corrections.ebau-number.description"}}</p>
+<form
+  aria-label={{t "corrections.ebau-number.form-label"}}
+  {{on "submit" this.changeEbauNumber.perform}}
+>
+  <div class="uk-grid-small" uk-grid>
+    <div class="uk-width-expand">
+      <Input
+        @type="text"
+        @value={{this.ebauNumber}}
+        aria-label={{t "corrections.ebau-number.label"}}
+        disabled={{cannot "set ebau number of instance" @instance}}
+        pattern="\d{4}-\d+"
+        class="uk-input uk-form-small"
+      />
+    </div>
+    <div>
+      <UkButton
+        @color="primary"
+        @type="submit"
+        @label={{t "global.save"}}
+        @disabled={{or
+          this.changeEbauNumber.isRunning
+          (cannot "set ebau number of instance" @instance)
+        }}
+      />
+    </div>
+  </div>
+</form>

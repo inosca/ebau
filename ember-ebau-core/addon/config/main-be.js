@@ -26,6 +26,7 @@ export default {
     finishedInternal: 120003,
     rejected: 10000,
     circulation: 20004,
+    correction: 20007,
   },
   useLocation: false,
   answerSlugs: {
@@ -79,6 +80,15 @@ export default {
       // Leitbehörde RSTA (Regierungsstatthalteramt) : Regierungsstatthalteramt Seeland
       district: ["rsta-seeland"],
     },
+  },
+  correction: {
+    instanceState: "correction",
+    allowedInstanceStates: [
+      "circulationInit",
+      "circulation",
+      "in-progress",
+      "in-progress-internal",
+    ],
   },
   intentSlugs: ["beschreibung-bauvorhaben"],
   freetextSlugs: ["freies-textfeld-1", "freies-textfeld-2"],

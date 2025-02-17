@@ -61,4 +61,12 @@ export default {
       templateName: () => `signatures`,
     },
   },
+  corrections: {
+    archiveInstance: false,
+    changeDossierNumber: false,
+    changeForm: false,
+    convertModification: false,
+    correctForm: true,
+    withdrawInstance: true,
+  },
 };

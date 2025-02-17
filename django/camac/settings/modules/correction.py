@@ -32,5 +32,14 @@ CORRECTION = {
             # "circulation",
         ],
     },
+    "kt_bern": {
+        "ENABLED": True,
+        "ALLOWED_INSTANCE_STATES": [
+            "circulation_init",
+            "in_progress",
+            "in_progress_internal",
+            "circulation",
+        ],
+    },
     "test": {"ENABLED": True},
 }
