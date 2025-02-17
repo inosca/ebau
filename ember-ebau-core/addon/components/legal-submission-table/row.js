@@ -10,8 +10,9 @@ import {
   getAnswerDisplayValue,
   getAnswer,
 } from "ember-ebau-core/utils/get-answer";
+import { getNames } from "ember-ebau-core/utils/get-applicants";
 
-const { answerSlugs, legalSubmission } = mainConfig;
+const { legalSubmission } = mainConfig;
 
 export default class LegalSubmissionTableRowComponent extends Component {
   @service notification;
@@ -55,27 +56,10 @@ export default class LegalSubmissionTableRowComponent extends Component {
   }
 
   get legalClaimants() {
-    const rows = getAnswer(
+    return getNames(
       this.args.legalSubmission,
       legalSubmission.columns["legal-claimants"],
-    )?.node.tableValue;
-
-    if (!rows) return "";
-
-    return rows
-      ?.map((row) => {
-        const isJuristic =
-          getAnswer(row, answerSlugs.isJuristicApplicant)?.node.stringValue ===
-          answerSlugs.isJuristicApplicantYes;
-
-        return isJuristic
-          ? getAnswerDisplayValue(row, answerSlugs.juristicNameApplicant)
-          : [
-              getAnswerDisplayValue(row, answerSlugs.lastNameApplicant),
-              getAnswerDisplayValue(row, answerSlugs.firstNameApplicant),
-            ].join(" ");
-      })
-      .join(", ");
+    );
   }
 
   @dropTask
