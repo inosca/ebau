@@ -1,6 +1,6 @@
 interactions:
 - request:
-    body: grant_type=client_credentials&client_id=token-exchange&client_secret=76e3ScwJqsP0EMsYHKmEyBjlE1bNeOU1
+    body: grant_type=client_credentials&client_id=token-exchange&client_secret=jgN5b7a2wLe3rKpwGXogTZY1kl1bn34K
     headers:
       Accept:
       - '*/*'
@@ -18,7 +18,7 @@ interactions:
     uri: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/token
   response:
     body:
-      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MzQ3MTQ1NDcsImlhdCI6MTczNDcxMjc0NywianRpIjoiZWY5ODM1ODItZDA1NS00ZTc4LWJiM2MtNGI5NmExNDAyNGJlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJwb3J0YWwiLCJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2Vnb3YubG9jYWwiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vZWJhdS1wb3J0YWwubG9jYWwiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjEwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTAiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.XfTketC43Bz6lR5917iHTy1URwB9IH2jD2Qevzz6MSlvxQrVWqWxjUw-ZXI0s-PZKK1acyehEY2CoqOvdCi9FfyOZIFpZuFj5TodJiNcTFTWiRM3zhrOlIs7n01wYXDTe9D7mVTOewzTl9SFHJzIRe6Z9u7Dh1ujsDIXW1k9-wdE_MDlD_d_NxQsluUATDWsjFsOQrw53Gj44lPwLfrIs-9nlIT0ADTd3xYn4piw9rWxdHImc_ofLgpxoSsY8GnKXflaatZ9oHLU6CrCTiaLfXOBeuzSGK3Sbluy7jR0rpb2DO1PK3Sx20IxDg3zKSJK6aakA9eGZU-EHtcYiqbhNA","expires_in":1800,"refresh_expires_in":0,"token_type":"Bearer","not-before-policy":0,"scope":"email
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3Mzk4NzU1NzMsImlhdCI6MTczOTg3Mzc3MywianRpIjoiZjlhYmVlOTMtNzQwMC00ZDk3LWIzMjgtZWUxNDU2NGE4ZDZlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiI0OGExMzlhOC02OTVmLTRiYmMtOGRkYi1lZjFmNzY1MGEyM2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjE0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTQiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.RTJnoYdf449D0IdF014lKPBR0vshP6jzz_dqVtwim3rEh19tpq9m5XyRa2aYk57D8OpeFwhdVwLvRncG7LHzjZmoCorCyIsjbA5Q7VfZtxXsQcV5CkjNEYI8zinSGR5x9Ufd91BjSh-pFY2T30KwiECSFkVSZPSekD9aK0T45h5dAEeiHc4AD6sghpomd3bYPeux2UGdXJSErR7c8xJtLjdmygG3h9wCoYki4wWHFxs5T_nyeBdnjmGUNcqOH6XGa4EjYcIElReqXjO_v0GCHmCEmuOxKTC3NNh5k8ELG9d2zP6BnKrqe31TtUMBogPb-Ke30YeRqvCG5Y8MDe1Dng","expires_in":1800,"refresh_expires_in":0,"token_type":"Bearer","not-before-policy":0,"scope":"email
         profile"}'
     headers:
       Cache-Control:
@@ -26,15 +26,14 @@ interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '1611'
+      - '1519'
       Content-Security-Policy:
-      - 'default-src ''none''; img-src ''self'' data:; style-src ''self'' ''unsafe-inline'';
-        font-src ''self''; script-src ''self'' data: ''unsafe-inline''; connect-src
-        ''self'' http://ebau-keycloak.local; frame-src ''self'''
+      - default-src 'self'; style-src 'self'  'unsafe-inline'; font-src 'self'; script-src
+        'self' 'unsafe-inline'
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Dec 2024 16:39:07 GMT
+      - Tue, 18 Feb 2025 10:16:13 GMT
       Pragma:
       - no-cache
       Referrer-Policy:
@@ -64,9 +63,9 @@ interactions:
       User-Agent:
       - python-requests/2.32.3
       authorization:
-      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MzQ3MTQ1NDcsImlhdCI6MTczNDcxMjc0NywianRpIjoiZWY5ODM1ODItZDA1NS00ZTc4LWJiM2MtNGI5NmExNDAyNGJlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJwb3J0YWwiLCJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2Vnb3YubG9jYWwiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vZWJhdS1wb3J0YWwubG9jYWwiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjEwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTAiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.XfTketC43Bz6lR5917iHTy1URwB9IH2jD2Qevzz6MSlvxQrVWqWxjUw-ZXI0s-PZKK1acyehEY2CoqOvdCi9FfyOZIFpZuFj5TodJiNcTFTWiRM3zhrOlIs7n01wYXDTe9D7mVTOewzTl9SFHJzIRe6Z9u7Dh1ujsDIXW1k9-wdE_MDlD_d_NxQsluUATDWsjFsOQrw53Gj44lPwLfrIs-9nlIT0ADTd3xYn4piw9rWxdHImc_ofLgpxoSsY8GnKXflaatZ9oHLU6CrCTiaLfXOBeuzSGK3Sbluy7jR0rpb2DO1PK3Sx20IxDg3zKSJK6aakA9eGZU-EHtcYiqbhNA
+      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3Mzk4NzU1NzMsImlhdCI6MTczOTg3Mzc3MywianRpIjoiZjlhYmVlOTMtNzQwMC00ZDk3LWIzMjgtZWUxNDU2NGE4ZDZlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiI0OGExMzlhOC02OTVmLTRiYmMtOGRkYi1lZjFmNzY1MGEyM2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjE0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTQiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.RTJnoYdf449D0IdF014lKPBR0vshP6jzz_dqVtwim3rEh19tpq9m5XyRa2aYk57D8OpeFwhdVwLvRncG7LHzjZmoCorCyIsjbA5Q7VfZtxXsQcV5CkjNEYI8zinSGR5x9Ufd91BjSh-pFY2T30KwiECSFkVSZPSekD9aK0T45h5dAEeiHc4AD6sghpomd3bYPeux2UGdXJSErR7c8xJtLjdmygG3h9wCoYki4wWHFxs5T_nyeBdnjmGUNcqOH6XGa4EjYcIElReqXjO_v0GCHmCEmuOxKTC3NNh5k8ELG9d2zP6BnKrqe31TtUMBogPb-Ke30YeRqvCG5Y8MDe1Dng
     method: GET
-    uri: http://ebau-keycloak.local/auth/admin/realms/ebau/users?username=egov:123
+    uri: http://ebau-keycloak.local/auth/admin/realms/ebau/users?username=egov:123&exact=true
   response:
     body:
       string: '[]'
@@ -78,13 +77,12 @@ interactions:
       Content-Length:
       - '2'
       Content-Security-Policy:
-      - 'default-src ''none''; img-src ''self'' data:; style-src ''self'' ''unsafe-inline'';
-        font-src ''self''; script-src ''self'' data: ''unsafe-inline''; connect-src
-        ''self'' http://ebau-keycloak.local; frame-src ''self'''
+      - default-src 'self'; style-src 'self'  'unsafe-inline'; font-src 'self'; script-src
+        'self' 'unsafe-inline'
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Fri, 20 Dec 2024 16:39:07 GMT
+      - Tue, 18 Feb 2025 10:16:13 GMT
       Referrer-Policy:
       - no-referrer
       Server:
@@ -116,7 +114,7 @@ interactions:
       User-Agent:
       - python-requests/2.32.3
       authorization:
-      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MzQ3MTQ1NDcsImlhdCI6MTczNDcxMjc0NywianRpIjoiZWY5ODM1ODItZDA1NS00ZTc4LWJiM2MtNGI5NmExNDAyNGJlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJwb3J0YWwiLCJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2Vnb3YubG9jYWwiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vZWJhdS1wb3J0YWwubG9jYWwiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjEwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTAiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.XfTketC43Bz6lR5917iHTy1URwB9IH2jD2Qevzz6MSlvxQrVWqWxjUw-ZXI0s-PZKK1acyehEY2CoqOvdCi9FfyOZIFpZuFj5TodJiNcTFTWiRM3zhrOlIs7n01wYXDTe9D7mVTOewzTl9SFHJzIRe6Z9u7Dh1ujsDIXW1k9-wdE_MDlD_d_NxQsluUATDWsjFsOQrw53Gj44lPwLfrIs-9nlIT0ADTd3xYn4piw9rWxdHImc_ofLgpxoSsY8GnKXflaatZ9oHLU6CrCTiaLfXOBeuzSGK3Sbluy7jR0rpb2DO1PK3Sx20IxDg3zKSJK6aakA9eGZU-EHtcYiqbhNA
+      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3Mzk4NzU1NzMsImlhdCI6MTczOTg3Mzc3MywianRpIjoiZjlhYmVlOTMtNzQwMC00ZDk3LWIzMjgtZWUxNDU2NGE4ZDZlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiI0OGExMzlhOC02OTVmLTRiYmMtOGRkYi1lZjFmNzY1MGEyM2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjE0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTQiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.RTJnoYdf449D0IdF014lKPBR0vshP6jzz_dqVtwim3rEh19tpq9m5XyRa2aYk57D8OpeFwhdVwLvRncG7LHzjZmoCorCyIsjbA5Q7VfZtxXsQcV5CkjNEYI8zinSGR5x9Ufd91BjSh-pFY2T30KwiECSFkVSZPSekD9aK0T45h5dAEeiHc4AD6sghpomd3bYPeux2UGdXJSErR7c8xJtLjdmygG3h9wCoYki4wWHFxs5T_nyeBdnjmGUNcqOH6XGa4EjYcIElReqXjO_v0GCHmCEmuOxKTC3NNh5k8ELG9d2zP6BnKrqe31TtUMBogPb-Ke30YeRqvCG5Y8MDe1Dng
       content-type:
       - application/json
     method: POST
@@ -130,13 +128,12 @@ interactions:
       Content-Length:
       - '0'
       Content-Security-Policy:
-      - 'default-src ''none''; img-src ''self'' data:; style-src ''self'' ''unsafe-inline'';
-        font-src ''self''; script-src ''self'' data: ''unsafe-inline''; connect-src
-        ''self'' http://ebau-keycloak.local; frame-src ''self'''
+      - default-src 'self'; style-src 'self'  'unsafe-inline'; font-src 'self'; script-src
+        'self' 'unsafe-inline'
       Date:
-      - Fri, 20 Dec 2024 16:39:07 GMT
+      - Tue, 18 Feb 2025 10:16:13 GMT
       Location:
-      - http://ebau-keycloak.local/auth/admin/realms/ebau/users/9af5bf08-c4ff-450a-929b-d8e86c102960
+      - http://ebau-keycloak.local/auth/admin/realms/ebau/users/e736cc53-5c2f-4c48-ad0f-678756ab6e75
       Referrer-Policy:
       - no-referrer
       Server:
@@ -164,12 +161,12 @@ interactions:
       User-Agent:
       - python-requests/2.32.3
       authorization:
-      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MzQ3MTQ1NDcsImlhdCI6MTczNDcxMjc0NywianRpIjoiZWY5ODM1ODItZDA1NS00ZTc4LWJiM2MtNGI5NmExNDAyNGJlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJwb3J0YWwiLCJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2Vnb3YubG9jYWwiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vZWJhdS1wb3J0YWwubG9jYWwiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjEwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTAiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.XfTketC43Bz6lR5917iHTy1URwB9IH2jD2Qevzz6MSlvxQrVWqWxjUw-ZXI0s-PZKK1acyehEY2CoqOvdCi9FfyOZIFpZuFj5TodJiNcTFTWiRM3zhrOlIs7n01wYXDTe9D7mVTOewzTl9SFHJzIRe6Z9u7Dh1ujsDIXW1k9-wdE_MDlD_d_NxQsluUATDWsjFsOQrw53Gj44lPwLfrIs-9nlIT0ADTd3xYn4piw9rWxdHImc_ofLgpxoSsY8GnKXflaatZ9oHLU6CrCTiaLfXOBeuzSGK3Sbluy7jR0rpb2DO1PK3Sx20IxDg3zKSJK6aakA9eGZU-EHtcYiqbhNA
+      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3Mzk4NzU1NzMsImlhdCI6MTczOTg3Mzc3MywianRpIjoiZjlhYmVlOTMtNzQwMC00ZDk3LWIzMjgtZWUxNDU2NGE4ZDZlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiI0OGExMzlhOC02OTVmLTRiYmMtOGRkYi1lZjFmNzY1MGEyM2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjE0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTQiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.RTJnoYdf449D0IdF014lKPBR0vshP6jzz_dqVtwim3rEh19tpq9m5XyRa2aYk57D8OpeFwhdVwLvRncG7LHzjZmoCorCyIsjbA5Q7VfZtxXsQcV5CkjNEYI8zinSGR5x9Ufd91BjSh-pFY2T30KwiECSFkVSZPSekD9aK0T45h5dAEeiHc4AD6sghpomd3bYPeux2UGdXJSErR7c8xJtLjdmygG3h9wCoYki4wWHFxs5T_nyeBdnjmGUNcqOH6XGa4EjYcIElReqXjO_v0GCHmCEmuOxKTC3NNh5k8ELG9d2zP6BnKrqe31TtUMBogPb-Ke30YeRqvCG5Y8MDe1Dng
     method: GET
-    uri: http://ebau-keycloak.local/auth/admin/realms/ebau/users?username=egov:123
+    uri: http://ebau-keycloak.local/auth/admin/realms/ebau/users?username=egov:123&exact=true
   response:
     body:
-      string: '[{"id":"9af5bf08-c4ff-450a-929b-d8e86c102960","username":"egov:123","firstName":"Test","lastName":"User","email":"email@example.com","emailVerified":true,"attributes":{"lot":["1"]},"createdTimestamp":1734712747354,"enabled":true,"totp":false,"disableableCredentialTypes":[],"requiredActions":[],"notBefore":0,"access":{"manageGroupMembership":true,"view":true,"mapRoles":true,"impersonate":true,"manage":true}}]'
+      string: '[{"id":"e736cc53-5c2f-4c48-ad0f-678756ab6e75","username":"egov:123","firstName":"Test","lastName":"User","email":"email@example.com","emailVerified":true,"attributes":{"lot":["1"]},"createdTimestamp":1739873773484,"enabled":true,"totp":false,"disableableCredentialTypes":[],"requiredActions":[],"notBefore":0,"access":{"manageGroupMembership":true,"view":true,"mapRoles":true,"impersonate":true,"manage":true}}]'
     headers:
       Cache-Control:
       - no-cache
@@ -178,13 +175,12 @@ interactions:
       Content-Length:
       - '411'
       Content-Security-Policy:
-      - 'default-src ''none''; img-src ''self'' data:; style-src ''self'' ''unsafe-inline'';
-        font-src ''self''; script-src ''self'' data: ''unsafe-inline''; connect-src
-        ''self'' http://ebau-keycloak.local; frame-src ''self'''
+      - default-src 'self'; style-src 'self'  'unsafe-inline'; font-src 'self'; script-src
+        'self' 'unsafe-inline'
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Fri, 20 Dec 2024 16:39:07 GMT
+      - Tue, 18 Feb 2025 10:16:13 GMT
       Referrer-Policy:
       - no-referrer
       Server:
@@ -212,12 +208,12 @@ interactions:
       User-Agent:
       - python-requests/2.32.3
       authorization:
-      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MzQ3MTQ1NDcsImlhdCI6MTczNDcxMjc0NywianRpIjoiZWY5ODM1ODItZDA1NS00ZTc4LWJiM2MtNGI5NmExNDAyNGJlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJwb3J0YWwiLCJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2Vnb3YubG9jYWwiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vZWJhdS1wb3J0YWwubG9jYWwiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjEwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTAiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.XfTketC43Bz6lR5917iHTy1URwB9IH2jD2Qevzz6MSlvxQrVWqWxjUw-ZXI0s-PZKK1acyehEY2CoqOvdCi9FfyOZIFpZuFj5TodJiNcTFTWiRM3zhrOlIs7n01wYXDTe9D7mVTOewzTl9SFHJzIRe6Z9u7Dh1ujsDIXW1k9-wdE_MDlD_d_NxQsluUATDWsjFsOQrw53Gj44lPwLfrIs-9nlIT0ADTd3xYn4piw9rWxdHImc_ofLgpxoSsY8GnKXflaatZ9oHLU6CrCTiaLfXOBeuzSGK3Sbluy7jR0rpb2DO1PK3Sx20IxDg3zKSJK6aakA9eGZU-EHtcYiqbhNA
+      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3Mzk4NzU1NzMsImlhdCI6MTczOTg3Mzc3MywianRpIjoiZjlhYmVlOTMtNzQwMC00ZDk3LWIzMjgtZWUxNDU2NGE4ZDZlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiI0OGExMzlhOC02OTVmLTRiYmMtOGRkYi1lZjFmNzY1MGEyM2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjE0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTQiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.RTJnoYdf449D0IdF014lKPBR0vshP6jzz_dqVtwim3rEh19tpq9m5XyRa2aYk57D8OpeFwhdVwLvRncG7LHzjZmoCorCyIsjbA5Q7VfZtxXsQcV5CkjNEYI8zinSGR5x9Ufd91BjSh-pFY2T30KwiECSFkVSZPSekD9aK0T45h5dAEeiHc4AD6sghpomd3bYPeux2UGdXJSErR7c8xJtLjdmygG3h9wCoYki4wWHFxs5T_nyeBdnjmGUNcqOH6XGa4EjYcIElReqXjO_v0GCHmCEmuOxKTC3NNh5k8ELG9d2zP6BnKrqe31TtUMBogPb-Ke30YeRqvCG5Y8MDe1Dng
     method: GET
-    uri: http://ebau-keycloak.local/auth/admin/realms/ebau/users?username=egov:123
+    uri: http://ebau-keycloak.local/auth/admin/realms/ebau/users?username=egov:123&exact=true
   response:
     body:
-      string: '[{"id":"9af5bf08-c4ff-450a-929b-d8e86c102960","username":"egov:123","firstName":"Test","lastName":"User","email":"email@example.com","emailVerified":true,"attributes":{"lot":["1"]},"createdTimestamp":1734712747354,"enabled":true,"totp":false,"disableableCredentialTypes":[],"requiredActions":[],"notBefore":0,"access":{"manageGroupMembership":true,"view":true,"mapRoles":true,"impersonate":true,"manage":true}}]'
+      string: '[{"id":"e736cc53-5c2f-4c48-ad0f-678756ab6e75","username":"egov:123","firstName":"Test","lastName":"User","email":"email@example.com","emailVerified":true,"attributes":{"lot":["1"]},"createdTimestamp":1739873773484,"enabled":true,"totp":false,"disableableCredentialTypes":[],"requiredActions":[],"notBefore":0,"access":{"manageGroupMembership":true,"view":true,"mapRoles":true,"impersonate":true,"manage":true}}]'
     headers:
       Cache-Control:
       - no-cache
@@ -226,13 +222,12 @@ interactions:
       Content-Length:
       - '411'
       Content-Security-Policy:
-      - 'default-src ''none''; img-src ''self'' data:; style-src ''self'' ''unsafe-inline'';
-        font-src ''self''; script-src ''self'' data: ''unsafe-inline''; connect-src
-        ''self'' http://ebau-keycloak.local; frame-src ''self'''
+      - default-src 'self'; style-src 'self'  'unsafe-inline'; font-src 'self'; script-src
+        'self' 'unsafe-inline'
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Fri, 20 Dec 2024 16:39:07 GMT
+      - Tue, 18 Feb 2025 10:16:13 GMT
       Referrer-Policy:
       - no-referrer
       Server:
@@ -263,11 +258,11 @@ interactions:
       User-Agent:
       - python-requests/2.32.3
       authorization:
-      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MzQ3MTQ1NDcsImlhdCI6MTczNDcxMjc0NywianRpIjoiZWY5ODM1ODItZDA1NS00ZTc4LWJiM2MtNGI5NmExNDAyNGJlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJwb3J0YWwiLCJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2Vnb3YubG9jYWwiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vZWJhdS1wb3J0YWwubG9jYWwiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjEwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTAiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.XfTketC43Bz6lR5917iHTy1URwB9IH2jD2Qevzz6MSlvxQrVWqWxjUw-ZXI0s-PZKK1acyehEY2CoqOvdCi9FfyOZIFpZuFj5TodJiNcTFTWiRM3zhrOlIs7n01wYXDTe9D7mVTOewzTl9SFHJzIRe6Z9u7Dh1ujsDIXW1k9-wdE_MDlD_d_NxQsluUATDWsjFsOQrw53Gj44lPwLfrIs-9nlIT0ADTd3xYn4piw9rWxdHImc_ofLgpxoSsY8GnKXflaatZ9oHLU6CrCTiaLfXOBeuzSGK3Sbluy7jR0rpb2DO1PK3Sx20IxDg3zKSJK6aakA9eGZU-EHtcYiqbhNA
+      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3Mzk4NzU1NzMsImlhdCI6MTczOTg3Mzc3MywianRpIjoiZjlhYmVlOTMtNzQwMC00ZDk3LWIzMjgtZWUxNDU2NGE4ZDZlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiI0OGExMzlhOC02OTVmLTRiYmMtOGRkYi1lZjFmNzY1MGEyM2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjE0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTQiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.RTJnoYdf449D0IdF014lKPBR0vshP6jzz_dqVtwim3rEh19tpq9m5XyRa2aYk57D8OpeFwhdVwLvRncG7LHzjZmoCorCyIsjbA5Q7VfZtxXsQcV5CkjNEYI8zinSGR5x9Ufd91BjSh-pFY2T30KwiECSFkVSZPSekD9aK0T45h5dAEeiHc4AD6sghpomd3bYPeux2UGdXJSErR7c8xJtLjdmygG3h9wCoYki4wWHFxs5T_nyeBdnjmGUNcqOH6XGa4EjYcIElReqXjO_v0GCHmCEmuOxKTC3NNh5k8ELG9d2zP6BnKrqe31TtUMBogPb-Ke30YeRqvCG5Y8MDe1Dng
       content-type:
       - application/json
     method: PUT
-    uri: http://ebau-keycloak.local/auth/admin/realms/ebau/users/9af5bf08-c4ff-450a-929b-d8e86c102960
+    uri: http://ebau-keycloak.local/auth/admin/realms/ebau/users/e736cc53-5c2f-4c48-ad0f-678756ab6e75
   response:
     body:
       string: ''
@@ -275,11 +270,10 @@ interactions:
       Connection:
       - keep-alive
       Content-Security-Policy:
-      - 'default-src ''none''; img-src ''self'' data:; style-src ''self'' ''unsafe-inline'';
-        font-src ''self''; script-src ''self'' data: ''unsafe-inline''; connect-src
-        ''self'' http://ebau-keycloak.local; frame-src ''self'''
+      - default-src 'self'; style-src 'self'  'unsafe-inline'; font-src 'self'; script-src
+        'self' 'unsafe-inline'
       Date:
-      - Fri, 20 Dec 2024 16:39:07 GMT
+      - Tue, 18 Feb 2025 10:16:13 GMT
       Referrer-Policy:
       - no-referrer
       Server:
@@ -307,13 +301,13 @@ interactions:
       User-Agent:
       - python-requests/2.32.3
       authorization:
-      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MzQ3MTQ1NDcsImlhdCI6MTczNDcxMjc0NywianRpIjoiZWY5ODM1ODItZDA1NS00ZTc4LWJiM2MtNGI5NmExNDAyNGJlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJwb3J0YWwiLCJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2Vnb3YubG9jYWwiLCJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vZWJhdS1wb3J0YWwubG9jYWwiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjEwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTAiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.XfTketC43Bz6lR5917iHTy1URwB9IH2jD2Qevzz6MSlvxQrVWqWxjUw-ZXI0s-PZKK1acyehEY2CoqOvdCi9FfyOZIFpZuFj5TodJiNcTFTWiRM3zhrOlIs7n01wYXDTe9D7mVTOewzTl9SFHJzIRe6Z9u7Dh1ujsDIXW1k9-wdE_MDlD_d_NxQsluUATDWsjFsOQrw53Gj44lPwLfrIs-9nlIT0ADTd3xYn4piw9rWxdHImc_ofLgpxoSsY8GnKXflaatZ9oHLU6CrCTiaLfXOBeuzSGK3Sbluy7jR0rpb2DO1PK3Sx20IxDg3zKSJK6aakA9eGZU-EHtcYiqbhNA
+      - Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3Mzk4NzU1NzMsImlhdCI6MTczOTg3Mzc3MywianRpIjoiZjlhYmVlOTMtNzQwMC00ZDk3LWIzMjgtZWUxNDU2NGE4ZDZlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiI0OGExMzlhOC02OTVmLTRiYmMtOGRkYi1lZjFmNzY1MGEyM2UiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ0b2tlbi1leGNoYW5nZSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwiY2xpZW50SG9zdCI6IjE3Mi4xOS4wLjE0IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtdG9rZW4tZXhjaGFuZ2UiLCJjbGllbnRBZGRyZXNzIjoiMTcyLjE5LjAuMTQiLCJjbGllbnRfaWQiOiJ0b2tlbi1leGNoYW5nZSJ9.RTJnoYdf449D0IdF014lKPBR0vshP6jzz_dqVtwim3rEh19tpq9m5XyRa2aYk57D8OpeFwhdVwLvRncG7LHzjZmoCorCyIsjbA5Q7VfZtxXsQcV5CkjNEYI8zinSGR5x9Ufd91BjSh-pFY2T30KwiECSFkVSZPSekD9aK0T45h5dAEeiHc4AD6sghpomd3bYPeux2UGdXJSErR7c8xJtLjdmygG3h9wCoYki4wWHFxs5T_nyeBdnjmGUNcqOH6XGa4EjYcIElReqXjO_v0GCHmCEmuOxKTC3NNh5k8ELG9d2zP6BnKrqe31TtUMBogPb-Ke30YeRqvCG5Y8MDe1Dng
     method: GET
-    uri: http://ebau-keycloak.local/auth/admin/realms/ebau/users?username=egov:123
+    uri: http://ebau-keycloak.local/auth/admin/realms/ebau/users?username=egov:123&exact=true
   response:
     body:
-      string: '[{"id":"9af5bf08-c4ff-450a-929b-d8e86c102960","username":"egov:123","lastName":"ACME
-        Inc.","email":"email@example.com","emailVerified":true,"attributes":{"lot":["1"]},"createdTimestamp":1734712747354,"enabled":true,"totp":false,"disableableCredentialTypes":[],"requiredActions":[],"notBefore":0,"access":{"manageGroupMembership":true,"view":true,"mapRoles":true,"impersonate":true,"manage":true}}]'
+      string: '[{"id":"e736cc53-5c2f-4c48-ad0f-678756ab6e75","username":"egov:123","lastName":"ACME
+        Inc.","email":"email@example.com","emailVerified":true,"attributes":{"lot":["1"]},"createdTimestamp":1739873773484,"enabled":true,"totp":false,"disableableCredentialTypes":[],"requiredActions":[],"notBefore":0,"access":{"manageGroupMembership":true,"view":true,"mapRoles":true,"impersonate":true,"manage":true}}]'
     headers:
       Cache-Control:
       - no-cache
@@ -322,13 +316,12 @@ interactions:
       Content-Length:
       - '397'
       Content-Security-Policy:
-      - 'default-src ''none''; img-src ''self'' data:; style-src ''self'' ''unsafe-inline'';
-        font-src ''self''; script-src ''self'' data: ''unsafe-inline''; connect-src
-        ''self'' http://ebau-keycloak.local; frame-src ''self'''
+      - default-src 'self'; style-src 'self'  'unsafe-inline'; font-src 'self'; script-src
+        'self' 'unsafe-inline'
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Fri, 20 Dec 2024 16:39:07 GMT
+      - Tue, 18 Feb 2025 10:16:13 GMT
       Referrer-Policy:
       - no-referrer
       Server:
@@ -345,7 +338,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Atoken-exchange&client_id=token-exchange&client_secret=76e3ScwJqsP0EMsYHKmEyBjlE1bNeOU1&audience=portal&requested_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Arefresh_token&requested_subject=egov%3A123&scope=openid+token-exchange
+    body: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Atoken-exchange&client_id=token-exchange&client_secret=jgN5b7a2wLe3rKpwGXogTZY1kl1bn34K&audience=portal&requested_token_type=urn%3Aietf%3Aparams%3Aoauth%3Atoken-type%3Arefresh_token&requested_subject=egov%3A123&scope=openid+token-exchange
     headers:
       Accept:
       - '*/*'
@@ -363,7 +356,7 @@ interactions:
     uri: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/token
   response:
     body:
-      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MzQ3MTQ1NDcsImlhdCI6MTczNDcxMjc0NywianRpIjoiOGUxYzU2NGUtMmE4NC00ZDNmLWJjYzYtODA4Y2E4OTBiOTJlIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJwb3J0YWwiLCJhY2NvdW50Il0sInN1YiI6IjlhZjViZjA4LWM0ZmYtNDUwYS05MjliLWQ4ZTg2YzEwMjk2MCIsInR5cCI6IkJlYXJlciIsImF6cCI6InBvcnRhbCIsInNpZCI6IjY3MWUxNDA1LWU3N2QtNGZjYS04Mjk0LWNhOTlhNzYzODMxNCIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vZWJhdS1wb3J0YWwubG9jYWwiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCB0b2tlbi1leGNoYW5nZSBwcm9maWxlIiwibG90IjoiMSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiQUNNRSBJbmMuIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiZWdvdjoxMjMiLCJmYW1pbHlfbmFtZSI6IkFDTUUgSW5jLiIsImVtYWlsIjoiZW1haWxAZXhhbXBsZS5jb20ifQ.VCnUxRQ5LJsofENVU10dUcnX8fXvMAge_svG5yBywY-BSQgnjhDv46TgSTzFtjFhvP0vTM3WeSiGUUh3fUDuqZR86gCA_c3WdLKTUxfa3EOcYTSN1QwYogroscoOxSrySVdlZI8u88Etw7Ao32I79e0V032Q_RK1OIJTqT9_Zi_BAtwOvAKlYjbMlm7Hlruet5cRk89F7OAzU1TsvJnZ2mkcpOeIg0z2Bg365wkRoEhttjIP_6xr7pKTMIYS_qqupyRo0oyH6NAxtb-V30a8qrSvDxVm5YD_7lG1OsPyrmmOF4YXxeRgbMrk_dymdGBcJyLuh9qDwRU2DDTjIY5Kjg","expires_in":1800,"refresh_expires_in":18000,"refresh_token":"eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNDJkOTc3NS01NjE3LTQ4ZTUtODFlOC1jMjk3NDEwNDg4ODkifQ.eyJleHAiOjE3MzQ3MzA3NDcsImlhdCI6MTczNDcxMjc0NywianRpIjoiNjU2ZTcxYzgtNDlhZC00NzFiLTliMmYtZmIzMjI3ZWUzZDg3IiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6Imh0dHA6Ly9lYmF1LWtleWNsb2FrLmxvY2FsL2F1dGgvcmVhbG1zL2ViYXUiLCJzdWIiOiI5YWY1YmYwOC1jNGZmLTQ1MGEtOTI5Yi1kOGU4NmMxMDI5NjAiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoicG9ydGFsIiwic2lkIjoiNjcxZTE0MDUtZTc3ZC00ZmNhLTgyOTQtY2E5OWE3NjM4MzE0Iiwic2NvcGUiOiJvcGVuaWQgcm9sZXMgZW1haWwgYmFzaWMgdG9rZW4tZXhjaGFuZ2Ugd2ViLW9yaWdpbnMgcHJvZmlsZSJ9.M7LCdUEUqKnbvHA3FcD78I129ImOL4KxvDjakfbbfYIEaexWDaChpZdEzADSvfZlJJ5v92ZKS_9woALR7CwOnA","token_type":"Bearer","id_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3MzQ3MTQ1NDcsImlhdCI6MTczNDcxMjc0NywianRpIjoiZjk5M2YxZjktMjEyOS00YTRmLWExN2YtMDI0MzJlN2E2NDllIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6InBvcnRhbCIsInN1YiI6IjlhZjViZjA4LWM0ZmYtNDUwYS05MjliLWQ4ZTg2YzEwMjk2MCIsInR5cCI6IklEIiwiYXpwIjoicG9ydGFsIiwic2lkIjoiNjcxZTE0MDUtZTc3ZC00ZmNhLTgyOTQtY2E5OWE3NjM4MzE0IiwiYXRfaGFzaCI6IkpQN3dmRlZNNDVkZG1OSVBKNDRMTlEiLCJsb3QiOiIxIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJBQ01FIEluYy4iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJlZ292OjEyMyIsImZhbWlseV9uYW1lIjoiQUNNRSBJbmMuIiwiZW1haWwiOiJlbWFpbEBleGFtcGxlLmNvbSJ9.hGE_l10fTxu-tM9CE7b81lgPj0PaQIitXCgencgwvL6bRER0t7tT1ddXLUHehlHbHbDcvhBI2A6VMOEHZMQYN-WLo1QmSgNkcMP8vmyRJ4LE122ePAj4GaWUZ0sr965xF0gP5BsoBmfV3bc7KkbikGcrffulxRLPXW4PVDftGcESv81SC8ke-HgWzgQ5dk89gYzHn831RKXQj6fSRWaj5B2-d0uBsuLfxysmtDne5It5dSTA_0GT4UGtwPrCBM1hltF27MpmhbrCWLP1AJ15pBS7uJVSs5XVDgAPcekN8idD54yeJR1uoT5lkN6TzXldK1c5iieJxqsopZ4Dsu_rrQ","not-before-policy":0,"session_state":"671e1405-e77d-4fca-8294-ca99a7638314","scope":"openid
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3Mzk4NzU1NzMsImlhdCI6MTczOTg3Mzc3MywianRpIjoiZTY5OTNlNzItNDU2Zi00ZTAzLTliZjktZmQzZjY2MGExY2M4IiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6WyJwb3J0YWwiLCJhY2NvdW50Il0sInN1YiI6ImU3MzZjYzUzLTVjMmYtNGM0OC1hZDBmLTY3ODc1NmFiNmU3NSIsInR5cCI6IkJlYXJlciIsImF6cCI6InBvcnRhbCIsInNpZCI6IjdlNmE0ZTIwLTc1MTItNGMxNi1hMjg1LWEyN2U2OTNmM2M0MCIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJodHRwOi8vZWJhdS1wb3J0YWwubG9jYWwiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy1lYmF1IiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCB0b2tlbi1leGNoYW5nZSBwcm9maWxlIiwibG90IjoiMSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiQUNNRSBJbmMuIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiZWdvdjoxMjMiLCJmYW1pbHlfbmFtZSI6IkFDTUUgSW5jLiIsImVtYWlsIjoiZW1haWxAZXhhbXBsZS5jb20ifQ.QyaYaDRHu7OJnAq2vHOk_-ZHpeI8aQ5-dtYcqedHNrrfPVYXK07p8beUo3vMlcRiO3ctvBOHMbc30KY-6API3NFyUOfi4JwejSSECALzba7Iiedoc6313ASo07hXDySaKz79arjUYW4agKHPqckbIdrpO0BcTd_ylsKKoOXtUvddideat-tcHbUpWfP8SYT65NJ5nq2hcVrrkkTVceH2EfHECqjoeknhhYx8cDStNnENam2OZWka_6MPfT3RGFFTMHPrW9yIzj7k5XbztnOzZlwpyDg_nIMCfi8EVGriS2gD4VeKC7RuJ16TH7n47SW96hvVjJW0TxZjZPYtUT71kg","expires_in":1800,"refresh_expires_in":18000,"refresh_token":"eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlNDJkOTc3NS01NjE3LTQ4ZTUtODFlOC1jMjk3NDEwNDg4ODkifQ.eyJleHAiOjE3Mzk4OTE3NzMsImlhdCI6MTczOTg3Mzc3MywianRpIjoiOGZiZmFlNTItYTcyNy00YzVmLTg5MTItZDkzOGU1ZWZiMjkwIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6Imh0dHA6Ly9lYmF1LWtleWNsb2FrLmxvY2FsL2F1dGgvcmVhbG1zL2ViYXUiLCJzdWIiOiJlNzM2Y2M1My01YzJmLTRjNDgtYWQwZi02Nzg3NTZhYjZlNzUiLCJ0eXAiOiJSZWZyZXNoIiwiYXpwIjoicG9ydGFsIiwic2lkIjoiN2U2YTRlMjAtNzUxMi00YzE2LWEyODUtYTI3ZTY5M2YzYzQwIiwic2NvcGUiOiJvcGVuaWQgcm9sZXMgZW1haWwgYmFzaWMgdG9rZW4tZXhjaGFuZ2Ugd2ViLW9yaWdpbnMgcHJvZmlsZSJ9.BEaBL76CHL2gh9oN4RsYoT7F-_t51YrnU_9izmJPzYQBjiEtxhT_SUXzRf9JKKLQzMDuhVTx0iF3-Bpt8tRCBQ","token_type":"Bearer","id_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3WHJ1di0wLWo2RUdRNlpRTS13OHpDekFYTC1TSExLQ0RlLWExc1VKMGJNIn0.eyJleHAiOjE3Mzk4NzU1NzMsImlhdCI6MTczOTg3Mzc3MywianRpIjoiNzg3YTBkYTQtYTQyMi00ZjA1LThhZmEtYTg5N2NkNDYxNjNmIiwiaXNzIjoiaHR0cDovL2ViYXUta2V5Y2xvYWsubG9jYWwvYXV0aC9yZWFsbXMvZWJhdSIsImF1ZCI6InBvcnRhbCIsInN1YiI6ImU3MzZjYzUzLTVjMmYtNGM0OC1hZDBmLTY3ODc1NmFiNmU3NSIsInR5cCI6IklEIiwiYXpwIjoicG9ydGFsIiwic2lkIjoiN2U2YTRlMjAtNzUxMi00YzE2LWEyODUtYTI3ZTY5M2YzYzQwIiwiYXRfaGFzaCI6IjR6WGRTUE5GZnR6bml6MktGUEZ3UEEiLCJsb3QiOiIxIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJBQ01FIEluYy4iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJlZ292OjEyMyIsImZhbWlseV9uYW1lIjoiQUNNRSBJbmMuIiwiZW1haWwiOiJlbWFpbEBleGFtcGxlLmNvbSJ9.KXwoord_gDT_zX3db4D41SEIf8_03xeroJ6NXGxCYWI01SPElC17GXwe57TPLGmPSJr5mkvRGu6_f6NRHCYvkbJ0pFQcXkS4em5l5g6mPYb4EY-G2ytkZijd3in37YeKCAwLq0C4QVSfKTYrPt12Jm7hPzYEw4iFeNu9SM5tRFlTBC2-qiEup9Suh8SJVLYh1rOn0-rJzYctK4kcgJ2dcMF1nYi7Exve6Jyqfh_PWheifG4h-_eXEyUlj06W97cQH0mPUUI7cnt0NYrkpaDXvyQyTQbQmn4sM3szdIVrqzs38Zj8dzvyM2wso5Rme3p7T1sPpl7s-7qPjSzsejE-LA","not-before-policy":0,"session_state":"7e6a4e20-7512-4c16-a285-a27e693f3c40","scope":"openid
         email token-exchange profile"}'
     headers:
       Cache-Control:
@@ -373,13 +366,12 @@ interactions:
       Content-Length:
       - '3376'
       Content-Security-Policy:
-      - 'default-src ''none''; img-src ''self'' data:; style-src ''self'' ''unsafe-inline'';
-        font-src ''self''; script-src ''self'' data: ''unsafe-inline''; connect-src
-        ''self'' http://ebau-keycloak.local; frame-src ''self'''
+      - default-src 'self'; style-src 'self'  'unsafe-inline'; font-src 'self'; script-src
+        'self' 'unsafe-inline'
       Content-Type:
       - application/json
       Date:
-      - Fri, 20 Dec 2024 16:39:07 GMT
+      - Tue, 18 Feb 2025 10:16:13 GMT
       Pragma:
       - no-cache
       Referrer-Policy:

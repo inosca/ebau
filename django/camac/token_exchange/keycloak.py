@@ -31,7 +31,7 @@ class KeycloakClient:
                 settings.KEYCLOAK_URL,
                 "admin/realms",
                 settings.KEYCLOAK_REALM,
-                f"users?username={username}",
+                f"users?username={username}&exact=true",
             ),
             headers={"authorization": f"Bearer {self.token}"},
         )
