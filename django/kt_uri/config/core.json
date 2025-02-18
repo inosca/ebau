@@ -12671,7 +12671,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 18,
+      "sort": 19,
       "form_group": 161,
       "require_permission": null
     }
@@ -12687,7 +12687,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 19,
+      "sort": 20,
       "form_group": 161,
       "require_permission": null
     }
@@ -12703,7 +12703,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 23,
+      "sort": 25,
       "form_group": 161,
       "require_permission": null
     }
@@ -12719,7 +12719,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 24,
+      "sort": 26,
       "form_group": 161,
       "require_permission": null
     }
@@ -12895,7 +12895,7 @@
       "template": null,
       "class_field": null,
       "hidden": 1,
-      "sort": 12,
+      "sort": 13,
       "form_group": 161,
       "require_permission": null
     }
@@ -12927,7 +12927,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 161,
       "require_permission": null
     }
@@ -12943,7 +12943,7 @@
       "template": "/ember-camac-ng/gwr.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 15,
+      "sort": 16,
       "form_group": 161,
       "require_permission": null
     }
@@ -12959,7 +12959,7 @@
       "template": "/ember-camac-ng/responsible.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 16,
+      "sort": 17,
       "form_group": 161,
       "require_permission": null
     }
@@ -12975,7 +12975,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14,
+      "sort": 15,
       "form_group": 161,
       "require_permission": null
     }
@@ -12991,7 +12991,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 17,
+      "sort": 18,
       "form_group": 161,
       "require_permission": null
     }
@@ -13007,7 +13007,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": "gemeinde_als_fachstelle",
       "hidden": 0,
-      "sort": 20,
+      "sort": 21,
       "form_group": 161,
       "require_permission": null
     }
@@ -13023,7 +13023,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 21,
+      "sort": 22,
       "form_group": 161,
       "require_permission": null
     }
@@ -13039,7 +13039,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": "gemeinde_als_fachstelle",
       "hidden": 0,
-      "sort": 22,
+      "sort": 23,
       "form_group": 161,
       "require_permission": null
     }
@@ -13055,7 +13055,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 23,
+      "sort": 24,
       "form_group": 161,
       "require_permission": null
     }
@@ -13071,7 +13071,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 25,
+      "sort": 27,
       "form_group": 161,
       "require_permission": null
     }
@@ -13087,7 +13087,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 27,
+      "sort": 28,
       "form_group": 161,
       "require_permission": null
     }
@@ -13103,7 +13103,7 @@
       "template": "/ember-camac-ng/construction-monitoring.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 28,
+      "sort": 29,
       "form_group": 161,
       "require_permission": null
     }
@@ -13199,7 +13199,23 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 36,
+      "sort": 35,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 14000041,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 12000003,
+      "name": "Sanctions",
+      "description": null,
+      "template": "/ember-camac-ng/sanctions.phtml",
+      "class_field": null,
+      "hidden": 1,
+      "sort": 10,
       "form_group": 161,
       "require_permission": null
     }
@@ -15494,6 +15510,13 @@
   {
     "model": "core.irpage",
     "pk": 14000033,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 14000041,
     "fields": {
       "pdf_class": null
     }
@@ -34561,6 +34584,87 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 12002331,
+    "fields": {
+      "instance_resource": 14000041,
+      "role": 6,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002332,
+    "fields": {
+      "instance_resource": 14000041,
+      "role": 6,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002333,
+    "fields": {
+      "instance_resource": 14000041,
+      "role": 6,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002334,
+    "fields": {
+      "instance_resource": 14000041,
+      "role": 6,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002335,
+    "fields": {
+      "instance_resource": 14000041,
+      "role": 6,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002336,
+    "fields": {
+      "instance_resource": 14000041,
+      "role": 6,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002337,
+    "fields": {
+      "instance_resource": 14000041,
+      "role": 6,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002338,
+    "fields": {
+      "instance_resource": 14000041,
+      "role": 6,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002339,
+    "fields": {
+      "instance_resource": 14000041,
+      "role": 6,
+      "instance_state": 30
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 12000001,
     "fields": {
@@ -39799,6 +39903,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 12000005,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 2,
     "fields": {
@@ -40551,6 +40662,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 12000054,
+    "fields": {
+      "resource": 12000005,
+      "role": 6
+    }
+  },
+  {
     "model": "core.rsearch",
     "pk": 42,
     "fields": {
@@ -41024,7 +41143,7 @@
       "template": "/global/search.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -41037,7 +41156,7 @@
       "template": "/buildom/search.phtml",
       "class_field": "",
       "hidden": 1,
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -41050,7 +41169,7 @@
       "template": "/portal/notfound.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -41128,7 +41247,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -41141,7 +41260,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -41167,7 +41286,7 @@
       "template": "/ember/form-builder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -41180,7 +41299,7 @@
       "template": "/ember-camac-ng/gwr-global.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -41206,7 +41325,20 @@
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 14
+      "sort": 15
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 12000005,
+    "fields": {
+      "available_resource": "page",
+      "name": "Sanction Templates",
+      "description": null,
+      "template": "/ember-camac-ng/sanction-templates.phtml",
+      "class_field": null,
+      "hidden": 1,
+      "sort": 7
     }
   },
   {
