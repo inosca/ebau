@@ -150,7 +150,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
 
     return await this.store.query("document", {
       filter: {
-        category: this.category,
+        categories: this.category,
         metainfo: JSON.stringify(metainfoFilter),
       },
       include: "category,files,marks",
