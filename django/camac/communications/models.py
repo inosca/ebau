@@ -1,4 +1,5 @@
 import os.path
+import uuid
 
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
@@ -73,8 +74,11 @@ class CommunicationsMessage(models.Model):
 
 
 def attachment_path_directory_path(attachment, filename):
-    return "communications/files/{0}/{1}/{2}".format(
-        attachment.message.topic.instance_id, attachment.message.topic.pk, filename
+    return "communications/files/{0}/{1}/{2}/{3}".format(
+        attachment.message.topic.instance_id,
+        attachment.message.topic.pk,
+        uuid.uuid4(),
+        filename,
     )
 
 
