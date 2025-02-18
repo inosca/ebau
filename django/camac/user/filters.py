@@ -302,10 +302,19 @@ class PublicServiceFilterSet(FilterSet):
 class ServiceFilterSet(FilterSet):
     service_id = NumberMultiValueFilter()
     service_group_id = NumberMultiValueFilter()
+    available_in_sanctions = BooleanFilter(method="filter_available_in_sanctions")
+
+    def filter_available_in_sanctions(self, queryset, name, value):
+        return queryset.filter(disabled=False)
 
     class Meta:
         model = models.Service
-        fields = ("service_id", "service_group_id", "service_parent")
+        fields = (
+            "service_id",
+            "service_group_id",
+            "service_parent",
+            "available_in_sanctions",
+        )
 
 
 class PublicUserFilterSet(FilterSet):

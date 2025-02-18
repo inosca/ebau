@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 11:50+0100\n"
+"POT-Creation-Date: 2025-02-28 16:25+0100\n"
 "PO-Revision-Date: 2024-09-12 16:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -152,6 +152,10 @@ msgstr "Autres"
 #| msgid "Lead authority"
 msgid "Local building authority"
 msgstr "Autorité directrice"
+
+#: camac/caluma/extensions/data_sources.py
+msgid "All sanctions that could be fulfilled until now have been fullfilled"
+msgstr ""
 
 #: camac/caluma/extensions/dynamic_tasks.py
 msgid "Construction step completed"
@@ -1232,6 +1236,11 @@ msgstr "delete_by_purpose n'a pas été fourni avec le paramètre requis"
 #: camac/objection/serializers.py
 msgid "Objection %(objection) already has a representative"
 msgstr "Objection %(objection) a déjà un représentant"
+
+#: camac/sanctions/serializers.py
+#, python-format
+msgid "Sanction '%(sanction_name)s' has been controlled."
+msgstr ""
 
 #: camac/settings/django.py
 msgid "Circulation started"

@@ -62,6 +62,7 @@ from camac.objection import factories as objection_factories
 from camac.permissions import factories as permissions_factories
 from camac.permissions.models import AccessLevel
 from camac.responsible import factories as responsible_factories
+from camac.sanctions import factories as sanction_factories
 from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
 from camac.settings.utils import get_enabled_modules_for_canton
 from camac.tags import factories as tags_factories
@@ -116,6 +117,7 @@ register_module(communications_factories)
 register_module(gis_factories)
 register_module(billing_factories)
 register_module(external_factories)
+register_module(sanction_factories)
 
 # do not register alexandria factories, as there are too many conflicts
 

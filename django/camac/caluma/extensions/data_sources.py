@@ -12,6 +12,7 @@ from camac.document.models import Attachment
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import get_person_name
+from camac.sanctions.models import Sanction
 from camac.user.models import Location, Service
 
 from .countries import COUNTRIES
@@ -397,3 +398,33 @@ class ServicesForFinalReport(BaseDataSource):
             if len(pks_of_services_to_be_invited) > 0
             else None
         )
+
+
+class Sanctions(BaseDataSource):
+    info = (
+        "Selection of uncontrolled sanctions for a given step in the current instance"
+    )
+
+    def get_data(self, user, question, context):
+        if not context:  # pragma: no cover
+            return []
+
+        generic_sanction = (
+            None,
+            _("All sanctions that could be fulfilled until now have been fullfilled"),
+        )
+
+        step = question.meta.get("sanction_step")
+        if not step:
+            return [generic_sanction]
+
+        sanctions = list(
+            Sanction.objects.for_instance_id(context.get("instanceId"))
+            .pending()
+            .for_step(step)
+            .values_list("pk", "name")
+        )
+        if not sanctions:
+            return [generic_sanction]
+
+        return sanctions

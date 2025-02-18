@@ -125,6 +125,7 @@ INSTALLED_APPS = [
     "django_json_widget",
     "hurricane",
     "camac.fixtures.apps.FixturesConfig",
+    "camac.sanctions.apps.SanctionsConfig",
 ]
 
 if DEBUG:  # pragma: no cover

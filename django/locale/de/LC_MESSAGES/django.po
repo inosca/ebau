@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-19 09:27+0100\n"
+"POT-Creation-Date: 2025-02-28 16:25+0100\n"
 "PO-Revision-Date: 2024-09-12 15:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -238,6 +238,12 @@ msgstr "Andere"
 #: camac/caluma/extensions/data_sources.py
 msgid "Local building authority"
 msgstr "Örtliche Baubehörde"
+
+#: camac/caluma/extensions/data_sources.py
+msgid "All sanctions that could be fulfilled until now have been fullfilled"
+msgstr ""
+"Alle Auflagen, die bis zum jetzigen Zeitpunkt erledigt werden konnten, "
+"wurden erledigt."
 
 #: camac/caluma/extensions/dynamic_tasks.py
 msgid "Construction step completed"
@@ -1397,6 +1403,11 @@ msgstr ""
 #: camac/objection/serializers.py
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
+
+#: camac/sanctions/serializers.py
+#, python-format
+msgid "Sanction '%(sanction_name)s' has been controlled."
+msgstr "Auflage \"%(sanction_name)s\" wurde kontrolliert."
 
 #: camac/settings/django.py
 msgid "Circulation started"
