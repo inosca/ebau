@@ -2803,6 +2803,22 @@
     }
   },
   {
+    "model": "core.instanceresource",
+    "pk": 68,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 28,
+      "name": "Auflagen",
+      "description": null,
+      "template": "/ember-camac-ng/sanctions.phtml",
+      "class_field": null,
+      "hidden": 1,
+      "sort": 24,
+      "form_group": 1,
+      "require_permission": null
+    }
+  },
+  {
     "model": "core.instanceresourceaction",
     "pk": 27,
     "fields": {
@@ -3090,6 +3106,13 @@
   {
     "model": "core.irpage",
     "pk": 67,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 68,
     "fields": {
       "pdf_class": null
     }
@@ -12113,6 +12136,69 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 1424,
+    "fields": {
+      "instance_resource": 68,
+      "role": 3,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1425,
+    "fields": {
+      "instance_resource": 68,
+      "role": 3,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1426,
+    "fields": {
+      "instance_resource": 68,
+      "role": 3,
+      "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1427,
+    "fields": {
+      "instance_resource": 68,
+      "role": 3,
+      "instance_state": 8
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1428,
+    "fields": {
+      "instance_resource": 68,
+      "role": 3,
+      "instance_state": 10
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1429,
+    "fields": {
+      "instance_resource": 68,
+      "role": 3,
+      "instance_state": 17
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 1430,
+    "fields": {
+      "instance_resource": 68,
+      "role": 3,
+      "instance_state": 18
+    }
+  },
+  {
     "model": "core.irserviceacl",
     "pk": 1,
     "fields": {
@@ -13948,6 +14034,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 31,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 10,
     "fields": {
@@ -14364,6 +14457,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 98,
+    "fields": {
+      "resource": 31,
+      "role": 3
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 9,
     "fields": {
@@ -14451,7 +14552,7 @@
       "template": "/ember-camac-ng/formbuilder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -14477,7 +14578,7 @@
       "template": "/ember-camac-ng/bussinesscontrol-create.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -14490,7 +14591,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -14530,6 +14631,19 @@
       "class_field": "communications",
       "hidden": 0,
       "sort": 2
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 31,
+    "fields": {
+      "available_resource": "page",
+      "name": "Auflagen",
+      "description": null,
+      "template": "/ember-camac-ng/sanction-templates.phtml",
+      "class_field": null,
+      "hidden": 1,
+      "sort": 10
     }
   },
   {
