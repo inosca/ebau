@@ -544,6 +544,16 @@ def test_dms_placeholders_so(
         closed_at=make_aware(faker.Faker().date_time()),
     )
 
+    # Draft inquiry
+    active_inquiry_factory(
+        so_instance,
+        service_factory(
+            trans__name="Amt für Umwelt (AfU)",
+            service_group__name="service-cantonal",
+        ),
+        status=WorkItem.STATUS_SUSPENDED,
+    )
+
     utils.add_answer(inquiry.document, "inquiry-remark", "Bemerkungen")
 
     for q, v in [

@@ -430,8 +430,13 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 inquiry.document, settings.DISTRIBUTION["QUESTIONS"][slug]
             )
         elif answer_type == "inquiry-answer":
-            return find_answer(
-                inquiry.child_case.document, settings.DISTRIBUTION["QUESTIONS"][slug]
+            return (
+                find_answer(
+                    inquiry.child_case.document,
+                    settings.DISTRIBUTION["QUESTIONS"][slug],
+                )
+                if inquiry.child_case is not None
+                else None
             )
 
         try:
