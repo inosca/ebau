@@ -10760,23 +10760,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "gewaessernutzungsbewilligung-ja",
-    "fields": {
-      "created_at": "2024-12-12T12:53:07.873Z",
-      "modified_at": "2024-12-12T12:53:07.873Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Gew\\u00e4ssernutzungsbewilligung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "gewaesserschutzbereich-auswahl-migration-au-a",
     "fields": {
       "created_at": "2025-01-24T07:56:13.226Z",
@@ -15302,37 +15285,6 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"### Angaben\\n\\nBitte beantworten Sie die Fragen zu den untenstehenden Themenbereichen, soweit sie das Bauvorhaben betreffen. Diese Angaben helfen die notwendigen Formulare und Merkbl\\u00e4tter unter \\\"7. Dokumente\\\" bereitzustellen und Unterlagenerg\\u00e4nzungen zu vermeiden.\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "angaben-zur-sicherheit-brandschutz-arbeitnehmer-chemie-hochwasser-headline-migration",
-    "fields": {
-      "created_at": "2025-01-24T14:00:17.986Z",
-      "modified_at": "2025-01-24T14:00:17.986Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Angaben zur Sicherheit (Brandschutz, Arbeitnehmer, Chemie, Hochwasser)\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"---\\n### Angaben zur Sicherheit (Brandschutz, Arbeitnehmer, Chemie, Hochwasser)\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -20236,39 +20188,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "gewaessernutzungsbewilligung",
-    "fields": {
-      "created_at": "2024-12-03T10:52:21.081Z",
-      "modified_at": "2024-12-12T12:53:07.967Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Gew\\u00e4ssernutzungsbewilligung\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(\"in-oeffentliches-gewaesser\"|answer == \"in-oeffentliches-gewaesser-neu\") && !(\"kanalisation\"|answer == \"kanalisation-neu\")",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "gewaesserschutzbereich-auswahl-migration",
     "fields": {
       "created_at": "2025-01-24T07:56:13.297Z",
@@ -21813,37 +21732,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "personalien",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "koordinaten-tabelle-form",
-    "fields": {
-      "created_at": "2025-01-23T13:23:14.418Z",
-      "modified_at": "2025-01-23T13:23:14.418Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Koordinaten\", \"fr\": null, \"it\": null}",
-      "type": "table",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": "koordinaten-tabelle",
-      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -28589,21 +28477,6 @@
       "modified_by_group": null,
       "question": "gebaeudeheizung-typ-migration",
       "option": "gebaeudeheizung-typ-migration-noch-nicht-bekannt",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "gewaessernutzungsbewilligung.gewaessernutzungsbewilligung-ja",
-    "fields": {
-      "created_at": "2024-12-12T12:53:07.975Z",
-      "modified_at": "2024-12-12T12:53:07.975Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "gewaessernutzungsbewilligung",
-      "option": "gewaessernutzungsbewilligung-ja",
       "sort": 1
     }
   },
