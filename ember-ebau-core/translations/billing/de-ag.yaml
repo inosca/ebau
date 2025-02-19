@@ -1,0 +1,5 @@
+billing:
+  info: |-
+    Im Menü «Gebühren» können die Gebühren, die im Zusammenhang mit dem Dossier
+    entstehen, erfasst werden. Die erfassten Einträge werden aber nicht
+    automatisch an die Verrechnungsstellen der Organisation weitergleitet.
