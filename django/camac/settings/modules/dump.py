@@ -697,6 +697,9 @@ DUMP = {
                     "user.Group": Q(pk__lte=3),
                     "user.GroupT": Q(pk__lte=3),
                 },
+                "billing_templates": {
+                    "billing.BillingV2EntryTemplate": Q(services__isnull=True)
+                },
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

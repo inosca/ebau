@@ -25,7 +25,7 @@ class BillingV2CommonEntrySerializer(serializers.ModelSerializer):
 class BillingV2EntryTemplateSerializer(BillingV2CommonEntrySerializer):
     class Meta:
         model = BillingV2EntryTemplate
-        fields = "__all__"
+        exclude = ("services", "service_groups")
         read_only_fields = ("final_rate", "service")
 
 

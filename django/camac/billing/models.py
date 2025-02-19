@@ -1,4 +1,7 @@
+from uuid import uuid4
+
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 DECIMAL_FORMAT = {
     "max_digits": 10,
@@ -13,9 +16,9 @@ class BillingV2CommonEntry(models.Model):
     TAX_MODE_EXCLUSIVE = "exclusive"
     TAX_MODE_EXEMPT = "exempt"
     TAX_MODE_CHOICES = (
-        (TAX_MODE_INCLUSIVE, "Incl 7.7%"),
-        (TAX_MODE_EXCLUSIVE, "Excl 7.7%"),
-        (TAX_MODE_EXEMPT, "Tax exempt"),
+        (TAX_MODE_INCLUSIVE, _("inclusive")),
+        (TAX_MODE_EXCLUSIVE, _("exclusive")),
+        (TAX_MODE_EXEMPT, _("not subject to VAT")),
     )
 
     CALCULATION_FLAT = "flat"
@@ -23,10 +26,10 @@ class BillingV2CommonEntry(models.Model):
     CALCULATION_HOURLY = "hourly"
     CALCULATION_AG_PROCESSING_FEE = "ag_processing_fee"
     CALCULATION_CHOICES = (
-        (CALCULATION_FLAT, "Flat rate"),
-        (CALCULATION_PERCENTAGE, "Percentage"),
-        (CALCULATION_HOURLY, "Hourly"),
-        (CALCULATION_AG_PROCESSING_FEE, "AG processing fee"),
+        (CALCULATION_FLAT, _("flat rate")),
+        (CALCULATION_PERCENTAGE, _("percentage")),
+        (CALCULATION_HOURLY, _("at cost")),
+        (CALCULATION_AG_PROCESSING_FEE, _("Processing fee BG BVUAFB")),
     )
 
     MUNICIPAL = "municipal"
@@ -34,31 +37,39 @@ class BillingV2CommonEntry(models.Model):
     ORGANIZATION_CHOICES = ((MUNICIPAL, "Municipal"), (CANTONAL, "Cantonal"))
 
     # Billing text
-    text = models.TextField()
+    text = models.TextField(verbose_name=_("Position"))
     cost_center = models.TextField(blank=True, null=True)
     legal_basis = models.TextField(blank=True, null=True)
 
     # Tax mode = calculation model for tax
     tax_mode = models.CharField(
-        choices=TAX_MODE_CHOICES, max_length=20, null=True, blank=True
+        choices=TAX_MODE_CHOICES,
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_("VAT type"),
     )
 
     # Calculation mode
     calculation = models.CharField(
-        choices=CALCULATION_CHOICES, max_length=20, null=True, blank=True
+        choices=CALCULATION_CHOICES,
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_("Calculation"),
     )
 
     # Tax rate (percentage)
-    tax_rate = models.DecimalField(**DECIMAL_FORMAT)
+    tax_rate = models.DecimalField(**DECIMAL_FORMAT, verbose_name=_("VAT rate"))
 
     # Calculation mode: hourly rate
-    hours = models.DecimalField(**DECIMAL_FORMAT)
-    hourly_rate = models.DecimalField(**DECIMAL_FORMAT)
+    hours = models.DecimalField(**DECIMAL_FORMAT, verbose_name=_("Hours"))
+    hourly_rate = models.DecimalField(**DECIMAL_FORMAT, verbose_name=_("Hourly rate"))
 
     # Calculation mode: percentage of total cost
-    percentage = models.DecimalField(**DECIMAL_FORMAT)
+    percentage = models.DecimalField(**DECIMAL_FORMAT, verbose_name=_("Quota (%)"))
     # Total cost is also used in "flat" calculation mode
-    total_cost = models.DecimalField(**DECIMAL_FORMAT)
+    total_cost = models.DecimalField(**DECIMAL_FORMAT, verbose_name=_("Total cost"))
 
     # Organization: either municipal or cantonal but can be NULL
     # Used to distinguish which oranization collects part of the bill
@@ -107,10 +118,24 @@ class BillingV2Entry(BillingV2CommonEntry):
 
 
 class BillingV2EntryTemplate(BillingV2CommonEntry):
+    id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+
     # Visual representation name of the template
-    name = models.TextField()
+    name = models.TextField(verbose_name=_("Name"))
 
     # Hint to describe the template's purpose
-    hint = models.TextField(blank=True, null=True)
+    hint = models.TextField(blank=True, null=True, verbose_name=_("Hint"))
 
-    service = models.ForeignKey("user.Service", models.CASCADE, related_name="+")
+    services = models.ManyToManyField(
+        "user.Service", blank=True, verbose_name=_("Services")
+    )
+    service_groups = models.ManyToManyField(
+        "user.ServiceGroup", blank=True, verbose_name=_("Service groups")
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _("Billing entry template")
+        verbose_name_plural = _("Billing entry templates")

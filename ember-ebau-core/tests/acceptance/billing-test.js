@@ -8,6 +8,8 @@ import {
 } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { t } from "ember-intl/test-support";
+import { selectChoose } from "ember-power-select/test-support";
+import { clickTrigger } from "ember-power-select/test-support/helpers";
 import { module, test } from "qunit";
 
 import { setupApplicationTest } from "dummy/tests/helpers";
@@ -247,25 +249,17 @@ module("Acceptance | billing", function (hooks) {
       await click("a[data-test-add]");
       assert.strictEqual(currentURL(), "/billing/new");
 
-      assert.dom("select[name=entry-template] option").exists({ count: 4 });
-      assert.strictEqual(
-        this.element
-          .querySelectorAll("select[name=entry-template] option")[1]
-          .textContent.trim(),
-        this.templates[0].name,
-      );
-      assert.strictEqual(
-        this.element
-          .querySelectorAll("select[name=entry-template] option")[2]
-          .textContent.trim(),
-        this.templates[1].name,
-      );
-      assert.strictEqual(
-        this.element
-          .querySelectorAll("select[name=entry-template] option")[3]
-          .textContent.trim(),
-        this.templates[2].name,
-      );
+      await clickTrigger();
+      assert.dom("ul.ember-power-select-options > li").exists({ count: 3 });
+      assert
+        .dom("ul.ember-power-select-options > li:nth-child(1)")
+        .hasText(this.templates[0].name);
+      assert
+        .dom("ul.ember-power-select-options > li:nth-child(2)")
+        .hasText(this.templates[1].name);
+      assert
+        .dom("ul.ember-power-select-options > li:nth-child(3)")
+        .hasText(this.templates[2].name);
 
       // empty by default
       assert.dom("input[name=text]").hasValue("");
@@ -281,7 +275,7 @@ module("Acceptance | billing", function (hooks) {
       await click("a[data-test-add]");
       assert.strictEqual(currentURL(), "/billing/new");
 
-      await fillIn("select[name=entry-template]", this.templates[0].id);
+      await selectChoose("[data-test-templates]", this.templates[0].name);
       assert
         .dom("div[data-test-template-hint]")
         .hasText("A hint for the flat rate example");
@@ -303,7 +297,7 @@ module("Acceptance | billing", function (hooks) {
       await visit("/billing");
       await click("a[data-test-add]");
       assert.strictEqual(currentURL(), "/billing/new");
-      await fillIn("select[name=entry-template]", this.templates[1].id);
+      await selectChoose("[data-test-templates]", this.templates[1].name);
       assert
         .dom("div[data-test-template-hint]")
         .hasText("A hint for the percentage rate example");
@@ -327,7 +321,7 @@ module("Acceptance | billing", function (hooks) {
       await visit("/billing");
       await click("a[data-test-add]");
       assert.strictEqual(currentURL(), "/billing/new");
-      await fillIn("select[name=entry-template]", this.templates[2].id);
+      await selectChoose("[data-test-templates]", this.templates[2].name);
       assert
         .dom("div[data-test-template-hint]")
         .hasText("A hint for the hourly rate example");
@@ -351,19 +345,20 @@ module("Acceptance | billing", function (hooks) {
       this.templates.push(
         this.server.create("billing-v2-entry-template", {
           ...templateDefaults,
-          name: "Hourly example template",
+          name: "Hourly example template v2",
           hint: "A hint for the hourly rate example without hours filled",
           calculation: "hourly",
           hourlyRate: 150.5,
           taxMode: "inclusive",
           taxRate: 8.1,
         }),
-      ),
-        await visit("/billing");
+      );
+
+      await visit("/billing");
       await click("a[data-test-add]");
       assert.strictEqual(currentURL(), "/billing/new");
 
-      await fillIn("select[name=entry-template]", this.templates[3].id);
+      await selectChoose("[data-test-templates]", this.templates[3].name);
       assert
         .dom("div[data-test-template-hint]")
         .hasText("A hint for the hourly rate example without hours filled");

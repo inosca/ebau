@@ -7,7 +7,7 @@ from factory.django import DjangoModelFactory
 from camac.billing.models import BillingV2Entry, BillingV2EntryTemplate
 from camac.billing.utils import add_taxes_to_final_rate, calculate_final_rate
 from camac.instance.factories import InstanceFactory
-from camac.user.factories import GroupFactory, ServiceFactory, UserFactory
+from camac.user.factories import GroupFactory, UserFactory
 
 
 def choice_keys(choices: tuple):
@@ -98,7 +98,6 @@ class BillingV2EntryFactory(BillingV2CommonEntryFactory):
 
 
 class BillingV2EntryTemplateFactory(BillingV2CommonEntryFactory):
-    service = SubFactory(ServiceFactory)
     name = Faker("word")
     hint = Faker("sentence")
 

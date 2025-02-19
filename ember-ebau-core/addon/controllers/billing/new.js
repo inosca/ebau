@@ -92,17 +92,6 @@ export default class BillingNewController extends Controller {
   }
 
   @action
-  selectTemplate({ target: { value } }) {
-    if (!value) {
-      this.selectedTemplate = null;
-    }
-
-    this.selectedTemplate = this.entryTemplates.records.find(
-      (template) => parseInt(template.get("id")) === parseInt(value),
-    );
-  }
-
-  @action
   applyTemplate() {
     if (!this.selectedTemplate) {
       return;

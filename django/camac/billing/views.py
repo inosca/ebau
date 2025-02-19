@@ -1,4 +1,5 @@
 from django.db import transaction
+from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import response, status
@@ -14,14 +15,26 @@ from camac.billing.serializers import (
     BillingV2EntryTemplateSerializer,
 )
 from camac.instance.mixins import InstanceQuerysetMixin
+from camac.user.permissions import permission_aware
 
 
 class BillingV2EntryTemplateViewset(ReadOnlyModelViewSet):
     serializer_class = BillingV2EntryTemplateSerializer
     queryset = BillingV2EntryTemplate.objects.all().order_by("name")
 
+    @permission_aware
     def get_queryset(self):
-        return self.queryset.filter(service=self.request.group.service)
+        return self.queryset.filter(
+            # Template for current service
+            Q(services=self.request.group.service)
+            # Template for current service group
+            | Q(service_groups=self.request.group.service.service_group)
+            # Global template
+            | Q(services__isnull=True, service_groups__isnull=True)
+        )
+
+    def get_queryset_for_applicant(self):
+        return self.queryset.none()
 
 
 class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):

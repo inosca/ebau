@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-22 11:50+0100\n"
+"POT-Creation-Date: 2025-02-19 09:27+0100\n"
 "PO-Revision-Date: 2024-09-12 15:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -49,6 +49,18 @@ msgstr ""
 "Der Benutzer mit der Email '%(email)s' hat bereits Zugriff auf das Dossier "
 "%(instance)s"
 
+#: camac/billing/admin.py camac/billing/models.py camac/user/models.py
+msgid "Services"
+msgstr "Organisationen"
+
+#: camac/billing/admin.py camac/billing/models.py camac/user/models.py
+msgid "Service groups"
+msgstr "Organisationstypen"
+
+#: camac/billing/apps.py
+msgid "Billing"
+msgstr "Gebühren"
+
 #: camac/billing/filters.py
 #, python-brace-format
 msgid ""
@@ -57,13 +69,86 @@ msgstr ""
 "Zuviele Datensätze im Resultat. Reduzieren Sie die Datenmenge durch enger "
 "gesetzte Filter, um unter {max} Datensätze zu kommen."
 
+#: camac/billing/models.py camac/billing/serializers.py
+msgid "inclusive"
+msgstr "inklusive"
+
+#: camac/billing/models.py camac/billing/serializers.py
+msgid "exclusive"
+msgstr "exklusive"
+
+#: camac/billing/models.py camac/billing/serializers.py
+msgid "not subject to VAT"
+msgstr "nicht MwSt-pflichtig"
+
+#: camac/billing/models.py
+msgid "flat rate"
+msgstr "pauschal"
+
+#: camac/billing/models.py
+msgid "percentage"
+msgstr "prozentual"
+
+#: camac/billing/models.py
+msgid "at cost"
+msgstr "nach Aufwand"
+
+#: camac/billing/models.py
+msgid "Processing fee BG BVUAFB"
+msgstr "Behandlungsgebühr BG BVUAFB"
+
+#: camac/billing/models.py camac/billing/serializers.py
+msgid "Position"
+msgstr "Position"
+
+#: camac/billing/models.py
+msgid "VAT type"
+msgstr "MwSt-Typ"
+
+#: camac/billing/models.py
+msgid "Calculation"
+msgstr "Berechnung"
+
+#: camac/billing/models.py
+msgid "VAT rate"
+msgstr "MwSt-Satz"
+
+#: camac/billing/models.py
+msgid "Hours"
+msgstr "Stunden"
+
+#: camac/billing/models.py
+msgid "Hourly rate"
+msgstr "Stundensatz"
+
+#: camac/billing/models.py
+msgid "Quota (%)"
+msgstr "Anteil (%)"
+
+#: camac/billing/models.py
+msgid "Total cost"
+msgstr "Gesamtkosten"
+
+#: camac/billing/models.py camac/core/admin/views.py camac/user/admin/views.py
+#: camac/user/models.py
+msgid "Name"
+msgstr "Name"
+
+#: camac/billing/models.py
+msgid "Hint"
+msgstr "Hinweis"
+
+#: camac/billing/models.py
+msgid "Billing entry template"
+msgstr "Gebührenvorlage"
+
+#: camac/billing/models.py
+msgid "Billing entry templates"
+msgstr "Gebührenvorlagen"
+
 #: camac/billing/serializers.py
 msgid "Date added"
 msgstr "Erfasst am"
-
-#: camac/billing/serializers.py
-msgid "Position"
-msgstr "Position"
 
 #: camac/billing/serializers.py camac/user/admin/inlines.py
 #: camac/user/models.py
@@ -109,21 +194,9 @@ msgid "Lead authority"
 msgstr "Leitbehörde"
 
 #: camac/billing/serializers.py
-msgid "inclusive"
-msgstr "inklusive"
-
-#: camac/billing/serializers.py
-msgid "exclusive"
-msgstr "exklusive"
-
-#: camac/billing/serializers.py
 #, python-format
 msgid "%(tax_mode)s  %(tax_rate)s%% VAT"
 msgstr "%(tax_mode)s  %(tax_rate)s%% MwSt"
-
-#: camac/billing/serializers.py
-msgid "not subject to VAT"
-msgstr "nicht MwSt-pflichtig"
 
 #: camac/billing/serializers.py
 #, python-format
@@ -185,6 +258,10 @@ msgstr "Baubegleitung planen"
 #: camac/caluma/extensions/events/construction_monitoring.py
 msgid "Baufreigabe"
 msgstr "Baufreigabe"
+
+#: camac/caluma/extensions/events/construction_monitoring.py
+msgid "Gebäudeabbruch"
+msgstr ""
 
 #: camac/caluma/extensions/events/construction_monitoring.py
 msgid "Baubeginn"
@@ -364,10 +441,6 @@ msgstr "Rolle"
 #: camac/core/admin/inlines.py
 msgid "ACL Roles"
 msgstr "Rollen"
-
-#: camac/core/admin/views.py camac/user/admin/views.py camac/user/models.py
-msgid "Name"
-msgstr "Name"
 
 #: camac/core/admin/views.py camac/instance/document_merge_service.py
 #: camac/user/models.py
@@ -1615,10 +1688,6 @@ msgid "Roles"
 msgstr "Rollen"
 
 #: camac/user/models.py
-msgid "Service groups"
-msgstr "Organisationstypen"
-
-#: camac/user/models.py
 msgid "Geometer"
 msgstr "Geometer"
 
@@ -1649,10 +1718,6 @@ msgstr ""
 #: camac/user/models.py
 msgid "Services that perform a specific function"
 msgstr "Organisationen, die eine spezifische Funktion anbieten"
-
-#: camac/user/models.py
-msgid "Services"
-msgstr "Organisationen"
 
 #: camac/user/serializers.py
 msgid "There is already a service with this name"
