@@ -28,6 +28,44 @@ from camac.user.serializers import UserSerializer
 from . import events, models
 
 
+def validate_mime_type(file):
+    content_type_header = file.content_type
+    extension_type, _ = guess_type(file.name)
+
+    if not content_type_header:  # pragma: no cover
+        raise ValidationError(gettext("Missing Content-Type header"))
+    if not extension_type:  # pragma: no cover
+        raise ValidationError(gettext("Unknown file extension"))
+
+    if content_type_header == "application/octet-stream":  # pragma: no cover
+        content_type_header = extension_type
+    if content_type_header != extension_type:  # pragma: no cover
+        raise ValidationError(
+            gettext(
+                "Content-Type %(content_type)s does not match file extension %(extension)s."
+                % {
+                    "content_type": content_type_header,
+                    "extension": extension_type,
+                }
+            )
+        )
+
+    file.seek(0)
+    file_content_type = magic.from_buffer(file.read(), mime=True)
+    file.seek(0)
+
+    if file_content_type != content_type_header:
+        raise ValidationError(
+            gettext(
+                "Content-Type %(content_type)s does not match detected file content %(file_content_type)s."
+                % {
+                    "content_type": content_type_header,
+                    "file_content_type": file_content_type,
+                }
+            )
+        )
+
+
 class EntityNameMixin:
     def __init__(self, *args, **kwargs):
         self._cache_key_prefix = "communications-entity"
@@ -356,51 +394,8 @@ class MessageSerializer(serializers.ModelSerializer):
             gettext("Invisible topic, cannot create or update message")
         )
 
-    def validate_attachments(self, value):
-        for attachment in value:
-            # only need to check "inline" uploaded files, not linked ones
-            if attachment.file_attachment:
-                validate_file_infection(attachment.file_attachment)
-                self._validate_mime_type(attachment.file_attachment.file)
-
-        return value
-
-    def _validate_mime_type(self, file):
+    def _validate_allowed_mime_types(self, file):
         content_type_header = file.content_type
-        extension_type, _ = guess_type(file.name)
-
-        if not content_type_header:  # pragma: no cover
-            raise ValidationError(gettext("Missing Content-Type header"))
-        if not extension_type:  # pragma: no cover
-            raise ValidationError(gettext("Unknown file extension"))
-
-        if content_type_header == "application/octet-stream":  # pragma: no cover
-            content_type_header = extension_type
-        if content_type_header != extension_type:  # pragma: no cover
-            raise ValidationError(
-                gettext(
-                    "Content-Type %(content_type)s does not match file extension %(extension)s."
-                    % {
-                        "content_type": content_type_header,
-                        "extension": extension_type,
-                    }
-                )
-            )
-
-        file.seek(0)
-        file_content_type = magic.from_buffer(file.read(), mime=True)
-        file.seek(0)
-
-        if file_content_type != content_type_header:
-            raise ValidationError(
-                gettext(
-                    "Content-Type %(content_type)s does not match detected file content %(file_content_type)s."
-                    % {
-                        "content_type": content_type_header,
-                        "file_content_type": file_content_type,
-                    }
-                )
-            )
 
         if content_type_header not in settings.COMMUNICATIONS["ALLOWED_MIME_TYPES"]:
             raise ValidationError(
@@ -409,6 +404,16 @@ class MessageSerializer(serializers.ModelSerializer):
                     % {"mime_type": content_type_header}
                 )
             )
+
+    def validate_attachments(self, value):
+        for attachment in value:
+            # only need to check "inline" uploaded files, not linked ones
+            if attachment.file_attachment:
+                validate_file_infection(attachment.file_attachment)
+                validate_mime_type(attachment.file_attachment.file)
+                self._validate_allowed_mime_types(attachment.file_attachment.file)
+
+        return value
 
     included_serializers = {
         "topic": TopicSerializer,
