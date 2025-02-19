@@ -201,6 +201,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "read": [
+            ("communications-write", MODULE_COMMUNICATIONS),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("documents-read", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
