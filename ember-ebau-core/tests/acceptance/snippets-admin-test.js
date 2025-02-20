@@ -26,6 +26,27 @@ module("Acceptance | snippets-admin", function (hooks) {
       .exists({ count: 6 });
   });
 
+  test("search snippets", async function (assert) {
+    this.server.createList("notification-template", 2);
+
+    await visit("/snippets-admin");
+    await fillIn("[data-test-search]", "Test");
+
+    assert.strictEqual(currentURL(), "/snippets-admin?search=Test");
+
+    const requests = this.server.pretender.handledRequests;
+
+    assert.strictEqual(requests.length, 2);
+    assert.strictEqual(
+      requests[0].url,
+      "/api/v1/notification-templates?search=&type=textcomponent",
+    );
+    assert.strictEqual(
+      requests[1].url,
+      "/api/v1/notification-templates?search=Test&type=textcomponent",
+    );
+  });
+
   test("create new snippet", async function (assert) {
     this.server.create("notification-template", { purpose: "Test" });
 
@@ -128,7 +149,7 @@ module("Acceptance | snippets-admin", function (hooks) {
     await visit("/snippets-admin");
 
     await click('[data-test-edit-category="Category old"]');
-    await fillIn("input", "Category new");
+    await fillIn("input[name=purpose]", "Category new");
     await click("[data-test-save-category]");
 
     // Wait until refresh is done
