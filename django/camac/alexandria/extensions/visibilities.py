@@ -132,7 +132,7 @@ class CustomVisibility(InstanceQuerysetMixin):
         return queryset.filter(
             Q(metainfo__access__has_key=role)
             | Q(parent__metainfo__access__has_key=role)
-        ).order_by("metainfo__sort")
+        )
 
     @filter_queryset_for(Tag)
     def filter_queryset_for_tag(self, queryset, request):
