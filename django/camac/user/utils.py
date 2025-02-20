@@ -73,13 +73,7 @@ def is_portal_client(request):
     if not getattr(request, "auth"):
         return False
 
-    portal_client = settings.KEYCLOAK_PORTAL_CLIENT
-
-    clients = request.auth.get("aud")
-    if not isinstance(clients, list):
-        clients = [clients]
-
-    return portal_client in clients
+    return request.auth.get("azp") == settings.KEYCLOAK_PORTAL_CLIENT
 
 
 def _get_group_for_portal(request):
@@ -88,7 +82,7 @@ def _get_group_for_portal(request):
 
     Users who log into the public-facing "portal" have no group assignment in
     CAMAC. Instead, identify them based on the OIDC client given in the token's
-    "aud" (audience) claim, and programatically assign the correct group for
+    "azp" (authorized party) claim, and programatically assign the correct group for
     them.
     """
     if not settings.APPLICATION.get("PORTAL_GROUP", None) or not is_portal_client(
