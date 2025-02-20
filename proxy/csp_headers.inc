@@ -26,6 +26,7 @@
 # - set $csp_external_connect_sources "space-separated-list-of-urls" (optional; defaults to empty)
 # - set $csp_external_img_sources "space-separated-list-of-urls" (optional; defaults to empty)
 # - set $csp_external_style_sources "space-separated-list-of-urls" (optional; defaults to empty)
+# - set $csp_enable_swagger "true" | "false" (optional; defaults to "false")
 # IN RETURN, you get the following variables:
 # - $csp_header_keycloak     - Keycloak
 # - $csp_header_portal       - Portal (applicant-facing)
@@ -39,6 +40,7 @@
 # =========================
 if ($csp_portal_allow_inline_style ~ "^$")   { set $csp_portal_allow_inline_style "false"; }
 if ($csp_use_google_fonts ~ "^$")            { set $csp_use_google_fonts "false"; }
+if ($csp_enable_swagger ~ "^$")              { set $csp_enable_swagger "false"; }
 if ($csp_use_font_data_url ~ "^$")           { set $csp_use_font_data_url "false"; }
 if ($csp_php_allow_unsafe_eval ~ "^$")       { set $csp_php_allow_unsafe_eval "false"; }
 if ($csp_php_allow_localhost_scripts ~ "^$") { set $csp_php_allow_localhost_scripts "false"; }
@@ -105,7 +107,6 @@ if ($csp_php_allow_localhost_scripts = "true") {
   set $csp_connect_src "${csp_connect_src} ws://ebau.local:4300";
 }
 
-
 # Final assembly
 # ==============
 # Note: In some places, "stacked buildup" is used (multiple assignment of the
@@ -116,7 +117,12 @@ set $csp_header_restricted "default-src 'none'";
 
 # API is also fully restricted. For easier understanding and possible future
 # changes, we use two variables
+
+# swagger frontend resources
 set $csp_header_api "${csp_header_restricted}";
+if ($csp_enable_swagger = "true") {
+  set $csp_header_api "${csp_default_self}; ${csp_img_default}";
+}
 
 # Keycloak: Sadly needs to allow quite a bit
 set $csp_header_keycloak "${csp_default_self}; ${csp_style_src} 'unsafe-inline'";
