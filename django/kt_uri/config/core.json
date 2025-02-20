@@ -13146,7 +13146,7 @@
     "fields": {
       "available_instance_resource": "taskform",
       "resource": 12000003,
-      "name": "Provisorische Vermessung",
+      "name": "AV projektiert prüfen",
       "description": null,
       "template": null,
       "class_field": null,
@@ -13178,7 +13178,7 @@
     "fields": {
       "available_instance_resource": "taskform",
       "resource": 12000003,
-      "name": "Definitive Vermessung",
+      "name": "AV definitiv nachführen",
       "description": null,
       "template": null,
       "class_field": null,
