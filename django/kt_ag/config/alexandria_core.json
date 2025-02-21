@@ -10,7 +10,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 3,
         "access": {
           "afb": {
             "visibility": "all",
@@ -152,7 +151,8 @@
       "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *R\\u00fcckmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"Qui il comune carica i documenti che devono essere consultabili per tutte le parti coinvolte (ad es. programma della procedura, decisione edilizia). Le persone richiedenti possono visualizzare questi documenti nel portale eBau al menu *Riscontri*.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#CB68C1",
-      "parent": null
+      "parent": null,
+      "sort": 3
     }
   },
   {
@@ -166,7 +166,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 5,
         "access": {
           "afb": {
             "visibility": "all",
@@ -323,7 +322,8 @@
       "description": "{\"de\": \"Diese Kategorie dient dem Dokumentenaustausch zwischen kantonalen Fachstellen. Alle kantonalen Fachstellen haben Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"Questa categoria serve allo scambio di documenti tra i servizi cantonali. Tutti i servizi cantonali hanno accesso ai documenti caricati.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
-      "parent": null
+      "parent": null,
+      "sort": 5
     }
   },
   {
@@ -337,7 +337,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 1,
         "access": {
           "afb": {
             "visibility": "all",
@@ -576,7 +575,8 @@
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind f\\u00fcr alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti e possono essere consultati da tutte le autorit\\u00e0 coinvolte nella procedura.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
-      "parent": null
+      "parent": null,
+      "sort": 1
     }
   },
   {
@@ -589,14 +589,13 @@
       "modified_at": "2024-08-28T12:24:54.803Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {
-        "sort": 3
-      },
+      "metainfo": {},
       "name": "{\"de\": \"Brandschutz (Feuerpolizei)\", \"fr\": \"\", \"it\": \"Protezione antincendio (polizia del fuoco)\"}",
       "description": "{\"de\": \"Unter die Begriffe Brandschutz (Feuerpolizei) fallen alle f\\u00fcr die feuerpolizeiliche Bewilligung notwendigen Gesuchsunterlagen (Situationsplan, Brandschutzpl\\u00e4ne [Grundriss, Schnitte, Fassaden etc.], Brandschutzkonzept, evtl. VKF-Zulassungen, Leistungserkl\\u00e4rungen etc.).\", \"fr\": \"\", \"it\": \"Con \\u00abProtezione antincendio (polizia del fuoco)\\u00bb si intende tutta la documentazione di domanda necessaria per il permesso di polizia del fuoco (piano di situazione, piani antincendio [pianta, sezione, facciate, ecc.], strategia antincendio, ev. omologazioni AICAA, dichiarazioni di prestazione, ecc.).\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 3
     }
   },
   {
@@ -609,14 +608,13 @@
       "modified_at": "2024-08-28T12:24:54.806Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {
-        "sort": 1
-      },
+      "metainfo": {},
       "name": "{\"de\": \"Grundst\\u00fccksangaben, Projektpl\\u00e4ne und -beschrieb\", \"fr\": \"\", \"it\": \"Indicazioni relative al fondo, piani di progetto e descrizione del progetto\"}",
       "description": "{\"de\": \"Unter die Begriffe Situationspl\\u00e4ne, Projektpl\\u00e4ne, Projektbeschrieb, Grundst\\u00fccksangaben fallen Gesuchsunterlagen wie z.B. Kartenausschnitt 1:25'000, Grundbuchauszug und Situationsplan 1:500 oder 1:1'000, Aufnahmepl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile) und fachgerechte Projektpl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile), Umgebungspl\\u00e4ne, Kanalisationsplan, Baubeschrieb etc.\", \"fr\": \"\", \"it\": \"Con \\u00abpiani di situazione\\u00bb, \\u00abpiani di progetto\\u00bb, \\u00abdescrizione del progetto\\u00bb, \\u00abindicazioni relative al fondo\\u00bb si intende la documentazione di domanda come ad es. l'estratto della carta in scala 1:25'000, l'estratto del registro fondiario e il piano di situazione in scala 1:500 o 1:1'000, i piani di rilievo (piante, sezioni, viste, profili longitudinali e trasversali, profili normali) e i piani di progetto professionali (piante, sezioni, viste, profili longitudinali e trasversali, profili normali), i piani delle aree circostanti, il piano delle canalizzazioni, la descrizione della costruzione, ecc.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 1
     }
   },
   {
@@ -629,14 +627,13 @@
       "modified_at": "2024-08-28T12:24:54.808Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {
-        "sort": 2
-      },
+      "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begr\\u00fcndungen\", \"fr\": \"\", \"it\": \"Perizie, prove, motivazioni\"}",
       "description": "{\"de\": \"Unter die Begriffe \\\"Gutachten, Nachweise, Begr\\u00fcndungen\\\" fallen Gesuchsunterlagen wie z.B. Fotodokumentation der bestehenden Baute/Anlage, Formulare zu Zusatzgesuchen (Rodungsgesuch) etc.\", \"fr\": \"\", \"it\": \"Con \\u00abPerizie, prove, motivazioni\\u00bb si intende la documentazione di domanda come ad es. le fotografie delle costruzioni/degli impianti esistenti, i moduli relativi a domande supplementari (domanda di dissodamento), ecc.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 2
     }
   },
   {
@@ -649,14 +646,13 @@
       "modified_at": "2024-08-28T12:24:54.811Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {
-        "sort": 4
-      },
+      "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"Altra documentazione di domanda\"}",
       "description": "{\"de\": \"Unter den Begriff \\\"weitere Gesuchsunterlagen\\\" fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, L\\u00e4rmschutznachweise, Energienachweise, Bericht zur Umweltvert\\u00e4glichkeitspr\\u00fcfung (UVP), Bodenkundliches Fachgutachten, Vopr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung.\", \"fr\": \"\", \"it\": \"Con \\u00abAltra documentazione di domanda\\u00bb si intende la documentazione di domanda come ad es. i calcoli dettagliati degli indici di utilizzazione che dovranno essere applicati, gli attestati di protezione fonica, i certificati energetici, il rapporto relativo all'esame dell'impatto sull'ambiente (EIA), la perizia pedologica, la decisione dell'Assicurazione fabbricati relativa all'esame preliminare.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 4
     }
   },
   {
@@ -670,7 +666,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 4,
         "access": {
           "afb": {
             "visibility": "all",
@@ -878,7 +873,8 @@
       "description": "{\"de\": \"Hier werden die von den beteiligten Beh\\u00f6rden erfassten Dokumente (z.B. Verf\\u00fcgungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur f\\u00fcr die am Verfahren beteiligten Beh\\u00f6rden sichtbar, nicht aber f\\u00fcr die Gesuchstellenden.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti compilati dalle autorit\\u00e0 coinvolte (ad es. decisioni, rapporti ufficiali e tecnici, prese di posizione). Questi documenti sono visibili solo per le autorit\\u00e0 coinvolte nella procedura, ma non per le persone richiedenti.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#8791EC",
-      "parent": null
+      "parent": null,
+      "sort": 4
     }
   },
   {
@@ -892,7 +888,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 6,
         "access": {
           "afb": {
             "visibility": "service",
@@ -1086,7 +1081,8 @@
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation (ohne Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\\u00e4nkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere visibili solo all'interno della propria organizzazione (senza servizi di rango inferiore). In questa cartella non vi sono limitazioni per quanto riguarda i formati di file ammessi.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#DB8B72",
-      "parent": null
+      "parent": null,
+      "sort": 6
     }
   },
   {
@@ -1100,7 +1096,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 2,
         "access": {
           "afb": {
             "visibility": "all",
@@ -1296,7 +1291,8 @@
       "description": "{\"de\": \"Erg\\u00e4nzungen zu den Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
-      "parent": null
+      "parent": null,
+      "sort": 2
     }
   },
   {

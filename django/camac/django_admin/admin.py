@@ -12,7 +12,7 @@ from camac.user.models import Service
 
 @register(Category)
 class CategoryAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
-    list_display = ["name", "parent_name"]
+    list_display = ["sort", "name", "parent_name"]
     formfield_overrides = {JSONField: {"widget": JSONEditorWidget}}
     fields = [
         "slug",
@@ -22,6 +22,7 @@ class CategoryAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
         "color",
         "allowed_mime_types",
         "metainfo",
+        "sort",
     ]
 
     @display

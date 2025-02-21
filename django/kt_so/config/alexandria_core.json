@@ -10,7 +10,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 1,
         "access": {
           "support": {
             "visibility": "all",
@@ -107,7 +106,8 @@
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#7FC241",
-      "parent": null
+      "parent": null,
+      "sort": 1
     }
   },
   {
@@ -125,7 +125,8 @@
       "description": "{\"de\": \"Unter die Begriffe *Grundst\\u00fccksangaben und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Katasterplan (z. B. \\u00d6REB-Kataster), Grundbuchauszug, Dienstbarkeiten, Projektbeschrieb.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#7FC241",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 4
     }
   },
   {
@@ -143,7 +144,8 @@
       "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begr\\u00fcndungen, Ausnahmebegehren* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverst\\u00e4ndnis Nachbarn, Nutzungsberechnungen, Energietechnische Massnahmennachweis (EMN), L\\u00e4rmschutznachweise, Brandschutznachweise.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#7FC241",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 3
     }
   },
   {
@@ -161,7 +163,8 @@
       "description": "{\"de\": \"Unter den Begriff *Projektpl\\u00e4ne* fallen Gesuchsunterlagen wie z. B. Situationsplan (Art. 12 und 13 BewD), Projektpl\\u00e4ne (Art. 14 BewD) wie Grundrisse, Schnitt- und Fassadenpl\\u00e4ne, Umgebungsgestaltungspl\\u00e4ne, Kanalisationspl\\u00e4ne, Siedlungsentw\\u00e4sserungspl\\u00e4ne.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#7FC241",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 2
     }
   },
   {
@@ -179,7 +182,8 @@
       "description": "{\"de\": \"Unter den Begriff *Weitere Gesuchsunterlagen* fallen Dokumentunterlagen wie z. B. Formulare - Anschluss Elektrizit\\u00e4t, Anschluss Gemeinschaftsantenne, Anschluss Gas, Anschluss Wasser, Wasser- / Abwasserinstallationen und andere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#7FC241",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 1
     }
   },
   {
@@ -193,7 +197,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 5,
         "access": {
           "support": {
             "visibility": "all",
@@ -274,7 +277,8 @@
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#FF7800",
-      "parent": null
+      "parent": null,
+      "sort": 5
     }
   },
   {
@@ -288,7 +292,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 2,
         "access": {
           "support": {
             "visibility": "all",
@@ -395,7 +398,8 @@
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#00A99D",
-      "parent": null
+      "parent": null,
+      "sort": 2
     }
   },
   {
@@ -409,7 +413,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 4,
         "access": {
           "support": {
             "visibility": "all",
@@ -474,7 +477,8 @@
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",
-      "parent": null
+      "parent": null,
+      "sort": 4
     }
   },
   {
@@ -488,7 +492,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 6,
         "access": {
           "support": {
             "visibility": "all",
@@ -571,7 +574,8 @@
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\"]",
       "color": "#00C2FF",
-      "parent": null
+      "parent": null,
+      "sort": 6
     }
   },
   {
@@ -585,7 +589,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 7,
         "access": {
           "support": {
             "visibility": "all",
@@ -708,7 +711,8 @@
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\"]",
       "color": "#689BD0",
-      "parent": null
+      "parent": null,
+      "sort": 7
     }
   },
   {
@@ -722,7 +726,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 8,
         "access": {
           "support": {
             "visibility": "all",
@@ -839,7 +842,8 @@
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\"]",
       "color": "#024A91",
-      "parent": null
+      "parent": null,
+      "sort": 8
     }
   },
   {
@@ -853,7 +857,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 9,
         "access": {
           "support": {
             "visibility": "all",
@@ -926,7 +929,8 @@
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\"]",
       "color": "#000000",
-      "parent": null
+      "parent": null,
+      "sort": 9
     }
   },
   {
@@ -940,7 +944,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 3,
         "access": {
           "support": {
             "visibility": "all",
@@ -1029,7 +1032,8 @@
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#EE1D23",
-      "parent": null
+      "parent": null,
+      "sort": 3
     }
   },
   {
