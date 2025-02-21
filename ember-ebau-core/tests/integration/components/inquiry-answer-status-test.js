@@ -9,7 +9,7 @@ import { setupRenderingTest } from "dummy/tests/helpers";
 import { testBE } from "dummy/tests/helpers/scenarios";
 import {
   OBLIGATION_ANSWERS,
-  OBLIGATION_FORM_SLUG,
+  OBLIGATION_FORM_SLUGS,
 } from "ember-ebau-core/components/inquiry-answer-status";
 
 module("Integration | Component | inquiry-answer-status", function (hooks) {
@@ -77,10 +77,9 @@ module("Integration | Component | inquiry-answer-status", function (hooks) {
   testBE(
     "it renders only obligation form options for obligation forms",
     async function (assert) {
-      this.formSlug = OBLIGATION_FORM_SLUG;
+      this.formSlug = OBLIGATION_FORM_SLUGS[0];
 
       await render(hbs`<InquiryAnswerStatus @field={{this.field}} />`);
-
       assert.dom("select > option").exists({ count: 3 });
       OBLIGATION_ANSWERS.forEach((slug) => {
         assert.dom(`select > option[value=${slug}]`).exists();

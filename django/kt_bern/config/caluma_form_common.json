@@ -37,6 +37,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "dokumente-vorabklaerung",
+    "fields": {
+      "created_at": "2019-10-08T12:22:59.032Z",
+      "modified_at": "2019-10-09T08:11:27.333Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente (Vorabkl\\u00e4rung)\", \"fr\": \"Documents (Demandes pr\\u00e9alables)\", \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "gebaudeeigentumerin",
     "fields": {
       "created_at": "2019-03-25T12:44:11.890Z",
@@ -444,6 +462,21 @@
       "form": "allgemeine-angaben-kurz",
       "question": "strasse-flurname",
       "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-vorabklaerung.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2019-10-08T12:23:20.905Z",
+      "modified_at": "2019-10-08T12:23:20.905Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-vorabklaerung",
+      "question": "dokumente-platzhalter",
+      "sort": 1
     }
   },
   {
@@ -2240,6 +2273,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dokumente-vorabklaerung-form",
+    "fields": {
+      "created_at": "2019-10-08T12:24:56.453Z",
+      "modified_at": "2019-10-09T08:15:06.232Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "'is-paper'|answer == 'is-paper-yes'? 13 : 1"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-vorabklaerung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "e-grid-nr",
     "fields": {
       "created_at": "2019-03-28T14:13:11.177Z",
@@ -2679,15 +2746,15 @@
     "pk": "hinweis-klaerung-baubewilligungspflicht",
     "fields": {
       "created_at": "2020-12-17T13:15:29.220Z",
-      "modified_at": "2020-12-17T13:19:43.182Z",
+      "modified_at": "2025-02-12T04:01:42.168Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": \"Hinweis Kl\\u00e4rung Baubewilligungspflicht\", \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "'klaerung-baubewilligungspflicht' != form",
+      "is_hidden": "!('klaerung-baubewilligungspflicht' in form)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -4474,19 +4541,19 @@
     "pk": "sachverhalt",
     "fields": {
       "created_at": "2020-10-12T11:28:23.687Z",
-      "modified_at": "2020-12-18T12:46:29.540Z",
+      "modified_at": "2025-02-12T04:52:41.520Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Sachverhalt\", \"fr\": \"Situation\", \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "!(form in ['baupolizeiliches-verfahren', 'klaerung-baubewilligungspflicht'])",
+      "is_hidden": "!(form in ['baupolizeiliches-verfahren','baupolizeiliches-verfahren-v2', 'klaerung-baubewilligungspflicht', 'klaerung-baubewilligungspflicht-v2'])",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,

@@ -62,7 +62,11 @@ def generate_workflow_dump_config(regex, include_task_regex=False):
     return filters
 
 
-COMMON_QUESTION_SLUGS_BE = ["8-freigabequittung", "dokumente-platzhalter"]
+COMMON_QUESTION_SLUGS_BE = [
+    "8-freigabequittung",
+    "dokumente-platzhalter",
+    "dokumente-vorabklaerung-form",
+]
 
 COMMON_FORM_SLUGS_BE = [
     "personalien",
@@ -74,6 +78,7 @@ COMMON_FORM_SLUGS_BE = [
     "gebaudeeigentumerin",
     "vertreterin-mit-vollmacht",
     "8-freigabequittung",
+    "dokumente-vorabklaerung",
 ]
 
 DISTRIBUTION_DUMP_CONFIG = {
@@ -402,6 +407,18 @@ DUMP = {
                     regex=r"^(hecken-feldgehoelze-baeume|baeume-hecken|dokumente-hecken-feldgehoelze-baeume)",
                     version=2,
                 ),
+                "caluma_baupolizeiliches_verfahren_form_v2": generate_form_dump_config(
+                    regex=r"^baupolizeiliches-verfahren(-)?",
+                    version=2,
+                ),
+                "caluma_zutrittsermaechtigung_form_v2": generate_form_dump_config(
+                    regex=r"^zutrittsermaechtigung(-)?",
+                    version=2,
+                ),
+                "caluma_klaerung_baubewilligungspflicht_form_v2": generate_form_dump_config(
+                    regex=r"^klaerung-baubewilligungspflicht(-)?",
+                    version=2,
+                ),
                 "caluma_form_v2": generate_form_dump_config(version=2),
                 "caluma_form_v3": generate_form_dump_config(version=3),
                 "caluma_form_v4": generate_form_dump_config(version=4),
@@ -421,6 +438,15 @@ DUMP = {
                 ),
                 "caluma_hecken_feldgehoelze_baeume_form": generate_form_dump_config(
                     regex=r"^(hecken-feldgehoelze-baeume|baeume-hecken|dokumente-hecken-feldgehoelze-baeume)"
+                ),
+                "caluma_baupolizeiliches_verfahren_form": generate_form_dump_config(
+                    regex=r"^baupolizeiliches-verfahren(-)?"
+                ),
+                "caluma_zutrittsermaechtigung_form": generate_form_dump_config(
+                    regex=r"^zutrittsermaechtigung(-)?"
+                ),
+                "caluma_klaerung_baubewilligungspflicht_form": generate_form_dump_config(
+                    regex=r"^klaerung-baubewilligungspflicht(-)?"
                 ),
                 "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
                 "caluma_audit_form": generate_form_dump_config(

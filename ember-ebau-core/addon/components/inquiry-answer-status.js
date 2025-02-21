@@ -8,7 +8,10 @@ import { trackedFunction } from "reactiveweb/function";
 import mainConfig from "ember-ebau-core/config/main";
 import caseFormTypeQuery from "ember-ebau-core/gql/queries/case-form-type.graphql";
 
-export const OBLIGATION_FORM_SLUG = "klaerung-baubewilligungspflicht";
+export const OBLIGATION_FORM_SLUGS = [
+  "klaerung-baubewilligungspflicht",
+  "klaerung-baubewilligungspflicht-v2",
+];
 export const OBLIGATION_ANSWERS = [
   "inquiry-answer-status-obligated",
   "inquiry-answer-status-not-obligated",
@@ -38,7 +41,9 @@ export default class InquiryAnswerStatusComponent extends Component {
     }
 
     if (macroCondition(getOwnConfig().application === "be")) {
-      const isObligationForm = this.formType.value === OBLIGATION_FORM_SLUG;
+      const isObligationForm = OBLIGATION_FORM_SLUGS.includes(
+        this.formType.value,
+      );
 
       return this.args.field.options.filter(
         (option) =>

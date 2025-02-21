@@ -735,9 +735,12 @@ def test_recipient_geometer_uri(
     "form_slug",
     [
         "baupolizeiliches-verfahren",
+        "baupolizeiliches-verfahren-v2",
         "hecken-feldgehoelze-baeume",
         "klaerung-baubewilligungspflicht",
+        "klaerung-baubewilligungspflicht-v2",
         "zutrittsermaechtigung",
+        "zutrittsermaechtigung-v2",
     ],
 )
 def test_notification_template_sendmail_rsta_forms(
