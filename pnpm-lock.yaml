@@ -61,8 +61,8 @@ importers:
         specifier: 1.16.10
         version: 1.16.10(@glint/template@1.5.0)
       '@faker-js/faker':
-        specifier: 9.3.0
-        version: 9.3.0
+        specifier: 9.5.0
+        version: 9.5.0
       '@fortawesome/fontawesome-svg-core':
         specifier: 6.7.2
         version: 6.7.2
@@ -82,11 +82,11 @@ importers:
         specifier: 5.2.8
         version: 5.2.8(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       '@projectcaluma/ember-core':
-        specifier: 14.0.0
-        version: 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        specifier: 14.1.0
+        version: 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       '@projectcaluma/ember-testing':
-        specifier: 14.0.0
-        version: 14.0.0(@ember-data/model@4.12.8)(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-qunit@8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        specifier: 14.1.0
+        version: 14.1.0(@ember-data/model@4.12.8)(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-qunit@8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -388,8 +388,8 @@ importers:
         specifier: 1.16.10
         version: 1.16.10(@glint/template@1.5.0)
       '@faker-js/faker':
-        specifier: 9.3.0
-        version: 9.3.0
+        specifier: 9.5.0
+        version: 9.5.0
       '@fortawesome/ember-fontawesome':
         specifier: 2.0.0
         version: 2.0.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(rollup@2.79.2)(webpack@5.97.1)
@@ -412,17 +412,17 @@ importers:
         specifier: 5.2.8
         version: 5.2.8(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       '@projectcaluma/ember-core':
-        specifier: 14.0.0
-        version: 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        specifier: 14.1.0
+        version: 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       '@projectcaluma/ember-form':
-        specifier: 14.0.0
-        version: 14.0.0(nqrmufgcscza2m6yok333nunni)
+        specifier: 14.1.0
+        version: 14.1.0(wp52nnyl2euafsuqikxm4k64p4)
       '@projectcaluma/ember-form-builder':
-        specifier: 14.0.0
-        version: 14.0.0(m2io2lqxl56xiwhynluvoxwxgi)
+        specifier: 14.1.0
+        version: 14.1.0(mbufqehv3zwofgkm26juvw6rhu)
       '@projectcaluma/ember-testing':
-        specifier: 14.0.0
-        version: 14.0.0(@ember-data/model@4.12.8)(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-qunit@8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        specifier: 14.1.0
+        version: 14.1.0(@ember-data/model@4.12.8)(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-qunit@8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -715,8 +715,8 @@ importers:
         specifier: 1.13.2
         version: 1.13.2(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       '@faker-js/faker':
-        specifier: 9.3.0
-        version: 9.3.0
+        specifier: 9.5.0
+        version: 9.5.0
       '@fortawesome/ember-fontawesome':
         specifier: 2.0.0
         version: 2.0.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(rollup@2.79.2)(webpack@5.97.1)
@@ -739,23 +739,23 @@ importers:
         specifier: 5.2.8
         version: 5.2.8(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       '@projectcaluma/ember-core':
-        specifier: 14.0.0
-        version: 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        specifier: 14.1.0
+        version: 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       '@projectcaluma/ember-distribution':
-        specifier: 14.0.0
-        version: 14.0.0(cfhqdwp4rtfau3jasyqtz52o6a)
+        specifier: 14.1.0
+        version: 14.1.0(cfhqdwp4rtfau3jasyqtz52o6a)
       '@projectcaluma/ember-form':
-        specifier: 14.0.0
-        version: 14.0.0(nqrmufgcscza2m6yok333nunni)
+        specifier: 14.1.0
+        version: 14.1.0(wp52nnyl2euafsuqikxm4k64p4)
       '@projectcaluma/ember-form-builder':
-        specifier: 14.0.0
-        version: 14.0.0(m2io2lqxl56xiwhynluvoxwxgi)
+        specifier: 14.1.0
+        version: 14.1.0(mbufqehv3zwofgkm26juvw6rhu)
       '@projectcaluma/ember-testing':
-        specifier: 14.0.0
-        version: 14.0.0(@ember-data/model@4.12.8)(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-qunit@8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        specifier: 14.1.0
+        version: 14.1.0(@ember-data/model@4.12.8)(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-qunit@8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       '@projectcaluma/ember-workflow':
-        specifier: 14.0.0
-        version: 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        specifier: 14.1.0
+        version: 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -1057,14 +1057,14 @@ importers:
         specifier: 5.2.8
         version: 5.2.8(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       '@projectcaluma/ember-core':
-        specifier: 14.0.0
-        version: 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        specifier: 14.1.0
+        version: 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       '@projectcaluma/ember-distribution':
-        specifier: 14.0.0
-        version: 14.0.0(cfhqdwp4rtfau3jasyqtz52o6a)
+        specifier: 14.1.0
+        version: 14.1.0(cfhqdwp4rtfau3jasyqtz52o6a)
       '@projectcaluma/ember-form':
-        specifier: 14.0.0
-        version: 14.0.0(nqrmufgcscza2m6yok333nunni)
+        specifier: 14.1.0
+        version: 14.1.0(wp52nnyl2euafsuqikxm4k64p4)
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -1285,8 +1285,8 @@ importers:
         specifier: 1.13.2
         version: 1.13.2(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       '@faker-js/faker':
-        specifier: 9.3.0
-        version: 9.3.0
+        specifier: 9.5.0
+        version: 9.5.0
       '@fortawesome/ember-fontawesome':
         specifier: 2.0.0
         version: 2.0.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(rollup@2.79.2)(webpack@5.97.1)
@@ -1309,14 +1309,14 @@ importers:
         specifier: 5.2.8
         version: 5.2.8(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       '@projectcaluma/ember-core':
-        specifier: 14.0.0
-        version: 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        specifier: 14.1.0
+        version: 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       '@projectcaluma/ember-form':
-        specifier: 14.0.0
-        version: 14.0.0(nqrmufgcscza2m6yok333nunni)
+        specifier: 14.1.0
+        version: 14.1.0(wp52nnyl2euafsuqikxm4k64p4)
       '@projectcaluma/ember-workflow':
-        specifier: 14.0.0
-        version: 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        specifier: 14.1.0
+        version: 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       ember-alexandria:
         specifier: 10.4.0
         version: 10.4.0(k4nesdsa4zwg3rgyflo3sxorty)
@@ -1451,8 +1451,8 @@ importers:
         specifier: 4.0.0
         version: 4.0.0
       '@projectcaluma/ember-testing':
-        specifier: 14.0.0
-        version: 14.0.0(@ember-data/model@4.12.8)(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-qunit@8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+        specifier: 14.1.0
+        version: 14.1.0(@ember-data/model@4.12.8)(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-qunit@8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -2457,8 +2457,8 @@ packages:
     resolution: {integrity: sha512-zSkKow6H5Kdm0ZUQUB2kV5JIXqoG0+uH5YADhaEHswm664N9Db8dXSi0nMJpacpMf+MyyglF1vnZohpEg5yUtg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@faker-js/faker@9.3.0':
-    resolution: {integrity: sha512-r0tJ3ZOkMd9xsu3VRfqlFR6cz0V/jFYRswAIpC+m/DIfAUXq7g8N7wTAlhSANySXYGKzGryfDXwtwsY8TxEIDw==}
+  '@faker-js/faker@9.5.0':
+    resolution: {integrity: sha512-3qbjLv+fzuuCg3umxc9/7YjrEXNaKwHgmig949nfyaTx8eL4FAsvFbu+1JcFUj1YAXofhaDn6JdEUBTYuk0Ssw==}
     engines: {node: '>=18.0.0', npm: '>=9.0.0'}
 
   '@formatjs/ecma402-abstract@2.3.3':
@@ -2800,8 +2800,8 @@ packages:
     peerDependencies:
       prettier: ^3.0.0
 
-  '@projectcaluma/ember-core@14.0.0':
-    resolution: {integrity: sha512-1qbnRylRMOvzn8uma/I4TjGAJzBKhtHhE9XD5sY6lNv3c9bcG2Bp0TQTp7NftA0n/PDVam+ThClgMArBZvWyDA==}
+  '@projectcaluma/ember-core@14.1.0':
+    resolution: {integrity: sha512-R9QYonszB3KcgVKuSTrZn3bwg+h0brZwjCdszZBu7pzZzPYUWLwxjChC6hzrn/IBpj7qpN810Ge/9kTSW8RTAw==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-data: '*'
@@ -2810,38 +2810,38 @@ packages:
       ember-data:
         optional: true
 
-  '@projectcaluma/ember-distribution@14.0.0':
-    resolution: {integrity: sha512-H6bev4aXGhJMf+77+7z0uvim8YNESzRGuLWxcyqPiP5WLje/T/LyauD/Yi25+TDzIGOpEsmbE3+pNDJALF/mwg==}
+  '@projectcaluma/ember-distribution@14.1.0':
+    resolution: {integrity: sha512-ntpPn6jKzl25ztUTeWaslvjFmrSqOkRDfhuS1mFewLQ8ZbiaRWLAH5yvAQKfZA00KcKxgtjO5bUdnB0jbfJNDQ==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: ^0.11.0
       ember-source: '>= 4.0.0'
 
-  '@projectcaluma/ember-form-builder@14.0.0':
-    resolution: {integrity: sha512-1fZzHKjS2VsG15qWFA9q8h2vYHY8Te9Qx7WszpCbw+aN9YZYUMFoQmqpyH5KLDXbKM1qJNTOTkMbsHsln86NyQ==}
+  '@projectcaluma/ember-form-builder@14.1.0':
+    resolution: {integrity: sha512-lZWQvf/vxrvlEllXebblAymoIZQr7qmOwy97br/UxBP8hAKknIOdvVFG/nMH8xl890eLVWD54rH2c7artaW7Bg==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: ^0.11.0
       ember-source: '>= 4.0.0'
 
-  '@projectcaluma/ember-form@14.0.0':
-    resolution: {integrity: sha512-kdcP4Bv8OTdomCxng8E6Q7/RamaKhbEF39wQU7YN8gDHkYD3w/R/87nmcyoduHpLKouHQ0du6A2f0LDPXz2jpg==}
+  '@projectcaluma/ember-form@14.1.0':
+    resolution: {integrity: sha512-4TKSXjh9uJIr9Z7nv/TDEjH+gp8d8xdxytaOgEBq+ViDveHL88ycC4NnxVsTUhKiZ7hYyGp0aqWjJ1Roj7lS6A==}
     engines: {node: '>= 18'}
     peerDependencies:
-      '@projectcaluma/ember-workflow': ^14.0.0
+      '@projectcaluma/ember-workflow': ^14.1.0
       ember-source: '>= 4.0.0'
     peerDependenciesMeta:
       '@projectcaluma/ember-workflow':
         optional: true
 
-  '@projectcaluma/ember-testing@14.0.0':
-    resolution: {integrity: sha512-8ZWwCwI7l3Yqq2cFZBUdWcolsA8fCyYG2OsHGqkbicFbHm2+BxYkVACxFs5Fy5MQNEJDfxxTRyjN02X6MkRsxQ==}
+  '@projectcaluma/ember-testing@14.1.0':
+    resolution: {integrity: sha512-5BeTqIRmmHJey23yNz1+gBu1uGtkJ823KYCBySzzrHWmAhWtWH8mM1+GccTw4RpDaQN1OPFv+eBhkTkvyIkLFg==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-source: '>= 4.0.0'
 
-  '@projectcaluma/ember-workflow@14.0.0':
-    resolution: {integrity: sha512-9SfUWS7h99JznKj5Lnuk38qKpwLnl5HNtmy7k2UvYN0oMO8r7EplVbUMpzxNKVPtg+ClIEBNWYDvceu7OwuQEA==}
+  '@projectcaluma/ember-workflow@14.1.0':
+    resolution: {integrity: sha512-Fbi8pQ207IX3YTHISTvWT0qEcKn0lX1yyvBL9ZzJNk1HNXIXnnlxpPeT3baaaFH/a/rTz4wje6+p5t21obzyeQ==}
     engines: {node: '>= 18'}
     peerDependencies:
       ember-source: '>= 4.0.0'
@@ -10329,7 +10329,7 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
-  '@faker-js/faker@9.3.0': {}
+  '@faker-js/faker@9.5.0': {}
 
   '@formatjs/ecma402-abstract@2.3.3':
     dependencies:
@@ -10790,7 +10790,7 @@ snapshots:
     dependencies:
       prettier: 3.4.2
 
-  '@projectcaluma/ember-core@14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)':
+  '@projectcaluma/ember-core@14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)':
     dependencies:
       '@apollo/client': 3.12.6(graphql@15.10.1)
       '@babel/core': 7.26.7
@@ -10832,7 +10832,7 @@ snapshots:
       - typescript
       - webpack
 
-  '@projectcaluma/ember-distribution@14.0.0(cfhqdwp4rtfau3jasyqtz52o6a)':
+  '@projectcaluma/ember-distribution@14.1.0(cfhqdwp4rtfau3jasyqtz52o6a)':
     dependencies:
       '@babel/core': 7.26.7
       '@ember/legacy-built-in-components': 0.5.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
@@ -10840,9 +10840,9 @@ snapshots:
       '@embroider/macros': 1.16.10(@glint/template@1.5.0)
       '@glimmer/component': 1.1.2(@babel/core@7.26.7)
       '@glimmer/tracking': 1.1.2
-      '@projectcaluma/ember-core': 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
-      '@projectcaluma/ember-form': 14.0.0(nqrmufgcscza2m6yok333nunni)
-      '@projectcaluma/ember-workflow': 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+      '@projectcaluma/ember-core': 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+      '@projectcaluma/ember-form': 14.1.0(wp52nnyl2euafsuqikxm4k64p4)
+      '@projectcaluma/ember-workflow': 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       ember-apollo-client: 4.0.2(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
       ember-auto-import: 2.10.0(@glint/template@1.5.0)(webpack@5.97.1)
       ember-can: 7.0.0(@babel/core@7.26.7)(@ember/string@4.0.0)(ember-inflector@4.0.3(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-resolver@12.0.1(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
@@ -10886,7 +10886,7 @@ snapshots:
       - typescript
       - webpack
 
-  '@projectcaluma/ember-form-builder@14.0.0(m2io2lqxl56xiwhynluvoxwxgi)':
+  '@projectcaluma/ember-form-builder@14.1.0(mbufqehv3zwofgkm26juvw6rhu)':
     dependencies:
       '@babel/core': 7.26.7
       '@ember/legacy-built-in-components': 0.5.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
@@ -10895,8 +10895,8 @@ snapshots:
       '@embroider/macros': 1.16.10(@glint/template@1.5.0)
       '@glimmer/component': 1.1.2(@babel/core@7.26.7)
       '@glimmer/tracking': 1.1.2
-      '@projectcaluma/ember-core': 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
-      '@projectcaluma/ember-form': 14.0.0(nqrmufgcscza2m6yok333nunni)
+      '@projectcaluma/ember-core': 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+      '@projectcaluma/ember-form': 14.1.0(wp52nnyl2euafsuqikxm4k64p4)
       codejar: 4.2.0
       ember-apollo-client: 4.0.2(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
       ember-auto-import: 2.10.0(@glint/template@1.5.0)(webpack@5.97.1)
@@ -10948,7 +10948,7 @@ snapshots:
       - typescript
       - webpack
 
-  '@projectcaluma/ember-form@14.0.0(nqrmufgcscza2m6yok333nunni)':
+  '@projectcaluma/ember-form@14.1.0(wp52nnyl2euafsuqikxm4k64p4)':
     dependencies:
       '@babel/core': 7.26.7
       '@ember/string': 4.0.0
@@ -10956,7 +10956,7 @@ snapshots:
       '@embroider/util': 1.13.2(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       '@glimmer/component': 1.1.2(@babel/core@7.26.7)
       '@glimmer/tracking': 1.1.2
-      '@projectcaluma/ember-core': 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+      '@projectcaluma/ember-core': 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       ember-apollo-client: 4.0.2(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
       ember-auto-import: 2.10.0(@glint/template@1.5.0)(webpack@5.97.1)
       ember-autoresize-modifier: 0.7.0(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
@@ -10985,7 +10985,7 @@ snapshots:
       reactiveweb: 1.4.0(@babel/core@7.26.7)(@ember/test-waiters@3.1.0)(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       tracked-toolbox: 2.0.0(@babel/core@7.26.7)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
     optionalDependencies:
-      '@projectcaluma/ember-workflow': 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+      '@projectcaluma/ember-workflow': 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
     transitivePeerDependencies:
       - '@ember/test-helpers'
       - '@ember/test-waiters'
@@ -11003,11 +11003,11 @@ snapshots:
       - typescript
       - webpack
 
-  '@projectcaluma/ember-testing@14.0.0(@ember-data/model@4.12.8)(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-qunit@8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)':
+  '@projectcaluma/ember-testing@14.1.0(@ember-data/model@4.12.8)(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-qunit@8.1.1(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(qunit@2.23.1))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)':
     dependencies:
       '@babel/core': 7.26.7
       '@ember/string': 4.0.0
-      '@faker-js/faker': 9.3.0
+      '@faker-js/faker': 9.5.0
       broccoli-funnel: 3.0.8
       broccoli-merge-trees: 4.2.0
       ember-apollo-client: 4.0.2(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
@@ -11039,11 +11039,11 @@ snapshots:
       - supports-color
       - webpack
 
-  '@projectcaluma/ember-workflow@14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)':
+  '@projectcaluma/ember-workflow@14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)':
     dependencies:
       '@babel/core': 7.26.7
       '@glimmer/component': 1.1.2(@babel/core@7.26.7)
-      '@projectcaluma/ember-core': 14.0.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+      '@projectcaluma/ember-core': 14.1.0(@ember/test-helpers@4.0.4(@babel/core@7.26.7)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.7)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.7))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       ember-apollo-client: 4.0.2(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
       ember-auto-import: 2.10.0(@glint/template@1.5.0)(webpack@5.97.1)
       ember-cli-babel: 8.2.0(@babel/core@7.26.7)
