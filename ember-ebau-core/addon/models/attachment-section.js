@@ -13,34 +13,41 @@ export default class AttachmentSection extends Model {
   @attr meta;
 
   async canUpload(instanceId, serviceId) {
-    const permission = this.meta["permission-name"];
+    const permissions = this.meta["permission-names"];
 
-    if (
-      ["write", "admin", "admin-internal", "admin-service"].includes(permission)
-    ) {
-      return true;
-    } else if (
-      ["admin-service-before-decision", "admin-before-decision"].includes(
-        permission,
-      )
-    ) {
-      const instance =
-        this.store.peekRecord("instance", instanceId) ??
-        (await this.store.findRecord("instance", instanceId));
+    const uploadPermissionsPromises = permissions.map(async (permission) => {
+      if (
+        ["write", "admin", "admin-internal", "admin-service"].includes(
+          permission,
+        )
+      ) {
+        return true;
+      } else if (
+        ["admin-service-before-decision", "admin-before-decision"].includes(
+          permission,
+        )
+      ) {
+        const instance =
+          this.store.peekRecord("instance", instanceId) ??
+          (await this.store.findRecord("instance", instanceId));
 
-      return !instance.isAfterDecision;
-    } else if (permission === "admin-service-running-inquiry") {
-      return (
-        (await this.apollo.query(
-          {
-            query: hasRunningInquiriesQuery,
-            variables: { serviceId, instanceId },
-          },
-          "allWorkItems.totalCount",
-        )) > 0
-      );
-    }
+        return !instance.isAfterDecision;
+      } else if (permission === "admin-service-running-inquiry") {
+        return (
+          (await this.apollo.query(
+            {
+              query: hasRunningInquiriesQuery,
+              variables: { serviceId, instanceId },
+            },
+            "allWorkItems.totalCount",
+          )) > 0
+        );
+      }
 
-    return false;
+      return false;
+    });
+
+    const hasUploadPermissions = await Promise.all(uploadPermissionsPromises);
+    return hasUploadPermissions.some(Boolean);
   }
 }

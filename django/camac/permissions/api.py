@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from typing import List, Optional, Union
 
 from django.conf import ImproperlyConfigured, settings
+from django.contrib.auth.models import AnonymousUser
 from django.core.cache import cache
 from django.db.models import Q, QuerySet, Subquery
 from django.utils import timezone
@@ -35,6 +36,9 @@ class ACLUserInfo:
         # TODO: Token ACL is not specified yet, so this part is always unset
 
         user = request.user if hasattr(request, "user") else None
+        if isinstance(user, AnonymousUser):
+            user = None
+
         try:
             service = request.group.service
         except AttributeError:
@@ -339,16 +343,21 @@ class PermissionManager:
             filter = filter & Q(**{f"{acl_prefix}__access_level_id": only_level})
         return filter
 
-    def current_access_levels(self) -> list[str]:
+    def current_access_levels(self, instance=None) -> list[str]:
         """Return a list of access level slugs relevant for the current user.
 
         The list spans all access levels that the user has in any possible
         situation. Useful for building visibility queries.
+
+        If the `instance` parameter is given, only the access levels that
+        are granted on that instance are returned.
         """
+        qs = models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
+        if instance:
+            qs = qs.filter(instance=instance)
+
         return list(
-            models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
-            .distinct("access_level_id")
-            .values_list("access_level_id", flat=True)
+            qs.distinct("access_level_id").values_list("access_level_id", flat=True)
         )
 
     def involved_services(self, instance: Instance) -> QuerySet:

@@ -497,19 +497,45 @@ class InstanceEditableMixin(AttributeMixin):
 
     def has_object_update_permission(self, obj):
         instance = self.get_instance(obj)
-        return self.has_editable_permission(instance)
+        return self.has_editable_permission(
+            instance
+        ) or self.has_editable_permission_from_permission_module(instance)
+
+    def has_editable_permission_from_permission_module(self, instance):
+        """Return True if the required permission is granted by the permissions module.
+
+        In other words, `instance_editable_permission` is used to determine which permission
+        from the permissions module is required, and `True` is returned if that permission is
+        granted.
+        """
+
+        permissions_manager = self.permissions_manager()
+        EDITABLE_PERMISSIONS = {
+            "document": "documents-write",
+            "form": "form-write",
+        }
+
+        editable_permission = self.serializer_getattr("instance_editable_permission")
+        if not editable_permission or editable_permission not in EDITABLE_PERMISSIONS:
+            return False
+
+        return permissions_manager.has_any(
+            instance, EDITABLE_PERMISSIONS[editable_permission]
+        )
 
     def _validate_instance_editablity(
         self, instance, is_editable_callable=lambda: True
     ):
-        if not self.has_editable_permission(instance) or not is_editable_callable():
-            # TODO log user's current group's role
-            raise exceptions.ValidationError(
-                _("Not allowed to add data to instance %(instance)s")
-                % {"instance": instance.pk}
-            )
+        if (
+            self.has_editable_permission(instance) and is_editable_callable()
+        ) or self.has_editable_permission_from_permission_module(instance):
+            return instance
 
-        return instance
+        # TODO log user's current group's role
+        raise exceptions.ValidationError(
+            _("Not allowed to add data to instance %(instance)s")
+            % {"instance": instance.pk}
+        )
 
     @permission_aware
     def validate_instance(self, instance):

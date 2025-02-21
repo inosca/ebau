@@ -49,12 +49,12 @@ def _configure_geometer_access(
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", lf("admin_user"), 16),
-        ("Reader", lf("user"), 16),
-        ("Canton", lf("user"), 16),
-        ("Municipality", lf("user"), 16),
-        ("Service", lf("user"), 16),
-        ("Geometer", lf("user"), 16),
+        ("Applicant", lf("admin_user"), 17),
+        ("Reader", lf("user"), 17),
+        ("Canton", lf("user"), 17),
+        ("Municipality", lf("user"), 17),
+        ("Service", lf("user"), 17),
+        ("Geometer", lf("user"), 17),
     ],
 )
 @pytest.mark.parametrize(
@@ -1634,8 +1634,14 @@ def test_accesslevel_based_permission(
         {
             "test": {
                 level.slug: {
-                    permissions.ReadPermission: [section_a.pk],
-                    permissions.AdminInternalPermission: [section_b.pk],
+                    permissions.ReadPermission: (
+                        permissions._allow_always,
+                        [section_a.pk],
+                    ),
+                    permissions.AdminInternalPermission: (
+                        permissions._allow_always,
+                        [section_b.pk],
+                    ),
                 }
             }
         },

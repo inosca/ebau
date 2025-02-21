@@ -31,6 +31,7 @@ from camac.instance.document_merge_service import DMSHandler
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
+from camac.permissions.api import PermissionManager
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.permissions import (
     DefaultPermission,
@@ -95,9 +96,9 @@ class AttachmentQuerysetMixin:
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
 
-        permission_info = permissions.section_permissions(
-            self.request.group, self.request.query_params.get("instance")
-        )
+        group = self.request.group
+        instance = self.request.query_params.get("instance")
+        permission_info = permissions.section_permissions(group, instance)
         # TODO refactor `permissions.section_permissions()` to return a
         # dict[Permission, list[integer]] instead - would be easier to deal with
         # here, but it's used in other places as well so we keep as is for now
@@ -117,10 +118,12 @@ class AttachmentQuerysetMixin:
 
         # Extend permission expressions to use access levels from the
         # permission module as well.
-        levels = self.permissions_manager().current_access_levels()
+        levels = self.permissions_manager().current_access_levels(instance)
 
         for level in levels:
-            level_perms = permissions.get_accesslevel_permissions(level)
+            level_perms = permissions.get_accesslevel_permissions(
+                level, self.permissions_manager(), instance
+            )
             level_q = self.permissions_manager().get_q_object(
                 instance_prefix=f"{af}instance", only_level=level
             )
@@ -207,8 +210,10 @@ class AttachmentView(
         )
 
     def has_object_destroy_permission(self, attachment):
+        perms = permissions.SectionPermissions(self.permissions_manager())
+
         for section in attachment.attachment_sections.all():
-            if not section.can_destroy(attachment, self.request.group):
+            if not perms.can_destroy(section, attachment, self.request.group):
                 return False
         return True
 
@@ -510,8 +515,11 @@ class AttachmentSectionView(ReadOnlyModelViewSet):
         if getattr(self, "swagger_fake_view", False):
             return models.AttachmentSection.objects.none()
         queryset = super().get_queryset()
+        permissions_manager = PermissionManager.from_request(self.request)
         return queryset.filter_group(
-            self.request.group, self.request.query_params.get("instance")
+            self.request.group,
+            permissions_manager,
+            self.request.query_params.get("instance"),
         )
 
     @swagger_auto_schema(
