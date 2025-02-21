@@ -3,6 +3,7 @@ from camac.permissions.conditions import (
     Callback,
     HasApplicantRole,
     HasRole,
+    IsServiceGroup,
     RequireInstanceState,
     RequireWorkItem,
 )
@@ -45,7 +46,11 @@ MODULE_AUDIT = NO_CORRECTION & (
     (RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY)
     | RequireWorkItem("formal-exam", "completed")
 )
-MODULE_BILLING = STATES_ALL & ROLES_NO_READONLY
+MODULE_BILLING = (
+    STATES_ALL
+    & ROLES_NO_READONLY
+    & IsServiceGroup(["municipality", "service-cantonal", "service-afb"])
+)
 MODULE_CANTONAL_EXAM = RequireWorkItem("cantonal-exam") & (
     Callback(
         lambda userinfo: userinfo.service.slug == "afb",

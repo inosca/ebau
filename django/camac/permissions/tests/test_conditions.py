@@ -3,7 +3,12 @@ from caluma.caluma_workflow.models import WorkItem
 
 from camac.applicants.models import ROLE_CHOICES
 from camac.permissions.api import ACLUserInfo
-from camac.permissions.conditions import HasApplicantRole, IsPaper, RequireWorkItem
+from camac.permissions.conditions import (
+    HasApplicantRole,
+    IsPaper,
+    IsServiceGroup,
+    RequireWorkItem,
+)
 
 
 @pytest.fixture
@@ -79,3 +84,19 @@ def test_has_applicant_role(
     applicant_factory(instance=so_instance, invitee=user, role=applicant_role)
 
     assert HasApplicantRole(roles).apply(userinfo, so_instance) == expected_result
+
+
+@pytest.mark.parametrize(
+    "has_service,service_group__name,expected_result",
+    [
+        (True, "foo", True),
+        (True, "bar", True),
+        (True, "baz", False),
+        (False, "foo", False),
+    ],
+)
+def test_is_service_group(db, expected_result, has_service, userinfo):
+    if not has_service:
+        userinfo.service = None
+
+    assert IsServiceGroup(["foo", "bar"]).apply(userinfo, None) == expected_result
