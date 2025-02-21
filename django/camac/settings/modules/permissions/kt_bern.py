@@ -63,11 +63,13 @@ ROLES_INTERNAL_NO_READONLY = ROLES_INTERNAL & ~HasRole(
 
 MODULE_FORM = STATES_ALL_INTERNAL & ROLES_INTERNAL
 
-MODULE_DOCUMENTS = STATES_ALL_INTERNAL & ROLES_INTERNAL
+MODULE_DOCUMENTS_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
+MODULE_DOCUMENTS_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
 
 MODULE_HISTORY = STATES_ALL_INTERNAL & ROLES_INTERNAL
 
-MODULE_COMMUNICATIONS = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
+MODULE_COMMUNICATIONS_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
+MODULE_COMMUNICATIONS_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
 
 BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = RequireInstanceState(
     [
@@ -274,7 +276,8 @@ BE_PERMISSIONS_SETTINGS = {
         "geometer": [
             ("communications-read", GEOMETER_RW),
             ("communications-write", GEOMETER_RW),
-            ("documents-read", MODULE_DOCUMENTS),
+            ("documents-read", MODULE_DOCUMENTS_READ),
+            ("documents-write", MODULE_DOCUMENTS_WRITE),
             ("dms-generate-read", GEOMETER_RW),
             ("form-read", MODULE_FORM),
             ("geometer-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
@@ -284,9 +287,9 @@ BE_PERMISSIONS_SETTINGS = {
             ("work-items-read", GEOMETER_RW),
         ],
         "read": [
-            ("communications-read", MODULE_COMMUNICATIONS),
-            ("communications-write", MODULE_COMMUNICATIONS),
-            ("documents-read", MODULE_DOCUMENTS),
+            ("communications-read", MODULE_COMMUNICATIONS_READ),
+            ("communications-write", MODULE_COMMUNICATIONS_WRITE),
+            ("documents-read", MODULE_DOCUMENTS_READ),
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
         ],

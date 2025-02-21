@@ -1,4 +1,3 @@
-import inspect
 import itertools
 import mimetypes
 from pathlib import Path
@@ -16,6 +15,7 @@ from camac.core import serializers as core_serializers
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
+from camac.permissions.api import PermissionManager
 from camac.relations import FormDataResourceRelatedField
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
@@ -32,30 +32,30 @@ from . import models, permissions
 class AttachmentSectionSerializer(
     core_serializers.MultilingualSerializer, serializers.ModelSerializer
 ):
-    permission_name = serializers.SerializerMethodField()
+    permission_names = serializers.SerializerMethodField()
     description = core_serializers.MultilingualField()
 
-    def get_permission_name(self, instance):
-        permission_class = instance.get_permission(
+    def get_permission_names(self, instance):
+        section_permissions = permissions.SectionPermissions(
+            PermissionManager.from_request(self.context["request"])
+        )
+
+        permission_classes = section_permissions.get_permissions(
+            instance,  # instance is the section, don't get confused
             self.context["request"].group,
             self.context["request"].query_params.get("instance"),
         )
 
-        if inspect.isclass(permission_class) and issubclass(
-            permission_class, permissions.Permission
-        ):
-            return dasherize(
-                underscore(permission_class.__name__.replace("Permission", ""))
-            )
+        result = [
+            dasherize(underscore(permission_class.__name__.replace("Permission", "")))
+            for permission_class in permission_classes
+        ]
 
-        elif isinstance(permission_class, str):  # pragma: no cover
-            return permission_class
-
-        return None  # pragma: no cover
+        return result or None
 
     class Meta:
         model = models.AttachmentSection
-        meta_fields = ("permission_name",)
+        meta_fields = ("permission_names",)
         fields = ("name", "description")
 
 
@@ -77,6 +77,8 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     }
 
     def get_webdav_link(self, instance):
+        section_permissions = permissions.SectionPermissions(self.permissions_manager())
+
         view = self.context["view"]
         group = self.context["request"].group
         if (
@@ -84,7 +86,9 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             or not view.has_object_update_permission(instance)
             or not any(
                 (
-                    section.can_write(instance, group)
+                    section_permissions.can_write(
+                        section, instance, group, instance.instance
+                    )
                     for section in instance.attachment_sections.all()
                 )
             )
@@ -112,7 +116,9 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         return f"ms-{handler}:ofe|u|{relative}"
 
     def _get_default_attachment_sections(self, group, instance):
-        return models.AttachmentSection.objects.filter_group(group, instance)[:1]
+        return models.AttachmentSection.objects.filter_group(
+            group, self.permissions_manager(), instance
+        )[:1]
 
     def validate_attachment_sections(self, attachment_sections):
         group = self.context["request"].group
@@ -141,13 +147,16 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             if self.instance
             else set()
         )
+        section_permissions = permissions.SectionPermissions(self.permissions_manager())
 
         for attachment_section in attachment_sections:
             if attachment_section.attachment_section_id in existing_section_ids:
                 # document already assigned, so even if it's forbidden,
                 # it's not a violation
                 continue
-            if not attachment_section.can_write(self.instance, group, instance):
+            if not section_permissions.can_write(
+                attachment_section, self.instance, group, instance
+            ):
                 raise exceptions.ValidationError(
                     _("Insufficent permissions to add file to section '%(section)s'.")
                     % {"section": attachment_section.get_name()}
@@ -164,7 +173,9 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         )
 
         for attachment_section in deleted_attachment_sections:
-            if not attachment_section.can_destroy(self.instance, group):
+            if not section_permissions.can_destroy(
+                attachment_section, self.instance, group
+            ):
                 raise exceptions.ValidationError(
                     _(
                         "Insufficent permissions to delete file from section '%(section)s'."
