@@ -1,0 +1,2 @@
+documents:
+  confirm: "Je confirme par la présente que j'ai téléchargé {count, plural, =1 {le contenu obligatoire} other {les # contenus obligatoires}} suivants. Veuillez noter que la liste des documents requis n'est pas exhaustive."
