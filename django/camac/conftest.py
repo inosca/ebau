@@ -271,10 +271,13 @@ def caluma_admin_user(admin_user, group, token):
 
 
 @pytest.fixture
-def admin_client(db, admin_user, request_mock):
+def admin_client(db, admin_user, request_mock, settings):
     """Return instance of a JSONAPIClient that is logged in as test user."""
     api_client = APIClient()
-    api_client.force_authenticate(user=admin_user)
+    api_client.force_authenticate(
+        user=admin_user,
+        token={"azp": settings.KEYCLOAK_CLIENT},
+    )
     api_client.user = admin_user
     return api_client
 

@@ -17,7 +17,12 @@ from camac.permissions.switcher import (
     is_permission_mode_fully_enabled,
     permission_switching_method,
 )
-from camac.user.permissions import get_group, get_role_name, permission_aware
+from camac.user.permissions import (
+    IsAllowedClientToken,
+    get_group,
+    get_role_name,
+    permission_aware,
+)
 from camac.utils import get_dict_item
 
 from . import api, filters, mixins, models, permissions, serializers
@@ -235,7 +240,7 @@ class AccessLevelViewset(ReadOnlyModelViewSet):
 
 
 class PermissionsMetaView(APIView):
-    permission_classes = []
+    permission_classes = [IsAllowedClientToken]
 
     def get(self, request):
         return Response(

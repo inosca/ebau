@@ -16,6 +16,23 @@ def is_public_access(request):
     return header in ["true", True]
 
 
+def is_allowed_client(request):
+    if not hasattr(request, "auth") or request.auth is None:  # pragma: no cover
+        return False
+
+    azp = request.auth.get("azp")
+
+    return azp in settings.KEYCLOAK_ALLOWED_CLIENTS
+
+
+def _get_view_action(view):
+    action = getattr(view, "action", None)
+    if action == "partial_update":
+        action = "update"
+
+    return action
+
+
 def permission_aware(func):
     """
     Decorate view methods to be permission aware.
@@ -118,7 +135,7 @@ class ViewPermissions(permissions.BasePermission):
     """
 
     def has_permission(self, request, view):
-        action = self._get_action(view)
+        action = _get_view_action(view)
         if action:
             method = "has_{action}_permission".format(action=action)
             if hasattr(view, method):
@@ -127,20 +144,13 @@ class ViewPermissions(permissions.BasePermission):
         return True
 
     def has_object_permission(self, request, view, obj):
-        action = self._get_action(view)
+        action = _get_view_action(view)
         if action:
             method = "has_object_{action}_permission".format(action=action)
             if hasattr(view, method):
                 return getattr(view, method)(obj)
 
         return True
-
-    def _get_action(self, view):
-        action = getattr(view, "action", None)
-        if action == "partial_update":
-            action = "update"
-
-        return action
 
 
 class ReadOnly(permissions.BasePermission):
@@ -153,9 +163,53 @@ class IsPublicAccess(permissions.BasePermission):
         return is_public_access(request)
 
 
+class IsAllowedClientToken(permissions.BasePermission):
+    """Verify that the token is authorized by a known client.
+
+    This permission verifies that the `azp` (authorized party) of the passed
+    token is a known client that is used by eBau (e.g. "portal" and "camac").
+
+    There are exceptions where endpoints should allow external clients like the
+    eCH-0211 API. To allow external clients on an endpoint, add
+    `allow_external_client = True` on the respective view. To only allow certain
+    actions on an endpoint, you can also define a list, e.g.
+    `allow_external_clients = ["retreive", "list"]`.
+
+    This permission should be used on every single endpoint of the application
+    that requires authentication! To make sure of that, the snapshot
+    `django/camac/tests/__snapshots__/test_external_client_access.ambr` contains
+    a list of all endpoints that allow external clients per canton.
+    """
+
+    def allow_external_clients(self, view):
+        allow = getattr(view, "allow_external_clients", None)
+
+        # Some endpoints implement an `include_in_swagger` method to define
+        # whether the endpoint appears in the swagger docs or not. Since all
+        # endpoints that are documented in the swagger should also be accessible
+        # by external clients, we use that method as fallback to reduce
+        # redundancy.
+        if allow is None and hasattr(view, "include_in_swagger"):
+            allow = view.include_in_swagger()
+
+        # If `allow_external_clients` is a list of allowed actions, we check
+        # whether it current action is contained
+        if isinstance(allow, list):
+            return _get_view_action(view) in allow
+
+        return bool(allow)
+
+    def has_permission(self, request, view):
+        return self.allow_external_clients(view) or is_allowed_client(request)
+
+
 DefaultPermission = (
     # identical to DEFAULT_PERMISSION_CLASSES
-    permissions.IsAuthenticated & IsGroupMember & ViewPermissions & RequireLoT
+    permissions.IsAuthenticated
+    & IsAllowedClientToken
+    & IsGroupMember
+    & ViewPermissions
+    & RequireLoT
 )
 
 
@@ -175,12 +229,12 @@ def IsView(*views):
     return DynamicPermission
 
 
-PublicationBE = IsApplication("kt_bern") & permissions.IsAuthenticated & ReadOnly
-PublicationSZ = IsApplication("kt_schwyz") & permissions.IsAuthenticated & ReadOnly
-PublicationGR = IsApplication("kt_gr") & permissions.IsAuthenticated & ReadOnly
-PublicationSO = (
-    IsApplication("kt_so") & permissions.IsAuthenticated & ReadOnly & RequireLoT
-)
+AuthenticatedPublication = permissions.IsAuthenticated & IsAllowedClientToken & ReadOnly
+
+PublicationBE = IsApplication("kt_bern") & AuthenticatedPublication
+PublicationSZ = IsApplication("kt_schwyz") & AuthenticatedPublication
+PublicationGR = IsApplication("kt_gr") & AuthenticatedPublication
+PublicationSO = IsApplication("kt_so") & AuthenticatedPublication & RequireLoT
 PublicationUR = IsApplication("kt_uri") & ReadOnly
 PublicationTest = IsApplication("test") & ReadOnly
 
@@ -217,9 +271,14 @@ PublicationPermission = IsPublicAccess & (
         # Static content
         IsView("StaticContentView") & (PublicationSO | PublicationTest)
     )
-)
-
-ViewedPublicationCountPermissions = IsPublicAccess & (
-    IsView("PublicCalumaInstanceView")
-    & (IsApplication("kt_schwyz") & permissions.IsAuthenticated)
+    | (
+        # Publication access count
+        IsView("PublicCalumaInstanceView")
+        # Same as PublicationSZ but without `ReadOnly`
+        & (
+            IsApplication("kt_schwyz")
+            & permissions.IsAuthenticated
+            & IsAllowedClientToken
+        )
+    )
 )

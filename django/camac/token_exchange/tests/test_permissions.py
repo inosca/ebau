@@ -87,7 +87,9 @@ def test_require_lot_permission_graphql(
             settings.OIDC_USERNAME_CLAIM: admin_user.username,
         },
     )
-    mocker.patch("camac.caluma.utils.jwt_decode")
+    mocker.patch(
+        "camac.caluma.utils.jwt_decode", return_value={"azp": settings.KEYCLOAK_CLIENT}
+    )
     mocker.patch("camac.token_exchange.permissions.get_lot", return_value=lot)
     mocker.patch(
         "camac.token_exchange.permissions.is_exchanged_token", return_value=True

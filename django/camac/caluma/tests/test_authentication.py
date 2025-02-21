@@ -20,7 +20,9 @@ def test_authenticate_caluma(rf, settings, admin_user, group, mocker):
     )
     userinfo.return_value = token_value
 
-    mocker.patch("camac.caluma.utils.jwt_decode")
+    mocker.patch(
+        "camac.caluma.utils.jwt_decode", return_value={"azp": settings.KEYCLOAK_CLIENT}
+    )
 
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token", X_CAMAC_GROUP=group.pk)
 
