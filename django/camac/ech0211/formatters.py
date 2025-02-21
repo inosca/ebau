@@ -304,7 +304,9 @@ def application(instance: Instance, request: HttpRequest):
                     EGRID=assure_string_length(
                         plot.get("egrid_number") or "unknown", max_length=14
                     ),
-                    number=str(plot.get("plot_number", "unknown")),
+                    number=assure_string_length(
+                        str(plot.get("plot_number", "unknown")), max_length=12
+                    ),
                 ),
                 realestateType="8",  # mentioned in swagger README
                 coordinates=(
