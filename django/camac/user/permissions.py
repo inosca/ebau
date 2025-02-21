@@ -101,9 +101,6 @@ class IsGroupMember(permissions.BasePermission):
     def has_permission(self, request, view):
         return bool(request.group)
 
-    def has_object_permission(self, request, view, obj):
-        return self.has_permission(request, view)
-
 
 class ViewPermissions(permissions.BasePermission):
     """
@@ -150,15 +147,9 @@ class ReadOnly(permissions.BasePermission):
     def has_permission(self, request, view):
         return request.method in permissions.SAFE_METHODS
 
-    def has_object_permission(self, request, view, obj):
-        return request.method in permissions.SAFE_METHODS
-
 
 class IsPublicAccess(permissions.BasePermission):
     def has_permission(self, request, view):
-        return is_public_access(request)
-
-    def has_object_permission(self, request, view, obj):
         return is_public_access(request)
 
 
@@ -173,18 +164,12 @@ def IsApplication(*applications):
         def has_permission(self, request, view):
             return settings.APPLICATION_NAME in applications
 
-        def has_object_permission(self, request, view, obj):
-            return settings.APPLICATION_NAME in applications
-
     return DynamicPermission
 
 
 def IsView(*views):
     class DynamicPermission(permissions.BasePermission):
         def has_permission(self, request, view):
-            return view.__class__.__name__ in views
-
-        def has_object_permission(self, request, view, obj):
             return view.__class__.__name__ in views
 
     return DynamicPermission
