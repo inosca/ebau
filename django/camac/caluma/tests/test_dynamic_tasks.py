@@ -10,6 +10,7 @@ from camac.caluma.tests.test_distribution_workflow import (  # noqa: F401
     distribution_child_case_be,
     inquiry_factory_be,
 )
+from camac.conftest import yes_no
 
 
 @pytest.mark.parametrize(
@@ -1225,3 +1226,39 @@ def test_after_check_gwr_relevancy(
         instance.case, caluma_admin_user, work_item if work_item_exists else None, None
     )
     assert result == expected_value
+
+
+@pytest.mark.parametrize(
+    "publication_required,expected_tasks",
+    [
+        (False, []),
+        (True, ["publication", "fill-publication"]),
+    ],
+)
+def test_dynamic_task_maybe_publication(
+    db,
+    ag_instance,
+    ag_master_data_settings,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    expected_tasks,
+    master_data_is_visible_mock,
+    publication_required,
+    utils,
+):
+    formal_exam = caluma_work_item_factory(
+        case=ag_instance.case,
+        task_id="formal-exam",
+    )
+
+    utils.add_answer(
+        formal_exam.document,
+        "vorlaeufige-pruefung-publikation",
+        f"vorlaeufige-pruefung-publikation-{yes_no(publication_required, 'de')}",
+    )
+
+    tasks = CustomDynamicTasks().resolve_maybe_publication(
+        ag_instance.case, caluma_admin_user, formal_exam, None
+    )
+
+    assert set(tasks) == set(expected_tasks)

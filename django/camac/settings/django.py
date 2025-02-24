@@ -2446,11 +2446,17 @@ APPLICATIONS = {
                 "check-inquiry": {"cancel": ["revise-inquiry"]},
                 "revise-inquiry": {"cancel": ["check-inquiry"]},
                 "decision": {
+                    "skip": [
+                        "publication",
+                        "fill-publication",
+                    ],
                     "cancel": [
                         "init-additional-demand",
                         "additional-demand",
-                    ]
+                        "create-publication",
+                    ],
                 },
+                "fill-publication": {"complete": ["publication"]},
             },
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {

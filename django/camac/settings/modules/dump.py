@@ -726,6 +726,9 @@ DUMP = {
                 "billing_templates": {
                     "billing.BillingV2EntryTemplate": Q(services__isnull=True)
                 },
+                "caluma_publication_form": generate_form_dump_config(
+                    regex=r"^publikation$"
+                ),
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

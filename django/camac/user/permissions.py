@@ -235,6 +235,7 @@ PublicationBE = IsApplication("kt_bern") & AuthenticatedPublication
 PublicationSZ = IsApplication("kt_schwyz") & AuthenticatedPublication
 PublicationGR = IsApplication("kt_gr") & AuthenticatedPublication
 PublicationSO = IsApplication("kt_so") & AuthenticatedPublication & RequireLoT
+PublicationAG = IsApplication("kt_ag") & AuthenticatedPublication
 PublicationUR = IsApplication("kt_uri") & ReadOnly
 PublicationTest = IsApplication("test") & ReadOnly
 
@@ -249,6 +250,7 @@ PublicationPermission = IsPublicAccess & (
             | PublicationGR
             | PublicationUR
             | PublicationSO
+            | PublicationAG
             | PublicationTest
         )
     )
@@ -260,7 +262,7 @@ PublicationPermission = IsPublicAccess & (
     | (
         # Alexandria
         IsView("PatchedDocumentViewSet", "PatchedFileViewSet", "PatchedMarkViewSet")
-        & (PublicationGR | PublicationSO | PublicationTest)
+        & (PublicationGR | PublicationSO | PublicationAG | PublicationTest)
     )
     | (
         # Form fields

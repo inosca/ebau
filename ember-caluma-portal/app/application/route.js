@@ -23,6 +23,7 @@ import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-de
 import KeycloakProfileApplyButtonComponent from "ember-ebau-core/components/keycloak-profile-apply-button";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
+import PublicationFillEndDateComponent from "ember-ebau-core/components/publication-fill-end-date";
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
 import ServiceContentComponent from "ember-ebau-core/components/service-content";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
@@ -285,6 +286,11 @@ export default class ApplicationRoute extends Route {
       label: "AG: Zirkulation Warnung Organisationstyp",
       component: "ag-inquiry-service-group-warning",
       componentClass: AGInquiryServiceGroupWarningComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Publikation Startdatum mit automatischem Ausfüllen des Enddatums",
+      component: "publication-fill-end-date",
+      componentClass: PublicationFillEndDateComponent,
     });
   }
 }

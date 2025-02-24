@@ -85,4 +85,23 @@ PUBLICATION = {
         "ENABLED": True,
         "BACKEND": "camac-ng",
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "RANGE_QUESTIONS": [
+            (
+                "beginn-publikationsorgan-gemeinde",
+                "ende-publikationsorgan-gemeinde",
+            ),
+            (
+                "beginn-publikation-kantonsamtsblatt",
+                "ende-publikation-kantonsamtsblatt",
+            ),
+        ],
+        "PUBLISH_QUESTION": "oeffentliche-auflage",
+        "PUBLISH_ANSWER": ["oeffentliche-auflage-ja"],
+        "SCRUBBED_ANSWERS": [
+            "e-mail-gesuchstellerin",
+            "telefon-oder-mobile-gesuchstellerin",
+        ],
+    },
 }

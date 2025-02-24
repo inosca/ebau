@@ -250,36 +250,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "vorlaeufige-pruefung-formelle-vorpruefung.vorlaeufige-pruefung-publikationsdatum",
-    "fields": {
-      "created_at": "2025-01-16T09:59:46.748Z",
-      "modified_at": "2025-01-16T09:59:46.748Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "vorlaeufige-pruefung-formelle-vorpruefung",
-      "question": "vorlaeufige-pruefung-publikationsdatum",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "vorlaeufige-pruefung-formelle-vorpruefung.vorlaeufige-pruefung-publikationsorgan",
-    "fields": {
-      "created_at": "2025-01-16T10:00:20.835Z",
-      "modified_at": "2025-01-16T10:00:20.835Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "vorlaeufige-pruefung-formelle-vorpruefung",
-      "question": "vorlaeufige-pruefung-publikationsorgan",
-      "sort": 12
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "vorlaeufige-pruefung-formelle-vorpruefung.vorlaeufige-pruefung-verfahrensart",
     "fields": {
       "created_at": "2025-01-16T09:58:58.891Z",
@@ -1797,40 +1767,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "vorlaeufige-pruefung-publikationsorgan-amtsblatt",
-    "fields": {
-      "created_at": "2025-01-16T10:00:20.702Z",
-      "modified_at": "2025-01-16T10:00:20.702Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Amtsblatt\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "vorlaeufige-pruefung-publikationsorgan-lokales-publikationsorgan",
-    "fields": {
-      "created_at": "2025-01-16T10:00:20.707Z",
-      "modified_at": "2025-01-16T10:00:20.707Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Lokales Publikationsorgan\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "vorlaeufige-pruefung-tabelle-wohnung-korrekt-ja",
     "fields": {
       "created_at": "2025-01-16T10:19:02.142Z",
@@ -3147,74 +3083,12 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Publikation\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "vorlaeufige-pruefung-publikationsdatum",
-    "fields": {
-      "created_at": "2025-01-16T09:59:46.694Z",
-      "modified_at": "2025-01-16T10:05:36.245Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Publikationsdatum\", \"fr\": null, \"it\": null}",
-      "type": "date",
-      "is_required": "false",
-      "is_hidden": "\"vorlaeufige-pruefung-publikation\"|answer != \"vorlaeufige-pruefung-publikation-ja\"",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "vorlaeufige-pruefung-publikationsorgan",
-    "fields": {
-      "created_at": "2025-01-16T10:00:20.766Z",
-      "modified_at": "2025-01-16T10:05:40.569Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Publikationsorgan\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "\"vorlaeufige-pruefung-publikation\"|answer != \"vorlaeufige-pruefung-publikation-ja\"",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -4178,36 +4052,6 @@
       "question": "vorlaeufige-pruefung-profilierung",
       "option": "vorlaeufige-pruefung-profilierung-nein",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "vorlaeufige-pruefung-publikationsorgan.vorlaeufige-pruefung-publikationsorgan-amtsblatt",
-    "fields": {
-      "created_at": "2025-01-16T10:05:40.575Z",
-      "modified_at": "2025-01-16T10:05:40.575Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vorlaeufige-pruefung-publikationsorgan",
-      "option": "vorlaeufige-pruefung-publikationsorgan-amtsblatt",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "vorlaeufige-pruefung-publikationsorgan.vorlaeufige-pruefung-publikationsorgan-lokales-publikationsorgan",
-    "fields": {
-      "created_at": "2025-01-16T10:05:40.579Z",
-      "modified_at": "2025-01-16T10:05:40.579Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "vorlaeufige-pruefung-publikationsorgan",
-      "option": "vorlaeufige-pruefung-publikationsorgan-lokales-publikationsorgan",
-      "sort": 2
     }
   },
   {

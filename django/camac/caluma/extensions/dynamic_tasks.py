@@ -16,6 +16,7 @@ from camac.caluma.extensions.events.construction_monitoring import (
 from camac.caluma.extensions.events.general import get_instance
 from camac.core.utils import canton_aware, create_history_entry
 from camac.instance import domain_logic
+from camac.instance.master_data import MasterData
 from camac.instance.utils import (
     geometer_cadastral_survey_is_necessary,
     geometer_cadastral_survey_necessary_answer,
@@ -565,3 +566,13 @@ class CustomDynamicTasks(BaseDynamicTasks):
         return check_gwr_relevancy(
             case, user, prev_work_item, context, "open-gwr-construction-project"
         )
+
+    @register_dynamic_task("maybe-publication")
+    def resolve_maybe_publication(self, case, user, prev_work_item, context):
+        tasks = []
+        md = MasterData(case)
+
+        if md.publication_required:
+            tasks.extend(["publication", "fill-publication"])
+
+        return tasks

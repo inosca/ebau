@@ -793,6 +793,10 @@ def no(lang):
     return "nein" if lang == "de" else "no"
 
 
+def yes_no(boolean, lang):
+    return yes(lang) if boolean else no(lang)
+
+
 @pytest.fixture
 def caluma_forms_be(settings):
     # forms
@@ -1140,6 +1144,7 @@ def caluma_forms_ag(settings, caluma_form_factory):
         "entscheid",
         "kantonale-pruefung",
         "vorlaeufige-pruefung",
+        "publikation",
     ]:
         caluma_form_models.Form.objects.create(slug=slug)
 

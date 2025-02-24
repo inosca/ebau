@@ -63,6 +63,10 @@
         'zip': 6996,
       }),
     ]),
+    'municipality': dict({
+      'label': 'Aarburg',
+      'slug': '55',
+    }),
     'municipality_name': 'Aarburg',
     'municipality_slug': '55',
     'plot_data': list([
@@ -87,6 +91,7 @@
       }),
     ]),
     'proposal': 'Überbauung Westfeld',
+    'publication_required': True,
     'remark': 'Testdossier 1',
     'street': 'Teststrasse 12',
     'submit_date': datetime.datetime(2025, 2, 5, 9, 18, 8, tzinfo=tzutc()),

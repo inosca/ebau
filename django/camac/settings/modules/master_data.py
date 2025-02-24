@@ -2832,6 +2832,10 @@ MASTER_DATA = {
                 "vertreterin-mit-vollmacht",
                 {"column_mapping": AG_PERSONAL_DATA_MAPPING},
             ),
+            # DEPRECATED: `municipality` returns a string (municipality name)
+            # for Kt. SZ and an object (slug and label) for other cantons.
+            # Use `municipality_name` instead.
+            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -2862,6 +2866,22 @@ MASTER_DATA = {
                     "document_from_work_item": "formal-exam",
                     "value_parser": "option",
                     "prop": "label",
+                },
+            ),
+            "publication_required": (
+                "answer",
+                "vorlaeufige-pruefung-publikation",
+                {
+                    "document_from_work_item": "formal-exam",
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "vorlaeufige-pruefung-publikation-ja": True,
+                                "vorlaeufige-pruefung-publikation-nein": False,
+                            }
+                        },
+                    ),
                 },
             ),
             "usage_zone": ("answer", "zonenplan"),
