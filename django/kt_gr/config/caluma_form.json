@@ -16073,7 +16073,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "eingabequittung-korrekt",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -16089,6 +16089,21 @@
       "form": "vollstaendigkeitspruefung",
       "question": "einverstaendnis-grundeigentuemerin-vorhanden",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.entspricht-voraussetzungen-einer-bauanzeige",
+    "fields": {
+      "created_at": "2025-02-14T14:39:28.739Z",
+      "modified_at": "2025-02-14T14:39:28.739Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "entspricht-voraussetzungen-einer-bauanzeige",
+      "sort": 8
     }
   },
   {
@@ -16118,7 +16133,22 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "hinweis-auflistung",
-      "sort": 8
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.hinweis-baugesuch",
+    "fields": {
+      "created_at": "2025-02-14T14:46:28.567Z",
+      "modified_at": "2025-02-14T14:46:28.567Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "hinweis-baugesuch",
+      "sort": 7
     }
   },
   {
@@ -25889,6 +25919,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entspricht-voraussetzungen-einer-bauanzeige-ja",
+    "fields": {
+      "created_at": "2025-02-14T14:39:28.400Z",
+      "modified_at": "2025-02-17T07:33:04.528Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja, Voraussetzungen einer Bauanzeige sind erf\\u00fcllt\", \"fr\": null, \"it\": \"S\\u00ec, i requisiti per un annuncio di costruzione sono soddisfatti\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entspricht-voraussetzungen-einer-bauanzeige-nein",
+    "fields": {
+      "created_at": "2025-02-14T14:39:28.385Z",
+      "modified_at": "2025-02-17T07:33:04.513Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein, es ist ein Baubewilligungsverfahren erforderlich\", \"fr\": null, \"it\": \"No, \\u00e8 necessaria una procedura per il rilascio della licenza edilizia\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -54928,6 +54992,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "entspricht-voraussetzungen-einer-bauanzeige",
+    "fields": {
+      "created_at": "2025-02-14T14:39:28.557Z",
+      "modified_at": "2025-02-17T07:33:04.669Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entspricht das Vorhaben den Voraussetzungen einer Bauanzeige nach Art. 40 und Art. 40a KRVO? Wenn Nein, ist daf\\u00fcr ein Baubewilligungsverfahren nach Art. 42 bzw. Art. 50 KRVO erforderlich!\", \"fr\": null, \"it\": \"Il progetto soddisfa i requisiti per un annuncio di costruzione ai sensi dell'art. 40 e dell'art. 40a OPTC? In caso negativo, \\u00e8 necessaria una procedura per il rilascio della licenza edilizia ai sensi dell'art. 42 o dell'art. 50 OPTC!\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "info.case.form in [\"baugesuch\", \"vorlaeufige-beurteilung\", \"solaranlage\"]",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "entwaesserung-bemerkungen",
     "fields": {
       "created_at": "2023-04-12T11:43:50.797Z",
@@ -60296,6 +60391,37 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Aufbereitung der Recyclingprodukte gem. BAFU-Richtlinie f\\u00fcr die Verwertung mineralischer Bauabf\\u00e4lle:\", \"fr\": \"\", \"it\": \"Trattamento dei prodotti riciclati secondo la direttiva UFAM per il riciclaggio dei rifiuti edili minerali:\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-baugesuch",
+    "fields": {
+      "created_at": "2025-02-14T14:46:28.425Z",
+      "modified_at": "2025-02-17T07:32:27.234Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Baugesuch\", \"fr\": null, \"it\": \"Hinweis Baugesuch\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"entspricht-voraussetzungen-einer-bauanzeige-ja\" == \"entspricht-voraussetzungen-einer-bauanzeige\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"*Hinweis:* Bitte weisen Sie das Dossier an den Gesuchstellenden zur\\u00fcck und verlangen Sie ein Baugesuch.\", \"fr\": \"\", \"it\": \"*Nota:* Si prega di restituire il dossier al richiedente e di richiedere una domanda di costruzione.\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -85306,6 +85432,36 @@
       "modified_by_group": null,
       "question": "entgegennahme-berechtigt",
       "option": "entgegennahme-berechtigt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entspricht-voraussetzungen-einer-bauanzeige.entspricht-voraussetzungen-einer-bauanzeige-ja",
+    "fields": {
+      "created_at": "2025-02-17T07:33:04.683Z",
+      "modified_at": "2025-02-17T07:33:04.683Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entspricht-voraussetzungen-einer-bauanzeige",
+      "option": "entspricht-voraussetzungen-einer-bauanzeige-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entspricht-voraussetzungen-einer-bauanzeige.entspricht-voraussetzungen-einer-bauanzeige-nein",
+    "fields": {
+      "created_at": "2025-02-17T07:33:04.678Z",
+      "modified_at": "2025-02-17T07:33:04.678Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entspricht-voraussetzungen-einer-bauanzeige",
+      "option": "entspricht-voraussetzungen-einer-bauanzeige-nein",
       "sort": 1
     }
   },
