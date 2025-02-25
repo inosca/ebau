@@ -839,6 +839,7 @@ def test_dynamic_task_after_construction_step(
     "form_slug,expected_tasks",
     [
         ("bauanzeige", ["distribution"]),
+        ("solaranlage", ["distribution"]),
         ("vorlaeufige-beurteilung", ["distribution"]),
         (
             "baugesuch",
