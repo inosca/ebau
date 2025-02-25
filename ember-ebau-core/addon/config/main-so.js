@@ -63,8 +63,7 @@ const config = {
   publication: {
     public: {
       task: "fill-publication",
-      startQuestion: "publikation-start",
-      endQuestion: "publikation-ende",
+      dateRanges: [["publikation-start", "publikation-ende"]],
     },
   },
   decision: {

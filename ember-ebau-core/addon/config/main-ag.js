@@ -81,6 +81,16 @@ export default {
   publication: {
     public: {
       task: "fill-publication",
+      dateRanges: [
+        [
+          "beginn-publikationsorgan-gemeinde",
+          "ende-publikationsorgan-gemeinde",
+        ],
+        [
+          "beginn-publikation-kantonsamtsblatt",
+          "ende-publikation-kantonsamtsblatt",
+        ],
+      ],
     },
   },
   decision: {
