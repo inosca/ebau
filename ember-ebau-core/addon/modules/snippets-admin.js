@@ -1,3 +1,4 @@
+import SnippetsAdminIndexController from "ember-ebau-core/controllers/snippets-admin/index";
 import SnippetsAdminNewController from "ember-ebau-core/controllers/snippets-admin/new";
 import { registerModule } from "ember-ebau-core/modules";
 import SnippetsAdminRoute from "ember-ebau-core/routes/snippets-admin";
@@ -23,6 +24,7 @@ export default function register(router, options = {}) {
       "snippets-admin/new": SnippetsAdminNewRoute,
     },
     controllers: {
+      "snippets-admin/index": SnippetsAdminIndexController,
       "snippets-admin/new": SnippetsAdminNewController,
     },
     templates: {

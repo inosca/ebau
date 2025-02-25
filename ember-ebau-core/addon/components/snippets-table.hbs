@@ -1,3 +1,18 @@
+<div class="uk-margin">
+  <form class="uk-search uk-search-default uk-width-1">
+    <span uk-search-icon></span>
+    <input
+      class="uk-search-input"
+      type="search"
+      value={{@search}}
+      placeholder={{t "global.searchPrompt"}}
+      aria-label={{t "global.search"}}
+      data-test-search
+      {{on "input" this.onSearch.perform}}
+    />
+  </form>
+</div>
+
 {{#if this.snippets.isLoading}}
   <div class="uk-text-center">
     <UkSpinner @ratio="2" />
