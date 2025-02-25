@@ -46785,7 +46785,7 @@
       "hidden": 0,
       "sort": 11,
       "form_group": 40000,
-      "require_permission": "information-of-neighbors"
+      "require_permission": "information-of-neighbors-read"
     }
   },
   {

@@ -2449,14 +2449,20 @@ APPLICATIONS = {
                     "skip": [
                         "publication",
                         "fill-publication",
+                        "information-of-neighbors",
+                        "fill-information-of-neighbors",
                     ],
                     "cancel": [
                         "init-additional-demand",
                         "additional-demand",
                         "create-publication",
+                        "create-information-of-neighbors",
                     ],
                 },
                 "fill-publication": {"complete": ["publication"]},
+                "fill-information-of-neighbors": {
+                    "complete": ["information-of-neighbors"]
+                },
             },
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {

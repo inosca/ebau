@@ -3,9 +3,6 @@ from django.urls import get_resolver
 from rest_framework import status
 
 from camac.instance.mixins import InstanceQuerysetMixin
-from camac.instance.tests.test_instance_public import (  # noqa: F401
-    create_caluma_publication,
-)
 
 
 @pytest.fixture
@@ -28,7 +25,7 @@ def public_urls(
 
 @pytest.fixture()
 def public_data(
-    create_caluma_publication,  # noqa: F811
+    create_caluma_publication,
     be_instance,
     attachment_factory,
     issue_factory,

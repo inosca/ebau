@@ -242,7 +242,7 @@ def handle_pre_complete_work_item(sender, work_item, user, **kwargs):
 @on(post_complete_work_item, raise_exception=True)
 @transaction.atomic
 def set_is_published(sender, work_item, user, **kwargs):
-    if work_item.task_id not in settings.PUBLICATION.get("FILL_TASKS", []):
+    if work_item.task_id not in settings.PUBLICATION.get("FILL_TASKS", {}).values():
         return
 
     work_item.meta["is-published"] = True

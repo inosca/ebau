@@ -1,6 +1,5 @@
 publication:
   title: "{index}. {name}"
-  new: "Neue Publikation"
   published: "Freigegeben"
   draft: "Entwurf"
   canceled: "Abgebrochen"
@@ -9,6 +8,10 @@ publication:
   active: "Aktiv"
   future: "Anstehend"
   past: "Abgelaufen"
+
+  new:
+    public: "Neue Publikation"
+    neighbors: "Neue Nachbarschaftsorientierung"
 
   cancelConfirm:
     public: "Wollen Sie die Publikation wirklich abbrechen?"

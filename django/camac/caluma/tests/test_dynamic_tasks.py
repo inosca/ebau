@@ -1230,10 +1230,21 @@ def test_after_check_gwr_relevancy(
 
 
 @pytest.mark.parametrize(
-    "publication_required,expected_tasks",
+    "publication_required,information_of_neighbors_required,expected_tasks",
     [
-        (False, []),
-        (True, ["publication", "fill-publication"]),
+        (False, False, []),
+        (True, False, ["publication", "fill-publication"]),
+        (False, True, ["information-of-neighbors", "fill-information-of-neighbors"]),
+        (
+            True,
+            True,
+            [
+                "publication",
+                "fill-publication",
+                "information-of-neighbors",
+                "fill-information-of-neighbors",
+            ],
+        ),
     ],
 )
 def test_dynamic_task_maybe_publication(
@@ -1243,6 +1254,7 @@ def test_dynamic_task_maybe_publication(
     caluma_admin_user,
     caluma_work_item_factory,
     expected_tasks,
+    information_of_neighbors_required,
     master_data_is_visible_mock,
     publication_required,
     utils,
@@ -1256,6 +1268,11 @@ def test_dynamic_task_maybe_publication(
         formal_exam.document,
         "vorlaeufige-pruefung-publikation",
         f"vorlaeufige-pruefung-publikation-{yes_no(publication_required, 'de')}",
+    )
+    utils.add_answer(
+        formal_exam.document,
+        "vorlaeufige-pruefung-auswaertige-anstoesser",
+        f"vorlaeufige-pruefung-auswaertige-anstoesser-{yes_no(information_of_neighbors_required, 'de')}",
     )
 
     tasks = CustomDynamicTasks().resolve_maybe_publication(

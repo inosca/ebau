@@ -69,6 +69,30 @@ mutation CreateFlowAfterCreatePublication {
   }
 }
 
+mutation CreateFlowAfterFillInformationOfNeighbors {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["fill-information-of-neighbors"]
+      next: "[\"create-information-of-neighbors\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterCreateInformationOfNeighbors {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["create-information-of-neighbors"]
+      next: "[\"fill-information-of-neighbors\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CreateFlowAfterDistribution {
   addWorkflowFlow(
     input: {

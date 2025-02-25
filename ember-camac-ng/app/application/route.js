@@ -11,6 +11,7 @@ import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-statu
 import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import MilestoneValuesComponent from "ember-ebau-core/components/milestone-values";
+import QrCodeComponent from "ember-ebau-core/components/qr-code";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 import mainConfig from "ember-ebau-core/config/main";
 import UIkit from "uikit";
@@ -20,7 +21,6 @@ import CfCollapsibleTextareaComponent from "camac-ng/components/cf-collapsible-t
 import CfDownloadPdfComponent from "camac-ng/components/cf-download-pdf";
 import CfSnippetsTextComponent from "camac-ng/components/cf-snippets-text";
 import CfSnippetsTextareaComponent from "camac-ng/components/cf-snippets-textarea";
-import QrCodeComponent from "camac-ng/components/qr-code";
 import SuggestEbauNumberComponent from "camac-ng/components/suggest-ebau-number";
 
 export default class ApplicationRoute extends Route {

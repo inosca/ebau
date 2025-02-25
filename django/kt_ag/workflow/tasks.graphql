@@ -80,6 +80,46 @@ mutation CreateNewPublicationTask {
   }
 }
 
+mutation CreateInformationOfNeighborsTask {
+  saveSimpleTask(
+    input: {
+      slug: "information-of-neighbors"
+      name: "Information auswärtige Anstösser"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 604800 # 7 days
+      meta: "{\"is-manually-completable\":true,\"directLink\":{\"route\":\"cases.detail.publication\",\"models\":[\"INSTANCE_ID\",\"neighbors\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFillInformationOfNeighborsTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "fill-information-of-neighbors"
+      name: "Information auswärtige Anstösser ausfüllen"
+      form: "nachbarschaftsorientierung"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateNewInformationOfNeighborsTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-information-of-neighbors"
+      name: "Neue Information auswärtige Anstösser erstellen"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CreateCantonalExamTask {
   saveCompleteTaskFormTask(
     input: {

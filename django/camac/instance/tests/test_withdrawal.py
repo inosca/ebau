@@ -11,7 +11,7 @@ from camac.core.models import HistoryActionConfig
 
 
 @pytest.fixture
-def publications(so_instance, so_publication_settings, utils, caluma_work_item_factory):
+def publications(so_instance, so_publication_settings, create_caluma_publication):
     work_items = []
 
     for start, end in [
@@ -19,25 +19,14 @@ def publications(so_instance, so_publication_settings, utils, caluma_work_item_f
         (date(2024, 4, 10), date(2024, 4, 20)),  # active
         (date(2024, 4, 20), date(2024, 4, 30)),  # future
     ]:
-        work_item = caluma_work_item_factory(
-            task_id=so_publication_settings["FILL_TASKS"][0],
-            status=WorkItem.STATUS_COMPLETED,
-            case=so_instance.case,
-            meta={"is-published": True},
+        work_items.append(
+            create_caluma_publication(
+                so_instance,
+                start,
+                end,
+                canton="so",
+            )
         )
-
-        utils.add_answer(
-            work_item.document,
-            so_publication_settings["RANGE_QUESTIONS"][0][0],
-            start,
-        )
-        utils.add_answer(
-            work_item.document,
-            so_publication_settings["RANGE_QUESTIONS"][0][1],
-            end,
-        )
-
-        work_items.append(work_item)
 
     return work_items
 
@@ -148,6 +137,6 @@ def test_withdraw_instance(
         active_publication.refresh_from_db()
         future_publication.refresh_from_db()
 
-        assert past_publication.meta["is-published"]
-        assert not active_publication.meta["is-published"]
-        assert not future_publication.meta["is-published"]
+        assert past_publication.meta["is-published"] is True
+        assert active_publication.meta["is-published"] is False
+        assert future_publication.meta["is-published"] is False

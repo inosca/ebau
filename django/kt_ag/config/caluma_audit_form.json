@@ -55,6 +55,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-pruefung-formelle-vorpruefung.vorlaeufige-pruefung-auswaertige-anstoesser",
+    "fields": {
+      "created_at": "2025-02-26T10:57:28.533Z",
+      "modified_at": "2025-02-26T10:57:28.533Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-pruefung-formelle-vorpruefung",
+      "question": "vorlaeufige-pruefung-auswaertige-anstoesser",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorlaeufige-pruefung-formelle-vorpruefung.vorlaeufige-pruefung-begruendung-fehlende-unterlagen",
     "fields": {
       "created_at": "2025-01-16T10:02:48.687Z",
@@ -155,7 +170,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-kantonale-zustimmung",
-      "sort": 15
+      "sort": 14
     }
   },
   {
@@ -245,7 +260,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-publikation",
-      "sort": 14
+      "sort": 13
     }
   },
   {
@@ -260,7 +275,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-verfahrensart",
-      "sort": 16
+      "sort": 15
     }
   },
   {
@@ -955,6 +970,40 @@
     "fields": {
       "created_at": "2025-01-16T10:18:02.495Z",
       "modified_at": "2025-01-16T10:18:02.495Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorlaeufige-pruefung-auswaertige-anstoesser-ja",
+    "fields": {
+      "created_at": "2025-02-26T10:57:28.378Z",
+      "modified_at": "2025-02-26T10:57:28.378Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorlaeufige-pruefung-auswaertige-anstoesser-nein",
+    "fields": {
+      "created_at": "2025-02-26T10:57:28.384Z",
+      "modified_at": "2025-02-26T10:57:28.384Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -2102,6 +2151,37 @@
       "label": "{\"de\": \"Ausn\\u00fctzungsziffer Projekt korrekt\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorlaeufige-pruefung-auswaertige-anstoesser",
+    "fields": {
+      "created_at": "2025-02-26T10:57:28.469Z",
+      "modified_at": "2025-02-26T10:57:28.469Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grenzt das Bauvorhaben an Grundst\\u00fccke, deren Eigent\\u00fcmer/innen nicht in der Gemeinde wohnen oder ihnen Sitz in der Gemeinde haben (ausw\\u00e4rtige Anst\\u00f6sser)?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -3376,6 +3456,36 @@
       "modified_by_group": null,
       "question": "vorlaeufige-pruefung-ausnuetzungsziffer-projekt-korrekt",
       "option": "vorlaeufige-pruefung-ausnuetzungsziffer-projekt-korrekt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorlaeufige-pruefung-auswaertige-anstoesser.vorlaeufige-pruefung-auswaertige-anstoesser-ja",
+    "fields": {
+      "created_at": "2025-02-26T10:57:28.480Z",
+      "modified_at": "2025-02-26T10:57:28.480Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorlaeufige-pruefung-auswaertige-anstoesser",
+      "option": "vorlaeufige-pruefung-auswaertige-anstoesser-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorlaeufige-pruefung-auswaertige-anstoesser.vorlaeufige-pruefung-auswaertige-anstoesser-nein",
+    "fields": {
+      "created_at": "2025-02-26T10:57:28.476Z",
+      "modified_at": "2025-02-26T10:57:28.476Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorlaeufige-pruefung-auswaertige-anstoesser",
+      "option": "vorlaeufige-pruefung-auswaertige-anstoesser-nein",
       "sort": 1
     }
   },

@@ -1,0 +1,15 @@
+publication:
+  new:
+    neighbors: "Neue Information auswärtige Anstösser"
+
+  cancelConfirm:
+    neighbors: "Wollen Sie die Information auswärtige Anstösser wirklich abbrechen?"
+
+  empty:
+    neighbors: "Es wurden keine Information auswärtige Anstösser durchgeführt."
+
+  info:
+    unpublished:
+      neighbors: "Die Information auswärtige Anstösser muss freigegeben werden, damit der QR-Code sowie der Direktlink funktioniert und versendet werden kann."
+    canceled:
+      neighbors: "Die Information auswärtige Anstösser wurde abgebrochen. QR-Code und Direktlink funktionieren nicht mehr."

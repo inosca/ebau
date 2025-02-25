@@ -22,14 +22,14 @@ def get_active_and_future_publications(instance: Instance) -> QuerySet[WorkItem]
     work_items = WorkItem.objects.filter(
         **{
             "case": instance.case,
-            "task_id__in": settings.PUBLICATION["FILL_TASKS"],
+            "task_id": settings.PUBLICATION["FILL_TASKS"]["PUBLIC"],
             "meta__is-published": True,
             "status": WorkItem.STATUS_COMPLETED,
         }
     )
 
     range_filters = Q()
-    for _, end_question in settings.PUBLICATION.get("RANGE_QUESTIONS"):
+    for _, end_question in settings.PUBLICATION["RANGE_QUESTIONS"]["PUBLIC"]:
         # return all publication work items that have an end date in the future
         # as we need to cancel them. Those are either currently active or will
         # be active in the future.

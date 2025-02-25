@@ -18,41 +18,6 @@ from camac.core.models import PublicationEntry
 from camac.document import permissions
 
 
-@pytest.fixture
-def create_caluma_publication(db, caluma_publication, publication_settings):
-    publication_settings["BACKEND"] = "caluma"
-
-    def wrapper(
-        instance,
-        start=timezone.now() - timedelta(days=1),
-        end=timezone.now() + timedelta(days=12),
-        published=True,
-    ):
-        publication_document = DocumentFactory()
-        AnswerFactory(
-            document=publication_document,
-            question_id=publication_settings["RANGE_QUESTIONS"][0][0],
-            date=start,
-        )
-        AnswerFactory(
-            document=publication_document,
-            question_id=publication_settings["RANGE_QUESTIONS"][0][1],
-            date=end,
-        )
-        WorkItemFactory(
-            task_id="fill-publication",
-            status="completed",
-            document=publication_document,
-            case=instance.case,
-            closed_by_user="admin",
-            meta={"is-published": published},
-        )
-
-        return publication_document
-
-    return wrapper
-
-
 def test_public_caluma_instance_disabled(settings, admin_client):
     # "demo" is not configured in camac.user.permissions.PublicationPermission
     settings.APPLICATION_NAME = "demo"
@@ -612,12 +577,10 @@ def test_public_caluma_instance_form_type_filter(
 
 def test_information_of_neighbors_instance_be(
     db,
-    publication_settings,
     client,
     be_instance,
+    create_caluma_publication,
 ):
-    publication_settings["BACKEND"] = "caluma"
-
     be_instance.case.meta["ebau-number"] = "2021-55"
     be_instance.case.save()
 
@@ -633,23 +596,8 @@ def test_information_of_neighbors_instance_be(
         question_id="gemeinde",
     )
 
-    document = DocumentFactory()
-    AnswerFactory(
-        document=document,
-        question__slug="information-of-neighbors-start-date",
-        date=timezone.now().date() - timedelta(days=1),
-    )
-    AnswerFactory(
-        document=document,
-        question__slug="information-of-neighbors-end-date",
-        date=timezone.now().date() + timedelta(days=1),
-    )
-    WorkItemFactory(
-        task_id="information-of-neighbors",
-        status="completed",
-        document=document,
-        case=be_instance.case,
-        meta={"is-published": True},
+    information_of_neighbors = create_caluma_publication(
+        be_instance, publication_type="NEIGHBORS"
     )
 
     url = reverse("public-caluma-instance-list")
@@ -658,7 +606,7 @@ def test_information_of_neighbors_instance_be(
         url,
         {"instance": be_instance.pk},
         HTTP_X_CAMAC_PUBLIC_ACCESS=True,
-        HTTP_X_CAMAC_PUBLIC_ACCESS_KEY=str(document.pk)[:7],
+        HTTP_X_CAMAC_PUBLIC_ACCESS_KEY=str(information_of_neighbors.document.pk)[:7],
     )
 
     assert response.status_code == status.HTTP_200_OK

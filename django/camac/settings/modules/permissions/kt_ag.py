@@ -65,6 +65,9 @@ MODULE_DMS_GENERATE = STATES_ALL & ROLES_NO_READONLY
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL | RequireInstanceState(["correction"])
 MODULE_HISTORY = STATES_ALL
+MODULE_INFORMATION_OF_NEIGHBORS = NO_CORRECTION & RequireWorkItem(
+    "fill-information-of-neighbors"
+)
 MODULE_JOURNAL = STATES_ALL
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_BILLING = STATES_ALL & ROLES_NO_READONLY
@@ -168,6 +171,7 @@ AG_PERMISSIONS_SETTINGS = {
                 | (RequireInstanceState(["correction"]) & ROLES_MUNICIPALITY),
             ),
             ("history-read", MODULE_HISTORY),
+            ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS),
             ("journal-read", MODULE_JOURNAL),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("permissions-grant-read", MODULE_PERMISSIONS),

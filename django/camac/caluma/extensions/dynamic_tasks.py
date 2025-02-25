@@ -579,4 +579,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if md.publication_required:
             tasks.extend(["publication", "fill-publication"])
 
+        if md.information_of_neighbors_required:
+            tasks.extend(["information-of-neighbors", "fill-information-of-neighbors"])
+
         return tasks

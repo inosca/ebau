@@ -17,9 +17,6 @@ from django.utils.timezone import make_aware
 from pytest_lazy_fixtures import lf
 
 from camac.caluma.extensions.visibilities import CustomVisibility, CustomVisibilitySZ
-from camac.instance.tests.test_instance_public import (  # noqa: F401
-    create_caluma_publication,
-)
 from camac.user.models import User
 
 
@@ -862,12 +859,12 @@ def test_public_document_visibility(
     admin_user,
     caluma_answer_factory,
     applicant_factory,
-    publication_settings,
+    be_publication_settings,
     settings,
     be_instance,
     caluma_admin_public_schema_executor,
     caluma_admin_schema_executor,
-    create_caluma_publication,  # noqa: F811
+    create_caluma_publication,
     expected_answers,
     gql,
     is_public_user,
@@ -881,7 +878,7 @@ def test_public_document_visibility(
     scrubbed_answers = caluma_answer_factory.create_batch(3, document=document)
     scrubbed_questions = [answer.question_id for answer in scrubbed_answers]
 
-    publication_settings["SCRUBBED_ANSWERS"] = scrubbed_questions
+    be_publication_settings["SCRUBBED_ANSWERS"] = scrubbed_questions
 
     executor = (
         caluma_admin_public_schema_executor
@@ -912,7 +909,7 @@ def test_publication_visibility(
     db,
     be_instance,
     caluma_admin_public_schema_executor,
-    create_caluma_publication,  # noqa: F811
+    create_caluma_publication,
     caluma_work_item_factory,
     caluma_document_factory,
     gql,

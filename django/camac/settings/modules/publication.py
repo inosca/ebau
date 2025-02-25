@@ -1,8 +1,14 @@
 PUBLICATION = {
     "default": {
         "BACKEND": "caluma",
-        "RANGE_QUESTIONS": [("publikation-startdatum", "publikation-ablaufdatum")],
-        "FILL_TASKS": ["fill-publication"],
+        "RANGE_QUESTIONS": {
+            "PUBLIC": [],
+            "NEIGHBORS": [],
+        },
+        "FILL_TASKS": {
+            "PUBLIC": "fill-publication",
+            "NEIGHBORS": "fill-information-of-neighbors",
+        },
     },
     "test": {
         "ENABLED": True,
@@ -14,7 +20,16 @@ PUBLICATION = {
     },
     "kt_bern": {
         "ENABLED": True,
-        "FILL_TASKS": ["fill-publication", "information-of-neighbors"],
+        "FILL_TASKS": {"NEIGHBORS": "information-of-neighbors"},
+        "RANGE_QUESTIONS": {
+            "PUBLIC": [("publikation-startdatum", "publikation-ablaufdatum")],
+            "NEIGHBORS": [
+                (
+                    "information-of-neighbors-start-date",
+                    "information-of-neighbors-end-date",
+                )
+            ],
+        },
         "SCRUBBED_ANSWERS": [
             "e-mail-energie",
             "e-mail-gastgewerbe",
@@ -44,16 +59,18 @@ PUBLICATION = {
     "kt_gr": {
         "ENABLED": True,
         "USE_CALCULATED_DATES": True,
-        "RANGE_QUESTIONS": [
-            (
-                "beginn-publikationsorgan-gemeinde",
-                "ende-publikationsorgan-gemeinde",
-            ),
-            (
-                "beginn-publikation-kantonsamtsblatt",
-                "ende-publikation-kantonsamtsblatt",
-            ),
-        ],
+        "RANGE_QUESTIONS": {
+            "PUBLIC": [
+                (
+                    "beginn-publikationsorgan-gemeinde",
+                    "ende-publikationsorgan-gemeinde",
+                ),
+                (
+                    "beginn-publikation-kantonsamtsblatt",
+                    "ende-publikation-kantonsamtsblatt",
+                ),
+            ]
+        },
         "PUBLISH_QUESTION": "oeffentliche-auflage",
         "PUBLISH_ANSWER": ["oeffentliche-auflage-ja"],
         "SCRUBBED_ANSWERS": [
@@ -68,7 +85,9 @@ PUBLICATION = {
     },
     "kt_so": {
         "ENABLED": True,
-        "RANGE_QUESTIONS": [("publikation-start", "publikation-ende")],
+        "RANGE_QUESTIONS": {
+            "PUBLIC": [("publikation-start", "publikation-ende")],
+        },
         "SCRUBBED_ANSWERS": [
             "e-mail",
             "vertretung-e-mail",
@@ -87,16 +106,21 @@ PUBLICATION = {
     },
     "kt_ag": {
         "ENABLED": True,
-        "RANGE_QUESTIONS": [
-            (
-                "beginn-publikationsorgan-gemeinde",
-                "ende-publikationsorgan-gemeinde",
-            ),
-            (
-                "beginn-publikation-kantonsamtsblatt",
-                "ende-publikation-kantonsamtsblatt",
-            ),
-        ],
+        "RANGE_QUESTIONS": {
+            "PUBLIC": [
+                (
+                    "beginn-publikationsorgan-gemeinde",
+                    "ende-publikationsorgan-gemeinde",
+                ),
+                (
+                    "beginn-publikation-kantonsamtsblatt",
+                    "ende-publikation-kantonsamtsblatt",
+                ),
+            ],
+            "NEIGHBORS": [
+                ("nachbarschaftsorientierung-beginn", "nachbarschaftsorientierung-ende")
+            ],
+        },
         "PUBLISH_QUESTION": "oeffentliche-auflage",
         "PUBLISH_ANSWER": ["oeffentliche-auflage-ja"],
         "SCRUBBED_ANSWERS": [

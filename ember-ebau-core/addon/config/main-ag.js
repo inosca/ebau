@@ -92,6 +92,15 @@ export default {
         ],
       ],
     },
+    neighbors: {
+      task: "fill-information-of-neighbors",
+      dateRanges: [
+        [
+          "nachbarschaftsorientierung-beginn",
+          "nachbarschaftsorientierung-ende",
+        ],
+      ],
+    },
   },
   decision: {
     task: "decision",
