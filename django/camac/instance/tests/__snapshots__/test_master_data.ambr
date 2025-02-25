@@ -63,10 +63,6 @@
         'zip': 6996,
       }),
     ]),
-    'municipality': dict({
-      'label': 'Aarburg',
-      'slug': '55',
-    }),
     'municipality_name': 'Aarburg',
     'municipality_slug': '55',
     'plot_data': list([
@@ -201,10 +197,6 @@
     ]),
     'lifts': list([
     ]),
-    'municipality': dict({
-      'label': 'Bern',
-      'slug': '1',
-    }),
     'municipality_name': 'Bern',
     'municipality_slug': '1',
     'nature_risk': list([
@@ -413,10 +405,6 @@
     ]),
     'lifts': list([
     ]),
-    'municipality': dict({
-      'label': 'Berne',
-      'slug': '1',
-    }),
     'municipality_name': 'Berne',
     'municipality_slug': '1',
     'nature_risk': list([
@@ -728,10 +716,6 @@
     ]),
     'legal_representatives': list([
     ]),
-    'municipality': dict({
-      'label': 'Solothurn',
-      'slug': '1',
-    }),
     'municipality_name': 'Solothurn',
     'municipality_slug': '1',
     'nature_risk': list([
@@ -874,8 +858,8 @@
     ]),
     'legal_representatives': list([
     ]),
-    'municipality': 'South Carlos',
-    'municipality_name': 'South Carlos',
+    'municipality_name': 'Schübelbach',
+    'municipality_slug': 999,
     'nature_risk': None,
     'organization_category': 'ebausz',
     'plot_data': list([
@@ -979,8 +963,8 @@
     ]),
     'legal_representatives': list([
     ]),
-    'municipality': 'South Carlos',
-    'municipality_name': 'South Carlos',
+    'municipality_name': 'Schübelbach',
+    'municipality_slug': 999,
     'nature_risk': None,
     'organization_category': 'ebausz',
     'plot_data': list([
@@ -1089,10 +1073,6 @@
       'typ-des-verfahrens-genehmigung',
     ]),
     'leitbehoerde_internal_form': None,
-    'municipality': dict({
-      'label': 'Altdorf',
-      'slug': '1',
-    }),
     'municipality_name': 'Altdorf',
     'municipality_slug': '1',
     'oereb_topic': list([

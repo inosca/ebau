@@ -659,3 +659,17 @@ class MasterData(object):
             fields = settings.MASTER_DATA["CONFIG"].keys()
 
         return {key: getattr(self, key) for key in fields}
+
+    @staticmethod
+    def get_question_slug(property_name: str) -> str | List[str] | None:
+        config = get_dict_item(
+            settings.MASTER_DATA, f"CONFIG.{property_name}", default=None
+        )
+
+        if not config:
+            return None
+
+        if config[0] not in ["answer", "table", "ng_answer", "ng_table"]:
+            return None
+
+        return config[1]

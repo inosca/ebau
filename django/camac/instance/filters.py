@@ -42,6 +42,7 @@ from camac.filters import (
     NumberMultiValueFilter,
 )
 from camac.instance.export.filters import StringAggSubquery
+from camac.instance.master_data import MasterData
 
 from ..core import models as core_models
 from ..responsible import models as responsible_models
@@ -1016,7 +1017,7 @@ class PublicCalumaInstanceFilterSet(FilterSet):
     exclude_instance = NumberFilter(field_name="instance__pk", exclude=True)
 
     def filter_municipality(self, queryset, name, value):
-        municipality_question = settings.MASTER_DATA["CONFIG"]["municipality"][1]
+        municipality_question = MasterData.get_question_slug("municipality_slug")
 
         return queryset.filter(
             document__answers__question_id=municipality_question,

@@ -1085,7 +1085,7 @@ def test_disable_answer_visibility(
     md = MasterData(be_master_data_case)
     md.disable_answer_visibility = disable_answer_visibility
 
-    assert md.municipality
+    assert md.municipality_slug
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
@@ -1117,3 +1117,30 @@ def test_master_data_api(
 
     assert response.status_code == expected_status
     assert response.json() == snapshot
+
+
+@pytest.mark.parametrize(
+    "property_name,expected",
+    [
+        ("caluma_question", "caluma-question"),
+        ("caluma_table", "caluma-table"),
+        ("ng_question", "ng-question"),
+        ("ng_table", "ng-table"),
+        ("not_configured", None),
+        ("static", None),
+        ("case_meta", None),
+    ],
+)
+def test_get_question_slug(master_data_settings, property_name, expected):
+    master_data_settings["CONFIG"] = {
+        # Question properties
+        "caluma_question": ("answer", "caluma-question"),
+        "caluma_table": ("table", "caluma-table"),
+        "ng_question": ("ng_answer", "ng-question"),
+        "ng_table": ("ng_table", "ng-table"),
+        # Other properties
+        "static": ("static", "foo"),
+        "case_meta": ("case_meta", "bar"),
+    }
+
+    assert MasterData.get_question_slug(property_name) == expected

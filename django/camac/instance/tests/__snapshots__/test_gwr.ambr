@@ -96,7 +96,9 @@
         }),
       }),
     }),
-    'constructionLocalisation': None,
+    'constructionLocalisation': dict({
+      'municipalityName': 'Schübelbach',
+    }),
     'constructionProjectDescription': 'Grosses Haus',
     'officialConstructionProjectFileNo': None,
     'projectAnnouncementDate': None,
@@ -175,7 +177,9 @@
         }),
       }),
     }),
-    'constructionLocalisation': None,
+    'constructionLocalisation': dict({
+      'municipalityName': 'Schübelbach',
+    }),
     'constructionProjectDescription': 'Grosses Haus',
     'officialConstructionProjectFileNo': None,
     'projectAnnouncementDate': None,
