@@ -1663,6 +1663,18 @@ def ur_publication_settings(settings, request):
 
 
 @pytest.fixture
+def ag_publication_settings(settings, request):
+    """Module-specific settings for publication (canton AG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="publication",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def rejection_settings(settings, request):
     """Module-specific settings for rejection (default)."""
     return generate_module_settings(

@@ -21,4 +21,7 @@ export default {
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
   additionalDemands: true,
+  publication: {
+    form: true,
+  },
 };

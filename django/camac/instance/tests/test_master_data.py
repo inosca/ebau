@@ -763,6 +763,11 @@ def ag_master_data_case(
         "verfahrensart-ordentliches-verfahren",
         label="Ordentliches Verfahren",
     )
+    utils.add_answer(
+        exam.document,
+        "vorlaeufige-pruefung-publikation",
+        "vorlaeufige-pruefung-publikation-ja",
+    )
 
     # Decision
     decision = caluma_work_item_factory(task_id="decision", case=ag_instance.case)
