@@ -1,0 +1,13 @@
+query HasInquiries($serviceId: String!, $instanceId: GenericScalar!) {
+  allWorkItems(
+    filter: [
+      { status: SUSPENDED, invert: true }
+      { status: CANCELED, invert: true }
+      { task: "inquiry" }
+      { addressedGroups: [$serviceId] }
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+    ]
+  ) {
+    totalCount
+  }
+}
