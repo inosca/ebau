@@ -374,14 +374,17 @@ msgid "Invisible topic, cannot create or update message"
 msgstr ""
 
 #: camac/communications/serializers.py
+#: camac/document/serializers.py
 msgid "Missing Content-Type header"
 msgstr "Fehlender Content-Type Header"
 
 #: camac/communications/serializers.py
+#: camac/document/serializers.py
 msgid "Unknown file extension"
 msgstr "Unbekannte Dateiendung"
 
 #: camac/communications/serializers.py
+#: camac/document/serializers.py
 #, python-format
 msgid ""
 "Content-Type %(content_type)s does not match file extension %(extension)s."
@@ -390,6 +393,7 @@ msgstr ""
 "überein."
 
 #: camac/communications/serializers.py
+#: camac/document/serializers.py
 #, python-format
 msgid ""
 "Content-Type %(content_type)s does not match detected file content "
@@ -399,6 +403,7 @@ msgstr ""
 "%(file_content_type)s überein."
 
 #: camac/communications/serializers.py
+#: camac/document/serializers.py
 #, python-format
 msgid "File type %(mime_type)s is not allowed."
 msgstr "Dateityp %(mime_type)s ist nicht erlaubt."

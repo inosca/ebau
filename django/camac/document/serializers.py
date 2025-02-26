@@ -11,6 +11,7 @@ from manabi.util import from_string
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
+from camac.communications.serializers import validate_mime_type
 from camac.core import serializers as core_serializers
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
@@ -295,6 +296,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             )
 
             self._validate_file_infection(path)
+            validate_mime_type(path)
             self._validate_allowed_mime_types(attachment_sections, path.content_type)
             self._validate_file_size(path)
 
