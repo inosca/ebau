@@ -2615,11 +2615,7 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
         return request._master_data_cache[case.pk]
 
     def get_municipality(self, case):
-        municipality = self.get_master_data(case).municipality
-        if not municipality:
-            return None
-
-        return municipality.get("label") if "label" in municipality else municipality
+        return self.get_master_data(case).municipality_name
 
     def get_applicant(self, case):
         return clean_join(

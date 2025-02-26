@@ -851,8 +851,7 @@ def test_grant_municipality_access(
     applicant_factory(instance=instance, invitee=admin_user)
 
     mocker.patch(
-        "camac.instance.master_data.MasterData.__getattr__",
-        return_value={"slug": service.pk, "label": service.get_name()},
+        "camac.instance.master_data.MasterData.__getattr__", return_value=service.pk
     )
 
     access_level = access_level_factory(slug="municipality-before-submission")

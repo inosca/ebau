@@ -95,16 +95,13 @@ def get_header_labels():
     }
 
 
-def graceful_get(master_data, prop, key=None, default=None):
+def graceful_get(master_data, prop, default=None):
     if not get_dict_item(
         settings.MASTER_DATA, f"CONFIG.{prop}", default=False
     ):  # pragma: no cover
         return default
 
     value = getattr(master_data, prop, default)
-
-    if value and key:
-        return value.get(key)
 
     return value
 
@@ -142,7 +139,7 @@ class DMSHandler:
                 else None
             ),
             "dossierNr": graceful_get(master_data, "dossier_number"),
-            "municipality": graceful_get(master_data, "municipality", key="label"),
+            "municipality": graceful_get(master_data, "municipality_name"),
             "signatureSectionTitle": _("Signatures"),
             "signatureTitle": _("Signature"),
             "signatureMetadata": _("Place and date"),
@@ -208,9 +205,7 @@ class DMSHandler:
                 "projectAuthors": enrich_personal_data(
                     graceful_get(master_data, "project_authors")
                 ),
-                "municipalityHeader": graceful_get(
-                    master_data, "municipality", key="label"
-                ),
+                "municipalityHeader": graceful_get(master_data, "municipality_name"),
                 "tagHeader": get_header_tags(instance, service),
                 "authorityHeader": get_header_authority(instance),
                 "responsibleHeader": get_header_responsible(instance, service),

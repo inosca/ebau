@@ -143,8 +143,7 @@ class GwrSerializer(serializers.Serializer):
 
     @catch_and_log()
     def get_constructionLocalisation(self, case):
-        # TODO Configure this for SZ
-        return {"municipalityName": self.master_data.municipality.get("label")}
+        return {"municipalityName": self.master_data.municipality_name}
 
     @catch_and_log()
     def get_typeOfConstructionProject(self, case):

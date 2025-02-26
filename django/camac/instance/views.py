@@ -973,7 +973,7 @@ class InstanceView(
         manager = permissions_api.PermissionManager.from_request(request)
 
         if request.method == "POST":
-            municipality = MasterData(instance.case).municipality
+            municipality = MasterData(instance.case).municipality_slug
 
             if not municipality:  # pragma: no cover
                 raise ValidationError(_("Municipality must be set to grant access"))
@@ -981,7 +981,7 @@ class InstanceView(
             manager.grant(
                 instance=instance,
                 grant_type="SERVICE",
-                service=Service.objects.get(pk=municipality["slug"]),
+                service=Service.objects.get(pk=municipality),
                 access_level="municipality-before-submission",
                 event_name="manual-creation",
                 ends_at=timezone.now() + timedelta(hours=8),

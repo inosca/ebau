@@ -343,11 +343,8 @@ MASTER_DATA = {
                 "instance_property",
                 "identifier",
             ),  # eCH0211: 3.1.1.1.1, 3.1.1.1.2
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": ("instance_property", "location"),
             "municipality_name": ("instance_property", "location"),
+            "municipality_slug": ("instance_property", "location_id"),
             "nature_risk": ("static", None),
             "proposal": (
                 "ng_answer",
@@ -843,10 +840,6 @@ MASTER_DATA = {
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
             "construction_duration": ("answer", "dauer-in-monaten"),
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -1297,14 +1290,6 @@ MASTER_DATA = {
             "street_number": ("answer", "parcel-street-number"),
             "city": ("answer", "parcel-city"),
             "dossier_number": ("case_meta", "dossier-number"),
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": (
-                "answer",
-                "municipality",
-                {"value_parser": "dynamic_option"},
-            ),
             "municipality_name": (
                 "answer",
                 "municipality",
@@ -1772,10 +1757,6 @@ MASTER_DATA = {
             "street_number": ("answer", "nr"),
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -1998,10 +1979,6 @@ MASTER_DATA = {
             "zip": ("answer", "plz"),
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten"),
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -2324,10 +2301,6 @@ MASTER_DATA = {
             "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "strasse-nummer"),
             "city": ("answer", "ort"),
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -2832,10 +2805,6 @@ MASTER_DATA = {
                 "vertreterin-mit-vollmacht",
                 {"column_mapping": AG_PERSONAL_DATA_MAPPING},
             ),
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
                 "gemeinde",

@@ -23,6 +23,7 @@ from camac.core.utils import (
     generate_sort_key,
     generate_special_id,
 )
+from camac.instance.master_data import MasterData
 from camac.instance.models import Instance, InstanceGroup
 from camac.permissions.events import Trigger
 from camac.user.models import Service
@@ -401,14 +402,14 @@ class CreateInstanceLogic:
             # prefill municipality question if possible
             value = str(group.service.pk)
             source = Municipalities()
-            municipality_slug = settings.MASTER_DATA["CONFIG"]["municipality"][1]
+            municipality_question = MasterData.get_question_slug("municipality_slug")
 
             if source.validate_answer_value(
-                value, case.document, municipality_slug, None, None
+                value, case.document, municipality_question, None, None
             ):
                 caluma_api.update_or_create_answer(
                     case.document,
-                    municipality_slug,
+                    municipality_question,
                     value,
                     user,
                 )

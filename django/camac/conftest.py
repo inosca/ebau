@@ -1311,7 +1311,10 @@ def sz_person_factory(db, form_field_factory, faker):
 
 
 @pytest.fixture
-def sz_master_data_case(db, sz_instance, form_field_factory, workflow_entry_factory):
+def sz_master_data_case(db, sz_instance, form_field_factory, location_factory):
+    sz_instance.location = location_factory(pk=999, name="Schübelbach")
+    sz_instance.save()
+
     # Simple data
     form_field_factory(instance=sz_instance, name="bezeichnung", value="Grosses Haus")
     form_field_factory(instance=sz_instance, name="baukosten", value=129000)
