@@ -294,7 +294,7 @@
           required
           {{on "change" this.update}}
         >
-          {{#each (array "by_authority" "forwarded" "direct") as |type|}}
+          {{#each this.billingTypes as |type|}}
             <option
               value={{type}}
               selected={{eq this.newEntry.billingType type}}

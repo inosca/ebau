@@ -83,15 +83,27 @@ class BillingV2CommonEntry(models.Model):
     BILLING_TYPE_FORWARDED = "forwarded"
     # The creator of the entry sent an invoice directly to the applicant
     BILLING_TYPE_DIRECT = "direct"
+    BILLING_TYPE_CONSTRUCTION_OUTSIDE_ZONE = "construction_outside_zone"
+    BILLING_TYPE_CANTONAL_CONSTRUCTION_ADMINISTRATION = (
+        "cantonal_construction_administration"
+    )
     BILLING_TYPE_CHOICES = (
         (BILLING_TYPE_BY_AUTHORITY, "By authority"),
         (BILLING_TYPE_FORWARDED, "Forwarded"),
         (BILLING_TYPE_DIRECT, "Direct"),
+        (
+            BILLING_TYPE_CONSTRUCTION_OUTSIDE_ZONE,
+            "Cantonal invoice for construction outside of construction zone",
+        ),
+        (
+            BILLING_TYPE_CANTONAL_CONSTRUCTION_ADMINISTRATION,
+            "Cantonal invoice to cantonal construction administration",
+        ),
     )
 
     # Billing type: determine how the entry is being billed (e.g directly, or by the authority)
     billing_type = models.CharField(
-        choices=BILLING_TYPE_CHOICES, max_length=20, null=True, blank=True
+        choices=BILLING_TYPE_CHOICES, max_length=36, null=True, blank=True
     )
 
     class Meta:
