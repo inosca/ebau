@@ -525,6 +525,7 @@ module.exports = function (environment) {
       documents: {
         backend: "alexandria",
         excludeFromDocuments: [],
+        feedbackSections: ["alle-beteiligten"],
       },
       instanceStates: instanceStatesSo,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
