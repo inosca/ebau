@@ -6171,6 +6171,70 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 37,
+    "fields": {
+      "resource": 10,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 39,
+    "fields": {
+      "resource": 10,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 40,
+    "fields": {
+      "resource": 10,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 41,
+    "fields": {
+      "resource": 10,
+      "role": 9
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 42,
+    "fields": {
+      "resource": 10,
+      "role": 10
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 43,
+    "fields": {
+      "resource": 10,
+      "role": 12
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 44,
+    "fields": {
+      "resource": 11,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 45,
+    "fields": {
+      "resource": 12,
+      "role": 3
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -6275,6 +6339,45 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 10,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/dashboard/news.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 9
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 11,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/dashboard/portal-news.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 10
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 12,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/dashboard/news.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 11
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 1,
     "fields": {
@@ -6351,6 +6454,36 @@
       "resource": 9,
       "language": "de",
       "name": "Dokumentensuche",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 10,
+    "fields": {
+      "resource": 10,
+      "language": "de",
+      "name": "News",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 11,
+    "fields": {
+      "resource": 11,
+      "language": "de",
+      "name": "Portal News",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 12,
+    "fields": {
+      "resource": 12,
+      "language": "de",
+      "name": "Interne News",
       "description": null
     }
   }
