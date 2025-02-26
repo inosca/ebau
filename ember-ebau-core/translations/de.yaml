@@ -1,5 +1,6 @@
 global:
   delete: "Löschen"
+  reset: "Zurücksetzen"
   yes: "Ja"
   no: "Nein"
   loadingPrompt: "Lädt..."
