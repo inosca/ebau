@@ -2,7 +2,7 @@
   @loading={{this.publicInstance.isRunning}}
   @hasPermission={{this.publicInstance.value}}
 >
-  {{#if (has-feature "publication.form")}}
+  {{#if (has-feature "publication.showMainForm")}}
     <UkTab as |Tab|>
       <Tab.item
         @href={{concat "/public-instances/" @model "/form"}}

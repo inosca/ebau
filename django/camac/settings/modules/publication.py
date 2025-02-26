@@ -9,10 +9,12 @@ PUBLICATION = {
             "PUBLIC": "fill-publication",
             "NEIGHBORS": "fill-information-of-neighbors",
         },
+        "SHOW_MAIN_FORM": False,
     },
     "test": {
         "ENABLED": True,
         "BACKEND": "camac-ng",
+        "SHOW_MAIN_FORM": True,
     },
     "demo": {
         "ENABLED": True,
@@ -55,6 +57,7 @@ PUBLICATION = {
             "telefon-oder-mobile-vorabklaerungen",
             "telefon-oder-mobile-waermepumpen",
         ],
+        "SHOW_MAIN_FORM": True,
     },
     "kt_gr": {
         "ENABLED": True,
@@ -82,6 +85,7 @@ PUBLICATION = {
             "publication",
             "distribution",
         ],
+        "SHOW_MAIN_FORM": True,
     },
     "kt_so": {
         "ENABLED": True,
@@ -127,5 +131,6 @@ PUBLICATION = {
             "e-mail-gesuchstellerin",
             "telefon-oder-mobile-gesuchstellerin",
         ],
+        "SHOW_MAIN_FORM": True,
     },
 }

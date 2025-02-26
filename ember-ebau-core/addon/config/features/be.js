@@ -1,6 +1,6 @@
 export default {
   publication: {
-    form: true,
+    showMainForm: true,
     endDate: false,
     related: true,
     disableAuthentication: false,

@@ -3004,9 +3004,10 @@ def create_caluma_publication(db, caluma_work_item_factory, utils, request):
         end=now() + timedelta(days=12),
         published=True,
         publication_type="PUBLIC",
-        canton="be",
+        module_settings=None,
     ):
-        module_settings = request.getfixturevalue(f"{canton}_publication_settings")
+        if module_settings is None:
+            module_settings = request.getfixturevalue("be_publication_settings")
 
         work_item = caluma_work_item_factory(
             task_id=module_settings["FILL_TASKS"][publication_type],
