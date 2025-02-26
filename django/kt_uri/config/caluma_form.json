@@ -10590,6 +10590,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "open-gwr-construction-project.bemerkungen-gwr-projekt-eroeffnen",
+    "fields": {
+      "created_at": "2025-02-26T17:01:18.330Z",
+      "modified_at": "2025-02-26T17:01:18.330Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "open-gwr-construction-project",
+      "question": "bemerkungen-gwr-projekt-eroeffnen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "open-gwr-construction-project.complete-open-gwr-construction-project",
     "fields": {
       "created_at": "2024-12-12T10:08:18.971Z",
@@ -10605,17 +10620,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "open-gwr-construction-project.wurde-das-bauprojekt-im-gwr-eroeffnet",
+    "pk": "open-gwr-construction-project.wann-wurde-das-gwr-projekt-eroeffnet",
     "fields": {
-      "created_at": "2024-12-12T09:35:45.468Z",
-      "modified_at": "2024-12-12T09:35:45.468Z",
+      "created_at": "2025-02-26T17:00:43.527Z",
+      "modified_at": "2025-02-26T17:00:43.527Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "open-gwr-construction-project",
-      "question": "wurde-das-bauprojekt-im-gwr-eroeffnet",
-      "sort": 2
+      "question": "wann-wurde-das-gwr-projekt-eroeffnet",
+      "sort": 3
     }
   },
   {
@@ -34386,40 +34401,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "wurde-das-bauprojekt-im-gwr-eroeffnet-ja",
-    "fields": {
-      "created_at": "2024-12-12T09:35:59.023Z",
-      "modified_at": "2024-12-12T09:35:59.023Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "wurde-das-bauprojekt-im-gwr-eroeffnet-nein",
-    "fields": {
-      "created_at": "2024-12-12T09:35:59.032Z",
-      "modified_at": "2024-12-12T09:35:59.032Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "zeitaufwand-1",
     "fields": {
       "created_at": "2020-11-15T19:18:53.006Z",
@@ -40749,6 +40730,40 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"aktuelle -k\\u00fcnftige Nutzung\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-gwr-projekt-eroeffnen",
+    "fields": {
+      "created_at": "2025-02-26T17:01:18.199Z",
+      "modified_at": "2025-02-26T17:01:18.199Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -63655,6 +63670,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wann-wurde-das-gwr-projekt-eroeffnet",
+    "fields": {
+      "created_at": "2025-02-26T17:00:43.381Z",
+      "modified_at": "2025-02-26T17:00:43.381Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wann wurde das GWR Projekt er\\u00f6ffnet?\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "warum-online-einreichen",
     "fields": {
       "created_at": "2020-11-15T19:32:35.652Z",
@@ -80861,36 +80907,6 @@
       "modified_by_group": null,
       "question": "wird-eine-ausnahme-geltend-gemacht",
       "option": "wird-eine-ausnahme-geltend-gemacht-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "wurde-das-bauprojekt-im-gwr-eroeffnet.wurde-das-bauprojekt-im-gwr-eroeffnet-ja",
-    "fields": {
-      "created_at": "2024-12-12T09:35:59.222Z",
-      "modified_at": "2024-12-12T09:35:59.222Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "wurde-das-bauprojekt-im-gwr-eroeffnet",
-      "option": "wurde-das-bauprojekt-im-gwr-eroeffnet-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "wurde-das-bauprojekt-im-gwr-eroeffnet.wurde-das-bauprojekt-im-gwr-eroeffnet-nein",
-    "fields": {
-      "created_at": "2024-12-12T09:35:59.212Z",
-      "modified_at": "2024-12-12T09:35:59.212Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "wurde-das-bauprojekt-im-gwr-eroeffnet",
-      "option": "wurde-das-bauprojekt-im-gwr-eroeffnet-nein",
       "sort": 1
     }
   },

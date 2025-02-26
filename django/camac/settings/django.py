@@ -1432,8 +1432,44 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "8-gebaeudeabbruch",
+                            "template_slug": "6-21-gebaeudeabbruch",
                             "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-av-status-demolition": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-22-meldung-gebudeabbruch-av-pruefen",
+                            "recipient_types": ["municipality", "geometer-uri"],
+                        },
+                    }
+                ],
+                "construction-step-gwr-status-demolition": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-221-gwr-status-nachfuehren-gebudeabbruch",
+                            "recipient_types": ["municipality"],
+                        },
+                    }
+                ],
+                "construction-step-gwr-state-construction-start": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-222-gwr-status-nachfuehren-baubeginn",
+                            "recipient_types": ["municipality"],
+                        },
+                    }
+                ],
+                "construction-step-gwr-state-project": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-223-gwr-status-nachfuehren-bau-beendet",
+                            "recipient_types": ["municipality"],
                         },
                     }
                 ],
