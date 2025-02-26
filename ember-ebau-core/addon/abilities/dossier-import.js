@@ -51,8 +51,6 @@ export default class extends Ability {
   }
 
   get canDelete() {
-    return ["verified", "failed", "cleaned", "undone"].includes(
-      this.model?.status,
-    );
+    return ["verified", "failed", "undone"].includes(this.model?.status);
   }
 }
