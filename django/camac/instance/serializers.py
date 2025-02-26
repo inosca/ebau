@@ -1258,13 +1258,16 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _create_history_entry(self, text):
         create_history_entry(self.instance, self.context["request"].user, text)
 
-    def _send_notification(self, template_slug, recipient_types):
+    def _send_notification(self, template_slug, recipient_types, instance=None):
         """Send notification email."""
         send_mail(
             template_slug,
             self.context,
             recipient_types=recipient_types,
-            instance={"type": "instances", "id": self.instance.pk},
+            instance={
+                "type": "instances",
+                "id": instance.pk if instance else self.instance.pk,
+            },
         )
 
     def _set_submit_date(self, case, instance):
@@ -1601,6 +1604,12 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         for notification_config in settings.APPLICATION["NOTIFICATIONS"][
             notification_key
         ]:
+            if case.meta and case.meta.get("oereb_copy"):
+                self._send_notification(
+                    **settings.APPLICATION["NOTIFICATIONS"]["COPY_AFJ"],
+                    instance=case.instance,
+                )
+
             self._send_notification(**notification_config)
 
     def _ur_link_technische_bewilligung(self, instance):

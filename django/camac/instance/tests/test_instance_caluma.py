@@ -1243,6 +1243,11 @@ def test_oereb_instance_copy_for_koor_afj(
     disable_ech0211_settings,
     ur_master_data_case,
 ):
+    application_settings["NOTIFICATIONS"]["COPY_AFJ"] = {
+        "template_slug": notification_template.slug,
+        "recipient_types": ["municipality_users"],
+    }
+
     settings.APPLICATION_NAME = "kt_uri"  # can't use set_application_ur here because we already use ur_master_data_case (the two factories conflict with each other)
 
     ur_instance.form = form_factory(name="camac-form")
