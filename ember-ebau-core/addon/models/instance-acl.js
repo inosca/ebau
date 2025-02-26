@@ -81,15 +81,24 @@ export default class InstanceAclModel extends Model {
   }
 
   get status() {
-    if (DateTime.now() <= DateTime.fromISO(this.startTime)) {
-      return "scheduled";
-    } else if (
-      !this.endTime ||
-      DateTime.now() < DateTime.fromISO(this.endTime)
-    ) {
+    const now = DateTime.now();
+    const end = this.endTime ? DateTime.fromISO(this.endTime) : null;
+    const start = DateTime.fromISO(this.startTime);
+
+    if (end && now > end) {
+      // If the end date is set and in the past, the acl is expired.
+      // This includes acl's, which have been scheduled for the
+      // future but were prematurely cancelled.
+      return "expired";
+    } else if (start < now && (now < end || !end)) {
+      // Otherwise, if the start date is in the past and the end
+      // date is in the future if set, the acl is active.
       return "active";
     }
-    return "expired";
+    // Last, if none of the cases from before matched, it means
+    // that the end, if set, is in the future and the start is
+    // also in the future. Therefore, the acl is scheduled.
+    return "scheduled";
   }
 
   get entityName() {
