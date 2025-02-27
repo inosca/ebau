@@ -409,6 +409,33 @@
         </UkButton>
       {{/if}}
 
+      {{#if
+        (and
+          (has-feature "cases.downloadFormAsPdf")
+          (await
+            (can
+              "download form as pdf of instance" this.editController.instance
+            )
+          )
+        )
+      }}
+        <h3 class="instance-overview__action-title">
+          {{t "instances.downloadFormAsPdf"}}
+        </h3>
+        {{#if
+          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
+        }}
+          <p>
+            {{t "instances.downloadFormAsPdfText"}}
+          </p>
+        {{/if}}
+        <UkButton
+          @label={{t "instances.downloadFormAsPdf"}}
+          @disabled={{this.downloadFormAsPdf.isRunning}}
+          @loading={{this.downloadFormAsPdf.isRunning}}
+          @onClick={{perform this.downloadFormAsPdf}}
+        />
+      {{/if}}
     </div>
   </div>
 {{/if}}

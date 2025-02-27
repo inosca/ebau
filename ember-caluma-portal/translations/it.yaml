@@ -145,6 +145,8 @@ instances:
   activateFurtherPersonsText: "Nel menu «Diritti» è possibile autorizzare l'accesso affinché anche altre persone possano elaborare questo dossier."
   downloadReceipt: "Scarica la ricevuta"
   downloadReceiptText: "Qui è possibile scaricare di nuovo la ricevuta."
+  downloadFormAsPdf: "Scarica il modulo"
+  downloadFormAsPdfText: "Qui è possibile scaricare di nuovo il modulo."
   managePermissions: "Amministra i diritti"
   furtherProcessingOfForm: "Continua l'elaborazione del modulo"
   furtherProcessingOfFormText: "Qui è possibile continuare l'elaborazione del modulo e procedere con l'inoltro."

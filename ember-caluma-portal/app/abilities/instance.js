@@ -166,6 +166,16 @@ export default class InstanceAbility extends Ability {
     );
   }
 
+  async canDownloadFormAsPdf() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(this.model?.id, [
+        "instance-download-form-as-pdf",
+      ]);
+    }
+
+    return false;
+  }
+
   async canDelete() {
     if (this.permissions.fullyEnabled) {
       return await this.permissions.hasAll(this.model?.id, "instance-delete");

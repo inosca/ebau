@@ -148,6 +148,8 @@ instances:
   activateFurtherPersonsText: "Dans le menu Autorisations, vous pouvez permettre à d'autres personnes de modifier ce dossier."
   downloadReceipt: ""
   downloadReceiptText: ""
+  downloadFormAsPdf: ""
+  downloadFormAsPdfText: ""
   managePermissions: "Gérer les autorisations"
   furtherProcessingOfForm: "Modifier le formulaire"
   furtherProcessingOfFormText: "Votre formulaire peut être modifié et envoyé ici."

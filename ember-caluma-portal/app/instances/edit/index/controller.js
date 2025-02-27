@@ -1,7 +1,7 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { service } from "@ember/service";
 import { macroCondition, getOwnConfig } from "@embroider/macros";
-import { dropTask } from "ember-concurrency";
+import { dropTask, task } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
 import { confirm } from "ember-uikit";
 
@@ -128,6 +128,15 @@ export default class InstancesEditIndexController extends Controller {
       this.notification.danger(this.intl.t("dms.downloadError"));
     }
   }
+
+  downloadFormAsPdf = task({ drop: true }, async () => {
+    try {
+      return await this.dms.generatePdf(this.editController.instance.id, {});
+    } catch (e) {
+      console.error(e);
+      this.notification.danger(this.intl.t("dms.downloadError"));
+    }
+  });
 
   @dropTask
   *createNewFormMessageBuildingServices() {
