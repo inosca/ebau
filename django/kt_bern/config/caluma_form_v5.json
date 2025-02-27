@@ -6897,7 +6897,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v5",
       "question": "1-allgemeine-informationen-v5",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -6942,7 +6942,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v5",
       "question": "bauwerk-v5",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -6972,7 +6972,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v5",
       "question": "grundstueck-v5",
-      "sort": 5
+      "sort": 6
     }
   },
   {
