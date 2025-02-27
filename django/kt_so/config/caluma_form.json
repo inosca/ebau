@@ -14611,6 +14611,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "personalien.personalien-meldung",
+    "fields": {
+      "created_at": "2025-02-27T08:08:24.172Z",
+      "modified_at": "2025-02-27T08:08:24.172Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "personalien-meldung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "personalien.personalien-titel",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -14621,7 +14636,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-titel",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -60348,6 +60363,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "personalien",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "personalien-meldung",
+    "fields": {
+      "created_at": "2025-02-27T08:08:24.109Z",
+      "modified_at": "2025-02-27T08:09:32.783Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personalien Meldung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Handelt es sich um mehrere Gesuchsteller/innen oder Grundeigent\\u00fcmer/innen, erfassen Sie bitte jede Person einzeln. Das gilt auch f\\u00fcr Ehepaare. Erfassen Sie in diesen F\\u00e4llen bitte nicht im Feld 'Vornamen' die beiden Vornamen, sondern zwei Personen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
