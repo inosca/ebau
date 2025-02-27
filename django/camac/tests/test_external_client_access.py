@@ -2,7 +2,10 @@ import pytest
 from django.conf import settings
 from django.urls import get_resolver
 from rest_framework import status
+from rest_framework.permissions import OperandHolder
 from rest_framework.test import APIClient
+
+from camac.user.permissions import IsAllowedClientToken
 
 CANTONS = [
     config["SHORT_NAME"]
@@ -30,7 +33,7 @@ def get_all_urls():
             # needed to test
             continue
 
-        urls.append((f"/{url}", args))
+        urls.append((f"/{url}", args, view.cls))
 
     return urls
 
@@ -62,7 +65,7 @@ def test_external_client_access(admin_user, snapshot, canton, request):
 
     allowed_urls = []
 
-    for url, arg_names in get_all_urls():
+    for url, arg_names, view in get_all_urls():
         args = {
             arg_name: instance.pk
             if arg_name == "instance_id"
@@ -76,5 +79,29 @@ def test_external_client_access(admin_user, snapshot, canton, request):
 
         if response.status_code != status.HTTP_403_FORBIDDEN:
             allowed_urls.append(url)
+        elif response.headers.get("Content-Type") == "application/vnd.api+json":
+            received_code = response.json()["errors"][0]["code"]
+            expected_code = IsAllowedClientToken.code
+
+            # Custom codes don't work as soon as permissions are combined with
+            # bitwise operators. We use this for views that are open for the
+            # publication so those views won't provide the same level of
+            # information.
+            #
+            # Sadly, all PRs trying to fix this were closed without any documented reason:
+            # - https://github.com/encode/django-rest-framework/pull/9649
+            # - https://github.com/encode/django-rest-framework/pull/6499
+            # - https://github.com/encode/django-rest-framework/pull/6502
+            if received_code != expected_code and any(
+                [
+                    isinstance(permission_cls, OperandHolder)
+                    for permission_cls in view.permission_classes
+                ]
+            ):
+                continue
+
+            assert received_code == expected_code, (
+                f'{url}: Expected error code "{expected_code}" but got "{received_code}"'
+            )
 
     assert sorted(allowed_urls) == snapshot

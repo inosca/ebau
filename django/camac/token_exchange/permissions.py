@@ -44,5 +44,7 @@ def has_required_lot(request):
 
 
 class RequireLoT(BasePermission):
+    code = "insufficient_lot"
+
     def has_permission(self, request, view):
         return has_required_lot(request)
