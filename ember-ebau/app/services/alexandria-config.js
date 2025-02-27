@@ -41,7 +41,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   }
 
   get activeGroup() {
-    return this.session.service.id;
+    return this.session.service?.id;
   }
   set activeGroup(_) {
     // we do not need the setter
