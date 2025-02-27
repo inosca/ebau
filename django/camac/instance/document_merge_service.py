@@ -5,6 +5,9 @@ from os.path import splitext
 
 import requests
 from alexandria.core import models as alexandria_models
+from alexandria.core.models import (
+    File as AlexandriaFile,
+)
 from caluma.caluma_form.models import Document, Question
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from django.conf import settings
@@ -115,6 +118,18 @@ class DMSHandler:
 
         if municipality and municipality.logo:
             files.append(("files", ("municipality_logo", municipality.logo.file.file)))
+
+        situationsplan_file = self._get_situationsplan(instance)
+        if situationsplan_file:
+            files.append(
+                (
+                    "files",
+                    (
+                        "situationsplan",
+                        situationsplan_file.content.file,
+                    ),
+                )
+            )
 
         return files
 
@@ -410,6 +425,21 @@ class DMSHandler:
         _file.content_type = "application/pdf"
 
         return _file
+
+    def _get_situationsplan(self, instance):
+        if settings.APPLICATION_NAME != "kt_gr":
+            return
+
+        return (
+            AlexandriaFile.objects.filter(
+                document__instance_document__instance=instance,
+                document__category_id="system",
+                document__metainfo__contains={"situationsplan": "true"},
+                variant=AlexandriaFile.Variant.ORIGINAL,
+            )
+            .order_by("-created_at")
+            .first()
+        )
 
 
 class DMSClient:

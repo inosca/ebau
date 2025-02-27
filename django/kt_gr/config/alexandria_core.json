@@ -1951,6 +1951,65 @@
   },
   {
     "model": "alexandria_core.category",
+    "pk": "system",
+    "fields": {
+      "created_at": "2024-02-11T09:51:00.010Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-02-11T09:51:00.010Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 8,
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Situationsplan\", \"fr\": \"\", \"it\": \"Piano della situazione\"}",
+      "description": "{\"de\": \"Hier werden Systemdokumente hochgeladen.\", \"fr\": \"\", \"it\": \"Qui vengono caricati documenti di sistema.\"}",
+      "allowed_mime_types": "[\"image/png\"]",
+      "color": "#CCCCCC",
+      "parent": null,
+      "sort": null
+    }
+  },
+  {
+    "model": "alexandria_core.category",
     "pk": "umweltschutzorganisationen",
     "fields": {
       "created_at": "2020-08-04T13:24:00.690Z",

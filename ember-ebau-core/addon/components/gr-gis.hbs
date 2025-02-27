@@ -125,6 +125,7 @@
           @disabled={{not this.markers}}
           @params={{hash query=this.query form=this.rootForm}}
           @instanceId={{@context.instanceId}}
+          @onGetData={{this.onSelection}}
         />
       </div>
     {{/unless}}
