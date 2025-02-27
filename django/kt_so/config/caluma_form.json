@@ -35596,7 +35596,7 @@
     "pk": "anleitung",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-01-04T15:30:13.365Z",
+      "modified_at": "2025-02-27T13:28:44.702Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -35609,7 +35609,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"## Allgemeine Informationen\\n\\nSie k\\u00f6nnen jederzeit und von Beginn an von einem Thema zum anderen wechseln. Ihre Eingaben werden fortlaufend gespeichert. **Das hat den Vorteil, dass Sie die Formulare in beliebiger Reihenfolge \\u00fcber einen beliebigen Zeitraum ausf\\u00fcllen k\\u00f6nnen.** Das System zeigt Ihnen ganz zum Schluss an, welche Pflichtfelder noch ausgef\\u00fcllt werden m\\u00fcssen, damit sie das Gesuch einreichen k\\u00f6nnen.\\n\\nIm Infotext rechts finden Sie eine kurze Anleitung zu den wichtigsten Schritten die beim Ausf\\u00fcllen der Formulare zu beachten sind.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"## Wichtige Informationen f\\u00fcr das digitale Bewilligungsverfahren mit eBau\\n\\nSie k\\u00f6nnen jederzeit und von Beginn an von einem Thema zum anderen wechseln. Ihre Eingaben werden fortlaufend gespeichert. Das hat den Vorteil, dass Sie die Formulare in beliebiger Reihenfolge \\u00fcber einen beliebigen Zeitraum ausf\\u00fcllen k\\u00f6nnen. Das System zeigt Ihnen ganz zum Schluss an, welche Pflichtfelder noch ausgef\\u00fcllt werden m\\u00fcssen, damit Sie das Gesuch einreichen k\\u00f6nnen.\\n\\nWenn Sie wollen, dass neben Ihnen weitere Personen f\\u00fcr Ihr Dossier berechtigt werden sollen, berechtigen Sie diese Personen \\u00fcber \\u2018Weitere Personen f\\u00fcr dieses Dossier freischalten\\u2019.\\neBau wird Ihnen immer dann eine E-Mail zusenden, wenn die Gemeinde eine neue Informationen im eBau Online-Schalter bereitgestellt hat. Sie brauchen also nicht vorsorglich Ihr Dossier besuchen, um nichts zu vers\\u00e4umen, sondern k\\u00f6nnen auf diese Benachrichtigungen warten.\\n\\nDiese E-Mails werden an alle Personen versendet, die f\\u00fcr Ihr Dossier berechtigt sind. Das sind nicht unbedingt die Personen, die Sie unter Personalien erfassen werden. Wenn Sie wollen, dass neben Ihnen weitere Personen per E-Mail benachrichtigt werden sollen, berechtigen Sie diese Personen \\u00fcber \\u2018Weitere Personen f\\u00fcr dieses Dossier freischalten\\u2019.\\n\\nMit diesem Link [https://so.ch/verwaltung/bau-und-justizdepartement/departementssekretariat/projekt-elektronisches-baubewilligungsverfahren-ebauso/kurzanleitungen-ebau-portal/](https://so.ch/verwaltung/bau-und-justizdepartement/departementssekretariat/projekt-elektronisches-baubewilligungsverfahren-ebauso/kurzanleitungen-ebau-portal/) finden Sie alle Kurzanleitungen f\\u00fcr das Digitale Baubewilligungsverfahren mit eBau.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
