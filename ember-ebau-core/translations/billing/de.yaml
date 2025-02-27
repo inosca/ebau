@@ -20,6 +20,7 @@ billing:
   hours: Stunden
   hourly-rate: Stundensatz (CHF)
   tax-mode: Mehrwertsteuer
+  tax-mode-billing-type-info: Beim Bauen ausserhalb der Bauzone und bei kantonaler Baubehörde ist immer die Option "nicht MwSt. pflichtig" zu wählen.
   percentage: Anteil (%) ...
   of-amount: ... an Gesamtkosten (CHF)
   add: Gebühr hinzufügen

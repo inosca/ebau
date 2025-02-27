@@ -230,7 +230,7 @@
       {{t "billing.tax-mode"}}
       <span class="uk-text-danger">*</span>
     </label>
-    <div class="uk-form-controls">
+    <div class="uk-form-controls uk-flex">
       <select
         class="uk-select"
         name="tax-mode"
@@ -248,6 +248,9 @@
           >{{taxMode.label}}</option>
         {{/each}}
       </select>
+      {{#if (has-feature "billing.billingType")}}
+        <CfField::Info @text={{t "billing.tax-mode-billing-type-info"}} />
+      {{/if}}
     </div>
   </div>
 
