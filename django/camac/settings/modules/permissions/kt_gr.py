@@ -106,6 +106,7 @@ ACTION_INSTANCE_CREATE_MODIFICATION = (
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
+ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF = STATES_ALL | RequireInstanceState(["correction"])
 
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
@@ -141,6 +142,10 @@ GR_PERMISSIONS_SETTINGS = {
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
+            (
+                "instance-download-form-as-pdf",
+                ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF,
+            ),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
         ],
@@ -157,6 +162,10 @@ GR_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
+            (
+                "instance-download-form-as-pdf",
+                ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF,
+            ),
             ("journal-read", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
@@ -185,6 +194,10 @@ GR_PERMISSIONS_SETTINGS = {
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
+            (
+                "instance-download-form-as-pdf",
+                ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF,
+            ),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
             ("journal-read", MODULE_JOURNAL),
@@ -205,6 +218,10 @@ GR_PERMISSIONS_SETTINGS = {
             ("communications-read", MODULE_COMMUNICATIONS),
             ("documents-read", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
+            (
+                "instance-download-form-as-pdf",
+                ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF,
+            ),
         ],
         "support": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
@@ -222,6 +239,10 @@ GR_PERMISSIONS_SETTINGS = {
             ("legal-submissions-read", Always()),
             ("history-read", Always()),
             ("instance-delete", RequireInstanceState(["new"])),
+            (
+                "instance-download-form-as-pdf",
+                ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF,
+            ),
             ("permissions-read-any", Always()),
             ("permissions-read", Always()),
             ("publication-read", MODULE_PUBLICATION),
@@ -237,6 +258,10 @@ GR_PERMISSIONS_SETTINGS = {
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
+            (
+                "instance-download-form-as-pdf",
+                ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF,
+            ),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("work-items-read", MODULE_WORK_ITEMS),
         ],

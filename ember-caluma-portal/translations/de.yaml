@@ -145,6 +145,8 @@ instances:
   activateFurtherPersonsText: "Im Menü Berechtigungen können weitere Personen für die Bearbeitung dieses Dossiers freigeschalten werden."
   downloadReceipt: "Eingabequittung herunterladen"
   downloadReceiptText: "Hier können Sie die Eingabequittung erneut herunterladen."
+  downloadFormAsPdf: "Eingereichtes Formular herunterladen"
+  downloadFormAsPdfText: "Hier können Sie das eingereichte Formular herunterladen."
   managePermissions: "Berechtigungen verwalten"
   furtherProcessingOfForm: "Formular weiterbearbeiten"
   furtherProcessingOfFormText: "Hier kann ihr Formular weiter bearbeitet und eingereicht werden."

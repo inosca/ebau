@@ -15,6 +15,7 @@ export default {
   cases: {
     createPaper: true,
     exportExcel: false,
+    downloadFormAsPdf: true,
   },
   permissions: {
     applicantRoles: true,
