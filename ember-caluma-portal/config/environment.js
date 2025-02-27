@@ -244,6 +244,7 @@ module.exports = function (environment) {
           "skizze-der-reklame-mit-farbangaben-dokument-begruendung-v5",
           "nachweis-raumakustik-dokument-begruendung-v5",
           "kataster-werkleitungsplaene-dokument-begruendung-v5",
+          "kataster-werkleitungsplaene-meldung-dokument-begruendung",
           "situationsplan-grabflaeche-strassenterrainflaeche-dokument-begruendung-v5",
           "heat-generator-minergie-document-begruendung-v3",
           "heat-generator-geak-document-begruendung-v3",
