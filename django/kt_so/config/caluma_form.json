@@ -8156,7 +8156,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "formulardownload-pdf",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -8171,7 +8171,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-gesuch",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -8186,7 +8186,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-meldung",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -8201,7 +8201,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-meldung-pv",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -8216,7 +8216,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-voranfrage",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -8231,7 +8231,22 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "titel-einreichung",
-      "sort": 9
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.umfrage",
+    "fields": {
+      "created_at": "2025-02-27T10:08:31.172Z",
+      "modified_at": "2025-02-27T10:08:31.172Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "umfrage",
+      "sort": 2
     }
   },
   {
@@ -8246,7 +8261,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "unterschriftenblatt-hinweis",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -8261,7 +8276,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "unterschriftenblatt-pdf",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -64120,6 +64135,37 @@
       "meta": {
         "widgetOverride": "cf-field/input/number-separator"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "umfrage",
+    "fields": {
+      "created_at": "2025-02-27T10:08:31.111Z",
+      "modified_at": "2025-02-27T10:08:36.697Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umfrage\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n\\n####**Ihre Meinung ist uns wichtig**\\nWir w\\u00fcrden uns freuen, wenn Sie uns Ihre Meinung zu diesem Online-Dienst \\u00fcber unsere Umfrage mitteilen w\\u00fcrden. F\\u00fcr die Umfrage ben\\u00f6tigen Sie lediglich ein paar Minuten. Wenn Sie an der Umfrage teilnehmen m\\u00f6chten, dann klicken Sie bitte auf den folgenden Link.\\n\\nVielen Dank\\n\\n[**Zur Umfrage**](https://umbuzoo.de/d/67a310edc15cac3eb2b08398/de/)\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
