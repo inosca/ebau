@@ -10,6 +10,7 @@ PUBLICATION = {
             "NEIGHBORS": "fill-information-of-neighbors",
         },
         "SHOW_MAIN_FORM": False,
+        "NEIGHBORS_TABLE_QUESTION": None,
     },
     "test": {
         "ENABLED": True,
@@ -32,6 +33,7 @@ PUBLICATION = {
                 )
             ],
         },
+        "NEIGHBORS_TABLE_QUESTION": "information-of-neighbors-neighbors",
         "SCRUBBED_ANSWERS": [
             "e-mail-energie",
             "e-mail-gastgewerbe",
@@ -125,6 +127,7 @@ PUBLICATION = {
                 ("nachbarschaftsorientierung-beginn", "nachbarschaftsorientierung-ende")
             ],
         },
+        "NEIGHBORS_TABLE_QUESTION": "nachbarschaftsorientierung-auswaertige-anstoesser",
         "PUBLISH_QUESTION": "oeffentliche-auflage",
         "PUBLISH_ANSWER": ["oeffentliche-auflage-ja"],
         "SCRUBBED_ANSWERS": [

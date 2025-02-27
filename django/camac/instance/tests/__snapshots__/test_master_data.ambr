@@ -20,7 +20,7 @@
     'construction_costs': 12000000,
     'construction_duration': '',
     'construction_start_date': None,
-    'decision_date': datetime.date(2025, 2, 5),
+    'decision_date': datetime.date(2025, 3, 28),
     'dossier_number': '2025-1',
     'information_of_neighbors_required': True,
     'invoice_recipients': list([

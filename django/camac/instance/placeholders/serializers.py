@@ -250,8 +250,8 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("PROPOSAL")],
         description=_("Description of the project"),
     )
-    decision_date = fields.DecisionField(
-        source="decision-date",
+    decision_date = fields.MasterDataField(
+        parser=human_readable_date,
         aliases=[_("DECISION_DATE")],
         description=_("Decision date"),
     )
@@ -1870,11 +1870,6 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("INVOICE_RECIPIENT_NAME_ADDRESS")],
         description=_("Name and address of the first invoice recipient"),
     )
-    bauentscheid_datum = fields.DecisionField(
-        source="entscheid-datum",
-        aliases=[_("DECISION_DATE")],
-        description=_("Decision date"),
-    )
     alle_gesuchsteller_liste = fields.MasterDataPersonObjectField(
         source="applicants",
         aliases=[_("ALL_APPLICANTS_LIST")],
@@ -2039,7 +2034,6 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
     class Meta:
         exclude = [
-            "decision_date",
             "description_modification",
             "nebenbestimmungen",
             "stellungnahme",
@@ -2096,6 +2090,18 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         ],
         aliases=[_("CIRCULATION_FEEDBACK")],
         description=_("Feedback of the invited services"),
+    )
+    auswaertige_anstoesser = fields.InformationOfNeighborsField(
+        type="neighbors",
+        aliases=[_("FOREIGN_NEIGHBORS")],
+    )
+    information_auswaertige_anstoesser_link = fields.InformationOfNeighborsField(
+        type="link",
+        aliases=[_("INFORMATION_OF_FOREIGN_NEIGHBORS_LINK")],
+    )
+    information_auswaertige_anstoesser_qr_code = fields.InformationOfNeighborsField(
+        type="qr_code",
+        aliases=[_("INFORMATION_OF_FOREIGN_NEIGHBORS_QR_CODE")],
     )
 
     def get_koordinaten(self, instance):

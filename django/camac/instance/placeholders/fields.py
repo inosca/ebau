@@ -907,7 +907,7 @@ class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
     def get_work_item(self, instance):
         return (
             instance.case.work_items.filter(
-                task_id="information-of-neighbors",
+                task_id=settings.PUBLICATION["FILL_TASKS"]["NEIGHBORS"],
                 status=WorkItem.STATUS_COMPLETED,
                 addressed_groups=[str(self.context["request"].group.service_id)],
                 **{"meta__is-published": True},
@@ -919,44 +919,29 @@ class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
     def get_attribute(self, instance):
         work_item = self.get_work_item(instance)
 
-        if work_item and self.type in ["link", "qr_code"]:
+        if not work_item:
+            return None
+
+        if self.type in ["link", "qr_code"]:
             return build_url(
                 settings.PUBLIC_BASE_URL,
                 f"/public-instances/{instance.pk}/form?key={str(work_item.document.pk)[:7]}",
             )
-
-        elif work_item and self.type == "neighbors":
+        elif self.type == "neighbors":
             table = work_item.document.answers.filter(
-                question_id="information-of-neighbors-neighbors"
+                question_id=settings.PUBLICATION["NEIGHBORS_TABLE_QUESTION"]
             ).first()
 
-            def get_value(row, question):
-                answer = row.answers.filter(question_id=question).first()
-                return answer.value if answer else None
-
             return [
-                {
-                    "last_name": get_value(row, "name-gesuchstellerin"),
-                    "first_name": get_value(row, "vorname-gesuchstellerin"),
-                    "street": get_value(row, "strasse-gesuchstellerin"),
-                    "street_number": get_value(row, "nummer-gesuchstellerin"),
-                    "zip": get_value(row, "plz-gesuchstellerin"),
-                    "town": get_value(row, "ort-gesuchstellerin"),
-                    "is_juristic_person": (
-                        get_value(
-                            row,
-                            "juristische-person-gesuchstellerin",
-                        )
-                        == "juristische-person-gesuchstellerin-ja"
-                    ),
-                    "juristic_name": get_value(
-                        row, "name-juristische-person-gesuchstellerin"
-                    ),
-                }
-                for row in (table.documents.all() if table else [])
+                row_to_person(row)
+                for row in (
+                    table.documents.all().order_by("-answerdocument__sort")
+                    if table
+                    else []
+                )
             ]
 
-        return None
+        return None  # pragma: no cover
 
     def to_representation(self, value):
         if value and self.type == "qr_code":
@@ -1008,8 +993,6 @@ class DecisionField(AliasedMixin, serializers.ReadOnlyField):
                 else [self.compare_to]
             )
 
-        if answer.question.type == Question.TYPE_DATE:
-            return human_readable_date(answer.date)
         elif answer.question.type == Question.TYPE_CHOICE:
             option = answer.selected_options[0]
 
