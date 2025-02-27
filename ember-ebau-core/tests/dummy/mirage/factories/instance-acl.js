@@ -28,6 +28,12 @@ export default Factory.extend({
     status: "scheduled",
   }),
 
+  scheduledCancelled: trait({
+    startTime: () => faker.date.future(),
+    endTime: (instance) => instance.endTime ?? faker.date.recent(),
+    status: "scheduled",
+  }),
+
   active: trait({
     endTime: null,
     revokedAt: null,

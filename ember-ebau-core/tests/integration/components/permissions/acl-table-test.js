@@ -93,4 +93,36 @@ module("Integration | Component | permissions/acl-table", function (hooks) {
 
     assert.dom(".permissions-module-modal-dialog").isVisible();
   });
+
+  test("it shows correct status for different date combinations", async function (assert) {
+    this.server.create("instance-acl", "expired");
+    this.server.create("instance-acl", "scheduled");
+    this.server.create("instance-acl", "active");
+    this.server.create("instance-acl", "scheduledCancelled");
+
+    await render(
+      hbs`<Permissions::AclTable @instanceId={{this.instance.id}} />`,
+    );
+
+    assert
+      .dom(
+        '[data-test-instance-acl]:nth-child(1) span[data-test-status="expired"]',
+      )
+      .exists();
+    assert
+      .dom(
+        '[data-test-instance-acl]:nth-child(2) span[data-test-status="scheduled"]',
+      )
+      .exists();
+    assert
+      .dom(
+        '[data-test-instance-acl]:nth-child(3) span[data-test-status="active"]',
+      )
+      .exists();
+    assert
+      .dom(
+        '[data-test-instance-acl]:nth-child(4) span[data-test-status="expired"]',
+      )
+      .exists();
+  });
 });
