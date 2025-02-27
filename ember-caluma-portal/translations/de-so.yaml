@@ -18,6 +18,7 @@ instances:
   processingOfForm: "Dossier bearbeiten"
   activateFurtherPersons: "Weitere Personen für dieses Dossier freischalten"
   rejectionInfoText: ""
+  downloadReceipt: "Unterschriftenblatt herunterladen"
 
   new:
     preliminary-clarification:

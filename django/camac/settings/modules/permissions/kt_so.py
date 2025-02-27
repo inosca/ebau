@@ -176,6 +176,7 @@ ACTION_INSTANCE_WITHDRAW = (
 ACTION_INSTANCE_CREATE_MODIFICATION = RequireWorkItem("construction-stage", "ready") & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
+ACTION_INSTANCE_DOWNLOAD_AS_PDF = STATES_ALL | RequireInstanceState(["correction"])
 
 # Actual config
 SO_PERMISSIONS_SETTINGS = {
@@ -207,6 +208,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
+            ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
             (
@@ -228,6 +230,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
+            ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("journal-read", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
@@ -261,6 +264,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("history-read", MODULE_HISTORY),
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
+            ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
             ("journal-read", MODULE_JOURNAL),
@@ -288,6 +292,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("communications-write", MODULE_COMMUNICATIONS),
             ("documents-read", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
+            ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "support": [
@@ -300,6 +305,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("form-write", Always()),
             ("history-read", Always()),
             ("instance-delete", RequireInstanceState(["new"])),
+            ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("permissions-read-any", Always()),
             ("permissions-read", Always()),
         ],
