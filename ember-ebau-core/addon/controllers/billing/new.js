@@ -32,6 +32,16 @@ export default class BillingNewController extends Controller {
 
   taxRates = hasFeature("billing.reducedTaxRate") ? [8.1, 2.6] : [8.1];
 
+  get billingTypes() {
+    return [
+      "by_authority",
+      "forwarded",
+      "direct",
+      "construction_outside_zone",
+      "cantonal_construction_administration",
+    ];
+  }
+
   get calculations() {
     const calculations = ["flat", "hourly", "percentage"];
 

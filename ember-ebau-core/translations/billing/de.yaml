@@ -91,11 +91,29 @@ billing:
         Fachstelle hat ihre Gebührenrechnung direkt an den Gesuchstellenden
         versendet. Inkasso durch Fachstelle.
       </li>
+      <li>
+        <strong>Kantonale Gebührenrechnung für Bauen ausserhalb Bauzone:</strong>
+        Die kantonale Koordinationsstelle Bauen ausserhalb Bauzone (ARP) erstellt die
+        kantonale Gebührenrechnung (mit den Gebühren jeder kant. Fachstelle / Unter-
+        fachstelle) und schickt diese zusammen mit dem kantonalen Entscheid an die
+        örtliche Baubehörde (Gemeinde) zur Eröffnung an die / den Gesuchstellende(-n).
+        Das Inkasso erfolgt durch das ARP (Administration).
+      </li>
+      <li>
+        <strong>Kantonale Gebührenrechnung bei kantonaler Baubehörde:</strong>
+        Die kantonale Baubehörde (ARP) erstellt die kantonale Gebührenrechnung (mit den
+        Gebühren jeder kant. Fachstelle / Unterfachstelle) und eröffnet diese zusammen mit
+        dem kantonalen Entscheid an die / den Gesuchstellende(-n). Das Inkasso erfolgt durch
+        das ARP (Administration).
+      </li>
     </ul>
+
   billing-types:
     by_authority: Weiter zu verrechnen
     forwarded: Rechnung zu eröffnen
     direct: Direkt verrechnet
+    construction_outside_zone: Kantonale Gebührenrechnung für Bauen ausserhalb Bauzone 
+    cantonal_construction_administration: Kantonale Gebührenrechnung bei kantonaler Baubehörde 
 
   filters:
     createdAfter: Erstellung von
