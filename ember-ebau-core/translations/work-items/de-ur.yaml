@@ -8,6 +8,7 @@ workItems:
       decision: 'Entscheid <span class="pending">({count})</span>'
       init-construction-monitoring: 'Baubegleitung starten <span class="pending">({count})</span>'
       complete-instance: 'Verfahren abschliessen <span class="pending">({count})</span>'
+      check-additional-demand: 'Nachforderung prüfen <span class="pending">({count})</span>'
     role: "Art der Beteiligung"
     urgent: "Nach Fristen"
     new: "Nach Dossiereingang"

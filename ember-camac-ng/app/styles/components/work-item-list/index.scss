@@ -2,6 +2,7 @@
 
 $expired-color: #c00;
 $expiring-color: #f80;
+$nfd-color: blue;
 
 .highlight {
   width: 20px;
@@ -25,5 +26,10 @@ $expiring-color: #f80;
   &--expiring::before {
     background-color: $expiring-color;
     border-color: color.adjust($expiring-color, $lightness: -10%);
+  }
+
+  &--nfd::before {
+    background-color: $nfd-color;
+    border-color: color.adjust($nfd-color, $lightness: -10%);
   }
 }

@@ -20,6 +20,7 @@ export default {
   },
   workItemList: {
     useExperimentalLayout: true,
+    useColorForNFD: true,
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
 };

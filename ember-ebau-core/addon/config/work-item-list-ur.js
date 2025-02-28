@@ -5,6 +5,7 @@ export default {
     roles: {
       municipality: [
         "complete-check",
+        "check-additional-demand",
         "init-distribution",
         "check-inquiries",
         "decision",
