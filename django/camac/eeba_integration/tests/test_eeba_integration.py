@@ -3,11 +3,6 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.instance.tests.test_master_data import (
-    gr_master_data_case,  # noqa
-    so_master_data_case,  # noqa
-)
-
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(

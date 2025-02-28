@@ -1247,13 +1247,15 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
-    _master_data_cache = {}
-
     def get_master_data(self, case):
-        if case.pk not in self._master_data_cache:
-            self._master_data_cache[case.pk] = MasterData(case)
+        request = self.context["request"]
+        if not hasattr(request, "_master_data_cache"):
+            request._master_data_cache = {}
 
-        return self._master_data_cache[case.pk]
+        if case.pk not in request._master_data_cache:
+            request._master_data_cache[case.pk] = MasterData(case)
+
+        return request._master_data_cache[case.pk]
 
     def _create_history_entry(self, text):
         create_history_entry(self.instance, self.context["request"].user, text)
@@ -2612,14 +2614,16 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     form_description = serializers.SerializerMethodField()
     authority = serializers.SerializerMethodField()
 
-    _master_data_cache = {}
-
     def get_master_data(self, case):
         request = self.context["request"]
         if not hasattr(request, "_master_data_cache"):
             request._master_data_cache = {}
+
         if case.pk not in request._master_data_cache:
-            request._master_data_cache[case.pk] = MasterData(case)
+            if multi_masterdata := getattr(request, "_masterdata", None):
+                request._master_data_cache[case.pk] = multi_masterdata.for_case(case)
+            else:
+                request._master_data_cache[case.pk] = MasterData(case)
 
         return request._master_data_cache[case.pk]
 

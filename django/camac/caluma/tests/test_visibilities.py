@@ -1162,6 +1162,8 @@ def test_work_item_filter_with_tasks(
     application_settings,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+    mocker.patch("caluma.caluma_workflow.validators.WorkItemValidator.validate")
+
     application_settings["VISIBILITY_PERFORMANCE_OPTIMISATIONS_ACTIVE"] = True
     ur_instance.case.meta["camac-instance-id"] = ur_instance.pk
     ur_instance.case.save()

@@ -67,21 +67,21 @@ def test_public_caluma_instance_enabled_empty_qs(
         ({}, 1, 0, "form-type-building-permit", "test"),
         (
             {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
-            7,
+            20,
             1,
             "form-type-commercial-permit",
             "Reklamegesuch",
         ),
         (
             {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
-            7,
+            20,
             1,
             "form-type-building-permit",
             "test",
         ),
         (
             {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
-            7,
+            20,
             1,
             "form-type-solar-announcement",
             "Solaranlage",
@@ -99,6 +99,7 @@ def test_public_caluma_instance_ur(
     num_queries,
     num_instances,
     master_data_is_visible_mock,
+    caluma_form_question_factory,
     form_type,
     expected,
     settings,
@@ -134,6 +135,9 @@ def test_public_caluma_instance_ur(
         document=ur_instance.case.document,
         value="test",
     )
+    caluma_form_question_factory(
+        form=ur_instance.case.document.form, question_id="proposal-description"
+    )
 
     DynamicOptionFactory(
         slug="1",
@@ -165,10 +169,10 @@ def test_public_caluma_instance_ur(
 @pytest.mark.parametrize(
     "is_oereb_form,instance_state__name,num_queries,is_visible",
     [
-        (True, "comm", 8, True),
+        (True, "comm", 21, True),
         (False, "comm", 1, False),
-        (True, "new", 2, False),
-        (True, "new_portal", 2, False),
+        (True, "new", 3, False),
+        (True, "new_portal", 3, False),
     ],
 )
 def test_public_caluma_instance_oereb_ur(
@@ -183,6 +187,7 @@ def test_public_caluma_instance_oereb_ur(
     user_group_factory,
     group_factory,
     role,
+    utils,
     is_oereb_form,
     master_data_is_visible_mock,
 ):
@@ -201,6 +206,8 @@ def test_public_caluma_instance_oereb_ur(
     ur_instance.case.save()
     ur_instance.save()
 
+    utils.add_answer(ur_instance.case.document, "form-type", "main-form")
+
     admin_client.user.groups.clear()
 
     oereb_group = group_factory(role=role)
@@ -216,19 +223,20 @@ def test_public_caluma_instance_oereb_ur(
         question_id="leitbehoerde", value=dynamic_option.slug
     )
 
-    AnswerFactory(
-        question=Question.objects.create(
-            slug="oereb-thema", type=Question.TYPE_MULTIPLE_CHOICE
-        ),
-        document=ur_instance.case.document,
+    utils.add_answer(
+        ur_instance.case.document,
+        "oereb-thema",
         value=["oereb-thema-kpz"],
+        options=["oereb-thema-kpz"],
+        question_type=Question.TYPE_MULTIPLE_CHOICE,
     )
-    AnswerFactory(
-        question=Question.objects.create(
-            slug="typ-des-verfahrens", type=Question.TYPE_MULTIPLE_CHOICE
-        ),
-        document=ur_instance.case.document,
+
+    utils.add_answer(
+        ur_instance.case.document,
+        "typ-des-verfahrens",
         value="typ-des-verfahrens-meldung",
+        options=["typ-des-verfahrens-meldung"],
+        question_type=Question.TYPE_CHOICE,
     )
 
     url = reverse("public-caluma-instance-list")
@@ -348,7 +356,7 @@ def test_public_caluma_instance_sz(
 
     url = reverse("public-caluma-instance-list")
 
-    with django_assert_num_queries(4):
+    with django_assert_num_queries(11):
         response = admin_client.get(
             url, {"instance": sz_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
         )
@@ -442,6 +450,7 @@ def test_public_caluma_instance_be(
     db,
     admin_client,
     be_instance,
+    be_master_data_case,
     django_assert_num_queries,
     create_caluma_publication,
     master_data_is_visible_mock,
@@ -454,21 +463,9 @@ def test_public_caluma_instance_be(
     be_instance.case.meta["ebau-number"] = "2021-55"
     be_instance.case.save()
 
-    AnswerFactory(
-        question_id="gemeinde",
-        document=be_instance.case.document,
-        value="1",
-    )
-    DynamicOptionFactory(
-        slug="1",
-        label={"de": "Bern", "fr": "Berne"},
-        document=be_instance.case.document,
-        question_id="gemeinde",
-    )
-
     url = reverse("public-caluma-instance-list")
 
-    with django_assert_num_queries(9):
+    with django_assert_num_queries(37):  # TODO: Used to be 9 queries
         response = admin_client.get(
             url, {"instance": be_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
         )

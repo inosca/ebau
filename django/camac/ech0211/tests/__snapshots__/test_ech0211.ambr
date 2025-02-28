@@ -57,7 +57,7 @@
   				<ns1:realestateInformation>
   					<ns1:realestate>
   						<ns3:realestateIdentification>
-  							<ns3:EGRID>unknown</ns3:EGRID>
+  							<ns3:EGRID>CH123456789</ns3:EGRID>
   							<ns3:number>1586</ns3:number>
   						</ns3:realestateIdentification>
   						<ns3:realestateType>8</ns3:realestateType>
@@ -89,7 +89,7 @@
   							</ns4:person>
   							<ns4:addressInformation>
   								<ns4:street>Teststrasse</ns4:street>
-  								<ns4:houseNumber>None</ns4:houseNumber>
+  								<ns4:houseNumber>11b</ns4:houseNumber>
   								<ns4:town>Testort</ns4:town>
   								<ns4:swissZipCode>1234</ns4:swissZipCode>
   								<ns4:country>
@@ -139,7 +139,7 @@
   					</ns3:identification>
   					<ns3:address>
   						<ns4:street>Teststrasse</ns4:street>
-  						<ns4:houseNumber>None</ns4:houseNumber>
+  						<ns4:houseNumber>11b</ns4:houseNumber>
   						<ns4:town>Testort</ns4:town>
   						<ns4:swissZipCode>1234</ns4:swissZipCode>
   						<ns4:country>
@@ -296,12 +296,12 @@
   					<ns6:files>
   						<ns6:file>
   							<ns6:pathFileName>http://ember-ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns6:pathFileName>
-  							<ns6:mimeType>video/mpeg</ns6:mimeType>
+  							<ns6:mimeType>text/csv</ns6:mimeType>
   						</ns6:file>
   					</ns6:files>
   					<ns6:keywords>
-  						<ns7:keyword>Cheryl Foster</ns7:keyword>
-  						<ns7:keyword>Tammy White</ns7:keyword>
+  						<ns7:keyword>Ryan Solis</ns7:keyword>
+  						<ns7:keyword>Tara Thompson</ns7:keyword>
   					</ns6:keywords>
   					<ns6:documentKind>Beilagen zum Gesuch</ns6:documentKind>
   				</ns1:document>
@@ -701,14 +701,14 @@
   					<ns1:owner>
   						<ns1:ownerAdress>
   							<ns4:person>
-  								<ns4:firstName>Valerie</ns4:firstName>
-  								<ns4:lastName>Peters</ns4:lastName>
+  								<ns4:firstName>Amanda</ns4:firstName>
+  								<ns4:lastName>Williams</ns4:lastName>
   							</ns4:person>
   							<ns4:addressInformation>
-  								<ns4:street>Adrienne Plaza</ns4:street>
-  								<ns4:houseNumber>22804</ns4:houseNumber>
-  								<ns4:town>Alyssaville</ns4:town>
-  								<ns4:swissZipCode>5885</ns4:swissZipCode>
+  								<ns4:street>Ricky Causeway</ns4:street>
+  								<ns4:houseNumber>8466</ns4:houseNumber>
+  								<ns4:town>South Vincentchester</ns4:town>
+  								<ns4:swissZipCode>2929</ns4:swissZipCode>
   								<ns4:country>
   									<ns4:countryNameShort>CH</ns4:countryNameShort>
   								</ns4:country>
@@ -755,7 +755,7 @@
   					<ns7:files>
   						<ns7:file>
   							<ns7:pathFileName>http://ember-ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns7:pathFileName>
-  							<ns7:mimeType>multipart/related</ns7:mimeType>
+  							<ns7:mimeType>video/quicktime</ns7:mimeType>
   						</ns7:file>
   					</ns7:files>
   					<ns7:keywords>
@@ -769,15 +769,15 @@
   				<ns1:person>
   					<ns3:identification>
   						<ns3:personIdentification>
-  							<ns9:officialName>Small</ns9:officialName>
-  							<ns9:firstName>Ashley</ns9:firstName>
+  							<ns9:officialName>Allen</ns9:officialName>
+  							<ns9:firstName>Jody</ns9:firstName>
   						</ns3:personIdentification>
   					</ns3:identification>
   					<ns3:address>
-  						<ns4:street>Lee Village</ns4:street>
-  						<ns4:houseNumber>2124</ns4:houseNumber>
-  						<ns4:town>East Abigailchester</ns4:town>
-  						<ns4:swissZipCode>8229</ns4:swissZipCode>
+  						<ns4:street>Andrew Plains</ns4:street>
+  						<ns4:houseNumber>6774</ns4:houseNumber>
+  						<ns4:town>Port Albert</ns4:town>
+  						<ns4:swissZipCode>5361</ns4:swissZipCode>
   						<ns4:country>
   							<ns4:countryNameShort>CH</ns4:countryNameShort>
   						</ns4:country>
@@ -789,15 +789,15 @@
   				<ns1:person>
   					<ns3:identification>
   						<ns3:personIdentification>
-  							<ns9:officialName>Peters</ns9:officialName>
-  							<ns9:firstName>Valerie</ns9:firstName>
+  							<ns9:officialName>Williams</ns9:officialName>
+  							<ns9:firstName>Amanda</ns9:firstName>
   						</ns3:personIdentification>
   					</ns3:identification>
   					<ns3:address>
-  						<ns4:street>Adrienne Plaza</ns4:street>
-  						<ns4:houseNumber>22804</ns4:houseNumber>
-  						<ns4:town>Alyssaville</ns4:town>
-  						<ns4:swissZipCode>5885</ns4:swissZipCode>
+  						<ns4:street>Ricky Causeway</ns4:street>
+  						<ns4:houseNumber>8466</ns4:houseNumber>
+  						<ns4:town>South Vincentchester</ns4:town>
+  						<ns4:swissZipCode>2929</ns4:swissZipCode>
   						<ns4:country>
   							<ns4:countryNameShort>CH</ns4:countryNameShort>
   						</ns4:country>

@@ -253,15 +253,15 @@
         'country': dict({
           'countryNameShort': 'ch',
         }),
-        'houseNumber': '532',
-        'street': 'Williams Estates',
-        'swissZipCode': 5764,
-        'town': 'Butlershire',
+        'houseNumber': '39444',
+        'street': 'Fischer Islands',
+        'swissZipCode': '8769',
+        'town': 'North Jacobfort',
       }),
       'identification': dict({
         'isOrganisation': True,
         'organisationIdentification': dict({
-          'organisationName': 'Barber PLC',
+          'organisationName': 'Pacheco Group',
         }),
         'personIdentification': None,
       }),

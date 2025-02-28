@@ -2,11 +2,10 @@ from collections import namedtuple
 from typing import Union
 
 from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.models import AnswerDocument, Option, Question
+from caluma.caluma_form.models import Question
 from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow import models as workflow_models
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
-from django.db.models import Prefetch
 from django.db.models.query import QuerySet
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
@@ -109,76 +108,6 @@ def set_construction_control(instance: Instance) -> Service:
     instance.instance_services.create(service=construction_control, active=1)
 
     return construction_control
-
-
-def build_document_prefetch_statements(prefix="", prefetch_options=False):
-    """Build needed prefetch statements to performantly fetch a document.
-
-    This is needed to reduce the query count when almost all the form data
-    is needed for a given document, e.g. when exporting a PDF or listing public
-    instances (master data).
-    """
-
-    question_queryset = Question.objects.select_related(
-        "sub_form", "row_form"
-    ).order_by("-formquestion__sort")
-
-    if prefetch_options:
-        question_queryset = question_queryset.prefetch_related(
-            Prefetch(
-                "options",
-                queryset=Option.objects.order_by("-questionoption__sort"),
-            )
-        )
-
-    if prefix:
-        prefix += "__"
-
-    return [
-        f"{prefix}answers",
-        f"{prefix}dynamicoption_set",
-        Prefetch(
-            f"{prefix}answers__answerdocument_set",
-            queryset=AnswerDocument.objects.select_related(
-                "document__form", "document__family"
-            )
-            .prefetch_related("document__answers", "document__form__questions")
-            .order_by("-sort"),
-        ),
-        Prefetch(
-            # root form -> questions
-            f"{prefix}form__questions",
-            queryset=question_queryset.prefetch_related(
-                Prefetch(
-                    # root form -> row forms -> questions
-                    "row_form__questions",
-                    queryset=question_queryset,
-                ),
-                Prefetch(
-                    # root form -> sub forms -> questions
-                    "sub_form__questions",
-                    queryset=question_queryset.prefetch_related(
-                        Prefetch(
-                            # root form -> sub forms -> row forms -> questions
-                            "row_form__questions",
-                            queryset=question_queryset,
-                        ),
-                        Prefetch(
-                            # root form -> sub forms -> sub forms -> questions
-                            "sub_form__questions",
-                            queryset=question_queryset.prefetch_related(
-                                Prefetch(
-                                    # root form -> sub forms -> sub forms -> row forms -> questions
-                                    "row_form__questions",
-                                    queryset=question_queryset,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ]
 
 
 def copy_instance(

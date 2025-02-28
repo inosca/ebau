@@ -270,10 +270,10 @@
   ])
 # ---
 # name: test_record_loading_be[dossier_row_patch8-application_type-kt_bern-be_instance-False]
-  'Baugesuch'
+  'Migriertes Dossier'
 # ---
 # name: test_record_loading_be[dossier_row_patch8-application_type-kt_bern-be_instance-True]
-  'Baugesuch'
+  'Migriertes Dossier'
 # ---
 # name: test_record_loading_be[dossier_row_patch9-street-kt_bern-be_instance-False]
   'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstr...'
@@ -593,10 +593,10 @@
   ])
 # ---
 # name: test_record_loading_so[dossier_row_patch2-application_type-kt_so-so_instance-False]
-  'Baugesuch'
+  'Migriertes Dossier'
 # ---
 # name: test_record_loading_so[dossier_row_patch2-application_type-kt_so-so_instance-True]
-  'Baugesuch'
+  'Migriertes Dossier'
 # ---
 # name: test_record_loading_so[dossier_row_patch3-street-kt_so-so_instance-False]
   'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreet'

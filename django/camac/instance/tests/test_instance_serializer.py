@@ -81,8 +81,9 @@ def test_ur_get_responsible_service(
     set_application_ur,
     veranstaltungs_art,
     caluma_form_question_factory,
+    rf,
 ):
-    serializer = CalumaInstanceSubmitSerializer()
+    serializer = CalumaInstanceSubmitSerializer(context={"request": rf.request()})
     mock_service = service_factory()
 
     ur_instance.case.document.form_id = form_slug

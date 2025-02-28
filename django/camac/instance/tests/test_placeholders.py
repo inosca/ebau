@@ -28,8 +28,6 @@ from camac.instance.placeholders.utils import (
 )
 from camac.tests.data import so_personal_row_factory
 
-from .test_master_data import be_master_data_case, gr_master_data_case  # noqa
-
 
 @pytest.fixture
 def be_dms_config(settings, be_placeholders_settings):
@@ -331,6 +329,7 @@ def test_dms_placeholders_so(
     utils,
     caluma_document_factory,
     active_inquiry_factory,
+    master_data_is_visible_mock,
 ):
     # Authority
     authority = service_factory(
@@ -356,9 +355,6 @@ def test_dms_placeholders_so(
         slug=str(municipality.pk),
         question_id="gemeinde",
         document=so_instance.case.document,
-    )
-    mocker.patch(
-        "camac.instance.master_data.MasterData._answer_is_visible", return_value=True
     )
 
     # Land use

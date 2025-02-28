@@ -84,7 +84,9 @@ def test_appeal_work_item(
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
     mocker.patch("caluma.caluma_core.mutation.Mutation.permission_classes", [AllowAny])
 
-    work_item = caluma_work_item_factory(case=be_instance.case, child_case=None)
+    work_item = caluma_work_item_factory(
+        case=be_instance.case, child_case=None, document__form_id="appeal"
+    )
 
     dates = [date(2023, 4, 20), date(2023, 5, 1)]
     rows = [str(appeal_deadline_factory(deadline).pk) for deadline in dates]

@@ -1,3 +1,6 @@
+# TODO: revert if xfail is removed
+# pragma: exclude file
+
 from pathlib import Path
 
 import pytest

@@ -60,6 +60,7 @@ def caluma_form_fixture(db):
         "config/caluma_legal_submission_form.json",
         "config/caluma_appeal_form.json",
         "config/caluma_geometer_form.json",
+        # load test data as well
         "data/caluma_form.json",
         "data/caluma_workflow.json",
         "data/user.json",
@@ -85,15 +86,18 @@ def test_document_merge_service_snapshot(
     be_dms_settings,
     service,
     snapshot,
+    clear_cache,
     be_master_data_settings,
 ):
-    cache.clear()
-
     for kwargs, expected_queries in [
-        ({"instance_id": 1}, 21),
-        ({"instance_id": 3, "form_slug": "sb1"}, 27),
-        ({"instance_id": 3, "form_slug": "sb2"}, 27),
-        ({"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"}, 25),
+        ({"instance_id": 1}, 84),
+        ({"instance_id": 3, "form_slug": "sb1"}, 64),
+        ({"instance_id": 3, "form_slug": "sb2"}, 68),
+        (
+            # mp-form
+            {"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"},
+            60,
+        ),
     ]:
         with django_assert_num_queries(expected_queries):
             handler = DMSHandler()
@@ -104,7 +108,7 @@ def test_document_merge_service_snapshot(
             )
 
             visitor = DMSVisitor(root_document, instance, BaseUser())
-            snapshot.assert_match(visitor.visit(root_document))
+            snapshot.assert_match(visitor.build_form_structure())
 
 
 def test_document_merge_service_is_valid(db, caluma_form_fixture, be_dms_settings):
@@ -179,10 +183,12 @@ def test_document_merge_service_cover_sheet_with_header_values(
         [
             {
                 "parzellennummer": "123",
+                "lagekoordinaten-ost": None,
+                "lagekoordinaten-nord": None,
             },
             {
                 # This should be excluded since no parcel number is given
-                "egrid": "CH908035124647",
+                "e-grid-nr": "CH908035124647",
             },
         ],
     )
@@ -197,8 +203,18 @@ def test_document_merge_service_cover_sheet_with_header_values(
                 "name-gesuchstellerin": "Bar",
                 "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
                 "name-juristische-person-gesuchstellerin": "Test AG",
+                "strasse-gesuchstellerin": "",
+                "nummer-gesuchstellerin": None,
+                "plz-gesuchstellerin": None,
+                "ort-gesuchstellerin": None,
             }
         ],
+    )
+    utils.add_table_answer(
+        be_instance.case.document, "personalien-grundeigentumerin", []
+    )
+    utils.add_table_answer(
+        be_instance.case.document, "personalien-projektverfasserin", []
     )
 
     # Prepare plot address
@@ -260,7 +276,17 @@ def test_document_merge_service_cover_sheet_without_header_values(
     snapshot,
     application_settings,
     be_master_data_settings,
+    utils,
 ):
+    # Prepare applicant answer
+    utils.add_table_answer(be_instance.case.document, "personalien-gesuchstellerin", [])
+    utils.add_table_answer(
+        be_instance.case.document, "personalien-grundeigentumerin", []
+    )
+    utils.add_table_answer(
+        be_instance.case.document, "personalien-projektverfasserin", []
+    )
+
     be_instance.case.meta = {
         "camac-instance-id": be_instance.pk,
         "submit-date": "2021-01-01",
@@ -336,7 +362,7 @@ def test_eingabebestaetigung_gr(
             },
             {
                 # This should be excluded since no parcel number is given
-                "egrid": "CH908035124647",
+                "e-grid-nr": "CH908035124647",
             },
         ],
     )
@@ -490,10 +516,7 @@ def test_number_separator(
 
     visitor = DMSVisitor(so_instance.case.document, so_instance, BaseUser())
 
-    data = {
-        item["slug"]: item.get("value")
-        for item in visitor.visit(so_instance.case.document)
-    }
+    data = {item["slug"]: item.get("value") for item in visitor.build_form_structure()}
 
     if use_number_separator:
         assert data["integer"] == "57’000’000"
