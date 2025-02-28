@@ -6,7 +6,7 @@
       "created_at": "2023-10-04T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-11-27T08:31:53.934Z",
+      "modified_at": "2025-02-27T16:10:53.140Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -24,6 +24,16 @@
               {
                 "scope": "All",
                 "permission": "delete"
+              }
+            ]
+          },
+          "cantonal": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
               }
             ]
           },
@@ -56,7 +66,7 @@
               }
             ]
           },
-          "service-lead": {
+          "extra-cantonal": {
             "visibility": "all",
             "permissions": [
               {
@@ -193,7 +203,7 @@
       "created_at": "2024-03-07T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-05-29T13:50:39.945Z",
+      "modified_at": "2025-02-27T16:13:13.217Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -214,6 +224,32 @@
               }
             ]
           },
+          "cantonal": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
           "subservice": {
             "visibility": "all",
             "permissions": [
@@ -224,7 +260,7 @@
               }
             ]
           },
-          "service-lead": {
+          "extra-cantonal": {
             "visibility": "all",
             "permissions": [
               {
@@ -288,7 +324,7 @@
       "created_at": "2023-10-04T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-05-29T13:52:09.086Z",
+      "modified_at": "2025-02-27T16:11:33.037Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -306,6 +342,42 @@
               {
                 "scope": "All",
                 "permission": "delete"
+              }
+            ]
+          },
+          "cantonal": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "marks": ["decision"],
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
               }
             ]
           },
@@ -335,7 +407,7 @@
               }
             ]
           },
-          "service-lead": {
+          "extra-cantonal": {
             "visibility": "all",
             "permissions": [
               {
@@ -409,7 +481,7 @@
       "created_at": "2023-11-23T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-05-29T13:50:29.881Z",
+      "modified_at": "2025-02-27T16:12:44.796Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -430,6 +502,16 @@
               }
             ]
           },
+          "cantonal": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
           "subservice": {
             "visibility": "all",
             "permissions": [
@@ -440,7 +522,7 @@
               }
             ]
           },
-          "service-lead": {
+          "extra-cantonal": {
             "visibility": "all",
             "permissions": [
               {
@@ -488,7 +570,7 @@
       "created_at": "2024-09-11T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-09-11T00:00:00Z",
+      "modified_at": "2025-02-27T16:09:13.705Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -509,28 +591,7 @@
               }
             ]
           },
-          "subservice": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "tags", "files"],
-                "permission": "update"
-              }
-            ]
-          },
-          "service-lead": {
+          "cantonal": {
             "visibility": "all",
             "permissions": [
               {
@@ -567,6 +628,27 @@
                 "permission": "update"
               }
             ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              }
+            ]
           }
         }
       },
@@ -585,7 +667,7 @@
       "created_at": "2023-10-04T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-05-29T13:33:52.811Z",
+      "modified_at": "2025-02-27T16:13:34.935Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -602,6 +684,38 @@
               },
               {
                 "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
                 "permission": "delete"
               }
             ]
@@ -638,7 +752,7 @@
               }
             ]
           },
-          "service-lead": {
+          "extra-cantonal": {
             "visibility": "service",
             "permissions": [
               {
@@ -722,7 +836,7 @@
       "created_at": "2023-11-13T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-05-29T13:33:28.833Z",
+      "modified_at": "2025-02-27T16:13:58.620Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -739,6 +853,36 @@
               },
               {
                 "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal": {
+            "visibility": "cantonal-service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
                 "permission": "delete"
               }
             ]
@@ -773,8 +917,8 @@
               }
             ]
           },
-          "service-lead": {
-            "visibility": "service-and-subservice",
+          "extra-cantonal": {
+            "visibility": "cantonal-service-and-subservice",
             "permissions": [
               {
                 "fields": [
@@ -853,7 +997,7 @@
       "created_at": "2024-06-18T08:50:29.881Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-06-18T08:50:29.881Z",
+      "modified_at": "2025-02-27T16:14:17.591Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -874,6 +1018,16 @@
               }
             ]
           },
+          "cantonal": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
           "subservice": {
             "visibility": "all",
             "permissions": [
@@ -884,7 +1038,7 @@
               }
             ]
           },
-          "service-lead": {
+          "extra-cantonal": {
             "visibility": "all",
             "permissions": [
               {
@@ -940,7 +1094,7 @@
       "created_at": "2023-10-04T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2023-11-28T08:53:00.249Z",
+      "modified_at": "2025-02-27T16:12:04.953Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -958,6 +1112,16 @@
               {
                 "scope": "All",
                 "permission": "delete"
+              }
+            ]
+          },
+          "cantonal": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
               }
             ]
           },
@@ -990,7 +1154,7 @@
               }
             ]
           },
-          "service-lead": {
+          "extra-cantonal": {
             "visibility": "all",
             "permissions": [
               {
