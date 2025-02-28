@@ -82,13 +82,16 @@ export default {
   publication: {
     neighbors: {
       task: "information-of-neighbors",
-      startQuestion: "information-of-neighbors-start-date",
-      endQuestion: "information-of-neighbors-end-date",
+      dateRanges: [
+        [
+          "information-of-neighbors-start-date",
+          "information-of-neighbors-end-date",
+        ],
+      ],
     },
     public: {
       task: "fill-publication",
-      startQuestion: "publikation-startdatum",
-      endQuestion: "publikation-ablaufdatum",
+      dateRanges: [["publikation-startdatum", "publikation-ablaufdatum"]],
     },
   },
   decision: {

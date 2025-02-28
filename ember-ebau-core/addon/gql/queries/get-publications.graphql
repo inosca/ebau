@@ -1,9 +1,7 @@
 query GetPublications(
   $instanceId: GenericScalar!
   $task: ID!
-  $startQuestion: ID
-  $endQuestion: ID
-  $fetchDates: Boolean!
+  $dateQuestions: [ID]!
 ) {
   allWorkItems(
     filter: [
@@ -27,22 +25,13 @@ query GetPublications(
             id
             name
           }
-          start: answers(filter: [{ question: $startQuestion }])
-            @include(if: $fetchDates) {
+          answers(filter: [{ questions: $dateQuestions }]) {
             edges {
               node {
                 id
-                ... on DateAnswer {
-                  value
+                question {
+                  slug
                 }
-              }
-            }
-          }
-          end: answers(filter: [{ question: $endQuestion }])
-            @include(if: $fetchDates) {
-            edges {
-              node {
-                id
                 ... on DateAnswer {
                   value
                 }

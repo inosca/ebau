@@ -16,32 +16,24 @@
           name=publication.node.document.form.name
           index=(add index 1)
         }}
-        {{#let
-          (get publication "node.document.start.edges.0.node.value")
-          (get publication "node.document.end.edges.0.node.value")
-          as |startDate endDate|
+        {{#if
+          (and
+            (eq publication.node.status "COMPLETED")
+            publication.node.closedByUser
+            (not publication.node.meta.is-published)
+          )
         }}
-          {{#if (and startDate endDate)}}
-            {{format-date startDate format="date"}}
-            -
-            {{format-date endDate format="date"}}
-          {{/if}}
-          {{#if
-            (and
-              (eq publication.node.status "COMPLETED")
-              publication.node.closedByUser
-              (not publication.node.meta.is-published)
-            )
-          }}
-            ({{t "publication.canceled"}})
-          {{else if (eq publication.node.status "COMPLETED")}}
-            {{#let (this.dateStatus startDate endDate) as |status|}}
-              ({{t "publication.published"}}{{#if status}}, {{status}}{{/if}})
-            {{/let}}
-          {{else}}
-            ({{t "publication.draft"}})
-          {{/if}}
-        {{/let}}
+          ({{t "publication.canceled"}})
+        {{else if (eq publication.node.status "COMPLETED")}}
+          {{#let (this.dateStatus publication.node.document) as |status|}}
+            ({{t "publication.published"}}{{#if status}}, {{status}}{{/if}})
+          {{/let}}
+        {{else}}
+          ({{t "publication.draft"}})
+        {{/if}}
+        <div class="uk-width-expand uk-text-right">
+          {{this.dateRanges publication.node.document}}
+        </div>
       </Tab.item>
     {{/each}}
   </UkTab>
