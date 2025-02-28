@@ -1,7 +1,7 @@
 Babel==2.16.0
 boto3==1.35.70
 caluma==10.7.0
-caluma-alexandria==7.1.1
+caluma-alexandria==7.1.2
 celery==5.4.0
 cryptography==43.0.3
 dataclasses-json==0.6.7
