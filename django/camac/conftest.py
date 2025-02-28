@@ -1182,6 +1182,7 @@ def caluma_forms_ag(settings, caluma_form_factory):
         "vorlaeufige-pruefung",
         "publikation",
         "nachbarschaftsorientierung",
+        "einwendungen",
     ]:
         caluma_form_models.Form.objects.create(slug=slug)
 
