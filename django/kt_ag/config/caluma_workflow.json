@@ -27,6 +27,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "686a19a9-e4c0-4cd0-a383-16be96be3195",
+    "fields": {
+      "created_at": "2025-02-26T11:51:40.919Z",
+      "modified_at": "2025-02-26T11:51:40.919Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"create-information-of-neighbors\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "7741c0df-41f2-4766-a6c3-d43697223041",
     "fields": {
       "created_at": "2025-01-14T09:08:54.633Z",
@@ -49,6 +62,19 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "next": "[\"distribution\", \"cantonal-exam\", \"maybe-publication\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "b95bb8ab-36fd-4834-a460-352859feaee1",
+    "fields": {
+      "created_at": "2025-02-26T11:51:41.874Z",
+      "modified_at": "2025-02-26T11:51:41.874Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"fill-information-of-neighbors\"]|tasks"
     }
   },
   {
@@ -114,6 +140,29 @@
       "control_groups": "[\"afb\"]|groups",
       "is_archived": false,
       "form": "kantonale-pruefung",
+      "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "create-information-of-neighbors",
+    "fields": {
+      "created_at": "2025-02-25T08:45:02.189Z",
+      "modified_at": "2025-02-25T08:45:02.190Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Neue Information ausw\\u00e4rtige Anst\\u00f6sser erstellen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {},
+      "address_groups": "['municipality']|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
       "lead_time": null,
       "is_multiple_instance": false,
       "continue_async": false
@@ -198,6 +247,29 @@
   },
   {
     "model": "caluma_workflow.task",
+    "pk": "fill-information-of-neighbors",
+    "fields": {
+      "created_at": "2025-02-25T08:45:00.884Z",
+      "modified_at": "2025-02-25T08:45:00.884Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Information ausw\\u00e4rtige Anst\\u00f6sser ausf\\u00fcllen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {},
+      "address_groups": "['municipality']|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": "nachbarschaftsorientierung",
+      "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
     "pk": "fill-publication",
     "fields": {
       "created_at": "2025-02-24T09:34:53.301Z",
@@ -244,6 +316,35 @@
       "is_archived": false,
       "form": "vorlaeufige-pruefung",
       "lead_time": 1728000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "information-of-neighbors",
+    "fields": {
+      "created_at": "2025-02-25T08:44:59.632Z",
+      "modified_at": "2025-02-25T08:44:59.632Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Information ausw\\u00e4rtige Anst\\u00f6sser\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.publication",
+          "models": ["INSTANCE_ID", "neighbors"]
+        },
+        "is-manually-completable": true
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": null,
+      "lead_time": 604800,
       "is_multiple_instance": false,
       "continue_async": false
     }
@@ -298,6 +399,22 @@
       "lead_time": null,
       "is_multiple_instance": false,
       "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "0e44b3cc-ee68-4c82-aca0-25a71481d323",
+    "fields": {
+      "created_at": "2025-02-26T11:51:41.877Z",
+      "modified_at": "2025-02-26T11:51:41.877Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "create-information-of-neighbors",
+      "flow": "b95bb8ab-36fd-4834-a460-352859feaee1",
+      "redoable": null
     }
   },
   {
@@ -409,6 +526,22 @@
       "workflow": "building-permit",
       "task": "fill-publication",
       "flow": "298d6c27-bea8-47f3-b234-2fce696b3d91",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "cc5f1491-979f-476f-a4d0-1494b209cc22",
+    "fields": {
+      "created_at": "2025-02-26T11:51:40.922Z",
+      "modified_at": "2025-02-26T11:51:40.922Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "fill-information-of-neighbors",
+      "flow": "686a19a9-e4c0-4cd0-a383-16be96be3195",
       "redoable": null
     }
   },

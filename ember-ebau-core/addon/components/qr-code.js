@@ -1,4 +1,5 @@
 import { service } from "@ember/service";
+import { getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import slugify from "@projectcaluma/ember-core/utils/slugify";
@@ -8,7 +9,6 @@ import QRCode from "qrcode";
 
 export default class QrCodeComponent extends Component {
   @service notification;
-  @service shoebox;
   @service intl;
 
   @tracked data;
@@ -31,11 +31,11 @@ export default class QrCodeComponent extends Component {
   }
 
   get key() {
-    return this.args.field.document.uuid.substr(0, 7);
+    return this.args.field.document.uuid.substring(0, 7);
   }
 
   get url() {
-    const host = this.shoebox.content?.config?.portalURL;
+    const host = getOwnConfig().portalUrl;
     const id = this.args.context.instanceId;
 
     return `${host}/public-instances/${id}?key=${this.key}`;

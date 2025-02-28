@@ -115,7 +115,7 @@ def test_so_distribution_services(
 
     if "completed_publication" in conditions:
         work_item = caluma_work_item_factory(
-            task_id=so_publication_settings["FILL_TASKS"][0],
+            task_id=so_publication_settings["FILL_TASKS"]["PUBLIC"],
             status=WorkItem.STATUS_COMPLETED,
             case=so_instance.case,
             meta={"is-published": True},
@@ -128,7 +128,7 @@ def test_so_distribution_services(
 
     if "running_publication" in conditions:
         work_item = caluma_work_item_factory(
-            task_id=so_publication_settings["FILL_TASKS"][0],
+            task_id=so_publication_settings["FILL_TASKS"]["PUBLIC"],
             status=WorkItem.STATUS_COMPLETED,
             case=so_instance.case,
             meta={"is-published": True},

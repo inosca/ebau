@@ -25,6 +25,7 @@ import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachment
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
 import PublicationFillEndDateComponent from "ember-ebau-core/components/publication-fill-end-date";
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
+import QrCodeComponent from "ember-ebau-core/components/qr-code";
 import ServiceContentComponent from "ember-ebau-core/components/service-content";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
@@ -291,6 +292,12 @@ export default class ApplicationRoute extends Route {
       label: "Publikation Startdatum mit automatischem Ausfüllen des Enddatums",
       component: "publication-fill-end-date",
       componentClass: PublicationFillEndDateComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "QR Code",
+      component: "qr-code",
+      componentClass: QrCodeComponent,
+      type: "StaticQuestion",
     });
   }
 }

@@ -40,7 +40,7 @@
           @mutation="complete"
           @filters={{this.filters}}
           @onSuccess={{fn this.refreshNavigation true}}
-          @label={{t "publication.new"}}
+          @label={{t (concat "publication.new." @model.type)}}
         />
       {{/if}}
 

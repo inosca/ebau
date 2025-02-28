@@ -5,7 +5,7 @@ import os
 import sys
 from copy import deepcopy
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, timedelta
 from importlib import import_module, reload
 from pathlib import Path
 
@@ -30,7 +30,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
 from django.urls import clear_url_caches
-from django.utils.timezone import make_aware
+from django.utils.timezone import make_aware, now
 from factory import Faker
 from factory.base import FactoryMetaClass
 from jwt import encode as jwt_encode
@@ -748,17 +748,6 @@ def caluma_audit(caluma_workflow_config_be):
 
 
 @pytest.fixture
-def caluma_publication(caluma_workflow_config_be):
-    for slug in CALUMA_FORM_TYPES_SLUGS:
-        caluma_form_models.Form.objects.create(slug=slug)
-
-    call_command(
-        "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_publication_form.json")
-    )
-    caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
-
-
-@pytest.fixture
 def caluma_workflow_config_sz(db, caluma_config_sz):
     caluma_form_models.Form.objects.create(slug="baugesuch")
     caluma_form_models.Form.objects.create(slug="bauverwaltung")
@@ -1145,6 +1134,7 @@ def caluma_forms_ag(settings, caluma_form_factory):
         "kantonale-pruefung",
         "vorlaeufige-pruefung",
         "publikation",
+        "nachbarschaftsorientierung",
     ]:
         caluma_form_models.Form.objects.create(slug=slug)
 
@@ -2197,3 +2187,38 @@ def mock_celery(mocker):
         "alexandria.core.tasks.create_thumbnail.delay",
         side_effect=lambda id: alexandria_tasks.create_thumbnail(id),
     )
+
+
+@pytest.fixture
+def create_caluma_publication(db, caluma_work_item_factory, utils, request):
+    def wrapper(
+        instance,
+        start=now() - timedelta(days=1),
+        end=now() + timedelta(days=12),
+        published=True,
+        publication_type="PUBLIC",
+        canton="be",
+    ):
+        module_settings = request.getfixturevalue(f"{canton}_publication_settings")
+
+        work_item = caluma_work_item_factory(
+            task_id=module_settings["FILL_TASKS"][publication_type],
+            status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+            case=instance.case,
+            meta={"is-published": published},
+        )
+
+        utils.add_answer(
+            work_item.document,
+            module_settings["RANGE_QUESTIONS"][publication_type][0][0],
+            start,
+        )
+        utils.add_answer(
+            work_item.document,
+            module_settings["RANGE_QUESTIONS"][publication_type][0][1],
+            end,
+        )
+
+        return work_item
+
+    return wrapper

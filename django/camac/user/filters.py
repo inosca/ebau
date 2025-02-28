@@ -194,7 +194,7 @@ class PublicServiceFilterSet(FilterSet):
         publication_work_items = WorkItem.objects.filter(
             **{
                 "case": instance.case,
-                "task_id__in": settings.PUBLICATION["FILL_TASKS"],
+                "task_id__in": settings.PUBLICATION["FILL_TASKS"].values(),
                 "meta__is-published": True,
                 "status": WorkItem.STATUS_COMPLETED,
             }

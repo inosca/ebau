@@ -131,7 +131,7 @@
       "template": "/ember-camac-ng/corrections.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 18,
+      "sort": 19,
       "form_group": 2000000,
       "require_permission": "corrections-read"
     }
@@ -147,7 +147,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 2000000,
       "require_permission": "distribution-read"
     }
@@ -163,7 +163,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 2000000,
       "require_permission": "decision-read"
     }
@@ -211,7 +211,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 14,
+      "sort": 15,
       "form_group": 2000000,
       "require_permission": "additional-demands-read"
     }
@@ -230,6 +230,22 @@
       "sort": 10,
       "form_group": 2000000,
       "require_permission": "publication-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 15000006,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/information-of-neighbors.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 11,
+      "form_group": 2000000,
+      "require_permission": "information-of-neighbors-read"
     }
   },
   {
@@ -307,7 +323,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 16,
+      "sort": 17,
       "form_group": 2000000,
       "require_permission": "journal-read"
     }
@@ -323,7 +339,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 17,
+      "sort": 18,
       "form_group": 2000000,
       "require_permission": "history-read"
     }
@@ -339,7 +355,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 19,
+      "sort": 20,
       "form_group": 2000000,
       "require_permission": "permissions-read"
     }
@@ -355,7 +371,7 @@
       "template": "/ember-camac-ng/billing.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 15,
+      "sort": 16,
       "form_group": 2000000,
       "require_permission": "billing-read"
     }
@@ -387,7 +403,7 @@
       "template": "/ember-camac-ng/rejection.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 2000000,
       "require_permission": "rejection-read"
     }
@@ -479,6 +495,16 @@
       "instance_resource": 15000005,
       "language": "de",
       "name": "Publikation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000006,
+    "fields": {
+      "instance_resource": 15000006,
+      "language": "de",
+      "name": "Information auswärtige Anstösser",
       "description": null
     }
   },

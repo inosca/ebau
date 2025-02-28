@@ -209,7 +209,7 @@ BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS = [
     ("related-gwr-projects-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
     ("billing-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     (
-        "information-of-neighbors",
+        "information-of-neighbors-read",
         BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED,
     ),
     ("publication-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),

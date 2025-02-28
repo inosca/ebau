@@ -19,6 +19,7 @@
     'construction_costs': 12000000,
     'decision_date': datetime.date(2025, 2, 5),
     'dossier_number': '2025-1',
+    'information_of_neighbors_required': True,
     'invoice_recipients': list([
       dict({
         'email': 'abigailwheeler@example.net',

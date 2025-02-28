@@ -1,22 +1,16 @@
-import Service from "@ember/service";
 import { render } from "@ember/test-helpers";
+import { getOwnConfig } from "@embroider/macros";
 import { hbs } from "ember-cli-htmlbars";
 import { module, test } from "qunit";
 import { v4 } from "uuid";
 
-import { setupRenderingTest } from "camac-ng/tests/helpers";
+import { setupRenderingTest } from "dummy/tests/helpers";
 
 module("Integration | Component | qr-code", function (hooks) {
   setupRenderingTest(hooks);
 
   test("it renders", async function (assert) {
-    this.owner.register(
-      "service:shoebox",
-      class extends Service {
-        content = { config: { portalURL: location.origin } };
-      },
-    );
-
+    const portalUrl = getOwnConfig().portalUrl;
     const uuid = v4();
 
     this.field = { document: { uuid } };
@@ -32,7 +26,7 @@ module("Integration | Component | qr-code", function (hooks) {
       .dom("img")
       .hasAttribute(
         "alt",
-        `${location.origin}/public-instances/1?key=${uuid.substr(0, 7)}`,
+        `${portalUrl}/public-instances/1?key=${uuid.substring(0, 7)}`,
       );
   });
 });

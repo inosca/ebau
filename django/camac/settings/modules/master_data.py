@@ -2853,6 +2853,22 @@ MASTER_DATA = {
                     ),
                 },
             ),
+            "information_of_neighbors_required": (
+                "answer",
+                "vorlaeufige-pruefung-auswaertige-anstoesser",
+                {
+                    "document_from_work_item": "formal-exam",
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "vorlaeufige-pruefung-auswaertige-anstoesser-ja": True,
+                                "vorlaeufige-pruefung-auswaertige-anstoesser-nein": False,
+                            }
+                        },
+                    ),
+                },
+            ),
             "usage_zone": ("answer", "zonenplan"),
             "joined_street_and_number": ("static", True),
             "street": ("answer", "street-and-housenumber"),

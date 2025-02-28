@@ -281,26 +281,31 @@ class InstanceQuerysetMixin(object):
             )
 
             filters = {
-                "task_id": "fill-publication",
+                "task_id": settings.PUBLICATION["FILL_TASKS"]["PUBLIC"],
                 "meta__is-published": True,
                 "status": WorkItem.STATUS_COMPLETED,
             }
-            ranges = settings.PUBLICATION.get("RANGE_QUESTIONS")
-            publish_question = settings.PUBLICATION.get("PUBLISH_QUESTION")
+            ranges = settings.PUBLICATION["RANGE_QUESTIONS"]["PUBLIC"]
+            published_filters = Q()
+
+            if publish_question := settings.PUBLICATION.get("PUBLISH_QUESTION"):
+                published_filters = Exists(
+                    Answer.objects.filter(
+                        document_id=OuterRef("document_id"),
+                        question_id=publish_question,
+                        value=settings.PUBLICATION["PUBLISH_ANSWER"],
+                    )
+                )
 
             if public_access_key:
                 filters.update(
                     {
-                        "task_id": "information-of-neighbors",
+                        "task_id": settings.PUBLICATION["FILL_TASKS"]["NEIGHBORS"],
                         "document__pk__startswith": public_access_key,
                     }
                 )
-                ranges = [
-                    (
-                        "information-of-neighbors-start-date",
-                        "information-of-neighbors-end-date",
-                    )
-                ]
+                ranges = settings.PUBLICATION["RANGE_QUESTIONS"]["NEIGHBORS"]
+                published_filters = Q()
 
             range_filters = Q()
             for start_question, end_question in ranges:
@@ -321,13 +326,11 @@ class InstanceQuerysetMixin(object):
                     )
                 )
 
-            public_cases = WorkItem.objects.filter(**filters).filter(range_filters)
-
-            if publish_question:
-                public_cases = public_cases.filter(
-                    document__answers__question_id=publish_question,
-                    document__answers__value=settings.PUBLICATION.get("PUBLISH_ANSWER"),
-                )
+            public_cases = (
+                WorkItem.objects.filter(**filters)
+                .filter(range_filters)
+                .filter(published_filters)
+            )
 
             public_cases = list(public_cases.values_list("case__family", flat=True))
             return queryset.filter(

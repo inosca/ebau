@@ -10,29 +10,22 @@ from alexandria.core.models import Document
 from django.urls import reverse
 from rest_framework.status import HTTP_200_OK
 
-from camac.instance.tests.test_instance_public import (  # noqa: F401
-    create_caluma_publication,
-)
-
 
 @pytest.fixture
 def alexandria_setup(
     db,
-    create_caluma_publication,  # noqa: F811
-    instance_with_case,
-    instance,
+    create_caluma_publication,
+    so_instance,
     mocker,
-    publication_settings,
     role,
     service_factory,
     service,
 ):
     mocker.patch(
         "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
-        return_value=[instance.pk],
+        return_value=[so_instance.pk],
     )
 
-    instance = instance_with_case(instance)
     other_service = service_factory()
 
     if role.name == "subservice":
@@ -68,12 +61,12 @@ def alexandria_setup(
     # applicant documents
     DocumentFactory(
         category=applicant_category,
-        metainfo={"camac-instance-id": instance.pk},
+        metainfo={"camac-instance-id": so_instance.pk},
         title="applicant",
     )
     DocumentFactory(
         category=applicant_nested_category,
-        metainfo={"camac-instance-id": instance.pk},
+        metainfo={"camac-instance-id": so_instance.pk},
         title="applicant nested",
     )
 
@@ -82,14 +75,14 @@ def alexandria_setup(
         category=service_category,
         created_by_group=str(service.pk),
         modified_by_group=str(service.pk),
-        metainfo={"camac-instance-id": instance.pk},
+        metainfo={"camac-instance-id": so_instance.pk},
         title="service",
     )
     DocumentFactory(
         category=service_category,
         created_by_group=str(other_service.pk),
         modified_by_group=str(other_service.pk),
-        metainfo={"camac-instance-id": instance.pk},
+        metainfo={"camac-instance-id": so_instance.pk},
         title="service 2",
     )
 
@@ -98,37 +91,37 @@ def alexandria_setup(
         category=service_and_subservice_category,
         created_by_group=str(parent_service.pk),
         modified_by_group=str(parent_service.pk),
-        metainfo={"camac-instance-id": instance.pk},
+        metainfo={"camac-instance-id": so_instance.pk},
         title="subservice shared 1",
     )
     DocumentFactory(
         category=service_and_subservice_category,
         created_by_group=str(subservice_1.pk),
         modified_by_group=str(subservice_1.pk),
-        metainfo={"camac-instance-id": instance.pk},
+        metainfo={"camac-instance-id": so_instance.pk},
         title="subservice shared 2",
     )
     DocumentFactory(
         category=service_and_subservice_category,
         created_by_group=str(subservice_2.pk),
         modified_by_group=str(subservice_2.pk),
-        metainfo={"camac-instance-id": instance.pk},
+        metainfo={"camac-instance-id": so_instance.pk},
         title="subservice shared 3",
     )
 
     # decision document
     document = DocumentFactory(
         category=municipality_category,
-        metainfo={"camac-instance-id": instance.pk},
+        metainfo={"camac-instance-id": so_instance.pk},
         title="decision",
     )
     document.marks.add(MarkFactory(slug="decision"))
 
     # publication document
-    create_caluma_publication(instance)
-    DocumentFactory(metainfo={"camac-instance-id": instance.pk}, title="hidden")
+    create_caluma_publication(so_instance, canton="so")
+    DocumentFactory(metainfo={"camac-instance-id": so_instance.pk}, title="hidden")
     public = DocumentFactory(
-        metainfo={"camac-instance-id": instance.pk}, title="publication"
+        metainfo={"camac-instance-id": so_instance.pk}, title="publication"
     )
     public.marks.add(MarkFactory(slug="publication"))
 
