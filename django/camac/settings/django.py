@@ -2884,13 +2884,18 @@ CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
 
 # Keycloak service
 
+# TODO in our frontends, this is called KEYCLOAK_HOST. Consider renaming it
 KEYCLOAK_URL = build_url(
     env.str("KEYCLOAK_URL", default="http://ebau-keycloak.local/auth/"),
     trailing=True,
 )
 KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
+KEYCLOAK_BASE_PATH = env.str("KEYCLOAK_BASE_PATH", default="auth")
+# possibility to change the OIDC scopes, only used for django admin auth
+KEYCLOAK_SCOPES = env.str("KEYCLOAK_SCOPES", default="openid email")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
 KEYCLOAK_PORTAL_CLIENT = env.str("KEYCLOAK_PORTAL_CLIENT", default="portal")
+
 # Client used by PHP to do privileged actions
 KEYCLOAK_CAMAC_ADMIN_CLIENT = env.str(
     "KEYCLOAK_CAMAC_ADMIN_CLIENT", default="camac-admin"
@@ -3246,9 +3251,10 @@ OIDC_RP_CLIENT_SECRET = None
 OIDC_DEFAULT_BASE_URL = build_url(
     KEYCLOAK_URL, "/realms/", KEYCLOAK_REALM, "/protocol/openid-connect"
 )
-OIDC_OP_AUTHORIZATION_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/auth")
+OIDC_OP_AUTHORIZATION_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, KEYCLOAK_BASE_PATH)
 OIDC_OP_TOKEN_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/token")
 OIDC_OP_USER_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/userinfo")
+OIDC_RP_SCOPES = KEYCLOAK_SCOPES
 OIDC_RP_SIGN_ALGO = env.str("DJANGO_OIDC_RP_SIGN_ALGO", default="RS256")
 OIDC_OP_JWKS_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/certs")
 OIDC_OP_INTROSPECT_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/token/introspect")

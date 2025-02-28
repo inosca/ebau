@@ -1,8 +1,21 @@
 "use strict";
 
 module.exports = function (environment) {
-  const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
-  const oidcRealm = process.env.APPLICATION === "kt_uri" ? "urec" : "ebau";
+  const oidcHost = process.env.KEYCLOAK_HOST ?? "http://ebau-keycloak.local";
+  const oidcBasePath = process.env.KEYCLOAK_BASE_PATH ?? "auth";
+  const oidcRealm =
+    process.env.KEYCLOAK_REALM ??
+    (process.env.APPLICATION === "kt_uri" ? "urec" : "ebau");
+  const oidcClientId = process.env.KEYCLOAK_CLIENT ?? "camac";
+  const oidcScopes = process.env.KEYCLOAK_SCOPES ?? "oidc";
+
+  function trailingSlash(url) {
+    if (!url) {
+      return "";
+    }
+    return url.replace(/\/?$/, "/");
+  }
+  const oidcUrl = `${trailingSlash(oidcHost)}${trailingSlash(oidcBasePath)}realms/${oidcRealm}`;
 
   const ENV = {
     modulePrefix: "ebau",
@@ -11,8 +24,9 @@ module.exports = function (environment) {
     locationType: "history",
     "changeset-validations": { rawOutput: true },
     "ember-simple-auth-oidc": {
-      host: `${oidcHost}/auth/realms/${oidcRealm}/protocol/openid-connect`,
-      clientId: "camac",
+      host: `${oidcUrl}/protocol/openid-connect`,
+      clientId: oidcClientId,
+      scope: oidcScopes,
       authEndpoint: "/auth",
       tokenEndpoint: "/token",
       endSessionEndpoint: "/logout",
