@@ -623,6 +623,7 @@ DUMP = {
                 "publication": {
                     **generate_form_dump_config(regex=r"^publikation?$"),
                 },
+                **CONSTRUCTION_MONITORING_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

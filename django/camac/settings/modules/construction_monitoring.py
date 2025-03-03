@@ -166,6 +166,13 @@ CONSTRUCTION_MONITORING = {
         "NOTIFICATIONS": {},
         "NOTIFICATION_RECIPIENTS": {},
     },
+    "kt_gr": {
+        "ENABLED": True,
+        "PREVIOUS_INSTANCE_STATE": "decision",
+        "CONSTRUCTION_MONITORING_INSTANCE_STATE": "construction-acceptance",
+        "NOTIFICATIONS": {},
+        "NOTIFICATION_RECIPIENTS": {},
+    },
     "kt_so": {
         "ENABLED": True,
         "PREVIOUS_INSTANCE_STATE": "decided",

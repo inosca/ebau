@@ -658,6 +658,8 @@ def caluma_workflow_config_gr(
         settings.ROOT_DIR("kt_gr/config/caluma_distribution.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_additional_demand.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_objection_form.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_construction_monitoring_form.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_construction_monitoring_workflow.json"),
     )
 
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
@@ -1668,6 +1670,17 @@ def ur_construction_monitoring_settings(settings, construction_monitoring_settin
     construction_monitoring_dict = copy.deepcopy(
         always_merger.merge(
             construction_monitoring_settings, CONSTRUCTION_MONITORING["kt_uri"]
+        )
+    )
+    settings.CONSTRUCTION_MONITORING = construction_monitoring_dict
+    return construction_monitoring_dict
+
+
+@pytest.fixture
+def gr_construction_monitoring_settings(settings, construction_monitoring_settings):
+    construction_monitoring_dict = copy.deepcopy(
+        always_merger.merge(
+            construction_monitoring_settings, CONSTRUCTION_MONITORING["kt_gr"]
         )
     )
     settings.CONSTRUCTION_MONITORING = construction_monitoring_dict

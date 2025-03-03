@@ -54,6 +54,7 @@ construction-monitoring:
     construction-step-baufreigabe: "Baufreigabe"
     construction-step-baubeginn: "Baubeginn"
     construction-step-schnurgeruestabnahme: "Schnurgerüstabnahme"
+    construction-step-einmessung: "Einmessung"
     construction-step-kanalisationsabnahme: "Kanalisationsabnahme"
     construction-step-rohbauabnahme: "Rohbauabnahme"
     construction-step-zwischenkontrolle: "Zwischenkontrolle"

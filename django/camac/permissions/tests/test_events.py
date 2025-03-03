@@ -248,6 +248,7 @@ def test_decision_event_handler_gr(
     expected_count,
     gr_permissions_settings,
     gr_distribution_settings,
+    gr_construction_monitoring_settings,
     instance_state_factory,
     settings,
     application_settings,
@@ -293,81 +294,6 @@ def test_decision_event_handler_gr(
 
     gvg_acl = acls.filter(service=gvg_service)
     assert gvg_acl.count() == expected_count
-
-
-@pytest.mark.parametrize(
-    "checkbox_checked,expected_count",
-    [(True, 1), (False, 0)],
-)
-def test_construction_acceptance_event_handler_gr(
-    db,
-    gr_instance,
-    checkbox_checked,
-    expected_count,
-    gr_permissions_settings,
-    gr_distribution_settings,
-    instance_state_factory,
-    settings,
-    caluma_answer_factory,
-    service_factory,
-    caluma_admin_user,
-    gr_decision_settings,
-    access_level_factory,
-    gr_ech0211_settings,
-):
-    settings.APPLICATION_NAME = "kt_gr"
-    aib_service = service_factory(name=gr_constants.AIB_SERVICE_SLUG)
-
-    for task_id in [
-        "submit",
-        "formal-exam",
-        "distribution",
-    ]:
-        workflow_api.skip_work_item(
-            work_item=gr_instance.case.work_items.get(task_id=task_id),
-            user=caluma_admin_user,
-        )
-
-    instance_state_factory(name="construction-acceptance")
-
-    caluma_answer_factory(
-        document=gr_instance.case.work_items.filter(task_id="decision")
-        .first()
-        .document,
-        question__slug="decision-decision",
-        value="decision-decision-approved",
-    )
-
-    workflow_api.complete_work_item(
-        work_item=gr_instance.case.work_items.get(task_id="decision"),
-        user=caluma_admin_user,
-    )
-
-    if checkbox_checked:
-        caluma_answer_factory(
-            document=gr_instance.case.work_items.filter(
-                task_id="construction-acceptance"
-            )
-            .first()
-            .document,
-            question__slug="fuer-aib-freigeben",
-            value=["fuer-aib-freigeben-ja"],
-        )
-    access_level_factory(slug="read")
-    instance_state_factory(name="finished")
-
-    assert InstanceACL.objects.filter(instance=gr_instance).count() == 0
-
-    workflow_api.complete_work_item(
-        work_item=gr_instance.case.work_items.get(task_id="construction-acceptance"),
-        user=caluma_admin_user,
-    )
-
-    acls = InstanceACL.objects.filter(instance=gr_instance)
-    assert acls.count() == expected_count
-
-    aib_acl = acls.filter(service=aib_service)
-    assert aib_acl.count() == expected_count
 
 
 @pytest.mark.freeze_time("2022-06-03")
