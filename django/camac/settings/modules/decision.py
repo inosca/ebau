@@ -98,7 +98,6 @@ DECISION = {
             },
         },
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "construction-acceptance",
-        "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-acceptance"],
     },
     "kt_ag": {
         "ENABLED": True,

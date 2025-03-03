@@ -2058,7 +2058,6 @@ APPLICATIONS = {
                     ],
                 },
                 "fill-publication": {"complete": ["publication"]},
-                "construction-acceptance": {"cancel": ["create-manual-workitems"]},
             },
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {

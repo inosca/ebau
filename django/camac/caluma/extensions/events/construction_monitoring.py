@@ -126,6 +126,7 @@ CONSTRUCTION_STEP_TRANSLATIONS = {
     "construction-step-baubeginn": _("Baubeginn"),
     "construction-step-schnurgeruestabnahme": _("Schnurgeruestabnahme"),
     "construction-step-kanalisationsabnahme": _("Kanalisationsabnahme"),
+    "construction-step-einmessung": _("Einmessung im offenen Graben"),
     "construction-step-rohbauabnahme": _("Rohbauabnahme"),
     "construction-step-zwischenkontrolle": _("Zwischenkontrolle"),
     "construction-step-schlussabnahme-gebaeude": _("Schlussabnahme Gebaeude"),

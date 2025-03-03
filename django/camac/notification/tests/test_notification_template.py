@@ -7,9 +7,7 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
-from caluma.caluma_form.factories import QuestionFactory
 from caluma.caluma_workflow import (
-    api as workflow_api,
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
@@ -425,92 +423,6 @@ def test_notification_template_sendmail(
             == settings.EMAIL_PREFIX_SUBJECT + be_instance.identifier
         )
         assert mailoutbox[0].body == settings.EMAIL_PREFIX_BODY + "Test body"
-
-
-@pytest.mark.parametrize("user__email", ["applicant@example.com"])
-@pytest.mark.parametrize(
-    "form_name,released_for_aib,expected_recipients",
-    [
-        ("baugesuch", True, ["info@aib.gr.ch", "applicant@example.com"]),
-        ("baugesuch", False, ["applicant@example.com"]),
-        ("solaranlage", True, ["info@aib.gr.ch", "applicant@example.com"]),
-        ("solaranlage", False, ["applicant@example.com"]),
-        ("bauanzeige", True, ["info@aib.gr.ch", "applicant@example.com"]),
-        ("bauanzeige", False, ["applicant@example.com"]),
-        ("vorlaeufige-beurteilung", True, []),
-        ("vorlaeufige-beurteilung", False, []),
-    ],
-)
-@pytest.mark.parametrize("role__name", ["Municipality"])
-def test_notification_template_construction_acceptance(
-    caluma_admin_user,
-    gr_instance,
-    caluma_workflow_config_gr,
-    settings,
-    form_name,
-    mailoutbox,
-    expected_recipients,
-    application_settings,
-    instance_state_factory,
-    notification_template_factory,
-    set_application_gr,
-    gr_decision_settings,
-    gr_distribution_settings,
-    caluma_answer_factory,
-    released_for_aib,
-    service_factory,
-):
-    instance_state_factory(name="finished")
-    instance_state_factory(name="construction-acceptance")
-    notification_template_factory(slug="bauabnahme")
-    notification_template_factory(slug="bauabnahme-gesuchsteller")
-
-    service_factory(name="aib", email="info@aib.gr.ch")
-
-    gr_instance.case.document.form = caluma_form_models.Form.objects.create(
-        pk=form_name
-    )
-    gr_instance.case.document.save()
-
-    for task_id in [
-        "submit",
-        "formal-exam",
-        "distribution",
-        "decision",
-    ]:
-        if task_id == "decision":
-            QuestionFactory(slug="decision-decision")
-            gr_instance.case.work_items.get(task_id=task_id).document.answers.create(
-                question_id="decision-decision", value="decision-decision-approved"
-            )
-        workflow_api.skip_work_item(
-            work_item=gr_instance.case.work_items.get(task_id=task_id),
-            user=caluma_admin_user,
-        )
-
-    if released_for_aib:
-        caluma_answer_factory(
-            document=gr_instance.case.work_items.filter(
-                task_id="construction-acceptance"
-            )
-            .first()
-            .document,
-            question__slug="fuer-aib-freigeben",
-            value=["fuer-aib-freigeben-ja"],
-        )
-
-    workflow_api.complete_work_item(
-        work_item=gr_instance.case.work_items.get(task_id="construction-acceptance"),
-        user=caluma_admin_user,
-    )
-
-    assert len(mailoutbox) == len(expected_recipients)
-
-    if form_name != "vorlaeufige-beurteilung":
-        if not released_for_aib:
-            assert len(mailoutbox) == 1
-        else:
-            assert [m.recipients() for m in mailoutbox]
 
 
 @pytest.mark.parametrize(

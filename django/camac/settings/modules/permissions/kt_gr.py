@@ -49,7 +49,7 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 MODULE_ADDITIONAL_DEMANDS = STATES_ALL & ~IsForm(
     ["vorlaeufige-beurteilung"]
 )  # TODO bauanzeige?
-MODULE_CONSTRUCTION_MONITORING = RequireWorkItem("construction-acceptance")
+MODULE_CONSTRUCTION_MONITORING = RequireWorkItem("init-construction-monitoring")
 MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_CORRECTIONS = (
     STATES_ALL | RequireInstanceState(["correction"])
@@ -101,6 +101,10 @@ MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand"
 MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
     MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
 )
+MODULE_PORTAL_CONSTRUCTION_MONITORING_READ = RequireWorkItem("construction-stage")
+MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
+    MODULE_PORTAL_CONSTRUCTION_MONITORING_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+)
 
 ACTION_INSTANCE_CREATE_MODIFICATION = (
     HasApplicantRole(["ADMIN"])
@@ -140,6 +144,10 @@ GR_PERMISSIONS_SETTINGS = {
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
             ("communications-read", MODULE_PORTAL_COMMUNICATIONS_READ),
             ("communications-write", MODULE_PORTAL_COMMUNICATIONS_WRITE),
+            (
+                "construction-monitoring-write",
+                MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE,
+            ),
             ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
             ("form-read", MODULE_PORTAL_FORM_READ),
             ("form-write", MODULE_PORTAL_FORM_WRITE),
@@ -182,6 +190,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
+            ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
             ("corrections-read", MODULE_CORRECTIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),

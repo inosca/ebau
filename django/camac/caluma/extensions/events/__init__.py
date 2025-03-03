@@ -8,7 +8,6 @@ from . import (  # noqa: F401
     caluma_workflow_notifications,
     cantonal_exam,
     complete_check,
-    construction_acceptance,
     construction_monitoring,
     decision,
     direct_inquiry,
