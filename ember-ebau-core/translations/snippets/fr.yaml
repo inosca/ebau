@@ -10,6 +10,7 @@ snippets:
   title: Titre
   copy: Copier le module de texte dans le clipboard
   empty: Pas de catégories de modules de texte disponibles
+  empty-search: Pas de modules de texte disponibles
 
   confirm:
     delete: Voulez-vous vraiment supprimer le module de texte <span class="uk-text-bold">"{name}"</span> ?

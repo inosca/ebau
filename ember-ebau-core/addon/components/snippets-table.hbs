@@ -26,7 +26,13 @@
       @refresh={{this.refresh}}
     />
   {{else}}
-    <p class="uk-text-center uk-text-meta">{{t "snippets.empty"}}</p>
+    <p class="uk-text-center uk-text-meta">
+      {{#if @search}}
+        {{t "snippets.empty-search"}}
+      {{else}}
+        {{t "snippets.empty"}}
+      {{/if}}
+    </p>
   {{/each-in}}
 
   {{#if @editable}}
