@@ -3,6 +3,7 @@ from datetime import date
 import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form import models as caluma_form_models
+from caluma.caluma_form.factories import AnswerFactory
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from caluma.caluma_workflow.events import (
     post_complete_work_item,
@@ -18,6 +19,7 @@ from camac.caluma.extensions.events.caluma_workflow_notifications import (
     post_create_caluma_workflow_notifications,
 )
 from camac.caluma.extensions.events.complete_check import (
+    complete_rejection_work_item,
     send_notification_after_complete_check,
 )
 from camac.caluma.extensions.events.general import post_decision_ur
@@ -1185,3 +1187,36 @@ def test_post_complete_caluma_workflow_notifications(
         == "4-3-zirkulation-abgeschlossen"
     )
     assert send_notification_mock.call_args[0][0]["recipient_types"] == ["applicant"]
+
+
+def test_complete_rejection_work_item(
+    db,
+    caluma_admin_user,
+    set_application_ur,
+    caluma_work_item_factory,
+    instance_state_factory,
+    caluma_document_factory,
+    caluma_question_factory,
+    ur_instance,
+):
+    instance_state_factory(name="rejected")
+    reject_work_item = caluma_work_item_factory(
+        task_id="reject", case=ur_instance.case, child_case=None
+    )
+    complete_check_work_item = caluma_work_item_factory(
+        task_id="complete-check",
+        document=caluma_document_factory(),
+        case=ur_instance.case,
+    )
+    AnswerFactory(
+        document=complete_check_work_item.document,
+        question__slug="rejection-feedback",
+        value="Test feedback",
+    )
+
+    complete_rejection_work_item(
+        sender=None, work_item=reject_work_item, user=caluma_admin_user, context={}
+    )
+
+    assert ur_instance.instance_state.name == "rejected"
+    assert ur_instance.rejection_feedback == "Test feedback"

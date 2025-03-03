@@ -164,6 +164,13 @@ class CustomDynamicTasks(BaseDynamicTasks):
         ):
             tasks.append("release-for-bk")
 
+        # GWR relevancy
+        if completeness_answer in [
+            "complete-check-vollstaendigkeitspruefung-complete",
+            "complete-check-vollstaendigkeitspruefung-incomplete",
+        ]:
+            tasks.append("check-gwr-relevancy")
+
         return tasks
 
     @register_dynamic_task("after-complete-construction-monitoring-ur")
