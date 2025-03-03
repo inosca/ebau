@@ -1746,6 +1746,10 @@ APPLICATIONS = {
                     "recipient_types": ["work_item_controlling"],
                 }
             ],
+            "COPY_AFJ": {
+                "template_slug": "3-dossier-eingereicht-gemeinde",
+                "recipient_types": ["municipality_users"],
+            },
         },
         "HAS_EBAU_NUMBER": False,
         "HAS_GESUCHSNUMMER": False,
