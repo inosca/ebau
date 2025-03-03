@@ -106,6 +106,7 @@ INSTALLED_APPS = [
     "camac.permissions.apps.PermissionsConfig",
     "camac.gis.apps.GisConfig",
     "camac.billing.apps.BillingConfig",
+    "camac.eeba_integration.apps.EebaIntegrationConfig",
     "sorl.thumbnail",
     "django_clamd",
     "django_q",
@@ -3258,6 +3259,11 @@ GWR_HOUSING_STAT_BASE_URI = env.str(
     default="https://www.housing-stat.ch/regbl/api/ech0216/2",
 )
 
+
+# EEBA Kt. GR
+EEBA_SHARED_SECRET = env.str(
+    "EEBA_SHARED_SECRET", "4z5hKJ2eQYXaGxvG9B8JfQ6C5L4A2mX5k7P0dQvNc4g="
+)
 
 # Until running tasks can be manually canceled we want a timeout
 DJANGO_Q_TASK_TIMEOUT_HOURS = env.int("DJANGO_Q_TASK_TIMEOUT_HOURS", default=6)
