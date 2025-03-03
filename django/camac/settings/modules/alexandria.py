@@ -35,6 +35,10 @@ ALEXANDRIA = {
             "APPLICANT": ["objection"],
             "SENSITIVE": ["sensitive"],
         },
+        "CUSTOM_ROLE_MAPPINGS": {
+            "service-cantonal": "cantonal",
+            "service-extra-cantonal": "extra-cantonal",
+        },
     },
     "test": {
         "ENABLED": True,
