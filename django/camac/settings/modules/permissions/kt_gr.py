@@ -11,6 +11,8 @@ from camac.permissions.conditions import (
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.settings.env import env
 
+BAUGESUCH_VERSIONS = ["baugesuch", "baugesuch-v2"]
+
 # Instance state rules
 STATES_ALL = RequireInstanceState(
     [
@@ -30,7 +32,7 @@ STATES_ACCESSIBLE = STATES_ALL & ~RequireInstanceState(["rejected"])
 STATES_POST_DECISION = RequireInstanceState(["construction-acceptance", "finished"])
 
 # Form rules
-FORMS_ONLY_BUILDING_PERMIT = IsForm(["baugesuch", "solaranlage"])
+FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_VERSIONS, "solaranlage"])
 
 # Role rules
 ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
@@ -101,7 +103,9 @@ MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
 )
 
 ACTION_INSTANCE_CREATE_MODIFICATION = (
-    HasApplicantRole(["ADMIN"]) & ~RequireInstanceState(["new"]) & IsForm(["baugesuch"])
+    HasApplicantRole(["ADMIN"])
+    & ~RequireInstanceState(["new"])
+    & IsForm(BAUGESUCH_VERSIONS)
 ) | (ROLES_MUNICIPALITY & IsPaper())
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())

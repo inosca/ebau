@@ -228,6 +228,7 @@ DMS = {
             "baugesuch": {
                 "forms": [
                     "baugesuch",
+                    "baugesuch-v2",
                 ],
                 "template": "form",
                 "personalien": "personalien",

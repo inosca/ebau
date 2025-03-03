@@ -607,6 +607,7 @@ DUMP = {
                 "caluma_material_exam_form": generate_form_dump_config(
                     regex=r"^material-exam$"
                 ),
+                "caluma_form_v2": generate_form_dump_config(version=2),
                 "dashboard_document": {
                     "caluma_form.Document": Q(form="dashboard"),
                 },

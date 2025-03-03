@@ -23,6 +23,7 @@ def post_complete_construction_acceptance(sender, work_item, user, context, **kw
 
     if instance.case.document.form.slug not in [
         "baugesuch",
+        "baugesuch-v2",
         "solaranlage",
         "bauanzeige",
     ]:

@@ -225,21 +225,21 @@
     "pk": "baugesuch",
     "fields": {
       "created_at": "2021-02-12T13:03:45.382Z",
-      "modified_at": "2024-08-28T12:24:54.537Z",
+      "modified_at": "2025-02-03T10:16:35.162Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\", \"it\": \"Domanda di costruzione\"}",
       "description": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\", \"it\": \"Domanda di costruzione\"}",
       "meta": {
         "order": 1,
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
       "is_published": true,
-      "is_archived": false,
+      "is_archived": true,
       "source": null
     }
   },
@@ -446,13 +446,13 @@
     "pk": "dokumente-ohne-pflichtdokumente",
     "fields": {
       "created_at": "2023-05-01T09:29:22.945Z",
-      "modified_at": "2024-08-28T12:24:54.571Z",
+      "modified_at": "2025-02-03T11:20:47.408Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": \"Documenti\"}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Dokumente ohne Pflichtdokumente\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -16298,7 +16298,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "anzahl-sondenbohrungen",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -16313,7 +16313,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "art-der-waermepumpe",
-      "sort": 38
+      "sort": 39
     }
   },
   {
@@ -16418,7 +16418,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "bohrfirma",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -16448,7 +16448,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "bohrtiefe-pro-erdwaermesonde",
-      "sort": 29
+      "sort": 30
     }
   },
   {
@@ -16523,7 +16523,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "erdwaermesonden-titel",
-      "sort": 32
+      "sort": 33
     }
   },
   {
@@ -16538,7 +16538,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "fuellmenge",
-      "sort": 35
+      "sort": 36
     }
   },
   {
@@ -16568,7 +16568,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "heizleistung-waermepumpe-verdampfer",
-      "sort": 36
+      "sort": 37
     }
   },
   {
@@ -16583,7 +16583,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "hinweis-luft-wasser-waermepumpe",
-      "sort": 37
+      "sort": 38
     }
   },
   {
@@ -16598,7 +16598,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "hinweis-zustaendigkeit-anu",
-      "sort": 40
+      "sort": 41
     }
   },
   {
@@ -16614,6 +16614,21 @@
       "form": "waermepumpenanlage",
       "question": "hydrologische-begleitung",
       "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "waermepumpenanlage.hydrologische-begleitung-text",
+    "fields": {
+      "created_at": "2025-02-10T09:26:58.160Z",
+      "modified_at": "2025-02-10T09:26:58.160Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "waermepumpenanlage",
+      "question": "hydrologische-begleitung-text",
+      "sort": 28
     }
   },
   {
@@ -16643,7 +16658,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "kaeltemittel",
-      "sort": 34
+      "sort": 35
     }
   },
   {
@@ -16778,7 +16793,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "standort-im-gebaeude",
-      "sort": 33
+      "sort": 34
     }
   },
   {
@@ -16808,7 +16823,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "waermepumpenanlage-titel",
-      "sort": 41
+      "sort": 42
     }
   },
   {
@@ -16823,7 +16838,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "waermepumpenanlage-untertitel",
-      "sort": 39
+      "sort": 40
     }
   },
   {
@@ -16853,7 +16868,7 @@
       "modified_by_group": null,
       "form": "waermepumpenanlage",
       "question": "waermetraegerfluessigkeit",
-      "sort": 31
+      "sort": 32
     }
   },
   {
@@ -50607,7 +50622,7 @@
     "pk": "bewilligung-gefaehrdete-bereiche",
     "fields": {
       "created_at": "2023-04-20T12:45:08.842Z",
-      "modified_at": "2024-09-11T14:58:36.762Z",
+      "modified_at": "2025-01-31T08:57:59.754Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -50615,7 +50630,7 @@
       "label": "{\"de\": \"Liegt eine Bewilligung f\\u00fcr Bohrungen in besonders gef\\u00e4hrdeten Bereichen vor?\", \"fr\": null, \"it\": \"\\u00c8 disponibile un'autorizzazione per perforazioni in settori particolarmente minacciati?\"}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -51163,7 +51178,14 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -51350,7 +51372,7 @@
     "pk": "bohrfirma-wasserfoerderung",
     "fields": {
       "created_at": "2023-04-20T12:49:34.796Z",
-      "modified_at": "2024-09-11T14:58:37.058Z",
+      "modified_at": "2025-01-31T08:58:03.121Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -51358,7 +51380,7 @@
       "label": "{\"de\": \"Bohrfirma\", \"fr\": null, \"it\": \"Azienda di trivellazione\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -54470,7 +54492,7 @@
     "pk": "entnahmebrunnen-rohrdurchmesser",
     "fields": {
       "created_at": "2023-04-20T12:51:11.845Z",
-      "modified_at": "2024-09-11T14:58:38.268Z",
+      "modified_at": "2025-01-31T08:58:12.023Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54478,7 +54500,7 @@
       "label": "{\"de\": \"Entnahmebrunnen Rohrdurchmesser (mm)\", \"fr\": null, \"it\": \"Diametro del tubo del pozzo di presa (mm)\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -54540,7 +54562,7 @@
     "pk": "entnahmebrunnen-tiefe",
     "fields": {
       "created_at": "2023-04-20T12:55:27.031Z",
-      "modified_at": "2024-09-11T14:58:38.289Z",
+      "modified_at": "2025-01-31T08:58:15.089Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -54548,7 +54570,7 @@
       "label": "{\"de\": \"Entnahmebrunnen Tiefe (m)\", \"fr\": null, \"it\": \"Profondit\\u00e0 del pozzo di presa (m)\"}",
       "type": "float",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -55271,7 +55293,14 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -58158,7 +58187,14 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -59983,7 +60019,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Heizleistung W\\u00e4rmepumpe/ Verdampfer (kW)\", \"fr\": null, \"it\": \"Potenza termica pompa termica / evaporatore (kW)\"}",
+      "label": "{\"de\": \"K\\u00e4lteleistung (Verdampferleistung) - kW\", \"fr\": null, \"it\": \"Capacit\\u00e0 di raffreddamento (capacit\\u00e0 dell'evaporatore) - kW\"}",
       "type": "float",
       "is_required": "false",
       "is_hidden": "false",
@@ -61689,12 +61725,12 @@
     "pk": "hydrologische-begleitung",
     "fields": {
       "created_at": "2023-04-20T11:56:51.911Z",
-      "modified_at": "2024-09-11T14:58:41.332Z",
+      "modified_at": "2025-02-10T09:35:38.401Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Hydrologische Begleitung\", \"fr\": null, \"it\": \"Accompagnamento idrogeologico\"}",
+      "label": "{\"de\": \"Hydrogeologische Begleitung\", \"fr\": null, \"it\": \"Accompagnamento idrogeologico\"}",
       "type": "table",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "!(\"art-der-waermepumpe-erdsonde\" == \"art-der-waermepumpe\"|answer)",
@@ -61704,7 +61740,15 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "hideLabel": true,
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -61725,7 +61769,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Hydrologische Begleitung\", \"fr\": null, \"it\": \"Accompagnamento idrogeologico\"}",
+      "label": "{\"de\": \"Hydrogeologische Begleitung\", \"fr\": null, \"it\": \"Accompagnamento idrogeologico\"}",
       "type": "table",
       "is_required": "false",
       "is_hidden": "false",
@@ -61735,9 +61779,47 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hydrologische-begleitung-text",
+    "fields": {
+      "created_at": "2025-02-10T09:26:58.115Z",
+      "modified_at": "2025-02-10T09:37:12.023Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hydrogeologische Begleitung\", \"fr\": null, \"it\": \"Accompagnamento idrogeologico\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<span class=\\\"uk-text-bold uk-form-label\\\">Hydrogeologische Begleitung</span>\\n\\nDie Best\\u00e4tigung per E-Mail der hydrogeologischen Begleitung ist Pflicht. Verlangen Sie bitte vom Geologen / von der Geologin die Best\\u00e4tigung des Auftrags, indem Sie ihm / ihr <a href=\\\"/assets/downloads/Auftragsbest\\u00e4tigung_f\\u00fcr_die_hydrogeologische_Begleitung.pdf\\\" target=\\\"_blank\\\">das bereitgestellte PDF</a> per E-Mail zustellen und die Antwortmail unter Dokumente hochladen.\", \"fr\": \"\", \"it\": \"<span class=\\\"uk-text-bold uk-form-label\\\">Accompagnamento idrogeologico</span>\\n\\nLa conferma via e-mail del monitoraggio idrogeologico \\u00e8 obbligatoria. Si prega di richiedere la conferma dell'ordine al geologo inviandogli <a href=\\\"/assets/downloads/Auftragsbest\\u00e4tigung_f\\u00fcr_die_hydrogeologische_Begleitung.pdf\\\" target=\\\"_blank\\\">il PDF fornito</a> via e-mail e caricando l'e-mail di risposta alla voce Documenti.\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -62270,7 +62352,7 @@
     "pk": "installierte-pumpenleistung",
     "fields": {
       "created_at": "2023-04-20T12:54:44.601Z",
-      "modified_at": "2024-09-11T14:58:41.501Z",
+      "modified_at": "2025-01-31T08:58:08.504Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62278,7 +62360,7 @@
       "label": "{\"de\": \"Installierte Pumpenleistung (l/min)\", \"fr\": null, \"it\": \"Potenza installata pompa (l/min)\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -65610,7 +65692,7 @@
     "pk": "maximale-entnahmemenge",
     "fields": {
       "created_at": "2023-04-20T12:50:15.772Z",
-      "modified_at": "2024-09-11T14:58:42.838Z",
+      "modified_at": "2025-01-31T08:58:05.743Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -65618,7 +65700,7 @@
       "label": "{\"de\": \"Maximale Entnahmemenge (l/min)\", \"fr\": null, \"it\": \"Quantitativo max. di captazione (l/min)\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -65680,7 +65762,7 @@
     "pk": "maximale-entnahme-temperatur",
     "fields": {
       "created_at": "2023-04-20T12:59:20.127Z",
-      "modified_at": "2024-09-11T14:58:42.857Z",
+      "modified_at": "2025-01-31T08:58:26.914Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -65688,7 +65770,7 @@
       "label": "{\"de\": \"Maximale Entnahme-Temperatur (\\u00b0C)\", \"fr\": null, \"it\": \"Temperatura max. di captazione (\\u00b0C)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -65752,7 +65834,7 @@
     "pk": "maximale-temperaturdifferenz",
     "fields": {
       "created_at": "2023-04-20T13:01:08.272Z",
-      "modified_at": "2024-09-11T14:58:42.878Z",
+      "modified_at": "2025-01-31T08:58:30.149Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -65760,7 +65842,7 @@
       "label": "{\"de\": \"Maximale Temperaturdifferenz (\\u00b0C)\", \"fr\": null, \"it\": \"Differenza di temperatura max. (\\u00b0C)\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -66214,7 +66296,7 @@
     "pk": "minimale-entnahme-temperatur",
     "fields": {
       "created_at": "2023-04-20T12:57:51.928Z",
-      "modified_at": "2024-09-11T14:58:43.066Z",
+      "modified_at": "2025-01-31T08:58:23.519Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66222,7 +66304,7 @@
       "label": "{\"de\": \"Minimale Entnahme-Temperatur (\\u00b0C)\", \"fr\": null, \"it\": \"Temperatura min. di captazione (\\u00b0C)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -68178,11 +68260,10 @@
       "configuration": {},
       "meta": {
         "columnsToDisplay": [
-          "name-juristische-person-gesuchstellerin",
           "name-gesuchstellerin",
           "vorname-gesuchstellerin",
-          "telefon-oder-mobile-gesuchstellerin",
-          "e-mail-gesuchstellerin"
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
         ]
       },
       "data_source": null,
@@ -69843,7 +69924,7 @@
     "pk": "rueckgabebrunnen-rohrdurchmesser",
     "fields": {
       "created_at": "2023-04-20T12:56:08.694Z",
-      "modified_at": "2024-09-11T14:58:44.331Z",
+      "modified_at": "2025-01-31T08:58:17.714Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -69851,7 +69932,7 @@
       "label": "{\"de\": \"R\\u00fcckgabebrunnen Rohrdurchmesser (mm)\", \"fr\": null, \"it\": \"Pozzo di resa diametro del tubo (mm)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -69915,7 +69996,7 @@
     "pk": "rueckgabebrunnen-tiefe",
     "fields": {
       "created_at": "2023-04-20T12:56:40.069Z",
-      "modified_at": "2024-09-11T14:58:44.349Z",
+      "modified_at": "2025-01-31T08:58:20.349Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -69923,7 +70004,7 @@
       "label": "{\"de\": \"R\\u00fcckgabebrunnen Tiefe (m)\", \"fr\": null, \"it\": \"Pozzo di resa profondit\\u00e0 (m)\"}",
       "type": "float",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -74141,7 +74222,14 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -74172,7 +74260,14 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -76327,7 +76422,7 @@
     "pk": "wasserfoerderung-titel",
     "fields": {
       "created_at": "2023-04-20T12:41:43.146Z",
-      "modified_at": "2024-09-11T14:58:46.501Z",
+      "modified_at": "2025-01-31T08:57:56.941Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76335,7 +76430,7 @@
       "label": "{\"de\": \"Wasserf\\u00f6rderung Titel\", \"fr\": null, \"it\": \"Pompaggio dell'acqua titolo\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "\"art-der-waermepumpe-luft-wasser\" == \"art-der-waermepumpe\"|answer",
+      "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme\" == \"art-der-waermepumpe\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -77974,11 +78069,10 @@
       "configuration": {},
       "meta": {
         "columnsToDisplay": [
-          "name-juristische-person-gesuchstellerin",
           "name-gesuchstellerin",
           "vorname-gesuchstellerin",
-          "telefon-oder-mobile-gesuchstellerin",
-          "e-mail-gesuchstellerin"
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
         ]
       },
       "data_source": null,
@@ -83174,8 +83268,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bewilligung-gefaehrdete-bereiche.bewilligung-gefaehrdete-bereiche-ja",
     "fields": {
-      "created_at": "2023-10-25T08:26:29.088Z",
-      "modified_at": "2023-10-25T08:26:29.088Z",
+      "created_at": "2025-01-31T08:57:59.759Z",
+      "modified_at": "2025-01-31T08:57:59.759Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -83189,8 +83283,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bewilligung-gefaehrdete-bereiche.bewilligung-gefaehrdete-bereiche-nein",
     "fields": {
-      "created_at": "2023-10-25T08:26:29.082Z",
-      "modified_at": "2023-10-25T08:26:29.082Z",
+      "created_at": "2025-01-31T08:57:59.758Z",
+      "modified_at": "2025-01-31T08:57:59.758Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",

@@ -165,16 +165,10 @@
       "configuration": {},
       "meta": {
         "columnsToDisplay": [
-          "juristische-person-name",
-          "vorname",
-          "nachname",
-          "telefon",
-          "e-mail",
-          "name-juristische-person-gesuchstellerin",
-          "vorname-gesuchstellerin",
           "name-gesuchstellerin",
-          "telefon-oder-mobile-gesuchstellerin",
-          "e-mail-gesuchstellerin"
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
         ]
       },
       "data_source": null,
