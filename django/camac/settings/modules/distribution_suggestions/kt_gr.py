@@ -65,7 +65,7 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "beschreibung-der-anlagen",
             "beschreibung-der-anlagen-solaranlagen",
-        ): ["gvg", "aev"],
+        ): ["aev"],
         (
             "beschreibung-der-anlagen",
             "beschreibung-der-anlagen-verkehrsanlagen",
