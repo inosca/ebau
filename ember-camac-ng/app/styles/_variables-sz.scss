@@ -6,6 +6,7 @@ $global-muted-background: rgb(250 250 250);
 $global-border: #e5e5e5;
 
 // Font colors
+$global-color: #666; // uikit default
 $global-muted-color: #999;
 $global-link-color: color.adjust($global-primary-background, $lightness: -10%);
 $global-link-hover-color: color.adjust($global-link-color, $lightness: -10%);
@@ -24,6 +25,7 @@ $global-large-font-size: 1.25rem;
 $base-h3-font-size: 1.17em;
 
 // Form
+$form-success-color: $global-color;
 $form-focus-border: rgb(87 87 87);
 $form-placeholder-color: color.adjust($global-muted-color, $lightness: 10%);
 $form-disabled-color: color.adjust($global-muted-color, $lightness: -30%);
