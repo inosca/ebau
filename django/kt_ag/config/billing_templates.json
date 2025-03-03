@@ -1,28 +1,6 @@
 [
   {
     "model": "billing.billingv2entrytemplate",
-    "pk": "04e5ee9e-2946-4cd2-929b-82b1764cb659",
-    "fields": {
-      "text": "Unkostenpauschale PGV",
-      "cost_center": null,
-      "legal_basis": null,
-      "tax_mode": "exempt",
-      "calculation": "flat",
-      "tax_rate": null,
-      "hours": null,
-      "hourly_rate": null,
-      "percentage": null,
-      "total_cost": "15.00",
-      "organization": null,
-      "billing_type": null,
-      "name": "Unkostenpauschale PGV Elektro BVUAFB",
-      "hint": "",
-      "services": [],
-      "service_groups": [1, 4]
-    }
-  },
-  {
-    "model": "billing.billingv2entrytemplate",
     "pk": "0b42f64d-e0fa-443d-b8fd-b6905c3ff9a1",
     "fields": {
       "text": "Energierechtliche Beurteilung",
@@ -45,53 +23,9 @@
   },
   {
     "model": "billing.billingv2entrytemplate",
-    "pk": "0f9f3126-63de-4197-be3a-2eb647f076c7",
-    "fields": {
-      "text": "Unkostenpauschale PGV",
-      "cost_center": null,
-      "legal_basis": null,
-      "tax_mode": "exempt",
-      "calculation": "flat",
-      "tax_rate": null,
-      "hours": null,
-      "hourly_rate": null,
-      "percentage": null,
-      "total_cost": "15.00",
-      "organization": null,
-      "billing_type": null,
-      "name": "Unkostenpauschale PGV Sonstige BVUAFB",
-      "hint": "Eisenbahn, Luftfahrt, Kernenergie",
-      "services": [],
-      "service_groups": [1, 4]
-    }
-  },
-  {
-    "model": "billing.billingv2entrytemplate",
-    "pk": "10e3cc1e-f032-4278-99b9-dacc077e5411",
-    "fields": {
-      "text": "Unkostenpauschale",
-      "cost_center": null,
-      "legal_basis": null,
-      "tax_mode": "exempt",
-      "calculation": "flat",
-      "tax_rate": null,
-      "hours": null,
-      "hourly_rate": null,
-      "percentage": null,
-      "total_cost": "15.00",
-      "organization": null,
-      "billing_type": null,
-      "name": "Unkostenpauschale BG BVUAFB",
-      "hint": "Wenn Behandlungsgebühr > CHF 10'000 fällt diese weg",
-      "services": [],
-      "service_groups": [1, 4]
-    }
-  },
-  {
-    "model": "billing.billingv2entrytemplate",
     "pk": "13432d06-7116-4b2f-a05a-1d46a6658b45",
     "fields": {
-      "text": "Umweltschutzrechtliche Beurteilung",
+      "text": "Abbaubewilligung",
       "cost_center": null,
       "legal_basis": null,
       "tax_mode": "exempt",
@@ -171,28 +105,6 @@
       "billing_type": null,
       "name": "Behandlungsgebühr BG BVUAFB",
       "hint": "Max Gebühr 60'000.00",
-      "services": [],
-      "service_groups": [1, 4]
-    }
-  },
-  {
-    "model": "billing.billingv2entrytemplate",
-    "pk": "2ed7ab3e-c26f-4820-bdd4-a11694de44df",
-    "fields": {
-      "text": "Unkostenpauschale PGV",
-      "cost_center": null,
-      "legal_basis": null,
-      "tax_mode": "exempt",
-      "calculation": "flat",
-      "tax_rate": null,
-      "hours": null,
-      "hourly_rate": null,
-      "percentage": null,
-      "total_cost": "15.00",
-      "organization": null,
-      "billing_type": null,
-      "name": "Unkostenpauschale PGV Gas 1-5bar BVUAFB",
-      "hint": "",
       "services": [],
       "service_groups": [1, 4]
     }
@@ -289,7 +201,7 @@
     "model": "billing.billingv2entrytemplate",
     "pk": "57060633-22ba-4b2c-b7db-9f2cd6b5037a",
     "fields": {
-      "text": "Umweltschutzrechtliche Beurteilung",
+      "text": "Bewilligung Abwasservorbehandlungsanlage",
       "cost_center": null,
       "legal_basis": null,
       "tax_mode": "exempt",
@@ -302,28 +214,6 @@
       "organization": null,
       "billing_type": null,
       "name": "Bewilligung Abwasservorbehandlungsanlage AfU",
-      "hint": "",
-      "services": [],
-      "service_groups": [1, 4]
-    }
-  },
-  {
-    "model": "billing.billingv2entrytemplate",
-    "pk": "65f87a07-7023-4a57-b7a9-64dee5eaf00c",
-    "fields": {
-      "text": "Behandlungsgebühr ATB",
-      "cost_center": null,
-      "legal_basis": null,
-      "tax_mode": "exempt",
-      "calculation": "flat",
-      "tax_rate": null,
-      "hours": null,
-      "hourly_rate": null,
-      "percentage": null,
-      "total_cost": null,
-      "organization": null,
-      "billing_type": null,
-      "name": "Behandlungsgebühr BG ATB",
       "hint": "",
       "services": [],
       "service_groups": [1, 4]
@@ -399,7 +289,7 @@
     "model": "billing.billingv2entrytemplate",
     "pk": "91397486-4010-40f2-9f36-8003c0695a9a",
     "fields": {
-      "text": "Umweltschutzrechtliche Beurteilung",
+      "text": "Bewilligung Erdwärmenutzung",
       "cost_center": null,
       "legal_basis": null,
       "tax_mode": "exempt",
@@ -456,28 +346,6 @@
       "organization": null,
       "billing_type": null,
       "name": "Behandlungsgebühr PGV Elektro BVUAFB",
-      "hint": "",
-      "services": [],
-      "service_groups": [1, 4]
-    }
-  },
-  {
-    "model": "billing.billingv2entrytemplate",
-    "pk": "ba7f4738-3860-43fc-a51d-ecce18f80526",
-    "fields": {
-      "text": "Unkostenpauschale ATB",
-      "cost_center": null,
-      "legal_basis": null,
-      "tax_mode": "exempt",
-      "calculation": "flat",
-      "tax_rate": null,
-      "hours": null,
-      "hourly_rate": null,
-      "percentage": null,
-      "total_cost": null,
-      "organization": null,
-      "billing_type": null,
-      "name": "Unkostenpauschale BG ATB",
       "hint": "",
       "services": [],
       "service_groups": [1, 4]
