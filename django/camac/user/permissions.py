@@ -116,6 +116,8 @@ class IsGroupMember(permissions.BasePermission):
     have an automatically assigned group and won't be affected by this.
     """
 
+    code = "missing_group"
+
     def has_permission(self, request, view):
         return bool(request.group)
 
@@ -181,6 +183,8 @@ class IsAllowedClientToken(permissions.BasePermission):
     `django/camac/tests/__snapshots__/test_external_client_access.ambr` contains
     a list of all endpoints that allow external clients per canton.
     """
+
+    code = "unallowed_azp"
 
     def allow_external_clients(self, view):
         allow = getattr(view, "allow_external_clients", None)
