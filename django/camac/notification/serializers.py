@@ -337,7 +337,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def _get_row_answer_value(self, row, slug, fallback=None):
         try:
             return row.answers.get(question_id=slug).value
-        except caluma_form_models.Answer.DoesNotExist:
+        except caluma_form_models.Answer.DoesNotExist:  # pragma: no cover
             return fallback
 
     def get_parzelle(self, instance):

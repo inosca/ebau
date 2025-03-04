@@ -23,7 +23,6 @@ from rest_framework.authentication import get_authorization_header
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import enrich_personal_data, get_person_name
-from camac.instance.utils import build_document_prefetch_statements
 from camac.user.models import Service
 from camac.utils import build_url, clean_join, get_dict_item
 
@@ -300,17 +299,9 @@ class DMSHandler:
     def get_instance_and_document(self, instance_id, form_slug=None, document_id=None):
         use_root_document = not document_id and not form_slug
 
-        instance = (
-            Instance.objects.select_related(
-                "case", "case__document", "case__document__form"
-            )
-            .prefetch_related(
-                *build_document_prefetch_statements(
-                    prefix="case__document", prefetch_options=use_root_document
-                ),
-            )
-            .get(pk=instance_id)
-        )
+        instance = Instance.objects.select_related(
+            "case", "case__document", "case__document__form"
+        ).get(pk=instance_id)
 
         if use_root_document:
             document = instance.case.document
@@ -325,13 +316,7 @@ class DMSHandler:
             )
 
             try:
-                document = (
-                    Document.objects.select_related("form")
-                    .prefetch_related(
-                        *build_document_prefetch_statements(prefetch_options=True)
-                    )
-                    .get(**_filter)
-                )
+                document = Document.objects.select_related("form").get(**_filter)
             except (Document.DoesNotExist, Document.MultipleObjectsReturned):
                 raise exceptions.ValidationError(
                     _(
@@ -347,7 +332,7 @@ class DMSHandler:
         return {
             **self.get_meta_data(instance, document, service),
             "draft": "" if visitor.is_valid() else _("Draft"),
-            "sections": visitor.visit(document),
+            "sections": visitor.build_form_structure(),
             "documents": self.prepare_documents(instance, for_additional_demand),
         }
 
@@ -489,18 +474,163 @@ class DMSClient:
 
 
 class DMSVisitor:
+    # TODO: refactor to use new caluma structure code instead of "manually"
+    # iterating over the form structure here
     def __init__(self, document, instance, user):
         self.root_document = document
         self.user = user
 
         self.validator = DocumentValidator()
-        self.validation_context = self.validator._validation_context(document)
+        self.validation_context = self.validator.get_validation_context(document)
         self.data_source_context = {"instanceId": instance.pk}
 
         self.template_type = get_form_type_key(document.form.slug)
         self.exclude_slugs = get_form_type_config(self.template_type).get(
             "exclude_slugs", []
         )
+
+    def build_form_structure(self):
+        result = [
+            self.collect_field(field)
+            for field in self.validation_context.children()
+            if self._should_include_field(field)
+        ]
+        receipt_page = self.prepare_receipt_page(result)
+
+        if receipt_page:
+            result.append(receipt_page)
+        return result
+
+    def _should_include_field(self, field):
+        if field.question and field.slug() in self.exclude_slugs:
+            return False
+
+        # TODO: Would this be a good idea?
+        # if field.question.meta.get("widgetOverride") == "cf-field/input/hidden":
+        #     return False
+
+        if not self._is_non_static_or_static_title(field):
+            return False
+
+        if (
+            field.question.type == Question.TYPE_FORM and not field.children()
+        ):  # pragma: no cover
+            return False
+
+        if field.is_hidden():
+            return False
+
+        if field.question.is_archived and not field.answer:  # pragma: no cover
+            return False
+
+        # Some special cases
+        if self._should_exclude_mp_form_stuff(field):
+            return False
+
+        return True
+
+    def _should_exclude_mp_form_stuff(self, field):
+        """Decide whether to exclude the MP form parts.
+
+        In the "Materielle Prüfung" they only want the relevant questions
+        rendered in the PDF export. The questions in that form (excluding
+        those questions listed in the code below) consist of 3 parts
+        (questions):
+
+        * is XY relevant?
+        * did XY pass?
+        * remarks to XY
+
+        Question 1 will be displayed if answered with "Yes". Questions 2
+        and 3 will only be rendered if question 1 was answered with "Yes".
+        """
+
+        # NOTE: I'm inverting it here, so it becomes more understandable. This function
+        # is called should *exclude*, whereas the caller is named should *include*
+
+        if field.get_root().get_form().slug != "mp-form":
+            # Not mp-form - none of our concern
+            return False
+
+        if (
+            field.slug()
+            not in [
+                "mp-eigene-pruefgegenstaende",
+                "mp-erforderliche-beilagen-vorhanden",
+                "mp-welche-beilagen-fehlen",
+            ]
+            and field.question.type != Question.TYPE_FORM
+        ):
+            base_question_slug = re.sub(r"(-bemerkungen|-ergebnis)$", "", field.slug())
+            base_answer_field = field.get_field(base_question_slug)
+            if (
+                not base_answer_field
+                or not base_answer_field.get_value()
+                or base_answer_field.get_value().endswith("-nein")
+            ):
+                return True
+
+        if field.question.type == Question.TYPE_FORM:
+            # If our sub-fields are all excluded, we can exclude this form as well.
+            if all(
+                self._should_exclude_mp_form_stuff(child) for child in field.children()
+            ):
+                return True
+
+        if field.slug() == "mp-eigene-pruefgegenstaende" and not field.children():
+            return True
+        return False
+
+    def collect_field(self, field, flatten=False):
+        # Build up basic return value
+        ret = {
+            "label": str(field.question.label),
+            "slug": field.slug(),
+            "type": "".join(
+                word.capitalize()
+                for word in f"{field.question.type}_question".split("_")
+            ),
+        }
+
+        # every field except root has a question
+        match field.question.type:
+            case Question.TYPE_TEXT | Question.TYPE_TEXTAREA | Question.TYPE_DATE:
+                ret.update(self.collect_simple_field(field))
+            case (
+                Question.TYPE_FLOAT
+                | Question.TYPE_INTEGER
+                | Question.TYPE_CALCULATED_FLOAT
+            ):
+                ret.update(self.collect_number_field(field))
+            case Question.TYPE_FORM:
+                ret.update(self.collect_form_field(field, flatten=flatten))
+            case Question.TYPE_CHOICE:
+                ret.update(self.collect_choice_field(field, flatten=flatten))
+            case Question.TYPE_TABLE:
+                ret.update(self.collect_table_field(field))
+            case Question.TYPE_STATIC:
+                ret.update(self.collect_static_field(field))
+            case Question.TYPE_MULTIPLE_CHOICE:
+                ret.update(self.collect_multiple_choice_field(field, flatten=flatten))
+            case Question.TYPE_DYNAMIC_CHOICE:
+                ret.update(self.collect_dynamic_choice_field(field))
+            case Question.TYPE_DYNAMIC_MULTIPLE_CHOICE:
+                ret.update(self.collect_dynamic_multiple_choice_field(field))
+            case other:  # pragma: no cover
+                raise RuntimeError(f"Question type {other} not dealth with yet")
+        return ret
+
+    def collect_simple_field(self, field):
+        return {"value": field.get_value()}
+
+    def collect_form_field(self, field, flatten=False):
+        children = [
+            self.collect_field(f, flatten=flatten)
+            for f in field.children()
+            if self._should_include_field(f)
+        ]
+
+        return {"children": children}
 
     def is_valid(self):
         try:
@@ -514,138 +644,63 @@ class DMSVisitor:
         except CustomValidationError:
             return False
 
-    def visit(self, node):
-        cls_name = type(node).__name__.lower()
-        visit_func = getattr(self, f"_visit_{cls_name}")
-        result = visit_func(node)
+    def _is_non_static_or_static_title(self, field):
+        if field.question.type != Question.TYPE_STATIC:
+            # If the question is not static, we don't need to check whether it's
+            # only a title or not
+            return True
 
-        receipt_page = self.prepare_receipt_page(result)
+        return str(field.question.label) in str(field.question.static_content)
 
-        if receipt_page:
-            result.append(receipt_page)
-
-        return result
-
-    def _is_visible_question(self, node):
-        return node.slug in self.validation_context["visible_questions"]
-
-    def _is_static_title(self, node):
-        return node.type != Question.TYPE_STATIC or str(node.label) in str(
-            node.static_content
-        )
-
-    def _visit_document(self, node, form=None, flatten=False, **kwargs):
-        if not form:
-            form = node.form
-
-        children = form.questions.all()
-
-        visited_children = []
-        for child in children:
-            if (
-                child.slug in self.exclude_slugs
-                or not self._is_static_title(child)
-                or not self._is_visible_question(child)
-            ):
-                continue
-
-            if (
-                node.form.slug == "mp-form"
-                and child.type != Question.TYPE_FORM
-                and child.slug
-                not in [
-                    "mp-eigene-pruefgegenstaende",
-                    "mp-erforderliche-beilagen-vorhanden",
-                    "mp-welche-beilagen-fehlen",
-                ]
-            ):
-                base_question_slug = re.sub(
-                    r"(-bemerkungen|-ergebnis)$", "", child.slug
-                )
-                base_answer = next(
-                    filter(
-                        lambda answer: answer.question_id == base_question_slug,
-                        node.answers.all(),
-                    ),
-                    None,
-                )
-                if (
-                    not base_answer
-                    or not base_answer.value
-                    or base_answer.value.endswith("-nein")
-                ):
-                    continue
-
-            result = self._visit_question(
-                child, parent_doc=node, flatten=flatten, **kwargs
-            )
-
-            if result is None:  # pragma: no cover
-                continue
-
-            if child.type == Question.TYPE_FORM and not len(
-                result.get("children", [])
-            ):  # pragma: no cover
-                continue
-
-            if child.slug == "mp-eigene-pruefgegenstaende" and not len(
-                result.get("rows", [])
-            ):
-                continue
-
-            visited_children.append(result)
-
-        return visited_children
-
-    def _visit_form_question(self, node, parent_doc=None, answer=None, **_):
-        return {"children": self._visit_document(parent_doc, form=node.sub_form)}
-
-    def _visit_table_question(self, node, parent_doc=None, answer=None, **_):
+    def collect_table_field(self, field):
         return {
-            "columns": [str(column.label) for column in node.row_form.questions.all()],
-            "rows": (
-                [
-                    self._visit_document(
-                        answer_document.document, form=node.row_form, flatten=True
-                    )
-                    for answer_document in answer.answerdocument_set.all()
-                ]
-                if answer
-                else []
-            ),
+            "columns": [str(column.label) for column in field.get_column_questions()],
+            "rows": [
+                self.collect_form_field(subfield, flatten=True)["children"]
+                for subfield in field.children()
+            ],
         }
 
-    def _visit_choice_question(
-        self, node, parent_doc=None, answer=None, flatten=False, limit=None, **_
-    ):
-        answer = answer.value if answer else None
-        options = filter(
-            lambda option: not option.is_archived or option.slug == answer,
-            node.options.all(),
+    def collect_choice_field(self, field, flatten=False, limit=None):
+        # TODO: re-introducing the kwargs necessary?
+
+        plain_value = field.get_value()
+
+        # any non-archived options are possible. Also the selected one,
+        # *even if it's actually archived*
+        possible_options = [
+            option
+            for option in field.get_options()
+            if option.slug == plain_value or not option.is_archived
+        ]
+
+        selected_option = next(
+            (option for option in possible_options if option.slug == plain_value),
+            None,
         )
+
+        if not possible_options:  # pragma: no cover
+            return {}
 
         if flatten:
             return {
                 "type": "TextQuestion",
-                "value": ", ".join(
-                    [str(option.label) for option in options if option.slug == answer]
-                ),
+                "value": str(selected_option.label) if selected_option else "",
             }
 
         return {
             "choices": [
-                {"label": str(option.label), "checked": option.slug == answer}
-                for option in options
+                {"label": str(option.label), "checked": option.slug == plain_value}
+                for option in possible_options
             ][:limit]
         }
 
-    def _visit_multiple_choice_question(
-        self, node, parent_doc=None, answer=None, flatten=False, limit=None, **_
-    ):
-        answers = answer.value if answer else []
+    def collect_multiple_choice_field(self, field, flatten=False, limit=None):
+        answers = field.get_value()
+
         options = filter(
             lambda option: not option.is_archived or option.slug in answers,
-            node.options.all(),
+            field.get_options(),
         )
 
         if flatten:  # pragma: no cover
@@ -683,86 +738,44 @@ class DMSVisitor:
 
             yield value  # pragma: no cover
 
-    def _visit_dynamic_choice_question(self, node, parent_doc=None, answer=None, **_):
+    def collect_dynamic_choice_field(self, field):
         ret = {"type": "TextQuestion", "value": None}
-
-        if answer:
-            value = next(self._matching_dynamic_options(answer.value, parent_doc, node))
-
-            if value:
-                ret["value"] = str(value)
-
+        value = next(
+            self._matching_dynamic_options(
+                field.get_value(), field.parent._document, field.question
+            )
+        )
+        if value:
+            ret["value"] = str(value)
         return ret
 
-    def _visit_dynamic_multiple_choice_question(
-        self, node, parent_doc=None, answer=None, **_
-    ):  # pragma: no cover
-        answers = answer.value if answer else []
+    def collect_dynamic_multiple_choice_field(self, field):
+        answers = field.get_value()
         dynamic_options = [
-            str(do)
-            for do in self._matching_dynamic_options(answers, parent_doc, node)
-            if do is not False
+            str(opt)
+            for opt in self._matching_dynamic_options(
+                answers, field.parent._document, field.question
+            )
+            if opt is not False
         ]
         return {"type": "TextQuestion", "value": ", ".join(dynamic_options)}
 
-    def _visit_static_question(self, node, parent_doc=None, answer=None, **_):
-        return {"content": str(answer.static_content) if answer else None}
+    def collect_static_field(self, field):
+        return {"content": None}
 
-    def _visit_simple_question(self, node, parent_doc=None, answer=None, **_):
-        return {"value": answer.value if answer else None}
-
-    def _visit_number_question(self, node, parent_doc=None, answer=None, **_):
-        value = answer.value if answer else None
+    def collect_number_field(self, field):
+        value = field.get_value()
 
         if (
             value
             and settings.DMS.get("USE_NUMBER_SEPARATOR")
-            and (node.slug not in settings.DMS.get("NUMBER_SEPARATOR_EXCEPTIONS", []))
+            and (
+                field.slug() not in settings.DMS.get("NUMBER_SEPARATOR_EXCEPTIONS", [])
+            )
         ):
             value = f"{value:n}"
 
         return {"value": value}
-
-    def _visit_date_question(self, node, parent_doc=None, answer=None, **_):
-        return {"value": answer.date if answer and answer.date else None}
-
-    def _visit_question(self, node, parent_doc=None, flatten=False):
-        ret = {
-            "label": str(node.label),
-            "slug": node.slug,
-            "type": "".join(
-                word.capitalize() for word in f"{node.type}_question".split("_")
-            ),
-        }
-
-        answer = next(
-            filter(
-                lambda answer: answer.question_id == node.slug, parent_doc.answers.all()
-            ),
-            None,
-        )
-
-        if not answer and node.is_archived:  # pragma: no cover
-            return
-
-        fns = {
-            Question.TYPE_DATE: self._visit_date_question,
-            Question.TYPE_FLOAT: self._visit_number_question,
-            Question.TYPE_INTEGER: self._visit_number_question,
-            Question.TYPE_TEXT: self._visit_simple_question,
-            Question.TYPE_TEXTAREA: self._visit_simple_question,
-            Question.TYPE_CHOICE: self._visit_choice_question,
-            Question.TYPE_MULTIPLE_CHOICE: self._visit_multiple_choice_question,
-            Question.TYPE_DYNAMIC_CHOICE: self._visit_dynamic_choice_question,
-            Question.TYPE_DYNAMIC_MULTIPLE_CHOICE: self._visit_dynamic_multiple_choice_question,
-            Question.TYPE_STATIC: self._visit_static_question,
-            Question.TYPE_TABLE: self._visit_table_question,
-            Question.TYPE_FORM: self._visit_form_question,
-            Question.TYPE_CALCULATED_FLOAT: self._visit_number_question,
-        }
-        fn = fns.get(node.type, lambda *_, **__: {})
-        ret.update(fn(node, parent_doc=parent_doc, answer=answer, flatten=flatten))
-        return ret
 
     def prepare_receipt_page(self, result):
         if self.template_type not in [

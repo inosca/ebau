@@ -483,9 +483,13 @@ def test_record_loading_be(
     mocker,
     caluma_work_item_factory,
     master_data_is_visible_mock,
+    settings,
 ):
     """Load data from import record, make persistant and verify with master_data API."""
     writer = setup_dossier_writer(config)
+
+    camac_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    camac_instance.case.document.save()
 
     if expected_target == "dossier_number":
         existing_instance = instance_factory()
@@ -503,7 +507,9 @@ def test_record_loading_be(
         foreign_instance.case.save()
 
     if expected_target == "decision_date":
-        caluma_work_item_factory(task_id="decision", case=camac_instance.case)
+        caluma_work_item_factory(
+            task_id="decision", case=camac_instance.case, document__form_id="decision"
+        )
 
     # test overwriting values
     if not is_empty:
@@ -551,11 +557,17 @@ def test_record_loading_so(
     dossier_row_patch,
     expected_target,
     snapshot,
+    settings,
 ):
     writer = setup_dossier_writer(config)
 
+    camac_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    camac_instance.case.document.save()
+
     if expected_target == "decision_date":
-        caluma_work_item_factory(task_id="decision", case=camac_instance.case)
+        caluma_work_item_factory(
+            task_id="decision", case=camac_instance.case, document__form_id="entscheid"
+        )
 
     # test overwriting values
     if not is_empty:
@@ -628,7 +640,11 @@ def test_record_loading_sz(
         mocker.patch.object(writer, "existing_dossier", camac_instance)
 
     dossier_row_sparse.update(dossier_row_patch)
-    caluma_work_item_factory(task_id="building-authority", case=camac_instance.case)
+    caluma_work_item_factory(
+        task_id="building-authority",
+        case=camac_instance.case,
+        document__form_id="bauverwaltung",
+    )
     dossier = dossier_loader._load_dossier(dossier_row_sparse)
     writer.write_fields(camac_instance, dossier)
     md = MasterData(camac_instance.case)
@@ -680,9 +696,14 @@ def test_reimport_delete_values(
     config,
     snapshot,
     import_rows,
+    settings,
 ):
     """Setup dossier and reimport field with empty value."""
     writer = setup_dossier_writer(config)
+
+    camac_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    camac_instance.case.document.save()
+
     loader = XlsxFileDossierLoader()
     excluded = ["ID", "STATUS", "PROPOSAL", "SUBMIT-DATE"]
     dossier = loader._load_dossier(dossier_row_full)
@@ -704,6 +725,9 @@ def test_reimport_delete_values(
         orig_values[target] = getattr(md, target)
     dossier = loader._load_dossier(deletable_fields)
     writer.write_fields(camac_instance, dossier)
+
+    # refresh masterdata to avoid any caching issues
+    md = MasterData(camac_instance.case)
     for target in targets:
         # verify that non-deletable or generated values are untouched
         if target in ["submit-date", "proposal", "dossier_number", "application_type"]:
@@ -760,9 +784,14 @@ def test_reimport_ignores_empty(
     master_data_is_visible_mock,
     config,
     snapshot,
+    settings,
 ):
     """Setup dossier and reimport field with empty value."""
     writer = setup_dossier_writer(config)
+
+    camac_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    camac_instance.case.document.save()
+
     loader = XlsxFileDossierLoader()
     if config == "kt_bern":
         caluma_work_item_factory(task_id="decision", case=camac_instance.case)

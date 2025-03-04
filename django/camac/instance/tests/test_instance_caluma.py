@@ -603,6 +603,7 @@ def test_instance_submit_ur(
     role_factory,
     group_factory,
     ur_instance,
+    ur_master_data_case,
     instance_state_factory,
     instance_service_factory,
     service,
@@ -659,16 +660,15 @@ def test_instance_submit_ur(
         active=1, instance=ur_instance, service=ur_instance.group.service
     )
 
-    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
-
     location = location_factory(
         communal_federal_number=(
             "1222" if special_case.get("special_location") else "1224"
         )
     )
 
-    ur_instance.case.document.answers.create(
-        value=str(location.communal_federal_number), question_id="municipality"
+    ur_instance.case.document.answers.update_or_create(
+        question_id="municipality",
+        defaults=dict(value=str(location.communal_federal_number)),
     )
     if special_case.get("special_location"):
         authority_location = authority_location_factory(
@@ -794,9 +794,27 @@ def test_instance_submit_cantonal_territory_usage_ur(
     disable_ech0211_settings,
     ur_master_data_case,
 ):
+    # TODO: This test is horribly put together and barely sets up the conditions right
+    # to test it's thing. We need to refactor this and do it "properly"
     settings.APPLICATION_NAME = "kt_uri"
 
     caluma_form_factories.FormFactory(slug="personalien")
+    caluma_form_factories.FormQuestionFactory(
+        form_id="cantonal-territory-usage", question_id="applicant"
+    )
+    fq_veranstaltung = caluma_form_factories.FormQuestionFactory(
+        form_id="cantonal-territory-usage", question_id="veranstaltung-art"
+    )
+    fq_veranstaltung.question.type = "choice"
+    for opt in ["umzug", "sportanlass"]:
+        caluma_form_factories.QuestionOptionFactory(
+            question=fq_veranstaltung.question,
+            option__label=f"veranstaltung-art-{opt}",
+            option__slug=f"veranstaltung-art-{opt}",
+        )
+
+    fq_veranstaltung.question.save()
+
     ur_instance.case.document.form_id = "cantonal-territory-usage"
     ur_instance.case.document.save()
 
@@ -1876,7 +1894,9 @@ def test_generate_and_store_pdf(
         "camac.instance.document_merge_service.DMSClient"
     ).return_value
     client.merge.return_value = b"some binary data"
-    mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
+    mocker.patch(
+        "camac.instance.document_merge_service.DMSVisitor.build_form_structure"
+    )
     context = mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer.context"
     )
@@ -1932,7 +1952,9 @@ def test_generate_and_store_pdf_in_alexandria(
         "camac.instance.document_merge_service.DMSClient"
     ).return_value
     client.merge.return_value = b"some binary data"
-    mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
+    mocker.patch(
+        "camac.instance.document_merge_service.DMSVisitor.build_form_structure"
+    )
     context = mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer.context"
     )
@@ -2215,7 +2237,9 @@ def test_generate_pdf_action(
         "camac.instance.document_merge_service.DMSClient"
     ).return_value
     client.merge.return_value = content
-    mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
+    mocker.patch(
+        "camac.instance.document_merge_service.DMSVisitor.build_form_structure"
+    )
     context = mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer.context"
     )
@@ -2694,6 +2718,7 @@ def test_create_instance_caluma_modification(
     caluma_workflow_config_be,
     caluma_form,
     expected_status,
+    caluma_form_question_factory,
     project_modification_settings,
 ):
     instance_state_factory(name="new")
@@ -2703,6 +2728,10 @@ def test_create_instance_caluma_modification(
         caluma_form_models.Form.objects.create(slug="baugesuch"),
         caluma_form_models.Form.objects.create(slug="verlaerungerung-geltungsdauer"),
     )
+    caluma_form_question_factory(
+        form_id="verlaerungerung-geltungsdauer", question_id="is-paper"
+    )
+    caluma_form_question_factory(form_id="baugesuch", question_id="is-paper")
 
     project_modification_settings["ALLOW_FORMS"] = ["main-form"]
     project_modification_settings["DISALLOW_STATES"] = ["new"]

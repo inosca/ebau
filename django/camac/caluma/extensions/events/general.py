@@ -2,8 +2,7 @@ from logging import getLogger
 
 from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_form.jexl import QuestionJexl
-from caluma.caluma_form.structure import FieldSet
+from caluma.caluma_form.validators import DocumentValidator
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.events import (
     post_complete_work_item,
@@ -67,27 +66,18 @@ def copy_tank_installation(sender, work_item, **kwargs):
     for config in get_caluma_setting("COPY_TANK_INSTALLATION", []):
         if work_item.task_id == config["TASK"]:
             source_document = config["DOCUMENT"](work_item)
-            structure = FieldSet(
-                source_document,
-                source_document.form,
-            )
-            qj = QuestionJexl(
-                {
-                    "document": source_document,
-                    "form": source_document.form,
-                    "structure": structure,
-                }
-            )
+            structure = DocumentValidator().get_validation_context(source_document)
+
             table_field = structure.get_field("lagerung-von-stoffen-v2")
-            if not table_field:
+            if not table_field or table_field.is_empty():
                 return
 
             for row in table_field.children():
                 field = row.get_field("bewilligungspflichtig-v2")
-                hidden = qj.is_hidden(field)
+                hidden = field.is_hidden()
                 if work_item.task_id == config["TASK"] and hidden:
                     new_row = CalumaApi().copy_document(
-                        row.document.pk, family=target_document.family
+                        row._document.pk, family=target_document.family
                     )
                     target_table, _ = target_document.answers.get_or_create(
                         question_id=config["TARGET"]

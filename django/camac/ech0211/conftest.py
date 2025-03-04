@@ -216,6 +216,7 @@ def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be,
                 "parzellennummer": "1586",
                 "lagekoordinaten-nord": 1070000.0001,  # too many decimal places
                 "lagekoordinaten-ost": 2480000.0,
+                "e-grid-nr": "CH123456789",
             }
         ],
     )
@@ -231,11 +232,22 @@ def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be,
                 "ort-gesuchstellerin": "Testort",
                 "plz-gesuchstellerin": 1234,
                 "strasse-gesuchstellerin": "Teststrasse",
-                "juristische-person-gesuchstellerin": "Nein",
+                "nummer-gesuchstellerin": "11b",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-nein",
+                "name-juristische-person-gesuchstellerin": None,
                 "telefon-oder-mobile-gesuchstellerin": int("0311234567"),
                 "e-mail-gesuchstellerin": "a@b.ch",
             }
         ],
+    )
+    utils.add_table_answer(
+        ech_instance.case.document, "personalien-grundeigentumerin", []
+    )
+    utils.add_table_answer(
+        ech_instance.case.document, "personalien-vertreterin-mit-vollmacht", []
+    )
+    utils.add_table_answer(
+        ech_instance.case.document, "personalien-projektverfasserin", []
     )
     utils.add_table_answer(
         ech_instance.case.document,

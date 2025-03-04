@@ -65,6 +65,7 @@ from camac.responsible import factories as responsible_factories
 from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
 from camac.settings.utils import get_enabled_modules_for_canton
 from camac.tags import factories as tags_factories
+from camac.tests.data import ag_personal_row_factory, so_personal_row_factory
 from camac.user import factories as user_factories
 from camac.user.models import Group, User
 from camac.utils import build_url
@@ -131,6 +132,7 @@ FORM_QUESTION_MAP_BE = [
     ("main-form", "is-paper"),
     ("main-form", "baubeschrieb"),
     ("main-form", "personalien-sb"),
+    ("main-form", "personalien"),
     ("main-form", "personalien-gesuchstellerin"),
     ("sb1", "is-paper"),
     ("sb1", "personalien-sb1-sb2"),
@@ -146,14 +148,17 @@ FORM_QUESTION_MAP_UR = [
     ("main-form", "municipality"),
     ("main-form", "leitbehoerde"),
     ("main-form", "leitbehoerde-internal-form"),
+    ("main-form", "form-type"),
     ("oereb", "is-paper"),
     ("oereb", "municipality"),
     ("oereb", "leitbehoerde"),
     ("oereb", "leitbehoerde-internal-form"),
+    ("oereb", "form-type"),
     ("oereb-verfahren-gemeinde", "is-paper"),
     ("oereb-verfahren-gemeinde", "municipality"),
     ("oereb-verfahren-gemeinde", "leitbehoerde"),
     ("oereb-verfahren-gemeinde", "leitbehoerde-internal-form"),
+    ("oereb-verfahren-gemeinde", "form-type"),
 ]
 
 # FIXME: This should be canton-specific (currently only BE, doesn't make sense for UR/GR
@@ -768,6 +773,9 @@ def caluma_workflow_config_sz(db, caluma_config_sz):
         ),
         settings.ROOT_DIR("kt_schwyz/config/caluma_construction_monitoring_form.json"),
         settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json"),
+        # contains stuff that belongs to caluma_construction_monitoring_form:
+        # - baukontrolle-realisierung-table
+        settings.ROOT_DIR("kt_schwyz/config/caluma_form.json"),
     )
 
     yield caluma_workflow_models.Workflow.objects.all()
@@ -801,6 +809,7 @@ def caluma_forms_be(settings):
     caluma_form_models.Form.objects.create(slug="sb2")
     caluma_form_models.Form.objects.create(slug="nfd")
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
+    caluma_form_models.Form.objects.create(slug="personalien")
     caluma_form_models.Form.objects.create(slug="dossierpruefung")
     caluma_form_models.Form.objects.create(slug="publikation")
     caluma_form_models.Form.objects.create(slug="information-of-neighbors")
@@ -825,10 +834,18 @@ def caluma_forms_be(settings):
     caluma_form_models.Question.objects.create(
         slug="decision-workflow", type=caluma_form_models.Question.TYPE_TEXT
     )
+    caluma_form_models.Question.objects.create(
+        slug="personalien",
+        sub_form_id="personalien",
+        type=caluma_form_models.Question.TYPE_FORM,
+    )
 
     for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
         question = caluma_form_models.Question.objects.create(
             slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
+        )
+        caluma_form_models.FormQuestion.objects.create(
+            form_id="main-form", question_id=slug
         )
         options = [
             caluma_form_models.Option.objects.create(
@@ -917,7 +934,7 @@ def caluma_forms_be(settings):
 
     # link questions with forms
     for form_id, question_id in FORM_QUESTION_MAP_BE:
-        caluma_form_models.FormQuestion.objects.create(
+        caluma_form_models.FormQuestion.objects.update_or_create(
             form_id=form_id, question_id=question_id
         )
 
@@ -935,6 +952,8 @@ def caluma_forms_ur(settings):
         "complete-check",
         "decision",
         "geometer",
+        "applicant",
+        "parcels",
         "instance-management",
         "construction-monitoring",
         "bab",
@@ -947,6 +966,19 @@ def caluma_forms_ur(settings):
         "update-gwr-status",
     ]:
         caluma_form_models.Form.objects.create(slug=form, name=form)
+
+    caluma_form_factories.FormQuestionFactory(
+        form_id="main-form",
+        question__slug="applicant",
+        question__type=caluma_form_models.Question.TYPE_TABLE,
+        question__row_form_id="applicant",
+    )
+    caluma_form_factories.FormQuestionFactory(
+        form_id="main-form",
+        question__slug="parcels",
+        question__type=caluma_form_models.Question.TYPE_TABLE,
+        question__row_form_id="parcels",
+    )
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid
@@ -986,6 +1018,9 @@ def caluma_forms_ur(settings):
         question = caluma_form_models.Question.objects.create(
             slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
         )
+        caluma_form_models.FormQuestion.objects.create(
+            form_id="main-form", question_id=slug
+        )
         options = [
             caluma_form_models.Option.objects.create(
                 slug=f"{slug}-{yes(lang)}", label="Ja"
@@ -1001,7 +1036,7 @@ def caluma_forms_ur(settings):
 
     # link questions with forms
     for form_id, question_id in FORM_QUESTION_MAP_UR:
-        caluma_form_models.FormQuestion.objects.create(
+        caluma_form_models.FormQuestion.objects.update_or_create(
             form_id=form_id, question_id=question_id
         )
 
@@ -1037,6 +1072,9 @@ def caluma_forms_gr(settings):
     for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
         question = caluma_form_models.Question.objects.create(
             slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
+        )
+        caluma_form_models.FormQuestion.objects.create(
+            form_id="main-form", question_id=slug
         )
         options = [
             caluma_form_models.Option.objects.create(
@@ -1096,6 +1134,9 @@ def caluma_forms_so(settings):
     for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
         question = caluma_form_models.Question.objects.create(
             slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
+        )
+        caluma_form_models.FormQuestion.objects.create(
+            form_id="main-form", question_id=slug
         )
         options = [
             caluma_form_models.Option.objects.create(
@@ -1157,6 +1198,9 @@ def caluma_forms_ag(settings, caluma_form_factory):
     for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
         question = caluma_form_models.Question.objects.create(
             slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
+        )
+        caluma_form_models.FormQuestion.objects.create(
+            form_id="main-form", question_id=slug
         )
         options = [
             caluma_form_models.Option.objects.create(
@@ -1303,6 +1347,223 @@ def sz_person_factory(db, form_field_factory, faker):
 
 
 @pytest.fixture
+def so_master_data_case(
+    db,
+    caluma_dynamic_option_factory,
+    caluma_question_factory,
+    master_data_is_visible_mock,
+    so_instance,
+    utils,
+):
+    so_instance.case.meta = {
+        "dossier-number": "2024-1",
+        "submit-date": "2024-02-22T13:17:08+0000",
+        "is-bab": True,
+    }
+    so_instance.case.save()
+
+    document = so_instance.case.document
+
+    # Simple data
+    utils.add_answer(document, "is-paper", "is-paper-no")
+    utils.add_answer(document, "umschreibung-bauprojekt", "Grosses Haus")
+    utils.add_answer(document, "bemerkungen", "Das Haus ist wirklich gross..")
+    utils.add_answer(document, "strasse-flurname", "Musterstrasse")
+    utils.add_answer(document, "strasse-nummer", "4")
+    utils.add_answer(document, "gesamtkosten", 129000)
+    utils.add_answer(document, "ort", "Musterdorf")
+    utils.add_answer(document, "plz", "1234")
+    utils.add_answer(document, "nutzungsplanung-grundnutzung", "Wohnzone 3 - AZ 0.6")
+    utils.add_answer(
+        document, "nutzungsplanung-grundnutzung-kanton", "N112_Wohnzone_3_G"
+    )
+    utils.add_answer(
+        document, "nutzungszwecke", "nutzungszwecke-wohnen", label="Wohnen"
+    )
+    utils.add_answer(document, "dauer-in-monaten", 18)
+    utils.add_answer(
+        document,
+        "art-der-bauwerke",
+        ["art-der-bauwerke-hochbaute", "art-der-bauwerke-tiefbaute"],
+    )
+
+    # BaB
+    utils.add_answer(
+        document,
+        "aushublagerplaetze-oder-baupisten",
+        "aushublagerplaetze-oder-baupisten-nein",
+    )
+    utils.add_answer(document, "bab", "bab-ja")
+
+    # Municipality
+    utils.add_answer(document, "gemeinde", "1")
+    caluma_dynamic_option_factory(
+        question_id="gemeinde",
+        document=so_instance.case.document,
+        slug="1",
+        label={"de": "Solothurn"},
+    )
+
+    # Plot
+    utils.add_table_answer(
+        document,
+        "parzellen",
+        [
+            {
+                "parzellennummer": 123456789,
+                "e-grid": "CH123456789",
+                "lagekoordinaten-ost": 2690970.9,
+                "lagekoordinaten-nord": 1192891.9,
+                "plz": "4500",
+            }
+        ],
+    )
+
+    # Applicant
+    utils.add_table_answer(document, "bauherrin", [so_personal_row_factory(True, True)])
+
+    # Landowner
+    utils.add_table_answer(
+        document, "grundeigentuemerin", [so_personal_row_factory(False, True, True)]
+    )
+    utils.add_answer(
+        document,
+        "grundeigentuemerin-abweichend",
+        "grundeigentuemerin-abweichend-nein",
+        options=[
+            "grundeigentuemerin-abweichend-nein",
+            "grundeigentuemerin-abweichend-ja",
+        ],
+        question_type="choice",
+    )
+
+    utils.add_answer(
+        document,
+        "projektverfasserin-abweichend",
+        "projektverfasserin-abweichend-nein",
+        options=[
+            "projektverfasserin-abweichend-nein",
+            "projektverfasserin-abweichend-ja",
+        ],
+        question_type="choice",
+    )
+
+    # Project author
+    utils.add_table_answer(document, "projektverfasserin", [so_personal_row_factory()])
+
+    # Invoice recipient
+    utils.add_table_answer(
+        document, "rechnungsempfaengerin", [so_personal_row_factory()]
+    )
+
+    # Buildings
+    buildings = utils.add_table_answer(
+        document,
+        "gebaeude",
+        [
+            {
+                "typ-des-bauwerks": "typ-des-bauwerks-parkhaus",
+                "gebaeude-bezeichnung": "Villa",
+                "art-der-arbeiten": ["art-der-arbeiten-neubau"],
+                "gebaeudekategorie": "gebaeudekategorie-ohne-wohnnutzung",
+                "egid": 1234,
+            }
+        ],
+    )
+
+    # Dwellings
+    dwellings = utils.add_table_answer(
+        document,
+        "wohnungen",
+        [
+            {
+                "stockwerktyp": "stockwerktyp-obergeschoss",
+                "stockwerknummer": "2",
+                "lage": "Süd",
+                "anzahl-zimmer": "20",
+                "kocheinrichtung": "kocheinrichtung-kochnische-greater-4-m2",
+                "flaeche": "420",
+                "maisonette": "maisonette-ja",
+                "zwg": "zwg-keine",
+            },
+            {
+                "stockwerktyp": "stockwerktyp-parterre",
+                "lage": "Nord",
+                "anzahl-zimmer": "10",
+                "kocheinrichtung": "kocheinrichtung-keine-kocheinrichtung",
+                "flaeche": "72",
+                "maisonette": "maisonette-nein",
+                "zwg": "zwg-erstwohnung",
+            },
+        ],
+    )
+
+    # Energy devices
+    energy_devices = utils.add_table_answer(
+        document,
+        "gebaeudetechnik",
+        [
+            {
+                "anlagetyp": "anlagetyp-heizung-und-warmwasseraufbereitung",
+                "heizsystem-art": "-hauptheizung",
+                "hauptheizungsanlage": "hauptheizungsanlage-erdsonde",
+            },
+            {
+                "anlagetyp": "anlagetyp-hauptheizung",
+                "heizsystem-art": "-zusatzheizung",
+                "hauptheizungsanlage": "hauptheizungsanlage-sonne-thermisch",
+            },
+            {
+                "anlagetyp": "anlagetyp-warmwasser",
+                "heizsystem-art": "-zusatzheizung",
+                "hauptheizungsanlage": "hauptheizungsanlage-fernwaerme",
+            },
+        ],
+    )
+
+    building_question = caluma_question_factory(
+        slug="dazugehoeriges-gebaeude-auswahl",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
+    )
+    building_slug = str(buildings.documents.first().pk)
+
+    for row in dwellings.documents.all().union(energy_devices.documents.all()):
+        utils.add_answer(row, building_question.pk, building_slug)
+        caluma_dynamic_option_factory(
+            question=building_question,
+            document=row,
+            slug=building_slug,
+            label={"de": "Villa"},
+        )
+
+    # Nature risk
+    utils.add_table_answer(
+        document,
+        "gefahrenkartenprozesse",
+        [
+            {
+                "prozessart": {
+                    "value": "prozessart-murgang",
+                    "options": [("prozessart-murgang", "Murgang")],
+                },
+            }
+        ],
+    )
+
+    # Civil engineering
+    utils.add_table_answer(
+        document,
+        "tiefbauten",
+        [
+            {"tiefbau-siedlung-art": "tiefbau-siedlung-art-parkplaetze"},
+            {"tiefbau-siedlung-art": "tiefbau-siedlung-art-spielplaetze"},
+        ],
+    )
+
+    return so_instance.case
+
+
+@pytest.fixture
 def sz_master_data_case(db, sz_instance, form_field_factory, location_factory):
     sz_instance.location = location_factory(pk=999, name="Schübelbach")
     sz_instance.save()
@@ -1378,6 +1639,469 @@ def sz_master_data_case(db, sz_instance, form_field_factory, location_factory):
 
 
 @pytest.fixture
+def be_master_data_case(db, be_instance, group, master_data_is_visible_mock, utils):
+    be_instance.case.meta = {
+        "ebau-number": "2021-1",
+        "submit-date": "2021-03-31T13:17:08+0000",
+        "paper-submit-date": "2021-03-20T13:17:08+0000",
+    }
+    be_instance.case.save()
+
+    document = be_instance.case.document
+
+    # Simple data
+    utils.add_answer(document, "is-paper", "is-paper-no")
+    utils.add_answer(document, "beschreibung-bauvorhaben", "Grosses Haus")
+    utils.add_answer(
+        document, "beschreibung-projektaenderung", "Doch eher kleines Haus"
+    )
+    utils.add_answer(
+        document,
+        "projektaenderung",
+        "projektaenderung-nein",
+        options=["projektaenderung-nein", "projektaenderung-ja"],
+        question_type="choice",
+    )
+    utils.add_answer(document, "strasse-flurname", "Musterstrasse")
+    utils.add_answer(document, "nr", 4)
+    utils.add_answer(document, "baukosten-in-chf", 199000)
+    utils.add_answer(document, "plz-grundstueck-v3", 3000)
+    utils.add_answer(document, "ort-grundstueck", "Musterhausen")
+    utils.add_answer(document, "baubeschrieb", "baubeschrieb-neubau", label="Neubau")
+    utils.add_answer(
+        document,
+        "gewaesserschutzbereich-v2",
+        ["gewaesserschutzbereich-v2-au"],
+        label=[{"de": "Aᵤ", "fr": "Aᵤ"}],
+    )
+    utils.add_answer(
+        document,
+        "nutzungsart",
+        ["nutzungsart-wohnen"],
+        label=[{"de": "Wohnen", "fr": "Vivre"}],
+    )
+    utils.add_answer(document, "nutzungszone", "Wohnzone W2")
+    utils.add_answer(document, "ueberbauungsordnung", "Überbauung XY")
+    utils.add_answer(document, "sachverhalt", "Sachverhalt Test")
+    utils.add_answer(
+        document,
+        "grundwasserschutzzonen-v2",
+        ["grundwasserschutzzonen-v2-s1"],
+        label=[{"de": "S1", "fr": "S1"}],
+    )
+    utils.add_answer(
+        document, "oeffentlichkeit", "oeffentlichkeit-oeffentlich", label="Öffentlich"
+    )
+    utils.add_answer(document, "alkoholausschank", "alkoholausschank-ja", label="Ja")
+    utils.add_answer(
+        document,
+        "schuetzenswert",
+        "schuetzenswert-ja",
+        question_label="Schützenswert",
+        label="Ja",
+    )
+    utils.add_answer(
+        document,
+        "erhaltenswert",
+        "erhaltenswert-nein",
+        question_label="Erhaltenswert",
+        label="Nein",
+    )
+    utils.add_answer(
+        document, "k-objekt", "k-objekt-ja", question_label="K-Objekt", label="Ja"
+    )
+    utils.add_answer(
+        document,
+        "baugruppe-bauinventar",
+        "baugruppe-bauinventar-ja",
+        question_label="Baugruppe Bauinventar",
+        label="Ja",
+    )
+    utils.add_answer(document, "bezeichnung-baugruppe", "Test Baugruppe")
+    utils.add_answer(document, "rrb", "rrb-ja", label="Ja")
+    utils.add_answer(
+        document,
+        "rrb-vom",
+        date(2022, 1, 1),
+        question_label="RRB vom",
+    )
+    utils.add_answer(document, "vertrag", "vertrag-ja", label="Ja")
+
+    utils.add_answer(
+        document,
+        "vertrag-vom",
+        date(2022, 2, 1),
+        question_label="Vertrag vom",
+    )
+    utils.add_answer(document, "sitzplaetze-garten", 20)
+
+    # Municipality
+    utils.add_answer(document, "gemeinde", "1")
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="gemeinde",
+        document=be_instance.case.document,
+        slug="1",
+        label={"de": "Bern", "fr": "Berne"},
+    )
+
+    # Table data
+    utils.add_table_answer(
+        document,
+        "parzelle",
+        [
+            {
+                "parzellennummer": 473,
+                "e-grid-nr": "CH334687350542",
+                "lagekoordinaten-ost": 2599941,
+                "lagekoordinaten-nord": 1198923,
+            },
+            {
+                "parzellennummer": 2592,
+                "e-grid-nr": "CH913553467614",
+                "lagekoordinaten-ost": 2601995,
+                "lagekoordinaten-nord": 1201340,
+            },
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "personalien-gesuchstellerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Max",
+                "name-gesuchstellerin": "Mustermann",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "juristische-person-name": None,
+                "name-juristische-person-gesuchstellerin": "ACME AG",
+                "strasse-gesuchstellerin": "Teststrasse",
+                "nummer-gesuchstellerin": 123,
+                "ort-gesuchstellerin": "Testhausen",
+                "plz-gesuchstellerin": 1234,
+            }
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "personalien-projektverfasserin",
+        [
+            {
+                "vorname-projektverfasserin": "Hans",
+                "name-projektverfasserin": "Müller",
+                "strasse-projektverfasserin": "Einweg",
+                "nummer-projektverfasserin": 9,
+                "plz-projektverfasserin": 3000,
+                "ort-projektverfasserin": "Bern",
+                "juristische-person-projektverfasserin": "juristische-person-projektverfasserin-nein",
+                "name-juristische-person-projektverfasserin": None,
+            },
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "personalien-gebaudeeigentumerin",
+        [
+            {
+                "vorname-gebaeudeeigentuemerin": "Peter",
+                "name-gebaeudeeigentuemerin": "Meier",
+                "strasse-gebaeudeeigentuemerin": "Thunstrasse",
+                "juristische-person-gebaeudeeigentuemerin": "juristische-person-gebaeudeeigentuemer-nein",
+                "name-juristische-person-gebaeudeeigentuemerin": None,
+                "nummer-gebaeudeeigentuemerin": 88,
+                "plz-gebaeudeeigentuemerin": 3002,
+                "ort-gebaeudeeigentuemerin": "Bern",
+            },
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "personalien-grundeigentumerin",
+        [
+            {
+                "vorname-grundeigentuemerin": "Sandra",
+                "name-grundeigentuemerin": "Holzer",
+                "strasse-grundeigentuemerin": "Bernweg",
+                "nummer-grundeigentuemerin": 12,
+                "juristische-person-grundeigentuemerin": "juristische-person-grundeigentuemerin-nein",
+                "name-juristische-person-grundeigentuemerin": None,
+                "plz-grundeigentuemerin": 3002,
+                "ort-grundeigentuemerin": "Bern",
+            },
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "personalien-vertreterin-mit-vollmacht",
+        [
+            {
+                "juristische-person-vertreterin": "juristische-person-vertreterin-ja",
+                "name-juristische-person-vertreterin": "Mustermann und Söhne AG",
+                "name-vertreterin": None,
+                "vorname-vertreterin": None,
+                "strasse-vertreterin": "Juristenweg",
+                "nummer-vertreterin": 99,
+                "plz-vertreterin": 3008,
+                "ort-vertreterin": "Bern",
+            },
+        ],
+    )
+
+    utils.add_table_answer(document, "beschreibung-der-prozessart-tabelle", [])
+    utils.add_table_answer(document, "bs-aufzugsanlagen-v3", [])
+    utils.add_table_answer(document, "brandschutz-gebaeudeabstaende-v3", [])
+    utils.add_table_answer(document, "bs-gefaehrliche-stoffe-v3", [])
+    utils.add_table_answer(document, "bs-lufttechnische-anlagen-v3", [])
+    utils.add_table_answer(document, "bs-raeume-mehr-50-v3", [])
+    utils.add_table_answer(document, "solaranlagen-v3", [])
+    utils.add_table_answer(document, "bs-brandschutzanlagen-v3", [])
+    utils.add_table_answer(document, "bs-waermetechnische-anlagen-v3", [])
+    utils.add_table_answer(document, "qs-verantwortlicher-v3", [])
+
+    utils.add_table_answer(
+        document, "ausschankraeume", [{"sitzplaetze": 20}, {"sitzplaetze": 15}]
+    )
+
+    # Störfallvorsorge
+    utils.add_answer(
+        document,
+        "triagefrage-stoerfallvorsorge-v3",
+        "triagefrage-stoerfallvorsorge-v3-ja",
+    )
+    utils.add_answer(
+        document,
+        "sv-geltungsbereich-begruendung-v3",
+        [
+            "sv-geltungsbereich-gebruendung-v3-mengenschwellen-ueberschritten",
+            "sv-geltungsbereich-begruendung-v3-gefahrenpotential",
+            "sv-geltungsbereich-begruendung-v3-einschliessungsverordnung-klasse-3-oder-4",
+        ],
+    )
+    utils.add_answer(
+        document,
+        "sv-kurzbericht-risikoermittlung-v3",
+        "sv-kurzbericht-risikoermittlung-v3-kurzbericht-risikoermittlung",
+    )
+
+    return be_instance.case
+
+
+@pytest.fixture
+def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, utils):
+    gr_instance.case.meta = {
+        "dossier-number": "2023-1",
+        "submit-date": "2021-03-31T13:17:08+0000",
+    }
+    gr_instance.case.save()
+
+    document = gr_instance.case.document
+
+    # Simple data
+    utils.add_answer(document, "beschreibung-bauvorhaben", "Einfamilienhaus")
+    utils.add_answer(document, "projektaenderung", "projektaenderung-ja")
+    utils.add_answer(document, "street-and-housenumber", "Teststrasse 12")
+    utils.add_answer(document, "plz-grundstueck-v3", 1234)
+    utils.add_answer(document, "ort-grundstueck", "Testhausen")
+    utils.add_answer(document, "baukosten", 4000)
+
+    # Municipality
+    utils.add_answer(document, "gemeinde", "18")
+    caluma_form_factories.DynamicOptionFactory(
+        question_id="gemeinde",
+        document=gr_instance.case.document,
+        slug="18",
+        label={"de": "Chur", "fr": "Chur"},
+    )
+
+    # Table data
+    utils.add_table_answer(
+        document,
+        "parzelle",
+        [
+            {
+                "parzellennummer": 123465,
+                "e-grid-nr": "CH334687150542",
+                "lagekoordinaten-ost": 2569941,
+                "lagekoordinaten-nord": 1298923,
+            },
+            {
+                "parzellennummer": 789876,
+                "e-grid-nr": "CH913545967614",
+                "lagekoordinaten-ost": 2609995,
+                "lagekoordinaten-nord": 1271340,
+            },
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "personalien-gesuchstellerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Esther",
+                "name-gesuchstellerin": "Tester",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Test AG",
+                "strasse-gesuchstellerin": "Testweg",
+                "nummer-gesuchstellerin": 321,
+                "ort-gesuchstellerin": "Testingen",
+                "plz-gesuchstellerin": 4321,
+                "e-mail-gesuchstellerin": "example@example.com",
+                "telefon-oder-mobile-gesuchstellerin": "+417878787",
+            }
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "personalien-projektverfasserin",
+        [
+            {
+                "vorname-gesuchstellerin": "Hans",
+                "name-gesuchstellerin": "Muster",
+                "strasse-gesuchstellerin": "Bahnhofstrasse",
+                "nummer-gesuchstellerin": 3,
+                "plz-gesuchstellerin": 3600,
+                "ort-gesuchstellerin": "Thun",
+            },
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "personalien-grundeigentumerin",
+        [
+            {
+                "vorname-gesuchstellerin": "Sandra",
+                "name-gesuchstellerin": "Beispiel",
+                "strasse-gesuchstellerin": "Beispielstrasse",
+                "nummer-gesuchstellerin": 16,
+                "plz-gesuchstellerin": 2222,
+                "ort-gesuchstellerin": "Beispieldorf",
+            },
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "personalien-rechnungsempfaenger",
+        [
+            {
+                "vorname-gesuchstellerin": "Invoice",
+                "name-gesuchstellerin": "Master",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+                "name-juristische-person-gesuchstellerin": "Rechnung AG",
+                "strasse-gesuchstellerin": "Hauptstrasse",
+                "nummer-gesuchstellerin": 12,
+                "ort-gesuchstellerin": "Zizers",
+                "plz-gesuchstellerin": 2312,
+                "e-mail-gesuchstellerin": "invoice@example.com",
+                "telefon-oder-mobile-gesuchstellerin": "+417979797",
+            }
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "gebaeude-und-anlagen",
+        [
+            {
+                "amtliche-gebaeudenummer": "4-116",
+                "egid-nr": "CH334687150542",
+                # heating 1
+                "waermeerzeuger-heizung": "waermeerzeuger-heizung-7430",
+                "energie-waermequelle-heizung": "energie-waermequelle-heizung-7540",
+                # heating 2
+                "weitere-waermeerzeuger-heizung": "weitere-waermeerzeuger-heizung-7499",
+                "weitere-energie-waermequelle-heizung": "weitere-energie-waermequelle-heizung-7530",
+                # warm water 1
+                "waermeerzeuger-warmwasser": "waermeerzeuger-warmwasser-7651",
+                "energie-waermequelle-warmwasser": "energie-waermequelle-warmwasser-7510",
+                # warm water 2
+                "weitere-waermeerzeuger-warmwasser": "weitere-waermeerzeuger-warmwasser-7660",
+                "weitere-energie-waermequelle-warmwasser": "weitere-energie-waermequelle-warmwasser-7512",
+            },
+        ],
+    )
+
+    return gr_instance.case
+
+
+@pytest.fixture
+def ag_master_data_case(
+    db,
+    master_data_is_visible_mock,
+    ag_instance,
+    utils,
+    caluma_dynamic_option_factory,
+    caluma_work_item_factory,
+):
+    ag_instance.case.meta = {
+        "dossier-number": "2025-1",
+        "submit-date": "2025-02-05T09:18:08+0000",
+    }
+    ag_instance.case.save()
+
+    document = ag_instance.case.document
+
+    utils.add_answer(document, "is-paper", "is-paper-no")
+    utils.add_answer(document, "beschreibung-bauvorhaben", "Überbauung Westfeld")
+    utils.add_answer(document, "beschreibung-bauvorhaben-details", "Testdossier 1")
+    utils.add_answer(document, "zonenplan", "Wohnzone 2")
+    utils.add_answer(document, "street-and-housenumber", "Teststrasse 12")
+    utils.add_answer(document, "plz", "4663")
+    utils.add_answer(document, "ort-grundstueck", "Aarburg")
+    utils.add_answer(document, "baukosten", 12_000_000)
+
+    # Plot data
+    utils.add_table_answer(
+        document,
+        "parzelle",
+        [{"parzellennummer": "1338", "e-grid-nr": "CH270677774577"}],
+    )
+
+    # Personal details
+    for i, table in enumerate(
+        [
+            "personalien-gesuchstellerin",
+            "personalien-grundeigentumerin",
+            "personalien-projektverfasserin",
+            "personalien-rechnungsempfaenger",
+            "vertreterin-mit-vollmacht",
+        ]
+    ):
+        is_juristic = i % 2 == 0  # every 2nd person is juristic
+        utils.add_table_answer(document, table, [ag_personal_row_factory(is_juristic)])
+
+    # Municipality
+    utils.add_answer(document, "gemeinde", "55")
+    caluma_dynamic_option_factory(
+        question_id="gemeinde",
+        document=ag_instance.case.document,
+        slug="55",
+        label={"de": "Aarburg"},
+    )
+
+    # Formal exam
+    exam = caluma_work_item_factory(task_id="formal-exam", case=ag_instance.case)
+    utils.add_answer(
+        exam.document,
+        "vorlaeufige-pruefung-verfahrensart",
+        "verfahrensart-ordentliches-verfahren",
+        label="Ordentliches Verfahren",
+    )
+    utils.add_answer(
+        exam.document,
+        "vorlaeufige-pruefung-publikation",
+        "vorlaeufige-pruefung-publikation-ja",
+    )
+    utils.add_answer(
+        exam.document,
+        "vorlaeufige-pruefung-auswaertige-anstoesser",
+        "vorlaeufige-pruefung-auswaertige-anstoesser-ja",
+    )
+
+    # Decision
+    decision = caluma_work_item_factory(task_id="decision", case=ag_instance.case)
+    utils.add_answer(decision.document, "entscheid-datum", date(2025, 2, 5))
+
+    return ag_instance.case
+
+
+@pytest.fixture
 def ur_master_data_case(
     db,
     ur_instance,
@@ -1397,11 +2121,49 @@ def ur_master_data_case(
     utils.add_answer(document, "parcel-street-number", 4)
     utils.add_answer(document, "construction-cost", 129000)
     utils.add_answer(document, "parcel-city", "Musterdorf")
-    utils.add_answer(document, "category", ["category-hochbaute", "category-tiefbaute"])
-    utils.add_answer(document, "veranstaltung-art", ["veranstaltung-art-umbau"])
-    utils.add_answer(document, "oereb-thema", ["oereb-thema-knp"])
-    utils.add_answer(document, "form-type", ["form-type-oereb"])
-    utils.add_answer(document, "typ-des-verfahrens", ["typ-des-verfahrens-genehmigung"])
+    utils.add_answer(
+        document,
+        "category",
+        value=["category-hochbaute", "category-tiefbaute"],
+        options=["category-hochbaute", "category-tiefbaute"],
+        question_type="multiple_choice",
+    )
+
+    utils.add_answer(
+        document,
+        "projektaenderung",
+        "projektaenderung-nein",
+        options=["projektaenderung-nein", "projektaenderung-ja"],
+        question_type="choice",
+    )
+    utils.add_answer(
+        document,
+        "veranstaltung-art",
+        value=["veranstaltung-art-umbau"],
+        options=["veranstaltung-art-umbau"],
+        question_type="multiple_choice",
+    )
+    utils.add_answer(
+        document,
+        "oereb-thema",
+        ["oereb-thema-knp"],
+        options=["oereb-thema-knp"],
+        question_type="multiple_choice",
+    )
+    utils.add_answer(
+        document,
+        "form-type",
+        "form-type-oereb",
+        options=["form-type-oereb"],
+        question_type="choice",
+    )
+    utils.add_answer(
+        document,
+        "typ-des-verfahrens",
+        ["typ-des-verfahrens-genehmigung"],
+        options=["typ-des-verfahrens-genehmigung"],
+        question_type="multiple_choice",
+    )
 
     # Municipality
     utils.add_answer(document, "municipality", "1")
@@ -1504,7 +2266,12 @@ def ur_master_data_case(
             {
                 "art-der-hochbaute": "art-der-hochbaute-parkhaus",
                 "gebaeudenummer-bezeichnung": "Villa",
-                "proposal": ["proposal-neubau"],
+                "proposal": {
+                    "value": ["proposal-neubau"],
+                    "options": [
+                        ("proposal-neubau", "Neubau"),
+                    ],
+                },
                 "gebaeudekategorie": "gebaeudekategorie-ohne-wohnnutzung",
             }
         ],
@@ -1763,20 +2530,15 @@ def active_inquiry_factory(
 @pytest.fixture
 def master_data_is_visible_mock(mocker):
     """
-    Mock the `_answer_is_visible()` call in the masterdata class.
+    Mock the `is_visible()` call in the caluma form structure.
 
     Enhances speed and simplicity of test setup, as we don't need to run
     the full visibility check in the tests.
-
-    Return the mock, and the original method as a tuple.
     """
-    import camac.instance.master_data
-
-    orig = camac.instance.master_data.MasterData._answer_is_visible
 
     return mocker.patch(
-        "camac.instance.master_data.MasterData._answer_is_visible", return_value=True
-    ), orig
+        "caluma.caluma_form.structure.BaseField.is_hidden", return_value=False
+    )
 
 
 @pytest.fixture
@@ -1883,12 +2645,15 @@ def configure_custom_notification_types(
 
 
 class Utils:
-    @staticmethod
-    def _question(slug, type, label=None, options=None):
+    def __init__(self):
+        self._sort = 99999999
+
+    def _question(self, slug, type, label=None, options=None):
         question = caluma_form_models.Question.objects.filter(pk=slug).first()
         if question is None:
             question = caluma_form_factories.QuestionFactory(
                 pk=slug,
+                is_required="false",
                 type=type,
                 **({"label": label} if label else {}),
             )
@@ -1911,6 +2676,13 @@ class Utils:
                 )
         return question
 
+    def _next_sort(self):
+        # Sort should be descending, so
+        # things are ordered in the way they're constructed (caluma sorting
+        # is reverse - highest-to-lowest numbers)
+        self._sort -= 1
+        return self._sort
+
     @staticmethod
     def _get_question_type(value, options):
         if options:
@@ -1919,20 +2691,27 @@ class Utils:
             return caluma_form_models.Question.TYPE_CHOICE
         if isinstance(value, date):
             return caluma_form_models.Question.TYPE_DATE
+        if isinstance(value, float):
+            return caluma_form_models.Question.TYPE_FLOAT
+        if isinstance(value, list):
+            if value and isinstance(value[0], dict):  # pragma: no cover
+                raise RuntimeError("YOU SHOULD USE add_table_answer, not add_answer")
+            return caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
         if isinstance(value, int):
             return caluma_form_models.Question.TYPE_INTEGER
         return caluma_form_models.Question.TYPE_TEXT
 
-    @staticmethod
     def add_answer(
+        self,
         document,
         question,
         value,
         label=None,
         question_label=None,
         options=None,
+        question_type=None,
     ):
-        question_type = Utils._get_question_type(value, options)
+        question_type = question_type or Utils._get_question_type(value, options)
         value_key = (
             "date"
             if question_type == caluma_form_models.Question.TYPE_DATE
@@ -1941,8 +2720,13 @@ class Utils:
 
         answer = caluma_form_factories.AnswerFactory(
             document=document,
-            question=Utils._question(question, question_type, question_label, options),
+            question=self._question(question, question_type, question_label, options),
             **{value_key: value},
+        )
+        caluma_form_models.FormQuestion.objects.get_or_create(
+            form=document.form,
+            question=answer.question,
+            defaults={"sort": self._next_sort()},
         )
 
         if label:
@@ -1962,16 +2746,22 @@ class Utils:
 
         return answer
 
-    @staticmethod
-    def add_table_answer(document, question, rows, table_answer=None, row_form_id=None):
+    def add_table_answer(
+        self, document, question, rows, table_answer=None, row_form_id=None
+    ):
         answer = (
-            Utils.add_answer(document, question, None)
+            self.add_answer(document, question, value=None, question_type="table")
             if not table_answer
             else table_answer
         )
+        if row_form_id:
+            answer.question.row_form_id = row_form_id
+            answer.question.save()
+        else:
+            row_form_id = answer.question.row_form_id
 
         for i, row in enumerate(reversed(rows)):
-            row_args = {"form_id": row_form_id} if row_form_id else {}
+            row_args = {"form_id": row_form_id}
             row_document = caluma_form_factories.DocumentFactory(
                 family=document.family, **row_args
             )
@@ -1980,7 +2770,7 @@ class Utils:
                 if isinstance(value, dict):
                     options = value["options"]
                     value = value["value"]
-                Utils.add_answer(row_document, column, value, options=options)
+                self.add_answer(row_document, column, value, options=options)
 
             caluma_form_factories.AnswerDocumentFactory(
                 document=row_document, answer=answer, sort=i
@@ -1991,7 +2781,7 @@ class Utils:
 
 @pytest.fixture
 def utils():
-    return Utils
+    return Utils()
 
 
 @pytest.fixture(autouse=True)

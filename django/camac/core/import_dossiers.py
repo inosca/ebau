@@ -1,3 +1,6 @@
+# TODO: revert if xfail is removed
+# pragma: exclude file
+
 import shutil
 from pathlib import Path
 

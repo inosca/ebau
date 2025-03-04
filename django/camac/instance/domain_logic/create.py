@@ -379,6 +379,8 @@ class CreateInstanceLogic:
                 "projektaenderung",
                 "projektaenderung-ja" if is_modification else "projektaenderung-nein",
                 user,
+                # Not all forms have this question (Vorabklärungen for example)
+                skip_on_error=True,
             )
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION") and instance.location:

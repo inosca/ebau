@@ -1,8 +1,10 @@
 from dataclasses import dataclass, field
+from logging import getLogger
 from operator import attrgetter
 from typing import List, Optional
 
-from caluma.caluma_form import models as form_models
+from caluma.caluma_form.models import Document
+from caluma.caluma_form.structure import FastLoader
 from caluma.caluma_form.validators import DocumentValidator
 from dateutil.parser import ParserError, parse as dateutil_parse
 from django.conf import settings
@@ -11,13 +13,14 @@ from django.utils.translation import get_language
 from camac.core.models import MultilingualModel
 from camac.utils import get_dict_item
 
+log = getLogger(__name__)
+
 
 @dataclass
 class MasterData(object):
     case: object
-    visible_questions: dict = field(default_factory=dict)
     validation_context: dict = field(default_factory=dict)
-    disable_answer_visibility: bool = field(default=False)
+    _fastloader: Optional[FastLoader] = field(default=None)
 
     def __getattr__(self, lookup_key):
         config = get_dict_item(
@@ -25,8 +28,10 @@ class MasterData(object):
         )
 
         if not config:
+            available_keys = ", ".join(settings.MASTER_DATA["CONFIG"].keys())
             raise AttributeError(
-                f"Key '{lookup_key}' is not configured in master data config. Available keys are: {', '.join(settings.MASTER_DATA['CONFIG'].keys())}"
+                f"Key '{lookup_key}' is not configured in master data config. "
+                f"Available keys are: {available_keys}"
             )
 
         resolver, *args = config
@@ -46,7 +51,7 @@ class MasterData(object):
         return fn(lookup, **kwargs)
 
     def _parse_value(
-        self, value, default=None, value_parser=None, answer=None, **kwargs
+        self, value, default=None, value_parser=None, answer=None, field=None, **kwargs
     ):
         if not value_parser or not value:
             return value if value else default
@@ -65,19 +70,35 @@ class MasterData(object):
                 f"Parser '{parser_name}' is not defined in master data class"
             )
 
-        return parser(value, default=default, answer=answer, **options, **kwargs)
+        return parser(
+            value, default=default, field=field, answer=answer, **options, **kwargs
+        )
 
-    def _get_cell_value(self, row, lookup_config):
+    def _build_cell_value(self, row, lookup_config):
         options = {}
 
         if lookup_config == "pk":
-            return str(row.pk)
+            return str(row._document.pk)
         elif isinstance(lookup_config, tuple):
             lookup, options = lookup_config
         else:
             lookup = lookup_config
 
-        return self.answer_resolver(lookup, document=row, **options)
+        if lookup == "default":
+            return options.get("default")
+
+        try:
+            return self.struc_field_resolver(lookup, row, **options)
+        except Exception:  # pragma: todo cover
+            return self._parse_value(None, **options)
+
+    def struc_field_resolver(self, lookup, fieldset, **options):
+        field = fieldset.get_field(lookup)
+        if not field:
+            log.warning("Field %s does not exist in %s", lookup, fieldset.get_path())
+            return None
+
+        return self._parse_value(field.get_value(), field=field, **options)
 
     def _get_ng_cell_value(self, row, lookup_config):
         options = {}
@@ -91,28 +112,15 @@ class MasterData(object):
 
         return self._parse_value(row.get(lookup), **options)
 
-    def _answer_is_visible(self, answer):
-        if self.disable_answer_visibility:
-            return True
-        visible_questions = self.visible_questions.get(answer.document.pk)
+    def _get_structure(self, document):
+        if document.pk not in self.validation_context:
+            self.validation_context[document.pk] = self._build_structure(document)
+        return self.validation_context[document.pk]
 
-        if visible_questions is None:
-            document = answer.document
-
-            if document.pk != document.family_id:
-                document = document.family
-
-            if not self.validation_context.get(document.pk, None):
-                self.validation_context[document.pk] = (
-                    DocumentValidator()._validation_context(document)
-                )
-
-            visible_questions = DocumentValidator().visible_questions(
-                answer.document, self.validation_context[document.pk]
-            )
-            self.visible_questions[answer.document_id] = visible_questions
-
-        return answer.question_id in visible_questions
+    def _build_structure(self, document):
+        return DocumentValidator().get_validation_context(
+            document, _fastloader=self._fastloader
+        )
 
     def static_resolver(self, value):
         """Resolve static value for a master data key.
@@ -131,6 +139,19 @@ class MasterData(object):
 
     def form_name_resolver(self):
         return self.case.document.form.name.translate()
+
+    def _get_document(self, document_from_work_item=None):
+        # TODO: Fallback to case docu if not found? Or return None instead?
+        if document_from_work_item:
+            work_item = next(
+                filter(
+                    lambda work_item: work_item.task_id == document_from_work_item,
+                    self.case.work_items.all(),
+                ),
+                None,
+            )
+            return work_item.document if work_item else None
+        return self.case.document
 
     def answer_resolver(
         self,
@@ -200,26 +221,25 @@ class MasterData(object):
         if not isinstance(lookup, list):
             lookup = [lookup]
 
-        if not document and document_from_work_item:
-            work_item = next(
-                filter(
-                    lambda work_item: work_item.task_id == document_from_work_item,
-                    self.case.work_items.all(),
-                ),
-                None,
-            )
-            document = work_item.document if work_item else None
-        elif not document:
-            document = self.case.document
+        document = document or self._get_document(document_from_work_item)
 
-        answer = next(
+        if not document:
+            # Requested document likely is from a workitem that may not have
+            # started yet, and that's ok
+            return None
+
+        struc = self._get_structure(document)
+        field = next(
             filter(
-                lambda answer: answer.question_id in lookup
-                and self._answer_is_visible(answer),
-                document.answers.all() if document else [],
+                lambda f: f is not None and f.is_visible(),
+                (struc.get_field(slug) for slug in lookup),
             ),
             None,
         )
+
+        # Field may be None if the question is hidden for example. Just
+        # fallback to None instead
+        answer = field.answer if field else None
 
         return self._parse_value(
             getattr(answer, value_key, None) if answer else None,
@@ -284,24 +304,29 @@ class MasterData(object):
             }
         }
         """
-        answer_documents = self.answer_resolver(
-            lookup,
-            "answerdocument_set",
-            default=form_models.Document.objects.none(),
-            **kwargs,
-        )
+
+        document = self._get_document(kwargs.get("document_from_work_item"))
+        if not document:
+            return []
+
+        struc = self._get_structure(document)
+        table_field = struc.get_field(lookup)
+
+        if not table_field:
+            log.warning(
+                "Table %s not found in document with form %s", lookup, document.form_id
+            )
+            return []
+        if table_field.is_empty():
+            # Hidden or empty - don't return anything
+            return []
 
         return [
             {
-                key: self._get_cell_value(answer_document.document, lookup_config)
+                key: self._build_cell_value(row, lookup_config)
                 for key, lookup_config in column_mapping.items()
             }
-            for answer_document in reversed(
-                sorted(
-                    answer_documents.all(),
-                    key=lambda answer_document: answer_document.sort,
-                )
-            )
+            for row in table_field.children()
         ]
 
     def baukontrolle_resolver(self, lookup, column_mapping={}, **kwargs):
@@ -630,26 +655,44 @@ class MasterData(object):
     def option_parser(self, value, default, answer=None, prop=None, **kwargs):
         if isinstance(value, list):
             return [
-                self.option_parser(v, default, answer=answer, prop=prop) for v in value
+                self.option_parser(v, default, answer=answer, prop=prop, **kwargs)
+                for v in value
             ]
 
         option = next(
-            filter(lambda option: option.pk == value, answer.question.options.all()),
+            filter(
+                lambda option: option.pk == value,
+                self._field_or_question_options(
+                    answer=answer, field=kwargs.get("field", None)
+                ),
+            ),
             None,
         )
         return self._return_option(option, value, prop, default)
 
-    def dynamic_option_parser(self, value, default, answer=None, prop=None, **kwargs):
+    def _field_or_question_options(self, answer, field):
+        if field:
+            options = field.get_options()
+        else:
+            options = answer.question.options.all()
+        return options
+
+    def dynamic_option_parser(
+        self, value, default, answer=None, prop=None, field=None, **kwargs
+    ):
         if isinstance(value, list):  # pragma: no cover
             return [
                 self.dynamic_option_parser(v, default, answer=answer) for v in value
             ]
 
+        dyn_options = (
+            field.get_dynamic_options().values()
+            if field
+            else answer.document.dynamicoption_set.all()
+        )
+
         dynamic_option = next(
-            filter(
-                lambda dynamic_option: dynamic_option.slug == value,
-                answer.document.dynamicoption_set.all(),
-            ),
+            filter(lambda dynamic_option: dynamic_option.slug == value, dyn_options),
             None,
         )
         return self._return_option(dynamic_option, value, prop, default)
@@ -673,3 +716,15 @@ class MasterData(object):
             return None
 
         return config[1]
+
+
+class MultipleCaseMasterdata:
+    def __init__(self, case_queryset):
+        self.case_queryset = case_queryset
+        documents = Document.objects.filter(case__in=case_queryset)
+        self.fastloader = FastLoader.for_queryset(documents)
+        self._cases = {str(case.pk): case for case in case_queryset}
+
+    def for_case(self, case_id):
+        case = self._cases[str(case_id)]
+        return MasterData(case, _fastloader=self.fastloader)

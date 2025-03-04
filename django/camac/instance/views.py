@@ -7,7 +7,7 @@ from caluma.caluma_workflow import api as workflow_api, models as workflow_model
 from django.conf import settings
 from django.core.files import File
 from django.db import transaction
-from django.db.models import CharField, F, OuterRef, Q, Subquery, Value
+from django.db.models import CharField, F, OuterRef, Q, QuerySet, Subquery, Value
 from django.db.models.expressions import Func
 from django.db.models.fields import IntegerField
 from django.db.models.fields.json import KeyTextTransform
@@ -36,9 +36,8 @@ from camac.core.utils import canton_aware
 from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.domain_logic import RejectionLogic, WithdrawalLogic
-from camac.instance.master_data import MasterData
+from camac.instance.master_data import MasterData, MultipleCaseMasterdata
 from camac.instance.models import FormField
-from camac.instance.utils import build_document_prefetch_statements
 from camac.notification.utils import send_mail
 from camac.permissions import api as permissions_api
 from camac.permissions.events import Trigger
@@ -1452,6 +1451,11 @@ class PublicCalumaInstanceView(
 
     instance_field = "instance"
 
+    def get_serializer(self, *args, **kwargs):
+        if args and isinstance(args[0], QuerySet):
+            self.request._masterdata = MultipleCaseMasterdata(args[0])
+        return super().get_serializer(*args, **kwargs)
+
     @classmethod
     def include_in_swagger(cls):
         return settings.APPLICATION_NAME == "kt_uri"
@@ -1476,10 +1480,8 @@ class PublicCalumaInstanceView(
 
         if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
             queryset = queryset.prefetch_related("instance__fields")
-        elif settings.APPLICATION["FORM_BACKEND"] == "caluma":
-            queryset = queryset.prefetch_related(
-                *build_document_prefetch_statements(prefix="document")
-            )
+        # elif settings.APPLICATION["FORM_BACKEND"] == "caluma": We have
+        # FastLoader infra that does this for us
 
         if settings.PUBLICATION.get("BACKEND") == "camac-ng":
             queryset = queryset.annotate(
@@ -1535,9 +1537,6 @@ class PublicCalumaInstanceView(
         queryset = (
             super()
             .get_queryset_for_oereb_api(self.request.group)
-            .prefetch_related(
-                *build_document_prefetch_statements(prefix="document"),
-            )
             .annotate(instance_id=F("instance__pk"))
         )
         return queryset.annotate(

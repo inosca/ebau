@@ -167,7 +167,8 @@ class ParashiftImporter:
             for rec in result["data"]:
                 data = self.fetch_data(rec["id"])
 
-                if data:
+                # TODO: revert if xfail is removed
+                if data:  # pragma: todo cover
                     data["documents"] = self.crop_pdf(data)
                     dossiers += import_dossiers([data], self.bfs_nr)
 

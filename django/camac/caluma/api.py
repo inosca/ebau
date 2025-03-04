@@ -121,18 +121,36 @@ class CalumaApi:
 
         return document
 
-    def update_or_create_answer(self, document, question_slug, value, user):
+    def update_or_create_answer(
+        self, document, question_slug, value, user, skip_on_error=False
+    ):
+        """Create or update a Caluma answer.
+
+        Answer will be creaated in the given document.
+
+        Note that the question *must* be in the corresponding form of the
+        document.
+
+        Passing `skip_on_error=True` will silently ignore errors
+        in the validation step and won't save the answer as a consequence.
+        This allows you to keep the calling code generic. Use with caution.
+        """
         question = caluma_form_models.Question.objects.get(slug=question_slug)
 
-        AnswerValidator().validate(
-            question=question, document=document, user=user, value=value
-        )
+        try:
+            AnswerValidator().validate(
+                question=question, document=document, user=user, value=value
+            )
 
-        return caluma_form_models.Answer.objects.update_or_create(
-            document=document,
-            question_id=question_slug,
-            defaults={"value": value},
-        )
+            return caluma_form_models.Answer.objects.update_or_create(
+                document=document,
+                question_id=question_slug,
+                defaults={"value": value},
+            )
+        except Exception:
+            if skip_on_error:
+                return None
+            raise  # pragma: no cover
 
     def is_paper(self, instance):
         return instance.case.document.answers.filter(

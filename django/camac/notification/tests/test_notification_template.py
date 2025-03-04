@@ -1410,93 +1410,37 @@ def test_ur_placeholders(
     mailoutbox,
     settings,
     has_parcel_filled,
+    utils,
 ):
-    caluma_form_models.Question.objects.create(
-        slug="proposal-description",
-        type=caluma_form_models.Question.TYPE_TEXT,
+    utils.add_answer(
+        ur_instance.case.document, "proposal-description", "my description"
     )
-    parcel_form = caluma_form_models.Form.objects.create(slug="parcel-form")
-    parcel_question = caluma_form_models.Question.objects.create(
-        slug="parcel-number",
-        type=caluma_form_models.Question.TYPE_TEXT,
+    utils.add_table_answer(
+        ur_instance.case.document,
+        "parcels",
+        [
+            {
+                "parcel-number": "123" if has_parcel_filled else "",
+            }
+        ],
     )
-    caluma_form_models.FormQuestion.objects.create(
-        form=parcel_form, question=parcel_question
+    utils.add_table_answer(
+        ur_instance.case.document,
+        "applicant",
+        [
+            {
+                "is-juristic-person": "is-juristic-person-yes",
+                "juristic-person-name": "juristic-person-name",
+                "first-name": "first-name",
+                "last-name": "last-name",
+                "street": "street",
+                "street-number": "street-number",
+                "zip": "zip",
+                "city": None,
+                "country": None,
+            }
+        ],
     )
-
-    caluma_form_models.Question.objects.create(
-        slug="parcels",
-        type=caluma_form_models.Question.TYPE_TABLE,
-        row_form=parcel_form,
-    )
-
-    personal_data_form = caluma_form_models.Form.objects.create(
-        slug="personal-data-form"
-    )
-    personal_questions = [
-        caluma_form_models.Question.objects.create(
-            slug=slug,
-            type=caluma_form_models.Question.TYPE_TEXT,
-        )
-        for slug in [
-            "first-name",
-            "last-name",
-            "juristic-person-name",
-            "street",
-            "street-number",
-            "zip",
-            "city",
-        ]
-    ]
-    is_juristic_person_question = caluma_form_models.Question.objects.create(
-        slug="is-juristic-person",
-        type=caluma_form_models.Question.TYPE_CHOICE,
-    )
-
-    [
-        caluma_form_models.FormQuestion.objects.create(
-            form=personal_data_form, question=question
-        )
-        for question in personal_questions + [is_juristic_person_question]
-    ]
-
-    applicant_question = caluma_form_models.Question.objects.create(
-        slug="applicant",
-        type=caluma_form_models.Question.TYPE_TABLE,
-        row_form=personal_data_form,
-    )
-    main_form = caluma_form_models.Form.objects.get(pk="main-form")
-    caluma_form_models.FormQuestion.objects.create(
-        form=main_form, question=applicant_question
-    )
-
-    ur_instance.case.document.answers.create(
-        value="my description", question_id="proposal-description"
-    )
-    parcel_row_doc = caluma_form_models.Document.objects.create(form=parcel_form)
-    if has_parcel_filled:
-        parcel_row_doc.answers.create(value="123", question=parcel_question)
-
-    parcel_table_answer = ur_instance.case.document.answers.create(
-        question_id="parcels"
-    )
-    parcel_table_answer.documents.add(parcel_row_doc)
-    parcel_table_answer.save()
-
-    applicant_row_doc = caluma_form_models.Document.objects.create(
-        form=personal_data_form
-    )
-    [
-        applicant_row_doc.answers.create(value=question.slug, question=question)
-        for question in personal_questions[:-1]  # test for missing answers as well
-    ]
-    applicant_row_doc.answers.create(
-        value="is-juristic-person-yes", question=is_juristic_person_question
-    )
-
-    table_answer = ur_instance.case.document.answers.create(question_id="applicant")
-    table_answer.documents.add(applicant_row_doc)
-    table_answer.save()
 
     sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
         data={

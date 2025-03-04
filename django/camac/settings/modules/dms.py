@@ -170,6 +170,7 @@ DMS = {
                 "personalien": "personalien-sb1-sb2",
                 "exclude_slugs": [
                     "is-paper",
+                    "bewilligungspflichtig-v2",
                     "einreichen-button-sb1",
                     "einreichen-button-sb2",
                     "dokumente-sb1",

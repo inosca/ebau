@@ -365,7 +365,7 @@
   			<ns1:realestateInformation>
   				<ns1:realestate>
   					<ns3:realestateIdentification>
-  						<ns3:EGRID>unknown</ns3:EGRID>
+  						<ns3:EGRID>CH123456789</ns3:EGRID>
   						<ns3:number>1586</ns3:number>
   					</ns3:realestateIdentification>
   					<ns3:realestateType>8</ns3:realestateType>
@@ -397,7 +397,7 @@
   						</ns4:person>
   						<ns4:addressInformation>
   							<ns4:street>Teststrasse</ns4:street>
-  							<ns4:houseNumber>None</ns4:houseNumber>
+  							<ns4:houseNumber>11b</ns4:houseNumber>
   							<ns4:town>Testort</ns4:town>
   							<ns4:swissZipCode>1234</ns4:swissZipCode>
   							<ns4:country>
@@ -447,7 +447,7 @@
   				</ns3:identification>
   				<ns3:address>
   					<ns4:street>Teststrasse</ns4:street>
-  					<ns4:houseNumber>None</ns4:houseNumber>
+  					<ns4:houseNumber>11b</ns4:houseNumber>
   					<ns4:town>Testort</ns4:town>
   					<ns4:swissZipCode>1234</ns4:swissZipCode>
   					<ns4:country>
@@ -567,18 +567,23 @@
   				</ns1:otherID>
   				<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   			</ns1:planningPermissionApplicationIdentification>
-  			<ns1:description>None</ns1:description>
+  			<ns1:description>Testvorhaben</ns1:description>
   			<ns1:applicationType>Baugesuch</ns1:applicationType>
   			<ns1:profilingYesNo>false</ns1:profilingYesNo>
-  			<ns1:intendedPurpose>.</ns1:intendedPurpose>
+  			<ns1:intendedPurpose>Wohnen</ns1:intendedPurpose>
   			<ns1:parkingLotsYesNo>false</ns1:parkingLotsYesNo>
+  			<ns1:natureRisk>
+  				<ns1:riskDesignation>Felssturz</ns1:riskDesignation>
+  				<ns1:riskExists>true</ns1:riskExists>
+  			</ns1:natureRisk>
+  			<ns1:constructionCost>1000.0</ns1:constructionCost>
   			<ns1:namedMetaData>
   				<ns3:metaDataName>status</ns3:metaDataName>
   				<ns3:metaDataValue>David Rangel</ns3:metaDataValue>
   			</ns1:namedMetaData>
   			<ns1:locationAddress>
-  				<ns4:street>unknown</ns4:street>
-  				<ns4:houseNumber>0</ns4:houseNumber>
+  				<ns4:street>Teststrasse</ns4:street>
+  				<ns4:houseNumber>23b</ns4:houseNumber>
   				<ns4:town>unknown</ns4:town>
   				<ns4:swissZipCode>9999</ns4:swissZipCode>
   				<ns4:country>
@@ -588,25 +593,41 @@
   			<ns1:realestateInformation>
   				<ns1:realestate>
   					<ns3:realestateIdentification>
-  						<ns3:number>0</ns3:number>
+  						<ns3:EGRID>CH123456789</ns3:EGRID>
+  						<ns3:number>1586</ns3:number>
   					</ns3:realestateIdentification>
   					<ns3:realestateType>8</ns3:realestateType>
+  					<ns3:coordinates>
+  						<ns3:LV95>
+  							<ns3:east>2480000.0</ns3:east>
+  							<ns3:north>1070000.0</ns3:north>
+  							<ns3:originOfCoordinates>904</ns3:originOfCoordinates>
+  						</ns3:LV95>
+  					</ns3:coordinates>
   				</ns1:realestate>
   				<ns1:municipality>
   					<ns5:municipalityName>Testgemeinde</ns5:municipalityName>
   					<ns5:cantonAbbreviation>BE</ns5:cantonAbbreviation>
   				</ns1:municipality>
+  				<ns1:buildingInformation>
+  					<ns1:building>
+  						<ns3:EGID>1738778</ns3:EGID>
+  						<ns3:numberOfFloors>2</ns3:numberOfFloors>
+  						<ns3:buildingCategory>1040</ns3:buildingCategory>
+  						<ns3:civilDefenseShelter>true</ns3:civilDefenseShelter>
+  					</ns1:building>
+  				</ns1:buildingInformation>
   				<ns1:owner>
   					<ns1:ownerAdress>
   						<ns4:person>
-  							<ns4:firstName>unknown</ns4:firstName>
-  							<ns4:lastName>unknown</ns4:lastName>
+  							<ns4:firstName>Testvorname</ns4:firstName>
+  							<ns4:lastName>Testname</ns4:lastName>
   						</ns4:person>
   						<ns4:addressInformation>
-  							<ns4:street>unknown</ns4:street>
-  							<ns4:houseNumber>0</ns4:houseNumber>
-  							<ns4:town>unknown</ns4:town>
-  							<ns4:swissZipCode>9999</ns4:swissZipCode>
+  							<ns4:street>Teststrasse</ns4:street>
+  							<ns4:houseNumber>11b</ns4:houseNumber>
+  							<ns4:town>Testort</ns4:town>
+  							<ns4:swissZipCode>1234</ns4:swissZipCode>
   							<ns4:country>
   								<ns4:countryNameShort>CH</ns4:countryNameShort>
   							</ns4:country>
@@ -614,10 +635,14 @@
   					</ns1:ownerAdress>
   				</ns1:owner>
   			</ns1:realestateInformation>
+  			<ns1:zone>
+  				<ns1:zoneDesignation>Testnutzungszone</ns1:zoneDesignation>
+  			</ns1:zone>
   			<ns1:constructionProjectInformation>
   				<ns1:constructionProject>
+  					<ns3:totalCostsOfProject>1000</ns3:totalCostsOfProject>
   					<ns3:status>6701</ns3:status>
-  					<ns3:description>unknown</ns3:description>
+  					<ns3:description>Testvorhaben</ns3:description>
   					<ns3:durationOfConstructionPhase>999</ns3:durationOfConstructionPhase>
   				</ns1:constructionProject>
   				<ns1:municipality>
@@ -644,15 +669,15 @@
   			<ns1:person>
   				<ns3:identification>
   					<ns3:personIdentification>
-  						<ns8:officialName>None</ns8:officialName>
-  						<ns8:firstName>None</ns8:firstName>
+  						<ns8:officialName>Testname</ns8:officialName>
+  						<ns8:firstName>Testvorname</ns8:firstName>
   					</ns3:personIdentification>
   				</ns3:identification>
   				<ns3:address>
-  					<ns4:street>None</ns4:street>
-  					<ns4:houseNumber>None</ns4:houseNumber>
-  					<ns4:town>None</ns4:town>
-  					<ns4:swissZipCode>9999</ns4:swissZipCode>
+  					<ns4:street>Teststrasse</ns4:street>
+  					<ns4:houseNumber>11b</ns4:houseNumber>
+  					<ns4:town>Testort</ns4:town>
+  					<ns4:swissZipCode>1234</ns4:swissZipCode>
   					<ns4:country>
   						<ns4:countryNameShort>CH</ns4:countryNameShort>
   					</ns4:country>
@@ -722,7 +747,7 @@
   			<ns1:realestateInformation>
   				<ns1:realestate>
   					<ns3:realestateIdentification>
-  						<ns3:EGRID>unknown</ns3:EGRID>
+  						<ns3:EGRID>CH123456789</ns3:EGRID>
   						<ns3:number>1586</ns3:number>
   					</ns3:realestateIdentification>
   					<ns3:realestateType>8</ns3:realestateType>
@@ -754,7 +779,7 @@
   						</ns4:person>
   						<ns4:addressInformation>
   							<ns4:street>Teststrasse</ns4:street>
-  							<ns4:houseNumber>None</ns4:houseNumber>
+  							<ns4:houseNumber>11b</ns4:houseNumber>
   							<ns4:town>Testort</ns4:town>
   							<ns4:swissZipCode>1234</ns4:swissZipCode>
   							<ns4:country>
@@ -804,7 +829,7 @@
   				</ns3:identification>
   				<ns3:address>
   					<ns4:street>Teststrasse</ns4:street>
-  					<ns4:houseNumber>None</ns4:houseNumber>
+  					<ns4:houseNumber>11b</ns4:houseNumber>
   					<ns4:town>Testort</ns4:town>
   					<ns4:swissZipCode>1234</ns4:swissZipCode>
   					<ns4:country>

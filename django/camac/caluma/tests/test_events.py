@@ -386,7 +386,7 @@ def test_copy_tank_installation(
 
     table = case.document.answers.create(question_id="lagerung-von-stoffen-v2")
     row = caluma_form_models.Document.objects.create(
-        form_id="lagerung-von-stoffen-tabelle-v2"
+        form_id="lagerung-von-stoffen-tabelle-v2", family=case.document
     )
 
     row.answers.create(question_id="lagerstoff", value="Ethanol")
@@ -692,7 +692,7 @@ def test_audit_history(
 def test_complete_simple_workflow(
     application_settings,
     db,
-    instance,
+    be_instance,
     admin_user,
     caluma_admin_user,
     caluma_config_be,
@@ -710,7 +710,7 @@ def test_complete_simple_workflow(
     expected_history_text,
     be_ech0211_settings,
 ):
-    work_item = caluma_work_item_factory(task=caluma_task_factory(slug=task))
+    work_item = caluma_work_item_factory(task_id=task, case=be_instance.case)
     instance_state = instance_state_factory(name=expected_instance_state)
 
     notification = {
@@ -721,10 +721,6 @@ def test_complete_simple_workflow(
         notification
     )
 
-    case = work_item.case
-    instance.case = case
-    instance.save()
-
     send_event(
         post_complete_work_item,
         sender="post_complete_work_item",
@@ -733,11 +729,11 @@ def test_complete_simple_workflow(
         context={},
     )
 
-    instance.refresh_from_db()
+    be_instance.refresh_from_db()
 
-    assert instance.instance_state == instance_state
+    assert be_instance.instance_state == instance_state
     assert HistoryEntryT.objects.filter(
-        history_entry__instance=instance,
+        history_entry__instance=be_instance,
         title=expected_history_text,
         language="de",
     ).exists()
