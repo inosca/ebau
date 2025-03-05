@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 03:22+0100\n"
+"POT-Creation-Date: 2025-03-05 10:05+0100\n"
 "PO-Revision-Date: 2024-07-25 11:14+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2060,6 +2060,22 @@ msgid "PUBLICATION_DATE_OFFICIAL_GAZETTE"
 msgstr "DATA_PUBBLICAZIONE_FOGLIO_UFFICIALE"
 
 #: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "PUBLICATION_END"
+msgid "PUBLICATION"
+msgstr "PUBBLICAZIONE_FINE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_ORGAN"
+msgstr "PUBBLICAZIONE_ORGANO"
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "All objections"
+msgid "All Publications"
+msgstr "Tutte le opposizioni"
+
+#: camac/instance/placeholders/serializers.py
 msgid "All objections"
 msgstr "Tutte le opposizioni"
 
@@ -2098,10 +2114,6 @@ msgstr "PIANIFICAZIONE_UTILIZZAZIONE_UTILIZZAZIONE_BASE"
 #| msgid "Land use planning (land use)"
 msgid "Land use planning (land use) (canton)"
 msgstr "Pianificazione dell'utilizzazione (utilizzazione di base)"
-
-#: camac/instance/placeholders/serializers.py
-msgid "PUBLICATION_ORGAN"
-msgstr "PUBBLICAZIONE_ORGANO"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Publication organ of the instance"
@@ -2335,11 +2347,13 @@ msgid "Suspension reason"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_SUSPENDED_BY"
-msgstr ""
+#, fuzzy
+#| msgid "DECISION_CONSTRUCTION_TEE"
+msgid "CANTONAL_REVIEW_SUSPENDED_FROM"
+msgstr "DECISIONE_EDILIZIA_RIGETTO"
 
 #: camac/instance/placeholders/serializers.py
-msgid "Suspended by"
+msgid "Suspended from"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py

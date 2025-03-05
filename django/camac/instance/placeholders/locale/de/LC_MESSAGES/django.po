@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 03:22+0100\n"
+"POT-Creation-Date: 2025-03-05 10:08+0100\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1949,6 +1949,18 @@ msgid "PUBLICATION_DATE_OFFICIAL_GAZETTE"
 msgstr "PUBLIKATION_AMTSBLATT"
 
 #: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION"
+msgstr "PUBLIKATION"
+
+#: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_ORGAN"
+msgstr "PUBLIKATION_ORGAN"
+
+#: camac/instance/placeholders/serializers.py
+msgid "All Publications"
+msgstr "Alle Publikationen"
+
+#: camac/instance/placeholders/serializers.py
 msgid "All objections"
 msgstr "Alle Einsprachen"
 
@@ -1983,10 +1995,6 @@ msgstr "NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON"
 #: camac/instance/placeholders/serializers.py
 msgid "Land use planning (land use) (canton)"
 msgstr "Nutzungsplanung (Grundnutzung) (Kanton)"
-
-#: camac/instance/placeholders/serializers.py
-msgid "PUBLICATION_ORGAN"
-msgstr "PUBLIKATION_ORGAN"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Publication organ of the instance"
@@ -2173,8 +2181,11 @@ msgid "CANTONAL_REVIEW_RELEVANT_DEADLINE"
 msgstr "KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE"
 
 #: camac/instance/placeholders/serializers.py
-msgid "Relevant deadline (e.g., after suspensions or various preliminary reviews)"
-msgstr "massgebliche Terminvorgabe (z.B. nach Sistierungen oder bei verschiedenen Vorprüfungen)"
+msgid ""
+"Relevant deadline (e.g., after suspensions or various preliminary reviews)"
+msgstr ""
+"massgebliche Terminvorgabe (z.B. nach Sistierungen oder bei verschiedenen "
+"Vorprüfungen)"
 
 #: camac/instance/placeholders/serializers.py
 msgid "CANTONAL_REVIEW_PROCEDURE_STATUS"
@@ -2182,7 +2193,7 @@ msgstr "KANTONALE_PRUEFUNG_VERFAHRENSSTAND"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Procedure status"
-msgstr Verfahrensstand""
+msgstr "Verfahrensstand"
 
 #: camac/instance/placeholders/serializers.py
 msgid "CANTONAL_REVIEW_PROCESSING_STATUS"
@@ -2198,7 +2209,7 @@ msgstr "KANTONALE_PRUEFUNG_SISTIERUNGSGRUND"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Suspension reason"
-msgstr Sistierungsgrund""
+msgstr "Sistierungsgrund"
 
 #: camac/instance/placeholders/serializers.py
 #, fuzzy
@@ -2208,7 +2219,7 @@ msgstr "KANTONALE_PRUEFUNG_SISTIERT_VON"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Suspended from"
-msgstr sistiert von""
+msgstr "sistiert von"
 
 #: camac/instance/placeholders/serializers.py
 msgid "CANTONAL_REVIEW_SUSPENDED_UNTIL"
@@ -2291,8 +2302,8 @@ msgid "Object protection"
 msgstr "Objektschutz"
 
 #: camac/instance/placeholders/serializers.py
-msgid "KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BEZEICHNUNG"
-msgstr "KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP"
+msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_DESIGNATION"
+msgstr "KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BEZEICHNUNG"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Protected object (designation)"

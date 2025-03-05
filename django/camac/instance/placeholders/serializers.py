@@ -1703,6 +1703,21 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("PUBLICATION_DATE_OFFICIAL_GAZETTE")],
         description=_("Date of the publication in the official gazette"),
     )
+    publikation = fields.PublicationField(
+        aliases=[_("PUBLICATION")],
+        nested_aliases={
+            "NAME": [_("NAME")],
+            "EMAIL": [_("EMAIL")],
+            "PUBLIKATION_ORGAN": [_("PUBLICATION_ORGAN")],
+            "PUBLIKATION_START": [_("PUBLICATION_START")],
+            "PUBLIKATION_ENDE": [_("PUBLICATION_END")],
+            "PUBLIKATION_ANZEIGER": [_("PUBLICATION_DATE_GAZETTE")],
+            "PUBLIKATION_AMTSBLATT": [_("PUBLICATION_DATE_OFFICIAL_GAZETTE")],
+        },
+        description=_("All Publications"),
+        only_own=False,
+        all_publications=True,
+    )
     einsprachen = fields.LegalSubmissionField(
         aliases=[_("OBJECTIONS")],
         description=_("All objections"),
@@ -1896,7 +1911,9 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="bab_relevant_deadline",
         parser=human_readable_date,
         aliases=[_("CANTONAL_REVIEW_RELEVANT_DEADLINE")],
-        description=_("Relevant deadline (e.g., after suspensions or various preliminary reviews)"),
+        description=_(
+            "Relevant deadline (e.g., after suspensions or various preliminary reviews)"
+        ),
     )
     kantonale_pruefung_verfahrensstand = fields.MasterDataField(
         source="bab_procedure_status",

@@ -2879,21 +2879,21 @@ MASTER_DATA = {
                 "mp-bab-beteiligte-anwesende",
                 {
                     "document_from_work_item": "material-exam-bab",
-                }
+                },
             ),
             "bab_facts": (
                 "answer",
                 "mp-bab-sachverhalt",
                 {
                     "document_from_work_item": "material-exam-bab",
-                }
+                },
             ),
             "bab_municipality_number_cantonal_arp": (
                 "answer",
                 "mp-bab-gemeindenummer-kantonal-arp",
                 {
                     "document_from_work_item": "material-exam-bab",
-                }
+                },
             ),
             "bab_construction_zone": (
                 "answer",
@@ -2902,7 +2902,7 @@ MASTER_DATA = {
                     "document_from_work_item": "material-exam-bab",
                     "value_parser": "option",
                     "prop": "label",
-                }
+                },
             ),
             "bab_object_protection": (
                 "answer",
@@ -2911,14 +2911,14 @@ MASTER_DATA = {
                     "document_from_work_item": "material-exam-bab",
                     "value_parser": "option",
                     "prop": "label",
-                }
+                },
             ),
             "bab_protected_object_designation": (
                 "answer",
                 "mp-bab-geschuetztes-objekt-bezeichnung",
                 {
                     "document_from_work_item": "material-exam-bab",
-                }
+                },
             ),
             "bab_protected_object_authority": (
                 "answer",
@@ -2927,14 +2927,14 @@ MASTER_DATA = {
                     "document_from_work_item": "material-exam-bab",
                     "value_parser": "option",
                     "prop": "label",
-                }
+                },
             ),
             "bab_protected_object_decision_number": (
                 "answer",
                 "mp-bab-beschlussnummer",
                 {
                     "document_from_work_item": "material-exam-bab",
-                }
+                },
             ),
             "bab_protected_object_decision_date": (
                 "answer",
@@ -2942,7 +2942,7 @@ MASTER_DATA = {
                 {
                     "document_from_work_item": "material-exam-bab",
                     "value_key": "date",
-                }
+                },
             ),
             "bab_protected_object_order_date": (
                 "answer",
@@ -2950,14 +2950,14 @@ MASTER_DATA = {
                 {
                     "document_from_work_item": "material-exam-bab",
                     "value_key": "date",
-                }
+                },
             ),
             "bab_checklist_bab_so_according_to_rpg": (
                 "answer",
                 "mp-bab-checkliste-bab-so-nach-rpg",
                 {
                     "document_from_work_item": "material-exam-bab",
-                }
+                },
             ),
             "bab_decision_canton": (
                 "answer",
@@ -2966,7 +2966,7 @@ MASTER_DATA = {
                     "document_from_work_item": "material-exam-bab",
                     "value_parser": "option",
                     "prop": "label",
-                }
+                },
             ),
             "bab_decision_date_canton": (
                 "answer",
@@ -2974,7 +2974,7 @@ MASTER_DATA = {
                 {
                     "document_from_work_item": "material-exam-bab",
                     "value_key": "date",
-                }
+                },
             ),
             "decision_opening_type_canton": (
                 "answer",
@@ -2983,7 +2983,7 @@ MASTER_DATA = {
                     "document_from_work_item": "material-exam-bab",
                     "value_parser": "option",
                     "prop": "label",
-                }
+                },
             ),
             # eCH0211
             "construction_duration": ("answer", "dauer-in-monaten"),
