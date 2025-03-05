@@ -56,6 +56,10 @@ RUN \
   # Fix ImageMagick policy for creating thumbnails
   && sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read | write" pattern="PDF" \/>/' /etc/ImageMagick-6/policy.xml
 
+# Fix magic definitions for MS Office files
+COPY ms_office_magicfile /tmp/ms_office_magicfile
+RUN cat /tmp/ms_office_magicfile >> /etc/magic
+
 WORKDIR $APP_HOME
 
 ARG REQUIREMENTS=requirements.txt
