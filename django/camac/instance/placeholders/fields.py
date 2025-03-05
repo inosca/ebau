@@ -193,12 +193,22 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                 {
                     "RECHTSGRUNDLAGE": [_("LEGAL_BASIS")],
                     "KOSTENSTELLE": [_("COST_CENTER")],
+                    "STUNDEN": [_("HOURS")],
+                    "STUNDENSATZ": [_("HOURLY_RATE")],
+                    "ANTEIL_PROZENT": [_("PERCENTAGE")],
+                    "GESAMTKOSTEN": [_("TOTAL_COST")],
+                    "BERECHNUNG": [_("CALCULATION")],
+                    "MEHRWERTSTEUER": [_("VAT")],
+                    "ART": [_("ORGANISATION")],
+                    "VERRECHNUNG": [_("BILLING_TYPE")],
                 }
             )
 
         return nested_aliases
 
     def format_rate(self, value):
+        if value is None:
+            return ""
         return f"{value:,.2f}".replace(",", "’")
 
     def to_representation(self, value):
@@ -222,6 +232,14 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                     {
                         "RECHTSGRUNDLAGE": entry.legal_basis,
                         "KOSTENSTELLE": entry.cost_center,
+                        "STUNDEN": entry.hours,
+                        "STUNDENSATZ": self.format_rate(entry.hourly_rate),
+                        "ANTEIL_PROZENT": entry.percentage,
+                        "GESAMTKOSTEN": self.format_rate(entry.total_cost),
+                        "BERECHNUNG": entry.calculation,
+                        "MEHRWERTSTEUER": entry.organization,
+                        "ART": entry.organization,
+                        "VERRECHNUNG": entry.billing_type,
                     }
                 )
 
@@ -247,7 +265,7 @@ class PublicationField(AliasedMixin, serializers.ReadOnlyField):
         value_key="value",
         parser=lambda value: value,
         only_own=True,
-        all_publications=False, 
+        all_publications=False,
         **kwargs,
     ):
         super().__init__(**kwargs)

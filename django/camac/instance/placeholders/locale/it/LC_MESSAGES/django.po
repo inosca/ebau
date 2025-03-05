@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 10:05+0100\n"
+"POT-Creation-Date: 2025-03-05 10:58+0100\n"
 "PO-Revision-Date: 2024-07-25 11:14+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,6 +50,44 @@ msgstr "BASE_LEGALE"
 #: camac/instance/placeholders/fields.py
 msgid "COST_CENTER"
 msgstr "CENTRO_DI_COSTO"
+
+#: camac/instance/placeholders/fields.py
+msgid "HOURS"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "HOURLY_RATE"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "PERCENTAGE"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "TOTAL_COST"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "SALUTATION"
+msgid "CALCULATION"
+msgstr "APPELLATIVO"
+
+#: camac/instance/placeholders/fields.py
+msgid "VAT"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "LOCATION"
+msgid "ORGANISATION"
+msgstr "UBICAZIONE"
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "BUILDING_TYPE"
+msgid "BILLING_TYPE"
+msgstr "UMPC_TIPO_DI_EDIFICIO"
 
 #: camac/instance/placeholders/fields.py
 msgid "ANSWER"

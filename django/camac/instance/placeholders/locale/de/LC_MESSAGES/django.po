@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 10:08+0100\n"
+"POT-Creation-Date: 2025-03-05 10:54+0100\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,6 +50,38 @@ msgstr "RECHTSGRUNDLAGE"
 #: camac/instance/placeholders/fields.py
 msgid "COST_CENTER"
 msgstr "KOSTENSTELLE"
+
+#: camac/instance/placeholders/fields.py
+msgid "HOURS"
+msgstr "STUNDEN"
+
+#: camac/instance/placeholders/fields.py
+msgid "HOURLY_RATE"
+msgstr "STUNDENSATZ"
+
+#: camac/instance/placeholders/fields.py
+msgid "PERCENTAGE"
+msgstr "ANTEIL_PROZENT"
+
+#: camac/instance/placeholders/fields.py
+msgid "TOTAL_COST"
+msgstr "GESAMTKOSTEN"
+
+#: camac/instance/placeholders/fields.py
+msgid "CALCULATION"
+msgstr "BERECHNUNG"
+
+#: camac/instance/placeholders/fields.py
+msgid "VAT"
+msgstr "MEHRWERTSTEUER"
+
+#: camac/instance/placeholders/fields.py
+msgid "ORGANISATION"
+msgstr "ART"
+
+#: camac/instance/placeholders/fields.py
+msgid "BILLING_TYPE"
+msgstr "VERRECHNUNG"
 
 #: camac/instance/placeholders/fields.py
 msgid "ANSWER"
