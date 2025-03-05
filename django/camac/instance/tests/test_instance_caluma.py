@@ -2283,9 +2283,8 @@ def test_generate_pdf_action(
 
     if expected_status == status.HTTP_200_OK:
         assert response.status_code == status.HTTP_200_OK
-        assert "X-Sendfile" in response
-        with open(response["X-Sendfile"]) as fh:
-            assert fh.read() == content.decode("utf-8")
+        assert response["Content-Type"] == "application/pdf"
+        assert response.getvalue() == content
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

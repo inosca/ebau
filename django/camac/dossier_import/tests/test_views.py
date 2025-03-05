@@ -9,7 +9,6 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 from rest_framework.reverse import reverse
 
-from camac.core.views import SendfileHttpResponse
 from camac.utils import build_url
 
 from ...instance.serializers import CalumaInstanceSerializer
@@ -505,7 +504,7 @@ def test_failing_transmission(
     "storage_backend,expected_response",
     [
         ("storages.backends.s3.S3Storage", FileResponse),
-        ("django.core.files.storage.FileSystemStorage", SendfileHttpResponse),
+        ("django.core.files.storage.FileSystemStorage", FileResponse),
     ],
 )
 def test_download_import(
@@ -519,8 +518,9 @@ def test_download_import(
 ):
     settings.STORAGES["default"]["BACKEND"] = storage_backend
 
+    file = archive_file("import-example.zip")
     dossier_import = dossier_import_factory(
-        source_file=archive_file("import-example.zip"),
+        source_file=file,
         group=admin_client.user.groups.first(),
     )
     resp = admin_client.get(
@@ -528,6 +528,9 @@ def test_download_import(
     )
     assert resp.status_code == status.HTTP_200_OK
     assert isinstance(resp, expected_response)
+
+    file.seek(0)
+    assert resp.getvalue() == file.read()
 
 
 @pytest.mark.parametrize("role__name", ["Support"])

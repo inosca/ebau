@@ -17,7 +17,6 @@ from rest_framework_json_api.views import (
     RelatedMixin,
 )
 
-from camac.core.views import SendfileHttpResponse
 from camac.instance.mixins import InstanceQuerysetMixin
 
 from . import filters, models, serializers
@@ -193,23 +192,10 @@ class AttachmentView(
 
         if obj.document_attachment:
             file = obj.document_attachment.path.file
-            file_path = f"/{obj.document_attachment.path}"
         elif obj.file_attachment:
             file = obj.file_attachment.file
-            file_path = f"/{obj.file_attachment}"
         else:
             raise NotFound()
-
-        if (
-            settings.STORAGES["default"]["BACKEND"]
-            == "django.core.files.storage.FileSystemStorage"
-        ):
-            return SendfileHttpResponse(
-                content_type=obj.content_type,
-                filename=obj.filename,
-                base_path=settings.MEDIA_ROOT,
-                file_path=file_path,
-            )
 
         as_attachment = (
             obj.content_type
@@ -217,7 +203,10 @@ class AttachmentView(
         )
 
         return FileResponse(
-            file, as_attachment=as_attachment, filename=obj.display_name
+            file,
+            filename=obj.display_name,
+            as_attachment=as_attachment,
+            content_type=obj.content_type,
         )
 
     class Meta:

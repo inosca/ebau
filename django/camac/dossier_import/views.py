@@ -10,7 +10,6 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework_json_api.views import ModelViewSet
 
-from camac.core.views import SendfileHttpResponse
 from camac.dossier_import.domain_logic import (
     clean_import,
     perform_import,
@@ -169,20 +168,10 @@ class DossierImportView(ModelViewSet):
     def download(self, request, pk=None):
         dossier_import = self.get_object()
 
-        if (
-            settings.STORAGES["default"]["BACKEND"]
-            == "django.core.files.storage.FileSystemStorage"
-        ):
-            return SendfileHttpResponse(
-                content_type="application/zip",
-                filename=dossier_import.filename(),
-                base_path=settings.MEDIA_ROOT,
-                file_path=f"/dossier_imports/files/{dossier_import.pk}/{dossier_import.filename()}",
-            )
-
         return FileResponse(
             dossier_import.source_file,
-            as_attachment=False,
+            content_type="application/zip",
+            as_attachment=True,
             filename=dossier_import.filename(),
         )
 

@@ -4,7 +4,7 @@ from alexandria.core.models import File
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import transaction
-from django.http import HttpResponse
+from django.http import FileResponse, HttpResponse
 from django.utils.decorators import decorator_from_middleware
 from drf_yasg import openapi
 from drf_yasg.inspectors import SwaggerAutoSchema
@@ -24,7 +24,6 @@ from rest_framework.viewsets import GenericViewSet
 from rest_framework_xml.renderers import XMLRenderer
 
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
-from camac.core.views import SendfileHttpResponse
 from camac.ech0211.models import Message
 from camac.ech0211.throttling import ECHMessageThrottle
 from camac.instance.models import Instance
@@ -341,10 +340,11 @@ class ECHFileView(
 
         file = self.get_object()
 
-        return SendfileHttpResponse(
+        return FileResponse(
+            file.content,
             content_type=file.mime_type,
             filename=file.name,
-            file_obj=file.content,
+            as_attachment=True,
         )
 
     @swagger_auto_schema(

@@ -179,7 +179,9 @@ def test_callback(
     file_path = Path(settings.MEDIA_ROOT, "/".join(path.split("/")[-4:]))
     response = admin_client.get(path)
     assert response.status_code == 200
-    assert Path(response.headers["X-Sendfile"]) == file_path
+    with open(file_path, "rb") as f:
+        expected_content = f.read()
+    assert response.getvalue() == expected_content
 
     # Delete
     version = models.AttachmentVersion.objects.first()
