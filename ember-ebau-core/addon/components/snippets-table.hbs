@@ -1,5 +1,5 @@
 <div class="uk-margin">
-  <form class="uk-search uk-search-default uk-width-1">
+  <div class="uk-search uk-search-default uk-width-1">
     <span uk-search-icon></span>
     <input
       class="uk-search-input"
@@ -10,7 +10,7 @@
       data-test-search
       {{on "input" this.onSearch.perform}}
     />
-  </form>
+  </div>
 </div>
 
 {{#if this.snippets.isLoading}}
@@ -26,7 +26,13 @@
       @refresh={{this.refresh}}
     />
   {{else}}
-    <p class="uk-text-center uk-text-meta">{{t "snippets.empty"}}</p>
+    <p class="uk-text-center uk-text-meta">
+      {{#if @search}}
+        {{t "snippets.empty-search"}}
+      {{else}}
+        {{t "snippets.empty"}}
+      {{/if}}
+    </p>
   {{/each-in}}
 
   {{#if @editable}}

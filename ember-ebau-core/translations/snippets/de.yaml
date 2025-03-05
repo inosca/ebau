@@ -10,6 +10,7 @@ snippets:
   title: Titel
   copy: Textbaustein in die Zwischenablage kopieren
   empty: Keine Textbausteinkategorien vorhanden
+  empty-search: Keine Textbausteine vorhanden
 
   confirm:
     delete: Wollen Sie den Textbaustein <span class="uk-text-bold">"{name}"</span> wirklich löschen?
