@@ -18,6 +18,7 @@ from ..extensions.data_sources import (
     Mitberichtsverfahren,
     Municipalities,
     PreliminaryClarificationTargets,
+    Sanctions,
     Services,
     ServicesForFinalReport,
 )
@@ -395,3 +396,58 @@ def test_services_for_final_report(
 
     assert len(data) == 1
     assert service_names == {services_that_wants_to_be_invited.name}
+
+
+@pytest.mark.parametrize(
+    "sanction_steps, question_step, expected_count",
+    [
+        # Test 'regular' sanction steps, with some already controlled:
+        ([("b", True), ("b", False), ("b", False), ("e", False)], "b", 2),
+        ([("b", True), ("b", False), ("b", False), ("e", False)], "r", 0),
+        ([("b", True), ("b", False), ("b", False), ("e", False)], "e", 1),
+        ([("b", True), ("b", False), ("b", False), ("e", False)], None, 0),
+        # Variable sanctions should not show up anywhere:
+        ([("v", False)], "b", 0),
+        ([("v", False)], "r", 0),
+        ([("v", False)], "e", 0),
+        ([("v", False)], None, 0),
+    ],
+)
+def test_sanctions(
+    db,
+    instance_factory,
+    caluma_question_factory,
+    new_sanction_factory,
+    sanction_steps,
+    question_step,
+    expected_count,
+):
+    instance = instance_factory()
+    step_map = {
+        "b": "baufreigabe",
+        "r": "realisierung",
+        "e": "endabnahme",
+        "v": "variabel",
+    }
+
+    for sanction_step in sanction_steps:
+        new_sanction_factory(
+            instance=instance,
+            control_step=step_map[sanction_step[0]],
+            controlled=sanction_step[1],
+        )
+
+    question = caluma_question_factory(
+        **(
+            {"meta": {"sanction_step": step_map[question_step]}}
+            if question_step
+            else {}
+        ),
+    )
+    context = {"instanceId": instance.pk}
+
+    data = Sanctions().get_data(instance.user, question, context)
+    if expected_count == 0:
+        assert len(data) == 1 and data[0][0] is None
+    else:
+        assert len(data) == expected_count

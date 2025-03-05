@@ -9,6 +9,7 @@ from django.db.models import CharField, IntegerField, Value
 from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast, Replace
 from django.utils import timezone
+from django.utils.translation import get_language, gettext
 
 from camac.core.models import HistoryActionConfig
 from camac.core.translations import get_translations
@@ -118,7 +119,7 @@ def create_history_entry(
 
     data = {}
     if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
-        data = {"title": text, "body": body}
+        data = {"title": gettext(text) % text_data(get_language()), "body": body}
 
     history = HistoryEntry.objects.create(
         instance=instance,
