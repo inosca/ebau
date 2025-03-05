@@ -7,13 +7,22 @@ the corresponding test modules.
 
 import io
 import json
+import logging
 import os
+from mimetypes import guess_extension
 
 import pytest
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.urls import reverse
 from rest_framework import status
 
+from camac.communications.serializers import validate_mime_type
 from camac.document.tests.data import django_file
+
+MS_OFFICE_MIME_TYPES = [
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+]
 
 
 @pytest.mark.parametrize(
@@ -331,3 +340,39 @@ def test_mime_type_validation(
         format="multipart",
     )
     assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.parametrize("content_type", MS_OFFICE_MIME_TYPES)
+def test_ignore_mime_type_validation_for_ms_office(
+    caplog,
+    content_type,
+    mocker,
+    settings,
+):
+    settings.DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES = MS_OFFICE_MIME_TYPES
+
+    raw_file = django_file("no-thumbnail.txt")
+    filename = f"testfile{guess_extension(content_type)}"
+
+    file = InMemoryUploadedFile(
+        file=raw_file,
+        name=filename,
+        content_type=content_type,
+        size=raw_file.size,
+        charset="utf8",
+        field_name="irrelevant",
+    )
+
+    mocker.patch(
+        "camac.communications.serializers.magic.from_buffer",
+        return_value="application/octet-stream",
+    )
+
+    with caplog.at_level(logging.DEBUG, "camac.communications.serializers"):
+        validate_mime_type(file)
+
+    assert (
+        f"Content-Type {content_type} of file {filename} does not match the "
+        "detected file content application/octet-stream but is ignored because "
+        "it's configured in `DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES`."
+    ) in caplog.messages
