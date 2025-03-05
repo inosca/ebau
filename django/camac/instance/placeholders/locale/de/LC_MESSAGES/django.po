@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-20 14:36+0100\n"
+"POT-Creation-Date: 2025-03-05 03:22+0100\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2151,6 +2151,216 @@ msgstr "ALLE_RECHNUNGSEMPFAENGER_LISTE"
 #: camac/instance/placeholders/serializers.py
 msgid "All invoice recipients as list"
 msgstr "Alle Rechnungsempfänger/innen als Liste"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_DATE_OF_RECEIPT_ARP"
+msgstr "KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Date of receipt ARP"
+msgstr "Datum Eingang ARP"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_DEADLINE_AT_RECORDING"
+msgstr "KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Deadline at recording"
+msgstr "Terminvorgabe bei Erfassung"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_RELEVANT_DEADLINE"
+msgstr "KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Relevant deadline (e.g., after suspensions or various preliminary reviews)"
+msgstr "massgebliche Terminvorgabe (z.B. nach Sistierungen oder bei verschiedenen Vorprüfungen)"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROCEDURE_STATUS"
+msgstr "KANTONALE_PRUEFUNG_VERFAHRENSSTAND"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Procedure status"
+msgstr Verfahrensstand""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROCESSING_STATUS"
+msgstr "KANTONALE_PRUEFUNG_BEARBEITUNGSSTATUS"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Processing status"
+msgstr "Bearbeitungsstatus"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_SUSPENSION_REASON"
+msgstr "KANTONALE_PRUEFUNG_SISTIERUNGSGRUND"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Suspension reason"
+msgstr Sistierungsgrund""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "CANTONAL_REVIEW_DATE_OF_RECEIPT_ARP"
+msgid "CANTONAL_REVIEW_SUSPENDED_FROM"
+msgstr "KANTONALE_PRUEFUNG_SISTIERT_VON"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Suspended from"
+msgstr sistiert von""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_SUSPENDED_UNTIL"
+msgstr "KANTONALE_PRUEFUNG_SISTIERT_BIS"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Suspended until"
+msgstr "sistiert bis"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_APPROVAL_AUTHORITY"
+msgstr "KANTONALE_PRUEFUNG_BEWILLIGUNGSBEHOERDE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Approval authority"
+msgstr "Bewilligungsbehörde"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_INTEREST_IN_PROJECT"
+msgstr "KANTONALE_PRUEFUNG_INTERESSE_AM_VORHABEN"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Interest in the project"
+msgstr "Interesse am Vorhaben"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_ENTRY_DATE"
+msgstr "KANTONALE_PRUEFUNG_DATUM_EINTRAG"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Entry date"
+msgstr "Datum Eintrag"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_ENTRY_TYPE"
+msgstr "KANTONALE_PRUEFUNG_ART_DES_EINTRAGES"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Entry type"
+msgstr "Art des Eintrages"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PARTICIPANTS_PRESENT"
+msgstr "KANTONALE_PRUEFUNG_BETEILIGTE_ANWESENDE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Participants present"
+msgstr "Beteiligte / Anwesende"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_FACTS"
+msgstr "KANTONALE_PRUEFUNG_SACHVERHALT"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Facts"
+msgstr "Sachverhalt"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_MUNICIPALITY_NUMBER_CANTONAL_ARP"
+msgstr "KANTONALE_PRUEFUNG_GEMEINDENUMMER_KANTONAL_ARP"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Municipality number (cantonal / ARP)"
+msgstr "Gemeindenummer (kantonal / ARP)"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_CONSTRUCTION_ZONE"
+msgstr "KANTONALE_PRUEFUNG_BAUZONE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Construction zone"
+msgstr "Bauzone"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_OBJECT_PROTECTION"
+msgstr "KANTONALE_PRUEFUNG_OBJEKTSCHUTZ"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Object protection"
+msgstr "Objektschutz"
+
+#: camac/instance/placeholders/serializers.py
+msgid "KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BEZEICHNUNG"
+msgstr "KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Protected object (designation)"
+msgstr "Schutzobjekt (Bezeichnung)"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_AUTHORITY"
+msgstr "KANTONALE_PRUEFUNG_SCHUTZOBJEKT_VERFUEGENDE_BEHOERDE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Protected object authority"
+msgstr "verfügende Behörde"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_DECISION_NUMBER"
+msgstr "KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BESCHLUSSNUMMER"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Protected object decision number"
+msgstr "Beschlussnummer"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_DECISION_DATE"
+msgstr "KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_BESCHLUSS"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Protected object decision date"
+msgstr "Datum Beschluss"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_ORDER_DATE"
+msgstr "KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_VERFUEGUNG"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Protected object order date"
+msgstr "Datum Verfügung"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_CHECKLIST_BAB_SO_ACCORDING_TO_RPG"
+msgstr "KANTONALE_PRUEFUNG_CHECKLISTE_BAB_SO_NACH_RPG"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Checklist BaB SO according to RPG"
+msgstr "Checkliste BaB SO nach RPG"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_DECISION_CANTON"
+msgstr "KANTONALE_PRUEFUNG_ENTSCHEID_KANTON"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Decision (Canton)"
+msgstr "Entscheid (Kanton)"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_DECISION_DATE_CANTON"
+msgstr "KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Decision date (Canton)"
+msgstr "Datum des Entscheides (Kanton)"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_DECISION_OPENING_TYPE_CANTON"
+msgstr "KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Decision opening type (Canton)"
+msgstr "Eröffnungsart des Entscheides (Kanton)"
 
 #: camac/instance/placeholders/serializers.py
 msgid "ZONE"
