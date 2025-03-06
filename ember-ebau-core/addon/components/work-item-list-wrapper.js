@@ -9,6 +9,7 @@ import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
 import workItemListConfig from "ember-ebau-core/config/work-item-list";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import getProcessData, {
   fetchIfNotCached,
 } from "ember-ebau-core/utils/work-item";
@@ -211,6 +212,20 @@ export default class WorkItemListWrapperComponent extends Component {
         name: "bezeichnung,bezeichnung-override",
       });
     }
+
+    if (hasFeature("workItemList.useColorForNFD")) {
+      await fetchIfNotCached(
+        this.store,
+        "instance",
+        instanceIds,
+        "id",
+        "instance_id",
+        {
+          "fields[instances]": "id,instance_state",
+        },
+      );
+    }
+
     fetchIfNotCached(this.store, "service", serviceIds, "id", "service_id");
     const allUsernames = [...new Set(usernames, this.args.username)];
     fetchIfNotCached(

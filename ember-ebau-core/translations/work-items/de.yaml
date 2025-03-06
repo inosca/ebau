@@ -36,6 +36,7 @@ workItems:
   actions:
     title: "Aktionen"
     highlight: "Markierung"
+    highlightNFD: "Markierung Nachforderung"
 
     markAsRead: "Als gelesen markieren"
     markAsUnread: "Als ungelesen markieren"
