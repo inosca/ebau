@@ -10,6 +10,7 @@ from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
 from camac.attrs import nested_getattr
+from camac.caluma.models import Inquiry
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import Circulation, CommissionAssignment, InstanceService
 from camac.instance.models import Instance
@@ -381,15 +382,8 @@ class InstanceQuerysetMixin(object):
             # WARNING: if this logic changes, `hasInquiry` in
             # php/library/Custom/CalumaDistribution.php needs to be updated as
             # well
-            work_items = WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups=[str(group.service.pk)],
-            ).exclude(
-                status__in=[
-                    WorkItem.STATUS_SUSPENDED,
-                    WorkItem.STATUS_CANCELED,
-                ],
-            )
+            work_items = Inquiry.objects.addressed_to(group.service).only_active()
+
             if extra_filters:
                 work_items = work_items.filter(extra_filters)
 
@@ -600,10 +594,10 @@ class InstanceEditableMixin(AttributeMixin):
 
     def has_activations(self, instance, service):
         if settings.DISTRIBUTION:
-            return WorkItem.objects.filter(
-                case__family__instance=instance,
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups=[str(service.pk)],
-            ).exclude(status__in=[WorkItem.STATUS_CANCELED, WorkItem.STATUS_SUSPENDED])
+            return (
+                Inquiry.objects.for_instance(instance)
+                .addressed_to(service)
+                .only_active()
+            )
 
         return instance.circulations.filter(activations__service=service).exists()

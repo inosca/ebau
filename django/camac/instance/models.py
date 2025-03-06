@@ -2,7 +2,6 @@ import logging
 from functools import cached_property
 
 import reversion
-from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import models
 from django.db.models import Q
@@ -302,18 +301,12 @@ class Instance(models.Model):
 
     def has_inquiry(self, service_id):
         """Return true if the given service is part of the circulation."""
+        from camac.caluma.models import Inquiry
+
         return (
-            WorkItem.objects.filter(
-                case__family=self.case,
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups=[str(service_id)],
-            )
-            .exclude(
-                status__in=[
-                    WorkItem.STATUS_SUSPENDED,
-                    WorkItem.STATUS_CANCELED,
-                ],
-            )
+            Inquiry.objects.for_instance(self)
+            .addressed_to(service_id)
+            .only_active()
             .exists()
         )
 

@@ -21,6 +21,7 @@ from camac.alexandria.extensions.permissions.extension import (
     CustomPermission as CustomAlexandriaPermission,
 )
 from camac.caluma.api import CalumaApi
+from camac.caluma.models import Inquiry
 from camac.constants.kt_bern import ATTACHMENT_SECTION_ALLE_BETEILIGTEN
 from camac.core.utils import canton_aware
 from camac.document.models import Attachment, AttachmentSection
@@ -402,12 +403,9 @@ class AccompanyingReportSendHandler(BaseSendHandler):
 
     def _get_inquiry(self):
         return (
-            WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                case__family__instance=self.instance,
-                addressed_groups__contains=[str(self.group.service_id)],
-                status=WorkItem.STATUS_READY,
-            )
+            Inquiry.objects.for_instance(self.instance)
+            .addressed_to(self.group.service_id)
+            .only_pending()
             .order_by("-created_at")
             .first()
         )
@@ -528,13 +526,10 @@ class TaskSendHandler(BaseSendHandler):
 
     def _get_inquiry(self, service):
         return (
-            WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                case__family__instance=self.instance,
-                addressed_groups__contains=[str(service.pk)],
-                controlling_groups__contains=[str(self.group.service.pk)],
-                status=WorkItem.STATUS_SUSPENDED,
-            )
+            Inquiry.objects.for_instance(self.instance)
+            .addressed_to(service)
+            .controlled_by(self.group.service)
+            .only_drafts()
             .order_by("created_at")
             .first()
         )

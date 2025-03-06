@@ -33,6 +33,7 @@ from rest_framework_json_api import serializers
 
 from camac.billing.models import BillingV2Entry
 from camac.caluma.api import CalumaApi
+from camac.caluma.models import Inquiry
 from camac.caluma.utils import find_answer, get_answer_display_value
 from camac.communications.models import CommunicationsMessage
 from camac.constants import kt_uri as uri_constants
@@ -459,22 +460,20 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         if not settings.DISTRIBUTION or not self.inquiry:
             return ""
 
-        all_inquiries = caluma_workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=instance,
-            controlling_groups=self.inquiry.controlling_groups,
-        ).exclude(
-            status__in=[
-                caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
-                caluma_workflow_models.WorkItem.STATUS_CANCELED,
-                caluma_workflow_models.WorkItem.STATUS_SKIPPED,
-                caluma_workflow_models.WorkItem.STATUS_REDO,
-            ]
+        all_inquiries = (
+            Inquiry.objects.for_instance(instance)
+            .controlled_by(self.inquiry.controlling_groups)
+            .exclude(
+                status__in=[
+                    caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                    caluma_workflow_models.WorkItem.STATUS_CANCELED,
+                    caluma_workflow_models.WorkItem.STATUS_SKIPPED,
+                    caluma_workflow_models.WorkItem.STATUS_REDO,
+                ]
+            )
         )
         all_inquiries_count = all_inquiries.count()
-        pending_inquiries_count = all_inquiries.filter(
-            status=caluma_workflow_models.WorkItem.STATUS_READY
-        ).count()
+        pending_inquiries_count = all_inquiries.only_pending().count()
 
         if not all_inquiries.exists():  # pragma: no cover (this should never happen)
             return ""
@@ -705,16 +704,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         )
 
         return (
-            caluma_workflow_models.WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                case__family__instance=instance,
-            )
-            .exclude(
-                status__in=[
-                    caluma_workflow_models.WorkItem.STATUS_CANCELED,
-                    caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
-                ]
-            )
+            Inquiry.objects.for_instance(instance)
+            .only_active()
             .annotate(
                 service_group_id=Subquery(
                     service_subquery.values("service_group_id")[:1]
@@ -1363,15 +1354,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         if not settings.DISTRIBUTION:  # pragma: no cover
             return []
 
-        inquiries = caluma_workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=instance,
-        ).exclude(
-            status__in=[
-                caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
-                caluma_workflow_models.WorkItem.STATUS_CANCELED,
-            ],
-        )
+        inquiries = Inquiry.objects.for_instance(instance).only_active()
 
         not_involved_answer = (
             settings.DISTRIBUTION["ANSWERS"].get("STATUS", {}).get("NOT_INVOLVED")
@@ -1410,11 +1393,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         if not settings.DISTRIBUTION:  # pragma: no cover
             return []
 
-        addressed_groups = caluma_workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status=caluma_workflow_models.WorkItem.STATUS_SKIPPED,
-            case__family__instance=instance,
-        ).values_list("addressed_groups", flat=True)
+        addressed_groups = (
+            Inquiry.objects.for_instance(instance)
+            .filter(status=caluma_workflow_models.WorkItem.STATUS_SKIPPED)
+            .values_list("addressed_groups", flat=True)
+        )
 
         return flatten(
             [
@@ -1429,11 +1412,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         if not settings.DISTRIBUTION:  # pragma: no cover
             return []
 
-        inquiries = caluma_workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=instance,
-            status=caluma_workflow_models.WorkItem.STATUS_SKIPPED,
-        )
+        inquiries = Inquiry.objects.for_instance(instance).only_skipped()
 
         addressed_groups = inquiries.values_list("addressed_groups", flat=True)
 
@@ -1546,15 +1525,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         current_group = self.validated_data.get(
             "work_item"
         ).case.parent_work_item.addressed_groups
-        inquiries = caluma_workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=instance,
-            addressed_groups=current_group,
-        ).exclude(
-            status__in=[
-                caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
-                caluma_workflow_models.WorkItem.STATUS_CANCELED,
-            ],
+
+        inquiries = (
+            Inquiry.objects.for_instance(instance)
+            .addressed_to(current_group)
+            .only_active()
         )
 
         groups = inquiries.values_list("controlling_groups", flat=True)

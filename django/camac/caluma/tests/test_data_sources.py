@@ -372,6 +372,7 @@ def test_services_for_final_report(
     distribution = caluma_work_item_factory(
         task_id="distribution",
         case=ur_instance.case,
+        child_case__family=ur_instance.case,
     )
 
     inquiry_1 = caluma_work_item_factory(

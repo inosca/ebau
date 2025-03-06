@@ -1,11 +1,10 @@
 from datetime import date, timedelta
 
-from caluma.caluma_workflow.models import WorkItem
-from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.utils.timezone import now
 
+from camac.caluma.models import Inquiry
 from camac.notification.serializers import (
     PermissionlessNotificationTemplateSendmailSerializer,
 )
@@ -19,9 +18,7 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
-        for work_item in WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status=WorkItem.STATUS_READY,
+        for work_item in Inquiry.objects.only_pending().filter(
             deadline__date=date.today() - timedelta(days=1),
             case__family__instance__instance_state__name="circulation",
         ):

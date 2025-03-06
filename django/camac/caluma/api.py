@@ -10,6 +10,7 @@ from caluma.caluma_workflow import (
 from django.conf import settings
 from django.db.models import Q
 
+from camac.caluma.models import Inquiry
 from camac.instance.models import Instance
 from camac.user.models import Service
 
@@ -328,11 +329,12 @@ class CalumaApi:
             # If the current service has "create-inquiry" or "redo-inquiry" work
             # items but doesn't have a pending inquiry, we need to cancel those
             # so they can't create or reopen any inquiries
-            if not distribution.child_case.work_items.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups__contains=[from_group_id],
-                status=caluma_workflow_models.WorkItem.STATUS_READY,
-            ).exists():
+            if (
+                not Inquiry.objects.for_instance(instance)
+                .addressed_to(from_group_id)
+                .only_pending()
+                .exists()
+            ):
                 for work_item in distribution.child_case.work_items.filter(
                     task_id__in=[
                         settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],

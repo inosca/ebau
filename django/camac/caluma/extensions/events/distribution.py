@@ -28,6 +28,7 @@ from django.db import transaction
 from django.db.models import Q
 from django.utils.timezone import now
 
+from camac.caluma.models import Inquiry
 from camac.caluma.utils import (
     filter_by_task_base,
     filter_by_workflow_base,
@@ -443,11 +444,7 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
             work_item=addressed_check_work_item, user=user, context=context
         )
 
-    pending_addressed_inquiries = work_item.case.work_items.filter(
-        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-        status=WorkItem.STATUS_READY,
-        addressed_groups=work_item.addressed_groups,
-    )
+    pending_inquiries = Inquiry.objects.for_case(work_item.case).only_pending()
 
     # If there are no more pending inquiries addressed to the service that just
     # completed an inquiry and the addressed group is not the responsible service,
@@ -457,7 +454,7 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
         filter_type="municipality"
     ).pk
     if (
-        not pending_addressed_inquiries.exists()
+        not pending_inquiries.addressed_to(work_item.addressed_groups).exists()
         and str(responsible_service_id) not in work_item.addressed_groups
     ):
         for work_item_to_cancel in work_item.case.work_items.filter(
@@ -470,15 +467,10 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
         ):
             cancel_work_item(work_item=work_item_to_cancel, user=user, context=context)
 
-    pending_inquiries_of_controlling_service = work_item.case.work_items.filter(
-        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-        status=WorkItem.STATUS_READY,
-        controlling_groups=work_item.controlling_groups,
-    )
     # If the controlling service of the just completed inquiry has no more
     # pending inquiries, we need to set a deadline on their check-inquiries work item
     # in case they don't have a deadline yet.
-    if not pending_inquiries_of_controlling_service.exists():
+    if not pending_inquiries.controlled_by(work_item.controlling_groups).exists():
         check_inquiries_work_item_of_controlling_service_without_deadline = (
             work_item.case.work_items.filter(
                 task_id=settings.DISTRIBUTION["INQUIRY_CHECK_TASK"],
@@ -515,9 +507,7 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
 @filter_by_task("DISTRIBUTION_COMPLETE_TASK")
 @transaction.atomic
 def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
-    for work_item in work_item.case.work_items.filter(
-        task_id=settings.DISTRIBUTION["INQUIRY_TASK"], status=WorkItem.STATUS_READY
-    ):
+    for work_item in Inquiry.objects.for_case(work_item.case).only_pending():
         # unanswered inquiries must be skipped
         skip_work_item(work_item=work_item, user=user, context=context)
 
@@ -547,9 +537,7 @@ def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
 @transaction.atomic
 def post_complete_distribution(sender, work_item, user, context=None, **kwargs):
     has_inquiries = (
-        work_item.case.work_items.filter(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
-        .exclude(status=WorkItem.STATUS_CANCELED)
-        .exists()
+        Inquiry.objects.for_case(work_item.case).exclude_withdrawn().exists()
     )
 
     text = (
@@ -570,12 +558,12 @@ def post_complete_distribution(sender, work_item, user, context=None, **kwargs):
 @filter_by_task("INQUIRY_TASK")
 @transaction.atomic
 def post_cancel_inquiry(sender, work_item, user, context=None, **kwargs):
-    service_inquiries = work_item.case.work_items.filter(
-        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-        addressed_groups=work_item.addressed_groups,
-    ).exclude(status=WorkItem.STATUS_CANCELED)
-
-    if not service_inquiries.exists():
+    if (
+        not Inquiry.objects.for_case(work_item.case)
+        .addressed_to(work_item.addressed_groups)
+        .exclude_withdrawn()
+        .exists()
+    ):
         # Cancel the create inquiry work item if no other inquiry for this
         # service exists
         try:

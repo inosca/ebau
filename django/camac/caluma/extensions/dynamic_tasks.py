@@ -15,6 +15,7 @@ from camac.caluma.extensions.events.construction_monitoring import (
     construction_step_can_continue,
 )
 from camac.caluma.extensions.events.general import get_instance
+from camac.caluma.models import Inquiry
 from camac.core.utils import canton_aware, create_history_entry
 from camac.instance import domain_logic
 from camac.instance.master_data import MasterData
@@ -209,13 +210,12 @@ class CustomDynamicTasks(BaseDynamicTasks):
         # Further work-items should only be created if there are no
         # further ready sibling inquiries (i.e. within same distribution case)
         # with the same controlling group as the previously completed inquiry.
-        pending_inquiries = case.work_items.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status=WorkItem.STATUS_READY,
-            controlling_groups=prev_work_item.controlling_groups,
-        )
-
-        if pending_inquiries.exists():
+        if (
+            Inquiry.objects.for_case(case)
+            .controlled_by(prev_work_item.controlling_groups)
+            .only_pending()
+            .exists()
+        ):
             return []
 
         tasks = []

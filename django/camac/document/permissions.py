@@ -1,7 +1,8 @@
-from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.db.models import Q
 
+from camac.caluma.models import Inquiry
 from camac.constants import kt_uri as uri_constants
 from camac.instance.models import Instance
 
@@ -186,12 +187,12 @@ class AdminServiceRunningInquiryPermission(AdminServicePermission):
 
     @classmethod
     def has_running_inquiry(cls, instance, group) -> bool:
-        return WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            addressed_groups__contains=[str(group.service_id)],
-            case__family__instance=instance,
-            status=WorkItem.STATUS_READY,
-        ).exists()
+        return (
+            Inquiry.objects.for_instance(instance)
+            .addressed_to(group.service_id)
+            .only_pending()
+            .exists()
+        )
 
     @classmethod
     def can_destroy(cls, attachment, group) -> bool:

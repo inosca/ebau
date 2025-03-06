@@ -21,6 +21,7 @@ from django.utils.translation import get_language
 from rest_framework.exceptions import ValidationError
 from rest_framework.filters import BaseFilterBackend
 
+from camac.caluma.models import Inquiry
 from camac.core.models import InstanceService, WorkflowEntry
 from camac.instance.models import FormField, InstanceStateT
 from camac.lookups import Any
@@ -56,32 +57,21 @@ class InstanceExportFilterBackend(BaseFilterBackend):
         current_service = request.group.service_id
         language = get_language()
 
-        inquiries = WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=OuterRef("pk"),
-        ).exclude(
-            status=[
-                WorkItem.STATUS_CANCELED,
-                WorkItem.STATUS_SUSPENDED,
-            ]
-        )
-
-        own_inquiries = inquiries.filter(
-            addressed_groups__contains=[str(current_service)]
-        )
+        inquiries = Inquiry.objects.for_instance(OuterRef("pk")).only_active()
+        own_inquiries = inquiries.addressed_to(current_service)
 
         inquiry_in_date = own_inquiries.order_by("child_case__created_at").values(
             "child_case__created_at__date"
         )[:1]
 
         inquiry_out_date = (
-            own_inquiries.filter(status=WorkItem.STATUS_COMPLETED)
+            own_inquiries.only_answered()
             .order_by("-closed_at")
             .values("closed_at__date")[:1]
         )
 
         inquiry_answer = (
-            own_inquiries.filter(status=WorkItem.STATUS_COMPLETED)
+            own_inquiries.only_answered()
             .order_by("-closed_at")
             .annotate(
                 label=Answer.objects.filter(
