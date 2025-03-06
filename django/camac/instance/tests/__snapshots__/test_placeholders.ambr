@@ -6639,14 +6639,39 @@
         'de': 'Eigene Gebühren des Dossiers',
       }),
       'nested_aliases': dict({
+        'ANTEIL_PROZENT': list([
+          dict({
+            'de': 'ANTEIL_PROZENT',
+          }),
+        ]),
+        'ART': list([
+          dict({
+            'de': 'ART',
+          }),
+        ]),
+        'BERECHNUNG': list([
+          dict({
+            'de': 'BERECHNUNG',
+          }),
+        ]),
         'BETRAG': list([
           dict({
             'de': 'BETRAG',
           }),
         ]),
+        'GESAMTKOSTEN': list([
+          dict({
+            'de': 'GESAMTKOSTEN',
+          }),
+        ]),
         'KOSTENSTELLE': list([
           dict({
             'de': 'KOSTENSTELLE',
+          }),
+        ]),
+        'MEHRWERTSTEUER': list([
+          dict({
+            'de': 'MEHRWERTSTEUER',
           }),
         ]),
         'POSITION': list([
@@ -6657,6 +6682,21 @@
         'RECHTSGRUNDLAGE': list([
           dict({
             'de': 'RECHTSGRUNDLAGE',
+          }),
+        ]),
+        'STUNDEN': list([
+          dict({
+            'de': 'STUNDEN',
+          }),
+        ]),
+        'STUNDENSATZ': list([
+          dict({
+            'de': 'STUNDENSATZ',
+          }),
+        ]),
+        'VERRECHNUNG': list([
+          dict({
+            'de': 'VERRECHNUNG',
           }),
         ]),
       }),
@@ -7093,14 +7133,39 @@
         'de': 'Gebühren des Dossiers',
       }),
       'nested_aliases': dict({
+        'ANTEIL_PROZENT': list([
+          dict({
+            'de': 'ANTEIL_PROZENT',
+          }),
+        ]),
+        'ART': list([
+          dict({
+            'de': 'ART',
+          }),
+        ]),
+        'BERECHNUNG': list([
+          dict({
+            'de': 'BERECHNUNG',
+          }),
+        ]),
         'BETRAG': list([
           dict({
             'de': 'BETRAG',
           }),
         ]),
+        'GESAMTKOSTEN': list([
+          dict({
+            'de': 'GESAMTKOSTEN',
+          }),
+        ]),
         'KOSTENSTELLE': list([
           dict({
             'de': 'KOSTENSTELLE',
+          }),
+        ]),
+        'MEHRWERTSTEUER': list([
+          dict({
+            'de': 'MEHRWERTSTEUER',
           }),
         ]),
         'POSITION': list([
@@ -7111,6 +7176,21 @@
         'RECHTSGRUNDLAGE': list([
           dict({
             'de': 'RECHTSGRUNDLAGE',
+          }),
+        ]),
+        'STUNDEN': list([
+          dict({
+            'de': 'STUNDEN',
+          }),
+        ]),
+        'STUNDENSATZ': list([
+          dict({
+            'de': 'STUNDENSATZ',
+          }),
+        ]),
+        'VERRECHNUNG': list([
+          dict({
+            'de': 'VERRECHNUNG',
           }),
         ]),
       }),
@@ -7351,6 +7431,318 @@
       ]),
       'description': dict({
         'de': 'Juristischer Name des/r ersten Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_ART_DES_EINTRAGES': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_ART_DES_EINTRAGES',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Art des Eintrages',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_BAUZONE': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_BAUZONE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Bauzone',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_BEARBEITUNGSSTATUS': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_BEARBEITUNGSSTATUS',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Bearbeitungsstatus',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_BETEILIGTE_ANWESENDE': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_BETEILIGTE_ANWESENDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Beteiligte / Anwesende',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_BEWILLIGUNGSBEHOERDE': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_BEWILLIGUNGSBEHOERDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Bewilligungsbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_CHECKLISTE_BAB_SO_NACH_RPG': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_CHECKLISTE_BAB_SO_NACH_RPG',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Checkliste BaB SO nach RPG',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum Eingang ARP',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_DATUM_EINTRAG': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_DATUM_EINTRAG',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum Eintrag',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum des Entscheides (Kanton)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Eröffnungsart des Entscheides (Kanton)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_ENTSCHEID_KANTON': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_ENTSCHEID_KANTON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Entscheid (Kanton)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_GEMEINDENUMMER_KANTONAL_ARP': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_GEMEINDENUMMER_KANTONAL_ARP',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Gemeindenummer (kantonal / ARP)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_INTERESSE_AM_VORHABEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_INTERESSE_AM_VORHABEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Interesse am Vorhaben',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'massgebliche Terminvorgabe (z.B. nach Sistierungen oder bei verschiedenen Vorprüfungen)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_OBJEKTSCHUTZ': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_OBJEKTSCHUTZ',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Objektschutz',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_SACHVERHALT': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_SACHVERHALT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Sachverhalt',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BESCHLUSSNUMMER': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BESCHLUSSNUMMER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Beschlussnummer',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BEZEICHNUNG': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BEZEICHNUNG',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Schutzobjekt (Bezeichnung)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_BESCHLUSS': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_BESCHLUSS',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum Beschluss',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_VERFUEGUNG': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_VERFUEGUNG',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum Verfügung',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_VERFUEGENDE_BEHOERDE': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_VERFUEGENDE_BEHOERDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'verfügende Behörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_SISTIERT_BIS': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_SISTIERT_BIS',
+        }),
+      ]),
+      'description': dict({
+        'de': 'sistiert bis',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_SISTIERT_VON': dict({
+      'aliases': list([
+        dict({
+          'de': 'CANTONAL_REVIEW_SUSPENDED_FROM',
+        }),
+      ]),
+      'description': dict({
+        'de': 'sistiert von',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_SISTIERUNGSGRUND': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_SISTIERUNGSGRUND',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Sistierungsgrund',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Terminvorgabe bei Erfassung',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KANTONALE_PRUEFUNG_VERFAHRENSSTAND': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_VERFAHRENSSTAND',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Verfahrensstand',
       }),
       'nested_aliases': dict({
       }),
@@ -7740,6 +8132,53 @@
         'de': 'Name und Adresse des/r Projektverfasser/in',
       }),
       'nested_aliases': dict({
+      }),
+    }),
+    'PUBLIKATION': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle Publikationen',
+      }),
+      'nested_aliases': dict({
+        'EMAIL': list([
+          dict({
+            'de': 'EMAIL',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+        'PUBLIKATION_AMTSBLATT': list([
+          dict({
+            'de': 'PUBLIKATION_AMTSBLATT',
+          }),
+        ]),
+        'PUBLIKATION_ANZEIGER': list([
+          dict({
+            'de': 'PUBLIKATION_ANZEIGER',
+          }),
+        ]),
+        'PUBLIKATION_ENDE': list([
+          dict({
+            'de': 'PUBLIKATION_ENDE',
+          }),
+        ]),
+        'PUBLIKATION_ORGAN': list([
+          dict({
+            'de': 'PUBLIKATION_ORGAN',
+          }),
+        ]),
+        'PUBLIKATION_START': list([
+          dict({
+            'de': 'PUBLIKATION_START',
+          }),
+        ]),
       }),
     }),
     'PUBLIKATION_AMTSBLATT': dict({
@@ -9201,15 +9640,24 @@
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID_DATUM',
     'BESCHREIBUNG_BAUVORHABEN',
+    'CANTONAL_REVIEW_SUSPENDED_FROM',
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
     'EBAU_URL',
     'EIGENE_GEBUEHREN',
     'EIGENE_GEBUEHREN[]',
+    'EIGENE_GEBUEHREN[].ANTEIL_PROZENT',
+    'EIGENE_GEBUEHREN[].ART',
+    'EIGENE_GEBUEHREN[].BERECHNUNG',
     'EIGENE_GEBUEHREN[].BETRAG',
+    'EIGENE_GEBUEHREN[].GESAMTKOSTEN',
     'EIGENE_GEBUEHREN[].KOSTENSTELLE',
+    'EIGENE_GEBUEHREN[].MEHRWERTSTEUER',
     'EIGENE_GEBUEHREN[].POSITION',
     'EIGENE_GEBUEHREN[].RECHTSGRUNDLAGE',
+    'EIGENE_GEBUEHREN[].STUNDEN',
+    'EIGENE_GEBUEHREN[].STUNDENSATZ',
+    'EIGENE_GEBUEHREN[].VERRECHNUNG',
     'EIGENE_GEBUEHREN_TOTAL',
     'EINGEREICHTE_PLAENE',
     'EINGEREICHTE_PLAENE[]',
@@ -9291,10 +9739,18 @@
     'FACHSTELLEN_KANTONAL[].NAME',
     'GEBUEHREN',
     'GEBUEHREN[]',
+    'GEBUEHREN[].ANTEIL_PROZENT',
+    'GEBUEHREN[].ART',
+    'GEBUEHREN[].BERECHNUNG',
     'GEBUEHREN[].BETRAG',
+    'GEBUEHREN[].GESAMTKOSTEN',
     'GEBUEHREN[].KOSTENSTELLE',
+    'GEBUEHREN[].MEHRWERTSTEUER',
     'GEBUEHREN[].POSITION',
     'GEBUEHREN[].RECHTSGRUNDLAGE',
+    'GEBUEHREN[].STUNDEN',
+    'GEBUEHREN[].STUNDENSATZ',
+    'GEBUEHREN[].VERRECHNUNG',
     'GEBUEHREN_TOTAL',
     'GEMEINDE',
     'GEMEINDE_ADRESSE',
@@ -9320,6 +9776,31 @@
     'GRUNDSTUECK',
     'HEUTE',
     'JURISTISCHER_NAME',
+    'KANTONALE_PRUEFUNG_ART_DES_EINTRAGES',
+    'KANTONALE_PRUEFUNG_BAUZONE',
+    'KANTONALE_PRUEFUNG_BEARBEITUNGSSTATUS',
+    'KANTONALE_PRUEFUNG_BETEILIGTE_ANWESENDE',
+    'KANTONALE_PRUEFUNG_BEWILLIGUNGSBEHOERDE',
+    'KANTONALE_PRUEFUNG_CHECKLISTE_BAB_SO_NACH_RPG',
+    'KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP',
+    'KANTONALE_PRUEFUNG_DATUM_EINTRAG',
+    'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON',
+    'KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON',
+    'KANTONALE_PRUEFUNG_ENTSCHEID_KANTON',
+    'KANTONALE_PRUEFUNG_GEMEINDENUMMER_KANTONAL_ARP',
+    'KANTONALE_PRUEFUNG_INTERESSE_AM_VORHABEN',
+    'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE',
+    'KANTONALE_PRUEFUNG_OBJEKTSCHUTZ',
+    'KANTONALE_PRUEFUNG_SACHVERHALT',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BESCHLUSSNUMMER',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BEZEICHNUNG',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_BESCHLUSS',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_VERFUEGUNG',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_VERFUEGENDE_BEHOERDE',
+    'KANTONALE_PRUEFUNG_SISTIERT_BIS',
+    'KANTONALE_PRUEFUNG_SISTIERUNGSGRUND',
+    'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG',
+    'KANTONALE_PRUEFUNG_VERFAHRENSSTAND',
     'KOORDINATEN',
     'LEITBEHOERDE_ADRESSE_1',
     'LEITBEHOERDE_ADRESSE_2',
@@ -9350,6 +9831,15 @@
     'PROJEKTVERFASSER_ADRESSE_1',
     'PROJEKTVERFASSER_ADRESSE_2',
     'PROJEKTVERFASSER_NAME_ADRESSE',
+    'PUBLIKATION',
+    'PUBLIKATION[]',
+    'PUBLIKATION[].EMAIL',
+    'PUBLIKATION[].NAME',
+    'PUBLIKATION[].PUBLIKATION_AMTSBLATT',
+    'PUBLIKATION[].PUBLIKATION_ANZEIGER',
+    'PUBLIKATION[].PUBLIKATION_ENDE',
+    'PUBLIKATION[].PUBLIKATION_ORGAN',
+    'PUBLIKATION[].PUBLIKATION_START',
     'PUBLIKATION_AMTSBLATT',
     'PUBLIKATION_ANZEIGER',
     'PUBLIKATION_ENDE',
@@ -11051,22 +11541,39 @@
     'BAUEINGABE_DATUM': '',
     'BAUENTSCHEID_DATUM': '18. April 2024',
     'BESCHREIBUNG_BAUVORHABEN': '',
+    'CANTONAL_REVIEW_SUSPENDED_FROM': '',
     'DOSSIER_NUMBER': '',
     'DOSSIER_NUMMER': '',
     'DOSSIER_TYP': 'Baugesuch',
     'EBAU_URL': 'http://ember-ebau.local',
     'EIGENE_GEBUEHREN': list([
       dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'municipal',
+        'BERECHNUNG': 'flat',
         'BETRAG': '1’043.44',
+        'GESAMTKOSTEN': '968.84',
         'KOSTENSTELLE': '061370449',
+        'MEHRWERTSTEUER': 'municipal',
         'POSITION': 'what',
         'RECHTSGRUNDLAGE': 'behavior',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+        'VERRECHNUNG': 'forwarded',
       }),
       dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'municipal',
+        'BERECHNUNG': 'ag_processing_fee',
         'BETRAG': '400.00',
+        'GESAMTKOSTEN': '',
         'KOSTENSTELLE': '039907763',
+        'MEHRWERTSTEUER': 'municipal',
         'POSITION': 'chance',
         'RECHTSGRUNDLAGE': 'why',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+        'VERRECHNUNG': 'by_authority',
       }),
     ]),
     'EIGENE_GEBUEHREN_TOTAL': '1’443.44',
@@ -11419,28 +11926,60 @@
     'FORM_NAME': 'Baugesuch',
     'GEBUEHREN': list([
       dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'cantonal',
+        'BERECHNUNG': 'hourly',
         'BETRAG': '1’148.00',
+        'GESAMTKOSTEN': '',
         'KOSTENSTELLE': '',
+        'MEHRWERTSTEUER': 'cantonal',
         'POSITION': 'fund',
         'RECHTSGRUNDLAGE': '',
+        'STUNDEN': 4.0,
+        'STUNDENSATZ': '287.00',
+        'VERRECHNUNG': 'forwarded',
       }),
       dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'municipal',
+        'BERECHNUNG': 'flat',
         'BETRAG': '1’043.44',
+        'GESAMTKOSTEN': '968.84',
         'KOSTENSTELLE': '061370449',
+        'MEHRWERTSTEUER': 'municipal',
         'POSITION': 'what',
         'RECHTSGRUNDLAGE': 'behavior',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+        'VERRECHNUNG': 'forwarded',
       }),
       dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'municipal',
+        'BERECHNUNG': 'ag_processing_fee',
         'BETRAG': '400.00',
+        'GESAMTKOSTEN': '',
         'KOSTENSTELLE': '039907763',
+        'MEHRWERTSTEUER': 'municipal',
         'POSITION': 'chance',
         'RECHTSGRUNDLAGE': 'why',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+        'VERRECHNUNG': 'by_authority',
       }),
       dict({
+        'ANTEIL_PROZENT': 73.97,
+        'ART': 'municipal',
+        'BERECHNUNG': 'percentage',
         'BETRAG': '758.82',
+        'GESAMTKOSTEN': '952.57',
         'KOSTENSTELLE': '',
+        'MEHRWERTSTEUER': 'municipal',
         'POSITION': 'author',
         'RECHTSGRUNDLAGE': '',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+        'VERRECHNUNG': 'construction_outside_zone',
       }),
     ]),
     'GEBUEHREN_TOTAL': '3’350.26',
@@ -11475,6 +12014,32 @@
     'HEUTE': '18. Januar 2024',
     'JURISTIC_NAME': '',
     'JURISTISCHER_NAME': '',
+    'KANTONALE_PRUEFUNG_ART_DES_EINTRAGES': '',
+    'KANTONALE_PRUEFUNG_BAUZONE': '',
+    'KANTONALE_PRUEFUNG_BEARBEITUNGSSTATUS': '',
+    'KANTONALE_PRUEFUNG_BETEILIGTE_ANWESENDE': '',
+    'KANTONALE_PRUEFUNG_BEWILLIGUNGSBEHOERDE': '',
+    'KANTONALE_PRUEFUNG_CHECKLISTE_BAB_SO_NACH_RPG': '',
+    'KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP': '',
+    'KANTONALE_PRUEFUNG_DATUM_EINTRAG': '',
+    'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON': '',
+    'KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON': '',
+    'KANTONALE_PRUEFUNG_ENTSCHEID_KANTON': '',
+    'KANTONALE_PRUEFUNG_GEMEINDENUMMER_KANTONAL_ARP': '',
+    'KANTONALE_PRUEFUNG_INTERESSE_AM_VORHABEN': '',
+    'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE': '',
+    'KANTONALE_PRUEFUNG_OBJEKTSCHUTZ': '',
+    'KANTONALE_PRUEFUNG_SACHVERHALT': '',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BESCHLUSSNUMMER': '',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BEZEICHNUNG': '',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_BESCHLUSS': '',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_VERFUEGUNG': '',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_VERFUEGENDE_BEHOERDE': '',
+    'KANTONALE_PRUEFUNG_SISTIERT_BIS': '',
+    'KANTONALE_PRUEFUNG_SISTIERT_VON': '',
+    'KANTONALE_PRUEFUNG_SISTIERUNGSGRUND': '',
+    'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG': '',
+    'KANTONALE_PRUEFUNG_VERFAHRENSSTAND': '',
     'KOORDINATEN': '',
     'LEITBEHOERDE_ADDRESS_1': 'Teststrasse 13',
     'LEITBEHOERDE_ADDRESS_2': '3000 Musterhausen',
@@ -11516,6 +12081,24 @@
     'PROJEKTVERFASSER_ADRESSE_2': '',
     'PROJEKTVERFASSER_NAME_ADDRESS': '',
     'PROJEKTVERFASSER_NAME_ADRESSE': '',
+    'PUBLIKATION': list([
+      dict({
+        'PUBLIKATION_AMTSBLATT': '29. November 2023',
+        'PUBLIKATION_ANZEIGER': '28. November 2023',
+        'PUBLIKATION_ENDE': '15. Dezember 2023',
+        'PUBLIKATION_ORGAN': list([
+          dict({
+            'EMAIL': 'amtsblatt@example.com',
+            'NAME': 'Amtsblatt',
+          }),
+          dict({
+            'EMAIL': 'azeiger@example.com',
+            'NAME': 'Azeiger',
+          }),
+        ]),
+        'PUBLIKATION_START': '1. Dezember 2023',
+      }),
+    ]),
     'PUBLIKATION_AMTSBLATT': '29. November 2023',
     'PUBLIKATION_ANZEIGER': '28. November 2023',
     'PUBLIKATION_ENDE': '15. Dezember 2023',
