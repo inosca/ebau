@@ -117,7 +117,9 @@ class Attachment(models.Model):
         copy = Attachment.objects.create(
             path=new_file,
             instance=self.instance,
-            name=new_file.name,
+            name=self.display_name.replace(".docx", ".pdf")
+            if self.display_name
+            else new_file.name,
             size=new_file.size,
             user=user,
             mime_type=mimetypes.guess_type(new_file.name)[0],
