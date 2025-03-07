@@ -18,6 +18,9 @@ from camac.caluma.extensions.events.caluma_workflow_notifications import (
     post_complete_caluma_workflow_notifications,
     post_create_caluma_workflow_notifications,
 )
+from camac.caluma.extensions.events.check_gwr_relevancy import (
+    suspend_task_for_additional_demand,
+)
 from camac.caluma.extensions.events.complete_check import (
     complete_rejection_work_item,
     send_notification_after_complete_check,
@@ -1189,12 +1192,14 @@ def test_complete_rejection_work_item(
     db,
     caluma_admin_user,
     set_application_ur,
+    mailoutbox,
     caluma_work_item_factory,
     instance_state_factory,
     caluma_document_factory,
-    caluma_question_factory,
+    notification_template_factory,
     ur_instance,
 ):
+    notification_template_factory(slug="2-4-dossier-zurueckgewiesen")
     instance_state_factory(name="rejected")
     reject_work_item = caluma_work_item_factory(
         task_id="reject", case=ur_instance.case, child_case=None
@@ -1213,6 +1218,40 @@ def test_complete_rejection_work_item(
     complete_rejection_work_item(
         sender=None, work_item=reject_work_item, user=caluma_admin_user, context={}
     )
+    assert len(mailoutbox) == 1
 
     assert ur_instance.instance_state.name == "rejected"
     assert ur_instance.rejection_feedback == "Test feedback"
+
+
+def test_suspend_task_for_additional_demand(
+    db,
+    set_application_ur,
+    ur_instance,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    caluma_document_factory,
+):
+    complete_check_work_item = caluma_work_item_factory(
+        task_id="complete-check",
+        document=caluma_document_factory(),
+        case=ur_instance.case,
+    )
+    check_gwr_relevancy_work_item = caluma_work_item_factory(
+        task_id="check-gwr-relevancy",
+        document=caluma_document_factory(),
+        case=ur_instance.case,
+    )
+    AnswerFactory(
+        document=complete_check_work_item.document,
+        question__slug="complete-check-vollstaendigkeitspruefung",
+        value="complete-check-vollstaendigkeitspruefung-incomplete-wait",
+    )
+    suspend_task_for_additional_demand(
+        sender=None,
+        work_item=check_gwr_relevancy_work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+    check_gwr_relevancy_work_item.refresh_from_db()
+    assert check_gwr_relevancy_work_item.status == WorkItem.STATUS_SUSPENDED

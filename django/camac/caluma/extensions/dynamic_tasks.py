@@ -3,6 +3,7 @@ from itertools import chain
 from typing import List
 
 from caluma.caluma_form.models import Document
+from caluma.caluma_workflow.api import resume_work_item
 from caluma.caluma_workflow.dynamic_tasks import BaseDynamicTasks, register_dynamic_task
 from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
@@ -168,6 +169,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if completeness_answer in [
             "complete-check-vollstaendigkeitspruefung-complete",
             "complete-check-vollstaendigkeitspruefung-incomplete",
+            "complete-check-vollstaendigkeitspruefung-incomplete-wait",
         ]:
             tasks.append("check-gwr-relevancy")
 
@@ -290,13 +292,37 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_check_additional_demand(
         self, case, user, prev_work_item, context
     ):
+        tasks = []
+
+        if settings.APPLICATION_NAME == "kt_uri":
+            gwr_relevancy_work_item = WorkItem.objects.filter(
+                task_id="check-gwr-relevancy",
+                case__family=case.family,
+                status=WorkItem.STATUS_SUSPENDED,
+            ).first()
+
+            if gwr_relevancy_work_item:
+                complete_check_work_item = case.family.work_items.get(
+                    task_id="complete-check"
+                )
+                complete_check_document = complete_check_work_item.document
+                completeness_answer = complete_check_document.answers.get(
+                    question_id="complete-check-vollstaendigkeitspruefung"
+                ).value
+
+                if (
+                    completeness_answer
+                    == "complete-check-vollstaendigkeitspruefung-incomplete-wait"
+                ):
+                    resume_work_item(work_item=gwr_relevancy_work_item, user=user)
+
         if prev_work_item.document.answers.filter(
             question_id=settings.ADDITIONAL_DEMAND["QUESTIONS"]["DECISION"],
             value=settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["REJECTED"],
         ).exists():
-            return [settings.ADDITIONAL_DEMAND["FILL_TASK"]]
+            tasks.append(settings.ADDITIONAL_DEMAND["FILL_TASK"])
 
-        return []
+        return tasks
 
     @register_dynamic_task("after-create-inquiry")
     def resolve_after_create_inquiry(self, case, user, prev_work_item, context):
@@ -535,7 +561,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
             )
 
         if involve_geometer:
-            tasks.append("geometer")
+            tasks.append("construction-step-av-projektiert-pruefen")
         return tasks
 
     @register_dynamic_task("after-gebaeudeabbruch-melden")

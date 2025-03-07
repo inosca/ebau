@@ -483,7 +483,7 @@
     "model": "notification.notificationtemplate",
     "pk": 1497,
     "fields": {
-      "slug": "6-22-meldung-gebudeabbruch-av-pruefen",
+      "slug": "6-22-meldung-gebaeudeabbruch-av-pruefen",
       "purpose": "6.22 Meldung Gebäudeabbruch Nachführung AV prüfen (Geometer und Gemeinde)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} - Meldung Gebäudeabbruch Nachführung AV prüfen",
       "body": "URec System Info 6.22\r\n(dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nMELDUNG GEBÄUDEABBRUCH\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} wurden Gebäude abgebrochen. \r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
@@ -495,7 +495,7 @@
     "model": "notification.notificationtemplate",
     "pk": 1498,
     "fields": {
-      "slug": "6-221-gwr-status-nachfuehren-gebudeabbruch",
+      "slug": "6-221-gwr-status-nachfuehren-gebaeudeabbruch",
       "purpose": "6.221 GWR Status nachführen (Gebäudeabbruch an Gemeinde)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} – GWR Status nachführen (Gebäudeabbruch)",
       "body": "URec System Info 6.221\r\n(dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nGWR STATUS NACHFÜHREN (GEBÄUDEABBRUCH)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} wurden Gebäude abgebrochen. \r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
