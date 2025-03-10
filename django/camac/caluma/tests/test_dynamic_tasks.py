@@ -419,6 +419,50 @@ def test_dynamic_task_after_check_additional_demand(
 
 
 @pytest.mark.parametrize(
+    "decision_slug,work_item_status",
+    [
+        ("foobar", WorkItem.STATUS_SUSPENDED),
+        (
+            "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+            WorkItem.STATUS_READY,
+        ),
+    ],
+)
+def test_dynamic_task_resume_check_gwr_relevancy_work_item(
+    db,
+    additional_demand_settings,
+    decision_slug,
+    work_item_status,
+    caluma_answer_factory,
+    ur_instance,
+    set_application_ur,
+    caluma_work_item_factory,
+):
+    answer = caluma_answer_factory(
+        question__slug="complete-check-vollstaendigkeitspruefung",
+        value=decision_slug,
+    )
+
+    complete_check_work_item = caluma_work_item_factory(
+        document=answer.document, case=ur_instance.case, task_id="complete-check"
+    )
+
+    check_gwr_relevancy_work_item = caluma_work_item_factory(
+        document=ur_instance.case.document,
+        case=ur_instance.case,
+        task_id="check-gwr-relevancy",
+        status=WorkItem.STATUS_SUSPENDED,
+    )
+    CustomDynamicTasks().resolve_after_check_additional_demand(
+        ur_instance.case, None, complete_check_work_item, None
+    )
+
+    check_gwr_relevancy_work_item.refresh_from_db()
+
+    assert check_gwr_relevancy_work_item.status == work_item_status
+
+
+@pytest.mark.parametrize(
     "passed_addressed_groups,groups_with_existing,create_additional_demand",
     [
         (["1"], ["1"], False),
@@ -985,7 +1029,13 @@ def test_after_schnurgeruestabnahme_kontrollieren_uri(
 
 @pytest.mark.parametrize(
     "expected_value,geometer_answer",
-    [(["geometer"], "decision-task-nachfuehrungsgeometer-ja"), ([], "wrong_answer")],
+    [
+        (
+            ["construction-step-av-projektiert-pruefen"],
+            "decision-task-nachfuehrungsgeometer-ja",
+        ),
+        ([], "wrong_answer"),
+    ],
 )
 def test_after_plan_construction_stage(
     db,

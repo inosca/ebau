@@ -7,6 +7,7 @@ from . import (  # noqa: F401
     audit,
     caluma_workflow_notifications,
     cantonal_exam,
+    check_gwr_relevancy,
     complete_check,
     construction_monitoring,
     decision,

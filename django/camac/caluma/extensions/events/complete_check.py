@@ -32,6 +32,17 @@ def complete_rejection_work_item(sender, work_item, user, context=None, **kwargs
     instance.instance_state = InstanceState.objects.get(name="rejected")
     instance.save()
 
+    send_notification(
+        notification={
+            "template_slug": "2-4-dossier-zurueckgewiesen",
+            "recipient_types": ["applicant"],
+        },
+        context=context,
+        instance=instance,
+        user=user,
+        work_item=work_item,
+    )
+
 
 @on(post_complete_work_item, raise_exception=True)
 @transaction.atomic

@@ -1397,13 +1397,13 @@ APPLICATIONS = {
                         },
                     },
                 ],
-                "geometer": [
+                "construction-step-av-projektiert-pruefen": [
                     {
                         "event": "created",
                         "notification": {
                             "template_slug": "5-1-av-projektiert-pruefen",
                             "recipient_types": [
-                                "work_item_addressed",
+                                "geometer_uri",
                             ],
                         },
                     }
@@ -1435,7 +1435,7 @@ APPLICATIONS = {
                         },
                     }
                 ],
-                "construction-step-gebaeudeabbruch": [
+                "construction-step-gebaeudeabbruch-melden": [
                     {
                         "event": "created",
                         "notification": {
@@ -1448,17 +1448,17 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "6-22-meldung-gebudeabbruch-av-pruefen",
-                            "recipient_types": ["municipality", "geometer-uri"],
+                            "template_slug": "6-22-meldung-gebaeudeabbruch-av-pruefen",
+                            "recipient_types": ["municipality_users", "geometer_uri"],
                         },
                     }
                 ],
-                "construction-step-gwr-status-demolition": [
+                "construction-step-gwr-state-demolition": [
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "6-221-gwr-status-nachfuehren-gebudeabbruch",
-                            "recipient_types": ["municipality"],
+                            "template_slug": "6-221-gwr-status-nachfuehren-gebaeudeabbruch",
+                            "recipient_types": ["municipality_users"],
                         },
                     }
                 ],
@@ -1467,7 +1467,7 @@ APPLICATIONS = {
                         "event": "created",
                         "notification": {
                             "template_slug": "6-222-gwr-status-nachfuehren-baubeginn",
-                            "recipient_types": ["municipality"],
+                            "recipient_types": ["municipality_users"],
                         },
                     }
                 ],
@@ -1476,7 +1476,7 @@ APPLICATIONS = {
                         "event": "created",
                         "notification": {
                             "template_slug": "6-223-gwr-status-nachfuehren-bau-beendet",
-                            "recipient_types": ["municipality"],
+                            "recipient_types": ["municipality_users"],
                         },
                     }
                 ],
