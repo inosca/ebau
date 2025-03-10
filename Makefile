@@ -290,6 +290,13 @@ debug-dms: ## start a dms container with service ports for debugging
 	@echo "Run 'poetry run python manage.py runserver 0:8000' to start the debugging server"
 	@docker compose run --user root --use-aliases --service-ports document-merge-service bash
 
+.PHONY: debug-webdav
+debug-webdav: ## start a django-webdav container with service ports for debugging
+	@docker compose stop django-webdav
+	@echo "Run 'gunicorn camac.wsgi_dav --workers 1 --worker-class sync --bind :8000 --timeout 900000 --reload' to start the debugging server"
+	@docker compose run --user root --use-aliases --service-ports django-webdav bash
+
+
 .PHONY: load-be-dump
 load-be-dump: SHELL:=/bin/bash
 load-be-dump:
