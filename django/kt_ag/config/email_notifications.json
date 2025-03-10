@@ -344,7 +344,7 @@
       "language": "de",
       "purpose": "Vernehmlassung abgeschlossen",
       "subject": "Vernehmlassung abgeschlossen (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nFür das Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}})  wurde der eingeforderte kantonale Entscheid bzw. die kantonale Stellungnahme erstellt.\n\n{{INQUIRY_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{CURRENT_SERVICE_DE}}"
+      "body": "Guten Tag\n\nFür das Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde eine eingeforderte Stellungnahme erstellt.\n\n{{INQUIRY_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{CURRENT_SERVICE_DE}}"
     }
   },
   {
@@ -392,7 +392,7 @@
       "language": "de",
       "purpose": "Nachforderung beantwortet",
       "subject": "Nachforderung beantwortet (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nIn DIBA wurde im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) eine Unterlagergänzung eingereicht.\n\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
+      "body": "Guten Tag\n\nIn DIBA wurde im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) eine Unterlagenergänzung eingereicht.\n\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
     }
   },
   {
