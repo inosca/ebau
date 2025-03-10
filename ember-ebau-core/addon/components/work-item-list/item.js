@@ -83,8 +83,17 @@ export default class WorkItemListItemComponent extends Component {
       "highlight",
       ...(diff <= 0 ? ["highlight--expired"] : []),
       ...(diff <= 3 && diff > 0 ? ["highlight--expiring"] : []),
-      ...(this.args.workItem.task.slug === "check-additional-demand" &&
-      hasFeature("workItemList.useColorForNFD")
+    ].join(" ");
+  }
+
+  get highlightClassesNFD() {
+    if (!hasFeature("workItemList.useColorForNFD") || !this.args.highlight) {
+      return "";
+    }
+
+    return [
+      "highlight",
+      ...(this.args.workItem.instance.instanceState.get("name") === "nfd"
         ? ["highlight--nfd"]
         : []),
     ].join(" ");
