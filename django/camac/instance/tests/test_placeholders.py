@@ -12,7 +12,7 @@ from alexandria.core.factories import (
 )
 from caluma.caluma_form import api as form_api, models as caluma_form_models
 from caluma.caluma_form.factories import AnswerFactory, DocumentFactory
-from caluma.caluma_form.models import Option, Question
+from caluma.caluma_form.models import Answer, Option, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
@@ -75,6 +75,18 @@ def ur_dms_config(settings, application_settings):
     settings.APPLICATION_NAME = "kt_uri"
     settings.INTERNAL_BASE_URL = "http://ember.local"
     application_settings["SHORT_NAME"] = "ur"
+    yield
+    settings.LANGUAGES = original_languages
+
+
+@pytest.fixture
+def ag_dms_config(settings):
+    original_languages = settings.LANGUAGES
+    settings.LANGUAGES = [
+        (code, name) for code, name in settings.LANGUAGES if code in ["de"]
+    ]
+    settings.APPLICATION_NAME = "kt_ag"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
     yield
     settings.LANGUAGES = original_languages
 
@@ -991,6 +1003,46 @@ def test_dms_placeholders_ur(
     assert {
         key: value for key, value in response.json().items() if key in checked_keys
     } == snapshot
+
+
+@pytest.mark.freeze_time("2016-06-06 13:37", tick=True)
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.django_db(
+    transaction=True, reset_sequences=True
+)  # always reset instance id
+def test_dms_placeholders_ag(
+    db,
+    snapshot,
+    ag_dms_config,
+    admin_client,
+    ag_instance,
+    utils,
+    service_factory,
+    ag_master_data_case,  # noqa
+    settings,
+    ag_distribution_settings,
+    application_settings,
+):
+    # Municipality
+    municipality_value = service_factory(website="https://gemeinde.ch")
+    municipality = Answer.objects.get(
+        question="gemeinde", document=ag_instance.case.document
+    )
+    municipality.value = str(municipality_value.pk)
+    municipality.save()
+
+    # gis
+    utils.add_answer(
+        ag_instance.case.document,
+        "gis-map",
+        '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}, {"x": 2609995.12345,"y": 1271340.12345}] }',
+    )
+
+    url = reverse("instance-dms-placeholders", args=[ag_instance.pk])
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    snapshot.assert_match(response.json())
 
 
 @pytest.mark.parametrize(
