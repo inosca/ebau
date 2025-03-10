@@ -15,8 +15,11 @@
         'zip': 4649,
       }),
     ]),
+    'application_type': 'Baugesuch',
     'city': 'Aarburg',
     'construction_costs': 12000000,
+    'construction_duration': '',
+    'construction_start_date': None,
     'decision_date': datetime.date(2025, 2, 5),
     'dossier_number': '2025-1',
     'information_of_neighbors_required': True,
@@ -66,6 +69,8 @@
     ]),
     'municipality_name': 'Aarburg',
     'municipality_slug': '55',
+    'nature_risk': None,
+    'organization_category': 'ebauag',
     'plot_data': list([
       dict({
         'egrid_number': 'CH270677774577',
@@ -73,6 +78,7 @@
       }),
     ]),
     'proceeding_type': 'Ordentliches Verfahren',
+    'profile_approval_date': None,
     'project_authors': list([
       dict({
         'email': 'walkerjasmine@example.com',
@@ -92,6 +98,7 @@
     'remark': 'Testdossier 1',
     'street': 'Teststrasse 12',
     'submit_date': datetime.datetime(2025, 2, 5, 9, 18, 8, tzinfo=tzutc()),
+    'usage_type': None,
     'usage_zone': 'Wohnzone 2',
     'zip': '4663',
   })

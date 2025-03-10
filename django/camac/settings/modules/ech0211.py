@@ -601,4 +601,90 @@ ECH0211 = {
             },
         },
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "STATUS_NOTIFICATION_TYPES": [
+            {
+                "new_state": "init-distribution",
+                "type": ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
+            },
+            {
+                "new_state": "circulation",
+                "type": ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
+            },
+            {
+                # cancel rejection must result in start circulation status notification
+                "prev_state": "rejected",
+                "type": ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
+            },
+            {
+                "new_state": "construction-acceptance",
+                "type": ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG,
+            },
+            {
+                "new_state": "finished",
+                "type": ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN,
+            },
+            {
+                "new_state": "rejected",
+                "type": ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN,
+            },
+            {
+                "new_state": "decision",
+                "type": ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
+            },
+            {
+                "new_state": "withdrawn",
+                "type": ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
+            },
+        ],
+        "TASK_MAP": {
+            "circulation": {
+                "message_type": ECH_TASK_STELLUNGNAHME,
+                "comment": _("Inquiry sent"),
+                "category": "beilagen-zum-gesuch",
+            },
+        },
+        "ACCOMPANYING_REPORT": {"category": "beteiligte-behörden"},
+        "REDIRECTS": {
+            r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
+            r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",
+            r"dossier-check/<int:instance_id>/": "/cases/%(instance_id)i/task-form/formal-exam",
+        },
+        "ALLOWED_CATEGORIES": ["beteiligte-behörden", "intern", "beilagen-zum-gesuch"],
+        "NOTICE_RULING": {
+            "ALLOWED_STATES": ["decision", "circulation"],
+            "ONLY_DECLINE": ["distribution-init"],
+            "ALEXANDRIA_CATEGORY": "alle-beteiligten",
+            "ALEXANDRIA_MARK": "decision",
+        },
+        "TASK_SEND": {
+            "SKIP_WORK_ITEMS": ["formal-exam"],
+            "COMPLETE_WORK_ITEMS": ["init-distribution"],
+        },
+        "JUDGEMENT_MAPPING": {
+            "inquiry-answer-status-approved": 1,
+            "inquiry-answer-status-positive": 1,
+            "inquiry-answer-status-not-involved": 3,
+            "inquiry-answer-status-renounced": 3,
+            "inquiry-answer-status-claim": 4,
+            "inquiry-answer-status-rejected": 4,
+            "inquiry-answer-status-negative": 4,
+            "inquiry-answer-status-written-off": None,
+            "inquiry-answer-status-not-following": None,
+        },
+        "KIND_OF_PROCEEDINGS": {
+            "ALEXANDRIA_CATEGORY": "alle-beteiligten",
+        },
+        "DOCS": {
+            "GET_TABLE_DATA_FULL": {
+                ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True}
+            },
+            "POST_TABLE_DATA": {
+                "5100011": {"disabled": True},  # Change responsibility
+                "5200113": {"disabled": True},  # Submit
+                "5200110": {"disabled": True},  # KindOfProceedings
+            },
+        },
+    },
 }

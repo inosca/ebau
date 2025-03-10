@@ -2518,9 +2518,11 @@ APPLICATIONS = {
                 "init-distribution": {
                     "next_instance_state": "circulation",
                     "history_text": _("Circulation started"),
+                    "ech_event": "camac.ech0211.signals.circulation_started",
                 },
                 "complete-distribution": {
                     "next_instance_state": "decision",
+                    "ech_event": "camac.ech0211.signals.circulation_ended",
                 },
                 "send-additional-demand": {
                     "history_text": _("Additional demand sent"),
@@ -2535,6 +2537,7 @@ APPLICATIONS = {
                         "template_slug": "fill-additional-demand",
                         "recipient_types": ["work_item_controlling"],
                     },
+                    "ech_event": "camac.ech0211.signals.file_subsequently",
                 },
             },
             "PUBLIC_STATUS": {

@@ -1147,6 +1147,18 @@ def so_ech0211_settings(settings, request):
 
 
 @pytest.fixture
+def ag_ech0211_settings(settings, request):
+    """Module-specific settings for ech0211 (canton AG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="ech0211",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def master_data_settings(settings, request):
     """Module-specific settings for master data (default)."""
     return generate_module_settings(

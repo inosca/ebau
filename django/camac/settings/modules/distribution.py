@@ -379,6 +379,7 @@ DISTRIBUTION = {
         "INQUIRY_ANSWER_ALTER_TASK": "alter-inquiry",
         "NOTIFY_ON_CANCELLATION": True,
         "QUESTIONS": {
+            "STATEMENT": "inquiry-answer-assessment",
             "STATUS": "inquiry-answer-status",
             "REMARKS": "inquiry-answer-remarks",
         },

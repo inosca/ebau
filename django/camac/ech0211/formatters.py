@@ -660,13 +660,13 @@ def accompanying_report(
         remark=prepare_notice(
             find_answer(
                 inquiry.child_case.document,
-                settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"],
+                settings.DISTRIBUTION["QUESTIONS"].get("STATEMENT"),
             )
         ),
         ancillaryClauses=prepare_notice(
             find_answer(
                 inquiry.child_case.document,
-                settings.DISTRIBUTION["QUESTIONS"]["ANCILLARY_CLAUSES"],
+                settings.DISTRIBUTION["QUESTIONS"].get("ANCILLARY_CLAUSES"),
             )
         ),
         judgement=settings.ECH0211["JUDGEMENT_MAPPING"].get(status.value),
@@ -855,6 +855,10 @@ class CantonSpecific:
 
     @classmethod
     def decision_ruling_so(cls, instance, md):
+        return cls.caluma_decision_ruling(instance, md)
+
+    @classmethod
+    def decision_ruling_ag(cls, instance, md):  # pragma: no cover
         return cls.caluma_decision_ruling(instance, md)
 
     @classmethod
