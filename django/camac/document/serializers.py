@@ -50,6 +50,7 @@ class AttachmentSectionSerializer(
         result = [
             dasherize(underscore(permission_class.__name__.replace("Permission", "")))
             for permission_class in permission_classes
+            if permission_class
         ]
 
         return result or None

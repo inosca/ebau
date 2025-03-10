@@ -646,7 +646,8 @@ class SectionPermissions:
         access_levels = self.manager.current_access_levels(instance) if instance else []
 
         if not access_levels:
-            return [section_permissions(group, instance).get(section.pk)]
+            section_perm = section_permissions(group, instance).get(section.pk)
+            return [section_perm] if section_perm else []
 
         # Else: Enforce access-level permissions, ignore role-based permissions
         perms = [
