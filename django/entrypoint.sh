@@ -47,12 +47,9 @@ case "$1" in
     exec python manage.py runserver 0:80 --pythonpath /app/$APPLICATION
     ;;
   hurricane )
-    do_setup no-migrate # migration is done in the initContainer of the ebau-helm chart
-    loadconfig
     exec python ./manage.py serve --static --port "${DJANGO_SERVER_PORT:-80}" --req-queue-len "${HURRICANE_REQ_QUEUE_LEN:-50}"
     ;;
   hurricanedev )
-    do_setup no-migrate
     exec python ./manage.py serve --static --autoreload --port "${DJANGO_SERVER_PORT:-80}" --req-queue-len "${HURRICANE_REQ_QUEUE_LEN:-50}"
     ;;
   qcluster )
