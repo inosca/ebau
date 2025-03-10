@@ -184,3 +184,26 @@ DECISION["kt_so"]["ECH_JUDGEMENT_MAP"] = {
         DECISION["kt_so"]["ANSWERS"]["DECISION"]["NEGATIVE"]: ECH_JUDGEMENT_DECLINED,
     },
 }
+
+DECISION["kt_ag"]["ECH_JUDGEMENT_MAP"] = {
+    "building-permit": {
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"]["APPROVED"]: ECH_JUDGEMENT_APPROVED,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"]["REJECTED"]: ECH_JUDGEMENT_DECLINED,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"][
+            "PARTIALLY_APPROVED"
+        ]: ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"][
+            "WITHDRAWAL"
+        ]: ECH_JUDGEMENT_WRITTEN_OFF,
+    },
+    "preliminary-clarification": {
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"]["APPROVED"]: ECH_JUDGEMENT_APPROVED,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"]["REJECTED"]: ECH_JUDGEMENT_DECLINED,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"][
+            "PARTIALLY_APPROVED"
+        ]: ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"][
+            "WITHDRAWAL"
+        ]: ECH_JUDGEMENT_WRITTEN_OFF,
+    },
+}

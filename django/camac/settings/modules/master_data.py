@@ -2825,6 +2825,7 @@ MASTER_DATA = {
     "kt_ag": {
         "ENABLED": True,
         "CONFIG": {
+            "organization_category": ("static", "ebauag"),
             "applicants": (
                 "table",
                 "personalien-gesuchstellerin",
@@ -2939,6 +2940,16 @@ MASTER_DATA = {
                     "value_key": "date",
                 },
             ),
+            "application_type": ("form_name",),
+            "profile_approval_date": ("static", None),
+            "nature_risk": ("answer", "plan-der-gefahrenkommission"),
+            "usage_type": (
+                "answer",
+                "zweckbestimmung",
+                {"value_parser": "option", "prop": "label"},
+            ),
+            "construction_start_date": ("static", None),
+            "construction_duration": ("static", ""),
         },
     },
 }
