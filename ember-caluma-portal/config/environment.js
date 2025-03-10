@@ -600,8 +600,22 @@ module.exports = function (environment) {
     },
   }[app];
 
-  const oidcHost = process.env.KEYCLOAK_HOST || "http://ebau-keycloak.local";
-  const oidcRealm = process.env.KEYCLOAK_REALM || appConfig.realm;
+  const {
+    KEYCLOAK_HOST = "http://ebau-keycloak.local",
+    KEYCLOAK_BASE_PATH = "auth",
+    KEYCLOAK_REALM = appConfig.realm,
+    KEYCLOAK_CLIENT = "portal",
+    KEYCLOAK_SCOPES = "openid",
+  } = process.env;
+
+  function trailingSlash(url) {
+    if (!url) {
+      return "";
+    }
+    return url.replace(/\/?$/, "/");
+  }
+
+  const oidcUrl = `${trailingSlash(KEYCLOAK_HOST)}${trailingSlash(KEYCLOAK_BASE_PATH)}realms/${KEYCLOAK_REALM}`;
   const internalURL =
     process.env.INTERNAL_URL ||
     (appConfig.internalFrontend === "camac"
@@ -615,11 +629,12 @@ module.exports = function (environment) {
     environment,
     rootURL: "/",
     locationType: "history",
-    profileURL: `${oidcHost}/auth/realms/${oidcRealm}/account?referrer=portal#/personal-info`,
+    profileURL: `${oidcUrl}/account?referrer=portal#/personal-info`,
     historySupportMiddleware: true,
     "ember-simple-auth-oidc": {
-      host: `${oidcHost}/auth/realms/${oidcRealm}/protocol/openid-connect`,
-      clientId: "portal",
+      host: `${oidcUrl}/protocol/openid-connect`,
+      clientId: KEYCLOAK_CLIENT,
+      scope: KEYCLOAK_SCOPES,
       authEndpoint: "/auth",
       tokenEndpoint: "/token",
       endSessionEndpoint: "/logout",
