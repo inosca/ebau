@@ -2952,7 +2952,6 @@ KEYCLOAK_URL = build_url(
     trailing=True,
 )
 KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
-KEYCLOAK_BASE_PATH = env.str("KEYCLOAK_BASE_PATH", default="auth")
 # possibility to change the OIDC scopes, only used for django admin auth
 KEYCLOAK_SCOPES = env.str("KEYCLOAK_SCOPES", default="openid email")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
@@ -3318,7 +3317,7 @@ OIDC_RP_CLIENT_SECRET = None
 OIDC_DEFAULT_BASE_URL = build_url(
     KEYCLOAK_URL, "/realms/", KEYCLOAK_REALM, "/protocol/openid-connect"
 )
-OIDC_OP_AUTHORIZATION_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, KEYCLOAK_BASE_PATH)
+OIDC_OP_AUTHORIZATION_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/auth")
 OIDC_OP_TOKEN_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/token")
 OIDC_OP_USER_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/userinfo")
 OIDC_RP_SCOPES = KEYCLOAK_SCOPES
