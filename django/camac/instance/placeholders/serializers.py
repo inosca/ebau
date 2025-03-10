@@ -29,6 +29,26 @@ def sanitize_value(value):
     return value if value is not None else ""
 
 
+def get_koordinaten_by_json_props(instance):
+    coordinates = [
+        json.loads(answer.value)["markers"]
+        for answer in Answer.objects.filter(
+            question_id="gis-map", document_id=instance.case.document.pk
+        )
+        if answer.value
+    ]
+
+    if not coordinates:  # pragma: no cover
+        return ""
+
+    data = []
+    for coordinate in coordinates[0]:
+        x = f"{round(coordinate['x']):_}".replace("_", "’")
+        y = f"{round(coordinate['y']):_}".replace("_", "’")
+        data.append(f"{x} / {y}")
+    return clean_join(*data, separator="; ")
+
+
 class DMSPlaceholdersSerializer(serializers.Serializer):
     def __init__(self, instance, *args, **kwargs):
         super().__init__(instance, *args, **kwargs)
@@ -858,23 +878,7 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         return answer.first().value if answer else ""
 
     def get_koordinaten(self, instance):
-        coordinates = [
-            json.loads(answer.value)["markers"]
-            for answer in Answer.objects.filter(
-                question_id="gis-map", document_id=instance.case.document.pk
-            )
-            if answer.value
-        ]
-
-        if not coordinates:  # pragma: no cover
-            return ""
-
-        data = []
-        for coordinate in coordinates[0]:
-            x = f"{round(coordinate['x']):_}".replace("_", "’")
-            y = f"{round(coordinate['y']):_}".replace("_", "’")
-            data.append(f"{x} / {y}")
-        return clean_join(*data, separator="; ")
+        return get_koordinaten_by_json_props(instance)
 
     def get_gebaeudeversicherungsnummer(self, instance):
         values = Answer.objects.filter(
@@ -1937,6 +1941,9 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("CIRCULATION_FEEDBACK")],
         description=_("Feedback of the invited services"),
     )
+
+    def get_koordinaten(self, instance):
+        return get_koordinaten_by_json_props(instance)
 
     class Meta:
         exclude = [
