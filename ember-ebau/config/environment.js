@@ -7,7 +7,7 @@ module.exports = function (environment) {
     process.env.KEYCLOAK_REALM ??
     (process.env.APPLICATION === "kt_uri" ? "urec" : "ebau");
   const oidcClientId = process.env.KEYCLOAK_CLIENT ?? "camac";
-  const oidcScopes = process.env.KEYCLOAK_SCOPES ?? "oidc";
+  const oidcScopes = process.env.KEYCLOAK_SCOPES ?? "openid";
 
   function trailingSlash(url) {
     if (!url) {
