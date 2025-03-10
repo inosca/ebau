@@ -33,6 +33,7 @@ const tableQuestions = [
   answerSlugs.firstNameApplicant,
   answerSlugs.lastNameApplicant,
   answerSlugs.juristicNameApplicant,
+  answerSlugs.isJuristicApplicant,
   answerSlugs.parcelNumber,
 ]
   .filter(Boolean)
