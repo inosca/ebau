@@ -4,6 +4,7 @@ from typing import List
 from caluma.caluma_core.exceptions import ConfigurationError
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Document, Question
+from caluma.caluma_form.validators import CustomValidationError
 from django.core.cache import cache
 from django.utils.translation import gettext as _
 from rest_framework import serializers
@@ -68,7 +69,7 @@ class GISApplySerializer(serializers.Serializer):
                 else answer_value,
                 meta={"gis-value": answer_value},
             )
-        except ConfigurationError:
+        except (ConfigurationError, CustomValidationError):
             # Question does not exist in this form, ignore it.
             return False
 
