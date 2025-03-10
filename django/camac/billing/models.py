@@ -12,47 +12,37 @@ DECIMAL_FORMAT = {
 
 
 class BillingV2CommonEntry(models.Model):
-    TAX_MODE_INCLUSIVE = "inclusive"
-    TAX_MODE_EXCLUSIVE = "exclusive"
-    TAX_MODE_EXEMPT = "exempt"
-    TAX_MODE_CHOICES = (
-        (TAX_MODE_INCLUSIVE, _("inclusive")),
-        (TAX_MODE_EXCLUSIVE, _("exclusive")),
-        (TAX_MODE_EXEMPT, _("not subject to VAT")),
-    )
-
-    CALCULATION_FLAT = "flat"
-    CALCULATION_PERCENTAGE = "percentage"
-    CALCULATION_HOURLY = "hourly"
-    CALCULATION_AG_PROCESSING_FEE = "ag_processing_fee"
-    CALCULATION_CHOICES = (
-        (CALCULATION_FLAT, _("flat rate")),
-        (CALCULATION_PERCENTAGE, _("percentage")),
-        (CALCULATION_HOURLY, _("at cost")),
-        (CALCULATION_AG_PROCESSING_FEE, _("Processing fee BG BVUAFB")),
-    )
-
-    MUNICIPAL = "municipal"
-    CANTONAL = "cantonal"
-    ORGANIZATION_CHOICES = ((MUNICIPAL, "Municipal"), (CANTONAL, "Cantonal"))
-
-    # Billing text
-    text = models.TextField(verbose_name=_("Position"))
-    cost_center = models.TextField(blank=True, null=True)
-    legal_basis = models.TextField(blank=True, null=True)
+    class TaxModes(models.TextChoices):
+        TAX_MODE_INCLUSIVE = "inclusive", _("inclusive")
+        TAX_MODE_EXCLUSIVE = "exclusive", _("exclusive")
+        TAX_MODE_EXEMPT = "exempt", _("not subject to VAT")
 
     # Tax mode = calculation model for tax
     tax_mode = models.CharField(
-        choices=TAX_MODE_CHOICES,
+        choices=TaxModes.choices,
         max_length=20,
         null=True,
         blank=True,
         verbose_name=_("VAT type"),
     )
 
+    # Billing text
+    text = models.TextField(verbose_name=_("Position"))
+    cost_center = models.TextField(blank=True, null=True)
+    legal_basis = models.TextField(blank=True, null=True)
+
+    class CalculationModes(models.TextChoices):
+        CALCULATION_FLAT = "flat", _("flat rate")
+        CALCULATION_PERCENTAGE = "percentage", _("percentage")
+        CALCULATION_HOURLY = "hourly", _("at cost")
+        CALCULATION_AG_PROCESSING_FEE = (
+            "ag_processing_fee",
+            _("Processing fee BG BVUAFB"),
+        )
+
     # Calculation mode
     calculation = models.CharField(
-        choices=CALCULATION_CHOICES,
+        choices=CalculationModes.choices,
         max_length=20,
         null=True,
         blank=True,
@@ -71,39 +61,35 @@ class BillingV2CommonEntry(models.Model):
     # Total cost is also used in "flat" calculation mode
     total_cost = models.DecimalField(**DECIMAL_FORMAT, verbose_name=_("Total cost"))
 
+    class Organizations(models.TextChoices):
+        MUNICIPAL = "municipal", _("Municipal")
+        CANTONAL = "cantonal", _("Cantonal")
+
     # Organization: either municipal or cantonal but can be NULL
     # Used to distinguish which oranization collects part of the bill
     organization = models.CharField(
-        choices=ORGANIZATION_CHOICES, max_length=20, null=True, blank=True
+        choices=Organizations.choices, max_length=20, null=True, blank=True
     )
 
-    # The billing entry must be added to the invoice of the authority
-    BILLING_TYPE_BY_AUTHORITY = "by_authority"
-    # The creator of the entry sent an invoice to be forwarded by the authority
-    BILLING_TYPE_FORWARDED = "forwarded"
-    # The creator of the entry sent an invoice directly to the applicant
-    BILLING_TYPE_DIRECT = "direct"
-    BILLING_TYPE_CONSTRUCTION_OUTSIDE_ZONE = "construction_outside_zone"
-    BILLING_TYPE_CANTONAL_CONSTRUCTION_ADMINISTRATION = (
-        "cantonal_construction_administration"
-    )
-    BILLING_TYPE_CHOICES = (
-        (BILLING_TYPE_BY_AUTHORITY, "By authority"),
-        (BILLING_TYPE_FORWARDED, "Forwarded"),
-        (BILLING_TYPE_DIRECT, "Direct"),
-        (
-            BILLING_TYPE_CONSTRUCTION_OUTSIDE_ZONE,
-            "Cantonal invoice for construction outside of construction zone",
-        ),
-        (
-            BILLING_TYPE_CANTONAL_CONSTRUCTION_ADMINISTRATION,
-            "Cantonal invoice to cantonal construction administration",
-        ),
-    )
+    class BillingTypes(models.TextChoices):
+        # The billing entry must be added to the invoice of the authority
+        BILLING_TYPE_BY_AUTHORITY = "by_authority", _("By authority")
+        # The creator of the entry sent an invoice to be forwarded by the authority
+        BILLING_TYPE_FORWARDED = "forwarded", _("Forwarded")
+        # The creator of the entry sent an invoice directly to the applicant
+        BILLING_TYPE_DIRECT = "direct", _("Direct")
+        BILLING_TYPE_CONSTRUCTION_OUTSIDE_ZONE = (
+            "construction_outside_zone",
+            _("Cantonal invoice for construction outside of construction zone"),
+        )
+        BILLING_TYPE_CANTONAL_CONSTRUCTION_ADMINISTRATION = (
+            "cantonal_construction_administration",
+            _("Cantonal invoice to cantonal construction administration"),
+        )
 
     # Billing type: determine how the entry is being billed (e.g directly, or by the authority)
     billing_type = models.CharField(
-        choices=BILLING_TYPE_CHOICES, max_length=36, null=True, blank=True
+        choices=BillingTypes.choices, max_length=36, null=True, blank=True
     )
 
     # Product number for generating invoices

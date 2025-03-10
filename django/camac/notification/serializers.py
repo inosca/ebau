@@ -641,7 +641,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_billing_total_kommunal(self, instance):
         return (
             BillingV2Entry.objects.filter(
-                instance=instance, organization=BillingV2Entry.MUNICIPAL
+                instance=instance, organization=BillingV2Entry.Organizations.MUNICIPAL
             ).aggregate(total=Sum("final_rate"))["total"]
             or "0.00"
         )
@@ -649,7 +649,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_billing_total_kanton(self, instance):
         return (
             BillingV2Entry.objects.filter(
-                instance=instance, organization=BillingV2Entry.CANTONAL
+                instance=instance, organization=BillingV2Entry.Organizations.CANTONAL
             ).aggregate(total=Sum("final_rate"))["total"]
             or "0.00"
         )
@@ -674,7 +674,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return (
             BillingV2Entry.objects.filter(
                 instance=instance,
-                organization=BillingV2Entry.MUNICIPAL,
+                organization=BillingV2Entry.Organizations.MUNICIPAL,
                 date_charged__isnull=True,
             ).aggregate(total=Sum("final_rate"))["total"]
             or "0.00"
@@ -684,7 +684,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return (
             BillingV2Entry.objects.filter(
                 instance=instance,
-                organization=BillingV2Entry.CANTONAL,
+                organization=BillingV2Entry.Organizations.CANTONAL,
                 date_charged__isnull=True,
             ).aggregate(total=Sum("final_rate"))["total"]
             or "0.00"

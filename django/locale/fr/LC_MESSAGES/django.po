@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 10:05+0100\n"
+"POT-Creation-Date: 2025-03-07 10:30+0100\n"
 "PO-Revision-Date: 2024-09-12 16:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -73,6 +73,14 @@ msgid "not subject to VAT"
 msgstr "non soumis à la TVA"
 
 #: camac/billing/models.py
+msgid "VAT type"
+msgstr ""
+
+#: camac/billing/models.py camac/billing/serializers.py
+msgid "Position"
+msgstr "Position"
+
+#: camac/billing/models.py
 msgid "flat rate"
 msgstr ""
 
@@ -86,14 +94,6 @@ msgstr ""
 
 #: camac/billing/models.py
 msgid "Processing fee BG BVUAFB"
-msgstr ""
-
-#: camac/billing/models.py camac/billing/serializers.py
-msgid "Position"
-msgstr "Position"
-
-#: camac/billing/models.py
-msgid "VAT type"
 msgstr ""
 
 #: camac/billing/models.py
@@ -120,6 +120,38 @@ msgstr ""
 
 #: camac/billing/models.py
 msgid "Total cost"
+msgstr ""
+
+#: camac/billing/models.py
+#, fuzzy
+#| msgid "Municipality"
+msgid "Municipal"
+msgstr "Municipalité"
+
+#: camac/billing/models.py
+msgid "Cantonal"
+msgstr ""
+
+#: camac/billing/models.py
+#, fuzzy
+#| msgid "Lead authority"
+msgid "By authority"
+msgstr "Autorité directrice"
+
+#: camac/billing/models.py
+msgid "Forwarded"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Direct"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Cantonal invoice for construction outside of construction zone"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Cantonal invoice to cantonal construction administration"
 msgstr ""
 
 #: camac/billing/models.py camac/core/admin/views.py camac/user/admin/views.py

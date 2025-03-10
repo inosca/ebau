@@ -236,16 +236,29 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                         "STUNDENSATZ": self.format_rate(entry.hourly_rate),
                         "ANTEIL_PROZENT": entry.percentage,
                         "GESAMTKOSTEN": self.format_rate(entry.total_cost),
-                        "BERECHNUNG": entry.calculation,
-                        "MEHRWERTSTEUER": entry.organization,
-                        "ART": entry.organization,
-                        "VERRECHNUNG": entry.billing_type,
+                        "BERECHNUNG": self.get_choice_label(
+                            BillingV2Entry.CalculationModes.choices, entry.calculation
+                        ),
+                        "MEHRWERTSTEUER": self.get_choice_label(
+                            BillingV2Entry.TaxModes, entry.tax_mode
+                        ),
+                        "ART": self.get_choice_label(
+                            BillingV2Entry.Organizations, entry.organization
+                        ),
+                        "VERRECHNUNG": self.get_choice_label(
+                            BillingV2Entry.BillingTypes, entry.billing_type
+                        ),
                     }
                 )
 
             data.append(row)
 
         return data
+
+    def get_choice_label(self, choices, value):
+        for choice in choices:
+            if choice[0] == value:
+                return choice[1]
 
     def get_attribute(self, instance):
         own_filters = (

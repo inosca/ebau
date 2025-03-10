@@ -33,10 +33,16 @@ from camac.billing.models import BillingV2Entry
 @pytest.mark.parametrize(
     "role__name,billing_params,entries_count, expected_count, filter_date_added",
     [
-        ("Municipality", {"calculation": BillingV2Entry.CALCULATION_FLAT}, 3, 3, False),
         (
             "Municipality",
-            {"calculation": BillingV2Entry.CALCULATION_PERCENTAGE},
+            {"calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT},
+            3,
+            3,
+            False,
+        ),
+        (
+            "Municipality",
+            {"calculation": BillingV2Entry.CalculationModes.CALCULATION_PERCENTAGE},
             3,
             3,
             False,
@@ -44,8 +50,8 @@ from camac.billing.models import BillingV2Entry
         (
             "Municipality",
             {
-                "calculation": BillingV2Entry.CALCULATION_HOURLY,
-                "tax_mode": BillingV2Entry.TAX_MODE_INCLUSIVE,
+                "calculation": BillingV2Entry.CalculationModes.CALCULATION_HOURLY,
+                "tax_mode": BillingV2Entry.TaxModes.TAX_MODE_INCLUSIVE,
             },
             3,
             3,
@@ -54,17 +60,41 @@ from camac.billing.models import BillingV2Entry
         (
             "Municipality",
             {
-                "calculation": BillingV2Entry.CALCULATION_FLAT,
-                "tax_mode": BillingV2Entry.TAX_MODE_EXEMPT,
+                "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+                "tax_mode": BillingV2Entry.TaxModes.TAX_MODE_EXEMPT,
             },
             3,
             3,
             False,
         ),
-        ("Applicant", {"calculation": BillingV2Entry.CALCULATION_FLAT}, 3, 0, False),
-        ("Support", {"calculation": BillingV2Entry.CALCULATION_FLAT}, 3, 3, False),
-        ("Service", {"calculation": BillingV2Entry.CALCULATION_FLAT}, 3, 3, False),
-        ("Service", {"calculation": BillingV2Entry.CALCULATION_FLAT}, 3, 1, True),
+        (
+            "Applicant",
+            {"calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT},
+            3,
+            0,
+            False,
+        ),
+        (
+            "Support",
+            {"calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT},
+            3,
+            3,
+            False,
+        ),
+        (
+            "Service",
+            {"calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT},
+            3,
+            3,
+            False,
+        ),
+        (
+            "Service",
+            {"calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT},
+            3,
+            1,
+            True,
+        ),
     ],
 )
 def test_billing_export(
