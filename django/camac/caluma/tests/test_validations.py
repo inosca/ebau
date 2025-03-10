@@ -1,10 +1,13 @@
 import json
+from contextlib import nullcontext
 from datetime import date
 
 import pytest
 from caluma.caluma_core.permissions import AllowAny
 from caluma.caluma_core.visibilities import Any
 from caluma.caluma_workflow.models import WorkItem
+
+from camac.caluma.api import CalumaApi
 
 
 @pytest.fixture
@@ -178,3 +181,41 @@ def test_appeal_work_item_update(
     work_item.refresh_from_db()
 
     assert work_item.deadline.date().isoformat() == "2025-01-01"
+
+
+@pytest.mark.parametrize(
+    "q_type, value, skip_on_error, expect_error",
+    [
+        ("choice", "foo", True, False),
+        ("choice", "foo", False, True),
+        ("text", "foo", False, False),
+        ("text", "foo", True, False),
+    ],
+)
+def test_update_or_create_answer(
+    db,
+    be_instance,
+    caluma_form_question_factory,
+    q_type,
+    value,
+    skip_on_error,
+    expect_error,
+):
+    question = caluma_form_question_factory(
+        question__type=q_type, form=be_instance.case.document.form
+    ).question
+
+    if expect_error:
+        expectation = pytest.raises(Exception)
+    else:
+        # expect no raise
+        expectation = nullcontext()
+
+    with expectation:
+        CalumaApi().update_or_create_answer(
+            be_instance.case.document,
+            question.slug,
+            value="hello",
+            user=None,
+            skip_on_error=skip_on_error,
+        )
