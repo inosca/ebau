@@ -44,6 +44,7 @@ from camac.ech0211.signals import (
 from camac.notification.utils import send_mail_without_request
 from camac.permissions.events import Trigger
 from camac.user.models import Service, User
+from camac.utils import delay_next_workingday
 
 from .general import get_instance
 
@@ -270,8 +271,9 @@ def post_redo_inquiry(sender, work_item, user, context=None, **kwargs):
 
 
 def _get_default_deadline(settings):
-    return now().date() + timedelta(
-        days=settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"]
+    return delay_next_workingday(
+        now().date()
+        + timedelta(days=settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"])
     )
 
 
@@ -283,7 +285,9 @@ def _get_deadline_override(settings, work_item):
         ].get(addressed_service.service_group.name)
 
         if default_deadline_for_service:
-            return now().date() + timedelta(default_deadline_for_service)
+            return delay_next_workingday(
+                now().date() + timedelta(default_deadline_for_service)
+            )
 
 
 @on(post_create_work_item, raise_exception=True)

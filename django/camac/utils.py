@@ -1,8 +1,10 @@
 import io
 import itertools
+from datetime import timedelta
 from typing import Any, Optional
 from urllib.parse import parse_qsl
 
+import holidays
 import requests
 from django.conf import settings
 from docxtpl import DocxTemplate
@@ -269,3 +271,47 @@ def call_with_accepted_kwargs(func, **kwargs):
     """
     accepted_kwargs = get_function_kwargs(func, kwargs)
     return func(**accepted_kwargs)
+
+
+def is_weekend_day(input_date):
+    return input_date.weekday() >= 5
+
+
+def is_public_holiday(input_date):
+    """Check if the given date is a public holiday.
+
+    The setting `SHORT_NAME` is used in the holidays package as the subdivision for
+    which the public holidays should be taken into account.
+
+    If the subdivision is not implemented in the holidays package, the function will
+    return False.
+    """
+    try:
+        public_holidays = holidays.CH(
+            subdiv=settings.APPLICATION.get("SHORT_NAME", "").upper(),
+            years=[input_date.year],
+        )
+    except NotImplementedError:
+        return False
+
+    return input_date.strftime("%Y-%m-%d") in public_holidays
+
+
+def is_working_day(input_date):
+    return not is_weekend_day(input_date) and not is_public_holiday(input_date)
+
+
+def delay_next_workingday(input_date):
+    """Postpone the given date to the next working day.
+
+    If the setting `DEADLINE_POSTPONE_NEXT_WORKINGDAY` is set to `True`, the given date
+    will be postponed to the next working day (taking weekends and public holidays into
+    account). By default, no workday postponing is done.
+    """
+    if not settings.APPLICATION.get("DEADLINE_POSTPONE_NEXT_WORKINGDAY", False):
+        return input_date
+
+    while not is_working_day(input_date):
+        input_date += timedelta(days=1)
+
+    return input_date
