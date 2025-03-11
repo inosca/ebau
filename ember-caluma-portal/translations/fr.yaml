@@ -159,6 +159,7 @@ instances:
   processingOfFormSb2: "Modifier la déclaration spontanée 2"
   processingOfFormSb2Text: "La déclaration spontanée 2 peut être modifié et envoyé ici."
   deleteInstance: "Supprimer le dossier"
+  decision-documents-notice: ""
   deleteInstanceText: "Si vous n'avez plus besoin de la demande, vous pouvez la supprimer ici."
   deleteInstanceModal: "Êtes-vous sûr de vouloir supprimer le dossier ?"
   deleteInstanceError: "Le dossier n'a pas pu être supprimé"

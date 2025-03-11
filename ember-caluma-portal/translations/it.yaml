@@ -156,6 +156,7 @@ instances:
   processingOfFormSb2: "Continua l'elaborazione di Autocertificazione 2"
   processingOfFormSb2Text: "Qui è possibile continuare l'elaborazione dell'Autocertificazione 2 e procedere con l'inoltro."
   deleteInstance: "Elimina dossier"
+  decision-documents-notice: ""
   deleteInstanceText: "Qui è possibile eliminare una domanda non più necessaria."
   deleteInstanceModal: "Eliminare davvero il dossier?"
   deleteInstanceError: "Non è stato possibile eliminare il dossier"
