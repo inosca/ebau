@@ -214,6 +214,43 @@ def test_instance_detail_uso(
         assert not acl3.end_time
 
 
+@pytest.mark.freeze_time("2023-12-25")
+@pytest.mark.parametrize("role__name,instance__user", [("uso", lf("admin_user"))])
+@pytest.mark.parametrize("access_level__slug", ["uso"])
+def test_instance_detail_uso_deadline_delay(
+    admin_client,
+    instance,
+    gr_instance,
+    caluma_case_factory,
+    access_level,
+    caluma_work_item_factory,
+    gr_distribution_settings,
+    set_application_gr,
+):
+    distribution_case = caluma_case_factory(
+        workflow_id="inquiry", family=gr_instance.case
+    )
+    deadline_date = "2023-12-26"
+    work_item = caluma_work_item_factory(
+        task_id="inquiry",
+        addressed_groups=[gr_instance.group.service.pk],
+        deadline=make_aware(datetime.strptime(deadline_date, "%Y-%m-%d")),
+    )
+    distribution_case.work_items.add(work_item)
+    AnswerFactory(
+        question_id="inquiry-deadline", document=work_item.document, date=deadline_date
+    )
+
+    url = reverse("instance-detail", args=[instance.pk])
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    work_item.refresh_from_db()
+
+    # 1 extra day counted for new_years_day
+    assert work_item.deadline == now() + timedelta(days=8)
+
+
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_instance_detail(admin_client, instance):
     url = reverse("instance-detail", args=[instance.pk])

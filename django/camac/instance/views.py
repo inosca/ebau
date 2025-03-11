@@ -51,7 +51,7 @@ from camac.user.permissions import (
     PublicationPermission,
     permission_aware,
 )
-from camac.utils import DocxRenderer
+from camac.utils import DocxRenderer, delay_next_workingday
 
 from ..utils import get_paper_settings
 from . import (
@@ -479,7 +479,10 @@ class InstanceView(
             deadline_answer = work_item.document.answers.filter(
                 question_id=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
             )
-            deadline_answer.update(date=timezone.now() + timedelta(days=7))
+
+            deadline_answer.update(
+                date=delay_next_workingday(timezone.now() + timedelta(days=7))
+            )
 
             sync_inquiry_deadline(work_item)
 
