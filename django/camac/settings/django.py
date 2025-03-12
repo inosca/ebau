@@ -1390,7 +1390,7 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "5-eroeffnung-stellungnahme-vorentscheid-intern",
+                            "template_slug": "5-11-eroeffnung-stellungnahme-vorentscheid-intern",
                             "recipient_types": [
                                 "involved_in_distribution",
                             ],
