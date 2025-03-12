@@ -37,7 +37,6 @@ def test_eeba_export(
     expected_status,
     set_application_gr,
     settings,
-    application_settings,
     snapshot,
 ):
     settings.APPLICATION_NAME = canton_name

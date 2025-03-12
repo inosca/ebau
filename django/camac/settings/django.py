@@ -3399,6 +3399,18 @@ GWR_HOUSING_STAT_BASE_URI = env.str(
 EEBA_SHARED_SECRET = env.str(
     "EEBA_SHARED_SECRET", "4z5hKJ2eQYXaGxvG9B8JfQ6C5L4A2mX5k7P0dQvNc4g="
 )
+EEBA_BASE_URL = build_url(
+    env.str(
+        "EEBA_BASE_URL",
+        default(
+            "https://example.com",  # TODO: Cleanup
+            # "https://eba-int2.gr.ch/api/v1",
+            # "https://eba.gr.ch/api/v1",
+        ),
+    )
+)
+EEBA_TIMEOUT_SECONDS = env.int("EEBA_TIMEOUT_SECONDS", default=60)
+
 
 # Until running tasks can be manually canceled we want a timeout
 DJANGO_Q_TASK_TIMEOUT_HOURS = env.int("DJANGO_Q_TASK_TIMEOUT_HOURS", default=6)
