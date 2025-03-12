@@ -747,7 +747,7 @@ class InstanceView(
         )
 
         for email in involved_emails:
-            applicant, created = Applicant.objects.update_or_create(
+            applicant, created = Applicant.objects.get_or_create(
                 instance=instance,
                 invitee=User.objects.filter(email=email).first(),
                 defaults={
