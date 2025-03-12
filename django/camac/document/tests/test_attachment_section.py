@@ -128,6 +128,7 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
                 123: permissions.AdminServicePermission,
                 12000007: permissions.AdminServicePermission,
                 12000003: permissions.AdminServicePermission,
+                12000010: permissions.AdminServicePermission,
             },
         ),
         (
