@@ -21,25 +21,36 @@ loadconfig() {
 if [ "$#" -lt 1 ]; then
   echo "ERROR: NO COMMAND GIVEN: $*"
   echo "Need to pass either one of these:"
-  echo "   - gunicorn     to run the production server (load config)"
-  echo "   - devserver    to run the development server (takes additional args"
-  echo  "    if needed)"
-  echo "   - hurricane    to run the production server for kubernetes (load config)"
-  echo "   - hurricanedev to run the development server for kubernetes"
-  echo "   - qcluster     to run the django-q service"
-  echo "   - celery       to run the celery service"
-  echo "   - celerydev    to run the celery service in development mode"
-  echo "   - webdav       to run the webdav server via gunicorn and webdav.wsgi"
+  echo "   - gunicorn          to run the production server (load config), possible arguments:"
+  echo "   - --no-loadconfig   to skip the loadconfig step"
+  echo "   - devserver         to run the development server (takes additional args if needed)"
+  echo "   - hurricane         to run the production server for kubernetes (load config)"
+  echo "   - hurricanedev      to run the development server for kubernetes"
+  echo "   - qcluster          to run the django-q service"
+  echo "   - celery            to run the celery service"
+  echo "   - celerydev         to run the celery service in development mode"
+  echo "   - webdav            to run the webdav server via gunicorn and webdav.wsgi"
   echo ""
-  echo "Any other command will be run as-is (for example you can run bash"
-  echo "or any other mgmt command)"
+  echo "Any other command will be run as-is (for example you can run bash or any other mgmt command)"
   exit 1
 fi
+
+do_loadconfig="true"
+
+case "$*" in
+  *--no-loadconfig*)
+    do_loadconfig="false"
+    ;;
+  *)
+    ;;
+esac
 
 case "$1" in
   gunicorn )
     do_setup
-    loadconfig
+    if [ "$do_loadconfig" = "true" ]; then
+      loadconfig
+    fi
     exec gunicorn --workers "${DJANGO_GUNICORN_WORKERS:-10}" --access-logfile - --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" --bind :"${DJANGO_SERVER_PORT:-80}" camac.wsgi
     ;;
   devserver )
