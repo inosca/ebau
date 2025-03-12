@@ -2,7 +2,9 @@
   {{#if @highlight}}
     {{#if (has-feature "workItemList.useExperimentalLayout")}}
       <td class="uk-padding-remove-right {{this.highlightClasses}}"></td>
-      <td class="uk-padding-remove-right {{this.highlightClassesNFD}}"></td>
+      {{#if (has-feature "workItemList.useColorForNFD")}}
+        <td class="uk-padding-remove-right {{this.highlightClassesNFD}}"></td>
+      {{/if}}
     {{else}}
       <td
         class="uk-table-middle uk-padding-remove-right
