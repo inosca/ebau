@@ -114,19 +114,23 @@ class Attachment(models.Model):
         return display_name
 
     def make_copy_with_new_file(self, new_file, group, user):
+        display_name = (
+            self.context.get("displayName").replace(".docx", ".pdf")
+            if self.context.get("displayName")
+            else None
+        )
+
         copy = Attachment.objects.create(
             path=new_file,
             instance=self.instance,
-            name=self.display_name.replace(".docx", ".pdf")
-            if self.display_name
-            else new_file.name,
+            name=new_file.name,
             size=new_file.size,
             user=user,
             mime_type=mimetypes.guess_type(new_file.name)[0],
             date=now(),
             group=group,
             service=group.service,
-            context={**self.context, "displayName": None},
+            context={**self.context, "displayName": display_name},
         )
         copy.attachment_sections.set(self.attachment_sections.all())
         copy.save()
