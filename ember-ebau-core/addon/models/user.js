@@ -5,6 +5,10 @@ export default class UserModel extends Model {
   @attr surname;
   @attr username;
   @attr email;
+  @attr title;
+  @attr position;
+  @attr phone;
+  @attr mobile;
 
   @belongsTo("service", { inverse: "users", async: true }) service;
   @belongsTo("group", { inverse: null, async: true }) defaultGroup;

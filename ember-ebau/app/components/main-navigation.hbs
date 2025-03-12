@@ -36,7 +36,9 @@
                 <span uk-drop-parent-icon></span>
               {{/if}}
             </a>
-            {{#if this.session.groups.records.length}}
+            {{#if
+              (or this.session.groups.records.length (has-feature "profile"))
+            }}
               <div
                 uk-dropdown
                 animation="uk-animation-slide-top-small"
@@ -58,6 +60,16 @@
                       </a>
                     </li>
                   {{/each}}
+                  {{#if (has-feature "profile")}}
+                    {{#if this.session.groups.records.length}}
+                      <li class="uk-nav-divider"></li>
+                    {{/if}}
+                    <li>
+                      <LinkTo @route={{module-route "profile" "index"}}>
+                        {{t "profile.module-title"}}
+                      </LinkTo>
+                    </li>
+                  {{/if}}
                 </ul>
               </div>
             {{/if}}

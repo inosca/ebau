@@ -95,24 +95,47 @@ class CurrentUserSerializer(UserSerializer):
         "service": "camac.user.serializers.ServiceSerializer",
     }
 
+    def get_extra_kwargs(self):
+        """Override read_only property for editable fields.
+
+        By default, all fields must be read only to make sure updating of an
+        user is only possible for the properties that are explicitly configured
+        and are not being synced with OIDC.
+        """
+
+        extra_kwargs = super().get_extra_kwargs()
+
+        for field_name in settings.USER.get("ALLOWED_WRITE_ATTRIBUTES", []):
+            if (
+                field_name in settings.APPLICATION.get("OIDC_SYNC_USER_ATTRIBUTES")
+                or field_name not in extra_kwargs
+            ):
+                continue
+
+            extra_kwargs[field_name]["read_only"] = False
+
+        return extra_kwargs
+
     class Meta(UserSerializer.Meta):
         fields = UserSerializer.Meta.fields + (
             "groups",
             "default_group",
-            "phone",
-            "email",
             "address",
             "zip",
             "city",
+            "title",
+            "position",
+            "mobile",
         )
-        read_only_fields = (
+        read_only_fields = UserSerializer.Meta.fields + (
             "groups",
             "default_group",
-            "phone",
-            "email",
             "address",
             "zip",
             "city",
+            "title",
+            "position",
+            "mobile",
         )
 
 
@@ -148,6 +171,7 @@ class LocationSerializer(serializers.ModelSerializer):
 class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     city = MultilingualField()
     description = MultilingualField()
+    department = MultilingualField(required=False)
     users = relations.SerializerMethodResourceRelatedField(
         source="get_users", model=models.User, read_only=True, many=True
     )
@@ -213,6 +237,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
         name = validated_data["name"]
         city = validated_data["city"]
         description = validated_data["description"]
+        department = validated_data.get("department", None)
 
         validated_data["service_parent"] = parent
         validated_data["service_group"] = parent.service_group
@@ -221,6 +246,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             validated_data.pop("name")
             validated_data.pop("city")
             validated_data.pop("description")
+            validated_data.pop("department", None)
 
         service = super().create(validated_data)
 
@@ -232,6 +258,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
                 name=name,
                 city=city,
                 description=description,
+                department=department,
             )
             # If no translation is defined for a multilingual model in the current language,
             # it uses the fallback language. Create a fallback translation, to ensure that
@@ -244,6 +271,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
                     name=name,
                     city=city,
                     description=description,
+                    department=department,
                 )
 
         # Create a group for each role that is defined as subservice role
@@ -286,10 +314,14 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
         old_city = instance.get_trans_attr("city")
         new_city = validated_data.get("city", old_city)
 
+        old_department = instance.get_trans_attr("department")
+        new_department = validated_data.get("department", old_department)
+
         if settings.APPLICATION.get("IS_MULTILINGUAL"):
             validated_data.pop("name", None)
             validated_data.pop("description", None)
             validated_data.pop("city", None)
+            validated_data.pop("department", None)
 
         instance = super().update(instance, validated_data)
 
@@ -307,6 +339,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
                     old_name == new_name,
                     old_description == new_description,
                     old_city == new_city,
+                    old_department == new_department,
                 )
             )
             and not create_new_translation
@@ -325,11 +358,13 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
                     name=new_name,
                     city=new_city,
                     description=new_description,
+                    department=new_department,
                 )
             elif service_t:
                 service_t.name = new_name
                 service_t.description = new_description
                 service_t.city = new_city
+                service_t.department = new_department
                 service_t.save()
 
         if old_name != new_name and settings.APPLICATION.get(
@@ -376,6 +411,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "disabled",
             "logo",
             "slug",
+            "department",
         )
         read_only_fields = (
             "users",

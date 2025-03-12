@@ -14,7 +14,10 @@
       "last_login": "2024-12-20T08:38:04.950Z",
       "address": null,
       "city": null,
-      "zip": null
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null
     }
   },
   {
@@ -7899,6 +7902,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7922,6 +7926,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7945,6 +7950,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7968,6 +7974,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7991,6 +7998,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8014,6 +8022,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8037,6 +8046,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8060,6 +8070,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8083,6 +8094,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8106,6 +8118,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8129,6 +8142,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8152,6 +8166,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8175,6 +8190,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8198,6 +8214,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8221,6 +8238,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8244,6 +8262,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8267,6 +8286,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8290,6 +8310,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8313,6 +8334,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8336,6 +8358,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8359,6 +8382,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8382,6 +8406,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8405,6 +8430,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8428,6 +8454,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8451,6 +8478,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8474,6 +8502,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8497,6 +8526,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8520,6 +8550,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8543,6 +8574,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8566,6 +8598,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8589,6 +8622,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8612,6 +8646,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8635,6 +8670,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8658,6 +8694,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8681,6 +8718,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8704,6 +8742,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8727,6 +8766,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8750,6 +8790,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8773,6 +8814,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8796,6 +8838,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8819,6 +8862,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8842,6 +8886,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8865,6 +8910,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8888,6 +8934,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8911,6 +8958,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8934,6 +8982,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8957,6 +9006,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8980,6 +9030,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9003,6 +9054,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9026,6 +9078,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9049,6 +9102,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9072,6 +9126,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9095,6 +9150,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9118,6 +9174,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9141,6 +9198,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9164,6 +9222,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9187,6 +9246,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9210,6 +9270,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9233,6 +9294,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9256,6 +9318,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9279,6 +9342,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9302,6 +9366,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9325,6 +9390,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9348,6 +9414,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9371,6 +9438,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9394,6 +9462,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9417,6 +9486,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9440,6 +9510,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": "4254"
     }
   },
@@ -9463,6 +9534,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9486,6 +9558,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9509,6 +9582,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9532,6 +9606,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9555,6 +9630,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9578,6 +9654,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9601,6 +9678,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9624,6 +9702,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9647,6 +9726,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9670,6 +9750,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9693,6 +9774,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9716,6 +9798,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9727,7 +9810,8 @@
       "language": "de",
       "name": "Abteilung für Baubewilligungen",
       "description": "Abteilung für Baubewilligungen",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9738,7 +9822,8 @@
       "language": "de",
       "name": "UVP / Überprüfung UVP-Pflicht",
       "description": "UVP / Überprüfung UVP-Pflicht",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9749,7 +9834,8 @@
       "language": "de",
       "name": "Aargauische Gebäudeversicherung Brandschutz (AGV BS)",
       "description": "Aargauische Gebäudeversicherung Brandschutz (AGV BS)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9760,7 +9846,8 @@
       "language": "de",
       "name": "Aargauische Gebäudeversicherung Elementarschaden (AGV ESP)",
       "description": "Aargauische Gebäudeversicherung Elementarschaden (AGV ESP)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9771,7 +9858,8 @@
       "language": "de",
       "name": "Aargauer Wanderwege (AWW)",
       "description": "Aargauer Wanderwege (AWW)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9782,7 +9870,8 @@
       "language": "de",
       "name": "Kantonale Denkmalpflege (BKS DP)",
       "description": "Kantonale Denkmalpflege (BKS DP)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9793,7 +9882,8 @@
       "language": "de",
       "name": "Kantonsarchäologie (BKS KA)",
       "description": "Kantonsarchäologie (BKS KA)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9804,7 +9894,8 @@
       "language": "de",
       "name": "Abteilung Energie (BVU AE)",
       "description": "Abteilung Energie (BVU AE)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9815,7 +9906,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Abfall (BVU AFU AAUO Abf)",
       "description": "Abteilung für Umwelt Abfall (BVU AFU AAUO Abf)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9826,7 +9918,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Altlasten (BVU AFU AAUO Altl)",
       "description": "Abteilung für Umwelt Altlasten (BVU AFU AAUO Altl)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9837,7 +9930,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Oberflächengewässer (BVU AFU AAUO O)",
       "description": "Abteilung für Umwelt Oberflächengewässer (BVU AFU AAUO O)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9848,7 +9942,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Abwasser und Kanalisation (BVU AFU AS AK)",
       "description": "Abteilung für Umwelt Abwasser und Kanalisation (BVU AFU AS AK)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9859,7 +9954,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Entwässerung (BVU AFU AS E)",
       "description": "Abteilung für Umwelt Entwässerung (BVU AFU AS E)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9870,7 +9966,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Entwässerung IG (BVU AFU AS EIG)",
       "description": "Abteilung für Umwelt Entwässerung IG (BVU AFU AS EIG)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9881,7 +9978,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Tank (BVU AFU AS T)",
       "description": "Abteilung für Umwelt Tank (BVU AFU AS T)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9892,7 +9990,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Boden (BVU AFU GBG B)",
       "description": "Abteilung für Umwelt Boden (BVU AFU GBG B)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9903,7 +10002,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Erdwärmesonden (BVU AFU GBG E)",
       "description": "Abteilung für Umwelt Erdwärmesonden (BVU AFU GBG E)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9914,7 +10014,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Grundwasser (BVU AFU GBG G)",
       "description": "Abteilung für Umwelt Grundwasser (BVU AFU GBG G)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9925,7 +10026,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Materialabbau (BVU AFU GBG M)",
       "description": "Abteilung für Umwelt Materialabbau (BVU AFU GBG M)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9936,7 +10038,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Luftreinhaltung (BVU AFU LLN LUF)",
       "description": "Abteilung für Umwelt Luftreinhaltung (BVU AFU LLN LUF)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9947,7 +10050,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt Lärmschutz (BVU AFU LLN LAE)",
       "description": "Abteilung für Umwelt Lärmschutz (BVU AFU LLN LAE)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9958,7 +10062,8 @@
       "language": "de",
       "name": "Abteilung für Umwelt NIS (BVU AFU LLN NIS)",
       "description": "Abteilung für Umwelt NIS (BVU AFU LLN NIS)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9969,7 +10074,8 @@
       "language": "de",
       "name": "Abteilung Landschaft und Gewässer Gewässernutzung (BVU ALG GN)",
       "description": "Abteilung Landschaft und Gewässer Gewässernutzung (BVU ALG GN)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9980,7 +10086,8 @@
       "language": "de",
       "name": "Abteilung Landschaft und Gewässer Natur und Landschaft (BVU ALG NL)",
       "description": "Abteilung Landschaft und Gewässer Natur und Landschaft (BVU ALG NL)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -9991,7 +10098,8 @@
       "language": "de",
       "name": "Abteilung Landschaft und Gewässer Wasserbau (BVU ALG WB)",
       "description": "Abteilung Landschaft und Gewässer Wasserbau (BVU ALG WB)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10002,7 +10110,8 @@
       "language": "de",
       "name": "Abteilung Raumentwicklung FSO (BVU ARE FSO)",
       "description": "Abteilung Raumentwicklung FSO (BVU ARE FSO)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10013,7 +10122,8 @@
       "language": "de",
       "name": "Abteilung Raumentwicklung Kreisplaner (BVU ARE KP)",
       "description": "Abteilung Raumentwicklung Kreisplaner (BVU ARE KP)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10024,7 +10134,8 @@
       "language": "de",
       "name": "Abteilung Tiefbau Erhaltungsmanagement (BVU ATB EM)",
       "description": "Abteilung Tiefbau Erhaltungsmanagement (BVU ATB EM)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10035,7 +10146,8 @@
       "language": "de",
       "name": "Abteilung Tiefbau Historische Verkehrswege (BVU ATB IVS)",
       "description": "Abteilung Tiefbau Historische Verkehrswege (BVU ATB IVS)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10046,7 +10158,8 @@
       "language": "de",
       "name": "Abteilung Tiefbau Kreisingenieur (BVU ATB KI)",
       "description": "Abteilung Tiefbau Kreisingenieur (BVU ATB KI)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10057,7 +10170,8 @@
       "language": "de",
       "name": "Abteilung Tiefbau Landerwerb (BVU ATB LE)",
       "description": "Abteilung Tiefbau Landerwerb (BVU ATB LE)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10068,7 +10182,8 @@
       "language": "de",
       "name": "Abteilung Tiefbau Realisierung (BVU ATB RE)",
       "description": "Abteilung Tiefbau Realisierung (BVU ATB RE)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10079,7 +10194,8 @@
       "language": "de",
       "name": "Abteilung Tiefbau Verkehrsmanagement (BVU ATB VM)",
       "description": "Abteilung Tiefbau Verkehrsmanagement (BVU ATB VM)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10090,7 +10206,8 @@
       "language": "de",
       "name": "Abteilung Verkehr Fuss- und Veloverkehr (BVU AV FVV)",
       "description": "Abteilung Verkehr Fuss- und Veloverkehr (BVU AV FVV)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10101,7 +10218,8 @@
       "language": "de",
       "name": "Abteilung Verkehr öffentlicher Verkehr (BVU AVK OEV)",
       "description": "Abteilung Verkehr öffentlicher Verkehr (BVU AVK OEV)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10112,7 +10230,8 @@
       "language": "de",
       "name": "Abteilung Verkehr Verkehrsplanung (BVU AVK VP)",
       "description": "Abteilung Verkehr Verkehrsplanung (BVU AVK VP)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10123,7 +10242,8 @@
       "language": "de",
       "name": "Abteilung Wald Forstkreise (BVU AW KF)",
       "description": "Abteilung Wald Forstkreise (BVU AW KF)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10134,7 +10254,8 @@
       "language": "de",
       "name": "Abteilung Wald Jagd und Fischerei (BVU AW JF)",
       "description": "Abteilung Wald Jagd und Fischerei (BVU AW JF)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10145,7 +10266,8 @@
       "language": "de",
       "name": "Landwirtschaft Aargau (LWAG)",
       "description": "Landwirtschaft Aargau (LWAG)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10156,7 +10278,8 @@
       "language": "de",
       "name": "Lebensmittelinspektorat (DGS AVS LMI)",
       "description": "Lebensmittelinspektorat (DGS AVS LMI)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10167,7 +10290,8 @@
       "language": "de",
       "name": "Trinkwasserinspektor (DGS AVS WAS)",
       "description": "Trinkwasserinspektor (DGS AVS WAS)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10178,7 +10302,8 @@
       "language": "de",
       "name": "Chemiesicherheit (DGS AVS CS)",
       "description": "Chemiesicherheit (DGS AVS CS)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10189,7 +10314,8 @@
       "language": "de",
       "name": "Veterinärdienst (DGS AVS VET)",
       "description": "Veterinärdienst (DGS AVS VET)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10200,7 +10326,8 @@
       "language": "de",
       "name": "Amt für Wirtschaft und Arbeit (DVI AWA IGA)",
       "description": "Amt für Wirtschaft und Arbeit (DVI AWA IGA)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10211,7 +10338,8 @@
       "language": "de",
       "name": "Amt für Militär- und Bevölkerungsschutz (AMB)",
       "description": "Amt für Militär- und Bevölkerungsschutz (AMB)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10222,7 +10350,8 @@
       "language": "de",
       "name": "AEW Energie AG (AEW)",
       "description": "AEW Energie AG (AEW)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10233,7 +10362,8 @@
       "language": "de",
       "name": "Bundesamt für Strassen (ASTRA)",
       "description": "Bundesamt für Strassen (ASTRA)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10244,7 +10374,8 @@
       "language": "de",
       "name": "Aargau Verkehr AG (AVA)",
       "description": "Aargau Verkehr AG (AVA)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10255,7 +10386,8 @@
       "language": "de",
       "name": "AXPO Grid AG (AXPO)",
       "description": "AXPO Grid AG (AXPO)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10266,7 +10398,8 @@
       "language": "de",
       "name": "Eidgenössischer Schiessoffizier (ESO)",
       "description": "Eidgenössischer Schiessoffizier (ESO)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10277,7 +10410,8 @@
       "language": "de",
       "name": "Eidgenössiches Starkstorminspektorat (ESTI)",
       "description": "Eidgenössiches Starkstorminspektorat (ESTI)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10288,7 +10422,8 @@
       "language": "de",
       "name": "Gasverbund Mittelland AG (GVM)",
       "description": "Gasverbund Mittelland AG (GVM)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10299,7 +10434,8 @@
       "language": "de",
       "name": "SBB",
       "description": "SBB",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10310,7 +10446,8 @@
       "language": "de",
       "name": "Technisches Inspektorat des Schweizerischen Gasfachs (TISG)",
       "description": "Technisches Inspektorat des Schweizerischen Gasfachs (TISG)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10321,7 +10458,8 @@
       "language": "de",
       "name": "Gemeinde Aarburg",
       "description": "Gemeinde Aarburg",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10332,7 +10470,8 @@
       "language": "de",
       "name": "Gemeinde Abtwil",
       "description": "Gemeinde Abtwil",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10343,7 +10482,8 @@
       "language": "de",
       "name": "Gemeinde Arni",
       "description": "Gemeinde Arni",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10354,7 +10494,8 @@
       "language": "de",
       "name": "Gemeinde Biberstein",
       "description": "Gemeinde Biberstein",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10365,7 +10506,8 @@
       "language": "de",
       "name": "Gemeinde Dietwil",
       "description": "Gemeinde Dietwil",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10376,7 +10518,8 @@
       "language": "de",
       "name": "Gemeinde Endingen",
       "description": "Gemeinde Endingen",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10387,7 +10530,8 @@
       "language": "de",
       "name": "Gemeinde Fischbach-Göslikon",
       "description": "Gemeinde Fischbach-Göslikon",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10398,7 +10542,8 @@
       "language": "de",
       "name": "Gemeinde Freienwil",
       "description": "Gemeinde Freienwil",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10409,7 +10554,8 @@
       "language": "de",
       "name": "Gemeinde Hellikon",
       "description": "Gemeinde Hellikon",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10420,7 +10566,8 @@
       "language": "de",
       "name": "Gemeinde Lengnau",
       "description": "Gemeinde Lengnau",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10431,7 +10578,8 @@
       "language": "de",
       "name": "Gemeinde Meisterschwanden",
       "description": "Gemeinde Meisterschwanden",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10442,7 +10590,8 @@
       "language": "de",
       "name": "Gemeinde Menziken",
       "description": "Gemeinde Menziken",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10453,7 +10602,8 @@
       "language": "de",
       "name": "Gemeinde Mettauertal",
       "description": "Gemeinde Mettauertal",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10464,7 +10614,8 @@
       "language": "de",
       "name": "Gemeinde Möhlin",
       "description": "Gemeinde Möhlin",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10475,7 +10626,8 @@
       "language": "de",
       "name": "Gemeinde Mülligen",
       "description": "Gemeinde Mülligen",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10486,7 +10638,8 @@
       "language": "de",
       "name": "Gemeinde Obermumpf",
       "description": "Gemeinde Obermumpf",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10497,7 +10650,8 @@
       "language": "de",
       "name": "Gemeinde Oberwil-Lieli",
       "description": "Gemeinde Oberwil-Lieli",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10508,7 +10662,8 @@
       "language": "de",
       "name": "Gemeinde Olsberg",
       "description": "Gemeinde Olsberg",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10519,7 +10674,8 @@
       "language": "de",
       "name": "Gemeinde Riniken",
       "description": "Gemeinde Riniken",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10530,7 +10686,8 @@
       "language": "de",
       "name": "Gemeinde Tägerig",
       "description": "Gemeinde Tägerig",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10541,7 +10698,8 @@
       "language": "de",
       "name": "Gemeinde Tegerfelden",
       "description": "Gemeinde Tegerfelden",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10552,7 +10710,8 @@
       "language": "de",
       "name": "Gemeinde Wallbach",
       "description": "Gemeinde Wallbach",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10563,7 +10722,8 @@
       "language": "de",
       "name": "Gemeinde Würenlingen",
       "description": "Gemeinde Würenlingen",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10574,7 +10734,8 @@
       "language": "de",
       "name": "Gemeinde Zuzgen",
       "description": "Gemeinde Zuzgen",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10585,7 +10746,8 @@
       "language": "de",
       "name": "Gemeinde Mölin",
       "description": "Gemeinde Mölin",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -10596,7 +10758,8 @@
       "language": "de",
       "name": "Leitbehörde PGV",
       "description": "Leitbehörde PGV",
-      "city": null
+      "city": null,
+      "department": null
     }
   }
 ]

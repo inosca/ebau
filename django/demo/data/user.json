@@ -14,7 +14,10 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null
     }
   },
   {
@@ -32,7 +35,10 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null
     }
   },
   {

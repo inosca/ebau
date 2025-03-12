@@ -35,6 +35,24 @@
         </div>
       {{/if}}
     </div>
+    {{#if
+      (and (not this.serviceParent) (has-feature "organisation.department"))
+    }}
+      <div class="uk-margin">
+        <label class="uk-form-label uk-text-bold" for="department">
+          {{t "service-permissions.department"}}
+        </label>
+        <div class="uk-form-controls">
+          <Input
+            @type="text"
+            @value={{this.service.value.department}}
+            class="uk-input"
+            name="department"
+            id="department"
+          />
+        </div>
+      </div>
+    {{/if}}
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="email">
         {{t "service-permissions.email"}}

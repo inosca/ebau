@@ -1035,6 +1035,11 @@ def test_dms_placeholders_ag(
         '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}, {"x": 2609995.12345,"y": 1271340.12345}] }',
     )
 
+    # Current service
+    service_t = service.trans.first()
+    service_t.department = "Departement Bau, Verkehr und Umwelt"
+    service_t.save()
+
     # Responsible user
     responsible_service_factory(
         instance=ag_instance,
@@ -1043,6 +1048,9 @@ def test_dms_placeholders_ag(
         responsible_user__surname="Doe",
         responsible_user__email="john.doe@acme.com",
         responsible_user__phone="012 345 67 89",
+        responsible_user__title="Master of Science",
+        responsible_user__position="Projektleiter",
+        responsible_user__mobile="079 345 67 89",
     )
 
     # Information of neighbors

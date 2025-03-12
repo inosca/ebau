@@ -32,4 +32,8 @@ export default {
   dms: {
     hideDownloadButton: true,
   },
+  profile: true,
+  organisation: {
+    department: true,
+  },
 };

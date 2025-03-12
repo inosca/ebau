@@ -419,6 +419,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -442,6 +443,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -487,7 +489,8 @@
       "language": "de",
       "name": "Leitbehörde Burgdorf",
       "description": "Leitbehörde Burgdorf",
-      "city": "Burgdorf"
+      "city": "Burgdorf",
+      "department": null
     }
   },
   {
@@ -498,7 +501,8 @@
       "language": "de",
       "name": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
       "description": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
+      "city": "Bern",
+      "department": null
     }
   },
   {
@@ -509,7 +513,8 @@
       "language": "fr",
       "name": "Autorité directrice Burgdorf",
       "description": "Leitbehörde Burgdorf",
-      "city": "Burgdorf"
+      "city": "Burgdorf",
+      "department": null
     }
   },
   {
@@ -520,7 +525,8 @@
       "language": "fr",
       "name": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
       "description": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
+      "city": "Bern",
+      "department": null
     }
   }
 ]

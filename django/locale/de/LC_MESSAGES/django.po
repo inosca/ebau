@@ -85,7 +85,7 @@ msgstr "nicht MwSt-pflichtig"
 msgid "VAT type"
 msgstr "MwSt-Typ"
 
-#: camac/billing/models.py camac/billing/serializers.py
+#: camac/billing/models.py camac/billing/serializers.py camac/user/models.py
 msgid "Position"
 msgstr "Position"
 
@@ -1739,6 +1739,14 @@ msgid "Zip"
 msgstr "PLZ"
 
 #: camac/user/models.py
+msgid "Title"
+msgstr "Titel"
+
+#: camac/user/models.py
+msgid "Mobile"
+msgstr "Mobile"
+
+#: camac/user/models.py
 msgid "Role"
 msgstr "Rolle"
 
@@ -1785,6 +1793,10 @@ msgstr ""
 #: camac/user/models.py
 msgid "Apply responsibility in construction control?"
 msgstr "Zuständigkeit in Baukontrolle übernehmen?"
+
+#: camac/user/models.py
+msgid "Department"
+msgstr "Departement"
 
 #: camac/user/models.py
 msgid "External identifier"

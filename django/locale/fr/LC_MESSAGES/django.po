@@ -76,7 +76,7 @@ msgstr "non soumis à la TVA"
 msgid "VAT type"
 msgstr ""
 
-#: camac/billing/models.py camac/billing/serializers.py
+#: camac/billing/models.py camac/billing/serializers.py camac/user/models.py
 msgid "Position"
 msgstr "Position"
 
@@ -1751,6 +1751,14 @@ msgid "Zip"
 msgstr "Code postal"
 
 #: camac/user/models.py
+msgid "Title"
+msgstr ""
+
+#: camac/user/models.py
+msgid "Mobile"
+msgstr ""
+
+#: camac/user/models.py
 msgid "Role"
 msgstr "Rôle"
 
@@ -1797,6 +1805,10 @@ msgstr ""
 #: camac/user/models.py
 msgid "Apply responsibility in construction control?"
 msgstr "Reprendre la compétence dans le contrôle de la construction ?"
+
+#: camac/user/models.py
+msgid "Department"
+msgstr ""
 
 #: camac/user/models.py
 msgid "External identifier"

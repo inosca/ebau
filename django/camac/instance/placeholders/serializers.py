@@ -2142,6 +2142,27 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("RESPONSIBLE_AUTHORITY")],
         description=_("Responsible authority for PGV dossiers"),
     )
+    zustaendig_titel = fields.ResponsibleUserField(
+        source="title",
+        aliases=[_("RESPONSIBLE_TITLE")],
+        description=_("Title of the responsible employee"),
+    )
+    zustaendig_position = fields.ResponsibleUserField(
+        source="position",
+        aliases=[_("RESPONSIBLE_POSITION")],
+        description=_("Position of the responsible employee"),
+    )
+    zustaendig_mobile = fields.ResponsibleUserField(
+        source="mobile",
+        aliases=[_("RESPONSIBLE_MOBILE")],
+        description=_("Mobile of the responsible employee"),
+    )
+    meine_organisation_departement = fields.CurrentServiceField(
+        source="get_trans_attr",
+        source_args=["department"],
+        aliases=[_("CURRENT_SERVICE_DEPARTMENT")],
+        description=_("Department of the current service"),
+    )
 
     def get_koordinaten(self, instance):
         return get_koordinaten_by_json_props(instance, "markers")

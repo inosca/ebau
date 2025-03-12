@@ -10,6 +10,7 @@ import registerDossierImport from "ember-ebau-core/modules/dossier-import";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerLinkedInstances from "ember-ebau-core/modules/linked-instances";
 import registerPermissions from "ember-ebau-core/modules/permissions";
+import registerProfile from "ember-ebau-core/modules/profile";
 import registerPublication from "ember-ebau-core/modules/publication";
 import registerRejection from "ember-ebau-core/modules/rejection";
 import registerResponsible from "ember-ebau-core/modules/responsible";
@@ -94,6 +95,7 @@ Router.map(function () {
     registerDossierImport(this, { resetNamespace });
     registerSnippetsAdmin(this, { resetNamespace });
     registerSnippets(this, { resetNamespace });
+    registerProfile(this, { resetNamespace });
     this.route("documents", { resetNamespace }, function () {
       this.mount("ember-alexandria", {
         as: "alexandria",

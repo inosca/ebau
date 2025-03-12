@@ -1,0 +1,13 @@
+profile:
+  module-title: Mein Profil
+  username: Benutzername
+  email: E-Mail
+  first-name: Vorname
+  last-name: Nachname
+  title: Titel
+  position: Position
+  phone: Telefon
+  mobile: Mobile
+
+  success: Die Profildaten wurden erfolgreich gespeichert
+  error: Fehler beim Speichern der Profildaten

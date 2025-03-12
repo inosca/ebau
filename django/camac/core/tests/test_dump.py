@@ -58,6 +58,13 @@ def test_dump_and_load(
             filename = filepath.split("/")[-1]
             test_filepath = outdir / filename
 
+            # Uncomment this if you want to update the dumps for all cantons.
+            # This can be useful if you added a new property on a model and
+            # don't want to start up all the cantons separately.
+
+            # with open(test_filepath, "r") as test_dumped, open(filepath, "w") as dumped:
+            #     dumped.write(test_dumped.read())
+
             with open(test_filepath, "r") as test_dumped, open(filepath, "r") as dumped:
                 #  verify that dump is still the same
                 assert json.load(test_dumped) == json.load(dumped), (

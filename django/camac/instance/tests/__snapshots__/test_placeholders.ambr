@@ -1450,6 +1450,7 @@
     'LEITBEHOERDE_WEBSEITE': '',
     'MEINE_ORGANISATION_ADRESSE_1': '',
     'MEINE_ORGANISATION_ADRESSE_2': 'Johnsburgh',
+    'MEINE_ORGANISATION_DEPARTEMENT': 'Departement Bau, Verkehr und Umwelt',
     'MEINE_ORGANISATION_EMAIL': 'michelleboone@example.org',
     'MEINE_ORGANISATION_NAME': 'John Thomas',
     'MEINE_ORGANISATION_NAME_ADRESSE': 'John Thomas, Johnsburgh',
@@ -1492,9 +1493,12 @@
     ]),
     'ZUSTAENDIGE_BEHOERDE': 'Eidg. Starkstrominspektorat, Luppmenstrasse 1, 8320 Fehraltorf',
     'ZUSTAENDIG_EMAIL': 'john.doe@acme.com',
+    'ZUSTAENDIG_MOBILE': '079 345 67 89',
     'ZUSTAENDIG_NAME': 'John Doe',
     'ZUSTAENDIG_PHONE': '012 345 67 89',
+    'ZUSTAENDIG_POSITION': 'Projektleiter',
     'ZUSTAENDIG_TELEFON': '012 345 67 89',
+    'ZUSTAENDIG_TITEL': 'Master of Science',
   })
 # ---
 # name: test_dms_placeholders_docs[be_dms_config]

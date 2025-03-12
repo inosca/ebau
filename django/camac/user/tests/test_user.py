@@ -214,3 +214,48 @@ def test_user_keycloak_apply(
             answers.get(question_id="name-gesuchstellerin").value
             == token_value["family_name"]
         )
+
+
+def test_me_patch(admin_client, admin_user, user_settings, application_settings):
+    user_settings["ALLOWED_WRITE_ATTRIBUTES"] = [
+        "title",
+        "position",
+        "phone",
+        "mobile",
+        "surname",
+    ]
+    application_settings["OIDC_SYNC_USER_ATTRIBUTES"] = ["surname"]
+
+    response = admin_client.patch(
+        reverse("me"),
+        data={
+            "data": {
+                "id": admin_user.pk,
+                "type": "users",
+                "attributes": {
+                    "title": "Master of Science",
+                    "position": "Project manager",
+                    "phone": "+41 32 999 99 99",
+                    "mobile": "+41 79 999 99 99",
+                    # In writable properties but also in OIDC sync properties,
+                    # should not be updated
+                    "surname": "Doe",
+                    # Not in writable properties, should not be updated
+                    "name": "John",
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    admin_user.refresh_from_db()
+
+    assert admin_user.title == "Master of Science"
+    assert admin_user.position == "Project manager"
+    assert admin_user.phone == "+41 32 999 99 99"
+    assert admin_user.mobile == "+41 79 999 99 99"
+
+    # Properties that are not allowed for updates are being ignored
+    assert admin_user.surname != "Doe"
+    assert admin_user.name != "John"

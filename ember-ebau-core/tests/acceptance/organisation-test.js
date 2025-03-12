@@ -1,17 +1,17 @@
-import Service from "@ember/service";
 import { visit, fillIn, click } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { t } from "ember-intl/test-support";
-import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
-import { setupApplicationTest } from "camac-ng/tests/helpers";
+import { setupApplicationTest } from "dummy/tests/helpers";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 const SERVICE_ID = 1;
 
 const DATA = {
   id: String(SERVICE_ID),
   name: "ACME",
+  department: "Foobar",
   phone: "+41 79 999 99 99",
   zip: "3000",
   city: "Bern",
@@ -31,27 +31,23 @@ const DATA = {
 
 DATA.description = DATA.name;
 
-class FakeShoebox extends Service {
-  get content() {
-    return { serviceId: SERVICE_ID };
-  }
-}
-
 module("Acceptance | organisation", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
+  setupFeatures(hooks);
 
   hooks.beforeEach(async function () {
-    this.owner.register("service:shoebox", FakeShoebox);
+    this.features.enable("organisation.department");
+
+    this.owner.lookup("service:ebau-modules").serviceId = SERVICE_ID;
 
     this.server.create("service", { id: SERVICE_ID, name: DATA.name });
-
-    await authenticateSession();
   });
 
   test("can edit the own organisation", async function (assert) {
     await visit("/service-permissions/organisation");
 
+    await fillIn("input[name=department]", DATA.department);
     await fillIn("input[name=phone]", DATA.phone);
     await fillIn("input[name=zip]", DATA.zip);
     await fillIn("input[name=city]", DATA.city);
@@ -69,9 +65,11 @@ module("Acceptance | organisation", function (hooks) {
       DATA,
     );
 
-    assert.dom(".uk-alert.uk-alert-success").exists({ count: 1 });
     assert
-      .dom(".uk-alert.uk-alert-success")
+      .dom(".uk-notification-message.uk-notification-message-success")
+      .exists({ count: 1 });
+    assert
+      .dom(".uk-notification-message.uk-notification-message-success")
       .containsText(t("service-permissions.organisation-save-success"));
   });
 });

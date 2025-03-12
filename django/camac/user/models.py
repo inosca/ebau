@@ -91,6 +91,24 @@ class User(AbstractBaseUser):
         related_name="users",
         through_fields=("user", "group"),
     )
+    title = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        verbose_name=_("Title"),
+    )
+    position = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        verbose_name=_("Position"),
+    )
+    mobile = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name=_("Mobile"),
+    )
 
     @property
     def is_superuser(self):
@@ -635,6 +653,12 @@ class Service(core_models.MultilingualModel, models.Model):
     responsibility_construction_control = models.BooleanField(
         default=False, verbose_name=_("Apply responsibility in construction control?")
     )
+    department = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name=_("Department"),
+    )
 
     # An external identifier is a unique identifier which is does not live in
     # our system. This could be a number of things like e.g. the BfS number for
@@ -684,6 +708,12 @@ class ServiceT(models.Model):
     )
     city = models.CharField(
         db_column="CITY", max_length=100, blank=True, null=True, verbose_name=_("City")
+    )
+    department = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name=_("Department"),
     )
 
     class Meta:
