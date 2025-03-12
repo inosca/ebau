@@ -84,6 +84,7 @@ services:
   django-webdav:
     <<: *django
     command: webdav
+    ports: []
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
