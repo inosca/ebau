@@ -35,7 +35,7 @@ def test_swagger_schema(
     caplog,
     reload_ech0211_urls,
 ):
-    response = admin_client.get(reverse("schema-json", args=[".json"]))
+    response = admin_client.get(reverse("schema-json", args=["json"]))
     assert response.status_code == status.HTTP_200_OK
     assert not len(caplog.messages)
 
@@ -58,7 +58,7 @@ def test_swagger_paths(
         request.getfixturevalue("disable_ech0211_settings")
 
     request.getfixturevalue("reload_ech0211_urls")
-    response = admin_client.get(reverse("schema-json", args=[".json"]))
+    response = admin_client.get(reverse("schema-json", args=["json"]))
     result = response.json()
 
     assert sorted(set(result["paths"].keys())) == snapshot
