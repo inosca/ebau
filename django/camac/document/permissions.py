@@ -541,6 +541,7 @@ def special_permissions_uri(group):
         return {
             uri_constants.MUNICIPALITY_SERVICE_ATTACHMENT_SECTION_ID: AdminServicePermission,
             uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission,
+            uri_constants.ARE_ATTACHMENT_SECTION_ID: AdminServicePermission,
         }
     elif group.group_id == uri_constants.KOOR_BD_GROUP_ID:
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
