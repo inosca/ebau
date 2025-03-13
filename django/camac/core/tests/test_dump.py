@@ -10,9 +10,17 @@ from django.core.management import call_command
 from camac.core.models import Resource
 
 
+@pytest.mark.order(1)  # Always run this test first
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
 def test_dump_and_load(
-    db, application, request, resource_factory, settings, tmp_path, mocker
+    db,
+    transactional_db,
+    application,
+    request,
+    resource_factory,
+    settings,
+    tmp_path,
+    mocker,
 ):
     # test data might contain files - we don't want thumbnails to be
     # created here

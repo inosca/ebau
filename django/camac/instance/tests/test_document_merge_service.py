@@ -8,7 +8,6 @@ from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFact
 from caluma.caluma_form.models import DynamicOption, Question
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
-from django.core.cache import cache
 from django.core.management import call_command
 from django.utils.timezone import make_aware
 from django.utils.translation import gettext as _
@@ -77,9 +76,11 @@ def ch_locale():
     locale.setlocale(locale.LC_ALL, "")
 
 
+@pytest.mark.order(2)
 @pytest.mark.freeze_time("2023-01-06 16:10")
 def test_document_merge_service_snapshot(
     db,
+    transactional_db,
     application_settings,
     caluma_form_fixture,
     django_assert_num_queries,
@@ -110,17 +111,10 @@ def test_document_merge_service_snapshot(
             visitor = DMSVisitor(root_document, instance, BaseUser())
             snapshot.assert_match(visitor.build_form_structure())
 
-
-def test_document_merge_service_is_valid(db, caluma_form_fixture, be_dms_settings):
-    cache.clear()
-
-    instance, root_document = DMSHandler().get_instance_and_document(instance_id=1)
-
-    assert DMSVisitor(root_document, instance, BaseUser()).is_valid()
-
-    root_document.answers.all().delete()
-
-    assert not DMSVisitor(root_document, instance, BaseUser()).is_valid()
+        if kwargs.get("instance_id") == 1:
+            assert DMSVisitor(root_document, instance, BaseUser()).is_valid()
+            root_document.answers.all().delete()
+            assert not DMSVisitor(root_document, instance, BaseUser()).is_valid()
 
 
 def test_document_merge_service_client(db, requests_mock):
