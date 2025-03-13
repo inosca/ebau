@@ -112,6 +112,7 @@ INSTALLED_APPS = [
     "camac.gis.apps.GisConfig",
     "camac.billing.apps.BillingConfig",
     "camac.eeba_integration.apps.EebaIntegrationConfig",
+    "camac.invoices.apps.InvoicesConfig",
     "sorl.thumbnail",
     "django_clamd",
     "django_q",
@@ -3355,6 +3356,7 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
     )
 
 
+INVOICES = load_module_settings("invoices")
 APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")

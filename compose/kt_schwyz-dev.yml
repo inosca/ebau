@@ -48,6 +48,7 @@ services:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
     networks:
       - ebau.local
+    command: -c max_locks_per_transaction=128
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -148,6 +149,19 @@ services:
       - MB_DB_USER=camac
       - MB_DB_PASS=camac
       - MB_DB_HOST=db
+    networks:
+      - ebau.local
+
+  ftp:
+    image: garethflowers/ftp-server
+    environment:
+      - FTP_USER=admin
+      - FTP_PASS=admin
+    ports:
+      - "20-21:20-21/tcp"
+      - "40000-40009:40000-40009/tcp" # For passive mode
+    volumes:
+      - "../.ftp-files/:/home/admin/"
     networks:
       - ebau.local
 

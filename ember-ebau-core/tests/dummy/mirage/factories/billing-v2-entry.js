@@ -8,6 +8,7 @@ export default Factory.extend({
   ...commonEntry,
   dateAdded: () => DateTime.fromJSDate(faker.date.past()).toISODate(),
   dateCharged: null,
+  releasedForClearing: null,
 
   group: association(),
   user: association(),

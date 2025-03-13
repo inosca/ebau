@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from decimal import Decimal
+from typing import Any, cast
 
 import pytest
 from django.urls import reverse
@@ -16,7 +17,7 @@ from camac.billing.views import BillingV2EntryViewset
 from camac.instance.models import Instance
 
 
-def test_calculate_final_rate():
+def test_calculate_final_rate() -> None:
     flat = calculate_final_rate(
         calculation=BillingV2Entry.CALCULATION_FLAT, total_cost=Decimal(100)
     )
@@ -65,14 +66,17 @@ def test_calculate_final_rate_ag_processing_fee(
     )
 
 
-def test_add_taxes_to_final_rate():
+def test_add_taxes_to_final_rate() -> None:
     final_rate = Decimal(100)
     tax_rate = Decimal(7.7)
 
-    exclusive = add_taxes_to_final_rate(
-        final_rate=final_rate,
-        tax_mode=BillingV2Entry.TAX_MODE_EXCLUSIVE,
-        tax_rate=tax_rate,
+    exclusive = cast(
+        Decimal,
+        add_taxes_to_final_rate(
+            final_rate=final_rate,
+            tax_mode=BillingV2Entry.TAX_MODE_EXCLUSIVE,
+            tax_rate=tax_rate,
+        ),
     )
     inclusive = add_taxes_to_final_rate(
         final_rate=final_rate,
@@ -96,8 +100,8 @@ def test_add_taxes_to_final_rate():
     assert empty is None
 
 
-def test_get_totals():
-    entries = [
+def test_get_totals() -> None:
+    entries: list[dict[str, Any]] = [
         {
             "final_rate": "210.05",
             "organization": BillingV2Entry.MUNICIPAL,
@@ -156,7 +160,7 @@ def test_billing_entry_list(
     role,
     expected_status,
     expected_count,
-):
+) -> None:
     billing_v2_entry_factory.create_batch(5, instance=instance)
     billing_v2_entry_factory.create_batch(5)
 
@@ -173,7 +177,7 @@ def test_billing_entry_list(
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
-def test_billing_entry_create(db, admin_client, instance):
+def test_billing_entry_create(db, admin_client, instance) -> None:
     url = reverse("billing-v2-entry-list")
     response = admin_client.post(
         url,
@@ -224,7 +228,7 @@ def test_billing_entry_visibilities(
     method,
     expected_count,
     has_access,
-):
+) -> None:
     is_public = role.name == "Public"
     mocker.patch(
         "camac.user.permissions.get_group", return_value=None if is_public else group
@@ -244,6 +248,18 @@ def test_billing_entry_visibilities(
 
 
 @pytest.mark.freeze_time("2023-11-06")
+@pytest.mark.parametrize("role__name", [("Municipality")])
+def test_billing_entry_release_for_clearing(db, admin_client, billing_v2_entry) -> None:
+    url = reverse("billing-v2-entry-release-for-clearing", args=[billing_v2_entry.pk])
+    response = admin_client.patch(url)
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    billing_v2_entry.refresh_from_db()
+    assert billing_v2_entry.released_for_clearing == timezone.now().date()
+
+
+@pytest.mark.freeze_time("2023-11-06")
 @pytest.mark.parametrize(
     "role__name,is_charged,is_other_group,expect_forbidden",
     [
@@ -260,7 +276,7 @@ def test_billing_entry_delete(
     is_other_group,
     expect_forbidden,
     group_factory,
-):
+) -> None:
     if is_charged:
         billing_v2_entry.date_charged = timezone.now().date()
 

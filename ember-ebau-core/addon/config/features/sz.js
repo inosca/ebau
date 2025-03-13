@@ -8,6 +8,9 @@ export default {
     billingType: false,
     legalBasis: false,
     costCenter: false,
+    // Set both to true once wilken is ready or for dev
+    releaseForClearing: false,
+    productNumber: false,
   },
   cases: {
     createPaper: false,

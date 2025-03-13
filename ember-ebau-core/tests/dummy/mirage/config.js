@@ -94,6 +94,15 @@ export default function makeServer(config) {
         },
         204,
       );
+      this.patch(
+        "billing-v2-entries/:id/release-for-clearing",
+        ({ billingV2Entries }, request) => {
+          const entry = billingV2Entries.find(request.params.id);
+          entry.update({ releasedForClearing: DateTime.now().toISO() });
+          return;
+        },
+        204,
+      );
 
       this.resource("communications-topics");
       this.resource("communications-messages");
