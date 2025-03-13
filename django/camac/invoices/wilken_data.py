@@ -205,9 +205,7 @@ class HeaderLine(WilkenRow):
     EII_CHAR10_22: str = "CHF"  # V30_Waehrung
     EII_CHAR10_23: str = "BASIS"  # V30_Preisbasis
     EII_CHAR10_24: str  # V30_Preisstand Datum YYYYMMDD
-    EII_CHAR10_25: str = (
-        "003"  # V30_Skontolinie Skontolinie (i.d.R. 003 bei bestehenden Rechnungen)
-    )
+    EII_CHAR10_25: str = "006"  # V30_Skontolinie Skontolinie (i.d.R. 003 bei bestehenden Rechnungen) Zahlungsfrist
     EII_CHAR10_27: str = "A"  # V30_Rechnungsstatus
     EII_CHAR10_30: str = "0"  # V30_KzBonusJaNein
     EII_CHAR10_31: str = "0"  # V30_KzZuAbschlagJaNein
