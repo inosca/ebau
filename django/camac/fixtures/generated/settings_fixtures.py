@@ -1159,6 +1159,42 @@ def ag_ech0211_settings(settings, request):
 
 
 @pytest.fixture
+def invoices_settings(settings, request):
+    """Module-specific settings for invoices (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="invoices",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_invoices_settings(settings, request):
+    """Disable the invoices module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="invoices",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def sz_invoices_settings(settings, request):
+    """Module-specific settings for invoices (canton SZ)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="invoices",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def master_data_settings(settings, request):
     """Module-specific settings for master data (default)."""
     return generate_module_settings(

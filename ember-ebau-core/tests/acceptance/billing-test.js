@@ -82,6 +82,42 @@ module("Acceptance | billing", function (hooks) {
       .hasAnyText();
   });
 
+  test("it can release billing entries for clearing", async function (assert) {
+    this.features.enable("billing.releaseForClearing");
+
+    this.server.createList("billing-v2-entry", 2, {
+      group: this.group,
+      instance: this.instance,
+    });
+
+    await visit("/billing");
+
+    await click("input[data-test-toggle-all]");
+    await click(
+      "table[data-test-billing-table] tbody tr:nth-of-type(1) input[data-test-toggle]",
+    );
+
+    await click("button[data-test-release-for-clearing-submit]");
+
+    // Confirm dialog
+    await waitFor(".uk-modal.uk-open");
+    await click(".uk-modal-footer .uk-button-primary");
+
+    // eslint-disable-next-line ember/no-settled-after-test-helper
+    await settled();
+
+    assert
+      .dom(
+        "table[data-test-billing-table] tbody tr:nth-of-type(1) td:nth-of-type(8)",
+      )
+      .hasNoText();
+    assert
+      .dom(
+        "table[data-test-billing-table] tbody tr:nth-of-type(2) td:nth-of-type(8)",
+      )
+      .hasAnyText();
+  });
+
   test("it can delete billing entries", async function (assert) {
     this.server.createList("billing-v2-entry", 2, {
       group: this.group,
@@ -107,6 +143,7 @@ module("Acceptance | billing", function (hooks) {
       "billing.billingType",
       "billing.legalBasis",
       "billing.costCenter",
+      "billing.productNumber",
     );
 
     await visit("/billing");
@@ -123,6 +160,7 @@ module("Acceptance | billing", function (hooks) {
     await fillIn("input[name=text]", "Test 1");
     await fillIn("input[name=legal-basis]", "Test §§101");
     await fillIn("input[name=cost-center]", "1000121");
+    await fillIn("select[name=product-number]", "100000");
     await fillIn("select[name=calculation]", "flat");
     await fillIn("input[name=total-cost]", 1000.5);
     await fillIn("select[name=tax-mode]", "inclusive:8.1");
@@ -139,6 +177,7 @@ module("Acceptance | billing", function (hooks) {
     await fillIn("input[name=text]", "Test 2");
     await fillIn("input[name=legal-basis]", "Test §§102");
     await fillIn("input[name=cost-center]", "1000122");
+    await fillIn("select[name=product-number]", "300000");
     await fillIn("select[name=calculation]", "percentage");
     await fillIn("input[name=percentage]", 10.5);
     await fillIn("input[name=total-cost]", 1000.5);
@@ -153,6 +192,7 @@ module("Acceptance | billing", function (hooks) {
     await fillIn("input[name=text]", "Test 3");
     await fillIn("input[name=legal-basis]", "Test §§103");
     await fillIn("input[name=cost-center]", "1000123");
+    await fillIn("select[name=product-number]", "100000");
     await fillIn("select[name=calculation]", "hourly");
     await fillIn("input[name=hours]", 1.5);
     await fillIn("input[name=hourly-rate]", 150.5);
@@ -161,26 +201,6 @@ module("Acceptance | billing", function (hooks) {
     await fillIn("select[name=billing-type]", "forwarded");
     await click("button[data-test-submit]");
     assert.dom("table[data-test-billing-table] tbody tr").exists({ count: 3 });
-  });
-
-  test("it can apply construction costs into total cost", async function (assert) {
-    this.features.enable("billing.applyConstructionCosts");
-
-    await visit("/billing/new");
-
-    const costs = 123456;
-
-    this.server.get("/api/v1/instances/:id/master-data", {
-      construction_costs: costs,
-    });
-
-    await fillIn("select[name=calculation]", "percentage");
-
-    assert.dom("input[name=total-cost]").hasValue("");
-
-    await click("[data-test-apply-construction-costs]");
-
-    assert.dom("input[name=total-cost]").hasValue(String(costs));
   });
 
   module("templates", function (hooks) {

@@ -25,6 +25,9 @@ tmp
 tools/software/
 /db_snapshots
 
+# Schwyz wilken test fdp server
+.ftp-files/
+
 # System
 .directory
 

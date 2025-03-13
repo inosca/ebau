@@ -58,14 +58,7 @@ export default class BillingNewController extends Controller {
   constructor(...args) {
     super(...args);
 
-    this.newEntry = this.store.createRecord("billing-v2-entry", {
-      calculation: this.calculations[0],
-      billingType: hasFeature("billing.billingType") ? "by_authority" : null,
-    });
-
-    this.update({
-      target: { name: "tax-mode", value: this.taxModeOptions[0].value },
-    });
+    this.#createNewRecord();
   }
 
   get taxModeOptions() {
@@ -89,6 +82,21 @@ export default class BillingNewController extends Controller {
     }
 
     return options.sort(orderByMode);
+  }
+
+  #createNewRecord() {
+    this.newEntry = this.store.createRecord("billing-v2-entry", {
+      calculation: this.calculations[0],
+      billingType: hasFeature("billing.billingType") ? "by_authority" : null,
+    });
+
+    if (hasFeature("billing.productNumber")) {
+      this.newEntry.productNumber = this.newEntry.availableProductNumbers[0];
+    }
+
+    this.update({
+      target: { name: "tax-mode", value: this.taxModeOptions[0].value },
+    });
   }
 
   @action
@@ -152,13 +160,7 @@ export default class BillingNewController extends Controller {
     try {
       await this.newEntry.save();
 
-      this.newEntry = this.store.createRecord("billing-v2-entry", {
-        calculation: this.calculations[0],
-      });
-
-      this.update({
-        target: { name: "tax-mode", value: this.taxModeOptions[0].value },
-      });
+      this.#createNewRecord();
 
       this.notification.success(this.intl.t("billing.add-success"));
 

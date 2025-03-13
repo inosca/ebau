@@ -106,6 +106,9 @@ class BillingV2CommonEntry(models.Model):
         choices=BILLING_TYPE_CHOICES, max_length=36, null=True, blank=True
     )
 
+    # Product number for generating invoices
+    product_number = models.CharField(null=True)
+
     class Meta:
         abstract = True
 
@@ -126,7 +129,13 @@ class BillingV2Entry(BillingV2CommonEntry):
     user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
 
     # Structural: Which instance is the item billed to?
-    instance = models.ForeignKey("instance.Instance", models.CASCADE, related_name="+")
+    instance = models.ForeignKey(
+        "instance.Instance", models.CASCADE, related_name="billing_v2_entries"
+    )
+
+    # If the entry should be included in the next invoice, this date is set
+    # to when the entry was marked to bill.
+    released_for_clearing = models.DateField(null=True)
 
 
 class BillingV2EntryTemplate(BillingV2CommonEntry):

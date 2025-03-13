@@ -24,6 +24,14 @@ export default class BillingV2EntryAbility extends Ability {
     );
   }
 
+  get canReleaseForClearing() {
+    return (
+      hasFeature("billing.releaseForClearing") &&
+      this.canEdit &&
+      isAuthority(this.instance, this.ebauModules.serviceId)
+    );
+  }
+
   get canEdit() {
     return !hasInstanceState(
       this.instance,

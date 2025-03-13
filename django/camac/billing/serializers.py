@@ -92,6 +92,7 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
         read_only_fields = (
             "date_added",
             "date_charged",
+            "released_for_clearing",
             "final_rate",
             "group",
             "user",

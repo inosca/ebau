@@ -76,4 +76,34 @@ export default class BillingIndexController extends Controller {
       this.notification.danger(this.intl.t("billing.charge-error"));
     }
   });
+
+  releaseForClearing = dropTask(this, async () => {
+    if (
+      this.abilities.cannot("release-for-clearing billing-v2-entries") ||
+      !this.selectedRows.length ||
+      !(await confirm(this.intl.t("billing.confirm-release-for-clearing")))
+    ) {
+      return;
+    }
+
+    try {
+      await Promise.all(
+        this.selectedRows.map(async (id) => {
+          return await this.fetch.fetch(
+            `/api/v1/billing-v2-entries/${id}/release-for-clearing`,
+            { method: "PATCH" },
+          );
+        }),
+      );
+
+      // manually refresh in order to update the totals as well
+      await this.refresh();
+
+      this.selectedRows = [];
+    } catch {
+      this.notification.danger(
+        this.intl.t("billing.release-for-clearing-error"),
+      );
+    }
+  });
 }

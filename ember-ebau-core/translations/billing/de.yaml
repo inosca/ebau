@@ -36,6 +36,17 @@ billing:
   paginationInfo: "<strong>{count}</strong> von {total}"
   apply-construction-costs: Baukosten aus Formular übernehmen
   apply-construction-costs-empty: Es konnten keine Baukosten im Formular gefunden werden
+  release-for-clearing: Zur Verrechnung freigeben
+  released-for-clearing: Freigegeben
+  confirm-release-for-clearing: Sobald der Eintrag zur Verrechnung freigegeben wurde wird die Rechnung innerhalb der nächsten 24 Stunden automatisch generiert.
+  product-number: Produktnummer
+
+  product-numbers:
+    100000: ARE BGZ, kant. Baubewilligung, Gebühren
+    150000: AMFZ Brandschutz, kant. Baubewilligung Gebühren
+    900000: Laburk, Bearbeitungsgebühren Baubewilligung
+    300000: AMFZ Brandschutz, Baubegleitung und -Abnahme
+    310000: AFG Gewässerschutz, Baubegleitung und -Abnahme
 
   organizations:
     cantonal: Kantonal

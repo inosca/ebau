@@ -50,6 +50,12 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
     def get_queryset_for_public(self):
         return self.queryset.none()
 
+    def has_object_release_for_clearing_permission(self, obj):
+        return (
+            obj.instance.responsible_service(filter_type="municipality")
+            == self.request.group.service
+        )
+
     def has_object_destroy_permission(self, obj):
         return not obj.date_charged and (
             obj.group.service == self.request.group.service
@@ -88,5 +94,14 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
             raise PermissionDenied()
 
         entries.update(date_charged=timezone.now().date())
+
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+    @action(methods=["PATCH"], detail=True, url_path="release-for-clearing")
+    @transaction.atomic
+    def release_for_clearing(self, request, pk=None):
+        billing_entry = self.get_object()
+        billing_entry.released_for_clearing = timezone.now().date()
+        billing_entry.save(update_fields=["released_for_clearing"])
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)

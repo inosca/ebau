@@ -99,6 +99,37 @@
     </div>
   {{/if}}
 
+  {{#if (has-feature "billing.productNumber")}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="product-number">
+        {{t "billing.product-number"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <select
+          class="uk-select"
+          name="product-number"
+          id="product-number"
+          required
+          {{on "change" this.update}}
+        >
+          {{#each this.newEntry.availableProductNumbers as |productNumber|}}
+            {{! In firefox setting selected=(eq this.newEntry.productNumber productNumber) is currently not working.}}
+            {{#if (eq this.newEntry.productNumber productNumber)}}
+              <option selected value={{productNumber}}>
+                {{t (concat "billing.product-numbers." productNumber)}}
+              </option>
+            {{else}}
+              <option value={{productNumber}}>
+                {{t (concat "billing.product-numbers." productNumber)}}
+              </option>
+            {{/if}}
+          {{/each}}
+        </select>
+      </div>
+    </div>
+  {{/if}}
+
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold" for="calculation">
       {{t "billing.calculation"}}

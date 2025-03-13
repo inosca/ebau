@@ -5,6 +5,7 @@ import BillingV2CommonEntryModel from "./billing-v2-common-entry";
 
 export default class BillingV2EntryModel extends BillingV2CommonEntryModel {
   @attr dateAdded;
+  @attr releasedForClearing;
   @attr dateCharged;
   @attr finalRate;
 

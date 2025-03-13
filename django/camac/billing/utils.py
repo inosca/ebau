@@ -10,10 +10,7 @@ class OrganizationTotals(TypedDict):
     total: str
 
 
-class BillingTotals(TypedDict):
-    BillingV2Entry.CANTONAL: OrganizationTotals
-    BillingV2Entry.MUNICIPAL: OrganizationTotals
-    all: OrganizationTotals
+BillingTotals = dict[str, OrganizationTotals]
 
 
 def round_decimal(num: Decimal) -> Decimal:
@@ -41,9 +38,17 @@ def calculate_final_rate(
     if calculation == BillingV2Entry.CALCULATION_FLAT:
         final_rate = total_cost
     elif calculation == BillingV2Entry.CALCULATION_PERCENTAGE:
-        final_rate = total_cost * percentage / Decimal(100)
+        final_rate = (
+            total_cost * percentage / Decimal(100)
+            if total_cost is not None and percentage is not None
+            else None
+        )
     elif calculation == BillingV2Entry.CALCULATION_HOURLY:
-        final_rate = hours * hourly_rate
+        final_rate = (
+            hours * hourly_rate
+            if hours is not None and hourly_rate is not None
+            else None
+        )
     elif calculation == BillingV2Entry.CALCULATION_AG_PROCESSING_FEE:
         final_rate = calculate_ag_processing_fee(total_cost)
 
@@ -52,7 +57,7 @@ def calculate_final_rate(
 
 
 def add_taxes_to_final_rate(
-    final_rate: Decimal, tax_mode: str, tax_rate: Decimal
+    final_rate: Decimal | None, tax_mode: str, tax_rate: Decimal
 ) -> Union[Decimal, None]:
     """Add taxes to final rate.
 
