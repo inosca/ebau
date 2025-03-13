@@ -142,6 +142,7 @@ services:
     user: nginx:nginx
     environment:
       KEYCLOAK_HOST: http://ebau-keycloak.local
+      KEYCLOAK_CLIENT: portal
       INTERNAL_URL: http://ember-ebau.local
       ENABLE_WATERMARK: true
       WATERMARK: local
@@ -152,6 +153,7 @@ services:
     user: nginx:nginx
     environment:
       KEYCLOAK_HOST: http://ebau-keycloak.local
+      KEYCLOAK_CLIENT: camac
       PORTAL_URL: http://ebau-portal.local
       ENABLE_WATERMARK: true
       WATERMARK: local

@@ -81,7 +81,6 @@ module.exports = function (environment) {
   const appConfig = {
     demo: {
       name: "demo",
-      realm: "ebau",
       supportGroups: [10000],
       useConfidential: false,
       defaultInstanceStateCategory: "pending",
@@ -115,7 +114,6 @@ module.exports = function (environment) {
     },
     kt_bern: {
       name: "be",
-      realm: "ebau",
       internalFrontend: "camac",
       supportGroups: [10000],
       defaultInstanceStateCategory: "pending",
@@ -294,7 +292,6 @@ module.exports = function (environment) {
     },
     kt_uri: {
       name: "ur",
-      realm: "urec",
       internalFrontend: "camac",
       supportGroups: [1070],
       useConfidential: true,
@@ -439,7 +436,6 @@ module.exports = function (environment) {
     },
     kt_gr: {
       name: "gr",
-      realm: "ebau",
       internalFrontend: "ebau",
       supportGroups: [10000],
       defaultInstanceStateCategory: "pending",
@@ -488,7 +484,6 @@ module.exports = function (environment) {
     },
     kt_so: {
       name: "so",
-      realm: "ebau",
       internalFrontend: "ebau",
       supportGroups: [3],
       defaultInstanceStateCategory: "all",
@@ -545,7 +540,6 @@ module.exports = function (environment) {
     },
     kt_ag: {
       name: "ag",
-      realm: "ebau",
       internalFrontend: "ebau",
       supportGroups: [10000],
       defaultInstanceStateCategory: "pending",
@@ -600,22 +594,36 @@ module.exports = function (environment) {
     },
   }[app];
 
+  /**
+   * Build time configuration
+   *
+   * This code is used in two different scenarios:
+   *
+   * 1. When running the frontend locally, the env vars are usually not set, so
+   *    the defaults apply.
+   * 2. When running the frontend in a container, the env vars are set as build
+   *    ARGs to a static string (e.g. "$KEYCLOAK_HOST") which is replaced with
+   *    the value of the env var at _runtime_ by the entrypoint script. Keep in
+   *    mind that when this script is running (at build time), the actual value
+   *    of the env var is not known!
+   *
+   * See docs/config-mgmt.md for more information.
+   */
   const {
+    // Defaults only apply when run with ember dev server or when the image is
+    // not built with KEYCLOAK_* build arguments
     KEYCLOAK_HOST = "http://ebau-keycloak.local",
-    KEYCLOAK_BASE_PATH = "auth",
-    KEYCLOAK_REALM = appConfig.realm,
+    KEYCLOAK_BASE_PATH = "auth/",
+    KEYCLOAK_REALM = app === "kt_uri" ? "urec" : "ebau",
     KEYCLOAK_CLIENT = "portal",
     KEYCLOAK_SCOPES = "openid",
   } = process.env;
 
-  function trailingSlash(url) {
-    if (!url) {
-      return "";
-    }
-    return url.replace(/\/?$/, "/");
-  }
+  // Since we don't know the actual value of the env var at build time, we can't
+  // strip or add any slashes here. KEYCLOAK_HOST and KEYCLOAK_BASE_PATH should
+  // both have a trailing slash.
+  const oidcUrl = `${KEYCLOAK_HOST}/${KEYCLOAK_BASE_PATH}realms/${KEYCLOAK_REALM}`;
 
-  const oidcUrl = `${trailingSlash(KEYCLOAK_HOST)}${trailingSlash(KEYCLOAK_BASE_PATH)}realms/${KEYCLOAK_REALM}`;
   const internalURL =
     process.env.INTERNAL_URL ||
     (appConfig.internalFrontend === "camac"

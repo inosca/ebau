@@ -11,6 +11,13 @@ path=$2
 # "FOO,BAR,BAZ" to "$FOO,$BAR,$BAZ" which is required for envsubst to work
 variables=$(echo $varnames | sed 's/\([^,]*\)/$\1/g')
 
+# Print the variables that will be replaced for debugging
+echo "Replacing ENV variables:"
+set -- $(echo "$variables" | tr ',' ' ')
+for item in "$@"; do
+  eval "echo \" - \$item: $item\""
+done
+
 for file in $(find $path -iname "*.js");
 do
   tmpfile="/tmp/$(basename $file)"
