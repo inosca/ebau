@@ -95,8 +95,7 @@ def dossier_row_full(dossier_row_sparse):
         ("PROJECTAUTHOR-PHONE", "0771234123"),
         ("PROJECTAUTHOR-EMAIL", "urlichkissling@example.com"),
     ]
-    dossier_row_sparse.update(data)
-    return dossier_row_sparse
+    return dossier_row_sparse | OrderedDict(data)
 
 
 @pytest.fixture()
