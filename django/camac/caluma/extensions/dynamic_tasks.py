@@ -113,6 +113,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         tasks = []
 
         gwr_relevancy_work_item = case.work_items.filter(task_id="check-gwr-relevancy")
+        involve_geometer = False
 
         if gwr_relevancy_work_item:
             if (
@@ -125,6 +126,17 @@ class CustomDynamicTasks(BaseDynamicTasks):
                 if relevant_for_gwr:
                     tasks.append("update-gwr-status")
 
+        decision_work_item = case.family.work_items.get(task_id="decision")
+
+        if geometer_answer := decision_work_item.document.answers.filter(
+            question_id="decision-task-nachfuehrungsgeometer"
+        ).first():
+            involve_geometer = (
+                geometer_answer.value == "decision-task-nachfuehrungsgeometer-ja"
+            )
+
+        if involve_geometer:
+            tasks.append("geometer")
         return tasks
 
     @register_dynamic_task("after-complete-check-ur")
@@ -543,26 +555,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
         ):
             return ["zs-ersatzbeitrag-pruefen"]
         return []
-
-    @register_dynamic_task("after-plan-construction-stage")
-    def resolve_after_plan_construction_stage(
-        self, case, user, prev_work_item, context
-    ):
-        tasks = []
-        involve_geometer = False
-
-        decision_work_item = case.family.work_items.get(task_id="decision")
-
-        if geometer_answer := decision_work_item.document.answers.filter(
-            question_id="decision-task-nachfuehrungsgeometer"
-        ).first():
-            involve_geometer = (
-                geometer_answer.value == "decision-task-nachfuehrungsgeometer-ja"
-            )
-
-        if involve_geometer:
-            tasks.append("construction-step-av-projektiert-pruefen")
-        return tasks
 
     @register_dynamic_task("after-gebaeudeabbruch-melden")
     def resolve_after_gebaeudeabbruch_melden(self, case, user, prev_work_item, context):

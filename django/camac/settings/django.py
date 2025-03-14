@@ -1398,7 +1398,7 @@ APPLICATIONS = {
                         },
                     },
                 ],
-                "construction-step-av-projektiert-pruefen": [
+                "geometer": [
                     {
                         "event": "created",
                         "notification": {

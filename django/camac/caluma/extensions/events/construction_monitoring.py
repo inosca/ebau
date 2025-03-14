@@ -402,27 +402,3 @@ def post_complete_construction_control(sender, work_item, user, context, **kwarg
             settings.CONSTRUCTION_MONITORING["AFTER_INSTANCE_STATE"],
             camac_user,
         )
-
-
-@on(post_create_work_item, raise_exception=True)
-@filter_by_task(["CONSTRUCTION_STEP_AV_STATUS_TASK"])
-@transaction.atomic
-def post_create_av_status_task(sender, work_item, user, context, **kwargs):
-    gebaeudeabbruch_work_item = work_item.case.work_items.filter(
-        task_id="construction-step-gebaeudeabbruch-melden"
-    ).first()
-
-    if not gebaeudeabbruch_work_item:
-        return  # pragma: no cover
-
-    date_answer = gebaeudeabbruch_work_item.document.answers.filter(
-        question_id="construction-step-gebaeudeabbruch-melden-datum"
-    ).first()
-
-    if not date_answer:
-        return  # pragma: no cover
-
-    date_string = date_answer.date.strftime("%d.%m.%Y")
-
-    work_item.task.name = f"{work_item.task.name} (Gebäudeabbruch, voraussichtlicher Abschluss: {date_string})"
-    work_item.task.save(update_fields=["name"])
