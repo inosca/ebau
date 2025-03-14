@@ -4870,6 +4870,21 @@
       "modified_by_group": null,
       "form": "check-gwr-relevancy",
       "question": "fuer-gwr-relevant",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "check-gwr-relevancy.welche-massnahmen-treffen-zu",
+    "fields": {
+      "created_at": "2025-03-14T09:30:21.101Z",
+      "modified_at": "2025-03-14T09:30:21.101Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "check-gwr-relevancy",
+      "question": "welche-massnahmen-treffen-zu",
       "sort": 2
     }
   },
@@ -34225,6 +34240,57 @@
       "label": "{\"de\": \"Stapeleinrichtungen\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "welche-massnahmen-treffen-zu-bestehende-bauten-abgebrochen",
+    "fields": {
+      "created_at": "2025-03-14T09:30:20.698Z",
+      "modified_at": "2025-03-14T09:30:20.698Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Es werden bestehende Bauten abgebrochen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "welche-massnahmen-treffen-zu-bestehende-bauten-umgebaut-erweitert",
+    "fields": {
+      "created_at": "2025-03-14T09:30:20.708Z",
+      "modified_at": "2025-03-14T09:30:20.708Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehende Bauten werden umgebaut / erweitert\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "welche-massnahmen-treffen-zu-neue-bauten",
+    "fields": {
+      "created_at": "2025-03-14T09:30:20.688Z",
+      "modified_at": "2025-03-14T09:30:20.688Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Es werden neue Bauten erstellt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -64144,6 +64210,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "welche-massnahmen-treffen-zu",
+    "fields": {
+      "created_at": "2025-03-14T09:30:20.913Z",
+      "modified_at": "2025-03-14T09:30:20.913Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Welche Massnahmen treffen zu?\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "\"fuer-gwr-relevant-ja\" != \"fuer-gwr-relevant\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "werkleitungsplan",
     "fields": {
       "created_at": "2021-04-08T09:29:10.251Z",
@@ -80788,6 +80885,51 @@
       "question": "welche-foerderanlagen",
       "option": "welche-foerderanlagen-stapeleinrichtungen",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "welche-massnahmen-treffen-zu.welche-massnahmen-treffen-zu-bestehende-bauten-abgebrochen",
+    "fields": {
+      "created_at": "2025-03-14T09:30:20.928Z",
+      "modified_at": "2025-03-14T09:30:20.928Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "welche-massnahmen-treffen-zu",
+      "option": "welche-massnahmen-treffen-zu-bestehende-bauten-abgebrochen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "welche-massnahmen-treffen-zu.welche-massnahmen-treffen-zu-bestehende-bauten-umgebaut-erweitert",
+    "fields": {
+      "created_at": "2025-03-14T09:30:20.936Z",
+      "modified_at": "2025-03-14T09:30:20.936Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "welche-massnahmen-treffen-zu",
+      "option": "welche-massnahmen-treffen-zu-bestehende-bauten-umgebaut-erweitert",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "welche-massnahmen-treffen-zu.welche-massnahmen-treffen-zu-neue-bauten",
+    "fields": {
+      "created_at": "2025-03-14T09:30:20.943Z",
+      "modified_at": "2025-03-14T09:30:20.943Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "welche-massnahmen-treffen-zu",
+      "option": "welche-massnahmen-treffen-zu-neue-bauten",
+      "sort": 3
     }
   },
   {
