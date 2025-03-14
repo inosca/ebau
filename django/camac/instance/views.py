@@ -750,18 +750,21 @@ class InstanceView(
         )
 
         for email in involved_emails:
-            applicant, created = Applicant.objects.get_or_create(
+            user = User.objects.filter(email=email).first()
+            applicant = Applicant.objects.filter(
                 instance=instance,
-                invitee=User.objects.filter(email=email).first(),
-                defaults={
-                    "user": instance.user,
-                    "email": email,
-                },
-            )
+                **({"invitee": user} if user else {"email": email}),
+            ).first()
 
-            if created:
+            if not applicant:
+                new_applicant = Applicant.objects.create(
+                    instance=instance,
+                    invitee=user,
+                    user=instance.user,
+                    email=email,
+                )
                 Trigger.applicant_added(
-                    request=self.request, instance=instance, applicant=applicant
+                    request=self.request, instance=instance, applicant=new_applicant
                 )
                 if notification_template:
                     send_mail(
