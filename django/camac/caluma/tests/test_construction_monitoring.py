@@ -8,7 +8,6 @@ from django.core import mail
 from camac.caluma.extensions.events.construction_monitoring import (
     can_perform_construction_monitoring,
     post_complete_construction_control,
-    post_create_av_status_task,
     post_create_construction_control,
 )
 from camac.caluma.extensions.visibilities import CustomVisibility
@@ -574,50 +573,3 @@ def test_post_complete_construction_control(
     instance.refresh_from_db()
 
     assert instance.instance_state.name == "arch"
-
-
-def test_post_create_av_status_task(
-    db,
-    ur_construction_monitoring_settings,
-    caluma_admin_user,
-    instance_factory,
-    caluma_case_factory,
-    instance_state_factory,
-    caluma_work_item_factory,
-    caluma_document_factory,
-    caluma_answer_factory,
-):
-    instance = instance_factory(
-        case=caluma_case_factory(),
-        instance_state=instance_state_factory(name="some-instance-state"),
-    )
-    av_status_work_item = caluma_work_item_factory(
-        case=instance.case,
-        task__slug="construction-step-av-status-demolition",
-        document=caluma_document_factory(),
-    )
-    old_name = av_status_work_item.task.name
-
-    gebaeudeabbruch_work_item = caluma_work_item_factory(
-        case=instance.case,
-        task__slug="construction-step-gebaeudeabbruch-melden",
-        document=caluma_document_factory(),
-    )
-    caluma_answer_factory(
-        document=gebaeudeabbruch_work_item.document,
-        question__slug="construction-step-gebaeudeabbruch-melden-datum",
-        date="2025-01-09",
-    )
-
-    post_create_av_status_task(
-        None,
-        user=caluma_admin_user,
-        work_item=av_status_work_item,
-        context={},
-    )
-    av_status_work_item.refresh_from_db()
-
-    assert (
-        av_status_work_item.task.name
-        == f"{old_name} (Gebäudeabbruch, voraussichtlicher Abschluss: 09.01.2025)"
-    )

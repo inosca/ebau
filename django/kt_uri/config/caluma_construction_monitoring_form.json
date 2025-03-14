@@ -37,24 +37,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "construction-step-av-projektiert-pruefen",
-    "fields": {
-      "created_at": "2025-01-06T16:02:13.183Z",
-      "modified_at": "2025-01-30T16:29:30.099Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "name": "{\"de\": \"AV projektiert pr\\u00fcfen\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": true,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "construction-step-av-state-project",
     "fields": {
       "created_at": "2025-01-13T09:57:29.737Z",
@@ -76,12 +58,12 @@
     "pk": "construction-step-av-status-building",
     "fields": {
       "created_at": "2025-01-10T13:21:50.941Z",
-      "modified_at": "2025-01-10T13:22:03.276Z",
+      "modified_at": "2025-03-14T08:07:24.750Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"AV Status nachf\\u00fchren (Geb\\u00e4ude)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"AV nachf\\u00fchren (Geb\\u00e4ude)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": true,
@@ -99,7 +81,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"AV Status nachf\\u00fchren (Geb\\u00e4udeabbruch)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"AV nachf\\u00fchren (Geb\\u00e4udeabbruch)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": true,
@@ -117,7 +99,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"AV Status nachf\\u00fchren (Geb\\u00e4udeabbruch)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"AV nachf\\u00fchren (Geb\\u00e4udeabbruch)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": true,
@@ -679,62 +661,182 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "construction-step-av-projektiert-pruefen.wurde-der-av-status-nachgefuehrt",
+    "pk": "construction-step-av-state-project.av-gesamtprojekt-bemerkungen",
     "fields": {
-      "created_at": "2025-01-30T16:29:34.753Z",
-      "modified_at": "2025-01-30T16:29:34.753Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "construction-step-av-projektiert-pruefen",
-      "question": "wurde-der-av-status-nachgefuehrt",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "construction-step-av-state-project.av-status-nachgefuehrt-project",
-    "fields": {
-      "created_at": "2025-01-13T09:58:14.001Z",
-      "modified_at": "2025-01-13T09:58:14.001Z",
+      "created_at": "2025-03-14T08:35:26.781Z",
+      "modified_at": "2025-03-14T08:35:26.781Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "construction-step-av-state-project",
-      "question": "av-status-nachgefuehrt-project",
+      "question": "av-gesamtprojekt-bemerkungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-av-state-project.av-gesamtprojekt-complete",
+    "fields": {
+      "created_at": "2025-03-14T08:35:50.333Z",
+      "modified_at": "2025-03-14T08:35:50.333Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-av-state-project",
+      "question": "av-gesamtprojekt-complete",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "construction-step-av-status-building.av-status-nachgefuehrt-building",
+    "pk": "construction-step-av-state-project.av-gesamtprojekt-datum",
     "fields": {
-      "created_at": "2025-01-10T13:23:06.718Z",
-      "modified_at": "2025-01-10T13:23:06.718Z",
+      "created_at": "2025-03-14T08:34:13.683Z",
+      "modified_at": "2025-03-14T08:34:13.683Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-av-state-project",
+      "question": "av-gesamtprojekt-datum",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-av-state-project.av-relevant-gesamtprojekt",
+    "fields": {
+      "created_at": "2025-03-14T08:35:05.016Z",
+      "modified_at": "2025-03-14T08:35:05.016Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-av-state-project",
+      "question": "av-relevant-gesamtprojekt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-av-status-building.av-gebaeude-bemerkungen",
+    "fields": {
+      "created_at": "2025-03-14T08:09:59.755Z",
+      "modified_at": "2025-03-14T08:09:59.755Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "construction-step-av-status-building",
-      "question": "av-status-nachgefuehrt-building",
+      "question": "av-gebaeude-bemerkungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-av-status-building.av-gebaeude-complete",
+    "fields": {
+      "created_at": "2025-03-14T08:10:34.482Z",
+      "modified_at": "2025-03-14T08:10:34.482Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-av-status-building",
+      "question": "av-gebaeude-complete",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "construction-step-av-status-demolition.wurde-der-av-status-nachgefuehrt",
+    "pk": "construction-step-av-status-building.av-gebaeude-datum",
     "fields": {
-      "created_at": "2025-01-08T07:12:05.217Z",
-      "modified_at": "2025-01-08T07:12:05.217Z",
+      "created_at": "2025-03-14T08:08:14.310Z",
+      "modified_at": "2025-03-14T08:08:14.310Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-av-status-building",
+      "question": "av-gebaeude-datum",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-av-status-building.av-relevant-gebaeude",
+    "fields": {
+      "created_at": "2025-03-14T08:09:33.860Z",
+      "modified_at": "2025-03-14T08:09:33.860Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-av-status-building",
+      "question": "av-relevant-gebaeude",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-av-status-demolition.av-gebaeudeabbruch-bemerkungen",
+    "fields": {
+      "created_at": "2025-03-14T07:25:32.243Z",
+      "modified_at": "2025-03-14T07:25:32.243Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "construction-step-av-status-demolition",
-      "question": "wurde-der-av-status-nachgefuehrt",
+      "question": "av-gebaeudeabbruch-bemerkungen",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-av-status-demolition.av-gebaeudeabbruch-complete",
+    "fields": {
+      "created_at": "2025-03-14T07:25:59.936Z",
+      "modified_at": "2025-03-14T07:25:59.937Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-av-status-demolition",
+      "question": "av-gebaeudeabbruch-complete",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-av-status-demolition.av-gebaeudeabbruch-datum",
+    "fields": {
+      "created_at": "2025-03-14T07:24:03.532Z",
+      "modified_at": "2025-03-14T07:24:03.532Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-av-status-demolition",
+      "question": "av-gebaeudeabbruch-datum",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-av-status-demolition.av-relevant-gebaeudeabbruch",
+    "fields": {
+      "created_at": "2025-03-14T07:24:56.041Z",
+      "modified_at": "2025-03-14T07:24:56.041Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-av-status-demolition",
+      "question": "av-relevant-gebaeudeabbruch",
+      "sort": 3
     }
   },
   {
@@ -844,6 +946,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "construction-step-gwr-state-building.gwr-status-gebaeude-abschliessen",
+    "fields": {
+      "created_at": "2025-03-13T13:17:25.520Z",
+      "modified_at": "2025-03-13T13:17:25.521Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-gwr-state-building",
+      "question": "gwr-status-gebaeude-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "construction-step-gwr-state-building.status-gwr-building",
     "fields": {
       "created_at": "2025-01-10T12:35:49.746Z",
@@ -854,7 +971,7 @@
       "modified_by_group": null,
       "form": "construction-step-gwr-state-building",
       "question": "status-gwr-building",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -889,6 +1006,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "construction-step-gwr-state-project.gwr-status-projekt-abschliessen",
+    "fields": {
+      "created_at": "2025-03-13T15:19:06.436Z",
+      "modified_at": "2025-03-13T15:19:06.436Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-gwr-state-project",
+      "question": "gwr-status-projekt-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "construction-step-gwr-state-project.status-gwr-project",
     "fields": {
       "created_at": "2025-01-13T09:51:49.596Z",
@@ -899,7 +1031,7 @@
       "modified_by_group": null,
       "form": "construction-step-gwr-state-project",
       "question": "status-gwr-project",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -1489,15 +1621,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "av-status-nachgefuehrt-building-ja",
+    "pk": "av-relevant-gebaeudeabbruch-av-relevant-keine-nachfuehrung",
     "fields": {
-      "created_at": "2025-01-10T13:23:06.369Z",
-      "modified_at": "2025-01-10T13:23:06.370Z",
+      "created_at": "2025-03-14T07:24:55.794Z",
+      "modified_at": "2025-03-14T07:24:55.794Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Projekt nicht AV-relevant, keine Nachf\\u00fchrung notwendig\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1506,15 +1638,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "av-status-nachgefuehrt-building-nein",
+    "pk": "av-relevant-gebaeudeabbruch-projekt-av-relevprojekt-av-relevant-nachfuehrung-ausgefuehrtant-nachfuehrung-ausgefuehrt",
     "fields": {
-      "created_at": "2025-01-10T13:23:06.386Z",
-      "modified_at": "2025-01-10T13:23:06.386Z",
+      "created_at": "2025-03-14T07:24:55.780Z",
+      "modified_at": "2025-03-14T07:24:55.780Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Projekt AV-relevant, Nachf\\u00fchrung ausgef\\u00fchrt\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1523,15 +1655,15 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "av-status-nachgefuehrt-project-ja",
+    "pk": "av-relevant-gebaeude-av-relevant-keine-nachfuehrung",
     "fields": {
-      "created_at": "2025-01-13T09:58:13.716Z",
-      "modified_at": "2025-01-13T09:58:13.716Z",
+      "created_at": "2025-03-14T08:09:33.544Z",
+      "modified_at": "2025-03-14T08:09:33.544Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Projekt nicht AV-relevant, keine Nachf\\u00fchrung notwendig\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1540,15 +1672,49 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "av-status-nachgefuehrt-project-nein",
+    "pk": "av-relevant-gebaeude-projekt-av-relevant-nachfuehrung-ausgefuehrt",
     "fields": {
-      "created_at": "2025-01-13T09:58:13.711Z",
-      "modified_at": "2025-01-13T09:58:13.711Z",
+      "created_at": "2025-03-14T08:09:33.554Z",
+      "modified_at": "2025-03-14T08:09:33.554Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Projekt AV-relevant, Nachf\\u00fchrung ausgef\\u00fchrt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "av-relevant-gesamtprojekt-av-relevant-keine-nachfuehrung",
+    "fields": {
+      "created_at": "2025-03-14T08:35:04.737Z",
+      "modified_at": "2025-03-14T08:35:04.737Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projekt nicht AV-relevant, keine Nachf\\u00fchrung notwendig\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "av-relevant-gesamtprojekt-projekt-av-relevant-nachfuehrung-ausgefuehrt",
+    "fields": {
+      "created_at": "2025-03-14T08:35:04.726Z",
+      "modified_at": "2025-03-14T08:35:04.726Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projekt AV-relevant, Nachf\\u00fchrung ausgef\\u00fchrt\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -2424,7 +2590,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "wurde-der-av-status-nachgefuehrt-ja",
+    "pk": "wurde-der-status-im-gwr-nachgefuehrt-ja",
     "fields": {
       "created_at": "2025-01-08T07:12:04.974Z",
       "modified_at": "2025-01-08T07:12:04.974Z",
@@ -2441,7 +2607,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "wurde-der-av-status-nachgefuehrt-nein",
+    "pk": "wurde-der-status-im-gwr-nachgefuehrt-nein",
     "fields": {
       "created_at": "2025-01-08T07:12:04.985Z",
       "modified_at": "2025-01-08T07:12:04.985Z",
@@ -2457,50 +2623,319 @@
     }
   },
   {
-    "model": "caluma_form.option",
-    "pk": "wurde-der-status-im-gwr-nachgefuehrt-ja",
-    "fields": {
-      "created_at": "2024-12-12T11:41:44.305Z",
-      "modified_at": "2025-01-08T07:09:44.552Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "wurde-der-status-im-gwr-nachgefuehrt-nein",
-    "fields": {
-      "created_at": "2024-12-12T11:41:44.320Z",
-      "modified_at": "2025-01-08T07:09:44.563Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
     "model": "caluma_form.question",
-    "pk": "av-status-nachgefuehrt-building",
+    "pk": "av-gebaeudeabbruch-bemerkungen",
     "fields": {
-      "created_at": "2025-01-10T13:23:06.596Z",
-      "modified_at": "2025-01-10T13:23:06.596Z",
+      "created_at": "2025-03-14T07:25:32.127Z",
+      "modified_at": "2025-03-14T07:25:32.127Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Wurde der AV Status nachgef\\u00fchrt?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "av-gebaeudeabbruch-complete",
+    "fields": {
+      "created_at": "2025-03-14T07:25:59.798Z",
+      "modified_at": "2025-03-14T07:25:59.798Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "av-gebaeudeabbruch-datum",
+    "fields": {
+      "created_at": "2025-03-14T07:24:03.412Z",
+      "modified_at": "2025-03-14T07:24:03.412Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Amtliche Vermessung durchgef\\u00fchrt am\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "av-gebaeude-bemerkungen",
+    "fields": {
+      "created_at": "2025-03-14T08:09:59.638Z",
+      "modified_at": "2025-03-14T08:09:59.638Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "av-gebaeude-complete",
+    "fields": {
+      "created_at": "2025-03-14T08:10:34.365Z",
+      "modified_at": "2025-03-14T08:10:34.365Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "av-gebaeude-datum",
+    "fields": {
+      "created_at": "2025-03-14T08:08:14.192Z",
+      "modified_at": "2025-03-14T08:08:14.192Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Amtliche Vermessung durchgef\\u00fchrt am\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "av-gesamtprojekt-bemerkungen",
+    "fields": {
+      "created_at": "2025-03-14T08:35:26.662Z",
+      "modified_at": "2025-03-14T08:35:26.662Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "av-gesamtprojekt-complete",
+    "fields": {
+      "created_at": "2025-03-14T08:35:50.203Z",
+      "modified_at": "2025-03-14T08:35:50.203Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "av-gesamtprojekt-datum",
+    "fields": {
+      "created_at": "2025-03-14T08:34:13.535Z",
+      "modified_at": "2025-03-14T08:34:13.535Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Amtliche Vermessung durchgef\\u00fchrt am\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "av-relevant-gebaeude",
+    "fields": {
+      "created_at": "2025-03-14T08:09:33.680Z",
+      "modified_at": "2025-03-14T08:09:33.680Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"AV Typ\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -2523,15 +2958,46 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "av-status-nachgefuehrt-project",
+    "pk": "av-relevant-gebaeudeabbruch",
     "fields": {
-      "created_at": "2025-01-13T09:58:13.861Z",
-      "modified_at": "2025-01-13T09:58:13.861Z",
+      "created_at": "2025-03-14T07:24:55.916Z",
+      "modified_at": "2025-03-14T07:24:55.916Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Wurde der AV Status nachgef\\u00fchrt?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"AV Typ\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "av-relevant-gesamtprojekt",
+    "fields": {
+      "created_at": "2025-03-14T08:35:04.859Z",
+      "modified_at": "2025-03-14T08:35:04.859Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"AV Typ\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -4154,6 +4620,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gwr-status-gebaeude-abschliessen",
+    "fields": {
+      "created_at": "2025-03-13T12:56:28.914Z",
+      "modified_at": "2025-03-13T12:56:28.915Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gwr-status-nachfuehren",
     "fields": {
       "created_at": "2024-07-05T09:02:03.069Z",
@@ -4172,6 +4674,42 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gwr-status-projekt-abschliessen",
+    "fields": {
+      "created_at": "2025-03-13T15:19:06.224Z",
+      "modified_at": "2025-03-13T15:19:06.224Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -4401,93 +4939,92 @@
     }
   },
   {
-    "model": "caluma_form.question",
-    "pk": "wurde-der-av-status-nachgefuehrt",
-    "fields": {
-      "created_at": "2025-01-08T07:12:05.095Z",
-      "modified_at": "2025-01-30T16:29:38.608Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Wurde der AV Status nachgef\\u00fchrt?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
     "model": "caluma_form.questionoption",
-    "pk": "av-status-nachgefuehrt-building.av-status-nachgefuehrt-building-ja",
+    "pk": "av-relevant-gebaeudeabbruch.av-relevant-gebaeudeabbruch-av-relevant-keine-nachfuehrung",
     "fields": {
-      "created_at": "2025-01-10T13:23:06.618Z",
-      "modified_at": "2025-01-10T13:23:06.618Z",
+      "created_at": "2025-03-14T07:24:55.934Z",
+      "modified_at": "2025-03-14T07:24:55.934Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "question": "av-status-nachgefuehrt-building",
-      "option": "av-status-nachgefuehrt-building-ja",
+      "question": "av-relevant-gebaeudeabbruch",
+      "option": "av-relevant-gebaeudeabbruch-av-relevant-keine-nachfuehrung",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "av-status-nachgefuehrt-building.av-status-nachgefuehrt-building-nein",
+    "pk": "av-relevant-gebaeudeabbruch.av-relevant-gebaeudeabbruch-projekt-av-relevprojekt-av-relevant-nachfuehrung-ausgefuehrtant-nachfuehrung-ausgefuehrt",
     "fields": {
-      "created_at": "2025-01-10T13:23:06.609Z",
-      "modified_at": "2025-01-10T13:23:06.609Z",
+      "created_at": "2025-03-14T07:24:55.926Z",
+      "modified_at": "2025-03-14T07:24:55.926Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "question": "av-status-nachgefuehrt-building",
-      "option": "av-status-nachgefuehrt-building-nein",
+      "question": "av-relevant-gebaeudeabbruch",
+      "option": "av-relevant-gebaeudeabbruch-projekt-av-relevprojekt-av-relevant-nachfuehrung-ausgefuehrtant-nachfuehrung-ausgefuehrt",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "av-status-nachgefuehrt-project.av-status-nachgefuehrt-project-ja",
+    "pk": "av-relevant-gebaeude.av-relevant-gebaeude-av-relevant-keine-nachfuehrung",
     "fields": {
-      "created_at": "2025-01-13T09:58:13.879Z",
-      "modified_at": "2025-01-13T09:58:13.879Z",
+      "created_at": "2025-03-14T08:09:33.702Z",
+      "modified_at": "2025-03-14T08:09:33.702Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "question": "av-status-nachgefuehrt-project",
-      "option": "av-status-nachgefuehrt-project-ja",
+      "question": "av-relevant-gebaeude",
+      "option": "av-relevant-gebaeude-av-relevant-keine-nachfuehrung",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "av-status-nachgefuehrt-project.av-status-nachgefuehrt-project-nein",
+    "pk": "av-relevant-gebaeude.av-relevant-gebaeude-projekt-av-relevant-nachfuehrung-ausgefuehrt",
     "fields": {
-      "created_at": "2025-01-13T09:58:13.872Z",
-      "modified_at": "2025-01-13T09:58:13.872Z",
+      "created_at": "2025-03-14T08:09:33.694Z",
+      "modified_at": "2025-03-14T08:09:33.694Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "question": "av-status-nachgefuehrt-project",
-      "option": "av-status-nachgefuehrt-project-nein",
+      "question": "av-relevant-gebaeude",
+      "option": "av-relevant-gebaeude-projekt-av-relevant-nachfuehrung-ausgefuehrt",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "av-relevant-gesamtprojekt.av-relevant-gesamtprojekt-av-relevant-keine-nachfuehrung",
+    "fields": {
+      "created_at": "2025-03-14T08:35:04.889Z",
+      "modified_at": "2025-03-14T08:35:04.889Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "av-relevant-gesamtprojekt",
+      "option": "av-relevant-gesamtprojekt-av-relevant-keine-nachfuehrung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "av-relevant-gesamtprojekt.av-relevant-gesamtprojekt-projekt-av-relevant-nachfuehrung-ausgefuehrt",
+    "fields": {
+      "created_at": "2025-03-14T08:35:04.877Z",
+      "modified_at": "2025-03-14T08:35:04.877Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "av-relevant-gesamtprojekt",
+      "option": "av-relevant-gesamtprojekt-projekt-av-relevant-nachfuehrung-ausgefuehrt",
       "sort": 1
     }
   },
@@ -5283,36 +5820,6 @@
       "modified_by_group": null,
       "question": "status-gwr-project",
       "option": "status-gwr-project-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "wurde-der-av-status-nachgefuehrt.wurde-der-av-status-nachgefuehrt-ja",
-    "fields": {
-      "created_at": "2025-01-30T16:29:38.618Z",
-      "modified_at": "2025-01-30T16:29:38.618Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "wurde-der-av-status-nachgefuehrt",
-      "option": "wurde-der-av-status-nachgefuehrt-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "wurde-der-av-status-nachgefuehrt.wurde-der-av-status-nachgefuehrt-nein",
-    "fields": {
-      "created_at": "2025-01-30T16:29:38.616Z",
-      "modified_at": "2025-01-30T16:29:38.616Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "wurde-der-av-status-nachgefuehrt",
-      "option": "wurde-der-av-status-nachgefuehrt-nein",
       "sort": 1
     }
   }

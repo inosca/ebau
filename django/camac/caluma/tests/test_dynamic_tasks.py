@@ -604,7 +604,7 @@ def test_dynamic_task_after_check_sb2(
         ),
     ],
 )
-def test_dynamic_task_after_decision_ur(
+def test_dynamic_task_gwr_relevancy_after_decision_ur(
     db,
     caluma_work_item_factory,
     caluma_document_factory,
@@ -616,11 +616,8 @@ def test_dynamic_task_after_decision_ur(
     gwr_answer,
 ):
     work_item = caluma_work_item_factory(
-        case=ur_instance.case,
-        task_id="decision",
+        case=ur_instance.case, task_id="decision", document=caluma_document_factory()
     )
-    work_item.document = caluma_document_factory()
-    work_item.save()
 
     if gwr_answer == "fuer-gwr-relevant-ja":
         gwr_relevancy_work_item = caluma_work_item_factory(
@@ -638,6 +635,46 @@ def test_dynamic_task_after_decision_ur(
     )
 
     assert result == expected_tasks
+
+
+@pytest.mark.parametrize(
+    "answer,expected_tasks",
+    [
+        (
+            "decision-task-nachfuehrungsgeometer-ja",
+            ["geometer"],
+        ),
+        (
+            "decision-task-nachfuehrungsgeometer-nein",
+            [],
+        ),
+    ],
+)
+def test_dynamic_task_geometer_after_decision_ur(
+    db,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+    ur_instance,
+    caluma_admin_user,
+    expected_tasks,
+    answer,
+):
+    work_item = caluma_work_item_factory(
+        case=ur_instance.case, task_id="decision", document=caluma_document_factory()
+    )
+
+    if answer == "decision-task-nachfuehrungsgeometer-ja":
+        caluma_answer_factory(
+            document=work_item.document,
+            question__slug="decision-task-nachfuehrungsgeometer",
+            value=answer,
+        )
+
+        result = CustomDynamicTasks().resolve_after_decision_ur(
+            ur_instance.case, caluma_admin_user, work_item, None
+        )
+        assert result == expected_tasks
 
 
 @pytest.mark.parametrize(
@@ -1022,44 +1059,6 @@ def test_after_schnurgeruestabnahme_kontrollieren_uri(
         value=schutzraum_answer,
     )
     result = CustomDynamicTasks().resolve_after_schnurgeruestabnahme_kontrollieren(
-        ur_instance.case, caluma_admin_user, work_item, None
-    )
-    assert result == expected_value
-
-
-@pytest.mark.parametrize(
-    "expected_value,geometer_answer",
-    [
-        (
-            ["construction-step-av-projektiert-pruefen"],
-            "decision-task-nachfuehrungsgeometer-ja",
-        ),
-        ([], "wrong_answer"),
-    ],
-)
-def test_after_plan_construction_stage(
-    db,
-    ur_instance,
-    caluma_admin_user,
-    notification_template,
-    expected_value,
-    geometer_answer,
-    caluma_document_factory,
-    caluma_work_item_factory,
-    caluma_answer_factory,
-):
-    notification_template.slug = "5-1-av-projektiert-pruefen"
-    notification_template.save()
-
-    work_item = caluma_work_item_factory(
-        case=ur_instance.case, task_id="decision", document=caluma_document_factory()
-    )
-    caluma_answer_factory(
-        document=work_item.document,
-        question__slug="decision-task-nachfuehrungsgeometer",
-        value=geometer_answer,
-    )
-    result = CustomDynamicTasks().resolve_after_plan_construction_stage(
         ur_instance.case, caluma_admin_user, work_item, None
     )
     assert result == expected_value
