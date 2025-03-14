@@ -13,6 +13,8 @@ import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerPublication from "ember-ebau-core/modules/publication";
 import registerRejection from "ember-ebau-core/modules/rejection";
 import registerResponsible from "ember-ebau-core/modules/responsible";
+import registerSanctionTemplates from "ember-ebau-core/modules/sanction-templates";
+import registerSanctions from "ember-ebau-core/modules/sanctions";
 import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
 import registerSnippetsAdmin from "ember-ebau-core/modules/snippets-admin";
 import registerStatistics from "ember-ebau-core/modules/statistics";
@@ -100,4 +102,6 @@ Router.map(function () {
   registerConstructionMonitoring(this);
   registerDossierImport(this);
   registerSnippetsAdmin(this);
+  registerSanctions(this);
+  registerSanctionTemplates(this);
 });

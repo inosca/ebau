@@ -2812,7 +2812,7 @@
       "description": null,
       "template": "/ember-camac-ng/sanctions.phtml",
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 24,
       "form_group": 1,
       "require_permission": null
@@ -20124,6 +20124,69 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 2287,
+    "fields": {
+      "instance_resource": 68,
+      "role": 5,
+      "instance_state": 3
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2288,
+    "fields": {
+      "instance_resource": 68,
+      "role": 5,
+      "instance_state": 5
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2289,
+    "fields": {
+      "instance_resource": 68,
+      "role": 5,
+      "instance_state": 7
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2290,
+    "fields": {
+      "instance_resource": 68,
+      "role": 5,
+      "instance_state": 8
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2291,
+    "fields": {
+      "instance_resource": 68,
+      "role": 5,
+      "instance_state": 10
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2292,
+    "fields": {
+      "instance_resource": 68,
+      "role": 5,
+      "instance_state": 17
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 2293,
+    "fields": {
+      "instance_resource": 68,
+      "role": 5,
+      "instance_state": 18
+    }
+  },
+  {
     "model": "core.irserviceacl",
     "pk": 1,
     "fields": {
@@ -22568,6 +22631,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 111,
+    "fields": {
+      "resource": 31,
+      "role": 5
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 9,
     "fields": {
@@ -22745,7 +22816,7 @@
       "description": null,
       "template": "/ember-camac-ng/sanction-templates.phtml",
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 12
     }
   },

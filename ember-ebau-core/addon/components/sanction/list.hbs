@@ -1,0 +1,71 @@
+<table class="uk-table uk-table-hover uk-table-striped uk-table-middle">
+  <thead>
+    <tr>
+      <th>{{t "sanction.property.name"}}</th>
+      <th>{{t "sanction.property.createdByService"}}</th>
+      <th>{{t "sanction.property.assignedService"}}</th>
+      <th>{{t "sanction.property.controlStep"}}</th>
+      {{#if @historic}}
+        <th>{{t "sanction.property.controlledAt"}}</th>
+        <th>{{t "sanction.property.controlledByUser"}}</th>
+      {{else}}
+        <th></th>
+      {{/if}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each @sanctions as |sanction|}}
+      <tr>
+        <td>
+          <LinkTo
+            @route={{module-route
+              "sanctions"
+              (if
+                (and (not @historic) (can "control sanction" sanction))
+                "control"
+                "show"
+              )
+            }}
+            @model={{sanction}}
+            class="uk-text-bold"
+          >
+            {{sanction.name}}
+          </LinkTo>
+        </td>
+        <td>{{sanction.createdByService.name}}</td>
+        <td>{{sanction.assignedService.name}}</td>
+        <td>{{t (concat "sanction.controlStep." sanction.controlStep)}}</td>
+        {{#if @historic}}
+          <td>{{format-date sanction.controlledAt format="datetime"}}</td>
+          <td>
+            {{sanction.controlledByUser.name}}
+            {{sanction.controlledByUser.surname}}
+          </td>
+        {{else}}
+          <td class="uk-text-center">
+            {{#if (can "edit sanction" sanction instance=@instance)}}
+              <LinkTo
+                @route={{module-route "sanctions" "edit"}}
+                @model={{sanction}}
+                title={{t "sanction.action.edit"}}
+                class="uk-button uk-button-link uk-button-small"
+              >
+                <UkIcon @icon="pencil" />
+              </LinkTo>
+              <UkButton
+                @type="button"
+                @title={{t "sanction.action.delete"}}
+                @color="link"
+                @size="small"
+                {{on "click" (fn this.delete sanction)}}
+                class="uk-margin-small-left"
+              >
+                <UkIcon @icon="trash" />
+              </UkButton>
+            {{/if}}
+          </td>
+        {{/if}}
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

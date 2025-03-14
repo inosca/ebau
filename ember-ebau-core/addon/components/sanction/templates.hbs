@@ -1,0 +1,30 @@
+<form>
+  {{#each this.sanctionTemplates as |sanctionTemplate|}}
+    <div class="uk-margin">
+      <label class="uk-form-label">
+        <input
+          type="checkbox"
+          checked={{includes this.selectedTemplates sanctionTemplate.id}}
+          {{on "click" (fn this.toggleTemplate sanctionTemplate.id)}}
+          class="uk-checkbox uk-margin-small-right"
+        />
+        {{sanctionTemplate.name}}
+      </label>
+    </div>
+  {{/each}}
+
+  <UkButton
+    @type="submit"
+    @disabled={{or (not this.isValid) this.createSanctions.isRunning}}
+    @loading={{this.createSanctions.isRunning}}
+    @label={{t "sanction.action.submit.templates"}}
+    @onClick={{this.createSanctions.perform}}
+    @color="primary"
+  />
+  <LinkTo
+    @route={{module-route "sanctions" "index"}}
+    class="uk-button uk-button-default"
+  >
+    {{t "global.cancel"}}
+  </LinkTo>
+</form>
