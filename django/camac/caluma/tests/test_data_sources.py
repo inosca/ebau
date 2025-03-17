@@ -289,6 +289,95 @@ def test_landowners_so(
     assert names == snapshot
 
 
+def test_landowners_dynamic_on_copy(
+    db,
+    caluma_document_factory,
+    caluma_question_factory,
+    caluma_dynamic_option_factory,
+    utils,
+    settings,
+):
+    settings.DATA_SOURCE_CLASSES = ["camac.caluma.extensions.data_sources.Landowners"]
+
+    # test default fallback values
+    data_source = Landowners()
+    assert (None, None) == data_source.on_copy(None, None, (None, None))
+    assert (None, None) == data_source.on_copy(None, None, ("invalid-uuid", None))
+
+    main_document = caluma_document_factory()
+    test_document_a = caluma_document_factory()
+    test_document_b = caluma_document_factory()
+    test_document_c = caluma_document_factory()
+
+    dynamic_choice_question = caluma_question_factory(
+        slug="dynamic-reference-test",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_MULTIPLE_CHOICE,
+    )
+    dynamic_choice_question.data_source = "Landowners"
+    dynamic_choice_question.save()
+
+    dynamic_answer = utils.add_answer(
+        document=main_document,
+        question=dynamic_choice_question,
+        value=[
+            str(test_document_a.pk),
+            str(test_document_b.pk),
+            str(test_document_c.pk),
+        ],
+        label="MFH 1, MFH 2",
+    )
+    dynamic_option1 = caluma_dynamic_option_factory(
+        document=main_document,
+        question=dynamic_choice_question,
+        slug=str(test_document_a.pk),
+        label="MFH 1",
+    )
+    dynamic_option2 = caluma_dynamic_option_factory(
+        document=main_document,
+        question=dynamic_choice_question,
+        slug=str(test_document_b.pk),
+        label="MFH 2",
+    )
+    caluma_dynamic_option_factory(
+        document=main_document,
+        question=dynamic_choice_question,
+        slug=str(test_document_c.pk),
+        label="MFH 3",
+    )
+
+    # example docs for a/b to test moving a reference while copying an answer
+    # c will be discarded
+    referenced_document1 = caluma_document_factory()
+    referenced_document1.source = test_document_a
+    referenced_document1.save()
+    referenced_document2 = caluma_document_factory()
+    referenced_document2.source = test_document_b
+    referenced_document2.save()
+
+    # copy the answer
+    new_document = caluma_document_factory()
+    new_answer = dynamic_answer.copy(to_document=new_document)
+    new_dynamic_options = caluma_form_models.DynamicOption.objects.filter(
+        question=dynamic_choice_question, document=new_document
+    )
+
+    # c is discarded, only a and b are copied
+    assert new_dynamic_options.count() == 2
+
+    # check that the new anser and dynamic option are linked to the referenced document
+    assert str(dynamic_answer.pk) != str(new_answer.pk)
+    assert str(dynamic_option1.pk) != str(new_dynamic_options.first().pk)
+    assert str(dynamic_option2.pk) != str(new_dynamic_options.last().pk)
+    assert new_answer.value == [
+        str(referenced_document1.pk),
+        str(referenced_document2.pk),
+    ]
+    assert set([option.slug for option in new_dynamic_options]) == {
+        str(referenced_document1.pk),
+        str(referenced_document2.pk),
+    }
+
+
 def test_municipalities_so(db, service_factory, service_t_factory):
     service = service_factory(service_group__name="municipality")
     service_t_factory(service=service, name="Gemeinde Solothurn")
@@ -355,6 +444,62 @@ def test_buildings(db, caluma_admin_user, caluma_question_factory, so_instance, 
 
     assert len(data) == 3
     assert names == {"MFH 1", "MFH 2", "EFH 1"}
+
+
+def test_buildings_dynamic_on_copy(
+    db,
+    caluma_document_factory,
+    caluma_question_factory,
+    caluma_dynamic_option_factory,
+    utils,
+    settings,
+):
+    settings.DATA_SOURCE_CLASSES = ["camac.caluma.extensions.data_sources.Buildings"]
+
+    # test default fallback values
+    data_source = Buildings()
+    assert (None, None) == data_source.on_copy(None, None, (None, None))
+    assert (None, None) == data_source.on_copy(None, None, ("invalid-uuid", None))
+
+    main_document = caluma_document_factory()
+    test_document = caluma_document_factory()
+    dynamic_choice_question = caluma_question_factory(
+        slug="dynamic-reference-test",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
+    )
+    dynamic_choice_question.data_source = "Buildings"
+    dynamic_choice_question.save()
+
+    dynamic_answer = utils.add_answer(
+        document=main_document,
+        question=dynamic_choice_question,
+        value=str(test_document.pk),
+        label="MFH 1",
+    )
+    dynamic_option = caluma_dynamic_option_factory(
+        document=main_document,
+        question=dynamic_choice_question,
+        slug=str(test_document.pk),
+        label="MFH 1",
+    )
+
+    # example doc to test moving a reference while copying an answer
+    referenced_document = caluma_document_factory()
+    referenced_document.source = test_document
+    referenced_document.save()
+
+    # copy the answer
+    new_document = caluma_document_factory()
+    new_answer = dynamic_answer.copy(to_document=new_document)
+    new_dynamic_option = caluma_form_models.DynamicOption.objects.get(
+        question=dynamic_choice_question, document=new_document
+    )
+
+    # check that the new anser and dynamic option are linked to the referenced document
+    assert str(dynamic_answer.pk) != str(new_answer.pk)
+    assert str(dynamic_option.pk) != str(new_dynamic_option.pk)
+    assert new_answer.value == str(referenced_document.pk)
+    assert new_dynamic_option.slug == str(referenced_document.pk)
 
 
 def test_services_for_final_report(
