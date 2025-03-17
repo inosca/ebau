@@ -209,32 +209,6 @@
   },
   {
     "model": "caluma_workflow.flow",
-    "pk": "ea350843-53d2-46a0-bc8b-3449dfc6a0eb",
-    "fields": {
-      "created_at": "2023-10-27T15:32:55.837Z",
-      "modified_at": "2023-10-27T15:32:55.837Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['construction-step-schlussabnahme-gebaeude-melden', 'construction-step-rohbauabnahme-kontrollieren-geometer']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
-    "pk": "ec83aec5-7f4d-417c-ba70-b0746026c464",
-    "fields": {
-      "created_at": "2023-10-27T15:32:55.837Z",
-      "modified_at": "2023-10-27T15:32:55.837Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "next": "['after-construction-step']|tasks"
-    }
-  },
-  {
-    "model": "caluma_workflow.flow",
     "pk": "ed730612-1648-448b-8693-403689f19db7",
     "fields": {
       "created_at": "2023-10-30T10:52:04.042Z",
@@ -482,7 +456,7 @@
         "construction-step-id": "construction-step-einmessung",
         "is-actionable-for-control": false
       },
-      "address_groups": "['municipality', 'geometer']|groups",
+      "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-einmessung-leitungskataster",
@@ -561,7 +535,7 @@
         "construction-step-id": "construction-step-kanalisationsabnahme",
         "is-actionable-for-control": false
       },
-      "address_groups": "['municipality', 'abwasser-uri']|groups",
+      "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-kanalisation-kontrollieren",
@@ -677,7 +651,7 @@
         },
         "construction-step-id": "construction-step-rohbauabnahme"
       },
-      "address_groups": "['municipality', 'geometer']|groups",
+      "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-rohbau-kontrollieren",
@@ -696,7 +670,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Rohbau kontrollieren\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Rohbau kontrollieren (Geometer)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -716,7 +690,7 @@
         },
         "construction-step-id": "construction-step-rohbauabnahme"
       },
-      "address_groups": "['municipality', 'geometer']|groups",
+      "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-rohbau-kontrollieren-geometer",
@@ -759,45 +733,6 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-rohbauabnahme-melden",
-      "lead_time": 2592000,
-      "is_multiple_instance": false,
-      "continue_async": false
-    }
-  },
-  {
-    "model": "caluma_workflow.task",
-    "pk": "construction-step-rohbau-kontrollieren",
-    "fields": {
-      "created_at": "2023-10-27T15:32:23.581Z",
-      "modified_at": "2023-10-27T15:32:23.581Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Rohbau kontrollieren\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "type": "complete_task_form",
-      "meta": {
-        "directLink": {
-          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
-          "models": [
-            "INSTANCE_ID",
-            "CONSTRUCTION_STAGE_UUID",
-            "CONSTRUCTION_STEP_ID"
-          ]
-        },
-        "construction-step": {
-          "next": ["construction-step-zwischenkontrolle"],
-          "index": 1,
-          "total": 2,
-          "needs-approval": "construction-step-rohbauabnahme-is-approved"
-        },
-        "construction-step-id": "construction-step-rohbauabnahme"
-      },
-      "address_groups": "['municipality']|groups",
-      "control_groups": "['municipality']|groups",
-      "is_archived": false,
-      "form": "construction-step-rohbau-kontrollieren",
       "lead_time": 2592000,
       "is_multiple_instance": false,
       "continue_async": false
@@ -950,7 +885,7 @@
         "construction-step-id": "construction-step-schlussabnahme-projekt",
         "is-actionable-for-control": false
       },
-      "address_groups": "['municipality', 'geometer']|groups",
+      "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-schlussabnahme-projekt-gebaeude-nachtragen",
@@ -1067,7 +1002,7 @@
         "construction-step-id": "construction-step-schnurgeruestabnahme",
         "is-actionable-for-control": false
       },
-      "address_groups": "['municipality', 'geometer']|groups",
+      "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-schnurgeruest-kontrollieren",
@@ -1353,22 +1288,6 @@
   },
   {
     "model": "caluma_workflow.taskflow",
-    "pk": "b53cf693-fbaf-41f9-8840-c6462564c334",
-    "fields": {
-      "created_at": "2023-10-27T15:32:55.838Z",
-      "modified_at": "2023-10-27T15:32:55.838Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "construction-stage",
-      "task": "construction-step-rohbau-kontrollieren",
-      "flow": "ea350843-53d2-46a0-bc8b-3449dfc6a0eb",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
     "pk": "c54e5338-0586-42c0-bec6-3fc1f1ced294",
     "fields": {
       "created_at": "2023-10-27T15:32:55.838Z",
@@ -1396,22 +1315,6 @@
       "workflow": "construction-stage",
       "task": "construction-step-baufreigabe-beantragen",
       "flow": "9a07f24c-b847-4164-8db5-b297f9750346",
-      "redoable": null
-    }
-  },
-  {
-    "model": "caluma_workflow.taskflow",
-    "pk": "e524be9c-8db6-4bfa-acc5-597f9cdd48e7",
-    "fields": {
-      "created_at": "2023-10-27T15:32:55.838Z",
-      "modified_at": "2023-10-27T15:32:55.838Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "workflow": "construction-stage",
-      "task": "construction-step-rohbauabnahme-kontrollieren-geometer",
-      "flow": "ec83aec5-7f4d-417c-ba70-b0746026c464",
       "redoable": null
     }
   },
