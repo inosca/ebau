@@ -41,6 +41,7 @@ class Command(BaseCommand):
             case__work_items__document__answers__value__contains=[
                 "steuerverwaltung-informieren-steuerverwaltung-informieren"
             ],
+            instance_state__name="instance-completed",
         )
         manager = permissions_api.PermissionManager.for_anonymous()
 
