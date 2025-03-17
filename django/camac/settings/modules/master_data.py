@@ -2772,6 +2772,219 @@ MASTER_DATA = {
                     )
                 },
             ),
+            "bab_date_of_receipt_arp": (
+                "answer",
+                "mp-bab-datum-eingang-arp",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_deadline_at_recording": (
+                "answer",
+                "mp-bab-terminvorgabe-bei-erfassung",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_relevant_deadline": (
+                "answer",
+                "mp-bab-massgebliche-terminvorgabe",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_procedure_status": (
+                "answer",
+                "mp-bab-verfahrensstand",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_processing_status": (
+                "answer",
+                "mp-bab-bearbeitungsstatus",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_suspension_reason": (
+                "answer",
+                "mp-bab-sistierungsgrund",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_suspended_from": (
+                "answer",
+                "mp-bab-sistiert-von",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_suspended_until": (
+                "answer",
+                "mp-bab-sistiert-bis",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_approval_authority": (
+                "answer",
+                "mp-bab-bewilligungsbehoerde",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_interest_in_project": (
+                "answer",
+                "mp-bab-interesse-am-vorhaben",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_entry_date": (
+                "answer",
+                "mp-bab-datum-eintrag",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_entry_type": (
+                "answer",
+                "mp-bab-art-des-eintrages",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_participants_present": (
+                "answer",
+                "mp-bab-beteiligte-anwesende",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                },
+            ),
+            "bab_facts": (
+                "answer",
+                "mp-bab-sachverhalt",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                },
+            ),
+            "bab_municipality_number_cantonal_arp": (
+                "answer",
+                "mp-bab-gemeindenummer-kantonal-arp",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                },
+            ),
+            "bab_construction_zone": (
+                "answer",
+                "mp-bab-bauzone",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_object_protection": (
+                "answer",
+                "mp-bab-objektschutz",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_protected_object_designation": (
+                "answer",
+                "mp-bab-geschuetztes-objekt-bezeichnung",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                },
+            ),
+            "bab_protected_object_authority": (
+                "answer",
+                "mp-bab-verfuegende-behoerdee",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_protected_object_decision_number": (
+                "answer",
+                "mp-bab-beschlussnummer",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                },
+            ),
+            "bab_protected_object_decision_date": (
+                "answer",
+                "mp-bab-datum-beschluss",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_protected_object_order_date": (
+                "answer",
+                "mp-bab-datum-verfuegung",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_checklist_bab_so_according_to_rpg": (
+                "answer",
+                "mp-bab-checkliste-bab-so-nach-rpg",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                },
+            ),
+            "bab_decision_canton": (
+                "answer",
+                "mp-bab-entscheid-kanton",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_decision_date_canton": (
+                "answer",
+                "mp-bab-datum-des-entscheides-kanton",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "decision_opening_type_canton": (
+                "answer",
+                "mp-bab-eroeffnungsart-des-entscheides-kanton",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
             # eCH0211
             "construction_duration": ("answer", "dauer-in-monaten"),
             "legal_representatives": ("static", []),

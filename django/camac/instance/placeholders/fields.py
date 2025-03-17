@@ -193,12 +193,22 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                 {
                     "RECHTSGRUNDLAGE": [_("LEGAL_BASIS")],
                     "KOSTENSTELLE": [_("COST_CENTER")],
+                    "STUNDEN": [_("HOURS")],
+                    "STUNDENSATZ": [_("HOURLY_RATE")],
+                    "ANTEIL_PROZENT": [_("PERCENTAGE")],
+                    "GESAMTKOSTEN": [_("TOTAL_COST")],
+                    "BERECHNUNG": [_("CALCULATION")],
+                    "MEHRWERTSTEUER": [_("VAT")],
+                    "ART": [_("ORGANISATION")],
+                    "VERRECHNUNG": [_("BILLING_TYPE")],
                 }
             )
 
         return nested_aliases
 
     def format_rate(self, value):
+        if value is None:
+            return ""
         return f"{value:,.2f}".replace(",", "’")
 
     def to_representation(self, value):
@@ -222,12 +232,33 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                     {
                         "RECHTSGRUNDLAGE": entry.legal_basis,
                         "KOSTENSTELLE": entry.cost_center,
+                        "STUNDEN": entry.hours,
+                        "STUNDENSATZ": self.format_rate(entry.hourly_rate),
+                        "ANTEIL_PROZENT": entry.percentage,
+                        "GESAMTKOSTEN": self.format_rate(entry.total_cost),
+                        "BERECHNUNG": self.get_choice_label(
+                            BillingV2Entry.CalculationModes.choices, entry.calculation
+                        ),
+                        "MEHRWERTSTEUER": self.get_choice_label(
+                            BillingV2Entry.TaxModes, entry.tax_mode
+                        ),
+                        "ART": self.get_choice_label(
+                            BillingV2Entry.Organizations, entry.organization
+                        ),
+                        "VERRECHNUNG": self.get_choice_label(
+                            BillingV2Entry.BillingTypes, entry.billing_type
+                        ),
                     }
                 )
 
             data.append(row)
 
         return data
+
+    def get_choice_label(self, choices, value):
+        for choice in choices:
+            if choice[0] == value:
+                return choice[1]
 
     def get_attribute(self, instance):
         own_filters = (
@@ -247,6 +278,7 @@ class PublicationField(AliasedMixin, serializers.ReadOnlyField):
         value_key="value",
         parser=lambda value: value,
         only_own=True,
+        all_publications=False,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -254,6 +286,7 @@ class PublicationField(AliasedMixin, serializers.ReadOnlyField):
         self.value_key = value_key
         self.parser = parser
         self.only_own = only_own
+        self.all_publications = all_publications
 
     def to_representation(self, value):
         return self.parser(super().to_representation(value))
@@ -270,6 +303,9 @@ class PublicationField(AliasedMixin, serializers.ReadOnlyField):
                 addressed_groups=[str(self.context["request"].group.service_id)]
             )
 
+        if self.all_publications:
+            return self.get_all_publications(work_items)
+
         work_item = work_items.order_by("-created_at").first()
 
         answer = (
@@ -279,6 +315,30 @@ class PublicationField(AliasedMixin, serializers.ReadOnlyField):
         )
 
         return getattr(answer, self.value_key, "") if answer else ""
+
+    def get_all_publications(self, work_items):
+        parsed_work_items = []
+        for work_item in work_items.order_by("-created_at"):
+            parsed_work_item = {}
+            for answer in work_item.document.answers.all():
+                question = answer.question
+                value = answer.value
+                if question.pk == "publikation-organ":
+                    value = [
+                        {
+                            "NAME": str(option.label),
+                            "EMAIL": option.meta.get("email"),
+                        }
+                        for option in answer.selected_options
+                    ]
+                elif question.type == "date":
+                    value = human_readable_date(answer.date)
+
+                question_alias = question.pk.upper().replace("-", "_")
+                parsed_work_item[question_alias] = value
+            parsed_work_items.append(parsed_work_item)
+
+        return parsed_work_items
 
 
 class MasterDataField(AliasedMixin, serializers.ReadOnlyField):

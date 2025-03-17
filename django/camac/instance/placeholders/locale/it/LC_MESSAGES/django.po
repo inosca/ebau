@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-11 17:25+0200\n"
+"POT-Creation-Date: 2025-03-05 10:58+0100\n"
 "PO-Revision-Date: 2024-07-25 11:14+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -31,6 +31,10 @@ msgid "District"
 msgstr "Circondario"
 
 #: camac/instance/placeholders/fields.py
+msgid "GBB"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
 msgid "POSITION"
 msgstr "POSIZIONE"
 
@@ -46,6 +50,44 @@ msgstr "BASE_LEGALE"
 #: camac/instance/placeholders/fields.py
 msgid "COST_CENTER"
 msgstr "CENTRO_DI_COSTO"
+
+#: camac/instance/placeholders/fields.py
+msgid "HOURS"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "HOURLY_RATE"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "PERCENTAGE"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "TOTAL_COST"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "SALUTATION"
+msgid "CALCULATION"
+msgstr "APPELLATIVO"
+
+#: camac/instance/placeholders/fields.py
+msgid "VAT"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "LOCATION"
+msgid "ORGANISATION"
+msgstr "UBICAZIONE"
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "BUILDING_TYPE"
+msgid "BILLING_TYPE"
+msgstr "UMPC_TIPO_DI_EDIFICIO"
 
 #: camac/instance/placeholders/fields.py
 msgid "ANSWER"
@@ -88,6 +130,69 @@ msgstr "TESTO"
 #: camac/instance/placeholders/fields.py
 msgid "BY"
 msgstr "DA"
+
+#: camac/instance/placeholders/fields.py
+msgid "FEEDBACK_CONCLUSION"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "APPROVING_ASSESSMENTS"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "HEATING_SYSTEMS"
+msgid "REJECTING_ASSESSMENTS"
+msgstr "IMPIANTI_TERMOTECNICI"
+
+#: camac/instance/placeholders/fields.py
+msgid "ADDITIONAL_DEMAND"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+#: camac/instance/placeholders/serializers.py
+msgid "OBJECTIONS"
+msgstr "OPPOSIZIONI"
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "APPLICANT"
+msgid "NOTES_TO_APPLICANT"
+msgstr "PERSONA_RICHIEDENTE"
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "PROJECT_AUTHOR"
+msgid "NOTES_TO_AUTHORITY"
+msgstr "PROGETTISTA"
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "AUTHORITY_NAME"
+msgid "NOTES_TO_AUTHORITY_ARP"
+msgstr "AUTORITÀ_DIRETTRICE_NOME"
+
+#: camac/instance/placeholders/fields.py
+msgid "DISPATCH_DECISION_FURTHER_SERVICES"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "MARKS"
+msgid "REMARKS"
+msgstr "DEMARCAZIONI"
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "DATE_POSTMARK"
+msgid "DATE_START"
+msgstr "DATA_TIMBRO_POSTALE"
+
+#: camac/instance/placeholders/fields.py
+#, fuzzy
+#| msgid "DATE_DOCUMENT"
+msgid "DATE_END"
+msgstr "DATA_DOCUMENTO"
 
 #: camac/instance/placeholders/fields.py
 msgid "DATE_POSTMARK"
@@ -185,6 +290,7 @@ msgid "ZIP"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
+#: camac/instance/placeholders/serializers.py
 msgid "TOWN"
 msgstr ""
 
@@ -606,6 +712,12 @@ msgid "AUTHORITY_CITY"
 msgstr "AUTORITÀ_DIRETTRICE_LOCALITÀ"
 
 #: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "AUTHORITY_PHONE"
+msgid "AUTHORITY_TOWN"
+msgstr "AUTORITÀ_DIRETTRICE_TELEFONO"
+
+#: camac/instance/placeholders/serializers.py
 msgid "City of the authority"
 msgstr "Località dell'autorità direttrice competente"
 
@@ -758,6 +870,12 @@ msgid "The location of the building site"
 msgstr "Ubicazione del progetto di costruzione"
 
 #: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "The location of the building site"
+msgid "The town of the building site"
+msgstr "Ubicazione del progetto di costruzione"
+
+#: camac/instance/placeholders/serializers.py
 msgid "PARCEL"
 msgstr "PARTICELLA"
 
@@ -883,7 +1001,8 @@ msgstr "CIRCOLAZIONE_RICHIESTA"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Inquiries requested by own service only"
-msgstr "Servizi coinvolti nel dossier che sono stati richiesti da questo servizio"
+msgstr ""
+"Servizi coinvolti nel dossier che sono stati richiesti da questo servizio"
 
 #: camac/instance/placeholders/serializers.py
 msgid "OWN_BILLING_ENTRIES_TOTAL"
@@ -1478,10 +1597,6 @@ msgid "NEIGHBORS"
 msgstr "TUTTI_VICINI"
 
 #: camac/instance/placeholders/serializers.py
-msgid "OBJECTIONS"
-msgstr "OPPOSIZIONI"
-
-#: camac/instance/placeholders/serializers.py
 msgid "All legal submissions of the type \"objection\""
 msgstr "Tutte le rivendicazioni del tipo \"opposizioni\""
 
@@ -1871,16 +1986,52 @@ msgid "ENERGY_STORAGE_CAPACITY"
 msgstr "CAPACITÀ_ACCUMULATORE_ENERGIA"
 
 #: camac/instance/placeholders/serializers.py
-msgid "STFV short report date"
+msgid "STFV_SHORT_REPORT"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "STFV short report date"
+msgid "STFV short report"
 msgstr "OPIR data rapporto breve"
 
 #: camac/instance/placeholders/serializers.py
-msgid "STFV_CRITIAL_VALUE_EXCEEDED"
+#, fuzzy
+#| msgid "STFV_CRITIAL_VALUE_EXCEEDED"
+msgid "STFV_SPECIAL_WASTE_EXCEEDED"
 msgstr "OPIR_VALORE_CRITICO_SUPERATO"
 
 #: camac/instance/placeholders/serializers.py
-msgid "StfV critial value exceeded"
+#, fuzzy
+#| msgid "StfV critial value exceeded"
+msgid "STFV special waste exceeded"
 msgstr "OPIR valore critico superato"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV_RISK_ASSESSMENT"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV risk assessment"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "SITUATION"
+msgid "STFV_REGULATION"
+msgstr "FATTISPECIE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV regulation"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV_REGULATION_GENTECH"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "STFV regulation gentech"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "FIRE_PROTECTION_SYSTEMS"
@@ -1947,6 +2098,22 @@ msgid "PUBLICATION_DATE_OFFICIAL_GAZETTE"
 msgstr "DATA_PUBBLICAZIONE_FOGLIO_UFFICIALE"
 
 #: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "PUBLICATION_END"
+msgid "PUBLICATION"
+msgstr "PUBBLICAZIONE_FINE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_ORGAN"
+msgstr "PUBBLICAZIONE_ORGANO"
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "All objections"
+msgid "All Publications"
+msgstr "Tutte le opposizioni"
+
+#: camac/instance/placeholders/serializers.py
 msgid "All objections"
 msgstr "Tutte le opposizioni"
 
@@ -1985,10 +2152,6 @@ msgstr "PIANIFICAZIONE_UTILIZZAZIONE_UTILIZZAZIONE_BASE"
 #| msgid "Land use planning (land use)"
 msgid "Land use planning (land use) (canton)"
 msgstr "Pianificazione dell'utilizzazione (utilizzazione di base)"
-
-#: camac/instance/placeholders/serializers.py
-msgid "PUBLICATION_ORGAN"
-msgstr "PUBBLICAZIONE_ORGANO"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Publication organ of the instance"
@@ -2173,9 +2336,256 @@ msgid "All invoice recipients as list"
 msgstr "Nomi di tutte le persone che ricevono una fattura"
 
 #: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_DATE_OF_RECEIPT_ARP"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Date of receipt ARP"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_DEADLINE_AT_RECORDING"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Deadline at recording"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_RELEVANT_DEADLINE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid ""
+"Relevant deadline (e.g., after suspensions or various preliminary reviews)"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROCEDURE_STATUS"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Procedure status"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROCESSING_STATUS"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Processing status"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_SUSPENSION_REASON"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Suspension reason"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "DECISION_CONSTRUCTION_TEE"
+msgid "CANTONAL_REVIEW_SUSPENDED_FROM"
+msgstr "DECISIONE_EDILIZIA_RIGETTO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Suspended from"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_SUSPENDED_UNTIL"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Suspended until"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_APPROVAL_AUTHORITY"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "Authority"
+msgid "Approval authority"
+msgstr "Autorità direttrice"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_INTEREST_IN_PROJECT"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "Description of the project"
+msgid "Interest in the project"
+msgstr "Descrizione del progetto di costruzione"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_ENTRY_DATE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "Current date"
+msgid "Entry date"
+msgstr "Data odierna"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_ENTRY_TYPE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Entry type"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PARTICIPANTS_PRESENT"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Participants present"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_FACTS"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Facts"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_MUNICIPALITY_NUMBER_CANTONAL_ARP"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Municipality number (cantonal / ARP)"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "DECISION_CONSTRUCTION_TEE"
+msgid "CANTONAL_REVIEW_CONSTRUCTION_ZONE"
+msgstr "DECISIONE_EDILIZIA_RIGETTO"
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "Construction costs"
+msgid "Construction zone"
+msgstr "Costi di costruzione"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_OBJECT_PROTECTION"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "Water protection area"
+msgid "Object protection"
+msgstr "Settore di protezione delle acque"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_DESIGNATION"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "Project modification"
+msgid "Protected object (designation)"
+msgstr "Modifica del progetto"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_AUTHORITY"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "Phone of the authority"
+msgid "Protected object authority"
+msgstr "Numero di telefono dell'autorità direttrice competente"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_DECISION_NUMBER"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Protected object decision number"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_DECISION_DATE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Protected object decision date"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_ORDER_DATE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Protected object order date"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_CHECKLIST_BAB_SO_ACCORDING_TO_RPG"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Checklist BaB SO according to RPG"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_DECISION_CANTON"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "Decision date"
+msgid "Decision (Canton)"
+msgstr "Data della decisione edilizia"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_DECISION_DATE_CANTON"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "Decision date"
+msgid "Decision date (Canton)"
+msgstr "Data della decisione edilizia"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_REVIEW_DECISION_OPENING_TYPE_CANTON"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "Decision type"
+msgid "Decision opening type (Canton)"
+msgstr "Tipo di decisione"
+
+#: camac/instance/placeholders/serializers.py
 msgid "ZONE"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "Zone"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+#, fuzzy
+#| msgid "Website of the current service"
+msgid "Feedback of the invited services"
+msgstr "Sito web dell'organizzazione attualmente selezionata"
+
+#: camac/instance/placeholders/utils.py
+msgid "Yes"
+msgstr ""
+
+#: camac/instance/placeholders/utils.py
+msgid "No"
 msgstr ""

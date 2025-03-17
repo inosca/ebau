@@ -19,15 +19,16 @@ from camac.instance.models import Instance
 
 def test_calculate_final_rate() -> None:
     flat = calculate_final_rate(
-        calculation=BillingV2Entry.CALCULATION_FLAT, total_cost=Decimal(100)
+        calculation=BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+        total_cost=Decimal(100),
     )
     percentage = calculate_final_rate(
-        calculation=BillingV2Entry.CALCULATION_PERCENTAGE,
+        calculation=BillingV2Entry.CalculationModes.CALCULATION_PERCENTAGE,
         total_cost=Decimal(1000),
         percentage=Decimal(10),
     )
     hourly = calculate_final_rate(
-        calculation=BillingV2Entry.CALCULATION_HOURLY,
+        calculation=BillingV2Entry.CalculationModes.CALCULATION_HOURLY,
         hours=Decimal(10),
         hourly_rate=Decimal(10),
     )
@@ -60,7 +61,7 @@ def test_calculate_final_rate_ag_processing_fee(
     assert (
         calculate_final_rate(
             total_cost=construction_costs,
-            calculation=BillingV2Entry.CALCULATION_AG_PROCESSING_FEE,
+            calculation=BillingV2Entry.CalculationModes.CALCULATION_AG_PROCESSING_FEE,
         )
         == expected_final_rate
     )
@@ -74,23 +75,23 @@ def test_add_taxes_to_final_rate() -> None:
         Decimal,
         add_taxes_to_final_rate(
             final_rate=final_rate,
-            tax_mode=BillingV2Entry.TAX_MODE_EXCLUSIVE,
+            tax_mode=BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
             tax_rate=tax_rate,
         ),
     )
     inclusive = add_taxes_to_final_rate(
         final_rate=final_rate,
-        tax_mode=BillingV2Entry.TAX_MODE_INCLUSIVE,
+        tax_mode=BillingV2Entry.TaxModes.TAX_MODE_INCLUSIVE,
         tax_rate=tax_rate,
     )
     exempt = add_taxes_to_final_rate(
         final_rate=final_rate,
-        tax_mode=BillingV2Entry.TAX_MODE_EXEMPT,
+        tax_mode=BillingV2Entry.TaxModes.TAX_MODE_EXEMPT,
         tax_rate=tax_rate,
     )
     empty = add_taxes_to_final_rate(
         final_rate=None,
-        tax_mode=BillingV2Entry.TAX_MODE_EXCLUSIVE,
+        tax_mode=BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
         tax_rate=tax_rate,
     )
 
@@ -104,22 +105,22 @@ def test_get_totals() -> None:
     entries: list[dict[str, Any]] = [
         {
             "final_rate": "210.05",
-            "organization": BillingV2Entry.MUNICIPAL,
+            "organization": BillingV2Entry.Organizations.MUNICIPAL,
             "date_charged": None,
         },
         {
             "final_rate": "999.75",
-            "organization": BillingV2Entry.MUNICIPAL,
+            "organization": BillingV2Entry.Organizations.MUNICIPAL,
             "date_charged": "2023-11-04",
         },
         {
             "final_rate": "12.50",
-            "organization": BillingV2Entry.CANTONAL,
+            "organization": BillingV2Entry.Organizations.CANTONAL,
             "date_charged": None,
         },
         {
             "final_rate": "120.90",
-            "organization": BillingV2Entry.CANTONAL,
+            "organization": BillingV2Entry.Organizations.CANTONAL,
             "date_charged": "2023-11-04",
         },
         {
@@ -185,9 +186,9 @@ def test_billing_entry_create(db, admin_client, instance) -> None:
             "data": {
                 "type": "billing-v2-entries",
                 "attributes": {
-                    "calculation": BillingV2Entry.CALCULATION_FLAT,
+                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
                     "total-cost": 1050,
-                    "tax-mode": BillingV2Entry.TAX_MODE_EXCLUSIVE,
+                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
                     "tax-rate": 7.7,
                     "text": "Test",
                 },
@@ -309,8 +310,8 @@ def test_billing_entry_create_with_ag_processing_fee(
             "data": {
                 "type": "billing-v2-entries",
                 "attributes": {
-                    "calculation": BillingV2Entry.CALCULATION_AG_PROCESSING_FEE,
-                    "tax-mode": BillingV2Entry.TAX_MODE_EXEMPT,
+                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_AG_PROCESSING_FEE,
+                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXEMPT,
                     "tax-rate": 0,
                     "text": "Test",
                 },

@@ -15,20 +15,22 @@ def choice_keys(choices: tuple):
 
 
 class BillingV2CommonEntryFactory(DjangoModelFactory):
-    organization = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.ORGANIZATION_CHOICES))
-    billing_type = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.BILLING_TYPE_CHOICES))
+    organization = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.Organizations.choices))
+    billing_type = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.BillingTypes.choices))
     text = Faker("word")
     legal_basis = Faker("word")
     cost_center = Faker("aba")
 
-    tax_mode = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.TAX_MODE_CHOICES))
+    tax_mode = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.TaxModes.choices))
     tax_rate = Maybe(
         "is_tax_exempt",
         yes_declaration=Decimal(0),
         no_declaration=fuzzy.FuzzyChoice([Decimal(2.5), Decimal(7.7)]),
     )
 
-    calculation = fuzzy.FuzzyChoice(choice_keys(BillingV2Entry.CALCULATION_CHOICES))
+    calculation = fuzzy.FuzzyChoice(
+        choice_keys(BillingV2Entry.CalculationModes.choices)
+    )
     total_cost = Maybe(
         "is_flat_or_percentage",
         yes_declaration=Faker(
@@ -58,17 +60,19 @@ class BillingV2CommonEntryFactory(DjangoModelFactory):
 
     class Params:
         is_flat = LazyAttribute(
-            lambda e: e.calculation == BillingV2Entry.CALCULATION_FLAT
+            lambda e: e.calculation == BillingV2Entry.CalculationModes.CALCULATION_FLAT
         )
         is_percentage = LazyAttribute(
-            lambda e: e.calculation == BillingV2Entry.CALCULATION_PERCENTAGE
+            lambda e: e.calculation
+            == BillingV2Entry.CalculationModes.CALCULATION_PERCENTAGE
         )
         is_hourly = LazyAttribute(
-            lambda e: e.calculation == BillingV2Entry.CALCULATION_HOURLY
+            lambda e: e.calculation
+            == BillingV2Entry.CalculationModes.CALCULATION_HOURLY
         )
         is_flat_or_percentage = LazyAttribute(lambda e: e.is_flat or e.is_percentage)
         is_tax_exempt = LazyAttribute(
-            lambda e: e.tax_mode == BillingV2Entry.TAX_MODE_EXEMPT
+            lambda e: e.tax_mode == BillingV2Entry.TaxModes.TAX_MODE_EXEMPT
         )
 
 

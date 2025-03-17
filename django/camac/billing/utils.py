@@ -35,21 +35,21 @@ def calculate_final_rate(
 
     final_rate = None
 
-    if calculation == BillingV2Entry.CALCULATION_FLAT:
+    if calculation == BillingV2Entry.CalculationModes.CALCULATION_FLAT:
         final_rate = total_cost
-    elif calculation == BillingV2Entry.CALCULATION_PERCENTAGE:
+    elif calculation == BillingV2Entry.CalculationModes.CALCULATION_PERCENTAGE:
         final_rate = (
             total_cost * percentage / Decimal(100)
             if total_cost is not None and percentage is not None
             else None
         )
-    elif calculation == BillingV2Entry.CALCULATION_HOURLY:
+    elif calculation == BillingV2Entry.CalculationModes.CALCULATION_HOURLY:
         final_rate = (
             hours * hourly_rate
             if hours is not None and hourly_rate is not None
             else None
         )
-    elif calculation == BillingV2Entry.CALCULATION_AG_PROCESSING_FEE:
+    elif calculation == BillingV2Entry.CalculationModes.CALCULATION_AG_PROCESSING_FEE:
         final_rate = calculate_ag_processing_fee(total_cost)
 
     # Don't ignore final_rate when value is 0
@@ -69,7 +69,7 @@ def add_taxes_to_final_rate(
     if final_rate is None:
         return None
 
-    if tax_mode != BillingV2Entry.TAX_MODE_EXCLUSIVE:
+    if tax_mode != BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE:
         return final_rate
 
     return round_decimal(final_rate + final_rate * tax_rate / Decimal(100))
@@ -84,7 +84,7 @@ def get_totals(entries: List[OrderedDict]) -> BillingTotals:
 
     totals = {}
 
-    for key, _ in BillingV2Entry.ORGANIZATION_CHOICES:
+    for key, _ in BillingV2Entry.Organizations.choices:
         totals[key] = get_totals_for_organization(entries, key)
 
     totals["all"] = get_totals_for_organization(entries)

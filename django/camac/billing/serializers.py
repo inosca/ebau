@@ -43,7 +43,7 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
 
         if (
             validated_data["calculation"]
-            == BillingV2Entry.CALCULATION_AG_PROCESSING_FEE
+            == BillingV2Entry.CalculationModes.CALCULATION_AG_PROCESSING_FEE
         ):
             construction_costs = (
                 MasterData(validated_data["instance"].case).construction_costs
@@ -126,7 +126,7 @@ class BillingV2EntryExportSerializer(BillingV2EntrySerializer):
     def get_calculation_of_final_rate(self, model):
         _tax_mode = (
             _("inclusive")
-            if model.tax_mode == BillingV2Entry.TAX_MODE_INCLUSIVE
+            if model.tax_mode == BillingV2Entry.TaxModes.TAX_MODE_INCLUSIVE
             else _("exclusive")
         )
         tax = (
@@ -135,18 +135,22 @@ class BillingV2EntryExportSerializer(BillingV2EntrySerializer):
                 "tax_mode": _tax_mode,
                 "tax_rate": model.tax_rate.quantize(Decimal("0.1")),
             }
-            if model.tax_mode != BillingV2Entry.TAX_MODE_EXEMPT
+            if model.tax_mode != BillingV2Entry.TaxModes.TAX_MODE_EXEMPT
             else _("not subject to VAT")
         )
 
-        if model.calculation == BillingV2Entry.CALCULATION_HOURLY:  # hourly
+        if (
+            model.calculation == BillingV2Entry.CalculationModes.CALCULATION_HOURLY
+        ):  # hourly
             return _("%(hours)s hours at %(hourly_rate)s %(tax)s") % {
                 "hours": model.hours,
                 "hourly_rate": model.hourly_rate,
                 "tax": tax,
             }
 
-        if model.calculation == BillingV2Entry.CALCULATION_PERCENTAGE:  # percentage
+        if (
+            model.calculation == BillingV2Entry.CalculationModes.CALCULATION_PERCENTAGE
+        ):  # percentage
             return _("%(percentage)s of %(total)s %(tax-suffix)s") % {
                 "percentage": model.percentage,
                 "total": model.total_cost,
