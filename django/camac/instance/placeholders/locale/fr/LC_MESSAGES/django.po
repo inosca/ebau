@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-17 11:46+0100\n"
+"POT-Creation-Date: 2025-03-18 09:27+0100\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2661,6 +2661,31 @@ msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "INFORMATION_OF_FOREIGN_NEIGHBORS_QR_CODE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "FURTHER_AFFECTED_MUNICIPALITIES"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Further affected municipalities"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid ""
+"Name of the invoice recipient if available, otherwise that of the applicant"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid ""
+"Address line 1 of the invoice recipient if available, otherwise that of the "
+"applicant"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid ""
+"Address line 2 of the invoice recipient if available, otherwise that of the "
+"applicant"
 msgstr ""
 
 #: camac/instance/placeholders/utils.py

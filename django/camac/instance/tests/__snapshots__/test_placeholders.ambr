@@ -1460,6 +1460,7 @@
     'MUNICIPALITY': 'Aarburg',
     'MUNICIPALITY_ADDRESS': 'Deborahborough',
     'NAME': '',
+    'NUTZUNGSZONE': 'Wohnzone 2',
     'ORT': 'Aarburg',
     'PARZELLE': '1338',
     'PROJEKTVERFASSER': 'Castillo, Anderson and Diaz, Sarah Mendoza',
@@ -1471,10 +1472,14 @@
     'PROJEKTVERFASSER_NAME_ADRESSE': 'Castillo, Anderson and Diaz, Sarah Mendoza, Garrett Manors 2760, 7607 Port Barrymouth',
     'PUBLIKATION_LINK': 'http://ebau-portal.local/public-instances/1',
     'PUBLIKATION_TEXT': '',
+    'RECHNUNGSEMPFAENGER': 'Jennifer Tanner',
+    'RECHNUNGSEMPFAENGER_ADRESSE_1': 'Shepard Fords 86640',
+    'RECHNUNGSEMPFAENGER_ADRESSE_2': '4442 Jamesfurt',
     'SPRACHE': 'de',
     'STATUS': 'David Rangel',
     'STRASSE': 'Teststrasse 12',
     'TODAY': '6. Juni 2016',
+    'WEITERE_BETROFFENE_GEMEINDEN': 'Abtwil, Dietwil',
     'ZIRKULATION_ALLE': list([
     ]),
     'ZIRKULATION_ANGEFORDERT': list([

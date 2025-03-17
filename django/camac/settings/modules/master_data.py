@@ -3074,6 +3074,11 @@ MASTER_DATA = {
                 "gemeinde",
                 {"value_parser": "dynamic_option", "prop": "slug"},
             ),
+            "other_municipality_names": (
+                "answer",
+                "weitere-gemeinden",
+                {"value_parser": "dynamic_option", "prop": "label"},
+            ),
             "plot_data": (
                 "table",
                 "parzelle",

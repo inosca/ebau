@@ -343,12 +343,20 @@ class PublicationField(AliasedMixin, serializers.ReadOnlyField):
 
 
 class MasterDataField(AliasedMixin, serializers.ReadOnlyField):
-    def __init__(self, join_by=None, sum_by=None, parser=lambda value: value, **kwargs):
+    def __init__(
+        self,
+        join_by=None,
+        sum_by=None,
+        parser=lambda value: value,
+        fallback_source=None,
+        **kwargs,
+    ):
         super().__init__(**kwargs)
 
         self.join_by = join_by
         self.sum_by = sum_by
         self.parser = parser
+        self.fallback_source = fallback_source
 
     def to_representation(self, value):
         if self.join_by and isinstance(value, list):
@@ -367,13 +375,21 @@ class MasterDataField(AliasedMixin, serializers.ReadOnlyField):
 
         return self.parser(super().to_representation(value))
 
-    def get_attribute(self, instance):
+    def _get_attribute(self, instance, source):
         if not get_dict_item(
-            settings.MASTER_DATA, f"CONFIG.{self.source}", default=None
+            settings.MASTER_DATA, f"CONFIG.{source}", default=None
         ):  # pragma: no cover
             return None
 
-        return getattr(instance._master_data, self.source)
+        return getattr(instance._master_data, source)
+
+    def get_attribute(self, instance):
+        value = self._get_attribute(instance, self.source)
+
+        if value in [None, []] and self.fallback_source is not None:
+            value = self._get_attribute(instance, self.fallback_source)
+
+        return value
 
 
 class JointField(AliasedMixin, serializers.ReadOnlyField):
