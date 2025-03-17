@@ -65,7 +65,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-auswaertige-anstoesser",
-      "sort": 12
+      "sort": 2
     }
   },
   {
@@ -80,7 +80,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-begruendung-fehlende-unterlagen",
-      "sort": 7
+      "sort": 11
     }
   },
   {
@@ -95,7 +95,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-einverstaendnis-grundeigentuemerin-vorhanden",
-      "sort": 6
+      "sort": 10
     }
   },
   {
@@ -110,7 +110,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
-      "sort": 2
+      "sort": 15
     }
   },
   {
@@ -125,7 +125,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-fehlende-einverstaendnisse-grundeigentuemerin",
-      "sort": 5
+      "sort": 9
     }
   },
   {
@@ -155,7 +155,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-gesuchsunterlagen-vollstaendig",
-      "sort": 8
+      "sort": 12
     }
   },
   {
@@ -170,7 +170,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-kantonale-zustimmung",
-      "sort": 14
+      "sort": 3
     }
   },
   {
@@ -185,7 +185,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-kontrolle-profilierung",
-      "sort": 9
+      "sort": 5
     }
   },
   {
@@ -200,7 +200,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-lage-begruendung",
-      "sort": 3
+      "sort": 13
     }
   },
   {
@@ -215,7 +215,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-lage-des-vorhabens-korrekt",
-      "sort": 4
+      "sort": 14
     }
   },
   {
@@ -230,7 +230,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-profilierung",
-      "sort": 11
+      "sort": 7
     }
   },
   {
@@ -245,7 +245,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-profilierungsdatum",
-      "sort": 10
+      "sort": 6
     }
   },
   {
@@ -260,7 +260,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-publikation",
-      "sort": 13
+      "sort": 4
     }
   },
   {
@@ -275,7 +275,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-formelle-vorpruefung",
       "question": "vorlaeufige-pruefung-verfahrensart",
-      "sort": 15
+      "sort": 8
     }
   },
   {
@@ -305,7 +305,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-abstaende",
-      "sort": 17
+      "sort": 25
     }
   },
   {
@@ -320,7 +320,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-abstaende-bemerkungen",
-      "sort": 13
+      "sort": 21
     }
   },
   {
@@ -335,7 +335,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-anrechenbare-geschossflaeche-m2-korrekt",
-      "sort": 24
+      "sort": 19
     }
   },
   {
@@ -350,7 +350,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-anrechenbare-grundstuecksflaeche-m2-korrekt",
-      "sort": 23
+      "sort": 18
     }
   },
   {
@@ -365,7 +365,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-anzahl-geschosse-inkl-dachgeschoss-korrekt",
-      "sort": 20
+      "sort": 15
     }
   },
   {
@@ -395,7 +395,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-ausnuetzung",
-      "sort": 25
+      "sort": 20
     }
   },
   {
@@ -410,7 +410,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-ausnuetzung-bemerkungen",
-      "sort": 18
+      "sort": 13
     }
   },
   {
@@ -425,7 +425,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-ausnuetzungsziffer-projekt-korrekt",
-      "sort": 22
+      "sort": 17
     }
   },
   {
@@ -530,7 +530,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-erforderliche-naeherbaurechte-vorhanden",
-      "sort": 14
+      "sort": 22
     }
   },
   {
@@ -560,7 +560,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-grenzabstaende-eingehalten",
-      "sort": 16
+      "sort": 24
     }
   },
   {
@@ -575,7 +575,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-gruenflaechenziffer-projekt-korrekt",
-      "sort": 21
+      "sort": 16
     }
   },
   {
@@ -620,7 +620,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-naeherbaurechte-erforderlich",
-      "sort": 15
+      "sort": 23
     }
   },
   {
@@ -680,7 +680,7 @@
       "modified_by_group": null,
       "form": "vorlaeufige-pruefung-materielle-vorpruefung",
       "question": "vorlaeufige-pruefung-tabelle-wohnung-korrekt",
-      "sort": 19
+      "sort": 14
     }
   },
   {
