@@ -2032,6 +2032,8 @@ def ag_master_data_case(
     utils,
     caluma_dynamic_option_factory,
     caluma_work_item_factory,
+    service_factory,
+    multilang,
 ):
     ag_instance.case.meta = {
         "dossier-number": "2025-1",
@@ -2071,12 +2073,13 @@ def ag_master_data_case(
         utils.add_table_answer(document, table, [ag_personal_row_factory(is_juristic)])
 
     # Municipality
-    utils.add_answer(document, "gemeinde", "55")
+    municipality = service_factory(pk=55, trans__name="Aarburg", trans__language="de")
+    utils.add_answer(document, "gemeinde", str(municipality.pk))
     caluma_dynamic_option_factory(
         question_id="gemeinde",
         document=ag_instance.case.document,
-        slug="55",
-        label={"de": "Aarburg"},
+        slug=str(municipality.pk),
+        label={"de": municipality.get_name()},
     )
 
     # Formal exam
@@ -2100,7 +2103,7 @@ def ag_master_data_case(
 
     # Decision
     decision = caluma_work_item_factory(task_id="decision", case=ag_instance.case)
-    utils.add_answer(decision.document, "entscheid-datum", date(2025, 2, 5))
+    utils.add_answer(decision.document, "entscheid-datum", date(2025, 3, 28))
 
     return ag_instance.case
 
@@ -3005,6 +3008,7 @@ def create_caluma_publication(db, caluma_work_item_factory, utils, request):
         published=True,
         publication_type="PUBLIC",
         module_settings=None,
+        **kwargs,
     ):
         if module_settings is None:
             module_settings = request.getfixturevalue("be_publication_settings")
@@ -3014,6 +3018,7 @@ def create_caluma_publication(db, caluma_work_item_factory, utils, request):
             status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
             case=instance.case,
             meta={"is-published": published},
+            **kwargs,
         )
 
         utils.add_answer(

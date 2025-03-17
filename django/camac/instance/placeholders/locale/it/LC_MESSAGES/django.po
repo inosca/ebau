@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-05 10:58+0100\n"
+"POT-Creation-Date: 2025-03-17 11:46+0100\n"
 "PO-Revision-Date: 2024-07-25 11:14+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2581,6 +2581,18 @@ msgstr ""
 #| msgid "Website of the current service"
 msgid "Feedback of the invited services"
 msgstr "Sito web dell'organizzazione attualmente selezionata"
+
+#: camac/instance/placeholders/serializers.py
+msgid "FOREIGN_NEIGHBORS"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "INFORMATION_OF_FOREIGN_NEIGHBORS_LINK"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "INFORMATION_OF_FOREIGN_NEIGHBORS_QR_CODE"
+msgstr ""
 
 #: camac/instance/placeholders/utils.py
 msgid "Yes"

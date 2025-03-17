@@ -12,7 +12,7 @@ from alexandria.core.factories import (
 )
 from caluma.caluma_form import api as form_api, models as caluma_form_models
 from caluma.caluma_form.factories import AnswerFactory, DocumentFactory
-from caluma.caluma_form.models import Answer, Option, Question
+from caluma.caluma_form.models import Option, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
@@ -26,7 +26,7 @@ from camac.instance.placeholders.utils import (
     get_yes_no,
     human_readable_date,
 )
-from camac.tests.data import so_personal_row_factory
+from camac.tests.data import ag_personal_row_factory, so_personal_row_factory
 
 
 @pytest.fixture
@@ -621,6 +621,7 @@ def test_dms_placeholders(
     be_dms_config,
     be_decision_settings,
     be_master_data_settings,
+    be_publication_settings,
     utils,
 ):
     application_settings["INTERNAL_FRONTEND"] = "camac"
@@ -1012,37 +1013,62 @@ def test_dms_placeholders_ur(
 )  # always reset instance id
 def test_dms_placeholders_ag(
     db,
-    snapshot,
-    ag_dms_config,
     admin_client,
-    ag_instance,
-    utils,
-    service_factory,
-    ag_master_data_case,  # noqa
-    settings,
     ag_distribution_settings,
-    application_settings,
+    ag_dms_config,
+    ag_master_data_case,
+    ag_publication_settings,
+    create_caluma_publication,
+    multilang,
+    responsible_service_factory,
+    service,
+    snapshot,
+    utils,
 ):
-    # Municipality
-    municipality_value = service_factory(website="https://gemeinde.ch")
-    municipality = Answer.objects.get(
-        question="gemeinde", document=ag_instance.case.document
-    )
-    municipality.value = str(municipality_value.pk)
-    municipality.save()
+    ag_instance = ag_master_data_case.instance
 
-    # gis
+    # GIS
     utils.add_answer(
         ag_instance.case.document,
         "gis-map",
         '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}, {"x": 2609995.12345,"y": 1271340.12345}] }',
     )
 
+    # Responsible user
+    responsible_service_factory(
+        instance=ag_instance,
+        service=service,
+        responsible_user__name="John",
+        responsible_user__surname="Doe",
+        responsible_user__email="john.doe@acme.com",
+        responsible_user__phone="012 345 67 89",
+    )
+
+    # Information of neighbors
+    create_caluma_publication(
+        ag_instance,
+        module_settings=ag_publication_settings,
+        addressed_groups=[str(service.pk)],
+        document__pk="5d55b605-df4b-4484-aa91-7cd23f89ba22",
+    )
+    information_of_neighbors = create_caluma_publication(
+        ag_instance,
+        publication_type="NEIGHBORS",
+        module_settings=ag_publication_settings,
+        addressed_groups=[str(service.pk)],
+        document__pk="878109fb-24c4-43e8-a00f-76999ca0f531",
+    )
+    utils.add_table_answer(
+        information_of_neighbors.document,
+        "nachbarschaftsorientierung-auswaertige-anstoesser",
+        [ag_personal_row_factory(), ag_personal_row_factory(True)],
+    )
+
     url = reverse("instance-dms-placeholders", args=[ag_instance.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
-    snapshot.assert_match(response.json())
+    assert response.json() == snapshot
 
 
 @pytest.mark.parametrize(
