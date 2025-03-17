@@ -26,6 +26,7 @@ from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi
+from camac.caluma.models import Inquiry
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Answer,
@@ -222,16 +223,8 @@ class InstanceSerializer(
         filters = Q(
             pk__in=list(
                 itertools.chain(
-                    *workflow_models.WorkItem.objects.filter(
-                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                        case__family=obj.case,
-                    )
-                    .exclude(
-                        status__in=[
-                            workflow_models.WorkItem.STATUS_CANCELED,
-                            workflow_models.WorkItem.STATUS_SUSPENDED,
-                        ]
-                    )
+                    *Inquiry.objects.for_case(obj.case)
+                    .only_active()
                     .values_list("addressed_groups", flat=True)
                 )
             )
@@ -644,16 +637,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             return None
 
         return (
-            workflow_models.WorkItem.objects.filter(
-                case__family__instance=instance,
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                status__in=[
-                    workflow_models.WorkItem.STATUS_READY,
-                    workflow_models.WorkItem.STATUS_COMPLETED,
-                    workflow_models.WorkItem.STATUS_SKIPPED,
-                ],
-                addressed_groups=[str(service_id)],
-            )
+            Inquiry.objects.for_instance(instance)
+            .addressed_to(service_id)
+            .only_active()
             .order_by("child_case__created_at")
             .values_list("child_case__created_at", flat=True)
             .first()
@@ -2826,11 +2812,7 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
 
 class CalumaInstanceCorrectionSerializer(serializers.Serializer):
     def validate(self, data):
-        if workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status=workflow_models.WorkItem.STATUS_READY,
-            case__family__instance=self.instance,
-        ).exists():
+        if Inquiry.objects.for_instance(self.instance).only_pending().exists():
             raise exceptions.ValidationError(
                 _("The Dossier can't be correct because there are running inquiries.")
             )

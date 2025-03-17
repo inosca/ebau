@@ -12,6 +12,7 @@ from django.db import transaction
 from django.utils.translation import gettext as _
 from rest_framework.exceptions import ValidationError
 
+from camac.caluma.models import Inquiry
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import rejected, rejection_reverted
 from camac.instance.models import Instance
@@ -41,11 +42,11 @@ class RejectionLogic:
 
     @classmethod
     def validate_for_rejection(cls, instance: Instance) -> None:
-        if WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status__in=[WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED],
-            case__family__instance=instance,
-        ).exists():
+        if (
+            Inquiry.objects.for_instance(instance)
+            .for_status(WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED)
+            .exists()
+        ):
             raise ValidationError(
                 _("Instance can't be rejected while there is an open circulation")
             )

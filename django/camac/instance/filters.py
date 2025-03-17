@@ -34,6 +34,7 @@ from django_filters.rest_framework import (
 )
 from rest_framework.filters import BaseFilterBackend, OrderingFilter
 
+from camac.caluma.models import Inquiry
 from camac.caluma.utils import visible_inquiries_expression
 from camac.constants import kt_uri as uri_constants
 from camac.filters import (
@@ -525,31 +526,26 @@ class InquiryStateFilter(CharFilter):
             return qs
 
         if value == "pending":
-            inquiries = WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups__contains=[str(self.parent.request.group.service_id)],
-                status=WorkItem.STATUS_READY,
-            )
+            inquiries = Inquiry.objects.addressed_to(
+                self.parent.request.group.service_id
+            ).only_pending()
 
         elif value == "completed":
             # instances are considered completed if they have at least one completed
             # or skipped inquiry, and no ready inquiry in the same case.
-            inquiries = WorkItem.objects.annotate(
-                has_open_sibling_inquiry=Exists(
-                    WorkItem.objects.filter(
-                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                        status=WorkItem.STATUS_READY,
-                        addressed_groups__contains=[
-                            str(self.parent.request.group.service_id)
-                        ],
-                        case=OuterRef("case"),
+            inquiries = (
+                Inquiry.objects.annotate(
+                    has_open_sibling_inquiry=Exists(
+                        Inquiry.objects.for_case(OuterRef("case"))
+                        .addressed_to(self.parent.request.group.service_id)
+                        .only_pending()
                     )
                 )
-            ).filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups__contains=[str(self.parent.request.group.service_id)],
-                status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
-                has_open_sibling_inquiry=False,
+                .addressed_to(self.parent.request.group.service_id)
+                .for_status(WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED)
+                .filter(
+                    has_open_sibling_inquiry=False,
+                )
             )
 
         return qs.filter(
@@ -562,15 +558,10 @@ class InquiryDateFilter(DateFilter):
         if value in EMPTY_VALUES:
             return qs
 
-        inquiries = WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            addressed_groups__contains=[str(self.parent.request.group.service_id)],
-            status__in=[
-                WorkItem.STATUS_READY,
-                WorkItem.STATUS_COMPLETED,
-                WorkItem.STATUS_SKIPPED,
-            ],
-            **{self.lookup_expr: value},
+        inquiries = (
+            Inquiry.objects.addressed_to(self.parent.request.group.service_id)
+            .only_active()
+            .filter(**{self.lookup_expr: value})
         )
 
         if self.lookup_expr.startswith("closed_at"):
@@ -761,17 +752,9 @@ class InstanceFilterSet(FilterSet):
     def filter_with_cantonal_participation(self, queryset, name, value):
         return queryset.filter(
             Exists(
-                WorkItem.objects.filter(
-                    Q(case__family=OuterRef("case"))
-                    & Q(task__pk=settings.DISTRIBUTION["INQUIRY_TASK"])
-                    & Q(
-                        status__in=[
-                            WorkItem.STATUS_READY,
-                            WorkItem.STATUS_COMPLETED,
-                        ]
-                    )
-                    & Q(addressed_groups__overlap=uri_constants.KOOR_SERVICE_IDS)
-                )
+                Inquiry.objects.for_case(OuterRef("case"))
+                .addressed_to(uri_constants.KOOR_SERVICE_IDS)
+                .only_active()
             )
         )
 
@@ -780,17 +763,9 @@ class InstanceFilterSet(FilterSet):
             pks = [str(pk) for pk in value] if isinstance(value, list) else [str(value)]
             return queryset.filter(
                 Exists(
-                    WorkItem.objects.filter(
-                        Q(case__family=OuterRef("case"))
-                        & Q(task__pk=settings.DISTRIBUTION["INQUIRY_TASK"])
-                        & Q(
-                            status__in=[
-                                WorkItem.STATUS_READY,
-                                WorkItem.STATUS_COMPLETED,
-                            ]
-                        )
-                        & Q(addressed_groups__overlap=pks)
-                    )
+                    Inquiry.objects.for_case(OuterRef("case"))
+                    .addressed_to(pks)
+                    .only_active()
                 )
             )
 

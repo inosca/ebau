@@ -9,6 +9,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.utils.translation import gettext as _, gettext_noop, override
 
+from camac.caluma.models import Inquiry
 from camac.caluma.utils import find_answer
 from camac.core.models import Authority
 from camac.document.models import Attachment
@@ -406,15 +407,10 @@ class ServicesForFinalReport(BaseDataSource):
             return []
 
         instance = Instance.objects.get(pk=context.get("instanceId"))
-        distribution_case = instance.case.work_items.get(
-            task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"]
-        ).child_case
 
         pks_of_services_to_be_invited = []
 
-        for inquiry in distribution_case.work_items.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"]
-        ):
+        for inquiry in Inquiry.objects.for_instance(instance):
             if invite_answer := inquiry.child_case.document.answers.filter(
                 question_id="inquiry-answer-invite-service"
             ).first():

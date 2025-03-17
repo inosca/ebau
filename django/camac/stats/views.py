@@ -24,6 +24,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.request import Request
 from rest_framework.response import Response
 
+from camac.caluma.models import Inquiry
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.stats.cycle_time import aggregate_cycle_times
@@ -87,10 +88,7 @@ class InquiriesSummaryView(ListAPIView):
         if not settings.DISTRIBUTION:  # pragma: no cover
             return WorkItem.objects.none()
 
-        return WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status=WorkItem.STATUS_COMPLETED,
-        )
+        return Inquiry.objects.only_answered()
 
     @permission_aware
     def get_queryset(self) -> None:
@@ -100,9 +98,7 @@ class InquiriesSummaryView(ListAPIView):
         return self.get_base_queryset()
 
     def get_queryset_for_service(self) -> QuerySet:
-        return self.get_base_queryset().filter(
-            addressed_groups__contains=[str(self.request.group.service_id)]
-        )
+        return self.get_base_queryset().addressed_to(self.request.group.service_id)
 
     def get(self, request: Request, *args, **kwargs) -> Response:
         res = (

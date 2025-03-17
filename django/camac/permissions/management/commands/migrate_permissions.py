@@ -16,6 +16,7 @@ from django.db.models import Q
 from django.utils import timezone
 
 from camac.applicants import models as applicants_models
+from camac.caluma.models import Inquiry
 from camac.core.models import InstanceService
 from camac.instance.models import Instance
 from camac.instance.utils import get_construction_control, get_municipality
@@ -426,14 +427,7 @@ class Command(BaseCommand):
             return
 
         wi_iter = self._iter_qs(
-            WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            ).exclude(
-                status__in=[
-                    WorkItem.STATUS_SUSPENDED,
-                    WorkItem.STATUS_CANCELED,
-                ],
-            ),
+            Inquiry.objects.only_active(),
             "case__family__instance",
         )
         log.info(f"    Checking {wi_iter.total} work items")
@@ -491,14 +485,7 @@ class Command(BaseCommand):
         )
 
         wi_iter = self._iter_qs(
-            WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            ).exclude(
-                status__in=[
-                    WorkItem.STATUS_SUSPENDED,
-                    WorkItem.STATUS_CANCELED,
-                ],
-            ),
+            Inquiry.objects.only_active(),
             "case__family__instance",
         )
         log.info(f"    Checking {wi_iter.total} work items")

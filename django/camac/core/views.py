@@ -2,7 +2,6 @@ from pathlib import Path
 from uuid import uuid4
 
 import requests
-from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import Exists, F, OuterRef, Q
 from django.http import HttpResponse
@@ -15,6 +14,7 @@ from rest_framework_json_api import django_filters, filters as json_api_filters
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.caluma.api import CalumaApi
+from camac.caluma.models import Inquiry
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import FormField, Instance
 from camac.user.permissions import (
@@ -118,13 +118,9 @@ class PublicationEntryView(ModelViewSet):
         if settings.DISTRIBUTION:
             return models.PublicationEntry.objects.filter(
                 Exists(
-                    WorkItem.objects.filter(
-                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                        case__family__instance=OuterRef("instance"),
-                        addressed_groups=[self.request.group.service_id],
-                    ).exclude(
-                        status__in=[WorkItem.STATUS_SUSPENDED, WorkItem.STATUS_CANCELED]
-                    )
+                    Inquiry.objects.for_instance(OuterRef("instance"))
+                    .addressed_to(self.request.group.service_id)
+                    .only_active()
                 )
             )
 
@@ -140,13 +136,9 @@ class PublicationEntryView(ModelViewSet):
             return models.PublicationEntry.objects.filter(
                 Q(instance__group__service_id=self.request.group.service_id)
                 | Exists(
-                    WorkItem.objects.filter(
-                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                        case__family__instance=OuterRef("instance"),
-                        addressed_groups=[self.request.group.service_id],
-                    ).exclude(
-                        status__in=[WorkItem.STATUS_SUSPENDED, WorkItem.STATUS_CANCELED]
-                    )
+                    Inquiry.objects.for_instance(OuterRef("instance"))
+                    .addressed_to(self.request.group.service_id)
+                    .only_active()
                 )
             )
 

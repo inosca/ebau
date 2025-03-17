@@ -19,6 +19,7 @@ from camac.alexandria.extensions.visibilities import (
     CustomVisibility as CustomAlexandriaVisibility,
 )
 from camac.billing.models import BillingV2Entry
+from camac.caluma.models import Inquiry
 from camac.caluma.utils import (
     find_answer,
     work_item_by_addressed_service_condition,
@@ -527,10 +528,8 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         if not service:  # pragma: no cover
             return None
 
-        queryset = WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=instance,
-            status__in=(
+        queryset = Inquiry.objects.for_instance(instance).for_status(
+            *(
                 [self.status]
                 if self.status
                 else [
