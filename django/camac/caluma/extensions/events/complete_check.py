@@ -38,7 +38,7 @@ def complete_rejection_work_item(sender, work_item, user, context=None, **kwargs
             "recipient_types": ["applicant"],
         },
         context=context,
-        instance=instance,
+        instance_id=instance.pk,
         user=user,
         work_item=work_item,
     )
@@ -113,7 +113,7 @@ def send_notification_after_complete_check(
                 "recipient_types": ["applicant"],
             },
             context=context,
-            instance=instance,
+            instance_id=instance.pk,
             user=user,
             work_item=work_item,
         )

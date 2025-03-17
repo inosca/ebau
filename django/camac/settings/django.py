@@ -13,7 +13,7 @@ from django.utils.translation import gettext_lazy as _
 from camac.constants import kt_bern as be_constants
 from camac.constants.kt_uri import KOOR_SERVICE_IDS as URI_KOOR_SERVICE_IDS
 from camac.settings.env import ROOT_DIR, env
-from camac.utils import build_url
+from camac.utils import build_url, should_notify_on_manual_workitems
 
 # We need to import the caluma settings after we merge os.environ with our
 # local .env file otherwise caluma tries to get it's settings from it's own env
@@ -258,6 +258,7 @@ APPLICATIONS = {
             "GENERATE_IDENTIFIER": False,
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
+            "CALUMA_WORKFLOW_NOTIFICATIONS": {},
         },
         "STORE_PDF": {"SECTION": 1},
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
@@ -1012,12 +1013,6 @@ APPLICATIONS = {
                     "recipient_types": ["work_item_controlling"],
                 }
             ],
-            "CREATE_MANUAL_WORK_ITEM": [
-                {
-                    "template_slug": "create-manual-work-item",
-                    "recipient_types": ["work_item_addressed"],
-                }
-            ],
             "PERMISSION_ACL_GRANTED": [
                 {
                     "template_slug": "invited-via-permission-acl",
@@ -1089,6 +1084,18 @@ APPLICATIONS = {
                             "template_slug": "complete-cadastral-survey",
                             "recipient_types": ["work_item_controlling"],
                         },
+                    }
+                ],
+                "create-manual-workitems": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "create-manual-work-item",
+                            "recipient_types": ["work_item_addressed"],
+                        },
+                        "condition": lambda work_item: should_notify_on_manual_workitems(
+                            work_item
+                        ),
                     }
                 ],
             },
@@ -2339,6 +2346,20 @@ APPLICATIONS = {
                     "decided": "decided",
                 },
                 "DEFAULT": "inProcedure",
+            },
+            "CALUMA_WORKFLOW_NOTIFICATIONS": {
+                "create-manual-workitems": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "create-manual-work-item",
+                            "recipient_types": ["work_item_addressed"],
+                        },
+                        "condition": lambda work_item: should_notify_on_manual_workitems(
+                            work_item
+                        ),
+                    }
+                ],
             },
         },
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},

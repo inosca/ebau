@@ -83,9 +83,11 @@ def test_appeal_work_item(
     mocker,
     service,
     caluma_work_item_factory,
+    notification_template_factory,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
     mocker.patch("caluma.caluma_core.mutation.Mutation.permission_classes", [AllowAny])
+    notification_template_factory(slug="create-manual-work-item")
 
     work_item = caluma_work_item_factory(
         case=be_instance.case, child_case=None, document__form_id="appeal"

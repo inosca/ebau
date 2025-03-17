@@ -2,7 +2,7 @@ from caluma.caluma_core.events import on
 from caluma.caluma_workflow.events import post_complete_work_item, post_create_work_item
 from django.db import transaction
 
-from .general import get_caluma_setting, get_instance
+from .general import get_caluma_setting, get_instance_id
 from .simple_workflow import send_notification
 
 
@@ -21,9 +21,17 @@ def handle_notification(event_type, context, user, work_item):
 
     for config in configs:
         if config["event"] == event_type:
-            instance = get_instance(work_item)
+            # condition is of type lambda WorkItem -> bool
+            condition = (
+                config["condition"] if callable(config.get("condition")) else None
+            )
+
+            if condition and not condition(work_item):
+                continue
+
+            instance_id = get_instance_id(work_item)
             notification = config.get("notification")
-            send_notification(notification, context, instance, user, work_item)
+            send_notification(notification, context, instance_id, user, work_item)
 
 
 @on(post_create_work_item, raise_exception=True)
