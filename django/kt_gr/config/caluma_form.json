@@ -40691,7 +40691,7 @@
       "label": "{\"de\": \"Abgasanlagen\", \"fr\": null, \"it\": \"Dispositivi di evacuazione dei gas di scarico\"}",
       "type": "table",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "\"bauliche-veraenderungen-abgasanlage-ja\" != \"bauliche-veraenderungen-abgasanlage\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
