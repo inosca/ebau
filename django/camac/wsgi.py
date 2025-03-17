@@ -1,5 +1,5 @@
 """
-WSGI config for camac-ng project.
+WSGI config for project_app2 project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -16,4 +16,27 @@ from django.core.wsgi import get_wsgi_application
 locale.setlocale(locale.LC_ALL, f"{settings.DEFAULT_LOCALE_CODE}.UTF-8")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "camac.settings")
 
-application = get_wsgi_application()
+if settings.MANABI_ENABLE:
+    wsgi_django = get_wsgi_application()
+
+    backend = settings.APPLICATION["DOCUMENT_BACKEND"]
+    if backend == "alexandria":
+        from alexandria.dav import get_dav
+    else:
+        from camac.dav import get_dav
+
+    wsgi_dav = get_dav()
+
+    def dispatch(environ, start_response):
+        path = environ["PATH_INFO"] or "/"
+        dav_prefix = "/dav"
+        if path.startswith(dav_prefix):
+            environ = environ.copy()
+            environ["SCRIPT_NAME"] = environ.get("SCRIPT_NAME", "") + dav_prefix
+            return wsgi_dav(environ, start_response)
+        else:
+            return wsgi_django(environ, start_response)
+
+    application = dispatch
+else:
+    application = get_wsgi_application()

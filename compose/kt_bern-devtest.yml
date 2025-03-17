@@ -126,11 +126,6 @@ services:
     tty: true
     stdin_open: true
 
-  django-webdav:
-    <<: *django
-    command: webdav
-    ports: []
-
   django-q:
     <<: *django
     build:

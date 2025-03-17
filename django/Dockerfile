@@ -6,6 +6,7 @@ ENV HOME=/home/ebau
 
 ENV APP_HOME=/app
 ENV DJANGO_SETTINGS_MODULE=camac.settings
+ENV UWSGI_INI=$APP_HOME/uwsgi.ini
 ENV DATABASE_PORT=5432
 ENV STATIC_DIR=$APP_HOME/staticfiles
 
@@ -70,4 +71,4 @@ COPY . $APP_HOME
 EXPOSE 80
 
 ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
-CMD ["gunicorn"]
+CMD ["uwsgi"]

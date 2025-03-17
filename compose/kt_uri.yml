@@ -37,7 +37,7 @@ services:
         - WORKSPACE=ember-camac-ng
       target: prod
 
-  django: &django
+  django:
     build:
       context: ../django
       cache_from:
@@ -75,10 +75,6 @@ services:
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
-
-  django-webdav:
-    <<: *django
-    command: webdav
 
   ember-caluma-portal:
     build:

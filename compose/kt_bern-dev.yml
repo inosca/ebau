@@ -102,12 +102,6 @@ services:
     tty: true
     stdin_open: true
     command: devserver
-    # change this to "command: hurricanedev" to replicate k8s environment
-
-  django-webdav:
-    <<: *django
-    command: webdav
-    ports: []
 
   django-q:
     <<: *django

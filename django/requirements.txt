@@ -70,6 +70,7 @@ sorl-thumbnail==12.11.0
 tabulate==0.9.0
 tqdm==4.67.1
 urllib3==2.3.0
+uWSGI==2.0.28
 whitenoise==6.9.0
 WsgiDAV==4.3.3
 xmlschema==3.4.3
