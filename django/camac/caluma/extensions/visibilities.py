@@ -111,9 +111,12 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         )
 
     def filter_queryset_for_document_for_public(self, node, queryset, info):
-        return queryset.filter(
-            family__case__family__instance__pk__in=self._all_visible_instances(info)
-        )
+        if settings.PUBLICATION["SHOW_MAIN_FORM"]:
+            return queryset.filter(
+                family__case__family__instance__pk__in=self._all_visible_instances(info)
+            )
+
+        return queryset.none()
 
     @permission_aware
     @filter_queryset_for(form_schema.Answer)
@@ -124,10 +127,12 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         return queryset
 
     def filter_queryset_for_answer_for_public(self, node, queryset, info):
-        # Scrub sensitive data from answer queryset for public users
-        return queryset.exclude(
-            question_id__in=settings.PUBLICATION.get("SCRUBBED_ANSWERS", [])
-        )
+        if settings.PUBLICATION["SHOW_MAIN_FORM"]:
+            # Scrub sensitive data from answer queryset for public users
+            return queryset.exclude(
+                question_id__in=settings.PUBLICATION.get("SCRUBBED_ANSWERS", [])
+            )
+        return queryset.none()
 
     @filter_queryset_for(workflow_schema.Case)
     def filter_queryset_for_case(self, node, queryset, info):

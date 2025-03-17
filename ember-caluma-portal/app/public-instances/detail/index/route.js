@@ -5,7 +5,7 @@ export default class PublicInstancesDetailIndexRoute extends Route {
   @service router;
 
   redirect() {
-    const redirectTo = hasFeature("publication.form")
+    const redirectTo = hasFeature("publication.showMainForm")
       ? "public-instances.detail.form"
       : "public-instances.detail.documents";
 

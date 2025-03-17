@@ -20,6 +20,7 @@ def alexandria_setup(
     role,
     service_factory,
     service,
+    so_publication_settings,
 ):
     mocker.patch(
         "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
@@ -118,7 +119,7 @@ def alexandria_setup(
     document.marks.add(MarkFactory(slug="decision"))
 
     # publication document
-    create_caluma_publication(so_instance, canton="so")
+    create_caluma_publication(so_instance, module_settings=so_publication_settings)
     DocumentFactory(metainfo={"camac-instance-id": so_instance.pk}, title="hidden")
     public = DocumentFactory(
         metainfo={"camac-instance-id": so_instance.pk}, title="publication"

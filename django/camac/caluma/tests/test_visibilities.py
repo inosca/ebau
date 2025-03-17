@@ -3,7 +3,7 @@ from datetime import datetime
 import pytest
 from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_form import factories as caluma_form_factories
-from caluma.caluma_form.models import Form, Question
+from caluma.caluma_form.models import Document, Form, Question
 from caluma.caluma_user.models import AnonymousUser, OIDCUser
 from caluma.caluma_workflow import (
     api as workflow_api,
@@ -929,6 +929,53 @@ def test_publication_visibility(
     assert case_ids == [str(be_instance.case_id)]
     assert document_ids == [str(be_instance.case.document_id)]
     assert work_item_ids == []
+
+
+def test_publication_visibility_form_not_enabled(
+    db,
+    be_instance,
+    caluma_admin_public_schema_executor,
+    create_caluma_publication,  # noqa: F811
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+    gql,
+    mocker,
+    be_publication_settings,
+):
+    be_publication_settings["SHOW_MAIN_FORM"] = False
+    create_caluma_publication(be_instance, module_settings=be_publication_settings)
+    document = caluma_document_factory()
+    caluma_work_item_factory(case=be_instance.case, document=document)
+    caluma_answer_factory(document=document)
+
+    result = caluma_admin_public_schema_executor(gql("publication"))
+
+    assert not result.errors
+
+    case_ids, document_ids, work_item_ids = [
+        [extract_global_id(edge["node"]["id"]) for edge in result.data[key]["edges"]]
+        for key in ["cases", "documents", "workItems"]
+    ]
+
+    assert case_ids == [str(be_instance.case_id)]
+    assert document_ids == []
+    assert work_item_ids == []
+
+    CustomVisibility.filter_queryset_for_document_for_public = mocker.MagicMock(
+        return_value=Document.objects.all()
+    )
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+    result = caluma_admin_public_schema_executor(gql("publication"))
+
+    assert not result.errors
+
+    answers_ids = [
+        question["node"]["id"]
+        for doc in result.data["documents"]["edges"]
+        for question in doc["node"]["answers"]["edges"]
+    ]
+    assert answers_ids == []
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

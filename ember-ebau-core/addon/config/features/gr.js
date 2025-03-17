@@ -2,7 +2,7 @@ import { getOwnConfig, isDevelopingApp } from "@embroider/macros";
 
 export default {
   publication: {
-    form: true,
+    showMainForm: true,
     endDate: false,
     related: false,
     disableAuthentication: false,

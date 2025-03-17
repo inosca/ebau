@@ -24,7 +24,7 @@ def publications(so_instance, so_publication_settings, create_caluma_publication
                 so_instance,
                 start,
                 end,
-                canton="so",
+                module_settings=so_publication_settings,
             )
         )
 
