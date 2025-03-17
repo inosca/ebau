@@ -1,6 +1,9 @@
+import uuid
+from typing import Tuple
+
 from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
-from caluma.caluma_form.models import Document
+from caluma.caluma_form.models import Answer, Document
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.core.cache import cache
@@ -54,6 +57,26 @@ def get_additional_option(slug="-1", text=gettext_noop("Others")):
             label[language] = _(text)
 
     return [slug, label]
+
+
+def on_copy_from_reference_document(
+    old_answer: Answer, new_answer: Answer, old_value: Tuple[str, str]
+) -> Tuple[str | None, str | None]:
+    old_slug, old_label = old_value
+    if not old_slug:
+        return (None, None)
+
+    try:
+        uuid_value = uuid.UUID(old_slug)
+    except ValueError:
+        return (None, None)
+
+    try:
+        reference_doc = Document.objects.get(source_id=uuid_value)
+    except Document.DoesNotExist:
+        return (None, None)
+
+    return (str(reference_doc.pk), old_label)
 
 
 class Municipalities(BaseDataSource):
@@ -309,6 +332,11 @@ class Landowners(BaseDataSource):
 
         return [(person["row_id"], get_person_name(person)) for person in people]
 
+    def on_copy(
+        self, old_answer: Answer, new_answer: Answer, old_value: Tuple[str, str]
+    ) -> Tuple[str | None, str | None]:
+        return on_copy_from_reference_document(old_answer, new_answer, old_value)
+
 
 class PreliminaryClarificationTargets(BaseDataSource):
     info = (
@@ -363,6 +391,11 @@ class Buildings(BaseDataSource):
             if buildings
             else None
         )
+
+    def on_copy(
+        self, old_answer: Answer, new_answer: Answer, old_value: Tuple[str, str]
+    ) -> Tuple[str | None, str | None]:
+        return on_copy_from_reference_document(old_answer, new_answer, old_value)
 
 
 class ServicesForFinalReport(BaseDataSource):
