@@ -1,6 +1,5 @@
 import { action } from "@ember/object";
 import { service } from "@ember/service";
-import { dasherize } from "@ember/string";
 import Component from "@glimmer/component";
 import { validatePresence } from "ember-changeset-validations/validators";
 import { task } from "ember-concurrency";
@@ -21,18 +20,19 @@ export default class SanctionsEditComponent extends Component {
   @service store;
 
   get className() {
-    return this.args.model.constructor.name;
+    return this.args.model.constructor.modelName;
   }
 
   get parentRoute() {
     return this.ebauModules.resolveModuleRoute(
-      pluralize(dasherize(this.className)),
+      pluralize(this.className),
       "index",
     );
   }
 
   saveMessage(type) {
-    return `${this.className.toLowerCase()}.notification.${type}.save`;
+    const i18nPrefix = this.className.replace("-", "");
+    return `${i18nPrefix}.notification.${type}.save`;
   }
 
   get controlSteps() {
