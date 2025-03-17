@@ -157,6 +157,7 @@ const config = {
   constructionMonitoring: {
     instanceStates: ["construction-monitoring", "finished"],
   },
+  showDownloadReceiptAction: true,
 };
 
 config.intentSlugs = [config.answerSlugs.description];

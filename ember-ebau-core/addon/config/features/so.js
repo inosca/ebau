@@ -24,6 +24,7 @@ export default {
   cases: {
     createPaper: true,
     exportExcel: false,
+    downloadFormAsPdf: true,
   },
   permissions: {
     municipalityBeforeSubmission: true,

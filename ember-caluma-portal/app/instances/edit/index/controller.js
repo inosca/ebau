@@ -119,9 +119,14 @@ export default class InstancesEditIndexController extends Controller {
 
   @dropTask
   *downloadReceipt() {
+    const EINGABEQUITTUNG = `eingabequittung-${this.intl.primaryLocale.split("-")[0]}`;
+    const templateMapping = {
+      so: "signatures",
+    };
+
     try {
       yield this.dms.generatePdf(this.editController.instance.id, {
-        template: `eingabequittung-${this.intl.primaryLocale.split("-")[0]}`,
+        template: templateMapping[config.APPLICATION.name ?? EINGABEQUITTUNG],
       });
     } catch (e) {
       console.error(e);

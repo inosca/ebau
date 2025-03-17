@@ -39,6 +39,7 @@ import BeGisComponent from "caluma-portal/components/be-gis";
 import InfoBelastungswerteComponent from "caluma-portal/components/be-info-belastungswerte";
 import BeSubmitInstanceComponent from "caluma-portal/components/be-submit-instance";
 import GRSubmitInstanceComponent from "caluma-portal/components/gr-submit-instance";
+import SOSubmitInstanceComponent from "caluma-portal/components/so-submit-instance";
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
 
 export default class ApplicationRoute extends Route {
@@ -131,6 +132,12 @@ export default class ApplicationRoute extends Route {
       label: "Einreichen Button GR",
       component: "gr-submit-instance",
       componentClass: GRSubmitInstanceComponent,
+      type: "CheckboxQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Einreichen Button SO",
+      component: "so-submit-instance",
+      componentClass: SOSubmitInstanceComponent,
       type: "CheckboxQuestion",
     });
     this.calumaOptions.registerComponentOverride({
