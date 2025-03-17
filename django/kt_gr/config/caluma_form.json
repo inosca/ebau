@@ -3755,7 +3755,37 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "bauanzeige-haustechnische-anlagen-brandschutz",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.bauanzeige-hinweis-kantonales-brandschutzgesetz",
+    "fields": {
+      "created_at": "2025-03-13T00:40:30.162Z",
+      "modified_at": "2025-03-13T00:40:30.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "bauanzeige-hinweis-kantonales-brandschutzgesetz",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.bauanzeige-triage-brandschutz",
+    "fields": {
+      "created_at": "2025-03-13T00:39:05.862Z",
+      "modified_at": "2025-03-13T00:39:05.862Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "bauanzeige-triage-brandschutz",
+      "sort": 5
     }
   },
   {
@@ -3770,7 +3800,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baugespann",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -3785,7 +3815,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baugespann-erstellt-am",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -3800,7 +3830,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "baukosten",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -3815,7 +3845,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -3830,7 +3860,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben-details",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -3845,7 +3875,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "divider",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -3860,7 +3890,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "dossiernummer-des-bewilligten-projekts",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -3875,7 +3905,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "gebaeudekubatur",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -3890,7 +3920,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "hinweis-zustaendigkeit",
-      "sort": 15
+      "sort": 17
     }
   },
   {
@@ -3905,7 +3935,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "kosten-pro-m3",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -3965,7 +3995,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben",
-      "sort": 14
+      "sort": 16
     }
   },
   {
@@ -3980,7 +4010,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben-titel",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -21160,6 +21190,57 @@
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
       "is_hidden": "false",
       "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauanzeige-triage-brandschutz-anlage",
+    "fields": {
+      "created_at": "2023-05-23T13:08:30.111Z",
+      "modified_at": "2024-09-11T14:58:56.409Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau oder Ersatz von w\\u00e4rmetechnischen Anlagen\", \"fr\": null, \"it\": \"Nuova costruzione o sostituzione di impianti termici\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauanzeige-triage-brandschutz-gebaeude",
+    "fields": {
+      "created_at": "2023-05-23T13:08:30.110Z",
+      "modified_at": "2024-08-28T12:24:53.423Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neubau / Anbau / Umbau / Ausbau / Umnutzung von Geb\\u00e4ude oder Geb\\u00e4udeteilen (inkl. Lufttechnische Anlagen, Bef\\u00f6rderungsanlagen, technische Brandschutzeinrichtungen)\", \"fr\": null, \"it\": \"Nuova costruzione / costruzione annessa / trasformazione / ampliamento / destinazione ad altro scopo di edifici o parti di essi (incl. impianti tecnici di ventilazione, impianti di trasporto, dispositivi tecnici di protezione antincendio)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauanzeige-triage-brandschutz-keine-zusatzbewilligung",
+    "fields": {
+      "created_at": "2024-06-21T13:22:47.200Z",
+      "modified_at": "2024-08-28T12:24:53.425Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gem\\u00e4ss Brandschutzgesetz Art. 7 ist keine feuerpolizeiliche Zusatzbewilligung n\\u00f6tig\", \"fr\": null, \"it\": \"Conformemente all'art. 7 della legge sulla protezione antincendio non \\u00e8 necessario un permesso di polizia del fuoco\"}",
+      "is_hidden": "false",
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -45702,14 +45783,76 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ist das Bauvorhaben feuerpolizeilich bewilligungspflichtig?\", \"fr\": null, \"it\": \"Il progetto di costruzione \\u00e8 soggetto al permesso di polizia del fuoco?\"}",
+      "label": "{\"de\": \"Betrifft das Bauvorhaben ein Geb\\u00e4ude oder eine w\\u00e4rmetechnische Anlage (Feuerpolizeiliche Bewilligungspflicht)?\", \"fr\": null, \"it\": \"Il progetto di costruzione interessa un edificio o un impianto termotecnico (obbligo del permesso di polizia del fuoco)?\"}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "!(form == \"bauanzeige\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"### Feuerpolizeiliche Bewilligung\\n\\nGem\\u00e4ss Brandschutzgesetz, Art. 7 Abs. 1 Feuerpolizeiliche Bewilligungspflicht: Bewilligungspflichtig sind: \\n\\n\\n1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Geb\\u00e4uden oder Geb\\u00e4udeteilen;<br>\\n1. Neu-, Aus- und Umbauten von haustechnischen Anlagen und technischen Brandschutzeinrichtungen;<br>\\n1. Betriebe, Anlagen und Einrichtungen, die der Herstellung, Verarbeitung oder Lagerung feuer- oder explosionsgef\\u00e4hrlicher Stoffe und Waren dienen;<br>\\n1. Veranstaltungen mit besonderer Gef\\u00e4hrdung von Personen, Tieren oder Sachen;<br>\\n1. das Abbrennen von pyrotechnischen Gegenst\\u00e4nden zu Vergn\\u00fcgungszwecken (Feuerwerksk\\u00f6rper) und zu gewerblichen Zwecken.<br>\", \"fr\": null, \"it\": \"### Permesso di polizia del fuoco\\n\\nConformemente all'art.\\u00a07 cpv.\\u00a01 (obbligo del permesso di polizia del fuoco) della legge sulla protezione antincendio: Sono soggetti all'obbligo del permesso: \\n\\n\\n1. nuove costruzioni, costruzioni annesse, trasformazioni, ampliamenti nonch\\u00e9 la destinazione ad altro scopo di edifici o parti di essi;<br>\\n1. nuove costruzioni, ampliamenti e modifiche di installazioni tecniche e dispositivi tecnici di protezione antincendio;<br>\\n1. aziende, impianti e installazioni che servono alla produzione, alla lavorazione o al deposito di sostanze e merci a rischio di incendio o di esplosione;<br>\\n1. manifestazioni con particolare pericolo per persone, animali od oggetti;<br>\\n1. l'accensione di pezzi pirotecnici per scopi di svago (fuochi d'artificio) e a scopo commerciale.<br>\"}",
-      "hint_text": "{\"de\": \"Bitte beachten: Die Befreiung von der Baubewilligungspflicht entbindet nicht von der Einhaltung der Vorschriften des materiellen Rechts (z.B. Grenzabstand bei Kleinbauten) und der Einholung anderer Bewilligungen (z.B. Gastwirtschaftsbewilligun-gen).    Bestehen Anzeichen daf\\u00fcr, dass durch ein bewilligungsfreies Bauvorhaben Vorschriften des materiellen Rechts verletzt sein k\\u00f6nnten, leitet die kommunale Baubeh\\u00f6rde von Amtes wegen, auf Ersuchen der Fachstelle oder auf Hinweis von Dritten hin das Baubewilligungsverfahren ein (vgl. Art. 40 Abs. 3 der kantonalen Raumplanungsverordnung [KRVO])\", \"fr\": null, \"it\": \"Attenzione: l'esenzione dall'obbligo della licenza edilizia non esonera dall'osservanza delle prescrizioni del diritto materiale (ad es. distanza dal confine in caso di piccole costruzioni) e dalla richiesta di altre autorizzazioni (ad es. patenti d'esercizio pubblico).    Qualora vi fossero indizi che con un progetto di costruzione che non necessita di una licenza potrebbero venire lese prescrizioni di diritto materiale, l'autorit\\u00e0 edilizia comunale avvia d'ufficio, su richiesta del Servizio o su indicazione di terzi, la procedura per il rilascio della licenza edilizia (cfr. art.\\u00a040 cpv.\\u00a03 dell'ordinanza cantonale sulla pianificazione territoriale [OPTC])\"}",
+      "info_text": "{\"de\": \"### Feuerpolizeiliche Bewilligung\\n\\nNach Art. 7 Abs. 1 des kantonalen Brandschutzgesetzes sind folgende Vorhaben bewilligungspflichtig:\\n\\n\\n1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Geb\\u00e4uden oder Geb\\u00e4udeteilen;<br>\\n1. Neu-, Aus- und Umbauten von haustechnischen Anlagen und technischen Brandschutzeinrichtungen;<br>\\n1. Betriebe, Anlagen und Einrichtungen, die der Herstellung, Verarbeitung oder Lagerung feuer- oder explosionsgef\\u00e4hrlicher Stoffe und Waren dienen;<br>\\n1. Veranstaltungen mit besonderer Gef\\u00e4hrdung von Personen, Tieren oder Sachen;<br>\\n1. das Abbrennen von pyrotechnischen Gegenst\\u00e4nden zu Vergn\\u00fcgungszwecken (Feuerwerksk\\u00f6rper) und zu gewerblichen Zwecken.<br>\", \"fr\": null, \"it\": \"### Permesso di polizia del fuoco\\n\\nSecondo l'art.\\u00a07 cpv.\\u00a01 della legge cantonale sulla protezione antincendio sono soggetti all'obbligo del permesso i progetti seguenti:\\n\\n\\n1. nuove costruzioni, costruzioni annesse, trasformazioni, ampliamenti nonch\\u00e9 la destinazione ad altro scopo di edifici o parti di essi;<br>\\n1. nuove costruzioni, ampliamenti e modifiche di installazioni tecniche e dispositivi tecnici di protezione antincendio;<br>\\n1. aziende, impianti e installazioni che servono alla produzione, alla lavorazione o al deposito di sostanze e merci a rischio di incendio o di esplosione;<br>\\n1. manifestazioni con particolare pericolo per persone, animali od oggetti;<br>\\n1. l'accensione di pezzi pirotecnici per scopi di svago (fuochi d'artificio) e a scopo commerciale.<br>\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauanzeige-hinweis-kantonales-brandschutzgesetz",
+    "fields": {
+      "created_at": "2024-07-17T06:53:24.562Z",
+      "modified_at": "2024-09-11T14:58:40.961Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis kantonales Brandschutzgesetz\", \"fr\": null, \"it\": \"Nota legge cantonale sulla protezione antincendio\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"bauanzeige-haustechnische-anlagen-brandschutz-nein\" != \"bauanzeige-haustechnische-anlagen-brandschutz\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte beachten Sie, dass gem\\u00e4ss kantonalen Brandschutzgesetzes Art. 7 Abs. 1 folgende Vorhaben bewilligungspflichtig sind:\\n\\n1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Geb\\u00e4uden oder Geb\\u00e4udeteilen;\\n1. Neu-, Aus- und Umbauten von haustechnischen Anlagen und technischen Brandschutzeinrichtungen;\\n1. Betriebe, Anlagen und Einrichtungen, die der Herstellung, Verarbeitung oder Lagerung feuer- oder explosionsgef\\u00e4hrlicher Stoffe und Waren dienen;\\n1. Veranstaltungen mit besonderer Gef\\u00e4hrdung von Personen, Tieren oder Sachen;\\n1. das Abbrennen von pyrotechnischen Gegenst\\u00e4nden zu Vergn\\u00fcgungszwecken (Feuerwerksk\\u00f6rper) und zu gewerblichen Zwecken.\", \"fr\": \"\", \"it\": \"Si prega di osservare che, conformemente all'art.\\u00a07 cpv.\\u00a01 della legge cantonale sulla protezione antincendio, i seguenti progetti sono soggetti all'obbligo del permesso:\\n\\n1. nuove costruzioni, costruzioni annesse, trasformazioni, ampliamenti nonch\\u00e9 la destinazione ad altro scopo di edifici o parti di essi;\\n1. nuove costruzioni, ampliamenti e modifiche di installazioni tecniche e dispositivi tecnici di protezione antincendio;\\n1. aziende, impianti e installazioni che servono alla produzione, alla lavorazione o al deposito di sostanze e merci a rischio di incendio o di esplosione;\\n1. manifestazioni con particolare pericolo per persone, animali od oggetti;\\n1. l'accensione di pezzi pirotecnici per scopi di svago (fuochi d'artificio) e a scopo commerciale.\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauanzeige-triage-brandschutz",
+    "fields": {
+      "created_at": "2023-05-23T13:08:30.349Z",
+      "modified_at": "2024-09-11T14:58:45.339Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Feuerpolizeiliche Bewilligungspflicht - Bauvorhaben betrifft\", \"fr\": null, \"it\": \"Obbligo del permesso di polizia del fuoco - progetto di costruzione concerne\"}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\"bauanzeige-haustechnische-anlagen-brandschutz-ja\" == \"bauanzeige-haustechnische-anlagen-brandschutz\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -51575,7 +51718,7 @@
       "label": "{\"de\": \"Brandschutz - Bauliche Angaben\", \"fr\": null, \"it\": \"Protezione antincendio - indicazioni edilizie\"}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\"bauanzeige-haustechnische-anlagen-brandschutz-ja\" == \"bauanzeige-haustechnische-anlagen-brandschutz\"|answer)",
+      "is_hidden": "!(\"bauanzeige-triage-brandschutz-gebaeude\" in \"bauanzeige-triage-brandschutz\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -51665,10 +51808,10 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Brandschutz - Haustechnik\", \"fr\": null, \"it\": \"Protezione antincendio - impiantistica\"}",
+      "label": "{\"de\": \"Brandschutz - w\\u00e4rmetechnische Anlagen\", \"fr\": null, \"it\": \"Protezione antincendio - Sistemi di termotecnica\"}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\"bauanzeige-haustechnische-anlagen-brandschutz-ja\" == \"bauanzeige-haustechnische-anlagen-brandschutz\"|answer)",
+      "is_hidden": "!(\"bauanzeige-triage-brandschutz-anlage\" in \"bauanzeige-triage-brandschutz\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -81791,6 +81934,51 @@
       "modified_by_group": null,
       "question": "bauanzeige-haustechnische-anlagen-brandschutz",
       "option": "bauanzeige-haustechnische-anlagen-brandschutz-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-triage-brandschutz.bauanzeige-triage-brandschutz-anlage",
+    "fields": {
+      "created_at": "2024-07-17T06:56:52.179Z",
+      "modified_at": "2024-07-17T06:56:52.179Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-triage-brandschutz",
+      "option": "bauanzeige-triage-brandschutz-anlage",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-triage-brandschutz.bauanzeige-triage-brandschutz-gebaeude",
+    "fields": {
+      "created_at": "2024-07-17T06:56:52.184Z",
+      "modified_at": "2024-07-17T06:56:52.184Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-triage-brandschutz",
+      "option": "bauanzeige-triage-brandschutz-gebaeude",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauanzeige-triage-brandschutz.bauanzeige-triage-brandschutz-keine-zusatzbewilligung",
+    "fields": {
+      "created_at": "2024-07-17T06:56:52.172Z",
+      "modified_at": "2024-07-17T06:56:52.172Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauanzeige-triage-brandschutz",
+      "option": "bauanzeige-triage-brandschutz-keine-zusatzbewilligung",
       "sort": 1
     }
   },
