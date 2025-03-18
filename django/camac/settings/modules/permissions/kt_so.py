@@ -6,6 +6,7 @@ from camac.permissions.conditions import (
     IsAppeal,
     IsForm,
     IsPaper,
+    IsServiceGroup,
     RequireInstanceState,
     RequireWorkItem,
 )
@@ -57,11 +58,11 @@ MODULE_APPEAL = (
     & (
         ROLES_MUNICIPALITY
         | (
-            Callback(
-                lambda instance, userinfo: instance.case.meta.get("is-bab", False)
-                and userinfo.service.service_group.name == "service-bab",
+            IsServiceGroup(["service-bab"])
+            & Callback(
+                lambda instance: instance.case.meta.get("is-bab", False),
                 allow_caching=True,
-                name="is_bab_instance_and_service",
+                name="is_bab",
             )
         )
     )
@@ -106,12 +107,7 @@ MODULE_MATERIAL_EXAM = NO_CORRECTION & (
 MODULE_MATERIAL_EXAM_BAB = (
     NO_CORRECTION
     & RequireWorkItem("material-exam-bab")
-    & Callback(
-        lambda userinfo: userinfo.service.service_group.name
-        in ["service-bab", "service-cantonal", "canton"],
-        allow_caching=True,
-        name="is_cantonal_service",
-    )
+    & IsServiceGroup(["service-bab", "service-cantonal", "canton"])
 )
 
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])

@@ -1,10 +1,10 @@
 from camac.permissions.conditions import (
     Always,
-    Callback,
     HasApplicantRole,
     HasRole,
     IsForm,
     IsPaper,
+    IsServiceGroup,
     RequireInstanceState,
     RequireWorkItem,
 )
@@ -72,10 +72,8 @@ MODULE_AUDIT = (ROLES_MUNICIPALITY & RequireWorkItem("formal-exam")) | (
 )
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
-MODULE_LEGAL_SUBMISSIONS = RequireWorkItem("objections") | Callback(
-    lambda userinfo: userinfo.service.service_group.name in ["authority-bab"],
-    allow_caching=True,
-    name="is_cantonal_service",
+MODULE_LEGAL_SUBMISSIONS = RequireWorkItem("objections") | IsServiceGroup(
+    ["authority-bab"]
 )
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_PERMISSIONS = STATES_ALL

@@ -1,7 +1,11 @@
+from typing import TypeVar
 from uuid import uuid4
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
+from camac.core.utils import canton_aware
+from camac.user.models import Service
 
 DECIMAL_FORMAT = {
     "max_digits": 10,
@@ -99,6 +103,37 @@ class BillingV2CommonEntry(models.Model):
         abstract = True
 
 
+T = TypeVar("T", bound="BillingV2EntryQuerySet")
+
+
+class BillingV2EntryQuerySet(models.QuerySet["BillingV2Entry"]):
+    """Custom queryset to query billing entries."""
+
+    @canton_aware
+    def visible_for(self: T, service: Service | None) -> T:
+        """Return billing entries visible for a given service."""
+
+        return self.all()
+
+    def visible_for_ag(self: T, service: Service | None) -> T:
+        """Return billing entries visible for a given service (Kt. AG)."""
+
+        if not service:  # pragma: no cover
+            return self.none()
+
+        if service.service_group.name in ["service-afb", "service-cantonal"]:
+            return self.filter(
+                group__service__service_group__name__in=[
+                    "service-afb",
+                    "service-cantonal",
+                ]
+            )
+        elif service.service_group.name == "municipality":
+            return self.filter(group__service__service_group__name="municipality")
+
+        return self.none()
+
+
 class BillingV2Entry(BillingV2CommonEntry):
     # Final rate: is always calculated on creation of the billing entry.
     # We store it for easier handling in the output however.
@@ -122,6 +157,9 @@ class BillingV2Entry(BillingV2CommonEntry):
     # If the entry should be included in the next invoice, this date is set
     # to when the entry was marked to bill.
     released_for_clearing = models.DateField(null=True)
+
+    # Custom manager
+    objects: BillingV2EntryQuerySet = BillingV2EntryQuerySet.as_manager()
 
 
 class BillingV2EntryTemplate(BillingV2CommonEntry):

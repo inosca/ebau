@@ -262,15 +262,14 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                 return choice[1]
 
     def get_attribute(self, instance):
-        own_filters = (
-            {"group__service": self.context["request"].group.service}
-            if self.own
-            else {}
-        )
+        service = self.context["request"].group.service
 
-        return BillingV2Entry.objects.filter(instance=instance, **own_filters).order_by(
-            "organization", "pk"
-        )
+        queryset = BillingV2Entry.objects.visible_for(service).filter(instance=instance)
+
+        if self.own:
+            queryset = queryset.filter(group__service=service)
+
+        return queryset.order_by("organization", "pk")
 
 
 class PublicationField(AliasedMixin, serializers.ReadOnlyField):
