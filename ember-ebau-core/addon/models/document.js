@@ -46,7 +46,7 @@ export default class CustomDocumentModel extends DocumentModel {
       );
 
       if (file.isDownloadUrlExpired) {
-        await this.reload();
+        await file.reload();
       }
 
       open(file.downloadUrl);
