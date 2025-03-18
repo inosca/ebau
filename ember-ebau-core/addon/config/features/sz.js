@@ -23,5 +23,6 @@ export default {
   communications: {
     enabled: true,
     hideInstanceId: true,
+    snippets: true,
   },
 };
