@@ -2083,6 +2083,27 @@ def ag_master_data_case(
         label={"de": municipality.get_name()},
     )
 
+    # Other municipalities
+    other_municipality1 = service_factory(trans__name="Abtwil", trans__language="de")
+    other_municipality2 = service_factory(trans__name="Dietwil", trans__language="de")
+    utils.add_answer(
+        document,
+        "weitere-gemeinden",
+        [str(other_municipality1.pk), str(other_municipality2.pk)],
+    )
+    caluma_dynamic_option_factory(
+        question_id="weitere-gemeinden",
+        document=ag_instance.case.document,
+        slug=str(other_municipality1.pk),
+        label={"de": other_municipality1.get_name()},
+    )
+    caluma_dynamic_option_factory(
+        question_id="weitere-gemeinden",
+        document=ag_instance.case.document,
+        slug=str(other_municipality2.pk),
+        label={"de": other_municipality2.get_name()},
+    )
+
     # Formal exam
     exam = caluma_work_item_factory(task_id="formal-exam", case=ag_instance.case)
     utils.add_answer(

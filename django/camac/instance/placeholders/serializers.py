@@ -2103,6 +2103,46 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         type="qr_code",
         aliases=[_("INFORMATION_OF_FOREIGN_NEIGHBORS_QR_CODE")],
     )
+    nutzungszone = fields.MasterDataField(
+        source="usage_zone",
+        aliases=[_("USAGE_ZONE")],
+        description=_("Usage zone"),
+    )
+    weitere_betroffene_gemeinden = fields.MasterDataField(
+        source="other_municipality_names",
+        join_by=", ",
+        aliases=[_("FURTHER_AFFECTED_MUNICIPALITIES")],
+        description=_("Further affected municipalities"),
+    )
+    rechnungsempfaenger = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        fallback_source="applicants",
+        only_first=True,
+        aliases=[_("INVOICE_RECIPIENT")],
+        description=_(
+            "Name of the invoice recipient if available, otherwise that of the applicant"
+        ),
+    )
+    rechnungsempfaenger_adresse_1 = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        fallback_source="applicants",
+        only_first=True,
+        fields=["address_1"],
+        aliases=[_("INVOICE_RECIPIENT_ADDRESS_1")],
+        description=_(
+            "Address line 1 of the invoice recipient if available, otherwise that of the applicant"
+        ),
+    )
+    rechnungsempfaenger_adresse_2 = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        fallback_source="applicants",
+        only_first=True,
+        fields=["address_2"],
+        aliases=[_("INVOICE_RECIPIENT_ADDRESS_2")],
+        description=_(
+            "Address line 2 of the invoice recipient if available, otherwise that of the applicant"
+        ),
+    )
 
     def get_koordinaten(self, instance):
         return get_koordinaten_by_json_props(instance)

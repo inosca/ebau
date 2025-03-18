@@ -1067,8 +1067,28 @@ def test_dms_placeholders_ag(
     url = reverse("instance-dms-placeholders", args=[ag_instance.pk])
 
     response = admin_client.get(url)
+    result = response.json()
     assert response.status_code == status.HTTP_200_OK
-    assert response.json() == snapshot
+    assert result == snapshot
+
+    # Remove invoice recipient
+    ag_instance.case.document.answers.filter(
+        question_id="personalien-rechnungsempfaenger"
+    ).delete()
+
+    fallback_response = admin_client.get(url)
+    fallback_result = fallback_response.json()
+    assert fallback_response.status_code == status.HTTP_200_OK
+
+    for a_prop, ir_prop in [
+        ("GESUCHSTELLER", "RECHNUNGSEMPFAENGER"),
+        ("GESUCHSTELLER_ADRESSE_1", "RECHNUNGSEMPFAENGER_ADRESSE_1"),
+        ("GESUCHSTELLER_ADRESSE_2", "RECHNUNGSEMPFAENGER_ADRESSE_2"),
+    ]:
+        # Make sure fallback is not used if invoice recipient is available
+        assert result[ir_prop] != result[a_prop]
+        # Make sure fallback is used if invoice recipient is not available
+        assert fallback_result[ir_prop] == fallback_result[a_prop]
 
 
 @pytest.mark.parametrize(

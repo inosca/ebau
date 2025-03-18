@@ -71,6 +71,10 @@
     'municipality_slug': '55',
     'nature_risk': None,
     'organization_category': 'ebauag',
+    'other_municipality_names': list([
+      'Abtwil',
+      'Dietwil',
+    ]),
     'plot_data': list([
       dict({
         'egrid_number': 'CH270677774577',

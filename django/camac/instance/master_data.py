@@ -682,7 +682,10 @@ class MasterData(object):
     ):
         if isinstance(value, list):  # pragma: no cover
             return [
-                self.dynamic_option_parser(v, default, answer=answer) for v in value
+                self.dynamic_option_parser(
+                    v, default, answer=answer, prop=prop, field=field, **kwargs
+                )
+                for v in value
             ]
 
         dyn_options = (
