@@ -1,0 +1,12 @@
+legal-submission:
+  new: "Neue Einwendung"
+  edit: "Einwendung bearbeiten"
+
+  legal-claimants: "Einwendende"
+
+  loading-error: "Fehler beim Laden der Einwendungen"
+  create-error: "Fehler beim Erstellen des Einwendungen"
+
+  delete-confirm: "Wollen Sie die Einwendung wirklich löschen?"
+  delete-success: "Die Einwendung wurde erfolgreich gelöscht."
+  delete-error: "Fehler beim Löschen der Einwendung"

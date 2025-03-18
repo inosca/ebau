@@ -40,6 +40,20 @@ mutation CreateFormalExamTask {
   }
 }
 
+mutation CreateObjectionsTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "objections"
+      form: "einwendungen"
+      name: "Einwendungen erfassen"
+      addressGroups: "[\"municipality\"]|groups"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.legal-submissions\",\"models\":[\"INSTANCE_ID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CreatePublicationTask {
   saveSimpleTask(
     input: {

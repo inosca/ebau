@@ -142,4 +142,15 @@ export default {
     allowForms: ["baugesuch"],
     disallowStates: ["new"],
   },
+  legalSubmission: {
+    task: "objections",
+    tableForm: "einwendung",
+    tableQuestion: "einwendungen",
+    orderQuestion: "einwendung-datum",
+    columns: {
+      date: "einwendung-datum",
+      "legal-claimants": "einwendung-einwendende",
+      withdrawn: "einwendung-zurueckgezogen",
+    },
+  },
 };

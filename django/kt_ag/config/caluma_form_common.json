@@ -458,7 +458,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "e-mail-gesuchstellerin",
-      "sort": 2
+      "sort": 13
     }
   },
   {
@@ -488,7 +488,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-gesuchstellerin",
-      "sort": 11
+      "sort": 22
     }
   },
   {
@@ -503,7 +503,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "name-gesuchstellerin",
-      "sort": 9
+      "sort": 20
     }
   },
   {
@@ -518,7 +518,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "name-juristische-person-gesuchstellerin",
-      "sort": 10
+      "sort": 21
     }
   },
   {
@@ -533,7 +533,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "nummer-gesuchstellerin",
-      "sort": 6
+      "sort": 17
     }
   },
   {
@@ -548,7 +548,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "ort-gesuchstellerin",
-      "sort": 4
+      "sort": 15
     }
   },
   {
@@ -563,7 +563,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "plz-gesuchstellerin",
-      "sort": 5
+      "sort": 16
     }
   },
   {
@@ -578,7 +578,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "profil-uebernehmen",
-      "sort": 12
+      "sort": 23
     }
   },
   {
@@ -593,7 +593,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "strasse-gesuchstellerin",
-      "sort": 7
+      "sort": 18
     }
   },
   {
@@ -608,7 +608,172 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "telefon-oder-mobile-gesuchstellerin",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-e-mail-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:34:53.952Z",
+      "modified_at": "2025-02-28T15:34:53.952Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-e-mail-gesuchstellerin",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:32:27.923Z",
+      "modified_at": "2025-02-28T15:32:27.923Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-gesuchstellerin",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-juristische-person-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:32:56.170Z",
+      "modified_at": "2025-02-28T15:32:56.170Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-juristische-person-gesuchstellerin",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-name-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:33:08.045Z",
+      "modified_at": "2025-02-28T15:33:08.045Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-name-gesuchstellerin",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-name-juristische-person-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:45:27.180Z",
+      "modified_at": "2025-02-28T15:45:27.180Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-name-juristische-person-gesuchstellerin",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-nummer-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:33:58.726Z",
+      "modified_at": "2025-02-28T15:33:58.726Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-nummer-gesuchstellerin",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-ort-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:34:27.245Z",
+      "modified_at": "2025-02-28T15:34:27.245Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-ort-gesuchstellerin",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-plz-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:34:14.851Z",
+      "modified_at": "2025-02-28T15:34:14.851Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-plz-gesuchstellerin",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-strasse-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:33:36.087Z",
+      "modified_at": "2025-02-28T15:33:36.088Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-strasse-gesuchstellerin",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-telefon-oder-mobile-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:34:40.422Z",
+      "modified_at": "2025-02-28T15:34:40.422Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-telefon-oder-mobile-gesuchstellerin",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.vertretung-vorname-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:33:23.241Z",
+      "modified_at": "2025-02-28T15:33:23.241Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "vertretung-vorname-gesuchstellerin",
+      "sort": 8
     }
   },
   {
@@ -623,7 +788,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vorname-gesuchstellerin",
-      "sort": 8
+      "sort": 19
     }
   },
   {
@@ -752,6 +917,74 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vertretung-gesuchstellerin-ja",
+    "fields": {
+      "created_at": "2025-02-28T15:32:27.792Z",
+      "modified_at": "2025-02-28T15:32:27.792Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vertretung-gesuchstellerin-nein",
+    "fields": {
+      "created_at": "2025-02-28T15:32:27.788Z",
+      "modified_at": "2025-02-28T15:32:27.788Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vertretung-juristische-person-gesuchstellerin-ja",
+    "fields": {
+      "created_at": "2025-02-28T15:46:09.279Z",
+      "modified_at": "2025-02-28T15:46:09.279Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vertretung-juristische-person-gesuchstellerin-nein",
+    "fields": {
+      "created_at": "2025-02-28T15:46:09.285Z",
+      "modified_at": "2025-02-28T15:46:09.285Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1165,15 +1398,15 @@
     "pk": "hinweis-personalien",
     "fields": {
       "created_at": "2020-11-12T15:15:05.246Z",
-      "modified_at": "2025-01-09T08:13:39.383Z",
+      "modified_at": "2025-02-28T11:06:47.779Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "jasmin.leuthard@ag.ch",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis Gesuchsteller/in\", \"fr\": \"Hinweis Gesuchsteller/in\", \"it\": \"Nota persona richiedente\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form in [\"einwendung\", \"nachbarschaftsorientierung\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -1793,15 +2026,15 @@
     "pk": "profil-uebernehmen",
     "fields": {
       "created_at": "2024-07-02T12:57:49.934Z",
-      "modified_at": "2024-08-28T12:24:50.482Z",
+      "modified_at": "2025-02-28T11:07:11.300Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Profil \\u00fcbernehmen\", \"fr\": null, \"it\": \"Riprendi profilo\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form in [\"einwendung\", \"nachbarschaftsorientierung\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Sie haben die M\\u00f6glichkeit, automatisch die Informationen aus ihrem [Benutzerprofil](/auth/realms/ebau/account?referrer=portal#/personal-info) ins Formular zu \\u00fcbernehmen.\", \"fr\": null, \"it\": \"Ha la possibilit\\u00e0 di riprendere automaticamente le informazioni del suo [profilo utente](/auth/realms/ebau/account?referrer=portal#/personal-info) nel modulo.\"}",
@@ -2071,6 +2304,377 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "vertretung-e-mail-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:34:53.896Z",
+      "modified_at": "2025-02-28T15:48:33.343Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"E-Mail\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"vertretung-gesuchstellerin\"|answer == \"vertretung-gesuchstellerin-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[\"email\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:32:27.852Z",
+      "modified_at": "2025-02-28T15:54:48.590Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vertretung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "info.root.form != \"einwendung\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-juristische-person-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:32:56.117Z",
+      "modified_at": "2025-02-28T15:47:43.083Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich um eine Firma / juristische Person?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\"vertretung-gesuchstellerin\"|answer == \"vertretung-gesuchstellerin-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"In der Schweiz ist eine juristische Person eine rechtliche Entit\\u00e4t, wie eine Firma, eine Stiftung oder eine Vereinigung, die vom Gesetz anerkannt ist und eigenst\\u00e4ndig Rechte und Pflichten wahrnehmen kann, unabh\\u00e4ngig von den Personen, die sie gr\\u00fcnden oder kontrollieren.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-name-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:33:07.992Z",
+      "modified_at": "2025-02-28T15:48:02.317Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Name\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "!(\n  \"vertretung-juristische-person-gesuchstellerin\"|answer == \"vertretung-juristische-person-gesuchstellerin-ja\"\n)",
+      "is_hidden": "!(\"vertretung-gesuchstellerin\"|answer == \"vertretung-gesuchstellerin-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-name-juristische-person-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:45:27.123Z",
+      "modified_at": "2025-02-28T15:49:40.753Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Name Firma / juristische Person\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\n  \"vertretung-gesuchstellerin\"|answer == \"vertretung-gesuchstellerin-ja\" &&\n  \"vertretung-juristische-person-gesuchstellerin\"|answer == \"vertretung-juristische-person-gesuchstellerin-ja\"\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-nummer-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:33:58.669Z",
+      "modified_at": "2025-02-28T15:48:14.952Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"vertretung-gesuchstellerin\"|answer == \"vertretung-gesuchstellerin-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": 12,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-ort-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:34:27.190Z",
+      "modified_at": "2025-02-28T15:48:23.388Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ort\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"vertretung-gesuchstellerin\"|answer == \"vertretung-gesuchstellerin-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": 40,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-plz-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:34:14.793Z",
+      "modified_at": "2025-02-28T15:48:19.240Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"PLZ\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!(\"vertretung-gesuchstellerin\"|answer == \"vertretung-gesuchstellerin-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-strasse-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:33:36.031Z",
+      "modified_at": "2025-02-28T15:48:10.562Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"vertretung-gesuchstellerin\"|answer == \"vertretung-gesuchstellerin-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": 60,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-telefon-oder-mobile-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:34:40.365Z",
+      "modified_at": "2025-02-28T15:48:29.473Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"vertretung-gesuchstellerin\"|answer == \"vertretung-gesuchstellerin-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[\"phone-number\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vertretung-vorname-gesuchstellerin",
+    "fields": {
+      "created_at": "2025-02-28T15:33:23.186Z",
+      "modified_at": "2025-02-28T15:48:05.624Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorname\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "!(\n  \"vertretung-juristische-person-gesuchstellerin\"|answer == \"vertretung-juristische-person-gesuchstellerin-ja\"\n)",
+      "is_hidden": "!(\"vertretung-gesuchstellerin\"|answer == \"vertretung-gesuchstellerin-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "vorname-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:51:39.379Z",
@@ -2288,6 +2892,66 @@
       "modified_by_group": null,
       "question": "projektaenderung",
       "option": "projektaenderung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vertretung-gesuchstellerin.vertretung-gesuchstellerin-ja",
+    "fields": {
+      "created_at": "2025-02-28T15:54:48.604Z",
+      "modified_at": "2025-02-28T15:54:48.604Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vertretung-gesuchstellerin",
+      "option": "vertretung-gesuchstellerin-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vertretung-gesuchstellerin.vertretung-gesuchstellerin-nein",
+    "fields": {
+      "created_at": "2025-02-28T15:54:48.599Z",
+      "modified_at": "2025-02-28T15:54:48.599Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vertretung-gesuchstellerin",
+      "option": "vertretung-gesuchstellerin-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vertretung-juristische-person-gesuchstellerin.vertretung-juristische-person-gesuchstellerin-ja",
+    "fields": {
+      "created_at": "2025-02-28T15:47:43.091Z",
+      "modified_at": "2025-02-28T15:47:43.091Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vertretung-juristische-person-gesuchstellerin",
+      "option": "vertretung-juristische-person-gesuchstellerin-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vertretung-juristische-person-gesuchstellerin.vertretung-juristische-person-gesuchstellerin-nein",
+    "fields": {
+      "created_at": "2025-02-28T15:47:43.088Z",
+      "modified_at": "2025-02-28T15:47:43.088Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vertretung-juristische-person-gesuchstellerin",
+      "option": "vertretung-juristische-person-gesuchstellerin-nein",
       "sort": 1
     }
   },

@@ -732,6 +732,9 @@ DUMP = {
                 "caluma_information_of_neighbors_form": generate_form_dump_config(
                     regex=r"^nachbarschaftsorientierung$"
                 ),
+                "caluma_objection_form": generate_form_dump_config(
+                    regex=r"^einwendung(en)?"
+                ),
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

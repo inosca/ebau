@@ -45,6 +45,7 @@ MODULE_AUDIT = NO_CORRECTION & (
     (RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY)
     | RequireWorkItem("formal-exam", "completed")
 )
+MODULE_BILLING = STATES_ALL & ROLES_NO_READONLY
 MODULE_CANTONAL_EXAM = RequireWorkItem("cantonal-exam") & (
     Callback(
         lambda userinfo: userinfo.service.slug == "afb",
@@ -70,7 +71,7 @@ MODULE_INFORMATION_OF_NEIGHBORS = NO_CORRECTION & RequireWorkItem(
 )
 MODULE_JOURNAL = STATES_ALL
 MODULE_LINKED_INSTANCES = STATES_ALL
-MODULE_BILLING = STATES_ALL & ROLES_NO_READONLY
+MODULE_OBJECTIONS = NO_CORRECTION & RequireWorkItem("objections")
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
 MODULE_PUBLICATION = NO_CORRECTION & RequireWorkItem("fill-publication")
 MODULE_REJECTION = RequireInstanceState(["subm", "rejected"])
@@ -173,6 +174,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("history-read", MODULE_HISTORY),
             ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS),
             ("journal-read", MODULE_JOURNAL),
+            ("legal-submissions-read", MODULE_OBJECTIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("permissions-grant-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),
