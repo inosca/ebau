@@ -22,7 +22,11 @@ from rest_framework.authentication import get_authorization_header
 
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
-from camac.instance.placeholders.utils import enrich_personal_data, get_person_name
+from camac.instance.placeholders.utils import (
+    enrich_personal_data,
+    format_gis_center_coordinates,
+    get_person_name,
+)
 from camac.user.models import Service
 from camac.utils import build_url, clean_join, get_dict_item
 
@@ -177,6 +181,9 @@ class DMSHandler:
                 "date": generated_at.strftime("%d.%m.%Y"),
                 "time": generated_at.strftime("%H:%M"),
             },
+            "gisCoordinatesCenter": format_gis_center_coordinates(
+                graceful_get(master_data, "gis_center_coordinate", default=None)
+            ),
         }
 
         if settings.DMS.get("ADD_HEADER_DATA"):

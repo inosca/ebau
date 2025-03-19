@@ -3,6 +3,7 @@ import itertools
 import json
 import re
 from collections import OrderedDict
+from typing import Literal
 
 from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
@@ -13,6 +14,7 @@ from rest_framework import serializers
 
 from camac.caluma.api import CalumaApi
 from camac.core.translations import get_translations_canton_aware
+from camac.instance.models import Instance
 from camac.user.models import Service
 from camac.utils import build_url, clean_join
 
@@ -29,23 +31,36 @@ def sanitize_value(value):
     return value if value is not None else ""
 
 
-def get_koordinaten_by_json_props(instance):
-    coordinates = [
-        json.loads(answer.value)["markers"]
-        for answer in Answer.objects.filter(
-            question_id="gis-map", document_id=instance.case.document.pk
-        )
-        if answer.value
-    ]
+def format_coordinate(number):
+    return f"{int(number):,}".replace(",", "'")
+
+
+def get_koordinaten_by_json_props(
+    instance: Instance, attr: Literal["center", "markers"]
+) -> str:
+    raw_gis_coordinates = instance._master_data.gis_coordinates
+
+    if not raw_gis_coordinates or raw_gis_coordinates == "":  # pragma: no cover
+        return ""
+
+    data = []
+
+    coordinates = json.loads(raw_gis_coordinates).get(attr)
 
     if not coordinates:  # pragma: no cover
         return ""
 
-    data = []
-    for coordinate in coordinates[0]:
-        x = f"{round(coordinate['x']):_}".replace("_", "’")
-        y = f"{round(coordinate['y']):_}".replace("_", "’")
-        data.append(f"{x} / {y}")
+    if attr == "markers":
+        for coordinate in coordinates:
+            x = f"{round(coordinate['x']):_}".replace("_", "’")
+            y = f"{round(coordinate['y']):_}".replace("_", "’")
+            data.append(f"{x} / {y}")
+
+    if attr == "center":
+        data.append(
+            f"{format_coordinate(coordinates['x'])} / {format_coordinate(coordinates['y'])}"
+        )
+
     return clean_join(*data, separator="; ")
 
 
@@ -878,7 +893,7 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         return answer.first().value if answer else ""
 
     def get_koordinaten(self, instance):
-        return get_koordinaten_by_json_props(instance)
+        return get_koordinaten_by_json_props(instance, "center")
 
     def get_gebaeudeversicherungsnummer(self, instance):
         values = Answer.objects.filter(
@@ -2145,7 +2160,7 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     )
 
     def get_koordinaten(self, instance):
-        return get_koordinaten_by_json_props(instance)
+        return get_koordinaten_by_json_props(instance, "markers")
 
     class Meta:
         exclude = [

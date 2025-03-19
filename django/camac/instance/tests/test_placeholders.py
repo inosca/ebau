@@ -22,6 +22,7 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.instance.placeholders.utils import (
+    format_gis_center_coordinates,
     get_tel_and_email,
     get_yes_no,
     human_readable_date,
@@ -232,7 +233,7 @@ def test_dms_placeholders_gr(
     utils.add_answer(
         gr_instance.case.document,
         "gis-map",
-        '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}, {"x": 2609995.12345,"y": 1271340.12345}] }',
+        '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}], "center": {"x": 2609995.12345,"y": 1271340.12345} }',
     )
 
     # Prepare project modification
@@ -1102,3 +1103,26 @@ def test_dms_placeholders_ag(
 )
 def test_yes_no(options, expected):
     assert get_yes_no(options) == expected
+
+
+@pytest.mark.parametrize(
+    "available_data,expected",
+    [
+        (None, None),
+        ("", None),
+        ("{invalid-json}", None),
+        (
+            '{"valid-no-center": {"x": 2760558.123, "y": 1170288.456}}',
+            None,
+        ),
+        (
+            '{"center": {"x": 2760558.123, "y": 1170288.456}}',
+            "2'760'558 / 1'170'288",
+        ),
+    ],
+)
+def test_format_gis_center_coordinates(
+    available_data,
+    expected,
+):
+    assert format_gis_center_coordinates(available_data) == expected

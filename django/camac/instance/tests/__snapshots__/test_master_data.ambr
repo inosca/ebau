@@ -22,6 +22,7 @@
     'construction_start_date': None,
     'decision_date': datetime.date(2025, 3, 28),
     'dossier_number': '2025-1',
+    'gis_coordinates': None,
     'information_of_neighbors_required': True,
     'invoice_recipients': list([
       dict({

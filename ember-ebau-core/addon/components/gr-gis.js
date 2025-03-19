@@ -61,6 +61,7 @@ export default class GrGisComponent extends Component {
     return JSON.stringify({
       markers: this.markers.map((m) => LatLngToEPSG2056(m)),
       geometry: this.geometry,
+      center: getCenter(this.markers, this.geometry),
     });
   }
 
