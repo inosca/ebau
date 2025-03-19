@@ -7,7 +7,8 @@ import {
 } from "ember-ebau-core/utils/get-answer";
 
 export function getNames(document, questionSlug) {
-  const people = getAnswer(document, questionSlug)?.node.value ?? [];
+  const tableAnswer = getAnswer(document, questionSlug);
+  const people = tableAnswer?.node.value ?? tableAnswer?.node.tableValue ?? [];
 
   const applicantNames = people.map((row) => {
     const firstName = getAnswerDisplayValue(
