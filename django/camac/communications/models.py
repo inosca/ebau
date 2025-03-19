@@ -87,7 +87,11 @@ class CommunicationsAttachment(models.Model):
         CommunicationsMessage, on_delete=models.CASCADE, related_name="attachments"
     )
     file_attachment = models.FileField(
-        null=True, default=None, blank=True, upload_to=attachment_path_directory_path
+        null=True,
+        default=None,
+        blank=True,
+        upload_to=attachment_path_directory_path,
+        max_length=250,
     )
     file_type = models.CharField(max_length=250, null=True, default=None, blank=True)
 
