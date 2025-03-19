@@ -63,13 +63,13 @@
     "pk": "spezialformulare-v2",
     "fields": {
       "created_at": "2025-02-03T09:34:39.494Z",
-      "modified_at": "2025-02-03T09:34:39.494Z",
+      "modified_at": "2025-03-17T16:57:12.896Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Spezialformulare\", \"fr\": null, \"it\": \"Moduli speciali\"}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Spezialformulare (v2)\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -886,7 +886,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "abfallanlage",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -901,7 +901,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "ableitung-von-industrie-und-gewerbeabwasser",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -916,7 +916,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "anlagedatenblatt",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -931,7 +931,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "bauliche-angaben",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -946,7 +946,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "bauten-ausserhalb-bauzone",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -961,7 +961,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "betriebsleiterwohnhaus",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -976,7 +976,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "brandschutz-haustechnik",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -991,7 +991,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "eingriffe-in-gewaesserschutzbereichen",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -1006,7 +1006,22 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "emissionserklaerung-form",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v2.entsorgung",
+    "fields": {
+      "created_at": "2025-03-17T16:58:09.394Z",
+      "modified_at": "2025-03-17T16:58:09.394Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v2",
+      "question": "entsorgung",
+      "sort": 1
     }
   },
   {
@@ -1021,7 +1036,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "feuerungsanlagen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1036,7 +1051,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "gewinnung-von-kies",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -1051,7 +1066,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "grundwasserentnahme-brauchwasser",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -1066,7 +1081,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "gwr",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -1081,7 +1096,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "hecken-feldgehoelze-und-ufervegetation",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -1096,7 +1111,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "komplexe-erdwaermesonden-v2",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -1111,7 +1126,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "lageranlagen-mit-wassergefaehrdenden-fluessigkeiten",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -1126,7 +1141,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "mineralische-bauabfaelle",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -1141,7 +1156,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "schutzplaetze",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -1156,7 +1171,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "solaranlage-baugesuch",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -1171,7 +1186,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "stallbau-und-hofduengerlager",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -1186,7 +1201,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "stationaere-verbrennungsmotoren",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -1201,7 +1216,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "terrainveraenderungen",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -1216,7 +1231,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "waermepumpenanlage-v2",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -1231,7 +1246,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v2",
       "question": "wasserentnahme-aus-oberflaechengewaessern",
-      "sort": 11
+      "sort": 12
     }
   },
   {
