@@ -58647,7 +58647,7 @@
     "pk": "entspricht-voraussetzungen-einer-bauanzeige",
     "fields": {
       "created_at": "2025-02-14T14:39:28.557Z",
-      "modified_at": "2025-02-17T07:33:04.669Z",
+      "modified_at": "2025-03-19T13:18:34.872Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -58655,7 +58655,7 @@
       "label": "{\"de\": \"Entspricht das Vorhaben den Voraussetzungen einer Bauanzeige nach Art. 40 und Art. 40a KRVO? Wenn Nein, ist daf\\u00fcr ein Baubewilligungsverfahren nach Art. 42 bzw. Art. 50 KRVO erforderlich!\", \"fr\": null, \"it\": \"Il progetto soddisfa i requisiti per un annuncio di costruzione ai sensi dell'art. 40 e dell'art. 40a OPTC? In caso negativo, \\u00e8 necessaria una procedura per il rilascio della licenza edilizia ai sensi dell'art. 42 o dell'art. 50 OPTC!\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "info.case.form in [\"baugesuch\", \"vorlaeufige-beurteilung\", \"solaranlage\"]",
+      "is_hidden": "info.case.form in [\"baugesuch\", \"baugesuch-v2\", \"vorlaeufige-beurteilung\", \"solaranlage\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
