@@ -9,6 +9,7 @@ from . import (  # noqa: F401
     cantonal_exam,
     check_gwr_relevancy,
     complete_check,
+    construction_acceptance,
     construction_monitoring,
     decision,
     direct_inquiry,
