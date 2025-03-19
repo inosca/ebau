@@ -1605,6 +1605,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
         return []  # pragma: no cover
 
+    def _get_recipients_aib(self, instance):
+        service = Service.objects.filter(slug="aib").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
+
     def _get_recipients_gvg(self, instance):
         service = Service.objects.filter(name="gvg").first()
         if service:
