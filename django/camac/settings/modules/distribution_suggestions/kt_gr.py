@@ -149,10 +149,10 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "dachtyp",
             "dachtyp-schraegdach",
-        ): ["gvg", "aib"],
+        ): ["aib"],
         (
             "dachtyp",
             "dachtyp-flachdach",
-        ): ["gvg", "aib"],
+        ): ["aib"],
     }
 }
