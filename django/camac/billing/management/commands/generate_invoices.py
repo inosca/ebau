@@ -2,8 +2,8 @@ from logging import Logger, getLogger
 
 from django.core.management.base import BaseCommand
 
-from camac.invoices.domain_logic import generate_invoices
-from camac.invoices.models import Invoice
+from camac.billing.models import Invoice
+from camac.billing.wilken.domain_logic import generate_invoices
 
 log: Logger = getLogger(__name__)
 

@@ -235,6 +235,42 @@ def so_bab_settings(settings, request):
 
 
 @pytest.fixture
+def billing_settings(settings, request):
+    """Module-specific settings for billing (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="billing",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_billing_settings(settings, request):
+    """Disable the billing module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="billing",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def sz_billing_settings(settings, request):
+    """Module-specific settings for billing (canton SZ)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="billing",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def communications_settings(settings, request):
     """Module-specific settings for communications (default)."""
     return generate_module_settings(
@@ -1154,42 +1190,6 @@ def ag_ech0211_settings(settings, request):
         request=request,
         module_name="ech0211",
         canton="kt_ag",
-        disable=False,
-    )
-
-
-@pytest.fixture
-def invoices_settings(settings, request):
-    """Module-specific settings for invoices (default)."""
-    return generate_module_settings(
-        settings=settings,
-        request=request,
-        module_name="invoices",
-        canton=None,
-        disable=False,
-    )
-
-
-@pytest.fixture
-def disable_invoices_settings(settings, request):
-    """Disable the invoices module completely."""
-    return generate_module_settings(
-        settings=settings,
-        request=request,
-        module_name="invoices",
-        canton=None,
-        disable=True,
-    )
-
-
-@pytest.fixture
-def sz_invoices_settings(settings, request):
-    """Module-specific settings for invoices (canton SZ)."""
-    return generate_module_settings(
-        settings=settings,
-        request=request,
-        module_name="invoices",
-        canton="kt_schwyz",
         disable=False,
     )
 

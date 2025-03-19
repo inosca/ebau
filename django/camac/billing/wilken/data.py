@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from camac.invoices.models import Invoice, LineItem
-from camac.invoices.utils import stringify_price
+from camac.billing.models import Invoice, LineItem
+from camac.billing.utils import stringify_price
 
 
 class WilkenRow:

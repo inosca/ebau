@@ -10,18 +10,20 @@ from logging import Logger, getLogger
 from django.conf import settings
 from django.db.models import Exists, OuterRef, Q
 
-from camac.billing.models import BillingV2Entry
-from camac.billing.utils import calculate_final_rate
-from camac.instance.models import Instance
-from camac.invoices.models import Invoice, LineItem
-from camac.invoices.utils import get_customer_number_sz, get_invoice_text_sz
-from camac.invoices.wilken_data import (
+from camac.billing.models import BillingV2Entry, Invoice, LineItem
+from camac.billing.utils import (
+    calculate_final_rate,
+    get_customer_number_sz,
+    get_invoice_text_sz,
+)
+from camac.billing.wilken.data import (
     HeaderLine,
     HeaderTexts,
     InvoiceLine,
     PositionLine,
     WilkenRow,
 )
+from camac.instance.models import Instance
 
 log: Logger = getLogger(__name__)
 
@@ -87,12 +89,13 @@ def generate_models_for_invoice() -> list[Invoice]:
 
 
 def create_invoice(instance: Instance) -> Invoice:
+    wilken_settings = settings.BILLING["WILKEN"]
     return Invoice.objects.create(
         customer_number=get_customer_number_sz(instance),
-        clerk=settings.INVOICES["CLERK"],
-        user_id=settings.INVOICES["USER_ID"],
+        clerk=wilken_settings["CLERK"],
+        user_id=wilken_settings["USER_ID"],
         invoice_text=get_invoice_text_sz(instance),
-        payment_purpose=settings.INVOICES["PAYMENT_PURPOSE"].format(
+        payment_purpose=wilken_settings["PAYMENT_PURPOSE"].format(
             instance_id=instance.identifier
         ),
         instance=instance,
@@ -179,8 +182,9 @@ def generate_wilken_files(
         )
 
     # We are creating a BytesIO file so we don't have to actually write a tmp file.
+    wilken_settings = settings.BILLING["WILKEN"]
     invoice_file: BytesIO = BytesIO()
-    stream_writer: StreamWriter = getwriter(settings.INVOICES["ENCODING"])(invoice_file)
+    stream_writer: StreamWriter = getwriter(wilken_settings["ENCODING"])(invoice_file)
     writer = csv.writer(
         stream_writer, delimiter=";", quotechar='"', quoting=csv.QUOTE_MINIMAL
     )
@@ -191,13 +195,14 @@ def generate_wilken_files(
 
 
 def send_files(files: list[BytesIO]) -> None:
+    wilken_settings = settings.BILLING["WILKEN"]
     ftp_session: FTP = FTP(
-        settings.INVOICES["FTP_HOSTNAME"],
-        settings.INVOICES["FTP_USER"],
-        settings.INVOICES["FTP_PASSWORD"],
+        wilken_settings["FTP_HOSTNAME"],
+        wilken_settings["FTP_USER"],
+        wilken_settings["FTP_PASSWORD"],
     )
     for file in files:
-        filename: str = settings.INVOICES["INVOICE_FILE_NAME"].format(
+        filename: str = wilken_settings["INVOICE_FILE_NAME"].format(
             datetime=datetime.now().strftime("%Y%m%d%H%M%S")
         )
         ftp_session.storlines(f"STOR {filename}", file)
