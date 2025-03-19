@@ -1,3 +1,4 @@
+import json
 from datetime import date, datetime
 from typing import List, Union
 
@@ -116,6 +117,26 @@ def get_person_last_name(person: dict, use_representative: bool = False) -> str:
 
 def enrich_personal_data(personal_data):
     return [clean_and_add_full_name(entry) for entry in personal_data]
+
+
+def format_gis_center_coordinates(value):
+    if not value:
+        return None
+
+    try:
+        json_data = json.loads(value)
+        center = json_data.get("center")
+    except json.JSONDecodeError:
+        return None
+
+    if center and center["x"] and center["y"]:
+        return f"{format_coordinate(center['x'])} / {format_coordinate(center['y'])}"
+
+    return None
+
+
+def format_coordinate(number):
+    return f"{int(number):,}".replace(",", "'")
 
 
 def clean_and_add_full_name(entry):

@@ -2316,6 +2316,7 @@ MASTER_DATA = {
                     },
                 },
             ),
+            "gis_coordinates": ("answer", "gis-map"),
         },
     },
     "kt_so": {
@@ -3168,6 +3169,7 @@ MASTER_DATA = {
             ),
             "construction_start_date": ("static", None),
             "construction_duration": ("static", ""),
+            "gis_coordinates": ("answer", "gis-map"),
         },
     },
 }
