@@ -1,11 +1,13 @@
 from collections import namedtuple
-from typing import Union
+from itertools import chain
+from typing import Set, Union
 
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow import models as workflow_models
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
+from django.conf import settings
 from django.db.models.query import QuerySet
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
@@ -235,3 +237,18 @@ def geometer_cadastral_survey_necessary_answer(instance):
         )
 
     return None
+
+
+def get_changeable_forms(current_form: str) -> Set[str]:
+    if not settings.CHANGE_FORM:  # pragma: no cover
+        return set()
+
+    return set(
+        chain(
+            *[
+                form_list
+                for form_list in settings.CHANGE_FORM["INTERCHANGEABLE_FORMS"]
+                if current_form in form_list
+            ]
+        )
+    )

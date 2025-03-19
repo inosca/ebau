@@ -17,16 +17,6 @@ support:
     confirm: "Voulez vous vraiment changer le numéro eBau ?"
     error: "Erreur lors de la modification du numéro eBau"
 
-  change-form:
-    title: "Modifier le type de dossier"
-    description: "Ici vous pouvez corriger les types de dossiers incorrects. Cela n'est possible qu'avec les types '<strong'>Demande de permis de construire'</strong'>, '<strong'>Demande de permis de construire général'</strong'> et '<strong'>Demande de permis de construire avec EIE'</strong'>"
-
-    form-label: "Formulaire pour modifier le type de dossier"
-    label: "Type de dossier"
-
-    confirm: "Voulez vous vraiment changer le type de dossier ?"
-    error: "Erreur lors de la modification du type de dossier"
-
   fix-work-items:
     title: "Réparation des tâches"
     description: "Dans ce cas, les états incorrects des tâches qui sont apparus en raison d'une erreur dans le système peuvent être corrigés. Cette fonction ne doit être utilisée que par les utilisateurs qui savent ce qu'ils font."

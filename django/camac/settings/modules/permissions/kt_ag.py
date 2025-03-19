@@ -108,6 +108,7 @@ ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & HasApplicantRole(["ADMI
 ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & HasApplicantRole(
     ["ADMIN"]
 )
+ACTION_INSTANCE_CHANGE_FORM = RequireInstanceState(["subm"])
 
 ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
     [
@@ -190,6 +191,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("rejection-read", MODULE_REJECTION),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
+            ("instance-change-form", ACTION_INSTANCE_CHANGE_FORM),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
         ],
         "read": [

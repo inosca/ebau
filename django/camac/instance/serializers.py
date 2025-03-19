@@ -22,7 +22,7 @@ from generic_permissions.visibilities import (
     VisibilityResourceRelatedField,
     VisibilitySerializerMixin,
 )
-from rest_framework import exceptions
+from rest_framework import exceptions, response, status
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi
@@ -49,7 +49,7 @@ from camac.instance.domain_logic import link_instances
 from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
-from camac.instance.utils import copy_instance, fill_ebau_number
+from camac.instance.utils import copy_instance, fill_ebau_number, get_changeable_forms
 from camac.notification.utils import send_mail, send_mail_without_request
 from camac.permissions import api as permissions_api, events as permissions_events
 from camac.permissions.switcher import (
@@ -471,27 +471,24 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
     form = serializers.CharField()
 
     def validate_form(self, value):
-        if value not in settings.APPLICATION.get("INTERCHANGEABLE_FORMS", []):
+        current_form = self.instance.form.name
+        valid_forms = get_changeable_forms(current_form)
+
+        if not valid_forms:
+            raise exceptions.ValidationError(
+                _("The current form '%(form)s' can't be changed")
+                % {"form": current_form}
+            )
+        elif value not in valid_forms:
             raise exceptions.ValidationError(
                 _("'%(form)s' is not a valid form type") % {"form": value}
             )
+        elif value == current_form:
+            raise exceptions.ValidationError(
+                _("Form is already of type '%(form)s'") % {"form": value}
+            )
 
         return value
-
-    def validate(self, data):
-        if self.instance.form.name not in settings.APPLICATION.get(
-            "INTERCHANGEABLE_FORMS", []
-        ):
-            raise exceptions.ValidationError(
-                _("The current form '%(form)s' can't be changed")
-                % {"form": self.instance.form.name}
-            )
-        elif self.instance.form.name == data["form"]:
-            raise exceptions.ValidationError(
-                _("Form is already of type '%(form)s'") % {"form": data["form"]}
-            )
-
-        return data
 
     @transaction.atomic
     def update(self, instance, validated_data):
@@ -1959,30 +1956,24 @@ class CalumaInstanceArchiveSerializer(serializers.Serializer):
 class CalumaInstanceChangeFormSerializer(serializers.Serializer):
     """Handle changing the form of an instance."""
 
-    interchangeable_forms = [
-        ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
-        ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
-        ["baugesuch-v3", "baugesuch-generell-v3", "baugesuch-mit-uvp-v3"],
-        ["baugesuch-v5", "baugesuch-generell-v5", "baugesuch-mit-uvp-v5"],
-    ]
-
     form = serializers.CharField()
 
     def validate_form(self, value):
-        current_form = CalumaApi().get_form_slug(self.instance)
-        valid_forms = next(
-            filter(lambda f: current_form in f, self.interchangeable_forms), None
-        )
+        current_form = self.instance.case.document.form_id
+        valid_forms = get_changeable_forms(current_form)
 
         if not valid_forms:
             raise exceptions.ValidationError(
                 _("The current form '%(form)s' can't be changed")
                 % {"form": current_form}
             )
-
-        if value not in valid_forms:
+        elif value not in valid_forms:
             raise exceptions.ValidationError(
                 _("'%(form)s' is not a valid form type") % {"form": value}
+            )
+        elif value == current_form:
+            raise exceptions.ValidationError(
+                _("Form is already of type '%(form)s'") % {"form": value}
             )
 
         return value
@@ -1994,6 +1985,16 @@ class CalumaInstanceChangeFormSerializer(serializers.Serializer):
         case.document.form_id = validated_data["form"]
         case.document.save()
 
+        try:
+            DocumentValidator().validate(
+                instance.case.document,
+                self.context["request"].caluma_info.context.user,
+            )
+        except CustomValidationError:
+            return response.Response(
+                data={"messages": ["form_invalid"]}, status=status.HTTP_200_OK
+            )
+
         # create a history entry
         create_history_entry(
             self.instance,
@@ -2001,7 +2002,7 @@ class CalumaInstanceChangeFormSerializer(serializers.Serializer):
             gettext_noop("Changed form type"),
         )
 
-        return instance
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
 
     class Meta:
         resource_name = "instance-change-forms"

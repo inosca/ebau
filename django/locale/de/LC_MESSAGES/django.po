@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-07 10:30+0100\n"
+"POT-Creation-Date: 2025-03-27 12:37+0100\n"
 "PO-Revision-Date: 2024-09-12 15:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1125,13 +1125,13 @@ msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
 
 #: camac/instance/serializers.py
 #, python-format
-msgid "'%(form)s' is not a valid form type"
-msgstr "'%(form)s' ist ein ungültiger Dossiertyp"
+msgid "The current form '%(form)s' can't be changed"
+msgstr "Der momentane Dossiertyp '%(form)s' kann nicht geändert werden"
 
 #: camac/instance/serializers.py
 #, python-format
-msgid "The current form '%(form)s' can't be changed"
-msgstr "Der momentane Dossiertyp '%(form)s' kann nicht geändert werden"
+msgid "'%(form)s' is not a valid form type"
+msgstr "'%(form)s' ist ein ungültiger Dossiertyp"
 
 #: camac/instance/serializers.py
 #, python-format

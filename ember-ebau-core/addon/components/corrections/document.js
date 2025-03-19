@@ -7,9 +7,9 @@ import { task } from "ember-concurrency";
 import { confirm } from "ember-uikit";
 import { trackedFunction } from "reactiveweb/function";
 
-import getDocumentQuery from "ebau/gql/queries/get-document.graphql";
+import getDocumentQuery from "ember-ebau-core/gql/queries/get-document.graphql";
 
-export default class DocumentCorrection extends Component {
+export default class CorrectionsDocument extends Component {
   @service fetch;
   @service intl;
   @service router;

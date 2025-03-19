@@ -4,12 +4,10 @@ import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency";
-import mainConfig from "ember-ebau-core/config/main";
 import { confirmTask } from "ember-ebau-core/decorators";
 import parseError from "ember-ebau-core/utils/parse-error";
 
 import getConstructionDescriptionQuery from "camac-ng/gql/queries/get-construction-description.graphql";
-import getFormsQuery from "camac-ng/gql/queries/get-forms.graphql";
 
 export default class SupportController extends Controller {
   @queryManager apollo;
@@ -21,7 +19,6 @@ export default class SupportController extends Controller {
   @service shoebox;
 
   @tracked ebauNumber;
-  @tracked _form;
   @tracked output;
   @tracked dry = true;
   @tracked dryRunDone = false;
@@ -29,14 +26,6 @@ export default class SupportController extends Controller {
   @tracked showAdvanced = false;
   @tracked showModal = false;
   @tracked constructionDescription;
-
-  get form() {
-    return this.forms.find((form) => form.value === this._form);
-  }
-
-  set form(event) {
-    this._form = event.target.value;
-  }
 
   @action updateSyncCirculation({ target: { checked: value } }) {
     this.dry = true;
@@ -100,7 +89,6 @@ export default class SupportController extends Controller {
   @dropTask
   *setup() {
     yield this.fetchInstance.perform();
-    yield this.fetchForms.perform();
   }
 
   @lastValue("fetchInstance") instance = null;
@@ -112,24 +100,6 @@ export default class SupportController extends Controller {
     this._form = instance.calumaForm;
 
     return instance;
-  }
-
-  @lastValue("fetchForms") forms = [];
-  @dropTask
-  *fetchForms() {
-    const forms = yield this.apollo.query(
-      {
-        query: getFormsQuery,
-        variables: {
-          forms: mainConfig.interchangeableForms.find((forms) =>
-            forms.includes(this.instance.calumaForm),
-          ),
-        },
-      },
-      "allForms.edges",
-    );
-
-    return forms.map(({ node }) => ({ value: node.slug, label: node.name }));
   }
 
   @dropTask
@@ -179,30 +149,6 @@ export default class SupportController extends Controller {
       }
 
       this.notification.danger(text);
-    }
-  }
-
-  @dropTask
-  @confirmTask("support.change-form.confirm")
-  *changeForm() {
-    try {
-      yield this.fetch.fetch(`/api/v1/instances/${this.model}/change-form`, {
-        method: "POST",
-        body: JSON.stringify({
-          data: {
-            type: "instance-change-forms",
-            id: this.model,
-            attributes: {
-              form: this.form.value,
-            },
-          },
-        }),
-      });
-
-      // sadly we need this to have current data on the whole page
-      location.reload();
-    } catch {
-      this.notification.danger(this.intl.t("support.change-form.error"));
     }
   }
 

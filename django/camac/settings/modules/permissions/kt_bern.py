@@ -263,6 +263,11 @@ BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS = BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS + 
         BE_MUNICIPALITY_ACCESSIBLE_STATES
         | RequireInstanceState(["corrected", "correction"]),
     ),
+    (
+        "instance-change-form",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES
+        | RequireInstanceState(["corrected", "correction"]),
+    ),
 ]
 
 GEOMETER_RW = (
@@ -310,6 +315,7 @@ BE_PERMISSIONS_SETTINGS = {
             ("audit-log-read", SUPPORT_CONDITION),
             ("changelog-read", SUPPORT_CONDITION),
             ("history-read", SUPPORT_CONDITION),
+            ("instance-change-form", SUPPORT_CONDITION),
         ],
         "distribution-service": [
             ("work-items-read", BE_SERVICE_STATES_DEFAULT),

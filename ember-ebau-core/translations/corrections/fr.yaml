@@ -1,0 +1,35 @@
+corrections:
+  document:
+    title: "Corriger le dossier"
+    description: "Veuillez noter que la correction de dossier n'est destinée qu'aux modifications mineures. Veuillez vérifier si, le cas échéant, un renvoi serait approprié.<br><br>Souhaitez-vous poursuivre la correction du dossier?"
+    button: "Corriger"
+    description-finish-start: ""
+    description-finish-link: ""
+    description-finish-end: ""
+    button-finish: ""
+
+    confirm: "Voulez-vous vraiment corriger le dossier ?"
+    error: "Erreur lors de la correction du dossier"
+    confirm-finish: ""
+    invalid: ""
+
+  withdraw:
+    title: ""
+    description: ""
+    confirm: ""
+    success: ""
+    error: ""
+
+  change-form:
+    title: "Modifier le type de dossier"
+    description: "Ici vous pouvez corriger les types de dossiers incorrects. Cela n'est possible qu'avec les types '<strong'>Demande de permis de construire'</strong'>, '<strong'>Demande de permis de construire général'</strong'> et '<strong'>Demande de permis de construire avec EIE'</strong'>"
+    not-possible: "Le type de dossier de ce dossier ne peut pas être modifié."
+    form-label: "Formulaire pour modifier le type de dossier"
+    label: "Type de dossier"
+    confirm: "Voulez vous vraiment changer le type de dossier ?"
+    error: "Erreur lors de la modification du type de dossier"
+    success: "Le type de dossier a été modifié avec succès"
+    invalid-form-hint: |-
+      <strong>Attention :</strong> le formulaire de ce dossier n'est plus
+      entièrement rempli. Vous pouvez corriger les données manquantes à l'aide
+      de la fonction fonction « Corriger le dossier ».
