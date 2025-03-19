@@ -1,3 +1,4 @@
+import { action } from "@ember/object";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { task } from "ember-concurrency";
@@ -12,17 +13,19 @@ export default class SanctionsDetailsComponent extends Component {
   @service notification;
   @service intl;
 
-  submit = task({ drop: true }, async (changeset) => {
-    if (
-      !(await confirm(
-        this.intl.t("sanction.confirm.control", { name: changeset.name }),
-      ))
-    ) {
-      return;
+  async submit(changeset, action) {
+    if (action === "control") {
+      if (
+        !(await confirm(
+          this.intl.t("sanction.confirm.control", { name: changeset.name }),
+        ))
+      ) {
+        return;
+      }
     }
     try {
       await this.fetch.fetch(
-        `/api/v1/sanctions/${this.args.sanction.id}/control`,
+        `/api/v1/sanctions/${this.args.sanction.id}/${action}`,
         {
           method: "POST",
           body: JSON.stringify({
@@ -37,15 +40,33 @@ export default class SanctionsDetailsComponent extends Component {
         },
       );
       this.notification.success(
-        this.intl.t("sanction.notification.success.control"),
+        this.intl.t(`sanction.notification.success.${action}`),
       );
-      this.router.transitionTo(
-        this.ebauModules.resolveModuleRoute("sanctions", "index"),
-      );
+      if (action === "control") {
+        this.router.transitionTo(
+          this.ebauModules.resolveModuleRoute("sanctions", "index"),
+        );
+      }
     } catch {
       this.notification.danger(
-        this.intl.t("sanction.notification.error.control"),
+        this.intl.t(`sanction.notification.error.${action}`),
       );
     }
+  }
+
+  annotate = task({ drop: true }, async (changeset) => {
+    await this.submit(changeset, "annotate");
   });
+
+  control = task({ drop: true }, async (changeset) => {
+    await this.submit(changeset, "control");
+  });
+
+  @action
+  back(changeset) {
+    changeset.data.rollbackAttributes();
+    this.router.transitionTo(
+      this.ebauModules.resolveModuleRoute("sanctions", "index"),
+    );
+  }
 }

@@ -21,7 +21,7 @@ sanction:
     controlledByUser: "Kontrolliert durch"
     controlNotes: "Kontrollnotizen"
   form:
-    submit: "Kontrolle abschliessen"
+    control: "Als kontrolliert markieren"
     notControlledYet: "Kontrolle noch nicht erfolgt"
   action:
     create: "Neue Auflage erfassen"
