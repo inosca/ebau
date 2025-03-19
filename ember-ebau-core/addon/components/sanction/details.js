@@ -1,6 +1,7 @@
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { task } from "ember-concurrency";
+import { confirm } from "ember-uikit";
 
 export default class SanctionsDetailsComponent extends Component {
   validations = {};
@@ -12,6 +13,13 @@ export default class SanctionsDetailsComponent extends Component {
   @service intl;
 
   submit = task({ drop: true }, async (changeset) => {
+    if (
+      !(await confirm(
+        this.intl.t("sanction.confirm.control", { name: changeset.name }),
+      ))
+    ) {
+      return;
+    }
     try {
       await this.fetch.fetch(
         `/api/v1/sanctions/${this.args.sanction.id}/control`,

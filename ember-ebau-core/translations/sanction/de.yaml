@@ -31,6 +31,7 @@ sanction:
     edit: "Auflage bearbeiten"
     delete: "Auflage löschen"
   confirm:
+    control: "Auflage \"{name}\" als kontrolliert markieren? Dieser Schritt kann nicht rückgängig gemacht werden."
     delete: "Auflage \"{name}\" wirklich löschen?"
   notification:
     success:
