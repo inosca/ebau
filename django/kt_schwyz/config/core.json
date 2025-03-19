@@ -22063,6 +22063,13 @@
   },
   {
     "model": "core.rpage",
+    "pk": 13,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.rpage",
     "pk": 16,
     "fields": {
       "pdf_class": null
@@ -22681,10 +22688,10 @@
     "model": "core.resource",
     "pk": 13,
     "fields": {
-      "available_resource": "useradmin",
+      "available_resource": "page",
       "name": "Einstellungen",
       "description": null,
-      "template": null,
+      "template": "/ember-camac-ng/service-permissions.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 11

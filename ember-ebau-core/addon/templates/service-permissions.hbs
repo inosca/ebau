@@ -1,12 +1,10 @@
-<UkTab as |Tab|>
-  <Tab.item @href="/service-permissions/permissions">
-    {{t "service-permissions.permissions"}}
-  </Tab.item>
-  <Tab.item @href="/service-permissions/sub-services">
-    {{t "service-permissions.sub-services"}}
-  </Tab.item>
-  <Tab.item @href="/service-permissions/organisation">
-    {{t "service-permissions.organisation"}}
-  </Tab.item>
-</UkTab>
+{{#if this.hasMoreThenOneRoute}}
+  <UkTab as |Tab|>
+    {{#each this.includeSubRoutes as |subRoute|}}
+      <Tab.item @href={{concat "/service-permissions/" subRoute}}>
+        {{t (concat "service-permissions." subRoute)}}
+      </Tab.item>
+    {{/each}}
+  </UkTab>
+{{/if}}
 {{outlet}}

@@ -23,4 +23,7 @@ export default {
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
   },
+  servicePermissions: {
+    includeSubRoutes: ["organisation"],
+  },
 };
