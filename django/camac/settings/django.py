@@ -2713,6 +2713,10 @@ LOGGING = {
         "django": {"handlers": ["console", "mail_admins"], "level": "INFO"},
         "camac": {"handlers": ["console", "mail_admins"], "level": "INFO"},
         "tika": {"handlers": ["console", "mail_admins"], "level": "INFO"},
+        "hurricane": {
+            "handlers": ["console", "mail_admins"],
+            "level": env.str("HURRICANE_LOG_LEVEL", default="INFO"),
+        },
     },
 }
 
