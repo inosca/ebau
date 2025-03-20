@@ -212,3 +212,37 @@ def get_invoice_text_sz(instance: Instance) -> str:
 
 def get_customer_number_sz(instance: Instance) -> str:
     return settings.BILLING["WILKEN"]["CUSTOMER_NUMBERS"][instance.location.name]
+
+
+def validate_product_number_conditions(
+    product_number_config: dict[str, bool | list[str]],
+    service_slug: str,
+    has_previous_invoice: bool,
+) -> bool:
+    if has_previous_invoice and not product_number_config.get(
+        "only_subsequent_charge", False
+    ):
+        return False
+
+    def test_condition(key, value):
+        match (key, value):
+            case ("number", _):
+                return True
+            case ("only_subsequent_charge", cond):
+                return has_previous_invoice == cond
+            case ("only_for_services", services):
+                if not service_slug:
+                    return False
+                return type(services) is list and service_slug in services
+            case ("not_for_services", services):
+                if not service_slug:
+                    return True
+                return type(services) is list and service_slug not in services
+
+    return all(
+        [
+            test_condition(key, value)
+            for key, value in product_number_config.items()
+            if value is not None
+        ]
+    )

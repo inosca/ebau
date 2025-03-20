@@ -6,6 +6,7 @@ import { getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { findAll } from "ember-data-resources";
+import { trackedFunction } from "reactiveweb/function";
 
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
@@ -84,15 +85,26 @@ export default class BillingNewController extends Controller {
     return options.sort(orderByMode);
   }
 
+  productNumbers = trackedFunction(this, async () => {
+    if (!hasFeature("billing.productNumber")) {
+      return null;
+    }
+
+    const response = await this.fetch.fetch(
+      `/api/v1/billing-v2-entries/product-numbers?for_instance=${this.ebauModules.instanceId}`,
+    );
+    const { data } = await response.json();
+    if (data?.length) {
+      this.newEntry.productNumber = data[0];
+    }
+    return data;
+  });
+
   #createNewRecord() {
     this.newEntry = this.store.createRecord("billing-v2-entry", {
       calculation: this.calculations[0],
       billingType: hasFeature("billing.billingType") ? "by_authority" : null,
     });
-
-    if (hasFeature("billing.productNumber")) {
-      this.newEntry.productNumber = this.newEntry.availableProductNumbers[0];
-    }
 
     this.update({
       target: { name: "tax-mode", value: this.taxModeOptions[0].value },

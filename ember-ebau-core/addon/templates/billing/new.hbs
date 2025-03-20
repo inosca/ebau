@@ -130,18 +130,28 @@
           required
           {{on "change" this.update}}
         >
-          {{#each this.newEntry.availableProductNumbers as |productNumber|}}
-            {{! In firefox setting selected=(eq this.newEntry.productNumber productNumber) is currently not working.}}
-            {{#if (eq this.newEntry.productNumber productNumber)}}
-              <option selected value={{productNumber}}>
-                {{t (concat "billing.product-numbers." productNumber)}}
-              </option>
+          {{#if this.productNumbers.isLoading}}
+            <option selected value="">
+              {{t "global.loadingPrompt"}}
+            </option>
+          {{else}}
+            {{#each this.productNumbers.value as |productNumber|}}
+              {{! In firefox setting selected=(eq this.newEntry.productNumber productNumber) is currently not working.}}
+              {{#if (eq this.newEntry.productNumber productNumber)}}
+                <option selected value={{productNumber}}>
+                  {{t (concat "billing.product-numbers." productNumber)}}
+                </option>
+              {{else}}
+                <option value={{productNumber}}>
+                  {{t (concat "billing.product-numbers." productNumber)}}
+                </option>
+              {{/if}}
             {{else}}
-              <option value={{productNumber}}>
-                {{t (concat "billing.product-numbers." productNumber)}}
+              <option selected value="">
+                {{t "billing.product-number-empty"}}
               </option>
-            {{/if}}
-          {{/each}}
+            {{/each}}
+          {{/if}}
         </select>
       </div>
     </div>

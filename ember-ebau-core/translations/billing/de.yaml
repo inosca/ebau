@@ -41,6 +41,7 @@ billing:
   confirm-release-for-clearing: Sobald der Eintrag zur Verrechnung freigegeben wurde wird die Rechnung innerhalb der nächsten 24 Stunden automatisch generiert.
   product-number: Produktnummer
   remark: Bemerkung
+  product-number-empty: Es wurden keine Produktnummern gefunden
 
   product-numbers:
     100000: ARE BGZ, kant. Baubewilligung, Gebühren

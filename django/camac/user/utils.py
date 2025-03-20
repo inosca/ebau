@@ -1,5 +1,6 @@
 import logging
 from functools import reduce
+from typing import Optional
 
 from caluma.caluma_form.models import Answer, Question
 from django.conf import settings
@@ -8,7 +9,7 @@ from django.core.cache import cache
 from django.db.models import Q
 
 from camac.instance.validators import FormDataValidator
-from camac.user.models import Role, Service
+from camac.user.models import Group, Role, Service
 
 from . import models
 from .permissions import is_public_access
@@ -31,7 +32,7 @@ def unpack_service_emails(queryset):
         yield from emails.split(",")
 
 
-def get_group(request):
+def get_group(request) -> Optional[Group]:
     """
     Get group based on request.
 

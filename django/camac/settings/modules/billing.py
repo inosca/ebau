@@ -5,11 +5,31 @@ BILLING = {
     "kt_schwyz": {
         "ENABLED": True,
         "PRODUCT_NUMBERS": [
-            100000,  # ARE BGZ, kant. Baubewilligung, Gebühren
-            150000,  # AMFZ Brandschutz, kant. Baubewilligung Gebühren
-            900000,  # Laburk, Bearbeitungsgebühren Baubewilligung
-            300000,  # AMFZ Brandschutz, Baubegleitung und -Abnahme
-            310000,  # AFG Gewässerschutz, Baubegleitung und -Abnahme
+            {
+                # ARE BGZ, kant. Baubewilligung, Gebühren
+                "number": 100000,
+                "not_for_services": ["amfz-brandschutz", "laboratorium-urkantone"],
+            },
+            {
+                # AMFZ Brandschutz, kant. Baubewilligung Gebühren
+                "number": 150000,
+                "only_for_services": ["amfz-brandschutz"],
+            },
+            {
+                # Laburk, Bearbeitungsgebühren Baubewilligung
+                "number": 900000,
+                "only_for_services": ["laboratorium-urkantone"],
+            },
+            {
+                # AMFZ Brandschutz, Baubegleitung und -Abnahme
+                "number": 300000,
+                "only_subsequent_charge": True,
+            },
+            {
+                # AFG Gewässerschutz, Baubegleitung und -Abnahme
+                "number": 310000,
+                "only_subsequent_charge": True,
+            },
         ],
         "WILKEN": {
             "ENCODING": "windows-1252",
