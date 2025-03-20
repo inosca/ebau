@@ -1,5 +1,7 @@
 <Filters as |Filter|>
   <Filter.Select
+    @searchEnabled={{true}}
+    @searchField="label"
     @label={{t "workItems.filters.responsible"}}
     @options={{@allResponsibles.value}}
     @selected={{@selectedResponsible}}
