@@ -34,8 +34,7 @@ export default class SanctionsOverviewComponent extends Component {
 
   sanctionsCount = (step) => {
     return (this.sanctionsQuery.records ?? []).filter(
-      ({ selectedControlStep }) =>
-        step === "all" || step === selectedControlStep,
+      ({ controlStep }) => step === "all" || controlStep === step,
     ).length;
   };
 
