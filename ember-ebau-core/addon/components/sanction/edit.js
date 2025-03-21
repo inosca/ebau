@@ -63,7 +63,7 @@ export default class SanctionsEditComponent extends Component {
   });
 
   @action
-  async cancel(changeset) {
+  cancel(changeset) {
     changeset.data.rollbackAttributes();
     this.router.transitionTo(this.parentRoute);
   }
