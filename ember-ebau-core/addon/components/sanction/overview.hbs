@@ -9,38 +9,44 @@
   {{/each}}
 </div>
 
-<Sanction::List
-  @instance={{@instance}}
-  @sanctions={{this.sanctionsToBeControlled}}
-  @historic={{false}}
-/>
-
-{{#if (await (can "create sanction" instance=@instance))}}
-  <LinkTo
-    @route={{module-route "sanctions" "new"}}
-    class="uk-button uk-button-primary"
-  >
-    {{t "sanction.action.create"}}
-  </LinkTo>
-  <LinkTo
-    @route={{module-route "sanctions" "templates"}}
-    class="uk-button uk-button-default"
-  >
-    {{t "sanction.action.createFromTemplate"}}
-  </LinkTo>
-{{/if}}
-
-{{#if this.controlledSanctions.length}}
-  <h2>
-    {{t
-      "sanction.title.controlledSanctions"
-      count=this.controlledSanctions.length
-    }}
-  </h2>
-
+{{#if this.isLoading}}
+  <div class="uk-text-center uk-padding">
+    <UkSpinner @ratio={{2}} />
+  </div>
+{{else}}
   <Sanction::List
     @instance={{@instance}}
-    @sanctions={{this.controlledSanctions}}
-    @historic={{true}}
+    @sanctions={{this.sanctionsToBeControlled}}
+    @historic={{false}}
   />
+
+  {{#if (await (can "create sanction" instance=@instance))}}
+    <LinkTo
+      @route={{module-route "sanctions" "new"}}
+      class="uk-button uk-button-primary"
+    >
+      {{t "sanction.action.create"}}
+    </LinkTo>
+    <LinkTo
+      @route={{module-route "sanctions" "templates"}}
+      class="uk-button uk-button-default"
+    >
+      {{t "sanction.action.createFromTemplate"}}
+    </LinkTo>
+  {{/if}}
+
+  {{#if this.controlledSanctions.length}}
+    <h2>
+      {{t
+        "sanction.title.controlledSanctions"
+        count=this.controlledSanctions.length
+      }}
+    </h2>
+
+    <Sanction::List
+      @instance={{@instance}}
+      @sanctions={{this.controlledSanctions}}
+      @historic={{true}}
+    />
+  {{/if}}
 {{/if}}

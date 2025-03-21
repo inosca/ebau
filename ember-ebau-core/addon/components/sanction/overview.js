@@ -15,6 +15,10 @@ export default class SanctionsOverviewComponent extends Component {
     include: "assignedService,createdByService,controlledByUser",
   }));
 
+  get isLoading() {
+    return this.sanctionsQuery.isLoading;
+  }
+
   sanctions(wantControlled) {
     return (this.sanctionsQuery.records ?? []).filter(
       ({ controlled, controlStep }) =>

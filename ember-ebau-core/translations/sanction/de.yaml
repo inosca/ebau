@@ -50,6 +50,9 @@ sanction:
     realisierung: "Realisierung"
     endabnahme: "Endabnahme"
     variabel: "Sonstige"
+  list:
+    empty: "Keine Auflagen vorhanden"
+    hintTemplateCreation: "Keine Standard-Auflagen vorhanden. Standard-Auflagen können im globalen Auflagen-Menü erstellt werden."
 sanctiontemplate:
   title:
     sanctionTemplates: "Standard-Auflagen"
@@ -68,3 +71,5 @@ sanctiontemplate:
     error:
       save: "Standard-Auflage konnte nicht gespeichert werden"
       delete: "Standard-Auflage konnte nicht gelöscht werden"
+  list:
+    empty: "Keine Standard-Auflagen vorhanden"

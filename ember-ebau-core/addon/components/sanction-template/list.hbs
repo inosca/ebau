@@ -1,43 +1,53 @@
-<table class="uk-table uk-table-hover uk-table-striped uk-table-middle">
-  <thead>
-    <tr class="uk-child-width-auto">
-      <th>{{t "sanction.property.name"}}</th>
-      <th>{{t "sanction.property.assignedService"}}</th>
-      <th>{{t "sanction.property.controlStep"}}</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each this.sanctionTemplates as |sanctionTemplate|}}
-      <tr>
-        <td>
-          {{sanctionTemplate.name}}
-        </td>
-        <td>{{sanctionTemplate.assignedService.name}}</td>
-        <td>
-          {{t (concat "sanction.controlStep." sanctionTemplate.controlStep)}}
-        </td>
-        <td class="uk-text-center">
-          <LinkTo
-            @route={{module-route "sanction-templates" "edit"}}
-            @model={{sanctionTemplate}}
-            title={{t "sanctiontemplate.action.edit"}}
-            class="uk-button uk-button-link uk-button-small"
-          >
-            <UkIcon @icon="pencil" />
-          </LinkTo>
-          <UkButton
-            @type="button"
-            @title={{t "sanctiontemplate.action.delete"}}
-            @color="link"
-            @size="small"
-            {{on "click" (fn this.delete sanctionTemplate)}}
-            class="uk-margin-small-left"
-          >
-            <UkIcon @icon="trash" />
-          </UkButton>
-        </td>
+{{#if this.isLoading}}
+  <div class="uk-text-center uk-padding">
+    <UkSpinner @ratio={{2}} />
+  </div>
+{{else}}
+  <table class="uk-table uk-table-hover uk-table-striped uk-table-middle">
+    <thead>
+      <tr class="uk-child-width-auto">
+        <th>{{t "sanction.property.name"}}</th>
+        <th>{{t "sanction.property.assignedService"}}</th>
+        <th>{{t "sanction.property.controlStep"}}</th>
+        <th></th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {{#each this.sanctionTemplates as |sanctionTemplate|}}
+        <tr>
+          <td>
+            {{sanctionTemplate.name}}
+          </td>
+          <td>{{sanctionTemplate.assignedService.name}}</td>
+          <td>
+            {{t (concat "sanction.controlStep." sanctionTemplate.controlStep)}}
+          </td>
+          <td class="uk-text-center">
+            <LinkTo
+              @route={{module-route "sanction-templates" "edit"}}
+              @model={{sanctionTemplate}}
+              title={{t "sanctiontemplate.action.edit"}}
+              class="uk-button uk-button-link uk-button-small"
+            >
+              <UkIcon @icon="pencil" />
+            </LinkTo>
+            <UkButton
+              @type="button"
+              @title={{t "sanctiontemplate.action.delete"}}
+              @color="link"
+              @size="small"
+              {{on "click" (fn this.delete sanctionTemplate)}}
+              class="uk-margin-small-left"
+            >
+              <UkIcon @icon="trash" />
+            </UkButton>
+          </td>
+        </tr>
+      {{else}}
+        <td colspan="4" class="uk-text-center">
+          {{t "sanctiontemplate.list.empty"}}
+        </td>
+      {{/each}}
+    </tbody>
+  </table>
+{{/if}}

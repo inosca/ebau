@@ -66,6 +66,10 @@
           </td>
         {{/if}}
       </tr>
+    {{else}}
+      <td colspan={{if @historic "6" "5"}} class="uk-text-center">
+        {{t "sanction.list.empty"}}
+      </td>
     {{/each}}
   </tbody>
 </table>
