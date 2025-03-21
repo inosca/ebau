@@ -6,7 +6,7 @@ do_setup() {
   if [ "${1:-migrate}" != "no-migrate" ]; then
     # migrate may fail in concurrent startup, thus we're not
     # taking this as a failure here
-    ./manage.py migrate || true
+    migrate || true
   fi
   ./manage.py collectstatic --noinput
   compilemessages
@@ -18,6 +18,10 @@ compilemessages() {
 
 loadconfig() {
   ./manage.py camac_load
+}
+
+migrate() {
+  ./manage.py migrate
 }
 
 # Default command (from Dockerfile) is "uwsgi". This implies production mode
@@ -101,6 +105,10 @@ case "$1" in
   webdav )
     do_setup no-migrate
     exec gunicorn --workers "${DJANGO_WEBDAV_GUNICORN_WORKERS:-8}" --access-logfile - --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" --bind :"${DJANGO_WEBDAV_SERVER_PORT:-8000}" camac.wsgi_dav
+    ;;
+  migrate_and_loadconfig )
+    migrate
+    loadconfig
     ;;
   * )
     exec "$@"
