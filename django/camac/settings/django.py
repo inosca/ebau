@@ -3403,8 +3403,7 @@ EEBA_BASE_URL = build_url(
     env.str(
         "EEBA_BASE_URL",
         default(
-            "https://example.com",  # TODO: Cleanup
-            # "https://eba-int2.gr.ch/api/v1",
+            "https://eba-int2.gr.ch/api/v1",
             # "https://eba.gr.ch/api/v1",
         ),
     )

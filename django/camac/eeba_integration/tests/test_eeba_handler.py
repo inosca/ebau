@@ -1,29 +1,20 @@
 import pytest
 import requests
+from caluma.caluma_form.models import Answer
+from django.conf import settings
 
+from camac.eeba_integration import utils
 from camac.eeba_integration.client import EebaHandler
 from camac.eeba_integration.exceptions import (
     EebaHandlerBadRequestException,
     EebaHandlerServerException,
 )
 
-
-def test_extract_integration_id_valid(make_mock_response):
-    headers = {"Location": "http://example.com/api/integrations/123"}
-    dummy_response = make_mock_response({}, headers=headers)
-    integration_id = EebaHandler.extract_integration_id(dummy_response)
-    assert integration_id == "123"
-
-
-def test_extract_integration_id_empty(make_mock_response):
-    headers = {"Location": ""}
-    dummy_response = make_mock_response({}, headers=headers)
-    integration_id = EebaHandler.extract_integration_id(dummy_response)
-    assert integration_id is None
+# Tests for create_eeba_integration
 
 
 def test_create_eeba_integration_success(
-    eeba_handler_instance, mocker, make_mock_response
+    db, eeba_handler_instance, gr_instance, make_mock_response, mocker
 ):
     headers = {"Location": "http://example.com/api/integrations/456"}
     dummy_response = make_mock_response({}, headers=headers)
@@ -31,19 +22,21 @@ def test_create_eeba_integration_success(
         return_value=dummy_response
     )
 
-    result = eeba_handler_instance.create_eeba_integration(123, 30)
-    assert result == {"integration_id": "456"}
+    integration_id = eeba_handler_instance.create_eeba_integration(gr_instance, 30)
+    assert integration_id == "456"
     eeba_handler_instance.eeba_client.make_request.assert_called_once_with(
         action="create_resource",
         data={
             "timeout": 30,
-            "relation": {"type": ".eBau", "eBauId": 123},
+            "relation": {"type": ".eBau", "eBauId": gr_instance.pk},
         },
+        # TODO: Cleanup
+        extra_headers={"Test-Authorization": None},
     )
 
 
 def test_create_eeba_integration_failure(
-    eeba_handler_instance, mocker, make_mock_response
+    db, eeba_handler_instance, gr_instance, make_mock_response, mocker
 ):
     headers = {"Location": ""}
     dummy_response = make_mock_response({}, headers=headers)
@@ -52,191 +45,449 @@ def test_create_eeba_integration_failure(
     )
 
     with pytest.raises(EebaHandlerServerException) as excinfo:
-        eeba_handler_instance.create_eeba_integration(123, 30)
+        eeba_handler_instance.create_eeba_integration(gr_instance, 30)
     assert "Failed to create resource" in str(excinfo.value)
-    eeba_handler_instance.eeba_client.make_request.assert_called_once()
 
 
-def test_create_eeba_integration_value_error(eeba_handler_instance, mocker):
-    # patch the eeba_client.make_request to raise a ValueError immediately.
-    mocker.patch.object(
-        eeba_handler_instance.eeba_client,
-        "make_request",
-        side_effect=ValueError("dummy value error"),
-    )
-
-    with pytest.raises(EebaHandlerBadRequestException) as excinfo:
-        eeba_handler_instance.create_eeba_integration(
-            instance_id="test-instance", timeout=10
-        )
-    assert "Bad request in create_eeba_integration:" in str(excinfo.value)
-    assert "dummy value error" in str(excinfo.value)
-
-
-def test_check_eeba_needed_success(
-    eeba_handler_instance,
-    dummy_request,
-    mocker,
-    make_mock_response,
-    dummy_get_response_data,
+def test_create_eeba_integration_value_error(
+    db, eeba_handler_instance, gr_instance, mocker
 ):
-    integration_id = "35374476-0694-42ed-84d4-8da544d0a60e"
-    dummy_request.headers["Accept-Language"] = "en"
-
-    dummy_response = make_mock_response(dummy_get_response_data)
-    eeba_handler_instance.poll_action = mocker.MagicMock(return_value=dummy_response)
-
-    result = eeba_handler_instance.check_eeba_needed(
-        dummy_request, integration_id, timeout=30
-    )
-
-    assert result == dummy_get_response_data
-    eeba_handler_instance.poll_action.assert_called_once_with(
-        action="get_resource",
-        uuid="35374476-0694-42ed-84d4-8da544d0a60e",
-        extra_headers={"Accept-Language": "en"},
-        timeout=30,
-    )
-
-
-def test_check_eeba_needed_request_exception(eeba_handler_instance, mocker):
-    eeba_handler_instance.request.headers = {"Accept-Language": "en"}
-    # patch the eeba_client.make_request (called inside poll_action) to raise a RequestException.
     mocker.patch.object(
         eeba_handler_instance.eeba_client,
         "make_request",
-        side_effect=requests.exceptions.RequestException("dummy request error"),
+        side_effect=EebaHandlerServerException("dummy server error"),
+    )
+    with pytest.raises(EebaHandlerServerException) as excinfo:
+        eeba_handler_instance.create_eeba_integration(gr_instance, 10)
+    assert "dummy server error" in str(excinfo.value)
+
+
+# Tests for _handle_missing_integration
+
+
+def test_handle_missing_integration_success(
+    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+):
+    document = gr_instance.case.document
+
+    integration_id = "int-123"
+    mocker.patch.object(
+        eeba_handler_instance, "create_eeba_integration", return_value=integration_id
     )
 
-    with pytest.raises(EebaHandlerServerException) as excinfo:
-        eeba_handler_instance.check_eeba_needed(
-            eeba_handler_instance.request, integration_id="test-uuid", timeout=10
+    completed_response = {
+        "status": "completed",
+        "relation": {
+            "declarationOfWasteDisposalRequired": True,
+            "webUrl": "http://completed.example.com",
+        },
+        "hint": "",
+    }
+    mocker.patch.object(
+        eeba_handler_instance, "poll_action", return_value=completed_response
+    )
+
+    result = eeba_handler_instance._handle_missing_integration(
+        gr_instance, document, 30
+    )
+    integration_answer, state_answer, required_answer, web_url_answer = result
+
+    assert integration_answer.value == integration_id
+    assert state_answer.value == "completed"
+    assert required_answer.value == "eeba-required-ja"
+    assert web_url_answer.value == "http://completed.example.com"
+
+    integration_answer = Answer.objects.get(
+        document=document, question__slug="eeba-integration-id"
+    )
+    assert integration_answer.value == integration_id
+
+
+def test_handle_missing_integration_failed_response_timeout(
+    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+):
+    document = gr_instance.case.document
+
+    integration_id = "int-123"
+    mocker.patch.object(
+        eeba_handler_instance, "create_eeba_integration", return_value=integration_id
+    )
+
+    mocker.patch.object(
+        eeba_handler_instance,
+        "get_eeba_needed",
+        side_effect=TimeoutError("Test timeout"),
+    )
+
+    result = eeba_handler_instance._handle_missing_integration(
+        gr_instance, document, 30
+    )
+    integration_answer, state_answer, required_answer, web_url_answer = result
+
+    assert integration_answer.value == integration_id
+
+    assert state_answer.value == "retry"
+    assert required_answer.value is None
+    assert web_url_answer.value is None
+
+
+def test_handle_missing_integration_failed_response_server_exception(
+    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+):
+    document = gr_instance.case.document
+
+    integration_id = "int-123"
+    mocker.patch.object(
+        eeba_handler_instance, "create_eeba_integration", return_value=integration_id
+    )
+
+    mocker.patch.object(
+        eeba_handler_instance,
+        "get_eeba_needed",
+        side_effect=EebaHandlerServerException("Test server exception"),
+    )
+
+    result = eeba_handler_instance._handle_missing_integration(
+        gr_instance, document, 30
+    )
+    integration_answer, state_answer, required_answer, web_url_answer = result
+
+    assert integration_answer.value == integration_id
+
+    assert state_answer.value == "retry"
+    assert required_answer.value is None
+    assert web_url_answer.value is None
+
+
+# Tests for _handle_existing_integration
+
+
+@pytest.mark.parametrize(
+    "initial_state",
+    [
+        ("rerun"),
+        ("retry"),
+        ("completed"),
+    ],
+)
+def test_handle_existing_integration_success(
+    db,
+    clean_eeba_answers,
+    eeba_handler_instance,
+    gr_instance,
+    mocker,
+    initial_state,
+):
+    document = gr_instance.case.document
+    integration_value = "int-789"
+    integration_answer = utils.save_hidden_answer(
+        document, "eeba-integration-id", integration_value
+    )
+    utils.save_hidden_answer(document, "eeba-state", initial_state)
+
+    def mock_get_eeba_needed(document, integration_id, timeout):
+        state_ans = utils.save_hidden_answer(document, "eeba-state", "completed")
+        required_ans = utils.save_hidden_answer(
+            document, "eeba-required", "eeba-required-nein"
         )
-    assert "Server error in check_eeba_needed:" in str(excinfo.value)
-    assert "dummy request error" in str(excinfo.value)
+        web_url_ans = utils.save_hidden_answer(
+            document, "eeba-web-url", "http://updated.example.com"
+        )
+        return (state_ans, required_ans, web_url_ans)
+
+    mocker.patch.object(
+        eeba_handler_instance, "get_eeba_needed", side_effect=mock_get_eeba_needed
+    )
+
+    eeba_handler_instance.eeba_client.make_request = mocker.MagicMock()
+
+    result = eeba_handler_instance._handle_existing_integration(
+        document, integration_answer, 30
+    )
+    state_answer, required_answer, web_url_answer = result
+    assert state_answer.value == "completed"
+    assert required_answer.value == "eeba-required-nein"
+    assert web_url_answer.value == "http://updated.example.com"
+
+
+def test_handle_existing_integration_failed_response(
+    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+):
+    document = gr_instance.case.document
+    integration_value = "int-000"
+    integration_answer = utils.save_hidden_answer(
+        document, "eeba-integration-id", integration_value
+    )
+    utils.save_hidden_answer(document, "eeba-state", "completed")
+    utils.save_hidden_answer(document, "eeba-required", "eeba-required-nein")
+    utils.save_hidden_answer(document, "eeba-web-url", "http://completed.example.com")
+
+    eeba_handler_instance.eeba_client.make_request = mocker.MagicMock(
+        side_effect=TimeoutError("Test timeout")
+    )
+
+    def mock_process_failed_response(document, action):
+        state_ans = utils.save_hidden_answer(document, "eeba-state", action)
+        required_ans = utils.save_hidden_answer(document, "eeba-required", None)
+        web_url_ans = utils.save_hidden_answer(document, "eeba-web-url", None)
+        return (state_ans, required_ans, web_url_ans)
+
+    mocker.patch.object(
+        eeba_handler_instance,
+        "_process_failed_response",
+        side_effect=mock_process_failed_response,
+    )
+
+    result = eeba_handler_instance._handle_existing_integration(
+        document, integration_answer, 30
+    )
+    state_answer, required_answer, web_url_answer = result
+
+    assert state_answer.value == "retry"
+    assert required_answer.value is None
+    assert web_url_answer.value is None
+
+
+# Tests for check_eeba_needed
+
+
+def test_check_eeba_needed_missing_integration(
+    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+):
+    integration_id = "int-missing"
+    mocker.patch.object(
+        eeba_handler_instance, "create_eeba_integration", return_value=integration_id
+    )
+
+    completed_response = {
+        "status": "completed",
+        "relation": {
+            "declarationOfWasteDisposalRequired": True,
+            "webUrl": "http://missing.example.com",
+        },
+        "hint": "",
+    }
+    mocker.patch.object(
+        eeba_handler_instance, "poll_action", return_value=completed_response
+    )
+
+    result = eeba_handler_instance.check_eeba_needed(gr_instance, 30)
+    assert result["integration_id"] == integration_id
+    assert result["state"] == "completed"
+    assert result["required"] == "eeba-required-ja"
+    assert result["web_url"] == "http://missing.example.com"
+
+
+def test_check_eeba_needed_existing_integration(
+    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+):
+    document = gr_instance.case.document
+    integration_value = "int-existing"
+    utils.save_hidden_answer(document, "eeba-integration-id", integration_value)
+
+    def mock_handle_existing(doc, integration_ans, timeout):
+        state_ans = utils.save_hidden_answer(document, "eeba-state", "completed")
+        required_ans = utils.save_hidden_answer(
+            document, "eeba-required", "eeba-required-nein"
+        )
+        web_url_ans = utils.save_hidden_answer(
+            document, "eeba-web-url", "http://existing.example.com"
+        )
+        return (state_ans, required_ans, web_url_ans)
+
+    mocker.patch.object(
+        eeba_handler_instance,
+        "_handle_existing_integration",
+        side_effect=mock_handle_existing,
+    )
+
+    result = eeba_handler_instance.check_eeba_needed(gr_instance, 30)
+    assert result["integration_id"] == integration_value
+    assert result["state"] == "completed"
+    assert result["required"] == "eeba-required-nein"
+    assert result["web_url"] == "http://existing.example.com"
+
+
+# Tests for get_eeba_needed
+
+
+def test_get_eeba_needed_completed(
+    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+):
+    document = gr_instance.case.document
+    integration_id = "int-101"
+    completed_response = {
+        "status": "completed",
+        "relation": {
+            "declarationOfWasteDisposalRequired": True,
+            "webUrl": "http://completed.com",
+        },
+        "hint": "",
+    }
+    mocker.patch.object(
+        eeba_handler_instance, "poll_action", return_value=completed_response
+    )
+
+    result = eeba_handler_instance.get_eeba_needed(document, integration_id, 30)
+    state_answer, required_answer, web_url_answer = result
+    assert state_answer.value == "completed"
+    assert required_answer.value == "eeba-required-ja"
+    assert web_url_answer.value == "http://completed.com"
+
+
+def test_get_eeba_needed_non_completed(
+    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+):
+    document = gr_instance.case.document
+    integration_id = "int-202"
+    inprogress_response = {"status": "failed", "hint": "failure"}
+    mocker.patch.object(
+        eeba_handler_instance, "poll_action", return_value=inprogress_response
+    )
+
+    def mock_process_failed(document, action):
+        state_ans = utils.save_hidden_answer(document, "eeba-state", action)
+        required_ans = utils.save_hidden_answer(document, "eeba-required", None)
+        web_url_ans = utils.save_hidden_answer(document, "eeba-web-url", None)
+        return (state_ans, required_ans, web_url_ans)
+
+    mocker.patch.object(
+        eeba_handler_instance,
+        "_process_failed_response",
+        side_effect=mock_process_failed,
+    )
+
+    result = eeba_handler_instance.get_eeba_needed(document, integration_id, 30)
+    state_answer, required_answer, web_url_answer = result
+    assert state_answer.value == "rerun"
+    assert required_answer.value is None
+    assert web_url_answer.value is None
+
+
+# Tests for patch_eeba_integration
 
 
 def test_patch_eeba_integration_success(
-    eeba_handler_instance, dummy_request, make_mock_response, mocker
+    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
 ):
-    integration_id = "35374476-0694-42ed-84d4-8da544d0a60e"
-    dummy_response = make_mock_response({})
+    document = gr_instance.case.document
+    integration_value = "int-patch"
+    utils.save_hidden_answer(document, "eeba-integration-id", integration_value)
+
+    dummy_response = {}
     eeba_handler_instance.eeba_client.make_request = mocker.MagicMock(
         return_value=dummy_response
     )
 
     result = eeba_handler_instance.patch_eeba_integration(
-        dummy_request, integration_id, new_instance_id="567", timeout=30
+        gr_instance, new_instance_id="new-123"
     )
-    assert result == {}
+    assert result == dummy_response
     eeba_handler_instance.eeba_client.make_request.assert_called_once_with(
         action="update_resource",
         data={
-            "timeout": 30,
-            "relation": {"type": ".eBau", "eBauId": "567"},
+            "timeout": settings.EEBA_TIMEOUT_SECONDS,
+            "relation": {"type": ".eBau", "eBauId": "new-123"},
         },
-        uuid="35374476-0694-42ed-84d4-8da544d0a60e",
+        uuid=integration_value,
+        # TODO: Cleanup
+        extra_headers={"Test-Authorization": None},
     )
 
 
-def test_retry_eeba_check_success(
-    eeba_handler_instance,
-    dummy_get_response_data,
-    dummy_request,
-    make_mock_response,
-    mocker,
+def test_patch_eeba_integration_failure(
+    db, clean_eeba_answers, eeba_handler_instance, gr_instance
 ):
-    integration_id = "35374476-0694-42ed-84d4-8da544d0a60e"
-    dummy_request.headers["Accept-Language"] = "en"
-
-    dummy_response = make_mock_response(dummy_get_response_data)
-    eeba_handler_instance.poll_action = mocker.MagicMock(return_value=dummy_response)
-
-    dummy_retry_response = make_mock_response({})
-    eeba_handler_instance.eeba_client.make_request = mocker.MagicMock(
-        return_value=dummy_retry_response
-    )
-
-    result = eeba_handler_instance.retry_eeba_check(
-        dummy_request, integration_id, "retry", timeout=30
-    )
-
-    assert result == dummy_get_response_data
-    eeba_handler_instance.eeba_client.make_request.assert_called_with(
-        action="retry", uuid="35374476-0694-42ed-84d4-8da544d0a60e"
-    )
-    eeba_handler_instance.poll_action.assert_called_with(
-        action="get_resource",
-        uuid="35374476-0694-42ed-84d4-8da544d0a60e",
-        extra_headers={"Accept-Language": "en"},
-        timeout=30,
-    )
+    with pytest.raises(EebaHandlerBadRequestException) as excinfo:
+        eeba_handler_instance.patch_eeba_integration(
+            gr_instance, new_instance_id="new-123"
+        )
+    assert "Integration ID not found for patching" in str(excinfo.value)
 
 
-def test_process_response_completed():
+# Tests for process_response_data
+
+
+def test_process_response_data_completed():
     response = {"status": "completed", "data": "foo"}
-    continue_polling, result = EebaHandler.process_response(response)
+    continue_polling, result = EebaHandler.process_response_data(response)
     assert continue_polling is False
     assert result == response
 
 
-def test_process_response_failed():
+def test_process_response_data_failed():
     response = {"status": "failed", "data": "bar"}
-    continue_polling, result = EebaHandler.process_response(response)
+    continue_polling, result = EebaHandler.process_response_data(response)
     assert continue_polling is False
     assert result == response
 
 
-def test_process_response_in_progress():
+def test_process_response_data_in_progress():
     response = {"status": "inProgress"}
-    continue_polling, result = EebaHandler.process_response(response)
+    continue_polling, result = EebaHandler.process_response_data(response)
     assert continue_polling is True
     assert result is None
 
 
-def test_process_response_empty():
-    with pytest.raises(EebaHandlerServerException):
-        EebaHandler.process_response(None)
+def test_process_response_data_status_unexpected():
+    response = {"status": "something strange"}
+    continue_polling, result = EebaHandler.process_response_data(response)
+    assert continue_polling is True
+    assert result is None
 
 
-def test_process_response_missing_status():
+def test_process_response_data_empty():
     with pytest.raises(EebaHandlerServerException):
-        EebaHandler.process_response({"data": "something"})
+        EebaHandler.process_response_data(None)
+
+
+def test_process_response_data_missing_status():
+    with pytest.raises(EebaHandlerServerException):
+        EebaHandler.process_response_data({"data": "something"})
+
+
+# Tests for poll_action
 
 
 def test_poll_action_success(eeba_handler_instance, mocker, make_mock_response):
-    # patch time.sleep to avoid real delays.
     mocker.patch("time.sleep", return_value=None)
-    # simulate eeba_client.make_request returning a "completed" response on first call.
     response_dict = {"status": "completed", "result": "done"}
+    dummy_response = make_mock_response(response_dict)
     eeba_handler_instance.eeba_client.make_request = mocker.MagicMock(
-        return_value=response_dict
+        return_value=dummy_response
     )
 
     result = eeba_handler_instance.poll_action(
-        action="get_resource", uuid="111", timeout=5, interval=0.1
+        action="get_resource",
+        uuid="111",
+        extra_headers={"Accept-Language": "en"},
+        timeout=0.5,
+        interval=0.1,
     )
     assert result == response_dict
     eeba_handler_instance.eeba_client.make_request.assert_called()
 
 
 def test_poll_action_timeout(eeba_handler_instance, mocker, make_mock_response):
-    # simulate eeba_client.make_request always returning an inProgress status.
     response_dict = {"status": "inProgress"}
+    dummy_response = make_mock_response(response_dict)
     eeba_handler_instance.eeba_client.make_request = mocker.MagicMock(
-        return_value=response_dict
+        return_value=dummy_response
     )
 
-    with pytest.raises(TimeoutError):
+    with pytest.raises(TimeoutError) as excinfo:
         eeba_handler_instance.poll_action(
-            action="get_resource", uuid="222", timeout=0.5, interval=0.1
+            action="get_resource",
+            uuid="222",
+            extra_headers={"Accept-Language": "en"},
+            timeout=0.5,
+            interval=0.1,
         )
+    assert "Polling timed out" in str(excinfo.value)
 
 
 def test_poll_action_request_exception(eeba_handler_instance, mocker):
-    # patch time.sleep to avoid real delays.
     mocker.patch("time.sleep", return_value=None)
-    # configure make_request to raise a RequestException
     exception = requests.exceptions.RequestException("Test Request Exception")
     eeba_handler_instance.eeba_client.make_request = mocker.MagicMock(
         side_effect=exception
@@ -244,6 +495,10 @@ def test_poll_action_request_exception(eeba_handler_instance, mocker):
 
     with pytest.raises(requests.exceptions.RequestException) as excinfo:
         eeba_handler_instance.poll_action(
-            action="get_resource", uuid="test-uuid", timeout=1, interval=0.1
+            action="get_resource",
+            uuid="test-uuid",
+            extra_headers={"Accept-Language": "en"},
+            timeout=0.5,
+            interval=0.1,
         )
     assert "Test Request Exception" in str(excinfo.value)

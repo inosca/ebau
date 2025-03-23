@@ -1,10 +1,10 @@
-from django.conf import settings
 from django.utils.translation import gettext as _
 from rest_framework import response, status
+from rest_framework.exceptions import PermissionDenied
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.renderers import JSONRenderer
-from rest_framework.views import APIView
 
+from camac.caluma.extensions.permissions import CustomPermission
 from camac.eeba_integration.client import EebaHandler
 from camac.eeba_integration.exceptions import handle_view_exceptions
 from camac.eeba_integration.permissions import (
@@ -36,71 +36,66 @@ class EebaExportView(InstanceQuerysetMixin, RetrieveAPIView):
         return response.Response(data)
 
 
-class EebaIntegrationView(APIView):
+class EebaCheckIntegrationView(InstanceQuerysetMixin, RetrieveAPIView):
+    """
+    Check the state of the eEBA integration.
+
+    Accept only POST requests.
+    """
+
+    queryset = Instance.objects.select_related("case")
     permission_classes = [HasEebaPermission]
     renderer_classes = [JSONRenderer]
+    http_method_names = ["post"]  # Limit to POST only
 
-    def dispatch(self, request, *args, **kwargs):
-        # initialize the handler once, so that each method can use it.
-        self.handler = EebaHandler(request)
-        # extract URL parameters and remove them from kwargs.
-        self.instance_id = kwargs.pop("pk", None)
-        self.integration_id = kwargs.pop("integration_id", None)
-        self.retry_action = kwargs.pop("retry_action", None)
-        return super().dispatch(request, *args, **kwargs)
+    instance_field = None
 
     @handle_view_exceptions
     def post(self, request, *args, **kwargs):
-        # if there's no integration_id, it's a creation request.
-        if self.integration_id is None:
-            result = self.handler.create_eeba_integration(
-                self.instance_id, settings.EEBA_TIMEOUT_SECONDS
+        handler = EebaHandler(request)
+        instance = self.get_object()
+        if not CustomPermission(request).has_camac_edit_permission(
+            instance.case.document, request.caluma_info
+        ):
+            raise PermissionDenied(
+                _("You do not have permission to edit this instance.")
             )
-            return response.Response(result, status=status.HTTP_201_CREATED)
-        # if a retry_action is provided, handle as a retry/rerun request.
-        elif self.retry_action:
-            result = self.handler.retry_eeba_check(
-                request,
-                self.integration_id,
-                self.retry_action,
-                settings.EEBA_TIMEOUT_SECONDS,
-            )
-            return response.Response(result, status=status.HTTP_200_OK)
-        else:
-            return response.Response(
-                {"error": _("Invalid POST request.")},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+        result = handler.check_eeba_needed(instance)
+        return response.Response(result, status=status.HTTP_200_OK)
 
-    @handle_view_exceptions
-    def get(self, request, *args, **kwargs):
-        # check endpoint expects an integration_id param.
-        if self.integration_id:
-            result = self.handler.check_eeba_needed(
-                request, self.integration_id, settings.EEBA_TIMEOUT_SECONDS
-            )
-            return response.Response(result, status=status.HTTP_200_OK)
-        return response.Response(
-            {"error": _("Invalid GET request.")}, status=status.HTTP_400_BAD_REQUEST
-        )
+
+class EebaPatchIntegrationView(InstanceQuerysetMixin, RetrieveAPIView):
+    """
+    Patch (reassign) the instance ID on an existing integration.
+
+    Accept only PATCH requests with a JSON payload containing 'new_instance_id'.
+    """
+
+    queryset = Instance.objects.select_related("case")
+    permission_classes = [HasEebaPermission]
+    renderer_classes = [JSONRenderer]
+    http_method_names = ["patch"]  # Limit to PATCH only
+
+    instance_field = None
 
     @handle_view_exceptions
     def patch(self, request, *args, **kwargs):
-        # patch endpoint expects integration_id param and new_instance_id in the payload.
-        if self.integration_id:
-            new_instance_id = request.data.get("new_instance_id")
-            if not new_instance_id:
-                return response.Response(
-                    {"error": _("new_instance_id is required in the request payload.")},
-                    status=status.HTTP_400_BAD_REQUEST,
-                )
-            result = self.handler.patch_eeba_integration(
-                request,
-                self.integration_id,
-                new_instance_id,
-                settings.EEBA_TIMEOUT_SECONDS,
+        handler = EebaHandler(request)
+        instance = self.get_object()
+        new_instance_id = request.data.get("new_instance_id")
+        if not new_instance_id:
+            return response.Response(
+                {"error": "new_instance_id is required."},
+                status=status.HTTP_400_BAD_REQUEST,
             )
-            return response.Response(result, status=status.HTTP_200_OK)
-        return response.Response(
-            {"error": _("Invalid PATCH request.")}, status=status.HTTP_400_BAD_REQUEST
-        )
+        patch_response = handler.patch_eeba_integration(instance, new_instance_id)
+        if patch_response.status_code == status.HTTP_204_NO_CONTENT:
+            return response.Response(
+                {"success": "Integration patched successfully."},
+                status=status.HTTP_200_OK,
+            )
+        else:
+            return response.Response(
+                {"error": "Integration patching failed."},
+                status=patch_response.status_code,
+            )

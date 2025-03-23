@@ -2,8 +2,10 @@ import logging
 from functools import wraps
 
 import requests
+from django.http import response as http_response
 from django.utils.translation import gettext as _
 from rest_framework import status
+from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
 
 logger = logging.getLogger(__name__)
@@ -23,9 +25,9 @@ class EebaHandlerServerException(Exception):
 
 def handle_exceptions(function):
     """
-    Handle exceptions for EebaHandler methods decorator.
+    Handle exceptions for client methods decorator.
 
-    catch specific exceptions and log them, then re‑raise
+    Catch specific exceptions and log them, then re‑raise
     either a BadRequest or ServerException depending on the error.
     """
 
@@ -35,7 +37,7 @@ def handle_exceptions(function):
         try:
             return function(*args, **kwargs)
         except (EebaHandlerServerException, EebaHandlerBadRequestException):
-            raise
+            raise  # pragma: no cover
         except ValueError as e:
             logger.exception(_("Bad request error in %s: %s"), operation_name, e)
             raise EebaHandlerBadRequestException(
@@ -57,9 +59,9 @@ def handle_exceptions(function):
 
 def handle_view_exceptions(view_method):
     """
-    Handle exceptions for APIView methods decorator.
+    Handle exceptions for Eeba Integration Views methods decorator.
 
-    catch specific exceptions, log them and return the appropriate Response.
+    Catch specific exceptions, log them and return the appropriate Response.
     """
 
     @wraps(view_method)
@@ -75,6 +77,12 @@ def handle_view_exceptions(view_method):
             return Response(
                 {"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+        except PermissionDenied as e:
+            logger.error("Permission denied error in %s: %s", view_name, e)
+            return Response({"error": str(e)}, status=status.HTTP_403_FORBIDDEN)
+        except http_response.Http404 as e:
+            logger.error("Not found error %s: %s", view_name, e)
+            return Response({"error": str(e)}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:  # pragma: no cover
             logger.exception("Unexpected error in %s: %s", view_name, e)
             return Response(

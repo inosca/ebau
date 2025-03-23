@@ -1,6 +1,10 @@
 from django.urls import re_path
 
-from camac.eeba_integration.views import EebaExportView, EebaIntegrationView
+from camac.eeba_integration.views import (
+    EebaCheckIntegrationView,
+    EebaExportView,
+    EebaPatchIntegrationView,
+)
 
 urlpatterns = [
     re_path(
@@ -9,18 +13,13 @@ urlpatterns = [
         name="instance-eeba-export",
     ),
     re_path(
-        r"^instances/(?P<pk>\d+)/eeba-integration/?$",
-        EebaIntegrationView.as_view(),
-        name="eeba-integration-create",
+        r"^instances/(?P<pk>\d+)/check-eeba-integration/?$",
+        EebaCheckIntegrationView.as_view(),
+        name="check-eeba-integration",
     ),
     re_path(
-        r"^instances/(?P<pk>\d+)/eeba-integration/(?P<integration_id>[\w-]+)/?$",
-        EebaIntegrationView.as_view(),
-        name="eeba-integration-detail",
-    ),
-    re_path(
-        r"^instances/(?P<pk>\d+)/eeba-integration/(?P<integration_id>[\w-]+)/(?P<retry_action>retry|rerun)/?$",
-        EebaIntegrationView.as_view(),
-        name="eeba-integration-retry",
+        r"^instances/(?P<pk>\d+)/patch-eeba-integration/?$",
+        EebaPatchIntegrationView.as_view(),
+        name="patch-eeba-integration",
     ),
 ]

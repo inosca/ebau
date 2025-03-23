@@ -1,6 +1,12 @@
 import pytest
+from caluma.caluma_form.models import Answer
 
 from camac.eeba_integration.client import EebaClient, EebaHandler
+
+
+@pytest.fixture(autouse=True)
+def override_eeba_base_url(settings):
+    settings.EEBA_BASE_URL = "https://example.com"
 
 
 @pytest.fixture(autouse=True)
@@ -9,6 +15,30 @@ def patch_get_authorization_header(mocker):
         "camac.eeba_integration.client.get_authorization_header",
         return_value="dummy_auth_token",
     )
+
+
+@pytest.fixture(autouse=True)
+def patch_has_camac_edit_permissions(mocker):
+    mocker.patch(
+        "camac.eeba_integration.views.CustomPermission.has_camac_edit_permission",
+        return_value=True,
+    )
+
+
+@pytest.fixture
+def clean_eeba_answers(gr_instance):
+    """
+    Ensure that no Answer objects for specific questions exist before a test runs.
+
+    Also clean up after the test.
+    """
+    document = gr_instance.case.document
+    slugs = ["eeba-integration-id", "eeba-state", "eeba-required", "eeba-web-url"]
+    # Clear answers  before the test
+    Answer.objects.filter(document=document, question__slug__in=slugs).delete()
+    yield
+    # Clear answers after the test
+    Answer.objects.filter(document=document, question__slug__in=slugs).delete()
 
 
 @pytest.fixture
@@ -44,6 +74,7 @@ class DummyRequest:
     def __init__(self, data=None, headers=None):
         self.data = data or {}
         self.headers = headers or {}
+        self.caluma_info = None
 
 
 @pytest.fixture
@@ -56,29 +87,3 @@ def eeba_handler_instance(dummy_request, client):
     handler = EebaHandler(dummy_request)
     handler.eeba_client = client
     return handler
-
-
-@pytest.fixture
-def dummy_get_response_data():
-    return {
-        "id": "35374476-0694-42ed-84d4-8da544d0a60e",
-        "relationId": "18424aaa-074a-4fc4-ad5b-806b8f8e71fa",
-        "creationDate": "2024-01-01T12:00:00+02:00",
-        "status": "completed",
-        "hint": "Integration completed!",
-        "timeout": 60,
-        "relation": {
-            "type": ".eBau",
-            "operationalResponse": "partiallyTransient",
-            "eEbaId": "GR-EBA-ABCDEF",
-            "eBauId": 345,
-            "creationDate": "2024-01-01T12:00:00+02:00",
-            "modificationDate": "2024-01-03T12:00:00+02:00",
-            "declarationOfWasteDisposalRequired": True,
-            "recordOfWasteDisposalRequired": True,
-            "status": "inProgress",
-            "statusText": "",
-            "anuReviewRequired": False,
-            "webUrl": "https://eba.gr.ch/web/form/GR-EBA-ABCDEF",
-        },
-    }
