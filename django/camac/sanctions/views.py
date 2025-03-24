@@ -7,6 +7,7 @@ from camac.instance.models import Instance
 from camac.sanctions.filters import SanctionFilterSet
 from camac.sanctions.models import Sanction, SanctionTemplate
 from camac.sanctions.serializers import (
+    SanctionAnnotateSerializer,
     SanctionControlSerializer,
     SanctionSerializer,
     SanctionTemplateSerializer,
@@ -42,8 +43,15 @@ class SanctionsViewSet(InstanceQuerysetMixin, ModelViewSet):
             == sanction.instance.responsible_service().pk
         )
 
+    @action(methods=["post"], detail=True, serializer_class=SanctionAnnotateSerializer)
+    def annotate(self, request, pk=None):
+        return self._perform_action(request)
+
     @action(methods=["post"], detail=True, serializer_class=SanctionControlSerializer)
     def control(self, request, pk=None):
+        return self._perform_action(request)
+
+    def _perform_action(self, request):
         serializer = self.get_serializer(
             instance=self.get_object(),
             data=request.data,
@@ -52,6 +60,9 @@ class SanctionsViewSet(InstanceQuerysetMixin, ModelViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+    def has_object_annotate_permission(self, sanction):
+        return self.has_object_control_permission(sanction)
 
     def has_object_control_permission(self, sanction):
         return (

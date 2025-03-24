@@ -14,7 +14,7 @@
 {{#if @controllable}}
   <ValidatedForm
     @model={{changeset @sanction this.validations}}
-    @on-submit={{this.submit.perform}}
+    @on-submit={{this.annotate.perform}}
     as |f|
   >
     <f.input
@@ -26,18 +26,25 @@
       {{autoresize mode="height"}}
     />
 
-    <f.submit
-      @disabled={{or f.model.isInvalid this.submit.isRunning}}
-      @loading={{this.submit.isRunning}}
-      @label={{t "sanction.form.submit"}}
-    />
+    <UkFlex @direction="row" @horizontal="between">
+      <span>
+        <f.submit
+          @disabled={{or f.model.isInvalid this.annotate.isRunning}}
+          @loading={{this.annotate.isRunning}}
+          @label={{t "global.save"}}
+        />
+        <UkButton @type="button" {{on "click" (fn this.back f.model)}}>
+          {{t "global.back"}}
+        </UkButton>
+      </span>
 
-    <LinkTo
-      @route={{module-route "sanctions" "index"}}
-      class="uk-button uk-button-default"
-    >
-      {{t "global.cancel"}}
-    </LinkTo>
+      <f.button
+        @disabled={{or f.model.isInvalid this.control.isRunning}}
+        @loading={{this.control.isRunning}}
+        @on-click={{this.control.perform}}
+        @label={{t "sanction.form.control"}}
+      />
+    </UkFlex>
   </ValidatedForm>
 {{else}}
   <dl class="uk-description-list">

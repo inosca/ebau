@@ -44,6 +44,12 @@ class SanctionSerializer(ModelSerializer):
         )
 
 
+class SanctionAnnotateSerializer(ModelSerializer):
+    class Meta:
+        model = Sanction
+        fields = ("control_notes",)
+
+
 class SanctionControlSerializer(ModelSerializer):
     @transaction.atomic
     def update(self, instance, validated_data):

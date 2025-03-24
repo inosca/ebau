@@ -5,6 +5,7 @@ from rest_framework import status
 
 @pytest.mark.freeze_time("2025-03-05 15:16")
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("action", ["annotate", "control"])
 @pytest.mark.parametrize(
     "is_controlled,is_assigned,expected_status",
     [
@@ -16,6 +17,7 @@ from rest_framework import status
 )
 def test_sanction_controlling(
     db,
+    action,
     admin_client,
     expected_status,
     group,
@@ -38,15 +40,19 @@ def test_sanction_controlling(
     }
 
     response = admin_client.post(
-        reverse("sanction-control", args=[sanction.pk]),
+        reverse(f"sanction-{action}", args=[sanction.pk]),
         {"data": data},
     )
     assert response.status_code == expected_status
 
     if expected_status == status.HTTP_204_NO_CONTENT:
         sanction.refresh_from_db()
-        assert sanction.controlled_at.isoformat() == "2025-03-05T15:16:00+00:00"
-        assert sanction.controlled_by_user == admin_client.user
+        if action == "control":
+            assert sanction.controlled_at.isoformat() == "2025-03-05T15:16:00+00:00"
+            assert sanction.controlled_by_user == admin_client.user
+        else:
+            assert sanction.controlled_at is None
+            assert sanction.controlled_by_user is None
         assert sanction.control_notes == control_notes
 
 
