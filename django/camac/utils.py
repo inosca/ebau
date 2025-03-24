@@ -315,3 +315,25 @@ def delay_next_workingday(input_date):
         input_date += timedelta(days=1)
 
     return input_date
+
+
+def should_notify_on_manual_workitems(work_item) -> bool:
+    # After the submission of the form and the decision a
+    # "create-manual-workitems" will be created to allow the responsible
+    # service to create a manual work item. For those work items there must not
+    # be sent a notification.
+    # We can identify such work items by checking if there is a previous work
+    # item which would mean that it was created from the workflow and not
+    # manually with the `createWorkItem` mutation.
+    #
+    # In bern, for migrated instances, the first workitem to be created
+    # is a create-manual-workitems so it has no previous work_item. Therefore
+    # we have to check here that if its the first manual workitem to be
+    # created, we ignore it.
+    return (
+        work_item.previous_work_item is None
+        and not work_item.case.family.work_items.filter(
+            task_id="create-manual-workitems"
+        ).count()
+        == 1
+    )

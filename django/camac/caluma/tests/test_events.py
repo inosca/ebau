@@ -156,6 +156,7 @@ def test_post_complete_sb1(
     settings,
     application_settings,
     be_decision_settings,
+    notification_template_factory,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -167,6 +168,7 @@ def test_post_complete_sb1(
         trans__language="de",
     )
     instance_service_factory(instance=be_instance, service=service, active=1)
+    notification_template_factory(slug="create-manual-work-item")
 
     for task_id in ["submit", "ebau-number", "distribution", "decision"]:
         if task_id == "decision":
@@ -485,10 +487,15 @@ def test_notify_created_work_item(
     notification_template,
     caluma_task_factory,
 ):
-    application_settings["NOTIFICATIONS"]["CREATE_MANUAL_WORK_ITEM"] = [
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
+        "create-manual-workitems"
+    ] = [
         {
-            "template_slug": notification_template.slug,
-            "recipient_types": ["work_item_addressed"],
+            "event": "created",
+            "notification": {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["work_item_addressed"],
+            },
         }
     ]
 

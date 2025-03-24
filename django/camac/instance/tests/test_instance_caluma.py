@@ -1723,6 +1723,17 @@ def test_instance_finalize(
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
+        "create-manual-workitems"
+    ] = [
+        {
+            "event": "created",
+            "notification": {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["work_item_addressed"],
+            },
+        }
+    ]
     instance_state_factory(name="coordination")
     instance_state_factory(name="sb1")
     instance_state_factory(name="conclusion")
@@ -2598,7 +2609,6 @@ def test_instance_name(
         instance,
         "migrated" if is_migrated else "building-permit",
         "migriertes-dossier" if is_migrated else "main-form",
-        {"instance": instance.pk},
     )
 
     if is_appeal:

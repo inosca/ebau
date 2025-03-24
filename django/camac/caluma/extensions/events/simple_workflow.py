@@ -10,7 +10,7 @@ from camac.user.models import User
 from .general import get_caluma_setting, get_instance
 
 
-def send_notification(notification, context, instance, user, work_item):
+def send_notification(notification, context, instance_id, user, work_item):
     """Send notifications according to the settings in the notification configuration."""
 
     if notification and (not context or not context.get("no-notification")):
@@ -24,7 +24,7 @@ def send_notification(notification, context, instance, user, work_item):
             notification["template_slug"],
             user.username,
             user.camac_group,
-            instance={"id": instance.pk, "type": "instances"},
+            instance={"id": instance_id, "type": "instances"},
             recipient_types=notification["recipient_types"],
             work_item={"id": work_item.pk, "type": "work-items"},
             **additional_data,
@@ -64,4 +64,4 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
             # create history entry
             create_history_entry(instance, camac_user, history_text)
 
-        send_notification(notification, context, instance, user, work_item)
+        send_notification(notification, context, instance.pk, user, work_item)
