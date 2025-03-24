@@ -2,6 +2,7 @@ from caluma.caluma_core.events import on
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import complete_work_item, start_case
 from caluma.caluma_workflow.events import (
+    post_cancel_work_item,
     post_complete_case,
     post_complete_work_item,
     post_create_work_item,
@@ -41,9 +42,9 @@ def filter_by_task(settings_keys):
     return filter_by_task_base(settings_keys, get_additional_demand_settings)
 
 
-def _has_pending_checks(work_item):
+def _has_pending_work_items(work_item, task_id):
     return WorkItem.objects.filter(
-        task_id=settings.ADDITIONAL_DEMAND["CHECK_TASK"],
+        task_id=task_id,
         case__family=get_instance(work_item).case.family,
         status=WorkItem.STATUS_READY,
     ).exists()
@@ -107,7 +108,9 @@ def post_complete_check_additional_demand(
     )
 
     instance = get_instance(work_item)
-    has_pending_checks = _has_pending_checks(work_item)
+    has_pending_checks = _has_pending_work_items(
+        work_item, settings.ADDITIONAL_DEMAND["CHECK_TASK"]
+    )
 
     for config in settings.ADDITIONAL_DEMAND["NOTIFICATIONS"].get(decision_key, []):
         send_mail_without_request(
@@ -149,3 +152,23 @@ def post_complete_check_additional_demand(
                 workflow_api.resume_work_item(
                     work_item=suspended_distribution_work_item, user=user
                 )
+
+
+@on(post_cancel_work_item, raise_exception=True)
+@filter_by_task("TASK")
+@transaction.atomic
+def post_cancel_additional_demand(sender, work_item, user, context=None, **kwargs):
+    if settings.APPLICATION_NAME != "kt_uri":  # pragma: no cover
+        return
+
+    has_pending_additional_demands = _has_pending_work_items(
+        work_item, settings.ADDITIONAL_DEMAND["TASK"]
+    )
+
+    if not has_pending_additional_demands:
+        instance = get_instance(work_item)
+        camac_user = User.objects.get(username=user.username)
+        instance.set_instance_state(
+            instance.previous_instance_state.name,
+            camac_user,
+        )
