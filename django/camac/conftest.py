@@ -54,7 +54,6 @@ from camac.fixtures.generated.settings_fixtures import *  # noqa F403, F401
 from camac.gis import factories as gis_factories
 from camac.instance import factories as instance_factories
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
-from camac.invoices import factories as invoices_factories
 from camac.notification import factories as notification_factories
 from camac.notification.serializers import (
     PermissionlessNotificationTemplateSendmailSerializer,
@@ -119,7 +118,6 @@ register_module(gis_factories)
 register_module(billing_factories)
 register_module(external_factories)
 register_module(sanction_factories)
-register_module(invoices_factories)
 
 # do not register alexandria factories, as there are too many conflicts
 

@@ -5,16 +5,15 @@ from unittest.mock import MagicMock
 import pytest
 from django.core.management import call_command
 
-from camac.billing.models import BillingV2Entry
-from camac.instance.models import Instance
-from camac.invoices.domain_logic import (
+from camac.billing.models import BillingV2Entry, Invoice
+from camac.billing.utils import get_invoice_text_sz
+from camac.billing.wilken.domain_logic import (
     generate_invoices,
     generate_models_for_invoice,
     generate_wilken_files,
     send_files,
 )
-from camac.invoices.models import Invoice
-from camac.invoices.utils import get_invoice_text_sz
+from camac.instance.models import Instance
 
 DEFAULT_PRODUCT_NUMBER: int = 200000
 
@@ -26,11 +25,11 @@ def test_generate_invoices(
     instance_factory,
     location_factory,
     form_factory,
-    sz_invoices_settings,
+    sz_billing_settings,
     mocker,
 ) -> None:
     mock = MagicMock()
-    FTP = mocker.patch("camac.invoices.domain_logic.FTP", return_value=mock)
+    FTP = mocker.patch("camac.billing.wilken.domain_logic.FTP", return_value=mock)
 
     instance: list[Instance] = instance_factory(
         form=form_factory(name="baugesuch"), location=location_factory(name="Schwyz")
@@ -58,7 +57,7 @@ def test_generate_invoices(
     mock.quit.assert_called_once()
 
 
-def test_generate_invoices_empty(db, instance_factory, sz_invoices_settings) -> None:
+def test_generate_invoices_empty(db, instance_factory, sz_billing_settings) -> None:
     instance_factory.create_batch(3)
     invoices: list[Invoice] = generate_invoices()
     assert len(invoices) == 0
@@ -70,7 +69,7 @@ def test_generate_models_for_invoice(
     instance_factory,
     form_factory,
     location_factory,
-    sz_invoices_settings,
+    sz_billing_settings,
 ) -> None:
     form_building_permit = form_factory(name="baugesuch")
     form_project_change = form_factory(name="projektanderung")
@@ -125,11 +124,11 @@ def test_generate_models_for_invoice_raise(
     billing_v2_entry_factory,
     instance_factory,
     form_factory,
-    sz_invoices_settings,
+    sz_billing_settings,
     mocker,
 ) -> None:
-    logger = mocker.patch("camac.invoices.domain_logic.log")
-    sz_invoices_settings["INVOICE_TEXT"] = "{non_existent_key}"
+    logger = mocker.patch("camac.billing.wilken.domain_logic.log")
+    sz_billing_settings["WILKEN"]["INVOICE_TEXT"] = "{non_existent_key}"
     form_building_permit = form_factory(name="baugesuch")
 
     instance_two_billing_entries = instance_factory(form=form_building_permit)
@@ -150,7 +149,7 @@ def test_generate_models_for_invoice_raise(
 
 @pytest.mark.freeze_time("2023-05-22")
 def test_generate_wilken_files(
-    db, invoice_factory, line_item_factory, sz_invoices_settings, snapshot
+    db, invoice_factory, line_item_factory, sz_billing_settings, snapshot
 ) -> None:
     invoice1: Invoice = invoice_factory(
         customer_number="12345",
@@ -186,11 +185,13 @@ def test_generate_wilken_files(
     assert len(files) == 1
 
     file: BytesIO = files[0]
-    snapshot.assert_match(file.getvalue().decode(sz_invoices_settings["ENCODING"]))
+    snapshot.assert_match(
+        file.getvalue().decode(sz_billing_settings["WILKEN"]["ENCODING"])
+    )
 
 
 def test_generate_wilken_files_more_than_100(
-    db, invoice_factory, instance_factory, sz_invoices_settings
+    db, invoice_factory, instance_factory, sz_billing_settings
 ) -> None:
     instance: Instance = instance_factory()
     invoices: list[Invoice] = invoice_factory.create_batch(230, instance=instance)
@@ -199,16 +200,16 @@ def test_generate_wilken_files_more_than_100(
     assert len(files) == 3
 
 
-def test_send_files(sz_invoices_settings, mocker) -> None:
+def test_send_files(sz_billing_settings, mocker) -> None:
     test: str = "test"
     file_content: bytes = b"test"
-    sz_invoices_settings["FTP_HOSTNAME"] = test
-    sz_invoices_settings["FTP_USER"] = test
-    sz_invoices_settings["FTP_PASSWORD"] = test
-    sz_invoices_settings["INVOICE_FILE_NAME"] = test
+    sz_billing_settings["WILKEN"]["FTP_HOSTNAME"] = test
+    sz_billing_settings["WILKEN"]["FTP_USER"] = test
+    sz_billing_settings["WILKEN"]["FTP_PASSWORD"] = test
+    sz_billing_settings["WILKEN"]["INVOICE_FILE_NAME"] = test
 
     mock = MagicMock()
-    FTP = mocker.patch("camac.invoices.domain_logic.FTP", return_value=mock)
+    FTP = mocker.patch("camac.billing.wilken.domain_logic.FTP", return_value=mock)
 
     test_file: BytesIO = BytesIO(file_content)
     send_files([test_file])
@@ -222,7 +223,7 @@ def test_send_files(sz_invoices_settings, mocker) -> None:
 
 def test_management_command_generate_invoices(
     db,
-    sz_invoices_settings,
+    sz_billing_settings,
     mocker,
     instance_factory,
     location_factory,
@@ -230,7 +231,7 @@ def test_management_command_generate_invoices(
     form_factory,
 ) -> None:
     mock = MagicMock()
-    FTP = mocker.patch("camac.invoices.domain_logic.FTP", return_value=mock)
+    FTP = mocker.patch("camac.billing.wilken.domain_logic.FTP", return_value=mock)
 
     call_command(
         "generate_invoices",
@@ -261,7 +262,7 @@ def test_management_command_generate_invoices(
 
 def test_get_invoice_text_sz(
     db,
-    sz_invoices_settings,
+    sz_billing_settings,
     instance_factory,
     location_factory,
     form_field_factory,
@@ -309,7 +310,7 @@ def test_get_invoice_text_sz(
 
 def test_get_invoice_text_overrides_sz(
     db,
-    sz_invoices_settings,
+    sz_billing_settings,
     instance_factory,
     location_factory,
     form_field_factory,
