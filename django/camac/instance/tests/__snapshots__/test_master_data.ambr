@@ -1044,7 +1044,7 @@
     ]),
     'approval_reason': '5031',
     'authority': dict({
-      'label': 'Altdorf',
+      'label': 'Leitbehörde Altdorf',
       'slug': '1',
     }),
     'buildings': list([

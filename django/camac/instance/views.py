@@ -1458,7 +1458,9 @@ class PublicCalumaInstanceView(
     instance_field = "instance"
 
     def get_serializer(self, *args, **kwargs):
-        if args and isinstance(args[0], QuerySet):
+        # The first argument may be a queryset or a list of cases (after
+        # pagination). If so, we build the master data fastloader beforehand.
+        if args and (isinstance(args[0], QuerySet) or isinstance(args[0], list)):
             self.request._masterdata = MultipleCaseMasterdata(args[0])
         return super().get_serializer(*args, **kwargs)
 
@@ -1480,14 +1482,9 @@ class PublicCalumaInstanceView(
         return super().get_queryset().none()
 
     def get_queryset_for_public(self):
-        queryset = (
-            super().get_queryset_for_public().annotate(instance_id=F("instance__pk"))
-        )
-
-        if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
-            queryset = queryset.prefetch_related("instance__fields")
-        # elif settings.APPLICATION["FORM_BACKEND"] == "caluma": We have
-        # FastLoader infra that does this for us
+        queryset = super().get_queryset_for_public()
+        queryset = queryset.annotate(instance_id=F("instance__pk"))
+        queryset = MasterData.prefetch_entities_for_queryset(queryset)
 
         if settings.PUBLICATION.get("BACKEND") == "camac-ng":
             queryset = queryset.annotate(

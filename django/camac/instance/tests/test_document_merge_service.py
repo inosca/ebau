@@ -91,13 +91,13 @@ def test_document_merge_service_snapshot(
     be_master_data_settings,
 ):
     for kwargs, expected_queries in [
-        ({"instance_id": 1}, 84),
-        ({"instance_id": 3, "form_slug": "sb1"}, 64),
-        ({"instance_id": 3, "form_slug": "sb2"}, 68),
+        ({"instance_id": 1}, 37),
+        ({"instance_id": 3, "form_slug": "sb1"}, 39),
+        ({"instance_id": 3, "form_slug": "sb2"}, 41),
         (
             # mp-form
             {"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"},
-            60,
+            35,
         ),
     ]:
         with django_assert_num_queries(expected_queries):

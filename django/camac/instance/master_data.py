@@ -6,8 +6,10 @@ from typing import List, Optional
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.structure import FastLoader
 from caluma.caluma_form.validators import DocumentValidator
+from caluma.caluma_workflow.models import Case
 from dateutil.parser import ParserError, parse as dateutil_parse
 from django.conf import settings
+from django.db.models import QuerySet
 from django.utils.translation import get_language
 
 from camac.core.models import MultilingualModel
@@ -18,7 +20,7 @@ log = getLogger(__name__)
 
 @dataclass
 class MasterData(object):
-    case: object
+    case: Case
     validation_context: dict = field(default_factory=dict)
     _fastloader: Optional[FastLoader] = field(default=None)
 
@@ -244,6 +246,7 @@ class MasterData(object):
         return self._parse_value(
             getattr(answer, value_key, None) if answer else None,
             answer=answer,
+            field=field,
             **kwargs,
         )
 
@@ -652,7 +655,9 @@ class MasterData(object):
 
         return {"slug": value, "label": option.label.get(get_language())}
 
-    def option_parser(self, value, default, answer=None, prop=None, **kwargs):
+    def option_parser(
+        self, value, default, answer=None, prop=None, field=None, **kwargs
+    ):
         if isinstance(value, list):
             return [
                 self.option_parser(v, default, answer=answer, prop=prop, **kwargs)
@@ -662,9 +667,7 @@ class MasterData(object):
         option = next(
             filter(
                 lambda option: option.pk == value,
-                self._field_or_question_options(
-                    answer=answer, field=kwargs.get("field", None)
-                ),
+                self._field_or_question_options(answer=answer, field=field),
             ),
             None,
         )
@@ -719,6 +722,49 @@ class MasterData(object):
             return None
 
         return config[1]
+
+    @staticmethod
+    def prefetch_entities_for_queryset(queryset: QuerySet) -> QuerySet:
+        prefetch_related = set()
+        select_related = set()
+
+        if not settings.MASTER_DATA:
+            return queryset
+
+        all_resolvers = set(
+            [config[0] for config in settings.MASTER_DATA["CONFIG"].values()]
+        )
+
+        if "form_name" in all_resolvers:
+            select_related.add("document__form")
+        if "table" in all_resolvers or "answer" in all_resolvers:
+            # Most of the prefetching is done by the fastloader. However, this
+            # is still needed for the `get_validation_context` method of the
+            # `DocumentValidator` in order to not create a query explosion.
+            select_related.update(
+                [
+                    "document",
+                    "document__family",
+                    "document__form",
+                    "document__work_item",
+                    "family",
+                    "family__document",
+                ]
+            )
+        if "baukontrolle" in all_resolvers:
+            prefetch_related.add("work_items")
+        if "ng_answer" in all_resolvers or "ng_table" in all_resolvers:
+            prefetch_related.add("instance__fields")
+        if "php_answer" in all_resolvers:
+            prefetch_related.add("instance__answers")
+        if "first_workflow_entry" in all_resolvers or "last_workflow_entry":
+            prefetch_related.add("instance__workflowentry_set")
+        if "instance_property" in all_resolvers:
+            select_related.update(["instance", "instance__form"])
+
+        return queryset.select_related(*select_related).prefetch_related(
+            *prefetch_related
+        )
 
 
 class MultipleCaseMasterdata:

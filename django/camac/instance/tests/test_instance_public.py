@@ -67,21 +67,21 @@ def test_public_caluma_instance_enabled_empty_qs(
         ({}, 1, 0, "form-type-building-permit", "test"),
         (
             {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
-            20,
+            12,
             1,
             "form-type-commercial-permit",
             "Reklamegesuch",
         ),
         (
             {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
-            20,
+            12,
             1,
             "form-type-building-permit",
             "test",
         ),
         (
             {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
-            20,
+            12,
             1,
             "form-type-solar-announcement",
             "Solaranlage",
@@ -169,7 +169,7 @@ def test_public_caluma_instance_ur(
 @pytest.mark.parametrize(
     "is_oereb_form,instance_state__name,num_queries,is_visible",
     [
-        (True, "comm", 21, True),
+        (True, "comm", 17, True),
         (False, "comm", 1, False),
         (True, "new", 3, False),
         (True, "new_portal", 3, False),
@@ -356,7 +356,7 @@ def test_public_caluma_instance_sz(
 
     url = reverse("public-caluma-instance-list")
 
-    with django_assert_num_queries(11):
+    with django_assert_num_queries(12):
         response = admin_client.get(
             url, {"instance": sz_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
         )
@@ -465,7 +465,7 @@ def test_public_caluma_instance_be(
 
     url = reverse("public-caluma-instance-list")
 
-    with django_assert_num_queries(37):  # TODO: Used to be 9 queries
+    with django_assert_num_queries(12):
         response = admin_client.get(
             url, {"instance": be_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
         )

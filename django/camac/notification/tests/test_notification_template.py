@@ -200,7 +200,6 @@ def test_notification_template_merge(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-datum",
         timezone.now(),
-        "date",
     )
     utils.add_answer(
         work_item.document,
@@ -1716,7 +1715,6 @@ def test_notification_bauverwaltung_placeholders(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-datum",
         date,
-        "date",
     )
     utils.add_table_answer(
         work_item.document,
