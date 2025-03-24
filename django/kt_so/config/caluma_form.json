@@ -60421,7 +60421,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Handelt es sich um mehrere Gesuchsteller/innen oder Grundeigent\\u00fcmer/innen, erfassen Sie bitte jede Person einzeln. Das gilt auch f\\u00fcr Ehepaare. Erfassen Sie in diesen F\\u00e4llen bitte nicht im Feld 'Vornamen' die beiden Vornamen, sondern zwei Personen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Handelt es sich um mehrere Gesuchsteller/innen oder Grundeigent\\u00fcmer/innen, erfassen Sie bitte jede Person einzeln. Das gilt auch f\\u00fcr Ehepaare. Erfassen Sie in diesen F\\u00e4llen bitte nicht im Feld \\\"Vornamen\\\" die beiden Vornamen, sondern zwei Personen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
