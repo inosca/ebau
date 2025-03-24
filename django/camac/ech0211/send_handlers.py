@@ -576,6 +576,18 @@ class TaskSendHandler(BaseSendHandler):
                 ),
                 value=self.data.eventRequest.directive.deadline.date(),
             )
+            save_answer(
+                document=inquiry.document,
+                question=Question.objects.get(
+                    pk=settings.DISTRIBUTION["QUESTIONS"]["REMARK"]
+                ),
+                value="\n".join(
+                    [
+                        c.value()
+                        for c in self.data.eventRequest.directive.comments.content()
+                    ]
+                ),
+            )
         # Fallback for messages with missing `directive`, this will use the
         # default deadline
         except AttributeError:  # pragma: no cover
