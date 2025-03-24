@@ -166,66 +166,33 @@ def test_master_data_parsers(
 
 
 @pytest.mark.parametrize(
-    "canton_master_data_settings,language,case,select_related,prefetch_related,num_queries",
+    "canton_master_data_settings,language,case,num_queries",
     [
         pytest.param(
             lf("be_master_data_settings"),
             "de",
             lf("be_master_data_case"),
-            ["document"],
-            [
-                "document__answers",
-                "document__answers__question__options",
-                "document__answers__answerdocument_set",
-                "document__answers__answerdocument_set__document__answers",
-                "document__dynamicoption_set",
-                "work_items__document__answers",
-                "work_items__document__answers__answerdocument_set",
-                "work_items__document__answers__answerdocument_set__document__answers",
-            ],
-            66,
+            19,
             id="BE DE",
         ),
         pytest.param(
             lf("be_master_data_settings"),
             "fr",
             lf("be_master_data_case"),
-            ["document"],
-            [
-                "document__answers",
-                "document__answers__question__options",
-                "document__answers__answerdocument_set",
-                "document__answers__answerdocument_set__document__answers",
-                "document__dynamicoption_set",
-                "work_items__document__answers",
-                "work_items__document__answers__answerdocument_set",
-                "work_items__document__answers__answerdocument_set__document__answers",
-            ],
-            66,
+            19,
             id="BE FR",
         ),
         pytest.param(
             lf("ur_master_data_settings"),
             "de",
             lf("ur_master_data_case"),
-            ["document", "instance"],
-            [
-                "document__answers",
-                "document__answers__answerdocument_set",
-                "document__answers__answerdocument_set__document__answers",
-                "document__dynamicoption_set",
-                "instance__workflowentry_set",
-                "instance__answers",
-            ],
-            30,
+            11,
             id="UR",
         ),
         pytest.param(
             lf("sz_master_data_settings"),
             "de",
             lf("sz_master_data_case_gwr"),
-            ["instance", "instance__form"],
-            ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
             # 2. Query for prefetching fields
             # 3. Query for prefetching workflow entries
@@ -238,8 +205,6 @@ def test_master_data_parsers(
             lf("sz_master_data_settings"),
             "de",
             lf("sz_master_data_case_gwr_v2"),
-            ["instance", "instance__form"],
-            ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
             # 2. Query for prefetching fields
             # 3. Query for prefetching workflow entries
@@ -252,38 +217,14 @@ def test_master_data_parsers(
             lf("so_master_data_settings"),
             "de",
             lf("so_master_data_case"),
-            ["document"],
-            [
-                "document__answers",
-                "document__answers__question__options",
-                "document__answers__answerdocument_set",
-                "document__answers__answerdocument_set__document__answers",
-                "document__answers__answerdocument_set__document__answers__question__options",
-                "document__dynamicoption_set",
-                "work_items__document__answers",
-                "work_items__document__answers__answerdocument_set",
-                "work_items__document__answers__answerdocument_set__document__answers",
-            ],
-            38,
+            37,
             id="SO",
         ),
         pytest.param(
             lf("ag_master_data_settings"),
             "de",
             lf("ag_master_data_case"),
-            ["document"],
-            [
-                "document__answers",
-                "document__answers__question__options",
-                "document__answers__answerdocument_set",
-                "document__answers__answerdocument_set__document__answers",
-                "document__answers__answerdocument_set__document__answers__question__options",
-                "document__dynamicoption_set",
-                "work_items__document__answers",
-                "work_items__document__answers__answerdocument_set",
-                "work_items__document__answers__answerdocument_set__document__answers",
-            ],
-            58,
+            37,
             id="AG",
         ),
     ],
@@ -294,18 +235,13 @@ def test_master_data(
     django_assert_num_queries,
     language,
     case,
-    select_related,
-    prefetch_related,
     num_queries,
     canton_master_data_settings,
 ):
     with django_assert_num_queries(num_queries), override(language):
-        case = (
-            caluma_workflow_models.Case.objects.filter(pk=case.pk)
-            .select_related(*select_related)
-            .prefetch_related(*prefetch_related)
-            .first()
-        )
+        queryset = caluma_workflow_models.Case.objects.filter(pk=case.pk)
+        queryset = MasterData.prefetch_entities_for_queryset(queryset)
+        case = queryset.get(pk=case.pk)
 
         master_data = MasterData(case)
 

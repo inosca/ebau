@@ -2711,9 +2711,9 @@ class Utils:
         return self._sort
 
     @staticmethod
-    def _get_question_type(value, options):
-        if options:
-            if isinstance(value, list):  # pragma: no cover
+    def _get_question_type(value, options, label):
+        if options or label:
+            if isinstance(value, list) or isinstance(label, list):  # pragma: no cover
                 return caluma_form_models.Question.TYPE_MULTIPLE_CHOICE
             return caluma_form_models.Question.TYPE_CHOICE
         if isinstance(value, date):
@@ -2738,7 +2738,7 @@ class Utils:
         options=None,
         question_type=None,
     ):
-        question_type = question_type or Utils._get_question_type(value, options)
+        question_type = question_type or Utils._get_question_type(value, options, label)
         value_key = (
             "date"
             if question_type == caluma_form_models.Question.TYPE_DATE
