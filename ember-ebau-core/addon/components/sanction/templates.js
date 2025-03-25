@@ -18,6 +18,10 @@ export default class SanctionsTemplatesComponent extends Component {
     include: "assignedService",
   }));
 
+  get isLoading() {
+    return this.sanctionTemplatesQuery.isLoading;
+  }
+
   get sanctionTemplates() {
     return this.sanctionTemplatesQuery.records;
   }

@@ -15,6 +15,10 @@ export default class SanctionsOverviewComponent extends Component {
     include: "assignedService,createdByService,controlledByUser",
   }));
 
+  get isLoading() {
+    return this.sanctionsQuery.isLoading;
+  }
+
   sanctions(wantControlled) {
     return (this.sanctionsQuery.records ?? []).filter(
       ({ controlled, controlStep }) =>
@@ -34,8 +38,7 @@ export default class SanctionsOverviewComponent extends Component {
 
   sanctionsCount = (step) => {
     return (this.sanctionsQuery.records ?? []).filter(
-      ({ selectedControlStep }) =>
-        step === "all" || step === selectedControlStep,
+      ({ controlStep }) => step === "all" || controlStep === step,
     ).length;
   };
 
