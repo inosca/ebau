@@ -1,0 +1,4626 @@
+# serializer version: 1
+# name: test_migrate_and_update_all
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Happy Pfad Gesuch automated testing"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Abtwil"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Hauptstrasse 5"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "666"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Bauherr Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Grundeigentümer Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Projektverfasser Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Rechnung Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2022-1",
+          "dossier-number-sort": 2022000001,
+          "submit-date": "2022-10-13T00:00:00"
+      },
+      "keywords": [
+          "1665654427762",
+          "EBPA-0219-7779"
+      ],
+      "state": "new",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_and_update_all.1
+  '''
+  {
+      "answers": null,
+      "case-meta": null,
+      "keywords": null,
+      "state": null,
+      "work-items": null
+  }
+  '''
+# ---
+# name: test_migrate_and_update_all.2
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "eBau 492 - Ebau 506"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 23423.0, \"y\": 23234234.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Teststrasse 2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "456456"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2024-1",
+          "dossier-number-sort": 2024000001,
+          "submit-date": "2024-02-14T00:00:00"
+      },
+      "keywords": [
+          "2024 - 111",
+          "BVUAFB.24.5",
+          "EBPA-1720-6526"
+      ],
+      "state": "decision",
+      "work-items": [
+          {
+              "status": "canceled",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "decision"
+          },
+          {
+              "status": "skipped",
+              "task_id": "distribution"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_and_update_all.3
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Mapping Test"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 2635094.0, \"y\": 1240725.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Bornfeld 6"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "2264"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "234234"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "gero.grund@grundbesitz.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "manfred@mapper.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "manu@mapper.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "schoen@bauschoen.ar"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Grund"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Schön"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Architekturbüro Bauschön"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Grundbesitzer AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "1"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "3"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Basel"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Belair"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 1234
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 4000
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Gundeldingerstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Im schönen Ort"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "+41 61 228 9400"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "076 123 23456"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "076 331 9446"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Benno"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Gero"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Manfred"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Manuela"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2025-1",
+          "dossier-number-sort": 2025000001,
+          "submit-date": "2025-01-31T00:00:00"
+      },
+      "keywords": [
+          "2025-120",
+          "EBPA-8318-3681"
+      ],
+      "state": "subm",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_and_update_all.4
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Happy Pfad Gesuch automated testing"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Abtwil"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Hauptstrasse 5"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "666"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Bauherr Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Grundeigentümer Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Projektverfasser Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Rechnung Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2022-1",
+          "dossier-number-sort": 2022000001,
+          "submit-date": "2022-10-13T00:00:00"
+      },
+      "keywords": [
+          "1665654427762",
+          "EBPA-0219-7779"
+      ],
+      "state": "new",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_and_update_all.5
+  '''
+  {
+      "answers": null,
+      "case-meta": null,
+      "keywords": null,
+      "state": null,
+      "work-items": null
+  }
+  '''
+# ---
+# name: test_migrate_and_update_all.6
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "eBau 492 - Ebau 506"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 23423.0, \"y\": 23234234.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Teststrasse 2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "456456"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2024-1",
+          "dossier-number-sort": 2024000001,
+          "submit-date": "2024-02-14T00:00:00"
+      },
+      "keywords": [
+          "2024 - 111",
+          "BVUAFB.24.5",
+          "EBPA-1720-6526"
+      ],
+      "state": "decision",
+      "work-items": [
+          {
+              "status": "canceled",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "decision"
+          },
+          {
+              "status": "skipped",
+              "task_id": "distribution"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_and_update_all.7
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Mapping Test"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 2635094.0, \"y\": 1240725.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Bornfeld 6"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "2264"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "234234"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "gero.grund@grundbesitz.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "manfred@mapper.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "manu@mapper.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "schoen@bauschoen.ar"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Grund"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Schön"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Architekturbüro Bauschön"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Grundbesitzer AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "1"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "3"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Basel"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Belair"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 1234
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 4000
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Gundeldingerstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Im schönen Ort"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "+41 61 228 9400"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "076 123 23456"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "076 331 9446"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Benno"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Gero"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Manfred"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Manuela"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2025-1",
+          "dossier-number-sort": 2025000001,
+          "submit-date": "2025-01-31T00:00:00"
+      },
+      "keywords": [
+          "2025-120",
+          "EBPA-8318-3681"
+      ],
+      "state": "subm",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_json_file_again
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Happy Pfad Gesuch automated testing"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Abtwil"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Hauptstrasse 5"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "666"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Bauherr Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Grundeigentümer Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Projektverfasser Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Rechnung Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2022-1",
+          "dossier-number-sort": 2022000001,
+          "submit-date": "2022-10-13T00:00:00"
+      },
+      "keywords": [
+          "1665654427762",
+          "EBPA-0219-7779"
+      ],
+      "state": "new",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_json_file_again.1
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Happy Pfad Gesuch automated testing"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Abtwil"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Hauptstrasse 5"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "666"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Bauherr Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Grundeigentümer Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Projektverfasser Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Rechnung Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2022-1",
+          "dossier-number-sort": 2022000001,
+          "submit-date": "2022-10-13T00:00:00"
+      },
+      "keywords": [
+          "1665654427762",
+          "EBPA-0219-7779"
+      ],
+      "state": "new",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_json_file_again.2
+  '''
+  {
+      "answers": null,
+      "case-meta": null,
+      "keywords": null,
+      "state": null,
+      "work-items": null
+  }
+  '''
+# ---
+# name: test_migrate_json_file_again.3
+  '''
+  {
+      "answers": null,
+      "case-meta": null,
+      "keywords": null,
+      "state": null,
+      "work-items": null
+  }
+  '''
+# ---
+# name: test_migrate_json_file_again.4
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "eBau 492 - Ebau 506"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 23423.0, \"y\": 23234234.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Teststrasse 2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "456456"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2024-1",
+          "dossier-number-sort": 2024000001,
+          "submit-date": "2024-02-14T00:00:00"
+      },
+      "keywords": [
+          "2024 - 111",
+          "BVUAFB.24.5",
+          "EBPA-1720-6526"
+      ],
+      "state": "decision",
+      "work-items": [
+          {
+              "status": "canceled",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "decision"
+          },
+          {
+              "status": "skipped",
+              "task_id": "distribution"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_json_file_again.5
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "eBau 492 - Ebau 506"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 23423.0, \"y\": 23234234.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Teststrasse 2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "456456"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2024-1",
+          "dossier-number-sort": 2024000001,
+          "submit-date": "2024-02-14T00:00:00"
+      },
+      "keywords": [
+          "2024 - 111",
+          "BVUAFB.24.5",
+          "EBPA-1720-6526"
+      ],
+      "state": "decision",
+      "work-items": [
+          {
+              "status": "canceled",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "decision"
+          },
+          {
+              "status": "skipped",
+              "task_id": "distribution"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_json_file_again.6
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Mapping Test"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 2635094.0, \"y\": 1240725.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Bornfeld 6"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "2264"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "234234"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "gero.grund@grundbesitz.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "manfred@mapper.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "manu@mapper.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "schoen@bauschoen.ar"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Grund"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Schön"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Architekturbüro Bauschön"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Grundbesitzer AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "1"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "3"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Basel"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Belair"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 1234
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 4000
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Gundeldingerstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Im schönen Ort"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "+41 61 228 9400"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "076 123 23456"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "076 331 9446"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Benno"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Gero"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Manfred"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Manuela"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2025-1",
+          "dossier-number-sort": 2025000001,
+          "submit-date": "2025-01-31T00:00:00"
+      },
+      "keywords": [
+          "2025-120",
+          "EBPA-8318-3681"
+      ],
+      "state": "subm",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_json_file_again.7
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Mapping Test"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 2635094.0, \"y\": 1240725.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Bornfeld 6"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "2264"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "234234"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "gero.grund@grundbesitz.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "manfred@mapper.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "manu@mapper.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "schoen@bauschoen.ar"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Grund"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Schön"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Architekturbüro Bauschön"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Grundbesitzer AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "1"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "3"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Basel"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Belair"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 1234
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 4000
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Gundeldingerstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Im schönen Ort"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "+41 61 228 9400"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "076 123 23456"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "076 331 9446"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Benno"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Gero"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Manfred"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Manuela"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2025-1",
+          "dossier-number-sort": 2025000001,
+          "submit-date": "2025-01-31T00:00:00"
+      },
+      "keywords": [
+          "2025-120",
+          "EBPA-8318-3681"
+      ],
+      "state": "subm",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_single_json_file[EBPA-0219-7779.json]
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Happy Pfad Gesuch automated testing"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Abtwil"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Hauptstrasse 5"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "666"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Bauherr Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Grundeigentümer Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Projektverfasser Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Rechnung Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "0628350000"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2022-1",
+          "dossier-number-sort": 2022000001,
+          "submit-date": "2022-10-13T00:00:00"
+      },
+      "keywords": [
+          "1665654427762",
+          "EBPA-0219-7779"
+      ],
+      "state": "new",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_single_json_file[EBPA-1010-5310.json]
+  '''
+  {
+      "answers": null,
+      "case-meta": null,
+      "keywords": null,
+      "state": null,
+      "work-items": null
+  }
+  '''
+# ---
+# name: test_migrate_single_json_file[EBPA-1720-6526.json]
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "eBau 492 - Ebau 506"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 23423.0, \"y\": 23234234.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Teststrasse 2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "456456"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2024-1",
+          "dossier-number-sort": 2024000001,
+          "submit-date": "2024-02-14T00:00:00"
+      },
+      "keywords": [
+          "2024 - 111",
+          "BVUAFB.24.5",
+          "EBPA-1720-6526"
+      ],
+      "state": "decision",
+      "work-items": [
+          {
+              "status": "canceled",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "decision"
+          },
+          {
+              "status": "skipped",
+              "task_id": "distribution"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_single_json_file[EBPA-8318-3681.json]
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Mapping Test"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 2635094.0, \"y\": 1240725.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Bornfeld 6"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin"
+              ]
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "2264"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "234234"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "gero.grund@grundbesitz.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "manfred@mapper.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "manu@mapper.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "schoen@bauschoen.ar"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Grund"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Schön"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Architekturbüro Bauschön"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Grundbesitzer AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "1"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "3"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Basel"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Belair"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 1234
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 4000
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Gundeldingerstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Im schönen Ort"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "+41 61 228 9400"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "076 123 23456"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": "076 331 9446"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Benno"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Gero"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Manfred"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Manuela"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2025-1",
+          "dossier-number-sort": 2025000001,
+          "submit-date": "2025-01-31T00:00:00"
+      },
+      "keywords": [
+          "2025-120",
+          "EBPA-8318-3681"
+      ],
+      "state": "subm",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---

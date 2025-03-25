@@ -48,7 +48,7 @@ def test_bad_file_format_dossier_xlsx(
     )
     loader = XlsxFileDossierLoader()
     with pytest.raises(InvalidImportDataError):
-        all(loader.load_dossiers(dossier_import.get_archive()))
+        all(loader.load_dossiers(dossier_import))
 
 
 @pytest.mark.parametrize(
@@ -100,7 +100,7 @@ def test_create_instance_dossier_import_case(
     )
     loader = XlsxFileDossierLoader()
 
-    for dossier in loader.load_dossiers(dossier_import.get_archive()):
+    for dossier in loader.load_dossiers(dossier_import):
         message = writer.import_dossier(dossier, str(dossier_import.pk))
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
