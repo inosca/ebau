@@ -1,0 +1,91 @@
+{
+  "state": "decision",
+  "keywords": [
+    "EBPA-1720-6526",
+    "2024 - 111",
+    "BVUAFB.24.5"
+  ],
+  "answers": {
+    "gemeinde": "Aarburg",
+    "street-and-housenumber": "Teststrasse 2",
+    "ort-grundstueck": "Aarburg",
+    "beschreibung-bauvorhaben": "eBau 492 - Ebau 506",
+    "gis-map": "{\"markers\": [{\"x\": 23423.0, \"y\": 23234234.0}], \"geometry\": \"POINT\"}",
+    "parzelle": [
+      {
+        "parzellennummer": "456456",
+        "gemeinde": "Aarburg"
+      }
+    ],
+    "weitere-personen": [
+      "weitere-personen-grundeigentumerin",
+      "weitere-personen-projektverfasserin",
+      "weitere-personen-rechnungsempfaenger"
+    ],
+    "personalien-gesuchstellerin": [
+      {
+        "name-juristische-person-gesuchstellerin": "Schulungs Architekt AG",
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+        "name-gesuchstellerin": "Hans",
+        "vorname-gesuchstellerin": "Tester",
+        "strasse-gesuchstellerin": "Teststrasse",
+        "nummer-gesuchstellerin": "2",
+        "plz-gesuchstellerin": 222,
+        "ort-gesuchstellerin": "Testingen",
+        "e-mail-gesuchstellerin": "ebautraining+gs3@gmail.com"
+      }
+    ],
+    "personalien-grundeigentumerin": [
+      {
+        "name-juristische-person-gesuchstellerin": "Schulungs Architekt AG",
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+        "name-gesuchstellerin": "Hans",
+        "vorname-gesuchstellerin": "Tester",
+        "strasse-gesuchstellerin": "Teststrasse",
+        "nummer-gesuchstellerin": "2",
+        "plz-gesuchstellerin": 222,
+        "ort-gesuchstellerin": "Testingen",
+        "e-mail-gesuchstellerin": "ebautraining+gs3@gmail.com"
+      }
+    ],
+    "personalien-rechnungsempfaenger": [
+      {
+        "name-juristische-person-gesuchstellerin": "Schulungs Architekt AG",
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+        "name-gesuchstellerin": "Hans",
+        "vorname-gesuchstellerin": "Tester",
+        "strasse-gesuchstellerin": "Teststrasse",
+        "nummer-gesuchstellerin": "2",
+        "plz-gesuchstellerin": 222,
+        "ort-gesuchstellerin": "Testingen",
+        "e-mail-gesuchstellerin": "ebautraining+gs3@gmail.com"
+      }
+    ],
+    "personalien-projektverfasserin": [
+      {
+        "name-juristische-person-gesuchstellerin": "Schulungs Architekt AG",
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+        "name-gesuchstellerin": "Hans",
+        "vorname-gesuchstellerin": "Tester",
+        "strasse-gesuchstellerin": "Teststrasse",
+        "nummer-gesuchstellerin": "2",
+        "plz-gesuchstellerin": 222,
+        "ort-gesuchstellerin": "Testingen",
+        "e-mail-gesuchstellerin": "ebautraining+gs3@gmail.com"
+      }
+    ]
+  },
+  "case-meta": {
+    "submit-date": "2024-02-14T00:00:00",
+    "dossier-number": "2024-1",
+    "dossier-number-sort": 2024000001
+  },
+  "workflow": {
+    "skipped_tasks": [
+      "submit",
+      "formal-exam",
+      "distribution",
+      "decision"
+    ]
+  }
+}

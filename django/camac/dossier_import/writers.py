@@ -3,6 +3,7 @@ import logging
 import re
 import traceback
 import weakref
+from abc import ABC, abstractmethod
 from dataclasses import asdict, fields
 from datetime import datetime
 from pathlib import Path
@@ -44,7 +45,7 @@ from camac.user.models import Group, User
 log = logging.getLogger("dossier_import")
 
 
-class FieldWriter:
+class FieldWriter(ABC):
     target: str
     value: Any = None
     name: Optional[str] = None
@@ -87,6 +88,10 @@ class FieldWriter:
                 )
             )
         return False
+
+    @abstractmethod
+    def write(self, instance, values):  # pragma: no cover
+        ...
 
 
 class CamacNgAnswerWriter(FieldWriter):
@@ -502,6 +507,10 @@ class CaseMetaWriter(FieldWriter):
         formatted_value = value
         if self.formatter == "datetime-to-string":
             formatted_value = datetime.strftime(value, SUBMIT_DATE_FORMAT)
+        if self.formatter == "yyyymmdd":
+            formatted_value = datetime.strftime(
+                datetime.strptime(value, "%Y%m%d"), SUBMIT_DATE_FORMAT
+            )
         instance.case.meta[self.target] = formatted_value
         instance.case.save()
 
@@ -624,7 +633,7 @@ class DossierWriter:
             writer = getattr(self, field.name, None)
             if writer:
                 writer.owner = weakref.proxy(self)
-                writer.context = {"dossier": dossier}
+                writer.context = {"dossier": dossier, "caluma_user": self._caluma_user}
                 writer.write(instance, getattr(dossier, field.name, None))
 
     @transaction.atomic

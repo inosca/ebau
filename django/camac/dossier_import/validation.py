@@ -22,6 +22,7 @@ from .messages import MessageCodes
 
 
 class TargetStatus(Enum):
+    DRAFT = "DRAFT"  # currently only used for migration in Kt. AG
     SUBMITTED = "SUBMITTED"
     APPROVED = "APPROVED"
     REJECTED = "REJECTED"

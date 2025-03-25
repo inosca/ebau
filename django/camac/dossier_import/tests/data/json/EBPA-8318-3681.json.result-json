@@ -1,0 +1,89 @@
+{
+  "state": "subm",
+  "keywords": [
+    "EBPA-8318-3681",
+    "2025-120"
+  ],
+  "answers": {
+    "gemeinde": "Aarburg",
+    "street-and-housenumber": "Bornfeld 6",
+    "ort-grundstueck": "Aarburg",
+    "beschreibung-bauvorhaben": "Mapping Test",
+    "gis-map": "{\"markers\": [{\"x\": 2635094.0, \"y\": 1240725.0}], \"geometry\": \"POINT\"}",
+    "parzelle": [
+      {
+        "parzellennummer": "2264",
+        "gemeinde": "Aarburg"
+      },
+      {
+        "parzellennummer": "234234",
+        "gemeinde": "Abtwil"
+      }
+    ],
+    "weitere-personen": [
+      "weitere-personen-grundeigentumerin",
+      "weitere-personen-projektverfasserin"
+    ],
+    "personalien-gesuchstellerin": [
+      {
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-nein",
+        "name-gesuchstellerin": "Mapper",
+        "vorname-gesuchstellerin": "Manfred",
+        "strasse-gesuchstellerin": "Mappingstr.",
+        "nummer-gesuchstellerin": "777",
+        "plz-gesuchstellerin": 7777,
+        "ort-gesuchstellerin": "Mappingen",
+        "telefon-oder-mobile-gesuchstellerin": "076 331 9446",
+        "e-mail-gesuchstellerin": "manfred@mapper.ch"
+      },
+      {
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-nein",
+        "name-gesuchstellerin": "Mapper",
+        "vorname-gesuchstellerin": "Manuela",
+        "strasse-gesuchstellerin": "Mappingstr.",
+        "nummer-gesuchstellerin": "777",
+        "plz-gesuchstellerin": 7777,
+        "ort-gesuchstellerin": "Mappingen",
+        "e-mail-gesuchstellerin": "manu@mapper.ch"
+      }
+    ],
+    "personalien-grundeigentumerin": [
+      {
+        "name-juristische-person-gesuchstellerin": "Grundbesitzer AG",
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+        "name-gesuchstellerin": "Grund",
+        "vorname-gesuchstellerin": "Gero",
+        "strasse-gesuchstellerin": "Gundeldingerstr.",
+        "nummer-gesuchstellerin": "1",
+        "plz-gesuchstellerin": 4000,
+        "ort-gesuchstellerin": "Basel",
+        "telefon-oder-mobile-gesuchstellerin": "+41 61 228 9400",
+        "e-mail-gesuchstellerin": "gero.grund@grundbesitz.com"
+      }
+    ],
+    "personalien-projektverfasserin": [
+      {
+        "name-juristische-person-gesuchstellerin": "Architekturbüro Bauschön",
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+        "name-gesuchstellerin": "Schön",
+        "vorname-gesuchstellerin": "Benno",
+        "strasse-gesuchstellerin": "Im schönen Ort",
+        "nummer-gesuchstellerin": "3",
+        "plz-gesuchstellerin": 1234,
+        "ort-gesuchstellerin": "Belair",
+        "telefon-oder-mobile-gesuchstellerin": "076 123 23456",
+        "e-mail-gesuchstellerin": "schoen@bauschoen.ar"
+      }
+    ]
+  },
+  "case-meta": {
+    "submit-date": "2025-01-31T00:00:00",
+    "dossier-number": "2025-1",
+    "dossier-number-sort": 2025000001
+  },
+  "workflow": {
+    "skipped_tasks": [
+      "submit"
+    ]
+  }
+}

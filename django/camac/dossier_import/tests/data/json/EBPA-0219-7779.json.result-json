@@ -1,0 +1,89 @@
+{
+  "state": "new",
+  "keywords": [
+    "EBPA-0219-7779",
+    "1665654427762"
+  ],
+  "answers": {
+    "gemeinde": "Abtwil",
+    "street-and-housenumber": "Hauptstrasse 5",
+    "ort-grundstueck": "Abtwil",
+    "beschreibung-bauvorhaben": "Happy Pfad Gesuch automated testing",
+    "parzelle": [
+      {
+        "parzellennummer": "666",
+        "gemeinde": "Abtwil"
+      }
+    ],
+    "weitere-personen": [
+      "weitere-personen-grundeigentumerin",
+      "weitere-personen-projektverfasserin",
+      "weitere-personen-rechnungsempfaenger"
+    ],
+    "personalien-gesuchstellerin": [
+      {
+        "name-juristische-person-gesuchstellerin": "Bauherr Galaktisches Imperium Bau GmbH",
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+        "name-gesuchstellerin": "Anakin",
+        "vorname-gesuchstellerin": "Skywalker",
+        "strasse-gesuchstellerin": "Hauptstrasse",
+        "nummer-gesuchstellerin": "56",
+        "plz-gesuchstellerin": 5607,
+        "ort-gesuchstellerin": "Irgendwo",
+        "telefon-oder-mobile-gesuchstellerin": "0628350000",
+        "e-mail-gesuchstellerin": "test.execute@ag.ch"
+      }
+    ],
+    "personalien-grundeigentumerin": [
+      {
+        "name-juristische-person-gesuchstellerin": "Grundeigentümer Galaktisches Imperium Bau GmbH",
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+        "name-gesuchstellerin": "Anakin",
+        "vorname-gesuchstellerin": "Skywalker",
+        "strasse-gesuchstellerin": "Hauptstrasse",
+        "nummer-gesuchstellerin": "56",
+        "plz-gesuchstellerin": 5607,
+        "ort-gesuchstellerin": "Irgendwo",
+        "telefon-oder-mobile-gesuchstellerin": "0628350000",
+        "e-mail-gesuchstellerin": "test.execute@ag.ch"
+      }
+    ],
+    "personalien-rechnungsempfaenger": [
+      {
+        "name-juristische-person-gesuchstellerin": "Rechnung Galaktisches Imperium Bau GmbH",
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+        "name-gesuchstellerin": "Anakin",
+        "vorname-gesuchstellerin": "Skywalker",
+        "strasse-gesuchstellerin": "Hauptstrasse",
+        "nummer-gesuchstellerin": "56",
+        "plz-gesuchstellerin": 5607,
+        "ort-gesuchstellerin": "Irgendwo",
+        "telefon-oder-mobile-gesuchstellerin": "0628350000",
+        "e-mail-gesuchstellerin": "test.execute@ag.ch"
+      }
+    ],
+    "personalien-projektverfasserin": [
+      {
+        "name-juristische-person-gesuchstellerin": "Projektverfasser Galaktisches Imperium Bau GmbH",
+        "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
+        "name-gesuchstellerin": "Anakin",
+        "vorname-gesuchstellerin": "Skywalker",
+        "strasse-gesuchstellerin": "Hauptstrasse",
+        "nummer-gesuchstellerin": "56",
+        "plz-gesuchstellerin": 5607,
+        "ort-gesuchstellerin": "Irgendwo",
+        "telefon-oder-mobile-gesuchstellerin": "0628350000",
+        "e-mail-gesuchstellerin": "test.execute@ag.ch"
+      }
+    ]
+  },
+  "case-meta": {
+    "submit-date": "2022-10-13T00:00:00",
+    "dossier-number": "2022-1",
+    "dossier-number-sort": 2022000001
+  },
+  "workflow": {
+    "skipped_tasks": [
+    ]
+  }
+}

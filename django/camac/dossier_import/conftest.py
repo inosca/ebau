@@ -18,6 +18,8 @@ TEST_IMPORT_FILE_PATH = str(
     Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/"
 )
 
+JSON_INPUT_DIR = Path(__file__).parent / "tests/data/json"
+
 
 @pytest.fixture
 def archive_file(settings):
@@ -145,6 +147,40 @@ def load_fixtures_so(
 
 
 @pytest.fixture
+def load_fixtures_ag(
+    db,
+    settings,
+    caluma_workflow_config_ag,
+    ag_dossier_import_settings,
+    caluma_document_factory,
+    caluma_dynamic_option_factory,
+    service_factory,
+    ag_decision_settings,
+    ag_permissions_settings,
+):
+    extra_fixtures = [
+        settings.ROOT_DIR("kt_ag/config/permissions.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_form_common.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_decision_form.json"),
+        settings.ROOT_DIR("kt_ag/config/user.json"),
+        settings.ROOT_DIR("kt_ag/config/user_core_groups.json"),
+        settings.ROOT_DIR("kt_ag/data/user.json"),
+    ]
+
+    service = service_factory(service_group__name="municipality")
+    caluma_dynamic_option_factory(
+        slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
+    )
+
+    ag_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory(
+        allowed_mime_types=["application/pdf"]
+    ).pk
+
+    yield service, extra_fixtures
+
+
+@pytest.fixture
 def load_fixtures_sz(
     db,
     settings,
@@ -261,3 +297,33 @@ def setup_dossier_writer(
         return dossier_writer
 
     return wrapper
+
+
+@pytest.fixture()
+def setup_dossier_import_ag(
+    request,
+    settings,
+    application_settings,
+    role_factory,
+):
+    config = "kt_ag"
+    # Needed for permissions module `instance_created` trigger
+    role_factory(name="Support")
+
+    common_fixtures_paths = [
+        # list of fixtures common to all configs. e. g.:
+        settings.ROOT_DIR(f"{config}/config/instance.json"),
+    ]
+
+    settings.APPLICATION_NAME = config
+    short_name = settings.APPLICATIONS[config]["SHORT_NAME"]
+    application_settings["SHORT_NAME"] = short_name
+
+    service, config_fixtures = request.getfixturevalue(f"load_fixtures_{short_name}")
+
+    fixture_paths = common_fixtures_paths + config_fixtures
+    if len(fixture_paths):
+        call_command("loaddata", *fixture_paths)
+
+    settings.MEDIA_ROOT = JSON_INPUT_DIR
+    settings.DOSSIER_IMPORT["SAP_ACCESS"]["json_target_dir"] = JSON_INPUT_DIR

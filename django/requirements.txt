@@ -37,9 +37,11 @@ ebau-gwr==0.7.3
 # https://github.com/graphql-python/graphene/issues/1580
 graphene==3.4.3
 gunicorn==23.0.0
+hdbcli==2.23.24
 holidays==0.68
 Jinja2==3.1.6
 jwcrypto==1.5.6
+jsonpath-ng==1.7.0
 lxml==5.3.1
 manabi==1.5.0
 mozilla-django-oidc==4.0.1
@@ -56,6 +58,7 @@ pyproj==3.7.1
 python-dateutil==2.9.0.post0
 python-docx==1.1.2
 python-keycloak==5.3.1
+python-dotenv==1.0.1
 PyXB-X==1.2.6.3
 qrcode==8.0
 rapidfuzz==3.12.2

@@ -1,7 +1,6 @@
 import datetime
 from dataclasses import dataclass, field
-from typing import List, Optional, Union
-from typing.io import IO
+from typing import IO, List, Optional, Union
 
 from camac.instance.models import Instance
 
@@ -62,10 +61,12 @@ class Dossier:
     id: str
     proposal: str
     cantonal_id: Optional[str] = None
+    municipal_id: Optional[str] = None
     plot_data: Optional[Union[List[PlotData], str]] = None
     coordinates: Optional[Union[List[Coordinates], str]] = None
     street: Optional[str] = None
     street_number: Optional[str] = None
+    responsible_municipality: Optional[str] = None
     city: Optional[str] = None
     usage: Optional[str] = None
     application_type: Optional[str] = None
@@ -82,8 +83,13 @@ class Dossier:
     applicant: Optional[Union[List[Person], str]] = None
     landowner: Optional[Union[List[Person], str]] = None
     project_author: Optional[Union[List[Person], str]] = None
+    invoice_recipient: Optional[Union[List[Person], str]] = None
+    legal_representative: Optional[Union[List[Person], str]] = None
     attachments: Optional[Union[List[Attachment], str]] = None
     responsible: Optional[str] = field(default=None)
+    _meta: Optional["Dossier.Meta"] = field(
+        default_factory=lambda: Dossier.Meta(target_state="DRAFT")
+    )
 
     @dataclass
     class Meta:
