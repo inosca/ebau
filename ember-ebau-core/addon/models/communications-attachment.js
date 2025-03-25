@@ -1,6 +1,7 @@
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import { attr, belongsTo } from "@ember-data/model";
+import { isDownloadUrlExpired } from "ember-alexandria/utils/download";
 import { dropTask, task } from "ember-concurrency";
 
 import DownloadableModel from "./downloadable";
@@ -80,8 +81,11 @@ export default class CommunicationAttachmentModel extends DownloadableModel {
   download = dropTask(async (event) => {
     event?.preventDefault();
 
+    // Download URL is a presigned link, open directly
     if (!this.downloadUrl.endsWith("/download")) {
-      // Download URL is a presigned link, open directly
+      if (isDownloadUrlExpired(this.downloadUrl)) {
+        await this.reload();
+      }
       return open(this.downloadUrl);
     }
 
