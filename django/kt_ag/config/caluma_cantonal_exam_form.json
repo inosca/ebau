@@ -1104,7 +1104,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"C01 / EleG Anh\\u00f6rung PGV Transformatorenstation ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1121,7 +1121,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"C02 / EleG Anh\\u00f6rung PGV Transformatorenstation vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1138,7 +1138,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"C03 / EleG Anh\\u00f6rung PGV 16kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1155,7 +1155,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"C04 / EleG Anh\\u00f6rung PGV 16kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1172,7 +1172,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"C05 / EleG Anh\\u00f6rung PGV 50/110kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1189,7 +1189,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"C06 / EleG Anh\\u00f6rung PGV 50/110kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1206,7 +1206,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"C07 / EleG Anh\\u00f6rung PGV 220/380kV-Leitung ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1223,7 +1223,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"C08 / EleG Anh\\u00f6rung PGV 220/380kV-Leitung vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1240,7 +1240,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"C09 / EleG Anh\\u00f6rung PGV Niederspannung (BLN & LKB) ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1257,7 +1257,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"C10 / EleG Anh\\u00f6rung PGV Niederspannung (BLN & LKB) vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1274,7 +1274,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"C11 / EleG Anh\\u00f6rung PGV weitere Bauten und Anlagen im Energiesektor\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1291,7 +1291,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"D01 / EBG Anh\\u00f6rung PGV Eisenbahnen ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1308,7 +1308,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"D02 / EBG Anh\\u00f6rung PGV Eisenbahnen vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1325,7 +1325,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"E01 / MG Anh\\u00f6rung PGV ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1342,7 +1342,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"E02 / MG Anh\\u00f6rung PGV vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1359,7 +1359,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"F01 / RLG Anh\\u00f6rung PGV > 5bar- Leitung ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1376,7 +1376,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"F02 / RLG Anh\\u00f6rung PGV > 5bar- Leitung vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1393,7 +1393,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"F03 / RLG Anh\\u00f6rung PGV Druckreduzier- und Messstationen (DRS/DRM)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1410,7 +1410,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"F04 / RLG Anh\\u00f6rung PGV weitere Bauten und Anlagen der Gasversorgung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1427,7 +1427,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"G01 / RLG PGV 1- 5bar- Leitung ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1444,7 +1444,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"G02 / RLG PGV 1- 5bar- Leitung vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1461,7 +1461,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"G03 / RLG PGV Druckreduzier- und Messstationen (DRS/DRM)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1478,7 +1478,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"G04 / RLG PGV weitere Bauten und Anlagen der Gasversorgung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1495,7 +1495,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"H01 / LFG Anh\\u00f6rung PGV ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1512,7 +1512,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"H02 / LFG Anh\\u00f6rung PGV vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1529,7 +1529,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"I01 / NSG Anh\\u00f6rung PGV ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1546,7 +1546,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"I02 / NSG Anh\\u00f6rung PGV vereinfacht\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1563,7 +1563,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"K01 / KEG Anh\\u00f6rung PGV ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1580,7 +1580,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"K02 / KEG Anh\\u00f6rung PGV ordentlich\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -1669,7 +1669,7 @@
       "label": "{\"de\": \"Anlagentyp UVPV\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(info.case.root.form == \"baugesuch-mit-uvp\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
