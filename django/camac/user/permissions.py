@@ -316,3 +316,14 @@ HasEebaPermission = (
         settings_key="EEBA_SHARED_SECRET", shared_secret_header="X-EBAU-EEBA-SECRET"
     )
 )
+
+
+class IsWilkenClientToken(permissions.BasePermission):
+    """Verify that the token is authorized by the configured wilken client."""
+
+    code = "unallowed_azp"
+
+    def has_permission(self, request, view):
+        return request.auth.get("azp", "") == settings.BILLING.get("WILKEN", {}).get(
+            "KEYCLOAK_CLIENT"
+        )
