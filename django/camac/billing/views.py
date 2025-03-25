@@ -6,6 +6,8 @@ from django.utils.translation import gettext as _
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, PermissionDenied, ValidationError
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.billing.filters import BillingV2EntryFilterSet
@@ -19,7 +21,7 @@ from camac.billing.utils import validate_product_number_conditions
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import is_permission_mode_fully_enabled
-from camac.user.permissions import permission_aware
+from camac.user.permissions import IsAllowedClientToken, permission_aware
 from camac.user.utils import get_group
 
 
@@ -123,15 +125,17 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
 
-    @action(methods=["GET"], detail=False, url_path="product-numbers")
-    @transaction.atomic
-    def product_numbers(self, request):
+
+class ProductNumbersView(APIView):
+    permission_classes = [IsAllowedClientToken & IsAuthenticated]
+
+    def get(self, request):
         config = settings.BILLING.get("PRODUCT_NUMBERS", None)
         instance = request.query_params.get("for_instance", None)
         group = get_group(request)
 
         if not config or not instance or not group:
-            return response.Response(status=status.HTTP_404_NOT_FOUND)
+            return response.Response([], status=status.HTTP_400_BAD_REQUEST)
 
         has_previous_invoice = Invoice.objects.filter(instance=instance).exists()
 

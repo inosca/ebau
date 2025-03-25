@@ -91,7 +91,7 @@ export default class BillingNewController extends Controller {
     }
 
     const response = await this.fetch.fetch(
-      `/api/v1/billing-v2-entries/product-numbers?for_instance=${this.ebauModules.instanceId}`,
+      `/api/v1/product-numbers?for_instance=${this.ebauModules.instanceId}`,
     );
     const { data } = await response.json();
     if (data?.length) {

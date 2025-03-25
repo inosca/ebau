@@ -324,3 +324,61 @@ def test_billing_entry_create_with_ag_processing_fee(
 
     assert response.status_code == status.HTTP_201_CREATED
     assert response.json()["data"]["attributes"]["final-rate"] == "43500.00"
+
+
+def test_product_numbers(
+    db, admin_client, sz_instance, sz_billing_settings, service_factory, invoice_factory
+):
+    service = service_factory(slug="test")
+    group = admin_client.user.groups.first()
+    group.service = service
+    group.save()
+    sz_billing_settings["PRODUCT_NUMBERS"] = [
+        {
+            "number": 1,
+        },
+        {
+            "number": 2,
+            "not_for_services": ["test"],
+        },
+        {
+            "number": 3,
+            "only_for_services": ["test"],
+        },
+        {
+            "number": 4,
+            "only_subsequent_charge": True,
+        },
+        {},  # Invalid config
+    ]
+    url = reverse("product-numbers")
+    response = admin_client.get(
+        url,
+        {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json()["data"] == [1, 3]
+
+    invoice = invoice_factory(instance=sz_instance)
+
+    response = admin_client.get(
+        url,
+        {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
+    )
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json()["data"] == [4]
+
+    response = admin_client.get(
+        url,
+    )
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+    invoice.delete()
+    service.slug = None
+    service.save()
+    response = admin_client.get(
+        url,
+        {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
+    )
+    assert response.json()["data"] == [1, 2]

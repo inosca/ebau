@@ -219,30 +219,43 @@ def validate_product_number_conditions(
     service_slug: str,
     has_previous_invoice: bool,
 ) -> bool:
-    if has_previous_invoice and not product_number_config.get(
-        "only_subsequent_charge", False
-    ):
-        return False
+    """Validate if the conditions configured for a product number are met.
+
+    Available configuration options:
+    {
+        "number": number, Product number
+        "only_for_services": list[string], List of service slugs which this product number is visible for.
+        "not_for_services": list[string], List of service slugs which this product number is NOT visible for.
+        "only_subsequent_charge": bool, Should this product number be only available if an invoice exists already.
+    },
+    """
+    # All config options we support with their default values
+    config = {
+        "number": product_number_config.get("number"),
+        "only_for_services": product_number_config.get("only_for_services"),
+        "not_for_services": product_number_config.get("not_for_services"),
+        "only_subsequent_charge": product_number_config.get(
+            "only_subsequent_charge", False
+        ),
+    }
 
     def test_condition(key, value):
         match (key, value):
-            case ("number", _):
-                return True
+            case ("number", None):
+                return False
             case ("only_subsequent_charge", cond):
                 return has_previous_invoice == cond
-            case ("only_for_services", services):
+            case ("only_for_services", services) if type(services) is list:
                 if not service_slug:
                     return False
-                return type(services) is list and service_slug in services
-            case ("not_for_services", services):
+                return service_slug in services
+            case ("not_for_services", services) if type(services) is list:
                 if not service_slug:
                     return True
-                return type(services) is list and service_slug not in services
+                return service_slug not in services
+            # In case any of the properties don't match up with the datatype
+            # we excpect, we just ignore them instead of failing.
+            case _:
+                return True
 
-    return all(
-        [
-            test_condition(key, value)
-            for key, value in product_number_config.items()
-            if value is not None
-        ]
-    )
+    return all([test_condition(key, value) for key, value in config.items()])

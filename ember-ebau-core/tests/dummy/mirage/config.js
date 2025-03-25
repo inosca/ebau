@@ -103,7 +103,7 @@ export default function makeServer(config) {
         },
         204,
       );
-      this.get("billing-v2-entries/product-numbers", {
+      this.get("product-numbers", {
         data: [100000, 150000, 900000, 300000, 310000],
       });
 
