@@ -1,5 +1,6 @@
 import io
 import json
+from copy import deepcopy
 from datetime import timedelta
 
 import pytest
@@ -890,6 +891,116 @@ def test_attachment_update_context(
     application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = [finished_state_name]
 
     aasa.instance.instance_state = instance_state
+
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=(
+            admin_user.groups.first().service
+            if is_active_service
+            else group_factory().service
+        ),
+    )
+
+    aasa.instance.save()
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "test": {
+                admin_user.groups.first().role.name.lower(): {
+                    permission: [attachment_section.pk]
+                }
+            }
+        },
+    )
+
+    data = {
+        "data": {
+            "type": "attachments",
+            "id": aasa.pk,
+            "relationships": {
+                "attachment-sections": {
+                    "data": [
+                        {"type": "attachment-sections", "id": attachment_section.pk}
+                    ]
+                }
+            },
+        }
+    }
+    if new_context:
+        data["data"]["attributes"] = {"context": new_context}
+
+    response = admin_client.patch(url, data=data)
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "attachment__context,new_context,attachment__mime_type,permission,status_code,is_active_service,role__name,attachment_section__allowed_mime_types",
+    [
+        # change of isDecision to True with allowed mime_type
+        (
+            {"isDecision": False},
+            {"isDecision": True},
+            "application/pdf",
+            permissions.WritePermission,
+            status.HTTP_200_OK,
+            True,
+            "Canton",
+            [],
+        ),
+        # change of isDecision to False with any mime_type
+        (
+            {"isDecision": True},
+            {"isDecision": False},
+            "application/xml",
+            permissions.WritePermission,
+            status.HTTP_200_OK,
+            True,
+            "Canton",
+            [],
+        ),
+        (
+            {"isDecision": True},
+            {"isDecision": False},
+            "application/pdf",
+            permissions.WritePermission,
+            status.HTTP_200_OK,
+            True,
+            "Canton",
+            [],
+        ),
+        # change of isDecision to True with not allowed mime_type
+        (
+            {"isDecision": False},
+            {"isDecision": True},
+            "application/xml",
+            permissions.WritePermission,
+            status.HTTP_400_BAD_REQUEST,
+            True,
+            "Canton",
+            [],
+        ),
+    ],
+)
+def test_attachment_update_context_be(
+    admin_client,
+    admin_user,
+    application_settings,
+    attachment_section,
+    attachment_attachment_sections,
+    group_factory,
+    status_code,
+    is_active_service,
+    new_context,
+    mocker,
+    permission,
+):
+    application_settings["DECISION_DOCUMENT_MIMETYPES"] = deepcopy(
+        settings.APPLICATIONS["kt_bern"]["DECISION_DOCUMENT_MIMETYPES"]
+    )
+    aasa = attachment_attachment_sections.attachment
+    url = reverse("attachment-detail", args=[aasa.pk])
 
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",

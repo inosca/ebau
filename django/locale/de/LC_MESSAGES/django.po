@@ -595,6 +595,15 @@ msgstr ""
 "Dateitypen für Abschnitt %(section_name)s sind: %(allowed_mime_types)s"
 
 #: camac/document/serializers.py
+#, python-format
+msgid ""
+"Invalid mime type for marking attachment as decision. Allowed types for "
+"decision attachment are: %(allowed_mime_types)s"
+msgstr ""
+"Der aktuelle Dateityp kann nicht als Entscheiddokument markiert werden. "
+"Erlaubte Dateitypen für Entscheiddokumente sind: %(allowed_mime_types)s"
+
+#: camac/document/serializers.py
 msgid ""
 "Changing decision document mark after decision is enacted is not allowed."
 msgstr ""

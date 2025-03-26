@@ -255,6 +255,33 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                     pk=service.pk
                 ).exists()
 
+            allowed_decision_mime_types = settings.APPLICATION.get(
+                "DECISION_DOCUMENT_MIMETYPES"
+            )
+
+            if (
+                allowed_decision_mime_types
+                and changed_props == ["isDecision"]
+                and context.get("isDecision")
+                and attachment.mime_type not in allowed_decision_mime_types
+                # Do not allow editable mime-type documents to be marked as decision but unmarking is allowed
+                # if "DECISION_DOCUMENT_MIMETYPES" is not set, do not perform validation
+            ):
+                raise exceptions.ValidationError(
+                    _(
+                        "Invalid mime type for marking attachment as decision. "
+                        "Allowed types for decision attachment are: %(allowed_mime_types)s"
+                    )
+                    % {
+                        "allowed_mime_types": ", ".join(
+                            [
+                                mime_type.split("/")[1]
+                                for mime_type in allowed_decision_mime_types
+                            ]
+                        ),
+                    }
+                )
+
             attachment_in_intern_section = attachment.attachment_sections.filter(
                 attachment_section_id=settings.APPLICATION.get(
                     "ATTACHMENT_SECTION_INTERNAL", None

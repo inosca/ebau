@@ -1020,6 +1020,7 @@ APPLICATIONS = {
                 }
             ],
         },
+        "DECISION_DOCUMENT_MIMETYPES": ["image/png", "image/jpeg", "application/pdf"],
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "OIDC_SYNC_USER_ATTRIBUTES": [
