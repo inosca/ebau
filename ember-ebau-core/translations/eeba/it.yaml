@@ -1,0 +1,14 @@
+eeba:
+  integration:
+    re_check: ""
+    check: ""
+    open: ""
+    status_eeba: ""
+    status:
+      none: ""
+      completed: ""
+      rerun: ""
+      retry: ""
+    description:
+      required: ""
+      not_required: ""

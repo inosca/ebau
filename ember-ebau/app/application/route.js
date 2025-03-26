@@ -12,6 +12,7 @@ import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/s
 import DirectInquiryCheckboxComponent from "ember-ebau-core/components/direct-inquiry-checkbox";
 import DirectInquiryInfoComponent from "ember-ebau-core/components/direct-inquiry-info";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
+import EebaConfirmationComponent from "ember-ebau-core/components/eeba-confirmation";
 import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-textarea";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
@@ -69,6 +70,11 @@ export default class ApplicationRoute extends Route {
       label: "GIS-Karte (Kt. AG)",
       component: "ag-gis",
       componentClass: AgGisComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Eeba Bestätigung",
+      component: "eeba-confirmation",
+      componentClass: EebaConfirmationComponent,
     });
     this.calumaOptions.registerComponentOverride({
       label: "Alexandria Dokument Formular",

@@ -1,11 +1,14 @@
-import { macroCondition, getOwnConfig } from "@embroider/macros";
+import { service } from "@ember/service";
+import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Field from "@projectcaluma/ember-form/lib/field";
-import { dropTask } from "ember-concurrency";
+import { dropTask, restartableTask } from "ember-concurrency";
 import { trackedTask } from "reactiveweb/ember-concurrency";
 
 import workItemCaseInformationQuery from "ebau/gql/queries/work-item-case-information.graphql";
 
 export default class CustomField extends Field {
+  @service eebaClient;
+
   caseInformation = trackedTask(this, this.fetchCaseInformation, () => [
     this.document.workItemUuid,
   ]);
@@ -146,5 +149,25 @@ export default class CustomField extends Field {
         disabled: !this.enabledOptions.includes(option.slug),
       }))
       .filter((option) => !option.disabled || selected.includes(option.slug));
+  }
+
+  /**
+   * Override parent save to perform a refresh after specific questions are saved.
+   *
+   * We cannot use ember-concurrency `task()` because it needs to be the same
+   * as the parent implementation.
+   */
+  @restartableTask
+  *save() {
+    const result = yield super.save.perform();
+    if (macroCondition(getOwnConfig().application !== "gr")) {
+      return result;
+    }
+
+    const { question } = result;
+
+    yield this.eebaClient.onSaveEebaRefresh(this.document, question);
+
+    return result;
   }
 }
