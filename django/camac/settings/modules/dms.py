@@ -379,7 +379,8 @@ DMS = {
                 "personalien": "personalien",
                 "exclude_slugs": [
                     "is-paper",
-                    "einreichen",
+                    "einreichen",  # Baugesuch and all other
+                    "gesuch-einreichen",  # Konzessionsgesuch
                     "gis-karte",
                     "form-type",
                     "allgemeine-informationen-baugesuch",
