@@ -3,8 +3,16 @@ import { Ability } from "ember-can";
 
 export default class LegalSubmissionAbility extends Ability {
   @service ebauModules;
+  @service permissions;
 
-  get canEdit() {
+  async canEdit() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.ebauModules.instanceId,
+        "legal-submissions-write",
+      );
+    }
+
     return (
       !this.ebauModules.isReadOnlyRole &&
       this.model?.status === "READY" &&

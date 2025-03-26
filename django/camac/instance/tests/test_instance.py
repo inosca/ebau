@@ -19,6 +19,7 @@ from camac.constants import kt_uri as uri_constants
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
 from camac.instance.models import FormField, HistoryEntryT, InstanceGroup, InstanceState
+from camac.permissions import api as permissions_api
 from camac.permissions.events import Trigger
 from camac.permissions.models import InstanceACL
 
@@ -2465,6 +2466,7 @@ def test_has_inquiry(
         ("completed", False, 1),
     ],
 )
+@pytest.mark.parametrize("access_level__slug", ["distribution-service"])
 def test_inquiry_state_filter(
     admin_user,
     admin_client,
@@ -2473,10 +2475,13 @@ def test_inquiry_state_filter(
     instance_factory,
     caluma_work_item_factory,
     gr_distribution_settings,
+    gr_permissions_settings,
     caluma_document_factory,
     inquiry_state,
     has_open_work_item,
     expected,
+    access_level,
+    access_level_factory,
 ):
     url = reverse("instance-list")
 
@@ -2509,11 +2514,18 @@ def test_inquiry_state_filter(
             status=caluma_workflow_models.WorkItem.STATUS_READY,
             addressed_groups=[str(admin_client.user.groups.first().service_id)],
         )
+
     caluma_work_item_factory(
         case=instance.case,
         task_id="inquiry",
         status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
         addressed_groups=[str(admin_client.user.groups.first().service_id)],
+    )
+    permissions_api.grant(
+        instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level="distribution-service",
+        service=admin_client.user.groups.first().service,
     )
 
     response = admin_client.get(url, data={"inquiry_state": inquiry_state})

@@ -265,6 +265,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
             ("journal-read", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
+            ("legal-submissions-write", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("material-exam-read", MODULE_MATERIAL_EXAM),
             ("material-exam-bab-read", MODULE_MATERIAL_EXAM_BAB),

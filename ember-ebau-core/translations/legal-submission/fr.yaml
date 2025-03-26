@@ -17,3 +17,5 @@ legal-submission:
   delete-confirm: "Voulez-vous vraiment supprimer la conclusion ?"
   delete-success: "La conclusion a été supprimée avec succès."
   delete-error: "Erreur lors de la suppression de la conclusion"
+
+  hint: ""

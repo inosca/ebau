@@ -57596,37 +57596,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "einsprache-hinweis",
-    "fields": {
-      "created_at": "2025-02-06T17:17:44.741Z",
-      "modified_at": "2025-02-07T08:11:18.507Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"einsprache-hinweis\", \"fr\": null, \"it\": \"einsprache-hinweis\"}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div\\n    uk-alert\\n    class=\\\"uk-margin-remove-top border-highlight uk-width-1-1 uk-padding-small\\\"\\n  >\\nDas Einspracheschreiben kann im Dokumentenordner abgelegt werden. Bitte beachten Sie, dass das Register \\\"Einsprache\\\" lediglich eine Hilfestellung darstellt und das Einspracheverfahren nicht \\u00fcber eBau abgewickelt werden kann.\\n</div>\", \"fr\": \"\", \"it\": \"<div\\n    uk-alert\\n    class=\\\"uk-margin-remove-top border-highlight uk-width-1-1 uk-padding-small\\\"\\n  >\\nLo scritto dell'opposizione pu\\u00f2 essere archiviato nella cartella \\\"opposizioni\\\". Si prega di notare che il registro \\\"opposizioni\\\" rappresenta solamente un aiuto, la procedura di opposizione non pu\\u00f2 essere svolta sulla piattaforma eBau.\\n</div>\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "einverstaendnis-grundeigentuemerin-vorhanden",
     "fields": {
       "created_at": "2023-06-19T08:31:00.893Z",

@@ -54,6 +54,41 @@ def test_condition_require_work_item(
     )
 
 
+def test_condition_require_work_item_addressed_to_current_service(
+    db,
+    so_instance,
+    userinfo,
+    caluma_work_item_factory,
+):
+    caluma_work_item_factory(
+        case=so_instance.case,
+        task_id="addressed-work-item",
+        addressed_groups=[str(userinfo.service.pk)],
+    )
+    caluma_work_item_factory(
+        case=so_instance.case,
+        task_id="not-addressed-work-item",
+        addressed_groups=["some-other-service-pk"],
+    )
+
+    assert (
+        RequireWorkItem("addressed-work-item", addressed_to_current_service=True).apply(
+            userinfo, so_instance
+        )
+        is True
+    )
+    assert RequireWorkItem("addressed-work-item").apply(userinfo, so_instance) is True
+    assert (
+        RequireWorkItem(
+            "not-addressed-work-item", addressed_to_current_service=True
+        ).apply(userinfo, so_instance)
+        is False
+    )
+    assert (
+        RequireWorkItem("not-addressed-work-item").apply(userinfo, so_instance) is True
+    )
+
+
 @pytest.mark.parametrize(
     "applicant_role,roles,expected_result",
     [

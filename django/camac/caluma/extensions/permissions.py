@@ -512,6 +512,15 @@ class CustomPermission(BasePermission):
                 else f"form-{permission_key}-{required_permission}"
             )
 
+            # "FORM_PERMISSIONS_MAPPING" (in django.py) is used to map certain caluma form names
+            # via the "form-XYZ-write" to a name that makes sense in the permissions module
+            # such as "legal-submissions-write"
+            permission_name = (
+                settings.APPLICATION["CALUMA"]
+                .get("FORM_PERMISSIONS_MAPPING", {})
+                .get(permission_name, permission_name)
+            )
+
             return PermissionManager.from_request(self.request).has_all(
                 case.family.instance, permission_name
             )

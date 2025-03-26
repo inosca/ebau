@@ -2054,7 +2054,10 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main"],
+            "FORM_PERMISSIONS": ["main", "einsprachen"],
+            "FORM_PERMISSIONS_MAPPING": {
+                "form-einsprachen-write": "legal-submissions-write",
+            },
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
@@ -2263,7 +2266,10 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main"],
+            "FORM_PERMISSIONS": ["main", "einsprachen"],
+            "FORM_PERMISSIONS_MAPPING": {
+                "form-einsprachen-write": "legal-submissions-write",
+            },
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
@@ -2510,7 +2516,10 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main", "kantonale-pruefung"],
+            "FORM_PERMISSIONS": ["main", "kantonale-pruefung", "einwendungen"],
+            "FORM_PERMISSIONS_MAPPING": {
+                "form-einwendungen-write": "legal-submissions-write",
+            },
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
