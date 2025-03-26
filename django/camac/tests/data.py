@@ -1,3 +1,5 @@
+from datetime import date
+
 from faker import Faker
 
 
@@ -119,3 +121,130 @@ def ag_personal_row_factory(is_juristic: bool = False) -> dict:
         if is_juristic
         else None,
     }
+
+
+def so_fill_cantonal_exam(document, utils):
+    utils.add_answer(document, "mp-bab-datum-eingang-arp", date(2025, 2, 13))
+    utils.add_answer(document, "mp-bab-terminvorgabe-bei-erfassung", date(2023, 1, 2))
+    utils.add_answer(document, "mp-bab-massgebliche-terminvorgabe", date(2023, 1, 5))
+    utils.add_answer(
+        document,
+        "mp-bab-verfahrensstand",
+        "mp-bab-verfahrensstand-entscheid",
+        label="Entscheid",
+    )
+    utils.add_answer(
+        document,
+        "mp-bab-bearbeitungsstatus",
+        "mp-bab-bearbeitungsstatus-in-bearbeitung",
+        label="in Bearbeitung",
+    )
+    utils.add_table_answer(
+        document,
+        "mp-bab-grund-der-sistierung",
+        [
+            {
+                "mp-bab-sistierungsgrund": {
+                    "value": "mp-bab-sistierungsgrund-rechtliches-gehoer",
+                    "options": [
+                        (
+                            "mp-bab-sistierungsgrund-rechtliches-gehoer",
+                            "rechtliches Gehör",
+                        )
+                    ],
+                },
+                "mp-bab-sistiert-von": date(2020, 1, 1),
+                "mp-bab-sistiert-bis": date(2020, 1, 10),
+            }
+        ],
+    )
+    utils.add_answer(
+        document,
+        "mp-bab-bewilligungsbehoerde",
+        "mp-bab-bewilligungsbehoerde-oertliche-baubehoerde",
+        label="örtliche Baubehörde",
+    )
+    utils.add_answer(
+        document,
+        "mp-bab-interesse-am-vorhaben",
+        "mp-bab-interesse-am-vorhaben-privat",
+        label="privat",
+    )
+    utils.add_table_answer(
+        document,
+        "mp-bab-journal-tabelle",
+        [
+            {
+                "mp-bab-datum-eintrag": date(2024, 5, 7),
+                "mp-bab-art-des-eintrages": {
+                    "value": "mp-bab-art-des-eintrages-info",
+                    "options": [("mp-bab-art-des-eintrages-info", "Info")],
+                },
+                "mp-bab-beteiligte-anwesende": "Beteiligte Anwesende",
+                "mp-bab-sachverhalt": "Sachverhalt",
+            }
+        ],
+    )
+    utils.add_answer(
+        document,
+        "mp-bab-gemeindenummer-kantonal-arp",
+        "1234",
+    )
+    utils.add_answer(
+        document,
+        "mp-bab-bauzone",
+        "mp-bab-bauzone-ausserhalb",
+        label="ausserhalb",
+    )
+    utils.add_answer(
+        document,
+        "mp-bab-objektschutz",
+        "mp-bab-objektschutz-geschuetzt",
+        label="geschützt",
+    )
+    utils.add_answer(
+        document,
+        "mp-bab-checkliste-bab-so-nach-rpg",
+        [
+            "mp-bab-checkliste-bab-so-nach-rpg-a1",
+            "mp-bab-checkliste-bab-so-nach-rpg-a2",
+        ],
+        options=[
+            ("mp-bab-checkliste-bab-so-nach-rpg-a1", "A1 - standortgebunden"),
+            ("mp-bab-checkliste-bab-so-nach-rpg-a2", "A2 - Weilerzone"),
+        ],
+    )
+    utils.add_answer(
+        document,
+        "mp-bab-entscheid-kanton",
+        "mp-bab-entscheid-kanton-ablehnung",
+        label="Ablehnung",
+    )
+    utils.add_answer(document, "mp-bab-datum-des-entscheides-kanton", date(2025, 7, 8))
+    utils.add_answer(
+        document,
+        "mp-bab-eroeffnungsart-des-entscheides-kanton",
+        "mp-bab-eroeffnungsart-des-entscheides-kanton-e-mail",
+        label="E-Mail",
+    )
+    utils.add_table_answer(
+        document,
+        "mp-bab-angaben-zur-unterschutzstellung",
+        [
+            {
+                "mp-bab-schutzobjekt-bezeichnung": "Bezeichnung",
+                "mp-bab-beschlussnummer": "Beschlussnummer",
+                "mp-bab-datum-beschluss": date(2001, 12, 1),
+                "mp-bab-datum-verfuegung": date(1999, 9, 1),
+                "mp-bab-verfuegende-behoerde": {
+                    "value": "mp-bab-verfuegende-behoerde-kantonal",
+                    "options": [
+                        (
+                            "mp-bab-verfuegende-behoerde-kantonal",
+                            "kantonal",
+                        )
+                    ],
+                },
+            }
+        ],
+    )
