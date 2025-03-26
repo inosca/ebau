@@ -74,9 +74,9 @@ MODULE_AUDIT = (ROLES_MUNICIPALITY & RequireWorkItem("formal-exam")) | (
 )
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
-MODULE_LEGAL_SUBMISSIONS = RequireWorkItem("objections") | IsServiceGroup(
-    ["authority-bab"]
-)
+MODULE_LEGAL_SUBMISSIONS = RequireWorkItem(
+    "objections", addressed_to_current_service=True
+) | IsServiceGroup(["authority-bab"])
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_PERMISSIONS = STATES_ALL
 MODULE_PUBLICATION = RequireWorkItem("fill-publication")
@@ -181,6 +181,7 @@ GR_PERMISSIONS_SETTINGS = {
             ),
             ("journal-read", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
+            ("legal-submissions-write", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
@@ -217,6 +218,7 @@ GR_PERMISSIONS_SETTINGS = {
             # ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),  # needs to be commented out otherwise module is shown in portal
             ("journal-read", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
+            ("legal-submissions-write", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("permissions-grant-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),

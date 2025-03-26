@@ -50,14 +50,6 @@ export default class LegalSubmissionTableComponent extends Component {
     );
   }
 
-  get colspan() {
-    const colspan = Object.keys(mainConfig.legalSubmission.columns).length;
-
-    return this.abilities.can("edit legal-submission", this.workItem.value)
-      ? colspan + 1
-      : colspan;
-  }
-
   filterOptions = trackedFunction(this, async () => {
     return await this.apollo.watchQuery({ query: filterOptionsQuery });
   });
@@ -136,6 +128,15 @@ export default class LegalSubmissionTableComponent extends Component {
     } catch {
       this.notification.danger(this.intl.t("legal-submission.loading-error"));
     }
+  });
+
+  colspan = trackedFunction(this, async () => {
+    const colspan = Object.keys(mainConfig.legalSubmission.columns).length;
+    const canEdit = await this.abilities.can(
+      "edit legal-submission",
+      this.workItem.value,
+    );
+    return canEdit ? colspan + 1 : colspan;
   });
 
   @dropTask

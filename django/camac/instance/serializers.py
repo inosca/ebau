@@ -1000,18 +1000,23 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     @get_permissions.register_old
     def _get_permissions(self, instance):
+        form_permissions = {}
+
+        for form in settings.APPLICATION.get("CALUMA", {}).get(
+            "FORM_PERMISSIONS", set()
+        ):
+            fn_name = f"_get_{form.replace('-', '_')}_form_permissions"
+            fn = getattr(self, fn_name, None)
+
+            if callable(fn):
+                form_permissions[form] = sorted(fn(instance))
+            else:  # pragma: no cover
+                # If no method is defined no permissions are granted
+                form_permissions[form] = []
+
         return {
             "case-meta": self._get_case_meta_permissions(instance),
-            **{
-                form: sorted(
-                    getattr(self, f"_get_{form.replace('-', '_')}_form_permissions")(
-                        instance
-                    )
-                )
-                for form in settings.APPLICATION.get("CALUMA", {}).get(
-                    "FORM_PERMISSIONS", set()
-                )
-            },
+            **form_permissions,
         }
 
     def get_name(self, instance):

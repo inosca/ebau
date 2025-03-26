@@ -76,7 +76,7 @@ MODULE_INFORMATION_OF_NEIGHBORS = NO_CORRECTION & RequireWorkItem(
 )
 MODULE_JOURNAL = STATES_ALL
 MODULE_LINKED_INSTANCES = STATES_ALL
-MODULE_OBJECTIONS = NO_CORRECTION & RequireWorkItem("objections")
+MODULE_LEGAL_SUBMISSIONS = NO_CORRECTION & RequireWorkItem("objections")
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
 MODULE_PUBLICATION = NO_CORRECTION & RequireWorkItem("fill-publication")
 MODULE_REJECTION = RequireInstanceState(["subm", "rejected"])
@@ -179,7 +179,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("history-read", MODULE_HISTORY),
             ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS),
             ("journal-read", MODULE_JOURNAL),
-            ("legal-submissions-read", MODULE_OBJECTIONS),
+            ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
+            ("legal-submissions-write", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("permissions-grant-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),

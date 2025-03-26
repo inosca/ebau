@@ -18,3 +18,5 @@ legal-submission:
   delete-confirm: "Cancellare davvero la rivendicazione?"
   delete-success: "La rivendicazione è stata eliminata con successo."
   delete-error: "Errore nel tentativo di eliminare la rivendicazione"
+
+  hint: ""

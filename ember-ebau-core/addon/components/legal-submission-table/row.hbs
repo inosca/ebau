@@ -25,10 +25,14 @@
         class="uk-button uk-button-link"
       >
         <UkIcon
-          @icon={{if (can "edit legal-submission" @workItem) "pencil" "eye"}}
+          @icon={{if
+            (await (can "edit legal-submission" @workItem))
+            "pencil"
+            "eye"
+          }}
         />
       </LinkTo>
-      {{#if (can "edit legal-submission" @workItem)}}
+      {{#if (await (can "edit legal-submission" @workItem))}}
         <UkButton
           @color="link"
           @loading={{this.delete.isRunning}}

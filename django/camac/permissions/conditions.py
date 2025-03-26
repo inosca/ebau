@@ -299,6 +299,7 @@ class RequireWorkItem(Check):
 
     task_id: str
     status: Optional[str] = None
+    addressed_to_current_service: Optional[bool] = False
 
     def apply(self, userinfo, instance):
         from caluma.caluma_workflow.models import WorkItem
@@ -309,6 +310,11 @@ class RequireWorkItem(Check):
 
         if self.status:
             work_items = work_items.filter(status=self.status)
+
+        if self.addressed_to_current_service:
+            work_items = work_items.filter(
+                addressed_groups__contains=[str(userinfo.service.pk)]
+            )
 
         return work_items.exists()
 

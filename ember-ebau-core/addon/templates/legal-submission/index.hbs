@@ -4,3 +4,9 @@
   @onUpdateTypes={{fn (mut this.types)}}
   @onUpdateStatus={{fn (mut this.status)}}
 />
+
+{{#if (t "legal-submission.hint")}}
+  <div class="uk-alert uk-alert-default uk-margin-remove">
+    {{t "legal-submission.hint"}}
+  </div>
+{{/if}}
