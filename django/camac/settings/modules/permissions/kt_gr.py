@@ -107,9 +107,7 @@ MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
 )
 
 ACTION_INSTANCE_CREATE_MODIFICATION = (
-    HasApplicantRole(["ADMIN"])
-    & ~RequireInstanceState(["new"])
-    & IsForm(BAUGESUCH_VERSIONS)
+    HasApplicantRole(["ADMIN"]) & STATES_POST_DECISION & IsForm(BAUGESUCH_VERSIONS)
 ) | (ROLES_MUNICIPALITY & IsPaper())
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
