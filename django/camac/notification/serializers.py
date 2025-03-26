@@ -1186,6 +1186,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_koor_bg_users(self, instance):
         return self._notify_service(uri_constants.KOOR_BG_SERVICE_ID)
 
+    def _get_recipients_koor_afj_users(self, instance):
+        return self._notify_service(uri_constants.KOOR_AFJ_SERVICE_ID)
+
     def _get_recipients_responsible_koor(self, instance):
         return self._notify_service(get_responsible_koor_service_id(instance.form.pk))
 
