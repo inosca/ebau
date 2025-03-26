@@ -33,7 +33,7 @@
         <priority>undefined</priority><!-- wird ignoriert -->
         <deadline>2020-03-15</deadline>
         <comments>
-          <ns10:comment>Anforderung einer Stellungnahme</ns10:comment><!-- wird ignoriert -->
+          <ns10:comment>Anforderung einer Stellungnahme</ns10:comment>
         </comments>
       </ns2:directive>
       <ns2:extension>
