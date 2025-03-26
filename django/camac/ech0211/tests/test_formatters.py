@@ -86,7 +86,7 @@ def test_get_documents(
     fake_request,
 ):
     application_settings["DOCUMENT_BACKEND"] = "camac-ng"
-    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
     context = {}
     if with_display_name:
         context = {"displayName": "baz"}
@@ -136,7 +136,7 @@ def test_get_alexandria_documents(
     )
 
     application_settings["DOCUMENT_BACKEND"] = "alexandria"
-    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
 
     void = MarkFactory(pk="void")
     decision = MarkFactory(pk="decision")

@@ -3,7 +3,7 @@ services:
     ports:
       - "11211:11211"
     networks:
-      - ebau.local
+      - ebau.localhost
 
   proxy:
     depends_on:
@@ -14,12 +14,12 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.local:
+      ebau.localhost:
         aliases:
-          - ebau.local
-          - ebau-portal.local
-          - ebau-rest-portal.local
-          - ebau-keycloak.local
+          - ebau.localhost
+          - ebau-portal.localhost
+          - ebau-rest-portal.localhost
+          - ebau-keycloak.localhost
 
   clamav:
     profiles:
@@ -29,7 +29,7 @@ services:
     environment:
       - ENABLE_DEFINITIONS_UPDATE=false
     networks:
-      - ebau.local
+      - ebau.localhost
 
   db:
     image: acr.run/camac-ng/camac-ng/db:master
@@ -47,7 +47,7 @@ services:
       - pgdata:/var/lib/postgresql/data
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
     networks:
-      - ebau.local
+      - ebau.localhost
     command: -c max_locks_per_transaction=128
 
   django: &django
@@ -69,7 +69,7 @@ services:
     environment:
       - ENV=development
       - APPLICATION_ENV=development
-      - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
+      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
       - ECH0211_API_ACTIVE=True
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
@@ -79,12 +79,12 @@ services:
       - DJANGO_EMAIL_PORT=1025
       - DJANGO_Q_ENABLE_SYNC=${DJANGO_Q_ENABLE_SYNC:-false}
       - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
       - MANABI_ENABLE=False
     networks:
-      - ebau.local
+      - ebau.localhost
     command: devserver
 
   # repeat definition here because otherwise prod settings are applied
@@ -96,19 +96,19 @@ services:
   ember:
     image: acr.run/camac-ng/camac-ng/ember:master
     networks:
-      - ebau.local
+      - ebau.localhost
 
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
     networks:
-      - ebau.local
+      - ebau.localhost
 
 
   unoconv:
     ports:
       - "3000:3000"
     networks:
-      - ebau.local
+      - ebau.localhost
 
   keycloak:
     depends_on:
@@ -122,11 +122,11 @@ services:
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}
       - KC_DB_PASSWORD=camac
       - KC_DB_USERNAME=camac
-      - KC_HOSTNAME=ebau-keycloak.local
+      - KC_HOSTNAME=ebau-keycloak.localhost
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=camac
     networks:
-      - ebau.local
+      - ebau.localhost
     command:
       [
         "start",
@@ -138,7 +138,7 @@ services:
   mailpit:
     image: axllent/mailpit
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       - MP_WEBROOT=mailpit
 
@@ -150,7 +150,7 @@ services:
       - MB_DB_PASS=camac
       - MB_DB_HOST=db
     networks:
-      - ebau.local
+      - ebau.localhost
 
   ftp:
     image: garethflowers/ftp-server
@@ -163,10 +163,10 @@ services:
     volumes:
       - "../.ftp-files/:/home/admin/"
     networks:
-      - ebau.local
+      - ebau.localhost
 
 networks:
-  ebau.local:
+  ebau.localhost:
 
 volumes:
   pgdata:

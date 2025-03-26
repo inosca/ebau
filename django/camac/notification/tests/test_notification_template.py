@@ -1009,7 +1009,7 @@ def test_notification_caluma_placeholders(
 ):
     # make sure that tests also run locally when INTERNAL_BASE_URL might be something else
     application_settings["INTERNAL_FRONTEND"] = "camac"
-    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
     notification_template.body = """
         BASE_URL: {{BASE_URL}}
         EBAU_NUMBER: {{EBAU_NUMBER}}

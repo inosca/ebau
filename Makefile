@@ -133,8 +133,8 @@ ember-dev: ## Set up .env and application.ini for local ember development
 ember-dev-reset: ## Set up .env and application.ini for non-local runtime (docker)
 	@if docker compose config|grep -q php; then \
 		sed -re 's/ember\.development.*/ember.development = false/' -i php/${APPLICATION}/configs/application.ini; \
-		sed -re 's/portal\.uri.*/portal.uri = http:\/\/ebau-portal.local/' -i php/${APPLICATION}/configs/application.ini; \
-		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/ebau-portal.local/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/portal\.uri.*/portal.uri = http:\/\/ebau-portal.localhost/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/ebau-portal.localhost/' -i php/${APPLICATION}/configs/application.ini; \
 		echo "Set ember.development = false in application.ini"; \
 	fi
 	@sed -i '/PORTAL_URL/d' .env

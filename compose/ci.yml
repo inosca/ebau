@@ -2,7 +2,7 @@ services:
   cache:
     image: memcached:1.6-alpine
     networks:
-      - ebau.local
+      - ebau.localhost
 
   proxy:
     image: nginx:1.27-alpine
@@ -16,7 +16,7 @@ services:
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
     networks:
-      - ebau.local
+      - ebau.localhost
 
   db:
     image: postgres:15-bullseye
@@ -28,7 +28,7 @@ services:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pg15data:/var/lib/postgresql/data
     networks:
-      - ebau.local
+      - ebau.localhost
     command: -c fsync=off -c full_page_writes=off -c synchronous_commit=off -c wal_level=minimal -c max_wal_senders=0 -c archive_mode=off -c max_locks_per_transaction=128
 
   django: &django
@@ -75,7 +75,7 @@ services:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
     networks:
-      - ebau.local
+      - ebau.localhost
 
   django-q:
     <<: *django
@@ -84,7 +84,7 @@ services:
     depends_on:
       - db
     networks:
-      - ebau.local
+      - ebau.localhost
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG:-master}
@@ -99,7 +99,7 @@ services:
     depends_on:
       - django
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       - ENV=docker
 
@@ -117,7 +117,7 @@ services:
       - keycloak
       - django
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       - ENV=docker
 
@@ -132,7 +132,7 @@ services:
         WORKSPACE: ember-camac-ng
       target: prod
     networks:
-      - ebau.local
+      - ebau.localhost
 
   ember-ebau:
     image: acr.run/camac-ng/camac-ng/ember-ebau:${CI_COMMIT_REF_SLUG:-master}
@@ -145,7 +145,7 @@ services:
         WORKSPACE: ember-ebau
       target: prod
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       - ENV=docker
 
@@ -153,12 +153,12 @@ services:
   mailpit:
     image: axllent/mailpit
     networks:
-      - ebau.local
+      - ebau.localhost
 
   unoconv:
     image: zrrrzzt/docker-unoconv-webservice:8.9.4
     networks:
-      - ebau.local
+      - ebau.localhost
 
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_REF_SLUG:-master}
@@ -172,11 +172,11 @@ services:
       - KC_DB_PASSWORD=camac
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
       - KC_DB_USERNAME=camac
-      - KC_HOSTNAME=ebau-keycloak.local
+      - KC_HOSTNAME=ebau-keycloak.localhost
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=camac
     networks:
-      - ebau.local
+      - ebau.localhost
 
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_REF_SLUG:-master}
@@ -190,7 +190,7 @@ services:
       - db
       - cache
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       - ENV=dev
       - CACHE_LOCATION=cache:11211
@@ -198,7 +198,7 @@ services:
       - DATABASE_NAME=kt_bern
       - DATABASE_USER=camac
       - DATABASE_PASSWORD=camac
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
       - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
 
@@ -210,4 +210,4 @@ volumes:
   templatefiles:
 
 networks:
-  ebau.local:
+  ebau.localhost:

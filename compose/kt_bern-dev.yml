@@ -2,7 +2,7 @@ services:
   cache:
     image: memcached:1.6-alpine
     networks:
-      - ebau.local
+      - ebau.localhost
 
   proxy:
     image: nginx:1.27-alpine
@@ -21,12 +21,12 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.local:
+      ebau.localhost:
         aliases:
-          - ebau.local
-          - ebau-portal.local
-          - ebau-rest-portal.local
-          - ebau-keycloak.local
+          - ebau.localhost
+          - ebau-portal.localhost
+          - ebau-rest-portal.localhost
+          - ebau-keycloak.localhost
 
   db:
     image: postgres:15-bullseye
@@ -41,7 +41,7 @@ services:
       - pg15data:/var/lib/postgresql/data
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
     networks:
-      - ebau.local
+      - ebau.localhost
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -80,11 +80,11 @@ services:
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
       ENABLE_HISTORICAL_API: "true"
       ENV: development
-      KEYCLOAK_URL: http://ebau-keycloak.local/auth/
+      KEYCLOAK_URL: http://ebau-keycloak.localhost/auth/
       LANGUAGE_CODE: de
       LANGUAGES: de,fr
       OAUTHLIB_INSECURE_TRANSPORT: 1
-      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       PYTHONDONTWRITEBYTECODE: 1
       # GWR
       GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
@@ -98,7 +98,7 @@ services:
       VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
       VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibilityBE
     networks:
-      - ebau.local
+      - ebau.localhost
     tty: true
     stdin_open: true
     # running hurricane with autoreload in dev to mimic production env
@@ -130,7 +130,7 @@ services:
         - KEYCLOAK_HOST
         - PORTAL_URL
     networks:
-      - ebau.local
+      - ebau.localhost
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
@@ -143,7 +143,7 @@ services:
         # BE_GIS_URL defaults to the prod instance
         - BE_GIS_URL=https://map2-test.apps.be.ch
     networks:
-      - ebau.local
+      - ebau.localhost
 
 
   keycloak:
@@ -161,11 +161,11 @@ services:
       KC_DB_PASSWORD: camac
       KC_DB_URL: jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
       KC_DB_USERNAME: camac
-      KC_HOSTNAME: ebau-keycloak.local
+      KC_HOSTNAME: ebau-keycloak.localhost
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: camac
     networks:
-      - ebau.local
+      - ebau.localhost
     command:
       [
         "start",
@@ -177,7 +177,7 @@ services:
   mailpit:
     image: axllent/mailpit
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       MP_WEBROOT: mailpit
 
@@ -193,7 +193,7 @@ services:
     ports:
       - "3310:3310"
     networks:
-      - ebau.local
+      - ebau.localhost
 
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:master
@@ -201,7 +201,7 @@ services:
       - db
       - cache
     networks:
-      - ebau.local
+      - ebau.localhost
     cap_add:
       - CAP_SYS_ADMIN
     security_opt:
@@ -209,7 +209,7 @@ services:
     environment:
       ENV: dev
       ISOLATE_UNOCONV: "true"
-      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       CACHE_LOCATION: cache:11211
       DATABASE_HOST: db
       DATABASE_NAME: ${APPLICATION}
@@ -230,7 +230,7 @@ services:
       ]
 
 networks:
-  ebau.local:
+  ebau.localhost:
 
 volumes:
   pg15data:

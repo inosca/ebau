@@ -612,7 +612,7 @@ module.exports = function (environment) {
   const {
     // Defaults only apply when run with ember dev server or when the image is
     // not built with KEYCLOAK_* build arguments
-    KEYCLOAK_HOST = "http://ebau-keycloak.local",
+    KEYCLOAK_HOST = "http://ebau-keycloak.localhost",
     KEYCLOAK_BASE_PATH = "auth/",
     KEYCLOAK_REALM = app === "kt_uri" ? "urec" : "ebau",
     KEYCLOAK_CLIENT = "portal",
@@ -627,8 +627,8 @@ module.exports = function (environment) {
   const internalURL =
     process.env.INTERNAL_URL ||
     (appConfig.internalFrontend === "camac"
-      ? "http://ebau.local"
-      : "http://ember-ebau.local");
+      ? "http://ebau.localhost"
+      : "http://ember-ebau.localhost");
   const beGisUrl = process.env.BE_GIS_URL || "https://www.map.apps.be.ch";
   const urGisUrl = process.env.UR_GIS_URL || "https://geo.ur.ch/wms";
 

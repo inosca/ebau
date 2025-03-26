@@ -10,7 +10,7 @@
   	<ns1:status>created</ns1:status>
   	<ns1:files>
   		<ns1:file>
-  			<ns1:pathFileName>http://ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:pathFileName>http://ebau.localhost/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
   			<ns1:mimeType>model/mesh</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>
@@ -30,7 +30,7 @@
   	<ns1:status>approved</ns1:status>
   	<ns1:files>
   		<ns1:file>
-  			<ns1:pathFileName>http://ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:pathFileName>http://ebau.localhost/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
   			<ns1:mimeType>text/css</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>
@@ -50,7 +50,7 @@
   	<ns1:status>invalidated</ns1:status>
   	<ns1:files>
   		<ns1:file>
-  			<ns1:pathFileName>http://ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:pathFileName>http://ebau.localhost/ech/v1/files/<!-- ATTACHMENT_ID --></ns1:pathFileName>
   			<ns1:mimeType>image/svg+xml</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>
@@ -89,7 +89,7 @@
   	<ns1:status>signed</ns1:status>
   	<ns1:files>
   		<ns1:file>
-  			<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
   			<ns1:mimeType>application/pdf</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>
@@ -109,7 +109,7 @@
   	<ns1:status>signed</ns1:status>
   	<ns1:files>
   		<ns1:file>
-  			<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
   			<ns1:mimeType>application/pdf</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>
@@ -129,7 +129,7 @@
   	<ns1:status>signed</ns1:status>
   	<ns1:files>
   		<ns1:file>
-  			<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
   			<ns1:mimeType>application/pdf</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>
@@ -168,7 +168,7 @@
   	<ns1:status>signed</ns1:status>
   	<ns1:files>
   		<ns1:file>
-  			<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
   			<ns1:mimeType>application/pdf</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>
@@ -188,7 +188,7 @@
   	<ns1:status>signed</ns1:status>
   	<ns1:files>
   		<ns1:file>
-  			<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
   			<ns1:mimeType>application/pdf</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>
@@ -208,7 +208,7 @@
   	<ns1:status>signed</ns1:status>
   	<ns1:files>
   		<ns1:file>
-  			<ns1:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
+  			<ns1:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns1:pathFileName>
   			<ns1:mimeType>application/pdf</ns1:mimeType>
   		</ns1:file>
   	</ns1:files>

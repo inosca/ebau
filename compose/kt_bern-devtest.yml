@@ -3,7 +3,7 @@ services:
   cache:
     image: memcached:1.6-alpine
     networks:
-      - ebau.local
+      - ebau.localhost
 
   proxy:
     image: nginx:1.27-alpine
@@ -25,7 +25,7 @@ services:
       VIRTUAL_HOST: vm-adfch-devtest-test-westeurope-infra-01.tux42.ch,internal.vm-adfch-devtest-test-westeurope-infra-01.tux42.ch,portal.vm-adfch-devtest-test-westeurope-infra-01.tux42.ch
       VIRTUAL_PORT: 80
     networks:
-      - ebau.local
+      - ebau.localhost
 
   nginx-proxy:
     image: ${DOCKER_REGISTRY:-docker.io/nginxproxy}/nginx-proxy:1.6.0
@@ -38,12 +38,12 @@ services:
       - "80:80"
       - "443:443"
     networks:
-      ebau.local:
+      ebau.localhost:
         aliases:
-          - ebau.local
-          - ebau-portal.local
-          - ebau-rest-portal.local
-          - ebau-keycloak.local
+          - ebau.localhost
+          - ebau-portal.localhost
+          - ebau-rest-portal.localhost
+          - ebau-keycloak.localhost
 
   nginx-proxy-acme:
     image: ${DOCKER_REGISTRY:-docker.io/nginxproxy}/acme-companion:2.4.0
@@ -55,7 +55,7 @@ services:
     environment:
       DEFAULT_EMAIL: david.vogt@adfinis.com
     networks:
-      - ebau.local
+      - ebau.localhost
   db:
     image: postgres:15-bullseye
     shm_size: 1g
@@ -68,7 +68,7 @@ services:
       - pg15data:/var/lib/postgresql/data
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
     networks:
-      - ebau.local
+      - ebau.localhost
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -122,7 +122,7 @@ services:
       VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibilityBE
       GIS_BASE_URL: https://www.geoservice.apps.be.ch
     networks:
-      - ebau.local
+      - ebau.localhost
     tty: true
     stdin_open: true
 
@@ -146,7 +146,7 @@ services:
         - KEYLCOAK_REALM
         - PORTAL_URL=https://portal.vm-adfch-devtest-test-westeurope-infra-01.tux42.ch/
     networks:
-      - ebau.local
+      - ebau.localhost
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
@@ -158,7 +158,7 @@ services:
         - INTERNAL_URL=https://internal.vm-adfch-devtest-test-westeurope-infra-01.tux42.ch/
         - BE_GIS_URL=https://www.map.apps.be.ch
     networks:
-      - ebau.local
+      - ebau.localhost
 
 
   keycloak:
@@ -181,7 +181,7 @@ services:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: camac
     networks:
-      - ebau.local
+      - ebau.localhost
     command:
       [
         "start",
@@ -193,7 +193,7 @@ services:
   mailpit:
     image: axllent/mailpit
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       MP_WEBROOT: mailpit
 
@@ -203,7 +203,7 @@ services:
       - db
       - cache
     networks:
-      - ebau.local
+      - ebau.localhost
     cap_add:
       - CAP_SYS_ADMIN
     security_opt:
@@ -232,7 +232,7 @@ services:
       ]
 
 networks:
-  ebau.local:
+  ebau.localhost:
     external: true
 
 volumes:

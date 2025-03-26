@@ -3,7 +3,7 @@ services:
     ports:
       - "11211:11211"
     networks:
-      - ebau.local
+      - ebau.localhost
 
   proxy:
     volumes:
@@ -14,17 +14,17 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.local:
+      ebau.localhost:
         aliases:
-          - ebau.local
-          - ebau-portal.local
-          - ebau-rest-portal.local
-          - ebau-keycloak.local
+          - ebau.localhost
+          - ebau-portal.localhost
+          - ebau-rest-portal.localhost
+          - ebau-keycloak.localhost
 
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
     networks:
-      - ebau.local
+      - ebau.localhost
 
   clamav:
     profiles:
@@ -34,7 +34,7 @@ services:
     environment:
       - ENABLE_DEFINITIONS_UPDATE=false
     networks:
-      - ebau.local
+      - ebau.localhost
 
   db:
     # Workaround, same name of image as cache_from
@@ -49,7 +49,7 @@ services:
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
     networks:
-      - ebau.local
+      - ebau.localhost
 
   django:
     image: acr.run/camac-ng/camac-ng/django:master
@@ -67,18 +67,18 @@ services:
     environment:
       - ENV=development
       - APPLICATION_ENV=development
-      - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
+      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
       - DATABASE_PASSWORD=camac
       - DATABASE_USER=camac
       - DJANGO_EMAIL_HOST=mailpit
       - DJANGO_EMAIL_PORT=1025
       - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/urec/protocol/openid-connect/userinfo
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/urec/protocol/openid-connect/userinfo
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
       - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
     networks:
-      - ebau.local
+      - ebau.localhost
     command: devserver
 
   ember-caluma-portal:
@@ -86,13 +86,13 @@ services:
     environment:
       ENABLE_WATERMARK: true
     networks:
-      - ebau.local
+      - ebau.localhost
 
 
   mailpit:
     image: axllent/mailpit
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       - MP_WEBROOT=mailpit
 
@@ -107,11 +107,11 @@ services:
     environment:
       - KC_DB_PASSWORD=camac
       - KC_DB_USERNAME=camac
-      - KC_HOSTNAME=ebau-keycloak.local
+      - KC_HOSTNAME=ebau-keycloak.localhost
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=camac
     networks:
-      - ebau.local
+      - ebau.localhost
     command:
       [
         "start",
@@ -123,7 +123,7 @@ services:
   document-merge-service:
     image: acr.run/camac-ng/camac-ng/document-merge-service:master
     networks:
-      - ebau.local
+      - ebau.localhost
     cap_add:
       - CAP_SYS_ADMIN
     security_opt:
@@ -131,7 +131,7 @@ services:
     environment:
       - ENV=dev
       - ISOLATE_UNOCONV=true
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/urec/protocol/openid-connect/userinfo
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/urec/protocol/openid-connect/userinfo
       - CACHE_LOCATION=cache:11211
       - DATABASE_HOST=db
       - DATABASE_NAME=camac
@@ -153,4 +153,4 @@ services:
       ]
 
 networks:
-  ebau.local:
+  ebau.localhost:

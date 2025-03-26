@@ -98,7 +98,7 @@
       "user": 1,
       "created_at": "2020-11-23T13:34:42.342Z",
       "title": "Notifikation gesendet an test@test.test ([eBau Test]: Sie wurden Eingeladen ein Baugesuch mitzubearbeiten)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu können, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link können Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://ebau-portal.localhost/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu können, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.localhost/auth/realms/ebau/login-actions/registration?client_id=camac",
       "history_type": "notification"
     }
   },
@@ -276,7 +276,7 @@
     "pk": 1,
     "fields": {
       "title": "Notifikation gesendet an test@test.test ([eBau Test]: Sie wurden Eingeladen ein Baugesuch mitzubearbeiten)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu können, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link können Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://ebau-portal.localhost/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu können, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.localhost/auth/realms/ebau/login-actions/registration?client_id=camac",
       "history_entry": 1,
       "language": "de"
     }
@@ -286,7 +286,7 @@
     "pk": 2,
     "fields": {
       "title": "Notification envoyée à test@test.test ([eBau Test]: Sie wurden Eingeladen ein Baugesuch mitzubearbeiten)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://caluma-portal.local/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu können, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link können Sie sich registrieren: http://camac-ng-keycloak.local/auth/realms/ebau/login-actions/registration?client_id=camac",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nSie wurden eingeladen am Baugesuch http://ebau-portal.localhost/instances/1 mitzuarbeiten.\n\nUm das Baugesuch einsehen und bearbeiten zu können, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\nUnter folgendem Link können Sie sich registrieren: http://ebau-keycloak.localhost/auth/realms/ebau/login-actions/registration?client_id=camac",
       "history_entry": 1,
       "language": "fr"
     }

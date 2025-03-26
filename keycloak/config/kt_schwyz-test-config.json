@@ -3744,15 +3744,15 @@
         "alwaysDisplayInConsole": false,
         "clientAuthenticatorType": "client-secret",
         "redirectUris": [
-          "http://ember-ebau.local/*",
+          "http://ember-ebau.localhost/*",
           "http://localhost:4200/*",
           "http://localhost:4300/*",
-          "http://ebau.local/*"
+          "http://ebau.localhost/*"
         ],
         "webOrigins": [
           "http://localhost:4300",
-          "http://ebau.local",
-          "http://ember-ebau.local",
+          "http://ebau.localhost",
+          "http://ember-ebau.localhost",
           "http://localhost:4200"
         ],
         "notBefore": 0,
@@ -4071,17 +4071,17 @@
         "description": "",
         "rootUrl": "",
         "adminUrl": "",
-        "baseUrl": "http://ebau-rest-portal.local/",
+        "baseUrl": "http://ebau-rest-portal.localhost/",
         "surrogateAuthRequired": false,
         "enabled": true,
         "alwaysDisplayInConsole": false,
         "clientAuthenticatorType": "client-secret",
         "redirectUris": [
           "http://localhost:4200/*",
-          "http://ebau-rest-portal.local/*"
+          "http://ebau-rest-portal.localhost/*"
         ],
         "webOrigins": [
-          "http://ebau-rest-portal.local",
+          "http://ebau-rest-portal.localhost",
           "http://localhost:4200"
         ],
         "notBefore": 0,
@@ -5012,7 +5012,7 @@
       "auth": "",
       "port": "1025",
       "host": "mailpit",
-      "from": "info@ebau.local",
+      "from": "info@ebau.localhost",
       "ssl": ""
     },
     "loginTheme": "kanton-schwyz-dev",

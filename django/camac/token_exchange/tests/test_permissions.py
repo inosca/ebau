@@ -96,7 +96,7 @@ def test_require_lot_permission_graphql(
     )
     mocker.patch("camac.user.permissions.get_role_name", return_value=role_name)
 
-    settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.local"
+    settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.localhost"
 
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token", X_CAMAC_GROUP=group.pk)
 
