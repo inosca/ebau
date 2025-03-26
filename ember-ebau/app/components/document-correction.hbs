@@ -1,0 +1,63 @@
+<div>
+  <p class="uk-text-large">{{t "corrections.document.title"}}</p>
+  {{#if (can "finish correct instance" @instance)}}
+    <p>
+      {{t "corrections.document.description-finish-start"}}
+      <LinkTo @route="cases.detail.form" @model={{@instance}}>
+        {{t "corrections.document.description-finish-link"}}
+      </LinkTo>
+      {{t "corrections.document.description-finish-end"}}
+    </p>
+    {{#if this.document.isLoading}}
+      <UkSpinner @ratio={{1}} />
+    {{else if this.document.value}}
+      <DocumentValidity
+        @document={{this.document.value}}
+        @validateOnEnter={{true}}
+        as |isValid validate|
+      >
+        {{#if this.invalidFields.length}}
+          <div class="uk-alert uk-alert-danger uk-animation-fade">
+            <div class="uk-flex-inline uk-flex-middle uk-text-bold">
+              <UkIcon @icon="warning" class="uk-margin-small-right" />
+              {{t "document-validity-button.error"}}
+            </div>
+            <ul class="uk-list uk-list-bullet">
+              {{#each this.invalidFields as |invalidField|}}
+                <li>
+                  <LinkTo
+                    @route="cases.detail.form"
+                    @model={{@instance}}
+                    @query={{hash
+                      displayedForm=invalidField.fieldset.form.slug
+                    }}
+                  >{{invalidField.question.raw.label}}</LinkTo>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        {{/if}}
+        <UkButton
+          @color="primary"
+          @label={{t "corrections.document.button-finish"}}
+          @onClick={{fn this.finishCorrection.perform validate}}
+          @disabled={{or this.documentCorrection.isRunning (not isValid)}}
+        />
+      </DocumentValidity>
+    {{/if}}
+  {{else}}
+    <p>{{t "corrections.document.description" htmlSafe=true}}</p>
+    <UkButton
+      @color="primary"
+      @label={{t "corrections.document.button"}}
+      @onClick={{this.startCorrection.perform}}
+      @disabled={{or
+        this.documentCorrection.isRunning
+        (cannot "correct instance" @instance)
+      }}
+    />
+    {{#if (cannot "correct instance" @instance)}}
+      <p class="uk-text-muted">{{t "corrections.not-available"}}</p>
+    {{/if}}
+  {{/if}}
+</div>
