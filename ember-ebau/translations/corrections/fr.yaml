@@ -3,6 +3,19 @@ corrections:
     title: "Corriger un dossier"
     description: "Veuillez noter que la correction de dossier n'est destinée qu'aux modifications mineures. Veuillez vérifier si, le cas échéant, un renvoi serait approprié.<br><br>Souhaitez-vous poursuivre la correction du dossier?"
     button: "Corriger"
+    description-finish-start: ""
+    description-finish-link: ""
+    description-finish-end: ""
+    button-finish: ""
 
     confirm: "Voulez-vous vraiment corriger le dossier ?"
     error: "Erreur lors de la correction du dossier"
+    confirm-finish: ""
+    invalid: ""
+
+  withdraw:
+    title: ""
+    description: ""
+    confirm: ""
+    success: ""
+    error: ""
