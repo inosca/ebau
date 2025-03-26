@@ -1017,7 +1017,7 @@ class InstanceView(
             fields = fields.split(",")
 
         try:
-            data = MasterData(instance.case).to_dict(fields=fields)
+            data = MasterData.from_case_id(instance.case_id).to_dict(fields=fields)
         except AttributeError as e:
             raise ValidationError(str(e)) from e
 

@@ -1,15 +1,16 @@
 from dataclasses import dataclass, field
 from logging import getLogger
 from operator import attrgetter
-from typing import List, Optional
+from typing import List, Optional, TypeVar
+from uuid import UUID
 
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.structure import FastLoader
 from caluma.caluma_form.validators import DocumentValidator
-from caluma.caluma_workflow.models import Case
+from caluma.caluma_workflow.models import Case, WorkItem
 from dateutil.parser import ParserError, parse as dateutil_parse
 from django.conf import settings
-from django.db.models import QuerySet
+from django.db.models import Prefetch, QuerySet
 from django.utils.translation import get_language
 
 from camac.core.models import MultilingualModel
@@ -17,12 +18,39 @@ from camac.utils import get_dict_item
 
 log = getLogger(__name__)
 
+T = TypeVar("T", bound="MasterData")
+
 
 @dataclass
 class MasterData(object):
+    """Helper class to access common information on a case (municipality, dossier number, etc.).
+
+    Master data should be used to access common information of a case in the
+    codebase to avoid duplicated code. The properties of this class can be
+    configured per canton in the respective settings modules:
+    `camac/settings/modules/master_data.py`.
+
+    To get an instance of master data, in most cases it makes sense to use the
+    factory method `.from_case_id` which will prefetch most of the related data
+    needed for populating the data. It can also be instantiated via regular
+    constructor (`MasterData(my_case)`). However, this only makes sense if you
+    are sure that you only need a single property of master data and performance
+    doesn't matter that much (so only actions, no list or detail views).
+
+    If you use master data in a list view, make sure to prefetch your queryset
+    using `.prefetch_entities_for_queryset` and use the constructor directly in
+    combination with the `MultipleCaseMasterdata` class. An example for this is
+    the `camac.instance.views.PublicCalumaInstanceView`.
+    """
+
     case: Case
     validation_context: dict = field(default_factory=dict)
     _fastloader: Optional[FastLoader] = field(default=None)
+
+    @classmethod
+    def from_case_id(cls, case_id: UUID) -> T:
+        queryset = MasterData.prefetch_entities_for_queryset(Case.objects)
+        return MasterData(queryset.get(pk=case_id))
 
     def __getattr__(self, lookup_key):
         config = get_dict_item(
@@ -724,15 +752,28 @@ class MasterData(object):
         return config[1]
 
     @staticmethod
-    def prefetch_entities_for_queryset(queryset: QuerySet) -> QuerySet:
+    def prefetch_entities_for_queryset(queryset: QuerySet[Case]) -> QuerySet[Case]:
+        """Prefetch and select related data used in master data for a case.
+
+        This analyzes the master data config and adds the needed (depending on
+        which resolvers are used) `prefetch_related` and `select_related`
+        statements to the passed queryset to reduce queries triggered by master
+        data.
+        """
+
         prefetch_related = set()
         select_related = set()
 
         if not settings.MASTER_DATA:
             return queryset
 
-        all_resolvers = set(
-            [config[0] for config in settings.MASTER_DATA["CONFIG"].values()]
+        config = settings.MASTER_DATA["CONFIG"].values()
+        all_resolvers = set([prop[0] for prop in config])
+        uses_work_items = any(
+            isinstance(property_config[2], dict)
+            and "document_from_work_item" in property_config[2]
+            for property_config in config
+            if len(property_config) > 2
         )
 
         if "form_name" in all_resolvers:
@@ -757,10 +798,30 @@ class MasterData(object):
             prefetch_related.add("instance__fields")
         if "php_answer" in all_resolvers:
             prefetch_related.add("instance__answers")
-        if "first_workflow_entry" in all_resolvers or "last_workflow_entry":
+        if (
+            "first_workflow_entry" in all_resolvers
+            or "last_workflow_entry" in all_resolvers
+        ):
             prefetch_related.add("instance__workflowentry_set")
         if "instance_property" in all_resolvers:
             select_related.update(["instance", "instance__form"])
+        if uses_work_items:
+            if "work_items" in prefetch_related:
+                prefetch_related.remove("work_items")
+
+            # Prefetch all work items of the case including data of the related
+            # document to reduce queries in the `get_validation_context` method
+            # of the `DocumentValidator`
+            prefetch_related.add(
+                Prefetch(
+                    "work_items",
+                    queryset=WorkItem.objects.select_related(
+                        "document",
+                        "document__family",
+                        "document__form",
+                    ),
+                )
+            )
 
         return queryset.select_related(*select_related).prefetch_related(
             *prefetch_related
