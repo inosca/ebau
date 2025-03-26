@@ -1363,14 +1363,21 @@ def test_recipient_type_koor_users(
 ):
     koor_bg = service_factory()
     koor_np = service_factory()
+    koor_afj = service_factory()
     instance_bg = instance_factory()
     instance_np = instance_factory()
+    instance_afj = instance_factory()
 
     mocker.patch("camac.constants.kt_uri.KOOR_BG_SERVICE_ID", koor_bg.pk)
     mocker.patch("camac.constants.kt_uri.KOOR_NP_SERVICE_ID", koor_np.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_AFJ_SERVICE_ID", koor_afj.pk)
     mocker.patch(
         "camac.constants.kt_uri.RESPONSIBLE_KOORS",
-        {koor_bg.pk: [instance_bg.form.pk], koor_np.pk: [instance_np.form.pk]},
+        {
+            koor_bg.pk: [instance_bg.form.pk],
+            koor_np.pk: [instance_np.form.pk],
+            koor_afj.pk: [instance_afj.form.pk],
+        },
     )
 
     serializer = serializers.NotificationTemplateSendmailSerializer()
@@ -1378,15 +1385,21 @@ def test_recipient_type_koor_users(
     # instance / form doesn't matter
     bg_recipients = serializer._get_recipients_koor_bg_users(instance_bg)
     np_recipients = serializer._get_recipients_koor_np_users(instance_bg)
+    afj_recipients = serializer._get_recipients_koor_afj_users(instance_bg)
 
     # instance / form matters
     responsible_recipients_bg = serializer._get_recipients_responsible_koor(instance_bg)
     responsible_recipients_np = serializer._get_recipients_responsible_koor(instance_np)
+    responsible_recipients_afj = serializer._get_recipients_responsible_koor(
+        instance_afj
+    )
 
     assert bg_recipients == [{"to": koor_bg.email}]
     assert np_recipients == [{"to": koor_np.email}]
+    assert afj_recipients == [{"to": koor_afj.email}]
     assert responsible_recipients_bg == [{"to": koor_bg.email}]
     assert responsible_recipients_np == [{"to": koor_np.email}]
+    assert responsible_recipients_afj == [{"to": koor_afj.email}]
 
 
 @pytest.mark.parametrize("group__name", ["Lisag"])
