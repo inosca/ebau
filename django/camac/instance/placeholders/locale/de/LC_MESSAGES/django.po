@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-18 09:27+0100\n"
+"POT-Creation-Date: 2025-03-27 14:30+0100\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2422,12 +2422,24 @@ msgid "FOREIGN_NEIGHBORS"
 msgstr "AUSWAERTIGE_ANSTOESSER"
 
 #: camac/instance/placeholders/serializers.py
+msgid "Foreign neighbors"
+msgstr "Auswärtige Anstösser"
+
+#: camac/instance/placeholders/serializers.py
 msgid "INFORMATION_OF_FOREIGN_NEIGHBORS_LINK"
 msgstr "INFORMATION_AUSWAERTIGE_ANSTOESSER_LINK"
 
 #: camac/instance/placeholders/serializers.py
+msgid "Link to access the dossier as foreign neighbor"
+msgstr "Link um das Dossier als auswärtiger Anstösser anzusehen"
+
+#: camac/instance/placeholders/serializers.py
 msgid "INFORMATION_OF_FOREIGN_NEIGHBORS_QR_CODE"
 msgstr "INFORMATION_AUSWAERTIGE_ANSTOESSER_QR_CODE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "QR code to access the dossier as foreign neighbor"
+msgstr "QR Code um das Dossier als auswärtiger Anstösser anzusehen"
 
 #: camac/instance/placeholders/serializers.py
 msgid "FURTHER_AFFECTED_MUNICIPALITIES"

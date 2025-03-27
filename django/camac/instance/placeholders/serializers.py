@@ -2109,14 +2109,17 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     auswaertige_anstoesser = fields.InformationOfNeighborsField(
         type="neighbors",
         aliases=[_("FOREIGN_NEIGHBORS")],
+        description=_("Foreign neighbors"),
     )
     information_auswaertige_anstoesser_link = fields.InformationOfNeighborsField(
         type="link",
         aliases=[_("INFORMATION_OF_FOREIGN_NEIGHBORS_LINK")],
+        description=_("Link to access the dossier as foreign neighbor"),
     )
     information_auswaertige_anstoesser_qr_code = fields.InformationOfNeighborsField(
         type="qr_code",
         aliases=[_("INFORMATION_OF_FOREIGN_NEIGHBORS_QR_CODE")],
+        description=_("QR code to access the dossier as foreign neighbor"),
     )
     nutzungszone = fields.MasterDataField(
         source="usage_zone",
