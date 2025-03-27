@@ -7,7 +7,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
 """
 
-from wsgi_common import get_dav_application, setup_environment
+from camac.wsgi_common import get_dav_application, setup_environment
 
 setup_environment()
 wsgi_dav = get_dav_application()

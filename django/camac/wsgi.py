@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
 
 from django.conf import settings
 from django.core.wsgi import get_wsgi_application
-from wsgi_common import get_dav_application, setup_environment
+
+from camac.wsgi_common import get_dav_application, setup_environment
 
 setup_environment()
 
