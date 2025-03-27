@@ -182,7 +182,7 @@ class DMSHandler:
                 "time": generated_at.strftime("%H:%M"),
             },
             "gisCoordinatesCenter": format_gis_center_coordinates(
-                graceful_get(master_data, "gis_center_coordinate", default=None)
+                graceful_get(master_data, "gis_coordinates", default=None)
             ),
         }
 
