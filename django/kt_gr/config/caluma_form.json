@@ -23714,6 +23714,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bestaetigung-fks-bestandesbau-ja",
+    "fields": {
+      "created_at": "2024-08-14T16:01:55.341Z",
+      "modified_at": "2024-08-14T16:02:21.453Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestandesbau: Die Zug\\u00e4nglichkeit f\\u00fcr die Feuerwehr nach der FKS-Richtlinie f\\u00fcr Feuerwehrzufahrten, Bewegungs- und Stellfl\\u00e4chen ist nicht gew\\u00e4hrleistet.\", \"fr\": null, \"it\": \"Edificio esistente: Non \\u00e8 garantita l'accessibilit\\u00e0 per i vigili del fuoco secondo le linee guida CSP per le strade di accesso, le aree di manovra e i parcheggi dei vigili del fuoco.\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bestaetigung-fks-richtlinie-ja",
     "fields": {
       "created_at": "2024-08-14T16:01:55.341Z",
@@ -42609,8 +42626,8 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Abgasanlagen\", \"fr\": null, \"it\": \"Dispositivi di evacuazione dei gas di scarico\"}",
       "type": "table",
-      "is_required": "true",
-      "is_hidden": "\"bauliche-veraenderungen-abgasanlage-ja\" != \"bauliche-veraenderungen-abgasanlage\"|answer",
+      "is_required": "\"bauliche-veraenderungen-abgasanlage-ja\" == \"bauliche-veraenderungen-abgasanlage\"|answer",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -71125,7 +71142,7 @@
       "label": "{\"de\": \"Neue oder bestehende Anlage?\", \"fr\": null, \"it\": \"Impianto nuovo o esistente?\"}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "\"bauliche-veraenderungen-abgasanlage-ja\" != \"bauliche-veraenderungen-abgasanlage\"|answer",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -86905,6 +86922,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-fks-richtlinie.bestaetigung-fks-bestandesbau-ja",
+    "fields": {
+      "created_at": "2024-08-14T16:02:21.505Z",
+      "modified_at": "2024-08-14T16:02:21.505Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bestaetigung-fks-richtlinie",
+      "option": "bestaetigung-fks-bestandesbau-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bestaetigung-fks-richtlinie.bestaetigung-fks-richtlinie-ja",
     "fields": {
       "created_at": "2024-08-14T16:02:21.505Z",
@@ -86915,7 +86947,7 @@
       "modified_by_group": null,
       "question": "bestaetigung-fks-richtlinie",
       "option": "bestaetigung-fks-richtlinie-ja",
-      "sort": 1
+      "sort": 2
     }
   },
   {
