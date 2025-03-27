@@ -126,7 +126,7 @@ export default class InstancesEditIndexController extends Controller {
 
     try {
       yield this.dms.generatePdf(this.editController.instance.id, {
-        template: templateMapping[config.APPLICATION.name ?? EINGABEQUITTUNG],
+        template: templateMapping[config.APPLICATION.name] ?? EINGABEQUITTUNG,
       });
     } catch (e) {
       console.error(e);
