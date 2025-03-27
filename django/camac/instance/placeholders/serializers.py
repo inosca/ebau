@@ -1275,6 +1275,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     neighbors = fields.InformationOfNeighborsField(
         type="neighbors",
         aliases=[_("NEIGHBORS")],
+        description=_("Name and address of all the neighbors"),
     )
     objections = fields.LegalSubmissionField(
         type="legal-submission-type-objection",
