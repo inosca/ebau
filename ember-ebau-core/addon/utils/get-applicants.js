@@ -30,8 +30,11 @@ export function getNames(document, questionSlug) {
         mainConfig.answerSlugs.juristicNameApplicant,
       )?.trim() ?? null;
     const isJuristic =
-      getAnswerDisplayValue(row, mainConfig.answerSlugs.isJuristicApplicant) ===
-      mainConfig.answerSlugs.isJuristicApplicantYes;
+      getAnswerDisplayValue(
+        row,
+        mainConfig.answerSlugs.isJuristicApplicant,
+        false,
+      ) === mainConfig.answerSlugs.isJuristicApplicantYes;
 
     if (isJuristic) {
       return isEmpty(juristicName) ? fullName : juristicName;
