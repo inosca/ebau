@@ -137,7 +137,7 @@ omit = [
     "setup.py",
     "form_json_helper.py",
     "camac/settings/modules/*.py",
-    "camac/wsgi.py",
+    "camac/wsgi*.py",
     "camac/core/management/commands/makemessages.py",
     "camac/fixtures/management/commands/generate_fixtures.py",
     "camac/fixtures/generated/*.py",
