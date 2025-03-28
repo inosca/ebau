@@ -155,7 +155,6 @@ services:
         # reset those args that should fall back to defaults
         # to avoid reduncancy and clerical footshots
         - KEYCLOAK_HOST=https://vm-adfch-devtest-test-westeurope-infra-01.tux42.ch/
-        - KEYCLOAK_REALM
         - INTERNAL_URL=https://internal.vm-adfch-devtest-test-westeurope-infra-01.tux42.ch/
         - BE_GIS_URL=https://www.map.apps.be.ch
     networks:

@@ -1,21 +1,37 @@
 "use strict";
 
 module.exports = function (environment) {
-  const oidcHost = process.env.KEYCLOAK_HOST ?? "http://ebau-keycloak.local";
-  const oidcBasePath = process.env.KEYCLOAK_BASE_PATH ?? "auth";
-  const oidcRealm =
-    process.env.KEYCLOAK_REALM ??
-    (process.env.APPLICATION === "kt_uri" ? "urec" : "ebau");
-  const oidcClientId = process.env.KEYCLOAK_CLIENT ?? "camac";
-  const oidcScopes = process.env.KEYCLOAK_SCOPES ?? "openid";
+  const app = process.env.APPLICATION;
 
-  function trailingSlash(url) {
-    if (!url) {
-      return "";
-    }
-    return url.replace(/\/?$/, "/");
-  }
-  const oidcUrl = `${trailingSlash(oidcHost)}${trailingSlash(oidcBasePath)}realms/${oidcRealm}`;
+  /**
+   * Build time configuration
+   *
+   * This code is used in two different scenarios:
+   *
+   * 1. When running the frontend locally, the env vars are usually not set, so
+   *    the defaults apply.
+   * 2. When running the frontend in a container, the env vars are set as build
+   *    ARGs to a static string (e.g. "$KEYCLOAK_HOST") which is replaced with
+   *    the value of the env var at _runtime_ by the entrypoint script. Keep in
+   *    mind that when this script is running (at build time), the actual value
+   *    of the env var is not known!
+   *
+   * See docs/config-mgmt.md for more information.
+   */
+  const {
+    // Defaults only apply when run with ember dev server or when the image is
+    // not built with KEYCLOAK_* build arguments
+    KEYCLOAK_HOST = "http://ebau-keycloak.local",
+    KEYCLOAK_BASE_PATH = "auth/",
+    KEYCLOAK_REALM = app === "kt_uri" ? "urec" : "ebau",
+    KEYCLOAK_CLIENT = "camac",
+    KEYCLOAK_SCOPES = "openid",
+  } = process.env;
+
+  // Since we don't know the actual value of the env var at build time, we can't
+  // strip or add any slashes here. KEYCLOAK_HOST and KEYCLOAK_BASE_PATH should
+  // both have a trailing slash.
+  const oidcUrl = `${KEYCLOAK_HOST}/${KEYCLOAK_BASE_PATH}realms/${KEYCLOAK_REALM}`;
 
   const ENV = {
     modulePrefix: "ebau",
@@ -25,8 +41,8 @@ module.exports = function (environment) {
     "changeset-validations": { rawOutput: true },
     "ember-simple-auth-oidc": {
       host: `${oidcUrl}/protocol/openid-connect`,
-      clientId: oidcClientId,
-      scope: oidcScopes,
+      clientId: KEYCLOAK_CLIENT,
+      scope: KEYCLOAK_SCOPES,
       authEndpoint: "/auth",
       tokenEndpoint: "/token",
       endSessionEndpoint: "/logout",
@@ -43,9 +59,7 @@ module.exports = function (environment) {
         en: "m/d/Y",
       },
       FLATPICKR_DATE_FORMAT_DEFAULT: "d.m.Y",
-      USE_MANDATORY_ASTERISK: ["kt_ag", "kt_gr"].includes(
-        process.env.APPLICATION,
-      ),
+      USE_MANDATORY_ASTERISK: ["kt_ag", "kt_gr"].includes(app),
     },
     apollo: {
       apiURL: "/graphql/",
