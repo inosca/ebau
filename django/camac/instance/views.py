@@ -14,7 +14,7 @@ from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast
 from django.http import HttpResponse
 from django.utils import timezone
-from django.utils.translation import gettext as _
+from django.utils.translation import get_language, gettext as _
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from generic_permissions.visibilities import VisibilityViewMixin
@@ -38,6 +38,7 @@ from camac.document.models import Attachment, AttachmentSection
 from camac.instance.domain_logic import RejectionLogic, WithdrawalLogic
 from camac.instance.master_data import MasterData, MultipleCaseMasterdata
 from camac.instance.models import FormField
+from camac.instance.utils import get_changeable_forms
 from camac.notification.utils import send_mail
 from camac.permissions import api as permissions_api
 from camac.permissions.events import Trigger
@@ -346,11 +347,18 @@ class InstanceView(
     def has_object_archive_permission_for_support(self, instance):
         return True
 
-    @permission_aware
+    @permission_switching_method
     def has_object_change_form_permission(self, instance):
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "instance-change-form"
+        )
+
+    @has_object_change_form_permission.register_old
+    @permission_aware
+    def _has_object_change_form_permission(self, instance):
         return False
 
-    def has_object_change_form_permission_for_municipality(self, instance):
+    def _has_object_change_form_permission_for_municipality(self, instance):
         is_responsible_service = (
             instance.responsible_service(filter_type="municipality")
             == self.request.group.service
@@ -360,7 +368,7 @@ class InstanceView(
 
         return is_responsible_service
 
-    def has_object_change_form_permission_for_support(self, instance):
+    def _has_object_change_form_permission_for_support(self, instance):
         return True
 
     @permission_aware
@@ -782,9 +790,13 @@ class InstanceView(
             instance=self.get_object(), data=request.data, partial=True
         )
         serializer.is_valid(raise_exception=True)
-        if perform_save:
-            serializer.save()
 
+        result = None
+        if perform_save:
+            result = serializer.save()
+
+        if isinstance(result, response.Response):
+            return result
         if status_code == status.HTTP_204_NO_CONTENT:
             return response.Response(data=None, status=status_code)
 
@@ -898,6 +910,23 @@ class InstanceView(
     @action(methods=["post"], detail=True, url_path="change-form")
     def change_form(self, request, pk=None):
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["get"], detail=True, url_path="changeable-forms")
+    def changeable_forms(self, request, pk=None):
+        instance = self.get_object()
+        forms = get_changeable_forms(instance.case.document.form_id)
+        name_key = f"name__{get_language()}"
+
+        return response.Response(
+            [
+                {"slug": form[0], "name": form[1]}
+                for form in form_models.Form.objects.filter(pk__in=forms)
+                .order_by(name_key)
+                .values_list("pk", name_key)
+            ],
+            status=status.HTTP_200_OK,
+        )
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True, url_path="fix-work-items")

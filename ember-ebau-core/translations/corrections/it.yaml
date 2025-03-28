@@ -20,3 +20,14 @@ corrections:
     confirm: "Desidera davvero ritirare il dossier?"
     success: "Il dossier è stato ritirato con successo"
     error: "Errore nel tentativo di ritirare il dossier"
+
+  change-form:
+    title:
+    description:
+    not-possible:
+    form-label:
+    label:
+    confirm:
+    error:
+    success:
+    invalid-form-hint:

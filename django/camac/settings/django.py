@@ -3415,6 +3415,7 @@ BAB = load_module_settings("bab")
 PROJECT_MODIFICATION = load_module_settings("project_modification")
 USER = load_module_settings("user")
 SERVICE = load_module_settings("service")
+CHANGE_FORM = load_module_settings("change_form")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

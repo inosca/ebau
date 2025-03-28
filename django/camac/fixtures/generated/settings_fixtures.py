@@ -271,6 +271,66 @@ def sz_billing_settings(settings, request):
 
 
 @pytest.fixture
+def change_form_settings(settings, request):
+    """Module-specific settings for change form (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="change_form",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_change_form_settings(settings, request):
+    """Disable the change form module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="change_form",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def be_change_form_settings(settings, request):
+    """Module-specific settings for change form (canton BE)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="change_form",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def sz_change_form_settings(settings, request):
+    """Module-specific settings for change form (canton SZ)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="change_form",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ag_change_form_settings(settings, request):
+    """Module-specific settings for change form (canton AG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="change_form",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def communications_settings(settings, request):
     """Module-specific settings for communications (default)."""
     return generate_module_settings(

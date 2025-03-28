@@ -56,11 +56,16 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  get canChangeForm() {
+  async canChangeForm() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "instance-change-form",
+      );
+    }
+
     return (
-      (this.ebauModules.isSupportRole ||
-        this.ebauModules.isMunicipalityLeadRole) &&
-      mainConfig.interchangeableForms.flat().includes(this.model.calumaForm)
+      this.ebauModules.isSupportRole || this.ebauModules.isMunicipalityLeadRole
     );
   }
 

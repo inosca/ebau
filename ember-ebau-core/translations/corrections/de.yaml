@@ -21,3 +21,17 @@ corrections:
     confirm: "Sind Sie sicher, dass Sie das Dossier zurückziehen möchten?"
     success: "Das Dossier wurde erfolgreich zurückgezogen"
     error: "Fehler beim Zurückziehen des Dossiers"
+
+  change-form:
+    title: "Dossiertyp ändern"
+    description: "Hier können Sie falsche Dossiertypen korrigieren. Dies ist nur mit den Typen im Dropdown möglich."
+    not-possible: "Der Dossiertyp von diesem Dossier kann nicht geändert werden."
+    form-label: "Formular zum Ändern des Dossiertyps"
+    label: "Dossiertyp"
+    confirm: "Wollen Sie den Dossiertyp wirklich ändern?"
+    error: "Fehler beim Ändern des Dossiertyps"
+    success: "Der Dossiertyp wurde erfolgreich geändert"
+    invalid-form-hint: |-
+      <strong>Achtung:</strong> Das Formular dieses Dossiers ist nun nicht mehr
+      vollständig ausgefüllt. Sie können die fehlenden Daten mithilfe der
+      Funktion "Dossier korrigieren" ergänzen.

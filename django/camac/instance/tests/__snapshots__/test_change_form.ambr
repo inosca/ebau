@@ -1,0 +1,19 @@
+# serializer version: 1
+# name: test_changable_forms[Municipality]
+  dict({
+    'data': list([
+      dict({
+        'name': 'Baugesuch',
+        'slug': 'main-form',
+      }),
+      dict({
+        'name': 'Herbert Lübs',
+        'slug': 'song-light',
+      }),
+      dict({
+        'name': 'Nina Weller',
+        'slug': 'participant-ago',
+      }),
+    ]),
+  })
+# ---

@@ -1,0 +1,3 @@
+corrections:
+  change-form:
+    description: "Hier können Sie falsche Dossiertypen korrigieren. Dies ist nur mit den Typen '<strong'>Baugesuch'</strong'>, '<strong'>Generelles Baugesuch'</strong'> und '<strong'>Baugesuch mit UVP'</strong'> möglich."

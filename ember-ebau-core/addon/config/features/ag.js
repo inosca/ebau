@@ -24,4 +24,7 @@ export default {
   publication: {
     showMainForm: true,
   },
+  corrections: {
+    changeForm: true,
+  },
 };
