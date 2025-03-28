@@ -1,7 +1,6 @@
 import pytest
 from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
-    models as caluma_workflow_models,
 )
 from django.urls import reverse
 from django.utils.translation import override
@@ -172,14 +171,14 @@ def test_master_data_parsers(
             lf("be_master_data_settings"),
             "de",
             lf("be_master_data_case"),
-            19,
+            17,
             id="BE DE",
         ),
         pytest.param(
             lf("be_master_data_settings"),
             "fr",
             lf("be_master_data_case"),
-            19,
+            17,
             id="BE FR",
         ),
         pytest.param(
@@ -217,14 +216,14 @@ def test_master_data_parsers(
             lf("so_master_data_settings"),
             "de",
             lf("so_master_data_case"),
-            37,
+            9,
             id="SO",
         ),
         pytest.param(
             lf("ag_master_data_settings"),
             "de",
             lf("ag_master_data_case"),
-            37,
+            24,
             id="AG",
         ),
     ],
@@ -239,11 +238,7 @@ def test_master_data(
     canton_master_data_settings,
 ):
     with django_assert_num_queries(num_queries), override(language):
-        queryset = caluma_workflow_models.Case.objects.filter(pk=case.pk)
-        queryset = MasterData.prefetch_entities_for_queryset(queryset)
-        case = queryset.get(pk=case.pk)
-
-        master_data = MasterData(case)
+        master_data = MasterData.from_case_id(case.pk)
 
         assert master_data.to_dict() == snapshot(
             exclude=paths(
@@ -268,18 +263,18 @@ def test_master_data_api(
     db,
     admin_client,
     expected_status,
-    instance,
-    master_data_settings,
+    ag_instance,
+    ag_master_data_settings,
     query,
     snapshot,
 ):
-    master_data_settings["CONFIG"] = {
+    ag_master_data_settings["CONFIG"] = {
         "some_property": ("static", "Foo"),
         "some_other_property": ("static", "Bar"),
     }
 
     response = admin_client.get(
-        reverse("instance-master-data", args=[instance.pk]), data=query
+        reverse("instance-master-data", args=[ag_instance.pk]), data=query
     )
 
     assert response.status_code == expected_status

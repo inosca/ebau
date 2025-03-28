@@ -68,7 +68,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     def __init__(self, instance, *args, **kwargs):
         super().__init__(instance, *args, **kwargs)
 
-        instance._master_data = MasterData(instance.case)
+        instance._master_data = MasterData.from_case_id(instance.case_id)
 
     def get_aliased_collection(self, collection):
         return OrderedDict(
