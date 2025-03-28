@@ -1164,8 +1164,8 @@
           }
         }
       },
-      "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"Opposizioni\"}",
+      "description": "{\"de\": \"Hier k\\u00f6nnen Sie die Einsprachen und den Schriftenverkehr zur Einsprache ablegen. Keine andere Organisation hat Zugriff auf diesen Ordner (Ausnahme: ARE im BAB-Verfahren im Lesemodus).\", \"fr\": \"\", \"it\": \"Qui \\u00e8 possibile deporre le opposizioni e lo scambio degli scritti legati alle opposizioni. Nessun'altra organizzazione ha accesso a questa cartella (ad eccezione dell'UST in modalit\\u00e0 di lettura nell'ambito della procedura EFZ).\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",
       "parent": null,
