@@ -3,7 +3,7 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { dropTask, task } from "ember-concurrency";
+import { dropTask, task, timeout } from "ember-concurrency";
 import { confirm } from "ember-uikit";
 import mime from "mime";
 
@@ -29,6 +29,8 @@ export default class AlexandriaDocumentBucketComponent extends Component {
 
   @tracked attachmentLoading = [];
 
+  @tracked filesToSave = [];
+
   get allowedMimetypes() {
     return this.category.allowedMimeTypes ?? attachmentsConfig.allowedMimetypes;
   }
@@ -43,13 +45,19 @@ export default class AlexandriaDocumentBucketComponent extends Component {
     return attachmentsConfig.useConfidential;
   }
 
-  @task
-  *upload(file) {
-    return yield this.onUpload({
-      file: file.file,
+  upload = task({ restartable: true }, async (file) => {
+    this.filesToSave = [...this.filesToSave, file];
+
+    // wait and restart the task on each call to this task to add more files.
+    // once the last file is added, upload all files at once
+    await timeout(100);
+
+    await this.onUpload({
+      files: this.filesToSave.map((f) => f.file),
       bucket: this.category.get("id"),
     });
-  }
+    this.filesToSave = [];
+  });
 
   @dropTask
   *delete(attachment) {
