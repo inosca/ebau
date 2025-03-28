@@ -66,7 +66,11 @@ from camac.sanctions import factories as sanction_factories
 from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
 from camac.settings.utils import get_enabled_modules_for_canton
 from camac.tags import factories as tags_factories
-from camac.tests.data import ag_personal_row_factory, so_personal_row_factory
+from camac.tests.data import (
+    ag_personal_row_factory,
+    so_fill_cantonal_exam,
+    so_personal_row_factory,
+)
 from camac.user import factories as user_factories
 from camac.user.models import Group, User
 from camac.utils import build_url
@@ -1354,6 +1358,7 @@ def so_master_data_case(
     db,
     caluma_dynamic_option_factory,
     caluma_question_factory,
+    caluma_work_item_factory,
     master_data_is_visible_mock,
     so_instance,
     utils,
@@ -1562,6 +1567,16 @@ def so_master_data_case(
             {"tiefbau-siedlung-art": "tiefbau-siedlung-art-spielplaetze"},
         ],
     )
+
+    # Decision
+    decision = caluma_work_item_factory(task_id="decision", case=so_instance.case)
+    utils.add_answer(decision.document, "entscheid-datum", date(2025, 3, 26))
+
+    # Cantonal exam
+    cantonal_exam = caluma_work_item_factory(
+        task_id="material-exam-bab", case=so_instance.case
+    )
+    so_fill_cantonal_exam(cantonal_exam.document, utils)
 
     return so_instance.case
 

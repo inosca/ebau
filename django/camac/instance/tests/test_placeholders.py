@@ -27,7 +27,11 @@ from camac.instance.placeholders.utils import (
     get_yes_no,
     human_readable_date,
 )
-from camac.tests.data import ag_personal_row_factory, so_personal_row_factory
+from camac.tests.data import (
+    ag_personal_row_factory,
+    so_fill_cantonal_exam,
+    so_personal_row_factory,
+)
 
 
 @pytest.fixture
@@ -581,6 +585,12 @@ def test_dms_placeholders_so(
     inquiry.case.parent_work_item.closed_at = make_aware(faker.Faker().date_time())
     inquiry.case.parent_work_item.status = WorkItem.STATUS_COMPLETED
     inquiry.case.parent_work_item.save()
+
+    # Cantonal exam
+    cantonal_exam = caluma_work_item_factory(
+        task_id="material-exam-bab", case=so_instance.case
+    )
+    so_fill_cantonal_exam(cantonal_exam.document, utils)
 
     url = reverse("instance-dms-placeholders", args=[so_instance.pk])
 

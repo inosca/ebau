@@ -2815,29 +2815,31 @@ MASTER_DATA = {
                     "prop": "label",
                 },
             ),
-            "bab_suspension_reason": (
-                "answer",
-                "mp-bab-sistierungsgrund",
+            "bab_suspensions": (
+                "table",
+                "mp-bab-grund-der-sistierung",
                 {
                     "document_from_work_item": "material-exam-bab",
-                    "value_parser": "option",
-                    "prop": "label",
-                },
-            ),
-            "bab_suspended_from": (
-                "answer",
-                "mp-bab-sistiert-von",
-                {
-                    "document_from_work_item": "material-exam-bab",
-                    "value_key": "date",
-                },
-            ),
-            "bab_suspended_until": (
-                "answer",
-                "mp-bab-sistiert-bis",
-                {
-                    "document_from_work_item": "material-exam-bab",
-                    "value_key": "date",
+                    "column_mapping": {
+                        "reason": (
+                            "mp-bab-sistierungsgrund",
+                            {"value_parser": "option", "prop": "label"},
+                        ),
+                        "start": (
+                            "mp-bab-sistiert-von",
+                            {
+                                "value_key": "date",
+                                "value_parser": "human_readable_date",
+                            },
+                        ),
+                        "end": (
+                            "mp-bab-sistiert-bis",
+                            {
+                                "value_key": "date",
+                                "value_parser": "human_readable_date",
+                            },
+                        ),
+                    },
                 },
             ),
             "bab_approval_authority": (
@@ -2858,35 +2860,29 @@ MASTER_DATA = {
                     "prop": "label",
                 },
             ),
-            "bab_entry_date": (
-                "answer",
-                "mp-bab-datum-eintrag",
+            "bab_journal": (
+                "table",
+                "mp-bab-journal-tabelle",
                 {
                     "document_from_work_item": "material-exam-bab",
-                    "value_key": "date",
-                },
-            ),
-            "bab_entry_type": (
-                "answer",
-                "mp-bab-art-des-eintrages",
-                {
-                    "document_from_work_item": "material-exam-bab",
-                    "value_parser": "option",
-                    "prop": "label",
-                },
-            ),
-            "bab_participants_present": (
-                "answer",
-                "mp-bab-beteiligte-anwesende",
-                {
-                    "document_from_work_item": "material-exam-bab",
-                },
-            ),
-            "bab_facts": (
-                "answer",
-                "mp-bab-sachverhalt",
-                {
-                    "document_from_work_item": "material-exam-bab",
+                    "column_mapping": {
+                        "date": (
+                            "mp-bab-datum-eintrag",
+                            {
+                                "value_key": "date",
+                                "value_parser": "human_readable_date",
+                            },
+                        ),
+                        "type": (
+                            "mp-bab-art-des-eintrages",
+                            {
+                                "value_parser": "option",
+                                "prop": "label",
+                            },
+                        ),
+                        "involved": "mp-bab-beteiligte-anwesende",
+                        "facts": "mp-bab-sachverhalt",
+                    },
                 },
             ),
             "bab_municipality_number_cantonal_arp": (
@@ -2914,43 +2910,33 @@ MASTER_DATA = {
                     "prop": "label",
                 },
             ),
-            "bab_protected_object_designation": (
-                "answer",
-                "mp-bab-geschuetztes-objekt-bezeichnung",
+            "bab_protected_objects": (
+                "table",
+                "mp-bab-angaben-zur-unterschutzstellung",
                 {
                     "document_from_work_item": "material-exam-bab",
-                },
-            ),
-            "bab_protected_object_authority": (
-                "answer",
-                "mp-bab-verfuegende-behoerdee",
-                {
-                    "document_from_work_item": "material-exam-bab",
-                    "value_parser": "option",
-                    "prop": "label",
-                },
-            ),
-            "bab_protected_object_decision_number": (
-                "answer",
-                "mp-bab-beschlussnummer",
-                {
-                    "document_from_work_item": "material-exam-bab",
-                },
-            ),
-            "bab_protected_object_decision_date": (
-                "answer",
-                "mp-bab-datum-beschluss",
-                {
-                    "document_from_work_item": "material-exam-bab",
-                    "value_key": "date",
-                },
-            ),
-            "bab_protected_object_order_date": (
-                "answer",
-                "mp-bab-datum-verfuegung",
-                {
-                    "document_from_work_item": "material-exam-bab",
-                    "value_key": "date",
+                    "column_mapping": {
+                        "description": "mp-bab-schutzobjekt-bezeichnung",
+                        "decision_number": "mp-bab-beschlussnummer",
+                        "decision_date": (
+                            "mp-bab-datum-beschluss",
+                            {
+                                "value_key": "date",
+                                "value_parser": "human_readable_date",
+                            },
+                        ),
+                        "disposition_date": (
+                            "mp-bab-datum-verfuegung",
+                            {
+                                "value_key": "date",
+                                "value_parser": "human_readable_date",
+                            },
+                        ),
+                        "authority": (
+                            "mp-bab-verfuegende-behoerde",
+                            {"value_parser": "option", "prop": "label"},
+                        ),
+                    },
                 },
             ),
             "bab_checklist_bab_so_according_to_rpg": (
@@ -2958,6 +2944,8 @@ MASTER_DATA = {
                 "mp-bab-checkliste-bab-so-nach-rpg",
                 {
                     "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
                 },
             ),
             "bab_decision_canton": (
@@ -2977,7 +2965,7 @@ MASTER_DATA = {
                     "value_key": "date",
                 },
             ),
-            "decision_opening_type_canton": (
+            "bab_decision_opening_type_canton": (
                 "answer",
                 "mp-bab-eroeffnungsart-des-entscheides-kanton",
                 {

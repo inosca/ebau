@@ -7461,18 +7461,6 @@
       'nested_aliases': dict({
       }),
     }),
-    'KANTONALE_PRUEFUNG_ART_DES_EINTRAGES': dict({
-      'aliases': list([
-        dict({
-          'de': 'KANTONALE_PRUEFUNG_ART_DES_EINTRAGES',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Art des Eintrages',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
     'KANTONALE_PRUEFUNG_BAUZONE': dict({
       'aliases': list([
         dict({
@@ -7493,18 +7481,6 @@
       ]),
       'description': dict({
         'de': 'Bearbeitungsstatus',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'KANTONALE_PRUEFUNG_BETEILIGTE_ANWESENDE': dict({
-      'aliases': list([
-        dict({
-          'de': 'KANTONALE_PRUEFUNG_BETEILIGTE_ANWESENDE',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Beteiligte / Anwesende',
       }),
       'nested_aliases': dict({
       }),
@@ -7541,18 +7517,6 @@
       ]),
       'description': dict({
         'de': 'Datum Eingang ARP',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'KANTONALE_PRUEFUNG_DATUM_EINTRAG': dict({
-      'aliases': list([
-        dict({
-          'de': 'KANTONALE_PRUEFUNG_DATUM_EINTRAG',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Datum Eintrag',
       }),
       'nested_aliases': dict({
       }),
@@ -7617,6 +7581,38 @@
       'nested_aliases': dict({
       }),
     }),
+    'KANTONALE_PRUEFUNG_JOURNAL': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_JOURNAL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Kantonale Prüfung Journal',
+      }),
+      'nested_aliases': dict({
+        'date': list([
+          dict({
+            'de': 'DATUM_EINTRAG',
+          }),
+        ]),
+        'facts': list([
+          dict({
+            'de': 'SACHVERHALT',
+          }),
+        ]),
+        'involved': list([
+          dict({
+            'de': 'BETEILIGTE_ANWESENDE',
+          }),
+        ]),
+        'type': list([
+          dict({
+            'de': 'ART_DES_EINTRAGES',
+          }),
+        ]),
+      }),
+    }),
     'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE': dict({
       'aliases': list([
         dict({
@@ -7641,112 +7637,68 @@
       'nested_aliases': dict({
       }),
     }),
-    'KANTONALE_PRUEFUNG_SACHVERHALT': dict({
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE': dict({
       'aliases': list([
         dict({
-          'de': 'KANTONALE_PRUEFUNG_SACHVERHALT',
+          'de': 'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE',
         }),
       ]),
       'description': dict({
-        'de': 'Sachverhalt',
+        'de': 'Schutzobjekte',
       }),
       'nested_aliases': dict({
+        'authority': list([
+          dict({
+            'de': 'VERFUEGENDE_BEHOERDE',
+          }),
+        ]),
+        'decision_date': list([
+          dict({
+            'de': 'DATUM_BESCHLUSS',
+          }),
+        ]),
+        'decision_number': list([
+          dict({
+            'de': 'BESCHLUSSNUMMER',
+          }),
+        ]),
+        'description': list([
+          dict({
+            'de': 'BEZEICHNUNG',
+          }),
+        ]),
+        'disposition_date': list([
+          dict({
+            'de': 'DATUM_VERFUEGUNG',
+          }),
+        ]),
       }),
     }),
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BESCHLUSSNUMMER': dict({
+    'KANTONALE_PRUEFUNG_SISTIERUNGEN': dict({
       'aliases': list([
         dict({
-          'de': 'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BESCHLUSSNUMMER',
+          'de': 'KANTONALE_PRUEFUNG_SISTIERUNGEN',
         }),
       ]),
       'description': dict({
-        'de': 'Beschlussnummer',
+        'de': 'Kantonale Prüfung Sistierungen',
       }),
       'nested_aliases': dict({
-      }),
-    }),
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BEZEICHNUNG': dict({
-      'aliases': list([
-        dict({
-          'de': 'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BEZEICHNUNG',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Schutzobjekt (Bezeichnung)',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_BESCHLUSS': dict({
-      'aliases': list([
-        dict({
-          'de': 'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_BESCHLUSS',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Datum Beschluss',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_VERFUEGUNG': dict({
-      'aliases': list([
-        dict({
-          'de': 'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_VERFUEGUNG',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Datum Verfügung',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_VERFUEGENDE_BEHOERDE': dict({
-      'aliases': list([
-        dict({
-          'de': 'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_VERFUEGENDE_BEHOERDE',
-        }),
-      ]),
-      'description': dict({
-        'de': 'verfügende Behörde',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'KANTONALE_PRUEFUNG_SISTIERT_BIS': dict({
-      'aliases': list([
-        dict({
-          'de': 'KANTONALE_PRUEFUNG_SISTIERT_BIS',
-        }),
-      ]),
-      'description': dict({
-        'de': 'sistiert bis',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'KANTONALE_PRUEFUNG_SISTIERT_VON': dict({
-      'aliases': list([
-        dict({
-          'de': 'CANTONAL_REVIEW_SUSPENDED_FROM',
-        }),
-      ]),
-      'description': dict({
-        'de': 'sistiert von',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'KANTONALE_PRUEFUNG_SISTIERUNGSGRUND': dict({
-      'aliases': list([
-        dict({
-          'de': 'KANTONALE_PRUEFUNG_SISTIERUNGSGRUND',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Sistierungsgrund',
-      }),
-      'nested_aliases': dict({
+        'end': list([
+          dict({
+            'de': 'SISTIERT_BIS',
+          }),
+        ]),
+        'reason': list([
+          dict({
+            'de': 'SISTIERUNGSGRUND',
+          }),
+        ]),
+        'start': list([
+          dict({
+            'de': 'SISTIERT_VON',
+          }),
+        ]),
       }),
     }),
     'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG': dict({
@@ -9666,7 +9618,6 @@
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID_DATUM',
     'BESCHREIBUNG_BAUVORHABEN',
-    'CANTONAL_REVIEW_SUSPENDED_FROM',
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
     'EBAU_URL',
@@ -9802,29 +9753,36 @@
     'GRUNDSTUECK',
     'HEUTE',
     'JURISTISCHER_NAME',
-    'KANTONALE_PRUEFUNG_ART_DES_EINTRAGES',
     'KANTONALE_PRUEFUNG_BAUZONE',
     'KANTONALE_PRUEFUNG_BEARBEITUNGSSTATUS',
-    'KANTONALE_PRUEFUNG_BETEILIGTE_ANWESENDE',
     'KANTONALE_PRUEFUNG_BEWILLIGUNGSBEHOERDE',
     'KANTONALE_PRUEFUNG_CHECKLISTE_BAB_SO_NACH_RPG',
     'KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP',
-    'KANTONALE_PRUEFUNG_DATUM_EINTRAG',
     'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON',
     'KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON',
     'KANTONALE_PRUEFUNG_ENTSCHEID_KANTON',
     'KANTONALE_PRUEFUNG_GEMEINDENUMMER_KANTONAL_ARP',
     'KANTONALE_PRUEFUNG_INTERESSE_AM_VORHABEN',
+    'KANTONALE_PRUEFUNG_JOURNAL',
+    'KANTONALE_PRUEFUNG_JOURNAL[]',
+    'KANTONALE_PRUEFUNG_JOURNAL[].ART_DES_EINTRAGES',
+    'KANTONALE_PRUEFUNG_JOURNAL[].BETEILIGTE_ANWESENDE',
+    'KANTONALE_PRUEFUNG_JOURNAL[].DATUM_EINTRAG',
+    'KANTONALE_PRUEFUNG_JOURNAL[].SACHVERHALT',
     'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE',
     'KANTONALE_PRUEFUNG_OBJEKTSCHUTZ',
-    'KANTONALE_PRUEFUNG_SACHVERHALT',
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BESCHLUSSNUMMER',
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BEZEICHNUNG',
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_BESCHLUSS',
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_VERFUEGUNG',
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_VERFUEGENDE_BEHOERDE',
-    'KANTONALE_PRUEFUNG_SISTIERT_BIS',
-    'KANTONALE_PRUEFUNG_SISTIERUNGSGRUND',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[]',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[].BESCHLUSSNUMMER',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[].BEZEICHNUNG',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[].DATUM_BESCHLUSS',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[].DATUM_VERFUEGUNG',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[].VERFUEGENDE_BEHOERDE',
+    'KANTONALE_PRUEFUNG_SISTIERUNGEN',
+    'KANTONALE_PRUEFUNG_SISTIERUNGEN[]',
+    'KANTONALE_PRUEFUNG_SISTIERUNGEN[].SISTIERT_BIS',
+    'KANTONALE_PRUEFUNG_SISTIERUNGEN[].SISTIERT_VON',
+    'KANTONALE_PRUEFUNG_SISTIERUNGEN[].SISTIERUNGSGRUND',
     'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG',
     'KANTONALE_PRUEFUNG_VERFAHRENSSTAND',
     'KOORDINATEN',
@@ -11567,7 +11525,6 @@
     'BAUEINGABE_DATUM': '',
     'BAUENTSCHEID_DATUM': '18. April 2024',
     'BESCHREIBUNG_BAUVORHABEN': '',
-    'CANTONAL_REVIEW_SUSPENDED_FROM': '',
     'DECISION_DATE': '18. April 2024',
     'DOSSIER_NUMBER': '',
     'DOSSIER_NUMMER': '',
@@ -12041,32 +11998,56 @@
     'HEUTE': '18. Januar 2024',
     'JURISTIC_NAME': '',
     'JURISTISCHER_NAME': '',
-    'KANTONALE_PRUEFUNG_ART_DES_EINTRAGES': '',
-    'KANTONALE_PRUEFUNG_BAUZONE': '',
-    'KANTONALE_PRUEFUNG_BEARBEITUNGSSTATUS': '',
-    'KANTONALE_PRUEFUNG_BETEILIGTE_ANWESENDE': '',
-    'KANTONALE_PRUEFUNG_BEWILLIGUNGSBEHOERDE': '',
-    'KANTONALE_PRUEFUNG_CHECKLISTE_BAB_SO_NACH_RPG': '',
-    'KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP': '',
-    'KANTONALE_PRUEFUNG_DATUM_EINTRAG': '',
-    'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON': '',
-    'KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON': '',
-    'KANTONALE_PRUEFUNG_ENTSCHEID_KANTON': '',
-    'KANTONALE_PRUEFUNG_GEMEINDENUMMER_KANTONAL_ARP': '',
-    'KANTONALE_PRUEFUNG_INTERESSE_AM_VORHABEN': '',
-    'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE': '',
-    'KANTONALE_PRUEFUNG_OBJEKTSCHUTZ': '',
-    'KANTONALE_PRUEFUNG_SACHVERHALT': '',
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BESCHLUSSNUMMER': '',
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_BEZEICHNUNG': '',
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_BESCHLUSS': '',
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_DATUM_VERFUEGUNG': '',
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKT_VERFUEGENDE_BEHOERDE': '',
-    'KANTONALE_PRUEFUNG_SISTIERT_BIS': '',
-    'KANTONALE_PRUEFUNG_SISTIERT_VON': '',
-    'KANTONALE_PRUEFUNG_SISTIERUNGSGRUND': '',
-    'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG': '',
-    'KANTONALE_PRUEFUNG_VERFAHRENSSTAND': '',
+    'KANTONALE_PRUEFUNG_BAUZONE': 'ausserhalb',
+    'KANTONALE_PRUEFUNG_BEARBEITUNGSSTATUS': 'in Bearbeitung',
+    'KANTONALE_PRUEFUNG_BEWILLIGUNGSBEHOERDE': 'örtliche Baubehörde',
+    'KANTONALE_PRUEFUNG_CHECKLISTE_BAB_SO_NACH_RPG': 'A1 - standortgebunden, A2 - Weilerzone',
+    'KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP': '13. Februar 2025',
+    'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON': '8. Juli 2025',
+    'KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON': 'E-Mail',
+    'KANTONALE_PRUEFUNG_ENTSCHEID_KANTON': 'Ablehnung',
+    'KANTONALE_PRUEFUNG_GEMEINDENUMMER_KANTONAL_ARP': '1234',
+    'KANTONALE_PRUEFUNG_INTERESSE_AM_VORHABEN': 'privat',
+    'KANTONALE_PRUEFUNG_JOURNAL': list([
+      dict({
+        'ART_DES_EINTRAGES': 'Info',
+        'BETEILIGTE_ANWESENDE': 'Beteiligte Anwesende',
+        'DATUM_EINTRAG': '7. Mai 2024',
+        'SACHVERHALT': 'Sachverhalt',
+        'date': '7. Mai 2024',
+        'facts': 'Sachverhalt',
+        'involved': 'Beteiligte Anwesende',
+        'type': 'Info',
+      }),
+    ]),
+    'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE': '5. Januar 2023',
+    'KANTONALE_PRUEFUNG_OBJEKTSCHUTZ': 'geschützt',
+    'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE': list([
+      dict({
+        'BESCHLUSSNUMMER': 'Beschlussnummer',
+        'BEZEICHNUNG': 'Bezeichnung',
+        'DATUM_BESCHLUSS': '1. Dezember 2001',
+        'DATUM_VERFUEGUNG': '1. September 1999',
+        'VERFUEGENDE_BEHOERDE': 'kantonal',
+        'authority': 'kantonal',
+        'decision_date': '1. Dezember 2001',
+        'decision_number': 'Beschlussnummer',
+        'description': 'Bezeichnung',
+        'disposition_date': '1. September 1999',
+      }),
+    ]),
+    'KANTONALE_PRUEFUNG_SISTIERUNGEN': list([
+      dict({
+        'SISTIERT_BIS': '10. Januar 2020',
+        'SISTIERT_VON': '1. Januar 2020',
+        'SISTIERUNGSGRUND': 'rechtliches Gehör',
+        'end': '10. Januar 2020',
+        'reason': 'rechtliches Gehör',
+        'start': '1. Januar 2020',
+      }),
+    ]),
+    'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG': '2. Januar 2023',
+    'KANTONALE_PRUEFUNG_VERFAHRENSSTAND': 'Entscheid',
     'KOORDINATEN': '',
     'LEITBEHOERDE_ADDRESS_1': 'Teststrasse 13',
     'LEITBEHOERDE_ADDRESS_2': '3000 Musterhausen',

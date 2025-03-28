@@ -644,6 +644,11 @@ class MasterData(object):
 
         return mapping.get(value, default)
 
+    def human_readable_date_parser(self, value, default, **kwargs):
+        from camac.instance.placeholders.utils import human_readable_date
+
+        return human_readable_date(value) if value else default
+
     def list_mapping_parser(self, value, default, mapping={}, **kwargs):
         return [
             {

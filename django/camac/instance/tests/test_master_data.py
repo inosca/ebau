@@ -216,7 +216,7 @@ def test_master_data_parsers(
             lf("so_master_data_settings"),
             "de",
             lf("so_master_data_case"),
-            9,
+            27,
             id="SO",
         ),
         pytest.param(

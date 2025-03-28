@@ -1909,142 +1909,112 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     kantonale_pruefung_datum_eingang_arp = fields.MasterDataField(
         source="bab_date_of_receipt_arp",
         parser=human_readable_date,
-        aliases=[_("CANTONAL_REVIEW_DATE_OF_RECEIPT_ARP")],
+        aliases=[_("CANTONAL_EXAM_DATE_OF_RECEIPT_ARP")],
         description=_("Date of receipt ARP"),
     )
     kantonale_pruefung_terminvorgabe_bei_erfassung = fields.MasterDataField(
         source="bab_deadline_at_recording",
         parser=human_readable_date,
-        aliases=[_("CANTONAL_REVIEW_DEADLINE_AT_RECORDING")],
+        aliases=[_("CANTONAL_EXAM_DEADLINE_AT_RECORDING")],
         description=_("Deadline at recording"),
     )
     kantonale_pruefung_massgebliche_terminvorgabe = fields.MasterDataField(
         source="bab_relevant_deadline",
         parser=human_readable_date,
-        aliases=[_("CANTONAL_REVIEW_RELEVANT_DEADLINE")],
+        aliases=[_("CANTONAL_EXAM_RELEVANT_DEADLINE")],
         description=_(
             "Relevant deadline (e.g., after suspensions or various preliminary reviews)"
         ),
     )
     kantonale_pruefung_verfahrensstand = fields.MasterDataField(
         source="bab_procedure_status",
-        aliases=[_("CANTONAL_REVIEW_PROCEDURE_STATUS")],
+        aliases=[_("CANTONAL_EXAM_PROCEDURE_STATUS")],
         description=_("Procedure status"),
     )
     kantonale_pruefung_bearbeitungsstatus = fields.MasterDataField(
         source="bab_processing_status",
-        aliases=[_("CANTONAL_REVIEW_PROCESSING_STATUS")],
+        aliases=[_("CANTONAL_EXAM_PROCESSING_STATUS")],
         description=_("Processing status"),
     )
-    kantonale_pruefung_sistierungsgrund = fields.MasterDataField(
-        source="bab_suspension_reason",
-        aliases=[_("CANTONAL_REVIEW_SUSPENSION_REASON")],
-        description=_("Suspension reason"),
-    )
-    kantonale_pruefung_sistiert_von = fields.MasterDataField(
-        source="bab_suspended_from",
-        parser=human_readable_date,
-        aliases=[_("CANTONAL_REVIEW_SUSPENDED_FROM")],
-        description=_("Suspended from"),
-    )
-    kantonale_pruefung_sistiert_bis = fields.MasterDataField(
-        source="bab_suspended_until",
-        parser=human_readable_date,
-        aliases=[_("CANTONAL_REVIEW_SUSPENDED_UNTIL")],
-        description=_("Suspended until"),
+    kantonale_pruefung_sistierungen = fields.MasterDataField(
+        source="bab_suspensions",
+        aliases=[_("CANTONAL_EXAM_SUSPENSIONS")],
+        description=_("Cantonal exam suspensions"),
+        nested_aliases={
+            "start": [_("SUSPENDED_FROM")],
+            "end": [_("SUSPENDED_UNTIL")],
+            "reason": [_("SUSPENSION_REASON")],
+        },
     )
     kantonale_pruefung_bewilligungsbehoerde = fields.MasterDataField(
         source="bab_approval_authority",
-        aliases=[_("CANTONAL_REVIEW_APPROVAL_AUTHORITY")],
+        aliases=[_("CANTONAL_EXAM_APPROVAL_AUTHORITY")],
         description=_("Approval authority"),
     )
     kantonale_pruefung_interesse_am_vorhaben = fields.MasterDataField(
         source="bab_interest_in_project",
-        aliases=[_("CANTONAL_REVIEW_INTEREST_IN_PROJECT")],
+        aliases=[_("CANTONAL_EXAM_INTEREST_IN_PROJECT")],
         description=_("Interest in the project"),
+        join_by=", ",
     )
-    kantonale_pruefung_datum_eintrag = fields.MasterDataField(
-        source="bab_entry_date",
-        parser=human_readable_date,
-        aliases=[_("CANTONAL_REVIEW_ENTRY_DATE")],
-        description=_("Entry date"),
-    )
-    kantonale_pruefung_art_des_eintrages = fields.MasterDataField(
-        source="bab_entry_type",
-        aliases=[_("CANTONAL_REVIEW_ENTRY_TYPE")],
-        description=_("Entry type"),
-    )
-    kantonale_pruefung_beteiligte_anwesende = fields.MasterDataField(
-        source="bab_participants_present",
-        aliases=[_("CANTONAL_REVIEW_PARTICIPANTS_PRESENT")],
-        description=_("Participants present"),
-    )
-    kantonale_pruefung_sachverhalt = fields.MasterDataField(
-        source="bab_facts",
-        aliases=[_("CANTONAL_REVIEW_FACTS")],
-        description=_("Facts"),
+    kantonale_pruefung_journal = fields.MasterDataField(
+        source="bab_journal",
+        aliases=[_("CANTONAL_EXAM_JOURNAL")],
+        description=_("Cantonal exam journal"),
+        nested_aliases={
+            "date": [_("JOURNAL_ENTRY_DATE")],
+            "type": [_("JOURNAL_ENTRY_TYPE")],
+            "involved": [_("JOURNAL_PARTICIPANTS_PRESENT")],
+            "facts": [_("JOURNAL_FACTS")],
+        },
     )
     kantonale_pruefung_gemeindenummer_kantonal_arp = fields.MasterDataField(
         source="bab_municipality_number_cantonal_arp",
-        aliases=[_("CANTONAL_REVIEW_MUNICIPALITY_NUMBER_CANTONAL_ARP")],
+        aliases=[_("CANTONAL_EXAM_MUNICIPALITY_NUMBER_CANTONAL_ARP")],
         description=_("Municipality number (cantonal / ARP)"),
     )
     kantonale_pruefung_bauzone = fields.MasterDataField(
         source="bab_construction_zone",
-        aliases=[_("CANTONAL_REVIEW_CONSTRUCTION_ZONE")],
+        aliases=[_("CANTONAL_EXAM_CONSTRUCTION_ZONE")],
         description=_("Construction zone"),
     )
     kantonale_pruefung_objektschutz = fields.MasterDataField(
         source="bab_object_protection",
-        aliases=[_("CANTONAL_REVIEW_OBJECT_PROTECTION")],
+        aliases=[_("CANTONAL_EXAM_OBJECT_PROTECTION")],
         description=_("Object protection"),
     )
-    kantonale_pruefung_schutzobjekt_bezeichnung = fields.MasterDataField(
-        source="bab_protected_object_designation",
-        aliases=[_("CANTONAL_REVIEW_PROTECTED_OBJECT_DESIGNATION")],
-        description=_("Protected object (designation)"),
-    )
-    kantonale_pruefung_schutzobjekt_verfuegende_behoerde = fields.MasterDataField(
-        source="bab_protected_object_authority",
-        aliases=[_("CANTONAL_REVIEW_PROTECTED_OBJECT_AUTHORITY")],
-        description=_("Protected object authority"),
-    )
-    kantonale_pruefung_schutzobjekt_beschlussnummer = fields.MasterDataField(
-        source="bab_protected_object_decision_number",
-        aliases=[_("CANTONAL_REVIEW_PROTECTED_OBJECT_DECISION_NUMBER")],
-        description=_("Protected object decision number"),
-    )
-    kantonale_pruefung_schutzobjekt_datum_beschluss = fields.MasterDataField(
-        source="bab_protected_object_decision_date",
-        parser=human_readable_date,
-        aliases=[_("CANTONAL_REVIEW_PROTECTED_OBJECT_DECISION_DATE")],
-        description=_("Protected object decision date"),
-    )
-    kantonale_pruefung_schutzobjekt_datum_verfuegung = fields.MasterDataField(
-        source="bab_protected_object_order_date",
-        parser=human_readable_date,
-        aliases=[_("CANTONAL_REVIEW_PROTECTED_OBJECT_ORDER_DATE")],
-        description=_("Protected object order date"),
+    kantonale_pruefung_schutzobjekte = fields.MasterDataField(
+        source="bab_protected_objects",
+        aliases=[_("CANTONAL_EXAM_PROTECTED_OBJECTS")],
+        description=_("Cantonal exam protected objects"),
+        nested_aliases={
+            "description": [_("PROTECTED_OBJECTS_DESIGNATION")],
+            "decision_number": [_("PROTECTED_OBJECTS_DECISION_NUMBER")],
+            "decision_date": [_("PROTECTED_OBJECTS_DECISION_DATE")],
+            "disposition_date": [_("PROTECTED_OBJECTS_ORDER_DATE")],
+            "authority": [_("PROTECTED_OBJECTS_AUTHORITY")],
+        },
     )
     kantonale_pruefung_checkliste_bab_so_nach_rpg = fields.MasterDataField(
         source="bab_checklist_bab_so_according_to_rpg",
-        aliases=[_("CANTONAL_REVIEW_CHECKLIST_BAB_SO_ACCORDING_TO_RPG")],
+        aliases=[_("CANTONAL_EXAM_CHECKLIST_BAB_SO_ACCORDING_TO_RPG")],
         description=_("Checklist BaB SO according to RPG"),
+        join_by=", ",
     )
     kantonale_pruefung_entscheid_kanton = fields.MasterDataField(
         source="bab_decision_canton",
-        aliases=[_("CANTONAL_REVIEW_DECISION_CANTON")],
+        aliases=[_("CANTONAL_EXAM_DECISION_CANTON")],
         description=_("Decision (Canton)"),
     )
     kantonale_pruefung_datum_entscheid_kanton = fields.MasterDataField(
         source="bab_decision_date_canton",
         parser=human_readable_date,
-        aliases=[_("CANTONAL_REVIEW_DECISION_DATE_CANTON")],
+        aliases=[_("CANTONAL_EXAM_DECISION_DATE_CANTON")],
         description=_("Decision date (Canton)"),
     )
     kantonale_pruefung_datum_eroeffnungsart_entscheid_kanton = fields.MasterDataField(
-        source="decision_opening_type_canton",
-        aliases=[_("CANTONAL_REVIEW_DECISION_OPENING_TYPE_CANTON")],
+        source="bab_decision_opening_type_canton",
+        aliases=[_("CANTONAL_EXAM_DECISION_OPENING_TYPE_CANTON")],
         description=_("Decision opening type (Canton)"),
     )
 

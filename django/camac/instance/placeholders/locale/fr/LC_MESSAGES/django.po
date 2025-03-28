@@ -2409,7 +2409,7 @@ msgid "All invoice recipients as list"
 msgstr "Noms de toutes les personnes resprésentantes"
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_DATE_OF_RECEIPT_ARP"
+msgid "CANTONAL_EXAM_DATE_OF_RECEIPT_ARP"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2417,7 +2417,7 @@ msgid "Date of receipt ARP"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_DEADLINE_AT_RECORDING"
+msgid "CANTONAL_EXAM_DEADLINE_AT_RECORDING"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2425,7 +2425,7 @@ msgid "Deadline at recording"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_RELEVANT_DEADLINE"
+msgid "CANTONAL_EXAM_RELEVANT_DEADLINE"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2434,7 +2434,7 @@ msgid ""
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_PROCEDURE_STATUS"
+msgid "CANTONAL_EXAM_PROCEDURE_STATUS"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2442,7 +2442,7 @@ msgid "Procedure status"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_PROCESSING_STATUS"
+msgid "CANTONAL_EXAM_PROCESSING_STATUS"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2450,87 +2450,67 @@ msgid "Processing status"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_SUSPENSION_REASON"
+msgid "CANTONAL_EXAM_SUSPENSIONS"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "Suspension reason"
+msgid "Cantonal exam suspensions"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-#, fuzzy
-#| msgid "DECISION_CONSTRUCTION_TEE"
-msgid "CANTONAL_REVIEW_SUSPENDED_FROM"
-msgstr "DECISION_REFUS"
-
-#: camac/instance/placeholders/serializers.py
-msgid "Suspended from"
+msgid "SUSPENDED_FROM"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_SUSPENDED_UNTIL"
+msgid "SUSPENDED_UNTIL"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "Suspended until"
+msgid "SUSPENSION_REASON"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_APPROVAL_AUTHORITY"
+msgid "CANTONAL_EXAM_APPROVAL_AUTHORITY"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-#, fuzzy
-#| msgid "Authority"
 msgid "Approval authority"
-msgstr "Autorité directrice"
-
-#: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_INTEREST_IN_PROJECT"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-#, fuzzy
-#| msgid "Description of the project"
+msgid "CANTONAL_EXAM_INTEREST_IN_PROJECT"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
 msgid "Interest in the project"
-msgstr "Description du projet de construction"
-
-#: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_ENTRY_DATE"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-#, fuzzy
-#| msgid "Current date"
-msgid "Entry date"
-msgstr "Date d'aujourd'hui"
-
-#: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_ENTRY_TYPE"
+msgid "CANTONAL_EXAM_JOURNAL"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "Entry type"
+msgid "Cantonal exam journal"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_PARTICIPANTS_PRESENT"
+msgid "JOURNAL_ENTRY_DATE"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "Participants present"
+msgid "JOURNAL_ENTRY_TYPE"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_FACTS"
+msgid "JOURNAL_PARTICIPANTS_PRESENT"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "Facts"
+msgid "JOURNAL_FACTS"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_MUNICIPALITY_NUMBER_CANTONAL_ARP"
+msgid "CANTONAL_EXAM_MUNICIPALITY_NUMBER_CANTONAL_ARP"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2538,10 +2518,8 @@ msgid "Municipality number (cantonal / ARP)"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-#, fuzzy
-#| msgid "DECISION_CONSTRUCTION_TEE"
-msgid "CANTONAL_REVIEW_CONSTRUCTION_ZONE"
-msgstr "DECISION_REFUS"
+msgid "CANTONAL_EXAM_CONSTRUCTION_ZONE"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 #, fuzzy
@@ -2550,7 +2528,7 @@ msgid "Construction zone"
 msgstr "Coûts de construction"
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_OBJECT_PROTECTION"
+msgid "CANTONAL_EXAM_OBJECT_PROTECTION"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2560,51 +2538,35 @@ msgid "Object protection"
 msgstr "Secteur de protection des eaux"
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_DESIGNATION"
+msgid "CANTONAL_EXAM_PROTECTED_OBJECTS"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-#, fuzzy
-#| msgid "Project modification"
-msgid "Protected object (designation)"
-msgstr "Modification du projet"
-
-#: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_AUTHORITY"
+msgid "Cantonal exam protected objects"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-#, fuzzy
-#| msgid "Phone of the authority"
-msgid "Protected object authority"
-msgstr "Numéro de téléphone de l'autorité directrice compétente"
-
-#: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_DECISION_NUMBER"
+msgid "PROTECTED_OBJECTS_DESIGNATION"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "Protected object decision number"
+msgid "PROTECTED_OBJECTS_DECISION_NUMBER"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_DECISION_DATE"
+msgid "PROTECTED_OBJECTS_DECISION_DATE"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "Protected object decision date"
+msgid "PROTECTED_OBJECTS_ORDER_DATE"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_PROTECTED_OBJECT_ORDER_DATE"
+msgid "PROTECTED_OBJECTS_AUTHORITY"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "Protected object order date"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_CHECKLIST_BAB_SO_ACCORDING_TO_RPG"
+msgid "CANTONAL_EXAM_CHECKLIST_BAB_SO_ACCORDING_TO_RPG"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2612,7 +2574,7 @@ msgid "Checklist BaB SO according to RPG"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_DECISION_CANTON"
+msgid "CANTONAL_EXAM_DECISION_CANTON"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2622,7 +2584,7 @@ msgid "Decision (Canton)"
 msgstr "Date de la décision relative à la demande de permis de construire"
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_DECISION_DATE_CANTON"
+msgid "CANTONAL_EXAM_DECISION_DATE_CANTON"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2632,7 +2594,7 @@ msgid "Decision date (Canton)"
 msgstr "Date de la décision relative à la demande de permis de construire"
 
 #: camac/instance/placeholders/serializers.py
-msgid "CANTONAL_REVIEW_DECISION_OPENING_TYPE_CANTON"
+msgid "CANTONAL_EXAM_DECISION_OPENING_TYPE_CANTON"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
