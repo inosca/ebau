@@ -25,6 +25,7 @@ documents:
   date: Téléchargé le {date} à {time}
   deleteError:
   deleteInfo: Voulez-vous vraiment supprimer le fichier "{filename}" ?
+  duplicateFileUpload: "<p>{count, plural, =1 {Le document} other {Les documents}} :</p><ul>{filenames}</ul><p>{count, plural, =1 {a déjà été téléchargé} other {ont déjà été téléchargés}}. Voulez-vous continuer le téléchargement et {count, plural, =1 {télécharger de nouveau le document} other {télécharger de nouveau ces documents}}, ou voulez-vous annuler le téléchargement ?</p>"
   deleteSuccess:
   download: Télécharger le fichier
   downloadError: Quelque chose a mal tourné lors du téléchargement du fichier

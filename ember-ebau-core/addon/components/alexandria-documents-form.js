@@ -3,6 +3,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { task, dropTask } from "ember-concurrency";
+import { confirm } from "ember-uikit";
 import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
@@ -158,21 +159,54 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     });
   });
 
-  @task
-  *upload({ file, bucket }) {
+  upload = task(async ({ files, bucket }) => {
     this.alexandriaConfig.documentId = this.documentId;
 
-    const documentModel = yield this.alexandriaDocuments.upload(
+    const newFilenames = new Set(files.map((f) => f.name));
+    const existingFilenames = new Set(
+      (
+        await Promise.all(
+          this.allAttachments.map(async (attachment) =>
+            (await attachment.files)
+              .filter((file) => file.variant === "original")
+              .map((file) => file.name),
+          ),
+        )
+      ).flat(),
+    );
+
+    const duplicateFileNames = newFilenames.intersection(existingFilenames);
+
+    // if there are duplicate filenames, show a confirmation dialog first
+    if (
+      duplicateFileNames.size &&
+      !(await confirm(
+        this.intl.t("documents.duplicateFileUpload", {
+          count: duplicateFileNames.size,
+          filenames: [...duplicateFileNames]
+            .sort()
+            .map((name) => `<li>${name}</li>`)
+            .join(""),
+        }),
+      ))
+    ) {
+      return;
+    }
+
+    // continue with the file upload(s).
+    const documentModels = await this.alexandriaDocuments.upload(
       bucket,
-      [file],
+      files,
       this.args.context,
     );
 
-    this.uploadedAttachmentIds = [
-      ...this.uploadedAttachmentIds,
-      documentModel[0].id,
-    ];
-  }
+    for (const documentModel of documentModels) {
+      this.uploadedAttachmentIds = [
+        ...this.uploadedAttachmentIds,
+        documentModel.id,
+      ];
+    }
+  });
 
   @dropTask
   *delete({ attachment }) {
