@@ -15,6 +15,8 @@ from camac.billing.serializers import (
     BillingV2EntryTemplateSerializer,
 )
 from camac.instance.mixins import InstanceQuerysetMixin
+from camac.permissions.api import PermissionManager
+from camac.permissions.switcher import is_permission_mode_fully_enabled
 from camac.user.permissions import permission_aware
 
 
@@ -90,10 +92,19 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
         # Check if the user has permission to charge the requested entries
         # It is sufficient to only check the first entry because we already know that
         # all entries belong to the same instance
-        if (
-            entries.first().instance.responsible_service(filter_type="municipality")
-            != self.request.group.service
-        ):
+        instance = entries.first().instance
+
+        if is_permission_mode_fully_enabled():
+            has_permission = PermissionManager.from_request(self.request).has_all(
+                instance, "billing-charge"
+            )
+        else:
+            has_permission = (
+                instance.responsible_service(filter_type="municipality")
+                == self.request.group.service
+            )
+
+        if not has_permission:
             raise PermissionDenied()
 
         entries.update(date_charged=timezone.now().date())

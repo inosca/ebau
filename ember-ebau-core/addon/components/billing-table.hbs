@@ -20,7 +20,7 @@
     <tr>
       {{#if
         (or
-          (can "charge billing-v2-entries")
+          (await (can "charge billing-v2-entries"))
           (can "release-for-clearing billing-v2-entries")
         )
       }}

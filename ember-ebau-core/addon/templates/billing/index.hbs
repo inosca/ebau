@@ -19,7 +19,7 @@
     >
       {{t "billing.add"}}
     </LinkTo>
-    {{#if (can "charge billing-v2-entries")}}
+    {{#if (await (can "charge billing-v2-entries"))}}
       <UkButton
         @label={{t "billing.charge"}}
         @loading={{this.charge.isRunning}}

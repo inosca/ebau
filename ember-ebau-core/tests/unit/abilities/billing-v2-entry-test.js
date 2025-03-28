@@ -3,6 +3,7 @@ import { module, test } from "qunit";
 import { stub } from "sinon";
 
 import { setupTest } from "dummy/tests/helpers";
+import setupPermissions from "dummy/tests/helpers/permissions";
 import BillingV2EntryAbility from "ember-ebau-core/abilities/billing-v2-entry";
 import mainConfig from "ember-ebau-core/config/main";
 import { setupFeatures } from "ember-ebau-core/test-support";
@@ -11,6 +12,7 @@ module("Unit | Ability | billing-v2-entry", function (hooks) {
   setupTest(hooks);
   setupMirage(hooks);
   setupFeatures(hooks);
+  setupPermissions(hooks);
 
   test("it computes delete permission", async function (assert) {
     const service = this.server.create("service");
@@ -98,7 +100,23 @@ module("Unit | Ability | billing-v2-entry", function (hooks) {
       stub(BillingV2EntryAbility.prototype, "canEdit").get(() => canEdit);
 
       const ability = this.owner.lookup("ability:billing-v2-entry");
-      assert.strictEqual(ability.canCharge, expected);
+      assert.strictEqual(await ability.canCharge(), expected);
     },
   );
+
+  test("it computes charge permission with new permission module", async function (assert) {
+    this.features.enable("billing.charge");
+
+    const instanceId = parseInt(this.server.create("instance").id);
+
+    this.owner.lookup("service:permissions").fullyEnabled = true;
+    this.owner.lookup("service:ebau-modules").instanceId = instanceId;
+
+    await this.owner.lookup("service:store").findRecord("instance", instanceId);
+
+    this.permissions.grant(instanceId, ["billing-charge"]);
+
+    const ability = this.owner.lookup("ability:billing-v2-entry");
+    assert.strictEqual(await ability.canCharge(), true);
+  });
 });

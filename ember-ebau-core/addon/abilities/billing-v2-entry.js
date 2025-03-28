@@ -10,13 +10,18 @@ import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class BillingV2EntryAbility extends Ability {
   @service ebauModules;
+  @service permissions;
   @service store;
 
   get instance() {
     return this.store.peekRecord("instance", this.ebauModules.instanceId);
   }
 
-  get canCharge() {
+  async canCharge() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(this.instance?.id, "billing-charge");
+    }
+
     return (
       hasFeature("billing.charge") &&
       this.canEdit &&
