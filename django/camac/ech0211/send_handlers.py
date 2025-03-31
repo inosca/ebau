@@ -583,8 +583,8 @@ class TaskSendHandler(BaseSendHandler):
                 ),
                 value="\n".join(
                     [
-                        c.value()
-                        for c in self.data.eventRequest.directive.comments.content()
+                        c.value.value()
+                        for c in self.data.eventRequest.directive.comments.orderedContent()
                     ]
                 ),
             )
