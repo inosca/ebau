@@ -1,10 +1,4 @@
 services:
-  cache:
-    ports:
-      - "11211:11211"
-    networks:
-      - ebau.localhost
-
   proxy:
     depends_on:
       - mailpit
@@ -21,31 +15,6 @@ services:
           - ebau-portal.localhost
           - ebau-rest-portal.localhost
           - ebau-keycloak.localhost
-
-  clamav:
-    profiles:
-      - full
-    ports:
-      - "3310:3310"
-    environment:
-      - ENABLE_DEFINITIONS_UPDATE=false
-    networks:
-      - ebau.localhost
-
-  db:
-    image: postgres:16-bookworm
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_PASSWORD=camac
-      - POSTGRES_USER=camac
-      - POSTGRES_DATABASE=${APPLICATION}
-    volumes:
-      - pg16data:/var/lib/postgresql/data
-      - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
-    networks:
-      - ebau.localhost
-    command: -c max_locks_per_transaction=128
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -101,11 +70,36 @@ services:
       - ebau.localhost
 
 
-  unoconv:
+  cache:
     ports:
-      - "3000:3000"
+      - "11211:11211"
     networks:
       - ebau.localhost
+
+  clamav:
+    profiles:
+      - full
+    ports:
+      - "3310:3310"
+    environment:
+      - ENABLE_DEFINITIONS_UPDATE=false
+    networks:
+      - ebau.localhost
+
+  db:
+    image: postgres:16-bookworm
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=camac
+      - POSTGRES_USER=camac
+      - POSTGRES_DATABASE=${APPLICATION}
+    volumes:
+      - pg16data:/var/lib/postgresql/data
+      - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
+    networks:
+      - ebau.localhost
+    command: -c max_locks_per_transaction=128
 
   keycloak:
     depends_on:
@@ -146,6 +140,12 @@ services:
       - MB_DB_USER=camac
       - MB_DB_PASS=camac
       - MB_DB_HOST=db
+    networks:
+      - ebau.localhost
+
+  unoconv:
+    ports:
+      - "3000:3000"
     networks:
       - ebau.localhost
 

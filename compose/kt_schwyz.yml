@@ -1,7 +1,4 @@
 services:
-  cache:
-    image: memcached:1.6-alpine
-
   proxy:
     image: nginx:1.27-alpine
     depends_on:
@@ -51,6 +48,16 @@ services:
   django-q:
     <<: *django
 
+  ember:
+    build:
+      context: ../
+      dockerfile: ./Dockerfile.ember
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember:master
+      args:
+        - WORKSPACE=ember
+      target: prod
+
   ember-camac-ng:
     build:
       context: ../
@@ -62,19 +69,9 @@ services:
         - WORKSPACE=ember-camac-ng
       target: prod
 
-  ember:
-    build:
-      context: ../
-      dockerfile: ./Dockerfile.ember
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember:master
-      args:
-        - WORKSPACE=ember
-      target: prod
 
-
-  unoconv:
-    image: zrrrzzt/docker-unoconv-webservice:8.9.4
+  cache:
+    image: memcached:1.6-alpine
 
   clamav:
     image: tiredofit/clamav:2.3.0
@@ -100,6 +97,9 @@ services:
       - MB_DB_TYPE=postgres
       - MB_DB_DBNAME=metabase
       - MB_DB_PORT=5432
+
+  unoconv:
+    image: zrrrzzt/docker-unoconv-webservice:8.9.4
 
 volumes:
   djangomedia:
