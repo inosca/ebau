@@ -51,7 +51,9 @@ MODULE_AUDIT = NO_CORRECTION & (
 MODULE_BILLING = (
     STATES_ALL
     & ROLES_NO_READONLY
-    & IsServiceGroup(["municipality", "service-cantonal", "service-afb"])
+    & IsServiceGroup(
+        ["municipality", "service-cantonal", "service-afb", "authority-pgv"]
+    )
 )
 MODULE_CANTONAL_EXAM = RequireWorkItem("cantonal-exam") & (
     Callback(

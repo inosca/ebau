@@ -394,7 +394,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": \"Documenti\"}",
+      "name": "{\"de\": \"Dokumente ohne Pflichtdokumente\", \"fr\": null, \"it\": \"Documenti\"}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -412,7 +412,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "name": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Dokumente PGV Gas\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -430,7 +430,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "name": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Dokumente Reklame\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -18632,7 +18632,15 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": [
+          "beilagen-zum-gesuch-grundstuecksangaben",
+          "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+          "beilagen-zum-gesuch-brandschutz",
+          "beilagen-zum-gesuch-weitere-gesuchsunterlagen"
+        ]
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": "dokumente-pgv-gas",

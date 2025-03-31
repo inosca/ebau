@@ -173,6 +173,12 @@ class MasterData(object):
     def form_name_resolver(self):
         return self.case.document.form.name.translate()
 
+    def is_form_resolver(self, forms):
+        if not isinstance(forms, list):
+            forms = [forms]
+
+        return self.case.document.form_id in forms
+
     def _get_document(self, document_from_work_item=None):
         # TODO: Fallback to case docu if not found? Or return None instead?
         if document_from_work_item:

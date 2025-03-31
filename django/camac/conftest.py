@@ -2071,6 +2071,12 @@ def ag_master_data_case(
         "plan-der-gefahrenkommission",
         "Hochwasser (erhebliche Gefährdung), Hochwasser (geringe Gefährdung)",
     )
+    utils.add_answer(
+        document,
+        "zustaendige-behoerde",
+        "zustaendige-behoerde-esti",
+        label="Eidg. Starkstrominspektorat, Luppmenstrasse 1, 8320 Fehraltorf",
+    )
 
     # Plot data
     utils.add_table_answer(
@@ -2831,6 +2837,15 @@ class Utils:
             )
 
         return answer
+
+    def add_municipality(self, document, question, service):
+        caluma_form_factories.DynamicOptionFactory(
+            question_id=question,
+            document=document,
+            slug=str(service.pk),
+            label={"de": service.get_name()},
+        )
+        self.add_answer(document, question, str(service.pk))
 
 
 @pytest.fixture

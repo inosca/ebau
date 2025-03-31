@@ -44,6 +44,21 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-anlagentyp-uvpv",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung.kantonale-pruefung-bemerkungen",
+    "fields": {
+      "created_at": "2025-04-01T11:51:43.299Z",
+      "modified_at": "2025-04-01T11:51:43.299Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung",
+      "question": "kantonale-pruefung-bemerkungen",
       "sort": 2
     }
   },
@@ -59,7 +74,22 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
-      "sort": 4
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung.kantonale-pruefung-frist",
+    "fields": {
+      "created_at": "2025-04-04T08:51:00.733Z",
+      "modified_at": "2025-04-04T08:51:00.733Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung",
+      "question": "kantonale-pruefung-frist",
+      "sort": 3
     }
   },
   {
@@ -74,7 +104,7 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-gesuchscodes",
-      "sort": 6
+      "sort": 9
     }
   },
   {
@@ -89,7 +119,7 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-nachtraegliches-baugesuch",
-      "sort": 3
+      "sort": 6
     }
   },
   {
@@ -104,7 +134,22 @@
       "modified_by_group": null,
       "form": "kantonale-pruefung",
       "question": "kantonale-pruefung-triage-bemerkungen",
-      "sort": 5
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "kantonale-pruefung.kantonale-pruefung-verfahrensart",
+    "fields": {
+      "created_at": "2025-04-04T09:07:52.545Z",
+      "modified_at": "2025-04-04T09:07:52.545Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "kantonale-pruefung",
+      "question": "kantonale-pruefung-verfahrensart",
+      "sort": 4
     }
   },
   {
@@ -1621,6 +1666,40 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-verfahrensart-ordentliches-verfahren",
+    "fields": {
+      "created_at": "2025-04-04T09:07:52.425Z",
+      "modified_at": "2025-04-04T09:07:52.425Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ordentliches Verfahren\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kantonale-pruefung-verfahrensart-vereinfachtes-verfahren",
+    "fields": {
+      "created_at": "2025-04-04T09:07:52.421Z",
+      "modified_at": "2025-04-04T09:07:52.421Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vereinfachtes Verfahren\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "kantonale-pruefung-abschliessen",
     "fields": {
@@ -1692,6 +1771,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "kantonale-pruefung-bemerkungen",
+    "fields": {
+      "created_at": "2025-04-01T11:51:43.245Z",
+      "modified_at": "2025-04-01T11:53:03.324Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kantonale-pruefung-fanden-im-vorfeld-vorabklaerungen-statt",
     "fields": {
       "created_at": "2025-01-16T12:00:43.551Z",
@@ -1703,11 +1816,42 @@
       "label": "{\"de\": \"Fanden im Vorfeld Vorabkl\\u00e4rungen statt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kantonale-pruefung-frist",
+    "fields": {
+      "created_at": "2025-04-01T11:48:23.291Z",
+      "modified_at": "2025-04-01T11:52:55.714Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Frist\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -1767,7 +1911,7 @@
       "label": "{\"de\": \"Nachtr\\u00e4gliches Baugesuch\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -1798,9 +1942,9 @@
       "label": "{\"de\": \"Triage / Bemerkungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.case.root.form in [\n\t\"plangenehmigungsverfahren-bund\",\n\t\"plangenehmigungsverfahren-gas\"\n]",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
@@ -1808,6 +1952,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kantonale-pruefung-verfahrensart",
+    "fields": {
+      "created_at": "2025-04-04T09:07:52.481Z",
+      "modified_at": "2025-04-04T09:08:01.218Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahrensart\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\n\tinfo.case.root.form in [\n\t\t\"plangenehmigungsverfahren-bund\",\n\t\t\"plangenehmigungsverfahren-gas\"\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -3152,6 +3327,36 @@
       "question": "kantonale-pruefung-nachtraegliches-baugesuch",
       "option": "kantonale-pruefung-nachtraegliches-baugesuch-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-verfahrensart.kantonale-pruefung-verfahrensart-ordentliches-verfahren",
+    "fields": {
+      "created_at": "2025-04-04T09:08:01.223Z",
+      "modified_at": "2025-04-04T09:08:01.223Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-verfahrensart",
+      "option": "kantonale-pruefung-verfahrensart-ordentliches-verfahren",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kantonale-pruefung-verfahrensart.kantonale-pruefung-verfahrensart-vereinfachtes-verfahren",
+    "fields": {
+      "created_at": "2025-04-04T09:08:01.227Z",
+      "modified_at": "2025-04-04T09:08:01.227Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kantonale-pruefung-verfahrensart",
+      "option": "kantonale-pruefung-verfahrensart-vereinfachtes-verfahren",
+      "sort": 2
     }
   }
 ]

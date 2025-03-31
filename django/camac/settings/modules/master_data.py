@@ -3153,6 +3153,10 @@ MASTER_DATA = {
                 },
             ),
             "application_type": ("form_name",),
+            "is_pgv": (
+                "is_form",
+                ["plangenehmigungsverfahren-gas", "plangenehmigungsverfahren-bund"],
+            ),
             "profile_approval_date": ("static", None),
             "nature_risk": (
                 "answer",
@@ -3167,6 +3171,11 @@ MASTER_DATA = {
             "construction_start_date": ("static", None),
             "construction_duration": ("static", ""),
             "gis_coordinates": ("answer", "gis-map"),
+            "pgv_responsible_authority": (
+                "answer",
+                "zustaendige-behoerde",
+                {"value_parser": "option", "prop": "label"},
+            ),
         },
     },
 }

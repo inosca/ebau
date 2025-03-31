@@ -2495,6 +2495,7 @@ APPLICATIONS = {
             "ALLOWED_SERVICE_GROUPS": {
                 "DEFAULT": [
                     2,  # municipality
+                    5,  # authority-pgv
                 ]
             },
         },
@@ -2604,6 +2605,7 @@ APPLICATIONS = {
                 "FILTERS": {
                     "service__service_group__name__in": [
                         "municipality",
+                        "authority-pgv",
                     ]
                 },
                 "DEFAULT": True,

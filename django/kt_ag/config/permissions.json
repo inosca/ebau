@@ -23,8 +23,8 @@
     "model": "permissions.accesslevel",
     "pk": "lead-authority",
     "fields": {
-      "name": "{\"de\": \"Gemeinde\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Gemeinde\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Leitbeh\\u00f6rde\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Leitbeh\\u00f6rde\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
     }

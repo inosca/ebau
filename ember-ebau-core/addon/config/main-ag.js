@@ -160,36 +160,48 @@ export default {
         {
           slug: "baugesuch",
           roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["municipality"],
           category: "building-permit",
         },
         {
           slug: "baugesuch-mit-uvp",
           roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["municipality"],
           category: "building-permit",
         },
         {
           slug: "vorentscheid",
           roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["municipality"],
           category: "building-permit",
         },
         {
           slug: "anfrage",
           roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["municipality"],
           category: "special-procedure",
         },
         {
           slug: "reklame",
           roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["municipality"],
           category: "special-procedure",
         },
       ],
     },
     {
-      section: "internal-dossiers", // Papierdossiers
+      section: "internal-dossiers", // Interne Dossiers
       forms: [
         {
           slug: "anfrage-intern",
           roles: ["municipality-lead", "municipality-clerk"],
+          category: "special-procedure",
+        },
+        {
+          slug: "plangenehmigungsverfahren-bund",
+          roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["authority-pgv"],
+          category: "special-procedure",
         },
         // TODO: internal dossier not exists yet
         // {

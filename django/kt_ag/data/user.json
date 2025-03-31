@@ -4738,6 +4738,70 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 10295,
+    "fields": {
+      "role": 3,
+      "service": 80,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10296,
+    "fields": {
+      "role": 7,
+      "service": 80,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10297,
+    "fields": {
+      "role": 5,
+      "service": 80,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10298,
+    "fields": {
+      "role": 9,
+      "service": 80,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 26534,
     "fields": {
@@ -7688,6 +7752,46 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 26829,
+    "fields": {
+      "group": 10295,
+      "language": "de",
+      "name": "Leitung Leitbehörde PGV",
+      "city": "Leitung Leitbehörde PGV"
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26830,
+    "fields": {
+      "group": 10296,
+      "language": "de",
+      "name": "Sachbearbeitung Leitbehörde PGV",
+      "city": "Sachbearbeitung Leitbehörde PGV"
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26831,
+    "fields": {
+      "group": 10297,
+      "language": "de",
+      "name": "Administration Leitbehörde PGV",
+      "city": "Administration Leitbehörde PGV"
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26832,
+    "fields": {
+      "group": 10298,
+      "language": "de",
+      "name": "Einsichtsberechtigte Leitbehörde PGV",
+      "city": "Einsichtsberechtigte Leitbehörde PGV"
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -7750,6 +7854,28 @@
       "group": 10003,
       "default_group": 0,
       "created_at": "2024-12-03T16:25:50.099Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 7,
+    "fields": {
+      "user": 1,
+      "group": 10295,
+      "default_group": 0,
+      "created_at": "2025-03-31T14:51:58.716Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 8,
+    "fields": {
+      "user": 1,
+      "group": 10297,
+      "default_group": 0,
+      "created_at": "2025-03-31T14:51:58.717Z",
       "created_by": 1
     }
   },
@@ -9571,6 +9697,29 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 80,
+    "fields": {
+      "slug": "pgv",
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 79,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "external_identifier": null
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -10436,6 +10585,17 @@
       "language": "de",
       "name": "Gemeinde Mölin",
       "description": "Gemeinde Mölin",
+      "city": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 80,
+    "fields": {
+      "service": 80,
+      "language": "de",
+      "name": "Leitbehörde PGV",
+      "description": "Leitbehörde PGV",
       "city": null
     }
   }

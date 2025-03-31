@@ -35,7 +35,9 @@ export default class CustomSession extends Session {
     await Promise.resolve();
 
     const response = await this.fetch
-      .fetch("/api/v1/me?include=groups,groups.role,groups.service")
+      .fetch(
+        "/api/v1/me?include=groups,groups.role,groups.service,groups.service.service_group",
+      )
       .then((res) => res.json());
 
     this.store.pushPayload(response);
@@ -53,12 +55,14 @@ export default class CustomSession extends Session {
     }
 
     const group = groupId ? this.store.peekRecord("group", groupId) : null;
+    const service = await group?.service;
 
     return {
       user: this.store.peekRecord("user", response.data.id),
       group,
       role: await group?.role,
-      service: await group?.service,
+      service,
+      serviceGroup: await service?.serviceGroup,
     };
   });
 
@@ -76,6 +80,10 @@ export default class CustomSession extends Session {
 
   get role() {
     return this._data.value?.role;
+  }
+
+  get serviceGroup() {
+    return this._data.value?.serviceGroup;
   }
 
   // this is the same as "baseRole" in ember-camac-ng shoebox

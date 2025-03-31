@@ -2412,6 +2412,7 @@ def test_rejection(
     rejection_settings,
     caluma_admin_user,
     disable_ech0211_settings,
+    utils,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
 
@@ -2459,7 +2460,7 @@ def test_rejection(
 
     case = new_instance.case
 
-    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
+    utils.add_municipality(case.document, "gemeinde", service)
 
     submit_response = admin_client.post(
         reverse("instance-submit", args=[new_instance.pk])
@@ -2490,6 +2491,7 @@ def test_be_copy_responsible_user_on_submit(
     caluma_work_item_factory,
     user_factory,
     disable_ech0211_settings,
+    utils,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
     application_settings["COPY_RESPONSIBLE_PERSON_ON_SUBMIT"] = True
@@ -2545,7 +2547,7 @@ def test_be_copy_responsible_user_on_submit(
     assert new_instance.instance_state == new_state
 
     case = new_instance.case
-    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
+    utils.add_municipality(case.document, "gemeinde", service)
 
     submit_response = admin_client.post(
         reverse("instance-submit", args=[new_instance.pk])
@@ -3047,6 +3049,7 @@ def test_instance_submit_so(
     so_instance,
 ):
     settings.APPLICATION_NAME = "kt_so"
+    application_settings["SHORT_NAME"] = "so"
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
     application_settings["NOTIFICATIONS"] = {"SUBMIT": [], "SUBMIT_OTHERS": []}
@@ -3098,6 +3101,7 @@ def test_instance_submit_so_bab(
     utils,
 ):
     settings.APPLICATION_NAME = "kt_so"
+    application_settings["SHORT_NAME"] = "so"
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
     application_settings["NOTIFICATIONS"] = {"SUBMIT": [], "SUBMIT_OTHERS": []}
@@ -3378,3 +3382,64 @@ def test_send_notifications(
     if allow_notification:
         calls = [call(**config_1[0])] + calls
     send_notification_mock.assert_has_calls(calls)
+
+
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,instance__user",
+    [("Applicant", "new", lf("admin_user"))],
+)
+def test_instance_submit_ag_pgv(
+    admin_client,
+    application_settings,
+    disable_ech0211_settings,
+    caluma_dynamic_option_factory,
+    instance_state_factory,
+    master_data_is_visible_mock,
+    mock_generate_and_store_pdf,
+    mocker,
+    service_factory,
+    set_application_ag,
+    settings,
+    ag_instance,
+    ag_master_data_settings,
+    utils,
+):
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
+    )
+
+    # Create needed services
+    municipality_service = service_factory(service_group__name="municipality")
+    pgv_service = service_factory(service_group__name="authority-pgv")
+    afb_service = service_factory(slug="afb")
+
+    # Create needed instance states
+    instance_state_factory(name="subm")
+    instance_state_factory(name="init-distribution")
+
+    # Set municipality in form
+    utils.add_answer(
+        ag_instance.case.document, "gemeinde", str(municipality_service.pk)
+    )
+    caluma_dynamic_option_factory(
+        question_id="gemeinde",
+        document=ag_instance.case.document,
+        slug=str(municipality_service.pk),
+        label={"de": municipality_service.name},
+    )
+
+    # Set PGV as form
+    ag_instance.case.document.form_id = "plangenehmigungsverfahren-bund"
+    ag_instance.case.document.save()
+
+    response = admin_client.post(reverse("instance-submit", args=[ag_instance.pk]))
+
+    ag_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+    assert ag_instance.responsible_service() == pgv_service
+    assert ag_instance.instance_state.name == "init-distribution"
+
+    cantonal_exam = ag_instance.case.work_items.get(task_id="cantonal-exam")
+    assert cantonal_exam.status == caluma_workflow_models.WorkItem.STATUS_READY
+    assert cantonal_exam.addressed_groups == [str(afb_service.pk)]

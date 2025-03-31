@@ -122,6 +122,14 @@ class DecisionLogic:
         )
 
     @classmethod
+    def should_continue_after_decision_ag(
+        cls, instance: Instance, work_item: workflow_models.WorkItem
+    ) -> bool:  # pragma: no cover
+        # TODO: Implement logic after decision for Kt. AG. For now, all dossiers
+        # will be finished after the decision
+        return False
+
+    @classmethod
     def is_positive_decision_so(cls, decision, construction_tee):
         return (
             decision
