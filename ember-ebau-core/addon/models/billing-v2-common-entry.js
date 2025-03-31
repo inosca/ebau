@@ -25,6 +25,7 @@ export default class BillingV2CommonEntryModel extends Model {
   @attr organization;
   @attr billingType;
   @attr productNumber;
+  @attr remark;
 
   get amount() {
     const taxMode = this.intl.t(`billing.tax-modes.${this.taxMode}`, {

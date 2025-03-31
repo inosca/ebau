@@ -1,5 +1,5 @@
 from django.contrib.admin import ModelAdmin, display, register
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput
 from django.utils.translation import gettext as _
 from localized_fields.admin import LocalizedFieldsAdminMixin
 
@@ -18,12 +18,17 @@ class BillingV2EntryTemplateForm(ModelForm):
 
     class Meta:
         model = BillingV2EntryTemplate
+        widgets = {
+            "name": TextInput,
+            "text": TextInput,
+        }
         fields = (
             "services",
             "service_groups",
             "name",
             "hint",
             "text",
+            "remark",
             "calculation",
             "hours",
             "hourly_rate",

@@ -36,6 +36,9 @@
         </th>
       {{/if}}
       <th data-test-text>{{t "billing.position"}}</th>
+      {{#if (has-feature "billing.remark")}}
+        <th data-test-text>{{t "billing.remark"}}</th>
+      {{/if}}
       {{#if (has-feature "billing.displayService")}}
         <th data-test-service>{{t "billing.service"}}</th>
       {{else}}

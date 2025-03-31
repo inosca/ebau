@@ -40,6 +40,7 @@ billing:
   released-for-clearing: Freigegeben
   confirm-release-for-clearing: Sobald der Eintrag zur Verrechnung freigegeben wurde wird die Rechnung innerhalb der nächsten 24 Stunden automatisch generiert.
   product-number: Produktnummer
+  remark: Bemerkung
 
   product-numbers:
     100000: ARE BGZ, kant. Baubewilligung, Gebühren
@@ -124,8 +125,8 @@ billing:
     by_authority: Weiter zu verrechnen
     forwarded: Rechnung zu eröffnen
     direct: Direkt verrechnet
-    construction_outside_zone: Kantonale Gebührenrechnung für Bauen ausserhalb Bauzone 
-    cantonal_construction_administration: Kantonale Gebührenrechnung bei kantonaler Baubehörde 
+    construction_outside_zone: Kantonale Gebührenrechnung für Bauen ausserhalb Bauzone
+    cantonal_construction_administration: Kantonale Gebührenrechnung bei kantonaler Baubehörde
 
   filters:
     createdAfter: Erstellung von

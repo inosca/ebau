@@ -24,6 +24,11 @@
       <span class="uk-text-italic">({{@entry.legalBasis}})</span>
     {{/if}}
   </td>
+  {{#if (has-feature "billing.remark")}}
+    <td data-test-entry-remark>
+      <TruncatedText @maxLength={{50}} @content={{@entry.remark}} />
+    </td>
+  {{/if}}
   {{#if (has-feature "billing.displayService")}}
     <td data-test-entry-service>{{@entry.group.service.name}}</td>
   {{else}}

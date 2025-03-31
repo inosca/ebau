@@ -144,6 +144,7 @@ module("Acceptance | billing", function (hooks) {
       "billing.legalBasis",
       "billing.costCenter",
       "billing.productNumber",
+      "billing.remark",
     );
 
     await visit("/billing");
@@ -158,6 +159,7 @@ module("Acceptance | billing", function (hooks) {
     await click("a[data-test-add]");
     assert.strictEqual(currentURL(), "/billing/new");
     await fillIn("input[name=text]", "Test 1");
+    await fillIn("textarea[name=remark]", "My remark 1");
     await fillIn("input[name=legal-basis]", "Test §§101");
     await fillIn("input[name=cost-center]", "1000121");
     await fillIn("select[name=product-number]", "100000");
@@ -226,6 +228,7 @@ module("Acceptance | billing", function (hooks) {
           hint: "A hint for the flat rate example",
           calculation: "flat",
           totalCost: 1000.5,
+          remark: "My remark",
         }),
         this.server.create("billing-v2-entry-template", {
           ...templateDefaults,
@@ -254,6 +257,7 @@ module("Acceptance | billing", function (hooks) {
         "billing.billingType",
         "billing.legalBasis",
         "billing.costCenter",
+        "billing.remark",
       );
     });
 
@@ -306,6 +310,7 @@ module("Acceptance | billing", function (hooks) {
       assert.dom("select[name=billing-type]").hasValue("direct");
       assert.dom("select[name=calculation]").hasValue("flat");
       assert.dom("select[name=tax-mode]").hasValue("exempt:0");
+      assert.dom("textarea[name=remark]").hasValue("My remark");
       await click("button[data-test-submit]");
       assert.strictEqual(currentURL(), "/billing");
       assert

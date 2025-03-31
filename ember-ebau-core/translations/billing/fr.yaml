@@ -40,6 +40,7 @@ billing:
   paginationInfo: "<strong>{count}</strong> de {total}"
   apply-construction-costs: Reprendre les coûts de construction du formulaire
   apply-construction-costs-empty: Aucun coût de construction n'a pu être trouvé dans le formulaire
+  remark: Remarque
 
   organizations:
     cantonal: Cantonal
