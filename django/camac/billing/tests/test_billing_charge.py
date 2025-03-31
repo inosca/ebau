@@ -3,6 +3,8 @@ from django.urls import reverse
 from django.utils import timezone
 from rest_framework import status
 
+from camac.permissions import api as permissions_api
+
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
 def test_billing_entry_charge(db, admin_client, billing_v2_entry_factory, instance):
@@ -78,3 +80,46 @@ def test_billing_entry_charge_validation(
             response.json()["errors"][0]["detail"]
             == "Alle zu verrechnenden Einträge müssen zum selben Dossier gehören"
         )
+
+
+@pytest.mark.parametrize("instance_state__name", ["subm"])
+@pytest.mark.parametrize(
+    "service_group__name,expected_status",
+    [
+        ("municipality", status.HTTP_204_NO_CONTENT),
+        ("service-afb", status.HTTP_204_NO_CONTENT),
+        ("service-cantonal", status.HTTP_204_NO_CONTENT),
+        ("service-external", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_billing_entry_charge_permissions(
+    db,
+    access_level_factory,
+    admin_client,
+    ag_instance,
+    ag_permissions_settings,
+    billing_v2_entry,
+    expected_status,
+    service,
+    service_group,
+):
+    if service_group.name == "municipality":
+        access_level = access_level_factory(pk="lead-authority")
+    else:
+        access_level = access_level_factory(pk="distribution-service")
+
+    permissions_api.grant(
+        ag_instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level=access_level,
+        service=service,
+    )
+
+    url = reverse("billing-v2-entry-charge-bulk")
+    response = admin_client.post(
+        url,
+        data={"entry_ids": [billing_v2_entry.pk]},
+        headers={"Content-Type": "application/json"},
+    )
+
+    assert response.status_code == expected_status

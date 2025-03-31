@@ -49,7 +49,7 @@ export default class BillingIndexController extends Controller {
 
   charge = dropTask(this, async () => {
     if (
-      this.abilities.cannot("charge billing-v2-entries") ||
+      (await this.abilities.cannot("charge billing-v2-entries")) ||
       !this.selectedRows.length ||
       !(await confirm(this.intl.t("billing.confirm-charge")))
     ) {
