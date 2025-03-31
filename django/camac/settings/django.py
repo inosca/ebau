@@ -2670,11 +2670,11 @@ APPLICATIONS = {
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 
 PUBLIC_BASE_URL = build_url(
-    env.str("DJANGO_PUBLIC_BASE_URL", default=default("http://ebau-portal.local"))
+    env.str("DJANGO_PUBLIC_BASE_URL", default=default("http://ebau-portal.localhost"))
 )
 
 INTERNAL_BASE_URL = build_url(
-    env.str("DJANGO_INTERNAL_BASE_URL", default=default("http://ebau.local"))
+    env.str("DJANGO_INTERNAL_BASE_URL", default=default("http://ebau.localhost"))
 )
 
 PUBLIC_INSTANCE_URL_TEMPLATE = env.str(
@@ -2785,7 +2785,7 @@ if (
         ),
         "endpoint_url": env.str(
             "EBAU_S3_ENDPOINT_URL",
-            default=default("http://ember-ebau.local", require_if(is_s3_storage)),
+            default=default("http://ember-ebau.localhost", require_if(is_s3_storage)),
         ),
         "bucket_name": env.str("EBAU_STORAGE_BUCKET_NAME", default="ebau-media"),
     }
@@ -2987,7 +2987,7 @@ CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
 
 # TODO in our frontends, this is called KEYCLOAK_HOST. Consider renaming it
 KEYCLOAK_URL = build_url(
-    env.str("KEYCLOAK_URL", default="http://ebau-keycloak.local/auth/"),
+    env.str("KEYCLOAK_URL", default="http://ebau-keycloak.localhost/auth/"),
     trailing=True,
 )
 KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
@@ -3044,7 +3044,7 @@ TOKEN_EXCHANGE_JWT_SECRET = env.str(
 )
 TOKEN_EXCHANGE_JWT_ISSUER = env.str(
     "TOKEN_EXCHANGE_JWT_ISSUER",
-    default=default("http://egov.local", require_if(ENABLE_TOKEN_EXCHANGE)),
+    default=default("http://egov.localhost", require_if(ENABLE_TOKEN_EXCHANGE)),
 )
 TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY = env.str(
     "TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY", default="profileId"

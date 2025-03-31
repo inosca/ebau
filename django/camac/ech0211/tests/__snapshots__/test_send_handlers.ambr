@@ -4,7 +4,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5100004</ns2:messageType>
   		<ns2:sendingApplication>
@@ -38,7 +38,7 @@
   			<ns4:status>created</ns4:status>
   			<ns4:files>
   				<ns4:file>
-  					<ns4:pathFileName>http://ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns4:pathFileName>
+  					<ns4:pathFileName>http://ebau.localhost/ech/v1/files/<!-- ATTACHMENT_ID --></ns4:pathFileName>
   					<ns4:mimeType>application/font-woff</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
@@ -56,7 +56,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5100004</ns2:messageType>
   		<ns2:sendingApplication>
@@ -90,7 +90,7 @@
   			<ns4:status>signed</ns4:status>
   			<ns4:files>
   				<ns4:file>
-  					<ns4:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
+  					<ns4:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
   					<ns4:mimeType>model/vrml</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
@@ -108,7 +108,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0010/6">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200005</ns2:messageType>
   		<ns2:sendingApplication>
@@ -185,7 +185,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200036</ns2:messageType>
   		<ns2:sendingApplication>
@@ -223,7 +223,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200036</ns2:messageType>
   		<ns2:sendingApplication>
@@ -261,7 +261,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200032</ns2:messageType>
   		<ns2:sendingApplication>
@@ -299,7 +299,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200032</ns2:messageType>
   		<ns2:sendingApplication>
@@ -337,7 +337,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200033</ns2:messageType>
   		<ns2:sendingApplication>
@@ -375,7 +375,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200033</ns2:messageType>
   		<ns2:sendingApplication>
@@ -413,7 +413,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200036</ns2:messageType>
   		<ns2:sendingApplication>
@@ -451,7 +451,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200036</ns2:messageType>
   		<ns2:sendingApplication>
@@ -489,7 +489,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200033</ns2:messageType>
   		<ns2:sendingApplication>
@@ -527,7 +527,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200037</ns2:messageType>
   		<ns2:sendingApplication>
@@ -565,7 +565,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200007</ns2:messageType>
   		<ns2:sendingApplication>
@@ -610,7 +610,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0039/2">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200007</ns2:messageType>
   		<ns2:sendingApplication>

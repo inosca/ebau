@@ -26,9 +26,9 @@ def encode_token(data, jwt_secret, jwe_secret):
 @pytest.fixture(autouse=True)
 def enable(settings):
     settings.ENABLE_TOKEN_EXCHANGE = True
-    settings.KEYCLOAK_URL = "http://ebau-keycloak.local/auth"
+    settings.KEYCLOAK_URL = "http://ebau-keycloak.localhost/auth"
     settings.KEYCLOAK_OIDC_TOKEN_URL = (
-        "http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/token"
+        "http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/token"
     )
     settings.TOKEN_EXCHANGE_MAX_VALIDITY_PERIOD = 60
 

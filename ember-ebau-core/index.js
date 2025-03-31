@@ -37,7 +37,7 @@ module.exports = {
         isGR: ENV === "gr",
         isSO: ENV === "so",
         // environment-specific settings
-        portalUrl: process.env.PORTAL_URL || "http://ebau-portal.local",
+        portalUrl: process.env.PORTAL_URL || "http://ebau-portal.localhost",
         soGisUrl: process.env.SO_GIS_URL || "https://geo-i.so.ch",
         enableWatermark: process.env.ENABLE_WATERMARK ?? false,
         watermark: process.env.WATERMARK ?? "dev",
@@ -50,7 +50,7 @@ module.exports = {
         // token exchange (this is not a regular feature flag because it differs
         // per environment in Kt. SO)
         enableTokenExchange: process.env.ENABLE_TOKEN_EXCHANGE ?? false,
-        eGovPortalURL: process.env.EGOV_PORTAL_URL ?? "http://egov.local",
+        eGovPortalURL: process.env.EGOV_PORTAL_URL ?? "http://egov.localhost",
         eGovPrestationPath: process.env.EGOV_PRESTATION_PATH ?? "/prestation/1",
         eGovPublicPrestationPath:
           process.env.EGOV_PUBLIC_PRESTATION_PATH ?? "/prestation/5",

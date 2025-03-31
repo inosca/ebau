@@ -4027,7 +4027,7 @@
         "redirectUris": [
           "http://localhost:4400/*",
           "https://oauth.pstmn.io/*",
-          "http://ember-ebau.local/*"
+          "http://ember-ebau.localhost/*"
         ],
         "webOrigins": ["+"],
         "notBefore": 0,
@@ -4555,13 +4555,13 @@
         "description": "",
         "rootUrl": "",
         "adminUrl": "",
-        "baseUrl": "http://ebau-portal.local",
+        "baseUrl": "http://ebau-portal.localhost",
         "surrogateAuthRequired": false,
         "enabled": true,
         "alwaysDisplayInConsole": false,
         "clientAuthenticatorType": "client-secret",
         "redirectUris": [
-          "http://ebau-portal.local/*",
+          "http://ebau-portal.localhost/*",
           "http://localhost:4200/*"
         ],
         "webOrigins": ["+"],
@@ -5277,7 +5277,7 @@
         "clientAuthenticatorType": "client-secret",
         "secret": "5a68ce3f-e98a-4cec-9e2d-abed5e570501",
         "redirectUris": [],
-        "webOrigins": ["http://ebau.local"],
+        "webOrigins": ["http://ebau.localhost"],
         "notBefore": 0,
         "bearerOnly": false,
         "consentRequired": false,

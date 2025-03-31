@@ -442,7 +442,7 @@ def test_transmitting_logic(
     location_required,
     dossier_import_settings,
 ):
-    dossier_import_settings["PROD_URL"] = "http://ebau.local"
+    dossier_import_settings["PROD_URL"] = "http://ebau.localhost"
     dossier_import_settings["LOCATION_REQUIRED"] = location_required
     dossier_import_settings["PROD_AUTH_URL"] = settings.KEYCLOAK_OIDC_TOKEN_URL
 

@@ -52,7 +52,7 @@ module("Integration | Component | publication-info", function (hooks) {
       .hasText(
         `${t("publication.info.note")} ${t(
           "publication.info.published.public",
-        )} http://ebau-portal.local/public-instances?municipality=1`,
+        )} http://ebau-portal.localhost/public-instances?municipality=1`,
       );
   });
 

@@ -298,7 +298,7 @@ def set_application_be(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_bern"])
     settings.APPLICATION = application_dict
     settings.APPLICATION_NAME = "kt_bern"
-    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
 
     return application_dict
 
@@ -308,7 +308,7 @@ def set_application_sz(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_schwyz"])
     settings.APPLICATION = application_dict
     settings.APPLICATION_NAME = "kt_schwyz"
-    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
     return application_dict
 
 
@@ -317,7 +317,7 @@ def set_application_ur(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_uri"])
     settings.APPLICATION = application_dict
     settings.APPLICATION_NAME = "kt_uri"
-    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
     return application_dict
 
 
@@ -326,7 +326,7 @@ def set_application_gr(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_gr"])
     settings.APPLICATION = application_dict
     settings.APPLICATION_NAME = "kt_gr"
-    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
     return application_dict
 
 
@@ -335,7 +335,7 @@ def set_application_so(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_so"])
     settings.APPLICATION = application_dict
     settings.APPLICATION_NAME = "kt_so"
-    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
     return application_dict
 
 
@@ -344,7 +344,7 @@ def set_application_ag(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_ag"])
     settings.APPLICATION = application_dict
     settings.APPLICATION_NAME = "kt_ag"
-    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
     return application_dict
 
 
@@ -353,7 +353,7 @@ def set_application_test(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["test"])
     settings.APPLICATION = application_dict
     settings.APPLICATION_NAME = "test"
-    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
     return application_dict
 
 
@@ -362,7 +362,7 @@ def set_application_demo(settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["demo"])
     settings.APPLICATION = application_dict
     settings.APPLICATION_NAME = "demo"
-    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
     return application_dict
 
 

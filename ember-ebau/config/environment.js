@@ -21,7 +21,7 @@ module.exports = function (environment) {
   const {
     // Defaults only apply when run with ember dev server or when the image is
     // not built with KEYCLOAK_* build arguments
-    KEYCLOAK_HOST = "http://ebau-keycloak.local",
+    KEYCLOAK_HOST = "http://ebau-keycloak.localhost",
     KEYCLOAK_BASE_PATH = "auth/",
     KEYCLOAK_REALM = app === "kt_uri" ? "urec" : "ebau",
     KEYCLOAK_CLIENT = "camac",

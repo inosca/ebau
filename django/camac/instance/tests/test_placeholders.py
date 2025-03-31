@@ -41,7 +41,7 @@ def be_dms_config(settings, be_placeholders_settings):
         (code, name) for code, name in settings.LANGUAGES if code in ["de", "fr"]
     ]
     settings.APPLICATION_NAME = "kt_bern"
-    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
     yield
     settings.LANGUAGES = original_languages
 
@@ -53,7 +53,7 @@ def gr_dms_config(settings):
         (code, name) for code, name in settings.LANGUAGES if code in ["de", "it"]
     ]
     settings.APPLICATION_NAME = "kt_gr"
-    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
     yield
     settings.LANGUAGES = original_languages
 
@@ -65,7 +65,7 @@ def so_dms_config(settings, application_settings, so_placeholders_settings):
         (code, name) for code, name in settings.LANGUAGES if code in ["de"]
     ]
     settings.APPLICATION_NAME = "kt_so"
-    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
     application_settings["SHORT_NAME"] = "so"
     yield
     settings.LANGUAGES = original_languages
@@ -78,7 +78,7 @@ def ur_dms_config(settings, application_settings):
         (code, name) for code, name in settings.LANGUAGES if code in ["de"]
     ]
     settings.APPLICATION_NAME = "kt_uri"
-    settings.INTERNAL_BASE_URL = "http://ember.local"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
     application_settings["SHORT_NAME"] = "ur"
     yield
     settings.LANGUAGES = original_languages
@@ -91,7 +91,7 @@ def ag_dms_config(settings):
         (code, name) for code, name in settings.LANGUAGES if code in ["de"]
     ]
     settings.APPLICATION_NAME = "kt_ag"
-    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
     yield
     settings.LANGUAGES = original_languages
 

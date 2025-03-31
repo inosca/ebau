@@ -11,7 +11,7 @@ const argv = yargs(hideBin(process.argv)).argv;
 
 const ENVIRONMENTS = {
   local: {
-    url: "http://ebau.local",
+    url: "http://ebau.localhost",
     groups: [
       22527, 22528, 22529, 22530, 22531, 22532, 22533, 22534, 22535, 22536,
     ],

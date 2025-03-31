@@ -4,7 +4,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200000</ns2:messageType>
   		<ns2:sendingApplication>
@@ -201,7 +201,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ember-ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ember-ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200000</ns2:messageType>
   		<ns2:sendingApplication>
@@ -295,7 +295,7 @@
   					<ns6:status>created</ns6:status>
   					<ns6:files>
   						<ns6:file>
-  							<ns6:pathFileName>http://ember-ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns6:pathFileName>
+  							<ns6:pathFileName>http://ember-ebau.localhost/ech/v1/files/<!-- ATTACHMENT_ID --></ns6:pathFileName>
   							<ns6:mimeType>text/csv</ns6:mimeType>
   						</ns6:file>
   					</ns6:files>
@@ -379,7 +379,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0044/4">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200000</ns2:messageType>
   		<ns2:sendingApplication>
@@ -474,7 +474,7 @@
   					<ns6:status>signed</ns6:status>
   					<ns6:files>
   						<ns6:file>
-  							<ns6:pathFileName>http://ebau.local/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns6:pathFileName>
+  							<ns6:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns6:pathFileName>
   							<ns6:mimeType>message/partial</ns6:mimeType>
   						</ns6:file>
   					</ns6:files>
@@ -633,7 +633,7 @@
   <?xml version="1.0" ?>
   <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0044/4">
   	<ns1:deliveryHeader>
-  		<ns2:senderId>http://ember-ebau.local</ns2:senderId>
+  		<ns2:senderId>http://ember-ebau.localhost</ns2:senderId>
   		<ns2:messageId><!-- MESSAGE_ID --></ns2:messageId>
   		<ns2:messageType>5200000</ns2:messageType>
   		<ns2:sendingApplication>
@@ -754,7 +754,7 @@
   					<ns7:status>created</ns7:status>
   					<ns7:files>
   						<ns7:file>
-  							<ns7:pathFileName>http://ember-ebau.local/ech/v1/files/<!-- ATTACHMENT_ID --></ns7:pathFileName>
+  							<ns7:pathFileName>http://ember-ebau.localhost/ech/v1/files/<!-- ATTACHMENT_ID --></ns7:pathFileName>
   							<ns7:mimeType>video/quicktime</ns7:mimeType>
   						</ns7:file>
   					</ns7:files>
