@@ -99,6 +99,9 @@ class BillingV2CommonEntry(models.Model):
     # Product number for generating invoices
     product_number = models.CharField(null=True)
 
+    # Remark
+    remark = models.TextField(blank=True, null=True, verbose_name=_("Remark"))
+
     class Meta:
         abstract = True
 

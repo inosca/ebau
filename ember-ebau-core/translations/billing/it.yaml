@@ -35,6 +35,7 @@ billing:
   paginationInfo: "<strong>{count}</strong> su {total}"
   apply-construction-costs: Adottare i costi di costruzione dal modulo
   apply-construction-costs-empty: Non è stato possibile reperire i costi di costruzione nel modulo
+  remark: Osservazione
 
   organizations:
     cantonal: Cantonale

@@ -17,4 +17,5 @@ export default {
   hours: () => faker.finance.amount({ min: 1, max: 10 }),
   hourlyRate: () => faker.finance.amount({ min: 150, max: 300 }),
   finalRate: () => faker.finance.amount({ min: 1, max: 1000 }),
+  remark: () => faker.lorem.sentence(),
 };

@@ -32,6 +32,7 @@ export default class BillingV2EntryModel extends BillingV2CommonEntryModel {
       "taxRate",
       "text",
       "totalCost",
+      "remark",
     ];
 
     const defaults = {
