@@ -14,9 +14,15 @@ export default class DmsEditComponent extends Component {
   @service intl;
   @service notification;
   @service ebauModules;
+  @service dms;
 
   template = trackedFunction(this, async () => {
     if (!this.args.slug) {
+      if (this.args.shared) {
+        return this.store.createRecord("template", {
+          meta: { service_group: this.dms.serviceGroupSlug },
+        });
+      }
       return this.store.createRecord("template", {
         meta: {
           service: String(this.ebauModules.serviceId),

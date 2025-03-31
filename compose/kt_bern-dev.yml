@@ -216,7 +216,8 @@ services:
       DATABASE_USER: camac
       DATABASE_PASSWORD: camac
       URL_PREFIX: document-merge-service/
-      EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
+      # Env variables used in document-merge-service/extensions:
+      EXTENSIONS_ARGUMENTS: DJANGO_API=http://django,APPLICATION=${APPLICATION}
     user: "${UID:?Set UID env variable to your user id}"
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions

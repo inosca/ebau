@@ -1,0 +1,68 @@
+<table class="uk-table uk-table-striped uk-table-middle">
+  <thead>
+    <tr>
+      <th>{{t "dms.name"}}</th>
+      {{#unless @system}}
+        <th>{{t "dms.category"}}</th>
+        <th>{{t "dms.modifiedAt"}}</th>
+        {{#if @own}}
+          <th>{{t "dms.modifiedBy"}}</th>
+        {{/if}}
+      {{/unless}}
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each @templates as |template|}}
+      <tr>
+        <td>{{template.description}}</td>
+        {{#unless @system}}
+          <td>{{or template.meta.category "-"}}</td>
+          <td>{{if
+              template.modifiedByUser
+              (format-date template.modifiedAt format="datetime")
+            }}</td>
+          {{#if @own}}
+            <td>{{or
+                (get
+                  (find-by "username" template.modifiedByUser @users) "fullName"
+                )
+                "-"
+              }}
+            </td>
+          {{/if}}
+        {{/unless}}
+        <td class="uk-text-right">
+          {{#if (or @own (and @shared (can "edit shared dms-template")))}}
+            <LinkTo
+              @route={{module-route "dms-admin" "edit"}}
+              @model={{template.id}}
+              class="uk-button uk-button-link uk-margin-small-right"
+              {{uk-tooltip (t "dms.edit") pos="left"}}
+            >
+              <UkIcon @icon="pencil" />
+            </LinkTo>
+          {{/if}}
+          <button
+            type="button"
+            class="uk-button uk-button-link"
+            {{uk-tooltip (t "dms.download") pos="left"}}
+            {{on "click" (perform this.downloadTemplate template)}}
+          >
+            <UkIcon @icon="download" />
+          </button>
+        </td>
+      </tr>
+    {{else}}
+      <tr>
+        <td
+          colspan={{if @system "2" "5"}}
+          class="uk-text-center uk-text-italic"
+        >
+          {{t "dms.empty"}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

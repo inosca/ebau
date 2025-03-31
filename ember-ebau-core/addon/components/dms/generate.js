@@ -24,6 +24,7 @@ export default class DmsGenerateComponent extends Component {
   @service ebauModules;
   @service fetch;
   @service intl;
+  @service dms;
 
   @tracked template;
 
@@ -55,15 +56,22 @@ export default class DmsGenerateComponent extends Component {
         t.meta.service &&
         parseInt(t.meta.service) !== parseInt(this.ebauModules.serviceId),
     );
-    const systemTemplates = templates.filter((t) => !t.meta.service);
+    const systemTemplates = templates.filter(
+      (t) => !t.meta.service && !t.meta.serviceGroup,
+    );
 
     const ownUncategorized = ownTemplates.filter((t) => !t.meta.category);
     const inheritedUncategorized = inheritedTemplates.filter(
       (t) => !t.meta.category,
     );
 
+    const sharedTemplates = templates.filter(
+      (t) => t.meta.service_group === this.dms.serviceGroupSlug,
+    );
+    const sharedUncategorized = sharedTemplates.filter((t) => !t.meta.category);
     const categories = extractCategories(ownTemplates);
     const inheritedCategories = extractCategories(inheritedTemplates);
+    const sharedCategories = extractCategories(sharedTemplates);
 
     return [
       ...categories.map((category) => ({
@@ -94,6 +102,21 @@ export default class DmsGenerateComponent extends Component {
             },
           ]
         : []),
+      ...sharedCategories.map((category) => ({
+        groupName: `${category} (${this.intl.t("dms.shared")})`,
+        options: sharedTemplates.filter(
+          (t) => t.meta.category?.trim() === category,
+        ),
+      })),
+      ...(sharedUncategorized.length
+        ? [
+            {
+              groupName: this.intl.t("dms.sharedUncategorized"),
+              options: sharedUncategorized,
+            },
+          ]
+        : []),
+
       ...(systemTemplates.length
         ? [
             {

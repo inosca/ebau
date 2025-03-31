@@ -1,21 +1,17 @@
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
-import { dropTask, restartableTask } from "ember-concurrency";
+import { restartableTask } from "ember-concurrency";
 import { findAll } from "ember-data-resources";
-import saveAs from "file-saver";
 import { trackedTask } from "reactiveweb/ember-concurrency";
 
-import {
-  MIME_TYPE_TO_EXTENSION,
-  sortByDescription,
-} from "ember-ebau-core/utils/dms";
+import { sortByDescription } from "ember-ebau-core/utils/dms";
 
 export default class DmsListComponent extends Component {
-  @service notification;
   @service ebauModules;
   @service fetch;
   @service intl;
   @service store;
+  @service dms;
 
   templates = findAll(this, "template");
 
@@ -42,6 +38,7 @@ export default class DmsListComponent extends Component {
     return [
       ...(yield this.store.query("public-user", {
         username: users.join(","),
+        service: this.ebauModules.serviceId,
       }) ?? []),
     ];
   }
@@ -52,7 +49,12 @@ export default class DmsListComponent extends Component {
 
   get systemTemplates() {
     return this.templates.records
-      ?.filter((template) => !template.meta.service && template.description)
+      ?.filter(
+        (template) =>
+          !template.meta.service &&
+          !template.meta.service_group &&
+          template.description,
+      )
       .sort(sortByDescription);
   }
 
@@ -77,24 +79,11 @@ export default class DmsListComponent extends Component {
       .sort(sortByDescription);
   }
 
-  @dropTask
-  *downloadTemplate(template, event) {
-    event.preventDefault();
-
-    try {
-      const response = yield this.fetch.fetch(
-        `/document-merge-service/api/v1/template-download/${template.id}`,
-        { headers: { accept: "*/*" } },
-      );
-
-      const blob = yield response.blob();
-
-      saveAs(
-        blob,
-        `${template.description}${MIME_TYPE_TO_EXTENSION[blob.type]}`,
-      );
-    } catch {
-      this.notification.danger(this.intl.t("dms.download-error"));
-    }
+  get sharedTemplates() {
+    return this.templates.records
+      ?.filter(
+        (template) => template.meta.service_group === this.dms.serviceGroupSlug,
+      )
+      .sort(sortByDescription);
   }
 }

@@ -71,6 +71,15 @@ export default {
       ],
     },
   },
+  dmsSharedTemplates: {
+    allowedServiceGroups: [
+      "district", // Leitbehörde RSTA (Regierungsstatthalteramt)
+    ],
+    adminServicesForServiceGroup: {
+      // Leitbehörde RSTA (Regierungsstatthalteramt) : Regierungsstatthalteramt Seeland
+      district: ["rsta-seeland"],
+    },
+  },
   intentSlugs: ["beschreibung-bauvorhaben"],
   freetextSlugs: ["freies-textfeld-1", "freies-textfeld-2"],
   publication: {
