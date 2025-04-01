@@ -375,6 +375,10 @@ export default class CaseTableComponent extends Component {
     ];
   }
 
+  get keywordFilterName() {
+    return caseTableConfig.useLegacyTags ? "tags" : "keywords";
+  }
+
   get camacFilter() {
     const filters = {
       instance_state:
@@ -382,85 +386,50 @@ export default class CaseTableComponent extends Component {
       service: this.args.filter.service || this.args.filter.serviceSZ,
       responsible_service_user: this.args.filter.responsibleServiceUser,
       responsible_service: this.args.filter.responsibleMunicipality,
-      ...(macroCondition(getOwnConfig().application === "sz")
+      location: this.args.filter.municipality,
+      is_paper: this.args.filter.paper,
+      [this.keywordFilterName]: this.args.filter.keywords,
+      decision: this.args.filter.decision,
+      inquiry_created_before: this.args.filter.inquiryCreatedBefore,
+      inquiry_created_after: this.args.filter.inquiryCreatedAfter,
+      inquiry_completed_before: this.args.filter.inquiryCompletedBefore,
+      inquiry_completed_after: this.args.filter.inquiryCompletedAfter,
+      inquiry_state: this.args.filter.inquiryState,
+      inquiry_answer: this.args.filter.inquiryAnswer,
+      // BE-specific
+      is_modification: this.args.filter.modification,
+      decision_date_before: this.args.filter.decisionDateBefore,
+      decision_date_after: this.args.filter.decisionDateAfter,
+      // UR-specific
+      circulation_state: this.args.hasActivation
+        ? caseTableConfig.activeCirculationStates
+        : null,
+      has_pending_billing_entry: this.args.hasPendingBillingEntry,
+      has_pending_sanction: this.args.hasPendingSanction,
+      pending_sanctions_control_instance: this.args.filter.pendingSanctionsControlInstance,
+      with_cantonal_participation: this.args.filter.withCantonalParticipation,
+      oereb_legal_state: this.args.filter.legalStateOereb,
+      // SZ-specific
+      ...(this.args.casesBackend === "camac-ng"
         ? {
-            address_sz: this.args.filter.address,
-            plot_egrid_sz: this.args.filter.parcel_egrid,
-            plot_number_sz: this.args.filter.parcel_property_number,
-            builder_sz: this.args.filter.builder,
-            landowner_sz: this.args.filter.landowner,
-            applicant_sz: this.args.filter.applicant,
-            submit_date_after_sz: this.args.filter.submitDateAfter,
-            submit_date_before_sz: this.args.filter.submitDateBefore,
-            form_name_versioned: this.args.filter.type,
-            objection_received: this.args.filter.objectionReceived,
-            construction_zone_location_sz:
-              this.args.filter.constructionZoneLocation,
-            identifier: this.args.filter.instanceIdentifier || "",
-            ...(this.args.casesBackend === "camac-ng"
-              ? { intent_sz: this.args.filter.intent }
-              : {}),
-            keyword_search: this.args.filter.keywordSearch,
-            location: this.args.filter.municipality,
-            caluma_keyword_search: this.args.filter.calumaKeywordSearch,
-          }
-        : macroCondition(getOwnConfig().application === "ur")
-          ? {
-              circulation_state: this.args.hasActivation
-                ? caseTableConfig.activeCirculationStates
-                : null,
-              has_pending_billing_entry: this.args.hasPendingBillingEntry,
-              has_pending_sanction: this.args.hasPendingSanction,
-              pending_sanctions_control_instance:
-                this.args.filter.pendingSanctionsControlInstance,
-              with_cantonal_participation:
-                this.args.filter.withCantonalParticipation,
-              is_paper: this.args.filter.paper,
-              oereb_legal_state: this.args.filter.legalStateOereb,
-              location: this.args.filter.municipality,
-            }
-          : macroCondition(getOwnConfig().application === "be")
-            ? {
-                tags: this.args.filter.keywords,
-                is_paper: this.args.filter.paper,
-                is_modification: this.args.filter.modification,
-                inquiry_state: this.args.filter.inquiryState,
-                decision_date_before: this.args.filter.decisionDateBefore,
-                decision_date_after: this.args.filter.decisionDateAfter,
-                decision: this.args.filter.decision,
-                inquiry_created_before: this.args.filter.inquiryCreatedBefore,
-                inquiry_created_after: this.args.filter.inquiryCreatedAfter,
-                inquiry_completed_before:
-                  this.args.filter.inquiryCompletedBefore,
-                inquiry_completed_after: this.args.filter.inquiryCompletedAfter,
-                inquiry_answer: this.args.filter.inquiryAnswer,
-              }
-            : macroCondition(getOwnConfig().application === "gr")
-              ? {
-                  keywords: this.args.filter.keywords,
-                  decision: this.args.filter.decision,
-                  inquiry_created_before: this.args.filter.inquiryCreatedBefore,
-                  inquiry_created_after: this.args.filter.inquiryCreatedAfter,
-                  inquiry_completed_before:
-                    this.args.filter.inquiryCompletedBefore,
-                  inquiry_completed_after:
-                    this.args.filter.inquiryCompletedAfter,
-                  is_paper: this.args.filter.paper,
-                  inquiry_state: this.args.filter.inquiryState,
-                  inquiry_answer: this.args.filter.inquiryAnswer,
-                }
-              : macroCondition(getOwnConfig().application === "so")
-                ? {
-                    keywords: this.args.filter.keywords,
-                    is_paper: this.args.filter.paper,
-                    decision: this.args.filter.decision,
-                  }
-                : macroCondition(getOwnConfig().application === "ag")
-                ? {
-                    keywords: this.args.filter.keywords,
-                    is_paper: this.args.filter.paper,
-                    decision: this.args.filter.decision,
-                  }: {}),
+          intent_sz: this.args.filter.intent,
+          address_sz: this.args.filter.address,
+          plot_egrid_sz: this.args.filter.parcel_egrid,
+          plot_number_sz: this.args.filter.parcel_property_number,
+          builder_sz: this.args.filter.builder,
+          landowner_sz: this.args.filter.landowner,
+          applicant_sz: this.args.filter.applicant,
+          submit_date_after_sz: this.args.filter.submitDateAfter,
+          submit_date_before_sz: this.args.filter.submitDateBefore,
+          form_name_versioned: this.args.filter.type,
+          objection_received: this.args.filter.objectionReceived,
+          construction_zone_location_sz:
+            this.args.filter.constructionZoneLocation,
+          identifier: this.args.filter.instanceIdentifier || "",
+          keyword_search: this.args.filter.keywordSearch,
+          caluma_keyword_search: this.args.filter.calumaKeywordSearch,
+        }
+        : {}),
     };
 
     return {
