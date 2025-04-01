@@ -23,9 +23,11 @@ export default class EbauModulesService extends Service {
   }
 
   get storeServiceName() {
-    return this.applicationName === "caluma-portal"
-      ? "public-service"
-      : "service";
+    return this.isPortal ? "public-service" : "service";
+  }
+
+  get isPortal() {
+    return this.applicationName === "caluma-portal";
   }
 
   setupModules() {

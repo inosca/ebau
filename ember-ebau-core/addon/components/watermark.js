@@ -5,6 +5,6 @@ export default class WatermarkComponent extends Component {
   @service ebauModules;
 
   get isPortal() {
-    return this.ebauModules.applicationName === "caluma-portal";
+    return this.ebauModules.isPortal;
   }
 }

@@ -51,6 +51,14 @@
         class="uk-button uk-button-default uk-float-right"
       >{{t "cases.new.paper"}}</a>
     {{/if}}
+    {{#if this.showNewCaseButton}}
+      <LinkTo
+        @route="new-case"
+        class="uk-button uk-button-default uk-float-right"
+      >
+        {{t "case.new.button.label"}}
+      </LinkTo>
+    {{/if}}
   </div>
 </form>
 

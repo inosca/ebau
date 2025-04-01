@@ -1,11 +1,15 @@
 import { assert } from "@ember/debug";
 import { service } from "@ember/service";
 import { dropTask } from "ember-concurrency";
+
+import { hasInstanceState } from "ember-ebau-core/abilities/instance";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
+import mainConfig from "ember-ebau-core/config/main";
 
 const VORLAEUFIGE_BEURTEILUNG_FORM = "vorlaeufige-beurteilung";
 
 export default class GrSubmitInstanceComponent extends DocumentValidityButtonComponent {
+  @service ebauModules;
   @service intl;
   @service notification;
   @service router;
@@ -29,19 +33,29 @@ export default class GrSubmitInstanceComponent extends DocumentValidityButtonCom
       const action = this.args.field.question.raw.meta.action;
 
       assert("Field must have a meta property `action`", action);
+      const instance = yield this.store.peekRecord("instance", instanceId);
+
+      if (
+        hasInstanceState(
+          instance,
+          mainConfig.correction?.instanceState ?? [],
+        ) &&
+        this.ebauModules.isPortal === false
+      ) {
+        yield this.router.transitionTo("cases.detail.corrections");
+        return;
+      }
 
       // submit instance in CAMAC
       const camacResponse = yield this.fetch.fetch(
         `/api/v1/instances/${instanceId}/${action}`,
         { method: "POST" },
       );
-
       if (!camacResponse.ok) {
         throw {
-          errors: [new Error(this.intl.t("be-submit-instance.failed-camac"))],
+          errors: [new Error(this.intl.t("cases.submit.failed-camac"))],
         };
       }
-      const instance = yield this.store.peekRecord("instance", instanceId);
 
       if (
         !instance.isPaper &&
@@ -50,14 +64,18 @@ export default class GrSubmitInstanceComponent extends DocumentValidityButtonCom
         yield this.export.perform();
       }
 
-      this.notification.success(this.intl.t("be-submit-instance.success"));
-
-      yield this.router.transitionTo("instances.index");
+      if (this.ebauModules.isPortal) {
+        this.notification.success(this.intl.t("cases.submit.success"));
+        yield this.router.transitionTo("instances.index");
+      } else {
+        this.notification.success(this.intl.t("cases.submit.successInternal"));
+        this.ebauModules.redirectToWorkItems();
+      }
     } catch (e) {
       console.error(e);
       const reasons = (e.errors || []).map((e) => e.message).join("<br>\n");
       this.notification.danger(
-        this.intl.t("be-submit-instance.failed-message", { reasons }),
+        this.intl.t("cases.submit.failed-message", { reasons }),
       );
       // un-mark as submitted
       this.args.field.answer.value = null;

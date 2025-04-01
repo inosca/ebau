@@ -190,3 +190,10 @@ cases:
   appeal:
     only: "Nur Beschwerdeverfahren"
     none: "Keine Beschwerdeverfahren"
+
+  submit:
+    success: "Das Gesuch wurde erfolgreich eingereicht."
+    successInternal: "Das Gesuch wurde erfolgreich angelegt."
+    failed-camac: "Fehler beim Schreiben auf Schnittstelle."
+    failed-message: "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. {reasons}"
+    button-hint-text: "<strong>Hinweis:</strong> Als Systembetrieb können keine Gesuche eingereicht werden."

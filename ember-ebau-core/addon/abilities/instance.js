@@ -107,7 +107,8 @@ export default class InstanceAbility extends Ability {
       // disabled until isMunicipalityLeadRole works in ember-ebau
       // (this.ebauModules.isSupportRole ||
       //   this.ebauModules.isMunicipalityLeadRole) &&
-      hasInstanceState(this.model, mainConfig.correction?.instanceState)
+      hasInstanceState(this.model, mainConfig.correction?.instanceState) ||
+      hasInstanceState(this.model, "new")
     );
   }
 
