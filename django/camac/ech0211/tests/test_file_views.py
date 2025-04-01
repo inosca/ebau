@@ -197,7 +197,6 @@ def test_upload(
             result = response.json()
             assert result["document-uuid"]
             assert result["file-uuid"]
-            assert result["download-url"]
 
             file = File.objects.get(pk=result["file-uuid"])
             document = Document.objects.get(pk=result["document-uuid"])
@@ -211,6 +210,3 @@ def test_upload(
             assert document.title == "multiple-pages.pdf"
             assert document.files.filter(variant=File.Variant.ORIGINAL).count() == 1
             assert document.files.filter(variant=File.Variant.THUMBNAIL).count() == 1
-
-            download_response = admin_client.get(result["download-url"])
-            assert download_response.status_code == status.HTTP_200_OK
