@@ -160,6 +160,13 @@ export default class InstanceAbility extends Ability {
   }
 
   get canDownloadReceipt() {
+    if (
+      config.APPLICATION.name === "so" &&
+      this.model?.calumaForm === "voranfrage"
+    ) {
+      return false;
+    }
+
     return (
       mainConfig.showDownloadReceiptAction &&
       this.instanceStateId !== config.APPLICATION.instanceStates.new
