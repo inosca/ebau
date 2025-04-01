@@ -105,8 +105,8 @@ export default {
   decision: {
     task: "decision",
     answerSlugs: {
-      decision: "decision-decision",
-      remarks: "decision-remarks",
+      decision: "entscheid-entscheid",
+      remarks: "entscheid-bemerkungen",
     },
     colorMapping: {
       "decision-decision-approved": "uk-alert-success",
