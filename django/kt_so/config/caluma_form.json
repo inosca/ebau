@@ -8141,6 +8141,21 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "einreichen-button",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.einreichen-button-ohne-unterschriftenblatt",
+    "fields": {
+      "created_at": "2025-04-01T15:35:20.530Z",
+      "modified_at": "2025-04-01T15:35:20.530Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "einreichen-button-ohne-unterschriftenblatt",
       "sort": 1
     }
   },
@@ -8156,7 +8171,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-formular",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -8171,7 +8186,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-gesuch",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -8186,7 +8201,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-meldung",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -8201,7 +8216,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-meldung-pv",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -8216,7 +8231,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "hinweis-voranfrage",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -8231,7 +8246,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "titel-einreichung",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -8246,7 +8261,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "umfrage",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -8261,7 +8276,7 @@
       "modified_by_group": null,
       "form": "einreichen",
       "question": "unterschriftenblatt-hinweis",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -43243,15 +43258,15 @@
     "pk": "einreichen-button",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2025-03-04T14:51:10.325Z",
+      "modified_at": "2025-04-01T15:39:47.867Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Einreichen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Einreichen und Unterschriftenblatt herunterladen\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "info.root.form == \"voranfrage\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -43262,6 +43277,41 @@
         "action": "submit",
         "hideLabel": true,
         "widgetOverride": "so-submit-instance"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einreichen-button-ohne-unterschriftenblatt",
+    "fields": {
+      "created_at": "2025-03-31T15:30:03.482Z",
+      "modified_at": "2025-03-31T15:33:01.468Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einreichen\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "info.root.form != \"voranfrage\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "action": "submit",
+        "hideLabel": true,
+        "widgetOverride": "be-submit-instance"
       },
       "data_source": null,
       "row_form": null,
@@ -51572,7 +51622,7 @@
     "pk": "hinweis-gesuch",
     "fields": {
       "created_at": "2024-05-31T09:26:18.393Z",
-      "modified_at": "2025-03-04T14:35:56.070Z",
+      "modified_at": "2025-04-01T15:39:57.420Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -51585,7 +51635,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihr Gesuch ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen und Unterschriftenblatt herunterladen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihr Gesuch ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr vornehmen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -52008,7 +52058,7 @@
     "pk": "hinweis-meldung",
     "fields": {
       "created_at": "2024-05-31T09:23:23.986Z",
-      "modified_at": "2025-03-04T14:35:32.719Z",
+      "modified_at": "2025-04-01T15:39:10.653Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52021,7 +52071,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihre Meldung (Anzeige) ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr\\nvornehmen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen und Unterschriftenblatt herunterladen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihre Meldung (Anzeige) ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr\\nvornehmen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -52039,7 +52089,7 @@
     "pk": "hinweis-meldung-pv",
     "fields": {
       "created_at": "2024-09-06T08:02:28.114Z",
-      "modified_at": "2025-03-04T14:35:43.969Z",
+      "modified_at": "2025-04-01T15:39:30.154Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -52052,7 +52102,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihre Meldung PV-Anlage ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr\\nvornehmen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Mit Klick auf die Schaltfl\\u00e4che \\\"Einreichen und Unterschriftenblatt herunterladen\\\" best\\u00e4tigen Sie, dass das Formular vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt wurde. Ihre Meldung PV-Anlage ist bei der zust\\u00e4ndigen Beh\\u00f6rde zur Pr\\u00fcfung eingereicht. Sie k\\u00f6nnen an den Formulareintr\\u00e4gen keine Ver\\u00e4nderungen mehr\\nvornehmen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -64590,7 +64640,7 @@
     "pk": "unterschriftenblatt-hinweis",
     "fields": {
       "created_at": "2024-05-30T13:04:02.064Z",
-      "modified_at": "2025-03-04T14:39:11.068Z",
+      "modified_at": "2025-04-01T15:40:33.555Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -64603,7 +64653,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<p class=\\\"uk-margin-remove-bottom\\\">Sobald Sie das Formular eingereicht haben, wird automatisch das Unterschriftenblatt heruntergeladen. Bitte drucken Sie das Unterschriftenblatt aus und schicken Sie es per Papierpost <strong>mit den erforderlichen Unterschriften</strong> der zust\\u00e4ndigen Baubeh\\u00f6rde.</p>\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"<p class=\\\"uk-margin-remove-bottom\\\"><strong>Mit dem Einreichen Ihres Gesuchs wird automatisch ein Unterschriftenblatt heruntergeladen. Bitte drucken Sie das Unterschriftenblatt aus und schicken Sie es per Papierpost mit den erforderlichen Unterschriften an die zust\\u00e4ndige Baubeh\\u00f6rde (Gemeinde). Ihr Gesuch wird erst bearbeitet, wenn das Unterschriftenblatt eingereicht ist.</strong></p>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "hiddenInternal": true
@@ -71338,8 +71388,8 @@
     "model": "caluma_form.questionoption",
     "pk": "einreichen-button.einreichen-button-eingereicht",
     "fields": {
-      "created_at": "2025-03-04T14:51:10.330Z",
-      "modified_at": "2025-03-04T14:51:10.330Z",
+      "created_at": "2025-04-01T15:39:47.877Z",
+      "modified_at": "2025-04-01T15:39:47.877Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
