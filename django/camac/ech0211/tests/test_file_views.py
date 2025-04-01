@@ -1,6 +1,6 @@
 import pytest
 from alexandria.core.factories import CategoryFactory, FileFactory
-from alexandria.core.models import File
+from alexandria.core.models import Document, File
 from django.urls import reverse
 from rest_framework import status
 
@@ -194,7 +194,16 @@ def test_upload(
         assert response.status_code == expected_status
 
         if response.status_code == status.HTTP_201_CREATED:
-            document = category.documents.first()
+            result = response.json()
+            assert result["document-uuid"]
+            assert result["file-uuid"]
+            assert result["download-url"]
+
+            file = File.objects.get(pk=result["file-uuid"])
+            document = Document.objects.get(pk=result["document-uuid"])
+
+            assert document.category == category
+            assert document.files.contains(file)
 
             # make sure file was scanned by clamav
             clamav.assert_called()
@@ -202,3 +211,6 @@ def test_upload(
             assert document.title == "multiple-pages.pdf"
             assert document.files.filter(variant=File.Variant.ORIGINAL).count() == 1
             assert document.files.filter(variant=File.Variant.THUMBNAIL).count() == 1
+
+            download_response = admin_client.get(result["download-url"])
+            assert download_response.status_code == status.HTTP_200_OK
