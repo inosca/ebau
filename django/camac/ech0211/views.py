@@ -5,6 +5,7 @@ from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import transaction
 from django.http import HttpResponse
+from django.urls import reverse
 from django.utils.decorators import decorator_from_middleware
 from drf_yasg import openapi
 from drf_yasg.inspectors import SwaggerAutoSchema
@@ -33,6 +34,7 @@ from camac.swagger.utils import (
     get_operation_description,
     group_param,
 )
+from camac.utils import build_url
 
 from . import event_handlers, formatters
 from .middleware import GeofenceMiddleware
@@ -381,6 +383,16 @@ class ECHFileView(
 
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        document, file = serializer.save()
 
-        return Response(status=status.HTTP_201_CREATED)
+        return Response(
+            data={
+                "document-uuid": document.pk,
+                "file-uuid": file.pk,
+                "download-url": build_url(
+                    settings.INTERNAL_BASE_URL,
+                    reverse("ech-file-detail", args=[file.pk]),
+                ),
+            },
+            status=status.HTTP_201_CREATED,
+        )
