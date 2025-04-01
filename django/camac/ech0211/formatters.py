@@ -190,39 +190,41 @@ def get_document_status_type(document):
     return "created"
 
 
+def parse_alexandria_document(document, request):
+    tags = (
+        CustomAlexandriaVisibility()
+        .filter_queryset_for_tag(document.tags, request)
+        .order_by("name")
+        .values_list("name", flat=True)
+    )
+
+    return ns_nachrichten_t0.documentType(
+        uuid=str(document.pk),
+        titles=pyxb.BIND(title=[document.title]),
+        status=get_document_status_type(document),
+        documentKind=document.category.name.translate(),
+        keywords=pyxb.BIND(keyword=list(tags)) if tags.exists() else None,
+        files=ns_nachrichten_t0.filesType(
+            file=[
+                ns_nachrichten_t0.fileType(
+                    pathFileName=build_url(
+                        settings.INTERNAL_BASE_URL,
+                        reverse("ech-file-detail", args=[file.pk]),
+                    ),
+                    mimeType=file.mime_type,
+                )
+                for file in document.files.filter(variant="original").order_by(
+                    "-created_at"
+                )
+            ]
+        ),
+    )
+
+
 def get_alexandria_documents(documents, request):
     return [
-        ns_nachrichten_t0.documentType(
-            uuid=str(doc.pk),
-            titles=pyxb.BIND(title=[doc.title]),
-            status=get_document_status_type(doc),
-            documentKind=doc.category.name.translate(),
-            keywords=pyxb.BIND(
-                keyword=list(
-                    CustomAlexandriaVisibility()
-                    .filter_queryset_for_tag(doc.tags, request)
-                    .order_by("name")
-                    .values_list("name", flat=True)
-                )
-            )
-            if doc.tags.exists()
-            else None,
-            files=ns_nachrichten_t0.filesType(
-                file=[
-                    ns_nachrichten_t0.fileType(
-                        pathFileName=build_url(
-                            settings.INTERNAL_BASE_URL,
-                            reverse("ech-file-detail", args=[file.pk]),
-                        ),
-                        mimeType=file.mime_type,
-                    )
-                    for file in doc.files.filter(variant="original").order_by(
-                        "-created_at"
-                    )
-                ]
-            ),
-        )
-        for doc in documents.order_by("-created_at")
+        parse_alexandria_document(document, request)
+        for document in documents.order_by("-created_at")
     ]
 
 
