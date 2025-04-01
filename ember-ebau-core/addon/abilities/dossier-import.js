@@ -35,7 +35,7 @@ export default class extends Ability {
   }
 
   get canUndo() {
-    if (isProd()) {
+    if (isProd() && !this.isSO) {
       return false;
     }
     if (this.ebauModules.isSupportRole) {
