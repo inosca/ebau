@@ -3,6 +3,7 @@ from camac.permissions.conditions import (
     Callback,
     HasApplicantRole,
     HasRole,
+    IsPaper,
     IsServiceGroup,
     RequireInstanceState,
     RequireWorkItem,
@@ -13,6 +14,7 @@ from camac.settings.env import env
 # Instance state rules
 STATES_ALL = RequireInstanceState(
     [
+        "new",
         "subm",
         "circulation",
         "finished",
@@ -97,16 +99,16 @@ MODULE_PORTAL_DOCUMENTS_WRITE = (
     | RequireWorkItem("fill-additional-demand", "ready")
 ) & HasApplicantRole(["ADMIN", "EDITOR"])
 MODULE_PORTAL_FORM_READ = Always()
-MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & HasApplicantRole(
-    ["ADMIN", "EDITOR"]
+MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & (
+    HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(
     ["rejected"]
 ) & HasApplicantRole(["ADMIN"])
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & HasApplicantRole(["ADMIN"])
-ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & HasApplicantRole(
-    ["ADMIN"]
+ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & (
+    HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 ACTION_INSTANCE_CHANGE_FORM = RequireInstanceState(["subm"])
 
@@ -185,6 +187,7 @@ AG_PERMISSIONS_SETTINGS = {
                 | (RequireInstanceState(["correction"]) & ROLES_MUNICIPALITY),
             ),
             ("history-read", MODULE_HISTORY),
+            ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS),
             ("journal-read", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),

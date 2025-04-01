@@ -153,4 +153,50 @@ export default {
       withdrawn: "einwendung-zurueckgezogen",
     },
   },
+  displayedForms: [
+    {
+      section: "paper-instances", // Papierdossiers
+      forms: [
+        {
+          slug: "baugesuch",
+          roles: ["municipality-lead", "municipality-clerk"],
+          category: "building-permit",
+        },
+        {
+          slug: "baugesuch-mit-uvp",
+          roles: ["municipality-lead", "municipality-clerk"],
+          category: "building-permit",
+        },
+        {
+          slug: "vorentscheid",
+          roles: ["municipality-lead", "municipality-clerk"],
+          category: "building-permit",
+        },
+        {
+          slug: "anfrage",
+          roles: ["municipality-lead", "municipality-clerk"],
+          category: "special-procedure",
+        },
+        {
+          slug: "reklame",
+          roles: ["municipality-lead", "municipality-clerk"],
+          category: "special-procedure",
+        },
+      ],
+    },
+    {
+      section: "internal-dossiers", // Papierdossiers
+      forms: [
+        {
+          slug: "anfrage-intern",
+          roles: ["municipality-lead", "municipality-clerk"],
+        },
+        // TODO: internal dossier not exists yet
+        // {
+        //   slug: "internes-dossier",
+        //   roles: ["public", "internal"],
+        // },
+      ],
+    },
+  ],
 };

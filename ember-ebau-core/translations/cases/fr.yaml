@@ -169,3 +169,10 @@ cases:
   presets:
     pending: "Affaires en cours"
     paper: "Tous les dossiers papier"
+
+  submit:
+    success: "Le dossier a été soumise avec succès."
+    successInternal: "Le dossier a été créé avec succès."
+    failed-camac: "Erreur d'écriture sur le serveur."
+    failed-message: "Oups, quelque chose s'est mal passé. Veuillez vérifier vos données d'entrée à nouveau. {reasons}"
+    button-hint-text: "<strong>Remarque :</strong> aucune demande ne peut être soumise en tant que \"Systembetrieb\"."

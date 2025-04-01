@@ -549,16 +549,20 @@ export default class CaseTableComponent extends Component {
   async redirectToCase(caseRecord) {
     const instanceId = caseRecord.instanceId;
 
-    let redirectToPortal =
-      caseRecord.instance.isPaper &&
+    const isNewCase =
       parseInt(caseRecord.instance.get("instanceState.id")) ===
-        parseInt(mainConfig.instanceStates?.new);
+      parseInt(mainConfig.instanceStates?.new);
 
+    let redirectToPortal = caseRecord.instance.isPaper && isNewCase;
     if (hasFeature("permissions.municipalityBeforeSubmission")) {
       redirectToPortal ||= await this.permissions.hasAny(
         instanceId,
         "redirect-to-portal",
       );
+    }
+
+    if (hasFeature("internalCaseCreation")) {
+      redirectToPortal = false;
     }
 
     let url = `/index/redirect-to-instance-resource/instance-id/${instanceId}/`;

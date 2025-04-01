@@ -13,6 +13,7 @@ import DirectInquiryInfoComponent from "ember-ebau-core/components/direct-inquir
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-textarea";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
+import GRSubmitInstanceComponent from "ember-ebau-core/components/gr-submit-instance";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
 import KeycloakProfileApplyButtonComponent from "ember-ebau-core/components/keycloak-profile-apply-button";
@@ -107,6 +108,12 @@ export default class ApplicationRoute extends Route {
       label: "Entscheid verfügen",
       component: "decision/submit-button",
       componentClass: DecisionSubmitButtonComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Einreichen Button GR",
+      component: "gr-submit-instance",
+      componentClass: GRSubmitInstanceComponent,
+      type: "CheckboxQuestion",
     });
     this.calumaOptions.registerComponentOverride({
       label: "Koordinaten Platzhalter",

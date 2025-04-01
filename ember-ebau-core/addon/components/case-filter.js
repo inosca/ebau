@@ -28,6 +28,7 @@ import inquiryAnswersQuery from "ember-ebau-core/gql/queries/inquiry-answers.gra
 import municipalitiesQuery from "ember-ebau-core/gql/queries/municipalities.graphql";
 import oerebLegalStateAnswersQuery from "ember-ebau-core/gql/queries/oereb-legal-state-answers.graphql";
 import rootFormsQuery from "ember-ebau-core/gql/queries/root-forms.graphql";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import {
   getRecursiveSources,
   groupFormsByCategories,
@@ -46,6 +47,7 @@ export default class CaseFilterComponent extends Component {
   @queryManager apollo;
 
   @service store;
+  @service session;
   @service intl;
   @service ebauModules;
   @service notification;
@@ -93,6 +95,22 @@ export default class CaseFilterComponent extends Component {
 
   get keywordModel() {
     return caseTableConfig.useLegacyTags ? "tag" : "keyword";
+  }
+
+  get hasNewCaseCreationPermission() {
+    const roleSlug = this.session.role?.slug;
+    return mainConfig.displayedForms
+      .map((section) => section.forms)
+      .flat()
+      .some(
+        (form) =>
+          form.roles?.includes(roleSlug) || (form.roles || []).length === 0,
+      );
+  }
+  get showNewCaseButton() {
+    return (
+      hasFeature("internalCaseCreation") && this.hasNewCaseCreationPermission
+    );
   }
 
   selectedKeywords = trackedFunction(this, async () => {

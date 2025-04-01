@@ -18,6 +18,7 @@ import DocumentValidityButtonComponent from "ember-ebau-core/components/document
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-textarea";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
+import GRSubmitInstanceComponent from "ember-ebau-core/components/gr-submit-instance";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
 import KeycloakProfileApplyButtonComponent from "ember-ebau-core/components/keycloak-profile-apply-button";
@@ -38,7 +39,6 @@ import BeDownloadPdfComponent from "caluma-portal/components/be-download-pdf";
 import BeGisComponent from "caluma-portal/components/be-gis";
 import InfoBelastungswerteComponent from "caluma-portal/components/be-info-belastungswerte";
 import BeSubmitInstanceComponent from "caluma-portal/components/be-submit-instance";
-import GRSubmitInstanceComponent from "caluma-portal/components/gr-submit-instance";
 import SOSubmitInstanceComponent from "caluma-portal/components/so-submit-instance";
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
 

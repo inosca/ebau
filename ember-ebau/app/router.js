@@ -47,6 +47,7 @@ Router.map(function () {
     // this is needed to resolve ambiguity between the global index and protected index routes
     this.route("index", { path: "/", resetNamespace });
     this.route("work-items", { resetNamespace });
+    this.route("new-case", { resetNamespace });
     this.mount("ember-ebau-gwr", { as: "gwr-global", path: "/gwr" });
 
     this.route("cases", { resetNamespace }, function () {

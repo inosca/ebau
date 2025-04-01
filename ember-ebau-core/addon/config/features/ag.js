@@ -28,4 +28,5 @@ export default {
   corrections: {
     changeForm: true,
   },
+  internalCaseCreation: true,
 };
