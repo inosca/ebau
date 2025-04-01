@@ -96,5 +96,9 @@ export default {
   },
   defaultOrder: "dossierNumber",
   addressSlugs: [answerSlugs.objectStreet, answerSlugs.objectLocation],
-  parcelSlugs: [answerSlugs.parcelNumber],
+  personalDetailsSlugs: [
+    answerSlugs.juristicNameApplicant,
+    answerSlugs.firstNameApplicant,
+    answerSlugs.lastNameApplicant,
+  ],
 };

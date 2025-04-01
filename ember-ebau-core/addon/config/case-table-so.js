@@ -66,5 +66,9 @@ export default {
     answerSlugs.objectNumber,
     answerSlugs.objectLocation,
   ],
-  parcelSlugs: [answerSlugs.parcelNumber],
+  personalDetailsSlugs: [
+    answerSlugs.juristicNameApplicant,
+    answerSlugs.firstNameApplicant,
+    answerSlugs.lastNameApplicant,
+  ],
 };

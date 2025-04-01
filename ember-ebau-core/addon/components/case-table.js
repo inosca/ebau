@@ -113,31 +113,9 @@ export default class CaseTableComponent extends Component {
       dossierNumber: {
         metaValue: [
           {
-            key: "dossier-number",
-            lookup: "ICONTAINS",
+            key: mainConfig.answerSlugs.specialId,
+            lookup: caseTableConfig.specialIdLookup || "ICONTAINS",
             value: filter.dossierNumber,
-          },
-        ],
-      },
-      submitDateBefore: {
-        metaValue: [
-          {
-            key: "submit-date",
-            lookup: "LTE",
-            value: DateTime.fromISO(filter.submitDateBefore)
-              .endOf("day")
-              .toISO(),
-          },
-        ],
-      },
-      submitDateAfter: {
-        metaValue: [
-          {
-            key: "submit-date",
-            lookup: "GTE",
-            value: DateTime.fromISO(filter.submitDateAfter)
-              .startOf("day")
-              .toISO(),
           },
         ],
       },
@@ -152,41 +130,65 @@ export default class CaseTableComponent extends Component {
           .startOf("day")
           .toISO(),
       },
-      intent: {
-        searchAnswers: [
-          {
-            questions: mainConfig.intentSlugs,
-            lookup: "CONTAINS",
-            value: filter.intent,
-          },
-        ],
-      },
-      address: {
-        searchAnswers: [
-          {
-            questions: caseTableConfig.addressSlugs,
-            lookup: "CONTAINS",
-            value: filter.address,
-          },
-        ],
-      },
       parcel: {
         searchAnswers: [
           {
-            questions: caseTableConfig.parcelSlugs,
-            lookup: "CONTAINS",
+            questions: caseTableConfig.parcelSlugs || [
+              mainConfig.answerSlugs.parcelNumber,
+            ],
+            // TODO communicate change of behavior for BE, GR, AG
+            lookup: "EXACT_WORD",
             value: filter.parcel,
           },
         ],
       },
-      ...(macroCondition(getOwnConfig().application === "ur")
+      form: {
+        documentForms: filter.form?.split(","),
+      },
+      personalDetails: {
+        searchAnswers: [
+          {
+            questions: caseTableConfig.personalDetailsSlugs,
+            value: filter.personalDetails,
+          },
+        ],
+      },
+      appeal: {
+        metaValue: [
+          {
+            key: "is-appeal",
+            lookup: "EXACT",
+            value: true,
+          },
+        ],
+        invert: filter.appeal !== "1",
+      },
+      ...(this.args.casesBackend !== "camac-ng"
         ? {
-            buildingPermitType: {
+            intent: {
+              searchAnswers: [
+                {
+                  questions: mainConfig.intentSlugs,
+                  lookup: "CONTAINS",
+                  value: filter.intent,
+                },
+              ],
+            },
+            municipality: {
               hasAnswer: [
                 {
-                  question: "form-type",
-                  lookup: "IN",
-                  value: filter.buildingPermitType,
+                  question: "gemeinde",
+                  value: filter.municipality,
+                  lookup: "EXACT",
+                },
+              ],
+            },
+            address: {
+              searchAnswers: [
+                {
+                  questions: caseTableConfig.addressSlugs,
+                  lookup: "CONTAINS",
+                  value: filter.address,
                 },
               ],
             },
@@ -203,159 +205,57 @@ export default class CaseTableComponent extends Component {
                 },
               ],
             },
+            submitDateBefore: {
+              metaValue: [
+                {
+                  key: "submit-date",
+                  lookup: "LTE",
+                  value: DateTime.fromISO(filter.submitDateBefore)
+                    .endOf("day")
+                    .toISO(),
+                },
+              ],
+            },
+            submitDateAfter: {
+              metaValue: [
+                {
+                  key: "submit-date",
+                  lookup: "GTE",
+                  value: DateTime.fromISO(filter.submitDateAfter)
+                    .startOf("day")
+                    .toISO(),
+                },
+              ],
+            },
           }
-        : macroCondition(
-              getOwnConfig().application === "gr" ||
-                getOwnConfig().application === "ag",
-            )
-          ? {
-              personalDetails: {
-                searchAnswers: [
-                  {
-                    questions: [
-                      "name-juristische-person-gesuchstellerin",
-                      "name-gesuchstellerin",
-                      "vorname-gesuchstellerin",
-                    ],
-                    value: filter.personalDetails,
-                  },
-                ],
-              },
-              municipality: {
-                hasAnswer: [
-                  {
-                    question: "gemeinde",
-                    value: filter.municipality,
-                    lookup: "EXACT",
-                  },
-                ],
-              },
-              form: {
-                documentForms: filter.form?.split(","),
-              },
-            }
-          : macroCondition(getOwnConfig().application === "sz")
-            ? {
-                caseStatus: {
-                  status: filter.caseStatus,
-                },
-                caseDocumentFormName: {
-                  documentForm: filter.form,
-                },
-                submitDateBefore: undefined,
-                submitDateAfter: undefined,
-                address: undefined,
-                parcel: undefined,
-                ...(this.args.casesBackend === "camac-ng"
-                  ? { intent: undefined }
-                  : {}),
-              }
-            : macroCondition(getOwnConfig().application === "be")
-              ? {
-                  dossierNumber: {
-                    metaValue: [
-                      {
-                        key: "ebau-number",
-                        value: filter.dossierNumber,
-                      },
-                    ],
-                  },
-                  form: {
-                    documentForms: filter.form?.split(","),
-                  },
-                  municipality: {
-                    hasAnswer: [
-                      {
-                        question: "gemeinde",
-                        value: filter.municipality,
-                        lookup: "EXACT",
-                      },
-                    ],
-                  },
-                  freetext: {
-                    searchAnswers: [
-                      {
-                        questions: mainConfig.freetextSlugs,
-                        lookup: "CONTAINS",
-                        value: filter.freetext,
-                      },
-                    ],
-                  },
-                  personalDetails: {
-                    searchAnswers: [
-                      {
-                        questions: [
-                          // Personalien - Gesuchsteller/in
-                          "name-gesuchstellerin",
-                          "vorname-gesuchstellerin",
-                          "name-juristische-person-gesuchstellerin",
-                          // Personalien - Vertreter/in mit Vollmacht
-                          "name-juristische-person-vertreterin",
-                          "name-vertreterin",
-                          "vorname-vertreterin",
-                          // Personalien - Gebäudeeigentümer/in
-                          "name-juristische-person-grundeigentuemerin",
-                          "name-grundeigentuemerin",
-                          "vorname-grundeigentuemerin",
-                          // Personalien - Projektverfasser/in
-                          "name-juristische-person-projektverfasserin",
-                          "name-projektverfasserin",
-                          "vorname-projektverfasserin",
-                        ],
-                        value: filter.personalDetails,
-                      },
-                    ],
-                  },
-                }
-              : macroCondition(getOwnConfig().application === "so")
-                ? {
-                    personalDetails: {
-                      searchAnswers: [
-                        {
-                          questions: [
-                            "juristische-person-name",
-                            "nachname",
-                            "vorname",
-                          ],
-                          value: filter.personalDetails,
-                        },
-                      ],
-                    },
-                    form: {
-                      documentForms: filter.form?.split(","),
-                    },
-                    // Override parcel filter in order to provice an exact match
-                    // instead of contains matching.
-                    parcel: {
-                      hasAnswer: [
-                        {
-                          question: caseTableConfig.parcelSlugs[0],
-                          lookup: "EXACT",
-                          value: filter.parcel,
-                        },
-                      ],
-                    },
-                    municipality: {
-                      hasAnswer: [
-                        {
-                          question: "gemeinde",
-                          value: filter.municipality,
-                          lookup: "EXACT",
-                        },
-                      ],
-                    },
-                    appeal: {
-                      metaValue: [
-                        {
-                          key: "is-appeal",
-                          lookup: "EXACT",
-                          value: true,
-                        },
-                      ],
-                      invert: filter.appeal !== "1",
-                    },
-                  }
-                : {}),
+        : {}),
+      // BE-specific
+      freetext: {
+        searchAnswers: [
+          {
+            questions: mainConfig.freetextSlugs,
+            lookup: "CONTAINS",
+            value: filter.freetext,
+          },
+        ],
+      },
+      // UR-specific
+      buildingPermitType: {
+        hasAnswer: [
+          {
+            question: "form-type",
+            lookup: "IN",
+            value: filter.buildingPermitType,
+          },
+        ],
+      },
+      // SZ-specific
+      caseStatus: {
+        status: filter.caseStatus,
+      },
+      caseDocumentFormName: {
+        documentForm: filter.form,
+      },
     };
 
     const searchFilters = Object.entries(filter)
@@ -386,7 +286,6 @@ export default class CaseTableComponent extends Component {
       service: this.args.filter.service || this.args.filter.serviceSZ,
       responsible_service_user: this.args.filter.responsibleServiceUser,
       responsible_service: this.args.filter.responsibleMunicipality,
-      location: this.args.filter.municipality,
       is_paper: this.args.filter.paper,
       [this.keywordFilterName]: this.args.filter.keywords,
       decision: this.args.filter.decision,
@@ -406,29 +305,31 @@ export default class CaseTableComponent extends Component {
         : null,
       has_pending_billing_entry: this.args.hasPendingBillingEntry,
       has_pending_sanction: this.args.hasPendingSanction,
-      pending_sanctions_control_instance: this.args.filter.pendingSanctionsControlInstance,
+      pending_sanctions_control_instance:
+        this.args.filter.pendingSanctionsControlInstance,
       with_cantonal_participation: this.args.filter.withCantonalParticipation,
       oereb_legal_state: this.args.filter.legalStateOereb,
       // SZ-specific
+      caluma_keyword_search: this.args.filter.calumaKeywordSearch,
       ...(this.args.casesBackend === "camac-ng"
         ? {
-          intent_sz: this.args.filter.intent,
-          address_sz: this.args.filter.address,
-          plot_egrid_sz: this.args.filter.parcel_egrid,
-          plot_number_sz: this.args.filter.parcel_property_number,
-          builder_sz: this.args.filter.builder,
-          landowner_sz: this.args.filter.landowner,
-          applicant_sz: this.args.filter.applicant,
-          submit_date_after_sz: this.args.filter.submitDateAfter,
-          submit_date_before_sz: this.args.filter.submitDateBefore,
-          form_name_versioned: this.args.filter.type,
-          objection_received: this.args.filter.objectionReceived,
-          construction_zone_location_sz:
-            this.args.filter.constructionZoneLocation,
-          identifier: this.args.filter.instanceIdentifier || "",
-          keyword_search: this.args.filter.keywordSearch,
-          caluma_keyword_search: this.args.filter.calumaKeywordSearch,
-        }
+            location: this.args.filter.municipality,
+            intent_sz: this.args.filter.intent,
+            address_sz: this.args.filter.address,
+            plot_egrid_sz: this.args.filter.parcel_egrid,
+            plot_number_sz: this.args.filter.parcel_property_number,
+            builder_sz: this.args.filter.builder,
+            landowner_sz: this.args.filter.landowner,
+            applicant_sz: this.args.filter.applicant,
+            submit_date_after_sz: this.args.filter.submitDateAfter,
+            submit_date_before_sz: this.args.filter.submitDateBefore,
+            form_name_versioned: this.args.filter.type,
+            objection_received: this.args.filter.objectionReceived,
+            construction_zone_location_sz:
+              this.args.filter.constructionZoneLocation,
+            identifier: this.args.filter.instanceIdentifier || "",
+            keyword_search: this.args.filter.keywordSearch,
+          }
         : {}),
     };
 

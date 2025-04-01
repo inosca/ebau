@@ -19,7 +19,9 @@ export default {
   externalServiceGroupIds: [],
   useLocation: true,
   intentSlugs: ["voranfrage-vorhaben", "are-geschaeft-vorhaben"],
-  answerSlugs: {},
+  answerSlugs: {
+    specialId: "dossier-number",
+  },
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
   },
