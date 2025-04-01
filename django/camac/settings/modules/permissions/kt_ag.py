@@ -142,7 +142,12 @@ AG_PERMISSIONS_SETTINGS = {
         ],
         "distribution-service": [
             ("billing-read", MODULE_BILLING),
-            ("billing-charge", MODULE_BILLING),
+            (
+                "billing-charge",
+                MODULE_BILLING
+                & IsServiceGroup(["service-afb"])
+                & ~HasRole("subservice"),
+            ),
             ("cantonal-exam-read", MODULE_CANTONAL_EXAM),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),

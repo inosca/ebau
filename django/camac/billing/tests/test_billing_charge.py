@@ -84,12 +84,44 @@ def test_billing_entry_charge_validation(
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
 @pytest.mark.parametrize(
-    "service_group__name,expected_status",
+    "access_level__slug,service_group__name,role__name,expected_status",
     [
-        ("municipality", status.HTTP_204_NO_CONTENT),
-        ("service-afb", status.HTTP_204_NO_CONTENT),
-        ("service-cantonal", status.HTTP_204_NO_CONTENT),
-        ("service-external", status.HTTP_403_FORBIDDEN),
+        (
+            "lead-authority",
+            "municipality",
+            "municipality-lead",
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "distribution-service",
+            "municipality",
+            "subservice",
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "distribution-service",
+            "service-afb",
+            "trusted-service-lead",
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "distribution-service",
+            "service-afb",
+            "subservice",
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "distribution-service",
+            "service-cantonal",
+            "trusted-service-lead",
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "distribution-service",
+            "service-external",
+            "service-lead",
+            status.HTTP_403_FORBIDDEN,
+        ),
     ],
 )
 def test_billing_entry_charge_permissions(
@@ -101,13 +133,8 @@ def test_billing_entry_charge_permissions(
     billing_v2_entry,
     expected_status,
     service,
-    service_group,
+    access_level,
 ):
-    if service_group.name == "municipality":
-        access_level = access_level_factory(pk="lead-authority")
-    else:
-        access_level = access_level_factory(pk="distribution-service")
-
     permissions_api.grant(
         ag_instance,
         grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
