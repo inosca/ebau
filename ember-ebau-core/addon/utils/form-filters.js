@@ -20,14 +20,27 @@ export const groupFormsByCategories = (
     .filter(Boolean);
 };
 
+export const removeVersion = (formSlug) => formSlug.replace(/-v\d+$/, "");
+
+/**
+ * Get versioned sources of a given form.
+ *
+ * This is used in form filters of case lists. In order to make sure to get all
+ * dossiers with any version of a form, we need to filter for previous versions
+ * of a form as well. To do this, we assume that versioned forms have the
+ * previous form version as `source` property and the slug is the same but with
+ * a version suffix (e.g. ...-v2).
+ */
 export const getRecursiveSources = (form, forms) => {
-  if (!form.source?.slug) {
+  const sourceSlug = form.source?.slug;
+
+  if (!sourceSlug || removeVersion(sourceSlug) !== removeVersion(form.slug)) {
     return [];
   }
 
-  const source = forms.find((edge) => edge.node.slug === form.source.slug);
+  const source = forms.find((edge) => edge.node.slug === sourceSlug);
 
-  return [source.node.slug, ...getRecursiveSources(source.node, forms)];
+  return [sourceSlug, ...getRecursiveSources(source.node, forms)];
 };
 
 export default { getRecursiveSources, groupFormsByCategories };
