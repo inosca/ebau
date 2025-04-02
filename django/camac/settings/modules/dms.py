@@ -230,6 +230,7 @@ DMS = {
                 "forms": [
                     "baugesuch",
                     "baugesuch-v2",
+                    "baugesuch-v3",
                 ],
                 "template": "form",
                 "personalien": "personalien",
@@ -245,6 +246,7 @@ DMS = {
             "bauanzeige": {
                 "forms": [
                     "bauanzeige",
+                    "bauanzeige-v3",
                 ],
                 "template": "form",
                 "personalien": "personalien",
@@ -261,6 +263,7 @@ DMS = {
             "vorlaeufige-beurteilung": {
                 "forms": [
                     "vorlaeufige-beurteilung",
+                    "vorlaeufige-beurteilung-v3",
                 ],
                 "template": "form",
                 "personalien": "personalien",

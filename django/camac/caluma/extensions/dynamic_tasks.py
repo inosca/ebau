@@ -509,7 +509,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
             "AFTER_FORMAL_EXAM_PUBLICATION_TASKS", []
         ) and case.document.form.slug not in [
             "bauanzeige",
+            "bauanzeige-v3",
             "vorlaeufige-beurteilung",
+            "vorlaeufige-beurteilung-v3",
             "solaranlage",
         ]:
             return settings.PUBLICATION["AFTER_FORMAL_EXAM_PUBLICATION_TASKS"]

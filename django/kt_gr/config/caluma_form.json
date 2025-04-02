@@ -202,21 +202,21 @@
     "pk": "bauanzeige",
     "fields": {
       "created_at": "2023-04-26T15:01:41.114Z",
-      "modified_at": "2024-08-28T12:24:54.532Z",
+      "modified_at": "2025-04-02T01:40:29.853Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Bauanzeige\", \"fr\": null, \"it\": \"Annuncio di costruzione\"}",
       "description": "{\"de\": \"Bauanzeige\", \"fr\": null, \"it\": \"Annuncio di costruzione\"}",
       "meta": {
         "order": 1,
         "category": "special-procedure",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
       "is_published": true,
-      "is_archived": false,
+      "is_archived": true,
       "source": null
     }
   },
@@ -1434,11 +1434,11 @@
       "meta": {
         "order": 2,
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
       "is_published": true,
-      "is_archived": false,
+      "is_archived": true,
       "source": null
     }
   },
@@ -23706,23 +23706,6 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Der/die Gesuchsteller/in nimmt zur Kenntnis, dass je nach Bauvorhaben Energienachweise einzureichen sind (f\\u00fcr Formular, Gesetze und Protokolle siehe Info-Button).\", \"fr\": null, \"it\": \"La persona richiedente prende atto che, a seconda del progetto di costruzione, dovranno essere inoltrati i certificati energetici (per consultare modulo, leggi e protocolli cliccare sul pulsante Info).\"}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "bestaetigung-fks-bestandesbau-ja",
-    "fields": {
-      "created_at": "2024-08-14T16:01:55.341Z",
-      "modified_at": "2024-08-14T16:02:21.453Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Bestandesbau: Die Zug\\u00e4nglichkeit f\\u00fcr die Feuerwehr nach der FKS-Richtlinie f\\u00fcr Feuerwehrzufahrten, Bewegungs- und Stellfl\\u00e4chen ist nicht gew\\u00e4hrleistet.\", \"fr\": null, \"it\": \"Edificio esistente: Non \\u00e8 garantita l'accessibilit\\u00e0 per i vigili del fuoco secondo le linee guida CSP per le strade di accesso, le aree di manovra e i parcheggi dei vigili del fuoco.\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -47648,7 +47631,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Beschrieb\", \"fr\": null, \"it\": \"Descrizione\"}",
       "type": "textarea",
-      "is_required": "!(\"vorlaeufige-beurteilung\" in form)",
+      "is_required": "!(\"vorlaeufige-beurteilung\" in info.root.form)",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -47872,7 +47855,7 @@
       "label": "{\"de\": \"Betrifft das Bauvorhaben ein Geb\\u00e4ude oder eine w\\u00e4rmetechnische Anlage (Feuerpolizeiliche Bewilligungspflicht)?\", \"fr\": null, \"it\": \"Il progetto di costruzione interessa un edificio o un impianto termotecnico (obbligo del permesso di polizia del fuoco)?\"}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(form == \"bauanzeige\")",
+      "is_hidden": "!(\"bauanzeige\" in form)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"### Feuerpolizeiliche Bewilligung\\n\\nNach Art. 7 Abs. 1 des kantonalen Brandschutzgesetzes sind folgende Vorhaben bewilligungspflichtig:\\n\\n\\n1. Neu-, An-, Um- und Ausbauten sowie die Umnutzung von Geb\\u00e4uden oder Geb\\u00e4udeteilen;<br>\\n1. Neu-, Aus- und Umbauten von haustechnischen Anlagen und technischen Brandschutzeinrichtungen;<br>\\n1. Betriebe, Anlagen und Einrichtungen, die der Herstellung, Verarbeitung oder Lagerung feuer- oder explosionsgef\\u00e4hrlicher Stoffe und Waren dienen;<br>\\n1. Veranstaltungen mit besonderer Gef\\u00e4hrdung von Personen, Tieren oder Sachen;<br>\\n1. das Abbrennen von pyrotechnischen Gegenst\\u00e4nden zu Vergn\\u00fcgungszwecken (Feuerwerksk\\u00f6rper) und zu gewerblichen Zwecken.<br>\", \"fr\": null, \"it\": \"### Permesso di polizia del fuoco\\n\\nSecondo l'art.\\u00a07 cpv.\\u00a01 della legge cantonale sulla protezione antincendio sono soggetti all'obbligo del permesso i progetti seguenti:\\n\\n\\n1. nuove costruzioni, costruzioni annesse, trasformazioni, ampliamenti nonch\\u00e9 la destinazione ad altro scopo di edifici o parti di essi;<br>\\n1. nuove costruzioni, ampliamenti e modifiche di installazioni tecniche e dispositivi tecnici di protezione antincendio;<br>\\n1. aziende, impianti e installazioni che servono alla produzione, alla lavorazione o al deposito di sostanze e merci a rischio di incendio o di esplosione;<br>\\n1. manifestazioni con particolare pericolo per persone, animali od oggetti;<br>\\n1. l'accensione di pezzi pirotecnici per scopi di svago (fuochi d'artificio) e a scopo commerciale.<br>\"}",
@@ -57209,7 +57192,7 @@
       "label": "{\"de\": \"Eingabequittung erhalten, korrekt und unterschrieben?\", \"fr\": null, \"it\": \"Ricevuta pervenuta, \\u00e8 corretta e firmata?\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "info.case.form == \"vorlaeufige-beurteilung\"",
+      "is_hidden": "\"vorlaeufige-beurteilung\" in form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -58690,7 +58673,7 @@
       "label": "{\"de\": \"Entspricht das Vorhaben den Voraussetzungen einer Bauanzeige nach Art. 40 und Art. 40a KRVO? Wenn Nein, ist daf\\u00fcr ein Baubewilligungsverfahren nach Art. 42 bzw. Art. 50 KRVO erforderlich!\", \"fr\": null, \"it\": \"Il progetto soddisfa i requisiti per un annuncio di costruzione ai sensi dell'art. 40 e dell'art. 40a OPTC? In caso negativo, \\u00e8 necessaria una procedura per il rilascio della licenza edilizia ai sensi dell'art. 42 o dell'art. 50 OPTC!\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "info.case.form in [\"baugesuch\", \"baugesuch-v2\", \"vorlaeufige-beurteilung\", \"solaranlage\"]",
+      "is_hidden": "info.case.form in [\"baugesuch\", \"baugesuch-v2\", \"baugesuch-v3\", \"vorlaeufige-beurteilung\", \"vorlaeufige-beurteilung-v3\", \"solaranlage\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
@@ -78325,7 +78308,7 @@
       "label": "{\"de\": \"Verfahrensart\", \"fr\": null, \"it\": \"Tipo di procedura\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "info.case.form in [\"bauanzeige\", \"vorlaeufige-beurteilung\", \"solaranlage\"]",
+      "is_hidden": "info.case.form in [\"bauanzeige\",\"bauanzeige-v3\", \"vorlaeufige-beurteilung\",\"vorlaeufige-beurteilung-v3\", \"solaranlage\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -79266,7 +79249,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Voraussichtliche Fertigstellung\", \"fr\": null, \"it\": \"Ultimazione prevista\"}",
       "type": "date",
-      "is_required": "form in [\"baugesuch\",\"baugesuch-v2\",\"bauanzeige\",\"solaranlage\"] \n&& \"is-paper-yes\" != \"is-paper\"|answer",
+      "is_required": "form in [\"baugesuch\",\"baugesuch-v2\",\"baugesuch-v3\",\"bauanzeige\",\"bauanzeige-v3\",\"solaranlage\"] \n&& \"is-paper-yes\" != \"is-paper\"|answer",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -79297,7 +79280,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Voraussichtlicher Baubeginn\", \"fr\": null, \"it\": \"Inizio previsto dei lavori di costruzione\"}",
       "type": "date",
-      "is_required": "form in [\"baugesuch\",\"baugesuch-v2\",\"bauanzeige\",\"solaranlage\"] \n&& \"is-paper-yes\" != \"is-paper\"|answer",
+      "is_required": "form in [\"baugesuch\",\"baugesuch-v2\",\"baugesuch-v3\",\"bauanzeige\",\"bauanzeige-v3\",\"solaranlage\"] \n&& \"is-paper-yes\" != \"is-paper\"|answer",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -86917,21 +86900,6 @@
       "modified_by_group": null,
       "question": "bestaetigung-energienachweise",
       "option": "bestaetigung-energienachweise-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "bestaetigung-fks-richtlinie.bestaetigung-fks-bestandesbau-ja",
-    "fields": {
-      "created_at": "2024-08-14T16:02:21.505Z",
-      "modified_at": "2024-08-14T16:02:21.505Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "bestaetigung-fks-richtlinie",
-      "option": "bestaetigung-fks-bestandesbau-ja",
       "sort": 1
     }
   },

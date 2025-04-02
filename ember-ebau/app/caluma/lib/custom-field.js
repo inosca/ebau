@@ -33,9 +33,12 @@ export default class CustomField extends Field {
   get hidden() {
     if (macroCondition(getOwnConfig().application === "gr")) {
       if (["fuer-gvg-freigeben", "info-gvg"].includes(this.question.slug)) {
-        return ["bauanzeige", "vorlaeufige-beurteilung"].includes(
-          this.caseInformation?.value?.form,
-        );
+        return [
+          "bauanzeige",
+          "bauanzeige-v3",
+          "vorlaeufige-beurteilung",
+          "vorlaeufige-beurteilung-v3",
+        ].includes(this.caseInformation?.value?.form);
       }
     }
     return super.hidden;

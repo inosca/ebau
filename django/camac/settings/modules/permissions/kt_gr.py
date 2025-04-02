@@ -47,7 +47,7 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 # 3. Role rules
 # 4. Other
 MODULE_ADDITIONAL_DEMANDS = STATES_ALL & ~IsForm(
-    ["vorlaeufige-beurteilung"]
+    ["vorlaeufige-beurteilung", "vorlaeufige-beurteilung-v3"]
 )  # TODO bauanzeige?
 
 MODULE_CONSTRUCTION_MONITORING = RequireWorkItem("construction-acceptance")

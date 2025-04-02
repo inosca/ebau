@@ -59,7 +59,7 @@ export default class GrSubmitInstanceComponent extends DocumentValidityButtonCom
 
       if (
         !instance.isPaper &&
-        instance.calumaForm !== VORLAEUFIGE_BEURTEILUNG_FORM
+        !instance.calumaForm.startsWith(VORLAEUFIGE_BEURTEILUNG_FORM)
       ) {
         yield this.export.perform();
       }

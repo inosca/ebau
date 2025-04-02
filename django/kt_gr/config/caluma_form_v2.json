@@ -4,7 +4,7 @@
     "pk": "baugesuch-v2",
     "fields": {
       "created_at": "2025-02-03T09:35:16.918Z",
-      "modified_at": "2025-02-03T10:16:26.441Z",
+      "modified_at": "2025-04-02T01:40:10.943Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -14,11 +14,11 @@
       "meta": {
         "order": 1,
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
       "is_published": true,
-      "is_archived": false,
+      "is_archived": true,
       "source": null
     }
   },

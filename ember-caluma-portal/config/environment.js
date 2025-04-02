@@ -475,8 +475,12 @@ module.exports = function (environment) {
           roles: ["public", "internal"],
           forms: [
             "baugesuch",
+            "baugesuch-v2",
+            "baugesuch-v3",
             "vorlaeufige-beurteilung",
+            "vorlaeufige-beurteilung-v3",
             "bauanzeige",
+            "bauanzeige-v3",
             "solaranlage",
           ],
         },

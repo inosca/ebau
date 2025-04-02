@@ -40,7 +40,9 @@ def _gr_include_special_service(instance, service_name):
         # has been introduced
         if instance.case.document.form.slug in [
             "bauanzeige",
+            "bauanzeige-v3",
             "vorlaeufige-beurteilung",
+            "vorlaeufige-beurteilung-v3",
         ]:  # pragma: no cover
             return False
         task_id = settings.DECISION["TASK"]
