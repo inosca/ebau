@@ -292,5 +292,7 @@ omit = [
     "camac/gever/urls.py",
     "camac/gever/views.py",
     "camac/gis_export/management/commands/agis_export.py",
+    # Uri Sanctions migration
+    "camac/sanctions/management/commands/migrate_ur_sanctions.py",
 ]
 show_missing = true

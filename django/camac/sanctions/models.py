@@ -45,6 +45,7 @@ class BaseSanction(models.Model):
         on_delete=models.DO_NOTHING,
         related_name="+",
     )
+    meta = models.JSONField(default=dict)
 
     class Meta:
         abstract = True
