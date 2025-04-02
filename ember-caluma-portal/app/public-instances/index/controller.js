@@ -5,6 +5,7 @@ import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
+import paginatedQuery from "ember-ebau-core/resources/paginated";
 import { trackedTask } from "reactiveweb/ember-concurrency";
 
 import getMunicipalities from "caluma-portal/gql/queries/get-municipalities.graphql";
@@ -16,7 +17,6 @@ export default class PublicInstancesIndexController extends Controller {
   @service notification;
   @service intl;
 
-  @tracked _instances = [];
   @tracked pagination = {};
 
   @tracked page = 1;
@@ -27,43 +27,29 @@ export default class PublicInstancesIndexController extends Controller {
   queryParams = ["municipality", "dossierNr", "excludeInstance"];
 
   municipalities = trackedTask(this, this.fetchMunicipalities, () => []);
-  instances = trackedTask(this, this.fetchInstances, () => [
-    this.page,
-    this.municipality,
-    this.excludeInstance,
-    this.dossierNr,
-  ]);
-
-  get hasNextPage() {
-    return this.pagination.page < this.pagination.pages;
-  }
+  instances = paginatedQuery(
+    this,
+    "public-caluma-instance",
+    () => ({
+      filter: {
+        ...(this.municipality ? { municipality: this.municipality } : {}),
+        ...(this.dossierNr ? { dossier_nr: this.dossierNr } : {}),
+        ...(this.excludeInstance
+          ? { exclude_instance: this.excludeInstance }
+          : {}),
+      },
+      page: {
+        number: this.page,
+        size: 20,
+      },
+    }),
+    () => this.notification.danger(this.intl.t("publicInstances.load-error")),
+  );
 
   get selectedMunicipality() {
     return this.municipalities.value?.find(
       ({ value }) => value === this.municipality,
     );
-  }
-
-  @dropTask
-  *fetchInstances() {
-    yield Promise.resolve();
-
-    try {
-      const instances = yield this.store.query("public-caluma-instance", {
-        municipality: this.municipality,
-        dossier_nr: this.dossierNr,
-        exclude_instance: this.excludeInstance,
-        page: { number: this.page, size: 20 },
-      });
-
-      this.pagination = instances.meta.pagination;
-
-      this._instances = [...this._instances, ...instances];
-
-      return this._instances;
-    } catch {
-      this.notification.danger(this.intl.t("publicInstances.load-error"));
-    }
   }
 
   @dropTask
@@ -96,7 +82,6 @@ export default class PublicInstancesIndexController extends Controller {
 
   @action
   updateMunicipality(municipality) {
-    this._instances = [];
     this.page = 1;
     this.municipality = municipality?.value;
   }

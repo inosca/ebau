@@ -68,7 +68,7 @@ export class PaginatedQuery extends Resource {
   }
 
   @lastValue("fetchData") data;
-  fetchData = task({ restartable: true }, async (model, query) => {
+  fetchData = task({ restartable: true }, async (model, query, onError) => {
     await Promise.resolve();
     try {
       const isResetting = shouldResetPage(this.fetchData.lastSuccessful?.args, [
@@ -87,7 +87,7 @@ export class PaginatedQuery extends Resource {
         hasMore: query.page.number < data.meta?.pagination?.pages,
       };
     } catch (error) {
-      console.error(error);
+      onError ? onError(error) : console.error(error);
       return { isError: true, error };
     } finally {
       this.isResetting = false;
@@ -95,5 +95,5 @@ export class PaginatedQuery extends Resource {
   });
 }
 
-export default (context, modelName, query) =>
-  PaginatedQuery.from(context, () => [modelName, query()]);
+export default (context, modelName, query, onError) =>
+  PaginatedQuery.from(context, () => [modelName, query(), onError]);
