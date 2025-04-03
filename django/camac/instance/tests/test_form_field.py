@@ -231,6 +231,58 @@ def test_form_field_create(admin_client, instance, form_field_name, status_code)
         )
 
 
+@pytest.mark.parametrize(
+    "instance_state__name,role__name, instance__user",
+    [
+        (
+            "new",
+            "Applicant",
+            lf("admin_user"),
+        )
+    ],
+)
+@pytest.mark.parametrize(
+    "form_field_value,status_code",
+    [
+        (
+            "undefined date",
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "2025-02-27T23:00:00.000Z",
+            status.HTTP_201_CREATED,
+        ),
+    ],
+)
+def test_form_field_date_validation(
+    admin_client, instance, form_field_value, status_code
+):
+    url = reverse("form-field-list")
+
+    data = {
+        "data": {
+            "type": "form-fields",
+            "id": None,
+            "attributes": {
+                "name": "baugeruest-errichtet-am",
+                "value": form_field_value,
+            },
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": instance.pk}}
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status_code
+    if status_code == status.HTTP_400_BAD_REQUEST:
+        json = response.json()
+        assert (
+            json["errors"][0]["detail"]
+            == f"'{form_field_value}' ist keine gültige Datumszeit"
+        )
+
+
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
