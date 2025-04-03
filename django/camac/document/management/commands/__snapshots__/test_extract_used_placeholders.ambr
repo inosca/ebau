@@ -1,0 +1,27 @@
+# serializer version: 1
+# name: test_template_download
+  '''
+  Extracted 20 used placeholders with 0 errors:
+  	- activations
+  	- bauverwaltung
+  	- billing_entries
+  	- field_art_der_befestigten_flache
+  	- field_bauherrschaft
+  	- field_grundeigentumerschaft
+  	- field_kategorie_des_vorhabens
+  	- field_ortsbezeichnung_des_vorhabens
+  	- field_projektverfasser_planer
+  	- field_publikation_bemerkung
+  	- field_standort_adresse
+  	- field_standort_ort
+  	- field_standort_spezialbezeichnung
+  	- identifier
+  	- location
+  	- my_activations
+  	- objections
+  	- publication_date
+  	- publications
+  	- responsible_person
+  
+  '''
+# ---
