@@ -162,28 +162,28 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   upload = task(async ({ files, bucket }) => {
     this.alexandriaConfig.documentId = this.documentId;
 
-    const newFilenames = new Set(files.map((f) => f.name));
-    const existingFilenames = new Set(
-      (
-        await Promise.all(
-          this.allAttachments.map(async (attachment) =>
-            (await attachment.files)
-              .filter((file) => file.variant === "original")
-              .map((file) => file.name),
-          ),
-        )
-      ).flat(),
-    );
+    const newFilenames = files.map((f) => f.name);
+    const existingFilenames = (
+      await Promise.all(
+        this.allAttachments.map(async (attachment) =>
+          (await attachment.files)
+            .filter((file) => file.variant === "original")
+            .map((file) => file.name),
+        ),
+      )
+    ).flat();
 
-    const duplicateFileNames = newFilenames.intersection(existingFilenames);
+    const duplicateFileNames = newFilenames.filter((name) =>
+      existingFilenames.includes(name),
+    );
 
     // if there are duplicate filenames, show a confirmation dialog first
     if (
-      duplicateFileNames.size &&
+      duplicateFileNames.length &&
       !(await confirm(
         this.intl.t("documents.duplicateFileUpload", {
-          count: duplicateFileNames.size,
-          filenames: [...duplicateFileNames]
+          count: duplicateFileNames.length,
+          filenames: duplicateFileNames
             .sort()
             .map((name) => `<li>${name}</li>`)
             .join(""),
