@@ -154,7 +154,7 @@ export default {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
   },
   modification: {
-    allowForms: ["baugesuch", "baugesuch-v2"],
+    allowForms: ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
     disallowStates: ["new"],
   },
 };

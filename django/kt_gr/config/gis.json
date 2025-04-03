@@ -32,7 +32,7 @@
           "identifier": "zp_wald_puffer",
           "properties": [
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "mapper": "near_forest",
               "question": "waldareal"
             }
@@ -42,19 +42,19 @@
           "identifier": "zp_grundnutzung",
           "properties": [
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "mapper": "ausserhalb_bauzone",
               "question": "ausserhalb-bauzone",
               "propertyName": "Kt_Code"
             },
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "mapper": "in_forest",
               "question": "waldareal",
               "propertyName": "Kt_Code"
             },
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "mapper": "archaeologiezone",
               "question": "das-bauvorhaben-befindet-sich-in",
               "propertyName": "Kt_Code"
@@ -65,7 +65,7 @@
           "identifier": "kantonales_strassennetz",
           "properties": [
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "mapper": "yes_or_no",
               "question": "kantonsstrassen"
             }
@@ -75,7 +75,7 @@
           "identifier": "zp_gefahrenzonen",
           "properties": [
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "mapper": "gefahrenzone",
               "question": "das-bauvorhaben-befindet-sich-in",
               "propertyName": "Kt_Code"
@@ -86,19 +86,19 @@
           "identifier": "gewaesserschutzbereiche",
           "properties": [
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "mapper": "bauvorhaben_gewaesser",
               "question": "das-bauvorhaben-befindet-sich-in",
               "propertyName": "typ"
             },
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "mapper": "gewaesserschutzbereich",
               "question": "art-gewaesserschutzbereich",
               "propertyName": "typ"
             },
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "hidden": true,
               "mapper": "gewaesserschutzbereich",
               "question": "lageranlagen-gewaesserschutzbereich",
@@ -110,13 +110,13 @@
           "identifier": "grundwasserschutzzonen",
           "properties": [
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "mapper": "grundwasserschutzzone",
               "question": "grundwasserschutzzone",
               "propertyName": "typ"
             },
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "hidden": true,
               "mapper": "grundwasserschutzzone",
               "question": "lageranlagen-grundwasserschutzzone",
@@ -128,7 +128,7 @@
           "identifier": "zp_ortsbild_und_kulturgueterschutzzonen",
           "properties": [
             {
-              "forms": ["baugesuch", "baugesuch-v2"],
+              "forms": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
               "mapper": "archaeologiezone_2",
               "question": "das-bauvorhaben-befindet-sich-in",
               "propertyName": "Kt_Code"

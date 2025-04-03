@@ -124,7 +124,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         this.ebauModules.instanceId,
       );
 
-      if (instance.calumaForm === "bauanzeige") {
+      if (["bauanzeige", "bauanzeige-v3"].includes(instance.calumaForm)) {
         return {
           suggestions: { disabled: false },
           municipality: {

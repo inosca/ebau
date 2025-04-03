@@ -33,7 +33,9 @@ def get_notification_config(instance):
         and instance.case.document.form.slug
         in [
             "bauanzeige",
+            "bauanzeige-v3",
             "vorlaeufige-beurteilung",
+            "vorlaeufige-beurteilung-v3",
         ]
     ) or (
         settings.APPLICATION_NAME == "kt_so"
