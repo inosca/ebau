@@ -2367,7 +2367,6 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     included_serializers = {"instance": InstanceSerializer}
 
     value = ScrubbedJSONField()
-    questions_config = settings.FORM_CONFIG["questions"]
 
     def validate_name(self, name):
         # TODO: check whether question is part of used form
@@ -2376,7 +2375,7 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         group = self.context["request"].group
         permission = perms.get(group.role.name, "applicant")
 
-        question = self.questions_config.get(name)
+        question = settings.FORM_CONFIG["questions"].get(name)
         if question is None:
             raise exceptions.ValidationError(
                 _("invalid question %(question)s.") % {"question": name}
@@ -2395,7 +2394,7 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     def validate(self, data):
         validated_data = super().validate(data)
 
-        question = self.questions_config.get(validated_data["name"])
+        question = settings.FORM_CONFIG["questions"].get(validated_data["name"])
         question_type = question.get("type", None)
         if question_type == "date":
             try:
