@@ -1022,6 +1022,14 @@ msgid "Signature page"
 msgstr "Firma"
 
 #: camac/instance/document_merge_service.py
+msgid "Receipt"
+msgstr "Ricevuta"
+
+#: camac/instance/document_merge_service.py
+msgid "Form export"
+msgstr "Esportazione di moduli"
+
+#: camac/instance/document_merge_service.py
 #, fuzzy
 #| msgid "Additional demand sent"
 msgid "Additional demand"

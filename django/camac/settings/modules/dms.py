@@ -1,3 +1,5 @@
+from django.utils.translation import gettext_lazy as _
+
 DMS = {
     "default": {
         "ADD_HEADER_DATA": True,
@@ -300,6 +302,11 @@ DMS = {
             "beilagen-zum-gesuch-brandschutz",
             "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
         ],
+        "FILENAME_ADDITION_MAPPING": {
+            "eingabequittung-de": _("Receipt"),
+            "eingabequittung-it": _("Receipt"),
+            "form": _("Form export"),
+        },
     },
     "kt_so": {
         "ENABLED": True,
@@ -346,6 +353,9 @@ DMS = {
             "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
             "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
         ],
+        "FILENAME_ADDITION_MAPPING": {
+            "signatures": _("Signature page"),
+        },
     },
     "kt_uri": {
         "ENABLED": True,

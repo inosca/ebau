@@ -1008,6 +1008,14 @@ msgid "Signature page"
 msgstr "Unterschriftenblatt"
 
 #: camac/instance/document_merge_service.py
+msgid "Receipt"
+msgstr "Quittung"
+
+#: camac/instance/document_merge_service.py
+msgid "Form export"
+msgstr "Formularexport"
+
+#: camac/instance/document_merge_service.py
 msgid "Additional demand"
 msgstr "Nachforderung"
 
