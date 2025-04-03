@@ -523,9 +523,9 @@ def test_number_separator(
 @pytest.mark.parametrize(
     "instance_id,form_name,template,for_additional_demand,expected",
     [
-        (1, "Baugesuch", "form", None, "1-baugesuch.pdf"),
-        (2, "Baugesuch", "signatures", None, "2-baugesuch-unterschriftenblatt.pdf"),
-        (3, "Baugesuch", "form", "some-uuid", "3-baugesuch-nachforderung.pdf"),
+        (1, "Baugesuch", "form", None, "1-baugesuch-formularexport.pdf"),
+        (2, "Baugesuch", "test", None, "2-baugesuch.pdf"),
+        (3, "Baugesuch", "signatures", None, "3-baugesuch-unterschriftenblatt.pdf"),
         (
             4,
             "Baugesuch",
@@ -535,7 +535,18 @@ def test_number_separator(
         ),
     ],
 )
-def test_filename(instance_id, form_name, template, for_additional_demand, expected):
+def test_filename(
+    instance_id,
+    form_name,
+    template,
+    for_additional_demand,
+    expected,
+    dms_settings,
+):
+    dms_settings["FILENAME_ADDITION_MAPPING"] = {
+        "form": _("Form export"),
+        "signatures": _("Signature page"),
+    }
     handler = DMSHandler()
 
     assert (

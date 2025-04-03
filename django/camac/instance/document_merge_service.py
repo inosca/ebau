@@ -345,9 +345,10 @@ class DMSHandler:
 
     def get_filename(self, instance_id, form_name, template, for_additional_demand):
         filename_parts = [instance_id, form_name]
-
-        if template == "signatures":
-            filename_parts.append(_("Signature page"))
+        if filename_addition := settings.DMS.get("FILENAME_ADDITION_MAPPING", {}).get(
+            template
+        ):
+            filename_parts.append(filename_addition)
 
         if for_additional_demand is not None:
             filename_parts.append(_("Additional demand"))

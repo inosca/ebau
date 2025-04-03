@@ -998,6 +998,14 @@ msgid "Signature page"
 msgstr "Signature"
 
 #: camac/instance/document_merge_service.py
+msgid "Receipt"
+msgstr ""
+
+#: camac/instance/document_merge_service.py
+msgid "Form export"
+msgstr ""
+
+#: camac/instance/document_merge_service.py
 msgid "Additional demand"
 msgstr ""
 
