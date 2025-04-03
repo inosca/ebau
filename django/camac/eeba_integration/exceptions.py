@@ -69,14 +69,6 @@ def handle_view_exceptions(view_method):
         view_name = view_method.__name__
         try:
             return view_method(self, request, *args, **kwargs)
-        except EebaHandlerBadRequestException as e:
-            logger.error("Bad request error in %s: %s", view_name, e)
-            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-        except EebaHandlerServerException as e:
-            logger.error("Server error in %s: %s", view_name, e)
-            return Response(
-                {"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
         except PermissionDenied as e:
             logger.error("Permission denied error in %s: %s", view_name, e)
             return Response({"error": str(e)}, status=status.HTTP_403_FORBIDDEN)

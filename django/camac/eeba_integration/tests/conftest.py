@@ -83,7 +83,7 @@ def dummy_request():
 
 
 @pytest.fixture
-def eeba_handler_instance(dummy_request, client):
-    handler = EebaHandler(dummy_request)
+def eeba_handler_instance(db, dummy_request, gr_instance, client):
+    handler = EebaHandler(dummy_request, gr_instance)
     handler.eeba_client = client
     return handler

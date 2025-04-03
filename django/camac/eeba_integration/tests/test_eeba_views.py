@@ -4,7 +4,6 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 
 from camac.eeba_integration.exceptions import (
-    EebaHandlerBadRequestException,
     EebaHandlerServerException,
 )
 from camac.eeba_integration.views import CustomPermission
@@ -64,22 +63,6 @@ def test_eeba_check_integration_view_instance_not_found(
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
-def test_eeba_check_integration_view_instance_bad_request(
-    admin_client, mocker, gr_instance, set_application_gr
-):
-    url = reverse("check-eeba-integration", kwargs={"pk": gr_instance.pk})
-    mocker.patch(
-        "camac.eeba_integration.views.EebaCheckIntegrationView.get_object",
-        side_effect=EebaHandlerBadRequestException("Test bad request."),
-    )
-
-    response = admin_client.post(url, format="json", data={})
-
-    assert response.status_code == 400
-    assert response.data == {"error": "Test bad request."}
-
-
-@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 def test_eeba_check_integration_view_instance_server_error(
     admin_client, mocker, gr_instance, set_application_gr
 ):
@@ -92,7 +75,7 @@ def test_eeba_check_integration_view_instance_server_error(
     response = admin_client.post(url, format="json", data={})
 
     assert response.status_code == 500
-    assert response.data == {"error": "Test server errror."}
+    assert response.data == {"error": "An unexpected error occurred."}
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])

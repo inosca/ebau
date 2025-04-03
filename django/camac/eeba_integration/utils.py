@@ -2,34 +2,26 @@ import logging
 from urllib.parse import urlparse
 
 from caluma.caluma_core.exceptions import ConfigurationError
-from caluma.caluma_form.api import save_answer
+from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Answer, Question
 from caluma.caluma_form.validators import CustomValidationError
 
 logger = logging.getLogger(__name__)
 
 
-def get_answer_object(question, document):
-    """
-    Retrieve the Answer model instance for the given question and document.
-
-    Return the Answer instance if found, otherwise None.
-    """
-    return Answer.objects.filter(question=question, document=document).first()
-
-
-def get_answer_value(answer):
+def get_answer(question, document):
     """
     Retrieve the value of the Answer model instance.
 
     Return the answer value if found, otherwise None.
     """
+    answer = Answer.objects.filter(question=question, document=document).first()
     return answer.value if answer else None
 
 
-def save_hidden_answer(document, question_slug, answer_value):
+def save_answer(document, question_slug, answer_value):
     """
-    Save an answer for a hidden question.
+    Save an answer for a question.
 
     This function performs side effects such as retrieving the question and saving the answer.
     It assumes that permission has already been verified.
@@ -43,7 +35,7 @@ def save_hidden_answer(document, question_slug, answer_value):
         return None
 
     try:
-        updated_answer = save_answer(
+        updated_answer = form_api.save_answer(
             question=question, document=document, value=answer_value
         )
         return updated_answer

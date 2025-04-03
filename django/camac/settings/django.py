@@ -2251,6 +2251,12 @@ APPLICATIONS = {
         # If the calculated deadline falls on a weekend or public holiday,
         # it will be postponed to the next working day.
         "DEADLINE_POSTPONE_NEXT_WORKINGDAY": True,
+        "EEBA_HIDDEN_QUESTIONS_SLUGS": {
+            "integration_id": "eeba-integration-id",
+            "state": "eeba-state",
+            "required": "eeba-required",
+            "web_url": "eeba-web-url",
+        },
     },
     "kt_so": {
         "SHORT_NAME": "so",
@@ -3399,12 +3405,13 @@ GWR_HOUSING_STAT_BASE_URI = env.str(
 EEBA_SHARED_SECRET = env.str(
     "EEBA_SHARED_SECRET", "4z5hKJ2eQYXaGxvG9B8JfQ6C5L4A2mX5k7P0dQvNc4g="
 )
+
 EEBA_BASE_URL = build_url(
     env.str(
         "EEBA_BASE_URL",
         default(
             "https://eba-int2.gr.ch/api/v1",
-            # "https://eba.gr.ch/api/v1",
+            "https://eba.gr.ch/api/v1",
         ),
     )
 )

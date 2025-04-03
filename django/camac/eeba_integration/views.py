@@ -52,7 +52,6 @@ class EebaCheckIntegrationView(InstanceQuerysetMixin, RetrieveAPIView):
 
     @handle_view_exceptions
     def post(self, request, *args, **kwargs):
-        handler = EebaHandler(request)
         instance = self.get_object()
         if not CustomPermission(request).has_camac_edit_permission(
             instance.case.document, request.caluma_info
@@ -60,7 +59,8 @@ class EebaCheckIntegrationView(InstanceQuerysetMixin, RetrieveAPIView):
             raise PermissionDenied(
                 _("You do not have permission to edit this instance.")
             )
-        result = handler.check_eeba_needed(instance)
+        handler = EebaHandler(request, instance)
+        result = handler.check_eeba_needed()
         return response.Response(result, status=status.HTTP_200_OK)
 
 
@@ -80,7 +80,6 @@ class EebaPatchIntegrationView(InstanceQuerysetMixin, RetrieveAPIView):
 
     @handle_view_exceptions
     def patch(self, request, *args, **kwargs):
-        handler = EebaHandler(request)
         instance = self.get_object()
         new_instance_id = request.data.get("new_instance_id")
         if not new_instance_id:
@@ -88,7 +87,8 @@ class EebaPatchIntegrationView(InstanceQuerysetMixin, RetrieveAPIView):
                 {"error": "new_instance_id is required."},
                 status=status.HTTP_400_BAD_REQUEST,
             )
-        patch_response = handler.patch_eeba_integration(instance, new_instance_id)
+        handler = EebaHandler(request, instance)
+        patch_response = handler.patch_eeba_integration(new_instance_id)
         if patch_response.status_code == status.HTTP_204_NO_CONTENT:
             return response.Response(
                 {"success": "Integration patched successfully."},

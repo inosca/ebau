@@ -13,6 +13,7 @@ from camac.eeba_integration.exceptions import (
     EebaHandlerServerException,
     handle_exceptions,
 )
+from camac.eeba_integration.state_manager import EebaIntegrationState
 
 logger = logging.getLogger(__name__)
 
@@ -86,17 +87,19 @@ class EebaClient:
 
 
 class EebaHandler:
-    def __init__(self, request):
+    def __init__(self, request, instance):
         self.request = request
+        self.instance = instance
+        self.state_manager = EebaIntegrationState(instance.case.document)
         self.auth_token = get_authorization_header(request)
         self.eeba_client = EebaClient(self.auth_token)
 
-    def create_eeba_integration(self, instance, timeout):
+    def create_eeba_integration(self, timeout):
         data = {
             "timeout": timeout,
             "relation": {
                 "type": ".eBau",
-                "eBauId": instance.pk,
+                "eBauId": self.instance.pk,
             },
         }
         create_response = self.eeba_client.make_request(
@@ -114,142 +117,132 @@ class EebaHandler:
             raise EebaHandlerServerException(
                 _("Failed to create resource: No integration_id returned.")
             )
-        # Save the integration answer here?
-        # utils.save_hidden_answer(instance.case.document, "eeba-integration-id", integration_id)
+
+        self.state_manager.set_integration_id(integration_id)
         return integration_id
 
     #  Helper methods for check_eeba_needed
 
-    def _handle_missing_integration(self, instance, document, timeout):
+    def _handle_missing_integration(self, timeout):
         """
-        Create a new integration, mark state as 'requested', and poll for updated data.
+        Create a new integration, set state as 'requested', and poll for updated data.
 
-        Return updated answer objects.
+        Return updated answer values.
         """
-        integration_id = self.create_eeba_integration(instance, timeout)
-        integration_answer = utils.save_hidden_answer(
-            document, "eeba-integration-id", integration_id
-        )
-        state_answer = utils.save_hidden_answer(document, "eeba-state", "requested")
+        integration_id = self.create_eeba_integration(timeout)
+        self.state_manager.set_state("requested")
         try:
-            state_answer, required_answer, web_url_answer = self.get_eeba_needed(
-                document, integration_id, timeout
-            )
-
+            return self.get_eeba_needed(integration_id, timeout)
         except (
             EebaHandlerBadRequestException,
             EebaHandlerServerException,
             TimeoutError,
         ):
-            state_answer, required_answer, web_url_answer = (
-                self._process_failed_response(document, action="retry")
-            )
+            return self._process_failed_response(action="retry")
 
-        return integration_answer, state_answer, required_answer, web_url_answer
-
-    def _handle_existing_integration(self, document, integration_answer, timeout):
+    def _handle_existing_integration(self, integration_id, timeout):
         """
         Based on the current state, trigger a 'rerun' or 'retry', then poll for updates.
 
-        Return updated state, required, and web_url answers.
+        Return updated state, required, and web_url answer values.
         """
         # TODO: Cleanup
         extra_headers = {
             "Test-Authorization": self.request.headers.get("Test-Authorization")
         }
-        current_state = utils.get_answer_object("eeba-state", document)
-        current_state_value = utils.get_answer_value(current_state)
+        current_state_value = self.state_manager.get_state()
 
-        if current_state_value in ("completed", "rerun"):
-            action = "rerun"
-        else:
-            action = "retry"
+        action = "rerun" if current_state_value in ("completed", "rerun") else "retry"
 
         try:
             self.eeba_client.make_request(
-                action, uuid=integration_answer.value, extra_headers=extra_headers
+                action, uuid=integration_id, extra_headers=extra_headers
             )
-            return self.get_eeba_needed(document, integration_answer.value, timeout)
+            return self.get_eeba_needed(integration_id, timeout)
+
         except (
             EebaHandlerBadRequestException,
             EebaHandlerServerException,
             TimeoutError,
         ):
-            return self._process_failed_response(document, action="retry")
+            return self._process_failed_response(action="retry")
 
-    def check_eeba_needed(
-        self, instance, timeout=settings.EEBA_TIMEOUT_SECONDS
-    ) -> dict:
+    def check_eeba_needed(self, timeout=settings.EEBA_TIMEOUT_SECONDS) -> dict:
         """
         Check and handle the state of the eEBA integration.
 
         Return a dictionary with the latest integration_id, state, required, and web_url values.
         """
-        document = instance.case.document
+        integration_id = self.state_manager.get_integration_id()
 
-        integration_answer = utils.get_answer_object("eeba-integration-id", document)
-
-        if not integration_answer or not integration_answer.value:
-            integration_answer, state_answer, required_answer, web_url_answer = (
-                self._handle_missing_integration(instance, document, timeout)
-            )
+        if not integration_id:
+            state_value, required, web_url = self._handle_missing_integration(timeout)
         else:
-            state_answer, required_answer, web_url_answer = (
-                self._handle_existing_integration(document, integration_answer, timeout)
+            state_value, required, web_url = self._handle_existing_integration(
+                integration_id, timeout
             )
 
         return {
-            "integration_id": utils.get_answer_value(integration_answer),
-            "state": utils.get_answer_value(state_answer),
-            "required": utils.get_answer_value(required_answer),
-            "web_url": utils.get_answer_value(web_url_answer),
+            "integration_id": self.state_manager.get_integration_id(),
+            "state": state_value,
+            "required": required,
+            "web_url": web_url,
         }
 
     # Helper methods for get_eeba_needed
 
-    def _process_completed_response(self, document, response_data):
+    def _process_completed_response(self, response_data):
         """
         Update answers when the response status is 'completed'.
 
-        Return the updated state, required, and web_url answer objects.
+        Return the updated state, required, and web_url answer values.
         """
-        state_answer = utils.save_hidden_answer(document, "eeba-state", "completed")
+        self.state_manager.set_state("completed")
+
         eeba_required = response_data.get("relation", {}).get(
             "declarationOfWasteDisposalRequired"
         )
+
         required_value = (
             "eeba-required-ja"
             if eeba_required is True
             else ("eeba-required-nein" if eeba_required is False else None)
         )
-        required_answer = utils.save_hidden_answer(
-            document, "eeba-required", required_value
-        )
-        eeba_web_url = response_data.get("relation", {}).get("webUrl")
-        web_url_answer = utils.save_hidden_answer(
-            document, "eeba-web-url", eeba_web_url
-        )
-        return state_answer, required_answer, web_url_answer
+        self.state_manager.set_required(required_value)
 
-    def _process_failed_response(self, document, action="rerun"):
+        eeba_web_url = response_data.get("relation", {}).get("webUrl")
+        self.state_manager.set_web_url(eeba_web_url)
+
+        return (
+            self.state_manager.get_state(),
+            self.state_manager.get_required(),
+            self.state_manager.get_web_url(),
+        )
+
+    def _process_failed_response(self, action="rerun"):
         """
         Update the state when the response status is not 'completed' or request resulted in error.
 
         Action defaults to rerun but can also take the value retry.
         Assume that the required and web_url values are unreliable.
         """
-        state_answer = utils.save_hidden_answer(document, "eeba-state", action)
-        required_answer = utils.save_hidden_answer(document, "eeba-required", None)
+        self.state_manager.set_state(action)
+        self.state_manager.set_required(None)
         # Should we keep the web_url link even if status is not determined?
-        web_url_answer = utils.save_hidden_answer(document, "eeba-web-url", None)
-        return state_answer, required_answer, web_url_answer
+        self.state_manager.set_web_url(None)
+
+        return (
+            self.state_manager.get_state(),
+            self.state_manager.get_required(),
+            self.state_manager.get_web_url(),
+        )
 
     @handle_exceptions
-    def get_eeba_needed(self, document, integration_id, timeout):
+    def get_eeba_needed(self, integration_id, timeout):
         """
         Poll the 'get_resource' endpoint until a terminal state is reached, update answers.
 
-        Update and return the corresponding answer objects.
+        Update answers and return the corresponding answer values.
         Return a tuple (state_answer, required_answer, web_url_answer)
         """
         language = self.request.headers.get("Accept-Language", "de")
@@ -269,12 +262,12 @@ class EebaHandler:
         hint = response_data.get("hint")
 
         if status == "completed":
-            return self._process_completed_response(document, response_data)
+            return self._process_completed_response(response_data)
         else:
             logger.error("Error hint for integration %s: %s", integration_id, hint)
-            return self._process_failed_response(document, action="rerun")
+            return self._process_failed_response(action="rerun")
 
-    def patch_eeba_integration(self, instance, new_instance_id):
+    def patch_eeba_integration(self, new_instance_id):
         """
         Reassign instance_id to an existing integration.
 
@@ -282,10 +275,8 @@ class EebaHandler:
         Raise EebaHandlerBadRequestException if the integration ID is not found.
         """
         timeout = settings.EEBA_TIMEOUT_SECONDS
-        document = instance.case.document
-        integration_answer = utils.get_answer_object("eeba-integration-id", document)
-        integration_id = utils.get_answer_value(integration_answer)
 
+        integration_id = self.state_manager.get_integration_id()
         if not integration_id:
             raise EebaHandlerBadRequestException(
                 "Integration ID not found for patching."
