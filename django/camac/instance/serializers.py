@@ -11,6 +11,7 @@ from alexandria.core.api import create_document_file as create_alexandria_docume
 from caluma.caluma_form import models as form_models
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
+from dateutil.parser import ParserError, parse
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
@@ -2366,6 +2367,7 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     included_serializers = {"instance": InstanceSerializer}
 
     value = ScrubbedJSONField()
+    questions_config = settings.FORM_CONFIG["questions"]
 
     def validate_name(self, name):
         # TODO: check whether question is part of used form
@@ -2374,7 +2376,7 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         group = self.context["request"].group
         permission = perms.get(group.role.name, "applicant")
 
-        question = settings.FORM_CONFIG["questions"].get(name)
+        question = self.questions_config.get(name)
         if question is None:
             raise exceptions.ValidationError(
                 _("invalid question %(question)s.") % {"question": name}
@@ -2392,6 +2394,17 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
     def validate(self, data):
         validated_data = super().validate(data)
+
+        question = self.questions_config.get(validated_data["name"])
+        question_type = question.get("type", None)
+        if question_type == "date":
+            try:
+                parse(validated_data["value"])
+            except ParserError:
+                raise exceptions.ValidationError(
+                    _("%(given_time)s is not a valid date time")
+                    % {"given_time": validated_data["value"]}
+                )
 
         for history_field in settings.APPLICATION.get("FORM_FIELD_HISTORY_ENTRY", []):
             if not validated_data["name"] == history_field["name"]:  # pragma: no cover

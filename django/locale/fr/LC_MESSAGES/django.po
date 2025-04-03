@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-31 09:48+0200\n"
+"POT-Creation-Date: 2025-04-03 13:29+0200\n"
 "PO-Revision-Date: 2024-09-12 16:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1259,6 +1259,11 @@ msgstr "question invalide %(question)s."
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "Le %(permission)s n'est pas autorisé à modifier les %(question)s."
+
+#: camac/instance/serializers.py
+#, python-format
+msgid "%(given_time)s is not a valid date time"
+msgstr "'%(given_time)s' n'est pas une date et heure valide"
 
 #: camac/instance/serializers.py
 msgid "Appeal received"
