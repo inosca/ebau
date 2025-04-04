@@ -11,7 +11,7 @@ from camac.permissions.conditions import (
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.settings.env import env
 
-BAUGESUCH_VERSIONS = ["baugesuch", "baugesuch-v2"]
+BAUGESUCH_VERSIONS = ["baugesuch", "baugesuch-v2", "baugesuch-v3"]
 
 # Instance state rules
 STATES_ALL = RequireInstanceState(
