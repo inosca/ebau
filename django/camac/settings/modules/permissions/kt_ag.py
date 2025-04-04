@@ -110,7 +110,14 @@ ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & HasApplicantRole(["ADMI
 ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
-ACTION_INSTANCE_CHANGE_FORM = RequireInstanceState(["subm"])
+ACTION_INSTANCE_CHANGE_FORM = RequireInstanceState(
+    [
+        "subm",
+        "init-distribution",
+        "circulation",
+        "correction",
+    ]
+)
 
 ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
     [
