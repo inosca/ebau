@@ -1045,6 +1045,22 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 12000019,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 20006,
+      "name": "Baubegleitung",
+      "description": null,
+      "template": "/ember-camac-ng/construction-monitoring.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 15,
+      "form_group": 2000000,
+      "require_permission": "construction-monitoring-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 14000005,
     "fields": {
       "available_instance_resource": "page",
@@ -1582,6 +1598,16 @@
       "instance_resource": 12000018,
       "language": "it",
       "name": "Einsprachen",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 12000020,
+    "fields": {
+      "instance_resource": 12000019,
+      "language": "de",
+      "name": "Baubegleitung",
       "description": null
     }
   },
@@ -4779,6 +4805,105 @@
     "pk": 12000417,
     "fields": {
       "instance_resource": 12000018,
+      "role": 10000,
+      "instance_state": 120011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000418,
+    "fields": {
+      "instance_resource": 12000019,
+      "role": 3,
+      "instance_state": 120010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000420,
+    "fields": {
+      "instance_resource": 12000019,
+      "role": 3,
+      "instance_state": 120006
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000421,
+    "fields": {
+      "instance_resource": 12000019,
+      "role": 10000,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000422,
+    "fields": {
+      "instance_resource": 12000019,
+      "role": 10000,
+      "instance_state": 120004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000423,
+    "fields": {
+      "instance_resource": 12000019,
+      "role": 10000,
+      "instance_state": 120005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000424,
+    "fields": {
+      "instance_resource": 12000019,
+      "role": 10000,
+      "instance_state": 120006
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000425,
+    "fields": {
+      "instance_resource": 12000019,
+      "role": 10000,
+      "instance_state": 120007
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000426,
+    "fields": {
+      "instance_resource": 12000019,
+      "role": 10000,
+      "instance_state": 120008
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000427,
+    "fields": {
+      "instance_resource": 12000019,
+      "role": 10000,
+      "instance_state": 120009
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000428,
+    "fields": {
+      "instance_resource": 12000019,
+      "role": 10000,
+      "instance_state": 120010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000429,
+    "fields": {
+      "instance_resource": 12000019,
       "role": 10000,
       "instance_state": 120011
     }
