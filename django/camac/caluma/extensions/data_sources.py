@@ -72,12 +72,11 @@ def on_copy_from_reference_document(
     except ValueError:
         return (None, None)
 
-    try:
-        reference_doc = Document.objects.get(source_id=uuid_value)
-    except Document.DoesNotExist:
-        return (None, None)
+    reference_doc = (
+        Document.objects.filter(source_id=uuid_value).order_by("-created_at").first()
+    )
 
-    return (str(reference_doc.pk), old_label)
+    return (str(reference_doc.pk), old_label) if reference_doc else (None, None)
 
 
 class Municipalities(BaseDataSource):
