@@ -476,6 +476,11 @@ def ech_instance_so(
 
 
 @pytest.fixture
+def ech_instance_ag(ag_master_data_case, ag_alexandria_settings):
+    return ag_master_data_case.instance
+
+
+@pytest.fixture
 def fake_request(rf, admin_user, group):
     request = rf.request()
     request.user = admin_user

@@ -3,16 +3,16 @@
   dict({
     'applicants': list([
       dict({
-        'email': 'courtney31@example.org',
-        'first_name': 'Maria',
+        'email': 'thomas38@example.org',
+        'first_name': 'David',
         'is_juristic_person': True,
-        'juristic_name': 'Wells-Harris',
-        'last_name': 'Bauer',
-        'street': 'Roberts Brooks',
-        'street_number': '787',
-        'tel': '835-352-1249x70386',
-        'town': 'North Wesleyhaven',
-        'zip': 4649,
+        'juristic_name': 'Lloyd Ltd',
+        'last_name': 'Howard',
+        'street': 'Stephanie Underpass',
+        'street_number': '703',
+        'tel': '2895832374',
+        'town': 'Robbinsville',
+        'zip': 9526,
       }),
     ]),
     'application_type': 'Baugesuch',
@@ -70,7 +70,14 @@
     ]),
     'municipality_name': 'Aarburg',
     'municipality_slug': '55',
-    'nature_risk': None,
+    'nature_risk': list([
+      dict({
+        'risk_type': 'Hochwasser (erhebliche Gefährdung)',
+      }),
+      dict({
+        'risk_type': 'Hochwasser (geringe Gefährdung)',
+      }),
+    ]),
     'organization_category': 'ebauag',
     'other_municipality_names': list([
       'Abtwil',
@@ -914,7 +921,8 @@
     ]),
     'municipality_name': 'Schübelbach',
     'municipality_slug': 999,
-    'nature_risk': None,
+    'nature_risk': list([
+    ]),
     'organization_category': 'ebausz',
     'plot_data': list([
       dict({
@@ -1019,7 +1027,8 @@
     ]),
     'municipality_name': 'Schübelbach',
     'municipality_slug': 999,
-    'nature_risk': None,
+    'nature_risk': list([
+    ]),
     'organization_category': 'ebausz',
     'plot_data': list([
       dict({

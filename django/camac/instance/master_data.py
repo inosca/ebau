@@ -93,7 +93,10 @@ class MasterData(object):
         else:
             parser_name = value_parser
 
-        parser = getattr(self, f"{parser_name}_parser", None)
+        if callable(parser_name):
+            parser = parser_name
+        else:
+            parser = getattr(self, f"{parser_name}_parser", None)
 
         if not parser:
             raise AttributeError(

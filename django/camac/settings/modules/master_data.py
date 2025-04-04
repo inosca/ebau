@@ -1,5 +1,10 @@
 from camac.caluma.extensions.countries import COUNTRIES
 
+
+def text_to_nature_risk(value, *args, **kwargs):
+    return [{"risk_type": v.strip()} for v in value.split(",")] if value else []
+
+
 AG_PERSONAL_DATA_MAPPING = {
     "last_name": "name-gesuchstellerin",
     "first_name": "vorname-gesuchstellerin",
@@ -345,7 +350,7 @@ MASTER_DATA = {
             ),  # eCH0211: 3.1.1.1.1, 3.1.1.1.2
             "municipality_name": ("instance_property", "location"),
             "municipality_slug": ("instance_property", "location_id"),
-            "nature_risk": ("static", None),
+            "nature_risk": ("static", []),
             "proposal": (
                 "ng_answer",
                 ["bezeichnung", "bezeichnung-override"],
@@ -3149,7 +3154,11 @@ MASTER_DATA = {
             ),
             "application_type": ("form_name",),
             "profile_approval_date": ("static", None),
-            "nature_risk": ("answer", "plan-der-gefahrenkommission"),
+            "nature_risk": (
+                "answer",
+                "plan-der-gefahrenkommission",
+                {"value_parser": text_to_nature_risk},
+            ),
             "usage_type": (
                 "answer",
                 "zweckbestimmung",
