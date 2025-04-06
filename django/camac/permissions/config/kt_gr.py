@@ -47,9 +47,6 @@ def _gr_include_special_service(instance, service_name):
             return False
         task_id = settings.DECISION["TASK"]
         question_id = "fuer-gvg-freigeben"
-    elif service_name == "aib":
-        task_id = "construction-acceptance"
-        question_id = "fuer-aib-freigeben"
     else:  # pragma: no cover
         raise RuntimeError(
             f"unknown special service {service_name}, expected 'gvg' or 'aib'."
@@ -73,10 +70,6 @@ def gr_include_gvg(instance):
     return _gr_include_special_service(instance, "gvg")
 
 
-def gr_include_aib(instance):
-    return _gr_include_special_service(instance, "aib")
-
-
 class PermissionEventHandlerGR(
     ApplicantsEventHandlerMixin,
     InstanceCreationHandlerMixin,
@@ -90,15 +83,6 @@ class PermissionEventHandlerGR(
                 grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
                 access_level=permissions_models.AccessLevel.objects.get(pk="read"),
                 service=Service.objects.get(name=gr_constants.GVG_SERVICE_SLUG),
-            )
-
-    def construction_acceptance_completed(self, instance: Instance):
-        if gr_include_aib(instance):
-            self.manager.grant(
-                instance,
-                grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
-                access_level=permissions_models.AccessLevel.objects.get(pk="read"),
-                service=Service.objects.get(name=gr_constants.AIB_SERVICE_SLUG),
             )
 
     def inquiry_sent(self, instance: Instance, work_item):

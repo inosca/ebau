@@ -1,0 +1,1421 @@
+[
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "053ab055-7477-4c42-a3d0-8a2050fffddc",
+    "fields": {
+      "created_at": "2023-10-27T15:32:57.477Z",
+      "modified_at": "2023-10-27T15:32:57.477Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['construction-step-schlussabnahme-gebaeude']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "18b9979e-4261-4cb3-8f4e-8a7d07924348",
+    "fields": {
+      "created_at": "2023-10-30T10:52:01.923Z",
+      "modified_at": "2023-10-30T10:52:01.923Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['construction-step-schlussabnahme-projekt']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "3b71b035-455d-49d3-9447-7fd298dc316f",
+    "fields": {
+      "created_at": "2023-10-30T10:52:00.475Z",
+      "modified_at": "2023-10-30T10:52:00.475Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['construction-step-schlussabnahme-projekt-planen']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "525db028-4d0b-4213-b76f-70426587917f",
+    "fields": {
+      "created_at": "2023-10-27T15:32:47.963Z",
+      "modified_at": "2023-10-27T15:32:47.963Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['construction-step-einmessung-leitungskataster']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "52cae5a4-9786-4511-ba8e-efc37dae0124",
+    "fields": {
+      "created_at": "2025-01-15T15:32:40.029Z",
+      "modified_at": "2025-01-15T15:32:40.029Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "55b91570-6dd4-4645-8480-cfbb46939276",
+    "fields": {
+      "created_at": "2023-10-27T15:32:34.970Z",
+      "modified_at": "2023-10-27T15:32:34.970Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-init-construction-monitoring']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "5b4b8615-df61-400f-88d0-053725e51e75",
+    "fields": {
+      "created_at": "2023-10-27T15:32:46.348Z",
+      "modified_at": "2023-10-27T15:32:46.348Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['construction-step-kanalisationsabnahme-kontrollieren']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "74aa83d7-25de-49c5-be1e-55da8ef8ef5a",
+    "fields": {
+      "created_at": "2023-10-27T15:32:52.501Z",
+      "modified_at": "2023-10-27T15:32:52.501Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "7f3c520d-7d32-4186-86db-3ec20df9637f",
+    "fields": {
+      "created_at": "2024-06-17T07:05:43.122Z",
+      "modified_at": "2024-06-17T07:05:43.122Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "9a07f24c-b847-4164-8db5-b297f9750346",
+    "fields": {
+      "created_at": "2025-01-15T15:32:43.176Z",
+      "modified_at": "2025-01-15T15:32:43.176Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['construction-step-baufreigabe']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "9c85408a-7113-47c9-b705-e8cc5056701f",
+    "fields": {
+      "created_at": "2025-01-15T15:32:43.176Z",
+      "modified_at": "2025-01-15T15:32:43.176Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "a53b5b04-7140-4cbe-9fa2-2c7cc1ad2b65",
+    "fields": {
+      "created_at": "2023-10-27T15:32:55.837Z",
+      "modified_at": "2023-10-27T15:32:55.837Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step', 'construction-step-rohbauabnahme-kontrollieren-geometer']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "c9f6cbb4-8bae-4873-8a50-931febe62e1b",
+    "fields": {
+      "created_at": "2025-01-20T15:32:43.176Z",
+      "modified_at": "2025-01-20T15:32:43.176Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "de62240f-f40b-4115-bb9b-efba8835ee2d",
+    "fields": {
+      "created_at": "2023-10-27T15:32:47.963Z",
+      "modified_at": "2023-10-27T15:32:47.963Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "e35200bb-e76c-4274-a12e-1839ca9d7510",
+    "fields": {
+      "created_at": "2023-10-27T15:32:47.963Z",
+      "modified_at": "2023-10-27T15:32:47.963Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "e3f313ac-1bd1-4d0a-a552-b256fed8318d",
+    "fields": {
+      "created_at": "2023-10-30T10:52:00.475Z",
+      "modified_at": "2023-10-30T10:52:00.475Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "ed730612-1648-448b-8693-403689f19db7",
+    "fields": {
+      "created_at": "2023-10-30T10:52:04.042Z",
+      "modified_at": "2023-10-30T10:52:04.042Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['construction-step-schlussabnahme-projekt-gebaeude-nachtragen']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "f821fdd5-59d4-41b5-a4f9-72b51e2c6189",
+    "fields": {
+      "created_at": "2023-10-27T15:32:54.119Z",
+      "modified_at": "2023-10-27T15:32:54.119Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['construction-step-rohbauabnahme-kontrollieren']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "f94d7781-8279-4a13-bffa-a0acd18d36e2",
+    "fields": {
+      "created_at": "2023-10-27T15:32:59.043Z",
+      "modified_at": "2023-10-27T15:32:59.043Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "fb98453a-092d-40c0-85f2-b038032c9d33",
+    "fields": {
+      "created_at": "2023-10-27T15:32:49.721Z",
+      "modified_at": "2023-10-27T15:32:49.721Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['construction-step-schnurgeruestabnahme-kontrollieren']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "complete-construction-monitoring",
+    "fields": {
+      "created_at": "2025-01-20T15:32:06.310Z",
+      "modified_at": "2025-01-20T15:32:06.310Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baubegleitung abschliessen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {},
+      "address_groups": "['municipality']|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-stage",
+    "fields": {
+      "created_at": "2025-01-15T15:32:06.310Z",
+      "modified_at": "2025-01-15T15:32:06.310Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauetappe\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {},
+      "address_groups": "['municipality']|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": null,
+      "is_multiple_instance": true,
+      "continue_async": true
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-baubeginn-melden",
+    "fields": {
+      "created_at": "2023-10-27T15:32:11.878Z",
+      "modified_at": "2023-10-27T15:32:11.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baubeginn melden\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": [
+            "construction-step-kanalisationsabnahme",
+            "construction-step-einmessung",
+            "construction-step-schnurgeruestabnahme"
+          ],
+          "index": 0,
+          "total": 1
+        },
+        "construction-step-id": "construction-step-baubeginn",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'applicant']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-baubeginn-melden",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-baufreigabe",
+    "fields": {
+      "created_at": "2025-01-15T15:32:09.435Z",
+      "modified_at": "2025-01-15T15:32:09.435Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baufreigabe entscheiden\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": ["construction-step-baubeginn"],
+          "index": 1,
+          "total": 2,
+          "needs-approval": "construction-step-baufreigabe-is-approved"
+        },
+        "construction-step-id": "construction-step-baufreigabe"
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-baufreigabe",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-baufreigabe-beantragen",
+    "fields": {
+      "created_at": "2025-01-15T15:32:07.894Z",
+      "modified_at": "2025-01-15T15:32:07.894Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baufreigabe beantragen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": ["construction-step-baubeginn"],
+          "index": 0,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-baufreigabe",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'applicant']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-baufreigabe-beantragen",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-einmessung-leitungskataster",
+    "fields": {
+      "created_at": "2023-10-27T15:32:13.452Z",
+      "modified_at": "2023-10-27T15:32:13.452Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Erfassen im Leitungskataster\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": [],
+          "index": 1,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-einmessung",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-einmessung-leitungskataster",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-einmessung-melden",
+    "fields": {
+      "created_at": "2023-10-27T15:32:13.452Z",
+      "modified_at": "2023-10-27T15:32:13.452Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Einmessung im offenen Graben\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": [],
+          "index": 0,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-einmessung",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'applicant']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-einmessung-melden",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-kanalisationsabnahme-kontrollieren",
+    "fields": {
+      "created_at": "2023-10-27T15:32:15.296Z",
+      "modified_at": "2023-10-27T15:32:15.296Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Kanalisation (Wasser / Abwasser) kontrollieren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": [],
+          "index": 1,
+          "total": 2,
+          "needs-approval": "construction-step-kanalisationsabnahme-is-approved"
+        },
+        "construction-step-id": "construction-step-kanalisationsabnahme",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-kanalisation-kontrollieren",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-kanalisationsabnahme-melden",
+    "fields": {
+      "created_at": "2023-10-27T15:32:13.452Z",
+      "modified_at": "2023-10-27T15:32:13.452Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Kanalisationsabnahme\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": ["construction-step-einmessung"],
+          "index": 0,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-kanalisationsabnahme",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'applicant']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-kanalisationsabnahme-melden",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-plan-construction-stage",
+    "fields": {
+      "created_at": "2025-01-15T15:32:06.310Z",
+      "modified_at": "2025-01-15T15:32:06.310Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baubegleitung planen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": ["construction-step-baufreigabe"],
+          "index": 0,
+          "total": 1
+        },
+        "construction-step-id": "construction-step-plan-construction-stage"
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-plan-construction-stage",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-rohbauabnahme-kontrollieren",
+    "fields": {
+      "created_at": "2023-10-27T15:32:23.581Z",
+      "modified_at": "2023-10-27T15:32:23.581Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Rohbau kontrollieren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": ["construction-step-schlussabnahme-gebaeude"],
+          "index": 1,
+          "total": 3,
+          "needs-approval": "construction-step-rohbauabnahme-is-approved"
+        },
+        "construction-step-id": "construction-step-rohbauabnahme"
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-rohbau-kontrollieren",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-rohbauabnahme-kontrollieren-geometer",
+    "fields": {
+      "created_at": "2023-10-27T15:32:23.581Z",
+      "modified_at": "2023-10-27T15:32:23.581Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Rohbau kontrollieren (Geometer)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": ["construction-step-schlussabnahme-gebaeude"],
+          "index": 2,
+          "total": 3,
+          "needs-approval": "construction-step-rohbauabnahme-is-approved"
+        },
+        "construction-step-id": "construction-step-rohbauabnahme"
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-rohbau-kontrollieren-geometer",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-rohbauabnahme-melden",
+    "fields": {
+      "created_at": "2023-10-27T15:32:22.163Z",
+      "modified_at": "2023-10-27T15:32:22.163Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Rohbauabnahme\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": ["construction-step-schlussabnahme-gebaeude"],
+          "index": 0,
+          "total": 3
+        },
+        "construction-step-id": "construction-step-rohbauabnahme",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'applicant']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-rohbauabnahme-melden",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-schlussabnahme-gebaeude",
+    "fields": {
+      "created_at": "2023-10-27T15:32:25.169Z",
+      "modified_at": "2023-10-27T15:32:25.169Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Schlussabnahme Geb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": ["construction-step-schlussabnahme-projekt"],
+          "index": 1,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-schlussabnahme-gebaeude",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'applicant']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-schlussabnahme-gebaeude",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-schlussabnahme-gebaeude-melden",
+    "fields": {
+      "created_at": "2023-10-27T15:32:25.169Z",
+      "modified_at": "2023-10-27T15:32:25.169Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Schlussabnahme Geb\\u00e4ude\\\" (Bezugsbewilligung)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": ["construction-step-schlussabnahme-projekt"],
+          "index": 0,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-schlussabnahme-gebaeude",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'applicant']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-schlussabnahme-gebaeude-melden",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-schlussabnahme-projekt",
+    "fields": {
+      "created_at": "2023-10-27T15:32:31.374Z",
+      "modified_at": "2023-10-27T15:32:31.374Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Schlussabnahme Teil-/Gesamtprojekt\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": [],
+          "index": 2,
+          "total": 4,
+          "needs-approval": "construction-step-schlussabnahme-projekt-is-approved"
+        },
+        "construction-step-id": "construction-step-schlussabnahme-projekt"
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-schlussabnahme-projekt",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-schlussabnahme-projekt-gebaeude-nachtragen",
+    "fields": {
+      "created_at": "2023-10-27T15:32:28.478Z",
+      "modified_at": "2023-10-27T15:32:28.478Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Geb\\u00e4ude als erstellt\\\" nachtragen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": [],
+          "index": 3,
+          "total": 4
+        },
+        "construction-step-id": "construction-step-schlussabnahme-projekt",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-schlussabnahme-projekt-gebaeude-nachtragen",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-schlussabnahme-projekt-melden",
+    "fields": {
+      "created_at": "2023-10-27T15:32:28.478Z",
+      "modified_at": "2023-10-27T15:32:28.478Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Schlussabnahme Teil-/Gesamtprojekt\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": [],
+          "index": 0,
+          "total": 4
+        },
+        "construction-step-id": "construction-step-schlussabnahme-projekt",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'applicant']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-schlussabnahme-projekt-melden",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-schlussabnahme-projekt-planen",
+    "fields": {
+      "created_at": "2023-10-27T15:32:30.022Z",
+      "modified_at": "2023-10-27T15:32:30.022Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Schlussabnahme Teil-/Gesamtprojekt planen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": [],
+          "index": 1,
+          "total": 4
+        },
+        "construction-step-id": "construction-step-schlussabnahme-projekt"
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-schlussabnahme-projekt-planen",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-schnurgeruestabnahme-kontrollieren",
+    "fields": {
+      "created_at": "2023-10-27T15:32:20.441Z",
+      "modified_at": "2023-10-27T15:32:20.441Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Schnurger\\u00fcst kontrollieren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": ["construction-step-rohbauabnahme"],
+          "index": 1,
+          "total": 2,
+          "needs-approval": "construction-step-schnurgeruestabnahme-is-approved"
+        },
+        "construction-step-id": "construction-step-schnurgeruestabnahme",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-schnurgeruest-kontrollieren",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-schnurgeruestabnahme-melden",
+    "fields": {
+      "created_at": "2023-10-27T15:32:17.224Z",
+      "modified_at": "2023-10-27T15:32:17.225Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Schnurger\\u00fcstabnahme\\\"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": ["construction-step-rohbauabnahme"],
+          "index": 0,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-schnurgeruestabnahme",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['municipality', 'applicant']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-schnurgeruestabnahme-melden",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "init-construction-monitoring",
+    "fields": {
+      "created_at": "2025-01-17T15:32:43.176Z",
+      "modified_at": "2025-01-17T15:32:43.176Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baubegleitung starten\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring",
+          "models": ["INSTANCE_ID"]
+        }
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "16b84da0-dc59-4aac-a55b-02b0931decbb",
+    "fields": {
+      "created_at": "2023-10-27T15:32:54.121Z",
+      "modified_at": "2023-10-27T15:32:54.121Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-rohbauabnahme-melden",
+      "flow": "f821fdd5-59d4-41b5-a4f9-72b51e2c6189",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "1a5e46ea-7e49-487e-b71c-666bccf26733",
+    "fields": {
+      "created_at": "2023-10-27T15:32:59.044Z",
+      "modified_at": "2023-10-27T15:32:59.044Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-schlussabnahme-gebaeude",
+      "flow": "f94d7781-8279-4a13-bffa-a0acd18d36e2",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "1a90fefc-367a-4945-9f26-e28bf7188f17",
+    "fields": {
+      "created_at": "2023-10-27T15:32:47.965Z",
+      "modified_at": "2023-10-27T15:32:47.965Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-kanalisationsabnahme-kontrollieren",
+      "flow": "de62240f-f40b-4115-bb9b-efba8835ee2d",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "25cf6e54-3db7-414e-adba-d3cc74dfe51b",
+    "fields": {
+      "created_at": "2023-10-27T15:32:46.350Z",
+      "modified_at": "2023-10-27T15:32:46.350Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-kanalisationsabnahme-melden",
+      "flow": "5b4b8615-df61-400f-88d0-053725e51e75",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "2b3dc8cb-9459-4338-b89d-2e43f4808691",
+    "fields": {
+      "created_at": "2025-01-15T15:32:41.628Z",
+      "modified_at": "2025-01-15T15:32:41.628Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-baufreigabe",
+      "flow": "9c85408a-7113-47c9-b705-e8cc5056701f",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "427d0f73-707f-4cff-aca4-783b7ec38e0e",
+    "fields": {
+      "created_at": "2023-10-27T15:32:57.478Z",
+      "modified_at": "2023-10-27T15:32:57.478Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-schlussabnahme-gebaeude-melden",
+      "flow": "053ab055-7477-4c42-a3d0-8a2050fffddc",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "4e3f4756-cd31-4ebd-9295-1ac8c20d5c0d",
+    "fields": {
+      "created_at": "2023-10-30T10:52:00.476Z",
+      "modified_at": "2023-10-30T10:52:00.476Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-schlussabnahme-projekt-gebaeude-nachtragen",
+      "flow": "e3f313ac-1bd1-4d0a-a552-b256fed8318d",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "5d6c0181-afee-431f-b409-af007222d2ce",
+    "fields": {
+      "created_at": "2025-01-15T15:32:40.030Z",
+      "modified_at": "2025-01-15T15:32:40.030Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-plan-construction-stage",
+      "flow": "52cae5a4-9786-4511-ba8e-efc37dae0124",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "5ff07019-50a5-4684-96cc-c02af89d863c",
+    "fields": {
+      "created_at": "2023-10-27T15:32:52.502Z",
+      "modified_at": "2023-10-27T15:32:52.502Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-schnurgeruestabnahme-kontrollieren",
+      "flow": "74aa83d7-25de-49c5-be1e-55da8ef8ef5a",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "77f1761b-9175-4993-b098-386909aa651a",
+    "fields": {
+      "created_at": "2023-10-30T10:52:04.043Z",
+      "modified_at": "2023-10-30T10:52:04.043Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-schlussabnahme-projekt",
+      "flow": "ed730612-1648-448b-8693-403689f19db7",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "8f73b3d9-00f5-412f-aa87-b4804458791d",
+    "fields": {
+      "created_at": "2023-10-27T15:32:47.965Z",
+      "modified_at": "2023-10-27T15:32:47.965Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-einmessung-melden",
+      "flow": "525db028-4d0b-4213-b76f-70426587917f",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "99e23f0e-1595-49d0-a183-9d83f781fcbf",
+    "fields": {
+      "created_at": "2023-10-27T15:32:36.139Z",
+      "modified_at": "2023-10-27T15:32:36.139Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "complete-construction-monitoring",
+      "flow": "c9f6cbb4-8bae-4873-8a50-931febe62e1b",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "adc8c99d-fd93-4b3c-a66f-206aa08d012c",
+    "fields": {
+      "created_at": "2023-10-27T15:32:34.971Z",
+      "modified_at": "2023-10-27T15:32:34.971Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "init-construction-monitoring",
+      "flow": "55b91570-6dd4-4645-8480-cfbb46939276",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "c54e5338-0586-42c0-bec6-3fc1f1ced294",
+    "fields": {
+      "created_at": "2023-10-27T15:32:55.838Z",
+      "modified_at": "2023-10-27T15:32:55.838Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-rohbauabnahme-kontrollieren",
+      "flow": "a53b5b04-7140-4cbe-9fa2-2c7cc1ad2b65",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "dfa0bfec-c2d8-4459-8559-4b07be85756a",
+    "fields": {
+      "created_at": "2025-01-15T15:32:43.178Z",
+      "modified_at": "2025-01-15T15:32:43.178Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-baufreigabe-beantragen",
+      "flow": "9a07f24c-b847-4164-8db5-b297f9750346",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "e7e54a9f-2068-4e03-a488-19f9e6d9f1b8",
+    "fields": {
+      "created_at": "2023-10-27T15:32:47.965Z",
+      "modified_at": "2023-10-27T15:32:47.965Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-einmessung-leitungskataster",
+      "flow": "e35200bb-e76c-4274-a12e-1839ca9d7510",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "ed30e89d-af5a-4fa9-8acb-6644847178d1",
+    "fields": {
+      "created_at": "2023-10-27T15:32:49.723Z",
+      "modified_at": "2023-10-27T15:32:49.723Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-schnurgeruestabnahme-melden",
+      "flow": "fb98453a-092d-40c0-85f2-b038032c9d33",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "ee5f273a-58a5-45f7-8da8-1b941b12a9ec",
+    "fields": {
+      "created_at": "2023-10-30T10:52:00.476Z",
+      "modified_at": "2023-10-30T10:52:00.476Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-schlussabnahme-projekt-melden",
+      "flow": "3b71b035-455d-49d3-9447-7fd298dc316f",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "ef1788b0-a41c-424c-9e7c-b10dde753c64",
+    "fields": {
+      "created_at": "2023-10-30T10:52:01.926Z",
+      "modified_at": "2023-10-30T10:52:01.926Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-schlussabnahme-projekt-planen",
+      "flow": "18b9979e-4261-4cb3-8f4e-8a7d07924348",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "f61d2ee3-5981-4c1c-b2aa-8fd4f494c99c",
+    "fields": {
+      "created_at": "2024-06-17T07:05:43.132Z",
+      "modified_at": "2024-06-17T07:05:43.132Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-baubeginn-melden",
+      "flow": "7f3c520d-7d32-4186-86db-3ec20df9637f",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.workflow",
+    "pk": "construction-stage",
+    "fields": {
+      "created_at": "2025-01-15T15:32:32.977Z",
+      "modified_at": "2025-01-15T15:32:32.977Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauetappe\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "allow_all_forms": false,
+      "start_tasks": ["construction-step-plan-construction-stage"],
+      "allow_forms": []
+    }
+  }
+]

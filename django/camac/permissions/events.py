@@ -98,7 +98,6 @@ class Trigger:
     """Contains any event that may cause a permissions change."""
 
     decision_decreed = EventTrigger()
-    construction_acceptance_completed = EventTrigger()
     instance_created = EventTrigger()
     instance_submitted = EventTrigger()
     instance_retrieved = EventTrigger()
@@ -152,11 +151,6 @@ class PermissionEventHandler(metaclass=ABCMeta):
     def instance_created(self, instance: Instance): ...  # pragma: no cover
 
     @abstractmethod
-    def construction_acceptance_completed(
-        self, instance: Instance
-    ): ...  # pragma: no cover
-
-    @abstractmethod
     def instance_submitted(self, instance: Instance): ...  # pragma: no cover
 
     @abstractmethod
@@ -192,9 +186,6 @@ class EmptyEventHandler(PermissionEventHandler):
         return  # pragma: no cover
 
     def instance_submitted(self, instance: Instance):
-        return  # pragma: no cover
-
-    def construction_acceptance_completed(self, instance: Instance):
         return  # pragma: no cover
 
     def changed_responsible_service(
