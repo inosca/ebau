@@ -18,8 +18,15 @@ def get_role(group: Union[Group, SimpleLazyObject]) -> str:
 
     service_group = group.service.service_group.name if group.service else None
     role = group.role.name
+    override = settings.ALEXANDRIA.get("CUSTOM_ROLE_MAPPINGS", {}).get(service_group)
+    permission_key = role
 
-    return settings.ALEXANDRIA.get("CUSTOM_ROLE_MAPPINGS", {}).get(service_group, role)
+    if override and settings.ALEXANDRIA.get("APPEND_ROLE_TO_CUSTOM_ROLE_MAPPING"):
+        permission_key = f"{override}-{role}"
+    elif override:
+        permission_key = override
+
+    return permission_key
 
 
 @lru_cache

@@ -36,9 +36,11 @@ ALEXANDRIA = {
             "SENSITIVE": ["sensitive"],
         },
         "CUSTOM_ROLE_MAPPINGS": {
+            "service-bab": "cantonal",
             "service-cantonal": "cantonal",
             "service-extra-cantonal": "extra-cantonal",
         },
+        "APPEND_ROLE_TO_CUSTOM_ROLE_MAPPING": True,
     },
     "test": {
         "ENABLED": True,
