@@ -923,7 +923,9 @@ class CantonSpecific:
             ns_application.buildingInformationType(
                 building=ns_objektwesen.buildingType(
                     EGID=building.get("egid"),
-                    name=building.get("name"),
+                    name=assure_string_length(
+                        building.get("name"), min_length=3, max_length=40
+                    ),
                     buildingCategory=building.get("building_category"),
                 )
             )
