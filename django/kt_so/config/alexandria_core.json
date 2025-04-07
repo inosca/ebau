@@ -27,9 +27,6 @@
               }
             ]
           },
-          "cantonal": {
-            "visibility": "all"
-          },
           "applicant": {
             "visibility": "all"
           },
@@ -42,9 +39,6 @@
                 "permission": "update"
               }
             ]
-          },
-          "extra-cantonal": {
-            "visibility": "all"
           },
           "municipality-lead": {
             "visibility": "all",
@@ -88,6 +82,46 @@
           },
           "municipality-read": {
             "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           }
         }
       },
@@ -127,16 +161,6 @@
               }
             ]
           },
-          "cantonal": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
           "applicant": {
             "visibility": "all",
             "permissions": [
@@ -157,16 +181,6 @@
             ]
           },
           "subservice": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
-          "extra-cantonal": {
             "visibility": "all",
             "permissions": [
               {
@@ -209,6 +223,46 @@
           },
           "municipality-read": {
             "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           }
         }
       },
@@ -324,61 +378,9 @@
               }
             ]
           },
-          "cantonal": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "condition": {
-                  "BaBService": true,
-                  "BaBInstance": true
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "files"],
-                "condition": {
-                  "BaBService": true,
-                  "BaBInstance": true
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
           "subservice": {
             "visibility": "all",
             "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
-          "extra-cantonal": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "condition": {
-                  "BaBService": true,
-                  "BaBInstance": true
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "files"],
-                "condition": {
-                  "BaBService": true,
-                  "BaBInstance": true
-                },
-                "permission": "update"
-              },
               {
                 "scope": "All",
                 "fields": ["tags"],
@@ -406,6 +408,78 @@
           },
           "municipality-read": {
             "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           }
         }
       },
@@ -445,42 +519,6 @@
               }
             ]
           },
-          "cantonal": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "files"],
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              },
-              {
-                "marks": ["decision"],
-                "scope": "All",
-                "fields": ["marks"],
-                "condition": {
-                  "BaBService": true,
-                  "BaBInstance": true
-                },
-                "permission": "update"
-              }
-            ]
-          },
           "subservice": {
             "visibility": "all",
             "permissions": [
@@ -507,7 +545,54 @@
               }
             ]
           },
-          "extra-cantonal": {
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
             "visibility": "all",
             "permissions": [
               {
@@ -543,10 +628,18 @@
               }
             ]
           },
-          "municipality-lead": {
+          "extra-cantonal-subservice": {
             "visibility": "all",
             "permissions": [
               {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
                 "permission": "create"
               },
               {
@@ -556,13 +649,46 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags", "marks"],
+                "fields": ["tags"],
                 "permission": "update"
               }
             ]
           },
-          "municipality-read": {
-            "visibility": "all"
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "marks": ["decision"],
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
+              }
+            ]
           }
         }
       },
@@ -602,27 +728,7 @@
               }
             ]
           },
-          "cantonal": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
           "subservice": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
-          "extra-cantonal": {
             "visibility": "all",
             "permissions": [
               {
@@ -652,6 +758,46 @@
           },
           "municipality-read": {
             "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           }
         }
       },
@@ -691,7 +837,35 @@
               }
             ]
           },
-          "cantonal": {
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "tags",
+                  "files",
+                  "category"
+                ],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
             "visibility": "all",
             "permissions": [
               {
@@ -767,71 +941,7 @@
               }
             ]
           },
-          "cantonal": {
-            "visibility": "service",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "category",
-                  "date",
-                  "tags",
-                  "files"
-                ],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          },
           "subservice": {
-            "visibility": "service",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "category",
-                  "date",
-                  "tags",
-                  "files"
-                ],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          },
-          "extra-cantonal": {
             "visibility": "service",
             "permissions": [
               {
@@ -897,6 +1007,134 @@
           },
           "municipality-read": {
             "visibility": "service"
+          },
+          "cantonal-subservice": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
           }
         }
       },
@@ -936,68 +1174,8 @@
               }
             ]
           },
-          "cantonal": {
-            "visibility": "cantonal-service-and-subservice",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "ServiceAndSubservice",
-                "fields": ["title", "description", "date", "tags", "files"],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "fields": ["category"],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          },
           "subservice": {
             "visibility": "service-and-subservice",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "ServiceAndSubservice",
-                "fields": ["title", "description", "date", "tags", "files"],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "fields": ["category"],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          },
-          "extra-cantonal": {
-            "visibility": "cantonal-service-and-subservice",
             "permissions": [
               {
                 "fields": [
@@ -1058,6 +1236,126 @@
           },
           "municipality-read": {
             "visibility": "service-and-subservice"
+          },
+          "cantonal-subservice": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
           }
         }
       },
@@ -1097,27 +1395,7 @@
               }
             ]
           },
-          "cantonal": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
           "subservice": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
-          "extra-cantonal": {
             "visibility": "all",
             "permissions": [
               {
@@ -1155,6 +1433,46 @@
           },
           "municipality-read": {
             "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           }
         }
       },
@@ -1194,16 +1512,6 @@
               }
             ]
           },
-          "cantonal": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
           "applicant": {
             "visibility": "all",
             "permissions": [
@@ -1224,16 +1532,6 @@
             ]
           },
           "subservice": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              }
-            ]
-          },
-          "extra-cantonal": {
             "visibility": "all",
             "permissions": [
               {
@@ -1268,6 +1566,46 @@
           },
           "municipality-read": {
             "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           }
         }
       },
