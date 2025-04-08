@@ -8,12 +8,15 @@ import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { saveAs } from "file-saver";
-import { DateTime } from "luxon";
 
 import caseTableConfig from "ember-ebau-core/config/case-table";
 import mainConfig from "ember-ebau-core/config/main";
 import caseInstanceIdsQuery from "ember-ebau-core/gql/queries/case-instance-ids.graphql";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import {
+  getCalumaFilters,
+  getCamacFilters,
+} from "ember-ebau-core/utils/case-filters";
 
 export default class CaseTableComponent extends Component {
   @service store;
@@ -101,162 +104,10 @@ export default class CaseTableComponent extends Component {
 
   get gqlFilter() {
     const filter = this.args.filter;
-    const availableFilterSet = {
-      instanceId: {
-        metaValue: [
-          {
-            key: "camac-instance-id",
-            value: filter.instanceId,
-          },
-        ],
-      },
-      dossierNumber: {
-        metaValue: [
-          {
-            key: mainConfig.answerSlugs.specialId,
-            lookup: caseTableConfig.specialIdLookup || "ICONTAINS",
-            value: filter.dossierNumber,
-          },
-        ],
-      },
-      caseCreatedDateBefore: {
-        createdBefore: DateTime.fromISO(filter.caseCreatedDateBefore)
-          .endOf("day")
-          .toISO(),
-      },
-
-      caseCreatedDateAfter: {
-        createdAfter: DateTime.fromISO(filter.caseCreatedDateAfter)
-          .startOf("day")
-          .toISO(),
-      },
-      parcel: {
-        searchAnswers: [
-          {
-            questions: caseTableConfig.parcelSlugs || [
-              mainConfig.answerSlugs.parcelNumber,
-            ],
-            // TODO communicate change of behavior for BE, GR, AG
-            lookup: "EXACT_WORD",
-            value: filter.parcel,
-          },
-        ],
-      },
-      form: {
-        documentForms: filter.form?.split(","),
-      },
-      personalDetails: {
-        searchAnswers: [
-          {
-            questions: caseTableConfig.personalDetailsSlugs,
-            value: filter.personalDetails,
-          },
-        ],
-      },
-      appeal: {
-        metaValue: [
-          {
-            key: "is-appeal",
-            lookup: "EXACT",
-            value: true,
-          },
-        ],
-        invert: filter.appeal !== "1",
-      },
-      ...(this.args.casesBackend !== "camac-ng"
-        ? {
-            intent: {
-              searchAnswers: [
-                {
-                  questions: mainConfig.intentSlugs,
-                  lookup: "CONTAINS",
-                  value: filter.intent,
-                },
-              ],
-            },
-            municipality: {
-              hasAnswer: [
-                {
-                  question: "gemeinde",
-                  value: filter.municipality,
-                  lookup: "EXACT",
-                },
-              ],
-            },
-            address: {
-              searchAnswers: [
-                {
-                  questions: caseTableConfig.addressSlugs,
-                  lookup: "CONTAINS",
-                  value: filter.address,
-                },
-              ],
-            },
-            applicant: {
-              searchAnswers: [
-                {
-                  questions: [
-                    "first-name",
-                    "last-name",
-                    "juristic-person-name",
-                  ],
-                  lookup: "CONTAINS",
-                  value: filter.applicant,
-                },
-              ],
-            },
-            submitDateBefore: {
-              metaValue: [
-                {
-                  key: "submit-date",
-                  lookup: "LTE",
-                  value: DateTime.fromISO(filter.submitDateBefore)
-                    .endOf("day")
-                    .toISO(),
-                },
-              ],
-            },
-            submitDateAfter: {
-              metaValue: [
-                {
-                  key: "submit-date",
-                  lookup: "GTE",
-                  value: DateTime.fromISO(filter.submitDateAfter)
-                    .startOf("day")
-                    .toISO(),
-                },
-              ],
-            },
-          }
-        : {}),
-      // BE-specific
-      freetext: {
-        searchAnswers: [
-          {
-            questions: mainConfig.freetextSlugs,
-            lookup: "CONTAINS",
-            value: filter.freetext,
-          },
-        ],
-      },
-      // UR-specific
-      buildingPermitType: {
-        hasAnswer: [
-          {
-            question: "form-type",
-            lookup: "IN",
-            value: filter.buildingPermitType,
-          },
-        ],
-      },
-      // SZ-specific
-      caseStatus: {
-        status: filter.caseStatus,
-      },
-      caseDocumentFormName: {
-        documentForm: filter.form,
-      },
-    };
+    const availableFilterSet = getCalumaFilters(
+      this.args.filter,
+      this.args.casesBackend,
+    );
 
     const searchFilters = Object.entries(filter)
       .filter(
@@ -275,64 +126,8 @@ export default class CaseTableComponent extends Component {
     ];
   }
 
-  get keywordFilterName() {
-    return caseTableConfig.useLegacyTags ? "tags" : "keywords";
-  }
-
   get camacFilter() {
-    const filters = {
-      instance_state:
-        this.args.filter.instanceState || this.args.instanceStates || "",
-      service: this.args.filter.service || this.args.filter.serviceSZ,
-      responsible_service_user: this.args.filter.responsibleServiceUser,
-      responsible_service: this.args.filter.responsibleMunicipality,
-      is_paper: this.args.filter.paper,
-      [this.keywordFilterName]: this.args.filter.keywords,
-      decision: this.args.filter.decision,
-      inquiry_created_before: this.args.filter.inquiryCreatedBefore,
-      inquiry_created_after: this.args.filter.inquiryCreatedAfter,
-      inquiry_completed_before: this.args.filter.inquiryCompletedBefore,
-      inquiry_completed_after: this.args.filter.inquiryCompletedAfter,
-      inquiry_state: this.args.filter.inquiryState,
-      inquiry_answer: this.args.filter.inquiryAnswer,
-      // BE-specific
-      is_modification: this.args.filter.modification,
-      decision_date_before: this.args.filter.decisionDateBefore,
-      decision_date_after: this.args.filter.decisionDateAfter,
-      // UR-specific
-      circulation_state: this.args.hasActivation
-        ? caseTableConfig.activeCirculationStates
-        : null,
-      has_pending_billing_entry: this.args.hasPendingBillingEntry,
-      has_pending_sanction: this.args.hasPendingSanction,
-      pending_sanctions_control_instance:
-        this.args.filter.pendingSanctionsControlInstance,
-      with_cantonal_participation: this.args.filter.withCantonalParticipation,
-      oereb_legal_state: this.args.filter.legalStateOereb,
-      // SZ-specific
-      caluma_keyword_search: this.args.filter.calumaKeywordSearch,
-      ...(this.args.casesBackend === "camac-ng"
-        ? {
-            location: this.args.filter.municipality,
-            intent_sz: this.args.filter.intent,
-            address_sz: this.args.filter.address,
-            plot_egrid_sz: this.args.filter.parcel_egrid,
-            plot_number_sz: this.args.filter.parcel_property_number,
-            builder_sz: this.args.filter.builder,
-            landowner_sz: this.args.filter.landowner,
-            applicant_sz: this.args.filter.applicant,
-            submit_date_after_sz: this.args.filter.submitDateAfter,
-            submit_date_before_sz: this.args.filter.submitDateBefore,
-            form_name_versioned: this.args.filter.type,
-            objection_received: this.args.filter.objectionReceived,
-            construction_zone_location_sz:
-              this.args.filter.constructionZoneLocation,
-            identifier: this.args.filter.instanceIdentifier || "",
-            keyword_search: this.args.filter.keywordSearch,
-          }
-        : {}),
-    };
-
+    const filters = getCamacFilters(this.args);
     return {
       "x-camac-filters": Object.entries(filters)
         .filter(([, value]) => ![null, undefined, ""].includes(value))

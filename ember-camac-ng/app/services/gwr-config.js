@@ -48,6 +48,7 @@ export default class GwrConfigService extends Service {
 
     return instances.map(({ id, identifier, dossierNumber, ebauNumber }) => ({
       localId: id,
+      // TODO consider moving this to the backend and/or use "specialId"
       identifier: macroCondition(getOwnConfig().application === "be")
         ? ebauNumber
         : macroCondition(getOwnConfig().application === "sz")
