@@ -36,6 +36,12 @@ from camac.ech0211 import formatters
             lf("ech_instance_so"),
             lf("so_master_data_settings"),
         ),
+        (
+            "kt_ag",
+            lf("set_application_ag"),
+            lf("ech_instance_ag"),
+            lf("ag_master_data_settings"),
+        ),
     ],
 )
 def test_generate_delivery(

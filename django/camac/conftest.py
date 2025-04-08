@@ -2048,6 +2048,7 @@ def ag_master_data_case(
     caluma_work_item_factory,
     service_factory,
     multilang,
+    instance_service_factory,
 ):
     ag_instance.case.meta = {
         "dossier-number": "2025-1",
@@ -2065,6 +2066,11 @@ def ag_master_data_case(
     utils.add_answer(document, "plz", "4663")
     utils.add_answer(document, "ort-grundstueck", "Aarburg")
     utils.add_answer(document, "baukosten", 12_000_000)
+    utils.add_answer(
+        document,
+        "plan-der-gefahrenkommission",
+        "Hochwasser (erhebliche Gefährdung), Hochwasser (geringe Gefährdung)",
+    )
 
     # Plot data
     utils.add_table_answer(
@@ -2087,7 +2093,12 @@ def ag_master_data_case(
         utils.add_table_answer(document, table, [ag_personal_row_factory(is_juristic)])
 
     # Municipality
-    municipality = service_factory(pk=55, trans__name="Aarburg", trans__language="de")
+    municipality = service_factory(
+        pk=55,
+        trans__name="Aarburg",
+        trans__language="de",
+        service_group__name="municipality",
+    )
     utils.add_answer(document, "gemeinde", str(municipality.pk))
     caluma_dynamic_option_factory(
         question_id="gemeinde",
@@ -2095,6 +2106,7 @@ def ag_master_data_case(
         slug=str(municipality.pk),
         label={"de": municipality.get_name()},
     )
+    instance_service_factory(instance=ag_instance, service=municipality, active=1)
 
     # Other municipalities
     other_municipality1 = service_factory(trans__name="Abtwil", trans__language="de")
