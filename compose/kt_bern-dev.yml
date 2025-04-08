@@ -110,6 +110,8 @@ services:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:master
+      args:
+        REQUIREMENTS: requirements-dev.txt
     command: webdav
     ports: []
 
