@@ -2713,6 +2713,10 @@ LOGGING = {
         "django": {"handlers": ["console", "mail_admins"], "level": "INFO"},
         "camac": {"handlers": ["console", "mail_admins"], "level": "INFO"},
         "tika": {"handlers": ["console", "mail_admins"], "level": "INFO"},
+        "hurricane": {
+            "handlers": ["console", "mail_admins"],
+            "level": env.str("HURRICANE_LOG_LEVEL", default="INFO"),
+        },
     },
 }
 
@@ -2850,6 +2854,14 @@ DATABASES = {
         "OPTIONS": env.dict("DATABASE_OPTIONS", default=database_options),
     }
 }
+
+# https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-CONN_HEALTH_CHECKS
+CONN_HEALTH_CHECKS = env.bool("DJANGO_CONN_HEALTH_CHECKS", default=False)
+# https://docs.djangoproject.com/en/4.2/ref/settings/#conn-max-age
+# The lifetime of a database connection, as an integer of seconds.
+# Use 0 to close database connections at the end of each request — Django’s
+# historical behavior — and None for unlimited persistent database connections.
+CONN_MAX_AGE = env.int("DJANGO_MAX_AGE", default=0)
 
 # Sequence ranges to be used for each developer. Note: NEVER EVER
 # EVER change this without talking to the affected developers. New

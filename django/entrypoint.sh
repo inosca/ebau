@@ -78,7 +78,7 @@ case "$1" in
     ;;
   hurricane )
     compilemessages # migration, collectstatic & loadconfig run pre-install or in initContainer
-    exec python ./manage.py serve --static --port "${DJANGO_SERVER_PORT:-80}" --req-queue-len "${HURRICANE_REQ_QUEUE_LEN:-50}"
+    exec python ./manage.py serve --static --port "${DJANGO_SERVER_PORT:-80}" --req-queue-len "${HURRICANE_REQ_QUEUE_LEN:-150}" --workers "${HURRICANE_WORKERS:-4}"
     ;;
   hurricanedev )
     do_setup # don't run this on any kubernetes cluster!!! (applies migrations & load-config)
