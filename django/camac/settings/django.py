@@ -3448,10 +3448,11 @@ GENERIC_PERMISSIONS_VALIDATION_CLASSES = [
 # Celery
 REDIS_HOST = env.str("REDIS_HOST", default="redis")
 REDIS_PORT = env.int("REDIS_PORT", default=6379)
+REDIS_USER = env.str("REDIS_USER", default="default")
 REDIS_PASSWORD = env.str("REDIS_PASSWORD", default="redis")
 CELERY_BROKER_URL = env.str(
     "CELERY_BROKER_URL",
-    default=f"redis://default:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/0",  # gitleaks:allow
+    default=f"redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/0",  # gitleaks:allow
 )
 CELERY_TASK_ACKS_LATE = env.bool(
     "CELERY_TASK_ACKS_LATE",

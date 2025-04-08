@@ -94,12 +94,12 @@ case "$1" in
     ;;
   celery )
     do_setup no-migrate
-    wait-for-it redis:6379
+    wait-for-it ${REDIS_HOST:-redis}:${REDIS_PORT:-6379}
     celery -A camac worker -l INFO -E -O fair;
     ;;
   celerydev )
     do_setup no-migrate
-    wait-for-it redis:6379
+    wait-for-it ${REDIS_HOST:-redis}:${REDIS_PORT:-6379}
     watchmedo auto-restart -d . --recursive -p '*.py' -- celery -A camac worker -l INFO -E -O fair;
     ;;
   webdav )
