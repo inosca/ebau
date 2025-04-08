@@ -1153,7 +1153,7 @@ APPLICATIONS = {
                         "information-of-neighbors",
                         "create-information-of-neighbors",
                     ],
-                    "complete": ["nfd"],
+                    "complete": ["nfd", "gever"],
                 },
                 "complete": {
                     "skip": ["check-sb1", "check-sb2"],

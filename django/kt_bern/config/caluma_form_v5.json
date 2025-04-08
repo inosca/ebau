@@ -12894,6 +12894,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anzahl-hauseingaenge-mfh-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:59:44.041Z",
+      "modified_at": "2024-10-31T15:59:44.041Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Hauseing\\u00e4nge MFH\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-pissoirs-v5",
     "fields": {
       "created_at": "2024-11-20T14:11:14.704Z",
@@ -13124,6 +13158,40 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": "'anzahl-wohnungen-bestand-aktuell-v5'|answer(0) + 'anzahl-wohnungen-veraenderung-neu-v5'|answer(0) - 'anzahl-wohnungen-veraenderung-aufhebung-v5'|answer(0)",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-wohnungen-v5",
+    "fields": {
+      "created_at": "2024-10-31T15:58:09.264Z",
+      "modified_at": "2024-10-31T15:58:09.264Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Wohnungen\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!('nutzungsart-wohnen' in 'nutzungsart'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
       "calc_dependents": "[]"
     }
   },
@@ -17551,6 +17619,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "kataster-werkleitungsplaene-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:43:40.364Z",
+      "modified_at": "2024-11-14T09:49:24.396Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kataster- und / oder Werkleitungspl\\u00e4ne\", \"fr\": \"Plans cadastraux et / ou plans des conduites de service\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!('werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja' == 'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5'|answer || 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer || 'betrifft-das-bauvorhaben-elektroinstallationen-v5-ja' == 'betrifft-das-bauvorhaben-elektroinstallationen-v5'|answer || 'betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5-ja' == 'betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5'|answer|| 'betrifft-das-bauvorhaben-gasinstallationen-v5-ja' == 'betrifft-das-bauvorhaben-gasinstallationen-v5'|answer|| 'betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-ja' == 'betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5'|answer || 'betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-ja' == 'betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentCategory": "plaene"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kurzbericht-risikoermittlung-dokument-begruendung-v5",
     "fields": {
       "created_at": "2024-12-03T18:38:11.433Z",
@@ -19637,6 +19739,40 @@
       "configuration": {},
       "meta": {
         "vertical": "true",
+        "documentCategory": "plaene"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "situationsplan-grabflaeche-strassenterrainflaeche-v5",
+    "fields": {
+      "created_at": "2024-10-18T11:45:40.519Z",
+      "modified_at": "2024-11-14T09:49:49.824Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan mit Vorschlag der Grabfl\\u00e4che / Terrain-Inanspruchnahme resp. der beanspruchten Strassenterrainfl\\u00e4che\", \"fr\": \"Plan de situation avec projet de fouille / d'utilisation du terrain ou surface de route requise.\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!('werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja' == 'werden-strassen-radwege-gehwege-in-anspruch-genommen-v5'|answer || 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja' == 'werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
         "documentCategory": "plaene"
       },
       "data_source": null,
