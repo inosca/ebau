@@ -602,6 +602,29 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "internes-dossier",
+    "fields": {
+      "created_at": "2025-04-01T11:37:57.673Z",
+      "modified_at": "2025-04-01T12:08:07.028Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Internes Dossier\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 9,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "anfrage-intern"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "koordinaten-tabelle",
     "fields": {
       "created_at": "2025-01-23T13:18:35.736Z",
@@ -4039,6 +4062,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente-ohne-pflichtdokumente.hinweistext-dokumente",
+    "fields": {
+      "created_at": "2025-04-08T14:09:21.741Z",
+      "modified_at": "2025-04-08T14:09:21.741Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-ohne-pflichtdokumente",
+      "question": "hinweistext-dokumente",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente-ohne-pflichtdokumente.projektbeschrieb",
     "fields": {
       "created_at": "2024-12-12T10:45:07.782Z",
@@ -5280,6 +5318,66 @@
       "form": "heizungen-tabelle",
       "question": "typ-der-waermepumpe-heizung",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-dossier.allgemeine-informationen-pgv-bund",
+    "fields": {
+      "created_at": "2025-04-01T11:37:57.710Z",
+      "modified_at": "2025-04-01T11:37:57.710Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "internes-dossier",
+      "question": "allgemeine-informationen-pgv-bund",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-dossier.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2025-04-01T11:37:57.747Z",
+      "modified_at": "2025-04-01T11:37:57.747Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "internes-dossier",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-dossier.einreichen",
+    "fields": {
+      "created_at": "2025-04-01T11:37:57.764Z",
+      "modified_at": "2025-04-01T11:37:57.764Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "internes-dossier",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "internes-dossier.nutzung-bauvorhaben",
+    "fields": {
+      "created_at": "2025-04-01T11:37:57.731Z",
+      "modified_at": "2025-04-01T11:37:57.731Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "internes-dossier",
+      "question": "nutzung-bauvorhaben",
+      "sort": 3
     }
   },
   {
@@ -18578,7 +18676,7 @@
     "pk": "dokumente-ohne-pflichtdokumente",
     "fields": {
       "created_at": "2023-05-01T09:33:04.773Z",
-      "modified_at": "2024-12-12T10:47:19.112Z",
+      "modified_at": "2025-04-08T13:58:06.917Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
