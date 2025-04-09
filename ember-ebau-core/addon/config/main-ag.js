@@ -155,7 +155,7 @@ export default {
   },
   displayedForms: [
     {
-      section: "paper-instances", // Papierdossiers
+      section: "paper-instances",
       forms: [
         {
           slug: "baugesuch",
@@ -190,7 +190,7 @@ export default {
       ],
     },
     {
-      section: "internal-dossiers", // Interne Dossiers
+      section: "internal-dossiers",
       forms: [
         {
           slug: "anfrage-intern",
@@ -203,11 +203,10 @@ export default {
           serviceGroups: ["authority-pgv"],
           category: "special-procedure",
         },
-        // TODO: internal dossier not exists yet
-        // {
-        //   slug: "internes-dossier",
-        //   roles: ["public", "internal"],
-        // },
+        {
+          slug: "internes-dossier",
+          roles: ["municipality-lead", "municipality-clerk"],
+        },
       ],
     },
   ],
