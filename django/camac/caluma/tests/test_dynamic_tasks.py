@@ -361,10 +361,12 @@ def test_dynamic_task_after_submit(
     expected_tasks,
     is_appeal,
     is_bab,
-    caluma_case_factory,
+    application_settings,
     form_slug,
     so_instance,
 ):
+    application_settings["SHORT_NAME"] = "so"
+
     meta = {}
 
     if is_appeal:
@@ -1329,3 +1331,56 @@ def test_dynamic_task_maybe_publication(
     )
 
     assert set(tasks) == set(expected_tasks)
+
+
+@pytest.mark.parametrize(
+    "form_slug,expected_tasks",
+    [
+        (
+            "main-form",
+            {
+                "create-manual-workitems",
+                "formal-exam",
+                "init-additional-demand",
+            },
+        ),
+        (
+            "plangenehmigungsverfahren-bund",
+            {
+                "create-manual-workitems",
+                "distribution",
+                "publication",
+                "fill-publication",
+                "cantonal-exam",
+                "objections",
+            },
+        ),
+        (
+            "plangenehmigungsverfahren-gas",
+            {
+                "create-manual-workitems",
+                "distribution",
+                "publication",
+                "fill-publication",
+                "cantonal-exam",
+                "objections",
+                "init-additional-demand",
+            },
+        ),
+    ],
+)
+def test_dynamic_task_after_submit_ag(
+    db, ag_instance, application_settings, caluma_admin_user, expected_tasks, form_slug
+):
+    application_settings["SHORT_NAME"] = "ag"
+
+    ag_instance.case.document.form_id = form_slug
+    ag_instance.case.document.save()
+
+    tasks = set(
+        CustomDynamicTasks().resolve_after_submit(
+            ag_instance.case, caluma_admin_user, None, None
+        )
+    )
+
+    assert tasks == expected_tasks

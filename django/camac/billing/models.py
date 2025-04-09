@@ -124,11 +124,16 @@ class BillingV2EntryQuerySet(models.QuerySet["BillingV2Entry"]):
         if not service:  # pragma: no cover
             return self.none()
 
-        if service.service_group.name in ["service-afb", "service-cantonal"]:
+        if service.service_group.name in [
+            "service-afb",
+            "service-cantonal",
+            "authority-pgv",
+        ]:
             return self.filter(
                 group__service__service_group__name__in=[
                     "service-afb",
                     "service-cantonal",
+                    "authority-pgv",
                 ]
             )
         elif service.service_group.name == "municipality":

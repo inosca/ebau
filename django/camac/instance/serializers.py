@@ -38,7 +38,12 @@ from camac.core.models import (
     WorkflowEntry,
 )
 from camac.core.serializers import MultilingualField, MultilingualSerializer
-from camac.core.utils import create_history_entry, generate_ebau_nr, generate_sort_key
+from camac.core.utils import (
+    canton_aware,
+    create_history_entry,
+    generate_ebau_nr,
+    generate_sort_key,
+)
 from camac.document.models import AttachmentSection
 from camac.ech0211.signals import (
     change_responsibility,
@@ -1679,25 +1684,44 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 create_instance_service(instance, service.pk)
                 return
 
-            # FIXME: use master data instead!
-            municipality = case.document.answers.get(question_id="gemeinde").value
+            municipality = self.get_master_data(case).municipality_slug
 
-            if (
-                settings.APPLICATION_NAME == "kt_so"
-                and case.document.answers.filter(
-                    question_id="kanton-leitbehoerde", value="kanton-leitbehoerde-ja"
-                ).exists()
-            ):
-                municipality = (
-                    Service.objects.filter(
-                        service_group__name="canton",
-                        service_parent__isnull=True,
-                    )
-                    .values_list("pk", flat=True)
-                    .first()
-                )
+            if custom_instance_service := self._get_custom_instance_service(case):
+                municipality = custom_instance_service
 
             create_instance_service(instance, int(municipality))
+
+    @canton_aware
+    def _get_custom_instance_service(self, case):
+        return None
+
+    def _get_custom_instance_service_so(self, case):
+        if case.document.answers.filter(
+            question_id="kanton-leitbehoerde", value="kanton-leitbehoerde-ja"
+        ).exists():
+            return (
+                Service.objects.filter(
+                    service_group__name="canton",
+                    service_parent__isnull=True,
+                )
+                .values_list("pk", flat=True)
+                .first()
+            )
+
+        return None  # pragma: no cover
+
+    def _get_custom_instance_service_ag(self, case):
+        if self.get_master_data(case).is_pgv:
+            return (
+                Service.objects.filter(
+                    service_group__name="authority-pgv",
+                    service_parent__isnull=True,
+                )
+                .values_list("pk", flat=True)
+                .first()
+            )
+
+        return None  # pragma: no cover
 
     @transaction.atomic
     def _generate_identifier(self, case, instance):
@@ -1814,6 +1838,17 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if any(getattr(md, prop) for prop in settings.BAB["MASTER_DATA_PROPERTIES"]):
             instance.case.meta["is-bab"] = True
 
+    def _ag_handle_pgv(self, instance):
+        if (
+            settings.APPLICATION_NAME != "kt_ag"
+            or not self.get_master_data(instance.case).is_pgv
+        ):
+            return
+
+        instance.instance_state = models.InstanceState.objects.get(
+            name="init-distribution"
+        )
+
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
 
@@ -1847,6 +1882,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._ur_prepare_cantonal_instances(instance)
             self._so_handle_special_forms(instance)
             self._so_handle_bab(instance)
+            self._ag_handle_pgv(instance)
 
             instance.save()
 

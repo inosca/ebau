@@ -280,7 +280,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
         return tasks
 
     @register_dynamic_task("after-submit")
+    @canton_aware
     def resolve_after_submit(self, case, user, prev_work_item, context):
+        raise NotImplementedError()  # pragma: no cover
+
+    def resolve_after_submit_so(self, case, user, prev_work_item, context):
         tasks = ["create-manual-workitems"]
 
         if case.meta.get("is-appeal"):
@@ -297,6 +301,26 @@ class CustomDynamicTasks(BaseDynamicTasks):
             or case.instance.responsible_service().service_group.name == "canton"
         ):
             tasks.append("material-exam-bab")
+
+        return tasks
+
+    def resolve_after_submit_ag(self, case, user, prev_work_item, context):
+        tasks = ["create-manual-workitems"]
+
+        pgv_tasks = [
+            "distribution",
+            "publication",
+            "fill-publication",
+            "cantonal-exam",
+            "objections",
+        ]
+
+        if case.document.form_id == "plangenehmigungsverfahren-bund":
+            tasks.extend(pgv_tasks)
+        elif case.document.form_id == "plangenehmigungsverfahren-gas":
+            tasks.extend([*pgv_tasks, "init-additional-demand"])
+        else:
+            tasks.extend(["formal-exam", "init-additional-demand"])
 
         return tasks
 

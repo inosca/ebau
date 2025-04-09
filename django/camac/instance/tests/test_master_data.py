@@ -164,6 +164,27 @@ def test_master_data_parsers(
     )
 
 
+def test_master_data_is_form_resolver(
+    db,
+    master_data_settings,
+    caluma_case_factory,
+    caluma_document_factory,
+):
+    master_data_settings["CONFIG"] = {
+        "is_main_form": ("is_form", "main-form"),
+        "is_main_form_versioned": ("is_form", ["main-form", "main-form-v2"]),
+        "is_other_form": ("is_form", ["some-other-form", "some-other-form-v2"]),
+    }
+
+    document = caluma_document_factory(form__slug="main-form")
+    case = caluma_case_factory(document=document)
+    master_data = MasterData(case)
+
+    assert master_data.is_main_form is True
+    assert master_data.is_main_form_versioned is True
+    assert master_data.is_other_form is False
+
+
 @pytest.mark.parametrize(
     "canton_master_data_settings,language,case,num_queries",
     [

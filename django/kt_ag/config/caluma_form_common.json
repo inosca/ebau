@@ -113,7 +113,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "gemeinde",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -218,7 +218,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "parzelle",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -293,7 +293,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "weitere-gemeinden",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -309,6 +309,21 @@
       "form": "allgemeine-angaben-kurz",
       "question": "zonenplan",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.zustaendige-behoerde",
+    "fields": {
+      "created_at": "2025-04-07T09:27:53.681Z",
+      "modified_at": "2025-04-07T09:27:53.681Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "zustaendige-behoerde",
+      "sort": 12
     }
   },
   {
@@ -1087,6 +1102,125 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vertreter/in mit Vollmacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zustaendige-behoerde-astra",
+    "fields": {
+      "created_at": "2025-04-07T09:27:53.245Z",
+      "modified_at": "2025-04-07T09:27:53.245Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bundesamt f\\u00fcr Strassen, Br\\u00fchlstrasse 3, 4800 Zofingen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zustaendige-behoerde-bav",
+    "fields": {
+      "created_at": "2025-04-07T09:27:53.274Z",
+      "modified_at": "2025-04-07T09:27:53.274Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bundesamt f\\u00fcr Verkehr, M\\u00fchlestrasse 6, 3063 Ittigen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zustaendige-behoerde-bazl",
+    "fields": {
+      "created_at": "2025-04-07T09:27:53.320Z",
+      "modified_at": "2025-04-07T09:27:53.320Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bundesamt f\\u00fcr Zivilluftfahrt, Papierm\\u00fchlestrasse 172, 3063 Ittigen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zustaendige-behoerde-bfe",
+    "fields": {
+      "created_at": "2025-04-07T09:27:53.219Z",
+      "modified_at": "2025-04-07T09:27:53.219Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bundesamt f\\u00fcr Energie, Pulverstrasse 13, 3063 Ittigen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zustaendige-behoerde-ensi",
+    "fields": {
+      "created_at": "2025-04-07T09:27:53.204Z",
+      "modified_at": "2025-04-07T09:27:53.204Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eidg. Nuklearsicherheitsinspektorat, Industriestrasse 19, 5201 Brugg\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zustaendige-behoerde-esti",
+    "fields": {
+      "created_at": "2025-04-07T09:27:53.252Z",
+      "modified_at": "2025-04-07T09:27:53.252Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eidg. Starkstrominspektorat, Luppmenstrasse 1, 8320 Fehraltorf\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zustaendige-behoerde-vbs",
+    "fields": {
+      "created_at": "2025-04-07T09:27:53.230Z",
+      "modified_at": "2025-04-07T09:27:53.230Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eidg. Departement f\\u00fcr Verteidigung, Bev\\u00f6lkerungsschutz und Sport VBS, Maulbeerstrasse 9, 3003 Bern\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -2806,6 +2940,39 @@
     }
   },
   {
+    "model": "caluma_form.question",
+    "pk": "zustaendige-behoerde",
+    "fields": {
+      "created_at": "2025-04-07T09:27:53.563Z",
+      "modified_at": "2025-04-07T09:30:08.530Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zust\\u00e4ndige Beh\\u00f6rde\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "info.root.form != \"plangenehmigungsverfahren-bund\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
     "model": "caluma_form.questionoption",
     "pk": "is-paper.is-paper-no",
     "fields": {
@@ -3042,6 +3209,111 @@
       "modified_by_group": null,
       "question": "weitere-personen",
       "option": "weitere-personen-vertreterin-mit-vollmacht",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zustaendige-behoerde.zustaendige-behoerde-astra",
+    "fields": {
+      "created_at": "2025-04-07T09:30:08.546Z",
+      "modified_at": "2025-04-07T09:30:08.547Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zustaendige-behoerde",
+      "option": "zustaendige-behoerde-astra",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zustaendige-behoerde.zustaendige-behoerde-bav",
+    "fields": {
+      "created_at": "2025-04-07T09:30:08.559Z",
+      "modified_at": "2025-04-07T09:30:08.559Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zustaendige-behoerde",
+      "option": "zustaendige-behoerde-bav",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zustaendige-behoerde.zustaendige-behoerde-bazl",
+    "fields": {
+      "created_at": "2025-04-07T09:30:08.539Z",
+      "modified_at": "2025-04-07T09:30:08.540Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zustaendige-behoerde",
+      "option": "zustaendige-behoerde-bazl",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zustaendige-behoerde.zustaendige-behoerde-bfe",
+    "fields": {
+      "created_at": "2025-04-07T09:30:08.554Z",
+      "modified_at": "2025-04-07T09:30:08.554Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zustaendige-behoerde",
+      "option": "zustaendige-behoerde-bfe",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zustaendige-behoerde.zustaendige-behoerde-ensi",
+    "fields": {
+      "created_at": "2025-04-07T09:30:08.563Z",
+      "modified_at": "2025-04-07T09:30:08.563Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zustaendige-behoerde",
+      "option": "zustaendige-behoerde-ensi",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zustaendige-behoerde.zustaendige-behoerde-esti",
+    "fields": {
+      "created_at": "2025-04-07T09:30:08.567Z",
+      "modified_at": "2025-04-07T09:30:08.567Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zustaendige-behoerde",
+      "option": "zustaendige-behoerde-esti",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zustaendige-behoerde.zustaendige-behoerde-vbs",
+    "fields": {
+      "created_at": "2025-04-07T09:30:08.543Z",
+      "modified_at": "2025-04-07T09:30:08.543Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zustaendige-behoerde",
+      "option": "zustaendige-behoerde-vbs",
       "sort": 2
     }
   }

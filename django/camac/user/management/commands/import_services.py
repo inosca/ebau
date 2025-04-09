@@ -83,6 +83,7 @@ def get_type_map(canton):
                 2: ServiceGroup.objects.get(name="service-cantonal"),
                 3: ServiceGroup.objects.get(name="service-afb"),
                 4: ServiceGroup.objects.get(name="service-external"),
+                5: ServiceGroup.objects.get(name="authority-pgv"),
             },
             "ROLE": {
                 1: {
@@ -106,6 +107,12 @@ def get_type_map(canton):
                 4: {
                     "admin": Role.objects.get(name="service-admin"),
                     "lead": Role.objects.get(name="service-lead"),
+                },
+                5: {
+                    "admin": Role.objects.get(name="municipality-admin"),
+                    "lead": Role.objects.get(name="municipality-lead"),
+                    "clerk": Role.objects.get(name="municipality-clerk"),
+                    "read": Role.objects.get(name="municipality-read"),
                 },
             },
             "PREFIX": {

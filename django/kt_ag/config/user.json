@@ -355,6 +355,14 @@
     }
   },
   {
+    "model": "user.servicegroup",
+    "pk": 5,
+    "fields": {
+      "name": "authority-pgv",
+      "sort": null
+    }
+  },
+  {
     "model": "user.servicegroupt",
     "pk": 20000,
     "fields": {
@@ -388,6 +396,15 @@
       "service_group": 4,
       "language": "de",
       "name": "Abteilung für Baubewilligungen"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20004,
+    "fields": {
+      "service_group": 5,
+      "language": "de",
+      "name": "Leitbehörde PGV"
     }
   }
 ]

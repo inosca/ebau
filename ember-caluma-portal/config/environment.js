@@ -567,7 +567,6 @@ module.exports = function (environment) {
       completePreliminaryClarificationSlugs: [],
       selectableGroups: {
         roles: [
-          3, // municipality
           10000, // support
         ],
       },
@@ -580,17 +579,15 @@ module.exports = function (environment) {
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
       formCreationPermissions: [
         {
-          roles: ["public", "internal"],
+          roles: ["public"],
           forms: [
             "baugesuch",
             "baugesuch-mit-uvp",
             "vorentscheid",
             "anfrage",
             "reklame",
-            "plangenehmigungsverfahren-bund",
             "plangenehmigungsverfahren-gas",
             "vorabklaerung",
-            "anfrage-intern",
             "baugesuch-migration",
           ],
         },

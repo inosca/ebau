@@ -2132,6 +2132,11 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "Address line 2 of the invoice recipient if available, otherwise that of the applicant"
         ),
     )
+    zustaendige_behoerde = fields.MasterDataField(
+        source="pgv_responsible_authority",
+        aliases=[_("RESPONSIBLE_AUTHORITY")],
+        description=_("Responsible authority for PGV dossiers"),
+    )
 
     def get_koordinaten(self, instance):
         return get_koordinaten_by_json_props(instance, "markers")

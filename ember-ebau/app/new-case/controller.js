@@ -49,6 +49,8 @@ export default class InstancesNewController extends Controller {
 
   get permissions() {
     const roleSlug = this.session.role?.slug;
+    const serviceGroupSlug = this.session.serviceGroup?.slug;
+
     return mainConfig.displayedForms
       .map((section) => section.forms)
       .flat()
@@ -56,6 +58,11 @@ export default class InstancesNewController extends Controller {
         (formCfg) =>
           formCfg.roles?.includes(roleSlug) ||
           (formCfg.roles || []).length === 0,
+      )
+      .filter(
+        (formCfg) =>
+          formCfg.serviceGroups?.includes(serviceGroupSlug) ||
+          (formCfg.serviceGroups || []).length === 0,
       );
   }
 
