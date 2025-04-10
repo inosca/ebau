@@ -10,3 +10,4 @@ documents:
 
   confirm: "Bitte laden Sie {count, plural, =1 {den folgenden Pflichtinhalt} other { die folgenden # Pflichtinhalte}} hoch. Beachten Sie dabei, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist (konsultieren Sie das kommunale Baugesetz). Ein unvollständiges Gesuch wird zurückgewiesen."
   no-special-forms: "PDF Formulare der Kantonalen Fachstellen, müssen Sie nicht mehr ausfüllen und hier hochladen. Die Fragestellungen werden mit der Triage bereits beantwortet. Es gibt Ausnahmen, welche hier vermerkt werden oder durch die Gemeinde Nachgefordert werden."
+  uploadPlansIndividually: Laden Sie Ihre Projektpläne (Situationsplan, Grundriss, Schnitt, Ansichten, etc.) als einzelne Dokumente im PDF-Format hoch. Diese müssen bemasst und massstäblich sein. Ergänzende Nachweise, Fotodokus etc. dürfen mehrseitig sein.
