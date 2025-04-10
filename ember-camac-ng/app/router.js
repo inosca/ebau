@@ -17,6 +17,7 @@ import registerSanctionTemplates from "ember-ebau-core/modules/sanction-template
 import registerSanctions from "ember-ebau-core/modules/sanctions";
 import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
 import registerSnippetsAdmin from "ember-ebau-core/modules/snippets-admin";
+import registerStaticContent from "ember-ebau-core/modules/static-content";
 import registerStatistics from "ember-ebau-core/modules/statistics";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
 
@@ -104,4 +105,5 @@ Router.map(function () {
   registerSnippetsAdmin(this);
   registerSanctions(this);
   registerSanctionTemplates(this);
+  registerStaticContent(this);
 });
