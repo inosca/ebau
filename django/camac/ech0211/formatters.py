@@ -97,10 +97,10 @@ def authority(service, organization_category=None):
     )
 
 
-def get_zip(value):
+def get_zip(value, optional=False):
     if not value or not len(str(value)) == 4 or not str(value).isdigit():
         # use 9999 for non swiss zips
-        return 9999
+        return None if optional else 9999
 
     return int(value)
 
@@ -763,7 +763,7 @@ def decision_authority(service, organization_category=None):
                 town=assure_string_length(
                     service.get_trans_attr("city") or "unknown", max_length=40
                 ),
-                swissZipCode=service.zip,
+                swissZipCode=get_zip(service.zip, optional=True),
                 street=assure_string_length(service.address, max_length=60),
                 country="CH",
             ),
