@@ -208,8 +208,10 @@ export default class GrGisComponent extends Component {
     const currentZoom = this.map.getZoom();
     const targetZoom = this.maxZoom - 1;
 
+    // center the map on the selected point(s)
+    await this.centerMap(targetZoom);
     // zoom to preferred zoom level for the canvas image
-    await this.zoomToLevel(targetZoom);
+    await this.zoomToLevel(targetZoom, false);
     // create canvas image and upload/replace in alexandria
     const canvasImage = await this.createCanvasImage();
     await this.storeCanvasImage(canvasImage);
@@ -217,7 +219,41 @@ export default class GrGisComponent extends Component {
     await this.zoomToLevel(currentZoom);
   }
 
-  async zoomToLevel(targetZoom) {
+  async centerMap(targetZoom) {
+    let moveTimeout;
+    const centerBounds = new L.LatLngBounds(
+      this.markers.map((m) => [m.lat, m.lng]),
+    );
+
+    // cancel if no valid center is available.
+    if (!this.centerCoordinate || !centerBounds.isValid()) {
+      return;
+    }
+
+    return new Promise((resolve) => {
+      // fallback if the move event is not triggered
+      moveTimeout = setTimeout(() => resolve(), 3000);
+
+      // wait for center animation to complete before resolving
+      this.map.once("moveend", () => {
+        clearTimeout(moveTimeout);
+        resolve();
+      });
+
+      const sw = centerBounds.getSouthWest();
+      const ne = centerBounds.getNorthEast();
+
+      // when only one marker is available (sw==ne), center the map on sw
+      // to prevent invalid bounds error on fit.
+      if (sw.equals(ne)) {
+        this.map.setView(sw, targetZoom);
+      } else {
+        this.map.fitBounds(centerBounds, { padding: [20, 20] });
+      }
+    });
+  }
+
+  async zoomToLevel(targetZoom, animate = true) {
     let zoomTimeout = false;
 
     return new Promise((resolve) => {
@@ -236,13 +272,13 @@ export default class GrGisComponent extends Component {
         return resolve(targetZoom);
       });
 
-      return this.map.setZoom(targetZoom);
+      return this.map.setZoom(targetZoom, { animate });
     });
   }
 
   async createCanvasImage() {
     // small delay to prevent the map not being fully loaded/visible
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const container = this.map._container;
     const canvas = await html2canvas(container, {
