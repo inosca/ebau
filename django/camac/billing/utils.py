@@ -219,17 +219,9 @@ def validate_product_number_conditions(
     service_slug: str,
     has_previous_invoice: bool,
 ) -> bool:
-    """Validate if the conditions configured for a product number are met.
+    """Validate if the conditions configured for a product number are met."""
 
-    Available configuration options:
-    {
-        "number": number, Product number
-        "only_for_services": list[string], List of service slugs which this product number is visible for.
-        "not_for_services": list[string], List of service slugs which this product number is NOT visible for.
-        "only_subsequent_charge": bool, Should this product number be only available if an invoice exists already.
-    },
-    """
-    # All config options we support with their default values
+    # All config options we need to check for validity with their default values
     config = {
         "number": product_number_config.get("number"),
         "only_for_services": product_number_config.get("only_for_services"),

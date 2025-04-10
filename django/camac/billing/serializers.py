@@ -38,6 +38,21 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
         "group": "camac.user.serializers.GroupSerializer",
     }
 
+    product_number_name = serializers.SerializerMethodField()
+
+    def get_product_number_name(self, model):
+        config = settings.BILLING.get("PRODUCT_NUMBERS", None)
+        if not config:
+            return ""
+
+        product_number = [
+            product_number.get("name")
+            for product_number in config
+            if str(product_number.get("number")) == str(model.product_number)
+        ]
+
+        return product_number[0] if len(product_number) else ""
+
     def validate(self, data):
         validated_data = super().validate(data)
 

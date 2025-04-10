@@ -326,6 +326,38 @@ def test_billing_entry_create_with_ag_processing_fee(
     assert response.json()["data"]["attributes"]["final-rate"] == "43500.00"
 
 
+def test_billing_entry_create_with_product_number(
+    db, admin_client, sz_instance, sz_billing_settings
+):
+    sz_billing_settings["PRODUCT_NUMBERS"] = [
+        {"number": 1, "name": "test"},
+    ]
+    response = admin_client.post(
+        reverse("billing-v2-entry-list"),
+        data={
+            "data": {
+                "type": "billing-v2-entries",
+                "attributes": {
+                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+                    "total-cost": 1050,
+                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
+                    "tax-rate": 7.7,
+                    "text": "Test",
+                    "product-number": 1,
+                },
+                "relationships": {
+                    "instance": {"data": {"id": sz_instance.pk, "type": "instances"}}
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_201_CREATED
+    attributes = response.json()["data"]["attributes"]
+    assert attributes["product-number"] == "1"
+    assert attributes["product-number-name"] == "test"
+
+
 def test_product_numbers(
     db, admin_client, sz_instance, sz_billing_settings, service_factory, invoice_factory
 ):
@@ -339,14 +371,17 @@ def test_product_numbers(
         },
         {
             "number": 2,
+            "name": "test2",
             "not_for_services": ["test"],
         },
         {
             "number": 3,
+            "name": "test3",
             "only_for_services": ["test"],
         },
         {
             "number": 4,
+            "name": "test4",
             "only_subsequent_charge": True,
         },
         {},  # Invalid config
@@ -358,7 +393,13 @@ def test_product_numbers(
     )
 
     assert response.status_code == status.HTTP_200_OK
-    assert response.json()["data"] == [1, 3]
+    assert response.json()["data"] == [
+        {"number": 1, "name": ""},
+        {
+            "number": 3,
+            "name": "test3",
+        },
+    ]
 
     invoice = invoice_factory(instance=sz_instance)
 
@@ -367,7 +408,12 @@ def test_product_numbers(
         {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
     )
     assert response.status_code == status.HTTP_200_OK
-    assert response.json()["data"] == [4]
+    assert response.json()["data"] == [
+        {
+            "number": 4,
+            "name": "test4",
+        }
+    ]
 
     response = admin_client.get(
         url,
@@ -381,4 +427,10 @@ def test_product_numbers(
         url,
         {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
     )
-    assert response.json()["data"] == [1, 2]
+    assert response.json()["data"] == [
+        {"number": 1, "name": ""},
+        {
+            "number": 2,
+            "name": "test2",
+        },
+    ]

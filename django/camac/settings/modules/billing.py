@@ -1,5 +1,31 @@
 from camac.settings.env import env
 
+"""
+PRODUCT_NUMBERS
+
+Configure product numbers which can be selected in the billing module when
+creating new billing entries. This also requires the `productNumber` flag
+to be set to true in `ember-ebau-core/addon/config/features/[canton].js`.
+
+Available configuration options:
+{
+    Product number
+    "number": number
+
+    Name of the product number. Use gettext if it needs to be translated.
+    "name": str
+
+    List of service slugs which this product number is visible for.
+    "only_for_services": list[string]
+
+    List of service slugs which this product number is NOT visible for.
+    "not_for_services": list[string]
+
+    Should this product number be only available if an invoice exists already.
+    "only_subsequent_charge": bool
+}
+"""
+
 BILLING = {
     "default": {},
     "kt_schwyz": {
@@ -8,26 +34,31 @@ BILLING = {
             {
                 # ARE BGZ, kant. Baubewilligung, Gebühren
                 "number": 100000,
+                "name": "ARE BGZ, kant. Baubewilligung, Gebühren",
                 "not_for_services": ["amfz-brandschutz", "laboratorium-urkantone"],
             },
             {
                 # AMFZ Brandschutz, kant. Baubewilligung Gebühren
                 "number": 150000,
+                "name": "AMFZ Brandschutz, kant. Baubewilligung Gebühren",
                 "only_for_services": ["amfz-brandschutz"],
             },
             {
                 # Laburk, Bearbeitungsgebühren Baubewilligung
                 "number": 900000,
+                "name": "Laburk, Bearbeitungsgebühren Baubewilligung",
                 "only_for_services": ["laboratorium-urkantone"],
             },
             {
                 # AMFZ Brandschutz, Baubegleitung und -Abnahme
                 "number": 300000,
+                "name": "Laburk, Bearbeitungsgebühren Baubewilligung",
                 "only_subsequent_charge": True,
             },
             {
                 # AFG Gewässerschutz, Baubegleitung und -Abnahme
                 "number": 310000,
+                "name": "Laburk, Bearbeitungsgebühren Baubewilligung",
                 "only_subsequent_charge": True,
             },
         ],

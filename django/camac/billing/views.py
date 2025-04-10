@@ -140,7 +140,10 @@ class ProductNumbersView(APIView):
         has_previous_invoice = Invoice.objects.filter(instance=instance).exists()
 
         valid_product_numbers = [
-            product_number_config.get("number")
+            {
+                "number": product_number_config.get("number"),
+                "name": product_number_config.get("name") or "",
+            }
             for product_number_config in config
             if validate_product_number_conditions(
                 product_number_config, group.service.slug, has_previous_invoice

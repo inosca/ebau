@@ -73,7 +73,7 @@
   {{#if (has-feature "billing.productNumber")}}
     <td data-test-entry-productNumber>
       {{#if @entry.productNumber}}
-        {{t (concat "billing.product-numbers." @entry.productNumber)}}
+        {{@entry.productNumberName}}
       {{/if}}
     </td>
   {{/if}}

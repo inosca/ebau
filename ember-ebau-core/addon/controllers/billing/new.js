@@ -94,9 +94,6 @@ export default class BillingNewController extends Controller {
       `/api/v1/product-numbers?for_instance=${this.ebauModules.instanceId}`,
     );
     const { data } = await response.json();
-    if (data?.length) {
-      this.newEntry.productNumber = data[0];
-    }
     return data;
   });
 
