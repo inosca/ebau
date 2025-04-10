@@ -348,6 +348,10 @@ class ServiceFilterSet(FilterSet):
     available_in_sanctions = BooleanFilter(method="filter_available_in_sanctions")
 
     def filter_available_in_sanctions(self, queryset, name, value):
+        if available_service_groups := settings.SANCTIONS.available_service_groups:
+            queryset = queryset.filter(
+                service_group__slug__in=available_service_groups,
+            )
         return queryset.filter(disabled=False)
 
     class Meta:

@@ -82,6 +82,12 @@ export default {
     valueField: "id",
     labelField: "name",
   },
+  hasPendingSanctionsAssignedToService: {
+    type: "select",
+    options: "services",
+    valueField: "id",
+    labelField: "name",
+  },
   buildingPermitType: {
     type: "select-multiple",
     options: "buildingPermitTypes",

@@ -45,6 +45,7 @@ from camac.filters import (
 )
 from camac.instance.export.filters import StringAggSubquery
 from camac.instance.master_data import MasterData
+from camac.sanctions.models import Sanction
 from camac.user.models import Service
 
 from ..core import models as core_models
@@ -732,6 +733,10 @@ class InstanceFilterSet(FilterSet):
     )
     objection_received = BooleanFilter(method="filter_objection_received")
     has_pending_billing_entry = BooleanFilter(method="filter_has_pending_billing_entry")
+    has_pending_sanctions = BooleanFilter(method="filter_has_pending_sanctions")
+    has_pending_sanctions_assigned_to_service = NumberFilter(
+        method="filter_has_pending_sanctions_assigned_to_service"
+    )
     has_pending_sanction = BooleanFilter(method="filter_has_pending_sanction")
     pending_sanctions_control_instance = NumberFilter(
         method="filter_pending_sanctions_control_instance"
@@ -791,6 +796,19 @@ class InstanceFilterSet(FilterSet):
         }
 
         return queryset.filter(**_filter)
+
+    def filter_has_pending_sanctions(self, queryset, name, value):
+        exists = Exists(Sanction.objects.for_instance_id(OuterRef("pk")).pending())
+        return queryset.filter(exists if value else ~exists)
+
+    def filter_has_pending_sanctions_assigned_to_service(self, queryset, name, value):
+        return queryset.filter(
+            Exists(
+                Sanction.objects.for_instance_id(OuterRef("pk"))
+                .pending()
+                .assigned_to_service_id(value),
+            ),
+        )
 
     def filter_with_cantonal_participation(self, queryset, name, value):
         return queryset.filter(

@@ -13232,7 +13232,7 @@
       "description": null,
       "template": "/ember-camac-ng/sanctions.phtml",
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 9,
       "form_group": 161,
       "require_permission": null
@@ -42700,7 +42700,7 @@
       "description": null,
       "template": "/ember-camac-ng/sanction-templates.phtml",
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 7
     }
   },

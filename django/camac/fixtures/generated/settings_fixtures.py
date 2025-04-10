@@ -2227,6 +2227,54 @@ def ag_rulesets_settings(settings, request):
 
 
 @pytest.fixture
+def sanctions_settings(settings, request):
+    """Module-specific settings for sanctions (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="sanctions",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_sanctions_settings(settings, request):
+    """Disable the sanctions module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="sanctions",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def sz_sanctions_settings(settings, request):
+    """Module-specific settings for sanctions (canton SZ)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="sanctions",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ur_sanctions_settings(settings, request):
+    """Module-specific settings for sanctions (canton UR)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="sanctions",
+        canton="kt_uri",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def service_settings(settings, request):
     """Module-specific settings for service (default)."""
     return generate_module_settings(

@@ -110,6 +110,8 @@ cases:
     parcel: "Parzellen- / Baurechtsnummer"
     pendingSanctionsControlInstance-placeholder: ""
     pendingSanctionsControlInstance: "Auflagen zur Kontrolle"
+    hasPendingSanctionsAssignedToService-placeholder: ""
+    hasPendingSanctionsAssignedToService: "Auflagen zur Kontrolle (neu)"
     personalDetails-placeholder: ""
     personalDetails: "Personalien (Name, Vorname, Unternehmen)"
     responsibleMunicipality-placeholder: ""
