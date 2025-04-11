@@ -65,7 +65,7 @@ export default class AgGisComponent extends Component {
     limit: "30",
     origins: this.origins.join(","),
   };
-  searchUrl = "/maps/rest/services/ech/SearchServer";
+  searchUrl = "https://api3.geo.admin.ch/rest/services/ech/SearchServer";
 
   get drawPoints() {
     return this.markers.map((point) => ({ lat: point.lat, lng: point.lng }));
