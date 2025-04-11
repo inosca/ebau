@@ -59,6 +59,7 @@ export default class CustomField extends Field {
         return [
           "decision-decision-approved",
           "decision-decision-rejected",
+          "decision-decision-positive-with-reservation",
           "decision-decision-written-off",
           "decision-decision-retreat",
           "decision-decision-other",
