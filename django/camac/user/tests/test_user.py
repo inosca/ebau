@@ -259,3 +259,43 @@ def test_me_patch(admin_client, admin_user, user_settings, application_settings)
     # Properties that are not allowed for updates are being ignored
     assert admin_user.surname != "Doe"
     assert admin_user.name != "John"
+
+
+@pytest.mark.parametrize("role__name", [("Municipality")])
+def test_user_admin_for_service_filter(
+    db, user_group_factory, admin_client, service, service_factory, admin_user
+):
+    other_service = service_factory()
+
+    # Make sure we can see the users of `other_service`
+    user_group_factory(group__service=other_service, user=admin_user)
+
+    # Create users in groups that should not be visible
+    for svc, role in [
+        (service, "municipality-lead"),
+        (service, "service-lead"),
+        (other_service, "municipality-admin"),
+        (other_service, "service-admin"),
+    ]:
+        user_group_factory(group__service=svc, group__role__name=role)
+
+    admins = [
+        user_group_factory(group__service=service, group__role__name=role)
+        for role in [
+            "construction-control-admin",
+            "geometer-admin",
+            "municipality-admin",
+            "service-admin",
+        ]
+    ]
+
+    response = admin_client.get(
+        reverse("user-list"), data={"admin_for_service": service.pk}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    result = response.json()["data"]
+    assert len(result) == len(admins)
+
+    assert set(int(r["id"]) for r in result) == set([a.user.pk for a in admins])

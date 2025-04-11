@@ -337,6 +337,7 @@ class UserFilterSet(FilterSet):
     responsible_for_instances = BooleanFilter(
         method="_filter_responsible_for_instances"
     )
+    admin_for_service = NumberFilter(method="filter_admin_for_service")
 
     def _exclude_primary_role(self, queryset, name, value):
         user_groups = models.UserGroup.objects.filter(
@@ -353,6 +354,17 @@ class UserFilterSet(FilterSet):
             return queryset.filter(pk__in=responsible)
 
         return queryset.exclude(pk__in=responsible)
+
+    def filter_admin_for_service(self, queryset, name, value):
+        return queryset.filter(
+            groups__service_id=value,
+            groups__role__name__in=[
+                "construction-control-admin",
+                "geometer-admin",
+                "municipality-admin",
+                "service-admin",
+            ],
+        )
 
     class Meta:
         model = get_user_model()
