@@ -1,14 +1,6 @@
 import { service } from "@ember/service";
 import Model, { attr } from "@ember-data/model";
 
-export const PRODUCT_NUMBERS = [
-  100000, // ARE BGZ, kant. Baubewilligung, Gebühren
-  150000, // AMFZ Brandschutz, kant. Baubewilligung Gebühren
-  900000, // Laburk, Bearbeitungsgebühren Baubewilligung
-  300000, // AMFZ Brandschutz, Baubegleitung und -Abnahme
-  310000, // AFG Gewässerschutz, Baubegleitung und -Abnahme
-];
-
 export default class BillingV2CommonEntryModel extends Model {
   @service intl;
 
@@ -40,9 +32,5 @@ export default class BillingV2CommonEntryModel extends Model {
       taxMode,
       htmlSafe: true,
     });
-  }
-
-  get availableProductNumbers() {
-    return PRODUCT_NUMBERS;
   }
 }

@@ -103,6 +103,15 @@ export default function makeServer(config) {
         },
         204,
       );
+      this.get("product-numbers", {
+        data: [
+          { number: 100000, name: "Product number 100000" },
+          { number: 150000, name: "Product number 150000" },
+          { number: 900000, name: "Product number 900000" },
+          { number: 300000, name: "Product number 300000" },
+          { number: 310000, name: "Product number 310000" },
+        ],
+      });
 
       this.resource("communications-topics");
       this.resource("communications-messages");

@@ -41,13 +41,7 @@ billing:
   confirm-release-for-clearing: Sobald der Eintrag zur Verrechnung freigegeben wurde wird die Rechnung innerhalb der nächsten 24 Stunden automatisch generiert.
   product-number: Produktnummer
   remark: Bemerkung
-
-  product-numbers:
-    100000: ARE BGZ, kant. Baubewilligung, Gebühren
-    150000: AMFZ Brandschutz, kant. Baubewilligung Gebühren
-    900000: Laburk, Bearbeitungsgebühren Baubewilligung
-    300000: AMFZ Brandschutz, Baubegleitung und -Abnahme
-    310000: AFG Gewässerschutz, Baubegleitung und -Abnahme
+  product-number-empty: Keine Produktnummer
 
   organizations:
     cantonal: Kantonal

@@ -212,3 +212,42 @@ def get_invoice_text_sz(instance: Instance) -> str:
 
 def get_customer_number_sz(instance: Instance) -> str:
     return settings.BILLING["WILKEN"]["CUSTOMER_NUMBERS"][instance.location.name]
+
+
+def validate_product_number_conditions(
+    product_number_config: dict[str, bool | list[str]],
+    service_slug: str,
+    has_previous_invoice: bool,
+) -> bool:
+    """Validate if the conditions configured for a product number are met."""
+
+    # All config options we need to check for validity with their default values
+    config = {
+        "number": product_number_config.get("number"),
+        "only_for_services": product_number_config.get("only_for_services"),
+        "not_for_services": product_number_config.get("not_for_services"),
+        "only_subsequent_charge": product_number_config.get(
+            "only_subsequent_charge", False
+        ),
+    }
+
+    def test_condition(key, value):
+        match (key, value):
+            case ("number", None):
+                return False
+            case ("only_subsequent_charge", cond):
+                return has_previous_invoice == cond
+            case ("only_for_services", services) if type(services) is list:
+                if not service_slug:
+                    return False
+                return service_slug in services
+            case ("not_for_services", services) if type(services) is list:
+                if not service_slug:
+                    return True
+                return service_slug not in services
+            # In case any of the properties don't match up with the datatype
+            # we excpect, we just ignore them instead of failing.
+            case _:
+                return True
+
+    return all([test_condition(key, value) for key, value in config.items()])

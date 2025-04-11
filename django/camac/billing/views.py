@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import transaction
 from django.db.models import Q
 from django.utils import timezone
@@ -5,19 +6,23 @@ from django.utils.translation import gettext as _
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, PermissionDenied, ValidationError
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.billing.filters import BillingV2EntryFilterSet
-from camac.billing.models import BillingV2Entry, BillingV2EntryTemplate
+from camac.billing.models import BillingV2Entry, BillingV2EntryTemplate, Invoice
 from camac.billing.serializers import (
     BillingV2BulkEntryIdsSerializer,
     BillingV2EntrySerializer,
     BillingV2EntryTemplateSerializer,
 )
+from camac.billing.utils import validate_product_number_conditions
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import is_permission_mode_fully_enabled
-from camac.user.permissions import permission_aware
+from camac.user.permissions import IsAllowedClientToken, permission_aware
+from camac.user.utils import get_group
 
 
 class BillingV2EntryTemplateViewset(ReadOnlyModelViewSet):
@@ -119,3 +124,30 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
         billing_entry.save(update_fields=["released_for_clearing"])
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class ProductNumbersView(APIView):
+    permission_classes = [IsAllowedClientToken & IsAuthenticated]
+
+    def get(self, request):
+        config = settings.BILLING.get("PRODUCT_NUMBERS", None)
+        instance = request.query_params.get("for_instance", None)
+        group = get_group(request)
+
+        if not config or not instance or not group:
+            return response.Response([], status=status.HTTP_400_BAD_REQUEST)
+
+        has_previous_invoice = Invoice.objects.filter(instance=instance).exists()
+
+        valid_product_numbers = [
+            {
+                "number": product_number_config.get("number"),
+                "name": product_number_config.get("name") or "",
+            }
+            for product_number_config in config
+            if validate_product_number_conditions(
+                product_number_config, group.service.slug, has_previous_invoice
+            )
+        ]
+
+        return response.Response(valid_product_numbers, status=status.HTTP_200_OK)

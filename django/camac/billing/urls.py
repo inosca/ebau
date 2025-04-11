@@ -10,6 +10,9 @@ urlpatterns = [
         BillingV2EntryExportView.as_view(),
         name="billing-export",
     ),
+    re_path(
+        r"product-numbers", views.ProductNumbersView.as_view(), name="product-numbers"
+    ),
 ]
 
 r = SimpleRouter(trailing_slash=False)

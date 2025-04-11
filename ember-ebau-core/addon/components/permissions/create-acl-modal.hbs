@@ -52,7 +52,7 @@
           <PowerSelect
             @triggerId="access-level"
             data-test-acl-access-level-select
-            @options={{this.availableAccessLevels}}
+            @options={{this.availableAccessLevels.value}}
             @selected={{fi.value}}
             @placeholder={{t "permissions.access-level.all-levels"}}
             @onChange={{fi.update}}
