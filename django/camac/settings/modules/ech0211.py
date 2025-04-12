@@ -101,33 +101,6 @@ ECH0211 = {
                     "spec": "5.1",
                     "example": ("task_stellungnahme", "xml/get/task_stellungnahme.xml"),
                 },
-                ECH_TASK_SB1_SUBMITTED: {
-                    "type": "Task",
-                    "desc": "SB1 eingereicht",
-                    "spec": "4.1",
-                    "example": (
-                        "task_sb1_eingereicht",
-                        "xml/get/task_sb1_eingereicht.xml",
-                    ),
-                },
-                ECH_TASK_SB2_SUBMITTED: {
-                    "type": "Task",
-                    "desc": "SB2 eingereicht",
-                    "spec": "4.1",
-                    "example": (
-                        "task_sb2_eingereicht",
-                        "xml/get/task_sb2_eingereicht.xml",
-                    ),
-                },
-                ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN: {
-                    "type": "StatusNotification",
-                    "desc": "eBau-Nummer vergeben melden",
-                    "spec": "3.1",
-                    "example": (
-                        "status_notification_ebau_nr_vergeben",
-                        "xml/get/status_notification_ebau_nr_vergeben.xml",
-                    ),
-                },
                 ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET: {
                     "type": "StatusNotification",
                     "desc": "Zirkulation gestartet melden",
@@ -135,15 +108,6 @@ ECH0211 = {
                     "example": (
                         "status_notification_start_zirkulation",
                         "xml/get/status_notification_start_zirkulation.xml",
-                    ),
-                },
-                ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND: {
-                    "type": "StatusNotification",
-                    "desc": "Selbstdeklaration 1 ausstehend melden",
-                    "spec": "4.1",
-                    "example": (
-                        "status_notification_sebstdeklaration_1_ausstehend",
-                        "xml/get/status_notification_sebstdeklaration_1_ausstehend.xml",
                     ),
                 },
                 ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN: {
@@ -220,15 +184,6 @@ ECH0211 = {
                         "xml/post/change_responsibility.xml",
                     ),
                 },
-                "5200110": {
-                    "type": "KindOfProceedings",
-                    "desc": "Verfahrensprogramm erstellen",
-                    "spec": "3.2",
-                    "example": (
-                        "kind_of_proceedings",
-                        "xml/post/kind_of_proceedings.xml",
-                    ),
-                },
                 "5200111": {
                     "type": "Task",
                     "desc": "Stellungnahme anfordern",
@@ -252,7 +207,7 @@ ECH0211 = {
                 },
             },
             "POST_SUBMIT": {
-                "5200113": {
+                "5200114": {
                     "type": "Submit",
                     "desc": "Dossier einreichen",
                     "spec": "-",
@@ -349,9 +304,56 @@ ECH0211 = {
         },
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
+                ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN: {
+                    "type": "StatusNotification",
+                    "desc": "eBau-Nummer vergeben melden",
+                    "spec": "3.1",
+                    "example": (
+                        "status_notification_ebau_nr_vergeben",
+                        "xml/get/status_notification_ebau_nr_vergeben.xml",
+                    ),
+                },
+                ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND: {
+                    "type": "StatusNotification",
+                    "desc": "Selbstdeklaration 1 ausstehend melden",
+                    "spec": "4.1",
+                    "example": (
+                        "status_notification_sebstdeklaration_1_ausstehend",
+                        "xml/get/status_notification_sebstdeklaration_1_ausstehend.xml",
+                    ),
+                },
+                ECH_TASK_SB1_SUBMITTED: {
+                    "type": "Task",
+                    "desc": "SB1 eingereicht",
+                    "spec": "4.1",
+                    "example": (
+                        "task_sb1_eingereicht",
+                        "xml/get/task_sb1_eingereicht.xml",
+                    ),
+                },
+                ECH_TASK_SB2_SUBMITTED: {
+                    "type": "Task",
+                    "desc": "SB2 eingereicht",
+                    "spec": "4.1",
+                    "example": (
+                        "task_sb2_eingereicht",
+                        "xml/get/task_sb2_eingereicht.xml",
+                    ),
+                },
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
                 ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG: {"disabled": True},
                 ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN: {"disabled": True},
+            },
+            "POST_TABLE_DATA": {
+                "5200110": {
+                    "type": "KindOfProceedings",
+                    "desc": "Verfahrensprogramm erstellen",
+                    "spec": "3.2",
+                    "example": (
+                        "kind_of_proceedings",
+                        "xml/post/kind_of_proceedings.xml",
+                    ),
+                },
             },
         },
     },
@@ -587,10 +589,6 @@ ECH0211 = {
                     "desc": "Zirkulation abgeschlossen melden",
                 },
                 ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
-                ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN: {"disabled": True},
-                ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND: {"disabled": True},
-                ECH_TASK_SB1_SUBMITTED: {"disabled": True},
-                ECH_TASK_SB2_SUBMITTED: {"disabled": True},
             },
             "POST_TABLE_DATA": {
                 "5100011": {"disabled": True},  # Change responsibility
@@ -670,12 +668,14 @@ ECH0211 = {
         },
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
-                ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True}
+                ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
+                    "desc": "Zirkulation abgeschlossen melden",
+                },
+                ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
+                ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
             },
             "POST_TABLE_DATA": {
                 "5100011": {"disabled": True},  # Change responsibility
-                "5200113": {"disabled": True},  # Submit
-                "5200110": {"disabled": True},  # KindOfProceedings
             },
         },
     },
