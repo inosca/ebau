@@ -10,6 +10,7 @@ from django.db.models.query import QuerySet
 from django.utils import timezone
 
 from camac.core.utils import create_history_entry
+from camac.ech0211.signals import withdrawn
 from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import Group, User
@@ -84,6 +85,14 @@ class WithdrawalLogic:
 
         # set instance state
         instance.set_instance_state(settings.WITHDRAWAL["INSTANCE_STATE"], camac_user)
+
+        # trigger ech0211 event
+        withdrawn.send(
+            sender="withdraw_instance",
+            instance=instance,
+            user_pk=camac_user.pk,
+            group_pk=camac_group.pk,
+        )
 
         # history entry
         create_history_entry(

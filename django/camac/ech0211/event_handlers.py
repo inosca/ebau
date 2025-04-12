@@ -52,6 +52,7 @@ from .signals import (
     sb1_submitted,
     sb2_submitted,
     task_send,
+    withdrawn,
 )
 
 logger = logging.getLogger(__name__)
@@ -449,6 +450,15 @@ def file_subsequently_callback(sender, instance, user_pk, group_pk, **kwargs):
 @if_ech_enabled(api_level="full")
 def change_responsibility_callback(sender, instance, user_pk, group_pk, **kwargs):
     handler = ChangeResponsibilityEventHandler(
+        instance, user_pk=user_pk, group_pk=group_pk
+    )
+    handler.run()
+
+
+@receiver(withdrawn)
+@if_ech_enabled(api_level="full")
+def withdrawn_callback(sender, instance, user_pk, group_pk, **kwargs):
+    handler = WithdrawPlanningPermissionApplicationEventHandler(
         instance, user_pk=user_pk, group_pk=group_pk
     )
     handler.run()

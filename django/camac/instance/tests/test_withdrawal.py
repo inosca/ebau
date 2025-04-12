@@ -8,6 +8,7 @@ from django.urls import reverse
 from rest_framework import status
 
 from camac.core.models import HistoryActionConfig
+from camac.ech0211.models import Message
 
 
 @pytest.fixture
@@ -128,6 +129,10 @@ def test_withdraw_instance(
         .get_trans_attr("title")
         == "Dossier zurückgezogen"
     )
+
+    # check that two eCH messages were sent:
+    # status notification (decision) and withdrawal
+    assert Message.objects.count() == 2
 
     assert len(mailoutbox) == 1
     assert notification_template.subject in mailoutbox[0].subject
