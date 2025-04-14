@@ -29,4 +29,7 @@ export default {
     changeForm: true,
   },
   internalCaseCreation: true,
+  dms: {
+    hideDownloadButton: true,
+  },
 };
