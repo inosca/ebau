@@ -1240,6 +1240,7 @@ APPLICATIONS = {
             ],
         ),
         "USE_INSTANCE_SERVICE": True,
+        "USE_CONSTRUCTION_CONTROL": True,
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
                 "FILTERS": {
@@ -2088,14 +2089,15 @@ APPLICATIONS = {
                 "formal-exam": {
                     "next_instance_state": "init-distribution",
                     "history_text": _("Preliminary exam performed"),
-                    "ech_event": "camac.ech0211.signals.exam_completed",
                 },
                 "init-distribution": {
                     "next_instance_state": "circulation",
                     "history_text": _("Circulation started"),
+                    "ech_event": "camac.ech0211.signals.circulation_started",
                 },
                 "complete-distribution": {
                     "next_instance_state": "decision",
+                    "ech_event": "camac.ech0211.signals.circulation_ended",
                 },
                 "send-additional-demand": {
                     "history_text": _("Additional demand sent"),
@@ -2110,12 +2112,14 @@ APPLICATIONS = {
                         "template_slug": "fill-additional-demand",
                         "recipient_types": ["work_item_controlling"],
                     },
-                    "ech_event": "camac.ech0211.signals.file_subsequently",
+                    # we'll used claim instead of file_subsequently
+                    # "ech_event": "camac.ech0211.signals.file_subsequently",
                 },
                 "construction-acceptance": {
                     "next_instance_state": "finished",
                     "history_text": _("Construction monitoring performed"),
                     # for notification see events/construction-acceptance.py
+                    "ech_event": "camac.ech0211.signals.finished",
                 },
             },
             "PUBLIC_STATUS": {

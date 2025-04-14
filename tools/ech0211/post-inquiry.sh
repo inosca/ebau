@@ -1,30 +1,18 @@
 #!/bin/bash
+source ./config.sh
 
-declare -A credentials
+echo "---------------------------"
+echo "eCH0211 - POST inquiry"
+echo "---------------------------"
 
-credentials=(
-	["gemeinde-chur"]="..."	
-)
+ebau_nr="2024-1"
+dossier_id="5"
+service_id="19"
 
-for i in "${!credentials[@]}"
+for i in "${!ech0211_credentials[@]}"
 do
-	echo "----"
-	echo "Logging in as: $i using secret ${credentials[$i]}"
-	token=$(curl -s --request POST \
-		--url 'https://test.ebau.gr.ch/auth/realms/ebau/protocol/openid-connect/token' \
-		--header 'content-type: application/x-www-form-urlencoded' \
-		--data grant_type=client_credentials \
-		--data scope=openid \
-		--data client_id=$i \
-		--data client_secret=${credentials[$i]} | jq -r '.access_token')
-
-	# curl -X GET "https://www.ebau.apps.be.ch/api/v1/me" -H "Authorization: Bearer $token"
-	curl -X POST 'https://test.ebau.gr.ch/ech/v1/send/' \
-  -H "Authorization: Bearer $token" \
-  -H 'accept: application/xml' \
-  -H 'x-camac-group: 20134' \
-  -H 'Content-Type: application/xml' \
-  -d '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+xml_payload=$(cat <<EOF
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 <ns16:delivery xmlns:ns2="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0008/3" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns13="http://www.ech.ch/xmlns/eCH-0046/1" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns12="http://www.ech.ch/xmlns/eCH-0044/1" xmlns:ns11="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns10="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns16="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns15="http://www.ech.ch/xmlns/eCH-0058/3" xmlns:ns14="http://www.ech.ch/xmlns/eCH-0010/3">
 <ns2:deliveryHeader>
@@ -48,15 +36,15 @@ do
 <ns2:planningPermissionApplicationIdentification>
 <ns2:localID>
 <ns3:IdCategory>eBauNr</ns3:IdCategory>
-<ns3:Id>2019-001</ns3:Id>
+<ns3:Id>${ebau_nr}</ns3:Id>
 </ns2:localID>
 <ns2:otherID>
 <ns3:IdCategory>eBauNr</ns3:IdCategory>
 <!-- wird ignoriert -->
-<ns3:Id>2019-001</ns3:Id>
+<ns3:Id>${ebau_nr}</ns3:Id>
 <!-- wird ignoriert -->
 </ns2:otherID>
-<ns2:dossierIdentification>2360</ns2:dossierIdentification>
+<ns2:dossierIdentification>${dossier_id}</ns2:dossierIdentification>
 </ns2:planningPermissionApplicationIdentification>
 <ns2:directive>
 <uuid>00000000-0000-0000-0000-000000000000</uuid>
@@ -73,9 +61,21 @@ do
 </ns2:directive>
 <ns2:extension>
 <!-- ID der eingeladenen Organisation. -->
-<serviceId>20037</serviceId>
+<serviceId>${service_id}</serviceId>
 </ns2:extension>
 </ns2:eventRequest>
-</ns16:delivery>'
+</ns16:delivery>
+EOF
+)
+	ech0211_login "$i" "${ech0211_credentials[$i]}"
+	echo " > perform request[inquiry] for client_id: $i"
+	echo -e "\n---------------------------"
+	curl -X POST 'http://ember-ebau.localhost/ech/v1/send/' \
+	-H "Authorization: Bearer $token" \
+	-H 'accept: application/xml' \
+	-H "x-camac-group: ${camac_group_id}" \
+	-H 'Content-Type: application/xml' \
+	-d "$xml_payload"
+	echo -e "\n---------------------------"
 done
 

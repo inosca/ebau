@@ -459,17 +459,24 @@ class AccompanyingReportSendHandler(BaseSendHandler):
 class CloseArchiveDossierSendHandler(BaseSendHandler):
     def has_permission(self):
         if (
-            self.instance.responsible_service(filter_type="construction_control")
+            settings.APPLICATION.get("USE_CONSTRUCTION_CONTROL", False)
+            and self.instance.responsible_service(filter_type="construction_control")
             != self.group.service
         ):
             return False, None
-        if self.instance.instance_state.name in ["sb1", "sb2", "conclusion"]:
+        if self.instance.instance_state.name in [
+            "sb1",
+            "sb2",
+            "conclusion",
+            "construction-acceptance",
+        ]:
             return True, None
         return (
             False,
             (
                 '"CloseDossier" is only allowed for instances in the states '
-                '"Selbstdeklaration (SB1)", "Abschluss (SB2)" and "Zum Abschluss".'
+                '"Selbstdeklaration (SB1)", "Abschluss (SB2)", "Zum Abschluss", and '
+                '"Bauabnahme".'
             ),
         )
 

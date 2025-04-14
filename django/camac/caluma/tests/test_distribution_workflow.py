@@ -745,6 +745,7 @@ def test_send_aborting_distribution_sends_notification(
     mailoutbox,
     service_factory,
     caluma_work_item_factory,
+    disable_ech0211_settings,
 ):
     settings.DISTRIBUTION["NOTIFY_ON_CANCELLATION"] = True
     service = service_factory()

@@ -70,7 +70,7 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 - `buildingCategory` wird immer auf `1040` gesetzt.
 
-- `documentStatusType` wird immer auf `signed` gesetzt.
+- `documentStatusType` wird immer auf `undefined` gesetzt.
 
 - `realestateType` wird immer auf `8` gesetzt.
 
@@ -83,8 +83,6 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 - Relevante URLs finden sich in den Meldungen im `HeaderType` unter `extension`.
 
 - 4.2 Bauverfahren abschliessen: Bei Voranfragen wird der Prozess mit einem Entscheid (bzw. fachlich einer Beurteilung) abgeschlossen. "close dossier" hat entgegen der Spezifikation für Voranfragen also keine Bedeutung. Stattdessen wird der Prozess mit "notice ruling" abgeschlossen (siehe Kap. 3.2).
-
-- 5.3.5 Rückzug des Baugesuchs: Diese Funktion ist nicht in eBau implementiert, darum kann diese Message nicht ausgeliefert werden.
 
 - Judgements in `NoticeRuling` werden in eBau wie folgt gemappt:
 

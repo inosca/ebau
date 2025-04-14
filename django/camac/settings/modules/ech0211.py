@@ -106,8 +106,8 @@ ECH0211 = {
                     "desc": "Zirkulation gestartet melden",
                     "spec": "3.2",
                     "example": (
-                        "status_notification_start_zirkulation",
-                        "xml/get/status_notification_start_zirkulation.xml",
+                        "status_notification",
+                        "xml/get/status_notification.xml",
                     ),
                 },
                 ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN: {
@@ -115,8 +115,8 @@ ECH0211 = {
                     "desc": "Abgeschlossen melden",
                     "spec": "4.2",
                     "example": (
-                        "status_notification_abgeschlossen",
-                        "xml/get/status_notification_abgeschlossen.xml",
+                        "status_notification",
+                        "xml/get/status_notification.xml",
                     ),
                 },
                 ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN: {
@@ -124,8 +124,8 @@ ECH0211 = {
                     "desc": "Zurückgewiesen melden",
                     "spec": "3.1",
                     "example": (
-                        "status_notification_zurueckgewiesen",
-                        "xml/get/status_notification_zurueckgewiesen.xml",
+                        "status_notification",
+                        "xml/get/status_notification.xml",
                     ),
                 },
                 ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
@@ -133,27 +133,36 @@ ECH0211 = {
                     "desc": "In Koordination melden",
                     "spec": "3.1",
                     "example": (
-                        "status_notification_in_koordination",
-                        "xml/get/status_notification_in_koordination.xml",
+                        "status_notification",
+                        "xml/get/status_notification.xml",
                     ),
                 },
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {
                     "type": "StatusNotification",
                     "desc": "Entschieden melden",
                     "spec": "",
-                    "example": None,
+                    "example": (
+                        "status_notification",
+                        "xml/get/status_notification.xml",
+                    ),
                 },
                 ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG: {
                     "type": "StatusNotification",
                     "desc": "Baubegleitung gestartet melden",
                     "spec": "",
-                    "example": None,
+                    "example": (
+                        "status_notification",
+                        "xml/get/status_notification.xml",
+                    ),
                 },
                 ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN: {
                     "type": "StatusNotification",
                     "desc": "Prüfung abgeschlossen melden",
                     "spec": "",
-                    "example": None,
+                    "example": (
+                        "status_notification",
+                        "xml/get/status_notification.xml",
+                    ),
                 },
             },
             "POST_TABLE_DATA": {
@@ -390,10 +399,6 @@ ECH0211 = {
                 "new_state": "decision",
                 "type": ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
             },
-            {
-                "new_state": "withdrawn",
-                "type": ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
-            },
         ],
         "TASK_MAP": {
             "circulation": {
@@ -512,7 +517,10 @@ ECH0211 = {
         },
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
-                ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True}
+                ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
+                    "desc": "Entscheid ausstehend melden",
+                },
+                ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
             },
         },
         "GEOFENCE": {"ENABLE": True, "REGIONS": ["CH"]},
