@@ -320,7 +320,7 @@
       },
       "name": "{\"de\": \"Kantonale Stellen\", \"fr\": \"\", \"it\": \"Tutti Cantone\"}",
       "description": "{\"de\": \"Diese Kategorie dient dem Dokumentenaustausch zwischen kantonalen Fachstellen. Alle kantonalen Fachstellen haben Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"Questa categoria serve allo scambio di documenti tra i servizi cantonali. Tutti i servizi cantonali hanno accesso ai documenti caricati.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\"]",
       "color": "#66CFC9",
       "parent": null,
       "sort": 5
