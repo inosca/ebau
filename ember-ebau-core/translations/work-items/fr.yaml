@@ -47,7 +47,9 @@ workItems:
     type: "Type"
     role: "Rôle"
     order: "Triage"
-    task: "Tâche"
+    task:
+      title: "Tâche"
+      generic: '{taskName} <span class="uk-text-primary">({count})</span>'
 
     all: "Tous"
     own: "Propre"

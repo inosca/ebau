@@ -1,20 +1,21 @@
 export default {
-  showTaskFilter: false,
+  showTaskFilter: true,
+  taskFilterAsDropdown: true,
   availableTasks: {
     roles: {
       municipality: [
         "formal-exam",
         "publication",
+        "information-of-neighbors",
         "init-distribution",
         "check-inquiries",
         "decision",
-        "construction-acceptance",
       ],
+      service: ["inquiry", "check-inquiries"],
+      subservice: ["inquiry"],
     },
-    services: {
-      1: ["inquiry", "check-inquiries", "check-additional-demand"],
-    },
-    default: ["inquiry"],
+    services: {},
+    default: [],
   },
   columns(status, role) {
     return [
