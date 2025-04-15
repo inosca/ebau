@@ -66,6 +66,10 @@ export default class CustomCaseModel extends CaseModel {
     return this._getAnswerDisplayValue(answerSlugs.description);
   }
 
+  get modificationDescription() {
+    return this._getAnswerDisplayValue(answerSlugs.modificationDescription);
+  }
+
   get address() {
     const streetAndNr = [
       this._getAnswerDisplayValue(answerSlugs.objectStreet),
@@ -164,6 +168,7 @@ export default class CustomCaseModel extends CaseModel {
           questions: [
             "${answerSlugs.municipality}"
             "${answerSlugs.description}"
+            "${answerSlugs.modificationDescription}"
             "${answerSlugs.objectStreet}"
             "${answerSlugs.objectNumber}"
             "${answerSlugs.objectLocation}"

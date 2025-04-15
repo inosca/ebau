@@ -40,8 +40,13 @@
       {{/if}}
       <BeOverviewGridCell
         @label={{t "instances.description"}}
-        @value={{or this.editController.case.description "-"}}
+        @value={{or
+          this.editController.case.modificationDescription
+          this.editController.case.description
+          "-"
+        }}
       />
+
       {{#if (is-application "be")}}
         <BeOverviewGridCell
           @label={{t "instances.applicant"}}
