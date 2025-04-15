@@ -1711,7 +1711,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Best\\u00e4tigung Anforderung gem\\u00e4ss FKS-Richtlinie\", \"fr\": null, \"it\": \"Conferma requisito conformemente alla direttiva CSP\"}",
       "type": "multiple_choice",
-      "is_required": "true",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
