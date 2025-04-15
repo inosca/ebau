@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 13:29+0200\n"
+"POT-Creation-Date: 2025-04-15 18:01+0200\n"
 "PO-Revision-Date: 2024-09-12 16:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -591,8 +591,9 @@ msgid ""
 "Invalid mime type for marking attachment as decision. Allowed types for "
 "decision attachment are: %(allowed_mime_types)s"
 msgstr ""
-"Le type de fichier actuel ne peut pas être marqué comme document de décision. "
-"Les types autorisés pour la pièce jointe de décision sont: %(allowed_mime_types)s"
+"Le type de fichier actuel ne peut pas être marqué comme document de "
+"décision. Les types autorisés pour la pièce jointe de décision sont: "
+"%(allowed_mime_types)s"
 
 #: camac/document/serializers.py
 msgid ""
@@ -1005,20 +1006,6 @@ msgid "Draft"
 msgstr "Brouillon"
 
 #: camac/instance/document_merge_service.py
-#, fuzzy
-#| msgid "Signature"
-msgid "Signature page"
-msgstr "Signature"
-
-#: camac/instance/document_merge_service.py
-msgid "Receipt"
-msgstr ""
-
-#: camac/instance/document_merge_service.py
-msgid "Form export"
-msgstr ""
-
-#: camac/instance/document_merge_service.py
 msgid "Additional demand"
 msgstr ""
 
@@ -1284,6 +1271,18 @@ msgstr ""
 "Le dossier ne peut pas être corrigé, car des prises de position ont déjà été "
 "demandées."
 
+#: camac/instance/tests/test_document_merge_service.py
+#: camac/settings/modules/dms.py
+msgid "Form export"
+msgstr ""
+
+#: camac/instance/tests/test_document_merge_service.py
+#: camac/settings/modules/dms.py
+#, fuzzy
+#| msgid "Signature"
+msgid "Signature page"
+msgstr "Signature"
+
 #: camac/instance/utils.py
 #, python-format
 msgid "Could not find lead authority for construction control %(id)d"
@@ -1542,6 +1541,10 @@ msgstr "Sans procédure de circulation"
 #: camac/settings/modules/distribution.py
 msgid "Circulation reopened"
 msgstr "Réouverture de la circulation"
+
+#: camac/settings/modules/dms.py
+msgid "Receipt"
+msgstr ""
 
 #: camac/settings/modules/ech0211.py
 msgid "Inquiry sent"
