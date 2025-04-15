@@ -572,7 +572,7 @@
       "language": "de",
       "purpose": "Manuelle Aufgabe erstellt",
       "subject": "Aufgabe erstellt (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nIhnen wurde eine neue Aufgabe \"{{ WORK_ITEM_NAME_DE }}\" im Dossier mit der Dossier-Nummer {{ DOSSIER_NR }}, {{ FORM_NAME_DE }}, {{ MUNICIPALITY_DE }}) zugewiesen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
+      "body": "Guten Tag\r\n\r\nIhnen wurde eine neue Aufgabe \"{{ WORK_ITEM_NAME_DE }}\" im Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ FORM_NAME_DE }}, {{ MUNICIPALITY_DE }}) zugewiesen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
     }
   }
 ]
