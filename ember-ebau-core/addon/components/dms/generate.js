@@ -133,18 +133,25 @@ export default class DmsGenerateComponent extends Component {
     event.preventDefault();
 
     const body = new FormData();
-    body.append("data", JSON.stringify(this.placeholders.value));
+
+    // Make a deep copy of the placeholders in order to make it mutable
+    const data = JSON.parse(JSON.stringify(this.placeholders.value));
 
     yield Promise.all(
-      Object.entries(this.placeholders.value)
+      Object.entries(data)
         .filter((entry) => String(entry[1]).startsWith("data:"))
         .map(async ([key, value]) => {
           const res = await fetch(value);
           const blob = await res.blob();
 
           body.append("files", blob, key);
+
+          // Remove base64 string from JSON data to reduce payload size
+          delete data[key];
         }),
     );
+
+    body.append("data", JSON.stringify(data));
 
     try {
       const response = yield this.fetch.fetch(
