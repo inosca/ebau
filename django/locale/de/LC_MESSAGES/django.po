@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-03 13:29+0200\n"
+"POT-Creation-Date: 2025-04-15 18:01+0200\n"
 "PO-Revision-Date: 2024-09-12 15:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1013,18 +1013,6 @@ msgid "Draft"
 msgstr "Entwurf"
 
 #: camac/instance/document_merge_service.py
-msgid "Signature page"
-msgstr "Unterschriftenblatt"
-
-#: camac/instance/document_merge_service.py
-msgid "Receipt"
-msgstr "Quittung"
-
-#: camac/instance/document_merge_service.py
-msgid "Form export"
-msgstr "Formularexport"
-
-#: camac/instance/document_merge_service.py
 msgid "Additional demand"
 msgstr "Nachforderung"
 
@@ -1289,6 +1277,16 @@ msgstr ""
 "Das Dossier kann nicht korrigiert werden, da bereits Stellungahmen "
 "angefordert wurden."
 
+#: camac/instance/tests/test_document_merge_service.py
+#: camac/settings/modules/dms.py
+msgid "Form export"
+msgstr "Formularexport"
+
+#: camac/instance/tests/test_document_merge_service.py
+#: camac/settings/modules/dms.py
+msgid "Signature page"
+msgstr "Unterschriftenblatt"
+
 #: camac/instance/utils.py
 #, python-format
 msgid "Could not find lead authority for construction control %(id)d"
@@ -1533,6 +1531,10 @@ msgstr "Zirkulation übersprungen"
 #: camac/settings/modules/distribution.py
 msgid "Circulation reopened"
 msgstr "Zirkulation wiedereröffnet"
+
+#: camac/settings/modules/dms.py
+msgid "Receipt"
+msgstr "Quittung"
 
 #: camac/settings/modules/ech0211.py
 msgid "Inquiry sent"
