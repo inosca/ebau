@@ -59,3 +59,8 @@ workItems:
     control: "Contrôler"
     urgent: "Urgent"
     new: "Nouveu"
+
+  templates:
+    info:
+    select:
+    apply:

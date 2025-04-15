@@ -63,3 +63,8 @@ workItems:
     control: "Controlling"
     urgent: "Dringend"
     new: "Neu"
+
+  templates:
+    info: "Eine Vorlage anwenden"
+    select: "Vorlage auswählen"
+    apply: "Vorlage anwenden"

@@ -132,6 +132,7 @@ INSTALLED_APPS = [
     "hurricane",
     "camac.fixtures.apps.FixturesConfig",
     "camac.sanctions.apps.SanctionsConfig",
+    "camac.work_items.apps.WorkItemsConfig",
 ]
 
 if DEBUG:  # pragma: no cover

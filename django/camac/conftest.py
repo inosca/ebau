@@ -74,6 +74,7 @@ from camac.tests.data import (
 from camac.user import factories as user_factories
 from camac.user.models import Group, User
 from camac.utils import build_url
+from camac.work_items import factories as work_items_factories
 
 
 def register_module(module):
@@ -122,6 +123,7 @@ register_module(gis_factories)
 register_module(billing_factories)
 register_module(external_factories)
 register_module(sanction_factories)
+register_module(work_items_factories)
 
 # do not register alexandria factories, as there are too many conflicts
 

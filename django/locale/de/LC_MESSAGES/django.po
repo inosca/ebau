@@ -50,10 +50,12 @@ msgstr ""
 "%(instance)s"
 
 #: camac/billing/admin.py camac/billing/models.py camac/user/models.py
+#: camac/work_items/admin.py camac/work_items/models.py
 msgid "Services"
 msgstr "Organisationen"
 
 #: camac/billing/admin.py camac/billing/models.py camac/user/models.py
+#: camac/work_items/admin.py camac/work_items/models.py
 msgid "Service groups"
 msgstr "Organisationstypen"
 
@@ -166,7 +168,7 @@ msgid "Remark"
 msgstr "Bemerkung"
 
 #: camac/billing/models.py camac/core/admin/views.py camac/user/admin/views.py
-#: camac/user/models.py
+#: camac/user/models.py camac/work_items/models.py
 msgid "Name"
 msgstr "Name"
 
@@ -489,7 +491,7 @@ msgid "ACL Roles"
 msgstr "Rollen"
 
 #: camac/core/admin/views.py camac/instance/document_merge_service.py
-#: camac/user/models.py
+#: camac/user/models.py camac/work_items/models.py
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -1698,7 +1700,7 @@ msgstr "Fehler beim Abfragen der Benutzerinformationen"
 msgid "User is deactivated."
 msgstr "Benutzer ist deaktiviert."
 
-#: camac/user/models.py
+#: camac/user/models.py camac/work_items/models.py
 msgid "ID"
 msgstr "ID"
 
@@ -1828,3 +1830,39 @@ msgstr "Es existieren mehrere Benutzer mit dieser E-Mail-Adresse"
 #: camac/user/serializers.py
 msgid "User is already in group"
 msgstr "Der Benutzer ist bereits in dieser Gruppe"
+
+#: camac/work_items/apps.py
+msgid "Work items"
+msgstr "Aufgaben"
+
+#: camac/work_items/models.py
+msgid "Lead time in days"
+msgstr "Vorlaufzeit in Tagen"
+
+#: camac/work_items/models.py
+msgid "The current date in addition to this value will determine the deadline"
+msgstr "Das momentane Datum addiert mit diesem Wert wird die Frist bestimmen"
+
+#: camac/work_items/models.py
+msgid "Automatically addressed to current service"
+msgstr "Automatisch an die momentane Organisation zuweisen"
+
+#: camac/work_items/models.py
+msgid "Automatically assigned to current user"
+msgstr "Automatisch an den momentanen Benutzer zuweisen"
+
+#: camac/work_items/models.py
+msgid ""
+"This can only be enabled if \"Automatically addressed to current service\" "
+"is enabled as well"
+msgstr ""
+"Dies kann nur aktiviert werden, wenn \"Automatisch an die momentane "
+"Organisation zuweisen\" auch aktiviert ist"
+
+#: camac/work_items/models.py
+msgid "Work item template"
+msgstr "Aufgabenvorlage"
+
+#: camac/work_items/models.py
+msgid "Work item templates"
+msgstr "Aufgabenvorlagen"

@@ -43,10 +43,12 @@ msgstr ""
 "L'utilisateur avec l'email '%(email)s' a déjà accès au dossier %(instance)s"
 
 #: camac/billing/admin.py camac/billing/models.py camac/user/models.py
+#: camac/work_items/admin.py camac/work_items/models.py
 msgid "Services"
 msgstr "Organisations"
 
 #: camac/billing/admin.py camac/billing/models.py camac/user/models.py
+#: camac/work_items/admin.py camac/work_items/models.py
 msgid "Service groups"
 msgstr "Types d'organisation"
 
@@ -159,7 +161,7 @@ msgid "Remark"
 msgstr "Remarque"
 
 #: camac/billing/models.py camac/core/admin/views.py camac/user/admin/views.py
-#: camac/user/models.py
+#: camac/user/models.py camac/work_items/models.py
 msgid "Name"
 msgstr "Nom"
 
@@ -480,7 +482,7 @@ msgid "ACL Roles"
 msgstr "Rôles"
 
 #: camac/core/admin/views.py camac/instance/document_merge_service.py
-#: camac/user/models.py
+#: camac/user/models.py camac/work_items/models.py
 msgid "Description"
 msgstr "Description"
 
@@ -1710,7 +1712,7 @@ msgstr "Erreur lors de la demande d'informations sur l'utilisateur"
 msgid "User is deactivated."
 msgstr "L'utilisateur est désactivé."
 
-#: camac/user/models.py
+#: camac/user/models.py camac/work_items/models.py
 msgid "ID"
 msgstr "ID"
 
@@ -1840,3 +1842,37 @@ msgstr "Il y a plusieurs utilisateurs avec cette adresse e-mail"
 #: camac/user/serializers.py
 msgid "User is already in group"
 msgstr "L'utilisateur est déjà dans ce groupe"
+
+#: camac/work_items/apps.py
+msgid "Work items"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Lead time in days"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "The current date in addition to this value will determine the deadline"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Automatically addressed to current service"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Automatically assigned to current user"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid ""
+"This can only be enabled if \"Automatically addressed to current service\" "
+"is enabled as well"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Work item template"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Work item templates"
+msgstr ""
