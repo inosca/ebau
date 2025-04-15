@@ -39,6 +39,7 @@ export default {
     objectStreet: "street-and-housenumber",
     objectLocation: "ort-grundstueck",
     description: "beschreibung-bauvorhaben",
+    modificationDescription: "beschreibung-projektaenderung",
     municipality: "gemeinde",
     specialId: "dossier-number",
     parcel: "parzelle",
