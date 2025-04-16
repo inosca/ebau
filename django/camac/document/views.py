@@ -10,7 +10,7 @@ from django.conf import settings
 from django.core.exceptions import operator
 from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
-from django.http import HttpResponse
+from django.http import FileResponse, HttpResponse
 from django.utils.module_loading import import_string
 from django.utils.translation import gettext as _
 from drf_yasg import openapi
@@ -26,7 +26,6 @@ from sorl.thumbnail import get_thumbnail
 from sorl.thumbnail.engines.convert_engine import EngineError
 
 from camac.communications.models import CommunicationsAttachment
-from camac.core.views import SendfileHttpResponse
 from camac.instance.document_merge_service import DMSHandler
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
@@ -407,7 +406,6 @@ class AttachmentDownloadView(
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, **kwargs):
         attachment = self.get_object()
-        download_path = kwargs.get(self.lookup_field)
 
         self._create_history_entry(request, attachment)
 
@@ -416,14 +414,16 @@ class AttachmentDownloadView(
         )
         if side_effect:
             import_string(side_effect)(attachment, request)
-
-        response = SendfileHttpResponse(
-            content_type=self._get_mime_type(attachment),
-            filename=attachment.name,
-            base_path=settings.MEDIA_ROOT,
-            file_path=f"/{download_path}",
+        mime_type = self._get_mime_type(attachment)
+        as_attachment = (
+            mime_type not in settings.COMMUNICATIONS["SAFE_FOR_INLINE_DISPOSITION"]
         )
-        return response
+        return FileResponse(
+            attachment.path,
+            filename=attachment.name,
+            as_attachment=as_attachment,
+            content_type=mime_type,
+        )
 
     @swagger_auto_schema(
         tags=["File download service"],
@@ -450,32 +450,31 @@ class AttachmentDownloadView(
             self._create_history_entry(request, attachment)
 
         attachment = filtered_qs.first()
-        download_path = str(attachment.path)
 
-        response = SendfileHttpResponse(
-            content_type=self._get_mime_type(attachment),
-            filename=attachment.name,
-            base_path=settings.MEDIA_ROOT,
-            file_path=f"/{download_path}",
-        )
-        if filtered_qs.count() > 1:
-            file_obj = io.BytesIO()
-
-            with zipfile.ZipFile(file_obj, "w", zipfile.ZIP_DEFLATED) as zipf:
-                for attachment in filtered_qs:
-                    zipf.write(
-                        os.path.join(settings.MEDIA_ROOT, str(attachment.path)),
-                        arcname=attachment.name,
-                    )
-            file_obj.seek(0)
-
-            response = SendfileHttpResponse(
-                content_type="application/zip",
-                filename="attachments.zip",
-                file_obj=file_obj,
+        if filtered_qs.count() == 1:
+            return FileResponse(
+                attachment.path,
+                filename=attachment.name,
+                as_attachment=True,
+                content_type=attachment.mime_type,
             )
 
-        return response
+        file_obj = io.BytesIO()
+
+        with zipfile.ZipFile(file_obj, "w", zipfile.ZIP_DEFLATED) as zipf:
+            for attachment in filtered_qs:
+                zipf.write(
+                    os.path.join(settings.MEDIA_ROOT, str(attachment.path)),
+                    arcname=attachment.name,
+                )
+        file_obj.seek(0)
+
+        return FileResponse(
+            file_obj,
+            content_type="application/zip",
+            filename="attachments.zip",
+            as_attachment=True,
+        )
 
 
 class AttachmentVersionDownloadView(AttachmentDownloadView):

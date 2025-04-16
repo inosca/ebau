@@ -12,7 +12,7 @@ from django.db.models.expressions import Func
 from django.db.models.fields import IntegerField
 from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast
-from django.http import HttpResponse
+from django.http import FileResponse, HttpResponse
 from django.utils import timezone
 from django.utils.translation import get_language, gettext as _
 from drf_yasg import openapi
@@ -33,7 +33,6 @@ from camac.caluma.utils import sync_inquiry_deadline
 from camac.constants import kt_uri as ur_constants
 from camac.core.models import InstanceService, PublicationEntry, WorkflowEntry
 from camac.core.utils import canton_aware
-from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.domain_logic import RejectionLogic, WithdrawalLogic
 from camac.instance.master_data import MasterData, MultipleCaseMasterdata
@@ -896,10 +895,7 @@ class InstanceView(
             self.request.query_params.get("for-additional-demand"),
         )
 
-        response = SendfileHttpResponse(
-            content_type="application/pdf", filename=pdf.name, file_obj=pdf.file
-        )
-        return response
+        return FileResponse(pdf.file, content_type="application/pdf", filename=pdf.name)
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)

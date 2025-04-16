@@ -8,7 +8,6 @@ the corresponding test modules.
 import io
 import json
 import logging
-import os
 from mimetypes import guess_extension
 
 import pytest
@@ -208,9 +207,8 @@ def test_attachment_download(
 
     assert resp.status_code == expect_status
     if expect_status == status.HTTP_200_OK:
-        assert os.path.exists(resp.headers["X-Sendfile"])
-        with open(resp.headers["X-Sendfile"], "rb") as fh_download:
-            assert fh_download.read() == expected_file_content
+        assert resp.status_code == status.HTTP_200_OK
+        assert resp.getvalue() == expected_file_content
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

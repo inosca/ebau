@@ -95,6 +95,7 @@ def test_download(
                 == f'attachment; filename="{file.name}"'
             )
             assert response.headers["content-type"] == file.mime_type
+            assert response.getvalue() == file.content.file.read()
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

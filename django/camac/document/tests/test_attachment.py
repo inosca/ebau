@@ -579,13 +579,12 @@ def test_attachment_create(
         response = admin_client.get(attributes["path"])
         assert response.status_code == status.HTTP_200_OK
         assert response["Content-Disposition"] == (
-            'attachment; filename="{0}"'.format(filename)
+            'inline; filename="{0}"'.format(filename)
         )
         assert response["Content-Type"].startswith(mime_type)
-        assert response["X-Accel-Redirect"] == "/attachments/files/%s/%s" % (
-            sz_instance.pk,
-            filename,
-        )
+
+        path.seek(0)
+        assert response.getvalue() == path.read()
 
         assert len(mailoutbox) == 1
 
