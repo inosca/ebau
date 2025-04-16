@@ -179,13 +179,5 @@ class Inquiry(WorkItem):
     # any success.
     objects: InquiryQuerySet = InquiryManager.from_queryset(InquiryQuerySet)()
 
-    # Workaround required for django-simple-history to work with proxy models
-    # to use the same history table as the original model.
-    # https://github.com/jazzband/django-simple-history/issues/544
-    def save(self, *args, **kwargs):
-        self.__class__ = WorkItem
-        super(WorkItem, self).save(*args, **kwargs)
-        self.__class__ = Inquiry
-
     class Meta:
         proxy = True
