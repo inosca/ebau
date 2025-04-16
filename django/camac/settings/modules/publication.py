@@ -101,6 +101,7 @@ PUBLICATION = {
             "vertretung-telefon",
             "telefon-oder-mobil",
         ],
+        "SHOW_MAIN_FORM": True,
     },
     "kt_schwyz": {
         "ENABLED": True,
