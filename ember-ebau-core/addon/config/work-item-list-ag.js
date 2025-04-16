@@ -2,6 +2,7 @@ export default {
   showTaskFilter: true,
   taskFilterAsDropdown: true,
   availableTasks: {
+    includeTemplates: true,
     roles: {
       municipality: [
         "formal-exam",
