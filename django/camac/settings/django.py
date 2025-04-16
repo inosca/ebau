@@ -2210,6 +2210,7 @@ APPLICATIONS = {
     "kt_so": {
         "SHORT_NAME": "so",
         "INTERNAL_FRONTEND": "ebau",
+        "AVAILABLE_LANGUAGES": ["de"],
         "TAGGED_RELEASES": True,
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,

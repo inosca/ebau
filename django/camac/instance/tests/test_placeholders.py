@@ -35,15 +35,10 @@ from camac.tests.data import (
 
 
 @pytest.fixture
-def be_dms_config(settings, be_placeholders_settings):
-    original_languages = settings.LANGUAGES
-    settings.LANGUAGES = [
-        (code, name) for code, name in settings.LANGUAGES if code in ["de", "fr"]
-    ]
+def be_dms_config(settings, application_settings, be_placeholders_settings):
     settings.APPLICATION_NAME = "kt_bern"
     settings.INTERNAL_BASE_URL = "http://ebau.localhost"
-    yield
-    settings.LANGUAGES = original_languages
+    application_settings["AVAILABLE_LANGUAGES"] = ["de", "fr"]
 
 
 @pytest.fixture
@@ -60,15 +55,10 @@ def gr_dms_config(settings):
 
 @pytest.fixture
 def so_dms_config(settings, application_settings, so_placeholders_settings):
-    original_languages = settings.LANGUAGES
-    settings.LANGUAGES = [
-        (code, name) for code, name in settings.LANGUAGES if code in ["de"]
-    ]
     settings.APPLICATION_NAME = "kt_so"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
     application_settings["SHORT_NAME"] = "so"
-    yield
-    settings.LANGUAGES = original_languages
+    application_settings["AVAILABLE_LANGUAGES"] = ["de"]
 
 
 @pytest.fixture
