@@ -5,11 +5,11 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "waldareal",
             "waldareal-ja",
-        ): ["alt"],
+        ): ["awn"],
         (
             "wohnnutzung",
             "wohnnutzung-ja",
-        ): ["alg1"],
+        ): ["amz"],
         (
             "mehr-als-vier-wohneinheiten",
             "mehr-als-vier-wohneinheiten-ja",
@@ -17,27 +17,27 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "beschreibung-der-nutzung",
             "beschreibung-der-nutzung-abfallanlage",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "beschreibung-der-nutzung",
             "beschreibung-der-nutzung-lageranlage",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "beschreibung-der-nutzung",
             "beschreibung-der-nutzung-materialgewinnung",
-        ): ["alg2"],
+        ): ["anu"],
+        (
+            "fallen-emissionen-an",
+            "fallen-emissionen-an-ja",
+        ): ["anu"],
         (
             "industrie-und-gewerbeabwasser",
             "industrie-und-gewerbeabwasser-ja",
-        ): ["alg2"],
-        (
-            "mehr-als-50-arbeitsplaetze",
-            "mehr-als-50-arbeitsplaetze-ja",
-        ): ["pro-infirmis"],
+        ): ["anu"],
         (
             "kantonsstrassen",
             "kantonsstrassen-ja",
-        ): ["bafu"],
+        ): ["tba"],
         (
             "haustechnische-anlagen-brandschutz",
             "haustechnische-anlagen-brandschutz-ja",
@@ -49,7 +49,7 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "muessen-ufervegetation-hecken-oder-feldgehoelze-entfernt-werden",
             "muessen-ufervegetation-hecken-oder-feldgehoelze-entfernt-werden-ja",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "objekt-der-denkmalpflege",
             "objekt-der-denkmalpflege-ja",
@@ -57,11 +57,11 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "wird-material-vor-ort-aufbereitet",
             "wird-material-vor-ort-aufbereitet-ja",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "uvp-pflicht",
             "uvp-pflicht-ja",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "beschreibung-der-anlagen",
             "beschreibung-der-anlagen-solaranlagen",
@@ -73,23 +73,23 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "beschreibung-der-anlagen",
             "beschreibung-der-anlagen-waermepumpen",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "das-bauvorhaben-befindet-sich-in",
             "das-bauvorhaben-befindet-sich-in-gefahrenzone",
-        ): ["alt", "gvg"],
+        ): ["awn", "gvg"],
         (
             "das-bauvorhaben-befindet-sich-in",
             "das-bauvorhaben-befindet-sich-in-kataster-belasteter-standorte",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "das-bauvorhaben-befindet-sich-in",
             "das-bauvorhaben-befindet-sich-in-gewaesserschutzbereich",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "das-bauvorhaben-befindet-sich-in-laermvorbelastetes",
             "das-bauvorhaben-befindet-sich-in-laermvorbelastetes-gebiet",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "das-bauvorhaben-befindet-sich-in",
             "das-bauvorhaben-befindet-sich-in-archaeologiezone",
@@ -101,47 +101,47 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "erschliessungsanlagen",
             "erschliessungsanlagen-versorgung-entsorgung",
-        ): ["alg2", "anu"],
+        ): ["anu", "alt"],
         (
             "erschliessungsanlagen",
             "erschliessungsanlagen-abwasser",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "erschliessungsanlagen",
             "erschliessungsanlagen-antennenanlage",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "erschliessungsanlagen",
             "erschliessungsanlagen-beschneiungsanlage",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "erschliessungsanlagen",
             "erschliessungsanlagen-pistenkorrektur",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "erschliessungsanlagen",
             "erschliessungsanlagen-terrainveraenderung",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "erschliessungsanlagen",
             "erschliessungsanlagen-materialablagerung",
-        ): ["alg2"],
+        ): ["anu"],
         (
             "nutzungszweck-landwirtschaft",
             "nutzungszweck-landwirtschaft-bienenhaus",
-        ): ["alg1"],
+        ): ["alt"],
         (
             "handelt-es-sich-um-einen-subventionierten-stall",
             "handelt-es-sich-um-einen-subventionierten-stall-ja",
-        ): ["alg1"],
+        ): ["alt"],
         (
             "nutzungszweck-der-gewerblichen-baute",
             "nutzungszweck-der-gewerblichen-baute-hotel",
-        ): ["alg1"],
+        ): ["alt"],
         (
             "nutzungszweck-der-gewerblichen-baute",
             "nutzungszweck-der-gewerblichen-baute-gastronomie",
-        ): ["alg1"],
+        ): ["alt"],
         (
             "bauanzeige-haustechnische-anlagen-brandschutz",
             "bauanzeige-haustechnische-anlagen-brandschutz-ja",
@@ -154,5 +154,13 @@ GR_DISTRIBUTION_SUGGESTIONS = {
             "dachtyp",
             "dachtyp-flachdach",
         ): ["aib"],
+        (
+            "bauvorhaben-mit-gewerbenutzung",
+            "bauvorhaben-mit-gewerbenutzung-landwirtschaftlichem-gewerbe-ja",
+        ): ["kiga"],
+        (
+            "mehr-als-50-arbeitsplaetze",
+            "mehr-als-50-arbeitsplaetze-ja",
+        ): ["pro-infirmis"],
     }
 }
