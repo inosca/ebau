@@ -354,9 +354,11 @@ def test_landowners_dynamic_on_copy(
     referenced_document2.source = test_document_b
     referenced_document2.save()
 
-    # copy the answer
-    new_document = caluma_document_factory()
-    new_answer = dynamic_answer.copy(to_document=new_document)
+    # copy the document with answers
+    new_document = main_document.copy()
+    new_answer = caluma_form_models.Answer.objects.get(
+        question=dynamic_choice_question, document=new_document
+    )
     new_dynamic_options = caluma_form_models.DynamicOption.objects.filter(
         question=dynamic_choice_question, document=new_document
     )
@@ -488,9 +490,11 @@ def test_buildings_dynamic_on_copy(
     referenced_document.source = test_document
     referenced_document.save()
 
-    # copy the answer
-    new_document = caluma_document_factory()
-    new_answer = dynamic_answer.copy(to_document=new_document)
+    # copy the document with answers
+    new_document = main_document.copy()
+    new_answer = caluma_form_models.Answer.objects.get(
+        question=dynamic_choice_question, document=new_document
+    )
     new_dynamic_option = caluma_form_models.DynamicOption.objects.get(
         question=dynamic_choice_question, document=new_document
     )
