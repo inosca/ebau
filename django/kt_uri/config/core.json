@@ -12976,7 +12976,7 @@
       "description": "Verwalten der Kommissionsmitglieder",
       "template": "/dept/commissioners.phtml",
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 7,
       "form_group": 161,
       "require_permission": null
