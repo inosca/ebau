@@ -67,6 +67,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "einwendung.einwendung-hinweis",
+    "fields": {
+      "created_at": "2025-04-17T07:55:51.245Z",
+      "modified_at": "2025-04-17T07:55:51.246Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einwendung",
+      "question": "einwendung-hinweis",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "einwendung.einwendung-zurueckgezogen",
     "fields": {
       "created_at": "2025-02-28T09:07:27.881Z",
@@ -204,6 +219,37 @@
       "meta": {},
       "data_source": null,
       "row_form": "einwendung",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einwendung-hinweis",
+    "fields": {
+      "created_at": "2025-04-17T07:55:51.187Z",
+      "modified_at": "2025-04-17T07:57:33.776Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-primary uk-margin-remove\\\">Die Bauherrschaft ist via Kommunikationsmodul aufzufordern zur Einwendung Stellung zu nehmen. Die Einwendung kann via Drag&Drop der Mitteilung angef\\u00fcgt werden. Es ist m\\u00f6glich \\u00fcber eine manuelle Aufgabe die Frist zur Beantwortung zu \\u00fcberwachen.</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
