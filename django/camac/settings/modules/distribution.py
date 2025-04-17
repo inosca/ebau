@@ -374,9 +374,6 @@ DISTRIBUTION = {
     "kt_ag": {
         "ENABLED": True,
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
-        "INQUIRY_ANSWER_CHECK_TASK": "check-inquiry",
-        "INQUIRY_ANSWER_REVISE_TASK": "revise-inquiry",
-        "INQUIRY_ANSWER_ALTER_TASK": "alter-inquiry",
         "NOTIFY_ON_CANCELLATION": True,
         "QUESTIONS": {
             "STATEMENT": "inquiry-answer-assessment",
@@ -401,8 +398,7 @@ DISTRIBUTION = {
             "REDO_DISTRIBUTION": _("Circulation reopened"),
         },
         "REDO_INQUIRY": {
-            "REOPEN_TASKS": ["check-inquiry", "revise-inquiry"],
-            "COMPLETE_TASKS": ["revise-inquiry"],
+            "REOPEN_TASKS": ["fill-inquiry"],
         },
         "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES": {
             "service-afb": 60,

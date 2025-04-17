@@ -2531,8 +2531,6 @@ APPLICATIONS = {
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "PRE_COMPLETE": {
-                "check-inquiry": {"cancel": ["revise-inquiry"]},
-                "revise-inquiry": {"cancel": ["check-inquiry"]},
                 "decision": {
                     "skip": [
                         "publication",
