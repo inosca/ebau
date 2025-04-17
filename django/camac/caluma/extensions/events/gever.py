@@ -4,6 +4,7 @@ from caluma.caluma_workflow.events import (
     post_resume_work_item,
 )
 from caluma.caluma_workflow.models import Task, WorkItem
+from django.conf import settings
 from django.db import transaction
 
 from camac.caluma.api import CalumaApi
@@ -26,7 +27,7 @@ def post_resume_inquiry_for_gever(sender, work_item, user, context=None, **kwarg
     gever_work_item = WorkItem.objects.create(
         task=task,
         name=task.name,
-        addressed_groups=["20032"],
+        addressed_groups=settings.APPLICATION["AGR_GROUPS"],
         case=case,
         status=WorkItem.STATUS_READY,
         document=Document.objects.create_document_for_task(task, None),

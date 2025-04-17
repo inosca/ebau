@@ -421,7 +421,9 @@
         "show_validation": false,
         "validate_on_enter": false
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "gever-sync-button"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,

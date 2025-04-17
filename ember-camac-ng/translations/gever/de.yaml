@@ -1,0 +1,4 @@
+gever:
+  sync: "Daten mit GEVER synchronisieren"
+  error: "Fehler beim Synchronisieren"
+  success: "Dossier wurde erfolgreich mit GEVER synchronisiert."

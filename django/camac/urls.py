@@ -71,3 +71,8 @@ if settings.ENABLE_TOKEN_EXCHANGE:
     urlpatterns.append(
         re_path(r"^api/v1/", include("camac.token_exchange.urls")),
     )
+
+if bool(settings.GEVER["ENABLED"]):
+    urlpatterns.append(
+        re_path(r"^api/v1/", include("camac.gever.urls")),
+    )

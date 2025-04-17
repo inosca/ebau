@@ -21,6 +21,7 @@ import CfCollapsibleTextareaComponent from "camac-ng/components/cf-collapsible-t
 import CfDownloadPdfComponent from "camac-ng/components/cf-download-pdf";
 import CfSnippetsTextComponent from "camac-ng/components/cf-snippets-text";
 import CfSnippetsTextareaComponent from "camac-ng/components/cf-snippets-textarea";
+import GeverSyncButtonComponent from "camac-ng/components/gever-sync-button";
 import SuggestEbauNumberComponent from "camac-ng/components/suggest-ebau-number";
 
 export default class ApplicationRoute extends Route {
@@ -55,6 +56,12 @@ export default class ApplicationRoute extends Route {
         cancel: this.intl.t("global.cancel"),
       };
     }
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Gever Sync Button",
+      component: "gever-sync-button",
+      componentClass: GeverSyncButtonComponent,
+    });
 
     this.calumaOptions.registerComponentOverride({
       label: "Karte",

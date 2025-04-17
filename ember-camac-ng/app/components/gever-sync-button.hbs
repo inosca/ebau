@@ -1,0 +1,8 @@
+<UkButton
+  @color="primary"
+  @disabled={{this.sync.isRunning}}
+  @loading={{this.sync.isRunning}}
+  @onClick={{this.sync.perform}}
+  @title={{t "gever.sync"}}
+  type="button"
+>{{t "gever.sync"}}</UkButton>
