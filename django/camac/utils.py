@@ -1,5 +1,6 @@
 import io
 import itertools
+import time
 from datetime import timedelta
 from typing import Any, Optional
 from urllib.parse import parse_qsl
@@ -337,3 +338,20 @@ def should_notify_on_manual_workitems(work_item) -> bool:
         ).count()
         == 1
     )
+
+
+def retry(fn, number_of_tries=2, sleep_between_tries=0):
+    """Retry the given function a given amount of times.
+
+    Usage:
+
+    >>> retry(some_callable, 3)
+    """
+    while True:
+        try:
+            return fn()
+        except Exception:
+            if number_of_tries <= 0:
+                raise
+            time.sleep(sleep_between_tries)
+            number_of_tries -= 1

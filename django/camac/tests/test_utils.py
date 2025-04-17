@@ -1,3 +1,4 @@
+from contextlib import nullcontext as no_exception
 from datetime import date
 
 import pytest
@@ -143,3 +144,25 @@ def test_delay_next_workingday(
         expected = input_date
 
     assert utils.delay_next_workingday(input_date) == expected
+
+
+@pytest.mark.parametrize(
+    "fail_forever, expectation",
+    [
+        (True, pytest.raises(RuntimeError)),
+        (False, no_exception()),
+    ],
+)
+def test_retry_utility(fail_forever, expectation):
+    foo = []
+
+    def do_the_thing():
+        # If fail_forever is True, we fail each time we're called.
+        # If it's False, succeed after a few tries
+        if len(foo) < 2 or fail_forever:
+            foo.append(3)
+            raise RuntimeError("List too short")
+        return 5
+
+    with expectation:
+        assert utils.retry(do_the_thing) == 5
