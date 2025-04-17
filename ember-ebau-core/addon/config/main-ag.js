@@ -194,8 +194,13 @@ export default {
       forms: [
         {
           slug: "anfrage-intern",
-          roles: ["municipality-lead", "municipality-clerk"],
-          serviceGroups: ["municipality"],
+          roles: [
+            "municipality-lead",
+            "municipality-clerk",
+            "trusted-service-lead",
+            "trusted-service-clerk",
+          ],
+          serviceGroups: ["municipality", "service-afb"],
           category: "special-procedure",
         },
         {
@@ -206,8 +211,14 @@ export default {
         },
         {
           slug: "internes-dossier",
-          serviceGroups: ["municipality"],
-          roles: ["municipality-lead", "municipality-clerk"],
+          roles: [
+            "municipality-lead",
+            "municipality-clerk",
+            "trusted-service-lead",
+            "trusted-service-clerk",
+          ],
+          serviceGroups: ["municipality", "service-afb"],
+          category: "special-procedure",
         },
       ],
     },

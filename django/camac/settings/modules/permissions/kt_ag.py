@@ -34,6 +34,10 @@ ROLES_NO_READONLY = ~HasRole(
 )
 ROLES_MUNICIPALITY = HasRole(["municipality-lead", "municipality-clerk"])
 
+ROLES_AFB = IsServiceGroup(["service-afb"]) & HasRole(
+    ["trusted-service-lead", "trusted-service-clerk"]
+)
+
 # Module rules
 #
 # In order to have some kind of consistency, those rule should always be sorted
@@ -102,7 +106,8 @@ MODULE_PORTAL_DOCUMENTS_WRITE = (
 ) & HasApplicantRole(["ADMIN", "EDITOR"])
 MODULE_PORTAL_FORM_READ = Always()
 MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & (
-    HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper())
+    HasApplicantRole(["ADMIN", "EDITOR"])
+    | ((ROLES_MUNICIPALITY | ROLES_AFB) & IsPaper())
 )
 
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(
@@ -110,7 +115,7 @@ ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(
 ) & HasApplicantRole(["ADMIN"])
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & HasApplicantRole(["ADMIN"])
 ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & (
-    HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
+    HasApplicantRole(["ADMIN"]) | ((ROLES_MUNICIPALITY | ROLES_AFB) & IsPaper())
 )
 ACTION_INSTANCE_CHANGE_FORM = RequireInstanceState(
     [

@@ -2493,12 +2493,17 @@ APPLICATIONS = {
             "ALLOWED_ROLES": {
                 "DEFAULT": [
                     3,  # municipality-lead
+                    7,  # municipality-clerk
+                    12,  # trusted-service-lead
+                    13,  # trusted-service-clerk
                 ]
             },
             "ALLOWED_SERVICE_GROUPS": {
                 "DEFAULT": [
                     2,  # municipality
                     5,  # authority-pgv
+                    1,  # service-cantonal
+                    4,  # service-afb
                 ]
             },
         },
@@ -2607,6 +2612,7 @@ APPLICATIONS = {
                     "service__service_group__name__in": [
                         "municipality",
                         "authority-pgv",
+                        "service-afb",
                     ]
                 },
                 "DEFAULT": True,
