@@ -195,6 +195,7 @@ export default {
         {
           slug: "anfrage-intern",
           roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["municipality"],
           category: "special-procedure",
         },
         {
@@ -205,6 +206,7 @@ export default {
         },
         {
           slug: "internes-dossier",
+          serviceGroups: ["municipality"],
           roles: ["municipality-lead", "municipality-clerk"],
         },
       ],
