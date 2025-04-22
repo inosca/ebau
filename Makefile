@@ -155,12 +155,12 @@ migrate:  ## Migrate schema
 
 .PHONY: format
 format:
-	@yarn --cwd=ember-camac-ng install
-	@yarn --cwd=ember-camac-ng lint:js --fix
-	@yarn --cwd=ember-caluma-portal install
-	@yarn --cwd=ember-caluma-portal lint:js --fix
-	@yarn --cwd=ember install
-	@yarn --cwd=ember lint:js --fix
+	@pnpm -C ember-camac-ng install
+	@pnpm -C ember-camac-ng lint:js --fix
+	@pnpm -C ember-caluma-portal install
+	@pnpm -C ember-caluma-portal lint:js --fix
+	@pnpm -C ember install
+	@pnpm -C ember lint:js --fix
 	@(cd django && ruff format)
 	@npx --yes prettier@3.0.3 --write *.yml
 	@npx --yes prettier@3.0.3 --write compose/*.yml
