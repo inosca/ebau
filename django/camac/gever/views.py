@@ -9,7 +9,7 @@ from .api import GeverAPI
 
 class GeverSyncView(CreateAPIView):
     def create(self, request, **kwargs):
-        if request.group.service_id not in settings.APPLICATION["AGR_GROUPS"]:
+        if request.group.service_id not in settings.GEVER["AGR_GROUPS"]:
             return HttpResponse(status=status.HTTP_403_FROBIDDEN)
 
         instance = Instance.objects.filter(

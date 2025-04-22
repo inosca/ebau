@@ -1240,7 +1240,6 @@ APPLICATIONS = {
                 23415,
             ],
         ),
-        "AGR_GROUPS": [20032],  # GEVER
         "USE_INSTANCE_SERVICE": True,
         "USE_CONSTRUCTION_CONTROL": True,
         "ACTIVE_SERVICES": {

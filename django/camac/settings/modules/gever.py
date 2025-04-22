@@ -22,5 +22,6 @@ GEVER = {
             # env (but the host should not). This ensures VCR can match in CI
             default="http://gever-server.example/api/dij/groups/ebau/",
         ),
+        "AGR_GROUPS": [20032],
     },
 }
