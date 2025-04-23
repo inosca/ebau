@@ -30,13 +30,24 @@ request_logger = logging.getLogger("django.request")
 
 
 class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
-    def __init__(self):
-        self.keycloak = KeycloakOpenID(
-            server_url=settings.KEYCLOAK_URL,
-            client_id=settings.KEYCLOAK_CLIENT,
-            realm_name=settings.KEYCLOAK_REALM,
-            verify=settings.OIDC_VERIFY_SSL,
-        )
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # We initialize the keycloak property on the *class*
+        # instead of the object, so the KC client can reuse the TCP
+        # connections and LibSSL state.
+        cls = type(self)
+        if not hasattr(cls, "keycloak"):
+            setattr(
+                cls,
+                "keycloak",
+                KeycloakOpenID(
+                    server_url=settings.KEYCLOAK_URL,
+                    client_id=settings.KEYCLOAK_CLIENT,
+                    realm_name=settings.KEYCLOAK_REALM,
+                    verify=settings.OIDC_VERIFY_SSL,
+                ),
+            )
 
     def get_jwt_value(self, request):
         auth = get_authorization_header(request).split()
