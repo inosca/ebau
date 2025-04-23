@@ -1403,7 +1403,7 @@
       "modified_by_group": null,
       "form": "construction-step-schnurgeruestabnahme-planen",
       "question": "construction-step-schnurgeruestabnahme-planen-bemerkungen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -1418,7 +1418,22 @@
       "modified_by_group": null,
       "form": "construction-step-schnurgeruestabnahme-planen",
       "question": "construction-step-schnurgeruestabnahme-planen-datum-der-abnahme",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schnurgeruestabnahme-planen.schnurgeruestabnahme-buckets",
+    "fields": {
+      "created_at": "2025-04-23T08:00:17.486Z",
+      "modified_at": "2025-04-23T08:00:17.486Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schnurgeruestabnahme-planen",
+      "question": "schnurgeruestabnahme-buckets",
+      "sort": 1
     }
   },
   {
@@ -1433,7 +1448,7 @@
       "modified_by_group": null,
       "form": "construction-step-schnurgeruestabnahme-planen",
       "question": "schnurgeruestabnahme-durch",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -4469,6 +4484,40 @@
         "validate_on_enter": false
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "schnurgeruestabnahme-buckets",
+    "fields": {
+      "created_at": "2025-04-23T08:00:17.367Z",
+      "modified_at": "2025-04-23T08:17:26.200Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Schnurger\\u00fcstabnahme Dokumente\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "camac-schnurgeruestabnahme-files",
+        "attachment-section": "12000002"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
