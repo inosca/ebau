@@ -2638,7 +2638,7 @@ class IssueTemplateSetApplySerializer(InstanceEditableMixin, serializers.Seriali
         resource_name = "issue-template-sets-apply"
 
 
-class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cover
+class PublicCalumaInstanceSerializer(serializers.Serializer):
     """Serialize public caluma instances."""
 
     document_id = serializers.CharField(read_only=True)
@@ -2669,7 +2669,7 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
         if case.pk not in request._master_data_cache:
             if multi_masterdata := getattr(request, "_masterdata", None):
                 request._master_data_cache[case.pk] = multi_masterdata.for_case(case)
-            else:
+            else:  # pragma: no cover
                 request._master_data_cache[case.pk] = MasterData(case)
 
         return request._master_data_cache[case.pk]
