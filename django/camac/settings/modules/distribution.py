@@ -358,6 +358,7 @@ DISTRIBUTION = {
             "STATEMENT": "inquiry-answer-statement",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
+        "NOTIFY_ON_CANCELLATION": True,
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
                 "template_slug": "4-1-zirkulation-gemeinde-gestartet",
@@ -366,6 +367,10 @@ DISTRIBUTION = {
             "KOOR_INQUIRY_ANSWERED": {
                 "template_slug": "4-2-kantonale-bearbeitung-abgeschlossen",
                 "recipient_types": ["inquiry_controlling"],
+            },
+            "CANCELED_DISTRIBUTION": {
+                "template_slug": "4-13-zirkulation-abgebrochen",
+                "recipient_types": ["services_with_incomplete_inquiries"],
             },
         },
         "DEFAULT_SUGGESTIONS": [1],  # KOOR BG
