@@ -1,3 +1,4 @@
 gever:
-  error: "Fehler beim Synchronisieren"
-  success: "Dossier wurde erfolgreich mit GEVER synchronisiert."
+  sync: "Synchroniser les données avec GEVER"
+  error: "Erreur lors de la synchronisation"
+  success: "Le dossier a été synchronisé avec succès avec GEVER"

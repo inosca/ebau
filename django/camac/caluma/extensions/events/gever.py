@@ -35,10 +35,7 @@ INSTANCE_TYPE_SHORT = {
 def post_resume_inquiry_for_gever(sender, work_item, user, context=None, **kwargs):
     case = work_item.case.family
 
-    if case.work_items.filter(
-        task_id="gever",
-        status=WorkItem.STATUS_READY,
-    ).exists():
+    if case.work_items.filter(task_id="gever").exists():
         return  # "gever" work-item already exists
 
     task = Task.objects.get(pk="gever")
