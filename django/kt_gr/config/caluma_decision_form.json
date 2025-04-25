@@ -217,7 +217,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Mit Vorbehalt positiv (Projekt muss angepasst werden)\", \"fr\": null, \"it\": \"Positiva con riserva (il progetto deve essere adeguato)\"}",
+      "label": "{\"de\": \"Bewilligt mit Auflagen\", \"fr\": null, \"it\": \"Approvato con condizioni\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
