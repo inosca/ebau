@@ -11643,7 +11643,7 @@
     "model": "user.service",
     "pk": 106,
     "fields": {
-      "slug": null,
+      "slug": "kiga",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11763,7 +11763,7 @@
     "model": "user.service",
     "pk": 112,
     "fields": {
-      "slug": null,
+      "slug": "amz",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11811,7 +11811,7 @@
     "model": "user.service",
     "pk": 114,
     "fields": {
-      "slug": null,
+      "slug": "awn",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -12075,7 +12075,7 @@
     "model": "user.service",
     "pk": 163,
     "fields": {
-      "slug": null,
+      "slug": "tba",
       "service_group": 1,
       "service_parent": null,
       "name": null,
