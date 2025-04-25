@@ -2112,8 +2112,7 @@ APPLICATIONS = {
                         "template_slug": "fill-additional-demand",
                         "recipient_types": ["work_item_controlling"],
                     },
-                    # we'll used claim instead of file_subsequently
-                    # "ech_event": "camac.ech0211.signals.file_subsequently",
+                    "ech_event": "camac.ech0211.signals.file_subsequently",
                 },
                 "construction-acceptance": {
                     "next_instance_state": "finished",
