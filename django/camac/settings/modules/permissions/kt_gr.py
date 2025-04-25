@@ -50,7 +50,7 @@ MODULE_ADDITIONAL_DEMANDS = STATES_ALL & ~IsForm(
     ["vorlaeufige-beurteilung", "vorlaeufige-beurteilung-v3"]
 )  # TODO bauanzeige?
 
-# MODULE_CONSTRUCTION_MONITORING = RequireWorkItem("construction-acceptance")
+MODULE_CONSTRUCTION_ACCEPTANCE = RequireWorkItem("construction-acceptance")
 MODULE_CONSTRUCTION_MONITORING = RequireWorkItem("init-construction-monitoring")
 MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_CORRECTIONS = (
@@ -192,6 +192,8 @@ GR_PERMISSIONS_SETTINGS = {
             ("audit-read", MODULE_AUDIT),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
+            ("construction-acceptance-read", MODULE_CONSTRUCTION_ACCEPTANCE),
+            ("construction-acceptance-write", MODULE_CONSTRUCTION_ACCEPTANCE),
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
             ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
             ("corrections-read", MODULE_CORRECTIONS),

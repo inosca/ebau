@@ -428,6 +428,10 @@ class CustomDynamicTasks(BaseDynamicTasks):
     # After decision in Kt. SZ, GR and UR
     @register_dynamic_task("after-make-decision")
     def resolve_after_make_decision(self, case, user, prev_work_item, context):
+        if settings.APPLICATION_NAME == "kt_gr":
+            if not settings.CONSTRUCTION_MONITORING.get("ENABLED"):
+                return ["construction-acceptance"]
+
         if can_perform_construction_monitoring(case.instance):
             return ["init-construction-monitoring"]
 

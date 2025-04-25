@@ -1,5 +1,7 @@
 """WARNING: Any key that is either "TASK or ends with "_TASK" will be picked up by the visibilty filter for work items (see django/camac/extensions/visibilities.py)."""
 
+from camac.settings.env import env
+
 CONSTRUCTION_MONITORING = {
     "default": {
         "INIT_CONSTRUCTION_MONITORING_TASK": "init-construction-monitoring",
@@ -167,7 +169,7 @@ CONSTRUCTION_MONITORING = {
         "NOTIFICATION_RECIPIENTS": {},
     },
     "kt_gr": {
-        "ENABLED": True,
+        "ENABLED": env.bool("CONSTRUCTION_MONITORING_ENABLED", default=False),
         "PREVIOUS_INSTANCE_STATE": "decision",
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "construction-acceptance",
         "NOTIFICATIONS": {},
