@@ -521,6 +521,15 @@ ECH0211 = {
                     "desc": "Entscheid ausstehend melden",
                 },
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
+                ECH_FILE_SUBSEQUENTLY: {
+                    "desc": "Nachforderung beantworten (noch in Entwicklung)",
+                },
+                ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
+                    "desc": "Rückzug des Baugesuchs melden (noch in Entwicklung)",
+                },
+                ECH_CLAIM: {
+                    "desc": "Nachforderungen durch Fachstelle (noch in Entwicklung)"
+                },
             },
         },
         "GEOFENCE": {"ENABLE": True, "REGIONS": ["CH"]},
