@@ -67,6 +67,9 @@ DJANGO_ADMIN = {
             "notification.NotificationTemplate",
             "work_items.WorkItemTemplate",
         ],
-        "CUSTOMER_MANAGED_MODELS": ["billing.BillingV2EntryTemplate"],
+        "CUSTOMER_MANAGED_MODELS": [
+            "billing.BillingV2EntryTemplate",
+            "work_items.WorkItemTemplate",
+        ],
     },
 }
