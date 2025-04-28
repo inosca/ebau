@@ -27,6 +27,7 @@ ALEXANDRIA = {
             "SENSITIVE": ["sensitive"],
         },
         "CUSTOM_ROLE_MAPPINGS": {"authority-bab": "are"},
+        "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung", "system"],
     },
     "kt_so": {
         "ENABLED": True,
