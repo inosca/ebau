@@ -197,3 +197,7 @@ cases:
     failed-camac: "Fehler beim Schreiben auf Schnittstelle."
     failed-message: "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. {reasons}"
     button-hint-text: "<strong>Hinweis:</strong> Als Systembetrieb können keine Gesuche eingereicht werden."
+
+  copy:
+    title: "Link in Zwischenablage kopieren"
+    success: "Der Link wurde in die Zwischenablage kopiert"

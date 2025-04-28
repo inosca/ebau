@@ -191,3 +191,7 @@ cases:
     failed-camac: "Errore nel tentativo di scrivere sull'interfaccia."
     failed-message: "Ops! Qualcosa è andato storto. Verifica nuovamente i dati inseriti. {reasons}"
     button-hint-text: "<strong>Nota:</strong> in modalità esercizio del sistema non è possibile inoltrare delle domande."
+
+  copy:
+    title: “Copia il link negli appunti”.
+    success: “Il link è stato copiato negli appunti”.
