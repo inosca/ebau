@@ -526,5 +526,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1501,
+    "fields": {
+      "slug": "4-13-zirkulation-abgebrochen",
+      "purpose": "4.13 Zirkulation abgebrochen (alle in Zirkulation involvierten Stellen)",
+      "subject": "Information über vorzeitiger Abbruch der Stellungnahme (Dossier-Nr. {{DOSSIER_NR}})",
+      "body": "URec System Info 4.13\r\n(dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nVERFAHREN VORZEITIG BEENDET \r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDie Gemeinde hat das Verfahren mit der ID Nr. {{INSTANCE_ID}} / Dossier Nr. {{DOSSIER_NR}} vorzeitig beendet. Weitere Informationen finden Sie unter folgendem Link:\r\n\r\n{{DISTRIBUTION_LINK}}\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n\r\n- Gesuchsteller: {{GESUCHSTELLER}}\r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
   }
 ]
