@@ -1,5 +1,14 @@
 <div class="subnav-header">
   <span class="uk-text-bold">{{@case.dossierNumber}}</span>
+  {{#if @case.dossierNumber}}
+    <UkButton
+      @color="link"
+      @title={{t "cases.copy.title"}}
+      @onClick={{fn this.copyLink @case.dossierNumber}}
+    >
+      <UkIcon @icon="copy" />
+    </UkButton>
+  {{/if}}
   <br />
   {{this.name}}
   <div>
