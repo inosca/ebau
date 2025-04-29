@@ -1,3 +1,5 @@
+import urllib.parse
+
 import pytest
 from alexandria.core.factories import CategoryFactory, FileFactory
 from alexandria.core.models import Document, File
@@ -90,9 +92,10 @@ def test_download(
         assert response.status_code == expected_status
 
         if response.status_code == status.HTTP_200_OK:
+            encoded_filename = urllib.parse.quote(file.name)
             assert (
                 response.headers["content-disposition"]
-                == f'attachment; filename="{file.name}"'
+                == f"attachment; filename*=UTF-8''{encoded_filename}"
             )
             assert response.headers["content-type"] == file.mime_type
             assert response.getvalue() == file.content.file.read()

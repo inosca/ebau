@@ -1,4 +1,5 @@
 import logging
+import urllib.parse
 
 from alexandria.core.models import File
 from django.conf import settings
@@ -339,13 +340,24 @@ class ECHFileView(
             raise NotFound()
 
         file = self.get_object()
-
-        return FileResponse(
+        response = FileResponse(
             file.content,
             content_type=file.mime_type,
             filename=file.name,
             as_attachment=True,
         )
+
+        filename = file.name
+        quoted_filename = urllib.parse.quote(filename)
+
+        # django dynamically uses different content disposition headers depending on the filename (see: https://github.com/django/django/blob/main/django/utils/http.py#L361).
+        # However, this causes issues for some GEVER software companies because they can't handle the inconsistent Content-Disposition header.
+        # Also see the MDN docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Disposition#as_a_response_header_for_the_main_body
+        response["Content-Disposition"] = (
+            f"attachment; filename*=UTF-8''{quoted_filename}"
+        )
+
+        return response
 
     @swagger_auto_schema(
         tags=["eCH-0211 files"],
