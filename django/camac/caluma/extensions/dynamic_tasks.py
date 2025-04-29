@@ -109,6 +109,21 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return [settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"]]
 
+    @canton_aware
+    def resolve_after_decision_gr(self, case, user, prev_work_item, context):
+        construction_monitoring_task = (
+            settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"]
+            if settings.CONSTRUCTION_MONITORING.get("ENABLED")
+            else "construction-acceptance"
+        )
+
+        if domain_logic.DecisionLogic.should_continue_after_decision(
+            case.instance, prev_work_item
+        ):
+            return [construction_monitoring_task]
+
+        return []
+
     @register_dynamic_task("after-decision-ur")
     def resolve_after_decision_ur(self, case, user, prev_work_item, context):
         tasks = []
@@ -425,13 +440,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return []
 
-    # After decision in Kt. SZ, GR and UR
+    # After decision in Kt. SZ
     @register_dynamic_task("after-make-decision")
     def resolve_after_make_decision(self, case, user, prev_work_item, context):
-        if settings.APPLICATION_NAME == "kt_gr":
-            if not settings.CONSTRUCTION_MONITORING.get("ENABLED"):
-                return ["construction-acceptance"]
-
         if can_perform_construction_monitoring(case.instance):
             return ["init-construction-monitoring"]
 
