@@ -11,6 +11,7 @@ from camac.caluma.tests.test_distribution_workflow import (  # noqa: F401
     inquiry_factory_be,
 )
 from camac.conftest import yes_no
+from camac.instance import domain_logic
 
 
 @pytest.mark.parametrize(
@@ -176,6 +177,43 @@ def test_dynamic_task_after_decision(
         geometer_work_item_exists
         if involve_geometer and case.status == Case.STATUS_RUNNING
         else not geometer_work_item_exists
+    )
+
+
+@pytest.mark.parametrize(
+    "construction_monitoring_enabled,should_continue,expected_tasks",
+    [
+        (True, True, ["init-construction-monitoring"]),
+        (True, False, []),
+        (False, True, ["construction-acceptance"]),
+        (False, False, []),
+    ],
+)
+def test_after_decision_gr(
+    mocker,
+    db,
+    set_application_gr,
+    gr_construction_monitoring_settings,
+    gr_instance,
+    # parametrize
+    construction_monitoring_enabled,
+    expected_tasks,
+    should_continue,
+):
+    gr_construction_monitoring_settings["ENABLED"] = construction_monitoring_enabled
+
+    mocker.patch.object(
+        domain_logic.DecisionLogic,
+        "should_continue_after_decision",
+        return_value=should_continue,
+    )
+
+    custom_dynamic_task = CustomDynamicTasks()
+    assert (
+        custom_dynamic_task.resolve_after_decision_gr(
+            gr_instance.case, None, None, None
+        )
+        == expected_tasks
     )
 
 
