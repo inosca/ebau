@@ -9,6 +9,8 @@ services:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
+      args:
+        APPLICATION: ${APPLICATION}
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}

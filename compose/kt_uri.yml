@@ -42,6 +42,8 @@ services:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:master
+      args:
+        - APPLICATION=${APPLICATION}
     depends_on:
       - db
       - keycloak

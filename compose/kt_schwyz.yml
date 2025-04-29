@@ -18,6 +18,8 @@ services:
   django: &django
     build:
       context: ../django
+      args:
+        APPLICATION: ${APPLICATION}
     depends_on:
       - cache
       - clamav
