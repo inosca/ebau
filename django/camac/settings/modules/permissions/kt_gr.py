@@ -37,6 +37,7 @@ FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_VERSIONS, "solaranlage"])
 # Role rules
 ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 
+
 # Module rules
 #
 # In order to have some kind of consistency, those rule should always be sorted
@@ -108,7 +109,13 @@ MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
 )
 
 ACTION_INSTANCE_CREATE_MODIFICATION = (
-    HasApplicantRole(["ADMIN"]) & STATES_POST_DECISION & IsForm(BAUGESUCH_VERSIONS)
+    HasApplicantRole(["ADMIN"])
+    & STATES_POST_DECISION
+    & IsForm(BAUGESUCH_VERSIONS)
+    & (
+        RequireWorkItem("construction-acceptance")
+        | RequireWorkItem("init-construction-monitoring")
+    )
 ) | (ROLES_MUNICIPALITY & IsPaper())
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
