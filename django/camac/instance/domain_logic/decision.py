@@ -66,13 +66,12 @@ class DecisionLogic:
     def should_continue_after_decision(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
-        return (
-            cls.get_decision_answer(
-                question_id=settings.DECISION["QUESTIONS"]["DECISION"],
-                work_item=work_item,
-            )
-            == settings.DECISION["ANSWERS"]["DECISION"]["APPROVED"]
+        decision = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=work_item,
         )
+
+        return cls.is_positive_decision(decision=decision)
 
     @classmethod
     def should_continue_after_decision_so(
@@ -94,18 +93,21 @@ class DecisionLogic:
             # confirmed and then check the decision of the previous instance to
             # determine whether we continue the workflow or not
             previous_instance = work_item.case.document.source.case.instance
+            previous_decision_answer = cls.get_decision_answer(
+                question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+                instance=previous_instance,
+            )
+            previous_construction_tee_answer = cls.get_decision_answer(
+                question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"],
+                instance=previous_instance,
+            )
 
-            return decision == settings.APPEAL["ANSWERS"]["DECISION"][
-                "CONFIRMED"
-            ] and cls.is_positive_decision_so(
-                cls.get_decision_answer(
-                    question_id=settings.DECISION["QUESTIONS"]["DECISION"],
-                    instance=previous_instance,
-                ),
-                cls.get_decision_answer(
-                    question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"],
-                    instance=previous_instance,
-                ),
+            return (
+                decision == settings.APPEAL["ANSWERS"]["DECISION"]["CONFIRMED"]
+                and cls.is_positive_decision(previous_decision_answer)
+            ) or cls.is_construction_tee_decision_so(
+                decision=decision,
+                construction_tee=previous_construction_tee_answer,
             )
 
         if work_item.case.document.form_id == "reklamegesuch":
@@ -113,12 +115,16 @@ class DecisionLogic:
             # construction monitoring process
             return False
 
-        return cls.is_positive_decision_so(
-            decision,
-            cls.get_decision_answer(
-                question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"],
-                work_item=work_item,
-            ),
+        construction_tee_answer = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"],
+            work_item=work_item,
+        )
+
+        return cls.is_positive_decision(
+            decision
+        ) or cls.is_construction_tee_decision_so(
+            decision=decision,
+            construction_tee=construction_tee_answer,
         )
 
     @classmethod
@@ -128,20 +134,6 @@ class DecisionLogic:
         # TODO: Implement logic after decision for Kt. AG. For now, all dossiers
         # will be finished after the decision
         return False
-
-    @classmethod
-    def is_positive_decision_so(cls, decision, construction_tee):
-        return (
-            decision
-            in [
-                settings.DECISION["ANSWERS"]["DECISION"]["APPROVED"],
-                settings.DECISION["ANSWERS"]["DECISION"]["PARTIALLY_APPROVED"],
-            ]
-        ) or (
-            decision == settings.DECISION["ANSWERS"]["DECISION"]["REJECTED"]
-            and construction_tee
-            == settings.DECISION["ANSWERS"]["BAUABSCHLAG"]["MIT_WIEDERHERSTELLUNG"]
-        )
 
     @classmethod
     def should_continue_after_decision_be(
@@ -169,7 +161,7 @@ class DecisionLogic:
         )
 
         return (
-            decision == settings.DECISION["ANSWERS"]["DECISION"]["APPROVED"]
+            cls.is_positive_decision(decision=decision)
             and approval_type
             != settings.DECISION["ANSWERS"]["APPROVAL_TYPE"]["BUILDING_PERMIT_FREE"]
         ) or approval_type in [
@@ -180,6 +172,31 @@ class DecisionLogic:
                 "PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION"
             ],
         ]
+
+    @classmethod
+    def is_construction_tee_decision_so(
+        cls, decision: str, construction_tee: Optional[str]
+    ) -> bool:
+        return (
+            decision == settings.DECISION["ANSWERS"]["DECISION"]["REJECTED"]
+            and construction_tee
+            == settings.DECISION["ANSWERS"]["BAUABSCHLAG"]["MIT_WIEDERHERSTELLUNG"]
+        )
+
+    @classmethod
+    def is_positive_decision(
+        cls,
+        decision: str,
+    ) -> bool:
+        """Return True if the decision is in the list of positive decisions."""
+
+        positive_decisions = settings.DECISION.get("POSITIVE_DECISIONS", [])
+        mapped_positive_decisions = [
+            settings.DECISION["ANSWERS"]["DECISION"].get(decision)
+            for decision in positive_decisions
+        ]
+
+        return decision in mapped_positive_decisions
 
     @classmethod
     def copy_municipality_tags(cls, instance, construction_control):

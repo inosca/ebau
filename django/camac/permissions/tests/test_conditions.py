@@ -1,10 +1,12 @@
 import pytest
+from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.applicants.models import ROLE_CHOICES
 from camac.permissions.api import ACLUserInfo
 from camac.permissions.conditions import (
     HasApplicantRole,
+    HasPositiveDecision,
     IsPaper,
     IsServiceGroup,
     RequireWorkItem,
@@ -135,3 +137,52 @@ def test_is_service_group(db, expected_result, has_service, userinfo):
         userinfo.service = None
 
     assert IsServiceGroup(["foo", "bar"]).apply(userinfo, None) == expected_result
+
+
+@pytest.mark.parametrize(
+    "decision,expected_result",
+    [
+        ("decision-decision-approved", True),
+        ("decision-decision-positive", True),
+        ("decision-decision-positive-with-reservation", True),
+        ("decision-decision-rejected", False),
+    ],
+)
+def test_has_positive_decision(
+    db,
+    gr_instance,
+    gr_decision_settings,
+    gr_permissions_settings,
+    gr_distribution_settings,
+    caluma_admin_user,
+    settings,
+    application_settings,
+    caluma_answer_factory,
+    decision,
+    expected_result,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    application_settings["SHORT_NAME"] = "gr"
+
+    for task_id in [
+        "submit",
+        "formal-exam",
+        "distribution",
+    ]:
+        workflow_api.skip_work_item(
+            work_item=gr_instance.case.work_items.get(task_id=task_id),
+            user=caluma_admin_user,
+        )
+
+    caluma_answer_factory(
+        document=gr_instance.case.work_items.filter(task_id="decision")
+        .first()
+        .document,
+        question__slug="decision-decision",
+        value=decision,
+    )
+
+    assert (
+        HasPositiveDecision("decision-decision").apply(userinfo, gr_instance)
+        == expected_result
+    )

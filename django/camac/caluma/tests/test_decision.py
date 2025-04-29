@@ -365,6 +365,7 @@ def test_should_continue_after_decision_so(
     expected,
     instance,
     form_slug,
+    set_application_so,
 ):
     work_item = caluma_work_item_factory(
         task=caluma_task_factory(slug=so_decision_settings["TASK"]),
@@ -390,9 +391,30 @@ def test_should_continue_after_decision_so(
             value=so_decision_settings["ANSWERS"]["BAUABSCHLAG"][bauabschlag],
         )
 
-    assert (
-        DecisionLogic.should_continue_after_decision_so(instance, work_item) == expected
-    )
+    assert DecisionLogic.should_continue_after_decision(instance, work_item) == expected
+
+
+@pytest.mark.parametrize(
+    "decision,expected",
+    [
+        # negative states
+        ("REJECTED", False),
+        ("WRITTEN_OFF", False),
+        ("NEGATIVE", False),
+        ("WITHDRAWAL", False),
+        ("OTHER", False),
+        # positive states
+        ("APPROVED", True),
+        ("POSITIVE", True),
+        ("POSITIVE_WITH_RESERVATION", True),
+    ],
+)
+def test_is_positive_decision_gr(
+    db, gr_decision_settings, decision, expected, set_application_gr
+):
+    decision = gr_decision_settings["ANSWERS"]["DECISION"][decision]
+
+    assert DecisionLogic.is_positive_decision(decision=decision) == expected
 
 
 @pytest.mark.parametrize("instance_state__name", ["withdrawal"])

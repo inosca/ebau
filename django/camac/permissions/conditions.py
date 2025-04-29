@@ -349,3 +349,33 @@ class IsServiceGroup(Check):
 
     def __repr__(self):
         return f"IsServiceGroup({', '.join(sorted(self.required_service_groups))})"
+
+
+@dataclass
+class HasPositiveDecision(Check):
+    """Permission check for positive decision answer."""
+
+    question_id: str
+
+    def apply(self, userinfo, instance):
+        from camac.instance.domain_logic.decision import DecisionLogic
+
+        return DecisionLogic.is_positive_decision(
+            decision=DecisionLogic.get_decision_answer(
+                question_id=self.question_id,
+                instance=instance,
+            )
+        )
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return False
+
+    def __eq__(self, other):  # pragma: no cover
+        return (
+            isinstance(other, HasPositiveDecision)
+            and other.question_id == self.question_id
+        )
+
+    def __repr__(self):
+        return f"HasPositiveDecision({self.question_id})"

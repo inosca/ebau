@@ -51,6 +51,7 @@ DECISION = {
                 "UNKNOWN": "decision-approval-type-unknown",
             },
         },
+        "POSITIVE_DECISIONS": ["APPROVED"],
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "sb1",
         "TASKS_AFTER_BUILDING_PERMIT_DECISION": [
             "sb1",
@@ -80,6 +81,7 @@ DECISION = {
                 "OHNE_WIEDERHERSTELLUNG": "entscheid-bauabschlag-ohne-wiederherstellung",
             },
         },
+        "POSITIVE_DECISIONS": ["APPROVED", "PARTIALLY_APPROVED"],
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
         "INSTANCE_STATE_AFTER_NEGATIVE_DECISION": "decided",
     },
@@ -97,6 +99,7 @@ DECISION = {
                 "OTHER": "decision-decision-other",
             },
         },
+        "POSITIVE_DECISIONS": ["APPROVED", "POSITIVE", "POSITIVE_WITH_RESERVATION"],
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "construction-acceptance",
     },
     "kt_ag": {
@@ -116,6 +119,7 @@ DECISION = {
                 # "NEGATIVE": "entscheid-entscheid-negativ",
             },
         },
+        "POSITIVE_DECISIONS": ["APPROVED"],
         # "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "construction-acceptance",
         # "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-acceptance"],
     },
