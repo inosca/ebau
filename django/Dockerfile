@@ -68,6 +68,9 @@ RUN pip install --no-cache-dir --upgrade -r $REQUIREMENTS --disable-pip-version-
 
 COPY . $APP_HOME
 
+ARG APPLICATION=demo
+RUN /app/build-static-assets.sh
+
 EXPOSE 80
 
 ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
