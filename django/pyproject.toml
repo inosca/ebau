@@ -156,6 +156,7 @@ omit = [
     "camac/instance/management/commands/create_rsta_migrated_instance.py",
     "camac/instance/management/commands/fix_broken_be_instances.py",
     "camac/instance/management/commands/fix_decision_documents.py",
+    "camac/instance/management/commands/fix_gr_workitems_no_addressedgroups.py",
     "camac/instance/management/commands/migrate_activations.py",
     "camac/core/management/commands/repair_sz_workflow.py",
     # Permission module temporary commands. These are used during the transition
