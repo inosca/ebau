@@ -171,7 +171,7 @@ class LocationSerializer(serializers.ModelSerializer):
 class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     city = MultilingualField()
     description = MultilingualField()
-    department = MultilingualField(required=False)
+    department = MultilingualField(required=False, allow_null=True)
     users = relations.SerializerMethodResourceRelatedField(
         source="get_users", model=models.User, read_only=True, many=True
     )
