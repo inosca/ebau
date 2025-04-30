@@ -42836,7 +42836,7 @@
     "pk": 42,
     "fields": {
       "available_resource": "emberlist",
-      "name": "Dossier suchen",
+      "name": "Dossiers",
       "description": "Allgemeine Suche",
       "template": "/global/search.phtml",
       "class_field": null,
@@ -42953,7 +42953,7 @@
     "pk": 318,
     "fields": {
       "available_resource": "useradmin",
-      "name": "Einstellungen",
+      "name": "Mailversand verwalten",
       "description": null,
       "template": null,
       "class_field": null,
@@ -42966,7 +42966,7 @@
     "pk": 319,
     "fields": {
       "available_resource": "workitemlistall",
-      "name": "Aufgabenliste",
+      "name": "Aufgaben",
       "description": null,
       "template": null,
       "class_field": null,
@@ -43009,7 +43009,7 @@
       "description": null,
       "template": null,
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 1
     }
   },
@@ -43018,7 +43018,7 @@
     "pk": 12000004,
     "fields": {
       "available_resource": "page",
-      "name": "Vorlagen (Admin)",
+      "name": "Vorlagenverwaltung",
       "description": null,
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
