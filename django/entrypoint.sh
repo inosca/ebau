@@ -2,11 +2,11 @@
 set -euf
 
 loadconfig() {
-  ./manage.py camac_load
+  wait-for-it "$DATABASE_HOST:$DATABASE_PORT" -- ./manage.py camac_load
 }
 
 migrate() {
-  ./manage.py migrate
+  wait-for-it "$DATABASE_HOST:$DATABASE_PORT" -- ./manage.py migrate
 }
 
 # Default command (from Dockerfile) is "uwsgi". This implies production mode
@@ -46,6 +46,7 @@ esac
 
 case "$1" in
   devserver )
+    migrate
     exec python manage.py runserver 0:80 --pythonpath /app/$APPLICATION
     ;;
   uwsgi )
@@ -71,6 +72,7 @@ case "$1" in
     exec python ./manage.py serve --static --port "${DJANGO_SERVER_PORT:-80}" --req-queue-len "${HURRICANE_REQ_QUEUE_LEN:-150}" --workers "${HURRICANE_WORKERS:-4}"
     ;;
   hurricanedev )
+    migrate
     exec python ./manage.py serve --static --autoreload --port "${DJANGO_SERVER_PORT:-80}" --req-queue-len "${HURRICANE_REQ_QUEUE_LEN:-50}"
     ;;
   qcluster )
