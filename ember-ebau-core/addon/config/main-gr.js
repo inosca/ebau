@@ -108,7 +108,7 @@ export default {
       "decision-decision-written-off": "uk-alert-warning",
       "decision-decision-positive": "uk-alert-success",
       "decision-decision-negative": "uk-alert-danger",
-      "decision-decision-positive-with-reservation": "uk-alert-warning",
+      "decision-decision-positive-with-reservation": "uk-alert-success",
       "decision-decision-retreat": "uk-alert-warning",
     },
   },
