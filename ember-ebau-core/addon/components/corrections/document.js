@@ -46,12 +46,19 @@ export default class CorrectionsDocument extends Component {
       return;
     }
 
-    await this.documentCorrection.perform();
+    try {
+      await this.documentCorrection.perform();
 
-    await this.router.transitionTo("cases.detail.form", this.args.instance.id);
+      await this.router.transitionTo(
+        "cases.detail.form",
+        this.args.instance.id,
+      );
 
-    // need this to have current data on the whole page
-    location.reload();
+      // need this to have current data on the whole page
+      location.reload();
+    } catch {
+      // error messages are handled in documentCorrection task
+    }
   });
 
   finishCorrection = task({ drop: true }, async (validate) => {
@@ -63,10 +70,14 @@ export default class CorrectionsDocument extends Component {
       return;
     }
 
-    await this.documentCorrection.perform();
+    try {
+      await this.documentCorrection.perform();
 
-    // need this to have current data on the whole page
-    location.reload();
+      // need this to have current data on the whole page
+      location.reload();
+    } catch {
+      // error messages are handled in documentCorrection task
+    }
   });
 
   documentCorrection = task({ drop: true }, async () => {
@@ -83,6 +94,8 @@ export default class CorrectionsDocument extends Component {
       } else {
         this.notification.danger(this.intl.t("corrections.document.error"));
       }
+
+      throw error;
     }
   });
 }
