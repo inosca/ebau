@@ -48,6 +48,7 @@ communications:
     saveError: Le message n'a pas pu être envoyé. Veuillez réessayer.
     uploadErrorVirus: Un fichier n'a pas pu être téléchargé car il a été identifié comme défectueux (virus/malware)
     applicant: Requérant/e
+    allRecipients: Tous les destinataires
 
   message:
     messageInputLabel: Message
