@@ -5,6 +5,7 @@ import registerBilling from "ember-ebau-core/modules/billing";
 import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerConstructionMonitoring from "ember-ebau-core/modules/construction-monitoring";
+import registerCorrections from "ember-ebau-core/modules/corrections";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerDossierImport from "ember-ebau-core/modules/dossier-import";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
@@ -65,7 +66,6 @@ Router.map(function () {
         this.route("journal");
         this.route("history");
         this.route("dms-generate");
-        this.route("corrections");
         this.route("distribution", function () {
           this.mount("@projectcaluma/ember-distribution", {
             as: "distribution-engine",
@@ -84,6 +84,7 @@ Router.map(function () {
         registerPermissions(this);
         registerConstructionMonitoring(this);
         registerLinkedInstances(this);
+        registerCorrections(this);
       });
       this.route("new");
       this.route("not-found");
