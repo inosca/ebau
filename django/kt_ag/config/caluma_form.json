@@ -155,6 +155,29 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "anfrage-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:01.043Z",
+      "modified_at": "2025-03-27T17:01:01.043Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Anfrage - Migration\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": "uvp-migration"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "arbeitssicherheit-formular",
     "fields": {
       "created_at": "2024-11-19T09:52:02.811Z",
@@ -335,10 +358,10 @@
     "pk": "beschreibung-migration",
     "fields": {
       "created_at": "2025-01-23T14:13:40.313Z",
-      "modified_at": "2025-01-23T14:13:40.313Z",
+      "modified_at": "2025-04-14T12:59:39.635Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -766,6 +789,29 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "reklame-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:13.908Z",
+      "modified_at": "2025-03-27T17:01:13.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Reklame - Migration\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": "anfrage-migration"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "reklamen",
     "fields": {
       "created_at": "2024-11-06T13:06:27.591Z",
@@ -820,6 +866,29 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "uvp-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:00:33.931Z",
+      "modified_at": "2025-03-27T17:00:33.931Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"UVP - Migration\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": "baugesuch-migration"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "vorentscheid",
     "fields": {
       "created_at": "2024-12-04T09:44:56.191Z",
@@ -839,6 +908,29 @@
       "is_published": true,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "vorentscheid-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:30.463Z",
+      "modified_at": "2025-03-27T17:01:30.463Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vorentscheid - Migration\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": "reklame-migration"
     }
   },
   {
@@ -1257,6 +1349,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-migration.art-des-gesuchs",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.413Z",
+      "modified_at": "2025-03-28T12:48:17.413Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-migration",
+      "question": "art-des-gesuchs",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-migration.baugespann",
     "fields": {
       "created_at": "2025-01-23T12:57:22.116Z",
@@ -1347,6 +1454,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-migration.erfassungsgrund",
+    "fields": {
+      "created_at": "2025-03-28T12:45:48.514Z",
+      "modified_at": "2025-03-28T12:45:48.514Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-migration",
+      "question": "erfassungsgrund",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-migration.gebaeude",
     "fields": {
       "created_at": "2025-01-23T10:47:41.459Z",
@@ -1372,7 +1494,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "gemeinde",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -1507,7 +1629,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "weitere-gemeinden",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -1778,6 +1900,126 @@
       "form": "anfrage-intern",
       "question": "nutzung-bauvorhaben",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-migration.allgemeine-informationen-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:01.052Z",
+      "modified_at": "2025-03-27T17:01:01.052Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-migration",
+      "question": "allgemeine-informationen-migration",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-migration.bauzonen-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:01:01.071Z",
+      "modified_at": "2025-03-27T17:01:01.071Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-migration",
+      "question": "bauzonen-migration-form",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-migration.beschreibung-form-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:01.062Z",
+      "modified_at": "2025-03-27T17:01:01.062Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-migration",
+      "question": "beschreibung-form-migration",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-migration.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2025-03-27T17:01:01.079Z",
+      "modified_at": "2025-03-27T17:01:01.079Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-migration",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-migration.einreichen",
+    "fields": {
+      "created_at": "2025-03-27T17:01:01.082Z",
+      "modified_at": "2025-03-27T17:01:01.082Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-migration",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-migration.gebaeudetechnik-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:01:01.066Z",
+      "modified_at": "2025-03-27T17:01:01.067Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-migration",
+      "question": "gebaeudetechnik-migration-form",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-migration.kontakte-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:01.058Z",
+      "modified_at": "2025-03-27T17:01:01.058Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-migration",
+      "question": "kontakte-migration",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "anfrage-migration.weitere-angaben-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:01:01.075Z",
+      "modified_at": "2025-03-27T17:01:01.075Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "anfrage-migration",
+      "question": "weitere-angaben-migration-form",
+      "sort": 5
     }
   },
   {
@@ -3007,7 +3249,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "ausnuetzungsziffer-gemaess-bauprojekt-migration",
-      "sort": 10
+      "sort": 14
     }
   },
   {
@@ -3022,7 +3264,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "ausnuetzungsziffer-gemaess-zonenordnung-migration",
-      "sort": 11
+      "sort": 15
     }
   },
   {
@@ -3037,7 +3279,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "baumassenziffer-gemaess-bauprojekt-migration",
-      "sort": 8
+      "sort": 12
     }
   },
   {
@@ -3052,7 +3294,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "baumassenziffer-gemaess-zonenordnung-migration",
-      "sort": 9
+      "sort": 13
     }
   },
   {
@@ -3097,7 +3339,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "dichteziffern-headline-migration",
-      "sort": 12
+      "sort": 16
     }
   },
   {
@@ -3112,7 +3354,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "empfindlichkeits-stufe-gemaess-bau-und-nutzungsordnung-migration",
-      "sort": 13
+      "sort": 1
     }
   },
   {
@@ -3127,7 +3369,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "erdbebenkonformitaetserklaerung-migration",
-      "sort": 14
+      "sort": 2
     }
   },
   {
@@ -3142,7 +3384,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "geschossflaechenziffer-gemaess-bauprojekt-migration",
-      "sort": 4
+      "sort": 8
     }
   },
   {
@@ -3157,7 +3399,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "geschossflaechenziffer-gemaess-zonenordnung-migration",
-      "sort": 5
+      "sort": 9
     }
   },
   {
@@ -3172,7 +3414,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "gewaesserschutzbereich-auswahl-migration",
-      "sort": 16
+      "sort": 4
     }
   },
   {
@@ -3187,7 +3429,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "gruenflaechenziffer-gemaess-bauprojekt-migration",
-      "sort": 6
+      "sort": 10
     }
   },
   {
@@ -3202,7 +3444,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "gruenflaechenziffer-gemaess-zonenordnung-migration",
-      "sort": 7
+      "sort": 11
     }
   },
   {
@@ -3217,7 +3459,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "hochwassergefaehrdung-auswahl-migration",
-      "sort": 15
+      "sort": 3
     }
   },
   {
@@ -3247,7 +3489,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "ueberbauungsziffer-gemaess-bauprojekt-migration",
-      "sort": 2
+      "sort": 6
     }
   },
   {
@@ -3262,7 +3504,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "ueberbauungsziffer-gemaess-zonenordnung-migration",
-      "sort": 3
+      "sort": 7
     }
   },
   {
@@ -3292,7 +3534,7 @@
       "modified_by_group": null,
       "form": "bauzonen-migration",
       "question": "weitere-angaben-bauzonen-headline-migration",
-      "sort": 1
+      "sort": 5
     }
   },
   {
@@ -3653,21 +3895,6 @@
       "form": "beschreibung-migration",
       "question": "weitere-angaben-wohnnutzung",
       "sort": 26
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "beschreibung-migration.weitere-angaben-zur-gewerblichen-nutzung",
-    "fields": {
-      "created_at": "2025-01-23T14:20:58.106Z",
-      "modified_at": "2025-01-23T14:20:58.106Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "beschreibung-migration",
-      "question": "weitere-angaben-zur-gewerblichen-nutzung",
-      "sort": 24
     }
   },
   {
@@ -6282,6 +6509,126 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "reklame-migration.allgemeine-informationen-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:13.919Z",
+      "modified_at": "2025-03-27T17:01:13.919Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklame-migration",
+      "question": "allgemeine-informationen-migration",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-migration.bauzonen-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:01:13.935Z",
+      "modified_at": "2025-03-27T17:01:13.935Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklame-migration",
+      "question": "bauzonen-migration-form",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-migration.beschreibung-form-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:13.928Z",
+      "modified_at": "2025-03-27T17:01:13.928Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklame-migration",
+      "question": "beschreibung-form-migration",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-migration.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2025-03-27T17:01:13.945Z",
+      "modified_at": "2025-03-27T17:01:13.945Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklame-migration",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-migration.einreichen",
+    "fields": {
+      "created_at": "2025-03-27T17:01:13.949Z",
+      "modified_at": "2025-03-27T17:01:13.949Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklame-migration",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-migration.gebaeudetechnik-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:01:13.931Z",
+      "modified_at": "2025-03-27T17:01:13.931Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklame-migration",
+      "question": "gebaeudetechnik-migration-form",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-migration.kontakte-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:13.925Z",
+      "modified_at": "2025-03-27T17:01:13.925Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklame-migration",
+      "question": "kontakte-migration",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "reklame-migration.weitere-angaben-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:01:13.939Z",
+      "modified_at": "2025-03-27T17:01:13.939Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "reklame-migration",
+      "question": "weitere-angaben-migration-form",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "reklamen.hinweise-reklamen",
     "fields": {
       "created_at": "2024-11-06T13:28:41.502Z",
@@ -6627,6 +6974,126 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "uvp-migration.allgemeine-informationen-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:00:33.955Z",
+      "modified_at": "2025-03-27T17:00:33.955Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "uvp-migration",
+      "question": "allgemeine-informationen-migration",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "uvp-migration.bauzonen-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:00:33.982Z",
+      "modified_at": "2025-03-27T17:00:33.982Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "uvp-migration",
+      "question": "bauzonen-migration-form",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "uvp-migration.beschreibung-form-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:00:33.972Z",
+      "modified_at": "2025-03-27T17:00:33.972Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "uvp-migration",
+      "question": "beschreibung-form-migration",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "uvp-migration.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2025-03-27T17:00:33.989Z",
+      "modified_at": "2025-03-27T17:00:33.989Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "uvp-migration",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "uvp-migration.einreichen",
+    "fields": {
+      "created_at": "2025-03-27T17:00:33.993Z",
+      "modified_at": "2025-03-27T17:00:33.993Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "uvp-migration",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "uvp-migration.gebaeudetechnik-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:00:33.976Z",
+      "modified_at": "2025-03-27T17:00:33.976Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "uvp-migration",
+      "question": "gebaeudetechnik-migration-form",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "uvp-migration.kontakte-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:00:33.967Z",
+      "modified_at": "2025-03-27T17:00:33.967Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "uvp-migration",
+      "question": "kontakte-migration",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "uvp-migration.weitere-angaben-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:00:33.986Z",
+      "modified_at": "2025-03-27T17:00:33.986Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "uvp-migration",
+      "question": "weitere-angaben-migration-form",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorentscheid.allgemeine-informationen",
     "fields": {
       "created_at": "2024-12-04T09:45:23.774Z",
@@ -6687,6 +7154,126 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-migration.allgemeine-informationen-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:30.473Z",
+      "modified_at": "2025-03-27T17:01:30.473Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-migration",
+      "question": "allgemeine-informationen-migration",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-migration.bauzonen-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:01:30.492Z",
+      "modified_at": "2025-03-27T17:01:30.492Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-migration",
+      "question": "bauzonen-migration-form",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-migration.beschreibung-form-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:30.482Z",
+      "modified_at": "2025-03-27T17:01:30.482Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-migration",
+      "question": "beschreibung-form-migration",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-migration.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2025-03-27T17:01:30.500Z",
+      "modified_at": "2025-03-27T17:01:30.500Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-migration",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-migration.einreichen",
+    "fields": {
+      "created_at": "2025-03-27T17:01:30.504Z",
+      "modified_at": "2025-03-27T17:01:30.504Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-migration",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-migration.gebaeudetechnik-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:01:30.487Z",
+      "modified_at": "2025-03-27T17:01:30.487Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-migration",
+      "question": "gebaeudetechnik-migration-form",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-migration.kontakte-migration",
+    "fields": {
+      "created_at": "2025-03-27T17:01:30.477Z",
+      "modified_at": "2025-03-27T17:01:30.477Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-migration",
+      "question": "kontakte-migration",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorentscheid-migration.weitere-angaben-migration-form",
+    "fields": {
+      "created_at": "2025-03-27T17:01:30.496Z",
+      "modified_at": "2025-03-27T17:01:30.496Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorentscheid-migration",
+      "question": "weitere-angaben-migration-form",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorentscheid.nutzung-bauvorhaben",
     "fields": {
       "created_at": "2024-12-04T09:46:36.197Z",
@@ -6727,7 +7314,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "angaben-headline-migration",
-      "sort": 44
+      "sort": 49
     }
   },
   {
@@ -6742,7 +7329,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "angaben-zur-sicherheit-headline-migration",
-      "sort": 32
+      "sort": 37
     }
   },
   {
@@ -6787,7 +7374,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "bauten-ausserhalb-der-bauzone",
-      "sort": 16
+      "sort": 19
     }
   },
   {
@@ -6802,7 +7389,52 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
-      "sort": 17
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.begruendung-fuer-die-unterschreitung-gewaesserabstand",
+    "fields": {
+      "created_at": "2025-04-22T13:58:32.480Z",
+      "modified_at": "2025-04-22T13:58:32.480Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "begruendung-fuer-die-unterschreitung-gewaesserabstand",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.begruendung-fuer-die-unterschreitung-kantonsstrasse-migration",
+    "fields": {
+      "created_at": "2025-04-22T09:48:26.408Z",
+      "modified_at": "2025-04-22T09:48:26.409Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "begruendung-fuer-die-unterschreitung-kantonsstrasse-migration",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.begruendung-fuer-die-unterschreitung-wald-migration",
+    "fields": {
+      "created_at": "2025-04-22T09:48:50.767Z",
+      "modified_at": "2025-04-22T09:48:50.767Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "begruendung-fuer-die-unterschreitung-wald-migration",
+      "sort": 21
     }
   },
   {
@@ -6867,6 +7499,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.gewaessername-migration",
+    "fields": {
+      "created_at": "2025-04-22T13:57:23.144Z",
+      "modified_at": "2025-04-22T13:57:23.144Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "gewaessername-migration",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "weitere-angaben-migration.grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
     "fields": {
       "created_at": "2025-01-24T13:53:26.493Z",
@@ -6877,7 +7524,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
-      "sort": 38
+      "sort": 43
     }
   },
   {
@@ -6892,7 +7539,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
-      "sort": 14
+      "sort": 17
     }
   },
   {
@@ -6907,7 +7554,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
-      "sort": 15
+      "sort": 18
     }
   },
   {
@@ -6922,7 +7569,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
-      "sort": 28
+      "sort": 33
     }
   },
   {
@@ -6937,7 +7584,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
-      "sort": 31
+      "sort": 36
     }
   },
   {
@@ -6952,7 +7599,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "ist-ein-energienachweis-erforderlich-migration",
-      "sort": 33
+      "sort": 38
     }
   },
   {
@@ -6967,7 +7614,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
-      "sort": 21
+      "sort": 25
     }
   },
   {
@@ -6997,7 +7644,22 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "ist-ein-materialabbau-geplant-migration",
-      "sort": 35
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten",
+    "fields": {
+      "created_at": "2025-04-22T14:00:52.366Z",
+      "modified_at": "2025-04-22T14:00:52.366Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten",
+      "sort": 11
     }
   },
   {
@@ -7012,7 +7674,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
-      "sort": 10
+      "sort": 13
     }
   },
   {
@@ -7027,7 +7689,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
-      "sort": 30
+      "sort": 35
     }
   },
   {
@@ -7042,7 +7704,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "kantonsstrasse-headline-migration",
-      "sort": 24
+      "sort": 29
     }
   },
   {
@@ -7057,7 +7719,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "kantonsstrassen",
-      "sort": 23
+      "sort": 28
     }
   },
   {
@@ -7072,7 +7734,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "kommunale-randschutzbewilligung-erforderlich-migration",
-      "sort": 29
+      "sort": 34
     }
   },
   {
@@ -7087,7 +7749,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
-      "sort": 26
+      "sort": 31
     }
   },
   {
@@ -7102,7 +7764,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
-      "sort": 13
+      "sort": 16
     }
   },
   {
@@ -7117,7 +7779,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "schutzraumbaupflicht-ersatzabgabepflicht-migration",
-      "sort": 25
+      "sort": 30
     }
   },
   {
@@ -7132,7 +7794,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "sind-altlasten-betroffen-migration",
-      "sort": 39
+      "sort": 44
     }
   },
   {
@@ -7147,7 +7809,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "sind-eingriffe-in-den-boden-geplant-migration",
-      "sort": 37
+      "sort": 42
     }
   },
   {
@@ -7162,7 +7824,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "sind-erdsonden-geplant-migration",
-      "sort": 42
+      "sort": 47
     }
   },
   {
@@ -7177,7 +7839,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "sind-laermschutzmassnahmen-erforderlich-migration",
-      "sort": 36
+      "sort": 41
     }
   },
   {
@@ -7192,7 +7854,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
-      "sort": 20
+      "sort": 24
     }
   },
   {
@@ -7207,7 +7869,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
-      "sort": 41
+      "sort": 46
     }
   },
   {
@@ -7222,7 +7884,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
-      "sort": 12
+      "sort": 15
     }
   },
   {
@@ -7237,7 +7899,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "solaranlage-photovoltaikanalge-geplant",
-      "sort": 40
+      "sort": 45
     }
   },
   {
@@ -7252,7 +7914,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
-      "sort": 34
+      "sort": 39
     }
   },
   {
@@ -7267,7 +7929,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "stoerfallverordnung-migration",
-      "sort": 27
+      "sort": 32
     }
   },
   {
@@ -7312,7 +7974,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "umweltrechtliche-angaben-headline-migration",
-      "sort": 43
+      "sort": 48
     }
   },
   {
@@ -7327,7 +7989,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "wald-headline-migration",
-      "sort": 19
+      "sort": 23
     }
   },
   {
@@ -7342,7 +8004,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "weitere-angaben-gewaesser-denkmalschutz-luftfahrthindernis-headline-migration",
-      "sort": 11
+      "sort": 14
     }
   },
   {
@@ -7357,7 +8019,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
-      "sort": 18
+      "sort": 22
     }
   },
   {
@@ -7372,7 +8034,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
-      "sort": 22
+      "sort": 27
     }
   },
   {
@@ -8062,6 +8724,159 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Werkhof\", \"fr\": null, \"it\": \"Centro di manutenzione\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-gesuchs-abbruch",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.231Z",
+      "modified_at": "2025-03-28T12:48:17.231Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abbruch\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-gesuchs-anfrage",
+    "fields": {
+      "created_at": "2025-03-28T12:48:16.960Z",
+      "modified_at": "2025-03-28T12:48:16.960Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anfrage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-gesuchs-baugesuch",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.005Z",
+      "modified_at": "2025-03-28T12:48:17.005Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baugesuch\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-gesuchs-pgv",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.267Z",
+      "modified_at": "2025-03-28T12:48:17.267Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"PGV\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-gesuchs-reklame",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.192Z",
+      "modified_at": "2025-03-28T12:48:17.192Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reklame\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-gesuchs-rodung",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.154Z",
+      "modified_at": "2025-03-28T12:48:17.154Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rodung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-gesuchs-umnutzung",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.083Z",
+      "modified_at": "2025-03-28T12:48:17.083Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umnutzung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-gesuchs-umweltvertraeglichkeitspruefung-uvp",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.043Z",
+      "modified_at": "2025-03-28T12:48:17.043Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umweltvertr\\u00e4glichkeitspr\\u00fcfung (UVP)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-gesuchs-vorentscheid",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.120Z",
+      "modified_at": "2025-03-28T12:48:17.120Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorentscheid\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -10552,6 +11367,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "erfassungsgrund-bauen-ohne-baubewilligung",
+    "fields": {
+      "created_at": "2025-03-28T12:45:48.237Z",
+      "modified_at": "2025-03-28T12:45:48.237Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauen ohne Baubewilligung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erfassungsgrund-gesuch-in-papierform",
+    "fields": {
+      "created_at": "2025-03-28T12:45:48.183Z",
+      "modified_at": "2025-03-28T12:45:48.184Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesuch in Papierform\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erfassungsgrund-nacherfassung",
+    "fields": {
+      "created_at": "2025-03-28T12:45:48.275Z",
+      "modified_at": "2025-03-28T12:45:48.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nacherfassung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "erfassungsgrund-online-erfassung",
+    "fields": {
+      "created_at": "2025-03-28T12:45:48.315Z",
+      "modified_at": "2025-03-28T12:45:48.315Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Online Erfassung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "fachgerechte-projektierung-ja",
     "fields": {
       "created_at": "2024-11-27T15:01:45.899Z",
@@ -11355,6 +12238,40 @@
     "fields": {
       "created_at": "2025-01-24T13:55:21.460Z",
       "modified_at": "2025-01-24T13:55:21.460Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-ja",
+    "fields": {
+      "created_at": "2025-04-22T14:00:52.235Z",
+      "modified_at": "2025-04-22T14:00:52.235Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-nein",
+    "fields": {
+      "created_at": "2025-04-22T14:00:52.238Z",
+      "modified_at": "2025-04-22T14:00:52.238Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -15950,6 +16867,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "art-des-gesuchs",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.328Z",
+      "modified_at": "2025-03-28T12:48:17.328Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art des Gesuchs\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "art-des-gewaessers",
     "fields": {
       "created_at": "2023-04-19T10:17:18.887Z",
@@ -17019,6 +17967,108 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "begruendung-fuer-die-unterschreitung-gewaesserabstand",
+    "fields": {
+      "created_at": "2025-04-22T13:58:32.423Z",
+      "modified_at": "2025-04-22T13:58:32.423Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung f\\u00fcr die Unterschreitung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "begruendung-fuer-die-unterschreitung-kantonsstrasse-migration",
+    "fields": {
+      "created_at": "2025-04-22T09:48:26.357Z",
+      "modified_at": "2025-04-22T09:48:26.357Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung f\\u00fcr die Unterschreitung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "begruendung-fuer-die-unterschreitung-wald-migration",
+    "fields": {
+      "created_at": "2025-04-22T09:48:50.719Z",
+      "modified_at": "2025-04-22T09:49:32.910Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung f\\u00fcr die Unterschreitung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -19403,6 +20453,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "erfassungsgrund",
+    "fields": {
+      "created_at": "2025-03-28T12:45:48.399Z",
+      "modified_at": "2025-03-28T12:45:48.399Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erfassungsgrund\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ergaenzenden-angaben-zum-bauprojekt",
     "fields": {
       "created_at": "2024-11-19T10:04:08.436Z",
@@ -20274,6 +21355,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gewaessername-migration",
+    "fields": {
+      "created_at": "2025-04-22T13:57:23.080Z",
+      "modified_at": "2025-04-22T13:57:23.080Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gew\\u00e4ssername\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -21381,6 +22496,37 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ist ein Materialabbau geplant?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten",
+    "fields": {
+      "created_at": "2025-04-22T14:00:52.291Z",
+      "modified_at": "2025-04-22T14:00:52.291Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist mit dem Vorhaben der Gew\\u00e4sserabstand unterschritten?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -26126,6 +27272,141 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "art-des-gesuchs.art-des-gesuchs-abbruch",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.342Z",
+      "modified_at": "2025-03-28T12:48:17.342Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-gesuchs",
+      "option": "art-des-gesuchs-abbruch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-gesuchs.art-des-gesuchs-anfrage",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.359Z",
+      "modified_at": "2025-03-28T12:48:17.359Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-gesuchs",
+      "option": "art-des-gesuchs-anfrage",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-gesuchs.art-des-gesuchs-baugesuch",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.357Z",
+      "modified_at": "2025-03-28T12:48:17.357Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-gesuchs",
+      "option": "art-des-gesuchs-baugesuch",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-gesuchs.art-des-gesuchs-pgv",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.336Z",
+      "modified_at": "2025-03-28T12:48:17.336Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-gesuchs",
+      "option": "art-des-gesuchs-pgv",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-gesuchs.art-des-gesuchs-reklame",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.344Z",
+      "modified_at": "2025-03-28T12:48:17.344Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-gesuchs",
+      "option": "art-des-gesuchs-reklame",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-gesuchs.art-des-gesuchs-rodung",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.347Z",
+      "modified_at": "2025-03-28T12:48:17.347Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-gesuchs",
+      "option": "art-des-gesuchs-rodung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-gesuchs.art-des-gesuchs-umnutzung",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.352Z",
+      "modified_at": "2025-03-28T12:48:17.352Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-gesuchs",
+      "option": "art-des-gesuchs-umnutzung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-gesuchs.art-des-gesuchs-umweltvertraeglichkeitspruefung-uvp",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.354Z",
+      "modified_at": "2025-03-28T12:48:17.354Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-gesuchs",
+      "option": "art-des-gesuchs-umweltvertraeglichkeitspruefung-uvp",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-gesuchs.art-des-gesuchs-vorentscheid",
+    "fields": {
+      "created_at": "2025-03-28T12:48:17.350Z",
+      "modified_at": "2025-03-28T12:48:17.350Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-gesuchs",
+      "option": "art-des-gesuchs-vorentscheid",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "art-des-gewaessers.art-des-gewaessers-andere",
     "fields": {
       "created_at": "2023-10-25T08:18:03.310Z",
@@ -28316,6 +29597,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "erfassungsgrund.erfassungsgrund-bauen-ohne-baubewilligung",
+    "fields": {
+      "created_at": "2025-03-28T12:45:48.447Z",
+      "modified_at": "2025-03-28T12:45:48.447Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "erfassungsgrund",
+      "option": "erfassungsgrund-bauen-ohne-baubewilligung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erfassungsgrund.erfassungsgrund-gesuch-in-papierform",
+    "fields": {
+      "created_at": "2025-03-28T12:45:48.451Z",
+      "modified_at": "2025-03-28T12:45:48.451Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "erfassungsgrund",
+      "option": "erfassungsgrund-gesuch-in-papierform",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erfassungsgrund.erfassungsgrund-nacherfassung",
+    "fields": {
+      "created_at": "2025-03-28T12:45:48.440Z",
+      "modified_at": "2025-03-28T12:45:48.440Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "erfassungsgrund",
+      "option": "erfassungsgrund-nacherfassung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "erfassungsgrund.erfassungsgrund-online-erfassung",
+    "fields": {
+      "created_at": "2025-03-28T12:45:48.427Z",
+      "modified_at": "2025-03-28T12:45:48.427Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "erfassungsgrund",
+      "option": "erfassungsgrund-online-erfassung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "fachgerechte-projektierung.fachgerechte-projektierung-ja",
     "fields": {
       "created_at": "2025-01-14T09:50:03.041Z",
@@ -29031,6 +30372,36 @@
       "modified_by_group": null,
       "question": "ist-ein-materialabbau-geplant-migration",
       "option": "ist-ein-materialabbau-geplant-migration-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten.ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-ja",
+    "fields": {
+      "created_at": "2025-04-22T14:00:52.306Z",
+      "modified_at": "2025-04-22T14:00:52.306Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten",
+      "option": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten.ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-nein",
+    "fields": {
+      "created_at": "2025-04-22T14:00:52.298Z",
+      "modified_at": "2025-04-22T14:00:52.298Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten",
+      "option": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-nein",
       "sort": 1
     }
   },

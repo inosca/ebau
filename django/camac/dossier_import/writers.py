@@ -4,10 +4,10 @@ import re
 import traceback
 import weakref
 from abc import ABC, abstractmethod
-from dataclasses import asdict, fields
+from dataclasses import asdict, fields, is_dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Any, List, Optional
+from typing import Any, Callable, List, Mapping, Optional
 
 import magic
 from alexandria.core.tasks import make_checksum
@@ -225,7 +225,7 @@ class CalumaAnswerWriter(FieldWriter):
     def __init__(
         self,
         task: str = None,
-        formatter: str = None,
+        formatter: Optional[str | Callable] = None,
         *args,
         **kwargs,
     ):
@@ -233,13 +233,33 @@ class CalumaAnswerWriter(FieldWriter):
         self.formatter = formatter
         super().__init__(*args, **kwargs)
 
+    def _apply_value_format(self, value):
+        if self.formatter == "to-string":
+            return str(value)
+        if callable(self.formatter):
+            return self.formatter(value)
+        return value
+
     def write(self, instance, value):
         if not value:
             return
-        if self.formatter == "to-string":
-            value = str(value)
+
+        old_value = value
+        value = self._apply_value_format(old_value)
+
+        dossier = self.context.get("dossier")
+
+        if not value:  # pragma: no cover
+            dossier._meta.errors.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    detail=f"'{self.target}': '{old_value}' could not be formatted.",
+                )
+            )
+            return
+
         try:
-            dossier = self.context.get("dossier")
             if self.task:
                 work_item = instance.case.work_items.filter(task_id=self.task).first()
 
@@ -311,12 +331,12 @@ class CalumaAnswerWriter(FieldWriter):
                         username=self.owner._user.username, group=self.owner._group.pk
                     ),
                 )
-            except ValidationError:  # pragma: no cover
+            except ValidationError as v:  # pragma: no cover
                 dossier._meta.errors.append(
                     Message(
                         level=Severity.WARNING.value,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                        detail=f"Failed to write {value} to {self.target}",
+                        detail=f"Failed to write {value} to {self.target}: {v}",
                     )
                 )
                 return
@@ -388,6 +408,18 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
 
 
 class CalumaListAnswerWriter(FieldWriter):
+    def _iter_fields(self, obj):  # Ist ein Generator
+        if is_dataclass(obj):
+            return ((f.name, getattr(obj, f.name)) for f in fields(obj))
+        elif isinstance(obj, Mapping):
+            return obj.items()
+
+    def _values(self, obj):
+        if is_dataclass(obj):
+            return asdict(obj).values()
+        elif isinstance(obj, Mapping):
+            return obj.values()
+
     def write(self, instance, values):  # noqa: C901
         if not values:
             return
@@ -401,23 +433,30 @@ class CalumaListAnswerWriter(FieldWriter):
                 question__slug=self.target
             ).first():
                 return answer.documents.all().delete()
-        if not any(any(asdict(obj).values()) for obj in values):  # pragma: no cover
+        if not any(any(self._values(obj)) for obj in values):  # pragma: no cover
             return
-        table_question = Question.objects.get(slug=self.target)
+        try:
+            table_question = Question.objects.get(slug=self.target)
+        except (ObjectDoesNotExist, IntegrityError):  # pragma: no cover
+            raise RuntimeError(
+                f"Failed to create table question {self.target} on {instance}"
+            )
+
         row_documents = []
         for obj in values:
-            if not any(asdict(obj).values()):  # pragma: no cover
+            if not any(self._values(obj)):  # pragma: no cover
                 continue
             try:
                 row_document = form_api.save_document(form=table_question.row_form)
                 row_documents.append(row_document)
-                for field in fields(obj):
-                    value = getattr(obj, field.name)
+                for field_name, value in self._iter_fields(obj):
                     if value is None:
                         continue
                     try:
                         question = Question.objects.get(
-                            slug=self.column_mapping[field.name]
+                            slug=self.column_mapping[field_name]
+                            if self.column_mapping
+                            else field_name
                         )
 
                         # Some fields are parsed as integer but are not written
@@ -428,8 +467,8 @@ class CalumaListAnswerWriter(FieldWriter):
                         ]:
                             value = str(value)
 
-                        if self.value_mapping and field.name in self.value_mapping:
-                            value = self.value_mapping[field.name].get(value, value)
+                        if self.value_mapping and field_name in self.value_mapping:
+                            value = self.value_mapping[field_name].get(value, value)
 
                         form_api.save_answer(
                             question=question,
@@ -445,14 +484,14 @@ class CalumaListAnswerWriter(FieldWriter):
                             Message(
                                 level=Severity.WARNING.value,
                                 code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                                detail=f"Failed to write {value} for field {field.name} to {self.target} for dossier {instance}.",
+                                detail=f"Failed to write {value} for field {field_name} to {self.target} for dossier {instance}.",
                             )
                         )
                         continue
 
             except (ObjectDoesNotExist, IntegrityError):  # pragma: no cover
                 raise RuntimeError(
-                    f"Failed to create row_document for table answer {self.target} on {instance}"
+                    f"Failed to create row_document for table answer {self.target} on {instance}: field: {field_name}, value: {value}"
                 )
         form_api.save_answer(
             document=instance.case.document,

@@ -2,8 +2,8 @@
   "MANDT": "600",
   "GESUCH_ID": "EBPA-1010-5310",
   "GEMEINDE_BG": "2024-240",
-  "VERFTYP": "1",
-  "ERFGRND": "4",
+  "VERFTYP": "Ordentlich",
+  "ERFGRND": "Online Erfassung",
   "BVUAFBNR": "",
   "CRUSR": "CR4APPLPO5",
   "CRDAT": "20241129",
@@ -88,7 +88,7 @@
   "DS_KNL_KNZ": "",
   "DS_KNN_KNZ": "",
   "DS_EIG_KNZ": "",
-  "BAU_ZON": "4",
+  "BAU_ZON": "\u00fcbriges Gebiet",
   "NTZ_ZON": "",
   "UBL_ZON": "",
   "SND_PLN": "",
@@ -153,14 +153,6 @@
   "DIVERSES_KNZ": "",
   "VORABKL_KNZ": "",
   "SOURCE": "MH",
-  "GUID": "005056ABB4351EDFB3E7106EB8E298BB",
-  "EXTERN_ID": "EBPA-1010-5310",
-  "ART_ID": "AW",
-  "ART_TEXT": "",
-  "VERFUGUNGSDAT": "20241201",
-  "RECHTSKRAFTDAT": "20250111",
-  "RECHTMITTELDAT": "20250108",
-  "BEMERKUNG": "Bemerkung Abweisung (remark)",
   "STSMA": "ZEBP",
   "SPRAS": "D",
   "TXT04": "VERF",
@@ -308,5 +300,38 @@
       "REF_NR": ""
     }
   ],
-  "DATES": []
+  "DATES": [],
+  "GESART": [],
+  "ENTSCHEID": [
+    {
+      "MANDT": "600",
+      "GUID": "005056ABB4351EDFB3E6F949FCFE38BB",
+      "EXTERN_ID": "EBPA-1010-5310",
+      "ART_ID": "AW",
+      "ART_TEXT": "",
+      "VERFUGUNGSDAT": "20250110",
+      "RECHTSKRAFTDAT": "20250111",
+      "RECHTMITTELDAT": "20250108",
+      "BEMERKUNG": "Bemerkung Abweisung (remark)"
+    },
+    {
+      "MANDT": "600",
+      "GUID": "005056ABB4351EDFB3E7106EB8E298BB",
+      "EXTERN_ID": "EBPA-1010-5310",
+      "ART_ID": "AW",
+      "ART_TEXT": "",
+      "VERFUGUNGSDAT": "20241201",
+      "RECHTSKRAFTDAT": "20250111",
+      "RECHTMITTELDAT": "20250108",
+      "BEMERKUNG": "Bemerkung Abweisung (remark)"
+    }
+  ],
+  "WOHNUTZ": [],
+  "BSGUID_TXT": "Ticket: https://techtalk.atlassian.net/browse/EA-1703\n\nAnforderung:\nIch habe soeben mit Viktor Sch\u00e4pper vom Kanton telefoniert und wir haben folgendes abgemacht damit wir dem Ganzen auf den Grund gehen k\u00f6nnen.\n\nIhr k\u00f6nnt auf dem Qualitysystem (Testsystem) ein neues Gesuch einreichen mit Dokumenten und einen Entscheid ausl\u00f6sen. Wenn dann das oben beschriebene Problem auftaucht, kannst du mir die EBPA Nummer vom Gesuch im Qualitysystem angeben. Ich gebe diese dann an Viktor Sch\u00e4pper weiter, welcher dann bei sich so pr\u00fcfen kann, an was es liegt, dass die Dokumente zwar empfangen aber nicht angezeigt werden.\n\nBez\u00fcglich dem Modul f\u00fcr das Bewilligunsgdatum w\u00e4re es gut, wen ihr das Pr\u00fcfen k\u00f6nnt. Es w\u00e4re schon von Vorteil, wenn die Bauherren jeweils das richtige Datum angezeigt bekommen w\u00fcrden. (siehe Task 109115: Aarau: Entscheid mitteilen: Bewilligungsdatum leer)\n\n\n\nTodo\nTestfall durchgehen\nEBPA-Nummer an Pascal \u00fcbermitteln",
+  "PRGUID_TXT": "-",
+  "GHGUID_TXT": null,
+  "BLGUID_TXT": null,
+  "MAGUID_TXT": null,
+  "GWGUID_TXT": null,
+  "BKGUID_TXT": null
 }
