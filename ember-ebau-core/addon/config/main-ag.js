@@ -210,6 +210,12 @@ export default {
           category: "special-procedure",
         },
         {
+          slug: "plangenehmigungsverfahren-gas",
+          roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["authority-pgv"],
+          category: "special-procedure",
+        },
+        {
           slug: "internes-dossier",
           roles: [
             "municipality-lead",
