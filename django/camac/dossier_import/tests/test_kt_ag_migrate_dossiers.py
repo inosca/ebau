@@ -1,29 +1,21 @@
-import json
 import os
 from io import StringIO
 from typing import Any, Dict, List
 
-import pytest
 from caluma.caluma_form.models import Answer
 from django.core.management import call_command
 
 from camac.dossier_import.conftest import JSON_INPUT_DIR
+from camac.dossier_import.tests.test_utils import to_sorted_json
 from camac.instance.models import Instance
 from camac.tags.models import Keyword
 
 
 def get_test_files():
-    input_files = sorted(JSON_INPUT_DIR.glob("*.json"))
+    input_files = sorted(
+        JSON_INPUT_DIR.glob("**/*.json"), key=lambda p: os.path.basename(p)
+    )
     return list(input_files)
-
-
-@pytest.mark.parametrize(
-    "input_file",
-    get_test_files(),
-    ids=lambda p: os.path.basename(p),
-)
-def test_migrate_single_json_file(input_file, db, setup_dossier_import_ag, snapshot):
-    _migrate_from_file_and_assert(input_file, snapshot)
 
 
 def test_migrate_json_file_again(db, setup_dossier_import_ag, snapshot):
@@ -97,38 +89,6 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
     Output was:
     {out.getvalue()}
     {err.getvalue()}"""  # pragma: no cover
-
-
-def normalize_structure(data):
-    """
-    Recursive normalization of the structure:
-    - Dictionaries are sorted by keys
-    - Lists of strings are sorted alphabetically
-    - Lists of dictionaries are sorted by their serialized value after normalizing them
-    - Other lists are also sorted if possible.
-    """  # noqa: D205
-    if isinstance(data, dict):
-        return {k: normalize_structure(v) for k, v in sorted(data.items())}
-    elif isinstance(data, list):
-        if all(isinstance(item, str) for item in data):
-            return sorted(data)
-        elif all(isinstance(item, dict) for item in data):
-            return sorted(
-                [normalize_structure(item) for item in data],
-                key=lambda d: json.dumps(d, sort_keys=True),
-            )
-        else:
-            return sorted(
-                normalize_structure(item) for item in data
-            )  # pragma: no cover
-    else:
-        return data
-
-
-def to_sorted_json(data):
-    """Converts the normalized structure into reproducible, sorted JSON."""  # noqa: D401
-    normalized_data = normalize_structure(data)
-    return json.dumps(normalized_data, indent=4, sort_keys=True, ensure_ascii=False)
 
 
 def _remove_keys(d: Dict[str, Any], keys_to_remove: List[str]) -> Dict[str, Any]:

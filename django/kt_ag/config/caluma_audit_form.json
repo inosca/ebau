@@ -1849,6 +1849,23 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "vorlaeufige-pruefung-verfahrensart-verfahrensart-direktentscheid",
+    "fields": {
+      "created_at": "2025-04-03T09:23:01.259Z",
+      "modified_at": "2025-04-04T08:28:32.678Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Direktentscheid\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "vorlaeufige-pruefung-abschliessen",
     "fields": {
@@ -3218,10 +3235,10 @@
     "pk": "vorlaeufige-pruefung-verfahrensart",
     "fields": {
       "created_at": "2025-01-16T09:58:58.826Z",
-      "modified_at": "2025-01-16T09:58:58.826Z",
+      "modified_at": "2025-04-04T08:28:32.762Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Verfahrensart\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -3229,8 +3246,8 @@
       "is_hidden": "info.case.root.form in [\"anfrage\", \"anfrage-intern\", \"internes-dossier\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -4228,60 +4245,75 @@
     "model": "caluma_form.questionoption",
     "pk": "vorlaeufige-pruefung-verfahrensart.verfahrensart-anfrage",
     "fields": {
-      "created_at": "2025-01-16T09:58:58.832Z",
-      "modified_at": "2025-01-16T09:58:58.832Z",
+      "created_at": "2025-04-04T08:28:32.769Z",
+      "modified_at": "2025-04-04T08:28:32.769Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "vorlaeufige-pruefung-verfahrensart",
       "option": "verfahrensart-anfrage",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "vorlaeufige-pruefung-verfahrensart.verfahrensart-ordentliches-verfahren",
     "fields": {
-      "created_at": "2025-01-16T09:58:58.838Z",
-      "modified_at": "2025-01-16T09:58:58.838Z",
+      "created_at": "2025-04-04T08:28:32.774Z",
+      "modified_at": "2025-04-04T08:28:32.774Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "vorlaeufige-pruefung-verfahrensart",
       "option": "verfahrensart-ordentliches-verfahren",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "vorlaeufige-pruefung-verfahrensart.verfahrensart-reklamegesuch",
     "fields": {
-      "created_at": "2025-01-16T09:58:58.836Z",
-      "modified_at": "2025-01-16T09:58:58.836Z",
+      "created_at": "2025-04-04T08:28:32.772Z",
+      "modified_at": "2025-04-04T08:28:32.772Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "vorlaeufige-pruefung-verfahrensart",
       "option": "verfahrensart-reklamegesuch",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "vorlaeufige-pruefung-verfahrensart.verfahrensart-vereinfachtes-verfahren",
     "fields": {
-      "created_at": "2025-01-16T09:58:58.841Z",
-      "modified_at": "2025-01-16T09:58:58.841Z",
+      "created_at": "2025-04-04T08:28:32.779Z",
+      "modified_at": "2025-04-04T08:28:32.779Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "vorlaeufige-pruefung-verfahrensart",
       "option": "verfahrensart-vereinfachtes-verfahren",
-      "sort": 4
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorlaeufige-pruefung-verfahrensart.vorlaeufige-pruefung-verfahrensart-verfahrensart-direktentscheid",
+    "fields": {
+      "created_at": "2025-04-04T08:28:32.767Z",
+      "modified_at": "2025-04-04T08:28:32.767Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorlaeufige-pruefung-verfahrensart",
+      "option": "vorlaeufige-pruefung-verfahrensart-verfahrensart-direktentscheid",
+      "sort": 1
     }
   }
 ]

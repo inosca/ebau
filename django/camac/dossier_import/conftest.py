@@ -159,10 +159,11 @@ def load_fixtures_ag(
     ag_permissions_settings,
 ):
     extra_fixtures = [
-        settings.ROOT_DIR("kt_ag/config/permissions.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_audit_form.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_decision_form.json"),
         settings.ROOT_DIR("kt_ag/config/caluma_form.json"),
         settings.ROOT_DIR("kt_ag/config/caluma_form_common.json"),
-        settings.ROOT_DIR("kt_ag/config/caluma_decision_form.json"),
+        settings.ROOT_DIR("kt_ag/config/permissions.json"),
         settings.ROOT_DIR("kt_ag/config/user.json"),
         settings.ROOT_DIR("kt_ag/config/user_core_groups.json"),
         settings.ROOT_DIR("kt_ag/data/user.json"),

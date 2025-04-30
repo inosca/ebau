@@ -106,13 +106,16 @@ DOSSIER_IMPORT = {
         "FORM_ID": 1,
         "SAP_ACCESS": {
             "enabled": False,
-            "json_target_dir": "camac/dossier_import/config/kt_ag/database/json",
+            "json_target_dir": "camac/dossier_import/tests/data/json",
             "host": "unknown",
             "port": -1,
             "user": "unknown",
             "password": "unknown",
             "db_name": "unknown",
             "schema": "unknown",
+            "soap_server": "unknown",
+            "soap_user": "unknown",
+            "soap_password": "unknown",
         },
     },
 }
