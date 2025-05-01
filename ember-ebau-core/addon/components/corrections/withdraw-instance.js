@@ -15,7 +15,7 @@ export default class CorrectionsWithdrawInstanceComponent extends Component {
   *withdrawInstance() {
     try {
       yield this.fetch.fetch(
-        `/api/v1/instances/${this.args.instanceId}/withdraw`,
+        `/api/v1/instances/${this.args.instance.id}/withdraw`,
         {
           method: "POST",
         },
