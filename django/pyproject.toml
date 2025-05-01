@@ -103,6 +103,10 @@ filterwarnings = [
     "ignore:Deprecated call to `pkg_resources.declare_namespace:DeprecationWarning",
     # deprecation warning for holidays package for upcoming v1 release
     "ignore::DeprecationWarning:holidays.deprecations.v1_incompatibility",
+    # https://github.com/lidatong/dataclasses-json/pull/351
+    "ignore:The 'default' argument to fields is deprecated. Use 'dump_default' instead.",
+    "ignore:`Field` should not be instantiated.:marshmallow.warnings.ChangedInMarshmallow4Warning",
+    "ignore:jsonschema.RefResolver is deprecated.*",
 ]
 
 [tool.coverage.run]

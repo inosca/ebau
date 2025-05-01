@@ -113,6 +113,7 @@ INSTALLED_APPS = [
     "camac.gis.apps.GisConfig",
     "camac.billing.apps.BillingConfig",
     "camac.eeba_integration.apps.EebaIntegrationConfig",
+    "camac.gever.apps.GEVERConfig",
     "sorl.thumbnail",
     "django_clamd",
     "django_q",
@@ -3432,6 +3433,7 @@ PROJECT_MODIFICATION = load_module_settings("project_modification")
 USER = load_module_settings("user")
 SERVICE = load_module_settings("service")
 CHANGE_FORM = load_module_settings("change_form")
+GEVER = load_module_settings("gever")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

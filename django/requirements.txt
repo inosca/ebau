@@ -64,6 +64,7 @@ qrcode==8.0
 rapidfuzz==3.12.2
 redis==5.2.1
 requests==2.32.3
+requests_oauthlib==2.0.0
 requests-toolbelt==1.0.0
 setuptools==76.0.0
 # TODO: When updating sorl-thumbnail to a version that includes

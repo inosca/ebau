@@ -255,6 +255,7 @@ DUMP = {
                 "caluma_workflow.TaskFlow",
                 "caluma_workflow.Flow",
                 "gis.GISDataSource",
+                "gever.CMIObjectTemplate",
             ],
             # List of models that have foreign keys referencing non-config
             # tables (directly or indirectly). All models which are not in this
