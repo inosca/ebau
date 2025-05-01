@@ -1,0 +1,24 @@
+query GetGwrTasks($instanceId: GenericScalar!, $tasks: [String]) {
+  allWorkItems(
+    filter: [
+      { tasks: $tasks }
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId} }
+    ]
+    order: [{ attribute: CREATED_AT, direction: ASC}]
+  ) {
+    edges {
+      node {
+        id
+        name
+        status
+        task {
+          slug
+          meta
+        }
+        document {
+          id
+        }
+      }
+    }
+  }
+}

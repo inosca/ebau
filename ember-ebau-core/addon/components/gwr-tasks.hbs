@@ -1,0 +1,16 @@
+{{#each this.gwrWorkitems.value as |workitem|}}
+  <div class="uk-card uk-card-default uk-padding uk-margin-bottom">
+    <h3 class="uk-flex uk-flex-middle uk-text-large">
+      {{workitem.node.name}}
+    </h3>
+    <CfContent
+      @documentId={{workitem.node.document.id}}
+      @disabled={{not-eq workitem.node.status "READY"}}
+      @context={{hash
+        instanceId=this.ebauModules.instanceId
+        task=workitem.node.task.slug
+        actionButtonOnSuccess=(fn this.redirectToWorkItems workitem)
+      }}
+    />
+  </div>
+{{/each}}
