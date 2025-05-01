@@ -7,3 +7,35 @@ static-content:
     case:
       title: ""
       action: ""
+
+  my-service-support:
+    text: "Si vous avez des questions concernant les droits d'accès dans votre organisation, veuillez contacter les personnes suivantes:"
+    showAll: "afficher tout"
+    showLess: "afficher moins"
+
+  technical-support:
+    text: |
+      <p class="uk-text-large uk-text-bold">Support technique</p>
+      <p>
+        Les communes, les services spécialisé (p. ex. Inspecteur du feu) ainsi
+        que les autorités non-cantonales s’adressent à l’OIO :
+      </p>
+      <p>
+        Courriel <a href="mailto:servicedesk@be.ch">servicedesk@be.ch</a>
+        <br>
+        Tél <a href="tel:+41 31 633 44 44">+41 31 633 44 44</a>
+      </p>
+      <p>
+        Le personnel cantonal (les utilisateurs de l’ADF avec le mail cantonal
+        ...@be.ch) se connecte directement via le portail de service :
+      </p>
+      <p>
+        <a href="https://beitsmsprod.service-now.com/ict?id=ict_sc_category&sys_id=9293774f4f9ec20010cadf601310c7ae&catalog_id=e0d08b13c3330100c8b837659bba8fb4" target="_blank" rel="noopener noreferrer">
+          Catalogue de services - Portail en libre-service (service-now.com)
+        </a>
+      </p>
+      <p class="uk-text-bold">Support « Annonce de remplacement du générateur de chaleur »</p>
+      <p class="uk-margin-remove-bottom">
+        Le support concernant l'annonce de remplacement du générateur de chaleur est assuré directement par l'Office de l'environnement et de l'énergie. Annoncez-vous donc directement auprès de:
+        <br><a href="mailto:meldeverfahren.heizungsersatz.aue@be.ch">meldeverfahren.heizungsersatz.aue@be.ch</a>
+      </p>
