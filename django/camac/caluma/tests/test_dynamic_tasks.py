@@ -632,16 +632,20 @@ def test_dynamic_task_after_check_sb2(
 
 
 @pytest.mark.parametrize(
-    "gwr_answer,expected_tasks",
+    "decision_answer,gwr_answer,expected_tasks",
     [
         (
+            "entscheid-beurteilung-bewilligt",
             "fuer-gwr-relevant-ja",
             ["update-gwr-status"],
         ),
+        ("entscheid-beurteilung-bewilligt", "fuer-gwr-relevant-nein", []),
         (
-            "fuer-gwr-relevant-nein",
-            [],
+            "entscheid-beurteilung-nicht-bewilligt",
+            "fuer-gwr-relevant-ja",
+            ["update-gwr-status-refused"],
         ),
+        ("entscheid-beurteilung-nicht-bewilligt", "fuer-gwr-relevant-nein", []),
     ],
 )
 def test_dynamic_task_gwr_relevancy_after_decision_ur(
@@ -653,22 +657,27 @@ def test_dynamic_task_gwr_relevancy_after_decision_ur(
     ur_instance,
     caluma_admin_user,
     expected_tasks,
+    decision_answer,
     gwr_answer,
 ):
     work_item = caluma_work_item_factory(
         case=ur_instance.case, task_id="decision", document=caluma_document_factory()
     )
+    caluma_answer_factory(
+        document=work_item.document,
+        question=caluma_question_factory(slug="decision-task-entscheid-beurteilung"),
+        value=decision_answer,
+    )
 
-    if gwr_answer == "fuer-gwr-relevant-ja":
-        gwr_relevancy_work_item = caluma_work_item_factory(
-            case=ur_instance.case,
-            task_id="check-gwr-relevancy",
-        )
-        caluma_answer_factory(
-            document=gwr_relevancy_work_item.document,
-            question=caluma_question_factory(slug="fuer-gwr-relevant"),
-            value=gwr_answer,
-        )
+    gwr_relevancy_work_item = caluma_work_item_factory(
+        case=ur_instance.case,
+        task_id="check-gwr-relevancy",
+    )
+    caluma_answer_factory(
+        document=gwr_relevancy_work_item.document,
+        question=caluma_question_factory(slug="fuer-gwr-relevant"),
+        value=gwr_answer,
+    )
 
     result = CustomDynamicTasks().resolve_after_decision_ur(
         ur_instance.case, caluma_admin_user, work_item, None
@@ -1229,48 +1238,6 @@ def test_after_schlussabnahme_gebaeude(
         )
 
     result = CustomDynamicTasks().resolve_after_schlussabnahme_gebaeude(
-        instance.case, caluma_admin_user, work_item if work_item_exists else None, None
-    )
-    assert result == expected_value
-
-
-@pytest.mark.parametrize(
-    "work_item_exists,gwr_answer,expected_value",
-    [
-        (True, "fuer-gwr-relevant-ja", ["construction-step-gwr-state-project"]),
-        (True, "fuer-gwr-relevant-nein", []),
-        (False, "not-necessary", ["construction-step-gwr-state-project"]),
-    ],
-)
-def test_after_schlussabnahme_project(
-    db,
-    caluma_admin_user,
-    work_item_exists,
-    gwr_answer,
-    expected_value,
-    caluma_work_item_factory,
-    caluma_document_factory,
-    caluma_answer_factory,
-    instance_factory,
-    caluma_case_factory,
-    caluma_task_factory,
-):
-    instance = instance_factory(case=caluma_case_factory())
-
-    if work_item_exists:
-        work_item = caluma_work_item_factory(
-            case=instance.case,
-            task=caluma_task_factory(slug="check-gwr-relevancy"),
-            document=caluma_document_factory(),
-            status="completed",
-        )
-        caluma_answer_factory(
-            document=work_item.document,
-            question__slug="fuer-gwr-relevant",
-            value=gwr_answer,
-        )
-
-    result = CustomDynamicTasks().resolve_after_schlussabnahme_project(
         instance.case, caluma_admin_user, work_item if work_item_exists else None, None
     )
     assert result == expected_value

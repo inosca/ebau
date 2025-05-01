@@ -9,6 +9,7 @@ from camac.caluma.extensions.events.construction_monitoring import (
     can_perform_construction_monitoring,
     post_complete_construction_control,
     post_create_construction_control,
+    post_create_plan_construction_stage_ur,
 )
 from camac.caluma.extensions.visibilities import CustomVisibility
 from camac.instance.models import InstanceState
@@ -573,3 +574,48 @@ def test_post_complete_construction_control(
     instance.refresh_from_db()
 
     assert instance.instance_state.name == "arch"
+
+
+def test_post_create_plan_construction_stage_ur(
+    db,
+    set_application_ur,
+    ur_construction_monitoring_settings,
+    ur_instance,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+):
+    check_gwr_relevancy_work_item = caluma_work_item_factory(
+        document=ur_instance.case.document,
+        case=ur_instance.case,
+        task_id="check-gwr-relevancy",
+        status="completed",
+    )
+    caluma_answer_factory(
+        document=check_gwr_relevancy_work_item.document,
+        question__slug="fuer-gwr-relevant",
+        value="fuer-gwr-relevant-ja",
+    )
+
+    plan_stage_work_item = caluma_work_item_factory(
+        case=ur_instance.case,
+        task_id="construction-step-plan-construction-stage",
+        document=caluma_document_factory(
+            form_id="construction-step-plan-construction-stage"
+        ),
+    )
+    post_create_plan_construction_stage_ur(
+        None, user=None, work_item=plan_stage_work_item, context={}
+    )
+    assert (
+        "construction-step-baubeginn"
+        in plan_stage_work_item.document.answers.get(
+            question_id="construction-steps"
+        ).value
+    )
+    assert (
+        "construction-step-schlussabnahme-gebaeude"
+        in plan_stage_work_item.document.answers.get(
+            question_id="construction-steps"
+        ).value
+    )

@@ -1,7 +1,6 @@
 export default {
   constructionSteps: [
     "construction-step-plan-construction-stage",
-    "construction-step-update-gwr-state-begin",
     "construction-step-baufreigabe",
     "construction-step-gebaeudeabbruch",
     "construction-step-baubeginn",

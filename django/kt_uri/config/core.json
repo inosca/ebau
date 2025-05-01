@@ -12712,118 +12712,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 12000004,
-    "fields": {
-      "available_instance_resource": "taskform",
-      "resource": 12000003,
-      "name": "GWR Relevanz prüfen",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 23,
-      "form_group": 161,
-      "require_permission": null
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 12000005,
-    "fields": {
-      "available_instance_resource": "taskform",
-      "resource": 12000003,
-      "name": "GWR Bauprojekt eröffnen",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 24,
-      "form_group": 161,
-      "require_permission": null
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 12000006,
-    "fields": {
-      "available_instance_resource": "taskform",
-      "resource": 12000003,
-      "name": "GWR Status nachführen (Baubewilligung erteilt)",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 25,
-      "form_group": 161,
-      "require_permission": null
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 12000007,
-    "fields": {
-      "available_instance_resource": "taskform",
-      "resource": 12000003,
-      "name": "GWR Status nachführen (Gebäudeabbruch)",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 26,
-      "form_group": 161,
-      "require_permission": null
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 12000008,
-    "fields": {
-      "available_instance_resource": "taskform",
-      "resource": 12000003,
-      "name": "GWR Status nachführen (Baubeginn)",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 27,
-      "form_group": 161,
-      "require_permission": null
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 12000009,
-    "fields": {
-      "available_instance_resource": "taskform",
-      "resource": 12000003,
-      "name": "GWR Status nachführen (Gebäude)",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 28,
-      "form_group": 161,
-      "require_permission": null
-    }
-  },
-  {
-    "model": "core.instanceresource",
-    "pk": 12000010,
-    "fields": {
-      "available_instance_resource": "taskform",
-      "resource": 12000003,
-      "name": "GWR Status nachführen (Gesamtprojekt)",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 29,
-      "form_group": 161,
-      "require_permission": null
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 12000011,
     "fields": {
       "available_instance_resource": "taskform",
@@ -12833,7 +12721,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 32,
+      "sort": 26,
       "form_group": 161,
       "require_permission": null
     }
@@ -12849,7 +12737,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 33,
+      "sort": 27,
       "form_group": 161,
       "require_permission": null
     }
@@ -12865,7 +12753,23 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 34,
+      "sort": 28,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000014,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 12000003,
+      "name": "GWR Aufgaben",
+      "description": null,
+      "template": "/ember-camac-ng/gwr-tasks.phtml",
+      "class_field": "gemeinde_als_fachstelle",
+      "hidden": 0,
+      "sort": 22,
       "form_group": 161,
       "require_permission": null
     }
@@ -13185,7 +13089,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 22,
+      "sort": 23,
       "form_group": 161,
       "require_permission": null
     }
@@ -13201,7 +13105,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 30,
+      "sort": 24,
       "form_group": 161,
       "require_permission": null
     }
@@ -13217,7 +13121,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 31,
+      "sort": 25,
       "form_group": 161,
       "require_permission": null
     }
@@ -13233,7 +13137,7 @@
       "template": "/ember-camac-ng/construction-monitoring.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 35,
+      "sort": 29,
       "form_group": 161,
       "require_permission": null
     }
@@ -13249,7 +13153,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 37,
+      "sort": 31,
       "form_group": 161,
       "require_permission": null
     }
@@ -13265,7 +13169,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 36,
+      "sort": 30,
       "form_group": 161,
       "require_permission": null
     }
@@ -13281,7 +13185,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 39,
+      "sort": 33,
       "form_group": 161,
       "require_permission": null
     }
@@ -13297,7 +13201,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 38,
+      "sort": 32,
       "form_group": 161,
       "require_permission": null
     }
@@ -13313,7 +13217,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 40,
+      "sort": 34,
       "form_group": 161,
       "require_permission": null
     }
@@ -15553,7 +15457,7 @@
   },
   {
     "model": "core.irpage",
-    "pk": 12000004,
+    "pk": 12000014,
     "fields": {
       "pdf_class": null
     }
@@ -33459,443 +33363,11 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 12002208,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1127,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002209,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002210,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 3,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002211,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1101,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002212,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1101,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002213,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1133,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002214,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1133,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002216,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 6,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002217,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 6,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002218,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1133,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002219,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1133,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002221,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1129,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 12002222,
     "fields": {
       "instance_resource": 14000014,
       "role": 1107,
       "instance_state": 33
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002223,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1127,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002224,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1128,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002225,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1128,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002226,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1107,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002227,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1107,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002228,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1107,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002229,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1061,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002230,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1061,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002231,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1129,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002232,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1129,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002233,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1106,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002234,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1106,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002235,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1106,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002236,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 6,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002237,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 6,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002238,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002239,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1106,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002240,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1106,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002241,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1106,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002242,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1061,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002243,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1061,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002244,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1107,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002245,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1107,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002246,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1128,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002247,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1128,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002248,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1127,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002249,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1127,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002250,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 3,
-      "instance_state": 30
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002254,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 3,
-      "instance_state": 22
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002273,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 6,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002274,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 6,
-      "instance_state": 31
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002275,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 6,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002276,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 6,
-      "instance_state": 24
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002277,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1127,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002278,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1061,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002279,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1129,
-      "instance_state": 22
     }
   },
   {
@@ -34044,366 +33516,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 12002343,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 6,
-      "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002344,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1106,
-      "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002345,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1129,
-      "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002346,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1061,
-      "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002347,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1107,
-      "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002348,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1128,
-      "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002349,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1127,
-      "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002350,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 3,
-      "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002351,
-    "fields": {
-      "instance_resource": 12000004,
-      "role": 1133,
-      "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002352,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1129,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002353,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1129,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002354,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1129,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002355,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1129,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002356,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1061,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002357,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1061,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002358,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1061,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002359,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002360,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1107,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002361,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1107,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002362,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1107,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002363,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1128,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002364,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1128,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002365,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1128,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002366,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1128,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002367,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1127,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002368,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1127,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002369,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1127,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002370,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1127,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002371,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 3,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002372,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 3,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002373,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 3,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002374,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002375,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1101,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002376,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1101,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002377,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1101,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002378,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1101,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002379,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1133,
-      "instance_state": 21
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002380,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1133,
-      "instance_state": 23
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002381,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1133,
-      "instance_state": 25
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002382,
-    "fields": {
-      "instance_resource": 12000005,
-      "role": 1133,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 12002383,
     "fields": {
       "instance_resource": 14000031,
@@ -34481,906 +33593,6 @@
       "instance_resource": 14000031,
       "role": 4,
       "instance_state": 29
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002392,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002393,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 6,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002394,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1133,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002395,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1133,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002396,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1101,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002397,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1101,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002398,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002399,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002400,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1127,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002401,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1127,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002402,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1128,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002403,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1128,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002404,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1107,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002405,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1107,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002406,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002407,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1061,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002408,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1129,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002409,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1129,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002410,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1106,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002411,
-    "fields": {
-      "instance_resource": 12000006,
-      "role": 1106,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002412,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002413,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 6,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002414,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1133,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002415,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1133,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002416,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1101,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002417,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1101,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002418,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002419,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002420,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1127,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002421,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1127,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002422,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1128,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002423,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1128,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002424,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1107,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002425,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1107,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002426,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002427,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1061,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002428,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1129,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002429,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1129,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002430,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1106,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002431,
-    "fields": {
-      "instance_resource": 12000007,
-      "role": 1106,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002432,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002433,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 6,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002434,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1133,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002435,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1133,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002436,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1101,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002437,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1101,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002438,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002439,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002442,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1127,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002443,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1127,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002444,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1128,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002445,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1128,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002446,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1107,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002447,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1107,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002448,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002449,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1061,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002450,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1129,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002451,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1129,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002452,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1106,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002453,
-    "fields": {
-      "instance_resource": 12000008,
-      "role": 1106,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002454,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002455,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 6,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002456,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1133,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002457,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1133,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002458,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1101,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002459,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1101,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002460,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002461,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002462,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1127,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002463,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1127,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002464,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1128,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002465,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1128,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002466,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1107,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002467,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1107,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002468,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002469,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1061,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002470,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1129,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002471,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1129,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002472,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1106,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002473,
-    "fields": {
-      "instance_resource": 12000009,
-      "role": 1106,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002474,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 6,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002475,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 6,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002476,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1133,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002477,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1133,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002478,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1101,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002479,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1101,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002480,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 3,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002481,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 3,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002482,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1127,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002483,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1127,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002484,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1128,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002485,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1128,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002486,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1107,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002487,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1107,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002488,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1061,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002489,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1061,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002490,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1129,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002491,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1129,
-      "instance_state": 26
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002492,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1106,
-      "instance_state": 34
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 12002493,
-    "fields": {
-      "instance_resource": 12000010,
-      "role": 1106,
-      "instance_state": 26
     }
   },
   {
@@ -36251,9 +34463,54 @@
     "model": "core.irroleacl",
     "pk": 12002600,
     "fields": {
-      "instance_resource": 14000010,
-      "role": 1102,
+      "instance_resource": 12000014,
+      "role": 6,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002601,
+    "fields": {
+      "instance_resource": 12000014,
+      "role": 6,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002602,
+    "fields": {
+      "instance_resource": 12000014,
+      "role": 6,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002603,
+    "fields": {
+      "instance_resource": 12000014,
+      "role": 6,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002604,
+    "fields": {
+      "instance_resource": 12000014,
+      "role": 6,
       "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002605,
+    "fields": {
+      "instance_resource": 12000014,
+      "role": 6,
+      "instance_state": 27
     }
   },
   {
@@ -36268,55 +34525,6 @@
     "pk": 12000003,
     "fields": {
       "task": "zs-ersatzbeitrag-pruefen"
-    }
-  },
-  {
-    "model": "core.irtaskform",
-    "pk": 12000004,
-    "fields": {
-      "task": "check-gwr-relevancy"
-    }
-  },
-  {
-    "model": "core.irtaskform",
-    "pk": 12000005,
-    "fields": {
-      "task": "open-gwr-construction-project"
-    }
-  },
-  {
-    "model": "core.irtaskform",
-    "pk": 12000006,
-    "fields": {
-      "task": "update-gwr-status"
-    }
-  },
-  {
-    "model": "core.irtaskform",
-    "pk": 12000007,
-    "fields": {
-      "task": "construction-step-gwr-state-demolition"
-    }
-  },
-  {
-    "model": "core.irtaskform",
-    "pk": 12000008,
-    "fields": {
-      "task": "construction-step-gwr-state-construction-start"
-    }
-  },
-  {
-    "model": "core.irtaskform",
-    "pk": 12000009,
-    "fields": {
-      "task": "construction-step-gwr-state-building"
-    }
-  },
-  {
-    "model": "core.irtaskform",
-    "pk": 12000010,
-    "fields": {
-      "task": "construction-step-gwr-state-project"
     }
   },
   {

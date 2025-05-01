@@ -140,7 +140,17 @@ class CustomDynamicTasks(BaseDynamicTasks):
                 relevant_for_gwr = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
 
                 if relevant_for_gwr:
-                    tasks.append("update-gwr-status")
+                    decision = domain_logic.DecisionLogic.get_decision_answer(
+                        question_id="decision-task-entscheid-beurteilung",
+                        work_item=prev_work_item,
+                    )
+                    if decision in [
+                        "entscheid-beurteilung-nicht-bewilligt",
+                        "decision-task-entscheid-beurteilung-bewilligung-nicht-in-aussicht-gestellt",
+                    ]:
+                        tasks.append("update-gwr-status-refused")
+                    else:
+                        tasks.append("update-gwr-status")
 
         decision_work_item = case.family.work_items.get(task_id="decision")
 
@@ -623,12 +633,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
     ):
         return check_gwr_relevancy(
             case, user, prev_work_item, context, "construction-step-gwr-state-building"
-        )
-
-    @register_dynamic_task("after-schlussabnahme-project")
-    def resolve_after_schlussabnahme_project(self, case, user, prev_work_item, context):
-        return check_gwr_relevancy(
-            case, user, prev_work_item, context, "construction-step-gwr-state-project"
         )
 
     @register_dynamic_task("after-check-gwr-relevancy")

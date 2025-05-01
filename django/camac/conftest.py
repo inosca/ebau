@@ -972,6 +972,7 @@ def caluma_forms_ur(settings):
         "check-gwr-relevancy",
         "open-gwr-construction-project",
         "update-gwr-status",
+        "update-gwr-status-refused",
     ]:
         caluma_form_models.Form.objects.create(slug=form, name=form)
 

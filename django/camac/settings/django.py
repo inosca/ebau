@@ -1484,15 +1484,6 @@ APPLICATIONS = {
                         },
                     }
                 ],
-                "construction-step-gwr-state-project": [
-                    {
-                        "event": "created",
-                        "notification": {
-                            "template_slug": "6-223-gwr-status-nachfuehren-bau-beendet",
-                            "recipient_types": ["municipality_users"],
-                        },
-                    }
-                ],
                 "construction-step-kanalisation-kontrollieren": [
                     {
                         "event": "created",

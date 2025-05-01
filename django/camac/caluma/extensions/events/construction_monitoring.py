@@ -1,6 +1,8 @@
 from datetime import datetime, timedelta
 
 from caluma.caluma_core.events import on
+from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import skip_work_item, start_case
 from caluma.caluma_workflow.events import (
     post_cancel_case,
@@ -402,3 +404,33 @@ def post_complete_construction_control(sender, work_item, user, context, **kwarg
             settings.CONSTRUCTION_MONITORING["AFTER_INSTANCE_STATE"],
             camac_user,
         )
+
+
+@on(post_create_work_item, raise_exception=True)
+@filter_by_task(["CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"])
+@transaction.atomic
+def post_create_plan_construction_stage_ur(sender, work_item, user, context, **kwargs):
+    if settings.APPLICATION_NAME == "kt_uri":
+        instance = get_instance(work_item)
+        gwr_relevancy_work_item = instance.case.family.work_items.filter(
+            task_id="check-gwr-relevancy", status="completed"
+        ).first()
+
+        if not gwr_relevancy_work_item:  # pragma: no cover
+            return
+
+        if gwr_relevancy_answer := gwr_relevancy_work_item.document.answers.filter(
+            question_id="fuer-gwr-relevant"
+        ).first():
+            gwr_relevant = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
+
+        if gwr_relevant:
+            save_answer(
+                document=work_item.document,
+                question=Question.objects.filter(pk="construction-steps").first(),
+                user=user,
+                value=[
+                    "construction-step-baubeginn",
+                    "construction-step-schlussabnahme-gebaeude",
+                ],
+            )

@@ -648,7 +648,7 @@
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Baubewilligung erteilt)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"GWR Bauprojekt Status nachf\\u00fchren (Baugesuch bewilligt)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -658,6 +658,31 @@
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "update-gwr-status",
+      "lead_time": 2419200,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "update-gwr-status-refused",
+    "fields": {
+      "created_at": "2024-12-12T10:16:17.415Z",
+      "modified_at": "2024-12-12T07:37:54.106Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Bauprojekt Status nachf\\u00fchren (Baugesuch abgelehnt)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "redirectToWorkItemsAfterCompletion": true
+      },
+      "address_groups": "['municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "update-gwr-status-refused",
       "lead_time": 2419200,
       "is_multiple_instance": false,
       "continue_async": false

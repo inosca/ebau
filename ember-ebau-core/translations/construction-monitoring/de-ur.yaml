@@ -3,7 +3,6 @@ construction-monitoring:
     construction-step-schnurgeruestabnahme-melden-complete: "Meldung abschliessen"
     construction-step-schnurgeruestabnahme-planen-complete: "Planung abschliessen"
     construction-step-schnurgeruest-kontrollieren-complete: "Kontrolle abschliessen"
-    construction-step-update-gwr-state-begin: "GWR Status aktualisieren (Baubeginn)"
     construction-step-gebaeudeabbruch: "Gebäudeabbruch melden"
 
     work-item:
