@@ -522,13 +522,13 @@ ECH0211 = {
                 },
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
                 ECH_FILE_SUBSEQUENTLY: {
-                    "desc": "Nachforderung beantworten (noch in Entwicklung)",
+                    "desc": "Nachforderung beantworten (💡 wird noch ergänzt um 'directive')",
                 },
                 ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
-                    "desc": "Rückzug des Baugesuchs melden (noch in Entwicklung)",
+                    "desc": "Rückzug des Baugesuchs melden (⏳ noch in Entwicklung)",
                 },
                 ECH_CLAIM: {
-                    "desc": "Nachforderungen durch Fachstelle (noch in Entwicklung)"
+                    "desc": "Nachforderungen durch Fachstelle (⏳ noch in Entwicklung)"
                 },
             },
         },
@@ -690,6 +690,15 @@ ECH0211 = {
                 },
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
                 ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
+                ECH_FILE_SUBSEQUENTLY: {
+                    "desc": "Nachforderung beantworten (💡 wird noch ergänzt um 'directive')",
+                },
+                ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
+                    "desc": "Rückzug des Baugesuchs melden (⏳ noch in Entwicklung)",
+                },
+                ECH_CLAIM: {
+                    "desc": "Nachforderungen durch Fachstelle (⏳ noch in Entwicklung)"
+                },
             },
             "POST_TABLE_DATA": {
                 "5100011": {"disabled": True},  # Change responsibility
