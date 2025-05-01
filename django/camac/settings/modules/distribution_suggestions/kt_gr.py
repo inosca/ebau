@@ -41,7 +41,7 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "haustechnische-anlagen-brandschutz",
             "haustechnische-anlagen-brandschutz-ja",
-        ): ["gvg"],
+        ): ["gvg-brandschutz"],
         (
             "ist-ein-gewaesser-betroffen",
             "ist-ein-gewaesser-betroffen-ja",
@@ -77,7 +77,7 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "das-bauvorhaben-befindet-sich-in",
             "das-bauvorhaben-befindet-sich-in-gefahrenzone",
-        ): ["awn", "gvg"],
+        ): ["awn", "gvg-elementarschutz"],
         (
             "das-bauvorhaben-befindet-sich-in",
             "das-bauvorhaben-befindet-sich-in-kataster-belasteter-standorte",
@@ -145,7 +145,7 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "bauanzeige-haustechnische-anlagen-brandschutz",
             "bauanzeige-haustechnische-anlagen-brandschutz-ja",
-        ): ["gvg"],
+        ): ["gvg-brandschutz"],
         (
             "dachtyp",
             "dachtyp-schraegdach",
