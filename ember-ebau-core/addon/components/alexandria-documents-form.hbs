@@ -49,7 +49,13 @@
         @category={{category}}
         @disabled={{@disabled}}
         @deletable={{this.deletable}}
-        @loading={{this.fetchAttachments.isPending}}
+        @loading={{or
+          this.fetchAttachments.isPending
+          (and
+            this.upload.isRunning
+            (eq (get this.upload.lastRunning.args "0.bucket") category.id)
+          )
+        }}
         @attachments={{get this.attachments.value category.id}}
         @onUpload={{perform this.upload}}
         @onDelete={{perform this.delete}}
