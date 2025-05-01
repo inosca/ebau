@@ -1156,12 +1156,13 @@ def test_submit_send_handler(
             == "BAUAG"
         )
 
-        alexandria_document = (
-            instance.alexandria_instance_documents.all().first().document
-        )
+        assert instance.alexandria_instance_documents.count() == 1
+        alexandria_document = instance.alexandria_instance_documents.first().document
         assert alexandria_document.title == "dummy"
         assert alexandria_document.files.count() == 2
-        assert alexandria_document.files.first().name == "photo.jpg"
+
+        # Prevent some race conditions on which file is returned first
+        assert alexandria_document.files.order_by("-name").first().name == "photo.jpg"
 
         assert len(mailoutbox) == 0
         assert Message.objects.count() == 0
