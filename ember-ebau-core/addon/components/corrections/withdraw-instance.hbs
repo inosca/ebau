@@ -7,9 +7,9 @@
   @loading={{this.withdrawInstance.isRunning}}
   @disabled={{or
     this.withdrawInstance.isRunning
-    (await (cannot "withdraw instance" this.instance.record))
+    (await (cannot "withdraw instance" @instance))
   }}
 />
-{{#if (await (cannot "withdraw instance" this.instance.record))}}
+{{#if (await (cannot "withdraw instance" @instance))}}
   <p class="uk-text-muted">{{t "corrections.not-available"}}</p>
 {{/if}}
