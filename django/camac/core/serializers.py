@@ -149,6 +149,7 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
                 "/ember-camac-ng/alexandria-search.phtml": "/documents/search",
                 "/ember-camac-ng/snippets-admin.phtml": "/snippets-admin",
                 "/ember-camac-ng/snippets.phtml": "/snippets",
+                "/ember-camac-ng/news.phtml": "/static-content/news",
             }
             return type_mapping.get(obj.template)
 

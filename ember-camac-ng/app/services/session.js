@@ -37,4 +37,8 @@ export default class CustomSessionService extends SessionService {
   get isInternal() {
     return Boolean(this.shoebox.content.groupId);
   }
+
+  get isSupport() {
+    return this.shoebox.isSupportRole;
+  }
 }

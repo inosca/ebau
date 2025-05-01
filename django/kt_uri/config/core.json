@@ -41544,6 +41544,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 12000006,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 2,
     "fields": {
@@ -42363,6 +42370,110 @@
     "model": "core.rroleacl",
     "pk": 12000062,
     "fields": {
+      "resource": 12000006,
+      "role": 6
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000063,
+    "fields": {
+      "resource": 12000006,
+      "role": 1131
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000064,
+    "fields": {
+      "resource": 12000006,
+      "role": 1133
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000065,
+    "fields": {
+      "resource": 12000006,
+      "role": 1101
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000066,
+    "fields": {
+      "resource": 12000006,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000067,
+    "fields": {
+      "resource": 12000006,
+      "role": 1127
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000068,
+    "fields": {
+      "resource": 12000006,
+      "role": 1128
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000069,
+    "fields": {
+      "resource": 12000006,
+      "role": 1107
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000070,
+    "fields": {
+      "resource": 12000006,
+      "role": 1061
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000071,
+    "fields": {
+      "resource": 12000006,
+      "role": 1129
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000072,
+    "fields": {
+      "resource": 12000006,
+      "role": 1106
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000073,
+    "fields": {
+      "resource": 12000006,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000074,
+    "fields": {
+      "resource": 12000006,
+      "role": 1021
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000075,
+    "fields": {
       "resource": 42,
       "role": 1102
     }
@@ -42867,7 +42978,7 @@
       "template": "/portal/notfound.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -42945,7 +43056,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -42984,7 +43095,7 @@
       "template": "/ember/form-builder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -43023,7 +43134,7 @@
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -43037,6 +43148,19 @@
       "class_field": null,
       "hidden": 1,
       "sort": 7
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 12000006,
+    "fields": {
+      "available_resource": "page",
+      "name": "News",
+      "description": null,
+      "template": "/ember-camac-ng/news.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 17
     }
   },
   {
