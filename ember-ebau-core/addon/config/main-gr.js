@@ -104,6 +104,7 @@ export default {
     },
     colorMapping: {
       "decision-decision-approved": "uk-alert-success",
+      "decision-decision-approved-with-reservation": "uk-alert-success",
       "decision-decision-rejected": "uk-alert-danger",
       "decision-decision-written-off": "uk-alert-warning",
       "decision-decision-positive": "uk-alert-success",

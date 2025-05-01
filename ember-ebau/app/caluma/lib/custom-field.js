@@ -59,19 +59,46 @@ export default class CustomField extends Field {
         return [
           "decision-decision-approved",
           "decision-decision-rejected",
-          "decision-decision-positive-with-reservation",
           "decision-decision-written-off",
+          "decision-decision-approved-with-reservation",
           "decision-decision-retreat",
           "decision-decision-other",
         ];
-      } else if (form === "vorlaeufige-beurteilung") {
-        // Vorläufige Beurteilung
+      } else if (form.startsWith("bauanzeige")) {
+        // Bauanzeige
         return [
+          "decision-decision-approved",
+          "decision-decision-rejected",
+          "decision-decision-written-off",
           "decision-decision-positive",
-          "decision-decision-negative",
-          "decision-decision-positive-with-reservation",
+          "decision-decsion-negative",
+          "decision-decision-approved-with-reservation",
           "decision-decision-retreat",
           "decision-decision-other",
+          "decision-decision-positive-with-reservation",
+        ];
+      } else if (form.startsWith("vorlaeufige-beurteilung")) {
+        // Vorläufige Beurteilung
+        return [
+          "decision-decision-written-off",
+          "decision-decision-positive-with-reservation",
+          "decision-decision-positive",
+          "decision-decision-negative",
+          "decision-decision-retreat",
+          "decision-decision-other",
+        ];
+      } else if (form.startsWith("solaranlage")) {
+        // Solaranlage
+        return [
+          "decision-decsision-approved",
+          "decision-decision-rejected",
+          "decision-decision-written-off",
+          "decision-decision-positive",
+          "decision-decision-negative",
+          "decision-decision-approved-with-reservation",
+          "decision-decision-retreat",
+          "decision-decision-other",
+          "decision-decision-positive-with-reservation",
         ];
       }
     } else if (macroCondition(getOwnConfig().application === "so")) {
