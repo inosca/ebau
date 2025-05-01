@@ -12192,6 +12192,54 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 168,
+    "fields": {
+      "slug": "gvg-brandschutz",
+      "service_group": 1,
+      "service_parent": null,
+      "name": "gvg-brandschutz",
+      "description": null,
+      "sort": 0,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 169,
+    "fields": {
+      "slug": "gvg-elementarschutz",
+      "service_group": 1,
+      "service_parent": null,
+      "name": "gvg-elementarschutz",
+      "description": null,
+      "sort": 0,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -15174,6 +15222,54 @@
       "service": 167,
       "language": "it",
       "name": "Servizio di consulenza costruzioni senza ostacoli Pro Infirmis",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 291,
+    "fields": {
+      "service": 168,
+      "language": "de",
+      "name": "Gebäudeversicherung Graubünden, Brandschutz (GVG)",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 292,
+    "fields": {
+      "service": 168,
+      "language": "it",
+      "name": "Assicurazione fabbricati dei Grigioni, protezione antincendio (GVG)",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 293,
+    "fields": {
+      "service": 169,
+      "language": "de",
+      "name": "Elementarschadenprävention (Gebäudeversicherung 1 (GVG1))",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 294,
+    "fields": {
+      "service": 169,
+      "language": "it",
+      "name": "Prevenzione dei danni elementari (Assicurazione stabili 1 (GVG1))",
       "description": null,
       "city": null,
       "department": null
