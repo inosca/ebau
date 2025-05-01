@@ -13,6 +13,9 @@ urlpatterns = [
     re_path(
         r"product-numbers", views.ProductNumbersView.as_view(), name="product-numbers"
     ),
+    re_path(
+        r"export-invoices", views.ExportInvoicesView.as_view(), name="export-invoices"
+    ),
 ]
 
 r = SimpleRouter(trailing_slash=False)
