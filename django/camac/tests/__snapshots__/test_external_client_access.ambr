@@ -1,87 +1,113 @@
 # serializer version: 1
-# name: test_external_client_access[ag]
+# name: test_external_client_access[support-ag-external-client]
   list([
-    '/api/redoc/',
-    '/api/swagger/',
-    '/api/v1/groups',
-    '/api/v1/me',
-    '/api/v1/public-services',
-    '/ech/v1/application/%(instance_id)s',
-    '/ech/v1/applications',
-    '/ech/v1/event/%(instance_id)s/%(event_type)s',
-    '/ech/v1/files',
-    '/ech/v1/message/',
-    '/ech/v1/send/',
+    'get:/api/redoc/',
+    'get:/api/swagger/',
+    'get:/api/v1/groups',
+    'get:/api/v1/me',
+    'get:/api/v1/public-services',
+    'get:/ech/v1/application/%(instance_id)s',
+    'get:/ech/v1/applications',
+    'get:/ech/v1/message/',
+    'patch:/api/v1/me',
+    'post:/ech/v1/event/%(instance_id)s/%(event_type)s',
+    'post:/ech/v1/files',
+    'post:/ech/v1/send/',
   ])
 # ---
-# name: test_external_client_access[be]
+# name: test_external_client_access[support-be-external-client]
   list([
-    '/api/redoc/',
-    '/api/swagger/',
-    '/api/v1/attachment-sections',
-    '/api/v1/attachments',
-    '/api/v1/attachments/files/',
-    '/api/v1/groups',
-    '/api/v1/me',
-    '/api/v1/public-services',
-    '/ech/v1/application/%(instance_id)s',
-    '/ech/v1/applications',
-    '/ech/v1/event/%(instance_id)s/%(event_type)s',
-    '/ech/v1/files',
-    '/ech/v1/message/',
-    '/ech/v1/send/',
+    'get:/api/redoc/',
+    'get:/api/swagger/',
+    'get:/api/v1/attachment-sections',
+    'get:/api/v1/attachments',
+    'get:/api/v1/attachments/files/',
+    'get:/api/v1/groups',
+    'get:/api/v1/me',
+    'get:/api/v1/public-services',
+    'get:/ech/v1/application/%(instance_id)s',
+    'get:/ech/v1/applications',
+    'get:/ech/v1/message/',
+    'patch:/api/v1/me',
+    'post:/api/v1/attachments',
+    'post:/ech/v1/event/%(instance_id)s/%(event_type)s',
+    'post:/ech/v1/files',
+    'post:/ech/v1/send/',
   ])
 # ---
-# name: test_external_client_access[gr]
+# name: test_external_client_access[support-gr-external-client]
   list([
-    '/api/redoc/',
-    '/api/swagger/',
-    '/api/v1/groups',
-    '/api/v1/me',
-    '/api/v1/public-services',
-    '/ech/v1/application/%(instance_id)s',
-    '/ech/v1/applications',
-    '/ech/v1/event/%(instance_id)s/%(event_type)s',
-    '/ech/v1/files',
-    '/ech/v1/message/',
-    '/ech/v1/send/',
+    'get:/api/redoc/',
+    'get:/api/swagger/',
+    'get:/api/v1/groups',
+    'get:/api/v1/me',
+    'get:/api/v1/public-services',
+    'get:/ech/v1/application/%(instance_id)s',
+    'get:/ech/v1/applications',
+    'get:/ech/v1/message/',
+    'patch:/api/v1/me',
+    'post:/ech/v1/event/%(instance_id)s/%(event_type)s',
+    'post:/ech/v1/files',
+    'post:/ech/v1/send/',
   ])
 # ---
-# name: test_external_client_access[so]
+# name: test_external_client_access[support-so-external-client]
   list([
-    '/api/redoc/',
-    '/api/swagger/',
-    '/api/v1/groups',
-    '/api/v1/me',
-    '/api/v1/public-services',
-    '/ech/v1/application/%(instance_id)s',
-    '/ech/v1/applications',
-    '/ech/v1/event/%(instance_id)s/%(event_type)s',
-    '/ech/v1/files',
-    '/ech/v1/message/',
-    '/ech/v1/send/',
+    'get:/api/redoc/',
+    'get:/api/swagger/',
+    'get:/api/v1/groups',
+    'get:/api/v1/me',
+    'get:/api/v1/public-services',
+    'get:/ech/v1/application/%(instance_id)s',
+    'get:/ech/v1/applications',
+    'get:/ech/v1/message/',
+    'patch:/api/v1/me',
+    'post:/ech/v1/event/%(instance_id)s/%(event_type)s',
+    'post:/ech/v1/files',
+    'post:/ech/v1/send/',
   ])
 # ---
-# name: test_external_client_access[sz]
+# name: test_external_client_access[support-sz-external-client]
   list([
-    '/api/redoc/',
-    '/api/swagger/',
-    '/api/v1/attachments',
-    '/api/v1/attachments/files/',
-    '/api/v1/groups',
-    '/api/v1/me',
-    '/ech/v1/application/%(instance_id)s',
-    '/ech/v1/applications',
-    '/ech/v1/event/%(instance_id)s/%(event_type)s',
-    '/ech/v1/files',
-    '/ech/v1/message/',
-    '/ech/v1/send/',
+    'get:/api/redoc/',
+    'get:/api/swagger/',
+    'get:/api/v1/attachments',
+    'get:/api/v1/attachments/files/',
+    'get:/api/v1/groups',
+    'get:/api/v1/me',
+    'get:/ech/v1/application/%(instance_id)s',
+    'get:/ech/v1/applications',
+    'get:/ech/v1/message/',
+    'patch:/api/v1/me',
+    'post:/api/v1/attachments',
+    'post:/ech/v1/event/%(instance_id)s/%(event_type)s',
+    'post:/ech/v1/files',
+    'post:/ech/v1/send/',
   ])
 # ---
-# name: test_external_client_access[ur]
+# name: test_external_client_access[support-sz-wilken]
   list([
-    '/api/redoc/',
-    '/api/swagger/',
-    '/api/v1/public-caluma-instances',
+    'get:/api/redoc/',
+    'get:/api/swagger/',
+    'get:/api/v1/attachments',
+    'get:/api/v1/attachments/files/',
+    'get:/api/v1/groups',
+    'get:/api/v1/me',
+    'get:/ech/v1/application/%(instance_id)s',
+    'get:/ech/v1/applications',
+    'get:/ech/v1/message/',
+    'patch:/api/v1/me',
+    'post:/api/v1/attachments',
+    'post:/api/v1/export-invoices',
+    'post:/ech/v1/event/%(instance_id)s/%(event_type)s',
+    'post:/ech/v1/files',
+    'post:/ech/v1/send/',
+  ])
+# ---
+# name: test_external_client_access[support-ur-external-client]
+  list([
+    'get:/api/redoc/',
+    'get:/api/swagger/',
+    'get:/api/v1/public-caluma-instances',
   ])
 # ---

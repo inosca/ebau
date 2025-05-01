@@ -8,10 +8,13 @@ from rest_framework.test import APIClient
 from camac.user.permissions import IsAllowedClientToken
 
 CANTONS = [
-    config["SHORT_NAME"]
+    (config["SHORT_NAME"], "external-client")
     for name, config in settings.APPLICATIONS.items()
     if name.startswith("kt_")
 ]
+
+# The endpoint /export-invoices in billing requires a specific client
+CANTONS.append(("sz", "wilken"))
 
 
 def get_all_urls():
@@ -38,15 +41,26 @@ def get_all_urls():
     return urls
 
 
-@pytest.mark.parametrize("canton", CANTONS)
-def test_external_client_access(admin_user, snapshot, canton, request):
+@pytest.mark.freeze_time("2020-10-16")
+@pytest.mark.parametrize("canton,external_client", CANTONS)
+@pytest.mark.parametrize("role__name", [("support")])
+def test_external_client_access(
+    admin_user, snapshot, canton, external_client, request, settings, mocker
+):
     """Test endpoints that allow external clients.
 
     This test will generate a snapshot of endpoints that currently allow
     requests from external clients. If the snapshot changes, please make sure
     that the change is intended and the new endpoint should really be accessible
     to external clients!
+
+    This is smoke testing at best as we only look at urls with an instance param so
+    take care when using the snapshot list. There may be more endpoints which are
+    accessible.
     """
+
+    # Disable rate limit for testing
+    mocker.patch("rest_framework.views.APIView.get_throttles", return_value=[])
 
     request.getfixturevalue(f"set_application_{canton}")
 
@@ -58,50 +72,66 @@ def test_external_client_access(admin_user, snapshot, canton, request):
     except pytest.FixtureLookupError:
         request.getfixturevalue("disable_ech0211_settings")
 
+    try:
+        request.getfixturevalue(f"{canton}_billing_settings")
+    except pytest.FixtureLookupError:
+        pass
+
     request.getfixturevalue("reload_ech0211_urls")
 
     client = APIClient()
-    client.force_authenticate(user=admin_user, token={"azp": "external-client"})
+    client.force_authenticate(user=admin_user, token={"azp": external_client})
 
     allowed_urls = []
 
     for url, arg_names, view in get_all_urls():
-        args = {
-            arg_name: instance.pk
-            if arg_name == "instance_id"
-            else "StatusNotification"
-            if arg_name == "event_type"
-            else None
-            for arg_name in arg_names
-        }
+        request_url = url
+        for arg_name in arg_names:
+            if arg_name == "instance_id":
+                request_url = request_url.replace(
+                    "%(instance_id)s",
+                    # Because some of the ech endpoints raise if the xml is invalid,
+                    # we just see if it returns a 404.
+                    str(instance.pk + 1 if "application" in url else instance.pk),
+                )
+            elif arg_name == "event_type":
+                request_url = request_url.replace("%(event_type)s", "TestEvent")
 
-        response = client.get(url, args=[args[name] for name in arg_names])
+        for method in ["post", "patch", "get", "delete"]:
+            response = getattr(client, method)(request_url)
 
-        if response.status_code != status.HTTP_403_FORBIDDEN:
-            allowed_urls.append(url)
-        elif response.headers.get("Content-Type") == "application/vnd.api+json":
-            received_code = response.json()["errors"][0]["code"]
-            expected_code = IsAllowedClientToken.code
-
-            # Custom codes don't work as soon as permissions are combined with
-            # bitwise operators. We use this for views that are open for the
-            # publication so those views won't provide the same level of
-            # information.
-            #
-            # Sadly, all PRs trying to fix this were closed without any documented reason:
-            # - https://github.com/encode/django-rest-framework/pull/9649
-            # - https://github.com/encode/django-rest-framework/pull/6499
-            # - https://github.com/encode/django-rest-framework/pull/6502
-            if received_code != expected_code and any(
-                [
-                    isinstance(permission_cls, OperandHolder)
-                    for permission_cls in view.permission_classes
+            if response.status_code not in [
+                status.HTTP_403_FORBIDDEN,
+                status.HTTP_405_METHOD_NOT_ALLOWED,
+            ]:
+                allowed_urls.append(method + ":" + url)
+            elif response.headers.get("Content-Type") == "application/vnd.api+json":
+                received_code = response.json()["errors"][0]["code"]
+                expected_codes = [
+                    IsAllowedClientToken.code,
+                    "method_not_allowed",
+                    "permission_denied",
                 ]
-            ):
-                continue
 
-            assert received_code == expected_code, (
-                f'{url}: Expected error code "{expected_code}" but got "{received_code}"'
-            )
+                # Custom codes don't work as soon as permissions are combined with
+                # bitwise operators. We use this for views that are open for the
+                # publication so those views won't provide the same level of
+                # information.
+                #
+                # Sadly, all PRs trying to fix this were closed without any documented reason:
+                # - https://github.com/encode/django-rest-framework/pull/9649
+                # - https://github.com/encode/django-rest-framework/pull/6499
+                # - https://github.com/encode/django-rest-framework/pull/6502
+                if received_code != IsAllowedClientToken.code and any(
+                    [
+                        isinstance(permission_cls, OperandHolder)
+                        for permission_cls in view.permission_classes
+                    ]
+                ):
+                    continue
+
+                assert received_code in expected_codes, (
+                    f'{url}: Expected on of error codes "{expected_codes}" but got "{received_code}"'
+                )
 
     assert sorted(allowed_urls) == snapshot

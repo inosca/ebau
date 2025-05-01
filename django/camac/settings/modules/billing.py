@@ -65,13 +65,9 @@ BILLING = {
         "WILKEN": {
             "ENCODING": "windows-1252",
             "NEWLINE_CHARACTER": "~~",
-            # Needs to be configured from env
             "CLERK": env.str("WILKEN_CLERK", default="ZDARE"),
             "USER_ID": env.str("WILKEN_USER_ID", default="ZDARE"),
-            "FTP_HOSTNAME": env.str("WILKEN_FTP_HOSTNAME", default="ftp"),
-            "FTP_USER": env.str("WILKEN_FTP_USER", default="admin"),
-            "FTP_PASSWORD": env.str("WILKEN_FTP_PASSWORD", default="admin"),
-            "INVOICE_FILE_NAME": "Rechnung_Ebau_{datetime}.csv",
+            "INVOICE_FILE_NAME": "Rechnung_Ebau_{datetime}_{identifier}.csv",
             "PAYMENT_PURPOSE": "Baugesuch {instance_id}",
             "CUSTOMER_NUMBERS": {
                 "Schwyz": "015177",
@@ -105,6 +101,7 @@ BILLING = {
                 "Freienbach": "015207",
                 "Feusisberg": "015208",
             },
+            "KEYCLOAK_CLIENT": "wilken",
         },
     },
 }

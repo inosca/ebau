@@ -1,17 +1,19 @@
+import zipfile
 from datetime import date, datetime
-from io import BytesIO, StringIO
-from unittest.mock import MagicMock
+from io import BytesIO
 
 import pytest
-from django.core.management import call_command
+from rest_framework import status
+from rest_framework.test import APIClient
+from rest_framework_json_api.views import reverse
 
 from camac.billing.models import BillingV2Entry, Invoice
 from camac.billing.utils import get_invoice_text_sz
 from camac.billing.wilken.domain_logic import (
+    create_archive,
     generate_invoices,
     generate_models_for_invoice,
     generate_wilken_files,
-    send_files,
 )
 from camac.instance.models import Instance
 
@@ -25,12 +27,10 @@ def test_generate_invoices(
     instance_factory,
     location_factory,
     form_factory,
+    admin_client,
+    admin_user,
     sz_billing_settings,
-    mocker,
 ) -> None:
-    mock = MagicMock()
-    FTP = mocker.patch("camac.billing.wilken.domain_logic.FTP", return_value=mock)
-
     instance: list[Instance] = instance_factory(
         form=form_factory(name="baugesuch"), location=location_factory(name="Schwyz")
     )
@@ -40,27 +40,43 @@ def test_generate_invoices(
         released_for_clearing=datetime.now(),
         product_number=DEFAULT_PRODUCT_NUMBER,
     )
+    billing_entries.append(
+        billing_v2_entry_factory.create(
+            instance=instance,
+            released_for_clearing=datetime.now(),
+            product_number=None,
+        )
+    )
 
-    invoices: list[Invoice] = generate_invoices()
-    assert len(invoices) == 1
+    url = reverse("export-invoices")
+    response = admin_client.post(url)
+
+    assert response.status_code == status.HTTP_403_FORBIDDEN
+
+    client = APIClient()
+    client.force_authenticate(user=admin_user, token={"azp": "wilken"})
+    response = client.post(url)
+
+    assert response.status_code == status.HTTP_200_OK
+
+    with zipfile.ZipFile(BytesIO(response.getvalue()), "r") as zip_file:
+        assert len(zip_file.infolist()) == 1
 
     for be in billing_entries:
         be.refresh_from_db()
 
-    invoice: Invoice = invoices[0]
+    invoice = Invoice.objects.first()
     assert invoice.date_completed == date.today()
     assert invoice.line_items.count() == 2
     assert billing_entries[0].date_charged == date.today()
     assert billing_entries[1].date_charged == date.today()
-    FTP.assert_called()
-    mock.storlines.assert_called_once()
-    mock.quit.assert_called_once()
+    assert billing_entries[2].date_charged is None
 
 
 def test_generate_invoices_empty(db, instance_factory, sz_billing_settings) -> None:
     instance_factory.create_batch(3)
-    invoices: list[Invoice] = generate_invoices()
-    assert len(invoices) == 0
+    result = generate_invoices()
+    assert result is None
 
 
 def test_generate_models_for_invoice(
@@ -190,74 +206,32 @@ def test_generate_wilken_files(
     )
 
 
-def test_generate_wilken_files_more_than_100(
-    db, invoice_factory, instance_factory, sz_billing_settings
+@pytest.mark.freeze_time("2023-05-22")
+def test_generate_wilken_files_and_archive(
+    db, invoice_factory, instance_factory, sz_billing_settings, snapshot
 ) -> None:
+    sz_billing_settings["WILKEN"]["INVOICE_FILE_NAME"] = (
+        "invoice_{datetime}_{identifier}.csv"
+    )
     instance: Instance = instance_factory()
     invoices: list[Invoice] = invoice_factory.create_batch(230, instance=instance)
     files: list[BytesIO] = generate_wilken_files(invoices)
 
     assert len(files) == 3
+    for file in files:
+        snapshot.assert_match(
+            file.getvalue().decode(sz_billing_settings["WILKEN"]["ENCODING"])
+        )
+        file.seek(0)
 
+    archive = create_archive(files)
 
-def test_send_files(sz_billing_settings, mocker) -> None:
-    test: str = "test"
-    file_content: bytes = b"test"
-    sz_billing_settings["WILKEN"]["FTP_HOSTNAME"] = test
-    sz_billing_settings["WILKEN"]["FTP_USER"] = test
-    sz_billing_settings["WILKEN"]["FTP_PASSWORD"] = test
-    sz_billing_settings["WILKEN"]["INVOICE_FILE_NAME"] = test
-
-    mock = MagicMock()
-    FTP = mocker.patch("camac.billing.wilken.domain_logic.FTP", return_value=mock)
-
-    test_file: BytesIO = BytesIO(file_content)
-    send_files([test_file])
-
-    FTP.assert_called_once_with(test, test, test)
-    mock.storlines.assert_called_once()
-    assert mock.storlines.call_args[0][0] == f"STOR {test}"
-    assert mock.storlines.call_args[0][1].getvalue() == file_content
-    mock.quit.assert_called_once()
-
-
-def test_management_command_generate_invoices(
-    db,
-    sz_billing_settings,
-    mocker,
-    instance_factory,
-    location_factory,
-    billing_v2_entry_factory,
-    form_factory,
-) -> None:
-    mock = MagicMock()
-    FTP = mocker.patch("camac.billing.wilken.domain_logic.FTP", return_value=mock)
-
-    call_command(
-        "generate_invoices",
-        stdout=StringIO(),
-        stderr=StringIO(),
-    )
-
-    instance: list[Instance] = instance_factory(
-        form=form_factory(name="baugesuch"), location=location_factory(name="Schwyz")
-    )
-    billing_v2_entry_factory.create_batch(
-        2,
-        instance=instance,
-        released_for_clearing=datetime.now(),
-        product_number=DEFAULT_PRODUCT_NUMBER,
-    )
-
-    call_command(
-        "generate_invoices",
-        stdout=StringIO(),
-        stderr=StringIO(),
-    )
-
-    FTP.assert_called()
-    mock.storlines.assert_called_once()
-    mock.quit.assert_called_once()
+    with zipfile.ZipFile(archive, "r") as zip_file:
+        info_list = zip_file.infolist()
+        assert len(info_list) == 3
+        assert info_list[0].filename == "invoice_20230522000000_1.csv"
+        assert info_list[1].filename == "invoice_20230522000000_2.csv"
+        assert info_list[2].filename == "invoice_20230522000000_3.csv"
 
 
 def test_get_invoice_text_sz(

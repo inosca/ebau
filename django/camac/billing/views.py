@@ -1,12 +1,16 @@
+from logging import Logger, getLogger
+
 from django.conf import settings
 from django.db import transaction
 from django.db.models import Q
+from django.http.response import FileResponse
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, PermissionDenied, ValidationError
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.request import Request
 from rest_framework.views import APIView
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
@@ -18,6 +22,7 @@ from camac.billing.serializers import (
     BillingV2EntryTemplateSerializer,
 )
 from camac.billing.utils import validate_product_number_conditions
+from camac.billing.wilken.domain_logic import generate_invoices
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import is_permission_mode_fully_enabled
@@ -151,3 +156,37 @@ class ProductNumbersView(APIView):
         ]
 
         return response.Response(valid_product_numbers, status=status.HTTP_200_OK)
+
+
+log: Logger = getLogger(__name__)
+
+
+class ExportInvoicesView(APIView):
+    permission_classes = [IsAllowedClientToken & IsAuthenticated]
+    allow_external_clients = True
+
+    def post(self, request: Request) -> response.Response | FileResponse:
+        wilken_client = settings.BILLING.get("WILKEN", {}).get("KEYCLOAK_CLIENT")
+        if not request.auth["azp"] == wilken_client:
+            raise PermissionDenied()
+
+        match generate_invoices():
+            case invoices, archive:
+                for invoice in invoices:
+                    log.debug(
+                        "The billing entries {entry_ids} have been billed for invoice {invoice_id} ({instance_identifier})".format(
+                            entry_ids=", ".join(
+                                [
+                                    str(line_item.billing_v2_entry_id or "[deleted]")
+                                    for line_item in invoice.line_items.all()
+                                ]
+                            ),
+                            invoice_id=str(invoice.pk),
+                            instance_identifier=str(invoice.instance.identifier),
+                        )
+                    )
+
+                return FileResponse(archive, filename="invoices.zip")
+            case None:
+                log.debug("No invoices to bill")
+                return response.Response([], status=status.HTTP_204_NO_CONTENT)

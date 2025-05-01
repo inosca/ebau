@@ -153,19 +153,6 @@ services:
     networks:
       - ebau.localhost
 
-  ftp:
-    image: garethflowers/ftp-server
-    environment:
-      - FTP_USER=admin
-      - FTP_PASS=admin
-    ports:
-      - "20-21:20-21/tcp"
-      - "40000-40009:40000-40009/tcp" # For passive mode
-    volumes:
-      - "../.ftp-files/:/home/admin/"
-    networks:
-      - ebau.localhost
-
 networks:
   ebau.localhost:
 

@@ -2,7 +2,6 @@ import csv
 from codecs import StreamWriter, getwriter
 from datetime import date, datetime
 from decimal import Decimal
-from ftplib import FTP
 from io import BytesIO
 from itertools import count
 from logging import Logger, getLogger
@@ -28,17 +27,21 @@ from camac.instance.models import Instance
 log: Logger = getLogger(__name__)
 
 
-def generate_invoices() -> list[Invoice]:
+def generate_invoices() -> tuple[list[Invoice], BytesIO] | None:
     invoices: list[Invoice] = generate_models_for_invoice()
 
     if not len(invoices):
-        return []
+        return None
 
     files: list[BytesIO] = generate_wilken_files(invoices)
+    archive = create_archive(files)
 
-    send_files(files)
-    # If no Exception was raised until now, everything should be fine so we
-    # mark every invoice and line_item as billed.
+    mark_invoices_charged(invoices)
+
+    return invoices, archive
+
+
+def mark_invoices_charged(invoices: list[Invoice]):
     for invoice in invoices:
         for line_item in invoice.line_items.all():
             if line_item.billing_v2_entry:
@@ -46,8 +49,6 @@ def generate_invoices() -> list[Invoice]:
                 line_item.billing_v2_entry.save()
         invoice.date_completed = date.today()
         invoice.save()
-
-    return invoices
 
 
 def generate_models_for_invoice() -> list[Invoice]:
@@ -57,6 +58,7 @@ def generate_models_for_invoice() -> list[Invoice]:
             BillingV2Entry.objects.filter(
                 date_charged__isnull=True,
                 released_for_clearing__isnull=False,
+                product_number__isnull=False,
                 instance=OuterRef("pk"),
             )
         )
@@ -70,7 +72,9 @@ def generate_models_for_invoice() -> list[Invoice]:
     for instance in instances:
         try:
             billing_entries = instance.billing_v2_entries.filter(
-                date_charged__isnull=True, released_for_clearing__isnull=False
+                date_charged__isnull=True,
+                released_for_clearing__isnull=False,
+                product_number__isnull=False,
             )
 
             invoice = create_invoice(instance)
@@ -194,16 +198,18 @@ def generate_wilken_files(
     return [invoice_file]
 
 
-def send_files(files: list[BytesIO]) -> None:
+def create_archive(files: list[BytesIO]) -> BytesIO:
+    import zipfile
+
     wilken_settings = settings.BILLING["WILKEN"]
-    ftp_session: FTP = FTP(
-        wilken_settings["FTP_HOSTNAME"],
-        wilken_settings["FTP_USER"],
-        wilken_settings["FTP_PASSWORD"],
-    )
-    for file in files:
-        filename: str = wilken_settings["INVOICE_FILE_NAME"].format(
-            datetime=datetime.now().strftime("%Y%m%d%H%M%S")
-        )
-        ftp_session.storlines(f"STOR {filename}", file)
-    ftp_session.quit()
+
+    zip_buffer = BytesIO()
+
+    with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_STORED, False) as zip_file:
+        for index, file in enumerate(files):
+            file_name = wilken_settings["INVOICE_FILE_NAME"].format(
+                identifier=index + 1, datetime=datetime.now().strftime("%Y%m%d%H%M%S")
+            )
+            zip_file.writestr(file_name, file.getvalue())
+    zip_buffer.seek(0)
+    return zip_buffer
