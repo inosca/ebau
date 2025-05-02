@@ -1,0 +1,14 @@
+# serializer version: 1
+# name: test_application_type_list
+  dict({
+    'data': list([
+      dict({
+        'attributes': dict({
+          'name': 'Henning Reinhardt-Pärtzelt',
+        }),
+        'id': 'season-fish-share',
+        'type': 'application-types',
+      }),
+    ]),
+  })
+# ---

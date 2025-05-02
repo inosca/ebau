@@ -1951,6 +1951,42 @@ def test_rejection_settings(settings, request):
 
 
 @pytest.fixture
+def rulesets_settings(settings, request):
+    """Module-specific settings for rulesets (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="rulesets",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_rulesets_settings(settings, request):
+    """Disable the rulesets module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="rulesets",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def ag_rulesets_settings(settings, request):
+    """Module-specific settings for rulesets (canton AG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="rulesets",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def service_settings(settings, request):
     """Module-specific settings for service (default)."""
     return generate_module_settings(

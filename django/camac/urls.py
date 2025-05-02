@@ -34,6 +34,7 @@ urlpatterns = [
     re_path(r"^api/v1/", include("ebau_gwr.token_proxy.urls")),
     re_path(r"^api/v1/", include("camac.sanctions.urls")),
     re_path(r"^api/v1/", include("camac.work_items.urls")),
+    re_path(r"^api/v1/", include("camac.rulesets.urls")),
     re_path(
         r"^graphql",
         CamacAuthenticatedGraphQLView.as_view(graphiql=settings.DEBUG),

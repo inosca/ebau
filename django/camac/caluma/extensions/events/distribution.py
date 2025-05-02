@@ -396,12 +396,13 @@ def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
             work_item=check_distribution_work_item, user=user, context=context
         )
 
+    # Permission Trigger - grant recipient service the required permissions
+    Trigger.inquiry_sent(None, work_item.case.family.instance, work_item)
+
     # send notification to addressed service
     send_inquiry_notification(
         _get_inquiry_sent_notification_key(work_item), work_item, user
     )
-    # Permission Trigger - grant recipient service the required permissions
-    Trigger.inquiry_sent(None, work_item.case.family.instance, work_item)
 
     if settings.ECH0211.get("API_LEVEL") == "full":
         camac_user = User.objects.get(username=user.username)
