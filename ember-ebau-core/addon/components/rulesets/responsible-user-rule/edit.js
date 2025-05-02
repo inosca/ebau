@@ -1,0 +1,53 @@
+import { action } from "@ember/object";
+import { service } from "@ember/service";
+import Component from "@glimmer/component";
+import { task } from "ember-concurrency";
+import { findAll, query } from "ember-data-resources";
+import { localCopy } from "tracked-toolbox";
+
+export default class RulesetsResponsibleUserRuleEditComponent extends Component {
+  @service intl;
+  @service router;
+  @service ebauModules;
+  @service notification;
+
+  @localCopy("args.model.type") type;
+
+  applicationTypes = findAll(this, "application-type");
+  municipalities = query(this, "public-service", () => ({
+    service_group_name: "municipality",
+  }));
+  users = findAll(this, "user");
+
+  @action
+  changeType(changeset, type) {
+    if (type === "municipalities") {
+      changeset.rollbackProperty("applicationTypes");
+    } else if (type === "application-types") {
+      changeset.rollbackProperty("municipalities");
+    }
+
+    this.type = type;
+  }
+
+  save = task({ drop: true }, async (changeset) => {
+    try {
+      await changeset.save();
+
+      this.notification.success(
+        this.intl.t("rulesets.responsible-user.save.success"),
+      );
+
+      this.router.transitionTo(
+        this.ebauModules.resolveModuleRoute(
+          "rulesets",
+          "responsible-user.index",
+        ),
+      );
+    } catch {
+      this.notification.danger(
+        this.intl.t("rulesets.responsible-user.save.error"),
+      );
+    }
+  });
+}

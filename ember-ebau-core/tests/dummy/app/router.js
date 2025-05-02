@@ -6,6 +6,7 @@ import registerBilling from "ember-ebau-core/modules/billing";
 import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerProfile from "ember-ebau-core/modules/profile";
 import registerRejection from "ember-ebau-core/modules/rejection";
+import registerRulesets from "ember-ebau-core/modules/rulesets";
 import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
 import registerSnippets from "ember-ebau-core/modules/snippets";
 import registerSnippetsAdmin from "ember-ebau-core/modules/snippets-admin";
@@ -43,4 +44,5 @@ Router.map(function () {
   registerSnippets(this);
   registerProfile(this);
   registerServicePermissions(this);
+  registerRulesets(this);
 });

@@ -150,6 +150,7 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
                 "/ember-camac-ng/snippets-admin.phtml": "/snippets-admin",
                 "/ember-camac-ng/snippets.phtml": "/snippets",
                 "/ember-camac-ng/news.phtml": "/static-content/news",
+                "/ember-camac-ng/rulesets.phtml": "/rulesets",
             }
             return type_mapping.get(obj.template)
 

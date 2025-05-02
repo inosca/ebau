@@ -1,0 +1,25 @@
+rulesets:
+  responsible-user:
+    title: Zuständigkeit
+    new: Neue Zuständigkeitsregel hinzufügen
+    edit: Zuständigkeitsregel bearbeiten
+    responsible-user: Zuständige Person
+    empty: Es wurden noch keine Zuständigkeitsregeln definiert
+
+    types:
+      municipalities: Gemeinden
+      application-types: Dossiertypen
+
+    delete:
+      title: Zuständigkeitsregel löschen
+      confirm: Wollen Sie die Zuständigkeitsregel wirklich löschen?
+      success: Zuständigkeitsregel wurde gelöscht
+      error: Fehler beim Löschen der Zuständigkeitsregel
+
+    save:
+      success: Zuständigkeitsregel wurde erfolgreich gespeichert
+      error: Fehler beim Speichern der Zuständigkeitsregel
+
+    reorder:
+      success: Zuständigkeitsregeln wurden erfolgreich neu geordnet
+      error: Fehler beim Neuordnen der Zuständigkeitsregeln
