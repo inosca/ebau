@@ -1,0 +1,14 @@
+@import "_variables";
+
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+
+@import "uikit/src/scss/uikit-theme.scss";
+
+h2#app-title a {
+  font-weight: 700;
+}
+
+.uk-card-default {
+  background-color: rgba(255, 255, 255, 0.9);
+}
