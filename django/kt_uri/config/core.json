@@ -41155,7 +41155,7 @@
     "pk": 42,
     "fields": {
       "available_resource": "emberlist",
-      "name": "Dossiers",
+      "name": "Dossier suchen",
       "description": "Allgemeine Suche",
       "template": "/global/search.phtml",
       "class_field": null,
