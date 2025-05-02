@@ -152,7 +152,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Baubewilligung erteilt\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "info.case.root.form == \"plangenehmigungsverfahren-bund\"",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -169,7 +169,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kenntnisnahme\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "info.case.root.form == \"plangenehmigungsverfahren-bund\"",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-plangenehmigung-erteilt",
+    "fields": {
+      "created_at": "2025-05-02T08:47:56.301Z",
+      "modified_at": "2025-05-02T08:49:55.768Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Plangenehmigung erteilt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -203,7 +220,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Teilbaubewilligung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "info.case.root.form == \"plangenehmigungsverfahren-bund\"",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -403,7 +420,7 @@
       "label": "{\"de\": \"Entscheidtyp\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "\"entscheid-entscheid\"|answer != \"entscheid-entscheid-abweisung\"",
+      "is_hidden": "\"entscheid-entscheid\"|answer != \"entscheid-entscheid-abweisung\"\n||\ninfo.case.root.form == \"plangenehmigungsverfahren-bund\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -546,6 +563,21 @@
       "question": "entscheid-entscheid",
       "option": "entscheid-entscheid-kenntnisnahme",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-plangenehmigung-erteilt",
+    "fields": {
+      "created_at": "2025-05-02T08:50:09.944Z",
+      "modified_at": "2025-05-02T08:50:09.944Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-plangenehmigung-erteilt",
+      "sort": 7
     }
   },
   {
