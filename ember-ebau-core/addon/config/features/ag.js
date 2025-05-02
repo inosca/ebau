@@ -61,4 +61,7 @@ export default {
   withdrawal: {
     light: true,
   },
+  distribution: {
+    deadlineRules: true,
+  },
 };

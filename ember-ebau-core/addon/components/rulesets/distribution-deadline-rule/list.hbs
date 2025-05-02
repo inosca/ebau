@@ -1,0 +1,37 @@
+{{#if this.rules.isLoading}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio="2" />
+  </div>
+{{else}}
+  <table class="uk-table uk-table-striped">
+    <thead>
+      <tr>
+        <th>{{t "rulesets.distribution-deadline.target-service"}}</th>
+        <th>{{t "rulesets.distribution-deadline.lead-time"}}</th>
+        <th>{{t "rulesets.distribution-deadline.current-deadline"}}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.rules.records as |rule|}}
+        <Rulesets::DistributionDeadlineRule::List::Item @rule={{rule}} />
+      {{else}}
+        <tr>
+          <td class="uk-text-center" colspan="4">
+            {{t "rulesets.distribution-deadline.empty"}}
+          </td>
+        </tr>
+      {{/each}}
+      <tr>
+        <td class="uk-text-center" colspan="4">
+          <LinkTo
+            @route={{module-route "rulesets" "distribution-deadline.new"}}
+            class="uk-button uk-button-link"
+          >
+            <UkIcon @icon="plus" />
+          </LinkTo>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+{{/if}}

@@ -346,10 +346,14 @@ def test_create_inquiry(
 
 @pytest.mark.freeze_time("2022-01-01")
 @pytest.mark.parametrize(
-    "passed_deadline,passed_remark,expected_deadline,expected_remark",
+    "passed_deadline,passed_remark,has_deadline_rule,expected_deadline,expected_remark",
     [
-        (None, None, "2022-01-31", None),
-        ("2022-01-13", "Test", "2022-01-13", "Test"),
+        (None, None, False, "2022-01-31", None),
+        ("2022-01-13", "Test", False, "2022-01-13", "Test"),
+        ("0000-01-01", None, False, "2022-01-31", None),
+        # With distribution deadline rule
+        (None, None, True, "2022-05-23", None),
+        ("0000-01-01", None, True, "2022-05-23", None),
     ],
 )
 def test_inquiry_default_values(
@@ -363,8 +367,17 @@ def test_inquiry_default_values(
     passed_remark,
     expected_deadline,
     expected_remark,
+    has_deadline_rule,
+    distribution_deadline_rule_factory,
+    rulesets_settings,
 ):
     to_service = service_factory()
+
+    if has_deadline_rule:
+        rulesets_settings.enabled = True
+        distribution_deadline_rule_factory(
+            source_service=service, target_service=to_service, lead_time=100
+        )
 
     create_work_item = distribution_child_case_be.work_items.get(
         task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],

@@ -1615,6 +1615,14 @@ msgstr ""
 msgid "User is not a member of this service"
 msgstr ""
 
+#: camac/rulesets/serializers.py
+msgid "Defining a deadline rule for this service is not allowed"
+msgstr ""
+
+#: camac/rulesets/serializers.py
+msgid "There is already a deadline rule defined for this service"
+msgstr ""
+
 #: camac/rulesets/views.py
 msgid "`order` must include all IDs"
 msgstr ""

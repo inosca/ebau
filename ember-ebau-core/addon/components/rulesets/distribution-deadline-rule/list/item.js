@@ -3,15 +3,17 @@ import Component from "@glimmer/component";
 import { task } from "ember-concurrency";
 import { confirm } from "ember-uikit";
 
-import parseError from "ember-ebau-core/utils/parse-error";
-
-export default class RulesetsResponsibleUserRuleListItemComponent extends Component {
+export default class RulesetsDistributionDeadlineRuleListItemComponent extends Component {
   @service intl;
   @service notification;
 
   delete = task({ drop: true }, async () => {
     if (
-      !(await confirm(this.intl.t("rulesets.responsible-user.delete.confirm")))
+      !(await confirm(
+        this.intl.t("rulesets.distribution-deadline.delete.confirm", {
+          name: this.args.rule.get("targetService.name"),
+        }),
+      ))
     ) {
       return;
     }
@@ -20,12 +22,11 @@ export default class RulesetsResponsibleUserRuleListItemComponent extends Compon
       await this.args.rule.destroyRecord();
 
       this.notification.success(
-        this.intl.t("rulesets.responsible-user.delete.success"),
+        this.intl.t("rulesets.distribution-deadline.delete.success"),
       );
-    } catch (error) {
+    } catch {
       this.notification.danger(
-        parseError(error, false) ??
-          this.intl.t("rulesets.responsible-user.delete.error"),
+        this.intl.t("rulesets.distribution-deadline.delete.error"),
       );
     }
   });

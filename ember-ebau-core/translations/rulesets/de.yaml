@@ -24,3 +24,39 @@ rulesets:
     reorder:
       success: Zuständigkeitsregeln wurden erfolgreich neu geordnet
       error: Fehler beim Neuordnen der Zuständigkeitsregeln
+
+  distribution-deadline:
+    title: Fristen
+    new: Neue Standardfrist hinzufügen
+    edit: Standardfrist bearbeiten
+    target-service: Fachstelle
+    lead-time: Frist in Tagen
+    current-deadline: Frist ab heute
+    empty: Es wurden noch keine Standardfristen definiert
+    holidays-warning: |-
+      <b>Achtung:</b> Bei Standardfristen für kantonale Fachstellen werden die
+      gesetzlichen Feiertage geltend für den Kanton mit angerechnet. Folgende
+      Feiertage werden berücksichtigt:
+      <ul>
+        <li>Neujahrstag</li>
+        <li>Berchtoldstag</li>
+        <li>Karfreitag</li>
+        <li>Ostermontag</li>
+        <li>Auffahrt</li>
+        <li>Pfingstmontag</li>
+        <li>Nationalfeiertag</li>
+        <li>Weihnachten</li>
+        <li>Stephanstag</li>
+      </ul>
+      Zusätzlich wird auch der Zeitraum zwischen Weihnachten und Berchtoldstag
+      mit angerechnet.
+
+    delete:
+      title: Standardfrist löschen
+      confirm: Wollen Sie die Standardfrist für <b>{name}</b> wirklich löschen?
+      success: Standardfrist wurde gelöscht
+      error: Fehler beim Löschen der Standardfrist
+
+    save:
+      success: Standardfrist wurde erfolgreich gespeichert
+      error: Fehler beim Speichern der Standardfrist

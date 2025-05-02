@@ -1589,6 +1589,14 @@ msgstr "Gemeinden und Dossiertypen können nicht beide ausgefüllt werden"
 msgid "User is not a member of this service"
 msgstr "Benutzer ist kein Mitglied dieser Organisation"
 
+#: camac/rulesets/serializers.py
+msgid "Defining a deadline rule for this service is not allowed"
+msgstr "Sie dürfen für diese Organisation keine Standardfrist hinterlegen"
+
+#: camac/rulesets/serializers.py
+msgid "There is already a deadline rule defined for this service"
+msgstr "Es existiert bereits eine Standardfrist für diese Organisation"
+
 #: camac/rulesets/views.py
 msgid "`order` must include all IDs"
 msgstr "`order` muss alle IDs beinhalten"

@@ -1,0 +1,34 @@
+<tr>
+  <td>{{@rule.targetService.name}}</td>
+  <td>{{@rule.leadTime}}</td>
+  <td>
+    <span class="uk-flex-inline uk-flex-middle">
+      {{format-date @rule.deadline format="date"}}
+      {{#if @rule.excludeHolidays}}
+        <UkIcon
+          @icon="warning"
+          @ratio="0.8"
+          class="uk-margin-small-left uk-text-warning"
+          {{uk-tooltip (t "rulesets.distribution-deadline.holidays-warning")}}
+        />
+      {{/if}}
+    </span>
+  </td>
+  <td class="uk-text-right">
+    <LinkTo
+      @route={{module-route "rulesets" "distribution-deadline.edit"}}
+      @model={{@rule}}
+      title={{t "rulesets.distribution-deadline.edit"}}
+      class="uk-button uk-button-link"
+    >
+      <UkIcon @icon="pencil" />
+    </LinkTo>
+    <UkButton
+      @color="link"
+      @onClick={{this.delete.perform}}
+      title={{t "rulesets.distribution-deadline.delete.title"}}
+    >
+      <UkIcon @icon="trash" />
+    </UkButton>
+  </td>
+</tr>

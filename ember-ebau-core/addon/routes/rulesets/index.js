@@ -7,7 +7,7 @@ export default class RulesetsIndexRoute extends Route {
 
   redirect() {
     this.router.replaceWith(
-      this.ebauModules.resolveModuleRoute("rulesets", "responsible-user"),
+      this.ebauModules.resolveModuleRoute("rulesets", "distribution-deadline"),
     );
   }
 }

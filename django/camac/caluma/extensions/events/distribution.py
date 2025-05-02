@@ -1,3 +1,4 @@
+from copy import deepcopy
 from datetime import datetime, timedelta
 from itertools import chain
 
@@ -44,6 +45,7 @@ from camac.ech0211.signals import (
 )
 from camac.notification.utils import send_mail_without_request
 from camac.permissions.events import Trigger
+from camac.rulesets.models import DistributionDeadlineRule
 from camac.user.models import Service, User
 from camac.utils import delay_next_workingday
 
@@ -274,11 +276,20 @@ def post_redo_inquiry(sender, work_item, user, context=None, **kwargs):
     send_inquiry_notification("INQUIRY_REDO", work_item, user)
 
 
-def _get_default_deadline(settings):
-    return delay_next_workingday(
-        now().date()
-        + timedelta(days=settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"])
-    )
+def _get_default_deadline(settings, work_item):
+    deadline = None
+
+    if settings.RULESETS.enabled:
+        deadline = DistributionDeadlineRule.objects.get_default_deadline_for_inquiry(
+            work_item
+        )
+
+    if not deadline:
+        deadline = now().date() + timedelta(
+            days=settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"]
+        )
+
+    return delay_next_workingday(deadline)
 
 
 def _get_deadline_override(settings, work_item):
@@ -301,17 +312,24 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
     # suspend work item so it's a draft
     suspend_work_item(work_item=work_item, user=user, context=context)
 
-    answers = {
-        settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]: _get_default_deadline(
-            settings
-        ).isoformat(),
-        **(context.get("answers", {}) if context else {}),
-    }
+    deadline_question = settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+    default_deadline = _get_default_deadline(settings, work_item).isoformat()
+
+    answers = deepcopy(context.get("answers", {}) if context else {})
 
     if deadline_override := _get_deadline_override(settings, work_item):
-        answers[settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]] = (
-            deadline_override.isoformat()
-        )
+        # If there's an override (fixed leadtime for certain services) we always
+        # take that deadline
+        answers[deadline_question] = deadline_override.isoformat()
+    elif deadline_question not in answers or answers[deadline_question] == "0000-01-01":
+        # If the deadline was not passed from the frontend or the frontend
+        # passed "0000-01-01" we take the default deadline. This will consider
+        # default deadline rules from the rulesets module.
+        #
+        # If the frontend passed "0000-01-01" in the context it's expected that
+        # the defaults vary for the addressed services so the backend needs to
+        # assign the proper defaults.
+        answers[deadline_question] = default_deadline
 
     for slug, value in answers.items():
         question = Question.objects.get(pk=slug)

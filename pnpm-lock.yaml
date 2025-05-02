@@ -1308,6 +1308,9 @@ importers:
       '@projectcaluma/ember-core':
         specifier: 14.3.0
         version: 14.3.0(@ember/test-helpers@4.0.4(@babel/core@7.26.10)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.10)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+      '@projectcaluma/ember-distribution':
+        specifier: 14.3.0
+        version: 14.3.0(euqnuk7epxiwuehdk5buemlefa)
       '@projectcaluma/ember-form':
         specifier: 14.3.0
         version: 14.3.0(blnex3oevlh6yzsu5mweohk2le)

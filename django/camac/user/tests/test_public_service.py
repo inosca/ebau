@@ -274,3 +274,27 @@ def test_public_service_filter_is_active_service_for_instance(
     data = response.json()["data"]
 
     assert len(data) == expected_count
+
+
+@pytest.mark.parametrize("service__name", ["my-service"])
+@pytest.mark.parametrize(
+    "value,expected",
+    [
+        (True, {"my-service", "other-service", "my-subservice"}),
+        (False, {"my-service", "other-service", "my-subservice", "other-subservice"}),
+    ],
+)
+def test_public_service_filter_exclude_other_subservices(
+    admin_client, expected, service_factory, service, value
+):
+    other_service = service_factory(name="other-service")
+    service_factory(name="other-subservice", service_parent=other_service)
+    service_factory(name="my-subservice", service_parent=service)
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        data={"exclude_other_subservices": value},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert {i["attributes"]["name"] for i in response.json()["data"]} == expected
