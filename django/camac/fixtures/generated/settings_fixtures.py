@@ -979,6 +979,18 @@ def ur_dms_settings(settings, request):
 
 
 @pytest.fixture
+def ag_dms_settings(settings, request):
+    """Module-specific settings for dms (canton AG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="dms",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def dossier_import_settings(settings, request):
     """Module-specific settings for dossier import (default)."""
     return generate_module_settings(
