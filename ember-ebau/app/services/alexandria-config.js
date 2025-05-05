@@ -5,8 +5,10 @@ import { tracked } from "@glimmer/tracking";
 import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
 import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
 
-const allowedWebDAVMimeTypes =
-  getConfig("ember-ebau-core").allowedWebDAVMimeTypes;
+const coreConfig = getConfig("ember-ebau-core");
+const allowedWebDAVMimeTypes = coreConfig.allowedWebDAVMimeTypes;
+const enableOriginalDocumentFilename =
+  coreConfig.enableAlexandriaOriginalDocumentFilename === true;
 
 export default class CustomAlexandriaConfigService extends AlexandriaConfigService {
   markIcons = {
@@ -131,4 +133,5 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   enablePDFConversion = true;
   enableWebDAV = true;
   allowedWebDAVMimeTypes = allowedWebDAVMimeTypes.split(",");
+  enableOriginalDocumentFilename = enableOriginalDocumentFilename;
 }

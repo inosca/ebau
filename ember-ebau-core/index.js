@@ -47,6 +47,7 @@ module.exports = {
         // feature flags
         hasBuildingControl: ENV === "be",
         useInstanceService: ENV !== "sz",
+        enableAlexandriaOriginalDocumentFilename: ENV === "gr",
         // token exchange (this is not a regular feature flag because it differs
         // per environment in Kt. SO)
         enableTokenExchange: process.env.ENABLE_TOKEN_EXCHANGE ?? false,
