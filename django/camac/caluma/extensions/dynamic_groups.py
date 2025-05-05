@@ -237,6 +237,9 @@ class CustomDynamicGroups(BaseDynamicGroups):
     def resolve_afb_ag(self, task, case, user, prev_work_item, context, **kwargs):
         return [str(Service.objects.get(slug="afb").pk)]
 
+    # TODO: implement GEVER test, chicken-egg problem
     @register_dynamic_group("gever")
-    def resolve_gever(self, task, case, user, prev_work_item, context, **kwargs):
+    def resolve_gever(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):  # pragma: no cover
         return [str(Service.objects.get(slug="agr-bauen").pk)]

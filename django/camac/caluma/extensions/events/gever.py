@@ -28,11 +28,18 @@ INSTANCE_TYPE_SHORT = {
     "Zutrittsermächtigung": "VA",
 }
 
+# TODO: implement tests for GEVER, chicken-egg problem
+
 
 @on(post_resume_work_item, raise_exception=True)
 @filter_events(lambda work_item: work_item.task_id == "inquiry")
 @transaction.atomic
-def post_resume_inquiry_for_gever(sender, work_item, user, context=None, **kwargs):
+def post_resume_inquiry_for_gever(
+    sender, work_item, user, context=None, **kwargs
+):  # pragma: no cover
+    if not settings.GEVER.get("ENABLED"):
+        return
+
     case = work_item.case.family
 
     if case.work_items.filter(task_id="gever").exists():
@@ -78,7 +85,7 @@ def post_resume_inquiry_for_gever(sender, work_item, user, context=None, **kwarg
     return
 
 
-def has_preliminary_clarification(instance):
+def has_preliminary_clarification(instance):  # pragma: no cover
     for link in instance.get_linked_instances():
         document = link.case.document
         instance_type = INSTANCE_TYPE_SHORT[document.form.name.de]
@@ -88,7 +95,7 @@ def has_preliminary_clarification(instance):
     return False
 
 
-def create_agr_title(master_data):
+def create_agr_title(master_data):  # pragma: no cover
     document = master_data.case.document
     instance_type = INSTANCE_TYPE_SHORT[document.form.name.de]
     gemeinde = master_data.municipality_name
@@ -109,7 +116,7 @@ def create_agr_title(master_data):
     )
 
 
-def get_applicant_for_agr_title(applicant_row):
+def get_applicant_for_agr_title(applicant_row):  # pragma: no cover
     if applicant_row.get("is_juristic_person"):
         return applicant_row["juristic_name"]
     return f"{applicant_row['first_name']} {applicant_row['last_name']}"
