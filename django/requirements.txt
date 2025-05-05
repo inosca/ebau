@@ -20,7 +20,7 @@ django-generic-api-permissions==0.4.7
 django-hurricane==1.6.0
 django-ipware==7.0.1
 django-json-widget==2.0.1
-django-presigned-url==0.1.0
+django-presigned-url==0.1.1
 # might be able to switch back to main fork https://github.com/Koed00/django-q/issues/735
 django-q2==1.7.6
 django-reversion==5.1.0
