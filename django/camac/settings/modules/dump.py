@@ -88,6 +88,13 @@ DISTRIBUTION_DUMP_CONFIG = {
     },
 }
 
+GEVER_DUMP_CONFIG = {
+    "caluma_gever": {
+        **generate_form_dump_config(r"(gever)"),
+        **generate_workflow_dump_config(r"(gever)"),
+    },
+}
+
 ADDITIONAL_DEMAND_DUMP_CONFIG = {
     "caluma_additional_demand": {
         **generate_form_dump_config(r"additional-demand"),
@@ -477,6 +484,7 @@ DUMP = {
                 "caluma_geometer_form": generate_form_dump_config(r"^geometer"),
                 # Distribution
                 **DISTRIBUTION_DUMP_CONFIG,
+                **GEVER_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
