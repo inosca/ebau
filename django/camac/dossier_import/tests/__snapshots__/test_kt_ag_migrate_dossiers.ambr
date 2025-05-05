@@ -131,7 +131,7 @@
           {
               "document__form_id": "baugesuch-migration",
               "question_id": "liegenschaft-migration",
-              "value": "liegenschaft-migration-bestehend"
+              "value": "liegenschaft-migration-nicht-benoetigt"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -1744,16 +1744,6 @@
       "answers": [
           {
               "document__form_id": "baugesuch-migration",
-              "question_id": "anzahl-bestehende-parkplaetze-migration",
-              "value": "1"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "anzahl-neue-parkplaetze-migration",
-              "value": "4"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
               "question_id": "art-des-gesuchs",
               "value": [
                   "art-des-gesuchs-baugesuch"
@@ -1777,7 +1767,7 @@
           {
               "document__form_id": "baugesuch-migration",
               "question_id": "bauobjekt-kanalisation-migration",
-              "value": "bauobjekt-kanalisation-migration-nicht-angeschlossen"
+              "value": "bauobjekt-kanalisation-migration-nicht-benoetigt"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -1793,31 +1783,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "dachbelag-migration",
               "value": "Holz"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-nicht-pflichtparkplaetze-bestehend-migration",
-              "value": "3"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-nicht-pflichtparkplaetze-neu-migration",
-              "value": "6"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-pflichtparkplaetze-bestehend-migration",
-              "value": "2"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-pflichtparkplaetze-neu-migration",
-              "value": "5"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "eigenverwendung-migration",
-              "value": "eigenverwendung-migration-ja"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -1856,8 +1821,18 @@
           },
           {
               "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
               "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-nicht-betroffen"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -1868,11 +1843,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ort-grundstueck",
               "value": "Aarburg"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "parkplaetze-betroffen",
-              "value": "parkplaetze-betroffen-ja"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -1908,6 +1878,11 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "street-and-housenumber",
               "value": "Teststrasse 2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-nicht-betroffen"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -4074,7 +4049,7 @@
           {
               "document__form_id": "baugesuch-migration",
               "question_id": "liegenschaft-migration",
-              "value": "liegenschaft-migration-bestehend"
+              "value": "liegenschaft-migration-nicht-benoetigt"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -4464,16 +4439,6 @@
       "answers": [
           {
               "document__form_id": "baugesuch-migration",
-              "question_id": "anzahl-bestehende-parkplaetze-migration",
-              "value": "1"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "anzahl-neue-parkplaetze-migration",
-              "value": "4"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
               "question_id": "art-des-gesuchs",
               "value": [
                   "art-des-gesuchs-baugesuch"
@@ -4497,7 +4462,7 @@
           {
               "document__form_id": "baugesuch-migration",
               "question_id": "bauobjekt-kanalisation-migration",
-              "value": "bauobjekt-kanalisation-migration-nicht-angeschlossen"
+              "value": "bauobjekt-kanalisation-migration-nicht-benoetigt"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -4513,31 +4478,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "dachbelag-migration",
               "value": "Holz"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-nicht-pflichtparkplaetze-bestehend-migration",
-              "value": "3"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-nicht-pflichtparkplaetze-neu-migration",
-              "value": "6"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-pflichtparkplaetze-bestehend-migration",
-              "value": "2"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-pflichtparkplaetze-neu-migration",
-              "value": "5"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "eigenverwendung-migration",
-              "value": "eigenverwendung-migration-ja"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -4576,8 +4516,18 @@
           },
           {
               "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
               "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-nicht-betroffen"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -4588,11 +4538,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ort-grundstueck",
               "value": "Aarburg"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "parkplaetze-betroffen",
-              "value": "parkplaetze-betroffen-ja"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -4628,6 +4573,11 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "street-and-housenumber",
               "value": "Teststrasse 2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-nicht-betroffen"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -5571,7 +5521,7 @@
           {
               "document__form_id": "baugesuch-migration",
               "question_id": "liegenschaft-migration",
-              "value": "liegenschaft-migration-bestehend"
+              "value": "liegenschaft-migration-nicht-benoetigt"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -6076,7 +6026,7 @@
           {
               "document__form_id": "baugesuch-migration",
               "question_id": "liegenschaft-migration",
-              "value": "liegenschaft-migration-bestehend"
+              "value": "liegenschaft-migration-nicht-benoetigt"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -8135,16 +8085,6 @@
       "answers": [
           {
               "document__form_id": "baugesuch-migration",
-              "question_id": "anzahl-bestehende-parkplaetze-migration",
-              "value": "1"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "anzahl-neue-parkplaetze-migration",
-              "value": "4"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
               "question_id": "art-des-gesuchs",
               "value": [
                   "art-des-gesuchs-baugesuch"
@@ -8168,7 +8108,7 @@
           {
               "document__form_id": "baugesuch-migration",
               "question_id": "bauobjekt-kanalisation-migration",
-              "value": "bauobjekt-kanalisation-migration-nicht-angeschlossen"
+              "value": "bauobjekt-kanalisation-migration-nicht-benoetigt"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -8184,31 +8124,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "dachbelag-migration",
               "value": "Holz"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-nicht-pflichtparkplaetze-bestehend-migration",
-              "value": "3"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-nicht-pflichtparkplaetze-neu-migration",
-              "value": "6"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-pflichtparkplaetze-bestehend-migration",
-              "value": "2"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-pflichtparkplaetze-neu-migration",
-              "value": "5"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "eigenverwendung-migration",
-              "value": "eigenverwendung-migration-ja"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -8247,8 +8162,18 @@
           },
           {
               "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
               "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-nicht-betroffen"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -8259,11 +8184,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ort-grundstueck",
               "value": "Aarburg"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "parkplaetze-betroffen",
-              "value": "parkplaetze-betroffen-ja"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -8299,6 +8219,11 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "street-and-housenumber",
               "value": "Teststrasse 2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-nicht-betroffen"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -8591,16 +8516,6 @@
       "answers": [
           {
               "document__form_id": "baugesuch-migration",
-              "question_id": "anzahl-bestehende-parkplaetze-migration",
-              "value": "1"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "anzahl-neue-parkplaetze-migration",
-              "value": "4"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
               "question_id": "art-des-gesuchs",
               "value": [
                   "art-des-gesuchs-baugesuch"
@@ -8624,7 +8539,7 @@
           {
               "document__form_id": "baugesuch-migration",
               "question_id": "bauobjekt-kanalisation-migration",
-              "value": "bauobjekt-kanalisation-migration-nicht-angeschlossen"
+              "value": "bauobjekt-kanalisation-migration-nicht-benoetigt"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -8640,31 +8555,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "dachbelag-migration",
               "value": "Holz"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-nicht-pflichtparkplaetze-bestehend-migration",
-              "value": "3"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-nicht-pflichtparkplaetze-neu-migration",
-              "value": "6"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-pflichtparkplaetze-bestehend-migration",
-              "value": "2"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "davon-pflichtparkplaetze-neu-migration",
-              "value": "5"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "eigenverwendung-migration",
-              "value": "eigenverwendung-migration-ja"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -8703,8 +8593,18 @@
           },
           {
               "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
               "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-nicht-betroffen"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -8715,11 +8615,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ort-grundstueck",
               "value": "Aarburg"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "parkplaetze-betroffen",
-              "value": "parkplaetze-betroffen-ja"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -8755,6 +8650,11 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "street-and-housenumber",
               "value": "Teststrasse 2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-nicht-betroffen"
           },
           {
               "document__form_id": "baugesuch-migration",
