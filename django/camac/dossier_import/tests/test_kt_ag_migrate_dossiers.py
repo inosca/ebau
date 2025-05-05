@@ -13,7 +13,7 @@ from camac.tags.models import Keyword
 
 def get_test_files():
     input_files = sorted(
-        JSON_INPUT_DIR.glob("**/*.json"), key=lambda p: os.path.basename(p)
+        JSON_INPUT_DIR.glob("**/EBPA*.json"), key=lambda p: os.path.basename(p)
     )
     return list(input_files)
 
@@ -30,7 +30,9 @@ def _migrate_from_file_and_assert(input_file, snapshot):
     out = StringIO()
     err = StringIO()
 
-    call_command("migrate_dossiers", f"--dossier={input_file}", stdout=out, stderr=err)
+    call_command(
+        "kt_ag_migrate_dossiers", f"--dossier={input_file}", stdout=out, stderr=err
+    )
     _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
 
 
@@ -38,11 +40,11 @@ def test_migrate_and_update_all(db, setup_dossier_import_ag, snapshot):
     out = StringIO()
     err = StringIO()
 
-    call_command("migrate_dossiers", stdout=out, stderr=err)
+    call_command("kt_ag_migrate_dossiers", stdout=out, stderr=err)
     for input_file in get_test_files():
         _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
 
-    call_command("migrate_dossiers", stdout=out, stderr=err)
+    call_command("kt_ag_migrate_dossiers", stdout=out, stderr=err)
     for input_file in get_test_files():
         _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
 

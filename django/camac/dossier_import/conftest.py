@@ -18,7 +18,7 @@ TEST_IMPORT_FILE_PATH = str(
     Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/"
 )
 
-JSON_INPUT_DIR = Path(__file__).parent / "tests/data/json"
+JSON_INPUT_DIR = Path(__file__).parent / "tests/data/kt_ag_json"
 
 
 @pytest.fixture
