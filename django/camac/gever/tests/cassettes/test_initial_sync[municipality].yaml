@@ -1,0 +1,777 @@
+interactions:
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic dHJhZG9zOjEyMw==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxMDgxNDksImlhdCI6MTc0NjEwODE0OSwiZXhwIjoxNzQ2MTExNzQ5LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjEwODE0OSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjU1QjQxODJBQUQxNTNCOTIyNUM2Qzk4REVDODkwRDY0In0.jQzkVtiaGqjhi89ItEqj6AKyfXoiKgRASTRl7ohalEOV2GujvYEh-_PzN6oS9x4w46FcJpmYDpvmCA2s9p0lzlRCcqn_VVSkND8IWP2LKSf9VTEcXeuIj-gyFZLQKbRji8F9rayqmoH2SGSe28LcfWbjJG5GP3eYVZ_s9CT8tATEs3dsZTqAU3p9haoccuiqyvWe7upjunsAZKd9GX6sfkiyaXRse3SUk2i3prWFkY_-g6d5BnYcous1z0Cxza0SsrR2IN4OrXYZsfAVUoKMmqowHaR6Dh12mV_7IvCvRjV-N4LZxbkV5MdQxKFtk8JuecL3K2P30jW5QrNTS0xNgw","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 01 May 2025 14:02:29 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic dHJhZG9zOjEyMw==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxMDgzNzYsImlhdCI6MTc0NjEwODM3NiwiZXhwIjoxNzQ2MTExOTc2LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjEwODM3NiwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjVCRDQ2RjNGRkI2MkI4REEyNzFEQ0RGOTA5RjAzN0E5In0.XZw6sdqSoLaNvyJ_5P-YEaceua8LrhEdcu-YLeCejXNnluK3H4O93pYyz1VaA64_NPcB2rFWOdQIp9C9QyhTOcfeTUHPzZyT6vp04EGmJmR0pkL4h3la5Jk6oEYd61t7BfQp2x-J1WiDyMcufE7g23L9fCMxMUSYJhu2mfPvzwt1jzhblpFrcRrjwJRURByIih8lDDSPTFOfQvxOpUsMjQ0SnyLP5BvnjRjwSINpMu0VeuR6U1q24aJRrsIc_HwyChPJ7XESBdfkHBPv5H0VwbQLKJ6_3qvCRcRgXN6vMaSXEM2uF4GXg3aeIBMYklQjP5m_fCyRj2EMNU3jatEfHw","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 01 May 2025 14:06:16 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic dHJhZG9zOjEyMw==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxMDg1NzksImlhdCI6MTc0NjEwODU3OSwiZXhwIjoxNzQ2MTEyMTc5LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjEwODU3OSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IkY0Mjg5NkFCNDhGQzFCNkFDOTQwODIyNENBODU2MzQxIn0.h5w4yw84gXsr_RniiiT68sZc7O1kTPDdKS8JaP0aaWbm1C92qVfxdz1MfcyysaMKBvdYCyFm2-olheD_P3hayqdXYs1p607OU79YH4pfcYlmOAHwtc0zYMbnCoUszIZmTHa-Ylof9TH83frq02l3X5pKbbJKqlqag-KJya9n0ui0AXoaKhlCNAZ886_kWlcWCFS_R_KHgPDoP0tdepcg83RQce-J-xN0n-vxYhsx1obL-Pi-gqoJGwhJ7zE5z6DIfb1mML1EKqi6QJ_GK1UbE34XXZ4JoBAtJhxBc8knLXW6hwXzBnWxV9Fb63vNwWoRc698HnA3JqCvVuRcJGk1jA","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 01 May 2025 14:09:39 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "benutzerID": "hectorwilson", "email": "jacquelinezimmerman@example.com",
+      "vorname": "Shawn", "name": "Peters"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxMDg1NzksImlhdCI6MTc0NjEwODU3OSwiZXhwIjoxNzQ2MTEyMTc5LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjEwODU3OSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IkY0Mjg5NkFCNDhGQzFCNkFDOTQwODIyNENBODU2MzQxIn0.h5w4yw84gXsr_RniiiT68sZc7O1kTPDdKS8JaP0aaWbm1C92qVfxdz1MfcyysaMKBvdYCyFm2-olheD_P3hayqdXYs1p607OU79YH4pfcYlmOAHwtc0zYMbnCoUszIZmTHa-Ylof9TH83frq02l3X5pKbbJKqlqag-KJya9n0ui0AXoaKhlCNAZ886_kWlcWCFS_R_KHgPDoP0tdepcg83RQce-J-xN0n-vxYhsx1obL-Pi-gqoJGwhJ7zE5z6DIfb1mML1EKqi6QJ_GK1UbE34XXZ4JoBAtJhxBc8knLXW6hwXzBnWxV9Fb63vNwWoRc698HnA3JqCvVuRcJGk1jA
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Benutzer/
+  response:
+    body:
+      string: '{"developerMessage":"Could not save objects. Errors: - ConvertSaveItem.Store.BenutzerID:
+        benutzerID, Value cannot be null.\r\nParameter name: valueAsJobject\r\n","userMessage":"Das
+        Objekt konnte nicht erstellt werden","errorCode":"CUD_SAVE_003","statusCode":400}'
+    headers:
+      Cache-Control:
+      - no-cache,no-store
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 01 May 2025 14:10:22 GMT
+      Expires:
+      - '-1'
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 400
+      message: Bad Request
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxMDg1NzksImlhdCI6MTc0NjEwODU3OSwiZXhwIjoxNzQ2MTEyMTc5LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjEwODU3OSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IkY0Mjg5NkFCNDhGQzFCNkFDOTQwODIyNENBODU2MzQxIn0.h5w4yw84gXsr_RniiiT68sZc7O1kTPDdKS8JaP0aaWbm1C92qVfxdz1MfcyysaMKBvdYCyFm2-olheD_P3hayqdXYs1p607OU79YH4pfcYlmOAHwtc0zYMbnCoUszIZmTHa-Ylof9TH83frq02l3X5pKbbJKqlqag-KJya9n0ui0AXoaKhlCNAZ886_kWlcWCFS_R_KHgPDoP0tdepcg83RQce-J-xN0n-vxYhsx1obL-Pi-gqoJGwhJ7zE5z6DIfb1mML1EKqi6QJ_GK1UbE34XXZ4JoBAtJhxBc8knLXW6hwXzBnWxV9Fb63vNwWoRc698HnA3JqCvVuRcJGk1jA
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Benutzer/Search
+  response:
+    body:
+      string: '[{"guid":"44878ce8-fc8a-472f-8d62-e15eba0e3a48","version":1,"typeName":"Benutzer:in","email2":null,"email":null,"name":"test","vorname":"hans","inaktiv":false,"mitarbeiter":true,"fruehererName":null,"benutzerID":"hallo","istPubliziert":false,"googleAuthKonfiguriert":false,"vornamen":null,"kannUeberweisungenEntgegennehmenUndEmpfangen":false,"kannUeberweisungenVersenden":true,"systembenutzer":false},{"guid":"dbc47047-e06e-4e05-8545-85b5070b3851","version":5,"typeName":"Benutzer:in","email2":null,"email":null,"name":"trados-svc","vorname":null,"inaktiv":false,"mitarbeiter":true,"fruehererName":null,"benutzerID":"trados-svc","istPubliziert":false,"googleAuthKonfiguriert":false,"vornamen":null,"kannUeberweisungenEntgegennehmenUndEmpfangen":false,"kannUeberweisungenVersenden":true,"systembenutzer":true},{"guid":"df607962-d027-4a8a-87b4-a4dc05282c44","version":4,"typeName":"Benutzer:in","email2":null,"email":null,"name":"CMI","vorname":"CMI","inaktiv":false,"mitarbeiter":true,"fruehererName":null,"benutzerID":"CMI","istPubliziert":false,"googleAuthKonfiguriert":false,"vornamen":null,"kannUeberweisungenEntgegennehmenUndEmpfangen":false,"kannUeberweisungenVersenden":true,"systembenutzer":false}]'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 01 May 2025 14:10:42 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxMDg1NzksImlhdCI6MTc0NjEwODU3OSwiZXhwIjoxNzQ2MTEyMTc5LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjEwODU3OSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IkY0Mjg5NkFCNDhGQzFCNkFDOTQwODIyNENBODU2MzQxIn0.h5w4yw84gXsr_RniiiT68sZc7O1kTPDdKS8JaP0aaWbm1C92qVfxdz1MfcyysaMKBvdYCyFm2-olheD_P3hayqdXYs1p607OU79YH4pfcYlmOAHwtc0zYMbnCoUszIZmTHa-Ylof9TH83frq02l3X5pKbbJKqlqag-KJya9n0ui0AXoaKhlCNAZ886_kWlcWCFS_R_KHgPDoP0tdepcg83RQce-J-xN0n-vxYhsx1obL-Pi-gqoJGwhJ7zE5z6DIfb1mML1EKqi6QJ_GK1UbE34XXZ4JoBAtJhxBc8knLXW6hwXzBnWxV9Fb63vNwWoRc698HnA3JqCvVuRcJGk1jA
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Benutzer/Search
+  response:
+    body:
+      string: '[{"guid":"44878ce8-fc8a-472f-8d62-e15eba0e3a48","version":1,"typeName":"Benutzer:in","email2":null,"email":null,"name":"test","vorname":"hans","inaktiv":false,"mitarbeiter":true,"fruehererName":null,"benutzerID":"hallo","istPubliziert":false,"googleAuthKonfiguriert":false,"vornamen":null,"kannUeberweisungenEntgegennehmenUndEmpfangen":false,"kannUeberweisungenVersenden":true,"systembenutzer":false},{"guid":"dbc47047-e06e-4e05-8545-85b5070b3851","version":5,"typeName":"Benutzer:in","email2":null,"email":null,"name":"trados-svc","vorname":null,"inaktiv":false,"mitarbeiter":true,"fruehererName":null,"benutzerID":"trados-svc","istPubliziert":false,"googleAuthKonfiguriert":false,"vornamen":null,"kannUeberweisungenEntgegennehmenUndEmpfangen":false,"kannUeberweisungenVersenden":true,"systembenutzer":true},{"guid":"df607962-d027-4a8a-87b4-a4dc05282c44","version":4,"typeName":"Benutzer:in","email2":null,"email":null,"name":"CMI","vorname":"CMI","inaktiv":false,"mitarbeiter":true,"fruehererName":null,"benutzerID":"CMI","istPubliziert":false,"googleAuthKonfiguriert":false,"vornamen":null,"kannUeberweisungenEntgegennehmenUndEmpfangen":false,"kannUeberweisungenVersenden":true,"systembenutzer":false}]'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 01 May 2025 14:10:44 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "benutzerID": "hectorwilson", "email": "jacquelinezimmerman@example.com",
+      "vorname": "Shawn", "name": "Peters"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxMDg1NzksImlhdCI6MTc0NjEwODU3OSwiZXhwIjoxNzQ2MTEyMTc5LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjEwODU3OSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IkY0Mjg5NkFCNDhGQzFCNkFDOTQwODIyNENBODU2MzQxIn0.h5w4yw84gXsr_RniiiT68sZc7O1kTPDdKS8JaP0aaWbm1C92qVfxdz1MfcyysaMKBvdYCyFm2-olheD_P3hayqdXYs1p607OU79YH4pfcYlmOAHwtc0zYMbnCoUszIZmTHa-Ylof9TH83frq02l3X5pKbbJKqlqag-KJya9n0ui0AXoaKhlCNAZ886_kWlcWCFS_R_KHgPDoP0tdepcg83RQce-J-xN0n-vxYhsx1obL-Pi-gqoJGwhJ7zE5z6DIfb1mML1EKqi6QJ_GK1UbE34XXZ4JoBAtJhxBc8knLXW6hwXzBnWxV9Fb63vNwWoRc698HnA3JqCvVuRcJGk1jA
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Benutzer/
+  response:
+    body:
+      string: '{"developerMessage":"Could not save objects. Errors: - ConvertSaveItem.Store.BenutzerID:
+        benutzerID, Value cannot be null.\r\nParameter name: valueAsJobject\r\n","userMessage":"Das
+        Objekt konnte nicht erstellt werden","errorCode":"CUD_SAVE_003","statusCode":400}'
+    headers:
+      Cache-Control:
+      - no-cache,no-store
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 01 May 2025 14:12:33 GMT
+      Expires:
+      - '-1'
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 400
+      message: Bad Request
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic dHJhZG9zOjEyMw==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxNzYwODIsImlhdCI6MTc0NjE3NjA4MiwiZXhwIjoxNzQ2MTc5NjgyLCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjE3NjA4MiwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IkNBOEY5OUYyRDhFRUY1N0FFNDM2NUQzQTJEQTg1MUEyIn0.ijNOu9e1h7m0drHqr7lk87aRYyD5dtlGLq_8ZxM6oRByZpEmPy7PKYtWARmZxqQjg0puK7e0Rt7WzVXbjc0-w9TnNk8fzJfFIQVfV3we7tcWK-xuK3BAN7gGYEUMJSNNDCm-0f7NnEDmwNFwJUFBse-z9MA67YYSRcA0xT5n7NtMfv__n6ls3aKrp4GZ9YbOQF39D6Y-4h9507cWL1I6OPy95C6pjuQLPtscqEAz1guzMw3a4mlMhPPRGa02pzcQsVX5xQcYnEtkCQsVfFDrAlDpdx_hxg9j1g3EFHatE-AO8PExW-P7fn85VEl7vKwroeEG_j1LtsxqbGACQV9wFg","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 02 May 2025 08:54:42 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "benutzerID": "hectorwilson", "email": "jacquelinezimmerman@example.com",
+      "vorname": "Shawn", "name": "Peters"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxNzYwODIsImlhdCI6MTc0NjE3NjA4MiwiZXhwIjoxNzQ2MTc5NjgyLCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjE3NjA4MiwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IkNBOEY5OUYyRDhFRUY1N0FFNDM2NUQzQTJEQTg1MUEyIn0.ijNOu9e1h7m0drHqr7lk87aRYyD5dtlGLq_8ZxM6oRByZpEmPy7PKYtWARmZxqQjg0puK7e0Rt7WzVXbjc0-w9TnNk8fzJfFIQVfV3we7tcWK-xuK3BAN7gGYEUMJSNNDCm-0f7NnEDmwNFwJUFBse-z9MA67YYSRcA0xT5n7NtMfv__n6ls3aKrp4GZ9YbOQF39D6Y-4h9507cWL1I6OPy95C6pjuQLPtscqEAz1guzMw3a4mlMhPPRGa02pzcQsVX5xQcYnEtkCQsVfFDrAlDpdx_hxg9j1g3EFHatE-AO8PExW-P7fn85VEl7vKwroeEG_j1LtsxqbGACQV9wFg
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Benutzer/
+  response:
+    body:
+      string: '{"developerMessage":"Could not save objects. Errors: - ConvertSaveItem.Store.BenutzerID:
+        benutzerID, Value cannot be null.\r\nParameter name: valueAsJobject\r\n","userMessage":"Das
+        Objekt konnte nicht erstellt werden","errorCode":"CUD_SAVE_003","statusCode":400}'
+    headers:
+      Cache-Control:
+      - no-cache,no-store
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 02 May 2025 08:55:26 GMT
+      Expires:
+      - '-1'
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 400
+      message: Bad Request
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic dHJhZG9zOjEyMw==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxNzYzMDUsImlhdCI6MTc0NjE3NjMwNSwiZXhwIjoxNzQ2MTc5OTA1LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjE3NjMwNSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjUxODQ2NzgxQUMzMzg1RjlFQUUyNkE4MTM3MzI4N0YyIn0.p9TwQ-l-0dvePWc6BLNBBOX2TOmqQqtlw00wpfnuFnmu_5WJCur5ttBgTdn2ZA6o4JeJjkRrPcHcX1TwPuhvo_iaqldqa5wLoqj8z-MrNT6jVxmt8xdtxequ6KcBE5ZUq5JN1tPGVDAYfXNN0ULXgAQk-IT_7iaxbQ_LS_Nbqehfd5MbK-b2NihDn00qFPe0TBWVEJtZoo2Cxv4ziSiJ-TY-CCniXjRJ9ge8S_zBH5djeXNSGZ9cbDVH3DLD230bUUWleF-CXFLEehZmmGEp8_ABeB-YlEE7lOXUMNoNgRxR3hItwbCwFuQXsj8009JUu3hLo4wvaZdm6anMGWiEUQ","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 02 May 2025 08:58:25 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "benutzerId": "hectorwilson", "email": "jacquelinezimmerman@example.com",
+      "vorname": "Shawn", "name": "Peters"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxNzYzMDUsImlhdCI6MTc0NjE3NjMwNSwiZXhwIjoxNzQ2MTc5OTA1LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjE3NjMwNSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjUxODQ2NzgxQUMzMzg1RjlFQUUyNkE4MTM3MzI4N0YyIn0.p9TwQ-l-0dvePWc6BLNBBOX2TOmqQqtlw00wpfnuFnmu_5WJCur5ttBgTdn2ZA6o4JeJjkRrPcHcX1TwPuhvo_iaqldqa5wLoqj8z-MrNT6jVxmt8xdtxequ6KcBE5ZUq5JN1tPGVDAYfXNN0ULXgAQk-IT_7iaxbQ_LS_Nbqehfd5MbK-b2NihDn00qFPe0TBWVEJtZoo2Cxv4ziSiJ-TY-CCniXjRJ9ge8S_zBH5djeXNSGZ9cbDVH3DLD230bUUWleF-CXFLEehZmmGEp8_ABeB-YlEE7lOXUMNoNgRxR3hItwbCwFuQXsj8009JUu3hLo4wvaZdm6anMGWiEUQ
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Benutzer/
+  response:
+    body:
+      string: '{"developerMessage":"Could not save objects. Errors: - ConvertSaveItem.Store.BenutzerID:
+        benutzerID, Value cannot be null.\r\nParameter name: valueAsJobject\r\n","userMessage":"Das
+        Objekt konnte nicht erstellt werden","errorCode":"CUD_SAVE_003","statusCode":400}'
+    headers:
+      Cache-Control:
+      - no-cache,no-store
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 02 May 2025 08:58:32 GMT
+      Expires:
+      - '-1'
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 400
+      message: Bad Request
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic dHJhZG9zOjEyMw==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxNzYzNzEsImlhdCI6MTc0NjE3NjM3MSwiZXhwIjoxNzQ2MTc5OTcxLCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjE3NjM3MSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjE4RkI2M0I0MTk2QTQzNDlGQzQzQjM2MUUzNzREOTExIn0.LLv7RLMQ7Nba-1lkLZaY_7SwFVx4mlff1jZwGQUm7YkPPIasaoxv-gdrTcvq4MNIPDviOsESaviGrElFaS7NtOVNQ4rm-WDqGxwWBLSNF8DV-ZTxPJiJvjudiUno5ehS7gpZ6T2w6zPmgz-ZiWq_LFGYGrv_mJ5NwhVx8dp4WjGd47mVux1mF8yeThHIp4lsX47kPdlDJycRJwmPNADK6EhEt-xhyLiYR5lQ7lKKNHO3R6WXR2-ilc9Gc1PLMwJGlDcfUStFjiXPsA-pWZFTIzVWZ-vRhIj9sg9_xckzaoBj_80cpbtGevc07CgfVc-I63HkIXMBuuuDpsNHSxq-Ow","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Fri, 02 May 2025 08:59:31 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "BenutzerID": "hectorwilson", "email": "jacquelinezimmerman@example.com",
+      "vorname": "Shawn", "name": "Peters"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYxNzYzNzEsImlhdCI6MTc0NjE3NjM3MSwiZXhwIjoxNzQ2MTc5OTcxLCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjE3NjM3MSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjE4RkI2M0I0MTk2QTQzNDlGQzQzQjM2MUUzNzREOTExIn0.LLv7RLMQ7Nba-1lkLZaY_7SwFVx4mlff1jZwGQUm7YkPPIasaoxv-gdrTcvq4MNIPDviOsESaviGrElFaS7NtOVNQ4rm-WDqGxwWBLSNF8DV-ZTxPJiJvjudiUno5ehS7gpZ6T2w6zPmgz-ZiWq_LFGYGrv_mJ5NwhVx8dp4WjGd47mVux1mF8yeThHIp4lsX47kPdlDJycRJwmPNADK6EhEt-xhyLiYR5lQ7lKKNHO3R6WXR2-ilc9Gc1PLMwJGlDcfUStFjiXPsA-pWZFTIzVWZ-vRhIj9sg9_xckzaoBj_80cpbtGevc07CgfVc-I63HkIXMBuuuDpsNHSxq-Ow
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Benutzer/
+  response:
+    body:
+      string: '{"developerMessage":"Could not save objects. Errors: - ConvertSaveItem.Store.BenutzerID:
+        benutzerID, Value cannot be null.\r\nParameter name: valueAsJobject\r\n","userMessage":"Das
+        Objekt konnte nicht erstellt werden","errorCode":"CUD_SAVE_003","statusCode":400}'
+    headers:
+      Cache-Control:
+      - no-cache,no-store
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 02 May 2025 08:59:35 GMT
+      Expires:
+      - '-1'
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 400
+      message: Bad Request
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic dHJhZG9zOjEyMw==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDY0MzEzMDUsImlhdCI6MTc0NjQzMTMwNSwiZXhwIjoxNzQ2NDM0OTA1LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjQzMTMwNSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjcxQTVFQjY4NzRFMEE0MTAwQTJCQzhGQkE0NDA3RDYyIn0.E88HaT17seeTamuj_hkBB6vykl-cZwRfivf9N0xA1mCabljrISNclA8WMjxaEMDVk20sudD78K388Cni8IHWo8OKPW0xewGAvTtzjI1HJnADC5sv-uwLMcjwH6zoHS5Q5KZ7zmOiAEm2IHviuXuHbSeqign2metLbl0b1Zi6T0BCXWjrTVjfCPRiX5XAxqDyWmK9I0lX98vCTCQG_0Heyy86GRS8yLrg5AVQKYWa6LtiPAq5t5P8j1PWyOoImw-kTV96de_5gYxOHkY4LUsnFUs6K7zHE_TTfRfMcu23bd73_hqUcgGaYQA1q7OW-iOVTTf-TCw7yuQ-8fcuoLEyMA","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 05 May 2025 07:48:25 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "benutzerID": "hectorwilson", "email": "jacquelinezimmerman@example.com",
+      "vorname": "Shawn", "name": "Peters"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDY0MzEzMDUsImlhdCI6MTc0NjQzMTMwNSwiZXhwIjoxNzQ2NDM0OTA1LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjQzMTMwNSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjcxQTVFQjY4NzRFMEE0MTAwQTJCQzhGQkE0NDA3RDYyIn0.E88HaT17seeTamuj_hkBB6vykl-cZwRfivf9N0xA1mCabljrISNclA8WMjxaEMDVk20sudD78K388Cni8IHWo8OKPW0xewGAvTtzjI1HJnADC5sv-uwLMcjwH6zoHS5Q5KZ7zmOiAEm2IHviuXuHbSeqign2metLbl0b1Zi6T0BCXWjrTVjfCPRiX5XAxqDyWmK9I0lX98vCTCQG_0Heyy86GRS8yLrg5AVQKYWa6LtiPAq5t5P8j1PWyOoImw-kTV96de_5gYxOHkY4LUsnFUs6K7zHE_TTfRfMcu23bd73_hqUcgGaYQA1q7OW-iOVTTf-TCw7yuQ-8fcuoLEyMA
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Benutzer/
+  response:
+    body:
+      string: '{"developerMessage":"Could not save objects. Errors: - ConvertSaveItem.Store.BenutzerID:
+        benutzerID, Value cannot be null.\r\nParameter name: valueAsJobject\r\n","userMessage":"Das
+        Objekt konnte nicht erstellt werden","errorCode":"CUD_SAVE_003","statusCode":400}'
+    headers:
+      Cache-Control:
+      - no-cache,no-store
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 05 May 2025 07:48:28 GMT
+      Expires:
+      - '-1'
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 400
+      message: Bad Request
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic dHJhZG9zOjEyMw==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDY0MzE3NDEsImlhdCI6MTc0NjQzMTc0MSwiZXhwIjoxNzQ2NDM1MzQxLCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjQzMTc0MSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IkRCM0VCMTdERTIxQkNGNUJDNUVENjY4MEIwN0FFMEJBIn0.RvDP2vZrcaAuQC7PFHQVs7l4Exqo0HVA71BWNA_l2GmF1udjql9Zml1K1VFnFqTd82JqIKGtJw_vmiuQ_S1kB7EZY8wVTpoksnZD0xGtoLnYezMlNHTEjuXE1-es4RZpqrk18xbEqaZDeLjGZj-oW_NRIqIQKojjz_PJeZUva6q5IHLdo4GlzYtYsPyk6F7wkXIEJoyBVEphEEEv6ys1r0pTbguoj9OaFWe6cg87JH65iwknjwOty066IblkCPT2R_Q1wOW2je9EwboEjS5Z7mFQixRiCa9UemvVy58fDEXMx8N9kzeC-kwz3NMddt1UlKhQOfHluxOOTxWVxz7ayA","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 05 May 2025 07:55:41 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "benutzerID": "hectorwilson", "email": "jacquelinezimmerman@example.com",
+      "vorname": "Shawn", "name": "Peters"}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDY0MzE3NDEsImlhdCI6MTc0NjQzMTc0MSwiZXhwIjoxNzQ2NDM1MzQxLCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjQzMTc0MSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IkRCM0VCMTdERTIxQkNGNUJDNUVENjY4MEIwN0FFMEJBIn0.RvDP2vZrcaAuQC7PFHQVs7l4Exqo0HVA71BWNA_l2GmF1udjql9Zml1K1VFnFqTd82JqIKGtJw_vmiuQ_S1kB7EZY8wVTpoksnZD0xGtoLnYezMlNHTEjuXE1-es4RZpqrk18xbEqaZDeLjGZj-oW_NRIqIQKojjz_PJeZUva6q5IHLdo4GlzYtYsPyk6F7wkXIEJoyBVEphEEEv6ys1r0pTbguoj9OaFWe6cg87JH65iwknjwOty066IblkCPT2R_Q1wOW2je9EwboEjS5Z7mFQixRiCa9UemvVy58fDEXMx8N9kzeC-kwz3NMddt1UlKhQOfHluxOOTxWVxz7ayA
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Benutzer/
+  response:
+    body:
+      string: '{"developerMessage":"Could not save objects. Errors: - ConvertSaveItem.Store.BenutzerID:
+        benutzerID, Value cannot be null.\r\nParameter name: valueAsJobject\r\n","userMessage":"Das
+        Objekt konnte nicht erstellt werden","errorCode":"CUD_SAVE_003","statusCode":400}'
+    headers:
+      Cache-Control:
+      - no-cache,no-store
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 05 May 2025 07:55:53 GMT
+      Expires:
+      - '-1'
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 400
+      message: Bad Request
+version: 1

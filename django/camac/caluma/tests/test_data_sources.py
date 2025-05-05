@@ -1,3 +1,4 @@
+import uuid
 from collections import namedtuple
 
 import pytest
@@ -13,6 +14,7 @@ from ..extensions.data_sources import (
     Authorities,
     Buildings,
     Countries,
+    GEVERErledigungsart,
     Landowners,
     Locations,
     Mitberichtsverfahren,
@@ -601,3 +603,18 @@ def test_sanctions(
         assert len(data) == 1 and data[0][0] is None
     else:
         assert len(data) == expected_count
+
+
+@pytest.mark.vcr(match_on=["method", "path", "query"])
+@pytest.mark.django_db(reset_sequences=True)
+def test_gever_erledigungsart_datasource(be_gever_settings):
+    ds = GEVERErledigungsart()
+
+    # No need to make up parameters, the data source doesn't actually
+    # use them, so in this case, it's fine
+    res = ds.get_data(None, None, None)
+
+    assert len(res)
+    for id, label in res:
+        assert uuid.UUID(id)
+        assert label

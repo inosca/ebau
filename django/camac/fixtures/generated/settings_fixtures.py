@@ -1279,6 +1279,42 @@ def ag_ech0211_settings(settings, request):
 
 
 @pytest.fixture
+def gever_settings(settings, request):
+    """Module-specific settings for gever (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="gever",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_gever_settings(settings, request):
+    """Disable the gever module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="gever",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def be_gever_settings(settings, request):
+    """Module-specific settings for gever (canton BE)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="gever",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def master_data_settings(settings, request):
     """Module-specific settings for master data (default)."""
     return generate_module_settings(
