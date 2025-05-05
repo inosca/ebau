@@ -90,6 +90,7 @@ DECISION = {
         "ANSWERS": {
             "DECISION": {
                 "APPROVED": "decision-decision-approved",
+                "APPROVED_WITH_RESERVATION": "decision-decision-approved-with-reservation",
                 "REJECTED": "decision-decision-rejected",
                 "WRITTEN_OFF": "decision-decision-written-off",
                 "POSITIVE": "decision-decision-positive",
@@ -99,7 +100,12 @@ DECISION = {
                 "OTHER": "decision-decision-other",
             },
         },
-        "POSITIVE_DECISIONS": ["APPROVED", "POSITIVE", "POSITIVE_WITH_RESERVATION"],
+        "POSITIVE_DECISIONS": [
+            "APPROVED",
+            "APPROVED_WITH_RESERVATION",
+            "POSITIVE",
+            "POSITIVE_WITH_RESERVATION",
+        ],
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "construction-acceptance",
     },
     "kt_ag": {

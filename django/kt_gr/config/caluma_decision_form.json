@@ -158,6 +158,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "decision-decision-approved-with-reservation",
+    "fields": {
+      "created_at": "2025-05-01T15:30:13.085Z",
+      "modified_at": "2025-05-01T15:31:06.366Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bewilligt mit Auflagen\", \"fr\": null, \"it\": \"Autorizzata con condizioni\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "decision-decision-negative",
     "fields": {
       "created_at": "2023-06-21T11:17:40.962Z",
@@ -217,7 +234,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Bewilligt mit Auflagen\", \"fr\": null, \"it\": \"Approvato con condizioni\"}",
+      "label": "{\"de\": \"Mit Vorbehalt positiv (Projekt muss angepasst werden)\", \"fr\": null, \"it\": \"Positiva con riserva (il progetto deve essere adeguato)\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -401,7 +418,7 @@
       "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": \"Osservazioni\"}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "!(\"decision-decision-positive\" == \"decision-decision\"|answer || \"decision-decision-negative\" == \"decision-decision\"|answer || \"decision-decision-positive-with-reservation\" == \"decision-decision\"|answer || \"decision-decision-retreat\" == \"decision-decision\"|answer)",
+      "is_hidden": "!(\"decision-decision\"|answer(\"\") in [\"decision-decision-positive\", \"decision-decision-negative\", \"decision-decision-positive-with-reservation\", \"decision-decision-retreat\"])",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -536,6 +553,21 @@
       "modified_by_group": null,
       "question": "decision-decision",
       "option": "decision-decision-approved",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision.decision-decision-approved-with-reservation",
+    "fields": {
+      "created_at": "2025-05-01T15:31:06.438Z",
+      "modified_at": "2025-05-01T15:31:06.438Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "decision-decision",
+      "option": "decision-decision-approved-with-reservation",
       "sort": 9
     }
   },
