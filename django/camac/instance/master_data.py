@@ -4,6 +4,7 @@ from operator import attrgetter
 from typing import List, Optional, TypeVar
 from uuid import UUID
 
+from caluma.caluma_core.models import HistoricalRecords
 from caluma.caluma_form.models import Document
 from caluma.caluma_form.structure import FastLoader
 from caluma.caluma_form.validators import DocumentValidator
@@ -48,9 +49,58 @@ class MasterData(object):
     _fastloader: Optional[FastLoader] = field(default=None)
 
     @classmethod
-    def from_case_id(cls, case_id: UUID) -> T:
+    def from_case_id(
+        cls, case_id: UUID, validation_context=None, _fastloader=None
+    ) -> T:
+        """Return a MasterData instance for the given case ID.
+
+        If you already have a fastloader or related validation context, you can
+        pass them here for reuse.
+        """
+        validation_context = validation_context or {}
+
+        # ensure typing to avoid double-build if caller mistyped the case ID
+        case_id = str(case_id)
+
+        rq_cache = cls._get_request_cache()
+
+        if not rq_cache:
+            return cls._build_masterdata(case_id, validation_context, _fastloader)
+
+        if case_id not in rq_cache:
+            rq_cache[case_id] = cls._build_masterdata(
+                case_id, validation_context, _fastloader
+            )
+        return rq_cache[case_id]
+
+    @classmethod
+    def _get_request_cache(cls) -> dict | None:
+        """Return request-scoped cache dictionary for our use.
+
+        Might return None if not in a request scope (for example on
+        commandline management commands)
+        """
+        try:
+            request = HistoricalRecords.context.request
+            if not hasattr(request, "_cached_master_data"):
+                setattr(request, "_cached_master_data", {})
+            return request._cached_master_data
+
+        except AttributeError:
+            return None
+
+    @classmethod
+    def _build_masterdata(
+        cls, case_id: UUID, validation_context=None, _fastloader=None
+    ) -> T:
+        """
+        Build MasterData object from given case ID.
+
+        You should use the public `from_case_id()` method instead - this is
+        internal only.
+        """
         queryset = MasterData.prefetch_entities_for_queryset(Case.objects)
-        return MasterData(queryset.get(pk=case_id))
+        return cls(queryset.get(pk=case_id), validation_context, _fastloader)
 
     def __getattr__(self, lookup_key):
         config = get_dict_item(
