@@ -61,7 +61,7 @@ EOF
 	ech0211_login "$i" "${ech0211_credentials[$i]}"
 	echo " > perform request[task] for client_id: $i"
 	echo -e "\n---------------------------"
-	curl -X POST 'http://ember-ebau.localhost/ech/v1/send/' \
+	curl -X POST "${ech0211_endpoint}/ech/v1/send/" \
   -H "Authorization: Bearer $token" \
   -H 'accept: application/xml' \
   -H "x-camac-group: ${camac_group_id}" \

@@ -320,7 +320,7 @@ def ech_snapshot(snapshot):
                 r"\1<!-- INSTANCE_ID -->\2",
             ),
             (
-                r"(<ns\d+:organisationId>).+(</ns\d+:organisationId>)",
+                r"(<(?:ns\d+:)?organisationId>).+(</(?:ns\d+:)?organisationId>)",
                 r"\1<!-- ORGANISATION_ID -->\2",
             ),
             (

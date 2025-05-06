@@ -7,6 +7,7 @@ echo "---------------------------"
 
 ebau_nr="2024-1"
 dossier_id="5"
+document_uuid="81132c75-1452-4a0c-a570-eff0dd06a3c7"
 
 for i in "${!ech0211_credentials[@]}"
 do
@@ -42,14 +43,14 @@ xml_payload=$(cat <<EOF
       </ns2:planningPermissionApplicationIdentification>
       <ns2:document>
         <!-- muss auf dem Dossier existieren -->
-        <ns11:uuid>00000000-0000-0000-0000-000000000000</ns11:uuid>
+        <ns11:uuid>${document_uuid}</ns11:uuid>
         <ns11:titles>
-          <ns10:title ns10:lang="de">myFile.pdf</ns10:title>
+          <ns10:title ns10:lang="de">Example.pdf</ns10:title>
         </ns11:titles>
         <ns11:status>created</ns11:status>
         <ns11:files>
           <ns11:file>
-            <ns11:pathFileName>https://dev.ebpzh.ch/this/is/a/temporary/download/link/myFile.pdf</ns11:pathFileName>
+            <ns11:pathFileName>https://www.ech.ch/sites/default/files/imce/eCH-Dossier/eCH-Dossier_PDF_Publikationen/Hauptdokument/STAN_d_REP_2022-06-02_eCH-0211_V3.0.0_Baugesuch_0.pdf</ns11:pathFileName>
             <ns11:mimeType>application/pdf</ns11:mimeType>
             <ns11:version>1.0.0</ns11:version>
           </ns11:file>
@@ -72,7 +73,7 @@ EOF
 	ech0211_login "$i" "${ech0211_credentials[$i]}"
 	echo " > perform request[accompanying report] for client_id: $i"
 	echo -e "\n---------------------------"
-	curl -X POST 'http://ember-ebau.localhost/ech/v1/send/' \
+	curl -X POST "${ech0211_endpoint}/ech/v1/send/" \
   -H "Authorization: Bearer $token" \
   -H 'accept: application/xml' \
   -H "x-camac-group: ${camac_group_id}" \

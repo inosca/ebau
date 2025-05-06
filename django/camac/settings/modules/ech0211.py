@@ -407,7 +407,24 @@ ECH0211 = {
                 "category": "beilagen-zum-gesuch",
             },
         },
-        "ACCOMPANYING_REPORT": {"category": "beteiligte-behörden"},
+        "ACCOMPANYING_REPORT": {
+            "category": "beteiligte-behörden",
+            "EXTENSION_MAPPING": {
+                "inquiry-answer-situation": {
+                    "tag": "situation",
+                },
+                "inquiry-answer-considerations": {
+                    "tag": "considerations",
+                },
+                "stellungnahme-bemerkungen": {
+                    "tag": "comments",
+                },
+                "stellungnahme-in-dokumentanablage": {
+                    "tag": "documentsAvailable",
+                    "true_value": "stellungnahme-in-dokumentanablage-ja",
+                },
+            },
+        },
         "REDIRECTS": {
             r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
             r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",
@@ -585,7 +602,7 @@ ECH0211 = {
             "intern-mit-unterfachstellen",
         ],
         "NOTICE_RULING": {
-            "ALLOWED_STATES": ["decision", "circulation"],
+            "ALLOWED_STATES": ["decision", "distribution"],
             "ONLY_DECLINE": ["distribution-init"],
             "ALEXANDRIA_CATEGORY": "beteiligte-behoerden",
             "ALEXANDRIA_MARK": "decision",

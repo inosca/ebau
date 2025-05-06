@@ -434,6 +434,28 @@ class AccompanyingReportSendHandler(BaseSendHandler):
                 value=value,
             )
 
+        if extensions := settings.ECH0211["ACCOMPANYING_REPORT"].get(
+            "EXTENSION_MAPPING"
+        ):
+            elements = self.data.eventAccompanyingReport.extension.wildcardElements()
+
+            for slug, mapping in extensions.items():
+                el = next((el for el in elements if el.tagName == mapping["tag"]))
+                question = Question.objects.get(pk=slug)
+
+                text_value = el.firstChild.value.strip()
+
+                value = text_value
+                # map values for choice questions
+                if text_value == "true" and mapping.get("true_value"):
+                    value = mapping["true_value"]
+
+                save_answer(
+                    document=self.inquiry.child_case.document,
+                    question=question,
+                    value=value,
+                )
+
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
             documents = alexandria_models.Document.objects.filter(
                 id__in=[d.uuid for d in self.data.eventAccompanyingReport.document]
@@ -659,8 +681,13 @@ class SubmitPlanningPermissionApplicationSendHandler(
         return super()._get_instance(queryset)
 
     def has_permission(self) -> Tuple[bool, str]:
+        submit_planning_enabled = settings.ECH0211.get(
+            "SUBMIT_PLANNING_PERMISSION_APPLICATION", {}
+        ).get("ENABLED", False)
+
         if (
-            self.group.role.name
+            submit_planning_enabled
+            and self.group.role.name
             in settings.ECH0211["SUBMIT_PLANNING_PERMISSION_APPLICATION"][
                 "ALLOWED_ROLES"
             ]
