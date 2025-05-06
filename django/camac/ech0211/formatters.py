@@ -4,10 +4,12 @@ import datetime
 import itertools
 import logging
 import re
+import xml.dom.minidom
 from typing import Union
 
 import pyxb
 from alexandria.core.models import Document
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import QuerySet
@@ -29,6 +31,7 @@ from camac.ech0211.constants import (
     ECH_JUDGEMENT_WRITTEN_OFF,
 )
 from camac.instance.models import Instance
+from camac.user.models import Service
 from camac.utils import build_url
 
 from ..instance.master_data import MasterData
@@ -503,19 +506,17 @@ class BaseDeliveryFormatter:
 
         return ns_application.eventBaseDeliveryType(
             planningPermissionApplicationInformation=[
-                (
-                    pyxb.BIND(
-                        planningPermissionApplication=application(instance, request),
-                        relationshipToPerson=format_relationships_to_persons(md),
-                        decisionAuthority=decision_authority(
-                            responsible_service,
-                            organization_category=md.organization_category,
-                        ),
-                        entryOffice=office(
-                            responsible_service,
-                            organization_category=md.organization_category,
-                        ),
-                    )
+                pyxb.BIND(
+                    planningPermissionApplication=application(instance, request),
+                    relationshipToPerson=format_relationships_to_persons(md),
+                    decisionAuthority=decision_authority(
+                        responsible_service,
+                        organization_category=md.organization_category,
+                    ),
+                    entryOffice=office(
+                        responsible_service,
+                        organization_category=md.organization_category,
+                    ),
                 )
             ]
         )
@@ -653,7 +654,7 @@ def accompanying_report(
 
         return [assure_string_length(handle_string_values(answer), max_length=950)]
 
-    return ns_application.eventAccompanyingReportType(
+    report = ns_application.eventAccompanyingReportType(
         eventType=ns_application.eventTypeType(event_type),
         planningPermissionApplicationIdentification=permission_application_identification(
             instance
@@ -673,6 +674,45 @@ def accompanying_report(
         ),
         judgement=settings.ECH0211["JUDGEMENT_MAPPING"].get(status.value),
     )
+
+    if extensions := settings.ECH0211["ACCOMPANYING_REPORT"].get("EXTENSION_MAPPING"):
+        # Add xml tags to extension attribute
+        xml_dom = xml.dom.minidom.getDOMImplementation()
+        xml_doc = xml_dom.createDocument(None, "root", None)
+
+        report.extension = pyxb.binding.datatypes.anyType()
+
+        answers_by_slug = {
+            ans.question_id: ans
+            for ans in inquiry.child_case.document.answers.filter(
+                question_id__in=extensions.keys()
+            ).select_related("question")
+        }
+        for slug, mapping in extensions.items():
+            if slug not in answers_by_slug:
+                continue
+            xml_element = xml_doc.createElement(mapping["tag"])
+            caluma_answer = answers_by_slug[slug]
+            caluma_value = caluma_answer.value
+            if caluma_answer.question.type == Question.TYPE_MULTIPLE_CHOICE:
+                caluma_value = str(mapping["true_value"] in caluma_value).lower()
+            xml_value = xml_doc.createTextNode(caluma_value)
+            xml_element.appendChild(xml_value)
+
+            report.extension._appendWildcardElement(value=xml_element)
+
+        service = Service.objects.get(pk=inquiry.closed_by_group)
+        service_info = {
+            "organisationId": str(service.pk),
+            "organisationName": service.get_name(),
+        }
+        for tag, value in service_info.items():
+            xml_element = xml_doc.createElement(tag)
+            xml_value = xml_doc.createTextNode(value)
+            xml_element.appendChild(xml_value)
+            report.extension._appendWildcardElement(value=xml_element)
+
+    return report
 
 
 def change_responsibility(instance: Instance):

@@ -4,6 +4,7 @@ import pytest
 import requests
 from alexandria.core import factories as alexandria_factories
 from alexandria.core.factories import CategoryFactory, MarkFactory
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 from django.core.management import call_command
@@ -598,16 +599,21 @@ def test_task_send_handler(
             addressed_groups=[str(group.service.pk)],
         )
     elif test_case == "invalid_service_id":
-        xml = xml.replace("<serviceId>23</serviceId>", "<serviceId>string</serviceId>")
+        xml = xml.replace(
+            "<organisationId>23</organisationId>",
+            "<organisationId>string</organisationId>",
+        )
     elif test_case == "same_service":
         xml = xml.replace(
-            "<serviceId>23</serviceId>", f"<serviceId>{group.service.pk}</serviceId>"
+            "<organisationId>23</organisationId>",
+            f"<organisationId>{group.service.pk}</organisationId>",
         )
 
     if test_case != "no_service":
         service = service_factory(email="s1@example.com")
         xml = xml.replace(
-            "<serviceId>23</serviceId>", f"<serviceId>{service.pk}</serviceId>"
+            "<organisationId>23</organisationId>",
+            f"<organisationId>{service.pk}</organisationId>",
         )
 
     data = CreateFromDocument(xml)
@@ -696,7 +702,8 @@ def test_task_send_handler_gr_skips_formal_exam(
 
     xml = xml_data("task")
     xml = xml.replace(
-        "<serviceId>23</serviceId>", f"<serviceId>{target_service.pk}</serviceId>"
+        "<organisationId>23</organisationId>",
+        f"<organisationId>{target_service.pk}</organisationId>",
     )
     data = CreateFromDocument(xml)
 
@@ -883,6 +890,8 @@ def test_accompanying_report_send_handler(
     set_application_be,
     user_group_factory,
     caluma_work_item_factory,
+    caluma_form_question_factory,
+    caluma_question_option_factory,
     settings,
     #
     has_attachment,
@@ -891,6 +900,29 @@ def test_accompanying_report_send_handler(
 ):
     notification_template_factory(slug="05-bericht-erstellt")
     settings.APPLICATION["DOCUMENT_BACKEND"] = document_backend
+    be_ech0211_settings["ACCOMPANYING_REPORT"]["EXTENSION_MAPPING"] = {
+        "inquiry-text-answer": {
+            "tag": "situation",
+        },
+        "inquiry-checkbox": {
+            "tag": "documentsAvailable",
+            "true_value": "inquiry-checked",
+        },
+    }
+    caluma_form_question_factory(
+        form=ech_instance_be.case.document.form,
+        question__slug="inquiry-text-answer",
+        question__type=Question.TYPE_TEXT,
+    )
+    q = caluma_form_question_factory(
+        form=ech_instance_be.case.document.form,
+        question__slug="inquiry-checkbox",
+        question__type=Question.TYPE_CHOICE,
+    ).question
+    caluma_question_option_factory(
+        question=q,
+        option__slug="inquiry-checked",
+    )
 
     user_group = user_group_factory(default_group=1)
 
@@ -981,6 +1013,12 @@ def test_accompanying_report_send_handler(
         ).exists()
         assert inquiry.child_case.document.answers.filter(
             question_id=be_distribution_settings["QUESTIONS"]["ANCILLARY_CLAUSES"]
+        ).exists()
+        assert inquiry.child_case.document.answers.filter(
+            question_id="inquiry-text-answer"
+        ).exists()
+        assert inquiry.child_case.document.answers.filter(
+            question_id="inquiry-checkbox"
         ).exists()
 
         assert service.email in mailoutbox[0].to

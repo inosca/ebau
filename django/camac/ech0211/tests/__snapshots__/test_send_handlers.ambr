@@ -33,19 +33,25 @@
   		<ns1:document>
   			<ns4:uuid>00000000-0000-0000-0000-000000000000</ns4:uuid>
   			<ns4:titles>
-  				<ns5:title>Jennifer Lutz</ns5:title>
+  				<ns5:title>Mckenzie Clark</ns5:title>
   			</ns4:titles>
   			<ns4:status>created</ns4:status>
   			<ns4:files>
   				<ns4:file>
   					<ns4:pathFileName>http://ebau.localhost/ech/v1/files/<!-- ATTACHMENT_ID --></ns4:pathFileName>
-  					<ns4:mimeType>application/font-woff</ns4:mimeType>
+  					<ns4:mimeType>video/mpeg</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
-  			<ns4:documentKind>Dr. Wanda Johnson</ns4:documentKind>
+  			<ns4:documentKind>Matthew Miller</ns4:documentKind>
   		</ns1:document>
   		<ns1:remark>Wird in das Feld &quot;Stellungnahme&quot; übernommen.</ns1:remark>
-  		<ns1:ancillaryClauses>Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.; Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.</ns1:ancillaryClauses>
+  		<ns1:ancillaryClauses>Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.</ns1:ancillaryClauses>
+  		<ns1:extension>
+  			<situation>Wird in das Feld &quot;Sachverhalt&quot; übernommen.</situation>
+  			<documentsAvailable>inquiry-checked</documentsAvailable>
+  			<organisationId><!-- ORGANISATION_ID --></organisationId>
+  			<organisationName>Tiffany Wood</organisationName>
+  		</ns1:extension>
   	</ns1:eventAccompanyingReport>
   </ns1:delivery>
   
@@ -91,13 +97,19 @@
   			<ns4:files>
   				<ns4:file>
   					<ns4:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-  					<ns4:mimeType>model/vrml</ns4:mimeType>
+  					<ns4:mimeType>application/atom+xml</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
-  			<ns4:documentKind>John Lopez</ns4:documentKind>
+  			<ns4:documentKind>Heidi Thompson</ns4:documentKind>
   		</ns1:document>
   		<ns1:remark>Wird in das Feld &quot;Stellungnahme&quot; übernommen.</ns1:remark>
-  		<ns1:ancillaryClauses>Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.; Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.</ns1:ancillaryClauses>
+  		<ns1:ancillaryClauses>Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.</ns1:ancillaryClauses>
+  		<ns1:extension>
+  			<situation>Wird in das Feld &quot;Sachverhalt&quot; übernommen.</situation>
+  			<documentsAvailable>inquiry-checked</documentsAvailable>
+  			<organisationId><!-- ORGANISATION_ID --></organisationId>
+  			<organisationName>Tiffany Wood</organisationName>
+  		</ns1:extension>
   	</ns1:eventAccompanyingReport>
   </ns1:delivery>
   

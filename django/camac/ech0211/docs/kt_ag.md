@@ -48,15 +48,17 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 - Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` die kantonale Dossiernummer und unter `dossierIdentification` den technischen Primärschlüssel "Dossier ID" ("Instance id")
 
-- Der Type `localOrganisationId` enthält unter `organisationId` unsere Service id. Service ids können über den `/api/v1/public-services/` endpoint abgefragt werden.
+- Der Type `localOrganisationId` enthält unter `organisationId` unsere Organisations id. Organisations ids können über den `/api/v1/public-services/` endpoint abgefragt werden.
 
-- Der von uns empfangene Typ `task`, um Stellungnahmen anzufordern (Spezifikation 3.2) muss zwingend die Service id der einzuladenden Stelle im `extension` Typ enthalten:
+- Der von uns empfangene Typ `task`, um Stellungnahmen anzufordern (Spezifikation 3.2) muss zwingend die Organisations id der einzuladenden Stelle im `extension` Typ enthalten:
 
   ```xml
   <ns2:extension>
-    <serviceId>23</serviceId>
+    <organisationId>23</organisationId>
   </ns2:extension>
   ```
+
+  Deprecated: Das bisherige Tag `serviceId` wurde mit `organisationId` ersetzt. `serviceId` wird aber weiterhin unterstützt.
 
 - Der eCH-Standard forciert, dass bei den meisten Meldungen ein `document` mitgeschickt wird. Dieses `document` wird (mit Ausnahme von `accompanyingReport`) von eBau ignoriert. Dokumente werden über unsere API hoch- und heruntergeladen. Beim Hochladen werden sie bereits einer `Instance`, sowie einer oder mehreren `AttachmentSection` zugewiesen. Somit sind Dokumente in eCH Meldungen, die von eBau erhalten werden, redundant und werden ignoriert.
 

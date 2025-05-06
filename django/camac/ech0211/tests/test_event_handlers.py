@@ -1,5 +1,7 @@
 import pytest
 from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFactory
+from caluma.caluma_form.models import Question
+from caluma.caluma_workflow.models import WorkItem
 from pytest_lazy_fixtures import lf
 
 from camac.constants.kt_bern import (
@@ -483,6 +485,81 @@ def test_accompanying_report_event_handler_alexandria(
         group_pk=group.pk,
     )
     handler.run()
+
+    assert Message.objects.count() == 1
+    message = Message.objects.first()
+    ech_snapshot(message.body)
+
+
+@pytest.mark.freeze_time("2022-06-03")
+def test_accompanying_report_event_handler_extension(
+    db,
+    active_inquiry_factory,
+    caluma_answer_factory,
+    caluma_form_question_factory,
+    gr_distribution_settings,
+    ech_instance_gr,
+    gr_ech0211_settings,
+    set_application_gr,
+    ech_snapshot,
+    multilang,
+    service,
+    utils,
+):
+    gr_ech0211_settings["ACCOMPANYING_REPORT"]["EXTENSION_MAPPING"] = {
+        "inquiry-answer-considerations": {
+            "tag": "considerations",
+        },
+        "inquiry-answer-situation": {
+            "tag": "situation",
+        },
+        "empty-choice": {
+            "tag": "emptyChoice",
+            "true_value": "foo",
+        },
+        "stellungnahme-in-dokumentanablage": {
+            "tag": "documentsAvailable",
+            "true_value": "stellungnahme-in-dokumentanablage-ja",
+        },
+    }
+    inquiry = active_inquiry_factory(
+        for_instance=ech_instance_gr,
+        addressed_service=service,
+        status=WorkItem.STATUS_COMPLETED,
+        closed_by_group=service.pk,
+    )
+
+    caluma_answer_factory(
+        document=inquiry.child_case.document,
+        question_id=gr_distribution_settings["QUESTIONS"]["STATUS"],
+        value=gr_distribution_settings["ANSWERS"]["STATUS"]["POSITIVE"],
+    )
+    caluma_answer_factory(
+        document=inquiry.child_case.document,
+        question_id=gr_distribution_settings["QUESTIONS"]["STATEMENT"],
+        value="Stated",
+    )
+    # Extension values
+    caluma_answer_factory(
+        document=inquiry.child_case.document,
+        question_id="inquiry-answer-considerations",
+        value="Considered",
+    )
+    caluma_form_question_factory(
+        form=inquiry.child_case.document.form,
+        question__type=Question.TYPE_MULTIPLE_CHOICE,
+        question__slug="empty-choice",
+    )
+    utils.add_answer(
+        inquiry.child_case.document,
+        "stellungnahme-in-dokumentanablage",
+        value=["stellungnahme-in-dokumentanablage-ja"],
+        options=["stellungnahme-in-dokumentanablage-ja"],
+        question_type=Question.TYPE_MULTIPLE_CHOICE,
+    )
+
+    eh = event_handlers.AccompanyingReportEventHandler(ech_instance_gr, inquiry=inquiry)
+    eh.run()
 
     assert Message.objects.count() == 1
     message = Message.objects.first()

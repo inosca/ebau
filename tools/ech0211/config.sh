@@ -3,7 +3,8 @@ declare -A ech0211_credentials=(
 	["gemeinde-chur"]="xxx"
 	# ["gemeinde-davos"]="xxx"
 )
-ech0211_endpoint="http://ebau-keycloak.localhost"
+keycloak_endpoint="http://ebau-keycloak.localhost"
+ech0211_endpoint="http://ember-ebau.localhost"
 camac_group_id="10035"
 
 ech0211_login() {
@@ -12,7 +13,7 @@ ech0211_login() {
 
 	echo " > logging in as: $client_id using secret ${client_secret}"
 	token=$(curl -s --request POST \
-		--url "${ech0211_endpoint}/auth/realms/ebau/protocol/openid-connect/token" \
+		--url "${keycloak_endpoint}/auth/realms/ebau/protocol/openid-connect/token" \
 		--header 'content-type: application/x-www-form-urlencoded' \
 		--data grant_type=client_credentials \
 		--data scope=openid \

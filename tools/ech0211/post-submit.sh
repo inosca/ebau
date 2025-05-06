@@ -5,6 +5,10 @@ echo "---------------------------"
 echo "eCH0211 - POST submit"
 echo "---------------------------"
 
+location_town="Chur"
+location_zipcode="7000"
+location_canton="GR"
+
 for i in "${!ech0211_credentials[@]}"
 do
 xml_payload=$(cat <<EOF
@@ -55,8 +59,8 @@ xml_payload=$(cat <<EOF
       <ns1:locationAddress>
         <ns4:street>Teststrasse</ns4:street>
         <ns4:houseNumber>23</ns4:houseNumber>
-        <ns4:town>Chur</ns4:town> <!-- required -->
-        <ns4:swissZipCode>7000</ns4:swissZipCode> <!-- required -->
+        <ns4:town>${location_town}</ns4:town> <!-- required -->
+        <ns4:swissZipCode>${location_zipcode}</ns4:swissZipCode> <!-- required -->
         <ns4:country>
           <ns4:countryNameShort>CH</ns4:countryNameShort>
         </ns4:country>
@@ -77,8 +81,8 @@ xml_payload=$(cat <<EOF
           </ns3:coordinates>
         </ns1:realestate>
         <ns1:municipality>
-          <ns5:municipalityName>Chur</ns5:municipalityName>
-          <ns5:cantonAbbreviation>GR</ns5:cantonAbbreviation>
+          <ns5:municipalityName>${location_town}</ns5:municipalityName>
+          <ns5:cantonAbbreviation>${location_canton}</ns5:cantonAbbreviation>
         </ns1:municipality>
         <ns1:buildingInformation>
           <ns1:building>
@@ -97,8 +101,8 @@ xml_payload=$(cat <<EOF
             <ns4:addressInformation>
               <ns4:street>Teststrasse</ns4:street>
               <ns4:houseNumber>23</ns4:houseNumber>
-              <ns4:town>Chur</ns4:town>
-              <ns4:swissZipCode>7000</ns4:swissZipCode>
+              <ns4:town>${location_town}</ns4:town>
+              <ns4:swissZipCode>${location_zipcode}</ns4:swissZipCode>
               <ns4:country>
                 <ns4:countryNameShort>CH</ns4:countryNameShort>
               </ns4:country>
@@ -118,8 +122,8 @@ xml_payload=$(cat <<EOF
           <ns3:durationOfConstructionPhase>23</ns3:durationOfConstructionPhase>
         </ns1:constructionProject>
         <ns1:municipality>
-          <ns5:municipalityName>Chur</ns5:municipalityName>
-          <ns5:cantonAbbreviation>GR</ns5:cantonAbbreviation>
+          <ns5:municipalityName>${location_town}</ns5:municipalityName>
+          <ns5:cantonAbbreviation>${location_canton}</ns5:cantonAbbreviation>
         </ns1:municipality>
       </ns1:constructionProjectInformation>
       <ns1:document>
@@ -177,7 +181,7 @@ EOF
 	ech0211_login "$i" "${ech0211_credentials[$i]}"
 	echo " > perform request[submit] for client_id: $i"
 	echo -e "\n---------------------------"
-	curl -X POST 'http://ember-ebau.localhost/ech/v1/send/' \
+	curl -X POST "${ech0211_endpoint}/ech/v1/send/" \
   -H "Authorization: Bearer $token" \
   -H 'accept: application/xml' \
   -H "x-camac-group: ${camac_group_id}" \
