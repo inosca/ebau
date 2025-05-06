@@ -3060,6 +3060,13 @@ def test_instance_submit_so(
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
     )
+    # Remove KOOR_GROUP_IDS as if the instance.group is by randomness
+    # on of the ids in the list, _send_notifications behaves differently
+    # and fails because of unconfigured settings.
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_GROUP_IDS",
+        return_value=[],
+    )
 
     so_instance.case.document.form_id = form_slug
     so_instance.case.document.save()
@@ -3111,6 +3118,13 @@ def test_instance_submit_so_bab(
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
     )
+    # Remove KOOR_GROUP_IDS as if the instance.group is by randomness
+    # on of the ids in the list, _send_notifications behaves differently
+    # and fails because of unconfigured settings.
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_GROUP_IDS",
+        return_value=[],
+    )
 
     utils.add_answer(so_instance.case.document, bab_question, f"{bab_question}-ja")
 
@@ -3156,6 +3170,13 @@ def test_instance_submit_so_canton(
     instance_state_factory(name="subm")
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
+    )
+    # Remove KOOR_GROUP_IDS as if the instance.group is by randomness
+    # on of the ids in the list, _send_notifications behaves differently
+    # and fails because of unconfigured settings.
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_GROUP_IDS",
+        return_value=[],
     )
 
     caluma_dynamic_option_factory(
@@ -3352,6 +3373,13 @@ def test_send_notifications(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification",
         return_value=None,
     )
+    # Remove KOOR_GROUP_IDS as if the instance.group is by randomness
+    # on of the ids in the list, _send_notifications behaves differently
+    # and fails because of unconfigured settings.
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_GROUP_IDS",
+        return_value=[],
+    )
     config_1 = [
         {"template_slug": notification_template.slug, "recipient_types": ["test_a"]}
     ]
@@ -3405,6 +3433,13 @@ def test_instance_submit_ag_pgv(
 ):
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
+    )
+    # Remove KOOR_GROUP_IDS as if the instance.group is by randomness
+    # on of the ids in the list, _send_notifications behaves differently
+    # and fails because of unconfigured settings.
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_GROUP_IDS",
+        return_value=[],
     )
 
     # Create needed services
