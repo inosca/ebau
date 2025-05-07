@@ -48,6 +48,7 @@ mozilla-django-oidc==4.0.1
 openpyxl==3.1.5
 Pillow==11.1.0
 psycopg==3.2.5
+pydantic==2.11.4
 pyexcel-io==0.6.7
 pyexcel-webio==0.1.4
 pyexcel-xlsx==0.6.1

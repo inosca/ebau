@@ -12,6 +12,7 @@ from django.utils.translation import gettext_lazy as _
 
 from camac.constants import kt_bern as be_constants
 from camac.constants.kt_uri import KOOR_SERVICE_IDS as URI_KOOR_SERVICE_IDS
+from camac.settings.ebau_schema import ModuleApplicationConfig, ModuleConfig
 from camac.settings.env import ROOT_DIR, env
 from camac.utils import build_url, should_notify_on_manual_workitems
 
@@ -3434,17 +3435,34 @@ STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [
 
 
 def load_module_settings(module_name, application_name=APPLICATION_NAME):
-    module = getattr(
+    module: ModuleConfig | dict = getattr(
         import_module(f"camac.settings.modules.{module_name.lower()}"),
         module_name.upper(),
     )
-    app_config = module.get(application_name, {})
+    is_pydantic = isinstance(module, ModuleConfig)
+    if is_pydantic:
+        app_config: ModuleApplicationConfig = getattr(module, application_name)
 
-    return (
-        always_merger.merge(copy.deepcopy(module["default"]), app_config)
-        if app_config.get("ENABLED")
-        else {}
-    )
+        # For some reason, this is not covered according to pytest
+        # even tough this is part of the startup.
+        if getattr(app_config, "enabled", False):  # pragma: no cover
+            return always_merger.merge(
+                copy.deepcopy(module.default),
+                app_config,
+            )
+
+        return None
+    else:
+        app_config = module.get(application_name, {})
+
+        return (
+            always_merger.merge(
+                copy.deepcopy(module["default"]),
+                app_config,
+            )
+            if app_config.get("ENABLED")
+            else {}
+        )
 
 
 BILLING = load_module_settings("billing")

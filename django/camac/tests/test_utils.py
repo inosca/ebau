@@ -4,6 +4,9 @@ from datetime import date
 import pytest
 from django_q.tasks import async_task, result
 
+from camac.settings.ebau_schema import ModuleApplicationConfig
+from camac.settings.utils import is_module_enabled
+
 from .. import utils
 
 SOME_TEST_DICT = {"foo": {"bar": {"this": {"goes": {"even": {"deeper": "a value"}}}}}}
@@ -185,3 +188,24 @@ def test_django_q_sync_fixture_enabled(db, django_q_sync_mode):
     task_id = async_task(_example_task, 1, 3)
     assert task_id
     assert result(task_id, wait=10) == 4
+
+
+def test_is_module_enabled():
+    assert not is_module_enabled({}, False)
+    assert not is_module_enabled({}, True)
+
+    assert not is_module_enabled({"ENABLED": None})
+    assert not is_module_enabled({"ENABLED": False})
+    assert is_module_enabled({"ENABLED": True})
+
+    assert is_module_enabled({"ENABLED": None}, True)
+    assert is_module_enabled({"ENABLED": False}, True)
+    assert is_module_enabled({"ENABLED": True}, True)
+
+    conf_enabled: ModuleApplicationConfig = ModuleApplicationConfig(enabled=True)
+    conf_not_enabled: ModuleApplicationConfig = ModuleApplicationConfig()
+    assert is_module_enabled(conf_enabled)
+    assert not is_module_enabled(conf_not_enabled)
+
+    assert is_module_enabled(conf_enabled, True)
+    assert not is_module_enabled(conf_not_enabled, True)

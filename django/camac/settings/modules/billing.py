@@ -1,77 +1,57 @@
+from camac.settings.ebau_schema import ModuleConfig
 from camac.settings.env import env
+from camac.settings.modules.billing_schema import (
+    BillingConfig,
+    ProductNumberConfig,
+    WilkenConfig,
+)
 
-"""
-PRODUCT_NUMBERS
-
-Configure product numbers which can be selected in the billing module when
-creating new billing entries. This also requires the `productNumber` flag
-to be set to true in `ember-ebau-core/addon/config/features/[canton].js`.
-
-Available configuration options:
-{
-    Product number
-    "number": number
-
-    Name of the product number. Use gettext if it needs to be translated.
-    "name": str
-
-    List of service slugs which this product number is visible for.
-    "only_for_services": list[string]
-
-    List of service slugs which this product number is NOT visible for.
-    "not_for_services": list[string]
-
-    Should this product number be only available if an invoice exists already.
-    "only_subsequent_charge": bool
-}
-"""
-
-BILLING = {
-    "default": {},
-    "kt_schwyz": {
-        "ENABLED": True,
-        "PRODUCT_NUMBERS": [
-            {
-                "number": 100000,
-                "name": "ARE BGZ, kant. Baubewilligung, Gebühren",
-                "not_for_services": ["amfz-brandschutz", "laboratorium-urkantone"],
-            },
-            {
-                "number": 150000,
-                "name": "AMFZ Brandschutz, kant. Baubewilligung Gebühren",
-                "only_for_services": ["amfz-brandschutz"],
-            },
-            {
-                "number": 900000,
-                "name": "Laburk, Bearbeitungsgebühren Baubewilligung",
-                "only_for_services": ["laboratorium-urkantone"],
-            },
-            {
-                "number": 300000,
-                "name": "AMFZ Brandschutz, Baubegleitung und -Abnahme",
-                "only_subsequent_charge": True,
-                "only_for_services": ["amfz-brandschutz"],
-            },
-            {
-                "number": 310000,
-                "name": "AFG Gewässerschutz, Baubegleitung und -Abnahme",
-                "only_subsequent_charge": True,
-                "only_for_services": [
+BILLING = ModuleConfig[BillingConfig](
+    default=BillingConfig(),
+    kt_schwyz=BillingConfig(
+        enabled=True,
+        product_numbers=[
+            ProductNumberConfig(
+                number=100000,
+                name="ARE BGZ, kant. Baubewilligung, Gebühren",
+                not_for_services=["amfz-brandschutz", "laboratorium-urkantone"],
+            ),
+            ProductNumberConfig(
+                number=150000,
+                name="AMFZ Brandschutz, kant. Baubewilligung Gebühren",
+                only_for_services=["amfz-brandschutz"],
+            ),
+            ProductNumberConfig(
+                number=900000,
+                name="Laburk, Bearbeitungsgebühren Baubewilligung",
+                only_for_services=["laboratorium-urkantone"],
+            ),
+            ProductNumberConfig(
+                number=300000,
+                name="AMFZ Brandschutz, Baubegleitung und -Abnahme",
+                only_subsequent_charge=True,
+                only_for_services=["amfz-brandschutz"],
+            ),
+            ProductNumberConfig(
+                number=310000,
+                name="AFG Gewässerschutz, Baubegleitung und -Abnahme",
+                only_subsequent_charge=True,
+                only_for_services=[
                     "afg-wasserbau",
                     "afg-fischerei",
                     "afg-industrie-gewerbeabwasser",
                     "afg-entwaesserung",
                 ],
-            },
+            ),
         ],
-        "WILKEN": {
-            "ENCODING": "windows-1252",
-            "NEWLINE_CHARACTER": "~~",
-            "CLERK": env.str("WILKEN_CLERK", default="ZDARE"),
-            "USER_ID": env.str("WILKEN_USER_ID", default="ZDARE"),
-            "INVOICE_FILE_NAME": "Rechnung_Ebau_{datetime}_{identifier}.csv",
-            "PAYMENT_PURPOSE": "Baugesuch {instance_id}",
-            "CUSTOMER_NUMBERS": {
+        wilken=WilkenConfig(
+            encoding="windows-1252",
+            newline_character="~~",
+            clerk=env.str("WILKEN_CLERK", default="ZDARE"),
+            user_id=env.str("WILKEN_USER_ID", default="ZDARE"),
+            invoice_file_name="Rechnung_Ebau_{datetime}_{identifier}.csv",
+            payment_purpose="Baugesuch {instance_id}",
+            customer_numbers={
                 "Schwyz": "015177",
                 "Arth": "015178",
                 "Ingenbohl": "015180",
@@ -103,7 +83,7 @@ BILLING = {
                 "Freienbach": "015207",
                 "Feusisberg": "015208",
             },
-            "KEYCLOAK_CLIENT": "wilken",
-        },
-    },
-}
+            keycloak_client="wilken",
+        ),
+    ),
+)

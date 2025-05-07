@@ -26,6 +26,8 @@ from camac.billing.wilken.domain_logic import generate_invoices
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import is_permission_mode_fully_enabled
+from camac.settings.modules.billing_schema import ProductNumberConfig
+from camac.user.models import Group
 from camac.user.permissions import (
     IsAllowedClientToken,
     IsWilkenClientToken,
@@ -139,19 +141,21 @@ class ProductNumbersView(APIView):
     permission_classes = [IsAllowedClientToken & IsAuthenticated]
 
     def get(self, request):
-        config = settings.BILLING.get("PRODUCT_NUMBERS", None)
-        instance = request.query_params.get("for_instance", None)
-        group = get_group(request)
+        config: list[ProductNumberConfig] | None = getattr(
+            settings.BILLING, "product_numbers", None
+        )
+        instance: str = request.query_params.get("for_instance", None)
+        group: Group | None = get_group(request)
 
         if not config or not instance or not group:
             return response.Response([], status=status.HTTP_400_BAD_REQUEST)
 
-        has_previous_invoice = Invoice.objects.filter(instance=instance).exists()
+        has_previous_invoice: bool = Invoice.objects.filter(instance=instance).exists()
 
-        valid_product_numbers = [
+        valid_product_numbers: list[dict[str, int | str]] = [
             {
-                "number": product_number_config.get("number"),
-                "name": product_number_config.get("name") or "",
+                "number": product_number_config.number,
+                "name": product_number_config.name,
             }
             for product_number_config in config
             if validate_product_number_conditions(
