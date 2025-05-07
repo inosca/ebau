@@ -6084,7 +6084,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "triage-titel",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -6114,6 +6114,21 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "zweckbestimmung",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.zweckbestimmung-beschreibung",
+    "fields": {
+      "created_at": "2025-05-07T12:12:27.942Z",
+      "modified_at": "2025-05-07T12:12:27.942Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "zweckbestimmung-beschreibung",
       "sort": 14
     }
   },
@@ -15694,6 +15709,23 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zweckbestimmung-andere",
+    "fields": {
+      "created_at": "2025-05-07T12:03:31.735Z",
+      "modified_at": "2025-05-07T12:07:06.224Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -26751,7 +26783,7 @@
     "pk": "zweckbestimmung",
     "fields": {
       "created_at": "2024-11-06T12:37:53.239Z",
-      "modified_at": "2024-12-12T13:46:00.370Z",
+      "modified_at": "2025-05-07T12:07:06.420Z",
       "created_by_user": "jana.lux@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -26766,6 +26798,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zweckbestimmung-beschreibung",
+    "fields": {
+      "created_at": "2025-05-07T12:12:27.784Z",
+      "modified_at": "2025-05-07T12:51:43.163Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\"zweckbestimmung-andere\" in \"zweckbestimmung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -33497,62 +33563,77 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "zweckbestimmung.zweckbestimmung-andere",
+    "fields": {
+      "created_at": "2025-05-07T12:07:06.439Z",
+      "modified_at": "2025-05-07T12:07:06.439Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zweckbestimmung",
+      "option": "zweckbestimmung-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "zweckbestimmung.zweckbestimmung-gewerbe",
     "fields": {
-      "created_at": "2024-12-12T13:46:00.375Z",
-      "modified_at": "2024-12-12T13:46:00.375Z",
+      "created_at": "2025-05-07T12:07:06.469Z",
+      "modified_at": "2025-05-07T12:07:06.469Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "zweckbestimmung",
       "option": "zweckbestimmung-gewerbe",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "zweckbestimmung.zweckbestimmung-landwirtschaftliche-nutzung",
     "fields": {
-      "created_at": "2024-12-12T13:46:00.374Z",
-      "modified_at": "2024-12-12T13:46:00.374Z",
+      "created_at": "2025-05-07T12:07:06.459Z",
+      "modified_at": "2025-05-07T12:07:06.459Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "zweckbestimmung",
       "option": "zweckbestimmung-landwirtschaftliche-nutzung",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "zweckbestimmung.zweckbestimmung-oeffentliche-baute",
     "fields": {
-      "created_at": "2024-12-12T13:46:00.373Z",
-      "modified_at": "2024-12-12T13:46:00.373Z",
+      "created_at": "2025-05-07T12:07:06.449Z",
+      "modified_at": "2025-05-07T12:07:06.449Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "zweckbestimmung",
       "option": "zweckbestimmung-oeffentliche-baute",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "zweckbestimmung.zweckbestimmung-wohnnutzung",
     "fields": {
-      "created_at": "2024-12-12T13:46:00.376Z",
-      "modified_at": "2024-12-12T13:46:00.376Z",
+      "created_at": "2025-05-07T12:07:06.479Z",
+      "modified_at": "2025-05-07T12:07:06.479Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "zweckbestimmung",
       "option": "zweckbestimmung-wohnnutzung",
-      "sort": 4
+      "sort": 5
     }
   }
 ]
