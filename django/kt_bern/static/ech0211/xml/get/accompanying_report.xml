@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
-<ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
+<ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2"
+  xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5"
+  xmlns:ns4="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0039/2">
   <ns1:deliveryHeader>
     <ns2:senderId>https://ebau.apps.be.ch</ns2:senderId>
     <ns2:messageId>a4abf73b-12c4-4137-927f-8b553d754570</ns2:messageId>
@@ -43,5 +45,15 @@
     </ns1:document>
     <ns1:remark>Stellungnahmetext</ns1:remark>
     <ns1:ancillaryClauses>Nebenbestimmungen Text</ns1:ancillaryClauses>
+    <ns2:extension>
+      <situation>Wird aus dem Feld "Sachverhalt" abgefüllt.</situation>
+      <considerations>Wird aus dem Feld "Erwägungen" abgefüllt.</considerations>
+      <comments>Wird aus dem Feld "Bemerkungen" abgefüllt.</comments>
+      <!--
+      Ist true wenn die Option "Die Stellungnahme/Verfügung/Bewilligung befindet sich
+      in der Dokumentenablage" ausgewählt wurde.
+      -->
+      <documentsAvailable>true</documentsAvailable>
+    </ns2:extension>
   </ns1:eventAccompanyingReport>
 </ns1:delivery>
