@@ -24,9 +24,9 @@ export default class TaskFormController extends Controller {
   });
 
   @action
-  redirectToWorkItems() {
+  redirectToCaseWorkItems() {
     if (this.workItem.value?.task.meta.redirectToWorkItemsAfterCompletion) {
-      this.ebauModules.redirectToWorkItems();
+      this.ebauModules.redirectToCaseWorkItems();
     }
   }
 }

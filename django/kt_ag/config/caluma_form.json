@@ -20119,7 +20119,7 @@
         "action": "submit",
         "template": "eingabequittung",
         "hideLabel": true,
-        "widgetOverride": "gr-submit-instance"
+        "widgetOverride": "submit-instance"
       },
       "data_source": null,
       "row_form": null,

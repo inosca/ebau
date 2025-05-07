@@ -18,7 +18,6 @@ import DocumentValidityButtonComponent from "ember-ebau-core/components/document
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-textarea";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
-import GRSubmitInstanceComponent from "ember-ebau-core/components/gr-submit-instance";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
 import KeycloakProfileApplyButtonComponent from "ember-ebau-core/components/keycloak-profile-apply-button";
@@ -29,6 +28,7 @@ import PublicationStartDateComponent from "ember-ebau-core/components/publicatio
 import QrCodeComponent from "ember-ebau-core/components/qr-code";
 import ServiceContentComponent from "ember-ebau-core/components/service-content";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
+import SubmitInstanceComponent from "ember-ebau-core/components/submit-instance";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
@@ -38,8 +38,6 @@ import BeDocumentsFormComponent from "caluma-portal/components/be-documents-form
 import BeDownloadPdfComponent from "caluma-portal/components/be-download-pdf";
 import BeGisComponent from "caluma-portal/components/be-gis";
 import InfoBelastungswerteComponent from "caluma-portal/components/be-info-belastungswerte";
-import BeSubmitInstanceComponent from "caluma-portal/components/be-submit-instance";
-import SOSubmitInstanceComponent from "caluma-portal/components/so-submit-instance";
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
 
 export default class ApplicationRoute extends Route {
@@ -123,21 +121,9 @@ export default class ApplicationRoute extends Route {
       componentClass: AgGisComponent,
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Einreichen Button BE",
-      component: "be-submit-instance",
-      componentClass: BeSubmitInstanceComponent,
-      type: "CheckboxQuestion",
-    });
-    this.calumaOptions.registerComponentOverride({
-      label: "Einreichen Button GR",
-      component: "gr-submit-instance",
-      componentClass: GRSubmitInstanceComponent,
-      type: "CheckboxQuestion",
-    });
-    this.calumaOptions.registerComponentOverride({
-      label: "Einreichen Button SO",
-      component: "so-submit-instance",
-      componentClass: SOSubmitInstanceComponent,
+      label: "Einreichen Button",
+      component: "submit-instance",
+      componentClass: SubmitInstanceComponent,
       type: "CheckboxQuestion",
     });
     this.calumaOptions.registerComponentOverride({

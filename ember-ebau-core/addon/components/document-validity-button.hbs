@@ -1,7 +1,7 @@
 {{#unless @disabled}}
   <DocumentValidity
     @document={{@field.document}}
-    @validateOnEnter={{this.validateOnEnter}}
+    @validateOnEnter={{@validateOnEnter}}
     as |isValid validateFn|
   >
     {{#if this.invalidFields.length}}
@@ -40,19 +40,19 @@
         this.validate.isRunning
         this.session.isSupport
         (if
-          this.requiredPermissions
+          @requiredPermissions
           (has-all-permissions
-            @context.instanceId this.requiredPermissions invert=true
+            @context.instanceId @requiredPermissions invert=true
           )
           false
         )
       }}
-      @label={{@field.question.raw.label}}
+      @label={{this.buttonLabel}}
       @loading={{this.validate.isRunning}}
       @onClick={{perform this.validate validateFn}}
     />
 
-    {{#if this.showLoadingHint}}
+    {{#if @showLoadingHint}}
       {{#if this.validate.isRunning}}
         <span class="uk-text-muted uk-margin-small-left uk-animation-fade">{{t
             "document-validity-button.loading"
@@ -60,9 +60,9 @@
       {{/if}}
     {{/if}}
 
-    {{#if (and this.showButtonHint this.buttonHintText)}}
+    {{#if @buttonHintText}}
       <div class="uk-alert">
-        {{this.buttonHintText}}
+        {{@buttonHintText}}
       </div>
     {{/if}}
   </DocumentValidity>

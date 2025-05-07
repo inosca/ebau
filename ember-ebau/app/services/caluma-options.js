@@ -268,7 +268,8 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         checkInquiries: () => this.session.isLeadRole,
       },
       hooks: {
-        postCompleteDistribution: () => this.ebauModules.redirectToWorkItems(),
+        postCompleteDistribution: () =>
+          this.ebauModules.redirectToCaseWorkItems(),
       },
       inquiryReminderNotificationTemplateSlug: "inquiry-reminder",
     };

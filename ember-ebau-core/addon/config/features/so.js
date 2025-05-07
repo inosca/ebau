@@ -53,4 +53,12 @@ export default {
   },
   constructionMonitoring: true,
   additionalDemands: true,
+  submitComponent: {
+    requiredPermissions: ["instance-submit"],
+    export: {
+      enabled: (instance) =>
+        !instance.isPaper && instance.calumaForm !== "voranfrage",
+      templateName: () => `signatures`,
+    },
+  },
 };
