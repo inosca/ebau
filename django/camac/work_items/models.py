@@ -2,6 +2,19 @@ import uuid_extensions
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from camac.models import dynamic_default_value
+
+
+@dynamic_default_value(0)
+def next_sort():
+    last = (
+        WorkItemTemplate.objects.order_by("-sort")
+        .values_list("sort", flat=True)
+        .first()
+    )
+
+    return last + 1 if last else 0
+
 
 class WorkItemTemplate(models.Model):
     id = models.UUIDField(
@@ -10,6 +23,7 @@ class WorkItemTemplate(models.Model):
         editable=False,
         verbose_name=_("ID"),
     )
+    sort = models.PositiveIntegerField(default=next_sort)
     services = models.ManyToManyField(
         "user.Service",
         blank=True,
@@ -56,6 +70,7 @@ class WorkItemTemplate(models.Model):
     class Meta:
         verbose_name = _("Work item template")
         verbose_name_plural = _("Work item templates")
+        ordering = ["sort"]
         constraints = [
             # Make sure that assigned_to_current_user can only be true if
             # addressed_to_current_service is true as well.

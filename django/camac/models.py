@@ -2,7 +2,7 @@ from functools import wraps
 
 from django.db import transaction
 from django.db.utils import ProgrammingError
-from psycopg.errors import UndefinedTable
+from psycopg.errors import UndefinedColumn, UndefinedTable
 
 
 def dynamic_default_value(default_value=None):
@@ -21,7 +21,7 @@ def dynamic_default_value(default_value=None):
                 with transaction.atomic():
                     return function(*args, **kwargs)
             except ProgrammingError as e:
-                if isinstance(e.__cause__, UndefinedTable):
+                if isinstance(e.__cause__, (UndefinedTable, UndefinedColumn)):
                     return default_value
                 raise  # pragma: no cover
 
