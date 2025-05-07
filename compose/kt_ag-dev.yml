@@ -271,6 +271,8 @@ services:
       - djangotmpmedia:/data/djangotmpmedia
       - minio_data:/data/minio_data
     command: /bin/sh -c "chown ${UID} -R /data;"
+    networks:
+      - ebau.localhost
 
   tika:
     image: apache/tika:2.9.2.1-full
