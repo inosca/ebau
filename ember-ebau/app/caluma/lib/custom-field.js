@@ -71,7 +71,7 @@ export default class CustomField extends Field {
           "decision-decision-rejected",
           "decision-decision-written-off",
           "decision-decision-positive",
-          "decision-decsion-negative",
+          "decision-decision-negative",
           "decision-decision-approved-with-reservation",
           "decision-decision-retreat",
           "decision-decision-other",
@@ -90,7 +90,7 @@ export default class CustomField extends Field {
       } else if (form.startsWith("solaranlage")) {
         // Solaranlage
         return [
-          "decision-decsision-approved",
+          "decision-decision-approved",
           "decision-decision-rejected",
           "decision-decision-written-off",
           "decision-decision-positive",
