@@ -45872,7 +45872,7 @@
       "meta": {
         "action": "submit",
         "hideLabel": true,
-        "widgetOverride": "be-submit-instance"
+        "widgetOverride": "submit-instance"
       },
       "data_source": null,
       "row_form": null,

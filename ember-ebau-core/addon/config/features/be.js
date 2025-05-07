@@ -40,4 +40,8 @@ export default {
   dashboard: {
     useLegacy: true,
   },
+  submitComponent: {
+    requiredPermissions: ["instance-submit"],
+    buttonHintEnabled: (session) => session.isSupport,
+  },
 };

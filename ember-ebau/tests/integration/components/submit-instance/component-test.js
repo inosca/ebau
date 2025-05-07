@@ -2,13 +2,13 @@ import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { module, skip } from "qunit";
 
-import { setupRenderingTest } from "caluma-portal/tests/helpers";
+import { setupRenderingTest } from "ebau/tests/helpers";
 
-module("Integration | Component | be-submit-instance", function (hooks) {
+module("Integration | Component | submit-instance", function (hooks) {
   setupRenderingTest(hooks);
 
   skip("it renders", async function (assert) {
-    await render(hbs`<BeSubmitInstance />`);
+    await render(hbs`<SubmitInstance />`);
 
     assert.ok(this.element.textContent);
   });

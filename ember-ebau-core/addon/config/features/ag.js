@@ -36,4 +36,11 @@ export default {
   organisation: {
     department: true,
   },
+  submitComponent: {
+    requiredPermissions: null,
+    export: {
+      enabled: (instance) => !instance.isPaper,
+      templateName: (locale) => `eingabequittung-${locale}`,
+    },
+  },
 };

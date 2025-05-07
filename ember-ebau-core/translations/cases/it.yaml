@@ -187,10 +187,12 @@ cases:
 
   submit:
     success: "La domanda è stata presentata con successo."
-    successInternal: "La domanda è stata creata con successo."
     failed-camac: "Errore nel tentativo di scrivere sull'interfaccia."
     failed-message: "Ops! Qualcosa è andato storto. Verifica nuovamente i dati inseriti. {reasons}"
-    button-hint-text: "<strong>Nota:</strong> in modalità esercizio del sistema non è possibile inoltrare delle domande."
+    hint-text: "<strong>Nota:</strong> in modalità esercizio del sistema non è possibile inoltrare delle domande."
+    internal:
+      label: "Completare l'iscrizione"
+      success: "La domanda è stata creata con successo."
 
   copy:
     title: “Copia il link negli appunti”.

@@ -870,7 +870,7 @@
       "meta": {
         "action": "finalize",
         "hideLabel": true,
-        "widgetOverride": "be-submit-instance"
+        "widgetOverride": "submit-instance"
       },
       "data_source": null,
       "row_form": null,

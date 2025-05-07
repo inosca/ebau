@@ -303,12 +303,6 @@ instances:
       editor: "Collaboratrice/tore"
       read-only: "Persona autorizzata a prendere visione"
 
-be-submit-instance:
-  success: "La domanda è stata presentata con successo."
-  failed-camac: "Errore nel tentativo di scrivere sull'interfaccia."
-  failed-message: "Ops! Qualcosa è andato storto. Verifica nuovamente i dati inseriti. {reasons}"
-  button-hint-text: "<strong>Nota:</strong> in modalità esercizio del sistema non è possibile inoltrare delle domande."
-
 claims:
   deadline: "Scadenza"
   answered: "Risposta in data"

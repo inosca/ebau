@@ -23,7 +23,7 @@ export default class CorrectionsWithdrawInstanceComponent extends Component {
 
       this.notification.success(this.intl.t("corrections.withdraw.success"));
 
-      yield this.ebauModules.redirectToWorkItems();
+      yield this.ebauModules.redirectToCaseWorkItems();
     } catch {
       this.notification.danger(this.intl.t("corrections.withdraw.error"));
     }

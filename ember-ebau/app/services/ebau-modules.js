@@ -65,7 +65,7 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.session.language;
   }
 
-  redirectToWorkItems() {
+  redirectToCaseWorkItems() {
     this.router
       .transitionTo("cases.detail.work-items", this.instanceId)
       .then(() => this.router.refresh());

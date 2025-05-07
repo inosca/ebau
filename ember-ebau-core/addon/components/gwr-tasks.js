@@ -46,9 +46,9 @@ export default class GrGisComponent extends Component {
   }
 
   @action
-  redirectToWorkItems(workitem) {
+  redirectToCaseWorkItems(workitem) {
     if (workitem.node.task.meta.redirectToWorkItemsAfterCompletion) {
-      this.ebauModules.redirectToWorkItems();
+      this.ebauModules.redirectToCaseWorkItems();
     }
   }
 }
