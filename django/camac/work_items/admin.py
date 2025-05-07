@@ -1,3 +1,4 @@
+from adminsortable2.admin import SortableAdminMixin
 from django.contrib.admin import ModelAdmin, display, register
 from django.utils.translation import gettext_lazy as _
 
@@ -6,7 +7,7 @@ from camac.work_items.models import WorkItemTemplate
 
 
 @register(WorkItemTemplate)
-class WorkItemTemplateAdmin(EbauAdminMixin, ModelAdmin):
+class WorkItemTemplateAdmin(EbauAdminMixin, SortableAdminMixin, ModelAdmin):
     list_display = [
         "name",
         "lead_time",

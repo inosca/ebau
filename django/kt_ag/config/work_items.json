@@ -3,6 +3,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de5-6c59-7b04-8000-481785d17480",
     "fields": {
+      "sort": 0,
       "name": "Besprechung / Augenschein organisieren",
       "description": "",
       "lead_time": null,
@@ -16,6 +17,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de5-b1bf-7d0a-8000-3d6a8526a89f",
     "fields": {
+      "sort": 1,
       "name": "Unterlagenergänzung schreiben",
       "description": "",
       "lead_time": null,
@@ -29,6 +31,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de5-f652-7df9-8000-ee8b9335fe49",
     "fields": {
+      "sort": 2,
       "name": "Stellungnahme / Entscheid schreiben",
       "description": "",
       "lead_time": null,
@@ -42,6 +45,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de6-5a1c-753f-8000-6d43f87ec4bf",
     "fields": {
+      "sort": 3,
       "name": "Überprüfung UVP-Pflicht",
       "description": "",
       "lead_time": null,
@@ -55,6 +59,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de6-a93f-7974-8000-d5c55b6f8e01",
     "fields": {
+      "sort": 4,
       "name": "Kontrolle",
       "description": "",
       "lead_time": null,
@@ -68,6 +73,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de6-f4f8-700e-8000-cd790d311ba6",
     "fields": {
+      "sort": 5,
       "name": "Stellungnahme / Entscheid überarbeiten",
       "description": "",
       "lead_time": null,
@@ -81,6 +87,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de7-3cdf-700c-8000-67839a3ad880",
     "fields": {
+      "sort": 6,
       "name": "Freigabe prüfen",
       "description": "",
       "lead_time": null,
@@ -94,6 +101,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de7-88bd-73a4-8000-6cdd42eb18fc",
     "fields": {
+      "sort": 7,
       "name": "Kontrolle nachträgliches Baugesuch",
       "description": "",
       "lead_time": null,
@@ -107,6 +115,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de7-eae8-7ef0-8000-775be4da3983",
     "fields": {
+      "sort": 8,
       "name": "Vollzugskontrolle",
       "description": "",
       "lead_time": null,
@@ -120,6 +129,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de8-3371-7580-8000-3b20b8c0abe0",
     "fields": {
+      "sort": 9,
       "name": "Dokumente versenden",
       "description": "",
       "lead_time": null,
@@ -133,6 +143,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de9-6966-7c43-8000-1512ffbf48f4",
     "fields": {
+      "sort": 11,
       "name": "Publikation veranlassen",
       "description": "",
       "lead_time": null,
@@ -146,6 +157,7 @@
     "model": "work_items.workitemtemplate",
     "pk": "06800de9-cb9c-7df0-8000-580aba0e04e1",
     "fields": {
+      "sort": 10,
       "name": "Grundbuchanmerkungen",
       "description": "",
       "lead_time": null,

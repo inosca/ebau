@@ -9,7 +9,6 @@ from camac.work_items.serializers import WorkItemTemplateSerializer
 class WorkItemTemplateViewset(ReadOnlyModelViewSet):
     serializer_class = WorkItemTemplateSerializer
     queryset = WorkItemTemplate.objects
-    ordering = ["name"]
 
     @permission_aware
     def get_queryset(self):
