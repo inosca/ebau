@@ -1,6 +1,21 @@
 corrections:
   not-available: "Questa funzione non è disponibile allo stato attuale."
 
+  archive:
+    title: ""
+    description: ""
+    button: ""
+    confirm: ""
+    error: ""
+
+  ebau-number:
+    title: ""
+    description: ""
+    form-label: ""
+    label: ""
+    confirm: ""
+    error: ""
+
   document:
     title: "Correggi dossier"
     description: "Questa funzione permette di apportare piccole correzioni al modulo di domanda (ad es. precisazione della descrizione dell'opera)."
@@ -13,6 +28,15 @@ corrections:
     confirm: "Si prega di notare che la correzione del dossier è prevista solo per modifiche minori (ad esempio: correzione delle informazioni di contatto, chiarimento della descrizione del progetto edilizio). Se necessario, i richiedenti devono essere informati delle modifiche.<br><br>Se sono necessarie modifiche sostanziali, si prega di verificare se sia opportuno un rinvio ai richiedenti."
     confirm-finish: "In caso di modifiche rilevanti, si prega di verificare se sia opportuno emettere una nuova ricevuta."
     error: "Errore nel tentativo di correggere il dossier"
+    invalid: ""
+
+  modification-to-new-dossier:
+    title: ""
+    description: ""
+    convert: ""
+    input-label: ""
+    info-text: ""
+    conversion-error: ""
 
   withdraw:
     title: "Ritira dossier"
@@ -22,12 +46,12 @@ corrections:
     error: "Errore nel tentativo di ritirare il dossier"
 
   change-form:
-    title:
-    description:
-    not-possible:
-    form-label:
-    label:
-    confirm:
-    error:
-    success:
-    invalid-form-hint:
+    title: ""
+    description: ""
+    not-possible: ""
+    form-label: ""
+    label: ""
+    confirm: ""
+    error: ""
+    success: ""
+    invalid-form-hint: ""

@@ -1,9 +1,7 @@
 import itertools
 import json
 import re
-from collections import namedtuple
 from functools import singledispatchmethod
-from io import StringIO
 from logging import getLogger
 
 from alexandria.core import models as alexandria_models
@@ -14,7 +12,6 @@ from caluma.caluma_workflow import api as workflow_api, models as workflow_model
 from dateutil.parser import ParserError, parse
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.core.management import call_command
 from django.db import transaction
 from django.db.models import Q
 from django.utils import timezone
@@ -2225,31 +2222,6 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
 
     class Meta:
         resource_name = "instance-change-responsible-services"
-
-
-class CalumaInstanceFixWorkItemsSerializer(serializers.Serializer):
-    dry = serializers.BooleanField(default=True)
-    output = serializers.CharField()
-
-    def update(self, instance, validated_data):
-        output = StringIO()
-
-        call_command(
-            "fix_work_items",
-            instance=instance.pk,
-            no_color=True,
-            stdout=output,
-            **validated_data,
-        )
-
-        Response = namedtuple("Response", ("dry", "output", "pk"))
-
-        return Response(**validated_data, output=output.getvalue(), pk=None)
-
-    class Meta:
-        resource_name = "instance-fix-work-items"
-        fields = ("dry", "output")
-        read_only_fields = ("output",)
 
 
 class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):

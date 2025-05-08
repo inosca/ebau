@@ -44,4 +44,12 @@ export default {
     requiredPermissions: ["instance-submit"],
     buttonHintEnabled: (session) => session.isSupport,
   },
+  corrections: {
+    archiveInstance: true,
+    changeDossierNumber: true,
+    changeForm: true,
+    convertModification: true,
+    correctForm: true,
+    withdrawInstance: false,
+  },
 };

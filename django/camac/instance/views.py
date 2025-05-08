@@ -193,7 +193,6 @@ class InstanceView(
                 "set_ebau_number": serializers.CalumaInstanceSetEbauNumberSerializer,
                 "archive": serializers.CalumaInstanceArchiveSerializer,
                 "change_form": serializers.CalumaInstanceChangeFormSerializer,
-                "fix_work_items": serializers.CalumaInstanceFixWorkItemsSerializer,
                 "convert_modification": serializers.CalumaInstanceConvertModificationSerializer,
                 "dms_placeholders": {
                     "kt_ag": AgDMSPlaceholdersSerializer,
@@ -368,13 +367,6 @@ class InstanceView(
         return is_responsible_service
 
     def _has_object_change_form_permission_for_support(self, instance):
-        return True
-
-    @permission_aware
-    def has_object_fix_work_items_permission(self, instance):
-        return False
-
-    def has_object_fix_work_items_permission_for_support(self, instance):
         return True
 
     @permission_aware
@@ -923,11 +915,6 @@ class InstanceView(
             ],
             status=status.HTTP_200_OK,
         )
-
-    @swagger_auto_schema(auto_schema=None)
-    @action(methods=["post"], detail=True, url_path="fix-work-items")
-    def fix_work_items(self, request, pk=None):
-        return self._custom_serializer_action(request, pk)
 
     @swagger_auto_schema(auto_schema=None)
     @action(

@@ -6,6 +6,7 @@ import registerBillingGlobal from "ember-ebau-core/modules/billing-global";
 import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerConstructionMonitoring from "ember-ebau-core/modules/construction-monitoring";
+import registerCorrections from "ember-ebau-core/modules/corrections";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerDossierImport from "ember-ebau-core/modules/dossier-import";
 import registerGwrTasks from "ember-ebau-core/modules/gwr-tasks";
@@ -78,7 +79,6 @@ Router.map(function () {
   this.route("assign-ebau-number", {
     path: "instances/:instance_id/assign-ebau-number",
   });
-  this.route("support", { path: "instances/:instance_id/support" });
 
   this.mount("@projectcaluma/ember-distribution", {
     as: "distribution",
@@ -108,4 +108,5 @@ Router.map(function () {
   registerSanctions(this);
   registerSanctionTemplates(this);
   registerStaticContent(this);
+  registerCorrections(this);
 });

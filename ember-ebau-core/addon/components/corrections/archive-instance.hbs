@@ -1,0 +1,8 @@
+<p class="uk-text-large">{{t "corrections.archive.title"}}</p>
+<p>{{t "corrections.archive.description" htmlSafe=true}}</p>
+<UkButton
+  @color="primary"
+  @label={{t "corrections.archive.button"}}
+  @onClick={{this.archive.perform}}
+  @disabled={{or this.archive.isRunning (cannot "archive instance" @instance)}}
+/>

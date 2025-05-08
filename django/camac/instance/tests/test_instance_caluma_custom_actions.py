@@ -555,67 +555,6 @@ def test_change_responsible_service_audit_validation(
     assert "Ungültige Prüfung" == result["errors"][0]["detail"]
 
 
-@pytest.mark.xfail
-@pytest.mark.parametrize(
-    "instance__user,service_group__name", [(lf("admin_user"), "municipality")]
-)
-@pytest.mark.parametrize("dry", [True, False])
-@pytest.mark.parametrize(
-    "role__name,instance_state__name,expected_status,expected_work_items",
-    [
-        ("Support", "subm", status.HTTP_200_OK, ["ebau-number"]),
-        (
-            "Support",
-            "circulation_init",
-            status.HTTP_200_OK,
-            ["skip-circulation", "init-circulation"],
-        ),
-        ("Support", "sb1", status.HTTP_200_OK, ["sb1"]),
-        ("Municipality", "subm", status.HTTP_403_FORBIDDEN, None),
-    ],
-)
-def test_fix_work_items(
-    db,
-    admin_client,
-    be_instance,
-    instance_state,
-    service_group,
-    snapshot,
-    role,
-    dry,
-    expected_status,
-    expected_work_items,
-):
-    # simulate broken state
-    be_instance.case.work_items.all().delete()
-
-    response = admin_client.post(
-        reverse("instance-fix-work-items", args=[be_instance.pk]),
-        {
-            "data": {
-                "type": "instance-fix-work-items",
-                "attributes": {"dry": dry},
-            }
-        },
-    )
-
-    assert response.status_code == expected_status
-
-    if response.status_code == status.HTTP_200_OK:
-        raw_output = response.json()["data"]["attributes"]["output"]
-
-        snapshot.assert_match(raw_output.replace(str(be_instance.pk), "INSTANCE_ID"))
-
-        be_instance.case.refresh_from_db()
-
-        if dry:
-            assert be_instance.case.work_items.count() == 0
-        else:
-            assert sorted(
-                be_instance.case.work_items.values_list("task_id", flat=True)
-            ) == sorted(expected_work_items)
-
-
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
     "role__name,expected_status",
