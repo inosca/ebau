@@ -4,6 +4,7 @@ import pathlib
 import pyexcel
 import pytest
 from caluma.caluma_form import api as form_api, models as caluma_form_models
+from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from django.utils.timezone import make_aware
 from rest_framework import status
@@ -311,3 +312,78 @@ def test_caluma_export_bad_request(admin_client, query):
     resp = admin_client.get(url, query)
 
     assert resp.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.parametrize("role__name", [("Municipality")])
+def test_caluma_export_ag(
+    db,
+    admin_client,
+    ag_distribution_settings,
+    ag_master_data_case,
+    caluma_document_factory,
+    caluma_work_item_factory,
+    django_assert_num_queries,
+    instance_state_t_factory,
+    multilang,
+    responsible_service_factory,
+    service,
+    settings,
+    snapshot,
+    utils,
+    active_inquiry_factory,
+):
+    settings.APPLICATION_NAME = "kt_ag"
+
+    # Instance state
+    instance = ag_master_data_case.instance
+    instance.instance_state = instance_state_t_factory(
+        name="In Zirkulation"
+    ).instance_state
+    instance.save()
+
+    # Responsible user
+    responsible_service_factory(
+        responsible_user__name="John",
+        responsible_user__surname="Doe",
+        service=service,
+        instance=instance,
+    )
+
+    # Decision date
+    decision_work_item = caluma_work_item_factory(
+        case=instance.case,
+        task_id="decision",
+        status=WorkItem.STATUS_COMPLETED,
+        document=caluma_document_factory(form_id="entscheid"),
+    )
+    utils.add_answer(
+        decision_work_item.document,
+        "entscheid-datum",
+        datetime.date(2025, 5, 8),
+    )
+
+    # Inquiry
+    active_inquiry_factory(
+        for_instance=instance,
+        addressed_service=service,
+        status=WorkItem.STATUS_COMPLETED,
+        created_at=make_aware(datetime.datetime(2025, 1, 1)),
+        closed_at=make_aware(datetime.datetime(2025, 1, 30)),
+    )
+
+    with django_assert_num_queries(4):
+        response = admin_client.get(
+            reverse("instance-export"), {"instance_id": instance.pk}
+        )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
+    sheet = book.get_dict()["pyexcel sheet"]
+    row = sheet[1]
+
+    assert len(sheet) == 2  # one instance plus header row
+    assert len(row) == 14  # number of expected columns
+
+    assert ag_master_data_case.meta["dossier-number"] in row
+    assert row == snapshot

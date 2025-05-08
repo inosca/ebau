@@ -73,13 +73,12 @@ class InstanceExportSerializer(serializers.Serializer):
         list_serializer_class = InstanceExportListSerializer
 
 
-class InstanceExportSerializerBE(InstanceExportSerializer):
-    ebau_number = serializers.CharField(
-        source="case.meta.ebau-number",
+class CalumaInstanceExportSerializer(InstanceExportSerializer):
+    dossier_number = serializers.CharField(
+        source="case.meta.dossier-number",
         default=None,
-        label=_("eBau number"),
+        label=_("Instance number"),
     )
-    dossier_number = serializers.IntegerField(source="pk", label=_("Instance number"))
     form_name = serializers.CharField(
         source="case.document.form.name",
         label=_("Application Type"),
@@ -93,18 +92,28 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
         label=_("Submission Date"),
     )
     instance_state_name = serializers.CharField(label=_("Status"))
+    municipality = serializers.CharField(label=_("Municipality"))
     applicants = serializers.CharField(label=_("Applicant"))
     applicants_emails = serializers.CharField(label=_("Applicants emails"))
-    municipality = serializers.CharField(label=_("Municipality"))
+    decision_date = serializers.DateField(
+        format=settings.SHORT_DATE_FORMAT,
+        label=_("Decision"),
+    )
+    building_project = serializers.CharField(label=_("Building project"))
+
+
+class InstanceExportSerializerBE(CalumaInstanceExportSerializer):
+    ebau_number = serializers.CharField(
+        source="case.meta.ebau-number",
+        default=None,
+        label=_("eBau number"),
+    )
+    dossier_number = serializers.IntegerField(source="pk", label=_("Instance number"))
     district = serializers.SerializerMethodField(label=_("Administrative District"))
     region = serializers.SerializerMethodField(label=_("Administrative Region"))
     in_rsta_date = serializers.DateField(
         format=settings.SHORT_DATE_FORMAT,
         label=_("Arrival RSTA"),
-    )
-    decision_date = serializers.DateField(
-        format=settings.SHORT_DATE_FORMAT,
-        label=_("Decision"),
     )
     sb1_date = serializers.DateField(
         format=settings.SHORT_DATE_FORMAT,
@@ -115,7 +124,6 @@ class InstanceExportSerializerBE(InstanceExportSerializer):
         label=_("SB2 submission date"),
     )
     tags = serializers.CharField(source="tag_names", label=_("Tags"))
-    building_project = serializers.CharField(label=_("Building project"))
 
     def load_municipality_sheet(self):
         reader = csv.DictReader(
@@ -245,4 +253,25 @@ class InstanceExportSerializerSZ(InstanceExportSerializer):
             # "involved_services",
             "decision_date_communal",
             "decision_date_cantonal",
+        )
+
+
+class InstanceExportSerializerAG(CalumaInstanceExportSerializer):
+    class Meta(InstanceExportSerializer.Meta):
+        # Define order of the fields
+        fields = (
+            "dossier_number",
+            "form_name",
+            "address",
+            "parcels",
+            "building_project",
+            "submit_date",
+            "instance_state_name",
+            "responsible_user",
+            "applicants",
+            "applicants_emails",
+            "municipality",
+            "inquiry_in_date",
+            "inquiry_out_date",
+            "decision_date",
         )
