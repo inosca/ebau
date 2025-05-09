@@ -307,12 +307,11 @@ def test_decision_work_item_closed_at(
 
 @pytest.mark.freeze_time("2024-08-29")
 def test_get_publication_date(
-    db, publication_entry_factory, instance_factory, caluma_case_factory
+    db, set_application_ur, publication_entry_factory, ur_instance
 ):
-    instance = instance_factory(case=caluma_case_factory())
     publication_entry_factory(
         publication_date=timezone.now(),
-        instance=instance,
+        instance=ur_instance,
     )
-    serializer = UrMilestonesSerializer(instance)
-    assert serializer.get_publication_date(instance) == timezone.now()
+    serializer = UrMilestonesSerializer(ur_instance)
+    assert serializer.get_publication_date(ur_instance) == timezone.now()

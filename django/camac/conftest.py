@@ -2181,7 +2181,7 @@ def ur_master_data_case(
     # Simple data
     utils.add_answer(document, "proposal-description", "Grosses Haus")
     utils.add_answer(document, "parcel-street", "Musterstrasse")
-    utils.add_answer(document, "parcel-street-number", 4)
+    utils.add_answer(document, "street-number", 4)
     utils.add_answer(document, "construction-cost", 129000)
     utils.add_answer(document, "parcel-city", "Musterdorf")
     utils.add_answer(

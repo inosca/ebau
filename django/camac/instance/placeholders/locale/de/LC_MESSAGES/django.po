@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-14 18:45+0200\n"
-"PO-Revision-Date: 2024-10-09 13:46+0200\n"
+"PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -866,6 +866,26 @@ msgid "PUBLICATION_LINK"
 msgstr "PUBLIKATION_LINK"
 
 #: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_DATE"
+msgstr "PUBLIKATIONSDATUM"
+
+#: camac/instance/placeholders/serializers.py
+msgid "DOSSIER_COMPLETED_DATE"
+msgstr "DATUM_DOSSIER_VOLLSTAENDIG"
+
+#: camac/instance/placeholders/serializers.py
+msgid "REVIEW_BUILDING_COMMISSION"
+msgstr "DATUM_PRUEFUNG_DURCH_GEMEINDE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Review building commission"
+msgstr "Datum der Prüfung durch die Gemeinde"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Dossier completed date"
+msgstr "Datum Dossier vollständig"
+
+#: camac/instance/placeholders/serializers.py
 msgid "Link to publication"
 msgstr "Link zur öffentlichen Auflage"
 
@@ -900,6 +920,10 @@ msgstr "Eigene Stellungnahmen"
 #: camac/instance/placeholders/serializers.py
 msgid "The street of the building site"
 msgstr "Die Strasse des Bauvorhabens"
+
+#: camac/instance/placeholders/serializers.py
+msgid "The street number of the building site"
+msgstr "Die Hausnummer des Bauvorhabens"
 
 #: camac/instance/placeholders/serializers.py
 msgid "TODAY"

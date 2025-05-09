@@ -1292,7 +1292,7 @@ MASTER_DATA = {
             ),
             "joined_street_and_number": ("static", False),
             "street": ("answer", "parcel-street"),
-            "street_number": ("answer", "parcel-street-number"),
+            "street_number": ("answer", "street-number"),
             "city": ("answer", "parcel-city"),
             "dossier_number": ("case_meta", "dossier-number"),
             "municipality_name": (

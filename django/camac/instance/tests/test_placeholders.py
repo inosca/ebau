@@ -1,5 +1,5 @@
 import pathlib
-from datetime import date
+from datetime import date, datetime
 
 import faker
 import pytest
@@ -16,6 +16,7 @@ from caluma.caluma_form.models import Option, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.timezone import make_aware
 from django.utils.translation import override
 from pytest_lazy_fixtures import lf
@@ -977,6 +978,10 @@ def test_dms_placeholders_ur(
     location_factory,
     ur_master_data_case,
     caluma_question_factory,
+    caluma_answer_factory,
+    caluma_document_factory,
+    publication_entry_factory,
+    caluma_work_item_factory,
 ):
     # Municipality
     municipality = service_factory(
@@ -993,6 +998,34 @@ def test_dms_placeholders_ur(
         ur_master_data_case.document,
         value="1",
     )
+    complete_check_work_item = WorkItemFactory(
+        task_id="complete-check",
+        case=ur_instance.case,
+        closed_at=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
+        status=WorkItem.STATUS_COMPLETED,
+        document=caluma_document_factory(form_id="complete-check"),
+    )
+    caluma_answer_factory(
+        document=complete_check_work_item.document,
+        question__slug="complete-check-vollstaendigkeitspruefung",
+        value="complete-check-vollstaendigkeitspruefung-complete",
+    )
+    publication_entry_factory(
+        instance=ur_instance,
+        publication_date=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
+        publication_end_date=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
+        is_published=True,
+    )
+    work_item = WorkItemFactory(
+        task_id="instance-management",
+        case=ur_instance.case,
+        document=caluma_document_factory(),
+    )
+    caluma_answer_factory(
+        document=work_item.document,
+        question__slug="pruefung-durch-gemeinde",
+        date=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
+    )
 
     url = reverse("instance-dms-placeholders", args=[ur_instance.pk])
 
@@ -1000,7 +1033,14 @@ def test_dms_placeholders_ur(
 
     assert response.status_code == status.HTTP_200_OK
 
-    checked_keys = ["GEMEINDE", "ZONE"]
+    checked_keys = [
+        "GEMEINDE",
+        "ZONE",
+        "HAUSNUMMER",
+        "PUBLIKATIONSDATUM",
+        "DATUM_PRUEFUNG_DURCH_GEMEINDE",
+        "DATUM_DOSSIER_VOLLSTAENDIG",
+    ]
 
     assert {
         key: value for key, value in response.json().items() if key in checked_keys

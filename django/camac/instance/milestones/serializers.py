@@ -5,7 +5,6 @@ from django.utils.translation import gettext_noop as _
 from rest_framework import serializers
 
 from camac.caluma.api import CalumaApi
-from camac.core.models import PublicationEntry
 from camac.document.models import Attachment, AttachmentDownloadHistory
 
 from ..master_data import MasterData
@@ -223,7 +222,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
                     ),
                     fields.WorkItemsField(
                         slug="review-building-commission",
-                        label=_("Review building commission"),
+                        label=_("Review building commission (migrated)"),
                         task="review-building-commission",
                         status=WorkItem.STATUS_COMPLETED,
                         field="closed_at",
@@ -373,72 +372,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
     )
 
     def get_instance_complete(self, instance):
-        # In Uri "Dossier vollständig" means that all required information is available
-        # to continue with the instance.
-
-        complete_check_work_item = next(
-            (
-                wi
-                for wi in instance._all_work_items
-                if wi.task_id == "complete-check"
-                and wi.status == WorkItem.STATUS_COMPLETED
-            ),
-            None,
-        )
-
-        if complete_check_work_item:
-            if not complete_check_work_item.document.answers.exists():
-                # for migrated dossiers in Uri there is no "complete-check"
-                return None  # pragma: no cover
-
-            complete_check_answer = complete_check_work_item.document.answers.get(
-                question_id="complete-check-vollstaendigkeitspruefung"
-            ).value
-
-            if (
-                complete_check_answer
-                == "complete-check-vollstaendigkeitspruefung-complete"
-            ):
-                # Dossier is "vollständig"
-                return complete_check_work_item.closed_at
-
-            if complete_check_answer in [
-                "complete-check-vollstaendigkeitspruefung-incomplete",
-                "complete-check-vollstaendigkeitspruefung-incomplete-wait",
-            ]:
-                # Dossier was incomplete during the check and additional-demands were required
-                open_additional_demand_work_items = [
-                    wi
-                    for wi in instance._all_work_items
-                    if (
-                        wi.task_id
-                        in [
-                            "send-additional-demand",
-                            "fill-additional-demand",
-                            "check-additional-demand",
-                        ]
-                        and wi.status == WorkItem.STATUS_READY
-                    )
-                ]
-
-                if len(open_additional_demand_work_items):
-                    # There are open additional-demands
-                    return None
-                else:
-                    completed_check_additional_demand_work_items_closed_at = [
-                        wi.closed_at
-                        for wi in instance._all_work_items
-                        if (
-                            wi.task_id == "check-additional-demand"
-                            and wi.status == WorkItem.STATUS_COMPLETED
-                        )
-                    ]
-                    if completed_check_additional_demand_work_items_closed_at:
-                        return max(
-                            completed_check_additional_demand_work_items_closed_at
-                        )
-
-        return None  # pragma: no cover
+        return instance.completed_date()
 
     def get_receipt_confirmation_of_decision_documents(self, instance):
         if _check_decision_answer(
@@ -457,11 +391,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
             return _get_date_of_downloaded_decision_document(instance)
 
     def get_publication_date(self, instance):
-        # There is only one publication possible in Kt. Uri so we can safely use first
-        if publication := PublicationEntry.objects.filter(
-            instance_id=instance.pk
-        ).first():
-            return publication.publication_date
+        return instance.publication_date()
 
     def get_statement_preliminary_decision(self, instance):
         if _check_decision_answer(
