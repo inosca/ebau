@@ -583,6 +583,9 @@ class InstanceEditableMixin(AttributeMixin):
             ),
         )
 
+    def validate_instance_for_trusted_service(self, instance):
+        return self._validate_instance_editablity(instance)
+
     def validate_instance_for_canton(self, instance):
         return self._validate_instance_editablity(instance)
 

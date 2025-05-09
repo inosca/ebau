@@ -11,4 +11,6 @@ export default {
     "construction-step-schlussabnahme-gebaeude",
     "construction-step-schlussabnahme-projekt",
   ],
+  buckets: ["dokument-weitere-gesuchsunterlagen"],
+  section: "12000002",
 };

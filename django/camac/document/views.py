@@ -415,8 +415,8 @@ class AttachmentDownloadView(
         if side_effect:
             import_string(side_effect)(attachment, request)
         mime_type = self._get_mime_type(attachment)
-        as_attachment = (
-            mime_type not in settings.COMMUNICATIONS["SAFE_FOR_INLINE_DISPOSITION"]
+        as_attachment = mime_type not in settings.COMMUNICATIONS.get(
+            "SAFE_FOR_INLINE_DISPOSITION", []
         )
         return FileResponse(
             attachment.path,

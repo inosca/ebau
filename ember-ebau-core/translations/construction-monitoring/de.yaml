@@ -5,6 +5,7 @@ construction-monitoring:
   not-performed-info: "Es wurde kein Baubegleitungsprozess für dieses Gesuch durchgeführt."
   not-available-info: "Es wird kein Baubegleitungsprozess für dieses Gesuch benötigt."
   index-info: "Wählen Sie eine Bauetappe um weitere Informationen zu erhalten."
+  documents: "Dokumente"
 
   status:
     in-progress: "In Bearbeitung"

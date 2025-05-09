@@ -29,6 +29,7 @@ from camac.constants import (
     kt_uri as uri_constants,
 )
 from camac.core.models import Chapter, Question, QuestionType
+from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
@@ -3477,3 +3478,13 @@ def test_instance_submit_ag_pgv(
     cantonal_exam = ag_instance.case.work_items.get(task_id="cantonal-exam")
     assert cantonal_exam.status == caluma_workflow_models.WorkItem.STATUS_READY
     assert cantonal_exam.addressed_groups == [str(afb_service.pk)]
+
+
+def test_validate_instance_for_trusted_service(db, instance, mocker):
+    mocker.patch(
+        "camac.instance.mixins.InstanceEditableMixin._validate_instance_editablity"
+    )
+    InstanceEditableMixin().validate_instance_for_trusted_service(instance)
+    InstanceEditableMixin()._validate_instance_editablity.assert_called_once_with(
+        instance
+    )

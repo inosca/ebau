@@ -6,6 +6,7 @@ import AGInquiryServiceGroupWarningComponent from "ember-ebau-core/components/ag
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import CamacAdditionalDemandFilesComponent from "ember-ebau-core/components/camac-additional-demand-files";
+import CamacSchnurgeruestabnahmeFilesComponent from "ember-ebau-core/components/camac-schnurgeruestabnahme-files";
 import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordinates-placeholder";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
@@ -291,6 +292,11 @@ export default class ApplicationRoute extends Route {
       component: "qr-code",
       componentClass: QrCodeComponent,
       type: "StaticQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Dateien für Schnurgerüstabnahme Camac (Kt. UR)",
+      component: "camac-schnurgeruestabnahme-files",
+      componentClass: CamacSchnurgeruestabnahmeFilesComponent,
     });
   }
 }
