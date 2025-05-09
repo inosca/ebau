@@ -66,6 +66,7 @@ export default class InquiryAnswerStatusComponent extends Component {
           "inquiry-answer-status-rejected",
           "inquiry-answer-status-written-off",
           "inquiry-answer-status-negative",
+          "inquiry-answer-status-positive",
           "inquiry-answer-status-not-involved",
         ],
         uso: [
