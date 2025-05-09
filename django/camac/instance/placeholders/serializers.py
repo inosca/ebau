@@ -2048,6 +2048,32 @@ class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("MUNICIPALITY")],
         description=_("Name of the municipality selected by the applicant"),
     )
+    strasse_nummer = fields.MasterDataField(
+        source="street_number",
+        aliases=[_("STREET_NUMBER")],
+        description=_("The street number of the building site"),
+    )
+    dossier_completed_date = fields.AliasedMethodField(
+        aliases=[_("DOSSIER_COMPLETED_DATE")],
+        description=_("Dossier completed date"),
+    )
+    publication_date = fields.AliasedMethodField(
+        aliases=[_("PUBLICATION_DATE")],
+        description=_("Publication date"),
+    )
+    review_building_commission_date = fields.AliasedMethodField(
+        aliases=[_("REVIEW_BUILDING_COMMISSION")],
+        description=_("Review building commission"),
+    )
+
+    def get_publication_date(self, instance):
+        return human_readable_date(instance.publication_date())
+
+    def get_dossier_completed_date(self, instance):
+        return human_readable_date(instance.completed_date())
+
+    def get_review_building_commission_date(self, instance):
+        return human_readable_date(instance.review_building_commission_date())
 
     def get_land_use(self, instance):
         return clean_join(

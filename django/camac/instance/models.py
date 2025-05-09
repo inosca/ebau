@@ -2,6 +2,7 @@ import logging
 from functools import cached_property
 
 import reversion
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import models
 from django.db.models import Q
@@ -351,6 +352,105 @@ class Instance(models.Model):
             service_group__name="Mitglieder Baukommissionen",
             groups__locations__in=self.municipality.groups.first().locations.all(),
         ).first()
+
+    @canton_aware
+    def publication_date(self):
+        raise NotImplementedError("Not implemented in this canton")  # pragma: no cover
+
+    def publication_date_ur(self):
+        return self.publication_entries.values_list(
+            "publication_date", flat=True
+        ).first()
+
+    @canton_aware
+    def completed_date(self):
+        raise NotImplementedError("Not implemented in this canton")  # pragma: no cover
+
+    def completed_date_ur(self):
+        # In Uri "Dossier vollständig" means that all required information is available
+        # to continue with the instance.
+        complete_check_work_item = next(
+            (
+                wi
+                for wi in self.case.work_items.all()
+                if wi.task_id == "complete-check"
+                and wi.status == WorkItem.STATUS_COMPLETED
+            ),
+            None,
+        )
+
+        if complete_check_work_item:
+            if not complete_check_work_item.document.answers.exists():
+                # for migrated dossiers in Uri there is no "complete-check"
+                return None  # pragma: no cover
+
+            complete_check_answer = complete_check_work_item.document.answers.get(
+                question_id="complete-check-vollstaendigkeitspruefung"
+            ).value
+
+            if (
+                complete_check_answer
+                == "complete-check-vollstaendigkeitspruefung-complete"
+            ):
+                # Dossier is "vollständig"
+                return complete_check_work_item.closed_at
+
+            if complete_check_answer in [
+                "complete-check-vollstaendigkeitspruefung-incomplete",
+                "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+            ]:
+                # Dossier was incomplete during the check and additional-demands were required
+                open_additional_demand_work_items = [
+                    wi
+                    for wi in self.case.work_items.all()
+                    if (
+                        wi.task_id
+                        in [
+                            "send-additional-demand",
+                            "fill-additional-demand",
+                            "check-additional-demand",
+                        ]
+                        and wi.status == WorkItem.STATUS_READY
+                    )
+                ]
+
+                if len(open_additional_demand_work_items):
+                    # There are open additional-demands
+                    return None
+                else:
+                    completed_check_additional_demand_work_items_closed_at = [
+                        wi.closed_at
+                        for wi in self._all_work_items
+                        if (
+                            wi.task_id == "check-additional-demand"
+                            and wi.status == WorkItem.STATUS_COMPLETED
+                        )
+                    ]
+                    if completed_check_additional_demand_work_items_closed_at:
+                        return max(
+                            completed_check_additional_demand_work_items_closed_at
+                        )
+
+        return None  # pragma: no cover
+
+    @canton_aware
+    def review_building_commission_date(self):
+        raise NotImplementedError("Not implemented in this canton")  # pragma: no cover
+
+    def review_building_commission_date_ur(self):
+        work_item = self.case.work_items.filter(task_id="instance-management").first()
+
+        if not work_item:  # pragma: no cover
+            return
+
+        answer = work_item.document.answers.filter(
+            question_id="pruefung-durch-gemeinde"
+        ).first()
+
+        if not answer:  # pragma: no cover
+            return
+
+        return answer.date
 
     class Meta:
         managed = True

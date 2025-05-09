@@ -11956,7 +11956,11 @@
 # ---
 # name: test_dms_placeholders_ur[Municipality]
   dict({
+    'DATUM_DOSSIER_VOLLSTAENDIG': '1. Januar 2023',
+    'DATUM_PRUEFUNG_DURCH_GEMEINDE': '1. Januar 2023',
     'GEMEINDE': 'Altdorf',
+    'HAUSNUMMER': 4,
+    'PUBLIKATIONSDATUM': '1. Januar 2023',
     'ZONE': 'Zone 123, Wasserzone, Altes Haus',
   })
 # ---

@@ -79,7 +79,7 @@ msgid "Building permit valid until"
 msgstr "Baubewilligung gültig bis"
 
 #: camac/instance/milestones/serializers.py
-msgid "Review building commission"
+msgid "Review building commission (migrated)"
 msgstr "Prüfung durch Gemeinde (migriert)"
 
 #: camac/instance/milestones/serializers.py
