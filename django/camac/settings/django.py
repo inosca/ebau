@@ -134,6 +134,7 @@ INSTALLED_APPS = [
     "camac.fixtures.apps.FixturesConfig",
     "camac.sanctions.apps.SanctionsConfig",
     "camac.work_items.apps.WorkItemsConfig",
+    "camac.rulesets.apps.RulesetsConfig",
 ]
 
 if DEBUG:  # pragma: no cover
@@ -3434,6 +3435,7 @@ USER = load_module_settings("user")
 SERVICE = load_module_settings("service")
 CHANGE_FORM = load_module_settings("change_form")
 GEVER = load_module_settings("gever")
+RULESETS = load_module_settings("rulesets")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

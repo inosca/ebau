@@ -28,6 +28,8 @@ export default function makeServer(config) {
       this.resource("public-services");
       this.resource("public-groups");
       this.resource("notification-templates");
+      this.resource("responsible-user-rule");
+      this.resource("application-type", { only: ["index", "show"] });
       this.delete(
         "notification-templates/delete_by_purpose",
         function ({ notificationTemplates }, { queryParams: { purpose } }) {

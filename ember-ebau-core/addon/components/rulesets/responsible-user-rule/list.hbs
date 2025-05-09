@@ -1,0 +1,23 @@
+{{#if this.rules.isLoading}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio="2" />
+  </div>
+{{else if this.rules.records.length}}
+  <ul
+    class="uk-list uk-list-striped"
+    uk-sortable
+    handle=".uk-sortable-handle"
+    {{register-uikit-events stop=this.reorder.perform}}
+  >
+    {{#each this.rules.records as |rule|}}
+      <Rulesets::ResponsibleUserRule::List::Item
+        @rule={{rule}}
+        data-rule-id={{rule.id}}
+      />
+    {{/each}}
+  </ul>
+{{else}}
+  <div class="uk-text-center uk-text-meta uk-margin" data-test-empty>
+    {{t "rulesets.responsible-user.empty"}}
+  </div>
+{{/if}}

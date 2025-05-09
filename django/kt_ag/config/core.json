@@ -912,6 +912,30 @@
   },
   {
     "model": "core.rroleacl",
+    "pk": 15000027,
+    "fields": {
+      "resource": 15000005,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000028,
+    "fields": {
+      "resource": 15000005,
+      "role": 6
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15000029,
+    "fields": {
+      "resource": 15000005,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
     "pk": 22000000,
     "fields": {
       "resource": 22000000,
@@ -1123,6 +1147,19 @@
   },
   {
     "model": "core.resource",
+    "pk": 15000005,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/rulesets.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 13
+    }
+  },
+  {
+    "model": "core.resource",
     "pk": 22000000,
     "fields": {
       "available_resource": "page",
@@ -1253,6 +1290,16 @@
       "resource": 15000004,
       "language": "de",
       "name": "Textbausteine",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000005,
+    "fields": {
+      "resource": 15000005,
+      "language": "de",
+      "name": "Regelwerke",
       "description": null
     }
   },

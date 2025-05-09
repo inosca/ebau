@@ -1,0 +1,37 @@
+<li ...attributes>
+  <div class="uk-flex-middle uk-grid-small" uk-grid>
+    <UkIcon @icon="menu" class="uk-sortable-handle" />
+    <div class="uk-width-2-3">
+      {{#if (eq @rule.type "application-types")}}
+        {{join ", " (map-by "name" @rule.applicationTypes)}}
+      {{else if (eq @rule.type "municipalities")}}
+        {{join ", " (map-by "name" @rule.municipalities)}}
+      {{/if}}
+    </div>
+    <div>
+      <UkIcon @icon="arrow-right" />
+    </div>
+    <div class="uk-width-expand">
+      {{@rule.responsibleUser.fullName}}
+    </div>
+    <div>
+      <LinkTo
+        @route={{module-route "rulesets" "responsible-user.edit"}}
+        @model={{@rule}}
+        title={{t "rulesets.responsible-user.edit"}}
+        class="uk-button uk-button-link"
+        data-test-edit-rule
+      >
+        <UkIcon @icon="pencil" />
+      </LinkTo>
+      <UkButton
+        @color="link"
+        @onClick={{this.delete.perform}}
+        title={{t "rulesets.responsible-user.delete.title"}}
+        data-test-delete-rule
+      >
+        <UkIcon @icon="trash" />
+      </UkButton>
+    </div>
+  </div>
+</li>
