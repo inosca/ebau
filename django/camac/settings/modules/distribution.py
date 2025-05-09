@@ -378,6 +378,7 @@ DISTRIBUTION = {
     },
     "kt_ag": {
         "ENABLED": True,
+        "DEFAULT_DEADLINE_LEAD_TIME": 14,
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
         "NOTIFY_ON_CANCELLATION": True,
         "QUESTIONS": {

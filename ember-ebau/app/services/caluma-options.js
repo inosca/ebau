@@ -238,6 +238,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     },
   };
 
+  @cantonAware
+  static distributionDefaultLeadTime = 30;
+  static distributionDefaultLeadTimeAG = 14;
+
   @cached
   get distribution() {
     return {
@@ -257,6 +261,8 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       new: {
         types: this.distributionServiceGroups,
         defaultTypes: this.distributionDefaultServiceGroups,
+        defaultDeadlineLeadTime:
+          CustomCalumaOptionsService.distributionDefaultLeadTime,
       },
       permissions: {
         completeDistribution: () => this.session.isLeadRole,
