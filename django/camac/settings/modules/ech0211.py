@@ -547,6 +547,10 @@ ECH0211 = {
                 ECH_CLAIM: {
                     "desc": "Nachforderungen durch Fachstelle (⏳ noch in Entwicklung)"
                 },
+                ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
+            },
+            "POST_TABLE_DATA": {
+                "5100011": {"disabled": True},  # Change responsibility
             },
         },
         "GEOFENCE": {"ENABLE": True, "REGIONS": ["CH"]},
