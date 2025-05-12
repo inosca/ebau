@@ -1,6 +1,7 @@
 import datetime
 from datetime import timedelta
 
+from caluma.caluma_form.models import Document
 from caluma.caluma_user.models import AnonymousUser
 from caluma.caluma_workflow.models import Task, WorkItem
 from django.core.management.base import BaseCommand
@@ -71,7 +72,9 @@ class Command(BaseCommand):
                     previous_work_item=instance.case.work_items.filter(
                         task_id="complete-check"
                     ).first(),
-                    document=instance.case.document,
+                    document=Document.objects.create_document_for_task(
+                        check_gwr_relevancy_task, user
+                    ),
                     deadline=timezone.now() + timedelta(days=28),
                 )
                 self.stdout.write(
