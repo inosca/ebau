@@ -6,6 +6,7 @@ export default {
   showInstanceIdAfterSubmission: true,
   documentBackend: "camac",
   showIdInInternalArea: false,
+  showAllOptionInReciepentList: true,
   gwr: {
     cantonAbbreviation: "BE",
     importModels: ["project"],

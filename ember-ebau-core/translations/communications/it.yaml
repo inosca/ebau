@@ -47,6 +47,7 @@ communications:
     fetchError: Non è stato possibile caricare i dati. Riprova
     saveError: Non è stato possibile inviare il messaggio. Riprova
     applicant: Richiedente
+    allRecipients: Tutti i destinatari
 
   message:
     messageInputLabel: Messaggio
