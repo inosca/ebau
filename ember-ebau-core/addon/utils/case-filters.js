@@ -25,12 +25,14 @@ export function getCalumaFilters(filter, casesBackend) {
     caseCreatedDateBefore: {
       createdBefore: DateTime.fromISO(filter.caseCreatedDateBefore)
         .endOf("day")
+        .toUTC()
         .toISO(),
     },
 
     caseCreatedDateAfter: {
       createdAfter: DateTime.fromISO(filter.caseCreatedDateAfter)
         .startOf("day")
+        .toUTC()
         .toISO(),
     },
     form: {
@@ -111,7 +113,8 @@ export function getCalumaFilters(filter, casesBackend) {
             key: "submit-date",
             lookup: "LTE",
             value: DateTime.fromISO(filter.submitDateBefore)
-              .endOf("day")
+              .startOf("day")
+              .toUTC()
               .toISO(),
           },
         ],
@@ -123,6 +126,7 @@ export function getCalumaFilters(filter, casesBackend) {
             lookup: "GTE",
             value: DateTime.fromISO(filter.submitDateAfter)
               .startOf("day")
+              .toUTC()
               .toISO(),
           },
         ],
