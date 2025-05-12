@@ -48,6 +48,9 @@ class PublicServiceFilterSet(FilterSet):
     available_in_distribution_for_instance = NumberFilter(
         method="filter_available_in_distribution_for_instance"
     )
+    is_active_service_for_instance = NumberFilter(
+        method="filter_is_active_service_for_instance"
+    )
 
     # ?provider_for=geometer;999111 (service id)
     provider_for = CharFilter(method="filter_provider_for")
@@ -177,6 +180,12 @@ class PublicServiceFilterSet(FilterSet):
                         )
 
         return queryset.filter(filters["include"]).exclude(filters["exclude"])
+
+    def filter_is_active_service_for_instance(self, queryset, name, value):
+        return queryset.filter(
+            instance_services__active=1,
+            instance_services__instance_id=value,
+        )
 
     def _condition_is_bab(self, instance):
         if not settings.BAB:  # pragma: no cover

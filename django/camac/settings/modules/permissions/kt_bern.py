@@ -155,7 +155,7 @@ BE_REJECTION_POSSIBLE_STATES = RequireInstanceState(
 BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES = RequireInstanceState(
     ["sb1", "sb2", "conclusion", "finished", "archived", "finished_internal"]
 )
-BE_CONSTRUCTION_CONTROL_PERMISSIONS = [
+BE_BASE_CONSTRUCTION_CONTROL_PERMISSIONS = [
     ("history-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
     ("documents-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
     ("dms-generate-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
@@ -175,10 +175,31 @@ BE_CONSTRUCTION_CONTROL_PERMISSIONS = [
     ("communications-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
 ]
 
+BE_INVOLVED_CONSTRUCTION_CONTROL_PERMISSIONS = (
+    BE_BASE_CONSTRUCTION_CONTROL_PERMISSIONS
+    + [
+        (
+            "instance-unsubscribe-responsible-service",
+            BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES
+            & ~RequireInstanceState(["finished_internal", "archived", "finished"]),
+        ),
+    ]
+)
+BE_ACTIVE_CONSTRUCTION_CONTROL_PERMISSIONS = (
+    BE_BASE_CONSTRUCTION_CONTROL_PERMISSIONS
+    + [
+        (
+            "instance-change-responsible-service",
+            BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES
+            & ~RequireInstanceState(["finished_internal", "archived", "finished"]),
+        ),
+    ]
+)
+
 # Support always has access to instance (and (almost?) all IRs on it)
 SUPPORT_CONDITION = Always()
 
-BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS = [
+BE_BASE_AUTHORITY_PERMISSIONS = [
     ("communications-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("geometer-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("responsible-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
@@ -260,7 +281,14 @@ BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS = [
     ("appeal-read", IsAppeal()),
 ]
 
-BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS = BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS + [
+BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS = BE_BASE_AUTHORITY_PERMISSIONS + [
+    (
+        "instance-unsubscribe-responsible-service",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES & ~RequireInstanceState(["in_progress"]),
+    )
+]
+
+BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS = BE_BASE_AUTHORITY_PERMISSIONS + [
     (
         "corrections-read",
         BE_MUNICIPALITY_ACCESSIBLE_STATES
@@ -270,6 +298,10 @@ BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS = BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS + 
         "instance-change-form",
         BE_MUNICIPALITY_ACCESSIBLE_STATES
         | RequireInstanceState(["corrected", "correction"]),
+    ),
+    (
+        "instance-change-responsible-service",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES & ~RequireInstanceState(["in_progress"]),
     ),
 ]
 
@@ -311,8 +343,8 @@ BE_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS,
         "involved-authority": BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS,
-        "construction-control": BE_CONSTRUCTION_CONTROL_PERMISSIONS,
-        "involved-construction-control": BE_CONSTRUCTION_CONTROL_PERMISSIONS,
+        "construction-control": BE_ACTIVE_CONSTRUCTION_CONTROL_PERMISSIONS,
+        "involved-construction-control": BE_INVOLVED_CONSTRUCTION_CONTROL_PERMISSIONS,
         "support": [
             ("support-read", SUPPORT_CONDITION),
             ("form-read", SUPPORT_CONDITION),

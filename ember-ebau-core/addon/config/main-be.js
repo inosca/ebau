@@ -219,4 +219,23 @@ export default {
     "rejected",
     "archived",
   ],
+  changeResponsibleService: {
+    serviceGroupsForType: {
+      // This should match the "ACTIVE_SERVICE" configuration in the django
+      // settings
+      municipality: ["municipality", "district", "lead-service"],
+      "construction-control": ["construction-control"],
+    },
+    forbiddenInstanceStates: {
+      municipality: [
+        "sb1",
+        "sb2",
+        "conclusion",
+        "evaluated",
+        "finished",
+        "finishedInternal",
+      ],
+      "construction-control": [],
+    },
+  },
 };

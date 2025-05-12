@@ -103,6 +103,7 @@ class Trigger:
     instance_retrieved = EventTrigger()
     instance_completed = EventTrigger()
     changed_responsible_service = EventTrigger()
+    unsubscribed_responsible_service = EventTrigger()
     inquiry_sent = EventTrigger()
     inquiry_completed = EventTrigger()
     instance_copied = EventTrigger()
@@ -191,6 +192,9 @@ class EmptyEventHandler(PermissionEventHandler):
     def changed_responsible_service(
         self, instance: Instance, from_service: Service, to_service: Service
     ):
+        return  # pragma: no cover
+
+    def unsubscribed_responsible_service(self, instance: Instance, service: Service):
         return  # pragma: no cover
 
     def applicant_added(self, instance: Instance, applicant):

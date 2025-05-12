@@ -190,6 +190,7 @@ class InstanceView(
                 "report": serializers.CalumaInstanceReportSerializer,
                 "finalize": serializers.CalumaInstanceFinalizeSerializer,
                 "change_responsible_service": serializers.CalumaInstanceChangeResponsibleServiceSerializer,
+                "unsubscribe_responsible_service": serializers.CalumaInstanceUnsubscribeResponsibleServiceSerializer,
                 "set_ebau_number": serializers.CalumaInstanceSetEbauNumberSerializer,
                 "archive": serializers.CalumaInstanceArchiveSerializer,
                 "change_form": serializers.CalumaInstanceChangeFormSerializer,
@@ -314,7 +315,26 @@ class InstanceView(
             self.has_base_permission(instance) and instance.instance_state.name == "sb2"
         )
 
+    @permission_switching_method
+    def has_object_unsubscribe_responsible_service_permission(self, instance):
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "instance-unsubscribe-responsible-service"
+        )
+
+    @has_object_unsubscribe_responsible_service_permission.register_old
+    def _has_object_unsubscribe_responsible_service_permission(self, instance):
+        return instance.instance_services.filter(
+            active=0, service=self.request.group.service
+        ).exists()
+
+    @permission_switching_method
     def has_object_change_responsible_service_permission(self, instance):
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "instance-change-responsible-service"
+        )
+
+    @has_object_change_responsible_service_permission.register_old
+    def _has_object_change_responsible_service_permission(self, instance):
         return instance.instance_services.filter(
             active=1, service=self.request.group.service
         ).exists()
@@ -844,6 +864,11 @@ class InstanceView(
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True, url_path="change-responsible-service")
     def change_responsible_service(self, request, pk=None):
+        return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["post"], detail=True, url_path="unsubscribe-responsible-service")
+    def unsubscribe_responsible_service(self, request, pk=None):
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
     @swagger_auto_schema(auto_schema=None)
