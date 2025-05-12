@@ -70,6 +70,7 @@ export default {
         "instanceState",
         "paper",
         "freetext",
+        "appeal",
       ],
       "construction-control": [
         "form",
@@ -89,6 +90,7 @@ export default {
         "decision",
         "paper",
         "freetext",
+        "appeal",
       ],
       municipality: [
         "form",
@@ -108,6 +110,7 @@ export default {
         "decision",
         "paper",
         "freetext",
+        "appeal",
       ],
       geometer: [
         "form",
@@ -124,6 +127,7 @@ export default {
         "decisionDateBefore",
         "modification",
         "instanceState",
+        "appeal",
       ],
       default: [
         "form",
@@ -138,6 +142,7 @@ export default {
         "modification",
         "instanceState",
         "freetext",
+        "appeal",
       ],
     },
   },
