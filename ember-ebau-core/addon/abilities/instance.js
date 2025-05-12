@@ -147,4 +147,40 @@ export default class InstanceAbility extends Ability {
   async canWithdraw() {
     return await this.permissions.hasAll(this.model?.id, "instance-withdraw");
   }
+
+  async canChangeResponsibleService() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "instance-change-responsible-service",
+      );
+    }
+
+    return (
+      !this.ebauModules.isReadOnlyRole &&
+      !hasInstanceState(
+        this.model,
+        mainConfig.changeResponsibleService.forbiddenInstanceStates(this.type),
+      ) &&
+      // Active service is passed into the permission check
+      parseInt(this.activeService?.id) === this.ebauModules.serviceId
+    );
+  }
+
+  async canUnsubscribeResponsibleService() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "instance-unsubscribe-responsible-service",
+      );
+    }
+
+    return (
+      !this.ebauModules.isReadOnlyRole &&
+      // Involved services are passed into the permission check
+      (this.involvedServices ?? [])
+        .map((service) => parseInt(service.id))
+        .includes(this.ebauModules.serviceId)
+    );
+  }
 }

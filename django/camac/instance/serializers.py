@@ -2111,6 +2111,26 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
         resource_name = "instance-set-ebau-numbers"
 
 
+class CalumaInstanceUnsubscribeResponsibleServiceSerializer(serializers.Serializer):
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        service = self.context["request"].group.service
+
+        instance.instance_services.filter(
+            service_id=service.pk,
+            active=0,
+        ).delete()
+
+        permissions_events.Trigger.unsubscribed_responsible_service(
+            self.context["request"], instance, service
+        )
+
+        return instance
+
+    class Meta:
+        resource_name = "instance-unsubscribe-responsible-services"
+
+
 class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
     """Handle changing of the responsible service."""
 

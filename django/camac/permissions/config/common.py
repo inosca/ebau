@@ -124,6 +124,25 @@ class ChangeResponsibleServiceHandlerMixin:
             event_name="changed-responsible-service",
         )
 
+    def unsubscribed_responsible_service(self, instance: Instance, service: Service):
+        acl = (
+            InstanceACL.currently_active()
+            .filter(
+                service=service,
+                access_level__in=["lead-authority", "construction-control"],
+                instance=instance,
+            )
+            .first()
+        )
+
+        if acl:
+            self.manager.revoke(acl, event_name="unsubscribed-responsible-service")
+        else:  # pragma: no cover
+            log.warning(
+                f"Old lead authority service {service.pk} on instance "
+                f"{instance.pk} had no lead-authority ACL!"
+            )
+
 
 class DistributionHandlerMixin:
     def inquiry_sent(self, instance: Instance, work_item):

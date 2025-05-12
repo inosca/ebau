@@ -1,0 +1,8 @@
+change-responsible-service:
+  active: "Aktiv"
+  involved: "Involviert"
+  change: "Wechseln"
+  choose: "Bitte wählen"
+  unsubscribe: "Einsichtsberechtigung entfernen"
+  error: "Die Dossierprüfung enthält eine oder mehrere fehlerhafte Prüfungen. Bitte vervollständigen oder löschen Sie diese bevor Sie die Leitbehörde wechseln."
+  unsubscribeConfirm: "Möchten Sie wirklich fortfahren? Dieser Schritt kann nicht rückgängig gemacht werden."

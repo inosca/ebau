@@ -1,0 +1,8 @@
+change-responsible-service:
+  active: "Active"
+  involved: "Impliquée"
+  change: "Change"
+  choose: "Veuillez sélectionner"
+  unsubscribe: "Supprimer l'autorisation d'affichage"
+  error: "L'examen du dossier contient un ou plusieurs examens incorrects. Veuillez les compléter ou les supprimer avant de changer d'autorité directrice."
+  unsubscribeConfirm: "Passé cette étape, il ne vous sera plus possible de revenir en arrière."

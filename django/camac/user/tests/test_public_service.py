@@ -244,3 +244,33 @@ def test_public_service_filter_has_billing_entries(
     else:
         assert str(service_2.pk) in service_ids
         assert str(service_1.pk) in service_ids
+
+
+@pytest.mark.parametrize(
+    "has_active_instance_service,expected_count", [(True, 1), (False, 0)]
+)
+def test_public_service_filter_is_active_service_for_instance(
+    admin_client,
+    be_instance,
+    instance_service_factory,
+    service_factory,
+    has_active_instance_service,
+    expected_count,
+):
+    be_instance.instance_services.all().delete()
+
+    if has_active_instance_service:
+        instance_service_factory(
+            instance=be_instance, service=service_factory(), active=1
+        )
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        data={"is_active_service_for_instance": be_instance.pk},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()["data"]
+
+    assert len(data) == expected_count
