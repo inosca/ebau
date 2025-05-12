@@ -14,11 +14,14 @@ ADDITIONAL_DEMAND = {
         "SEND_TASK": "send-additional-demand",
         "QUESTIONS": {
             "DECISION": "additional-demand-decision",
+            "DEADLINE": "additional-demand-deadline",
+            "COMMENT": "additional-demand-comment",
         },
         "ANSWERS": {
             "DECISION": {
                 "REJECTED": "additional-demand-decision-reject",
                 "ACCEPTED": "additional-demand-decision-accept",
+                "UNKNOWN": "additional-demand-decision-unknown",
             }
         },
         "HISTORY_ENTRIES": {},

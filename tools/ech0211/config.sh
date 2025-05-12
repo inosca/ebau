@@ -1,11 +1,12 @@
 #!/bin/bash
 declare -A ech0211_credentials=(
-	["gemeinde-chur"]="xxx"
+	["ech-client"]="xxx"
 	# ["gemeinde-davos"]="xxx"
 )
 keycloak_endpoint="http://ebau-keycloak.localhost"
 ech0211_endpoint="http://ember-ebau.localhost"
 camac_group_id="10035"
+#camac_group_id="10037"
 
 ech0211_login() {
 	local client_id=$1

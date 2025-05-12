@@ -47,9 +47,7 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 # 2. Form rules
 # 3. Role rules
 # 4. Other
-MODULE_ADDITIONAL_DEMANDS = STATES_ALL & ~IsForm(
-    ["vorlaeufige-beurteilung", "vorlaeufige-beurteilung-v3"]
-)  # TODO bauanzeige?
+MODULE_ADDITIONAL_DEMANDS = STATES_ALL & RequireWorkItem("init-additional-demand")
 
 MODULE_CONSTRUCTION_ACCEPTANCE = RequireWorkItem("construction-acceptance")
 MODULE_CONSTRUCTION_MONITORING = RequireWorkItem("init-construction-monitoring")
@@ -117,6 +115,10 @@ ACTION_INSTANCE_CREATE_MODIFICATION = (
         | RequireWorkItem("init-construction-monitoring")
     )
 ) | (ROLES_MUNICIPALITY & IsPaper())
+ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND = (
+    MODULE_ADDITIONAL_DEMANDS
+    & RequireInstanceState(["subm", "init-distribution", "circulation", "decision"])
+)
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
@@ -173,7 +175,7 @@ GR_PERMISSIONS_SETTINGS = {
         ],
         "distribution-service": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
-            ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
+            ("additional-demands-write", ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND),
             ("audit-read", MODULE_AUDIT),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
@@ -196,6 +198,7 @@ GR_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
+            ("additional-demands-write", ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND),
             ("audit-read", MODULE_AUDIT),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),

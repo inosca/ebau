@@ -18,6 +18,9 @@ decision:
       Ce dossier est copié après la saisie de la décision et passe au statut
       <b>« {status} »</b>. Le dossier en cours est clôturé.
 
+  additional-demand:
+    unknown: "La demande est enregistrée avec succès."
+
   appeal-confirm: |-
     Voulez-vous vraiment lancer la procédure de recours ? Ce dossier passe
     irrévocablement au statut <b>« Terminé »</b>. Un dossier de recours est
