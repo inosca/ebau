@@ -23,6 +23,7 @@ CHANGE_FORM = {
                 "vorentscheid-gemass-ss84-pbg-v7",
                 "vorentscheid-gemass-ss84-pbg-v8",
                 "vorentscheid-gemass-ss84-pbg-v9",
+                "vorentscheid-gemass-ss84-pbg-v10",
                 "baugesuch-reklamegesuch-v2",
                 "baugesuch-reklamegesuch-v3",
                 "baugesuch-reklamegesuch-v4",

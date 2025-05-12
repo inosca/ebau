@@ -670,6 +670,16 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 70,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v10",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {
