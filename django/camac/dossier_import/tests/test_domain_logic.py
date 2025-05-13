@@ -14,6 +14,7 @@ from camac.dossier_import.domain_logic import (
     set_status_callback,
     undo_import,
 )
+from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import MessageCodes
 from camac.dossier_import.models import DossierImport
 from camac.instance.master_data import MasterData
@@ -77,7 +78,9 @@ def test_perform_reimport(  # noqa: C901
     )
     perform_import(first_import)
 
-    imported_dossier = writer.existing_dossier(dossier_id)
+    imported_dossier = writer.find_existing_instance(
+        Dossier(id=dossier_id, proposal=""), writer._caluma_user
+    )
 
     if config == "kt_bern":
         # Ensure responsible user is imported. Currently only defined in BERN

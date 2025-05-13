@@ -609,6 +609,7 @@
           "1665654427762",
           "EBPA-0219-7779"
       ],
+      "service": 56,
       "state": "new",
       "work-items": [
           {
@@ -625,6 +626,7 @@
       "answers": null,
       "case-meta": null,
       "keywords": null,
+      "service": null,
       "state": null,
       "work-items": null
   }
@@ -1177,6 +1179,7 @@
           "2025-120",
           "EBPA-8318-3681"
       ],
+      "service": 55,
       "state": "subm",
       "work-items": [
           {
@@ -2011,6 +2014,7 @@
           "2025-381",
           "EBPA-9651-5967"
       ],
+      "service": 55,
       "state": "subm",
       "work-items": [
           {
@@ -2643,6 +2647,7 @@
           "1665654427762",
           "EBPA-0219-7779"
       ],
+      "service": 56,
       "state": "new",
       "work-items": [
           {
@@ -2659,6 +2664,7 @@
       "answers": null,
       "case-meta": null,
       "keywords": null,
+      "service": null,
       "state": null,
       "work-items": null
   }
@@ -3232,6 +3238,7 @@
           "BVUAFB.24.5",
           "EBPA-1720-6526"
       ],
+      "service": 55,
       "state": "decision",
       "work-items": [
           {
@@ -3955,6 +3962,7 @@
           "2018WFAS-25766",
           "EBPA-6929-6843"
       ],
+      "service": 68,
       "state": "new",
       "work-items": [
           {
@@ -4512,6 +4520,7 @@
           "2025-120",
           "EBPA-8318-3681"
       ],
+      "service": 55,
       "state": "subm",
       "work-items": [
           {
@@ -5346,6 +5355,7 @@
           "2025-381",
           "EBPA-9651-5967"
       ],
+      "service": 55,
       "state": "subm",
       "work-items": [
           {
@@ -5936,6 +5946,7 @@
           "BVUAFB.24.5",
           "EBPA-1720-6526"
       ],
+      "service": 55,
       "state": "decision",
       "work-items": [
           {
@@ -6659,6 +6670,7 @@
           "2018WFAS-25766",
           "EBPA-6929-6843"
       ],
+      "service": 68,
       "state": "new",
       "work-items": [
           {
@@ -7216,6 +7228,7 @@
           "2025-120",
           "EBPA-8318-3681"
       ],
+      "service": 55,
       "state": "subm",
       "work-items": [
           {
@@ -8050,6 +8063,7 @@
           "2025-381",
           "EBPA-9651-5967"
       ],
+      "service": 55,
       "state": "subm",
       "work-items": [
           {
@@ -8682,6 +8696,7 @@
           "1665654427762",
           "EBPA-0219-7779"
       ],
+      "service": 56,
       "state": "new",
       "work-items": [
           {
@@ -8698,6 +8713,7 @@
       "answers": null,
       "case-meta": null,
       "keywords": null,
+      "service": null,
       "state": null,
       "work-items": null
   }
@@ -9271,6 +9287,7 @@
           "BVUAFB.24.5",
           "EBPA-1720-6526"
       ],
+      "service": 55,
       "state": "decision",
       "work-items": [
           {
@@ -9994,6 +10011,7 @@
           "2018WFAS-25766",
           "EBPA-6929-6843"
       ],
+      "service": 68,
       "state": "new",
       "work-items": [
           {
@@ -10614,6 +10632,7 @@
           "1665654427762",
           "EBPA-0219-7779"
       ],
+      "service": 56,
       "state": "new",
       "work-items": [
           {
@@ -11234,6 +11253,7 @@
           "1665654427762",
           "EBPA-0219-7779"
       ],
+      "service": 56,
       "state": "new",
       "work-items": [
           {
@@ -12056,6 +12076,7 @@
           "2025-381",
           "EBPA-9651-5967"
       ],
+      "service": 55,
       "state": "subm",
       "work-items": [
           {
@@ -12890,6 +12911,7 @@
           "2025-381",
           "EBPA-9651-5967"
       ],
+      "service": 55,
       "state": "subm",
       "work-items": [
           {
@@ -12918,6 +12940,7 @@
       "answers": null,
       "case-meta": null,
       "keywords": null,
+      "service": null,
       "state": null,
       "work-items": null
   }
@@ -12929,6 +12952,7 @@
       "answers": null,
       "case-meta": null,
       "keywords": null,
+      "service": null,
       "state": null,
       "work-items": null
   }
@@ -13502,6 +13526,7 @@
           "BVUAFB.24.5",
           "EBPA-1720-6526"
       ],
+      "service": 55,
       "state": "decision",
       "work-items": [
           {
@@ -14108,6 +14133,7 @@
           "BVUAFB.24.5",
           "EBPA-1720-6526"
       ],
+      "service": 55,
       "state": "decision",
       "work-items": [
           {
@@ -14831,6 +14857,7 @@
           "2018WFAS-25766",
           "EBPA-6929-6843"
       ],
+      "service": 68,
       "state": "new",
       "work-items": [
           {
@@ -15526,6 +15553,7 @@
           "2018WFAS-25766",
           "EBPA-6929-6843"
       ],
+      "service": 68,
       "state": "new",
       "work-items": [
           {
@@ -16083,6 +16111,7 @@
           "2025-120",
           "EBPA-8318-3681"
       ],
+      "service": 55,
       "state": "subm",
       "work-items": [
           {
@@ -16652,6 +16681,7 @@
           "2025-120",
           "EBPA-8318-3681"
       ],
+      "service": 55,
       "state": "subm",
       "work-items": [
           {

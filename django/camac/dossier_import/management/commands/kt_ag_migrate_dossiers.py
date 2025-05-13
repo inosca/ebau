@@ -7,6 +7,7 @@ import pyexcel
 from codetiming import Timer
 from django.conf import settings
 from django.core.management.base import BaseCommand
+from django.db import transaction
 
 from camac.dossier_import.config.kt_ag.dossier_classes import KtAargauDossier
 from camac.dossier_import.config.kt_ag.dossier_loader import KtAargauDossierLoader
@@ -14,7 +15,7 @@ from camac.dossier_import.domain_logic import perform_import
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import DossierSummary
 from camac.dossier_import.models import DossierImport
-from camac.user.models import Group, User
+from camac.user.models import Group, User, UserGroup
 
 IMPORT_SETTINGS = settings.DOSSIER_IMPORT
 SAP_SETTINGS = IMPORT_SETTINGS["SAP_ACCESS"]
@@ -77,21 +78,20 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
-        user_id = User.objects.get(username=IMPORT_SETTINGS["USER"]).pk
-        # todo switch to group name
-        group_id = Group.objects.get(group_id=IMPORT_SETTINGS["GROUP"]).pk
-        self._create_report()
-        self._create_details_report()
         self.skip_existing = options.get("skip_existing")
         self.rm_file = options.get("rm")
         self.json_target_dir = (options.get("json_target_dir") or [None])[0]
+
+        user, group = self._get_user_and_group()
+        self._create_report()
+        self._create_details_report()
 
         if options.get("dossier"):
             dossier_path = options.get("dossier")[0]
             self.stdout.write(f"Importing from '{dossier_path}'")
             dossier_import = DossierImport.objects.create(
-                user_id=user_id,
-                group_id=group_id,
+                user_id=user.pk,
+                group_id=group.pk,
                 dossier_loader_type="Kanton Aargau SAP",
                 source_file=dossier_path,
             )
@@ -109,8 +109,8 @@ class Command(BaseCommand):
                 print(f"Migrating '{municipality}' with {count} dossiers ...")
                 self.currently_imported_count = 1
                 dossier_import = DossierImport.objects.create(
-                    user_id=user_id,
-                    group_id=group_id,
+                    user_id=user.pk,
+                    group_id=group.pk,
                     dossier_loader_type="Kanton Aargau SAP",
                     source_file=municipality,
                 )
@@ -125,6 +125,29 @@ class Command(BaseCommand):
                 )
 
                 self._report_segment_result(dossier_import, municipality, count)
+
+    def _get_user_and_group(self):
+        user_name = IMPORT_SETTINGS["USER"]
+        group_name = IMPORT_SETTINGS["GROUP"]
+
+        group = Group.objects.get(trans__language="de", trans__name=group_name)
+
+        if not User.objects.filter(username=user_name).exists():
+            self._create_user(user_name=user_name, group=group)
+
+        user = User.objects.get(username=user_name)
+        return user, group
+
+    @transaction.atomic
+    def _create_user(self, user_name, group):
+        user = User.objects.create(
+            username=user_name,
+            name=user_name,
+            surname="User",
+            email=f"{user_name}@diba.ag.ch",
+        )
+        UserGroup.objects.create(user=user, group=group, default_group=1)
+        return user
 
     def _dossier_imported(self, dossier: Dossier, message: DossierSummary):
         dossier: KtAargauDossier

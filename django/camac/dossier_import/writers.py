@@ -660,7 +660,8 @@ class DossierWriter:
         self._user = user_id and User.objects.get(pk=user_id)
         self._group = Group.objects.get(pk=group_id)
         self._caluma_user = BaseUser(
-            username=self._user.username, group=self._group.service.pk
+            username=self._user.username,
+            group=self._group.service.pk if self._group.service else None,
         )
         self._caluma_user.camac_group = self._group.pk
 
@@ -714,7 +715,7 @@ class DossierWriter:
         dossier_summary.details += dossier._meta.errors
         instance = None
         created = True
-        if instance := self.existing_dossier(dossier.id):
+        if instance := self.find_existing_instance(dossier, self._caluma_user):
             if skip_existing:
                 dossier_summary.instance_id = instance.pk
                 dossier_summary.details.append(
@@ -750,7 +751,7 @@ class DossierWriter:
             instance = self.create_instance(dossier)
             dossier_summary.instance_id = str(instance.pk)
             self._post_create_instance(instance, dossier)
-            self.set_dossier_id(instance, dossier.id)
+            self.link_instance_and_dossier(instance, dossier, self._caluma_user)
             dossier_summary.details.append(
                 Message(
                     level=Severity.DEBUG.value,
@@ -805,19 +806,28 @@ class DossierWriter:
         """Return all dossier IDs that already exist."""
         raise DossierWriter.ConfigurationError  # pragma: no cover
 
-    def existing_dossier(self, dossier_id: str) -> Optional[Instance]:
-        """Return the instance identified by dossier_id.
+    def find_existing_instance(
+        self, dossier: Dossier, user: BaseUser
+    ) -> Optional[Instance]:
+        """Return the instance identified linked by the dossier.
 
         Different configs use different methods to identify instances. This
         is just an abstraction that is needed for retrieving instances
         when reimporting dossiers.
+        :param dossier:
+        :param user:
         """
         raise DossierWriter.ConfigurationError  # pragma: no cover
 
-    def set_dossier_id(self, instance: Instance, dossier_id: str):
-        """Make the instance retrievable by dossier_id.
+    def link_instance_and_dossier(
+        self, instance: Instance, dossier: Dossier, user: BaseUser
+    ):
+        """Make the instance retrievable by the dossier.
 
-        The reverse of `self.existing_dossier`
+        The reverse of `self.find_existing_instance`
+        :param instance:
+        :param dossier:
+        :param user:
         """
         raise DossierWriter.ConfigurationError  # pragma: no cover
 

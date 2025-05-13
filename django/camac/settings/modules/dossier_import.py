@@ -98,8 +98,8 @@ DOSSIER_IMPORT = {
     },
     "kt_ag": {
         "ENABLED": True,
-        "USER": "462afaba-aeb7-494a-8596-3497b81ed701",  # todo
-        "GROUP": "10003",  # todo
+        "USER": "Migration",
+        "GROUP": "Support",
         "WRITER_CLASS": "camac.dossier_import.config.kt_ag.dossier_writer.KtAargauDossierWriter",
         "LOADER_CLASS": "camac.dossier_import.config.kt_ag.dossier_loader.KtAargauDossierLoader",
         "CALUMA_FORM": "baugesuch-migration",

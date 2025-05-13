@@ -76,12 +76,16 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
     dossier_id_keyword = Keyword.objects.filter(name=dossier_id)
 
     id_keyword = dossier_id_keyword.first()
-    instance_state = keywords = case_meta = work_items = answers = None
+    instance_state = instance_service = keywords = case_meta = work_items = answers = (
+        None
+    )
 
     if id_keyword is not None:
         instance: Instance = id_keyword.instances.first()
 
         instance_state = instance.instance_state.name
+        instance_service = instance.responsible_service().service_id
+
         keywords = list(
             Keyword.objects.filter(instances=instance).values_list("name", flat=True)
         )
@@ -99,6 +103,7 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
     result = to_sorted_json(
         {
             "state": instance_state,
+            "service": instance_service,
             "keywords": keywords,
             "case-meta": case_meta,
             "work-items": work_items,

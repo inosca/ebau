@@ -159,23 +159,23 @@ class KtSolothurnDossierWriter(DossierWriter):
             ).values_list("name", flat=True)
         )
 
-    def existing_dossier(self, dossier_id):
+    def find_existing_instance(self, dossier, user):
         keyword = Keyword.objects.filter(
-            name=dossier_id, service=self._group.service
+            name=dossier.id, service=self._group.service
         ).first()
 
         return keyword.instances.first() if keyword else None
 
-    def set_dossier_id(self, instance, dossier_id):
+    def link_instance_and_dossier(self, instance, dossier, user):
         keyword = Keyword.objects.filter(
-            name=dossier_id, service=self._group.service
+            name=dossier.id, service=self._group.service
         ).first()
 
         if keyword:  # pragma: no cover
             # This only happens after an import was undone
             keyword.instances.add(instance)
         else:
-            instance.keywords.create(name=dossier_id, service=self._group.service)
+            instance.keywords.create(name=dossier.id, service=self._group.service)
 
     def _post_create_instance(self, instance: Instance, dossier: Dossier):
         save_answer(

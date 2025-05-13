@@ -451,7 +451,7 @@ def test_record_loading_be(
     # Test overwriting values
     if not is_empty:
         writer.write_fields(be_instance, dossier)
-        mocker.patch.object(writer, "existing_dossier", be_instance)
+        mocker.patch.object(writer, "find_existing_instance", be_instance)
         instance_service_factory(instance=be_instance, service=writer._group.service)
 
     data = OrderedDict()
@@ -508,7 +508,7 @@ def test_record_loading_so(
     # Test overwriting values
     if not is_empty:
         writer.write_fields(so_instance, dossier)
-        mocker.patch.object(writer, "existing_dossier", so_instance)
+        mocker.patch.object(writer, "find_existing_instance", so_instance)
         instance_service_factory(instance=so_instance, service=writer._group.service)
 
     data = OrderedDict()
@@ -580,7 +580,7 @@ def test_record_loading_sz(
     # Test overwriting values
     if not is_empty:
         writer.write_fields(sz_instance, dossier)
-        mocker.patch.object(writer, "existing_dossier", sz_instance)
+        mocker.patch.object(writer, "find_existing_instance", sz_instance)
 
     data = OrderedDict()
     for dossier_row_patch, expected_target in IMPORT_ROWS_SZ:
