@@ -6,7 +6,6 @@ mutation CreateBuildingPermitWorkflow {
       startTasks: ["submit"]
       allowForms: [
         "anfrage"
-        "anfrage-intern"
         "baugesuch"
         "baugesuch-mit-uvp"
         "plangenehmigungsverfahren-bund"

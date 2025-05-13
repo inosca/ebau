@@ -1,0 +1,50 @@
+mutation CreateInternalDossierWorkflow{
+  saveWorkflow(
+    input: {
+      slug: "anfrage-intern"
+      name: "Anfrage intern"
+      startTasks: ["submit"]
+      allowForms: ["anfrage-intern"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+
+mutation CreateInternalDossierFlowAfterSubmit{
+  addWorkflowFlow(
+    input: {
+      workflow: "anfrage-intern"
+      tasks: ["submit"]
+      next: "[\"after-submit\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateInternalDossierFlowAfterFormalExam{
+  addWorkflowFlow(
+    input: {
+      workflow: "anfrage-intern"
+      tasks: ["formal-exam"]
+      next: "[\"distribution\", \"cantonal-exam\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateInternalDossierFlowAfterDistribution{
+  addWorkflowFlow(
+    input: {
+      workflow: "anfrage-intern"
+      tasks: ["distribution"]
+      next: "[\"complete-instance\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
