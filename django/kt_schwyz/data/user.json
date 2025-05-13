@@ -33242,7 +33242,7 @@
     "model": "user.service",
     "pk": 10,
     "fields": {
-      "slug": null,
+      "slug": "amfz-brandschutz",
       "service_group": 2,
       "service_parent": null,
       "name": "Amt für Militär, Feuer- und Zivilschutz (Brandschutz)",
@@ -33530,7 +33530,7 @@
     "model": "user.service",
     "pk": 22,
     "fields": {
-      "slug": null,
+      "slug": "laboratorium-urkantone",
       "service_group": 2,
       "service_parent": null,
       "name": "Laboratorium der Urkantone",

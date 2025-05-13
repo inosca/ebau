@@ -56,6 +56,12 @@ BILLING = {
                 "number": 310000,
                 "name": "AFG Gewässerschutz, Baubegleitung und -Abnahme",
                 "only_subsequent_charge": True,
+                "only_for_services": [
+                    "afg-wasserbau",
+                    "afg-fischerei",
+                    "afg-industrie-gewerbeabwasser",
+                    "afg-entwaesserung",
+                ],
             },
         ],
         "WILKEN": {
