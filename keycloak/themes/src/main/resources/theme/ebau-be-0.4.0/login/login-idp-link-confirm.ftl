@@ -10,8 +10,8 @@
             </div>
         </form>
         <div style="margin-top: 30px; margin-bottom: 30px">
-            <div><p><b>${msg("login-idp-link-confirm-title",brokerContext.email)}</b><p></div>
-            <div>${msg("login-idp-link-confirm-message",brokerContext.email)?no_esc}</div>
+            <div><p><b>${msg("loginIdpLinkConfirmTitle")}</b><p></div>
+            <div>${msg("loginIdpLinkConfirmMessage",brokerContext.email)?no_esc}</div>
         </div>
     </#if>
 </@layout.registrationLayout>

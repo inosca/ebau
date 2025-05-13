@@ -29,8 +29,8 @@
         </div>
     </form>
     <div style="margin-top: 30px; margin-bottom: 30px">
-        <div><p><b>${msg("login-message-title")}</b><p></div>
-        <div>${msg("login-message-content-html")?no_esc}</div>
+        <div><p><b>${msg("loginMessageTitle")}</b><p></div>
+        <div>${msg("loginMessageContentHtml")?no_esc}</div>
     </div>
 </#if>
 </@layout.registrationLayout>

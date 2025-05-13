@@ -2,9 +2,9 @@
 <#import "user-profile-commons.ftl" as userProfileCommons>
 <@layout.registrationLayout displayMessage=messagesPerField.exists('global') displayRequiredFields=true; section>
     <#if section = "form">
-        <#-- CHANGE: move header to form section to always display it -->
-        <p><b>${msg("login-idp-review-profile-title")}</b></p>
-        <p>${msg("login-idp-review-profile-message")?no_esc}</p>
+        <#-- CHANGE: move header to form section to always display it & add message-->
+        <p><b>${msg("loginIdpReviewProfileTitle")}</b></p>
+        <p>${msg("loginIdpReviewProfileMessage")?no_esc}</p>
         <br />
         <form id="kc-idp-review-profile-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
 
