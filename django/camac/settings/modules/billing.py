@@ -32,33 +32,29 @@ BILLING = {
         "ENABLED": True,
         "PRODUCT_NUMBERS": [
             {
-                # ARE BGZ, kant. Baubewilligung, Gebühren
                 "number": 100000,
                 "name": "ARE BGZ, kant. Baubewilligung, Gebühren",
                 "not_for_services": ["amfz-brandschutz", "laboratorium-urkantone"],
             },
             {
-                # AMFZ Brandschutz, kant. Baubewilligung Gebühren
                 "number": 150000,
                 "name": "AMFZ Brandschutz, kant. Baubewilligung Gebühren",
                 "only_for_services": ["amfz-brandschutz"],
             },
             {
-                # Laburk, Bearbeitungsgebühren Baubewilligung
                 "number": 900000,
                 "name": "Laburk, Bearbeitungsgebühren Baubewilligung",
                 "only_for_services": ["laboratorium-urkantone"],
             },
             {
-                # AMFZ Brandschutz, Baubegleitung und -Abnahme
                 "number": 300000,
-                "name": "Laburk, Bearbeitungsgebühren Baubewilligung",
+                "name": "AMFZ Brandschutz, Baubegleitung und -Abnahme",
                 "only_subsequent_charge": True,
+                "only_for_services": ["amfz-brandschutz"],
             },
             {
-                # AFG Gewässerschutz, Baubegleitung und -Abnahme
                 "number": 310000,
-                "name": "Laburk, Bearbeitungsgebühren Baubewilligung",
+                "name": "AFG Gewässerschutz, Baubegleitung und -Abnahme",
                 "only_subsequent_charge": True,
             },
         ],
