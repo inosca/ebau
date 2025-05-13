@@ -32,6 +32,16 @@ def test_simple_mapping(snapshot):
     snapshot.assert_match(to_sorted_json(asdict(result)))
 
 
+def test_empty_string(snapshot):
+    result: Dossier = KtAargauDossierLoader.map_data(
+        {
+            "ERDSND_KNZ": "",
+        }
+    )
+
+    snapshot.assert_match(to_sorted_json(asdict(result)))
+
+
 def test_missing_fields():
     result: Dossier = KtAargauDossierLoader.map_data({})
     assert result

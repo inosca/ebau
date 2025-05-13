@@ -6,6 +6,7 @@ import traceback
 from dataclasses import asdict
 from functools import wraps
 from logging import getLogger
+from typing import Callable
 
 import requests
 from caluma.caluma_workflow.models import Case
@@ -51,7 +52,12 @@ def delay_and_refresh(func):
 
 
 @delay_and_refresh
-def perform_import(dossier_import: DossierImport):
+def perform_import(
+    dossier_import: DossierImport,
+    skip_existing=False,
+    notify_dossier_imported: Callable[[Dossier, DossierSummary], None] = lambda d,
+    m: None,
+):
     try:
         configured_writer_cls = import_string(settings.DOSSIER_IMPORT["WRITER_CLASS"])
         configured_loader_cls = import_string(
@@ -73,6 +79,7 @@ def perform_import(dossier_import: DossierImport):
                 message = writer.import_dossier(
                     dossier,
                     str(dossier_import.id),
+                    skip_existing,
                 )
             except Exception as e:  # pragma: no cover  # noqa: B902
                 # We need to catch unhandled exeptions in single dossier imports
@@ -96,6 +103,7 @@ def perform_import(dossier_import: DossierImport):
                 )
             dossier_import.messages["import"]["details"].append(asdict(message))
             dossier_import.save()
+            notify_dossier_imported(dossier, message)
         update_summary(dossier_import)
         dossier_import.messages["import"]["completed"] = timezone.localtime().strftime(
             "%Y-%m-%dT%H:%M:%S%z"
