@@ -3413,12 +3413,33 @@ def test_send_notifications(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance_state__name,instance__user",
-    [("Applicant", "new", lf("admin_user"))],
-)
-@pytest.mark.parametrize(
-    "form_slug,expected_instance_state",
-    [("internes-dossier", "to-finish")],
+    "role__name,instance_state__name,instance__user,form_slug,expected_instance_state,expected_work_items",
+    [
+        (
+            "Municipality",
+            "new",
+            lf("admin_user"),
+            "internes-dossier",
+            "to-finish",
+            {"create-manual-workitems", "formal-exam", "init-additional-demand"},
+        ),
+        (
+            "Service",
+            "new",
+            lf("admin_user"),
+            "anfrage-intern",
+            "subm",
+            {"create-manual-workitems", "cantonal-exam", "distribution"},
+        ),
+        (
+            "Municipality",
+            "new",
+            lf("admin_user"),
+            "anfrage-intern",
+            "subm",
+            {"create-manual-workitems", "formal-exam"},
+        ),
+    ],
 )
 def test_instance_submit_ag_internal(
     admin_client,
@@ -3438,6 +3459,8 @@ def test_instance_submit_ag_internal(
     utils,
     form_slug,
     expected_instance_state,
+    role,
+    expected_work_items,
 ):
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
@@ -3449,10 +3472,13 @@ def test_instance_submit_ag_internal(
 
     municipality_service = service_factory(service_group__name="municipality")
     afb_service = service_factory(service_group__name="service-afb", slug="afb")
+    responsible_service = (
+        afb_service if role.name == "Service" else municipality_service
+    )
 
     instance_service_factory(
         instance=ag_instance,
-        service=afb_service,
+        service=responsible_service,
     )
 
     utils.add_answer(
@@ -3472,9 +3498,13 @@ def test_instance_submit_ag_internal(
 
     ag_instance.refresh_from_db()
 
+    work_items = ag_instance.case.work_items.filter(
+        status=caluma_workflow_models.WorkItem.STATUS_READY
+    ).values_list("task_id", flat=True)
     assert response.status_code == status.HTTP_200_OK
     assert ag_instance.instance_state.name == expected_instance_state
-    assert ag_instance.responsible_service() == afb_service
+    assert ag_instance.responsible_service() == responsible_service
+    assert set(work_items) == expected_work_items
 
 
 @pytest.mark.parametrize(

@@ -341,13 +341,19 @@ class CustomDynamicTasks(BaseDynamicTasks):
         ]
 
         if case.document.form_id == "plangenehmigungsverfahren-bund":
-            tasks.extend(pgv_tasks)
+            return [*tasks, *pgv_tasks]
         elif case.document.form_id == "plangenehmigungsverfahren-gas":
-            tasks.extend([*pgv_tasks, "init-additional-demand"])
-        else:
-            tasks.extend(["formal-exam", "init-additional-demand"])
+            return [*tasks, *pgv_tasks, "init-additional-demand"]
+        elif case.document.form_id == "anfrage-intern":
+            responsible = case.instance.responsible_service().service_group.name
+            if responsible == "municipality":
+                return [*tasks, "formal-exam"]
+            elif responsible == "service-afb":
+                return [*tasks, "distribution", "cantonal-exam"]
+            else:  # pragma: no cover
+                raise ("Did not find valid responsible service for 'Anfrage intern'")
 
-        return tasks
+        return [*tasks, "formal-exam", "init-additional-demand"]
 
     @register_dynamic_task("after-check-additional-demand")
     def resolve_after_check_additional_demand(
