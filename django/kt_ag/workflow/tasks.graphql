@@ -164,3 +164,19 @@ mutation CreateDecisionTask {
     clientMutationId
   }
 }
+
+mutation CreateCompleteInstanceTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "complete-instance"
+      form: "complete-instance"
+      name: "Verfahren abschliessen"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 2592000 # 30 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]},\"redirectToWorkItemsAfterCompletion\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}

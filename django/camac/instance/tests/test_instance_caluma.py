@@ -3416,6 +3416,71 @@ def test_send_notifications(
     "role__name,instance_state__name,instance__user",
     [("Applicant", "new", lf("admin_user"))],
 )
+@pytest.mark.parametrize(
+    "form_slug,expected_instance_state",
+    [("internes-dossier", "to-finish")],
+)
+def test_instance_submit_ag_internal(
+    admin_client,
+    application_settings,
+    disable_ech0211_settings,
+    caluma_dynamic_option_factory,
+    instance_state_factory,
+    instance_service_factory,
+    master_data_is_visible_mock,
+    mock_generate_and_store_pdf,
+    mocker,
+    service_factory,
+    set_application_ag,
+    settings,
+    ag_instance,
+    ag_master_data_settings,
+    utils,
+    form_slug,
+    expected_instance_state,
+):
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
+    )
+
+    instance_state_factory(name="subm")
+    instance_state_factory(name="init-distribution")
+    instance_state_factory(name="to-finish")
+
+    municipality_service = service_factory(service_group__name="municipality")
+    afb_service = service_factory(service_group__name="service-afb", slug="afb")
+
+    instance_service_factory(
+        instance=ag_instance,
+        service=afb_service,
+    )
+
+    utils.add_answer(
+        ag_instance.case.document, "gemeinde", str(municipality_service.pk)
+    )
+    caluma_dynamic_option_factory(
+        question_id="gemeinde",
+        document=ag_instance.case.document,
+        slug=str(municipality_service.pk),
+        label={"de": municipality_service.name},
+    )
+
+    ag_instance.case.document.form_id = form_slug
+    ag_instance.case.document.save()
+
+    response = admin_client.post(reverse("instance-submit", args=[ag_instance.pk]))
+
+    ag_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+    assert ag_instance.instance_state.name == expected_instance_state
+    assert ag_instance.responsible_service() == afb_service
+
+
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,instance__user",
+    [("Applicant", "new", lf("admin_user"))],
+)
 def test_instance_submit_ag_pgv(
     admin_client,
     application_settings,

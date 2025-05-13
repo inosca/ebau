@@ -24,6 +24,7 @@ STATES_ALL = RequireInstanceState(
         "rejected",
         "withdrawal",
         "withdrawn",
+        "to-finish",
     ]
 )
 NO_CORRECTION = ~RequireInstanceState(["correction"])
@@ -67,6 +68,9 @@ MODULE_CANTONAL_EXAM = RequireWorkItem("cantonal-exam") & (
     )
 )
 MODULE_COMMUNICATIONS = STATES_ALL & ROLES_NO_READONLY
+MODULE_COMPLETE_INSTANCE = (
+    RequireWorkItem("complete-instance", "ready") & ROLES_NO_READONLY
+)
 MODULE_CORRECTIONS = (
     STATES_ALL | RequireInstanceState(["correction"])
 ) & ROLES_NO_READONLY
@@ -188,6 +192,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("billing-charge", MODULE_BILLING),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
+            ("complete-instance-read", MODULE_COMPLETE_INSTANCE),
             ("corrections-read", MODULE_CORRECTIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),

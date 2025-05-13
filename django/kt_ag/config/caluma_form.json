@@ -391,6 +391,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "complete-instance",
+    "fields": {
+      "created_at": "2025-04-25T13:59:03.548Z",
+      "modified_at": "2025-04-25T13:59:03.548Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Verfahren abschliessen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "dokumente",
     "fields": {
       "created_at": "2023-04-26T07:09:06.403Z",
@@ -3970,6 +3988,36 @@
       "form": "bestaetigung",
       "question": "bestaetigung-rechtsgueltigkeit",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance.complete-instance-title",
+    "fields": {
+      "created_at": "2025-04-25T14:01:52.970Z",
+      "modified_at": "2025-04-25T14:01:52.970Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance",
+      "question": "complete-instance-title",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-instance.verfahren-abschliessen",
+    "fields": {
+      "created_at": "2025-04-25T14:02:56.722Z",
+      "modified_at": "2025-04-25T14:02:56.722Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-instance",
+      "question": "verfahren-abschliessen",
+      "sort": 1
     }
   },
   {
@@ -19199,6 +19247,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "complete-instance-title",
+    "fields": {
+      "created_at": "2025-04-25T14:01:52.795Z",
+      "modified_at": "2025-04-25T14:01:52.795Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-text-lead uk-text-bold\\\">Verfahren abschliessen</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dachbelag-migration",
     "fields": {
       "created_at": "2025-01-23T14:42:35.439Z",
@@ -25529,6 +25608,42 @@
       "meta": {
         "hideLabel": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verfahren-abschliessen",
+    "fields": {
+      "created_at": "2025-04-25T14:02:56.557Z",
+      "modified_at": "2025-04-25T14:02:56.557Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahren abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Sind Sie sicher, dass Sie das Verfahren abschliessen m\\u00f6chten?\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,

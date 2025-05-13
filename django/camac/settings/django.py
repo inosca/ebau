@@ -2548,6 +2548,10 @@ APPLICATIONS = {
                         "create-information-of-neighbors",
                     ],
                 },
+                # Cancel manual work items after complete instance
+                "complete-instance": {
+                    "cancel": ["create-manual-workitems"],
+                },
                 "fill-publication": {"complete": ["publication"]},
                 "fill-information-of-neighbors": {
                     "complete": ["information-of-neighbors"]
@@ -2581,6 +2585,11 @@ APPLICATIONS = {
                         "recipient_types": ["work_item_controlling"],
                     },
                     "ech_event": "camac.ech0211.signals.file_subsequently",
+                },
+                "complete-instance": {
+                    "next_instance_state": "finished",
+                    "history_text": _("Procedure completed"),
+                    "ech_event": "camac.ech0211.signals.finished",
                 },
             },
             "PUBLIC_STATUS": {

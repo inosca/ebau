@@ -13,6 +13,8 @@ mutation CreateBuildingPermitWorkflow {
         "plangenehmigungsverfahren-gas"
         "reklame"
         "vorentscheid"
+        "baugesuch-migration"
+        "uvp-migration"
       ]
       isPublished: true
     }

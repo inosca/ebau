@@ -1819,6 +1819,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
     def _so_handle_special_forms(self, instance):
+        if settings.APPLICATION_NAME != "kt_so":
+            return
+
         user = self.context["request"].user
 
         if instance.case.document.form_id == "voranfrage":
@@ -1827,7 +1830,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance.set_instance_state("decision", user)
 
     def _so_handle_bab(self, instance):
-        if not settings.BAB:
+        if not settings.BAB or settings.APPLICATION_NAME != "kt_so":
             return
 
         md = self.get_master_data(instance.case)
@@ -1845,6 +1848,13 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         instance.instance_state = models.InstanceState.objects.get(
             name="init-distribution"
         )
+
+    def _ag_handle_special_forms(self, instance):
+        if settings.APPLICATION_NAME != "kt_ag":
+            return
+
+        if instance.case.document.form_id == "internes-dossier":
+            instance.set_instance_state("to-finish", self.context["request"].user)
 
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
@@ -1880,6 +1890,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._so_handle_special_forms(instance)
             self._so_handle_bab(instance)
             self._ag_handle_pgv(instance)
+            self._ag_handle_special_forms(instance)
 
             instance.save()
 
