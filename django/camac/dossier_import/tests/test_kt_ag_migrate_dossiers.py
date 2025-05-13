@@ -31,7 +31,10 @@ def _migrate_from_file_and_assert(input_file, snapshot):
     err = StringIO()
 
     call_command(
-        "kt_ag_migrate_dossiers", f"--dossier={input_file}", stdout=out, stderr=err
+        "kt_ag_migrate_dossiers",
+        f"--dossier={input_file}",
+        stdout=out,
+        stderr=err,
     )
     _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
 
@@ -40,11 +43,30 @@ def test_migrate_and_update_all(db, setup_dossier_import_ag, snapshot):
     out = StringIO()
     err = StringIO()
 
-    call_command("kt_ag_migrate_dossiers", stdout=out, stderr=err)
+    call_command(
+        "kt_ag_migrate_dossiers",
+        f"--json-target-dir={JSON_INPUT_DIR}",
+        stdout=out,
+        stderr=err,
+    )
     for input_file in get_test_files():
         _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
 
-    call_command("kt_ag_migrate_dossiers", stdout=out, stderr=err)
+    call_command(
+        "kt_ag_migrate_dossiers",
+        f"--json-target-dir={JSON_INPUT_DIR}",
+        stdout=out,
+        stderr=err,
+    )
+    for input_file in get_test_files():
+        _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
+
+    call_command(
+        "kt_ag_migrate_dossiers",
+        [f"--json-target-dir={JSON_INPUT_DIR}", "--skip-existing"],
+        stdout=out,
+        stderr=err,
+    )
     for input_file in get_test_files():
         _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
 

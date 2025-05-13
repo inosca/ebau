@@ -241,7 +241,8 @@ class CalumaAnswerWriter(FieldWriter):
         return value
 
     def write(self, instance, value):
-        if not value:
+        # allow False values for boolean answer mappings, but no other empty value
+        if not value and value is not False:
             return
 
         old_value = value
@@ -677,7 +678,7 @@ class DossierWriter:
 
     @transaction.atomic
     def import_dossier(
-        self, dossier: Dossier, import_session_id: str
+        self, dossier: Dossier, import_session_id: str, skip_existing=False
     ) -> DossierSummary:
         """Handle importing of a single dossier.
 
@@ -714,6 +715,16 @@ class DossierWriter:
         instance = None
         created = True
         if instance := self.existing_dossier(dossier.id):
+            if skip_existing:
+                dossier_summary.instance_id = instance.pk
+                dossier_summary.details.append(
+                    Message(
+                        level=Severity.WARNING.value,
+                        code="skipped",
+                        detail="",
+                    )
+                )
+                return dossier_summary
             created = False
             instance.case.meta["updated-with-import"] = import_session_id
             instance.case.save()

@@ -3,6 +3,7 @@ boto3==1.37.11
 caluma==11.3.0
 caluma-alexandria==7.2.2
 celery==5.4.0
+codetiming==1.4.0
 cryptography==44.0.2
 dataclasses-json==0.6.7
 deepmerge==2.0
