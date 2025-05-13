@@ -179,7 +179,7 @@
       "other_buildings_type_of_use": "Privat",
       "other_municipalities": [
           {
-              "value": "Aarburg"
+              "value": "4271"
           }
       ],
       "outside_building_zone_agricultural_use": true,
@@ -192,12 +192,12 @@
       "plot_data": [
           {
               "egrid": null,
-              "municipality": "Aarau",
+              "municipality": "4001",
               "number": "234234"
           },
           {
               "egrid": null,
-              "municipality": "Aarburg",
+              "municipality": "4271",
               "number": "123123"
           }
       ],
@@ -249,7 +249,7 @@
       ],
       "residential_use": true,
       "responsible": null,
-      "responsible_municipality": "Aarau",
+      "responsible_municipality": "4001",
       "safety_employees_affected": true,
       "safety_fire_protection_canton_required": true,
       "safety_fire_protection_communal_required": true,
@@ -583,7 +583,7 @@
       "other_buildings_type_of_use": null,
       "other_municipalities": [
           {
-              "value": "Aarburg"
+              "value": "4271"
           }
       ],
       "outside_building_zone_agricultural_use": null,
@@ -613,7 +613,7 @@
       "residence": [],
       "residential_use": null,
       "responsible": null,
-      "responsible_municipality": "Möhlin",
+      "responsible_municipality": "4254",
       "safety_employees_affected": null,
       "safety_fire_protection_canton_required": null,
       "safety_fire_protection_communal_required": null,
@@ -792,7 +792,7 @@
       "residence": [],
       "residential_use": null,
       "responsible": null,
-      "responsible_municipality": "Möhlin",
+      "responsible_municipality": "4254",
       "safety_employees_affected": null,
       "safety_fire_protection_canton_required": null,
       "safety_fire_protection_communal_required": null,
