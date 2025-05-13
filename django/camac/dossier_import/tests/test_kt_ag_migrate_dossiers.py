@@ -1,11 +1,12 @@
 import os
+import shutil
 from io import StringIO
 from typing import Any, Dict, List
 
 from caluma.caluma_form.models import Answer
 from django.core.management import call_command
 
-from camac.dossier_import.conftest import JSON_INPUT_DIR
+from camac.dossier_import.conftest import JSON_INPUT_DIR, TEST_IMPORT_FILE_PATH
 from camac.dossier_import.tests.test_utils import to_sorted_json
 from camac.instance.models import Instance
 from camac.tags.models import Keyword
@@ -45,7 +46,7 @@ def test_migrate_and_update_all(db, setup_dossier_import_ag, snapshot):
 
     call_command(
         "kt_ag_migrate_dossiers",
-        f"--json-target-dir={JSON_INPUT_DIR}",
+        f"--source-path={JSON_INPUT_DIR}",
         stdout=out,
         stderr=err,
     )
@@ -54,7 +55,7 @@ def test_migrate_and_update_all(db, setup_dossier_import_ag, snapshot):
 
     call_command(
         "kt_ag_migrate_dossiers",
-        f"--json-target-dir={JSON_INPUT_DIR}",
+        f"--source-path={JSON_INPUT_DIR}",
         stdout=out,
         stderr=err,
     )
@@ -63,12 +64,53 @@ def test_migrate_and_update_all(db, setup_dossier_import_ag, snapshot):
 
     call_command(
         "kt_ag_migrate_dossiers",
-        [f"--json-target-dir={JSON_INPUT_DIR}", "--skip-existing"],
+        [f"--source-path={JSON_INPUT_DIR}", "--skip-existing"],
         stdout=out,
         stderr=err,
     )
     for input_file in get_test_files():
         _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
+
+
+def test_migrate_from_zip(db, setup_dossier_import_ag, snapshot):
+    out = StringIO()
+    err = StringIO()
+    basepath = f"{TEST_IMPORT_FILE_PATH}/kt_ag_json_zip"
+    call_command(
+        "kt_ag_migrate_dossiers",
+        [f"--source-path={basepath}.zip"],
+        stdout=out,
+        stderr=err,
+    )
+    for input_file in get_test_files():
+        _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
+    if os.path.exists(basepath):
+        shutil.rmtree(basepath)
+
+
+def test_migrate_from_wrong_zip(db, setup_dossier_import_ag, snapshot):
+    out = StringIO()
+    err = StringIO()
+    basepath = f"{TEST_IMPORT_FILE_PATH}/kt_ag_json_wrongzip"
+    try:
+        call_command(
+            "kt_ag_migrate_dossiers",
+            [f"--source-path={basepath}.zip"],
+            stdout=out,
+            stderr=err,
+        )
+    except ValueError:
+        pass  # expected
+
+    assert (
+        f"Cannot find 'municipalities_counts.json' toplevel in extracted {basepath}. Aborting."
+        in err.getvalue()
+    )
+
+    for input_file in get_test_files():
+        _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
+    if os.path.exists(basepath):
+        shutil.rmtree(basepath)
 
 
 def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):

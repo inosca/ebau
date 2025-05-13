@@ -1,6 +1,8 @@
 import json
 import os
 import pprint
+import shutil
+import zipfile
 from datetime import datetime
 
 import pyexcel
@@ -61,9 +63,9 @@ class Command(BaseCommand):
             nargs=1,
         )
         parser.add_argument(
-            "--json-target-dir",
+            "--source-path",
             type=str,
-            help="The directory from that the segmented data will be imported",
+            help="The directory or .zip file (without toplevel directory) from that the segmented data will be imported.",
             nargs=1,
         )
         parser.add_argument(
@@ -80,7 +82,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.skip_existing = options.get("skip_existing")
         self.rm_file = options.get("rm")
-        self.json_target_dir = (options.get("json_target_dir") or [None])[0]
+        self.source_path = (options.get("source_path") or [None])[0]
 
         user, group = self._get_user_and_group()
         self._create_report()
@@ -99,9 +101,11 @@ class Command(BaseCommand):
             self._report_segment_result(dossier_import, "Unknown", "unknown")
 
         else:
-            if self.json_target_dir:
-                SAP_SETTINGS["json_target_dir"] = self.json_target_dir
+            if self.source_path:
+                self._unzip_source_if_needed()
+                SAP_SETTINGS["json_target_dir"] = self.source_path
             self.stdout.write(f"Importing all from {SAP_SETTINGS['json_target_dir']}")
+
             loader = KtAargauDossierLoader()
             self.count = 0
 
@@ -148,6 +152,26 @@ class Command(BaseCommand):
         )
         UserGroup.objects.create(user=user, group=group, default_group=1)
         return user
+
+    def _unzip_source_if_needed(self):
+        if self.source_path.lower().endswith(".zip"):
+            zip_path = self.source_path
+            base_dir = os.path.splitext(zip_path)[0]
+
+            if os.path.exists(base_dir):  # pragma: no cover
+                shutil.rmtree(base_dir)
+            os.makedirs(base_dir)
+
+            with zipfile.ZipFile(zip_path, "r") as zip_ref:
+                zip_ref.extractall(base_dir)
+
+            expected_file = os.path.join(base_dir, "municipalities_counts.json")
+            if not os.path.isfile(expected_file):
+                message = f"Cannot find 'municipalities_counts.json' toplevel in extracted {base_dir}. Aborting."
+                self.stderr.write(message)
+                raise ValueError(message)
+
+            self.source_path = base_dir
 
     def _dossier_imported(self, dossier: Dossier, message: DossierSummary):
         dossier: KtAargauDossier
