@@ -610,7 +610,10 @@ class DMSVisitor:
     def collect_field(self, field, flatten=False):
         # Build up basic return value
         ret = {
-            "label": str(field.question.label),
+            "label": str(
+                field.question.meta.get("printLabel", {}).get(get_language(), None)
+                or field.question.label
+            ),
             "slug": field.slug(),
             "type": "".join(
                 word.capitalize()

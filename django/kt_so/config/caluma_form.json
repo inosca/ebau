@@ -4,7 +4,7 @@
     "pk": "allgemeine-informationen",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2025-05-12T12:52:08.060Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34803,7 +34803,7 @@
     "pk": "absturzsicherung-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:25.888Z",
-      "modified_at": "2023-11-30T15:16:44.255Z",
+      "modified_at": "2025-05-13T08:38:38.715Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34818,7 +34818,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Absturzsicherung (BauAV) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -36420,7 +36424,7 @@
     "pk": "arbeitsraeume-relevant",
     "fields": {
       "created_at": "2023-11-30T13:08:13.894Z",
-      "modified_at": "2023-11-30T13:52:41.740Z",
+      "modified_at": "2025-05-13T08:17:51.255Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36435,7 +36439,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Arbeitsräume (Art. 5 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -40454,7 +40462,7 @@
     "pk": "besondere-gefahren-fuer-arbeitnehmende-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:25.961Z",
-      "modified_at": "2023-11-30T15:17:31.488Z",
+      "modified_at": "2025-05-13T08:39:25.932Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -40469,7 +40477,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Besondere Gefahren für Arbeitnehmende (Art. 31 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -42582,7 +42594,7 @@
     "pk": "druckbehaelter-druckgeraete-kompressoren-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:25.970Z",
-      "modified_at": "2023-11-30T15:18:13.641Z",
+      "modified_at": "2025-05-13T08:41:15.802Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -42597,7 +42609,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Druckbehälter, Druckgeräte, Kompressoren für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43443,7 +43459,7 @@
     "pk": "elektrische-installationen-in-feuchten-korrosions-feuer-oder-explosionsgefaehrdeten-raeumen-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:25.977Z",
-      "modified_at": "2023-11-30T15:19:25.337Z",
+      "modified_at": "2025-05-13T08:43:53.128Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43458,7 +43474,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Elektrische Installationen in feuchten, korrosions-, feuer- oder explosionsgefährdeten Räumen (Art.19 - 25 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43539,7 +43559,7 @@
     "pk": "elektrische-schweissanlagen-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:25.984Z",
-      "modified_at": "2023-11-30T15:20:23.382Z",
+      "modified_at": "2025-05-13T08:42:22.681Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -43554,7 +43574,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Elektrische Schweissanlagen für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -45857,7 +45881,7 @@
     "pk": "erste-hilfe-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:25.990Z",
-      "modified_at": "2023-11-30T15:15:51.399Z",
+      "modified_at": "2025-05-13T08:37:37.696Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45872,7 +45896,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Erste Hilfe (Art. 36 ArGV 3) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -46018,7 +46046,7 @@
     "pk": "ess-und-aufenthaltsraeume-pausenraeume-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:25.996Z",
-      "modified_at": "2023-11-30T15:15:39.755Z",
+      "modified_at": "2025-05-13T08:37:24.444Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -46033,7 +46061,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Ess- und Aufenthaltsräume, Pausenräume (Art. 29 und 33 ArGV 3) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -46577,10 +46609,10 @@
     "pk": "fenster-natuerliche-beleuchtung-relevant",
     "fields": {
       "created_at": "2023-11-30T14:05:49.547Z",
-      "modified_at": "2023-11-30T14:05:49.547Z",
+      "modified_at": "2025-05-13T08:18:44.517Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"F\\u00fcr die projektierten R\\u00e4ume relevant?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -46588,11 +46620,15 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Fenster, natürliche Beleuchtung (Art. 15 und 24 Abs. 5 ArGV 3, Art. 17 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -47012,7 +47048,7 @@
     "pk": "fluchtwege-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.002Z",
-      "modified_at": "2023-11-30T15:14:45.075Z",
+      "modified_at": "2025-05-13T08:22:32.109Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -47027,7 +47063,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Fluchtwege (Art. 6-10 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -47108,7 +47148,7 @@
     "pk": "foerderanlagen-foerdermittel-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.007Z",
-      "modified_at": "2023-11-30T15:20:31.120Z",
+      "modified_at": "2025-05-13T08:42:34.472Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -47123,7 +47163,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Förderanlagen, Fördermittel (Art.15 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -49148,7 +49192,7 @@
     "pk": "gesundheitsschaedliche-aetzende-brand-oder-explosionsgefaehrliche-stoffe-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.019Z",
-      "modified_at": "2023-11-30T15:17:11.278Z",
+      "modified_at": "2025-05-13T08:39:02.137Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -49163,7 +49207,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Gesundheitsschädliche, ätzende, brand- oder explosionsgefährliche Stoffe (Art. 19 - Art. 25 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -49449,7 +49497,7 @@
     "pk": "gleisanlagen-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.013Z",
-      "modified_at": "2023-11-30T15:20:38.911Z",
+      "modified_at": "2025-05-13T08:42:46.402Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -49464,7 +49512,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Gleisanlagen (Art. 13 und 14 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55316,7 +55368,7 @@
     "pk": "kuenstliche-beleuchtung-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.027Z",
-      "modified_at": "2023-11-30T15:13:05.245Z",
+      "modified_at": "2025-05-13T08:19:50.964Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55331,7 +55383,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Künstliche Beleuchtung (Art.15 ArGV 3) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55412,7 +55468,7 @@
     "pk": "kuenstliche-lueftung-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.033Z",
-      "modified_at": "2023-11-30T15:14:21.197Z",
+      "modified_at": "2025-05-13T08:21:27.669Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55427,7 +55483,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Künstliche Lüftung (Art. 16 und 17 ArGV 3, Art. 18 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55806,7 +55866,7 @@
     "pk": "lagerung-von-schuettgut-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.041Z",
-      "modified_at": "2023-11-30T15:20:46.409Z",
+      "modified_at": "2025-05-13T08:43:27.733Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55821,7 +55881,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Lagerung von Schüttgut für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -56738,7 +56802,7 @@
     "pk": "maschinen-maschinelle-einrichtungen-und-apparate-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.048Z",
-      "modified_at": "2023-11-30T15:17:49.145Z",
+      "modified_at": "2025-05-13T08:40:03.939Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -56753,7 +56817,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Maschinen, maschinelle Einrichtungen und Apparate für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -57209,7 +57277,7 @@
     "pk": "mechanische-und-automatische-lagersysteme-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.054Z",
-      "modified_at": "2023-11-30T15:20:53.943Z",
+      "modified_at": "2025-05-13T08:43:16.947Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -57224,7 +57292,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Mechanische und automatische Lagersysteme für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -57662,7 +57734,7 @@
     "pk": "mutterschutz-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.059Z",
-      "modified_at": "2023-11-30T15:16:03.555Z",
+      "modified_at": "2025-05-13T08:37:54.189Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -57677,7 +57749,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Mutterschutz (Art. 34 ArGV 3) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -58583,7 +58659,7 @@
     "pk": "natuerliche-lueftung-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.065Z",
-      "modified_at": "2023-11-30T15:14:09.997Z",
+      "modified_at": "2025-05-13T08:20:56.907Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -58598,7 +58674,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Natürliche Lüftung (Art. 17 ArGV 3, Art. 17 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59159,7 +59239,7 @@
     "pk": "nichtraucherschutz-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.071Z",
-      "modified_at": "2023-11-30T15:16:17.947Z",
+      "modified_at": "2025-05-13T08:38:12.017Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59174,7 +59254,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Nichtraucherschutz (Schutz vor Passivrauchen SR 818.31, Passivraucherschutzverordnung PaRV SR 818.311) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59386,7 +59470,7 @@
     "pk": "notbeleuchtung-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.080Z",
-      "modified_at": "2023-11-30T15:14:55.245Z",
+      "modified_at": "2025-05-13T08:28:20.775Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59401,7 +59485,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Notbeleuchtung (Art. 15 ArGV 3) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59584,19 +59672,19 @@
     "pk": "nutzungsplanung-grundnutzung-kanton",
     "fields": {
       "created_at": "2024-09-05T11:48:27.157Z",
-      "modified_at": "2024-09-05T11:48:27.157Z",
+      "modified_at": "2025-05-13T10:11:26.445Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nutzungsplanung (Grundnutzung) (Kanton)\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -59727,7 +59815,7 @@
     "pk": "oberflaechenbehandlungsanlagen-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.086Z",
-      "modified_at": "2023-11-30T15:21:01.429Z",
+      "modified_at": "2025-05-13T08:42:08.222Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59742,7 +59830,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Oberflächenbehandlungsanlagen für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -59947,7 +60039,7 @@
     "pk": "oertliche-absaugung-verunreinigter-luft-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.092Z",
-      "modified_at": "2023-11-30T15:14:32.900Z",
+      "modified_at": "2025-05-13T08:21:51.420Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59962,7 +60054,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Örtliche Absaugung verunreinigter Luft (Art.18 ArGV 3, Art. 18 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -60382,7 +60478,7 @@
     "pk": "persoenliche-schutzausruestungen-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.098Z",
-      "modified_at": "2023-11-30T15:16:31.500Z",
+      "modified_at": "2025-05-13T08:38:26.761Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -60397,7 +60493,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Persönliche Schutzausrüstungen (Art. 27 ArGV 3) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -61237,7 +61337,7 @@
     "pk": "raumklima-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.104Z",
-      "modified_at": "2023-11-30T15:13:48.838Z",
+      "modified_at": "2025-05-13T08:20:20.029Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -61252,7 +61352,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Raumklima (Art. 16 ArGV 3) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -61627,7 +61731,7 @@
     "pk": "sanitaere-anlagen-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.110Z",
-      "modified_at": "2023-11-30T15:15:21.661Z",
+      "modified_at": "2025-05-13T08:37:05.011Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -61642,7 +61746,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Sanitäre Anlagen (Art. 29 - 32 ArGV 3) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -62305,7 +62413,7 @@
     "pk": "sonnenschutz-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.116Z",
-      "modified_at": "2023-11-30T15:12:48.528Z",
+      "modified_at": "2025-05-13T08:19:15.646Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62320,7 +62428,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Sonnenschutz (Art. 17 Abs.5 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -63078,7 +63190,7 @@
     "pk": "technische-feuerungsanlagen-waermebehandlungs-und-trocknungsanlagen-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.123Z",
-      "modified_at": "2023-11-30T15:18:32.614Z",
+      "modified_at": "2025-05-13T08:41:50.720Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63093,7 +63205,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Technische Feuerungsanlagen, Wärmebehandlungs- und Trocknungsanlagen für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -63174,7 +63290,7 @@
     "pk": "technische-gase-und-fluessiggas-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.129Z",
-      "modified_at": "2023-11-30T15:21:11.861Z",
+      "modified_at": "2025-05-13T08:42:59.859Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -63189,7 +63305,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Technische Gase und Flüssiggas für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -64044,7 +64164,7 @@
     "pk": "tueren-und-tore-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.135Z",
-      "modified_at": "2023-11-30T15:15:09.941Z",
+      "modified_at": "2025-05-13T08:36:53.018Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -64059,7 +64179,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Türen und Tore (Art. 10 ArGV 4) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -66153,7 +66277,7 @@
     "pk": "vorkehren-gegen-laerm-und-erschuetterung-relevant",
     "fields": {
       "created_at": "2023-11-30T15:03:26.141Z",
-      "modified_at": "2023-11-30T15:16:56.754Z",
+      "modified_at": "2025-05-13T08:38:52.284Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -66168,7 +66292,11 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "printLabel": {
+          "de": "Vorkehren gegen Lärm und Erschütterung (Art. 22 ArGV 3) für die projektierten Räume relevant?"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -68060,8 +68188,8 @@
     "model": "caluma_form.questionoption",
     "pk": "absturzsicherung-relevant.absturzsicherung-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:16:44.271Z",
-      "modified_at": "2023-11-30T15:16:44.271Z",
+      "created_at": "2025-05-13T08:38:38.723Z",
+      "modified_at": "2025-05-13T08:38:38.724Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -68075,8 +68203,8 @@
     "model": "caluma_form.questionoption",
     "pk": "absturzsicherung-relevant.absturzsicherung-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:16:44.266Z",
-      "modified_at": "2023-11-30T15:16:44.266Z",
+      "created_at": "2025-05-13T08:38:38.720Z",
+      "modified_at": "2025-05-13T08:38:38.720Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -68735,8 +68863,8 @@
     "model": "caluma_form.questionoption",
     "pk": "arbeitsraeume-relevant.arbeitsraeume-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T13:52:41.758Z",
-      "modified_at": "2023-11-30T13:52:41.758Z",
+      "created_at": "2025-05-13T08:17:51.264Z",
+      "modified_at": "2025-05-13T08:17:51.264Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -68750,8 +68878,8 @@
     "model": "caluma_form.questionoption",
     "pk": "arbeitsraeume-relevant.arbeitsraeume-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T13:52:41.753Z",
-      "modified_at": "2023-11-30T13:52:41.753Z",
+      "created_at": "2025-05-13T08:17:51.261Z",
+      "modified_at": "2025-05-13T08:17:51.261Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70595,8 +70723,8 @@
     "model": "caluma_form.questionoption",
     "pk": "besondere-gefahren-fuer-arbeitnehmende-relevant.besondere-gefahren-fuer-arbeitnehmende-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:17:31.501Z",
-      "modified_at": "2023-11-30T15:17:31.501Z",
+      "created_at": "2025-05-13T08:39:25.945Z",
+      "modified_at": "2025-05-13T08:39:25.945Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70610,8 +70738,8 @@
     "model": "caluma_form.questionoption",
     "pk": "besondere-gefahren-fuer-arbeitnehmende-relevant.besondere-gefahren-fuer-arbeitnehmende-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:17:31.496Z",
-      "modified_at": "2023-11-30T15:17:31.497Z",
+      "created_at": "2025-05-13T08:39:25.942Z",
+      "modified_at": "2025-05-13T08:39:25.942Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71180,8 +71308,8 @@
     "model": "caluma_form.questionoption",
     "pk": "druckbehaelter-druckgeraete-kompressoren-relevant.druckbehaelter-druckgeraete-kompressoren-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:18:13.657Z",
-      "modified_at": "2023-11-30T15:18:13.657Z",
+      "created_at": "2025-05-13T08:41:15.818Z",
+      "modified_at": "2025-05-13T08:41:15.818Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71195,8 +71323,8 @@
     "model": "caluma_form.questionoption",
     "pk": "druckbehaelter-druckgeraete-kompressoren-relevant.druckbehaelter-druckgeraete-kompressoren-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:18:13.652Z",
-      "modified_at": "2023-11-30T15:18:13.652Z",
+      "created_at": "2025-05-13T08:41:15.813Z",
+      "modified_at": "2025-05-13T08:41:15.813Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71450,8 +71578,8 @@
     "model": "caluma_form.questionoption",
     "pk": "elektrische-installationen-in-feuchten-korrosions-feuer-oder-explosionsgefaehrdeten-raeumen-relevant.elektrische-installationen-in-feuchten-korrosions-feuer-oder-explosionsgefaehrdeten-raeumen-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:19:25.350Z",
-      "modified_at": "2023-11-30T15:19:25.350Z",
+      "created_at": "2025-05-13T08:43:53.146Z",
+      "modified_at": "2025-05-13T08:43:53.146Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71465,8 +71593,8 @@
     "model": "caluma_form.questionoption",
     "pk": "elektrische-installationen-in-feuchten-korrosions-feuer-oder-explosionsgefaehrdeten-raeumen-relevant.elektrische-installationen-in-feuchten-korrosions-feuer-oder-explosionsgefaehrdeten-raeumen-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:19:25.346Z",
-      "modified_at": "2023-11-30T15:19:25.346Z",
+      "created_at": "2025-05-13T08:43:53.141Z",
+      "modified_at": "2025-05-13T08:43:53.141Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71480,8 +71608,8 @@
     "model": "caluma_form.questionoption",
     "pk": "elektrische-schweissanlagen-relevant.elektrische-schweissanlagen-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:20:23.396Z",
-      "modified_at": "2023-11-30T15:20:23.396Z",
+      "created_at": "2025-05-13T08:42:22.689Z",
+      "modified_at": "2025-05-13T08:42:22.689Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71495,8 +71623,8 @@
     "model": "caluma_form.questionoption",
     "pk": "elektrische-schweissanlagen-relevant.elektrische-schweissanlagen-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:20:23.392Z",
-      "modified_at": "2023-11-30T15:20:23.392Z",
+      "created_at": "2025-05-13T08:42:22.687Z",
+      "modified_at": "2025-05-13T08:42:22.687Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71975,8 +72103,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erste-hilfe-relevant.erste-hilfe-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:15:51.417Z",
-      "modified_at": "2023-11-30T15:15:51.417Z",
+      "created_at": "2025-05-13T08:37:37.711Z",
+      "modified_at": "2025-05-13T08:37:37.711Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -71990,8 +72118,8 @@
     "model": "caluma_form.questionoption",
     "pk": "erste-hilfe-relevant.erste-hilfe-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:15:51.411Z",
-      "modified_at": "2023-11-30T15:15:51.411Z",
+      "created_at": "2025-05-13T08:37:37.706Z",
+      "modified_at": "2025-05-13T08:37:37.706Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72035,8 +72163,8 @@
     "model": "caluma_form.questionoption",
     "pk": "ess-und-aufenthaltsraeume-pausenraeume-relevant.ess-und-aufenthaltsraeume-pausenraeume-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:15:39.767Z",
-      "modified_at": "2023-11-30T15:15:39.767Z",
+      "created_at": "2025-05-13T08:37:24.458Z",
+      "modified_at": "2025-05-13T08:37:24.458Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72050,8 +72178,8 @@
     "model": "caluma_form.questionoption",
     "pk": "ess-und-aufenthaltsraeume-pausenraeume-relevant.ess-und-aufenthaltsraeume-pausenraeume-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:15:39.763Z",
-      "modified_at": "2023-11-30T15:15:39.763Z",
+      "created_at": "2025-05-13T08:37:24.454Z",
+      "modified_at": "2025-05-13T08:37:24.454Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72320,8 +72448,8 @@
     "model": "caluma_form.questionoption",
     "pk": "fenster-natuerliche-beleuchtung-relevant.fenster-natuerliche-beleuchtung-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T14:05:49.563Z",
-      "modified_at": "2023-11-30T14:05:49.563Z",
+      "created_at": "2025-05-13T08:18:44.526Z",
+      "modified_at": "2025-05-13T08:18:44.526Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72335,8 +72463,8 @@
     "model": "caluma_form.questionoption",
     "pk": "fenster-natuerliche-beleuchtung-relevant.fenster-natuerliche-beleuchtung-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T14:05:49.556Z",
-      "modified_at": "2023-11-30T14:05:49.557Z",
+      "created_at": "2025-05-13T08:18:44.523Z",
+      "modified_at": "2025-05-13T08:18:44.523Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72440,8 +72568,8 @@
     "model": "caluma_form.questionoption",
     "pk": "fluchtwege-relevant.fluchtwege-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:14:45.089Z",
-      "modified_at": "2023-11-30T15:14:45.089Z",
+      "created_at": "2025-05-13T08:22:32.123Z",
+      "modified_at": "2025-05-13T08:22:32.123Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72455,8 +72583,8 @@
     "model": "caluma_form.questionoption",
     "pk": "fluchtwege-relevant.fluchtwege-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:14:45.084Z",
-      "modified_at": "2023-11-30T15:14:45.084Z",
+      "created_at": "2025-05-13T08:22:32.119Z",
+      "modified_at": "2025-05-13T08:22:32.119Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72470,8 +72598,8 @@
     "model": "caluma_form.questionoption",
     "pk": "foerderanlagen-foerdermittel-relevant.foerderanlagen-foerdermittel-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:20:31.141Z",
-      "modified_at": "2023-11-30T15:20:31.141Z",
+      "created_at": "2025-05-13T08:42:34.480Z",
+      "modified_at": "2025-05-13T08:42:34.480Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72485,8 +72613,8 @@
     "model": "caluma_form.questionoption",
     "pk": "foerderanlagen-foerdermittel-relevant.foerderanlagen-foerdermittel-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:20:31.130Z",
-      "modified_at": "2023-11-30T15:20:31.130Z",
+      "created_at": "2025-05-13T08:42:34.478Z",
+      "modified_at": "2025-05-13T08:42:34.478Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -73085,8 +73213,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gesundheitsschaedliche-aetzende-brand-oder-explosionsgefaehrliche-stoffe-relevant.gesundheitsschaedliche-aetzende-brand-oder-explosionsgefaehrliche-stoffe-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:17:11.290Z",
-      "modified_at": "2023-11-30T15:17:11.290Z",
+      "created_at": "2025-05-13T08:39:02.152Z",
+      "modified_at": "2025-05-13T08:39:02.152Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -73100,8 +73228,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gesundheitsschaedliche-aetzende-brand-oder-explosionsgefaehrliche-stoffe-relevant.gesundheitsschaedliche-aetzende-brand-oder-explosionsgefaehrliche-stoffe-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:17:11.285Z",
-      "modified_at": "2023-11-30T15:17:11.285Z",
+      "created_at": "2025-05-13T08:39:02.147Z",
+      "modified_at": "2025-05-13T08:39:02.147Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -73115,8 +73243,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gleisanlagen-relevant.gleisanlagen-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:20:38.927Z",
-      "modified_at": "2023-11-30T15:20:38.927Z",
+      "created_at": "2025-05-13T08:42:46.411Z",
+      "modified_at": "2025-05-13T08:42:46.411Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -73130,8 +73258,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gleisanlagen-relevant.gleisanlagen-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:20:38.921Z",
-      "modified_at": "2023-11-30T15:20:38.921Z",
+      "created_at": "2025-05-13T08:42:46.408Z",
+      "modified_at": "2025-05-13T08:42:46.408Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74165,8 +74293,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kuenstliche-beleuchtung-relevant.kuenstliche-beleuchtung-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:13:05.258Z",
-      "modified_at": "2023-11-30T15:13:05.258Z",
+      "created_at": "2025-05-13T08:19:50.975Z",
+      "modified_at": "2025-05-13T08:19:50.975Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74180,8 +74308,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kuenstliche-beleuchtung-relevant.kuenstliche-beleuchtung-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:13:05.253Z",
-      "modified_at": "2023-11-30T15:13:05.253Z",
+      "created_at": "2025-05-13T08:19:50.972Z",
+      "modified_at": "2025-05-13T08:19:50.972Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74195,8 +74323,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kuenstliche-lueftung-relevant.kuenstliche-lueftung-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:14:21.209Z",
-      "modified_at": "2023-11-30T15:14:21.209Z",
+      "created_at": "2025-05-13T08:21:27.678Z",
+      "modified_at": "2025-05-13T08:21:27.678Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74210,8 +74338,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kuenstliche-lueftung-relevant.kuenstliche-lueftung-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:14:21.204Z",
-      "modified_at": "2023-11-30T15:14:21.204Z",
+      "created_at": "2025-05-13T08:21:27.676Z",
+      "modified_at": "2025-05-13T08:21:27.676Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74285,8 +74413,8 @@
     "model": "caluma_form.questionoption",
     "pk": "lagerung-von-schuettgut-relevant.lagerung-von-schuettgut-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:20:46.429Z",
-      "modified_at": "2023-11-30T15:20:46.429Z",
+      "created_at": "2025-05-13T08:43:27.748Z",
+      "modified_at": "2025-05-13T08:43:27.748Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74300,8 +74428,8 @@
     "model": "caluma_form.questionoption",
     "pk": "lagerung-von-schuettgut-relevant.lagerung-von-schuettgut-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:20:46.423Z",
-      "modified_at": "2023-11-30T15:20:46.423Z",
+      "created_at": "2025-05-13T08:43:27.742Z",
+      "modified_at": "2025-05-13T08:43:27.742Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74525,8 +74653,8 @@
     "model": "caluma_form.questionoption",
     "pk": "maschinen-maschinelle-einrichtungen-und-apparate-relevant.maschinen-maschinelle-einrichtungen-und-apparate-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:17:49.159Z",
-      "modified_at": "2023-11-30T15:17:49.159Z",
+      "created_at": "2025-05-13T08:40:03.949Z",
+      "modified_at": "2025-05-13T08:40:03.949Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74540,8 +74668,8 @@
     "model": "caluma_form.questionoption",
     "pk": "maschinen-maschinelle-einrichtungen-und-apparate-relevant.maschinen-maschinelle-einrichtungen-und-apparate-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:17:49.154Z",
-      "modified_at": "2023-11-30T15:17:49.154Z",
+      "created_at": "2025-05-13T08:40:03.946Z",
+      "modified_at": "2025-05-13T08:40:03.946Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74630,8 +74758,8 @@
     "model": "caluma_form.questionoption",
     "pk": "mechanische-und-automatische-lagersysteme-relevant.mechanische-und-automatische-lagersysteme-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:20:53.957Z",
-      "modified_at": "2023-11-30T15:20:53.957Z",
+      "created_at": "2025-05-13T08:43:16.959Z",
+      "modified_at": "2025-05-13T08:43:16.959Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74645,8 +74773,8 @@
     "model": "caluma_form.questionoption",
     "pk": "mechanische-und-automatische-lagersysteme-relevant.mechanische-und-automatische-lagersysteme-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:20:53.951Z",
-      "modified_at": "2023-11-30T15:20:53.952Z",
+      "created_at": "2025-05-13T08:43:16.956Z",
+      "modified_at": "2025-05-13T08:43:16.956Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74915,8 +75043,8 @@
     "model": "caluma_form.questionoption",
     "pk": "mutterschutz-relevant.mutterschutz-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:16:03.568Z",
-      "modified_at": "2023-11-30T15:16:03.568Z",
+      "created_at": "2025-05-13T08:37:54.200Z",
+      "modified_at": "2025-05-13T08:37:54.200Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74930,8 +75058,8 @@
     "model": "caluma_form.questionoption",
     "pk": "mutterschutz-relevant.mutterschutz-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:16:03.563Z",
-      "modified_at": "2023-11-30T15:16:03.563Z",
+      "created_at": "2025-05-13T08:37:54.197Z",
+      "modified_at": "2025-05-13T08:37:54.197Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75275,8 +75403,8 @@
     "model": "caluma_form.questionoption",
     "pk": "natuerliche-lueftung-relevant.natuerliche-lueftung-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:14:10.015Z",
-      "modified_at": "2023-11-30T15:14:10.015Z",
+      "created_at": "2025-05-13T08:20:56.917Z",
+      "modified_at": "2025-05-13T08:20:56.917Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75290,8 +75418,8 @@
     "model": "caluma_form.questionoption",
     "pk": "natuerliche-lueftung-relevant.natuerliche-lueftung-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:14:10.008Z",
-      "modified_at": "2023-11-30T15:14:10.008Z",
+      "created_at": "2025-05-13T08:20:56.914Z",
+      "modified_at": "2025-05-13T08:20:56.914Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75530,8 +75658,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nichtraucherschutz-relevant.nichtraucherschutz-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:16:17.959Z",
-      "modified_at": "2023-11-30T15:16:17.959Z",
+      "created_at": "2025-05-13T08:38:12.030Z",
+      "modified_at": "2025-05-13T08:38:12.030Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75545,8 +75673,8 @@
     "model": "caluma_form.questionoption",
     "pk": "nichtraucherschutz-relevant.nichtraucherschutz-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:16:17.955Z",
-      "modified_at": "2023-11-30T15:16:17.955Z",
+      "created_at": "2025-05-13T08:38:12.027Z",
+      "modified_at": "2025-05-13T08:38:12.027Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75635,8 +75763,8 @@
     "model": "caluma_form.questionoption",
     "pk": "notbeleuchtung-relevant.notbeleuchtung-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:14:55.256Z",
-      "modified_at": "2023-11-30T15:14:55.256Z",
+      "created_at": "2025-05-13T08:28:20.791Z",
+      "modified_at": "2025-05-13T08:28:20.791Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75650,8 +75778,8 @@
     "model": "caluma_form.questionoption",
     "pk": "notbeleuchtung-relevant.notbeleuchtung-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:14:55.252Z",
-      "modified_at": "2023-11-30T15:14:55.252Z",
+      "created_at": "2025-05-13T08:28:20.786Z",
+      "modified_at": "2025-05-13T08:28:20.786Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75860,8 +75988,8 @@
     "model": "caluma_form.questionoption",
     "pk": "oberflaechenbehandlungsanlagen-relevant.oberflaechenbehandlungsanlagen-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:21:01.445Z",
-      "modified_at": "2023-11-30T15:21:01.445Z",
+      "created_at": "2025-05-13T08:42:08.235Z",
+      "modified_at": "2025-05-13T08:42:08.235Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -75875,8 +76003,8 @@
     "model": "caluma_form.questionoption",
     "pk": "oberflaechenbehandlungsanlagen-relevant.oberflaechenbehandlungsanlagen-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:21:01.439Z",
-      "modified_at": "2023-11-30T15:21:01.439Z",
+      "created_at": "2025-05-13T08:42:08.230Z",
+      "modified_at": "2025-05-13T08:42:08.230Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76010,8 +76138,8 @@
     "model": "caluma_form.questionoption",
     "pk": "oertliche-absaugung-verunreinigter-luft-relevant.oertliche-absaugung-verunreinigter-luft-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:14:32.912Z",
-      "modified_at": "2023-11-30T15:14:32.912Z",
+      "created_at": "2025-05-13T08:21:51.429Z",
+      "modified_at": "2025-05-13T08:21:51.429Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76025,8 +76153,8 @@
     "model": "caluma_form.questionoption",
     "pk": "oertliche-absaugung-verunreinigter-luft-relevant.oertliche-absaugung-verunreinigter-luft-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:14:32.908Z",
-      "modified_at": "2023-11-30T15:14:32.908Z",
+      "created_at": "2025-05-13T08:21:51.426Z",
+      "modified_at": "2025-05-13T08:21:51.426Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76070,8 +76198,8 @@
     "model": "caluma_form.questionoption",
     "pk": "persoenliche-schutzausruestungen-relevant.persoenliche-schutzausruestungen-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:16:31.514Z",
-      "modified_at": "2023-11-30T15:16:31.514Z",
+      "created_at": "2025-05-13T08:38:26.774Z",
+      "modified_at": "2025-05-13T08:38:26.774Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76085,8 +76213,8 @@
     "model": "caluma_form.questionoption",
     "pk": "persoenliche-schutzausruestungen-relevant.persoenliche-schutzausruestungen-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:16:31.509Z",
-      "modified_at": "2023-11-30T15:16:31.509Z",
+      "created_at": "2025-05-13T08:38:26.770Z",
+      "modified_at": "2025-05-13T08:38:26.770Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76475,8 +76603,8 @@
     "model": "caluma_form.questionoption",
     "pk": "raumklima-relevant.raumklima-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:13:48.851Z",
-      "modified_at": "2023-11-30T15:13:48.851Z",
+      "created_at": "2025-05-13T08:20:20.044Z",
+      "modified_at": "2025-05-13T08:20:20.044Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76490,8 +76618,8 @@
     "model": "caluma_form.questionoption",
     "pk": "raumklima-relevant.raumklima-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:13:48.847Z",
-      "modified_at": "2023-11-30T15:13:48.847Z",
+      "created_at": "2025-05-13T08:20:20.039Z",
+      "modified_at": "2025-05-13T08:20:20.039Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76685,8 +76813,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sanitaere-anlagen-relevant.sanitaere-anlagen-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:15:21.676Z",
-      "modified_at": "2023-11-30T15:15:21.676Z",
+      "created_at": "2025-05-13T08:37:05.021Z",
+      "modified_at": "2025-05-13T08:37:05.021Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -76700,8 +76828,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sanitaere-anlagen-relevant.sanitaere-anlagen-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:15:21.670Z",
-      "modified_at": "2023-11-30T15:15:21.670Z",
+      "created_at": "2025-05-13T08:37:05.018Z",
+      "modified_at": "2025-05-13T08:37:05.018Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77000,8 +77128,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sonnenschutz-relevant.sonnenschutz-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:12:48.541Z",
-      "modified_at": "2023-11-30T15:12:48.541Z",
+      "created_at": "2025-05-13T08:19:15.657Z",
+      "modified_at": "2025-05-13T08:19:15.657Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77015,8 +77143,8 @@
     "model": "caluma_form.questionoption",
     "pk": "sonnenschutz-relevant.sonnenschutz-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:12:48.536Z",
-      "modified_at": "2023-11-30T15:12:48.536Z",
+      "created_at": "2025-05-13T08:19:15.652Z",
+      "modified_at": "2025-05-13T08:19:15.652Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77465,8 +77593,8 @@
     "model": "caluma_form.questionoption",
     "pk": "technische-feuerungsanlagen-waermebehandlungs-und-trocknungsanlagen-relevant.technische-feuerungsanlagen-waermebehandlungs-und-trocknungsanlagen-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:18:32.627Z",
-      "modified_at": "2023-11-30T15:18:32.627Z",
+      "created_at": "2025-05-13T08:41:50.729Z",
+      "modified_at": "2025-05-13T08:41:50.729Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77480,8 +77608,8 @@
     "model": "caluma_form.questionoption",
     "pk": "technische-feuerungsanlagen-waermebehandlungs-und-trocknungsanlagen-relevant.technische-feuerungsanlagen-waermebehandlungs-und-trocknungsanlagen-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:18:32.623Z",
-      "modified_at": "2023-11-30T15:18:32.623Z",
+      "created_at": "2025-05-13T08:41:50.726Z",
+      "modified_at": "2025-05-13T08:41:50.726Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77495,8 +77623,8 @@
     "model": "caluma_form.questionoption",
     "pk": "technische-gase-und-fluessiggas-relevant.technische-gase-und-fluessiggas-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:21:11.876Z",
-      "modified_at": "2023-11-30T15:21:11.876Z",
+      "created_at": "2025-05-13T08:42:59.872Z",
+      "modified_at": "2025-05-13T08:42:59.872Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77510,8 +77638,8 @@
     "model": "caluma_form.questionoption",
     "pk": "technische-gase-und-fluessiggas-relevant.technische-gase-und-fluessiggas-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:21:11.870Z",
-      "modified_at": "2023-11-30T15:21:11.870Z",
+      "created_at": "2025-05-13T08:42:59.868Z",
+      "modified_at": "2025-05-13T08:42:59.868Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77945,8 +78073,8 @@
     "model": "caluma_form.questionoption",
     "pk": "tueren-und-tore-relevant.tueren-und-tore-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:15:09.955Z",
-      "modified_at": "2023-11-30T15:15:09.955Z",
+      "created_at": "2025-05-13T08:36:53.033Z",
+      "modified_at": "2025-05-13T08:36:53.033Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -77960,8 +78088,8 @@
     "model": "caluma_form.questionoption",
     "pk": "tueren-und-tore-relevant.tueren-und-tore-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:15:09.950Z",
-      "modified_at": "2023-11-30T15:15:09.950Z",
+      "created_at": "2025-05-13T08:36:53.028Z",
+      "modified_at": "2025-05-13T08:36:53.029Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -79325,8 +79453,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorkehren-gegen-laerm-und-erschuetterung-relevant.vorkehren-gegen-laerm-und-erschuetterung-relevant-ja",
     "fields": {
-      "created_at": "2023-11-30T15:16:56.768Z",
-      "modified_at": "2023-11-30T15:16:56.768Z",
+      "created_at": "2025-05-13T08:38:52.297Z",
+      "modified_at": "2025-05-13T08:38:52.297Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -79340,8 +79468,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorkehren-gegen-laerm-und-erschuetterung-relevant.vorkehren-gegen-laerm-und-erschuetterung-relevant-nein",
     "fields": {
-      "created_at": "2023-11-30T15:16:56.763Z",
-      "modified_at": "2023-11-30T15:16:56.763Z",
+      "created_at": "2025-05-13T08:38:52.294Z",
+      "modified_at": "2025-05-13T08:38:52.294Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
