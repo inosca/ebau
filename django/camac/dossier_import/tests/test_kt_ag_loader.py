@@ -15,6 +15,7 @@ def test_simple_mapping(snapshot):
             "BVUAFBNR": "BVUAFB.21.104",
             "EINDAT": "20210629",
             "CITY": "Möhlin",
+            "CITY_ID": "4254",
             "PROFIL_KTR": "00000000",
             "STANDORTE": [
                 {
@@ -24,6 +25,7 @@ def test_simple_mapping(snapshot):
                     "KOORDL": "2480000",
                     "POSTAL_CODE": "4663",
                     "CITY": "Möhlin",
+                    "CITY_ID": "4254",
                 }
             ],
         }
@@ -56,21 +58,25 @@ def test_mapping_for_multiple_locations(snapshot):
     result: Dossier = KtAargauDossierLoader.map_data(
         {
             "CITY": "Möhlin",
+            "CITY_ID": "4254",
             "STANDORTE": [
                 {
                     "STRASSE": "Andere Strasse",
                     "STRASNR": "5",
                     "CITY": "Aarburg",
+                    "CITY_ID": "4271",
                 },
                 {
                     "STRASSE": "Musterstrasse",
                     "STRASNR": "1",
                     "CITY": "Möhlin",
+                    "CITY_ID": "4254",
                 },
                 {
                     "STRASSE": "Nicht gematchte Strasse",
                     "STRASNR": "11",
                     "CITY": "Möhlin",
+                    "CITY_ID": "4254",
                 },
             ],
         }
@@ -89,6 +95,7 @@ def test_all_mappings(snapshot):
             "GEMEINDE_BG": "2021-344",
             "EINDAT": "20210629",
             "CITY": "Aarau",
+            "CITY_ID": "4001",
             "ERFGRND": "Nacherfassung",
             "VERFTYP": "Ordentlich",
             "TXT30": "Verfügung erstellt",
@@ -118,6 +125,7 @@ def test_all_mappings(snapshot):
                     "PARZNR": "123123",
                     "PARZM2": "",
                     "CITY": "Aarburg",
+                    "CITY_ID": "4271",
                 },
                 {
                     "SGUID": "3ed4fbbd-e6a5-4daf-a5dc-177fc47e",
@@ -125,6 +133,7 @@ def test_all_mappings(snapshot):
                     "PARZNR": "234234",
                     "PARZM2": "",
                     "CITY": "Aarau",
+                    "CITY_ID": "4001",
                 },
             ],
             "STANDORTE": [
@@ -136,6 +145,7 @@ def test_all_mappings(snapshot):
                     "KOORDB": "1111",
                     "KOORDL": "1111",
                     "CITY": "Aarburg",
+                    "CITY_ID": "4271",
                 },
                 {
                     "STRASSE": "Aarau-Mapping-Str. 1",
@@ -145,6 +155,7 @@ def test_all_mappings(snapshot):
                     "KOORDB": "2635136",
                     "KOORDL": "1240872",
                     "CITY": "Aarau",
+                    "CITY_ID": "4001",
                 },
             ],
             "KONTAKTE": [
