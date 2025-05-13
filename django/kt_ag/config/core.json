@@ -378,6 +378,22 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 22000007,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 22,
+      "form_group": 2000000,
+      "require_permission": "complete-instance-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 23000000,
     "fields": {
       "available_instance_resource": "page",
@@ -606,6 +622,16 @@
   },
   {
     "model": "core.instanceresourcet",
+    "pk": 22000007,
+    "fields": {
+      "instance_resource": 22000007,
+      "language": "de",
+      "name": "Verfahren abschliessen",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
     "pk": 23000000,
     "fields": {
       "instance_resource": 23000000,
@@ -656,10 +682,17 @@
     }
   },
   {
+    "model": "core.irtaskform",
+    "pk": 22000007,
+    "fields": {
+      "task": "complete-instance"
+    }
+  },
+  {
     "model": "core.remberlist",
     "pk": 2000001,
     "fields": {
-      "instance_states": "1,120004,120005,120006,120007,120008,120009,120010,120011,120012,120013"
+      "instance_states": "1,120004,120005,120006,120007,120008,120009,120010,120011,120012,120013,120014"
     }
   },
   {

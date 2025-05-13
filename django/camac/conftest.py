@@ -741,8 +741,10 @@ def caluma_workflow_config_ag(
 
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
+    migration_bg_form = caluma_form_models.Form.objects.get(pk="baugesuch-migration")
+    migration_uvp_form = caluma_form_models.Form.objects.get(pk="uvp-migration")
 
-    workflow.allow_forms.set([main_form])
+    workflow.allow_forms.set([main_form, migration_bg_form, migration_uvp_form])
     workflow.save()
 
     yield workflow
@@ -1183,6 +1185,9 @@ def caluma_forms_ag(settings, caluma_form_factory):
         "plangenehmigungsverfahren-gas",
         "reklame",
         "vorentscheid",
+        "baugesuch-migration",
+        "uvp-migration",
+        "internes-dossier",
         # Task forms
         "entscheid",
         "kantonale-pruefung",
@@ -1190,6 +1195,7 @@ def caluma_forms_ag(settings, caluma_form_factory):
         "publikation",
         "nachbarschaftsorientierung",
         "einwendungen",
+        "complete-instance",
     ]:
         caluma_form_models.Form.objects.create(slug=slug)
 
@@ -1203,6 +1209,12 @@ def caluma_forms_ag(settings, caluma_form_factory):
         type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
         data_source="Municipalities",
     )
+
+    caluma_form_models.FormQuestion.objects.create(
+        form_id="internes-dossier",
+        question_id="gemeinde",
+    )
+
     settings.DATA_SOURCE_CLASSES = [
         "camac.caluma.extensions.data_sources.Municipalities"
     ]

@@ -81,6 +81,7 @@ class InstanceState(core_models.MultilingualModel, models.Model):
     class Meta:
         managed = True
         db_table = "INSTANCE_STATE"
+        ordering = ("sort",)
 
 
 class InstanceStateT(models.Model):
