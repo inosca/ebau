@@ -117,6 +117,8 @@
 
                     <span class="text kc-feedback-text">${message.summary?no_esc}</span>
                   </div>
+                <#else>
+                    <b><#nested "header"></b>
                 </#if>
 
                 <#nested "form">
