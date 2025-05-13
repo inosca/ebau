@@ -175,22 +175,23 @@ class KtSchwyzDossierWriter(DossierWriter):
             ).values_list("value", flat=True)
         )
 
-    def existing_dossier(self, dossier_id):
+    def find_existing_instance(self, dossier, user):
         return Instance.objects.filter(
             fields__name="kommunale-gesuchsnummer",
-            fields__value=dossier_id,
+            fields__value=dossier.id,
             group_id=self._group.pk,
         ).first()
 
-    def set_dossier_id(self, instance, dossier_id):
+    def link_instance_and_dossier(self, instance, dossier, user):
         """Make the instance retrievable by dossier_id.
 
         This config achieves that by calling `write_fields`. The
         method is still implemented to make it explicit and allow
         for better testing.
+        :param user:
         """
         self.cantonal_id.owner = weakref.proxy(self)
-        self.cantonal_id.write(instance, dossier_id)
+        self.cantonal_id.write(instance, dossier.id)
 
     def _set_workflow_state(
         self, instance: Instance, dossier: Dossier

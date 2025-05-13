@@ -304,7 +304,7 @@ def setup_dossier_writer(
 def setup_dossier_import_ag(
     request,
     settings,
-    application_settings,
+    set_application_ag,
     role_factory,
 ):
     config = "kt_ag"
@@ -318,8 +318,6 @@ def setup_dossier_import_ag(
 
     settings.APPLICATION_NAME = config
     short_name = settings.APPLICATIONS[config]["SHORT_NAME"]
-    application_settings["SHORT_NAME"] = short_name
-
     service, config_fixtures = request.getfixturevalue(f"load_fixtures_{short_name}")
 
     fixture_paths = common_fixtures_paths + config_fixtures
