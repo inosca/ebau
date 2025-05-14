@@ -53,7 +53,7 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.shoebox.content.language;
   }
 
-  redirectToWorkItems() {
+  redirectToCaseWorkItems() {
     window.location.replace(
       `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`,
     );
