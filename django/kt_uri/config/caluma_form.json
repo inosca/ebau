@@ -4863,6 +4863,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "check-gwr-relevancy.bemerkungen-gwr-relevanz",
+    "fields": {
+      "created_at": "2025-05-14T11:23:38.456Z",
+      "modified_at": "2025-05-14T11:23:38.456Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "check-gwr-relevancy",
+      "question": "bemerkungen-gwr-relevanz",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "check-gwr-relevancy.complete-check-gwr-relevancy",
     "fields": {
       "created_at": "2024-12-12T09:55:57.486Z",
@@ -4888,7 +4903,7 @@
       "modified_by_group": null,
       "form": "check-gwr-relevancy",
       "question": "fuer-gwr-relevant",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -4903,7 +4918,7 @@
       "modified_by_group": null,
       "form": "check-gwr-relevancy",
       "question": "welche-massnahmen-treffen-zu",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -10683,6 +10698,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "open-gwr-construction-project.hinweis-verknuepfte-gwr-projekte",
+    "fields": {
+      "created_at": "2025-05-14T10:59:08.265Z",
+      "modified_at": "2025-05-14T10:59:08.265Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "open-gwr-construction-project",
+      "question": "hinweis-verknuepfte-gwr-projekte",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "open-gwr-construction-project.wann-wurde-das-gwr-projekt-eroeffnet",
     "fields": {
       "created_at": "2025-02-26T17:00:43.527Z",
@@ -15498,6 +15528,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "update-gwr-status.bemerkungen-gwr-status-baubewilligung-erteilt",
+    "fields": {
+      "created_at": "2025-05-14T11:03:06.333Z",
+      "modified_at": "2025-05-14T11:03:06.333Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "update-gwr-status",
+      "question": "bemerkungen-gwr-status-baubewilligung-erteilt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "update-gwr-status.complete-update-gwr-status",
     "fields": {
       "created_at": "2024-12-12T11:42:08.890Z",
@@ -15509,6 +15554,51 @@
       "form": "update-gwr-status",
       "question": "complete-update-gwr-status",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "update-gwr-status.datum-status-aktualisiert",
+    "fields": {
+      "created_at": "2025-05-14T11:02:26.140Z",
+      "modified_at": "2025-05-14T11:02:26.140Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "update-gwr-status",
+      "question": "datum-status-aktualisiert",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "update-gwr-status.hinweis-gwr-status-wechseln",
+    "fields": {
+      "created_at": "2025-05-14T11:01:20.532Z",
+      "modified_at": "2025-05-14T11:01:20.532Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "update-gwr-status",
+      "question": "hinweis-gwr-status-wechseln",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "update-gwr-status-refused.bemerkungen-gwr-status-abgelehnt",
+    "fields": {
+      "created_at": "2025-05-14T11:07:27.986Z",
+      "modified_at": "2025-05-14T11:07:27.986Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "update-gwr-status-refused",
+      "question": "bemerkungen-gwr-status-abgelehnt",
+      "sort": 2
     }
   },
   {
@@ -15528,32 +15618,32 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "update-gwr-status-refused.gwr-state-refused",
+    "pk": "update-gwr-status-refused.datum-status-aktualisiert-abgelehnt",
     "fields": {
-      "created_at": "2025-04-14T16:12:45.909Z",
-      "modified_at": "2025-04-14T16:12:45.909Z",
+      "created_at": "2025-05-14T11:06:56.420Z",
+      "modified_at": "2025-05-14T11:06:56.420Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "update-gwr-status-refused",
-      "question": "gwr-state-refused",
-      "sort": 2
+      "question": "datum-status-aktualisiert-abgelehnt",
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "update-gwr-status.wurde-der-status-im-gwr-nachgefuehrt",
+    "pk": "update-gwr-status-refused.hinweis-gwr-status-baugesuch-abgelehnt",
     "fields": {
-      "created_at": "2024-12-12T11:41:27.529Z",
-      "modified_at": "2024-12-12T11:41:27.529Z",
+      "created_at": "2025-05-14T11:06:02.825Z",
+      "modified_at": "2025-05-14T11:06:02.825Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "update-gwr-status",
-      "question": "wurde-der-status-im-gwr-nachgefuehrt",
-      "sort": 2
+      "form": "update-gwr-status-refused",
+      "question": "hinweis-gwr-status-baugesuch-abgelehnt",
+      "sort": 4
     }
   },
   {
@@ -30278,6 +30368,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "status-gwr-building-ja",
+    "fields": {
+      "created_at": "2025-01-10T12:35:49.448Z",
+      "modified_at": "2025-01-10T12:35:49.448Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "status-gwr-building-nein",
+    "fields": {
+      "created_at": "2025-01-10T12:35:49.409Z",
+      "modified_at": "2025-01-10T12:35:49.409Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "status-gwr-construction-start-ja",
+    "fields": {
+      "created_at": "2025-01-10T12:15:54.433Z",
+      "modified_at": "2025-01-10T12:15:54.433Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "status-gwr-construction-start-nein",
+    "fields": {
+      "created_at": "2025-01-10T12:15:54.449Z",
+      "modified_at": "2025-01-10T12:15:54.449Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "status-gwr-project-ja",
     "fields": {
       "created_at": "2025-01-13T09:51:49.223Z",
@@ -34773,6 +34931,40 @@
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wurde-der-status-im-gwr-nachgefuehrt-ja",
+    "fields": {
+      "created_at": "2025-01-08T07:12:04.974Z",
+      "modified_at": "2025-01-08T07:12:04.974Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wurde-der-status-im-gwr-nachgefuehrt-nein",
+    "fields": {
+      "created_at": "2025-01-08T07:12:04.985Z",
+      "modified_at": "2025-01-08T07:12:04.985Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
@@ -41269,6 +41461,108 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bemerkungen-gwr-relevanz",
+    "fields": {
+      "created_at": "2025-05-14T11:23:38.344Z",
+      "modified_at": "2025-05-14T11:23:38.344Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-gwr-status-abgelehnt",
+    "fields": {
+      "created_at": "2025-05-14T11:07:27.865Z",
+      "modified_at": "2025-05-14T11:07:27.865Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-gwr-status-baubewilligung-erteilt",
+    "fields": {
+      "created_at": "2025-05-14T11:03:06.190Z",
+      "modified_at": "2025-05-14T11:03:06.190Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bemerkungen-haustechnik",
     "fields": {
       "created_at": "2021-06-17T11:31:08.840Z",
@@ -45081,6 +45375,68 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "datum-status-aktualisiert",
+    "fields": {
+      "created_at": "2025-05-14T11:02:25.996Z",
+      "modified_at": "2025-05-14T11:02:25.996Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wann wurde der Status aktualisiert?\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "datum-status-aktualisiert-abgelehnt",
+    "fields": {
+      "created_at": "2025-05-14T11:06:56.281Z",
+      "modified_at": "2025-05-14T11:06:56.281Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wann wurde der Status aktualisiert?\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -51521,6 +51877,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-gwr-status-baugesuch-abgelehnt",
+    "fields": {
+      "created_at": "2025-05-14T11:06:02.697Z",
+      "modified_at": "2025-05-14T11:06:02.697Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis GWR Status Baugesuch abgelehnt\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte wechseln Sie zum Menu \\u00abVerkn\\u00fcpfte GWR Projekte\\u00bb und aktualisieren Sie den Status des GWR Dossiers von \\u00abbeantragt\\u00bb zu \\u00abnicht bewilligt\\u00bb. Falls sie das URec Dossier noch nicht mit dem GWR verkn\\u00fcpft haben, bitten wir Sie, dies jetzt zu tun und den Status zu aktualisieren. Anschliessend diese Aufgabe mit Datumsangabe abschliessen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-gwr-status-nachfuehren",
     "fields": {
       "created_at": "2024-07-04T11:11:38.734Z",
@@ -51538,6 +51925,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">\\n\\tBitte wechseln Sie zum Menu <b>Verkn\\u00fcpfte GWR-Bauprojekte</b> und aktualisieren Sie im GWR den Status des Projekts von <b>bewilligt</b> in <b>baubegonnen</b> (falls Sie das URec Dossier noch nicht mit dem GWR verkn\\u00fcpft haben, bitten wir Sie, das jetzt zu tun.\\n\\t<br><br>\\n\\tDer GWR Status muss anschliessend von <b>beantragt</b> auf <b>bewilligt</b> und dann auf <b>baubegonnen</b> gesetzt werden).\\n\\n</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gwr-status-wechseln",
+    "fields": {
+      "created_at": "2025-05-14T11:01:20.416Z",
+      "modified_at": "2025-05-14T11:01:20.416Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis GWR Status wechseln\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte wechseln Sie zum Menu \\u00abVerkn\\u00fcpfte GWR Projekte\\u00bb und aktualisieren Sie den Status des GWR Dossiers von \\u00abbeantragt\\u00bb zu \\u00abbewilligt\\u00bb. Falls sie das URec Dossier noch nicht mit dem GWR verkn\\u00fcpft haben, bitten wir Sie, dies jetzt zu tun und den Status zu aktualisieren. Anschliessend diese Aufgabe mit Datumsangabe abschliessen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -51883,6 +52301,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Hinweis**: Die Dimensionierung wird durch die \\u00f6rtliche Wasserversorgung festgelegt. Der Wasserz\\u00e4hler wird durch die Abwasser Uri AG eingebaut.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-verknuepfte-gwr-projekte",
+    "fields": {
+      "created_at": "2025-05-14T10:59:08.129Z",
+      "modified_at": "2025-05-14T10:59:08.129Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Verkn\\u00fcpfte GWR Projekte\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte wechseln Sie zum Menu \\u00abVerkn\\u00fcpfte GWR Projekte\\u00bb und verkn\\u00fcpfen Sie das URec Dossier mit dem GWR (neues GWR Projekt er\\u00f6ffnen). Anschliessend diese Aufgabe mit Datumsangabe abschliessen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -61207,6 +61656,99 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "status-gwr-building",
+    "fields": {
+      "created_at": "2025-01-10T12:35:49.593Z",
+      "modified_at": "2025-01-10T12:35:49.593Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurde der Status im GWR nachgef\\u00fchrt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "status-gwr-construction-start",
+    "fields": {
+      "created_at": "2025-01-10T12:15:54.677Z",
+      "modified_at": "2025-01-10T12:15:54.677Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurde der Status im GWR nachgef\\u00fchrt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "status-gwr-gebaeudeabbruch",
+    "fields": {
+      "created_at": "2025-01-08T07:09:44.752Z",
+      "modified_at": "2025-01-08T07:09:44.752Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurde der Status im GWR nachgef\\u00fchrt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -78227,6 +78769,96 @@
       "question": "status-bauprojekt",
       "option": "status-bauprojekt-regulaer",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "status-gwr-building.status-gwr-building-ja",
+    "fields": {
+      "created_at": "2025-01-10T12:35:49.623Z",
+      "modified_at": "2025-01-10T12:35:49.623Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "status-gwr-building",
+      "option": "status-gwr-building-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "status-gwr-building.status-gwr-building-nein",
+    "fields": {
+      "created_at": "2025-01-10T12:35:49.613Z",
+      "modified_at": "2025-01-10T12:35:49.613Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "status-gwr-building",
+      "option": "status-gwr-building-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "status-gwr-construction-start.status-gwr-construction-start-ja",
+    "fields": {
+      "created_at": "2025-01-10T12:15:54.698Z",
+      "modified_at": "2025-01-10T12:15:54.698Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "status-gwr-construction-start",
+      "option": "status-gwr-construction-start-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "status-gwr-construction-start.status-gwr-construction-start-nein",
+    "fields": {
+      "created_at": "2025-01-10T12:15:54.691Z",
+      "modified_at": "2025-01-10T12:15:54.691Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "status-gwr-construction-start",
+      "option": "status-gwr-construction-start-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "status-gwr-gebaeudeabbruch.wurde-der-status-im-gwr-nachgefuehrt-ja",
+    "fields": {
+      "created_at": "2025-01-08T07:09:44.793Z",
+      "modified_at": "2025-01-08T07:09:44.793Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "status-gwr-gebaeudeabbruch",
+      "option": "wurde-der-status-im-gwr-nachgefuehrt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "status-gwr-gebaeudeabbruch.wurde-der-status-im-gwr-nachgefuehrt-nein",
+    "fields": {
+      "created_at": "2025-01-08T07:09:44.772Z",
+      "modified_at": "2025-01-08T07:09:44.772Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "status-gwr-gebaeudeabbruch",
+      "option": "wurde-der-status-im-gwr-nachgefuehrt-nein",
+      "sort": 1
     }
   },
   {
