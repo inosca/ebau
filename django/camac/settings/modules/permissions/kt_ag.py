@@ -48,7 +48,11 @@ ROLES_AFB = IsServiceGroup(["service-afb"]) & HasRole(
 # 2. Form rules
 # 3. Role rules
 # 4. Other
-MODULE_ADDITIONAL_DEMANDS = NO_CORRECTION & RequireWorkItem("init-additional-demand")
+MODULE_ADDITIONAL_DEMANDS = (
+    NO_CORRECTION
+    & RequireWorkItem("init-additional-demand")
+    & ~IsServiceGroup(["municipality-light"])
+)
 MODULE_AUDIT = NO_CORRECTION & (
     (RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY)
     | RequireWorkItem("formal-exam", "completed")
@@ -72,26 +76,36 @@ MODULE_COMPLETE_INSTANCE = (
     RequireWorkItem("complete-instance", "ready") & ROLES_NO_READONLY
 )
 MODULE_CORRECTIONS = (
-    STATES_ALL | RequireInstanceState(["correction"])
-) & ROLES_NO_READONLY
+    (STATES_ALL | RequireInstanceState(["correction"]))
+    & ROLES_NO_READONLY
+    & ~IsServiceGroup(["municipality-light"])
+)
 MODULE_DECISION = NO_CORRECTION & (
     (RequireWorkItem("decision") & ROLES_MUNICIPALITY)
     | RequireWorkItem("decision", "completed")
 )
 MODULE_DISTRIBUTION = NO_CORRECTION & RequireWorkItem("distribution")
-MODULE_DMS_GENERATE = STATES_ALL & ROLES_NO_READONLY
+MODULE_DMS_GENERATE = (
+    STATES_ALL & ROLES_NO_READONLY & ~IsServiceGroup(["municipality-light"])
+)
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL | RequireInstanceState(["correction"])
-MODULE_HISTORY = STATES_ALL
+MODULE_HISTORY = STATES_ALL & ~IsServiceGroup(["municipality-light"])
 MODULE_INFORMATION_OF_NEIGHBORS = NO_CORRECTION & RequireWorkItem(
     "fill-information-of-neighbors"
 )
-MODULE_JOURNAL = STATES_ALL
+MODULE_JOURNAL = STATES_ALL & ~IsServiceGroup(["municipality-light"])
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_LEGAL_SUBMISSIONS = NO_CORRECTION & RequireWorkItem("objections")
-MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
+MODULE_PERMISSIONS = (
+    STATES_ALL
+    & HasRole(["municipality-lead"])
+    & ~IsServiceGroup(["municipality-light"])
+)
 MODULE_PUBLICATION = NO_CORRECTION & RequireWorkItem("fill-publication")
-MODULE_REJECTION = RequireInstanceState(["subm", "rejected"])
+MODULE_REJECTION = RequireInstanceState(["subm", "rejected"]) & ~IsServiceGroup(
+    ["municipality-light"]
+)
 MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
 MODULE_WORK_ITEMS = STATES_ALL & ROLES_NO_READONLY
 

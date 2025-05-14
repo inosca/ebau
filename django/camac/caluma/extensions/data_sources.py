@@ -105,7 +105,7 @@ class Municipalities(BaseDataSource):
             Service.objects.select_related("service_group")
             .filter(
                 service_parent__isnull=True,
-                service_group__name="municipality",
+                service_group__name__in=["municipality", "municipality-light"],
                 **filters,
             )
             .prefetch_related("trans")

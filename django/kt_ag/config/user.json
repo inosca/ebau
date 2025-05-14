@@ -363,6 +363,14 @@
     }
   },
   {
+    "model": "user.servicegroup",
+    "pk": 6,
+    "fields": {
+      "name": "municipality-light",
+      "sort": null
+    }
+  },
+  {
     "model": "user.servicegroupt",
     "pk": 20000,
     "fields": {
@@ -405,6 +413,15 @@
       "service_group": 5,
       "language": "de",
       "name": "Leitbehörde PGV"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20005,
+    "fields": {
+      "service_group": 6,
+      "language": "de",
+      "name": "DIBA Light Gemeinde"
     }
   }
 ]
