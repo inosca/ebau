@@ -2501,6 +2501,7 @@ APPLICATIONS = {
                     5,  # authority-pgv
                     1,  # service-cantonal
                     4,  # service-afb
+                    6,  # municipality-light
                 ]
             },
         },
@@ -2617,6 +2618,7 @@ APPLICATIONS = {
                 "FILTERS": {
                     "service__service_group__name__in": [
                         "municipality",
+                        "municipality-light",
                         "authority-pgv",
                         "service-afb",
                     ]
