@@ -1,3 +1,4 @@
+import csv
 import json
 import os
 import pprint
@@ -5,7 +6,6 @@ import shutil
 import zipfile
 from datetime import datetime
 
-import pyexcel
 from codetiming import Timer
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -21,7 +21,7 @@ from camac.user.models import Group, User, UserGroup
 
 IMPORT_SETTINGS = settings.DOSSIER_IMPORT
 SAP_SETTINGS = IMPORT_SETTINGS["SAP_ACCESS"]
-REPORT_FILENAME = "result.xlsx"
+REPORT_FILENAME = "result.csv"
 DETAIL_REPORT_FILENAME = "result-details.json"
 HEADER_ROW = [
     "Importzeit",
@@ -86,7 +86,7 @@ class Command(BaseCommand):
 
         user, group = self._get_user_and_group()
         self._create_report()
-        self._create_details_report()
+        self._create_detail_report()
 
         if options.get("dossier"):
             dossier_path = options.get("dossier")[0]
@@ -241,28 +241,20 @@ class Command(BaseCommand):
         row = [str(r) if r is not None else "" for r in row]
         self._add_report_row(row)
 
-    def _create_report(self):
-        pyexcel.Sheet([HEADER_ROW]).save_as(self.report_filename)
+    def _create_detail_report(self):
+        if os.path.exists(self.detail_report_filename):
+            os.remove(self.detail_report_filename)
 
-    def _create_details_report(self):
-        with open(self.detail_report_filename, "w", encoding="utf-8") as f:
-            json.dump([], f, indent=4, ensure_ascii=False)
+    def _create_report(self):
+        if os.path.exists(self.report_filename):
+            os.remove(self.report_filename)
+        self._add_report_row(HEADER_ROW)
 
     def _add_report_row(self, row):
-        sheet = pyexcel.get_sheet(file_name=(self.report_filename))
-        sheet.row += row
-        sheet.save_as(self.report_filename)
+        with open(self.report_filename, "a", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(row)
 
     def _add_details_object(self, json_object):
-        data = []
-
-        with open(DETAIL_REPORT_FILENAME, "r", encoding="utf-8") as f:
-            try:
-                data = json.load(f)
-            except json.JSONDecodeError:  # pragma: no cover
-                pass
-
-        data.append(json_object)
-
-        with open(DETAIL_REPORT_FILENAME, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4, ensure_ascii=False)
+        with open(DETAIL_REPORT_FILENAME, "a", encoding="utf-8") as f:
+            f.write(json.dumps(json_object, indent=2) + "\n")
