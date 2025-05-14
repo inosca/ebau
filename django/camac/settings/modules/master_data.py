@@ -1129,11 +1129,11 @@ MASTER_DATA = {
                     "column_mapping": {
                         "type": (
                             "bs-brandschutzanlage-typ-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "new_or_existing": (
                             "bs-brandschutzanlage-zustand-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                     }
                 },

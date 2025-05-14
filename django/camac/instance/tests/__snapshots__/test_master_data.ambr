@@ -173,6 +173,10 @@
     'dossier_number': '2021-1',
     'final_approval_date': None,
     'fire_protection_systems': list([
+      dict({
+        'new_or_existing': 'Bestehend',
+        'type': 'Blitzschutzanlage',
+      }),
     ]),
     'floor_area': None,
     'hazardous_substances': list([
@@ -381,6 +385,10 @@
     'dossier_number': '2021-1',
     'final_approval_date': None,
     'fire_protection_systems': list([
+      dict({
+        'new_or_existing': None,
+        'type': None,
+      }),
     ]),
     'floor_area': None,
     'hazardous_substances': list([

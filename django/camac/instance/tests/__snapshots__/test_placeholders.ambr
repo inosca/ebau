@@ -474,6 +474,14 @@
       - Catherine Parks
     ''',
     'FIRE_PROTECTION_SYSTEMS': list([
+      dict({
+        'NEU_BESTEHEND': 'Bestehend',
+        'NOUVEAU_OU_EXISTANT': 'Bestehend',
+        'TYP': 'Blitzschutzanlage',
+        'TYPE': 'Blitzschutzanlage',
+        'new_or_existing': 'Bestehend',
+        'type': 'Blitzschutzanlage',
+      }),
     ]),
     'FLOOR_AREA': '',
     'FORM_NAME': 'Baugesuch',
@@ -557,6 +565,14 @@
     'INSTALLATIONS_AERAULIQUES': list([
     ]),
     'INSTALLATIONS_TECH_LINCENDIE': list([
+      dict({
+        'NEU_BESTEHEND': 'Bestehend',
+        'NOUVEAU_OU_EXISTANT': 'Bestehend',
+        'TYP': 'Blitzschutzanlage',
+        'TYPE': 'Blitzschutzanlage',
+        'new_or_existing': 'Bestehend',
+        'type': 'Blitzschutzanlage',
+      }),
     ]),
     'INSTANCE_ID': 1,
     'INTERIOR_SEATING': 35,
@@ -1094,6 +1110,14 @@
     'SYSTEMES_DE_VENTILATION': list([
     ]),
     'TECHNISCHE_BRANDSCHUTZANLAGEN': list([
+      dict({
+        'NEU_BESTEHEND': 'Bestehend',
+        'NOUVEAU_OU_EXISTANT': 'Bestehend',
+        'TYP': 'Blitzschutzanlage',
+        'TYPE': 'Blitzschutzanlage',
+        'new_or_existing': 'Bestehend',
+        'type': 'Blitzschutzanlage',
+      }),
     ]),
     'TODAY': '30. August 2021',
     'UEBERBAUUNGSORDNUNG': 'Überbauung XY',

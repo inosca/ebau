@@ -1887,7 +1887,29 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock, uti
     utils.add_table_answer(document, "bs-lufttechnische-anlagen-v3", [])
     utils.add_table_answer(document, "bs-raeume-mehr-50-v3", [])
     utils.add_table_answer(document, "solaranlagen-v3", [])
-    utils.add_table_answer(document, "bs-brandschutzanlagen-v3", [])
+    utils.add_table_answer(
+        document,
+        "bs-brandschutzanlagen-v3",
+        [
+            {
+                "bs-brandschutzanlage-typ-v3": {
+                    "value": "bs-brandschutzanlage-typ-v3-blitzschutzanlage",
+                    "options": [
+                        (
+                            "bs-brandschutzanlage-typ-v3-blitzschutzanlage",
+                            "Blitzschutzanlage",
+                        )
+                    ],
+                },
+                "bs-brandschutzanlage-zustand-v3": {
+                    "value": "bs-brandschutzanlage-zustand-v3-bestehend",
+                    "options": [
+                        ("bs-brandschutzanlage-zustand-v3-bestehend", "Bestehend")
+                    ],
+                },
+            }
+        ],
+    )
     utils.add_table_answer(document, "bs-waermetechnische-anlagen-v3", [])
     utils.add_table_answer(document, "qs-verantwortlicher-v3", [])
 
