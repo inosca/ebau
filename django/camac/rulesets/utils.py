@@ -1,5 +1,4 @@
 from camac.instance.models import Instance
-from camac.permissions.api import PermissionManager
 from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.rulesets.models import ResponsibleUserRule
 from camac.user.models import Service
@@ -9,11 +8,6 @@ def assign_responsible_user(instance: Instance, service: Service) -> None:
     """Assign the responsible user for a service on an instance."""
 
     if instance.responsible_services.filter(service=service).exists():
-        return
-
-    if not PermissionManager.from_params(service=service).has_all(
-        instance, ["responsible-read"]
-    ):
         return
 
     responsible_user = ResponsibleUserRule.objects.get_responsible_user_for_instance(

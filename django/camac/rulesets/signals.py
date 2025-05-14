@@ -27,6 +27,13 @@ def assign_responsible_user_on_acl_creation(
             "RESPONSIBLE_USER_RULE.AUTOMATICALLY_ASSIGN",
             default=False,
         )
+        # Access level is ignored
+        or instance.access_level_id
+        in get_dict_item(
+            settings.RULESETS,
+            "RESPONSIBLE_USER_RULE.IGNORED_ACCESS_LEVELS",
+            default=[],
+        )
         # ACL is updated
         or not created
         # ACL is not for a service
