@@ -503,7 +503,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-gesuchstellerin",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -533,7 +533,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "name-juristische-person-gesuchstellerin",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -593,7 +593,22 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "profil-uebernehmen",
-      "sort": 23
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.referenznummer",
+    "fields": {
+      "created_at": "2025-05-15T09:30:02.708Z",
+      "modified_at": "2025-05-15T09:30:02.708Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "referenznummer",
+      "sort": 21
     }
   },
   {
@@ -2263,6 +2278,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "referenznummer",
+    "fields": {
+      "created_at": "2025-05-15T09:30:02.525Z",
+      "modified_at": "2025-05-15T09:31:16.448Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Referenznummer\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "'juristische-person-gesuchstellerin'|answer != 'juristische-person-gesuchstellerin-ja'",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "strasse-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:53:17.574Z",
@@ -2910,14 +2959,14 @@
     "pk": "zonenplan",
     "fields": {
       "created_at": "2023-10-03T11:46:47.389Z",
-      "modified_at": "2025-01-09T07:55:10.334Z",
+      "modified_at": "2025-05-14T13:18:41.453Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "jasmin.leuthard@ag.ch",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nutzungszonen\", \"fr\": null, \"it\": \"Piano delle zone\"}",
       "type": "textarea",
-      "is_required": "!(form in [\"vorabklaerung\", \"anfrage-intern\", \"internes-dossier\", \"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-gas\"])",
+      "is_required": "!(form in [\"vorabklaerung\", \"anfrage-intern\", \"internes-dossier\", \"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-gas\"]) && 'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
