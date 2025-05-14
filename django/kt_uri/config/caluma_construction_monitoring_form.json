@@ -184,12 +184,12 @@
     "pk": "construction-step-gwr-state-building",
     "fields": {
       "created_at": "2025-01-10T12:34:47.234Z",
-      "modified_at": "2025-01-10T12:34:47.234Z",
+      "modified_at": "2025-05-14T11:15:12.969Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Geb\\u00e4ude)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Bau beendet)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": true,
@@ -454,12 +454,12 @@
     "pk": "construction-step-schnurgeruestabnahme-planen",
     "fields": {
       "created_at": "2023-10-27T12:58:38.231Z",
-      "modified_at": "2023-10-27T12:58:38.232Z",
+      "modified_at": "2025-05-14T11:27:16.755Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"Schnurger\\u00fcstabnahme planen\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Schnurger\\u00fcstabnahme durchf\\u00fchren\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -868,6 +868,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "construction-step-gwr-state-building.bemerkungen-gwr-bau-beendet",
+    "fields": {
+      "created_at": "2025-05-14T11:16:58.707Z",
+      "modified_at": "2025-05-14T11:16:58.707Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-gwr-state-building",
+      "question": "bemerkungen-gwr-bau-beendet",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-gwr-state-building.datum-gwr-bau-beendet",
+    "fields": {
+      "created_at": "2025-05-14T11:16:39.945Z",
+      "modified_at": "2025-05-14T11:16:39.945Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-gwr-state-building",
+      "question": "datum-gwr-bau-beendet",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "construction-step-gwr-state-building.gwr-status-gebaeude-abschliessen",
     "fields": {
       "created_at": "2025-03-13T13:17:25.520Z",
@@ -883,17 +913,47 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "construction-step-gwr-state-building.status-gwr-building",
+    "pk": "construction-step-gwr-state-building.hinweis-gwr-status-gebaeude",
     "fields": {
-      "created_at": "2025-01-10T12:35:49.746Z",
-      "modified_at": "2025-01-10T12:35:49.746Z",
+      "created_at": "2025-05-14T11:15:56.044Z",
+      "modified_at": "2025-05-14T11:15:56.044Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "construction-step-gwr-state-building",
-      "question": "status-gwr-building",
+      "question": "hinweis-gwr-status-gebaeude",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-gwr-state-construction-start.bemerkungen-gwr-status-baubeginn",
+    "fields": {
+      "created_at": "2025-05-14T11:10:53.383Z",
+      "modified_at": "2025-05-14T11:10:53.383Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-gwr-state-construction-start",
+      "question": "bemerkungen-gwr-status-baubeginn",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-gwr-state-construction-start.datum-status-aktualisiert-baubeginn",
+    "fields": {
+      "created_at": "2025-05-14T11:10:36.358Z",
+      "modified_at": "2025-05-14T11:10:36.358Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-gwr-state-construction-start",
+      "question": "datum-status-aktualisiert-baubeginn",
+      "sort": 3
     }
   },
   {
@@ -913,16 +973,31 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "construction-step-gwr-state-construction-start.status-gwr-construction-start",
+    "pk": "construction-step-gwr-state-construction-start.hinweis-gwr-status-baubeginn",
     "fields": {
-      "created_at": "2025-01-10T12:15:54.808Z",
-      "modified_at": "2025-01-10T12:15:54.808Z",
+      "created_at": "2025-05-14T11:09:53.947Z",
+      "modified_at": "2025-05-14T11:09:53.947Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "construction-step-gwr-state-construction-start",
-      "question": "status-gwr-construction-start",
+      "question": "hinweis-gwr-status-baubeginn",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-gwr-state-demolition.bemerkungen-gwr-status-gebaeudeabbruch",
+    "fields": {
+      "created_at": "2025-05-14T11:21:55.678Z",
+      "modified_at": "2025-05-14T11:21:55.678Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-gwr-state-demolition",
+      "question": "bemerkungen-gwr-status-gebaeudeabbruch",
       "sort": 2
     }
   },
@@ -943,17 +1018,32 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "construction-step-gwr-state-demolition.status-gwr-gebaeudeabbruch",
+    "pk": "construction-step-gwr-state-demolition.datum-gwr-gebaeudeabbruch",
     "fields": {
-      "created_at": "2025-01-08T07:09:44.888Z",
-      "modified_at": "2025-01-08T07:09:44.888Z",
+      "created_at": "2025-05-14T11:21:22.088Z",
+      "modified_at": "2025-05-14T11:21:22.088Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "construction-step-gwr-state-demolition",
-      "question": "status-gwr-gebaeudeabbruch",
-      "sort": 2
+      "question": "datum-gwr-gebaeudeabbruch",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-gwr-state-demolition.hinweis-gwr-status-gebaeudeabbruch",
+    "fields": {
+      "created_at": "2025-05-14T11:20:33.462Z",
+      "modified_at": "2025-05-14T11:20:33.462Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-gwr-state-demolition",
+      "question": "hinweis-gwr-status-gebaeudeabbruch",
+      "sort": 4
     }
   },
   {
@@ -2323,74 +2413,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "status-gwr-building-ja",
-    "fields": {
-      "created_at": "2025-01-10T12:35:49.448Z",
-      "modified_at": "2025-01-10T12:35:49.448Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "status-gwr-building-nein",
-    "fields": {
-      "created_at": "2025-01-10T12:35:49.409Z",
-      "modified_at": "2025-01-10T12:35:49.409Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "status-gwr-construction-start-ja",
-    "fields": {
-      "created_at": "2025-01-10T12:15:54.433Z",
-      "modified_at": "2025-01-10T12:15:54.433Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "status-gwr-construction-start-nein",
-    "fields": {
-      "created_at": "2025-01-10T12:15:54.449Z",
-      "modified_at": "2025-01-10T12:15:54.449Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "wer-fuehrt-die-schnurgeruestabnahme-durch-gemeinde",
     "fields": {
       "created_at": "2024-07-05T11:03:11.146Z",
@@ -2417,40 +2439,6 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Geometer (Acht Grad Ost AG)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "wurde-der-status-im-gwr-nachgefuehrt-ja",
-    "fields": {
-      "created_at": "2025-01-08T07:12:04.974Z",
-      "modified_at": "2025-01-08T07:12:04.974Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "wurde-der-status-im-gwr-nachgefuehrt-nein",
-    "fields": {
-      "created_at": "2025-01-08T07:12:04.985Z",
-      "modified_at": "2025-01-08T07:12:04.985Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -2806,6 +2794,108 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-gwr-bau-beendet",
+    "fields": {
+      "created_at": "2025-05-14T11:16:58.596Z",
+      "modified_at": "2025-05-14T11:16:58.596Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-gwr-status-baubeginn",
+    "fields": {
+      "created_at": "2025-05-14T11:10:53.241Z",
+      "modified_at": "2025-05-14T11:10:53.241Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-gwr-status-gebaeudeabbruch",
+    "fields": {
+      "created_at": "2025-05-14T11:21:55.552Z",
+      "modified_at": "2025-05-14T11:21:55.552Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -4424,6 +4514,99 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "datum-gwr-bau-beendet",
+    "fields": {
+      "created_at": "2025-05-14T11:16:39.820Z",
+      "modified_at": "2025-05-14T11:16:39.820Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wann wurde der Status aktualisiert?\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "datum-gwr-gebaeudeabbruch",
+    "fields": {
+      "created_at": "2025-05-14T11:21:21.941Z",
+      "modified_at": "2025-05-14T11:21:21.941Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wann wurde der Status aktualisiert?\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "datum-status-aktualisiert-baubeginn",
+    "fields": {
+      "created_at": "2025-05-14T11:10:36.228Z",
+      "modified_at": "2025-05-14T11:10:36.228Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wann wurde der Status aktualisiert?\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gwr-status-baubeginn-abschliessen",
     "fields": {
       "created_at": "2025-03-13T12:34:42.203Z",
@@ -4496,6 +4679,99 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-gwr-status-baubeginn",
+    "fields": {
+      "created_at": "2025-05-14T11:09:53.816Z",
+      "modified_at": "2025-05-14T11:09:53.816Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis GWR Status Baubeginn\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte wechseln Sie zum Menu \\u00abVerkn\\u00fcpfte GWR Projekte\\u00bb und aktualisieren Sie den Status des GWR Dossiers von \\u00abbewilligt\\u00bb zu \\u00abbaubegonnen\\u00bb. Falls sie das URec Dossier noch nicht mit dem GWR verkn\\u00fcpft haben, bitten wir Sie, dies jetzt zu tun und den Status zu aktualisieren. Anschliessend diese Aufgabe mit Datumsangabe abschliessen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gwr-status-gebaeude",
+    "fields": {
+      "created_at": "2025-05-14T11:15:55.924Z",
+      "modified_at": "2025-05-14T11:15:55.924Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis GWR Status Geb\\u00e4ude\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte wechseln Sie zum Menu \\u00abVerkn\\u00fcpfte GWR Projekte\\u00bb und aktualisieren Sie den Status des GWR Dossiers von \\u00abbewilligt\\u00bb zu \\u00abBau beendet\\u00bb. Falls sie das URec Dossier noch nicht mit dem GWR verkn\\u00fcpft haben, bitten wir Sie, dies jetzt zu tun und den Status zu aktualisieren. Anschliessend diese Aufgabe mit Datumsangabe abschliessen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gwr-status-gebaeudeabbruch",
+    "fields": {
+      "created_at": "2025-05-14T11:20:33.330Z",
+      "modified_at": "2025-05-14T11:20:33.330Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis GWR Status Geb\\u00e4udeabbruch\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte wechseln Sie zum Menu \\u00abGWR\\u00bb, suchen Sie das Geb\\u00e4ude, welches abgebrochen wurde (\\u00fcber Adresse, Parzellennummer EGID usw.) und aktualisieren Sie den Status von \\u00abbestehend\\u00bb zu \\u00ababgebrochen\\u00bb. Anschliessend diese Aufgabe mit Datumsangabe abschliessen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "schnurgeruestabnahme-buckets",
     "fields": {
       "created_at": "2025-04-23T08:00:17.367Z",
@@ -4546,99 +4822,6 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "status-gwr-building",
-    "fields": {
-      "created_at": "2025-01-10T12:35:49.593Z",
-      "modified_at": "2025-01-10T12:35:49.593Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Wurde der Status im GWR nachgef\\u00fchrt?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "status-gwr-construction-start",
-    "fields": {
-      "created_at": "2025-01-10T12:15:54.677Z",
-      "modified_at": "2025-01-10T12:15:54.677Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Wurde der Status im GWR nachgef\\u00fchrt?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "status-gwr-gebaeudeabbruch",
-    "fields": {
-      "created_at": "2025-01-08T07:09:44.752Z",
-      "modified_at": "2025-01-08T07:09:44.752Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Wurde der Status im GWR nachgef\\u00fchrt?\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -5385,96 +5568,6 @@
       "modified_by_group": null,
       "question": "schnurgeruestabnahme-durch",
       "option": "wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "status-gwr-building.status-gwr-building-ja",
-    "fields": {
-      "created_at": "2025-01-10T12:35:49.623Z",
-      "modified_at": "2025-01-10T12:35:49.623Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "status-gwr-building",
-      "option": "status-gwr-building-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "status-gwr-building.status-gwr-building-nein",
-    "fields": {
-      "created_at": "2025-01-10T12:35:49.613Z",
-      "modified_at": "2025-01-10T12:35:49.613Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "status-gwr-building",
-      "option": "status-gwr-building-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "status-gwr-construction-start.status-gwr-construction-start-ja",
-    "fields": {
-      "created_at": "2025-01-10T12:15:54.698Z",
-      "modified_at": "2025-01-10T12:15:54.698Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "status-gwr-construction-start",
-      "option": "status-gwr-construction-start-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "status-gwr-construction-start.status-gwr-construction-start-nein",
-    "fields": {
-      "created_at": "2025-01-10T12:15:54.691Z",
-      "modified_at": "2025-01-10T12:15:54.691Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "status-gwr-construction-start",
-      "option": "status-gwr-construction-start-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "status-gwr-gebaeudeabbruch.wurde-der-status-im-gwr-nachgefuehrt-ja",
-    "fields": {
-      "created_at": "2025-01-08T07:09:44.793Z",
-      "modified_at": "2025-01-08T07:09:44.793Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "status-gwr-gebaeudeabbruch",
-      "option": "wurde-der-status-im-gwr-nachgefuehrt-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "status-gwr-gebaeudeabbruch.wurde-der-status-im-gwr-nachgefuehrt-nein",
-    "fields": {
-      "created_at": "2025-01-08T07:09:44.772Z",
-      "modified_at": "2025-01-08T07:09:44.772Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "status-gwr-gebaeudeabbruch",
-      "option": "wurde-der-status-im-gwr-nachgefuehrt-nein",
       "sort": 1
     }
   }

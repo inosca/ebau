@@ -1,7 +1,7 @@
 construction-monitoring:
   construction-step:
     construction-step-schnurgeruestabnahme-melden-complete: "Meldung abschliessen"
-    construction-step-schnurgeruestabnahme-planen-complete: "Planung abschliessen"
+    construction-step-schnurgeruestabnahme-planen-complete: "Abschliessen"
     construction-step-schnurgeruest-kontrollieren-complete: "Kontrolle abschliessen"
     construction-step-gebaeudeabbruch: "Gebäudeabbruch melden"
 
