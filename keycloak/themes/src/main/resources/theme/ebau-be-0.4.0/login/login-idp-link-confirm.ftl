@@ -9,6 +9,7 @@
                 <button type="submit" class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="submitAction" id="linkAccount" value="linkAccount">${msg("confirmLinkIdpContinue", idpDisplayName)}</button>
             </div>
         </form>
+        <#-- CHANGE: Added extra section for custom messages -->
         <div style="margin-top: 30px; margin-bottom: 30px">
             <div><p><b>${msg("loginIdpLinkConfirmTitle")}</b><p></div>
             <div>${msg("loginIdpLinkConfirmMessage",brokerContext.email)?no_esc}</div>

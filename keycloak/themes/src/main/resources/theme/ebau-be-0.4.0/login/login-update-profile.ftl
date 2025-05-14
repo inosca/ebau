@@ -1,9 +1,11 @@
+<#-- Copied from https://github.com/keycloak/keycloak/blob/release/26.2/themes/src/main/resources/theme/base/login/login-update-profile.ftl -->
 <#import "template.ftl" as layout>
 <@layout.registrationLayout; section>
   <#if section = "title">
     ${msg("loginProfileTitle")}
   <#elseif section = "form">
     <form id="kc-update-profile-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
+        <#-- CHANGE: custom set of fields -->
         <fieldset>
             <legend>${msg("loginProfileTitle")}</legend>
 

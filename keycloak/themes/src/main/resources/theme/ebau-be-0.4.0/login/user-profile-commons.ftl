@@ -1,3 +1,5 @@
+<#-- Copied from https://github.com/keycloak/keycloak/blob/release/26.2/themes/src/main/resources/theme/base/login/user-profile-commons.ftl -->
+<#-- No changes yet, just needed for imports in template overrides -->
 <#macro userProfileFormFields>
 	<#assign currentGroup="">
 

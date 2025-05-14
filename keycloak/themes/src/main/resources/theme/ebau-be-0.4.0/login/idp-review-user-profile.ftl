@@ -1,3 +1,4 @@
+<#-- Copied from https://github.com/keycloak/keycloak/blob/release/26.2/themes/src/main/resources/theme/base/login/idp-review-user-profile.ftl -->
 <#import "template.ftl" as layout>
 <#import "user-profile-commons.ftl" as userProfileCommons>
 <@layout.registrationLayout displayMessage=messagesPerField.exists('global') displayRequiredFields=true; section>

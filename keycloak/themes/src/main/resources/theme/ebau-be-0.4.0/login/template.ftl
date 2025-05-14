@@ -1,3 +1,5 @@
+<#-- Copied from https://github.com/keycloak/keycloak/blob/release/26.2/themes/src/main/resources/theme/base/login/template.ftl -->
+<#-- CHANGE: the whole tempalte is adapated to the Kt.BE layout and assets -->
 <#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields = false>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
