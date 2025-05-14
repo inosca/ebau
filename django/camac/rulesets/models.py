@@ -23,15 +23,14 @@ class ResponsibleUserRuleQuerySet(models.QuerySet):
         municipality = MasterData.from_case_id(instance.case_id).municipality_slug
         form_slug = instance.case.document.form_id
 
+        match_filters = Q(application_types__pk__contains=form_slug)
+
+        if municipality is not None:
+            match_filters |= Q(municipalities__pk__contains=municipality)
+
         match = (
             self.select_related("responsible_user")
-            .filter(
-                Q(service=service)
-                & Q(
-                    Q(municipalities__pk__contains=municipality)
-                    | Q(application_types__pk__contains=form_slug)
-                )
-            )
+            .filter(Q(service=service) & Q(match_filters))
             .first()
         )
 
