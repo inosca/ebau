@@ -421,11 +421,9 @@ def test_copy_without_permission(
     admin_client,
     instance_state,
     caluma_workflow_config_be,
-    instance_factory,
+    instance,
     group_factory,
 ):
-    instance = instance_factory(group=group_factory())
-
     data = {
         "data": {
             "type": "instances",

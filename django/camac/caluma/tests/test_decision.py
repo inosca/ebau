@@ -156,6 +156,20 @@ def test_complete_decision(
             "finished_internal",
             "Beurteilung abgeschlossen",
         ),
+        (
+            "building-permit",
+            "OTHER",
+            "BUILDING_PERMIT",
+            "finished",
+            "Bauentscheid verfügt",
+        ),
+        (
+            "preliminary-clarification",
+            "OTHER",
+            "BUILDING_PERMIT",
+            "evaluated",
+            "Beurteilung abgeschlossen",
+        ),
     ],
 )
 def test_complete_decision_be(
@@ -190,6 +204,12 @@ def test_complete_decision_be(
             }
         ],
         "DECISION_PRELIMINARY_CLARIFICATION": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "DECISION_OTHER": [
             {
                 "template_slug": notification_template.slug,
                 "recipient_types": ["applicant"],
@@ -809,4 +829,245 @@ def test_should_continue_after_decision_ag(
     assert (
         DecisionLogic.should_continue_after_decision(ag_instance, decision_work_item)
         == expected
+    )
+
+
+@pytest.mark.parametrize(
+    "is_preliminary_clarification,is_other_decision,is_appeal,expected_notification_slug",
+    [
+        (True, True, False, "decision-other"),
+        (True, False, False, "decision-preliminary-clarification"),
+        (False, False, False, "decision"),
+        (False, False, True, "decision-appeal"),
+        (False, True, False, "decision-other"),
+    ],
+)
+def test_get_notification_config_be(
+    db,
+    be_instance,
+    settings,
+    application_settings,
+    be_decision_settings,
+    is_preliminary_clarification,
+    is_other_decision,
+    is_appeal,
+    expected_notification_slug,
+    caluma_work_item_factory,
+    utils,
+    master_data_settings,
+):
+    settings.APPLICATION_NAME = "kt_be"
+    application_settings["SHORT_NAME"] = "be"
+    application_settings["NOTIFICATIONS"] = {
+        "DECISION": [
+            {
+                "template_slug": "decision",
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "DECISION_OTHER": [
+            {
+                "template_slug": "decision-other",
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "DECISION_PRELIMINARY_CLARIFICATION": [
+            {
+                "template_slug": "decision-preliminary-clarification",
+                "recipient_types": ["applicant"],
+            }
+        ],
+    }
+
+    decision = caluma_work_item_factory(task_id="decision", case=be_instance.case)
+
+    if is_other_decision:
+        utils.add_answer(
+            decision.document,
+            "decision-decision-assessment",
+            "decision-decision-assessment-other",
+        )
+
+    if is_preliminary_clarification:
+        be_instance.case.workflow_id = "preliminary-clarification"
+        be_instance.case.save()
+
+    elif is_appeal:
+        settings.APPEAL = {
+            "NOTIFICATIONS": {
+                "APPEAL_DECISION": [
+                    {
+                        "template_slug": "decision-appeal",
+                        "recipient_types": ["applicant"],
+                    }
+                ]
+            }
+        }
+        be_instance.case.meta["is-appeal"] = True
+
+    assert (
+        DecisionLogic.get_notification_config(be_instance, decision)[0]["template_slug"]
+        == expected_notification_slug
+    )
+
+
+@pytest.mark.parametrize(
+    "non_building_permit_decision,expected_notification_slug",
+    [
+        (True, "decision-non-building-permit"),
+        (False, "decision"),
+    ],
+)
+def test_get_notification_config_gr(
+    db,
+    gr_instance,
+    settings,
+    application_settings,
+    gr_decision_settings,
+    non_building_permit_decision,
+    expected_notification_slug,
+    caluma_work_item_factory,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    application_settings["SHORT_NAME"] = "gr"
+    application_settings["NOTIFICATIONS"] = {
+        "DECISION": [
+            {
+                "template_slug": "decision",
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "NON_BUILDING_PERMIT_DECISION": [
+            {
+                "template_slug": "decision-non-building-permit",
+                "recipient_types": ["applicant"],
+            }
+        ],
+    }
+    decision = caluma_work_item_factory(task_id="decision", case=gr_instance.case)
+
+    if non_building_permit_decision:
+        gr_instance.case.document.form.slug = "bauanzeige"
+        gr_instance.case.document.form.save()
+
+    assert (
+        DecisionLogic.get_notification_config(gr_instance, decision)[0]["template_slug"]
+        == expected_notification_slug
+    )
+
+
+@pytest.mark.parametrize(
+    "is_appeal,non_building_permit_decision,expected_notification_slug",
+    [
+        (False, True, "decision-non-building-permit"),
+        (True, False, "decision-appeal"),
+        (False, False, "decision"),
+    ],
+)
+def test_get_notification_config_so(
+    db,
+    so_instance,
+    settings,
+    application_settings,
+    so_decision_settings,
+    is_appeal,
+    non_building_permit_decision,
+    expected_notification_slug,
+    caluma_case_factory,
+    caluma_document_factory,
+    caluma_work_item_factory,
+):
+    if non_building_permit_decision:
+        so_instance.case.document.form.slug = "not-baugesuch"
+        so_instance.case.document.form.save()
+    else:
+        caluma_case_factory(
+            instance=so_instance,
+            document=caluma_document_factory(form__slug="baugesuch"),
+        )
+        so_instance.case.document.save()
+
+    settings.APPLICATION_NAME = "kt_so"
+    application_settings["SHORT_NAME"] = "so"
+    application_settings["NOTIFICATIONS"] = {
+        "DECISION": [
+            {
+                "template_slug": "decision",
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "NON_BUILDING_PERMIT_DECISION": [
+            {
+                "template_slug": "decision-non-building-permit",
+                "recipient_types": ["applicant"],
+            }
+        ],
+    }
+    decision = caluma_work_item_factory(task_id="decision", case=so_instance.case)
+
+    if is_appeal:
+        settings.APPEAL = {
+            "NOTIFICATIONS": {
+                "APPEAL_DECISION": [
+                    {
+                        "template_slug": "decision-appeal",
+                        "recipient_types": ["applicant"],
+                    }
+                ]
+            }
+        }
+        so_instance.case.meta["is-appeal"] = True
+
+    assert (
+        DecisionLogic.get_notification_config(so_instance, decision)[0]["template_slug"]
+        == expected_notification_slug
+    )
+
+
+@pytest.mark.parametrize(
+    "is_appeal,expected_notification_slug",
+    [(False, "decision"), (True, "decision-appeal")],
+)
+def test_get_notification_config_ur(
+    db,
+    ur_instance,
+    is_appeal,
+    expected_notification_slug,
+    settings,
+    application_settings,
+    caluma_work_item_factory,
+    caluma_document_factory,
+):
+    settings.APPLICATION_NAME = "kt_ur"
+    application_settings["SHORT_NAME"] = "ur"
+    application_settings["NOTIFICATIONS"] = {
+        "DECISION": [
+            {
+                "template_slug": "decision",
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "APPEAL_DECISION": [
+            {
+                "template_slug": "decision-appeal",
+                "recipient_types": ["applicant"],
+            }
+        ],
+    }
+    settings.APPEAL["NOTIFICATIONS"] = {
+        "APPEAL_DECISION": [
+            {
+                "template_slug": "decision-appeal",
+                "recipient_types": ["applicant"],
+            }
+        ]
+    }
+    decision = caluma_work_item_factory(task_id="decision", case=ur_instance.case)
+
+    if is_appeal:
+        ur_instance.case.meta["is-appeal"] = True
+
+    assert (
+        DecisionLogic.get_notification_config(ur_instance, decision)[0]["template_slug"]
+        == expected_notification_slug
     )
