@@ -1881,12 +1881,83 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock, uti
     )
 
     utils.add_table_answer(document, "beschreibung-der-prozessart-tabelle", [])
-    utils.add_table_answer(document, "bs-aufzugsanlagen-v3", [])
+    utils.add_table_answer(
+        document,
+        "bs-aufzugsanlagen-v3",
+        [
+            {
+                "bs-aufzugsanlage-typ-v3": {
+                    "value": "bs-aufzugsanlage-typ-v3",
+                    "options": [("bs-aufzugsanlage-typ-v3", "Typ")],
+                },
+                "bs-aufzugsanlage-zustand-v3": {
+                    "value": "bs-aufzugsanlage-zustand-v3",
+                    "options": [("bs-aufzugsanlage-zustand-v3", "Zustand")],
+                },
+            }
+        ],
+    )
     utils.add_table_answer(document, "brandschutz-gebaeudeabstaende-v3", [])
-    utils.add_table_answer(document, "bs-gefaehrliche-stoffe-v3", [])
-    utils.add_table_answer(document, "bs-lufttechnische-anlagen-v3", [])
+    utils.add_table_answer(
+        document,
+        "bs-gefaehrliche-stoffe-v3",
+        [
+            {
+                "bs-gefaehrlicher-stoff-stoffgruppe-v3": {
+                    "value": "bs-gefaehrlicher-stoff-stoffgruppe-v3",
+                    "options": [
+                        ("bs-gefaehrlicher-stoff-stoffgruppe-v3", "Stoffgruppe")
+                    ],
+                },
+                "bs-gefaehrlicher-stoff-lagerstoff-v3": "Dynamit",
+                "bs-gefaehrlicher-stoff-menge-v3": 500,
+            }
+        ],
+    )
+    utils.add_table_answer(
+        document,
+        "bs-lufttechnische-anlagen-v3",
+        [
+            {
+                "bs-lufttechnische-anlagen-typ-v3": {
+                    "value": "bs-lufttechnische-anlagen-typ-v3",
+                    "options": [("bs-lufttechnische-anlagen-typ-v3", "Typ")],
+                },
+                "bs-lufttechnische-anlage-zustand-v3": {
+                    "value": "bs-lufttechnische-anlage-zustand-v3",
+                    "options": [("bs-lufttechnische-anlage-zustand-v3", "Zustand")],
+                },
+                "bs-lufttechnische-anlage-luftvolumenstrom-v3": 2,
+            }
+        ],
+    )
     utils.add_table_answer(document, "bs-raeume-mehr-50-v3", [])
-    utils.add_table_answer(document, "solaranlagen-v3", [])
+    utils.add_table_answer(
+        document,
+        "solaranlagen-v3",
+        [
+            {
+                "solaranlage-typ-v3": {
+                    "value": "solaranlage-typ-v3",
+                    "options": [("solaranlage-typ-v3", "Typ")],
+                },
+                "solaranlage-elektrische-energiespeicherung-v3": {
+                    "value": "solaranlage-elektrische-energiespeicherung-v3",
+                    "options": [
+                        (
+                            "solaranlage-elektrische-energiespeicherung-v3",
+                            "Energiespeicherkapazität",
+                        )
+                    ],
+                },
+                "solaranlage-zustand-v3": {
+                    "value": "solaranlage-zustand-v3",
+                    "options": [("solaranlage-zustand-v3", "Zustand")],
+                },
+                "solaranlage-energiespeicherkapazitaet-v3": 3,
+            }
+        ],
+    )
     utils.add_table_answer(
         document,
         "bs-brandschutzanlagen-v3",
@@ -1910,7 +1981,43 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock, uti
             }
         ],
     )
-    utils.add_table_answer(document, "bs-waermetechnische-anlagen-v3", [])
+    utils.add_table_answer(
+        document,
+        "bs-waermetechnische-anlagen-v3",
+        [
+            {
+                "bs-waermetechnische-anlagen-typ-v3": {
+                    "value": "bs-waermetechnische-anlagen-typ-v3",
+                    "options": [
+                        (
+                            "bs-waermetechnische-anlagen-typ-v3",
+                            "Typ",
+                        )
+                    ],
+                },
+                "bs-waermetechnische-anlage-brennstofflagerung-v3": {
+                    "value": "bs-waermetechnische-anlage-brennstofflagerung-v3",
+                    "options": [
+                        (
+                            "bs-waermetechnische-anlage-brennstofflagerung-v3",
+                            "Brennstofflagerung",
+                        )
+                    ],
+                },
+                "bs-waermetechnische-anlage-zustand-v3": {
+                    "value": "bs-waermetechnische-anlage-zustand-v3",
+                    "options": [
+                        (
+                            "bs-waermetechnische-anlage-zustand-v3",
+                            "Zustand",
+                        )
+                    ],
+                },
+                "bs-waermetechnische-anlage-leistung-v3": 10,
+                "bs-waermetechnische-anlage-lagermenge-v3": 20,
+            }
+        ],
+    )
     utils.add_table_answer(document, "qs-verantwortlicher-v3", [])
 
     utils.add_table_answer(
