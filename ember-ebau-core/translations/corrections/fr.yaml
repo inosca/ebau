@@ -1,5 +1,5 @@
 corrections:
-  not-available: ""
+  not-available: "Cette fonction n'est pas disponible dans l'état actuel"
 
   archive:
     title: "Archivage d'un dossier"
@@ -20,15 +20,15 @@ corrections:
     title: "Corriger le dossier"
     description: "Veuillez noter que la correction de dossier n'est destinée qu'aux modifications mineures. Veuillez vérifier si, le cas échéant, un renvoi serait approprié.<br><br>Souhaitez-vous poursuivre la correction du dossier?"
     button: "Corriger"
-    description-finish-start: ""
-    description-finish-link: ""
-    description-finish-end: ""
-    button-finish: ""
+    description-finish-start: "Vous pouvez maintenant corriger le dossier dans le menu"
+    description-finish-link: "Formulaire"
+    description-finish-end: "N'oubliez pas de valider la correction à la fin."
+    button-finish: "Clore la correction"
 
     confirm: "Voulez-vous vraiment corriger le dossier ?"
-    error: "Erreur lors de la correction du dossier"
     confirm-finish: ""
-    invalid: ""
+    error: "Erreur lors de la correction du dossier"
+    invalid: "Le dossier ne peut pas être clôturé dans son état actuel. Certaines questions n'ont pas été remplies correctement."
 
   modification-to-new-dossier:
     title: "Transformer une modification de projet"
