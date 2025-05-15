@@ -47,6 +47,7 @@ def invalid_user(user_factory):
         ("form2", "municipality2", "user2"),
         ("form2", "municipality3", "user3"),
         ("form2", "municipality4", None),
+        ("form1", None, "user1"),
     ],
 )
 def test_responsible_user_for_instance(
@@ -93,11 +94,12 @@ def test_responsible_user_for_instance(
     ag_instance.case.document.form_id = application_type
     ag_instance.case.document.save()
 
-    utils.add_municipality(
-        ag_instance.case.document,
-        "gemeinde",
-        Service.objects.get(name=municipality),
-    )
+    if municipality is not None:
+        utils.add_municipality(
+            ag_instance.case.document,
+            "gemeinde",
+            Service.objects.get(name=municipality),
+        )
 
     result = ResponsibleUserRule.objects.get_responsible_user_for_instance(
         ag_instance,
