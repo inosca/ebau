@@ -21,6 +21,7 @@
 # - set $csp_use_google_fonts "true" | "false" (optional; defaults to "false")
 # - set $csp_use_font_data_url "true" | "false" (optional; defaults to "false")
 # - set $csp_portal_allow_inline_style "true" | "false" (optional; defaults to "false")
+# - set $csp_internal_allow_inline_style "true" | "false" (optional; defaults to "false")
 # - set $csp_php_allow_unsafe_eval "true" | "false"  (optional; defaults to "false")
 # - set $csp_php_allow_localhost_scripts "true" | "false"  (optional; defaults to "false")
 # - set $csp_external_connect_sources "space-separated-list-of-urls" (optional; defaults to empty)
@@ -39,6 +40,7 @@
 # Define optional variables
 # =========================
 if ($csp_portal_allow_inline_style ~ "^$")   { set $csp_portal_allow_inline_style "false"; }
+if ($csp_internal_allow_inline_style ~ "^$") { set $csp_internal_allow_inline_style "false"; }
 if ($csp_use_google_fonts ~ "^$")            { set $csp_use_google_fonts "false"; }
 if ($csp_enable_swagger ~ "^$")              { set $csp_enable_swagger "false"; }
 if ($csp_use_font_data_url ~ "^$")           { set $csp_use_font_data_url "false"; }
@@ -89,6 +91,11 @@ set $csp_frame_src "frame-src 'self'";
 set $csp_portal_styles "";
 if ($csp_portal_allow_inline_style = "true") {
   set $csp_portal_styles "'unsafe-inline'";
+}
+
+set $csp_internal_styles "";
+if ($csp_internal_allow_inline_style = "true") {
+  set $csp_internal_styles "'unsafe-inline'";
 }
 
 # Scripting: Vue components may need unsafe eval
@@ -152,7 +159,7 @@ set $csp_header_portal "${csp_header_portal}; ${csp_object_src}";
 # Internal
 set $csp_header_internal "${csp_default_self}";
 set $csp_header_internal "${csp_header_internal}; ${csp_script_default}";
-set $csp_header_internal "${csp_header_internal}; ${csp_style_src}";
+set $csp_header_internal "${csp_header_internal}; ${csp_style_src} ${csp_internal_styles}";
 set $csp_header_internal "${csp_header_internal}; ${csp_fonts_src}";
 set $csp_header_internal "${csp_header_internal}; ${csp_img_default}";
 set $csp_header_internal "${csp_header_internal}; ${csp_connect_src}";
