@@ -935,11 +935,11 @@ MASTER_DATA = {
                     "column_mapping": {
                         "system_type": (
                             "bs-aufzugsanlage-typ-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "new_or_existing": (
                             "bs-aufzugsanlage-zustand-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                     }
                 },
@@ -963,7 +963,7 @@ MASTER_DATA = {
                         "material": "bs-gefaehrlicher-stoff-lagerstoff-v3",
                         "material_group": (
                             "bs-gefaehrlicher-stoff-stoffgruppe-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "amount": "bs-gefaehrlicher-stoff-menge-v3",
                     }
@@ -976,12 +976,12 @@ MASTER_DATA = {
                     "column_mapping": {
                         "system_type": (
                             "bs-lufttechnische-anlagen-typ-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "air_volume": "bs-lufttechnische-anlage-luftvolumenstrom-v3",
                         "new_or_existing": (
                             "bs-lufttechnische-anlage-zustand-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                     }
                 },
@@ -1005,15 +1005,18 @@ MASTER_DATA = {
                 "solaranlagen-v3",
                 {
                     "column_mapping": {
-                        "type": ("solaranlage-typ-v3", {"value_parser": "option"}),
+                        "type": (
+                            "solaranlage-typ-v3",
+                            {"value_parser": "option", "prop": "label"},
+                        ),
                         "energy_storage": (
                             "solaranlage-elektrische-energiespeicherung-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "energy_storage_capacity": "solaranlage-energiespeicherkapazitaet-v3",
                         "new_or_existing": (
                             "solaranlage-zustand-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                     }
                 },
@@ -1129,11 +1132,11 @@ MASTER_DATA = {
                     "column_mapping": {
                         "type": (
                             "bs-brandschutzanlage-typ-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "new_or_existing": (
                             "bs-brandschutzanlage-zustand-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                     }
                 },
@@ -1145,17 +1148,17 @@ MASTER_DATA = {
                     "column_mapping": {
                         "type": (
                             "bs-waermetechnische-anlagen-typ-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "power": "bs-waermetechnische-anlage-leistung-v3",
                         "combusitble_storage": (
                             "bs-waermetechnische-anlage-brennstofflagerung-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "storage_amount": "bs-waermetechnische-anlage-lagermenge-v3",
                         "new_or_existing": (
                             "bs-waermetechnische-anlage-zustand-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                     }
                 },

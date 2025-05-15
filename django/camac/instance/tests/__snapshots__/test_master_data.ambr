@@ -173,11 +173,27 @@
     'dossier_number': '2021-1',
     'final_approval_date': None,
     'fire_protection_systems': list([
+      dict({
+        'new_or_existing': 'Bestehend',
+        'type': 'Blitzschutzanlage',
+      }),
     ]),
     'floor_area': None,
     'hazardous_substances': list([
+      dict({
+        'amount': 500,
+        'material': 'Dynamit',
+        'material_group': 'Stoffgruppe',
+      }),
     ]),
     'heating_systems': list([
+      dict({
+        'combusitble_storage': 'Brennstofflagerung',
+        'new_or_existing': 'Zustand',
+        'power': 10,
+        'storage_amount': 20,
+        'type': 'Typ',
+      }),
     ]),
     'interior_seating': list([
       dict({
@@ -218,6 +234,10 @@
       }),
     ]),
     'lifts': list([
+      dict({
+        'new_or_existing': 'Zustand',
+        'system_type': 'Typ',
+      }),
     ]),
     'municipality_name': 'Bern',
     'municipality_slug': '1',
@@ -289,6 +309,12 @@
     'rrb_start': datetime.date(2022, 1, 1),
     'situation': 'Sachverhalt Test',
     'solar_panels': list([
+      dict({
+        'energy_storage': 'Energiespeicherkapazität',
+        'energy_storage_capacity': 3,
+        'new_or_existing': 'Zustand',
+        'type': 'Typ',
+      }),
     ]),
     'stfv_regulation': list([
       None,
@@ -315,6 +341,11 @@
     ]),
     'usage_zone': 'Wohnzone W2',
     'ventilation_systems': list([
+      dict({
+        'air_volume': 2,
+        'new_or_existing': 'Zustand',
+        'system_type': 'Typ',
+      }),
     ]),
     'water_protection_area': list([
       dict({
@@ -381,11 +412,27 @@
     'dossier_number': '2021-1',
     'final_approval_date': None,
     'fire_protection_systems': list([
+      dict({
+        'new_or_existing': None,
+        'type': None,
+      }),
     ]),
     'floor_area': None,
     'hazardous_substances': list([
+      dict({
+        'amount': 500,
+        'material': 'Dynamit',
+        'material_group': None,
+      }),
     ]),
     'heating_systems': list([
+      dict({
+        'combusitble_storage': None,
+        'new_or_existing': None,
+        'power': 10,
+        'storage_amount': 20,
+        'type': None,
+      }),
     ]),
     'interior_seating': list([
       dict({
@@ -426,6 +473,10 @@
       }),
     ]),
     'lifts': list([
+      dict({
+        'new_or_existing': None,
+        'system_type': None,
+      }),
     ]),
     'municipality_name': 'Berne',
     'municipality_slug': '1',
@@ -497,6 +548,12 @@
     'rrb_start': datetime.date(2022, 1, 1),
     'situation': 'Sachverhalt Test',
     'solar_panels': list([
+      dict({
+        'energy_storage': None,
+        'energy_storage_capacity': 3,
+        'new_or_existing': None,
+        'type': None,
+      }),
     ]),
     'stfv_regulation': list([
       None,
@@ -523,6 +580,11 @@
     ]),
     'usage_zone': 'Wohnzone W2',
     'ventilation_systems': list([
+      dict({
+        'air_volume': 2,
+        'new_or_existing': None,
+        'system_type': None,
+      }),
     ]),
     'water_protection_area': list([
       dict({
