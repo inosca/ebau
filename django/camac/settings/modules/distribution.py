@@ -436,7 +436,10 @@ DISTRIBUTION = {
             "service-afb": [
                 {
                     "include": [
-                        ("service_groups", ["service-cantonal", "service-external"])
+                        (
+                            "service_groups",
+                            ["service-cantonal", "service-external", "municipality"],
+                        )
                     ]
                 }
             ],
