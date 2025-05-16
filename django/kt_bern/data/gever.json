@@ -1,0 +1,74 @@
+[
+  {
+    "model": "gever.cmiobjecttemplate",
+    "pk": "ebau-bg-gemeinde",
+    "fields": {
+      "use_for": "Geschaeft",
+      "template_path": "Global\\AGR\\Bauen eBau BG (Gemeinde)"
+    }
+  },
+  {
+    "model": "gever.cmiobjecttemplate",
+    "pk": "ebau-bg-rsta",
+    "fields": {
+      "use_for": "Geschaeft",
+      "template_path": "Global\\AGR\\Bauen eBau BG (Gemeinde)"
+    }
+  },
+  {
+    "model": "gever.cmiobjecttemplate",
+    "pk": "ebau-va-gemeinde",
+    "fields": {
+      "use_for": "Geschaeft",
+      "template_path": "Global\\AGR\\Bauen eBau BG (Gemeinde)"
+    }
+  },
+  {
+    "model": "gever.cmiobjecttemplate",
+    "pk": "ebau-va-rsta",
+    "fields": {
+      "use_for": "Geschaeft",
+      "template_path": "Global\\AGR\\Bauen eBau BG (Gemeinde)"
+    }
+  },
+  {
+    "model": "gever.cmiconstantvalue",
+    "pk": "herkunft-gemeinde",
+    "fields": {
+      "use_for": "Herkunft",
+      "label": "Gemeinden/Körperschaften"
+    }
+  },
+  {
+    "model": "gever.cmiconstantvalue",
+    "pk": "herkunft-municipality",
+    "fields": {
+      "use_for": "Herkunft",
+      "label": "Gemeinden/Körperschaften"
+    }
+  },
+  {
+    "model": "gever.cmiconstantvalue",
+    "pk": "herkunft-rsta",
+    "fields": {
+      "use_for": "Herkunft",
+      "label": "RSTAs"
+    }
+  },
+  {
+    "model": "gever.cmiconstantvalue",
+    "pk": "verfahrensstand-completed",
+    "fields": {
+      "use_for": "Verfahrensstand",
+      "label": "Abgeschlossen"
+    }
+  },
+  {
+    "model": "gever.cmiconstantvalue",
+    "pk": "verfahrensstand-open",
+    "fields": {
+      "use_for": "Verfahrensstand",
+      "label": "Geschäft eröffnet"
+    }
+  }
+]

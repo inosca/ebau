@@ -1,0 +1,1617 @@
+interactions:
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMjY0NTgsImlhdCI6MTc0NzIyNjQ1OCwiZXhwIjoxNzQ3MjMwMDU4LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIyNjQ1OCwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjI0OEUyMzQ2NDExMjZDRTgxQkFFRDVCMzk4NDM2NjUxIn0.j9J6btNiCBP7kuysugyA0HFBZ9h23VBOJAy0zSSlpGgziXZZna3i1ltsq5BfJn0QyPmlawuYc4k6WrpwkfBO9suIs8nJCZGfcf8qELS4YMSUoOy-kxCNZTOLwyZZzAMtNXcX4wpPGjyAN3qFB-aOWH_7fZAfaB0upbvyrAR77bXbKbOuooFoze-aRx1VT2BuVl4mVp84Nb2o8X3H5Cf3yYngSnf0ZZaO5uWFcIhJuOF38AYyOXwigpo3kXzaQBJqgg-LCUzZwup5eEfRGtoA4Kbf4_LTiP_943ifNnMjkgHcvXxkhtngXaZvwD3yhTBJtZJ7NcfmyUaer1QI9oQMTg","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 12:40:58 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Organisationseinheit/Search
+  response:
+    body:
+      string: "[{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"version\":2,\"typeName\":\"Organisationseinheit\",\"name\":\"Trados
+        \xDCbersetzungsoe\",\"kurzname\":\"TRADOS\",\"kannUeberweisungenEntgegennehmenUndEmpfangen\":false,\"uebernehmen\":true,\"zuweisen\":true,\"inaktiv\":false,\"kannUeberweisungenVersenden\":true,\"vater\":{\"guid\":\"e59bbb03-d396-40c6-b0f2-61a46862a0fa\",\"url\":\"/Organisationseinheit/e59bbb03d39640c6b0f261a46862a0fa\",\"displayName\":\"Generalsekretariat;
+        GS\"}},{\"guid\":\"e59bbb03-d396-40c6-b0f2-61a46862a0fa\",\"version\":2,\"typeName\":\"Organisationseinheit\",\"name\":\"Generalsekretariat\",\"kurzname\":\"GS\",\"kannUeberweisungenEntgegennehmenUndEmpfangen\":false,\"uebernehmen\":true,\"zuweisen\":true,\"inaktiv\":false,\"kannUeberweisungenVersenden\":true,\"vater\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:40:58 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/CustomAmt/Search
+  response:
+    body:
+      string: "[{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"version\":0,\"typeName\":\"Amt\",\"parentkey\":null,\"bezeichnung\":\"Amt
+        f\xFCr Digitalisierungsfragen\",\"inaktiv\":false,\"customKurzzeichen\":\"afd\"}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:40:58 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/CustomRegistraturplan/Search
+  response:
+    body:
+      string: "[{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"version\":0,\"typeName\":\"Ordnungssystem\",\"inaktiv\":false,\"aktenzeichen\":\"4-6-1\",\"begriff\":\"Verf\xFCgungen,
+        Fach- und Amtsberichte, Stellungnahmen\",\"parent\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}},{\"guid\":\"a0eb4580-fb69-4cdc-89c0-0bcb6d859dba\",\"version\":0,\"typeName\":\"Ordnungssystem\",\"inaktiv\":false,\"aktenzeichen\":\"1\",\"begriff\":\"Test\",\"parent\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:40:58 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "typeName": "Geschaeft", "version": 0, "customArchiviert":
+      null, "bemerkung": null, "customGrundbucheintrag": null, "customOrdnungsgemaess":
+      null, "customVerfahrensstand": null, "customSachbearbeiter": null, "customGeschaeftsverantwortung":
+      null, "customGemeinde": null, "customErledigungsart": null, "customKoordinatenX":
+      null, "customKoordinatenY": null, "customHerkunftsNummer": null, "parentkey":
+      null, "customRegistraturplan": {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d",
+      "url": "/CustomRegistraturplan/582b31c8-32b3-41f2-9fe9-283ad6fbbd8d"}, "customVerfahrenseingang":
+      "14.05.2025", "customVerfahrensende": "14.05.2026", "customPoststempel": null,
+      "customWiedereingang": null, "beginn": "14.05.2025", "titel": "adfinis-test
+      2025-05-14T13:00:15", "laufnummer": null, "lifecycleStatus": "InBearbeitung",
+      "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid": "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b",
+      "url": "/Organisationseinheit/6e2c8f58-f9ec-4a58-b467-c47313e0bf1b"}, "customFederfuehrendesAmt":
+      {"guid": "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/CustomAmt/035641ae-a54a-49f7-bb39-a4e926d17c1e"},
+      "customHerkunft": null, "dokumenteExplorer": []}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1187'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/
+  response:
+    body:
+      string: '"c044e556-1b11-4fa3-9f3c-065053c4604c"'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:40:58 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/c044e556-1b11-4fa3-9f3c-065053c4604c
+  response:
+    body:
+      string: "{\"guid\":\"c044e556-1b11-4fa3-9f3c-065053c4604c\",\"version\":0,\"typeName\":\"Gesch\xE4ft\",\"parentkey\":null,\"titel\":\"adfinis-test
+        2025-05-14T13:00:15\",\"zugriffsteuerung\":\"Offen\",\"ende\":null,\"beginn\":\"14.05.2025\",\"laufnummer\":\"2025-STA-155\",\"signatur\":null,\"lifecycleStatus\":\"In
+        Bearbeitung\",\"customRRGeschaeft\":false,\"customDringlVorstoesser\":false,\"customDringlDir\":false,\"customDringlgewaehrt\":false,\"customVorstossBeantwortet\":false,\"customUeberwiesen\":false,\"customVerfahrenseingang\":\"14.05.2025\",\"customVerfahrensende\":\"14.05.2026\",\"geschaeftsstatus\":\"In
+        Bearbeitung\",\"customPoststempel\":null,\"customWiedereingang\":null,\"customOrdnungsgemaess\":false,\"customGrundbucheintrag\":false,\"custommitVoranfrage\":false,\"customParzellenNr\":null,\"customKoordinatenX\":null,\"customKoordinatenY\":null,\"customHerkunftsNummer\":null,\"customArchiviert\":false,\"customArchivnummer\":null,\"dokumenteExplorer\":[],\"geschaeftseigner\":{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"url\":\"/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b\",\"displayName\":\"Trados
+        \xDCbersetzungsoe; TRADOS\"},\"customGeschaeftsverantwortung\":null,\"customGeschaeftsart\":null,\"customRegistraturplan\":{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"url\":\"/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d\",\"displayName\":\"4-6-1
+        Verf\xFCgungen, Fach- und Amtsberichte, Stellungnahmen\"},\"customFederfuehrendesAmt\":{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"url\":\"/Amt/035641aea54a49f7bb39a4e926d17c1e\",\"displayName\":\"Amt
+        f\xFCr Digitalisierungsfragen\"},\"customHerkunft\":null,\"customSachbearbeiter\":null,\"customGemeinde\":null,\"customVerfahrensstand\":null,\"customErledigungsart\":null}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:40:58 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMjY0NTksImlhdCI6MTc0NzIyNjQ1OSwiZXhwIjoxNzQ3MjMwMDU5LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIyNjQ1OSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjNDMTY5M0RFMjEyNDhDODZCQUFGOTQwQ0QzMjg0NUNCIn0.poI3uJYRLVNUeW682LEDCO2tPZClr9w9puzc0vO_NQac1Rd52_3sV7tZ1R8FByKmeMuwgucd3x-MxcSTUUWs-kigf0NUZ9OfISLYrg-m2w8s4JMsxOi36-pMm4jWCeb4vJ6wxcsadDKzZVULPYDWm5GcB3cmpiEqiuDyyAjmi7Z-vpdhFcKaIELGoGGDSCvJkA_xpv3UKVWwb0_IH48VghNLt6I6ueBOaBF2VRFat7HqJ1OEJ5UkMyeUpVWfAsUqv1HKmTdJr8wGRcTtTteQaSRTZ9LBmChBHjk5eG3dG1mE307c3N5AlmroAIBi-GIqGeCtcfUEYUw00iACeBKO8w","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 12:40:59 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": "c044e556-1b11-4fa3-9f3c-065053c4604c", "typeName": "Gesch\u00e4ft",
+      "version": 0, "customArchiviert": false, "bemerkung": null, "customGrundbucheintrag":
+      false, "customOrdnungsgemaess": false, "customVerfahrensstand": null, "customSachbearbeiter":
+      null, "customGeschaeftsverantwortung": null, "customGemeinde": null, "customErledigungsart":
+      null, "customKoordinatenX": null, "customKoordinatenY": null, "customHerkunftsNummer":
+      "5000-1", "parentkey": "ebaube:1", "customRegistraturplan": {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d",
+      "url": "/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d", "displayName": "4-6-1
+      Verf\u00fcgungen, Fach- und Amtsberichte, Stellungnahmen"}, "customVerfahrenseingang":
+      "14.05.2025", "customVerfahrensende": "14.05.2026", "customPoststempel": null,
+      "customWiedereingang": null, "beginn": "14.05.2025", "titel": "adfinis-test
+      2025-05-14T13:00:15", "laufnummer": "2025-STA-155", "lifecycleStatus": "InBearbeitung",
+      "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid": "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b",
+      "url": "/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b", "displayName":
+      "Trados \u00dcbersetzungsoe; TRADOS"}, "customFederfuehrendesAmt": {"guid":
+      "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/Amt/035641aea54a49f7bb39a4e926d17c1e",
+      "displayName": "Amt f\u00fcr Digitalisierungsfragen"}, "customHerkunft": null,
+      "dokumenteExplorer": [], "custommitVoranfrage": false, "ende": null, "customRRGeschaeft":
+      false, "zugriffsteuerung": "Offen", "signatur": null, "customVorstossBeantwortet":
+      false, "customDringlDir": false, "customUeberwiesen": false, "customArchivnummer":
+      null, "customParzellenNr": null, "customGeschaeftsart": null, "customDringlVorstoesser":
+      false, "customDringlgewaehrt": false}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1769'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: PUT
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/c044e556-1b11-4fa3-9f3c-065053c4604c
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 14 May 2025 12:40:59 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMjY0NTksImlhdCI6MTc0NzIyNjQ1OSwiZXhwIjoxNzQ3MjMwMDU5LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIyNjQ1OSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjIzMDVEMjg0MzcxQzhEODhEMUFBQjQ5MDgyMzdBQkFEIn0.5sY2wCxOa1bD0ubGe8W8OzyZnZtbnryxdcarWgY4_Hnber67AxKNN7fjlkSEB_TTro-Wf8uYzMaNAX38qz0xec7rv_6PRLTTSohwAIPIRt4Gx7dadTo8Nr8P_uPBqY_31l1bUMigWo0bZ3PffbVVRD2j21YBtE8AWROY7nsGqbhfaVYTkyLRQrwNcBB5QmSn89gfZVcnV5Qq_9pDEnEmbbb2VB3CvSUwqCLUI7JiW1sZ_0abGYEmsNcabn9pEgP63qYv5StfC1HwlfWLlAbIwL31HJXh8FTI_N9UchyvtPg-EVRKYCl2HomkTTcWSZNKtFx6MUYZrJqtyoCcSD68IA","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 12:40:59 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMjY0NTksImlhdCI6MTc0NzIyNjQ1OSwiZXhwIjoxNzQ3MjMwMDU5LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIyNjQ1OSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjQwOTg5RjkzQzkzNEI0NTEwN0RCNTZCMDZGQzlGRkVGIn0.aEyOenV5FCF0DdaWJeEmFbnZRN32YM6SCQ6KsYcZ8_uOO2kKNT0wqzbQX9XL57zcIP7upovzdR1weILvR3eVtcq6RebTRAlVlsX-HBTJaNyT5Us6YCSPRuZTgRWKU56mR1mUnStjFGJId85nscQvPLpwEJHlpCcvpQtkiQDvfVccrgpQGsIfFyGJJSSHlfa1LYPVw8Y3TiEIfJpZGWa90y_uzESuDgojVLbJbkFG9fW4jGNN74MxcUvOhhl0V_CfRNOmqKK6o2PKvXf2Ed3Et9R-KBSWO761lvUdO4TlxJIqF3ISLcOPg0w62Ibrvxw1kZBz1iSxcLM9eOZNqFZvZg","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 12:40:59 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/c044e556-1b11-4fa3-9f3c-065053c4604c
+  response:
+    body:
+      string: "{\"guid\":\"c044e556-1b11-4fa3-9f3c-065053c4604c\",\"version\":1,\"typeName\":\"Gesch\xE4ft\",\"parentkey\":\"ebaube:1\",\"titel\":\"adfinis-test
+        2025-05-14T13:00:15\",\"zugriffsteuerung\":\"Offen\",\"ende\":null,\"beginn\":\"14.05.2025\",\"laufnummer\":\"2025-STA-155\",\"signatur\":null,\"lifecycleStatus\":\"In
+        Bearbeitung\",\"customRRGeschaeft\":false,\"customDringlVorstoesser\":false,\"customDringlDir\":false,\"customDringlgewaehrt\":false,\"customVorstossBeantwortet\":false,\"customUeberwiesen\":false,\"customVerfahrenseingang\":\"14.05.2025\",\"customVerfahrensende\":\"14.05.2026\",\"geschaeftsstatus\":\"In
+        Bearbeitung\",\"customPoststempel\":null,\"customWiedereingang\":null,\"customOrdnungsgemaess\":false,\"customGrundbucheintrag\":false,\"custommitVoranfrage\":false,\"customParzellenNr\":null,\"customKoordinatenX\":null,\"customKoordinatenY\":null,\"customHerkunftsNummer\":\"5000-1\",\"customArchiviert\":false,\"customArchivnummer\":null,\"dokumenteExplorer\":[],\"geschaeftseigner\":{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"url\":\"/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b\",\"displayName\":\"Trados
+        \xDCbersetzungsoe; TRADOS\"},\"customGeschaeftsverantwortung\":null,\"customGeschaeftsart\":null,\"customRegistraturplan\":{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"url\":\"/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d\",\"displayName\":\"4-6-1
+        Verf\xFCgungen, Fach- und Amtsberichte, Stellungnahmen\"},\"customFederfuehrendesAmt\":{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"url\":\"/Amt/035641aea54a49f7bb39a4e926d17c1e\",\"displayName\":\"Amt
+        f\xFCr Digitalisierungsfragen\"},\"customHerkunft\":null,\"customSachbearbeiter\":null,\"customGemeinde\":null,\"customVerfahrensstand\":null,\"customErledigungsart\":null}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:40:59 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": "c044e556-1b11-4fa3-9f3c-065053c4604c", "typeName": "Gesch\u00e4ft",
+      "version": 1, "customArchiviert": false, "bemerkung": null, "customGrundbucheintrag":
+      true, "customOrdnungsgemaess": false, "customVerfahrensstand": null, "customSachbearbeiter":
+      null, "customGeschaeftsverantwortung": null, "customGemeinde": null, "customErledigungsart":
+      null, "customKoordinatenX": 134333.4, "customKoordinatenY": 99991234.3, "customHerkunftsNummer":
+      "5000-1", "parentkey": "ebaube:1", "customRegistraturplan": {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d",
+      "url": "/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d", "displayName": "4-6-1
+      Verf\u00fcgungen, Fach- und Amtsberichte, Stellungnahmen"}, "customVerfahrenseingang":
+      "14.05.2025", "customVerfahrensende": "14.05.2026", "customPoststempel": null,
+      "customWiedereingang": null, "beginn": "14.05.2025", "titel": "adfinis-test
+      2025-05-14T13:00:15", "laufnummer": "2025-STA-155", "lifecycleStatus": "InBearbeitung",
+      "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid": "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b",
+      "url": "/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b", "displayName":
+      "Trados \u00dcbersetzungsoe; TRADOS"}, "customFederfuehrendesAmt": {"guid":
+      "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/Amt/035641aea54a49f7bb39a4e926d17c1e",
+      "displayName": "Amt f\u00fcr Digitalisierungsfragen"}, "customHerkunft": null,
+      "dokumenteExplorer": [], "custommitVoranfrage": false, "ende": null, "customRRGeschaeft":
+      false, "zugriffsteuerung": "Offen", "signatur": null, "customVorstossBeantwortet":
+      false, "customDringlDir": false, "customUeberwiesen": false, "customArchivnummer":
+      null, "customParzellenNr": null, "customGeschaeftsart": null, "customDringlVorstoesser":
+      false, "customDringlgewaehrt": false}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1778'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: PUT
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/c044e556-1b11-4fa3-9f3c-065053c4604c
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 14 May 2025 12:40:59 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "titel": "1 Baugesuch Parzelle(n) 473, 2592", "children":
+      [], "parent": {"guid": "c044e556-1b11-4fa3-9f3c-065053c4604c", "typeName": "Gesch\u00e4ft",
+      "version": 1, "customArchiviert": false, "bemerkung": null, "customGrundbucheintrag":
+      true, "customOrdnungsgemaess": false, "customVerfahrensstand": null, "customSachbearbeiter":
+      null, "customGeschaeftsverantwortung": null, "customGemeinde": null, "customErledigungsart":
+      null, "customKoordinatenX": 134333.4, "customKoordinatenY": 99991234.3, "customHerkunftsNummer":
+      "5000-1", "parentkey": "ebaube:1", "customRegistraturplan": {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d",
+      "url": "/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d", "displayName": "4-6-1
+      Verf\u00fcgungen, Fach- und Amtsberichte, Stellungnahmen"}, "customVerfahrenseingang":
+      "14.05.2025", "customVerfahrensende": "14.05.2026", "customPoststempel": null,
+      "customWiedereingang": null, "beginn": "14.05.2025", "titel": "adfinis-test
+      2025-05-14T13:00:15", "laufnummer": "2025-STA-155", "lifecycleStatus": "InBearbeitung",
+      "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid": "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b",
+      "url": "/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b", "displayName":
+      "Trados \u00dcbersetzungsoe; TRADOS"}, "customFederfuehrendesAmt": {"guid":
+      "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/Amt/035641aea54a49f7bb39a4e926d17c1e",
+      "displayName": "Amt f\u00fcr Digitalisierungsfragen"}, "customHerkunft": null,
+      "dokumenteExplorer": [], "custommitVoranfrage": false, "ende": null, "customRRGeschaeft":
+      false, "zugriffsteuerung": "Offen", "signatur": null, "customVorstossBeantwortet":
+      false, "customDringlDir": false, "customUeberwiesen": false, "customArchivnummer":
+      null, "customParzellenNr": null, "customGeschaeftsart": null, "customDringlVorstoesser":
+      false, "customDringlgewaehrt": false}, "geschaeft": {"guid": "c044e556-1b11-4fa3-9f3c-065053c4604c",
+      "typeName": "Gesch\u00e4ft", "version": 1, "customArchiviert": false, "bemerkung":
+      null, "customGrundbucheintrag": true, "customOrdnungsgemaess": false, "customVerfahrensstand":
+      null, "customSachbearbeiter": null, "customGeschaeftsverantwortung": null, "customGemeinde":
+      null, "customErledigungsart": null, "customKoordinatenX": 134333.4, "customKoordinatenY":
+      99991234.3, "customHerkunftsNummer": "5000-1", "parentkey": "ebaube:1", "customRegistraturplan":
+      {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d", "url": "/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d",
+      "displayName": "4-6-1 Verf\u00fcgungen, Fach- und Amtsberichte, Stellungnahmen"},
+      "customVerfahrenseingang": "14.05.2025", "customVerfahrensende": "14.05.2026",
+      "customPoststempel": null, "customWiedereingang": null, "beginn": "14.05.2025",
+      "titel": "adfinis-test 2025-05-14T13:00:15", "laufnummer": "2025-STA-155", "lifecycleStatus":
+      "InBearbeitung", "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid":
+      "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b", "url": "/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b",
+      "displayName": "Trados \u00dcbersetzungsoe; TRADOS"}, "customFederfuehrendesAmt":
+      {"guid": "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/Amt/035641aea54a49f7bb39a4e926d17c1e",
+      "displayName": "Amt f\u00fcr Digitalisierungsfragen"}, "customHerkunft": null,
+      "dokumenteExplorer": [], "custommitVoranfrage": false, "ende": null, "customRRGeschaeft":
+      false, "zugriffsteuerung": "Offen", "signatur": null, "customVorstossBeantwortet":
+      false, "customDringlDir": false, "customUeberwiesen": false, "customArchivnummer":
+      null, "customParzellenNr": null, "customGeschaeftsart": null, "customDringlVorstoesser":
+      false, "customDringlgewaehrt": false}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3659'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Ordner/
+  response:
+    body:
+      string: '"f26fb82a-eb04-4849-a7b0-7a5eb91f9722"'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:41:00 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "titel": "create.avi", "displayName": null, "url": null,
+      "eDokument": null, "geschaeft": {"guid": "c044e556-1b11-4fa3-9f3c-065053c4604c",
+      "typeName": "Gesch\u00e4ft", "version": 1, "customArchiviert": false, "bemerkung":
+      null, "customGrundbucheintrag": true, "customOrdnungsgemaess": false, "customVerfahrensstand":
+      null, "customSachbearbeiter": null, "customGeschaeftsverantwortung": null, "customGemeinde":
+      null, "customErledigungsart": null, "customKoordinatenX": 134333.4, "customKoordinatenY":
+      99991234.3, "customHerkunftsNummer": "5000-1", "parentkey": "ebaube:1", "customRegistraturplan":
+      {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d", "url": "/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d",
+      "displayName": "4-6-1 Verf\u00fcgungen, Fach- und Amtsberichte, Stellungnahmen"},
+      "customVerfahrenseingang": "14.05.2025", "customVerfahrensende": "14.05.2026",
+      "customPoststempel": null, "customWiedereingang": null, "beginn": "14.05.2025",
+      "titel": "adfinis-test 2025-05-14T13:00:15", "laufnummer": "2025-STA-155", "lifecycleStatus":
+      "InBearbeitung", "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid":
+      "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b", "url": "/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b",
+      "displayName": "Trados \u00dcbersetzungsoe; TRADOS"}, "customFederfuehrendesAmt":
+      {"guid": "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/Amt/035641aea54a49f7bb39a4e926d17c1e",
+      "displayName": "Amt f\u00fcr Digitalisierungsfragen"}, "customHerkunft": null,
+      "dokumenteExplorer": [], "custommitVoranfrage": false, "ende": null, "customRRGeschaeft":
+      false, "zugriffsteuerung": "Offen", "signatur": null, "customVorstossBeantwortet":
+      false, "customDringlDir": false, "customUeberwiesen": false, "customArchivnummer":
+      null, "customParzellenNr": null, "customGeschaeftsart": null, "customDringlVorstoesser":
+      false, "customDringlgewaehrt": false}, "parentkey": "ebaube:1:2025-05-14T13:00:15+00:00",
+      "geschaeftPosteingangExplorer": {"guid": "f26fb82a-eb04-4849-a7b0-7a5eb91f9722",
+      "titel": "1 Baugesuch Parzelle(n) 473, 2592", "children": [], "parent": {"guid":
+      "c044e556-1b11-4fa3-9f3c-065053c4604c", "typeName": "Gesch\u00e4ft", "version":
+      1, "customArchiviert": false, "bemerkung": null, "customGrundbucheintrag": true,
+      "customOrdnungsgemaess": false, "customVerfahrensstand": null, "customSachbearbeiter":
+      null, "customGeschaeftsverantwortung": null, "customGemeinde": null, "customErledigungsart":
+      null, "customKoordinatenX": 134333.4, "customKoordinatenY": 99991234.3, "customHerkunftsNummer":
+      "5000-1", "parentkey": "ebaube:1", "customRegistraturplan": {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d",
+      "url": "/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d", "displayName": "4-6-1
+      Verf\u00fcgungen, Fach- und Amtsberichte, Stellungnahmen"}, "customVerfahrenseingang":
+      "14.05.2025", "customVerfahrensende": "14.05.2026", "customPoststempel": null,
+      "customWiedereingang": null, "beginn": "14.05.2025", "titel": "adfinis-test
+      2025-05-14T13:00:15", "laufnummer": "2025-STA-155", "lifecycleStatus": "InBearbeitung",
+      "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid": "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b",
+      "url": "/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b", "displayName":
+      "Trados \u00dcbersetzungsoe; TRADOS"}, "customFederfuehrendesAmt": {"guid":
+      "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/Amt/035641aea54a49f7bb39a4e926d17c1e",
+      "displayName": "Amt f\u00fcr Digitalisierungsfragen"}, "customHerkunft": null,
+      "dokumenteExplorer": [], "custommitVoranfrage": false, "ende": null, "customRRGeschaeft":
+      false, "zugriffsteuerung": "Offen", "signatur": null, "customVorstossBeantwortet":
+      false, "customDringlDir": false, "customUeberwiesen": false, "customArchivnummer":
+      null, "customParzellenNr": null, "customGeschaeftsart": null, "customDringlVorstoesser":
+      false, "customDringlgewaehrt": false}, "geschaeft": {"guid": "c044e556-1b11-4fa3-9f3c-065053c4604c",
+      "typeName": "Gesch\u00e4ft", "version": 1, "customArchiviert": false, "bemerkung":
+      null, "customGrundbucheintrag": true, "customOrdnungsgemaess": false, "customVerfahrensstand":
+      null, "customSachbearbeiter": null, "customGeschaeftsverantwortung": null, "customGemeinde":
+      null, "customErledigungsart": null, "customKoordinatenX": 134333.4, "customKoordinatenY":
+      99991234.3, "customHerkunftsNummer": "5000-1", "parentkey": "ebaube:1", "customRegistraturplan":
+      {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d", "url": "/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d",
+      "displayName": "4-6-1 Verf\u00fcgungen, Fach- und Amtsberichte, Stellungnahmen"},
+      "customVerfahrenseingang": "14.05.2025", "customVerfahrensende": "14.05.2026",
+      "customPoststempel": null, "customWiedereingang": null, "beginn": "14.05.2025",
+      "titel": "adfinis-test 2025-05-14T13:00:15", "laufnummer": "2025-STA-155", "lifecycleStatus":
+      "InBearbeitung", "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid":
+      "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b", "url": "/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b",
+      "displayName": "Trados \u00dcbersetzungsoe; TRADOS"}, "customFederfuehrendesAmt":
+      {"guid": "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/Amt/035641aea54a49f7bb39a4e926d17c1e",
+      "displayName": "Amt f\u00fcr Digitalisierungsfragen"}, "customHerkunft": null,
+      "dokumenteExplorer": [], "custommitVoranfrage": false, "ende": null, "customRRGeschaeft":
+      false, "zugriffsteuerung": "Offen", "signatur": null, "customVorstossBeantwortet":
+      false, "customDringlDir": false, "customUeberwiesen": false, "customArchivnummer":
+      null, "customParzellenNr": null, "customGeschaeftsart": null, "customDringlVorstoesser":
+      false, "customDringlgewaehrt": false}}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '5661'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Dokument/
+  response:
+    body:
+      string: '"b9b82eec-a17e-4cce-bd86-30fc4d4b5a47"'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:41:00 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: !!binary |
+      LS0xNmNmMDhhMzQ4MWM5ZjQ3ODliNTA1MzM3NWJiMTM2OQ0KQ29udGVudC1EaXNwb3NpdGlvbjog
+      Zm9ybS1kYXRhOyBuYW1lPSJkb2t1bWVudFN0YXR1cyINCg0KSGF1cHR2ZXJzaW9uDQotLTE2Y2Yw
+      OGEzNDgxYzlmNDc4OWI1MDUzMzc1YmIxMzY5DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRh
+      dGE7IG5hbWU9ImZpbGUiOyBmaWxlbmFtZT0iYXR0YWNobWVudHMvZmlsZXMvMS9leGFtcGxlLmpw
+      ZyINCkNvbnRlbnQtVHlwZTogaW1hZ2UvanBlZw0KDQr/2P/gABBKRklGAAEBAAABAAEAAP/bAEMA
+      CAYGBwYFCAcHBwkJCAoMFA0MCwsMGRITDxQdGh8eHRocHCAkLicgIiwjHBwoNyksMDE0NDQfJzk9
+      ODI8LjM0Mv/bAEMBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy
+      MjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAwAEAAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAA
+      AAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGR
+      oQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdo
+      aWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU
+      1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJ
+      Cgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVi
+      ctEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqC
+      g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl
+      5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APHKKKK/cTzAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKAP/2Q0KLS0xNmNmMDhhMzQ4MWM5ZjQ3ODliNTA1MzM3NWJiMTM2OS0tDQo=
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13217'
+      Content-Type:
+      - multipart/form-data; boundary=16cf08a3481c9f4789b5053375bb1369
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Dokument/CheckIn/b9b82eec-a17e-4cce-bd86-30fc4d4b5a47
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 14 May 2025 12:41:00 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "titel": "attack.avi", "displayName": null, "url": null,
+      "eDokument": null, "geschaeft": {"guid": "c044e556-1b11-4fa3-9f3c-065053c4604c",
+      "typeName": "Gesch\u00e4ft", "version": 1, "customArchiviert": false, "bemerkung":
+      null, "customGrundbucheintrag": true, "customOrdnungsgemaess": false, "customVerfahrensstand":
+      null, "customSachbearbeiter": null, "customGeschaeftsverantwortung": null, "customGemeinde":
+      null, "customErledigungsart": null, "customKoordinatenX": 134333.4, "customKoordinatenY":
+      99991234.3, "customHerkunftsNummer": "5000-1", "parentkey": "ebaube:1", "customRegistraturplan":
+      {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d", "url": "/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d",
+      "displayName": "4-6-1 Verf\u00fcgungen, Fach- und Amtsberichte, Stellungnahmen"},
+      "customVerfahrenseingang": "14.05.2025", "customVerfahrensende": "14.05.2026",
+      "customPoststempel": null, "customWiedereingang": null, "beginn": "14.05.2025",
+      "titel": "adfinis-test 2025-05-14T13:00:15", "laufnummer": "2025-STA-155", "lifecycleStatus":
+      "InBearbeitung", "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid":
+      "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b", "url": "/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b",
+      "displayName": "Trados \u00dcbersetzungsoe; TRADOS"}, "customFederfuehrendesAmt":
+      {"guid": "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/Amt/035641aea54a49f7bb39a4e926d17c1e",
+      "displayName": "Amt f\u00fcr Digitalisierungsfragen"}, "customHerkunft": null,
+      "dokumenteExplorer": [], "custommitVoranfrage": false, "ende": null, "customRRGeschaeft":
+      false, "zugriffsteuerung": "Offen", "signatur": null, "customVorstossBeantwortet":
+      false, "customDringlDir": false, "customUeberwiesen": false, "customArchivnummer":
+      null, "customParzellenNr": null, "customGeschaeftsart": null, "customDringlVorstoesser":
+      false, "customDringlgewaehrt": false}, "parentkey": "ebaube:2:2025-05-14T13:00:15+00:00",
+      "geschaeftPosteingangExplorer": {"guid": "f26fb82a-eb04-4849-a7b0-7a5eb91f9722",
+      "titel": "1 Baugesuch Parzelle(n) 473, 2592", "children": [], "parent": {"guid":
+      "c044e556-1b11-4fa3-9f3c-065053c4604c", "typeName": "Gesch\u00e4ft", "version":
+      1, "customArchiviert": false, "bemerkung": null, "customGrundbucheintrag": true,
+      "customOrdnungsgemaess": false, "customVerfahrensstand": null, "customSachbearbeiter":
+      null, "customGeschaeftsverantwortung": null, "customGemeinde": null, "customErledigungsart":
+      null, "customKoordinatenX": 134333.4, "customKoordinatenY": 99991234.3, "customHerkunftsNummer":
+      "5000-1", "parentkey": "ebaube:1", "customRegistraturplan": {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d",
+      "url": "/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d", "displayName": "4-6-1
+      Verf\u00fcgungen, Fach- und Amtsberichte, Stellungnahmen"}, "customVerfahrenseingang":
+      "14.05.2025", "customVerfahrensende": "14.05.2026", "customPoststempel": null,
+      "customWiedereingang": null, "beginn": "14.05.2025", "titel": "adfinis-test
+      2025-05-14T13:00:15", "laufnummer": "2025-STA-155", "lifecycleStatus": "InBearbeitung",
+      "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid": "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b",
+      "url": "/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b", "displayName":
+      "Trados \u00dcbersetzungsoe; TRADOS"}, "customFederfuehrendesAmt": {"guid":
+      "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/Amt/035641aea54a49f7bb39a4e926d17c1e",
+      "displayName": "Amt f\u00fcr Digitalisierungsfragen"}, "customHerkunft": null,
+      "dokumenteExplorer": [], "custommitVoranfrage": false, "ende": null, "customRRGeschaeft":
+      false, "zugriffsteuerung": "Offen", "signatur": null, "customVorstossBeantwortet":
+      false, "customDringlDir": false, "customUeberwiesen": false, "customArchivnummer":
+      null, "customParzellenNr": null, "customGeschaeftsart": null, "customDringlVorstoesser":
+      false, "customDringlgewaehrt": false}, "geschaeft": {"guid": "c044e556-1b11-4fa3-9f3c-065053c4604c",
+      "typeName": "Gesch\u00e4ft", "version": 1, "customArchiviert": false, "bemerkung":
+      null, "customGrundbucheintrag": true, "customOrdnungsgemaess": false, "customVerfahrensstand":
+      null, "customSachbearbeiter": null, "customGeschaeftsverantwortung": null, "customGemeinde":
+      null, "customErledigungsart": null, "customKoordinatenX": 134333.4, "customKoordinatenY":
+      99991234.3, "customHerkunftsNummer": "5000-1", "parentkey": "ebaube:1", "customRegistraturplan":
+      {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d", "url": "/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d",
+      "displayName": "4-6-1 Verf\u00fcgungen, Fach- und Amtsberichte, Stellungnahmen"},
+      "customVerfahrenseingang": "14.05.2025", "customVerfahrensende": "14.05.2026",
+      "customPoststempel": null, "customWiedereingang": null, "beginn": "14.05.2025",
+      "titel": "adfinis-test 2025-05-14T13:00:15", "laufnummer": "2025-STA-155", "lifecycleStatus":
+      "InBearbeitung", "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid":
+      "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b", "url": "/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b",
+      "displayName": "Trados \u00dcbersetzungsoe; TRADOS"}, "customFederfuehrendesAmt":
+      {"guid": "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/Amt/035641aea54a49f7bb39a4e926d17c1e",
+      "displayName": "Amt f\u00fcr Digitalisierungsfragen"}, "customHerkunft": null,
+      "dokumenteExplorer": [], "custommitVoranfrage": false, "ende": null, "customRRGeschaeft":
+      false, "zugriffsteuerung": "Offen", "signatur": null, "customVorstossBeantwortet":
+      false, "customDringlDir": false, "customUeberwiesen": false, "customArchivnummer":
+      null, "customParzellenNr": null, "customGeschaeftsart": null, "customDringlVorstoesser":
+      false, "customDringlgewaehrt": false}}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '5661'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Dokument/
+  response:
+    body:
+      string: '"3b9de348-3b08-4e98-9e13-d62458d72931"'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:41:00 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: !!binary |
+      LS0xN2ZhNjUyNmUzNGJhMGYzMmMyNTZiZDI1ZTJhYTU0Yw0KQ29udGVudC1EaXNwb3NpdGlvbjog
+      Zm9ybS1kYXRhOyBuYW1lPSJkb2t1bWVudFN0YXR1cyINCg0KSGF1cHR2ZXJzaW9uDQotLTE3ZmE2
+      NTI2ZTM0YmEwZjMyYzI1NmJkMjVlMmFhNTRjDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRh
+      dGE7IG5hbWU9ImZpbGUiOyBmaWxlbmFtZT0iYXR0YWNobWVudHMvZmlsZXMvMS9leGFtcGxlX0l2
+      NGVIMFYuanBnIg0KQ29udGVudC1UeXBlOiBpbWFnZS9qcGVnDQoNCv/Y/+AAEEpGSUYAAQEAAAEA
+      AQAA/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwLCwwZEhMPFB0aHx4dGhwcICQuJyAiLCMcHCg3KSww
+      MTQ0NB8nOT04MjwuMzQy/9sAQwEJCQkMCwwYDQ0YMiEcITIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy
+      MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy/8AAEQgDAAQAAwEiAAIRAQMRAf/EAB8AAAEFAQEB
+      AQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNR
+      YQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldY
+      WVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TF
+      xsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAAB
+      AgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGx
+      wQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpz
+      dHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW
+      19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A8cooor9xPMCiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+      iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK
+      KACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+      AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA
+      ooooAKKKKACiiigAooooA//ZDQotLTE3ZmE2NTI2ZTM0YmEwZjMyYzI1NmJkMjVlMmFhNTRjLS0N
+      Cg==
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13225'
+      Content-Type:
+      - multipart/form-data; boundary=17fa6526e34ba0f32c256bd25e2aa54c
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Dokument/CheckIn/3b9de348-3b08-4e98-9e13-d62458d72931
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 14 May 2025 12:41:01 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/c044e556-1b11-4fa3-9f3c-065053c4604c
+  response:
+    body:
+      string: "{\"guid\":\"c044e556-1b11-4fa3-9f3c-065053c4604c\",\"version\":2,\"typeName\":\"Gesch\xE4ft\",\"parentkey\":\"ebaube:1\",\"titel\":\"adfinis-test
+        2025-05-14T13:00:15\",\"zugriffsteuerung\":\"Offen\",\"ende\":null,\"beginn\":\"14.05.2025\",\"laufnummer\":\"2025-STA-155\",\"signatur\":null,\"lifecycleStatus\":\"In
+        Bearbeitung\",\"customRRGeschaeft\":false,\"customDringlVorstoesser\":false,\"customDringlDir\":false,\"customDringlgewaehrt\":false,\"customVorstossBeantwortet\":false,\"customUeberwiesen\":false,\"customVerfahrenseingang\":\"14.05.2025\",\"customVerfahrensende\":\"14.05.2026\",\"geschaeftsstatus\":\"In
+        Bearbeitung\",\"customPoststempel\":null,\"customWiedereingang\":null,\"customOrdnungsgemaess\":false,\"customGrundbucheintrag\":true,\"custommitVoranfrage\":false,\"customParzellenNr\":null,\"customKoordinatenX\":134333.4,\"customKoordinatenY\":99991230,\"customHerkunftsNummer\":\"5000-1\",\"customArchiviert\":false,\"customArchivnummer\":null,\"dokumenteExplorer\":[{\"guid\":\"f26fb82a-eb04-4849-a7b0-7a5eb91f9722\",\"url\":\"/Ordner/f26fb82aeb044849a7b07a5eb91f9722\",\"displayName\":\"1
+        Baugesuch Parzelle(n) 473, 2592\"}],\"geschaeftseigner\":{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"url\":\"/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b\",\"displayName\":\"Trados
+        \xDCbersetzungsoe; TRADOS\"},\"customGeschaeftsverantwortung\":null,\"customGeschaeftsart\":null,\"customRegistraturplan\":{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"url\":\"/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d\",\"displayName\":\"4-6-1
+        Verf\xFCgungen, Fach- und Amtsberichte, Stellungnahmen\"},\"customFederfuehrendesAmt\":{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"url\":\"/Amt/035641aea54a49f7bb39a4e926d17c1e\",\"displayName\":\"Amt
+        f\xFCr Digitalisierungsfragen\"},\"customHerkunft\":null,\"customSachbearbeiter\":null,\"customGemeinde\":null,\"customVerfahrensstand\":null,\"customErledigungsart\":null}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:41:01 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Ordner/f26fb82aeb044849a7b07a5eb91f9722
+  response:
+    body:
+      string: "{\"guid\":\"f26fb82a-eb04-4849-a7b0-7a5eb91f9722\",\"version\":0,\"typeName\":\"Ordner\",\"parentkey\":null,\"titel\":\"1
+        Baugesuch Parzelle(n) 473, 2592\",\"parent\":{\"guid\":\"c044e556-1b11-4fa3-9f3c-065053c4604c\",\"url\":\"/Gesch\xE4ft/c044e5561b114fa39f3c065053c4604c\",\"displayName\":\":
+        adfinis-test 2025-05-14T13:00:15\"},\"children\":[{\"guid\":\"3b9de348-3b08-4e98-9e13-d62458d72931\",\"url\":\"/Dokument/3b9de3483b084e989e13d62458d72931\",\"displayName\":\"attack.avi\"},{\"guid\":\"b9b82eec-a17e-4cce-bd86-30fc4d4b5a47\",\"url\":\"/Dokument/b9b82eeca17e4ccebd8630fc4d4b5a47\",\"displayName\":\"create.avi\"}],\"geschaeft\":{\"guid\":\"c044e556-1b11-4fa3-9f3c-065053c4604c\",\"url\":\"/Gesch\xE4ft/c044e5561b114fa39f3c065053c4604c\",\"displayName\":\":
+        adfinis-test 2025-05-14T13:00:15\"}}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:41:01 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Dokument/3b9de3483b084e989e13d62458d72931?latestOnly=false&originalOnly=true
+  response:
+    body:
+      string: "{\"guid\":\"3b9de348-3b08-4e98-9e13-d62458d72931\",\"version\":0,\"typeName\":\"Dokument\",\"parentkey\":\"ebaube:2:2025-05-14T13:00:15+00:00\",\"bemerkung\":null,\"autor\":null,\"titel\":\"attack.avi\",\"eDokument\":{\"inBearbeitungBei\":\"\",\"renditions\":[{\"version\":1,\"fileName\":\"attack.avi.jpg\",\"file\":\"http://tradosint001:10013/api/core/Dms/Download?objGuid=3b9de3483b084e989e13d62458d72931&fldId=332&version=1&renditionGuid=00000000000000000000000000000000\",\"creatorJob\":\"00000000000000000000000000000000\"}]},\"dokumentdatum\":null,\"beschuss\":false,\"beschlussvorhanden\":false,\"foreignDokReference\":null,\"istPubliziert\":false,\"vip\":false,\"veroeffentlichungsstatus\":\"Nicht
+        Publiziert\",\"letzteVeroeffentlichung\":null,\"customGRVersand\":false,\"customAmtlichePublikation\":false,\"customObjektpfad\":null,\"customMergfieldDokumentdatum\":null,\"geschaeft\":{\"guid\":\"c044e556-1b11-4fa3-9f3c-065053c4604c\",\"url\":\"/Gesch\xE4ft/c044e5561b114fa39f3c065053c4604c\",\"displayName\":\":
+        adfinis-test 2025-05-14T13:00:15\"},\"kategorie\":null,\"geschaeftPosteingangExplorer\":{\"guid\":\"f26fb82a-eb04-4849-a7b0-7a5eb91f9722\",\"url\":\"/Ordner/f26fb82aeb044849a7b07a5eb91f9722\",\"displayName\":\"1
+        Baugesuch Parzelle(n) 473, 2592\"}}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:41:01 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Dokument/b9b82eeca17e4ccebd8630fc4d4b5a47?latestOnly=false&originalOnly=true
+  response:
+    body:
+      string: "{\"guid\":\"b9b82eec-a17e-4cce-bd86-30fc4d4b5a47\",\"version\":0,\"typeName\":\"Dokument\",\"parentkey\":\"ebaube:1:2025-05-14T13:00:15+00:00\",\"bemerkung\":null,\"autor\":null,\"titel\":\"create.avi\",\"eDokument\":{\"inBearbeitungBei\":\"\",\"renditions\":[{\"version\":1,\"fileName\":\"create.avi.jpg\",\"file\":\"http://tradosint001:10013/api/core/Dms/Download?objGuid=b9b82eeca17e4ccebd8630fc4d4b5a47&fldId=332&version=1&renditionGuid=00000000000000000000000000000000\",\"creatorJob\":\"00000000000000000000000000000000\"}]},\"dokumentdatum\":null,\"beschuss\":false,\"beschlussvorhanden\":false,\"foreignDokReference\":null,\"istPubliziert\":false,\"vip\":false,\"veroeffentlichungsstatus\":\"Nicht
+        Publiziert\",\"letzteVeroeffentlichung\":null,\"customGRVersand\":false,\"customAmtlichePublikation\":false,\"customObjektpfad\":null,\"customMergfieldDokumentdatum\":null,\"geschaeft\":{\"guid\":\"c044e556-1b11-4fa3-9f3c-065053c4604c\",\"url\":\"/Gesch\xE4ft/c044e5561b114fa39f3c065053c4604c\",\"displayName\":\":
+        adfinis-test 2025-05-14T13:00:15\"},\"kategorie\":null,\"geschaeftPosteingangExplorer\":{\"guid\":\"f26fb82a-eb04-4849-a7b0-7a5eb91f9722\",\"url\":\"/Ordner/f26fb82aeb044849a7b07a5eb91f9722\",\"displayName\":\"1
+        Baugesuch Parzelle(n) 473, 2592\"}}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:41:01 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.32.3
+    method: DELETE
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/c044e556-1b11-4fa3-9f3c-065053c4604c
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 14 May 2025 12:41:01 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMjY0NjEsImlhdCI6MTc0NzIyNjQ2MSwiZXhwIjoxNzQ3MjMwMDYxLCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIyNjQ2MSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjNGNjAzNzNDNjg0RDg0NjFBNUVDMDIxNzg0MDQ5MkM3In0.5BeerX-SzxrhDe4qx4EDHTQifmPqBWzS4vyYQDXlQwFfEzc63cJh1qvJFL3Yp1q5uSBIOruJK112AgDdX_Jm17xLjE1d2vpUA-y0MfaSUHR3ovaBpk8YXPanKwq-VkD_egRFU1UNI6aEmV7bvNEQpKu3ak-oo2ThmIcntLO0DFqgqlouhi5bHsTApTBbXkPPQosohyWcUvH2BIfO0hUsWwv9z1K_tzP0qNIEqdONVEIO5zrQvSapC_bF8erOiK60LCfOilFoyCVqAl2JnBLwIzV56xjU5DAs_7qlItIGGdYeHTFQ8jcaXtgsJWuNzLrP8VJg_3DogC0zTY9CJnE4Zw","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 12:41:01 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"customHerkunftsnummer[5000-*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '31'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/Search
+  response:
+    body:
+      string: '[]'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:41:01 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+version: 1

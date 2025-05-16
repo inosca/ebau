@@ -51,6 +51,12 @@ class Endpoint(Generic[EndpointType]):
         resp.raise_for_status()
         return self._type.schema().loads(resp.content, many=True)
 
+    def fulltext(self, value):  # pragma: no cover
+        return self.search_by_tentaql(f"FULLTEXT[{value}]")
+
+    def by_attribute(self, attr, value):
+        return self.search_by_tentaql(f"{attr}[{value}]")
+
     def all(self):
         return self.search_by_tentaql("FULLTEXT[*]")
 
@@ -191,7 +197,12 @@ class FolderEndpoint(Endpoint):
 
 class OrgunitEndpoint(Endpoint):
     def __init__(self, client: GEVERClient):
-        super().__init__(client, "Organisationseinheit", apimodels.Organisatinseinheit)
+        super().__init__(client, "Organisationseinheit", apimodels.Organisationseinheit)
+
+
+class HerkunftEndpoint(Endpoint):
+    def __init__(self, client: GEVERClient):
+        super().__init__(client, "CustomHerkunft", apimodels.CustomHerkunft)
 
 
 class AmtEndpoint(Endpoint):
@@ -207,6 +218,13 @@ class BenutzerEndpoint(Endpoint):
 class GemeindeEndpoint(Endpoint):
     def __init__(self, client: GEVERClient):
         super().__init__(client, "Gemeinde", apimodels.Gemeinde)
+
+
+class CustomVerfahrensstandEndpoint(Endpoint):
+    def __init__(self, client: GEVERClient):
+        super().__init__(
+            client, "CustomVerfahrensstand", apimodels.CustomVerfahrensstand
+        )
 
 
 class RegistraturplanEndpoint(Endpoint):
@@ -282,8 +300,10 @@ class GEVERClient:
         "CustomAmt": "amt",
         "Registraturplan": "registraturplan",
         "Benutzer": "user",
+        "CustomHerkunft": "origin",
         "Gemeinde": "municipality",
         "CustomErledigungsart": "erledigungsart",
+        "CustomVerfahrensstand": "verfahrensstand",
     }
 
     def __init__(self):
@@ -334,7 +354,7 @@ class GEVERClient:
         return GeschaeftEndpoint(self)
 
     @property
-    def orgunit(self) -> OrgunitEndpoint[apimodels.Organisatinseinheit]:
+    def orgunit(self) -> OrgunitEndpoint[apimodels.Organisationseinheit]:
         return OrgunitEndpoint(self)
 
     @property
@@ -366,5 +386,15 @@ class GEVERClient:
         return CustomErledigungsartEndpoint(self)
 
     @property
+    def verfahrensstand(
+        self,
+    ) -> CustomVerfahrensstandEndpoint[apimodels.CustomVerfahrensstand]:
+        return CustomVerfahrensstandEndpoint(self)
+
+    @property
     def municipality(self) -> GemeindeEndpoint[apimodels.Gemeinde]:
         return GemeindeEndpoint(self)
+
+    @property
+    def origin(self) -> HerkunftEndpoint[apimodels.CustomHerkunft]:
+        return HerkunftEndpoint(self)

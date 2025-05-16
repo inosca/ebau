@@ -8,25 +8,8 @@ from django.conf import settings
 from django.db import transaction
 
 from camac.caluma.api import CalumaApi
+from camac.gever.constants import INSTANCE_TYPE_SHORT
 from camac.instance.master_data import MasterData
-
-INSTANCE_TYPE_SHORT = {
-    "Einfache Vorabklärung": "VA",
-    "Vollständige Vorabklärung": "VA",
-    "Verlängerung Geltungsdauer": "VA",
-    "Baugesuch": "BG",
-    "Baugesuch mit UVP": "BG",
-    "Baupolizeiliches Verfahren": "BG",
-    "Voranfrage": "VA",
-    "Projektänderung": "PÄ",
-    "Hecken / Feldgehölze / Bäume": "BG",
-    "Klärung Baubewilligungspflicht": "BG",
-    "Meldung Benützung von öffentlichem Terrain": "BG",
-    "Meldung Solaranlagen": "BG",
-    "Meldung Wärmeerzeugerersatz": "BG",
-    "Migriertes Dossier": "BG",
-    "Zutrittsermächtigung": "VA",
-}
 
 # TODO: implement tests for GEVER, chicken-egg problem
 
@@ -67,22 +50,20 @@ def post_resume_inquiry_for_gever(
 
     rows = master_data.plot_data
     if rows:
-        parcels = ",".join([row["plot_number"] for row in rows])
+        parcels = ",".join([str(row["plot_number"]) for row in rows])
 
-        row = rows[0]
-        x = row["coord_east"]
-        y = row["coord_north"]
+        first_parcel = rows[0]
+        coord_east = first_parcel["coord_east"]
+        coord_north = first_parcel["coord_north"]
 
         api.update_or_create_answer(document, "agr-parzellen", parcels, None)
-        api.update_or_create_answer(document, "agr-koordinate-ost", x, None)
-        api.update_or_create_answer(document, "agr-koordinate-nord", y, None)
+        api.update_or_create_answer(document, "agr-koordinate-ost", coord_east, None)
+        api.update_or_create_answer(document, "agr-koordinate-nord", coord_north, None)
 
-        if has_preliminary_clarification(master_data.case.instance):
-            api.update_or_create_answer(
-                document, "agr-voranfrage", "agr-voranfrage-ja", None
-            )
-
-    return
+    if has_preliminary_clarification(master_data.case.instance):
+        api.update_or_create_answer(
+            document, "agr-voranfrage", "agr-voranfrage-ja", None
+        )
 
 
 def has_preliminary_clarification(instance):  # pragma: no cover

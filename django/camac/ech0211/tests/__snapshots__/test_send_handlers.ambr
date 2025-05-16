@@ -97,10 +97,10 @@
   			<ns4:files>
   				<ns4:file>
   					<ns4:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-  					<ns4:mimeType>application/atom+xml</ns4:mimeType>
+  					<ns4:mimeType>message/http</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
-  			<ns4:documentKind>Heidi Thompson</ns4:documentKind>
+  			<ns4:documentKind>Gary Smith</ns4:documentKind>
   		</ns1:document>
   		<ns1:remark>Wird in das Feld &quot;Stellungnahme&quot; übernommen.</ns1:remark>
   		<ns1:ancillaryClauses>Wird in das Feld &quot;Nebenbestimmungen&quot; übernommen.</ns1:ancillaryClauses>

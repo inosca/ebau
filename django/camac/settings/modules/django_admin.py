@@ -53,6 +53,8 @@ DJANGO_ADMIN = {
             "django_q.Success",
             "django_q.Failure",
             "django_q.OrmQ",
+            "gever.CMIConstantValue",
+            "gever.CMIObjectTemplate",
         ],
     },
     "kt_schwyz": {"ENABLED": True},

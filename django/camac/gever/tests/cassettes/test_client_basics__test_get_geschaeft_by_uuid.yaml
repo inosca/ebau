@@ -1,0 +1,1343 @@
+interactions:
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMTM2ODUsImlhdCI6MTc0NzIxMzY4NSwiZXhwIjoxNzQ3MjE3Mjg1LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIxMzY4NSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjM5RDg0QUEzMjkzMzQxNDJBMDI1MjU4QTIzMDVCNzlFIn0.QWwwIVLTSk1KA-emOMY95BuFhRYHQ5T5_eVh7vx6dDbOI09Fdd9OY2OmdFDFqWIeoTnqMEaj0cDIp6y4uKcHP8_ogN7oku5_k5-YL3_q0v-qAe9Xh0hSLqxNJjxTj63h3SJhAHKkt0TBhfk4Liy9x-GjKWHT15zg2ZplMfZIE4wDTbIUWOGT4nKoBiRoTq3qnjlC9MZm3axCIPwNNyTlBic3WLpa_ZUmpijJB6PFm9htoIdLgogqBLyig0RWz053TESVYJQhwxQm2qQUN32nPOHmrPp4h3MPjg7hiN_Zjkb4GaXFcFnUF1s8-75_E6ibpgGh4keREzia7M7jsti4yg","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 09:08:05 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Organisationseinheit/Search
+  response:
+    body:
+      string: "[{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"version\":2,\"typeName\":\"Organisationseinheit\",\"name\":\"Trados
+        \xDCbersetzungsoe\",\"kurzname\":\"TRADOS\",\"kannUeberweisungenEntgegennehmenUndEmpfangen\":false,\"uebernehmen\":true,\"zuweisen\":true,\"inaktiv\":false,\"kannUeberweisungenVersenden\":true,\"vater\":{\"guid\":\"e59bbb03-d396-40c6-b0f2-61a46862a0fa\",\"url\":\"/Organisationseinheit/e59bbb03d39640c6b0f261a46862a0fa\",\"displayName\":\"Generalsekretariat;
+        GS\"}},{\"guid\":\"e59bbb03-d396-40c6-b0f2-61a46862a0fa\",\"version\":2,\"typeName\":\"Organisationseinheit\",\"name\":\"Generalsekretariat\",\"kurzname\":\"GS\",\"kannUeberweisungenEntgegennehmenUndEmpfangen\":false,\"uebernehmen\":true,\"zuweisen\":true,\"inaktiv\":false,\"kannUeberweisungenVersenden\":true,\"vater\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 09:08:05 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/CustomAmt/Search
+  response:
+    body:
+      string: "[{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"version\":0,\"typeName\":\"Amt\",\"parentkey\":null,\"bezeichnung\":\"Amt
+        f\xFCr Digitalisierungsfragen\",\"inaktiv\":false,\"customKurzzeichen\":\"afd\"}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 09:08:05 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/CustomRegistraturplan/Search
+  response:
+    body:
+      string: "[{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"version\":0,\"typeName\":\"Ordnungssystem\",\"inaktiv\":false,\"aktenzeichen\":\"4-6-1\",\"begriff\":\"Verf\xFCgungen,
+        Fach- und Amtsberichte, Stellungnahmen\",\"parent\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}},{\"guid\":\"a0eb4580-fb69-4cdc-89c0-0bcb6d859dba\",\"version\":0,\"typeName\":\"Ordnungssystem\",\"inaktiv\":false,\"aktenzeichen\":\"1\",\"begriff\":\"Test\",\"parent\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 09:08:05 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "typeName": "Geschaeft", "version": 0, "customArchiviert":
+      null, "bemerkung": null, "customGrundbucheintrag": null, "customOrdnungsgemaess":
+      null, "customVerfahrensstand": null, "customSachbearbeiter": null, "customGeschaeftsverantwortung":
+      null, "customGemeinde": null, "customErledigungsart": null, "customKoordinatenX":
+      null, "customKoordinatenY": null, "customHerkunftsNummer": null, "parentkey":
+      null, "customRegistraturplan": {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d",
+      "url": "/CustomRegistraturplan/582b31c8-32b3-41f2-9fe9-283ad6fbbd8d"}, "customVerfahrenseingang":
+      "12.05.2025", "customVerfahrensende": "12.05.2026", "customPoststempel": null,
+      "customWiedereingang": null, "beginn": "12.05.2025", "titel": "adfinis-test
+      2025-05-12T13:15:15", "laufnummer": null, "lifecycleStatus": "InBearbeitung",
+      "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid": "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b",
+      "url": "/Organisationseinheit/6e2c8f58-f9ec-4a58-b467-c47313e0bf1b"}, "customFederfuehrendesAmt":
+      {"guid": "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/CustomAmt/035641ae-a54a-49f7-bb39-a4e926d17c1e"},
+      "customHerkunft": null, "dokumenteExplorer": []}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1187'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/
+  response:
+    body:
+      string: '"985156df-3405-4cb6-99b0-a541bb5d35ea"'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 09:08:05 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/985156df-3405-4cb6-99b0-a541bb5d35ea
+  response:
+    body:
+      string: "{\"guid\":\"985156df-3405-4cb6-99b0-a541bb5d35ea\",\"version\":0,\"typeName\":\"Gesch\xE4ft\",\"parentkey\":null,\"titel\":\"adfinis-test
+        2025-05-12T13:15:15\",\"zugriffsteuerung\":\"Offen\",\"ende\":null,\"beginn\":\"12.05.2025\",\"laufnummer\":\"2025-STA-126\",\"signatur\":null,\"lifecycleStatus\":\"In
+        Bearbeitung\",\"customRRGeschaeft\":false,\"customDringlVorstoesser\":false,\"customDringlDir\":false,\"customDringlgewaehrt\":false,\"customVorstossBeantwortet\":false,\"customUeberwiesen\":false,\"customVerfahrenseingang\":\"12.05.2025\",\"customVerfahrensende\":\"12.05.2026\",\"geschaeftsstatus\":\"In
+        Bearbeitung\",\"customPoststempel\":null,\"customWiedereingang\":null,\"customOrdnungsgemaess\":false,\"customGrundbucheintrag\":false,\"custommitVoranfrage\":false,\"customParzellenNr\":null,\"customKoordinatenX\":null,\"customKoordinatenY\":null,\"customHerkunftsNummer\":null,\"customArchiviert\":false,\"customArchivnummer\":null,\"dokumenteExplorer\":[],\"geschaeftseigner\":{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"url\":\"/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b\",\"displayName\":\"Trados
+        \xDCbersetzungsoe; TRADOS\"},\"customGeschaeftsverantwortung\":null,\"customGeschaeftsart\":null,\"customRegistraturplan\":{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"url\":\"/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d\",\"displayName\":\"4-6-1
+        Verf\xFCgungen, Fach- und Amtsberichte, Stellungnahmen\"},\"customFederfuehrendesAmt\":{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"url\":\"/Amt/035641aea54a49f7bb39a4e926d17c1e\",\"displayName\":\"Amt
+        f\xFCr Digitalisierungsfragen\"},\"customHerkunft\":null,\"customSachbearbeiter\":null,\"customGemeinde\":null,\"customVerfahrensstand\":null,\"customErledigungsart\":null}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 09:08:05 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMTM2ODYsImlhdCI6MTc0NzIxMzY4NiwiZXhwIjoxNzQ3MjE3Mjg2LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIxMzY4NiwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjdEQjkxMjA3NUJGN0U5QUI0QUQ4MEMyNEQ0NEMxNTYzIn0.UE7_Z4z9bOpUPXDXV8axMKNGXH-fXR_rB9R9tZXVYosvraeOAjaGkXOxAM4zKEB76sW--j4MI_NHTwLGRbBbW6W2lbJ0nVHr_PGQDwLfZd1eWof9A4gkKqKONJ4jRm7J_jrfk8D3vpppfAIhIxAMhvYx2T1tBvCTTDDnRZ-YMjoCjkaB53XqHcMTXn71dGIFDA30Nl13hjGAXBEKI5gnbk8bmHYxnCKzIPiTJmcPM6USn7lRKuWMGNV_RFjq53aJTnnUzZxT0EJuhxfSRxIRspPc9hIovParB_jb2XKextKbfIh_ZcCndA9zZwHQt5j4QKf2MnN7DjnkYIXDT22D9Q","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 09:08:06 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/985156df-3405-4cb6-99b0-a541bb5d35ea
+  response:
+    body:
+      string: "{\"guid\":\"985156df-3405-4cb6-99b0-a541bb5d35ea\",\"version\":0,\"typeName\":\"Gesch\xE4ft\",\"parentkey\":null,\"titel\":\"adfinis-test
+        2025-05-12T13:15:15\",\"zugriffsteuerung\":\"Offen\",\"ende\":null,\"beginn\":\"12.05.2025\",\"laufnummer\":\"2025-STA-126\",\"signatur\":null,\"lifecycleStatus\":\"In
+        Bearbeitung\",\"customRRGeschaeft\":false,\"customDringlVorstoesser\":false,\"customDringlDir\":false,\"customDringlgewaehrt\":false,\"customVorstossBeantwortet\":false,\"customUeberwiesen\":false,\"customVerfahrenseingang\":\"12.05.2025\",\"customVerfahrensende\":\"12.05.2026\",\"geschaeftsstatus\":\"In
+        Bearbeitung\",\"customPoststempel\":null,\"customWiedereingang\":null,\"customOrdnungsgemaess\":false,\"customGrundbucheintrag\":false,\"custommitVoranfrage\":false,\"customParzellenNr\":null,\"customKoordinatenX\":null,\"customKoordinatenY\":null,\"customHerkunftsNummer\":null,\"customArchiviert\":false,\"customArchivnummer\":null,\"dokumenteExplorer\":[],\"geschaeftseigner\":{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"url\":\"/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b\",\"displayName\":\"Trados
+        \xDCbersetzungsoe; TRADOS\"},\"customGeschaeftsverantwortung\":null,\"customGeschaeftsart\":null,\"customRegistraturplan\":{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"url\":\"/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d\",\"displayName\":\"4-6-1
+        Verf\xFCgungen, Fach- und Amtsberichte, Stellungnahmen\"},\"customFederfuehrendesAmt\":{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"url\":\"/Amt/035641aea54a49f7bb39a4e926d17c1e\",\"displayName\":\"Amt
+        f\xFCr Digitalisierungsfragen\"},\"customHerkunft\":null,\"customSachbearbeiter\":null,\"customGemeinde\":null,\"customVerfahrensstand\":null,\"customErledigungsart\":null}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 09:08:06 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.32.3
+    method: DELETE
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/985156df-3405-4cb6-99b0-a541bb5d35ea
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 14 May 2025 09:08:06 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMTM2ODYsImlhdCI6MTc0NzIxMzY4NiwiZXhwIjoxNzQ3MjE3Mjg2LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIxMzY4NiwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjYyRjk4Q0U1ODhGN0E5MzQzMTI5QjUyQzlFOUQ3RjU0In0.d3Oamulzc6jO3yqE9quzuNeMBk2jI5Bn_wQ-w6Xg-wCfK1yj0_7jyKG_DvlCWMxgmEfx2O4RlA6IX5E6f2Tk2BZHqYP2kr2FWGBrq57wb8ZhdO6xY3ZR19II_8MZ-jP9B99BU4nm3uDk2jK3QqkaT7I_01stX5o58mEh9s-LxBv_cwzidU7ln2uRaStxosnMdJ7oaEfuNQHE8A-SpcHo_GPKR7N_fShq5k0PNb40I-4Eb2sa0DXTF6u6jrZ_b0DYDqwxA6Jrg6iTCBJvFwi-IKU_QO-sK00FmUmCVJAcc36_Tvr_RzltkKL1kH0LnN_I-AtEqxlACX9MEDBwqD9i7Q","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 09:08:06 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"customHerkunftsnummer[5000-*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '31'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/Search
+  response:
+    body:
+      string: '[]'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 09:08:06 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMjMxMDQsImlhdCI6MTc0NzIyMzEwNCwiZXhwIjoxNzQ3MjI2NzA0LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIyMzEwNCwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjAwOEE2NDcwOEEzRkE3MjIwRUE2RjgyRDgyOTMyMUZBIn0.ef3LqxQpTNzZWINLVuLmHKfWA7VHXd8KfhzVMqKGZQ4GeK7G7a7RyJ3sJN0i2M5PdY-q2gMX5SI5VRcW9vOc6B6_m7lsrn6YdC07KkpRD6aRIBF9gqMQuFUYdxcXOrq-8G2nvWkVAOr7c4QU6RHdrR0YFlbCVd8LN75-JG3__XLrVpiyVdi0_UjlvLJACwWvwLmdMnUzDO3WEE_s9nMOlQHBBXwgI8Vwg1su48KCbV1Z7ebTZb9E-AH6UMuZHAG9faz2bngKvB1clEXMEDp371woHMJ4HBjSi2qphhmqpwlJix3mgwqLwE6HsCIMQDf-Yxak9_VPc9Hc-ZJOTs2fDQ","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 11:45:04 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Organisationseinheit/Search
+  response:
+    body:
+      string: "[{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"version\":2,\"typeName\":\"Organisationseinheit\",\"name\":\"Trados
+        \xDCbersetzungsoe\",\"kurzname\":\"TRADOS\",\"kannUeberweisungenEntgegennehmenUndEmpfangen\":false,\"uebernehmen\":true,\"zuweisen\":true,\"inaktiv\":false,\"kannUeberweisungenVersenden\":true,\"vater\":{\"guid\":\"e59bbb03-d396-40c6-b0f2-61a46862a0fa\",\"url\":\"/Organisationseinheit/e59bbb03d39640c6b0f261a46862a0fa\",\"displayName\":\"Generalsekretariat;
+        GS\"}},{\"guid\":\"e59bbb03-d396-40c6-b0f2-61a46862a0fa\",\"version\":2,\"typeName\":\"Organisationseinheit\",\"name\":\"Generalsekretariat\",\"kurzname\":\"GS\",\"kannUeberweisungenEntgegennehmenUndEmpfangen\":false,\"uebernehmen\":true,\"zuweisen\":true,\"inaktiv\":false,\"kannUeberweisungenVersenden\":true,\"vater\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 11:45:04 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/CustomAmt/Search
+  response:
+    body:
+      string: "[{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"version\":0,\"typeName\":\"Amt\",\"parentkey\":null,\"bezeichnung\":\"Amt
+        f\xFCr Digitalisierungsfragen\",\"inaktiv\":false,\"customKurzzeichen\":\"afd\"}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 11:45:04 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/CustomRegistraturplan/Search
+  response:
+    body:
+      string: "[{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"version\":0,\"typeName\":\"Ordnungssystem\",\"inaktiv\":false,\"aktenzeichen\":\"4-6-1\",\"begriff\":\"Verf\xFCgungen,
+        Fach- und Amtsberichte, Stellungnahmen\",\"parent\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}},{\"guid\":\"a0eb4580-fb69-4cdc-89c0-0bcb6d859dba\",\"version\":0,\"typeName\":\"Ordnungssystem\",\"inaktiv\":false,\"aktenzeichen\":\"1\",\"begriff\":\"Test\",\"parent\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 11:45:04 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "typeName": "Geschaeft", "version": 0, "customArchiviert":
+      null, "bemerkung": null, "customGrundbucheintrag": null, "customOrdnungsgemaess":
+      null, "customVerfahrensstand": null, "customSachbearbeiter": null, "customGeschaeftsverantwortung":
+      null, "customGemeinde": null, "customErledigungsart": null, "customKoordinatenX":
+      null, "customKoordinatenY": null, "customHerkunftsNummer": null, "parentkey":
+      null, "customRegistraturplan": {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d",
+      "url": "/CustomRegistraturplan/582b31c8-32b3-41f2-9fe9-283ad6fbbd8d"}, "customVerfahrenseingang":
+      "12.05.2025", "customVerfahrensende": "12.05.2026", "customPoststempel": null,
+      "customWiedereingang": null, "beginn": "12.05.2025", "titel": "adfinis-test
+      2025-05-12T13:15:15", "laufnummer": null, "lifecycleStatus": "InBearbeitung",
+      "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid": "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b",
+      "url": "/Organisationseinheit/6e2c8f58-f9ec-4a58-b467-c47313e0bf1b"}, "customFederfuehrendesAmt":
+      {"guid": "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/CustomAmt/035641ae-a54a-49f7-bb39-a4e926d17c1e"},
+      "customHerkunft": null, "dokumenteExplorer": []}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1187'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/
+  response:
+    body:
+      string: '"224c3010-b92f-4b89-9fed-ad08ffefd922"'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 11:45:04 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/224c3010-b92f-4b89-9fed-ad08ffefd922
+  response:
+    body:
+      string: "{\"guid\":\"224c3010-b92f-4b89-9fed-ad08ffefd922\",\"version\":0,\"typeName\":\"Gesch\xE4ft\",\"parentkey\":null,\"titel\":\"adfinis-test
+        2025-05-12T13:15:15\",\"zugriffsteuerung\":\"Offen\",\"ende\":null,\"beginn\":\"12.05.2025\",\"laufnummer\":\"2025-STA-137\",\"signatur\":null,\"lifecycleStatus\":\"In
+        Bearbeitung\",\"customRRGeschaeft\":false,\"customDringlVorstoesser\":false,\"customDringlDir\":false,\"customDringlgewaehrt\":false,\"customVorstossBeantwortet\":false,\"customUeberwiesen\":false,\"customVerfahrenseingang\":\"12.05.2025\",\"customVerfahrensende\":\"12.05.2026\",\"geschaeftsstatus\":\"In
+        Bearbeitung\",\"customPoststempel\":null,\"customWiedereingang\":null,\"customOrdnungsgemaess\":false,\"customGrundbucheintrag\":false,\"custommitVoranfrage\":false,\"customParzellenNr\":null,\"customKoordinatenX\":null,\"customKoordinatenY\":null,\"customHerkunftsNummer\":null,\"customArchiviert\":false,\"customArchivnummer\":null,\"dokumenteExplorer\":[],\"geschaeftseigner\":{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"url\":\"/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b\",\"displayName\":\"Trados
+        \xDCbersetzungsoe; TRADOS\"},\"customGeschaeftsverantwortung\":null,\"customGeschaeftsart\":null,\"customRegistraturplan\":{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"url\":\"/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d\",\"displayName\":\"4-6-1
+        Verf\xFCgungen, Fach- und Amtsberichte, Stellungnahmen\"},\"customFederfuehrendesAmt\":{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"url\":\"/Amt/035641aea54a49f7bb39a4e926d17c1e\",\"displayName\":\"Amt
+        f\xFCr Digitalisierungsfragen\"},\"customHerkunft\":null,\"customSachbearbeiter\":null,\"customGemeinde\":null,\"customVerfahrensstand\":null,\"customErledigungsart\":null}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 11:45:04 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMjMxMDQsImlhdCI6MTc0NzIyMzEwNCwiZXhwIjoxNzQ3MjI2NzA0LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIyMzEwNCwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjVEMURERTAwNzcxRkU3NTVDOUE2MDEzQzI0NTk0REMzIn0.F9bl4fV1b4xoI5cn-XEZyyPT6N2METOlnbJJ9keZQS4NmMjBzeIESNZAjWiaJGHG3OB0Of5AF52vcvH2yAagR8__2Gi7n6-wFf6Q5JuC8kN72crBnjNiVCEVHdT7xDIDo3N_WcYLqe60fFFDBgz0zht8cA63VM-3LeSKDoZCDUmk-0WNo7aasDVyfEoPA_dPBz7gAW-mVaMNNi_Rwq5-UVYPnM-OcogJoe2o74UACAPipUN0L1WxmkN6xaK_oTNdGoS0LnFE3-HjEYCo8TalKcs8NFQZmdKu2f81Z4cmTjyMah9GFIkgtYQRiucUTT1WqbEL9-tKP5Vmdlskj9c_ww","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 11:45:04 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/224c3010-b92f-4b89-9fed-ad08ffefd922
+  response:
+    body:
+      string: "{\"guid\":\"224c3010-b92f-4b89-9fed-ad08ffefd922\",\"version\":0,\"typeName\":\"Gesch\xE4ft\",\"parentkey\":null,\"titel\":\"adfinis-test
+        2025-05-12T13:15:15\",\"zugriffsteuerung\":\"Offen\",\"ende\":null,\"beginn\":\"12.05.2025\",\"laufnummer\":\"2025-STA-137\",\"signatur\":null,\"lifecycleStatus\":\"In
+        Bearbeitung\",\"customRRGeschaeft\":false,\"customDringlVorstoesser\":false,\"customDringlDir\":false,\"customDringlgewaehrt\":false,\"customVorstossBeantwortet\":false,\"customUeberwiesen\":false,\"customVerfahrenseingang\":\"12.05.2025\",\"customVerfahrensende\":\"12.05.2026\",\"geschaeftsstatus\":\"In
+        Bearbeitung\",\"customPoststempel\":null,\"customWiedereingang\":null,\"customOrdnungsgemaess\":false,\"customGrundbucheintrag\":false,\"custommitVoranfrage\":false,\"customParzellenNr\":null,\"customKoordinatenX\":null,\"customKoordinatenY\":null,\"customHerkunftsNummer\":null,\"customArchiviert\":false,\"customArchivnummer\":null,\"dokumenteExplorer\":[],\"geschaeftseigner\":{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"url\":\"/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b\",\"displayName\":\"Trados
+        \xDCbersetzungsoe; TRADOS\"},\"customGeschaeftsverantwortung\":null,\"customGeschaeftsart\":null,\"customRegistraturplan\":{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"url\":\"/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d\",\"displayName\":\"4-6-1
+        Verf\xFCgungen, Fach- und Amtsberichte, Stellungnahmen\"},\"customFederfuehrendesAmt\":{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"url\":\"/Amt/035641aea54a49f7bb39a4e926d17c1e\",\"displayName\":\"Amt
+        f\xFCr Digitalisierungsfragen\"},\"customHerkunft\":null,\"customSachbearbeiter\":null,\"customGemeinde\":null,\"customVerfahrensstand\":null,\"customErledigungsart\":null}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 11:45:05 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.32.3
+    method: DELETE
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/224c3010-b92f-4b89-9fed-ad08ffefd922
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 14 May 2025 11:45:05 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMjMxMDUsImlhdCI6MTc0NzIyMzEwNSwiZXhwIjoxNzQ3MjI2NzA1LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIyMzEwNSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjczQ0VEMDE0MkE5MzExQzY2RkQxMjRCOEEyODQ4RDE3In0.e67ikHJnGHLqyVSdN44NOc8zglLzUj0VfkAZY5vYcr26Vnc9Tv17dA2eKez5ozJgrD4vYd-E_9E3StOQ6Nfr-Ic4_aDUu6hMtaa7flzuDM_qMOomZYKjzbw5Awn9JjzATOeF6VF8Ea64Wb-lUNBuEc-Sm-k1DX9QZvwIKxN9-Cqxml5fWvk0hU1SBcYv86kAcHP-bQst8XRDSv3sgPBocPblz1bobpxO6a_DZ4TeD06qW_BZhpvV9CGslzTP4kK64vI6BUGaAVEOv3zjViKtH0AKXo5RmcNA7ucoO1_hk7kSQiNVl3wIg7vxJKQg3zDeSn2gMJXXpmckpoz6LZU2sQ","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 11:45:05 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"customHerkunftsnummer[5000-*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '31'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/Search
+  response:
+    body:
+      string: '[]'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 11:45:05 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMjQ5MTksImlhdCI6MTc0NzIyNDkxOSwiZXhwIjoxNzQ3MjI4NTE5LCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIyNDkxOSwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjA4RUE1RjQxQUQ5MUJENDE5RTY5M0RFOTAzOUNENUU2In0.S93KVrllvFIipG33cPhG1LShyuSL7WsOuCqbu1wACXmK-BoqQ1Thp38DPVzH1vqV6Fl9ul6wmKlCL0yqi1VrwD4V9vShUWzPELQ15b1CWIbvvSLEadGVSr21xLPt4WLzpQ43uIkhbas2LK3RZMrSpF_AnArgEHWNGtAdlEzxGadvBfPaORAn_VN5s7cjcwJA7p-JeGWDnOGRzSq_7CJzk6otQn1eYNSVxuj_brXkfrL7dskS16eEH_jJblgVOQpZ4hzPGMx6h1xqC8jRUB-itXdNSsXLJnh82g75E0X_gxiVDfzikLMOjmMKedgw0E3fazMz3GDQbNAMqJm3VFF-xw","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 12:15:19 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Organisationseinheit/Search
+  response:
+    body:
+      string: "[{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"version\":2,\"typeName\":\"Organisationseinheit\",\"name\":\"Trados
+        \xDCbersetzungsoe\",\"kurzname\":\"TRADOS\",\"kannUeberweisungenEntgegennehmenUndEmpfangen\":false,\"uebernehmen\":true,\"zuweisen\":true,\"inaktiv\":false,\"kannUeberweisungenVersenden\":true,\"vater\":{\"guid\":\"e59bbb03-d396-40c6-b0f2-61a46862a0fa\",\"url\":\"/Organisationseinheit/e59bbb03d39640c6b0f261a46862a0fa\",\"displayName\":\"Generalsekretariat;
+        GS\"}},{\"guid\":\"e59bbb03-d396-40c6-b0f2-61a46862a0fa\",\"version\":2,\"typeName\":\"Organisationseinheit\",\"name\":\"Generalsekretariat\",\"kurzname\":\"GS\",\"kannUeberweisungenEntgegennehmenUndEmpfangen\":false,\"uebernehmen\":true,\"zuweisen\":true,\"inaktiv\":false,\"kannUeberweisungenVersenden\":true,\"vater\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:15:19 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/CustomAmt/Search
+  response:
+    body:
+      string: "[{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"version\":0,\"typeName\":\"Amt\",\"parentkey\":null,\"bezeichnung\":\"Amt
+        f\xFCr Digitalisierungsfragen\",\"inaktiv\":false,\"customKurzzeichen\":\"afd\"}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:15:20 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/CustomRegistraturplan/Search
+  response:
+    body:
+      string: "[{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"version\":0,\"typeName\":\"Ordnungssystem\",\"inaktiv\":false,\"aktenzeichen\":\"4-6-1\",\"begriff\":\"Verf\xFCgungen,
+        Fach- und Amtsberichte, Stellungnahmen\",\"parent\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}},{\"guid\":\"a0eb4580-fb69-4cdc-89c0-0bcb6d859dba\",\"version\":0,\"typeName\":\"Ordnungssystem\",\"inaktiv\":false,\"aktenzeichen\":\"1\",\"begriff\":\"Test\",\"parent\":{\"guid\":\"9932175f-69fb-4d6e-9342-d925a53b5779\",\"url\":\"/Gekobereich/9932175f69fb4d6e9342d925a53b5779\",\"displayName\":\"Staatskanzlei\"}}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:15:20 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"guid": null, "typeName": "Geschaeft", "version": 0, "customArchiviert":
+      null, "bemerkung": null, "customGrundbucheintrag": null, "customOrdnungsgemaess":
+      null, "customVerfahrensstand": null, "customSachbearbeiter": null, "customGeschaeftsverantwortung":
+      null, "customGemeinde": null, "customErledigungsart": null, "customKoordinatenX":
+      null, "customKoordinatenY": null, "customHerkunftsNummer": null, "parentkey":
+      null, "customRegistraturplan": {"guid": "582b31c8-32b3-41f2-9fe9-283ad6fbbd8d",
+      "url": "/CustomRegistraturplan/582b31c8-32b3-41f2-9fe9-283ad6fbbd8d"}, "customVerfahrenseingang":
+      "12.05.2025", "customVerfahrensende": "12.05.2026", "customPoststempel": null,
+      "customWiedereingang": null, "beginn": "12.05.2025", "titel": "adfinis-test
+      2025-05-12T13:15:15", "laufnummer": null, "lifecycleStatus": "InBearbeitung",
+      "geschaeftsstatus": "InBearbeitung", "geschaeftseigner": {"guid": "6e2c8f58-f9ec-4a58-b467-c47313e0bf1b",
+      "url": "/Organisationseinheit/6e2c8f58-f9ec-4a58-b467-c47313e0bf1b"}, "customFederfuehrendesAmt":
+      {"guid": "035641ae-a54a-49f7-bb39-a4e926d17c1e", "url": "/CustomAmt/035641ae-a54a-49f7-bb39-a4e926d17c1e"},
+      "customHerkunft": null, "dokumenteExplorer": []}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1187'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/
+  response:
+    body:
+      string: '"da97a3d0-87eb-489e-8002-050aac725716"'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:15:20 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/da97a3d0-87eb-489e-8002-050aac725716
+  response:
+    body:
+      string: "{\"guid\":\"da97a3d0-87eb-489e-8002-050aac725716\",\"version\":0,\"typeName\":\"Gesch\xE4ft\",\"parentkey\":null,\"titel\":\"adfinis-test
+        2025-05-12T13:15:15\",\"zugriffsteuerung\":\"Offen\",\"ende\":null,\"beginn\":\"12.05.2025\",\"laufnummer\":\"2025-STA-147\",\"signatur\":null,\"lifecycleStatus\":\"In
+        Bearbeitung\",\"customRRGeschaeft\":false,\"customDringlVorstoesser\":false,\"customDringlDir\":false,\"customDringlgewaehrt\":false,\"customVorstossBeantwortet\":false,\"customUeberwiesen\":false,\"customVerfahrenseingang\":\"12.05.2025\",\"customVerfahrensende\":\"12.05.2026\",\"geschaeftsstatus\":\"In
+        Bearbeitung\",\"customPoststempel\":null,\"customWiedereingang\":null,\"customOrdnungsgemaess\":false,\"customGrundbucheintrag\":false,\"custommitVoranfrage\":false,\"customParzellenNr\":null,\"customKoordinatenX\":null,\"customKoordinatenY\":null,\"customHerkunftsNummer\":null,\"customArchiviert\":false,\"customArchivnummer\":null,\"dokumenteExplorer\":[],\"geschaeftseigner\":{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"url\":\"/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b\",\"displayName\":\"Trados
+        \xDCbersetzungsoe; TRADOS\"},\"customGeschaeftsverantwortung\":null,\"customGeschaeftsart\":null,\"customRegistraturplan\":{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"url\":\"/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d\",\"displayName\":\"4-6-1
+        Verf\xFCgungen, Fach- und Amtsberichte, Stellungnahmen\"},\"customFederfuehrendesAmt\":{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"url\":\"/Amt/035641aea54a49f7bb39a4e926d17c1e\",\"displayName\":\"Amt
+        f\xFCr Digitalisierungsfragen\"},\"customHerkunft\":null,\"customSachbearbeiter\":null,\"customGemeinde\":null,\"customVerfahrensstand\":null,\"customErledigungsart\":null}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:15:20 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMjQ5MjAsImlhdCI6MTc0NzIyNDkyMCwiZXhwIjoxNzQ3MjI4NTIwLCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIyNDkyMCwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjU2NTNDOUQ2MjBGNzU1M0UxNzBGNzhBMTczNEU3RUVDIn0.V3g2WHSF4kLie0naTM9YUzHZpOgtTvDlM-gu7AjfpkrY15xfIIVSWbaRmfb1bXDurqs0TyFYV8vXruTUL3IhzkYy4JWqAKikeg6QBMgdkSNf2Zi-oIy9qW2nbH-74VqzlJTKwOVi4hpPUEtv3ofXdA6d_louDw4JL2Uwkhki7QH-4Yhu2Mr_Kh2BU4_g0bOCCbZMzVAoCS8GoYpDltEfi9hSiFv7uKHFpTVRpXw5_zWGOO0SMN0jVCX-6X15pYDCmAb9N8x5lkEJIiS47WGMoi9U_D42TEBYw3yVCyw_XtlgLhVsrxsh38ahlJlU6YXcJuoJUiBX04sODSyL6GixkA","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 12:15:20 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/da97a3d0-87eb-489e-8002-050aac725716
+  response:
+    body:
+      string: "{\"guid\":\"da97a3d0-87eb-489e-8002-050aac725716\",\"version\":0,\"typeName\":\"Gesch\xE4ft\",\"parentkey\":null,\"titel\":\"adfinis-test
+        2025-05-12T13:15:15\",\"zugriffsteuerung\":\"Offen\",\"ende\":null,\"beginn\":\"12.05.2025\",\"laufnummer\":\"2025-STA-147\",\"signatur\":null,\"lifecycleStatus\":\"In
+        Bearbeitung\",\"customRRGeschaeft\":false,\"customDringlVorstoesser\":false,\"customDringlDir\":false,\"customDringlgewaehrt\":false,\"customVorstossBeantwortet\":false,\"customUeberwiesen\":false,\"customVerfahrenseingang\":\"12.05.2025\",\"customVerfahrensende\":\"12.05.2026\",\"geschaeftsstatus\":\"In
+        Bearbeitung\",\"customPoststempel\":null,\"customWiedereingang\":null,\"customOrdnungsgemaess\":false,\"customGrundbucheintrag\":false,\"custommitVoranfrage\":false,\"customParzellenNr\":null,\"customKoordinatenX\":null,\"customKoordinatenY\":null,\"customHerkunftsNummer\":null,\"customArchiviert\":false,\"customArchivnummer\":null,\"dokumenteExplorer\":[],\"geschaeftseigner\":{\"guid\":\"6e2c8f58-f9ec-4a58-b467-c47313e0bf1b\",\"url\":\"/Organisationseinheit/6e2c8f58f9ec4a58b467c47313e0bf1b\",\"displayName\":\"Trados
+        \xDCbersetzungsoe; TRADOS\"},\"customGeschaeftsverantwortung\":null,\"customGeschaeftsart\":null,\"customRegistraturplan\":{\"guid\":\"582b31c8-32b3-41f2-9fe9-283ad6fbbd8d\",\"url\":\"/Ordnungssystem/582b31c832b341f29fe9283ad6fbbd8d\",\"displayName\":\"4-6-1
+        Verf\xFCgungen, Fach- und Amtsberichte, Stellungnahmen\"},\"customFederfuehrendesAmt\":{\"guid\":\"035641ae-a54a-49f7-bb39-a4e926d17c1e\",\"url\":\"/Amt/035641aea54a49f7bb39a4e926d17c1e\",\"displayName\":\"Amt
+        f\xFCr Digitalisierungsfragen\"},\"customHerkunft\":null,\"customSachbearbeiter\":null,\"customGemeinde\":null,\"customVerfahrensstand\":null,\"customErledigungsart\":null}"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:15:20 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.32.3
+    method: DELETE
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/da97a3d0-87eb-489e-8002-050aac725716
+  response:
+    body:
+      string: ''
+    headers:
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 14 May 2025 12:15:20 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDcyMjQ5MjAsImlhdCI6MTc0NzIyNDkyMCwiZXhwIjoxNzQ3MjI4NTIwLCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NzIyNDkyMCwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IkE5RTgzNTM2QjhBOUZCRTE5NEFCQUNCOTA5MkI0QTI2In0.H21OqzH571S3eJF49OoumxaQKjEAnF9t-VSZboEE1qouNVyJsBg2MJ6D-S8wPceWQvCY8uwSKGBnnmljoJasvw4fNFod1urxYSrPPmskd9SK8fu2FQZ-mpSxWWt8KhFHVPeDrOYdxviH8sqObOPwbCD8Pimf5VYDmMWB6g0yNOfLPnK04jrEJpCA2Yyq33TbgX8qjL5rGnB5KLz1pLsl6hRI2WuI3YpkkIqKNee4EOOpi-mnItzVUEhpiRZJSb-AWYgJ_ebj82XCmxXwfdxtJQkLIKEhzs7b9SwvTG62oh25y82CSW1ZTVpOkeS3cS2h0LxMMo3lHJRarUAxnUU29g","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 14 May 2025 12:15:20 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"customHerkunftsnummer[5000-*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '31'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/Geschaeft/Search
+  response:
+    body:
+      string: '[]'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 14 May 2025 12:15:20 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+version: 1

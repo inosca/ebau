@@ -7,14 +7,15 @@ from camac.gever import apimodels, models
 from camac.gever.client import GEVERClient
 
 
-@pytest.mark.vcr
 @pytest.mark.django_db(reset_sequences=True)
 # TODO: mark using all GESCHAEFT_TEMPLATES once the templates work
 # @pytest.mark.parametrize("template", constants.GESCHAEFT_TEMPLATES + [None])
 @pytest.mark.parametrize("template", [None])
 @pytest.mark.parametrize("template_as_obj", [True, False])
+@pytest.mark.vcr
+@pytest.mark.freeze_time("2025-05-12 15:15:15+02:00")
 def test_create_and_delete_geschaeft(
-    be_gever_settings, template, geschaeft_object_templates, template_as_obj
+    be_gever_settings, template, gever_config_data, template_as_obj
 ):
     client = GEVERClient()
 
@@ -58,6 +59,7 @@ def test_create_and_delete_geschaeft(
 
 
 @pytest.mark.vcr
+@pytest.mark.freeze_time("2025-05-12 15:15:15+02:00")
 @pytest.mark.django_db(reset_sequences=True)
 def test_set_responsible(gever_geschaeft_in_cmi):
     """Verify that we can correctly set the responsible user on the Geschaeft.
@@ -87,6 +89,7 @@ def test_set_responsible(gever_geschaeft_in_cmi):
 
 
 @pytest.mark.vcr
+@pytest.mark.freeze_time("2025-05-12 15:15:15+02:00")
 @pytest.mark.django_db(reset_sequences=True)
 @pytest.mark.parametrize("set_as_ref", [True, False])
 def test_set_gemeinde(gever_geschaeft_in_cmi, set_as_ref):
@@ -114,6 +117,7 @@ def test_set_gemeinde(gever_geschaeft_in_cmi, set_as_ref):
 
 
 @pytest.mark.vcr
+@pytest.mark.freeze_time("2025-05-12 15:15:15+02:00")
 @pytest.mark.django_db(reset_sequences=True)
 def test_set_erledigungsart(gever_geschaeft_in_cmi):
     """Verify that we can correctly set the municipality on the Geschaeft.
@@ -143,6 +147,7 @@ def test_set_erledigungsart(gever_geschaeft_in_cmi):
 
 
 @pytest.mark.vcr
+@pytest.mark.freeze_time("2025-05-12 15:15:15+02:00")
 @pytest.mark.django_db(reset_sequences=True)
 def test_folders(gever_geschaeft_in_cmi):
     client = GEVERClient()
@@ -168,6 +173,7 @@ def test_folders(gever_geschaeft_in_cmi):
 
 
 @pytest.mark.vcr
+@pytest.mark.freeze_time("2025-05-12 15:15:15+02:00")
 @pytest.mark.django_db(reset_sequences=True)
 def test_search_by_ebau_number(linked_instance_and_geschaeft):
     instance, geschaeft = linked_instance_and_geschaeft

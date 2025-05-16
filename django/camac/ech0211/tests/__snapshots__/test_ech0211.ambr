@@ -681,7 +681,7 @@
   					<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   				</ns1:planningPermissionApplicationIdentification>
   				<ns1:description>None</ns1:description>
-  				<ns1:applicationType>Keith Hill</ns1:applicationType>
+  				<ns1:applicationType>Thomas Lopez</ns1:applicationType>
   				<ns1:proceedingType>baubewilligung</ns1:proceedingType>
   				<ns1:profilingYesNo>false</ns1:profilingYesNo>
   				<ns1:intendedPurpose>.</ns1:intendedPurpose>
@@ -741,15 +741,15 @@
   					</ns1:municipality>
   				</ns1:constructionProjectInformation>
   				<ns1:document>
-  					<ns6:uuid>d5843f3f-fab6-45fd-ad16-9b67678fd36b</ns6:uuid>
+  					<ns6:uuid>12baef49-7d81-45af-910a-cfdc39ecc988</ns6:uuid>
   					<ns6:titles>
-  						<ns7:title>near</ns7:title>
+  						<ns7:title>main</ns7:title>
   					</ns6:titles>
   					<ns6:status>signed</ns6:status>
   					<ns6:files>
   						<ns6:file>
   							<ns6:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns6:pathFileName>
-  							<ns6:mimeType>message/partial</ns6:mimeType>
+  							<ns6:mimeType>application/gzip</ns6:mimeType>
   						</ns6:file>
   					</ns6:files>
   					<ns6:documentKind/>

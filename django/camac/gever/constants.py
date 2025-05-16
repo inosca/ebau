@@ -31,3 +31,27 @@ AUFGABE_TEMPLATES = [
     # We don't have those yet, so we're still creating "naked" Geschaeft
     # objects for now
 ]
+
+VERFAHRENSSTAND_COMPLETED = "verfahrensstand-completed"
+VERFAHRENSSTAND_OPEN = "verfahrensstand-open"
+
+HERKUNFT_MUNICIPALITY = "herkunft-gemeinde"
+HERKUNFT_RSTA = "herkunft-rsta"
+
+INSTANCE_TYPE_SHORT = {
+    "Einfache Vorabklärung": "VA",
+    "Vollständige Vorabklärung": "VA",
+    "Verlängerung Geltungsdauer": "VA",
+    "Baugesuch": "BG",
+    "Baugesuch mit UVP": "BG",
+    "Baupolizeiliches Verfahren": "BG",
+    "Voranfrage": "VA",
+    "Projektänderung": "PÄ",
+    "Hecken / Feldgehölze / Bäume": "BG",
+    "Klärung Baubewilligungspflicht": "BG",
+    "Meldung Benützung von öffentlichem Terrain": "BG",
+    "Meldung Solaranlagen": "BG",
+    "Meldung Wärmeerzeugerersatz": "BG",
+    "Migriertes Dossier": "BG",
+    "Zutrittsermächtigung": "VA",
+}
