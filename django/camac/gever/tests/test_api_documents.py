@@ -9,6 +9,7 @@ from camac.gever.client import GEVERClient
 
 
 @pytest.mark.vcr
+@pytest.mark.freeze_time("2025-05-12 15:15:15+02:00")
 def test_create_document(be_gever_settings, gever_geschaeft_in_cmi, tmp_path):
     client = GEVERClient()
     # This GUID is know to currently exist. This is just for development,
@@ -59,6 +60,7 @@ def test_create_document(be_gever_settings, gever_geschaeft_in_cmi, tmp_path):
 
 
 @pytest.mark.vcr
+@pytest.mark.freeze_time("2025-05-12 15:15:15+02:00")
 @pytest.mark.parametrize(
     # Note: The "versions" we see in the renditions are not the actual document
     # versions as counted in the API, but just a stupid counter (but as a

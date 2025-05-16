@@ -1582,7 +1582,10 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._send_heat_generator_notifications(case)
             notification_key = "SUBMIT_HEAT_GENERATOR"
 
-        if case.instance.group_id in uri_constants.KOOR_GROUP_IDS:
+        if (
+            case.instance.group_id in uri_constants.KOOR_GROUP_IDS
+            and settings.APPLICATION_NAME == "kt_uri"
+        ):
             notification_key = "SUBMIT_KOOR"
 
         if case.document.form_id == "mitbericht-kanton":
@@ -1594,9 +1597,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             notification_key = "SUBMIT_OTHERS"
 
         # send out emails upon submission
-        for notification_config in settings.APPLICATION["NOTIFICATIONS"][
-            notification_key
-        ]:
+        for notification_config in settings.APPLICATION["NOTIFICATIONS"].get(
+            notification_key, []
+        ):
             if case.meta and case.meta.get("oereb_copy"):
                 self._send_notification(
                     **settings.APPLICATION["NOTIFICATIONS"]["COPY_AFJ"],

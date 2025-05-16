@@ -281,7 +281,6 @@ omit = [
     "camac/instance/management/commands/migrate_dossier_numbers_so.py",
     # Token exchange development command
     "camac/token_exchange/management/commands/generate_dev_tokens.py",
-    # TODO: implement GEVER test, chicken-egg problem
     "camac/gever/urls.py",
     "camac/gever/views.py",
 ]

@@ -161,7 +161,7 @@ class CustomRegistraturplan(BaseCMIObject):
 @dataclass_json(undefined=Undefined.INCLUDE)
 @dataclass(kw_only=True)
 class Benutzer(BaseCMIObject):
-    benutzerID: str
+    benutzerID: str = field(metadata=config(mm_field=fields.Str()))
     email: Optional[str] = optional_field(fields.Str)
     vorname: Optional[str] = optional_field(fields.Str)
     name: Optional[str] = optional_field(fields.Str)
@@ -176,6 +176,12 @@ class Gemeinde(BaseCMIObject):
     plz: Optional[int] = optional_field(fields.Int)
     inaktiv: bool = field(default=False)
     bfsNummer: Optional[int] = optional_field(fields.Int)
+
+
+@dataclass_json(undefined=Undefined.INCLUDE)
+@dataclass(kw_only=True)
+class CustomHerkunft(BaseCMIObject):
+    bezeichnung: Optional[str] = optional_field(fields.Str)
 
 
 @dataclass_json(undefined=Undefined.INCLUDE)
@@ -212,6 +218,8 @@ class Geschaeft(BaseCMIObject):
     customErledigungsart: Optional[Reference[CustomErledigungsart]] = field(
         default=None
     )
+    customKoordinatenX: Optional[float] = field(default=None)
+    customKoordinatenY: Optional[float] = field(default=None)
 
     customHerkunftsNummer: Optional[str] = optional_field(fields.Str)
 
@@ -234,8 +242,9 @@ class Geschaeft(BaseCMIObject):
     lifecycleStatus: LifecycleStatus = enum_field(LifecycleStatus)
     geschaeftsstatus: GeschaeftsStatus = enum_field(GeschaeftsStatus)
 
-    geschaeftseigner: Optional[Reference[Organisatinseinheit]] = field(default=None)
+    geschaeftseigner: Optional[Reference[Organisationseinheit]] = field(default=None)
     customFederfuehrendesAmt: Optional[Reference[CustomAmt]] = field(default=None)
+    customHerkunft: Optional[Reference[CustomHerkunft]] = field(default=None)
 
     dokumenteExplorer: Optional[list[Reference[Ordner]]] = field(default_factory=list)
 
@@ -339,8 +348,8 @@ class Dokument(BaseCMIObject):
     eDokument: Optional[EDokument] = field(default=None)
     geschaeft: Reference[Geschaeft]
 
-    # parentKey is what we use for a back-reference
-    parentKey: Optional[str] = optional_field(fields.Str)
+    # parentkey is what we use for a back-reference
+    parentkey: Optional[str] = optional_field(fields.Str)
 
     # if a document is in a folder, it's this
     geschaeftPosteingangExplorer: Optional[Reference[Ordner]] = field(default=None)
@@ -362,7 +371,7 @@ class Ordner(BaseCMIObject):
 
 @dataclass_json(undefined=Undefined.INCLUDE)
 @dataclass(kw_only=True)
-class Organisatinseinheit(BaseCMIObject):
+class Organisationseinheit(BaseCMIObject):
     displayName: Optional[str] = optional_field(fields.Str)
 
 

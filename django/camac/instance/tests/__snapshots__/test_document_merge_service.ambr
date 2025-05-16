@@ -51,7 +51,7 @@
     'projectAuthorHeaderLabel': 'Projektverfasser/in',
     'projectAuthors': list([
     ]),
-    'responsibleHeader': 'testuser',
+    'responsibleHeader': 'testuser Gardner',
     'responsibleHeaderLabel': 'Zuständig',
     'signatureMetadata': 'Ort und Datum',
     'signatureSectionTitle': 'Unterschriften',

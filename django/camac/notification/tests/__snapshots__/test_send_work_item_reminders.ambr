@@ -14,7 +14,7 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 0 überfällige Aufgaben
         - 1 ungelesene Aufgabe
@@ -78,7 +78,7 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -91,7 +91,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -101,7 +101,7 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 0 überfällige Aufgaben
         - 1 ungelesene Aufgabe
@@ -123,7 +123,7 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 0 überfällige Aufgaben
         - 1 ungelesene Aufgabe
@@ -147,7 +147,7 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -160,7 +160,7 @@
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
@@ -173,7 +173,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -257,7 +257,7 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -270,7 +270,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -280,7 +280,7 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 0 ungelesene Aufgaben
@@ -304,7 +304,7 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -317,7 +317,7 @@
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
@@ -330,7 +330,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -378,7 +378,7 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -391,7 +391,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -403,7 +403,7 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -416,7 +416,7 @@
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
@@ -429,7 +429,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -441,7 +441,7 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -454,7 +454,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -464,7 +464,7 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
@@ -486,7 +486,7 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
@@ -510,7 +510,7 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -523,7 +523,7 @@
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
@@ -536,7 +536,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -620,7 +620,7 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -633,7 +633,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -643,7 +643,7 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
@@ -689,7 +689,7 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -702,7 +702,7 @@
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
@@ -715,7 +715,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -799,7 +799,7 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -812,7 +812,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -846,7 +846,7 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
@@ -859,7 +859,7 @@
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
@@ -872,7 +872,7 @@
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
