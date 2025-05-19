@@ -407,6 +407,7 @@
           "total": 4
         },
         "construction-step-id": "construction-step-schlussabnahme-projekt",
+        "is-actionable-for-control": false,
         "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['geometer-ur','municipality']|groups",
