@@ -1195,7 +1195,7 @@
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "fachthemen.radon",
-      "gesuchsunterlagen-v2",
+      "gesuchsunterlagen-technische-bewilligung",
       "meta"
     ],
     "konzession-fur-wasserentnahme": [
@@ -2273,7 +2273,7 @@
         "info-kw-1-4-quelle"
       ]
     },
-    "gesuchsunterlagen-v2": {
+    "gesuchsunterlagen-technische-bewilligung": {
       "title": "Gesuchsunterlagen",
       "parent": null,
       "questions": [
