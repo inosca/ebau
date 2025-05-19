@@ -168,12 +168,12 @@
       "meta": {
         "order": 1,
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
-      "source": "uvp-migration"
+      "source": "baugesuch-migration"
     }
   },
   {
@@ -250,7 +250,7 @@
       "meta": {
         "order": 1,
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
       "is_published": true,
@@ -820,12 +820,12 @@
       "meta": {
         "order": 1,
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
-      "source": "anfrage-migration"
+      "source": "baugesuch-migration"
     }
   },
   {
@@ -897,10 +897,10 @@
       "meta": {
         "order": 1,
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
       "source": "baugesuch-migration"
     }
@@ -943,12 +943,12 @@
       "meta": {
         "order": 1,
         "category": "building-permit",
-        "is-creatable": true,
+        "is-creatable": false,
         "is-main-form": true
       },
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
-      "source": "reklame-migration"
+      "source": "baugesuch-migration"
     }
   },
   {

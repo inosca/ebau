@@ -22,22 +22,6 @@
   },
   {
     "model": "user.group",
-    "pk": 10000,
-    "fields": {
-      "role": 10000,
-      "service": null,
-      "disabled": 0,
-      "name": null,
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
     "pk": 10001,
     "fields": {
       "role": 12,
@@ -4802,16 +4786,6 @@
       "address": null,
       "email": null,
       "website": null
-    }
-  },
-  {
-    "model": "user.groupt",
-    "pk": 26534,
-    "fields": {
-      "group": 10000,
-      "language": "de",
-      "name": "Support",
-      "city": null
     }
   },
   {
