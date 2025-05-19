@@ -29,7 +29,6 @@ PLACEHOLDERS = {
     },
     "kt_so": {
         "ENABLED": True,
-        "EXCLUDE_TECHNICAL_KEYS": True,
         "LEGAL_SUBMISSIONS": {
             "FORM": "einsprache",
             "LEGAL_CLAIMANTS_TABLE_QUESTION": "einsprache-einsprechende",
