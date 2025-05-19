@@ -731,8 +731,10 @@ DUMP = {
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
                 "user_core_groups": {
-                    "user.Group": Q(pk__lte=3),
-                    "user.GroupT": Q(pk__lte=3),
+                    "user.Group": Q(role__name__in=["admin", "applicant", "support"]),
+                    "user.GroupT": Q(
+                        group__role__name__in=["admin", "applicant", "support"]
+                    ),
                 },
                 "billing_templates": {
                     "billing.BillingV2EntryTemplate": Q(services__isnull=True)

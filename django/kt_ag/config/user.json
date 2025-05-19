@@ -4,16 +4,7 @@
     "pk": 1,
     "fields": {
       "role_parent": null,
-      "name": "Admin",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 2,
-    "fields": {
-      "role_parent": null,
-      "name": "Guest",
+      "name": "admin",
       "group_prefix": null
     }
   },
@@ -159,16 +150,6 @@
       "role": 1,
       "language": "de",
       "name": "Admin",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 2,
-    "fields": {
-      "role": 2,
-      "language": "de",
-      "name": "Guest",
       "group_prefix": null
     }
   },
