@@ -1838,7 +1838,7 @@
       "title": "Allgemeine Informationen zum Vorhaben",
       "parent": "grundinformationen",
       "questions": [
-        "geometer-v4",
+        "geometer-v5",
         "plankote",
         "fixpunkt",
         "fixpunkt-nummer",
@@ -1892,7 +1892,7 @@
     "grundinformationen.geometer-projektgenehmigungsgesuch": {
       "title": "Geometer",
       "parent": "grundinformationen",
-      "questions": ["geometer-v4"]
+      "questions": ["geometer-v5"]
     },
     "personalien": {
       "title": "Personalien",
@@ -4190,6 +4190,21 @@
           "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Goldau, Küssnacht, Brunnen)",
           "geometrie plus ag (Einsiedeln, Freienbach)",
           "GEO Netz AG (Lachen, Schwyz)",
+          "Wild Ingenieure AG (Küssnacht)"
+        ]
+      }
+    },
+    "geometer-v5": {
+      "label": "Bitte wählen Sie zur Nachführung der amtlichen Vermessung eine Nachführungsstelle/einen Geometer aus.",
+      "hint": "Die Kosten für die Nachführung der amtlichen Vermessung infolge Umsetzung eines Bauvorhabens trägt die Bauherrschaft. Deshalb kann die Bauherrschaft bestimmen, welches Geometerbüro die besagten Arbeiten ausführen soll.",
+      "type": "radio",
+      "required": true,
+      "active-expression": "form != 'projektgenehmigungsgesuch-gemass-ss15-strag' || 'meta'|value|json['formType'] in ['municipality', 'district']",
+      "config": {
+        "options": [
+          "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Oberarth, Immensee, Brunnen)",
+          "geometrie plus ag (Einsiedeln, Freienbach)",
+          "GEO Netz AG (Lachen, Seewen)",
           "Wild Ingenieure AG (Küssnacht)"
         ]
       }

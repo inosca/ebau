@@ -370,6 +370,7 @@ APPLICATIONS = {
             "geometer-v2",
             "geometer-v3",
             "geometer-v4",
+            "geometer-v5",
         },
         # Important: All versions of the geometer form-field option need to be included!
         # geometer form-field option: service ids
@@ -423,6 +424,18 @@ APPLICATIONS = {
             "geometrie plus ag (Einsiedeln, Freienbach)": [
                 144,  # geometrie plus ag (Gde_Bez Ingenieur),
                 154,  # geometrie plus ag (Geometer)
+            ],
+            # geometer-v5
+            "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Oberarth, Immensee, Brunnen)": [
+                137,  # Brandschutz (Geoinfra)
+                149,  # Grundstücksentwässerung (Geoinfra)
+                334,  # Umweltschutzbeauftragter (Geoinfra)
+                359,  # Geometer (Geoinfra)
+                360,  # Baurecht (Geoinfra)
+                361,  # Kontrolle Hochbau (Geoinfra)
+            ],
+            "GEO Netz AG (Lachen, Seewen)": [
+                313,  # GEO Netz AG (Geometer)
             ],
         },
         "TAX_ADMINISTRATION": "tax-administration",  # Liegenschaftenschätzung Steuerverwaltung
