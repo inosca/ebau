@@ -2874,16 +2874,15 @@ DATABASES = {
         "HOST": env.str("DATABASE_HOST", default="localhost"),
         "PORT": env.str("DATABASE_PORT", default=""),
         "OPTIONS": env.dict("DATABASE_OPTIONS", default=database_options),
+        # https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-CONN_HEALTH_CHECKS
+        "CONN_HEALTH_CHECKS": env.bool("DATABASE_CONN_HEALTH_CHECKS", default=True),
+        # https://docs.djangoproject.com/en/4.2/ref/settings/#conn-max-age
+        # The lifetime of a database connection, as an integer of seconds.
+        # Use 0 to close database connections at the end of each request — Django’s
+        # historical behavior — and None for unlimited persistent database connections.
+        "CONN_MAX_AGE": env.int("DATABASE_CONN_MAX_AGE", default=0),
     }
 }
-
-# https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-CONN_HEALTH_CHECKS
-CONN_HEALTH_CHECKS = env.bool("DJANGO_CONN_HEALTH_CHECKS", default=False)
-# https://docs.djangoproject.com/en/4.2/ref/settings/#conn-max-age
-# The lifetime of a database connection, as an integer of seconds.
-# Use 0 to close database connections at the end of each request — Django’s
-# historical behavior — and None for unlimited persistent database connections.
-CONN_MAX_AGE = env.int("DJANGO_MAX_AGE", default=0)
 
 # Sequence ranges to be used for each developer. Note: NEVER EVER
 # EVER change this without talking to the affected developers. New
