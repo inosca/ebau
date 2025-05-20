@@ -797,6 +797,7 @@ APPLICATIONS = {
             "projektanderung-v8",
             "projektanderung-v9",
             "projektanderung-v10",
+            "projektanderung-v11",
             "technische-bewilligung",
             "technische-bewilligung-v2",
             "technische-bewilligung-v3",

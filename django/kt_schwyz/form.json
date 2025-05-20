@@ -556,6 +556,23 @@
       "fachthemen.bauabfaelle",
       "gesuchsunterlagen"
     ],
+    "projektanderung-v11": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v3",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v4",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.energie-v2",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen-v2"
+    ],
     "vorentscheid-gemass-ss84-pbg-v3": [
       "vorentscheid",
       "grundinformationen",
@@ -791,7 +808,7 @@
       "vorentscheid",
       "grundinformationen",
       "grundinformationen.lokalisierung",
-      "grundinformationen.kategorisierung-v2",
+      "grundinformationen.kategorisierung-v3",
       "grundinformationen.allgemeine-informationen-zum-vorhaben-vorentscheid",
       "grundinformationen.gwr-v2",
       "personalien",
@@ -819,7 +836,7 @@
       "fachthemen.fischerei",
       "fachthemen.radon",
       "fachthemen.bauabfaelle",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen-v2"
     ],
     "vorabklarung": [
       "grundinformationen",
@@ -1628,6 +1645,53 @@
         "terrain-abgrabung"
       ]
     },
+    "grundinformationen.kategorisierung-v3": {
+      "title": "Kategorisierung",
+      "parent": "grundinformationen",
+      "questions": [
+        "kategorie-des-vorhabens",
+        "art-der-nutzung",
+        "vorhaben-mit-baute",
+        "vorhaben-mit-baute-bisherige-nutzung",
+        "vorhaben-mit-baute-geplante-nutzung",
+        "vorhaben-mit-anlage",
+        "vorhaben-mit-anlage-bisherige-nutzung",
+        "vorhaben-mit-anlage-geplante-nutzung",
+        "art-der-anlage",
+        "art-der-anlage-andere",
+        "art-der-befestigten-flache",
+        "art-der-befestigten-flache-andere",
+        "zweck-der-leitungen",
+        "zweck-der-leitungen-andere",
+        "art-der-warmepumpe",
+        "tangiert-vorhaben-strasse",
+        "pfahlfundation-vorgesehen",
+        "untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant",
+        "baugrubenumschliessung-vorgesehen",
+        "temporare-grundwasserabsenkung-notig",
+        "anlagen-mit-erheblichen-schadstoffemissionen",
+        "anlagen-mit-erheblichen-schadstoffemissionen-welche",
+        "anlagen-mit-erheblichen-strahlungsemissionen",
+        "anlagen-mit-erheblichen-strahlungsemissionen-welche",
+        "anlagen-mit-erheblichen-larmemissionen",
+        "larmbelastetes-gebiet",
+        "aussenbeleuchtung",
+        "wassergefahrdende-stoffe",
+        "brandschutztechnisch-gefahrliche-stoffe",
+        "bodenbelastungen",
+        "boden-5000m2",
+        "ordendliche-mindestabstande",
+        "auswirkungen-auf-arbeitnehmer",
+        "lebensmittel-umgehen",
+        "trinkwasser-abgeben",
+        "offentlich-duschanlage-oder-bad",
+        "gewerbliche-nutzflachen",
+        "gewerbliche-nutzflachen-grosse",
+        "hohe-der-anlage",
+        "terrain-aufschuettung",
+        "terrain-abgrabung"
+      ]
+    },
     "grundinformationen.kategorisierung-baugesuch-reklamegesuch": {
       "title": "Kategorisierung",
       "parent": "grundinformationen",
@@ -1649,6 +1713,7 @@
         "art-der-warmepumpe",
         "tangiert-vorhaben-strasse",
         "pfahlfundation-vorgesehen",
+        "untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant",
         "baugrubenumschliessung-vorgesehen",
         "temporare-grundwasserabsenkung-notig",
         "anlagen-mit-erheblichen-schadstoffemissionen",
@@ -2273,6 +2338,75 @@
         "info-kw-1-4-quelle"
       ]
     },
+    "gesuchsunterlagen-v2": {
+      "title": "Gesuchsunterlagen",
+      "parent": null,
+      "questions": [
+        "dokument-grundstucksangaben",
+        "dokument-gutachten-nachweise-begrundungen",
+        "dokument-projektplane-projektbeschrieb",
+        "dokument-weitere-gesuchsunterlagen",
+        "info-vorhaben-mit-baute",
+        "info-pfahlfundation-vorgesehen",
+        "info-untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant",
+        "info-baugrubenumschliessung-vorgesehen",
+        "info-anlagen-mit-erheblichen-larmemissionen",
+        "info-bodenbelastungen",
+        "info-200m3-bauabfalle",
+        "info-schadstoffe-bauobjekt",
+        "info-landwirtschaft-formular-tierbestand",
+        "info-landwirtschaft-grundriss-stall",
+        "info-nlbuaab",
+        "info-nlbuaab-anlage",
+        "info-nlbuaab-nutzflache-berechnungsschema",
+        "info-nlbuaab-nutzflache-fotos",
+        "info-art-der-warmepumpe",
+        "info-larmbelastetes-gebiet",
+        "info-umweltschutz-abfallbehandlungsanlage",
+        "info-boden-5000m2",
+        "info-aussenbeleuchtung",
+        "info-wald-forstlich",
+        "info-wald-auswirkungen",
+        "info-wald-auswirkungen-roden",
+        "info-energie-dachaufstellung",
+        "info-energie",
+        "info-arbeitssicherheit-sicherheitsdatenblatter",
+        "info-zivilschutz-elementarschaden",
+        "info-zivilschutz-aufhebung",
+        "info-brandschutz-gefahrengut",
+        "info-liegenschaftsentwasserung",
+        "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja",
+        "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-nein",
+        "info-liegenschaftsentwasserung-ausserhalb-bauzone",
+        "info-gewasserschutz",
+        "info-grundwasser-warmeentnahme-art-sonden",
+        "info-grundwasser-warmeentnahme-art-pfahle",
+        "info-grundwasser-warmeentnahme-art-kollektoren",
+        "info-sondierbohrung",
+        "info-grundwasser-sondierbohrung-zweck",
+        "info-belastete-standorte",
+        "info-invasive-neophyten",
+        "info-reklamen-fassade",
+        "info-reklamen-frei",
+        "info-natur-landschaftschutz",
+        "info-av-art-wald",
+        "info-av-art-anlass",
+        "info-av-art-verkehr",
+        "info-bm-solaranlage",
+        "info-projektanderung",
+        "info-plangenehmigung",
+        "info-projektgenehmigung",
+        "info-technische-bewilligung",
+        "info-vorabklarung",
+        "info-vorentscheid",
+        "info-oberflaechenabfluss",
+        "info-terrain",
+        "info-kw-1-1-grundwasser",
+        "info-kw-1-2-bach-fluss",
+        "info-kw-1-3-see",
+        "info-kw-1-4-quelle"
+      ]
+    },
     "gesuchsunterlagen-technische-bewilligung": {
       "title": "Gesuchsunterlagen",
       "parent": null,
@@ -2286,6 +2420,7 @@
         "dokument-beschreibung-entwässerungskonzept",
         "info-vorhaben-mit-baute",
         "info-pfahlfundation-vorgesehen",
+        "info-untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant",
         "info-baugrubenumschliessung-vorgesehen",
         "info-anlagen-mit-erheblichen-larmemissionen",
         "info-bodenbelastungen",
@@ -3748,6 +3883,14 @@
       "type": "radio",
       "required": true,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant": {
+      "label": "Sind Untergrundarbeiten geplant, bei denen Aushub mit umwelt- oder gesundheitsgefährdenden Stoffen anfällt?",
+      "type": "radio",
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -9758,6 +9901,15 @@
         "options": ["Vorhanden"]
       }
     },
+    "info-untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant": {
+      "label": "Die kantonale Fachstelle benötigt für die Beurteilung weitere Angaben (Aushub- und Entsorgungskonzept nach Art. 16 VVEA, aus welchem Art, Menge und Umgang mit belastetem Material hervorgehen). Weiterführende Informationen finden Sie in der Arbeitshilfe &laquo;<a href=\"https://www.bafu.admin.ch/dam/bafu/de/dokumente/altlasten/uv-umwelt-vollzug/bauvorhaben_und_belastetestandorte.pdf.download.pdf/bauvorhaben_und_belastetestandorte.pdf\" target=\"_blank\">Bauvorhaben und belastete Standorte</a>&raquo;.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant'|value == 'Ja'",
+      "config": {
+        "options": ["Vorhanden"]
+      }
+    },
     "info-baugrubenumschliessung-vorgesehen": {
       "label": "Den Gesuchsunterlagen ist ein Beschrieb der Baugrubensicherung und –entwässerung mit Nennung des Bauverfahrens (Spundwand, Rühlwand, Bohrpfahlwand, Schlitzwand, o.a.) beizulegen.",
       "type": "checkbox",
@@ -10090,7 +10242,7 @@
       }
     },
     "info-belastete-standorte": {
-      "label": "Ihr Bauvorhaben wird durch einen belasteten Standort tangiert. Es sind die Altlastenuntersuchungen (z. B. historische, technische Untersuchung) einzureichen (vgl. Ablaufschema „<a href=\"/assets/documents/20201029_Ablaufschema_Bauen_auf_belasteten_Standorten.pdf\" title=\"Herunterladen\" target=\"_blank\">Bauen auf belasteten Standorten</a>“).",
+      "label": "Ihr Bauvorhaben betrifft einen belasteten Standort. Die zuständige kantonale Fachstelle benötigt für die Beurteilung zusätzliche Unterlagen (Altlastenuntersuchungen, eine baubedingte Gefährdungsabschätzung und/oder ein Aushub- und Entsorgungskonzept nach Art. 16 VVEA). Weitere Informationen zu den benötigten Unterlagen entnehmen Sie dem Ablaufschema &laquo;<a href=\"/assets/documents/20201029_Ablaufschema_Bauen_auf_belasteten_Standorten.pdf\" title=\"Herunterladen\" target=\"_blank\">Bauen auf belasteten Standorten</a>&raquo;.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.polygon' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.punkt' in 'layer'|value|mapby('name')",
