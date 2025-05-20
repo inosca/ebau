@@ -1730,6 +1730,8 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "NAME": [_("NAME")],
             "EMAIL": [_("EMAIL")],
             "PUBLIKATION_ORGAN": [_("PUBLICATION_ORGAN")],
+            "PUBLIKATION_ORGAN.NAME": [_("NAME")],
+            "PUBLIKATION_ORGAN.EMAIL": [_("EMAIL")],
             "PUBLIKATION_START": [_("PUBLICATION_START")],
             "PUBLIKATION_ENDE": [_("PUBLICATION_END")],
             "PUBLIKATION_ANZEIGER": [_("PUBLICATION_DATE_GAZETTE")],

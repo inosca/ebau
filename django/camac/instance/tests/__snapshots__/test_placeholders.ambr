@@ -8364,6 +8364,16 @@
             'de': 'PUBLIKATION_ORGAN',
           }),
         ]),
+        'PUBLIKATION_ORGAN.EMAIL': list([
+          dict({
+            'de': 'EMAIL',
+          }),
+        ]),
+        'PUBLIKATION_ORGAN.NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
         'PUBLIKATION_START': list([
           dict({
             'de': 'PUBLIKATION_START',
@@ -10035,6 +10045,9 @@
     'PUBLIKATION[].PUBLIKATION_ANZEIGER',
     'PUBLIKATION[].PUBLIKATION_ENDE',
     'PUBLIKATION[].PUBLIKATION_ORGAN',
+    'PUBLIKATION[].PUBLIKATION_ORGAN[]',
+    'PUBLIKATION[].PUBLIKATION_ORGAN[].EMAIL',
+    'PUBLIKATION[].PUBLIKATION_ORGAN[].NAME',
     'PUBLIKATION[].PUBLIKATION_START',
     'PUBLIKATION_AMTSBLATT',
     'PUBLIKATION_ANZEIGER',
