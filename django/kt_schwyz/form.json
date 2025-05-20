@@ -398,7 +398,7 @@
     "baugesuch-reklamegesuch-v10": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
-      "grundinformationen.kategorisierung-v3",
+      "grundinformationen.kategorisierung-baugesuch-reklamegesuch",
       "grundinformationen.allgemeine-informationen-zum-vorhaben-v5",
       "grundinformationen.baustellenabwasser",
       "grundinformationen.ausnahmebewilligungen",
@@ -1628,7 +1628,7 @@
         "terrain-abgrabung"
       ]
     },
-    "grundinformationen.kategorisierung-v3": {
+    "grundinformationen.kategorisierung-baugesuch-reklamegesuch": {
       "title": "Kategorisierung",
       "parent": "grundinformationen",
       "questions": [
