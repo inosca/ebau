@@ -842,13 +842,13 @@ APPLICATIONS = {
     },
     "kt_bern": {
         "SHORT_NAME": "be",
+        "AVAILABLE_LANGUAGES": ["de", "fr"],
         "INTERNAL_FRONTEND": "camac",
         "TAGGED_RELEASES": True,
         "USE_CAMAC_ADMIN": True,
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
-        "AVAILABLE_LANGUAGES": ["de", "fr"],
         "SYSTEM_USER": "service-account-camac-admin",
         "ATTACHMENT_SECTION_INTERNAL": 4,
         "ROLE_PERMISSIONS": {
@@ -1304,6 +1304,7 @@ APPLICATIONS = {
     },
     "kt_uri": {
         "SHORT_NAME": "ur",
+        "AVAILABLE_LANGUAGES": ["de"],
         "INTERNAL_FRONTEND": "camac",
         "USE_CAMAC_ADMIN": True,
         "ENABLE_PUBLIC_CALUMA": True,
@@ -1988,6 +1989,7 @@ APPLICATIONS = {
     },
     "kt_gr": {
         "SHORT_NAME": "gr",
+        "AVAILABLE_LANGUAGES": ["de", "it"],
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": False,
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
@@ -2209,8 +2211,8 @@ APPLICATIONS = {
     },
     "kt_so": {
         "SHORT_NAME": "so",
-        "INTERNAL_FRONTEND": "ebau",
         "AVAILABLE_LANGUAGES": ["de"],
+        "INTERNAL_FRONTEND": "ebau",
         "TAGGED_RELEASES": True,
         "USE_CAMAC_ADMIN": False,
         "LOG_NOTIFICATIONS": True,
@@ -2453,6 +2455,7 @@ APPLICATIONS = {
     },
     "kt_ag": {
         "SHORT_NAME": "ag",
+        "AVAILABLE_LANGUAGES": ["de"],
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": False,
         "TAGGED_RELEASES": True,

@@ -39,19 +39,16 @@ from camac.tests.data import (
 def be_dms_config(settings, application_settings, be_placeholders_settings):
     settings.APPLICATION_NAME = "kt_bern"
     settings.INTERNAL_BASE_URL = "http://ebau.localhost"
+    application_settings["SHORT_NAME"] = "be"
     application_settings["AVAILABLE_LANGUAGES"] = ["de", "fr"]
 
 
 @pytest.fixture
-def gr_dms_config(settings):
-    original_languages = settings.LANGUAGES
-    settings.LANGUAGES = [
-        (code, name) for code, name in settings.LANGUAGES if code in ["de", "it"]
-    ]
+def gr_dms_config(settings, application_settings, gr_placeholders_settings):
     settings.APPLICATION_NAME = "kt_gr"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
-    yield
-    settings.LANGUAGES = original_languages
+    application_settings["SHORT_NAME"] = "gr"
+    application_settings["AVAILABLE_LANGUAGES"] = ["de", "it"]
 
 
 @pytest.fixture
@@ -63,28 +60,19 @@ def so_dms_config(settings, application_settings, so_placeholders_settings):
 
 
 @pytest.fixture
-def ur_dms_config(settings, application_settings):
-    original_languages = settings.LANGUAGES
-    settings.LANGUAGES = [
-        (code, name) for code, name in settings.LANGUAGES if code in ["de"]
-    ]
+def ur_dms_config(settings, application_settings, ur_placeholders_settings):
     settings.APPLICATION_NAME = "kt_uri"
     settings.INTERNAL_BASE_URL = "http://ebau.localhost"
     application_settings["SHORT_NAME"] = "ur"
-    yield
-    settings.LANGUAGES = original_languages
+    application_settings["AVAILABLE_LANGUAGES"] = ["de"]
 
 
 @pytest.fixture
-def ag_dms_config(settings):
-    original_languages = settings.LANGUAGES
-    settings.LANGUAGES = [
-        (code, name) for code, name in settings.LANGUAGES if code in ["de"]
-    ]
+def ag_dms_config(settings, application_settings, ag_placeholders_settings):
     settings.APPLICATION_NAME = "kt_ag"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
-    yield
-    settings.LANGUAGES = original_languages
+    application_settings["SHORT_NAME"] = "ag"
+    application_settings["AVAILABLE_LANGUAGES"] = ["de"]
 
 
 @pytest.fixture
