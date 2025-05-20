@@ -812,6 +812,7 @@ APPLICATIONS = {
             "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
             "projektgenehmigungsgesuch-gemass-ss15-strag-v4",
             "projektgenehmigungsgesuch-gemass-ss15-strag-v5",
+            "projektgenehmigungsgesuch-gemass-ss15-strag-v6",
         ],
         "STORE_PDF": {"SECTION": 1},
         "FORM_FIELD_HISTORY_ENTRY": [

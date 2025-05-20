@@ -1442,6 +1442,37 @@
       "gesuchsunterlagen",
       "meta"
     ],
+    "projektgenehmigungsgesuch-gemass-ss15-strag-v6": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.geometer-projektgenehmigungsgesuch",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen",
+      "meta"
+    ],
     "geschaeftskontrolle": ["geschaeftskontrolle"],
     "migriertes-dossier": [
       "personalien",
@@ -1741,6 +1772,11 @@
       "title": "Lokalisierung",
       "parent": "grundinformationen",
       "questions": ["bezeichnung", "projektnummer", "parzellen", "punkte"]
+    },
+    "grundinformationen.geometer-projektgenehmigungsgesuch": {
+      "title": "Geometer",
+      "parent": "grundinformationen",
+      "questions": ["geometer-v4", "geometer-name"]
     },
     "personalien": {
       "title": "Personalien",
@@ -3953,6 +3989,7 @@
       "hint": "Die Kosten für die Nachführung der amtlichen Vermessung infolge Umsetzung eines Bauvorhabens trägt die Bauherrschaft. Deshalb kann die Bauherrschaft bestimmen, welches Geometerbüro die besagten Arbeiten ausführen soll.",
       "type": "radio",
       "required": true,
+      "active-expression": "form != 'projektgenehmigungsgesuch-gemass-ss15-strag' || 'meta'|value|json['formType'] in ['municipality', 'district']",
       "config": {
         "options": [
           "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Goldau, Küssnacht, Brunnen)",
@@ -3967,6 +4004,7 @@
       "hint": "Die verschiedenen Geometerbüros haben teilweise mehrere Filialen mit eigenen Geometern. Falls Sie den Namen des zuständigen Geometers des ausgewählten Vermessungsbüros kennen, geben Sie ihn bitte an. ",
       "type": "text",
       "required": false,
+      "active-expression": "form != 'projektgenehmigungsgesuch-gemass-ss15-strag' || 'meta'|value|json['formType'] in ['municipality', 'district']",
       "config": {}
     },
     "plankote": {

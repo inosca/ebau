@@ -57,6 +57,7 @@ CHANGE_FORM = {
                 "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
                 "projektgenehmigungsgesuch-gemass-ss15-strag-v4",
                 "projektgenehmigungsgesuch-gemass-ss15-strag-v5",
+                "projektgenehmigungsgesuch-gemass-ss15-strag-v6",
             ]
         ],
     },
