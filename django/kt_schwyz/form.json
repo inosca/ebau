@@ -1839,7 +1839,6 @@
       "parent": "grundinformationen",
       "questions": [
         "geometer-v4",
-        "geometer-name",
         "plankote",
         "fixpunkt",
         "fixpunkt-nummer",
@@ -1893,7 +1892,7 @@
     "grundinformationen.geometer-projektgenehmigungsgesuch": {
       "title": "Geometer",
       "parent": "grundinformationen",
-      "questions": ["geometer-v4", "geometer-name"]
+      "questions": ["geometer-v4"]
     },
     "personalien": {
       "title": "Personalien",
@@ -4200,7 +4199,6 @@
       "hint": "Die verschiedenen Geometerbüros haben teilweise mehrere Filialen mit eigenen Geometern. Falls Sie den Namen des zuständigen Geometers des ausgewählten Vermessungsbüros kennen, geben Sie ihn bitte an. ",
       "type": "text",
       "required": false,
-      "active-expression": "form != 'projektgenehmigungsgesuch-gemass-ss15-strag' || 'meta'|value|json['formType'] in ['municipality', 'district']",
       "config": {}
     },
     "plankote": {
