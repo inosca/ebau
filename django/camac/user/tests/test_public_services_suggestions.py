@@ -160,7 +160,7 @@ def test_suggestion_for_instance_filter_caluma(
             [],
         ),
         (
-            6,
+            7,
             3,
             {
                 # active (wald-forstlich and wald-auswirkung active)
@@ -184,7 +184,7 @@ def test_suggestion_for_instance_filter_caluma(
             [1234],
         ),
         (
-            6,
+            7,
             3,
             {
                 "SUBMODULES": [],
@@ -208,7 +208,7 @@ def test_suggestion_for_instance_filter_caluma(
             [4444],
         ),
         (
-            6,
+            7,
             3,
             {
                 # active (wald-forstlich active)
@@ -233,7 +233,7 @@ def test_suggestion_for_instance_filter_caluma(
             [1234, 4444],
         ),
         (
-            6,
+            7,
             3,
             {
                 # active (wald-auswirkungen active)
@@ -255,7 +255,7 @@ def test_suggestion_for_instance_filter_caluma(
             [1234, 5678],
         ),
         (
-            6,
+            7,
             3,
             {
                 # not active (wald-auswirkungen and wald-forstlich not active)
@@ -343,6 +343,8 @@ def test_suggestion_for_instance_filter_camac_ng(
         distribution_settings["SUGGESTIONS"] = suggestions
 
         sz_instance.form = form_factory(name="baugesuch")
+        sz_instance.form.family = sz_instance.form
+        sz_instance.form.save()
         sz_instance.save()
 
         for config in [*suggestions["SUBMODULES"], *suggestions["QUESTIONS"]]:

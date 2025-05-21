@@ -134,6 +134,7 @@ def test_form_data_validator_validate_deactivation(
     settings.FORM_CONFIG = FORM_CONFIG
 
     instance.form = form_factory(name="form-a")
+    instance.form.family = instance.form
     instance.save()
 
     form_field_factory(instance=instance, name="question-0", value="Yes")
@@ -381,6 +382,7 @@ def test_form_data_validator_validation(
     settings.FORM_CONFIG = form_config
 
     instance.form = form_factory(name="form-a")
+    instance.form.family = instance.form
     instance.instance_state = instance_state_factory(name=instance_state_name)
     instance.save()
 
