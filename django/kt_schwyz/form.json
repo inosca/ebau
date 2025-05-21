@@ -3890,6 +3890,7 @@
     "untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant": {
       "label": "Sind Untergrundarbeiten geplant, bei denen Aushub mit umwelt- oder gesundheitsgefährdenden Stoffen anfällt?",
       "type": "radio",
+      "required": true,
       "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "options": ["Ja", "Nein"]
