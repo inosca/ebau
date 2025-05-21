@@ -206,22 +206,21 @@ class Command(BaseCommand):
                 )
 
             bab_work_item = case.work_items.filter(task_id="bab").first()
-            if not bab_work_item:
-                continue
-            bab_answers = bab_work_item.document.answers
+            if bab_work_item:
+                bab_answers = bab_work_item.document.answers
 
-            self.get_amount_of_answers_bab(
-                entry, BAB_TYPE_OF_MEASURE, bab_answers, "bab-art-der-massnahme"
-            )
-            self.get_amount_of_answers_bab(
-                entry, BAB_TYPE_OF_OBJECT, bab_answers, "bab-objektart"
-            )
-            self.get_amount_of_answers_bab(
-                entry, BAB_LEGAL_BASIS, bab_answers, "bab-bewilligungsgrund"
-            )
-            self.get_amount_of_answers_bab(
-                entry, BAB_TYPE_OF_CLIENT, bab_answers, "bab-typ-der-auftraggeber"
-            )
+                self.get_amount_of_answers_bab(
+                    entry, BAB_TYPE_OF_MEASURE, bab_answers, "bab-art-der-massnahme"
+                )
+                self.get_amount_of_answers_bab(
+                    entry, BAB_TYPE_OF_OBJECT, bab_answers, "bab-objektart"
+                )
+                self.get_amount_of_answers_bab(
+                    entry, BAB_LEGAL_BASIS, bab_answers, "bab-bewilligungsgrund"
+                )
+                self.get_amount_of_answers_bab(
+                    entry, BAB_TYPE_OF_CLIENT, bab_answers, "bab-typ-der-auftraggeber"
+                )
 
             self.stdout.write(f"Prepared {counter} query")
             data.append(entry)
