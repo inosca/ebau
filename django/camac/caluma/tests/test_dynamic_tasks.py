@@ -217,6 +217,35 @@ def test_after_decision_gr(
     )
 
 
+@pytest.mark.parametrize(
+    "service_group__name,expected_tasks",
+    [
+        ("municipality", []),
+        ("municipality-light", ["complete-instance"]),
+    ],
+)
+def test_after_decision_ag(
+    db,
+    ag_decision_settings,
+    ag_instance,
+    expected_tasks,
+    mocker,
+    service,
+    set_application_ag,
+):
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service,
+    )
+
+    assert (
+        CustomDynamicTasks().resolve_after_decision_ag(
+            ag_instance.case, None, None, None
+        )
+        == expected_tasks
+    )
+
+
 @pytest.mark.parametrize("always_create_inquiry_check_work_item", [True, False])
 @pytest.mark.parametrize(
     "is_lead_authority",

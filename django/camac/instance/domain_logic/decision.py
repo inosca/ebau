@@ -132,8 +132,8 @@ class DecisionLogic:
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:  # pragma: no cover
         # TODO: Implement logic after decision for Kt. AG. For now, all dossiers
-        # will be finished after the decision
-        return False
+        # will be finished after the decision except municipality light dossiers.
+        return instance.responsible_service().service_group.name == "municipality-light"
 
     @classmethod
     def should_continue_after_decision_be(

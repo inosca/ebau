@@ -2621,6 +2621,34 @@ def decision_factory_so(so_instance, so_decision_settings):
 
 
 @pytest.fixture
+def decision_factory_ag(ag_instance, ag_decision_settings):
+    call_command(
+        "loaddata", settings.ROOT_DIR("kt_ag/config/caluma_decision_form.json")
+    )
+
+    def factory(
+        instance=ag_instance,
+        decision=ag_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
+        decision_date=date.today(),
+    ):
+        work_item = instance.case.work_items.get(task_id=ag_decision_settings["TASK"])
+
+        work_item.document.answers.create(
+            question_id=ag_decision_settings["QUESTIONS"]["DECISION"],
+            value=decision,
+        )
+
+        work_item.document.answers.create(
+            question_id=ag_decision_settings["QUESTIONS"]["DATE"],
+            date=decision_date,
+        )
+
+        return work_item
+
+    return factory
+
+
+@pytest.fixture
 def construction_monitoring_settings(settings):
     construction_monitoring_dict = copy.deepcopy(CONSTRUCTION_MONITORING["default"])
     settings.CONSTRUCTION_MONITORING = construction_monitoring_dict

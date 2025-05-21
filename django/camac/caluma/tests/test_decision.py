@@ -466,6 +466,96 @@ def test_complete_decision_withdrawn(
     )
 
 
+@pytest.mark.parametrize(
+    "service_group__name,form_slug,decision,expected_status,expected_work_items",
+    [
+        ("municipality", "baugesuch", "APPROVED", "finished", set()),
+        (
+            "municipality-light",
+            "anfrage-intern",
+            "APPROVED",
+            "to-finish",
+            {"complete-instance"},
+        ),
+    ],
+)
+def test_complete_decision_ag(
+    db,
+    application_settings,
+    caluma_admin_user,
+    decision_factory_ag,
+    disable_ech0211_settings,
+    form_slug,
+    instance_state_factory,
+    multilang,
+    settings,
+    master_data_is_visible_mock,
+    ag_master_data_settings,
+    ag_decision_settings,
+    ag_instance,
+    caluma_work_item_factory,
+    expected_status,
+    expected_work_items,
+    decision,
+    mocker,
+    service,
+):
+    settings.APPLICATION_NAME = "kt_ag"
+    application_settings["SHORT_NAME"] = "ag"
+
+    instance_state_factory(name="finished")
+    instance_state_factory(name="to-finish")
+
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service", return_value=service
+    )
+
+    ag_instance.case.document.form_id = form_slug
+    ag_instance.case.document.save()
+
+    # In order to not test the whole workflow, we cancel the submit work item
+    # and create a decision work item for the test.
+    cancel_work_item(
+        ag_instance.case.work_items.filter(task_id="submit").first(),
+        caluma_admin_user,
+    )
+
+    decision_work_item = caluma_work_item_factory(
+        task_id=ag_decision_settings["TASK"],
+        case=ag_instance.case,
+        child_case=None,
+    )
+    decision_factory_ag(
+        ag_instance,
+        ag_decision_settings["ANSWERS"]["DECISION"][decision],
+    )
+
+    complete_work_item(decision_work_item, caluma_admin_user)
+
+    ag_instance.refresh_from_db()
+
+    assert ag_instance.instance_state.name == expected_status
+    assert (
+        set(
+            ag_instance.case.work_items.filter(
+                status=WorkItem.STATUS_READY
+            ).values_list("task_id", flat=True)
+        )
+        == expected_work_items
+    )
+
+    if expected_status == "to-finish":
+        complete_work_item(
+            ag_instance.case.work_items.get(task_id="complete-instance"),
+            caluma_admin_user,
+        )
+        ag_instance.refresh_from_db()
+
+    assert not ag_instance.case.work_items.filter(status=WorkItem.STATUS_READY).exists()
+    assert ag_instance.instance_state.name == "finished"
+    assert ag_instance.case.status == Case.STATUS_COMPLETED
+
+
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
     "previous_decision,appeal_decision,expected_work_items,expect_copy,expected_copy_instance_state",
