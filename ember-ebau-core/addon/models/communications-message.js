@@ -41,7 +41,7 @@ export default class CommunicationMessageModel extends Model {
       const files = this.store
         .peekAll("file")
         .slice()
-        .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
       this.documentAttachmentsToSave = this.documentAttachmentsToSave.map(
         (attachment) =>
           files.find((file) => file.document.id === attachment)?.id,
