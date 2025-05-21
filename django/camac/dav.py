@@ -4,6 +4,7 @@ from logging import getLogger
 from pathlib import Path
 from shutil import copy2
 
+from alexandria.dav import ManageDjangoConnectionsMiddleware
 from django.conf import settings
 from django.db import transaction
 from django.utils import timezone
@@ -86,6 +87,7 @@ def get_dav():
                 ),
             },
             "middleware_stack": [
+                ManageDjangoConnectionsMiddleware,
                 HeaderLogger,
                 WsgiDavDebugFilter,
                 ErrorPrinter,
