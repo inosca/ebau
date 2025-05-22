@@ -11,7 +11,7 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2025-02-03T09:37:37.669Z",
+      "last_login": "2025-05-22T07:47:15.424Z",
       "address": null,
       "city": null,
       "zip": null,
@@ -50,6 +50,27 @@
       "name": "Applicant",
       "surname": "Readonly",
       "email": "readonly@example.com",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 4,
+    "fields": {
+      "username": "dac6d4cd-34e5-44b1-977e-a62a69c019af",
+      "password": null,
+      "name": "dac6d4cd-34e5-44b1-977e-a62a69c019af",
+      "surname": "dac6d4cd-34e5-44b1-977e-a62a69c019af",
+      "email": null,
       "phone": null,
       "disabled": 0,
       "language": "de",
@@ -9164,6 +9185,39 @@
       "group": 10327,
       "default_group": 0,
       "created_at": "2023-12-01T08:52:15.455Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 10,
+    "fields": {
+      "user": 1,
+      "group": 10037,
+      "default_group": 0,
+      "created_at": "2025-05-22T07:47:24.823Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 11,
+    "fields": {
+      "user": 4,
+      "group": 10035,
+      "default_group": 0,
+      "created_at": "2025-05-22T07:47:35.711Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 12,
+    "fields": {
+      "user": 4,
+      "group": 10037,
+      "default_group": 0,
+      "created_at": "2025-05-22T07:47:35.712Z",
       "created_by": 1
     }
   },
