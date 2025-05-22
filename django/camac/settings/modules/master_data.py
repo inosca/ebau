@@ -29,6 +29,7 @@ AG_PERSONAL_DATA_MAPPING = {
         },
     ),
     "juristic_name": "name-juristische-person-gesuchstellerin",
+    "reference_number": "referenznummer",
 }
 
 SO_PERSONAL_DATA_MAPPING = {
