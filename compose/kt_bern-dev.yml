@@ -107,8 +107,7 @@ services:
       - ebau.localhost
     tty: true
     stdin_open: true
-    # running hurricane with autoreload in dev to mimic production env
-    command: hurricanedev
+    command: devserver
 
   django-webdav:
     <<: *django

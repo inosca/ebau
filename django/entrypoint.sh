@@ -22,8 +22,6 @@ if [ "$#" -lt 1 ]; then
   echo "      --no-loadconfig  to skip the loadconfig step"
   echo "   - gunicorn_k8s      to run the production server without integrated webdav and"
   echo "                       without any implicit setup (loadconfig, migrate)"
-  echo "   - hurricane         to run the production server for kubernetes"
-  echo "   - hurricanedev      to run the development server mimicking kubernetes env"
   echo "   - qcluster          to run the django-q service"
   echo "   - celery            to run the celery service"
   echo "   - celerydev         to run the celery service in development mode"
@@ -67,13 +65,6 @@ case "$1" in
     # K8s mode: All setup (loadconfig, migrate) must be done explicitly
     # in an init task or similar
     exec gunicorn --workers "${DJANGO_GUNICORN_WORKERS:-10}" --access-logfile - --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" --bind :"${DJANGO_SERVER_PORT:-80}" camac.wsgi_gunicorn
-    ;;
-  hurricane )
-    exec python ./manage.py serve --static --port "${DJANGO_SERVER_PORT:-80}" --req-queue-len "${HURRICANE_REQ_QUEUE_LEN:-150}" --workers "${HURRICANE_WORKERS:-4}"
-    ;;
-  hurricanedev )
-    migrate
-    exec python ./manage.py serve --static --autoreload --port "${DJANGO_SERVER_PORT:-80}" --req-queue-len "${HURRICANE_REQ_QUEUE_LEN:-50}"
     ;;
   qcluster )
     exec python manage.py qcluster --pythonpath /app/$APPLICATION
