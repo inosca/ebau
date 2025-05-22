@@ -130,7 +130,6 @@ INSTALLED_APPS = [
     "manabi_migrations",
     "adminsortable2",
     "django_json_widget",
-    "hurricane",
     "camac.fixtures.apps.FixturesConfig",
     "camac.sanctions.apps.SanctionsConfig",
     "camac.work_items.apps.WorkItemsConfig",
@@ -2749,10 +2748,6 @@ LOGGING = {
         "django": {"handlers": ["console", "mail_admins"], "level": "INFO"},
         "camac": {"handlers": ["console", "mail_admins"], "level": "INFO"},
         "tika": {"handlers": ["console", "mail_admins"], "level": "INFO"},
-        "hurricane": {
-            "handlers": ["console", "mail_admins"],
-            "level": env.str("HURRICANE_LOG_LEVEL", default="INFO"),
-        },
     },
 }
 

@@ -18,7 +18,6 @@ django-excel==0.0.10
 # schema methods
 django-filter==24.3
 django-generic-api-permissions==0.4.7
-django-hurricane==1.6.0
 django-ipware==7.0.1
 django-json-widget==2.0.1
 django-presigned-url==0.1.1

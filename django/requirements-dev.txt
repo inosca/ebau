@@ -7,7 +7,6 @@ ipdb==0.13.13
 mock==5.2.0
 pdbpp==0.11.5
 pre-commit==4.1.0
-# needs an update in django-hurricane to allow v6
 psutil==5.9.8
 pydocstyle==6.3.0
 pytest==8.3.5
