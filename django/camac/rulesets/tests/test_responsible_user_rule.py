@@ -65,6 +65,7 @@ def test_responsible_user_for_instance(
     utils,
 ):
     form1 = caluma_form_factory(pk="form1")
+    form1_with_suffix = caluma_form_factory(pk="form1-with-suffix")
     caluma_form_factory(pk="form2")
     caluma_form_factory(pk="form3")
 
@@ -75,19 +76,25 @@ def test_responsible_user_for_instance(
     user1 = user_factory(username="user1")
     user2 = user_factory(username="user2")
     user3 = user_factory(username="user3")
+    user4 = user_factory(username="user4")
+
+    unused_type_rule = responsible_user_rule_factory(
+        service=service, responsible_user=user4, sort=0
+    )
+    unused_type_rule.application_types.set([form1_with_suffix])
 
     type_rule = responsible_user_rule_factory(
-        service=service, responsible_user=user1, sort=0
+        service=service, responsible_user=user1, sort=1
     )
     type_rule.application_types.set([form1])
 
     municipality_rule_1 = responsible_user_rule_factory(
-        service=service, responsible_user=user2, sort=1
+        service=service, responsible_user=user2, sort=2
     )
     municipality_rule_1.municipalities.set([municipality1, municipality2])
 
     municipality_rule_2 = responsible_user_rule_factory(
-        service=service, responsible_user=user3, sort=2
+        service=service, responsible_user=user3, sort=3
     )
     municipality_rule_2.municipalities.set([municipality3])
 
