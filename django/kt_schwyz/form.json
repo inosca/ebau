@@ -4116,7 +4116,6 @@
       "hint": "Die Kosten für die Nachführung der amtlichen Vermessung infolge Umsetzung eines Bauvorhabens trägt die Bauherrschaft. Deshalb kann die Bauherrschaft bestimmen, welches Geometerbüro die besagten Arbeiten ausführen soll.",
       "type": "radio",
       "required": true,
-      "active-expression": "form != 'projektgenehmigungsgesuch-gemass-ss15-strag' || 'meta'|value|json['formType'] in ['municipality', 'district']",
       "config": {
         "options": [
           "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Goldau, Küssnacht, Brunnen)",
