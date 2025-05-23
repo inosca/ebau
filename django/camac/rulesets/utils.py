@@ -5,7 +5,12 @@ from camac.user.models import Service
 
 
 def assign_responsible_user(instance: Instance, service: Service) -> None:
-    """Assign the responsible user for a service on an instance."""
+    """Assign the responsible user for a service on an instance.
+
+    This function is currently only being called in a signal
+    (`camac.rulesets.signals.assign_responsible_user_on_acl_creation`) that is
+    triggered whenever a new ACL from the permissions module is created.
+    """
 
     if instance.responsible_services.filter(service=service).exists():
         return
