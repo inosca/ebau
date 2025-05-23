@@ -9850,7 +9850,7 @@
     "info-untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant": {
       "label": "Die kantonale Fachstelle benötigt für die Beurteilung weitere Angaben (Aushub- und Entsorgungskonzept nach Art. 16 VVEA, aus welchem Art, Menge und Umgang mit belastetem Material hervorgehen). Weiterführende Informationen finden Sie in der Arbeitshilfe &laquo;<a href=\"https://www.bafu.admin.ch/dam/bafu/de/dokumente/altlasten/uv-umwelt-vollzug/bauvorhaben_und_belastetestandorte.pdf.download.pdf/bauvorhaben_und_belastetestandorte.pdf\" target=\"_blank\">Bauvorhaben und belastete Standorte</a>&raquo;.",
       "type": "checkbox",
-      "required": false,
+      "required": true,
       "active-expression": "'untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant'|value == 'Ja'",
       "config": {
         "options": ["Vorhanden"]
