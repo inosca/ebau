@@ -35,7 +35,6 @@ def test_assign_responsible_user_on_acl_creation(
         "camac.instance.master_data.MasterData.__getattr__",
         return_value=municipality.pk,
     )
-    mocker.patch("camac.permissions.api.PermissionManager.has_all", return_value=True)
 
     assert ag_instance.responsible_services.count() == 0
 
@@ -65,7 +64,7 @@ def test_assign_responsible_user_on_acl_creation(
     )
     assert ag_instance.responsible_services.filter(service=service_2).count() == 0
 
-    # Read only: assign via application type
+    # Read only: ignored access level, no assignment
     r4 = responsible_user_rule_factory(service=read_only)
     r4.application_types.set([application_type])
     permissions_api.grant(
@@ -74,4 +73,4 @@ def test_assign_responsible_user_on_acl_creation(
         access_level="read",
         service=read_only,
     )
-    assert ag_instance.responsible_services.filter(service=read_only).count() == 1
+    assert ag_instance.responsible_services.filter(service=read_only).count() == 0

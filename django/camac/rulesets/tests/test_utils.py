@@ -7,7 +7,6 @@ from camac.rulesets.utils import assign_responsible_user
     "use_case,expected_username",
     [
         ("existing", "existing_user"),
-        ("no_permission", None),
         ("no_responsible_user", None),
         ("default", "new_user"),
     ],
@@ -27,14 +26,10 @@ def test_assign_responsible_user(
     new_user = user_factory(username="new_user")
     assigned_users = []
 
-    permission_mock = mocker.patch(
-        "camac.permissions.api.PermissionManager.get_permissions"
-    )
     responsible_user_mock = mocker.patch(
         "camac.rulesets.models.ResponsibleUserRuleQuerySet.get_responsible_user_for_instance"
     )
 
-    permission_mock.return_value = ["responsible-read"]
     responsible_user_mock.return_value = new_user
 
     if use_case == "existing":
@@ -42,8 +37,6 @@ def test_assign_responsible_user(
             instance=ag_instance, service=service, responsible_user=existing_user
         )
         assigned_users = [existing_user.username]
-    elif use_case == "no_permission":
-        permission_mock.return_value = []
     elif use_case == "no_responsible_user":
         responsible_user_mock.return_value = None
 
