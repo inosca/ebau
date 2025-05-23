@@ -66,3 +66,9 @@ workItems:
     info:
     select:
     apply:
+
+  presets:
+    standard:
+    service:
+    serviceGroup:
+    reset:

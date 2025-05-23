@@ -70,3 +70,9 @@ workItems:
     info: "Eine Vorlage anwenden"
     select: "Vorlage auswählen"
     apply: "Vorlage anwenden"
+
+  presets:
+    standard: "Standardfilter"
+    service: "Filter {serviceName}"
+    serviceGroup: "Filter {serviceGroupName}"
+    reset: "Filter zurücksetzen"

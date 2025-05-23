@@ -69,6 +69,7 @@ DJANGO_ADMIN = {
             "gis.GISDataSource",
             "notification.NotificationTemplate",
             "work_items.WorkItemTemplate",
+            "work_items.WorkItemListFilterPreset",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "billing.BillingV2EntryTemplate",

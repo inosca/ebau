@@ -1362,6 +1362,9 @@ importers:
       ember-load-initializers:
         specifier: 2.1.2
         version: 2.1.2(@babel/core@7.26.10)
+      ember-localized-model:
+        specifier: 4.0.1
+        version: 4.0.1(jtw5xr5qqkkelv5mnwawjjndqy)
       ember-modify-based-class-resource:
         specifier: 1.1.1
         version: 1.1.1(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))

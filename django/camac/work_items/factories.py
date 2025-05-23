@@ -2,7 +2,7 @@ from factory import Faker, fuzzy
 from factory.django import DjangoModelFactory
 
 from camac.utils import choice_keys
-from camac.work_items.models import WorkItemTemplate
+from camac.work_items.models import WorkItemListFilterPreset, WorkItemTemplate
 
 
 class WorkItemTemplateFactory(DjangoModelFactory):
@@ -15,3 +15,13 @@ class WorkItemTemplateFactory(DjangoModelFactory):
 
     class Meta:
         model = WorkItemTemplate
+
+
+class WorkItemListFilterPresetFactory(DjangoModelFactory):
+    name = Faker("word")
+    query_params = {}
+    prefilter_work_item_templates = True
+    prefilter_tasks = False
+
+    class Meta:
+        model = WorkItemListFilterPreset

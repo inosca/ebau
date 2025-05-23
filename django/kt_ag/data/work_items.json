@@ -154,5 +154,154 @@
       "services": [],
       "service_groups": [4]
     }
+  },
+  {
+    "model": "work_items.workitemlistfilterpreset",
+    "pk": "068429d6-919a-7f80-8000-98e242108907",
+    "fields": {
+      "name": "{\"de\": \"Meine Aufgaben\", \"fr\": \"\", \"it\": \"\"}",
+      "query_params": {
+        "role": "active",
+        "task": "all",
+        "type": "all",
+        "order": "urgent",
+        "status": "READY",
+        "responsible": "own"
+      },
+      "prefilter_work_item_templates": false,
+      "prefilter_tasks": false,
+      "tasks": "[]",
+      "services": [],
+      "service_groups": [],
+      "work_item_templates": []
+    }
+  },
+  {
+    "model": "work_items.workitemlistfilterpreset",
+    "pk": "068429ef-0a89-7476-8000-b7a36856b768",
+    "fields": {
+      "name": "{\"de\": \"Neue Aufgaben\", \"fr\": \"\", \"it\": \"\"}",
+      "query_params": {
+        "role": "active",
+        "task": "all",
+        "type": "all",
+        "order": "new",
+        "status": "READY",
+        "responsible": "all"
+      },
+      "prefilter_work_item_templates": false,
+      "prefilter_tasks": false,
+      "tasks": "[]",
+      "services": [],
+      "service_groups": [],
+      "work_item_templates": []
+    }
+  },
+  {
+    "model": "work_items.workitemlistfilterpreset",
+    "pk": "06842a11-4f3b-7f00-8000-dace11d61582",
+    "fields": {
+      "name": "{\"de\": \"Aufgaben Projektleitung\", \"fr\": \"\", \"it\": \"\"}",
+      "query_params": {
+        "role": "active",
+        "task": "all",
+        "type": "all",
+        "order": "urgent",
+        "status": "READY",
+        "responsible": "own"
+      },
+      "prefilter_work_item_templates": true,
+      "prefilter_tasks": true,
+      "tasks": "[\"cantonal-exam\", \"check-inquiries\"]",
+      "services": [],
+      "service_groups": [4],
+      "work_item_templates": [
+        "06800de5-6c59-7b04-8000-481785d17480",
+        "06800de5-b1bf-7d0a-8000-3d6a8526a89f",
+        "06800de5-f652-7df9-8000-ee8b9335fe49",
+        "06800de6-5a1c-753f-8000-6d43f87ec4bf",
+        "06800de6-a93f-7974-8000-d5c55b6f8e01",
+        "06800de6-f4f8-700e-8000-cd790d311ba6"
+      ]
+    }
+  },
+  {
+    "model": "work_items.workitemlistfilterpreset",
+    "pk": "06842f9c-f3ab-722e-8000-a08e4a889dfa",
+    "fields": {
+      "name": "{\"de\": \"Aufgaben Leitung\", \"fr\": \"\", \"it\": \"\"}",
+      "query_params": {
+        "role": "active",
+        "task": "all",
+        "type": "all",
+        "order": "urgent",
+        "status": "READY",
+        "responsible": "own"
+      },
+      "prefilter_work_item_templates": true,
+      "prefilter_tasks": true,
+      "tasks": "[\"cantonal-exam\", \"check-inquiries\"]",
+      "services": [],
+      "service_groups": [4],
+      "work_item_templates": [
+        "06800de5-6c59-7b04-8000-481785d17480",
+        "06800de5-b1bf-7d0a-8000-3d6a8526a89f",
+        "06800de5-f652-7df9-8000-ee8b9335fe49",
+        "06800de6-5a1c-753f-8000-6d43f87ec4bf",
+        "06800de6-a93f-7974-8000-d5c55b6f8e01",
+        "06800de6-f4f8-700e-8000-cd790d311ba6",
+        "06800de7-3cdf-700c-8000-67839a3ad880"
+      ]
+    }
+  },
+  {
+    "model": "work_items.workitemlistfilterpreset",
+    "pk": "06842f9f-fb2c-78c9-8000-ff794f03d4f8",
+    "fields": {
+      "name": "{\"de\": \"Aufgaben Sekretariat\", \"fr\": \"\", \"it\": \"\"}",
+      "query_params": {
+        "role": "active",
+        "task": "all",
+        "type": "all",
+        "order": "urgent",
+        "status": "READY",
+        "responsible": "all"
+      },
+      "prefilter_work_item_templates": true,
+      "prefilter_tasks": true,
+      "tasks": "[\"inquiry\"]",
+      "services": [],
+      "service_groups": [4],
+      "work_item_templates": [
+        "06800de8-3371-7580-8000-3b20b8c0abe0",
+        "06800de9-6966-7c43-8000-1512ffbf48f4",
+        "06800de9-cb9c-7df0-8000-580aba0e04e1"
+      ]
+    }
+  },
+  {
+    "model": "work_items.workitemlistfilterpreset",
+    "pk": "06842fa1-528c-7380-8000-6f9ac732909a",
+    "fields": {
+      "name": "{\"de\": \"Aufgaben Vollzug\", \"fr\": \"\", \"it\": \"\"}",
+      "query_params": {
+        "role": "active",
+        "task": "all",
+        "type": "all",
+        "order": "urgent",
+        "status": "READY",
+        "responsible": "all"
+      },
+      "prefilter_work_item_templates": true,
+      "prefilter_tasks": true,
+      "tasks": "[]",
+      "services": [],
+      "service_groups": [4],
+      "work_item_templates": [
+        "06800de5-f652-7df9-8000-ee8b9335fe49",
+        "06800de7-88bd-73a4-8000-6cdd42eb18fc",
+        "06800de7-eae8-7ef0-8000-775be4da3983"
+      ]
+    }
   }
 ]

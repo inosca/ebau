@@ -179,6 +179,8 @@ export default function makeServer(config) {
         return filtered;
       });
 
+      this.resource("work-item-list-filter-preset");
+
       this.namespace = ""; // reset namespace
 
       this.post("/graphql", graphqlHandler(this), 200);
