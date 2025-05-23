@@ -1,5 +1,5 @@
 import { service } from "@ember/service";
-import { camelize } from "@ember/string";
+import { camelize, dasherize } from "@ember/string";
 import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import BaseQuery from "@projectcaluma/ember-core/caluma-query/queries/base";
@@ -9,7 +9,9 @@ import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
 import workItemListConfig from "ember-ebau-core/config/work-item-list";
+import taskNamesQuery from "ember-ebau-core/gql/queries/task-names.graphql";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import apolloQuery from "ember-ebau-core/resources/apollo";
 import getProcessData, {
   fetchIfNotCached,
 } from "ember-ebau-core/utils/work-item";
@@ -283,6 +285,33 @@ export default class WorkItemListWrapperComponent extends Component {
     ];
   }
 
+  allResponsibles = trackedFunction(this, async () => {
+    const users = await this.store.query("user", {
+      sort: "name",
+    });
+    return [
+      { value: "all", label: this.intl.t("workItems.filters.all") },
+      { value: "own", label: this.intl.t("workItems.filters.own") },
+      ...users.map((u) => ({
+        label: `${u.name} ${u.surname}`,
+        value: u.username,
+      })),
+    ];
+  });
+
+  taskNames = apolloQuery(
+    this,
+    () => ({
+      query: taskNamesQuery,
+      variables: { tasks: this._taskSlugs },
+    }),
+    "allTasks.edges",
+    (data) =>
+      data.reduce((obj, { node }) => {
+        return { ...obj, [node.slug]: node.name };
+      }, {}),
+  );
+
   availableTasks = trackedFunction(this, async () => {
     if (!this.workItemsQuery.value || this._taskSlugs.length === 0) {
       return [];
@@ -334,19 +363,35 @@ export default class WorkItemListWrapperComponent extends Component {
       }
     `;
 
-    const allTasks = await this.apollo.query({
-      query,
-    });
+    // Trigger loading of task names in order to avoid UI flickering
+    this.taskNames.value;
 
+    const allTasks = await this.apollo.query({ query });
+
+    // Prepare options for select
     return [
       { value: "all", label: this.intl.t("workItems.filters.all") },
-      ...Object.keys(allTasks).map((task, i) => ({
-        label: this.intl.t(`workItems.filters.task.${this._taskSlugs[i]}`, {
-          count: allTasks[task].totalCount,
-          htmlSafe: true,
-        }),
-        value: this._taskSlugs[i],
-      })), // prepare options for select
+      ...Object.entries(allTasks).map(([alias, { totalCount }]) => {
+        const taskSlug = dasherize(alias);
+        const labelKey = `workItems.filters.task.${taskSlug}`;
+
+        // By default, the task names are taken from the actual task models via
+        // GraphQL. However, in UR there are some cases where they wanted a
+        // different task name in the filter which is why we allow for an
+        // override here.
+        const taskName = this.intl.exists(labelKey)
+          ? this.intl.t(labelKey)
+          : this.taskNames.value?.[taskSlug];
+
+        return {
+          label: this.intl.t("workItems.filters.task.generic", {
+            taskName,
+            count: totalCount,
+            htmlSafe: true,
+          }),
+          value: taskSlug,
+        };
+      }),
     ];
   });
 }

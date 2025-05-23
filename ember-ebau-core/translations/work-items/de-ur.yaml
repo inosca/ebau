@@ -1,14 +1,11 @@
 workItems:
   filters:
     task:
-      complete-check: 'Neues Dossier prüfen <span class="pending">({count})</span>'
-      init-distribution: 'Zirkulation starten <span class="pending">({count})</span>'
-      inquiry: 'Dossier bearbeiten / Rückmeldung verfassen <span class="pending">({count})</span>'
-      check-inquiries: 'Rückmeldungen prüfen <span class="pending">({count})</span>'
-      decision: 'Entscheid <span class="pending">({count})</span>'
-      init-construction-monitoring: 'Baubegleitung starten <span class="pending">({count})</span>'
-      complete-instance: 'Verfahren abschliessen <span class="pending">({count})</span>'
-      check-additional-demand: 'Nachforderung prüfen <span class="pending">({count})</span>'
+      # Override because UR wants a different class for highlighting
+      generic: '{taskName} <span class="pending">({count})</span>'
+      # Override task names that should be different than the name on the model
+      complete-check: "Neues Dossier prüfen"
+      decision: "Entscheid"
     role: "Art der Beteiligung"
     urgent: "Nach Fristen"
     new: "Nach Dossiereingang"

@@ -51,7 +51,9 @@ workItems:
     type: "Typ"
     role: "Rolle"
     order: "Sortierung"
-    task: "Aufgabe"
+    task:
+      title: "Aufgabe"
+      generic: '{taskName} <span class="uk-text-primary">({count})</span>'
 
     all: "Alle"
     own: "Eigene"

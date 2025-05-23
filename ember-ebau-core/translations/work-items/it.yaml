@@ -50,7 +50,9 @@ workItems:
     type: "Tipo"
     role: "Ruolo"
     order: "Filtro"
-    task: "Compito"
+    task:
+      title: "Compito"
+      generic: '{taskName} <span class="uk-text-primary">({count})</span>'
 
     all: "Tutti"
     own: "Propri"

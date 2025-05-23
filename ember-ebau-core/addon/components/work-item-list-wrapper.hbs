@@ -1,11 +1,12 @@
 <Filters as |Filter|>
   <Filter.Select
+    @name="responsible"
     @searchEnabled={{true}}
     @searchField="label"
     @label={{t "workItems.filters.responsible"}}
-    @options={{@allResponsibles.value}}
-    @selected={{@selectedResponsible}}
-    @onChange={{@setResponsible}}
+    @options={{this.allResponsibles.value}}
+    @selected={{@responsible}}
+    @onChange={{@setFilter}}
     class="uk-width-1-5"
   />
   <Filter.RadioButtons
@@ -51,14 +52,27 @@
     @onChange={{@setFilter}}
   />
   {{#if (and this.workItemListConfig.showTaskFilter this.availableTasks.value)}}
-    <Filter.RadioButtons
-      @name="task"
-      @label={{t "workItems.filters.task"}}
-      @selected={{@task}}
-      @options={{this.availableTasks.value}}
-      @onChange={{@setFilter}}
-      data-test-task-radio
-    />
+    {{#if this.workItemListConfig.taskFilterAsDropdown}}
+      <Filter.Select
+        @name="task"
+        @searchEnabled={{true}}
+        @searchField="label"
+        @label={{t "workItems.filters.task.title"}}
+        @options={{this.availableTasks.value}}
+        @selected={{@task}}
+        @onChange={{@setFilter}}
+        class="uk-width-1-3"
+      />
+    {{else}}
+      <Filter.RadioButtons
+        @name="task"
+        @label={{t "workItems.filters.task.title"}}
+        @selected={{@task}}
+        @options={{this.availableTasks.value}}
+        @onChange={{@setFilter}}
+        data-test-task-radio
+      />
+    {{/if}}
   {{/if}}
 </Filters>
 
