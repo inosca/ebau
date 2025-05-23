@@ -15,6 +15,7 @@ from django.conf import settings
 from django.utils import timezone
 from pytest_lazy_fixtures import lf
 
+from camac.caluma.extensions.events import bab
 from camac.caluma.extensions.events.caluma_workflow_notifications import (
     post_complete_caluma_workflow_notifications,
     post_create_caluma_workflow_notifications,
@@ -1270,3 +1271,42 @@ def test_suspend_task_for_additional_demand(
     )
     check_gwr_relevancy_work_item.refresh_from_db()
     assert check_gwr_relevancy_work_item.status == WorkItem.STATUS_SUSPENDED
+
+
+def test_create_bab_work_item_ur(
+    db,
+    set_application_ur,
+    caluma_admin_user,
+    ur_distribution_settings,
+    ur_instance,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    service,
+):
+    service.slug = "bab-kreis-1"
+    service.save()
+
+    inquiry_work_item = caluma_work_item_factory(
+        case=ur_instance.case,
+        task_id=ur_distribution_settings["INQUIRY_TASK"],
+        document=caluma_document_factory(form_id="inquiry"),
+        addressed_groups=[str(service.pk)],
+        controlling_groups=[str(service.pk)],
+    )
+
+    bab_work_item = caluma_work_item_factory(
+        case=ur_instance.case,
+        task_id="bab",
+        addressed_groups=[str(service.pk)],
+        controlling_groups=[str(service.pk)],
+        status=WorkItem.STATUS_READY,
+    )
+
+    assert bab_work_item.deadline is None
+
+    bab.set_bab_deadline(
+        sender=None, work_item=inquiry_work_item, user=caluma_admin_user
+    )
+
+    bab_work_item.refresh_from_db()
+    assert bab_work_item.deadline

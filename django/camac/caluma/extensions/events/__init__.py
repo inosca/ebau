@@ -5,6 +5,7 @@
 from . import (  # noqa: F401
     additional_demand,
     audit,
+    bab,
     caluma_workflow_notifications,
     cantonal_exam,
     check_gwr_relevancy,
