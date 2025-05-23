@@ -2832,7 +2832,7 @@
     "fields": {
       "available_instance_resource": "page",
       "resource": 28,
-      "name": "Auflagen",
+      "name": "Nebenbestimmungen",
       "description": null,
       "template": "/ember-camac-ng/sanctions.phtml",
       "class_field": null,
@@ -22876,7 +22876,7 @@
     "pk": 31,
     "fields": {
       "available_resource": "page",
-      "name": "Auflagen",
+      "name": "Nebenbestimmungen",
       "description": null,
       "template": "/ember-camac-ng/sanction-templates.phtml",
       "class_field": null,
