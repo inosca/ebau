@@ -9,7 +9,7 @@ from alexandria.core.models import (
     File as AlexandriaFile,
 )
 from caluma.caluma_form.models import Document, Question
-from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
+from caluma.caluma_form.validators import DocumentValidator
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
@@ -20,6 +20,7 @@ from django.utils.translation import get_language, gettext as _
 from rest_framework import exceptions, status
 from rest_framework.authentication import get_authorization_header
 
+from camac.caluma.api import CalumaApi
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import (
@@ -29,6 +30,8 @@ from camac.instance.placeholders.utils import (
 )
 from camac.user.models import Service
 from camac.utils import build_url, clean_join, get_dict_item
+
+caluma_api = CalumaApi()
 
 
 def find_in_result(slug, node):
@@ -338,7 +341,7 @@ class DMSHandler:
         visitor = DMSVisitor(document, instance, user)
         return {
             **self.get_meta_data(instance, document, service),
-            "draft": "" if visitor.is_valid() else _("Draft"),
+            "draft": "" if caluma_api.is_submitted(instance) else _("Draft"),
             "sections": visitor.build_form_structure(),
             "documents": self.prepare_documents(instance, for_additional_demand),
         }
@@ -639,18 +642,6 @@ class DMSVisitor:
         ]
 
         return {"children": children}
-
-    def is_valid(self):
-        try:
-            self.validator.validate(
-                self.root_document,
-                self.user,
-                self.validation_context,
-                self.data_source_context,
-            )
-            return True
-        except CustomValidationError:
-            return False
 
     def _is_non_static_or_static_title(self, field):
         if field.question.type != Question.TYPE_STATIC:

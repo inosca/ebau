@@ -23,6 +23,7 @@ export default {
   cases: {
     createPaper: true,
     exportExcel: true,
+    downloadFormAsPdf: true,
   },
   servicePermissions: {
     hasConstructionControl: true,
@@ -43,6 +44,11 @@ export default {
   submitComponent: {
     requiredPermissions: ["instance-submit"],
     buttonHintEnabled: (session) => session.isSupport,
+    export: {
+      enabled: (instance) => !instance.isPaper,
+      templateName: () => `form`,
+      errorMessage: "dms.downloadError",
+    },
   },
   corrections: {
     archiveInstance: true,

@@ -173,6 +173,13 @@ class CalumaApi:
         """Return true if instance was imported using dossier import."""
         return instance.case.document.form_id == "migriertes-dossier"
 
+    def is_submitted(self, instance):
+        """Return true if instance got submitted by the applicant."""
+        return (
+            instance.case.work_items.filter(task_id="submit").first().status
+            == caluma_workflow_models.WorkItem.STATUS_COMPLETED
+        )
+
     def is_ech_submitted(self, instance):
         return instance.case.meta.get("ech0211-submitted", False)
 

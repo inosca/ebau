@@ -4,10 +4,10 @@
     "pk": "8-freigabequittung",
     "fields": {
       "created_at": "2019-05-08T12:42:01.656Z",
-      "modified_at": "2019-05-08T12:42:01.656Z",
+      "modified_at": "2025-05-15T13:13:22.113Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "name": "{\"de\": \"8. Einreichen\", \"fr\": \"8. Envoyer\", \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -191,7 +191,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "ausnahmegesuche",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -211,17 +211,32 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "8-freigabequittung.formulardownload-pdf",
+    "pk": "8-freigabequittung.entwurf-herunterladen-pdf",
     "fields": {
-      "created_at": "2019-09-25T10:19:38.974Z",
-      "modified_at": "2019-09-25T10:19:38.974Z",
-      "created_by_user": null,
+      "created_at": "2025-05-15T11:55:52.747Z",
+      "modified_at": "2025-05-15T11:55:52.747Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "8-freigabequittung",
-      "question": "formulardownload-pdf",
-      "sort": 2
+      "question": "entwurf-herunterladen-pdf",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "8-freigabequittung.entwurf-text",
+    "fields": {
+      "created_at": "2025-05-15T11:53:47.494Z",
+      "modified_at": "2025-05-15T11:53:47.494Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "8-freigabequittung",
+      "question": "entwurf-text",
+      "sort": 4
     }
   },
   {
@@ -236,7 +251,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "freigabequittung-bemerkungen",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -251,7 +266,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "freigabequittung-text",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -266,7 +281,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "hinweis-klaerung-baubewilligungspflicht",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -281,7 +296,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "hinweis-zutrittsermaechtigung",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -2545,27 +2560,58 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "formulardownload-pdf",
+    "pk": "entwurf-herunterladen-pdf",
     "fields": {
-      "created_at": "2019-06-12T08:11:33.972Z",
-      "modified_at": "2019-06-12T08:11:33.972Z",
+      "created_at": "2025-05-15T11:55:52.626Z",
+      "modified_at": "2025-05-16T11:54:42.333Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Formulardownload (PDF)\", \"fr\": \"t\\u00e9l\\u00e9charger le formulaire (pdf)\", \"it\": null}",
+      "label": "{\"de\": \"Entwurf herunterladen (PDF)\", \"fr\": \"T\\u00e9l\\u00e9charger le formulaire (PDF)\", \"it\": null}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "widgetOverride": "be-download-pdf"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entwurf-text",
+    "fields": {
+      "created_at": "2025-05-15T11:53:47.369Z",
+      "modified_at": "2025-05-16T11:55:13.414Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"entwurf-text\", \"fr\": \"entwurf-text\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<hr>\\n<div class=\\\"uk-margin-remove-bottom uk-alert border-highlight\\\">Sie k\\u00f6nnen bereits vor dem Einreichen einen Entwurf des Gesuchsformulars als PDF herunterladen. Das finale Gesuchsformular zur Einsendung an die zust\\u00e4ndige Gemeinde erhalten sie nach dem Einreichen des Gesuchs.</div>\", \"fr\": \"<hr>\\n<div class=\\\"uk-margin-remove-bottom uk-alert border-highlight\\\">Vous pouvez t\\u00e9l\\u00e9charger un brouillon du formulaire de demande au format PDF avant de le soumettre. Vous recevrez le formulaire de demande d\\u00e9finitif \\u00e0 remettre \\u00e0 la commune comp\\u00e9tente apr\\u00e8s avoir soumis la demande via eBau.\\n</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,

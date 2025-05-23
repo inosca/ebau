@@ -179,8 +179,10 @@ export default class InstanceAbility extends Ability {
         "instance-download-form-as-pdf",
       ]);
     }
-
-    return false;
+    return (
+      hasFeature("cases.downloadFormAsPdf") &&
+      this.instanceStateId !== config.APPLICATION.instanceStates.new
+    );
   }
 
   async canDelete() {

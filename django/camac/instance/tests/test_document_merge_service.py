@@ -111,11 +111,6 @@ def test_document_merge_service_snapshot(
             visitor = DMSVisitor(root_document, instance, BaseUser())
             snapshot.assert_match(visitor.build_form_structure())
 
-        if kwargs.get("instance_id") == 1:
-            assert DMSVisitor(root_document, instance, BaseUser()).is_valid()
-            root_document.answers.all().delete()
-            assert not DMSVisitor(root_document, instance, BaseUser()).is_valid()
-
 
 def test_document_merge_service_client(db, requests_mock):
     template = "some-template"
