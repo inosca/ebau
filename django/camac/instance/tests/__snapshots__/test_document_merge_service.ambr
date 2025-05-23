@@ -2596,7 +2596,7 @@
       }),
     ]),
     'dossierNr': None,
-    'draft': '',
+    'draft': 'Entwurf',
     'formType': None,
     'generatedAt': 'Generiert am 07.09.2022 um 14:01',
     'gisCoordinatesCenter': None,
