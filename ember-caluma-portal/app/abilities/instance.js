@@ -241,7 +241,9 @@ export default class InstanceAbility extends Ability {
         this.model,
         mainConfig.constructionMonitoring?.instanceStates ?? [],
       ) &&
-      (!this.session.isInternal || this.model.isPaper)
+      (!this.session.isInternal ||
+        this.model.isPaper ||
+        (this.session.isSupport && config.APPLICATION.name === "ur"))
     );
   }
 
