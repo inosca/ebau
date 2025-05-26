@@ -1259,10 +1259,10 @@
     "pk": "oereb-verfahren-gemeinde-form",
     "fields": {
       "created_at": "2023-02-03T13:25:56.610Z",
-      "modified_at": "2023-02-03T13:25:56.610Z",
+      "modified_at": "2025-05-23T12:58:11.289Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"\\u00d6REB Verfahren Gemeinde\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -10278,6 +10278,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren.betroffene-geobasisdaten",
+    "fields": {
+      "created_at": "2025-05-23T11:20:38.440Z",
+      "modified_at": "2025-05-23T11:20:38.440Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren",
+      "question": "betroffene-geobasisdaten",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "oereb-verfahren.bezeichnung",
     "fields": {
       "created_at": "2020-11-11T10:05:52.551Z",
@@ -10288,7 +10303,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "bezeichnung",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -10348,7 +10363,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "art-der-revision",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -10363,7 +10378,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "art-snp",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -10378,7 +10393,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "art-snpbl-gemeinde",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -10393,7 +10408,22 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "bemerkungen-np",
-      "sort": 1
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "oereb-verfahren-gemeinde-form.betroffene-geobasisdaten",
+    "fields": {
+      "created_at": "2025-05-23T07:07:46.339Z",
+      "modified_at": "2025-05-23T07:07:46.339Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "oereb-verfahren-gemeinde-form",
+      "question": "betroffene-geobasisdaten",
+      "sort": 10
     }
   },
   {
@@ -10408,7 +10438,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "bezeichnung",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -10423,22 +10453,22 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "hinweis-statische-waldgrenze-gemeinde",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "oereb-verfahren-gemeinde-form.oereb-thema-gemeinde",
+    "pk": "oereb-verfahren-gemeinde-form.oereb-thema",
     "fields": {
-      "created_at": "2023-02-03T13:46:33.958Z",
-      "modified_at": "2023-02-03T13:46:33.958Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T12:25:05.341Z",
+      "modified_at": "2025-05-23T12:25:05.341Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
-      "question": "oereb-thema-gemeinde",
-      "sort": 9
+      "question": "oereb-thema",
+      "sort": 12
     }
   },
   {
@@ -10453,7 +10483,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "oereb-titel",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -10468,7 +10498,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "typ-des-verfahrens",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -10483,7 +10513,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "verfahrensinhalt-gemeinde",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -10498,7 +10528,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -10513,7 +10543,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren-gemeinde-form",
       "question": "weitere-baulinien",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -10603,7 +10633,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "oereb-thema",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -10618,7 +10648,7 @@
       "modified_by_group": null,
       "form": "oereb-verfahren",
       "question": "oereb-titel",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -20321,6 +20351,380 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-bausperren-19-ur",
+    "fields": {
+      "created_at": "2025-05-23T07:21:39.695Z",
+      "modified_at": "2025-05-23T11:48:51.044Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bausperren [19-UR]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-bausperre\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-gemeindliche-baulinien-61-ur",
+    "fields": {
+      "created_at": "2025-05-23T07:21:39.680Z",
+      "modified_at": "2025-05-23T11:48:51.069Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindliche Baulinien [61-UR]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-snp-bl-gemeinde\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-gemeindliche-nutzungspla-nung-73b",
+    "fields": {
+      "created_at": "2025-05-23T07:15:26.751Z",
+      "modified_at": "2025-05-23T11:51:25.028Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindliche Nutzungsplanung [73B]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-gemeindliche-planungszonen-76b",
+    "fields": {
+      "created_at": "2025-05-23T07:11:01.763Z",
+      "modified_at": "2025-05-23T11:51:25.028Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindliche Planungszonen [76B]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-gpz\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-gewaesserraum-190",
+    "fields": {
+      "created_at": "2025-05-23T07:15:26.720Z",
+      "modified_at": "2025-05-23T11:48:50.939Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gew\\u00e4sserraum [190]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-knp\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-gewaesserschutzbereiche-130",
+    "fields": {
+      "created_at": "2025-05-23T12:10:42.866Z",
+      "modified_at": "2025-05-23T12:10:42.866Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gew\\u00e4sserschutzbereiche [130]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-grundwasserschutz\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-grundwasserschutzareale-132",
+    "fields": {
+      "created_at": "2025-05-23T12:10:42.860Z",
+      "modified_at": "2025-05-23T12:10:42.860Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundwasserschutzareale [132]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-grundwasserschutz\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-grundwasserschutzzonen-131",
+    "fields": {
+      "created_at": "2025-05-23T12:10:42.881Z",
+      "modified_at": "2025-05-23T12:10:42.883Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundwasserschutzzonen [131]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-grundwasserschutz\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-kantonale-baulinien-15-ur",
+    "fields": {
+      "created_at": "2025-05-23T12:07:21.906Z",
+      "modified_at": "2025-05-23T12:10:42.842Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kantonale Baulinien [15-UR]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-kantonale-baulinien\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-kantonale-nutzungsplanung-73a",
+    "fields": {
+      "created_at": "2025-05-23T11:59:36.100Z",
+      "modified_at": "2025-05-23T12:10:42.823Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kantonale Nutzungsplanung [73A]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-knp\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-kantonale-planungszonen-76a",
+    "fields": {
+      "created_at": "2025-05-23T11:58:59.890Z",
+      "modified_at": "2025-05-23T12:02:07.819Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kantonale Planungszonen [76A]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-kpz\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-kataster-der-belasteten-standorte-116",
+    "fields": {
+      "created_at": "2025-05-23T12:08:20.118Z",
+      "modified_at": "2025-05-23T12:10:42.873Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kataster der belasteten Standorte [116]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-kbs\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-laermempfindlichkeitsstufen-in-nutzungszonen-145",
+    "fields": {
+      "created_at": "2025-05-23T07:15:26.696Z",
+      "modified_at": "2025-05-23T11:51:25.057Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"L\\u00e4rmempfindlichkeitsstufen (in Nutzungszonen) [145]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-knp\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-quartiergestaltungsplaene-73d",
+    "fields": {
+      "created_at": "2025-05-23T07:17:30.770Z",
+      "modified_at": "2025-05-23T11:57:34.093Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Quartiergestaltungspl\\u00e4ne [73D]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-snp-qgp-qp\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-quartierplaene-73c",
+    "fields": {
+      "created_at": "2025-05-23T07:17:30.781Z",
+      "modified_at": "2025-05-23T11:57:34.070Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Quartierpl\\u00e4ne [73C]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-snp-qgp-qp\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-schutzmassnahmen-fuer-kultur-und-denkmalschutzobjekte-lokaler-bedeutung-68-ur",
+    "fields": {
+      "created_at": "2025-05-23T07:15:26.696Z",
+      "modified_at": "2025-05-23T11:57:34.093Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzmassnahmen f\\u00fcr Kultur- und Denkmalschutzobjekte lokaler Bedeutung [68-UR]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-schutzmassnahmen-fuer-kultur-und-denkmalschutzobjekte-nationaler-und-regionaler-be-deutung-67-ur",
+    "fields": {
+      "created_at": "2025-05-23T07:15:26.720Z",
+      "modified_at": "2025-05-23T11:57:34.060Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzmassnahmen f\\u00fcr Kultur- und Denkmalschutzobjekte nationaler und regionaler Bedeutung [67-UR]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-schutzmassnahmen\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-schutzmassnahmen-fuer-natur-und-landschaftsschutzobjekte-nationaler-und-regionaler-be-deutung-65-ur",
+    "fields": {
+      "created_at": "2025-05-23T07:15:26.704Z",
+      "modified_at": "2025-05-23T11:48:50.958Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzmassnahmen f\\u00fcr Natur- und Landschaftsschutzobjekte nationaler und regionaler Bedeutung [65-UR]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-schutzmassnahmen\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-schutzmassnahmen-fuer-natur-und-landschaftsschutzobjekt-lokaler-bedeutung-66-ur",
+    "fields": {
+      "created_at": "2025-05-23T07:15:26.756Z",
+      "modified_at": "2025-05-23T11:57:34.055Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzmassnahmen f\\u00fcr Natur- und Landschaftsschutzobjekt lokaler Bedeutung [66-UR]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-statische-waldgrenzen-157",
+    "fields": {
+      "created_at": "2025-05-23T07:15:26.749Z",
+      "modified_at": "2025-05-23T11:51:25.058Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Statische Waldgrenzen [157]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-knp\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-waldabstandslinien-159",
+    "fields": {
+      "created_at": "2025-05-23T07:21:39.692Z",
+      "modified_at": "2025-05-23T11:48:51.074Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Waldabstandslinien [159]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-snp-bl-gemeinde\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "betroffene-geobasisdaten-waldreservate-160",
+    "fields": {
+      "created_at": "2025-05-23T12:16:54.499Z",
+      "modified_at": "2025-05-23T12:17:57.999Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Waldreservate [160]\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"oereb-thema-war\" == \"oereb-thema\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "betroffene-grundstuecke-ja",
     "fields": {
       "created_at": "2023-11-07T09:34:56.768Z",
@@ -28396,6 +28800,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "oereb-thema-bausperre",
+    "fields": {
+      "created_at": "2025-05-23T09:35:24.840Z",
+      "modified_at": "2025-05-23T13:42:39.122Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bausperren\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"form-type-oereb-verfahren-gemeinde\" == \"form-type\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "oereb-thema-gemeinde-bausperre",
     "fields": {
       "created_at": "2023-02-03T14:31:28.346Z",
@@ -28484,14 +28905,14 @@
     "pk": "oereb-thema-gnp",
     "fields": {
       "created_at": "2020-11-11T09:15:36.183Z",
-      "modified_at": "2023-02-03T14:30:37.800Z",
+      "modified_at": "2025-05-23T13:42:39.024Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Gemeindliche Nutzungsplanung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": true,
+      "is_hidden": "!(\"form-type-oereb-verfahren-gemeinde\" == \"form-type\"|answer)",
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -28501,14 +28922,14 @@
     "pk": "oereb-thema-gpz",
     "fields": {
       "created_at": "2020-11-11T09:15:36.304Z",
-      "modified_at": "2023-02-03T14:30:37.759Z",
+      "modified_at": "2025-05-26T11:45:34.543Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gemeindliche Planungszone\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": true,
+      "label": "{\"de\": \"Gemeindliche Planungszonen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"form-type-oereb-verfahren-gemeinde\" == \"form-type\"|answer)",
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -28518,13 +28939,13 @@
     "pk": "oereb-thema-grundwasserschutz",
     "fields": {
       "created_at": "2020-11-11T09:15:36.183Z",
-      "modified_at": "2023-02-03T14:30:37.939Z",
+      "modified_at": "2025-05-23T13:42:39.024Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Planerischer Gew\\u00e4sserschutz\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\"form-type-oereb\" == \"form-type\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -28535,13 +28956,13 @@
     "pk": "oereb-thema-kantonale-baulinien",
     "fields": {
       "created_at": "2020-11-11T09:15:36.092Z",
-      "modified_at": "2023-02-03T14:30:37.755Z",
+      "modified_at": "2025-05-23T13:42:39.057Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Kantonale Baulinie\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "label": "{\"de\": \"Kantonale Baulinien\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"form-type-oereb\" == \"form-type\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -28552,13 +28973,13 @@
     "pk": "oereb-thema-kbs",
     "fields": {
       "created_at": "2020-11-11T09:15:36.206Z",
-      "modified_at": "2023-02-03T14:30:37.813Z",
+      "modified_at": "2025-05-23T13:42:39.018Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Kataster der belasteten Standorte\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\"form-type-oereb\" == \"form-type\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -28569,13 +28990,13 @@
     "pk": "oereb-thema-knp",
     "fields": {
       "created_at": "2020-11-11T09:15:36.170Z",
-      "modified_at": "2023-02-03T14:30:37.787Z",
+      "modified_at": "2025-05-23T13:42:39.062Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Kantonale Nutzungsplanung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\"form-type-oereb\" == \"form-type\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -28586,13 +29007,13 @@
     "pk": "oereb-thema-kpz",
     "fields": {
       "created_at": "2020-11-11T09:15:36.266Z",
-      "modified_at": "2023-02-03T14:30:37.703Z",
+      "modified_at": "2025-05-23T13:42:39.045Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Kantonale Planungszone\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "label": "{\"de\": \"Kantonale Planungszonen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"form-type-oereb\" == \"form-type\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -28603,13 +29024,13 @@
     "pk": "oereb-thema-schutzmassnahmen",
     "fields": {
       "created_at": "2023-02-03T14:30:38.054Z",
-      "modified_at": "2023-02-03T14:30:38.054Z",
+      "modified_at": "2025-05-23T13:42:39.217Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Schutzmassnahmen Natur-, Landschafts- und Heimatschutz, Denkmalpflege\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "label": "{\"de\": \"Kantonale Schutzmassnahmen (kNHG)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"form-type-oereb\" == \"form-type\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -28620,14 +29041,14 @@
     "pk": "oereb-thema-snp-bl-gemeinde",
     "fields": {
       "created_at": "2020-11-11T09:15:36.285Z",
-      "modified_at": "2023-02-03T14:30:37.893Z",
+      "modified_at": "2025-05-23T13:42:39.054Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gemeindliche Baulinie\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": true,
+      "label": "{\"de\": \"Gemeindliche Baulinien\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"form-type-oereb-verfahren-gemeinde\" == \"form-type\"|answer)",
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -28637,14 +29058,14 @@
     "pk": "oereb-thema-snp-qgp-qp",
     "fields": {
       "created_at": "2020-11-11T09:15:36.100Z",
-      "modified_at": "2023-02-03T14:30:37.701Z",
+      "modified_at": "2025-05-23T13:42:39.047Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Sondernutzungsplanung QGP / QP\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": true,
+      "is_hidden": "!(\"form-type-oereb-verfahren-gemeinde\" == \"form-type\"|answer)",
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -28654,14 +29075,14 @@
     "pk": "oereb-thema-waldgrenze",
     "fields": {
       "created_at": "2020-11-11T09:15:36.303Z",
-      "modified_at": "2023-02-03T14:30:38.058Z",
+      "modified_at": "2025-05-23T13:42:39.115Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Statische Waldgrenze\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
+      "label": "{\"de\": \"Statische Waldgrenzen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"form-type-oereb\" == \"form-type\"|answer)",
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -28671,13 +29092,13 @@
     "pk": "oereb-thema-war",
     "fields": {
       "created_at": "2021-11-05T08:26:12.661Z",
-      "modified_at": "2023-02-03T14:30:38.063Z",
+      "modified_at": "2025-05-23T13:42:39.217Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Waldreservat\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "label": "{\"de\": \"Waldreservate\", \"fr\": null, \"it\": null}",
+      "is_hidden": "!(\"form-type-oereb\" == \"form-type\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32496,13 +32917,13 @@
     "pk": "typ-des-verfahrens-aufhebung",
     "fields": {
       "created_at": "2021-11-05T08:44:51.794Z",
-      "modified_at": "2022-03-31T11:43:38.869Z",
+      "modified_at": "2025-05-23T11:18:12.119Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"aufgehoben\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\"oereb-thema-gpz\" == \"oereb-thema\"|answer) && !(\"oereb-thema-snp-qgp-qp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-snp-bl-gemeinde\" == \"oereb-thema\"|answer) && !(\"oereb-thema-bausperre\" == \"oereb-thema\"|answer) && !(\"oereb-thema-kpz\" == \"oereb-thema\"|answer) && !(\"oereb-thema-kantonale-baulinien\" == \"oereb-thema\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32513,13 +32934,13 @@
     "pk": "typ-des-verfahrens-festsetzung",
     "fields": {
       "created_at": "2021-11-05T08:44:51.488Z",
-      "modified_at": "2022-03-31T11:43:36.376Z",
+      "modified_at": "2025-05-23T11:15:23.196Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Festsetzung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-snp-qgp-qp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-snp-bl-gemeinde\" == \"oereb-thema\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32530,13 +32951,13 @@
     "pk": "typ-des-verfahrens-genehmigung",
     "fields": {
       "created_at": "2021-11-05T08:44:51.581Z",
-      "modified_at": "2022-03-31T11:43:36.415Z",
+      "modified_at": "2025-05-23T11:15:23.455Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Genehmigung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-snp-qgp-qp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-snp-bl-gemeinde\" == \"oereb-thema\"|answer) && !(\"oereb-thema-knp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-kantonale-baulinie\" == \"oereb-thema\"|answer) && !(\"oereb-thema-kbs\" == \"oereb-thema\"|answer) && !(\"oereb-thema-grundwassserschutz\" == \"oereb-thema\"|answer) && !(\"o-ereb-thema-war\" == \"oereb-thema\"|answer) && !(\"oereb-thema-schutzmassnahmen\" == \"oereb-thema\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32598,10 +33019,10 @@
     "pk": "typ-des-verfahrens-oeffentliche-auflage",
     "fields": {
       "created_at": "2021-11-05T08:44:51.444Z",
-      "modified_at": "2022-03-31T11:43:36.381Z",
+      "modified_at": "2025-05-22T14:05:41.337Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6ffentliche Auflage\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
@@ -32615,13 +33036,13 @@
     "pk": "typ-des-verfahrens-oeffentliche-mitwirkung",
     "fields": {
       "created_at": "2021-11-05T08:44:51.380Z",
-      "modified_at": "2022-03-31T11:43:36.367Z",
+      "modified_at": "2025-05-23T09:20:10.745Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6ffentliche Mitwirkung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-snp-qgp-qp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-knp\" == \"oereb-thema\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32632,13 +33053,13 @@
     "pk": "typ-des-verfahrens-rechtskraft-verlaengern",
     "fields": {
       "created_at": "2021-11-05T08:44:51.848Z",
-      "modified_at": "2022-03-31T11:43:38.648Z",
+      "modified_at": "2025-05-23T11:15:23.451Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"rechtskr\\u00e4ftig (verl\\u00e4ngert)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\"oereb-thema-gpz\" == \"oereb-thema\"|answer) &&!(\"oereb-thema-bausperre\" == \"oereb-thema\"|answer) && !(\"oereb-thema-kpz\" == \"oereb-thema\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -32649,13 +33070,13 @@
     "pk": "typ-des-verfahrens-vorpruefung",
     "fields": {
       "created_at": "2020-11-11T08:43:39.770Z",
-      "modified_at": "2022-03-31T11:43:36.296Z",
+      "modified_at": "2025-05-23T11:15:23.274Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Vorpr\\u00fcfung\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-snp-qgp-qp\" == \"oereb-thema\"|answer) && !(\"oereb-thema-snp-bl-gemeinde\" == \"oereb-thema\"|answer)",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -36648,10 +37069,10 @@
     "pk": "allgemeine-informationen-oereb-verfahren",
     "fields": {
       "created_at": "2020-12-15T10:19:20.350Z",
-      "modified_at": "2021-11-17T12:05:41.305Z",
+      "modified_at": "2025-05-23T13:01:20.699Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Allgemeine Informationen \\u00d6reb-Verfahren\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -36661,7 +37082,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##Willkommen bei URec.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Hinweis** \\nAlle Nutzungsplanverfahren werden ab sofort mit dem benutzergef\\u00fchrten Formular \\\"\\u00d6REB Verfahren\\\" erfasst.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"##Willkommen bei URec.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Hinweis:** \\nAlle Verfahren, die zur Erhebung und Nachf\\u00fchrung der \\u00d6REB-Katasterdaten durchlaufen werden, werden ab sofort mit dem benutzergef\\u00fchrten Formular \\\"\\u00d6REB Verfahren\\\" erfasst.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -39013,15 +39434,15 @@
     "pk": "art-der-revision",
     "fields": {
       "created_at": "2020-11-11T09:18:32.483Z",
-      "modified_at": "2023-02-03T13:57:59.510Z",
+      "modified_at": "2025-05-23T14:15:17.751Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Art der Revision\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"oereb-thema-gemeinde-gnp\" == \"oereb-thema-gemeinde\"|answer)",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -39230,15 +39651,15 @@
     "pk": "art-snp",
     "fields": {
       "created_at": "2020-11-11T09:31:09.710Z",
-      "modified_at": "2023-02-03T13:57:47.760Z",
+      "modified_at": "2025-05-23T14:15:48.227Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Art der Sondernutzungsplanung\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"oereb-thema-gemeinde-snp-qgp-qp\" == \"oereb-thema-gemeinde\"|answer)",
+      "is_hidden": "!(\"oereb-thema-snp-qgp-qp\" == \"oereb-thema\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"## INFO\\n\\n### Quartierplan\\nDer Quartierplan ordnet die \\u00dcberbauung eines genau bezeichneten Gemeindeteils, der sich zur gesamthaften Erschliessung eignet. Er regelt die Erschliessung dieses Gebietes, indem er Strassen, Wege, Abstellfl\\u00e4chen, Versorgungsleitungen und dergleichen sowie die entsprechenden Baulinien festlegt.\\n\\n### Quartiergestaltungsplan\\nDer Quartiergestaltungsplan bezweckt eine besonders gute Gesamt\\u00fcberbauung, namentlich in architektonischer und st\\u00e4dtebaulicher Hinsicht. Zus\\u00e4tzlich zu den Elementen des Quartierplans regelt er:  \\n1. die Lage, Stellung, Gr\\u00f6sse und Gestaltung der Bauten und Anlagen sowie die Art und das Mass ihrer Nutzung;  \\n2. die Grenz- und Geb\\u00e4udeabst\\u00e4nde;  \\n3. die Gr\\u00fcnfl\\u00e4chen und Spielpl\\u00e4tze.\", \"fr\": null, \"it\": null}",
@@ -39261,15 +39682,15 @@
     "pk": "art-snpbl-gemeinde",
     "fields": {
       "created_at": "2020-11-11T09:47:42.379Z",
-      "modified_at": "2023-02-03T14:00:07.272Z",
+      "modified_at": "2025-05-23T14:17:57.886Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Zweck der gemeindlichen Baulinie\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"oereb-thema-gemeinde-snp-bl-gemeinde\" == \"oereb-thema-gemeinde\"|answer)",
+      "is_hidden": "!(\"oereb-thema-snp-bl-gemeinde\" == \"oereb-thema\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -41770,10 +42191,10 @@
     "pk": "bemerkungen-np",
     "fields": {
       "created_at": "2020-11-11T10:05:19.090Z",
-      "modified_at": "2020-11-11T12:32:20.791Z",
+      "modified_at": "2025-05-23T14:25:03.836Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
@@ -41782,7 +42203,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"allgemeine Bemerkungen\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -43739,15 +44160,15 @@
     "pk": "betroffene-geobasisdaten",
     "fields": {
       "created_at": "2025-05-19T10:03:15.645Z",
-      "modified_at": "2025-05-19T13:20:39.021Z",
+      "modified_at": "2025-05-26T12:25:18.065Z",
       "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Betroffene Geobasisdaten\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bearbeitete Geobasisdaten\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"oereb-thema\"|answer in [\"oereb-thema-kpz\", \"oereb-thema-gpz\", \"oereb-thema-knp\", \"oereb-thema-gnp\", \"oereb-thema-snp-qgp-qp\", \"oereb-thema-kantonalie-baulinien\", \"oereb-thema-snp-bl-gemeinde\", \"oereb-thema-kbs\", \"oereb-thema-grundwasserschutz\", \"oereb-thema-war\", \"oereb-thema-schutzmassnahmen\", \"oereb-thema-bausperre\"])",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"## \\u00d6REB-Themen und Geobasisdaten \\n\\nDie \\u00d6REB-Themen sind die auf Grundlage von Art. 16 Abs. 2 und 3 GeoIG vom Bundesrat beziehungsweise vom Regierungsrat bezeichneten grundeigent\\u00fcmerverbindlichen Geobasisdaten. Es sind die in den Geobasisdatenkatalogen des Bundesrechts (= GeoIV Anhang und kGeoIR Anhang 1) und des Kantonsrechts (= kGeoIR Anhang 2) aufgef\\u00fchrten Geobasisdaten, bei denen die Attributspalte \\u00ab\\u00d6REB-Kataster\\u00bb markiert wurde. \\n\\nJe nach \\u00d6REB-Verfahren m\\u00fcssen unterschiedliche Geobasisdaten f\\u00fcr die Aufnahme in den \\u00d6REB-Kataster an die Lisag gesendet werden.\", \"fr\": null, \"it\": null}",
@@ -44049,10 +44470,10 @@
     "pk": "bezeichnung",
     "fields": {
       "created_at": "2020-11-11T10:05:52.446Z",
-      "modified_at": "2023-06-15T09:14:54.378Z",
+      "modified_at": "2025-05-23T07:31:19.438Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Bezeichnung\", \"fr\": null, \"it\": null}",
       "type": "textarea",
@@ -44061,7 +44482,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"z.B. Teilrevision Nutzungsplanung 2020+, Quartiergestaltungsplan Strickermatt\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte keine Gemeindenamen in der Bezeichnung verwenden. Die Gemeindenamen werden f\\u00fcr das Amtliche Publikationsorgan (APO) automatisch erg\\u00e4nzt und w\\u00fcrden dann doppelt angezeigt.\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -57541,12 +57962,12 @@
     "pk": "oereb-thema",
     "fields": {
       "created_at": "2020-11-11T09:15:36.408Z",
-      "modified_at": "2023-12-04T07:31:47.570Z",
+      "modified_at": "2025-05-26T11:45:34.797Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"\\u00d6REB Thema\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"\\u00d6REB-Verfahren\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -57572,15 +57993,15 @@
     "pk": "oereb-thema-gemeinde",
     "fields": {
       "created_at": "2023-02-03T13:46:33.812Z",
-      "modified_at": "2023-12-01T14:05:35.636Z",
+      "modified_at": "2025-05-23T13:47:51.026Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"\\u00d6REB Thema\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"\\u00d6REB-Verfahren\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "true",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"##\\u00d6REB-Themen\\n\\nDie \\u00d6REB-Themen sind die auf Grundlage von Art. 16 Abs. 2 und 3 GeoIG vom Bundesrat beziehungsweise vom Regierungsrat bezeichneten grundeigent\\u00fcmerverbindlichen Geobasisdaten. Es sind die in den Geobasisdatenkatalogen des Bundesrechts (= GeoIV Anhang und kGeoIR Anhang 1) und des Kantonsrechts (= kGeoIR Anhang 2) aufgef\\u00fchrten Geobasisdaten, bei denen die Attributspalte \\u00ab\\u00d6REB-Kataster\\u00bb markiert wurde.\", \"fr\": null, \"it\": null}",
@@ -57634,10 +58055,10 @@
     "pk": "oereb-titel",
     "fields": {
       "created_at": "2020-11-11T07:32:11.625Z",
-      "modified_at": "2023-05-03T06:28:12.771Z",
+      "modified_at": "2025-05-23T07:37:21.124Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"\\u00d6REB-Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -57647,7 +58068,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##Die \\u00d6REB-Verfahren##\\n\\nBei den Eigentumsbeschr\\u00e4nkungen, die Gegenstand des [\\u00d6REB-Katasters des Kantons Uri](https://oereb.ur.ch) sind, besteht die Pflicht zur Datenverwaltung als digitale \\u00d6REB-Katasterdaten. Die \\u00d6REB-Verfahren (Meldung, Vorpr\\u00fcfung und Anpassung) dienen dazu den Daten- und Informationsfluss f\\u00fcr die Datenverwaltung sicherzustellen. Zudem ist damit gew\\u00e4hrleistet, dass im \\u00d6REB-Kataster jederzeit ersichtlich ist, wo gerade ein \\u00d6REB-Verfahren l\\u00e4uft. Details zu den Verfahrensschritten finden sie in den [\\u00d6REB-Katasterweisungen](https://webgis.lisag.ch/PDF/%C3%96REB-Kataster-Weisungen/).\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"##Die \\u00d6REB-Verfahren##\\n\\nBei den Eigentumsbeschr\\u00e4nkungen, die Gegenstand des <a href=\\\"https://oereb.ur.ch\\\" target=\\\"_blank\\\" style=\\\"color: blue;\\\"> \\u00d6REB-Katasters des Kantons Uri</a> sind, besteht die Pflicht zur Datenverwaltung als digitale \\u00d6REB-Katasterdaten. Die \\u00d6REB-Verfahren dienen dazu den Daten- und Informationsfluss sicherzustellen. Zudem ist damit gew\\u00e4hrleistet, dass im \\u00d6REB-Kataster jederzeit ersichtlich ist, wo gerade ein \\u00d6REB-Verfahren l\\u00e4uft. Details zu den Verfahrensschritten finden sie in den <a href=\\\"https://webgis.lisag.ch/PDF/%C3%96REB-Kataster-Weisungen/\\\" target=\\\"_blank\\\" style=\\\"color: blue;\\\"> \\u00d6REB-Katasterweisungen</a>.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -63823,14 +64244,14 @@
     "pk": "typ-des-verfahrens",
     "fields": {
       "created_at": "2020-11-11T08:43:40.459Z",
-      "modified_at": "2023-12-01T14:05:26.855Z",
+      "modified_at": "2025-05-23T13:04:36.140Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Rechtsstatus\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -64554,19 +64975,19 @@
     "pk": "verfahrensinhalt-gemeinde",
     "fields": {
       "created_at": "2023-02-03T14:02:35.677Z",
-      "modified_at": "2023-02-03T14:02:35.677Z",
+      "modified_at": "2025-05-23T14:28:03.143Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Verfahrensinhalt\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"oereb-thema-gemeinde\"|answer in [\"oereb-thema-gemeinde-snp-qgp-qp\", \"oereb-thema-gemeinde-kantonale-baulinien\",\"oereb-thema-gemeinde-snp-bl-gemeinde\", \"oereb-thema-gemeinde-waldgrenze\", \"oereb-thema-gemeinde-grundwasserschutz\"])",
+      "is_hidden": "!(\"oereb-thema\"|answer in [\"oereb-thema-snp-qgp-qp\", \"oereb-thema-kantonale-baulinien\",\"oereb-thema-snp-bl-gemeinde\", \"oereb-thema-waldgrenze\", \"oereb-thema-grundwasserschutz\"])",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -65322,7 +65743,7 @@
     "pk": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
     "fields": {
       "created_at": "2023-02-03T14:34:12.999Z",
-      "modified_at": "2024-08-13T11:12:11.558Z",
+      "modified_at": "2025-05-23T14:14:06.491Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "pirmin.scheuber@ur.ch",
@@ -65330,7 +65751,7 @@
       "label": "{\"de\": \"Wird eine Waldfeststellung mit statischen Waldgrenzen parallel durchgef\\u00fchrt oder werden statische Waldgrenzen aufgehoben?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"oereb-thema-gemeinde-gnp\" == \"oereb-thema-gemeinde\"|answer)",
+      "is_hidden": "!(\"oereb-thema-gnp\" == \"oereb-thema\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -69117,11 +69538,11 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-revision.art-der-revision-gesamtrevision",
     "fields": {
-      "created_at": "2023-02-03T13:57:59.521Z",
-      "modified_at": "2023-02-03T13:57:59.521Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:15:17.764Z",
+      "modified_at": "2025-05-23T14:15:17.764Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "art-der-revision",
       "option": "art-der-revision-gesamtrevision",
@@ -69132,11 +69553,11 @@
     "model": "caluma_form.questionoption",
     "pk": "art-der-revision.art-der-revision-teilrevision",
     "fields": {
-      "created_at": "2023-02-03T13:57:59.517Z",
-      "modified_at": "2023-02-03T13:57:59.517Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:15:17.760Z",
+      "modified_at": "2025-05-23T14:15:17.760Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "art-der-revision",
       "option": "art-der-revision-teilrevision",
@@ -69417,11 +69838,11 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snp.art-snp-qgp",
     "fields": {
-      "created_at": "2023-02-03T13:57:47.770Z",
-      "modified_at": "2023-02-03T13:57:47.770Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:15:48.237Z",
+      "modified_at": "2025-05-23T14:15:48.237Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "art-snp",
       "option": "art-snp-qgp",
@@ -69432,11 +69853,11 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snp.art-snp-qp",
     "fields": {
-      "created_at": "2023-02-03T13:57:47.766Z",
-      "modified_at": "2023-02-03T13:57:47.766Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:15:48.234Z",
+      "modified_at": "2025-05-23T14:15:48.234Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "art-snp",
       "option": "art-snp-qp",
@@ -69447,11 +69868,11 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snpbl-gemeinde.art-snpbl-gemeinde-bl-gewaesser",
     "fields": {
-      "created_at": "2023-02-03T14:00:07.291Z",
-      "modified_at": "2023-02-03T14:00:07.291Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:17:57.902Z",
+      "modified_at": "2025-05-23T14:17:57.902Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "art-snpbl-gemeinde",
       "option": "art-snpbl-gemeinde-bl-gewaesser",
@@ -69462,11 +69883,11 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snpbl-gemeinde.art-snpbl-gemeinde-bl-immissionsschutz",
     "fields": {
-      "created_at": "2023-02-03T14:00:07.287Z",
-      "modified_at": "2023-02-03T14:00:07.287Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:17:57.899Z",
+      "modified_at": "2025-05-23T14:17:57.899Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "art-snpbl-gemeinde",
       "option": "art-snpbl-gemeinde-bl-immissionsschutz",
@@ -69477,11 +69898,11 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snpbl-gemeinde.art-snpbl-gemeinde-bl-strasse",
     "fields": {
-      "created_at": "2023-02-03T14:00:07.295Z",
-      "modified_at": "2023-02-03T14:00:07.295Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:17:57.905Z",
+      "modified_at": "2025-05-23T14:17:57.905Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "art-snpbl-gemeinde",
       "option": "art-snpbl-gemeinde-bl-strasse",
@@ -69492,11 +69913,11 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snpbl-gemeinde.art-snpbl-gemeinde-bl-waldabstand",
     "fields": {
-      "created_at": "2023-02-03T14:00:07.283Z",
-      "modified_at": "2023-02-03T14:00:07.283Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:17:57.895Z",
+      "modified_at": "2025-05-23T14:17:57.895Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "art-snpbl-gemeinde",
       "option": "art-snpbl-gemeinde-bl-waldabstand",
@@ -69507,11 +69928,11 @@
     "model": "caluma_form.questionoption",
     "pk": "art-snpbl-gemeinde.art-snpbl-gemeinde-bl-weitere",
     "fields": {
-      "created_at": "2023-02-03T14:00:07.279Z",
-      "modified_at": "2023-02-03T14:00:07.280Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:17:57.892Z",
+      "modified_at": "2025-05-23T14:17:57.892Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "art-snpbl-gemeinde",
       "option": "art-snpbl-gemeinde-bl-weitere",
@@ -70491,6 +70912,336 @@
       "question": "betriebsform",
       "option": "betriebsform-nebenerwerb",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-bausperren-19-ur",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.111Z",
+      "modified_at": "2025-05-26T12:25:18.111Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-bausperren-19-ur",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-gemeindliche-baulinien-61-ur",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.132Z",
+      "modified_at": "2025-05-26T12:25:18.132Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-gemeindliche-baulinien-61-ur",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-gemeindliche-nutzungspla-nung-73b",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.178Z",
+      "modified_at": "2025-05-26T12:25:18.178Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-gemeindliche-nutzungspla-nung-73b",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-gemeindliche-planungszonen-76b",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.182Z",
+      "modified_at": "2025-05-26T12:25:18.182Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-gemeindliche-planungszonen-76b",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-gewaesserraum-190",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.165Z",
+      "modified_at": "2025-05-26T12:25:18.165Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-gewaesserraum-190",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-gewaesserschutzbereiche-130",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.089Z",
+      "modified_at": "2025-05-26T12:25:18.089Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-gewaesserschutzbereiche-130",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-grundwasserschutzareale-132",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.080Z",
+      "modified_at": "2025-05-26T12:25:18.080Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-grundwasserschutzareale-132",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-grundwasserschutzzonen-131",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.085Z",
+      "modified_at": "2025-05-26T12:25:18.085Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-grundwasserschutzzonen-131",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-kantonale-baulinien-15-ur",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.098Z",
+      "modified_at": "2025-05-26T12:25:18.098Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-kantonale-baulinien-15-ur",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-kantonale-nutzungsplanung-73a",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.102Z",
+      "modified_at": "2025-05-26T12:25:18.102Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-kantonale-nutzungsplanung-73a",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-kantonale-planungszonen-76a",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.107Z",
+      "modified_at": "2025-05-26T12:25:18.107Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-kantonale-planungszonen-76a",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-kataster-der-belasteten-standorte-116",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.094Z",
+      "modified_at": "2025-05-26T12:25:18.094Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-kataster-der-belasteten-standorte-116",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-laermempfindlichkeitsstufen-in-nutzungszonen-145",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.173Z",
+      "modified_at": "2025-05-26T12:25:18.173Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-laermempfindlichkeitsstufen-in-nutzungszonen-145",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-quartiergestaltungsplaene-73d",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.138Z",
+      "modified_at": "2025-05-26T12:25:18.138Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-quartiergestaltungsplaene-73d",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-quartierplaene-73c",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.143Z",
+      "modified_at": "2025-05-26T12:25:18.143Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-quartierplaene-73c",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-schutzmassnahmen-fuer-kultur-und-denkmalschutzobjekte-lokaler-bedeutung-68-ur",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.147Z",
+      "modified_at": "2025-05-26T12:25:18.147Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-schutzmassnahmen-fuer-kultur-und-denkmalschutzobjekte-lokaler-bedeutung-68-ur",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-schutzmassnahmen-fuer-kultur-und-denkmalschutzobjekte-nationaler-und-regionaler-be-deutung-67-ur",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.152Z",
+      "modified_at": "2025-05-26T12:25:18.152Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-schutzmassnahmen-fuer-kultur-und-denkmalschutzobjekte-nationaler-und-regionaler-be-deutung-67-ur",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-schutzmassnahmen-fuer-natur-und-landschaftsschutzobjekte-nationaler-und-regionaler-be-deutung-65-ur",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.161Z",
+      "modified_at": "2025-05-26T12:25:18.161Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-schutzmassnahmen-fuer-natur-und-landschaftsschutzobjekte-nationaler-und-regionaler-be-deutung-65-ur",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-schutzmassnahmen-fuer-natur-und-landschaftsschutzobjekt-lokaler-bedeutung-66-ur",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.156Z",
+      "modified_at": "2025-05-26T12:25:18.156Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-schutzmassnahmen-fuer-natur-und-landschaftsschutzobjekt-lokaler-bedeutung-66-ur",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-statische-waldgrenzen-157",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.169Z",
+      "modified_at": "2025-05-26T12:25:18.169Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-statische-waldgrenzen-157",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-waldabstandslinien-159",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.115Z",
+      "modified_at": "2025-05-26T12:25:18.115Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-waldabstandslinien-159",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "betroffene-geobasisdaten.betroffene-geobasisdaten-waldreservate-160",
+    "fields": {
+      "created_at": "2025-05-26T12:25:18.075Z",
+      "modified_at": "2025-05-26T12:25:18.075Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "betroffene-geobasisdaten",
+      "option": "betroffene-geobasisdaten-waldreservate-160",
+      "sort": 1
     }
   },
   {
@@ -77262,11 +78013,11 @@
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema-gemeinde.oereb-thema-gemeinde-bausperre",
     "fields": {
-      "created_at": "2023-12-01T14:05:35.645Z",
-      "modified_at": "2023-12-01T14:05:35.645Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:47:51.033Z",
+      "modified_at": "2025-05-23T13:47:51.033Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "oereb-thema-gemeinde",
       "option": "oereb-thema-gemeinde-bausperre",
@@ -77277,11 +78028,11 @@
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema-gemeinde.oereb-thema-gemeinde-gnp",
     "fields": {
-      "created_at": "2023-12-01T14:05:35.660Z",
-      "modified_at": "2023-12-01T14:05:35.660Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:47:51.043Z",
+      "modified_at": "2025-05-23T13:47:51.043Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "oereb-thema-gemeinde",
       "option": "oereb-thema-gemeinde-gnp",
@@ -77292,11 +78043,11 @@
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema-gemeinde.oereb-thema-gemeinde-gpz",
     "fields": {
-      "created_at": "2023-12-01T14:05:35.667Z",
-      "modified_at": "2023-12-01T14:05:35.667Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:47:51.046Z",
+      "modified_at": "2025-05-23T13:47:51.046Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "oereb-thema-gemeinde",
       "option": "oereb-thema-gemeinde-gpz",
@@ -77307,11 +78058,11 @@
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema-gemeinde.oereb-thema-gemeinde-snp-bl-gemeinde",
     "fields": {
-      "created_at": "2023-12-01T14:05:35.651Z",
-      "modified_at": "2023-12-01T14:05:35.651Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:47:51.037Z",
+      "modified_at": "2025-05-23T13:47:51.037Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "oereb-thema-gemeinde",
       "option": "oereb-thema-gemeinde-snp-bl-gemeinde",
@@ -77322,11 +78073,11 @@
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema-gemeinde.oereb-thema-gemeinde-snp-qgp-qp",
     "fields": {
-      "created_at": "2023-12-01T14:05:35.656Z",
-      "modified_at": "2023-12-01T14:05:35.656Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:47:51.040Z",
+      "modified_at": "2025-05-23T13:47:51.040Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "oereb-thema-gemeinde",
       "option": "oereb-thema-gemeinde-snp-qgp-qp",
@@ -77335,182 +78086,197 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "oereb-thema.oereb-thema-bausperre",
+    "fields": {
+      "created_at": "2025-05-26T11:45:34.813Z",
+      "modified_at": "2025-05-26T11:45:34.813Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "oereb-thema",
+      "option": "oereb-thema-bausperre",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-gnp",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.613Z",
-      "modified_at": "2023-12-04T07:31:47.613Z",
+      "created_at": "2025-05-26T11:45:34.877Z",
+      "modified_at": "2025-05-26T11:45:34.877Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-gnp",
-      "sort": 9
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-gpz",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.621Z",
-      "modified_at": "2023-12-04T07:31:47.621Z",
+      "created_at": "2025-05-26T11:45:34.894Z",
+      "modified_at": "2025-05-26T11:45:34.894Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-gpz",
-      "sort": 11
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-grundwasserschutz",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.592Z",
-      "modified_at": "2023-12-04T07:31:47.592Z",
+      "created_at": "2025-05-26T11:45:34.842Z",
+      "modified_at": "2025-05-26T11:45:34.842Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-grundwasserschutz",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-kantonale-baulinien",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.604Z",
-      "modified_at": "2023-12-04T07:31:47.604Z",
+      "created_at": "2025-05-26T11:45:34.864Z",
+      "modified_at": "2025-05-26T11:45:34.864Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-kantonale-baulinien",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-kbs",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.596Z",
-      "modified_at": "2023-12-04T07:31:47.596Z",
+      "created_at": "2025-05-26T11:45:34.849Z",
+      "modified_at": "2025-05-26T11:45:34.849Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-kbs",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-knp",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.617Z",
-      "modified_at": "2023-12-04T07:31:47.617Z",
+      "created_at": "2025-05-26T11:45:34.887Z",
+      "modified_at": "2025-05-26T11:45:34.887Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-knp",
-      "sort": 10
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-kpz",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.625Z",
-      "modified_at": "2023-12-04T07:31:47.625Z",
+      "created_at": "2025-05-26T11:45:34.901Z",
+      "modified_at": "2025-05-26T11:45:34.901Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-kpz",
-      "sort": 12
+      "sort": 13
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-schutzmassnahmen",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.580Z",
-      "modified_at": "2023-12-04T07:31:47.580Z",
+      "created_at": "2025-05-26T11:45:34.820Z",
+      "modified_at": "2025-05-26T11:45:34.820Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-schutzmassnahmen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-snp-bl-gemeinde",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.600Z",
-      "modified_at": "2023-12-04T07:31:47.600Z",
+      "created_at": "2025-05-26T11:45:34.857Z",
+      "modified_at": "2025-05-26T11:45:34.857Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-snp-bl-gemeinde",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-snp-qgp-qp",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.608Z",
-      "modified_at": "2023-12-04T07:31:47.608Z",
+      "created_at": "2025-05-26T11:45:34.871Z",
+      "modified_at": "2025-05-26T11:45:34.871Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-snp-qgp-qp",
-      "sort": 8
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-waldgrenze",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.587Z",
-      "modified_at": "2023-12-04T07:31:47.588Z",
+      "created_at": "2025-05-26T11:45:34.835Z",
+      "modified_at": "2025-05-26T11:45:34.835Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-waldgrenze",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "oereb-thema.oereb-thema-war",
     "fields": {
-      "created_at": "2023-12-04T07:31:47.583Z",
-      "modified_at": "2023-12-04T07:31:47.583Z",
+      "created_at": "2025-05-26T11:45:34.827Z",
+      "modified_at": "2025-05-26T11:45:34.827Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "oereb-thema",
       "option": "oereb-thema-war",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -80952,11 +81718,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-des-verfahrens.typ-des-verfahrens-anpassung",
     "fields": {
-      "created_at": "2023-12-01T14:05:26.909Z",
-      "modified_at": "2023-12-01T14:05:26.909Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:04:36.173Z",
+      "modified_at": "2025-05-23T13:04:36.173Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-anpassung",
@@ -80967,11 +81733,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-des-verfahrens.typ-des-verfahrens-aufhebung",
     "fields": {
-      "created_at": "2023-12-01T14:05:26.866Z",
-      "modified_at": "2023-12-01T14:05:26.866Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:04:36.149Z",
+      "modified_at": "2025-05-23T13:04:36.149Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-aufhebung",
@@ -80982,11 +81748,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-des-verfahrens.typ-des-verfahrens-festsetzung",
     "fields": {
-      "created_at": "2023-12-01T14:05:26.897Z",
-      "modified_at": "2023-12-01T14:05:26.897Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:04:36.167Z",
+      "modified_at": "2025-05-23T13:04:36.167Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-festsetzung",
@@ -80997,11 +81763,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-des-verfahrens.typ-des-verfahrens-genehmigung",
     "fields": {
-      "created_at": "2023-12-01T14:05:26.890Z",
-      "modified_at": "2023-12-01T14:05:26.890Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:04:36.164Z",
+      "modified_at": "2025-05-23T13:04:36.164Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-genehmigung",
@@ -81012,11 +81778,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-des-verfahrens.typ-des-verfahrens-inkraftsetzung",
     "fields": {
-      "created_at": "2023-12-01T14:05:26.878Z",
-      "modified_at": "2023-12-01T14:05:26.878Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:04:36.157Z",
+      "modified_at": "2025-05-23T13:04:36.157Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-inkraftsetzung",
@@ -81027,11 +81793,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-des-verfahrens.typ-des-verfahrens-meldung",
     "fields": {
-      "created_at": "2023-12-01T14:05:26.922Z",
-      "modified_at": "2023-12-01T14:05:26.922Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:04:36.182Z",
+      "modified_at": "2025-05-23T13:04:36.182Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-meldung",
@@ -81042,11 +81808,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-des-verfahrens.typ-des-verfahrens-meldung-rekurs",
     "fields": {
-      "created_at": "2023-12-01T14:05:26.883Z",
-      "modified_at": "2023-12-01T14:05:26.884Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:04:36.161Z",
+      "modified_at": "2025-05-23T13:04:36.161Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-meldung-rekurs",
@@ -81057,11 +81823,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-des-verfahrens.typ-des-verfahrens-oeffentliche-auflage",
     "fields": {
-      "created_at": "2023-12-01T14:05:26.903Z",
-      "modified_at": "2023-12-01T14:05:26.903Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:04:36.170Z",
+      "modified_at": "2025-05-23T13:04:36.170Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-oeffentliche-auflage",
@@ -81072,11 +81838,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-des-verfahrens.typ-des-verfahrens-oeffentliche-mitwirkung",
     "fields": {
-      "created_at": "2023-12-01T14:05:26.918Z",
-      "modified_at": "2023-12-01T14:05:26.918Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:04:36.179Z",
+      "modified_at": "2025-05-23T13:04:36.179Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-oeffentliche-mitwirkung",
@@ -81087,11 +81853,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-des-verfahrens.typ-des-verfahrens-rechtskraft-verlaengern",
     "fields": {
-      "created_at": "2023-12-01T14:05:26.872Z",
-      "modified_at": "2023-12-01T14:05:26.872Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:04:36.154Z",
+      "modified_at": "2025-05-23T13:04:36.154Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-rechtskraft-verlaengern",
@@ -81102,11 +81868,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-des-verfahrens.typ-des-verfahrens-vorpruefung",
     "fields": {
-      "created_at": "2023-12-01T14:05:26.913Z",
-      "modified_at": "2023-12-01T14:05:26.913Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T13:04:36.176Z",
+      "modified_at": "2025-05-23T13:04:36.176Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "typ-des-verfahrens",
       "option": "typ-des-verfahrens-vorpruefung",
@@ -81972,11 +82738,11 @@
     "model": "caluma_form.questionoption",
     "pk": "verfahrensinhalt-gemeinde.verfahrensinhalt-gemeinde-aenderung",
     "fields": {
-      "created_at": "2023-02-03T14:02:35.687Z",
-      "modified_at": "2023-02-03T14:02:35.687Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:28:03.153Z",
+      "modified_at": "2025-05-23T14:28:03.153Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "verfahrensinhalt-gemeinde",
       "option": "verfahrensinhalt-gemeinde-aenderung",
@@ -81987,11 +82753,11 @@
     "model": "caluma_form.questionoption",
     "pk": "verfahrensinhalt-gemeinde.verfahrensinhalt-gemeinde-aufhebung",
     "fields": {
-      "created_at": "2023-02-03T14:02:35.683Z",
-      "modified_at": "2023-02-03T14:02:35.683Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:28:03.150Z",
+      "modified_at": "2025-05-23T14:28:03.150Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "verfahrensinhalt-gemeinde",
       "option": "verfahrensinhalt-gemeinde-aufhebung",
@@ -82002,11 +82768,11 @@
     "model": "caluma_form.questionoption",
     "pk": "verfahrensinhalt-gemeinde.verfahrensinhalt-gemeinde-neuerlass",
     "fields": {
-      "created_at": "2023-02-03T14:02:35.690Z",
-      "modified_at": "2023-02-03T14:02:35.690Z",
-      "created_by_user": "admin",
+      "created_at": "2025-05-23T14:28:03.157Z",
+      "modified_at": "2025-05-23T14:28:03.157Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "verfahrensinhalt-gemeinde",
       "option": "verfahrensinhalt-gemeinde-neuerlass",
@@ -82317,8 +83083,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde.waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
     "fields": {
-      "created_at": "2024-08-13T11:12:11.578Z",
-      "modified_at": "2024-08-13T11:12:11.578Z",
+      "created_at": "2025-05-23T14:14:06.507Z",
+      "modified_at": "2025-05-23T14:14:06.507Z",
       "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
       "modified_by_user": "pirmin.scheuber@ur.ch",
@@ -82332,8 +83098,8 @@
     "model": "caluma_form.questionoption",
     "pk": "waldfeststellung-mit-statischen-waldgrenzen-gemeinde.waldfeststellung-mit-statischen-waldgrenzen-gemeinde-nein",
     "fields": {
-      "created_at": "2024-08-13T11:12:11.571Z",
-      "modified_at": "2024-08-13T11:12:11.571Z",
+      "created_at": "2025-05-23T14:14:06.503Z",
+      "modified_at": "2025-05-23T14:14:06.503Z",
       "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
       "modified_by_user": "pirmin.scheuber@ur.ch",
