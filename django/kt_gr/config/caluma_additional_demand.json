@@ -268,6 +268,23 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "additional-demand-decision-unknown",
+    "fields": {
+      "created_at": "2025-05-13T13:52:24.384Z",
+      "modified_at": "2025-05-13T13:52:52.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Unbekannt\", \"fr\": null, \"it\": \"Sconosciuto\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "additional-demand-comment",
     "fields": {
@@ -445,7 +462,7 @@
     "pk": "additional-demand-decision",
     "fields": {
       "created_at": "2023-08-24T15:48:03.148Z",
-      "modified_at": "2024-08-28T12:24:45.171Z",
+      "modified_at": "2025-05-20T15:12:30.642Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -457,10 +474,16 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Sofern die Nachforderung vollst\\u00e4ndig beantwortet wurde, wird die aktuelle Nachforderungs-Anfrage abgeschlossen. Wenn noch zus\\u00e4tzliche oder weitere Unterlagen notwendig sind, kann die Nachforderung als unvollst\\u00e4ndig beantwortet und eine weitere Nachforderung an den Gesuchsteller formuliert werden.\", \"fr\": null, \"it\": \"Se sono state fornite integralmente le precisazioni richieste, l'attuale richiesta di precisazioni \\u00e8 conclusa. Se sono necessari documenti supplementari o ulteriore documentazione, la richiesta di precisazioni \\u00e8 considerata incompleta ed \\u00e8 possibile inviare una nuova richiesta di precisazioni alla persona richiedente.\"}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "hiddenAnswers": ["additional-demand-decision-unknown"],
+        "widgetOverride": "cf-radio-hide-answers",
+        "alternativeText": {
+          "additional-demand-decision-unknown": "decision.additional-demand.unknown"
+        }
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -545,29 +568,44 @@
     "model": "caluma_form.questionoption",
     "pk": "additional-demand-decision.additional-demand-decision-accept",
     "fields": {
-      "created_at": "2023-08-31T09:19:29.423Z",
-      "modified_at": "2023-08-31T09:19:29.423Z",
+      "created_at": "2025-05-13T13:52:53.005Z",
+      "modified_at": "2025-05-13T13:52:53.005Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "additional-demand-decision",
       "option": "additional-demand-decision-accept",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "additional-demand-decision.additional-demand-decision-reject",
     "fields": {
-      "created_at": "2023-08-31T09:19:29.420Z",
-      "modified_at": "2023-08-31T09:19:29.420Z",
+      "created_at": "2025-05-13T13:52:53.002Z",
+      "modified_at": "2025-05-13T13:52:53.002Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "additional-demand-decision",
       "option": "additional-demand-decision-reject",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "additional-demand-decision.additional-demand-decision-unknown",
+    "fields": {
+      "created_at": "2025-05-13T13:52:53Z",
+      "modified_at": "2025-05-13T13:52:53Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "additional-demand-decision",
+      "option": "additional-demand-decision-unknown",
       "sort": 1
     }
   },

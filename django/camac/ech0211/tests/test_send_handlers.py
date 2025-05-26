@@ -22,6 +22,7 @@ from camac.document.tests.data import django_file
 from camac.ech0211.tests.utils import xml_data
 from camac.instance.document_merge_service import DMSHandler
 from camac.instance.models import Instance
+from camac.permissions import api as permissions_api
 
 from ..constants import (
     ECH_JUDGEMENT_APPROVED,
@@ -748,6 +749,129 @@ def test_task_send_handler_no_permission(
         request=None,
     )
     assert handler.has_permission()[0] is False
+
+
+@pytest.mark.parametrize(
+    "test_case,success",
+    [
+        ("claim_not_enabled", False),
+        ("wrong_state", False),
+        ("no_access", False),
+        ("ok", True),
+    ],
+)
+@pytest.mark.parametrize(
+    "access_level__slug", ["distribution-service", "lead-authority"]
+)
+def test_task_send_claim_handler(
+    rf,
+    db,
+    set_application_gr,
+    admin_user,
+    caluma_admin_user,
+    ech_instance_gr,
+    instance_state_factory,
+    notification_template_factory,
+    gr_additional_demand_settings,
+    gr_permissions_settings,
+    gr_ech0211_settings,
+    application_settings,
+    mocker,
+    mailoutbox,
+    test_case,
+    success,
+    access_level,
+):
+    mocker.patch.object(
+        CustomAlexandriaPermission,
+        "get_available_permissions",
+        return_value={MODE_CREATE},
+    )
+
+    # workflow notification templates
+    caluma_send_notification = notification_template_factory()
+    caluma_fill_notification = notification_template_factory()
+    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["send-additional-demand"][
+        "notification"
+    ]["template_slug"] = caluma_send_notification.slug
+    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["fill-additional-demand"][
+        "notification"
+    ]["template_slug"] = caluma_fill_notification.slug
+
+    # enable/disable claim settings based on the test case
+    gr_ech0211_settings["CLAIM"]["ENABLED"] = test_case != "claim_not_enabled"
+
+    # user/group permissions for ech claim call
+    group = admin_user.groups.first()
+    group.service = ech_instance_gr.responsible_service()
+    group.save()
+
+    if not test_case == "no_access":
+        permissions_api.grant(
+            ech_instance_gr,
+            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+            access_level=access_level,
+            service=group.service,
+        )
+
+    # ech0211 claim alexandria category
+    alexandria_category = CategoryFactory()
+    gr_ech0211_settings["CLAIM"]["ALEXANDRIA_CATEGORY"] = alexandria_category.pk
+
+    # prepare instance state
+    workflow_api.complete_work_item(
+        work_item=ech_instance_gr.case.work_items.get(task_id="submit"),
+        user=caluma_admin_user,
+    )
+    state = instance_state_factory(name="circulation")
+    ech_instance_gr.instance_state = state
+    ech_instance_gr.save()
+
+    # override instance state to invalid state to test wrong_state case
+    if test_case == "wrong_state":
+        state = instance_state_factory(name="other")
+        ech_instance_gr.instance_state = state
+        ech_instance_gr.save()
+
+    # prepare claim handler with xml template
+    request = rf.request()
+    request.user = admin_user
+    request.group = group
+    request.role = group.role
+    xml = xml_data("claim")
+    data = CreateFromDocument(xml)
+    handler = TaskSendHandler(
+        data=data,
+        queryset=Instance.objects,
+        user=admin_user,
+        group=group,
+        auth_header="Bearer: some token",
+        caluma_user=caluma_admin_user,
+        request=request,
+    )
+
+    # check for permission boolean based on success
+    assert handler.has_permission()[0] is success
+
+    if test_case in ["wrong_state", "no_access"]:
+        assert (
+            handler.has_permission()[1] == "You don't have permission to send a claim."
+        )
+    elif test_case == "claim_not_enabled":
+        assert (
+            handler.has_permission()[1] == "Claim is not enabled for this application."
+        )
+    elif success:
+        # on success the permission message should be None and apply should succeed
+        assert handler.has_permission()[1] is None
+        handler.apply()
+        assert len(mailoutbox) == 2
+        assert caluma_send_notification.subject in mailoutbox[0].subject
+        assert ech_instance_gr.user.email in mailoutbox[0].to
+        assert caluma_send_notification.subject in mailoutbox[1].subject
+        assert admin_user.email in mailoutbox[1].to
+        # no eCH message yet, only after filling by applicant
+        assert Message.objects.count() == 0
 
 
 @pytest.mark.freeze_time("2022-06-03")

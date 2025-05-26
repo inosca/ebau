@@ -199,6 +199,15 @@ ECH0211 = {
                     "spec": "3.2",
                     "example": ("task", "xml/post/task.xml"),
                 },
+                "5200115": {
+                    "type": "Claim",
+                    "desc": "Nachforderung an Gesuchsteller stellen",
+                    "spec": "5.2",
+                    "example": (
+                        "claim",
+                        "xml/post/claim.xml",
+                    ),
+                },
                 "5100013": {
                     "type": "CloseDossier",
                     "desc": "Abschluss melden",
@@ -354,6 +363,7 @@ ECH0211 = {
                 ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN: {"disabled": True},
             },
             "POST_TABLE_DATA": {
+                "5200115": {"disabled": True},  # Claim
                 "5200110": {
                     "type": "KindOfProceedings",
                     "desc": "Verfahrensprogramm erstellen",
@@ -532,6 +542,10 @@ ECH0211 = {
                 },
             },
         },
+        "CLAIM": {
+            "ENABLED": True,
+            "ALEXANDRIA_CATEGORY": "nachforderung",
+        },
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
                 ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
@@ -539,14 +553,12 @@ ECH0211 = {
                 },
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
                 ECH_FILE_SUBSEQUENTLY: {
-                    "desc": "Nachforderung beantworten (💡 wird noch ergänzt um 'directive')",
+                    "desc": "Nachforderung beantworten",
                 },
                 ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
                     "desc": "Rückzug des Baugesuchs melden (⏳ noch in Entwicklung)",
                 },
-                ECH_CLAIM: {
-                    "desc": "Nachforderungen durch Fachstelle (⏳ noch in Entwicklung)"
-                },
+                ECH_CLAIM: {"desc": "Nachforderungen durch Fachstelle"},
                 ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
             },
             "POST_TABLE_DATA": {
@@ -629,6 +641,7 @@ ECH0211 = {
                 ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
             },
             "POST_TABLE_DATA": {
+                "5200115": {"disabled": True},  # Claim
                 "5100011": {"disabled": True},  # Change responsibility
             },
         },
@@ -717,11 +730,10 @@ ECH0211 = {
                 ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
                     "desc": "Rückzug des Baugesuchs melden (⏳ noch in Entwicklung)",
                 },
-                ECH_CLAIM: {
-                    "desc": "Nachforderungen durch Fachstelle (⏳ noch in Entwicklung)"
-                },
+                ECH_CLAIM: {"desc": "Nachforderungen durch Fachstelle"},
             },
             "POST_TABLE_DATA": {
+                "5200115": {"disabled": True},  # Claim
                 "5100011": {"disabled": True},  # Change responsibility
             },
         },

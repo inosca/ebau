@@ -64,7 +64,11 @@ def test_additonal_demand_check_notification(
     mailoutbox,
     notification_template_factory,
     caluma_work_item_factory,
+    mocker,
 ):
+    # disable the file_subsequently signal for this test
+    mocker.patch("camac.ech0211.signals.file_subsequently.send")
+
     accepted_notification = notification_template_factory()
     rejected_notification = notification_template_factory()
 
