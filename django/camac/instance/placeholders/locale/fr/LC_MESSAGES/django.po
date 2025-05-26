@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 18:45+0200\n"
+"POT-Creation-Date: 2025-06-03 09:58+0200\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -288,6 +288,7 @@ msgid "STREET"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
+#: camac/instance/placeholders/serializers.py
 #, fuzzy
 #| msgid "DOSSIER_NUMBER"
 msgid "STREET_NUMBER"
@@ -2612,6 +2613,34 @@ msgid "Zone"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
+msgid "The street number of the building site"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "DOSSIER_COMPLETED_DATE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Dossier completed date"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_DATE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Publication date"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "REVIEW_BUILDING_COMMISSION"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Review building commission"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
 #, fuzzy
 #| msgid "City of the current service"
 msgid "Feedback of the invited services"
@@ -2664,6 +2693,14 @@ msgstr ""
 msgid ""
 "Address line 2 of the invoice recipient if available, otherwise that of the "
 "applicant"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "ALL_APPLICANTS_REFERENCE_NUMBER"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Reference numbers of all applicants"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py

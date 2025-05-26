@@ -120,6 +120,7 @@ def ag_personal_row_factory(is_juristic: bool = False) -> dict:
         "name-juristische-person-gesuchstellerin": fake.company()
         if is_juristic
         else None,
+        "referenznummer": str(fake.pyint(min_value=1000, max_value=9999)),
     }
 
 

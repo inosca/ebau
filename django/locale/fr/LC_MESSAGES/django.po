@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-15 18:01+0200\n"
+"POT-Creation-Date: 2025-06-03 09:58+0200\n"
 "PO-Revision-Date: 2024-09-12 16:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -463,13 +463,13 @@ msgstr ""
 msgid "Hidden?"
 msgstr ""
 
-#: camac/core/admin/inlines.py camac/notification/admin/inlines.py
-#: camac/user/admin/inlines.py
+#: camac/core/admin/inlines.py camac/instance/admin.py
+#: camac/notification/admin/inlines.py camac/user/admin/inlines.py
 msgid "Translation"
 msgstr "Traduction"
 
-#: camac/core/admin/inlines.py camac/notification/admin/inlines.py
-#: camac/user/admin/inlines.py
+#: camac/core/admin/inlines.py camac/instance/admin.py
+#: camac/notification/admin/inlines.py camac/user/admin/inlines.py
 msgid "Translations"
 msgstr "Traductions"
 
@@ -871,6 +871,10 @@ msgstr ""
 msgid "ECH Dossier submitted"
 msgstr "Dossier envoyé"
 
+#: camac/gever/apps.py
+msgid "GEVER"
+msgstr ""
+
 #: camac/gis/admin.py
 msgid "Disable selected GIS data sources"
 msgstr ""
@@ -1065,6 +1069,14 @@ msgid "Applicants emails"
 msgstr ""
 
 #: camac/instance/export/serializers.py
+msgid "Decision"
+msgstr "Décision"
+
+#: camac/instance/export/serializers.py
+msgid "Building project"
+msgstr "Projet de construction"
+
+#: camac/instance/export/serializers.py
 msgid "Administrative District"
 msgstr "Arrondissement administratif"
 
@@ -1077,10 +1089,6 @@ msgid "Arrival RSTA"
 msgstr "Reception préfecture"
 
 #: camac/instance/export/serializers.py
-msgid "Decision"
-msgstr "Décision"
-
-#: camac/instance/export/serializers.py
 msgid "SB1 submission date"
 msgstr "DC1 - date de dépôt"
 
@@ -1091,10 +1099,6 @@ msgstr "DC2 - date de dépôt"
 #: camac/instance/export/serializers.py
 msgid "Tags"
 msgstr "Mots-clés"
-
-#: camac/instance/export/serializers.py
-msgid "Building project"
-msgstr "Projet de construction"
 
 #: camac/instance/export/serializers.py
 msgid "Building permit type"
@@ -1468,6 +1472,26 @@ msgstr "delete_by_purpose n'a pas été fourni avec le paramètre requis"
 #: camac/objection/serializers.py
 msgid "Objection %(objection) already has a representative"
 msgstr "Objection %(objection) a déjà un représentant"
+
+#: camac/rulesets/serializers.py
+msgid "Municipalities and application types can't both be empty"
+msgstr ""
+
+#: camac/rulesets/serializers.py
+msgid "Municipalities and application types can't both be set"
+msgstr ""
+
+#: camac/rulesets/serializers.py
+msgid "User is not a member of this service"
+msgstr ""
+
+#: camac/rulesets/views.py
+msgid "`order` must include all IDs"
+msgstr ""
+
+#: camac/rulesets/views.py
+msgid "`order` contains inexistent IDs"
+msgstr ""
 
 #: camac/sanctions/serializers.py
 #, python-format

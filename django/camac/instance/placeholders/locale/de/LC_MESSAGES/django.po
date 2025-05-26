@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-14 18:45+0200\n"
+"POT-Creation-Date: 2025-06-03 09:58+0200\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -250,6 +250,7 @@ msgid "STREET"
 msgstr "STRASSE"
 
 #: camac/instance/placeholders/fields.py
+#: camac/instance/placeholders/serializers.py
 msgid "STREET_NUMBER"
 msgstr "HAUSNUMMER"
 
@@ -866,26 +867,6 @@ msgid "PUBLICATION_LINK"
 msgstr "PUBLIKATION_LINK"
 
 #: camac/instance/placeholders/serializers.py
-msgid "PUBLICATION_DATE"
-msgstr "PUBLIKATIONSDATUM"
-
-#: camac/instance/placeholders/serializers.py
-msgid "DOSSIER_COMPLETED_DATE"
-msgstr "DATUM_DOSSIER_VOLLSTAENDIG"
-
-#: camac/instance/placeholders/serializers.py
-msgid "REVIEW_BUILDING_COMMISSION"
-msgstr "DATUM_PRUEFUNG_DURCH_GEMEINDE"
-
-#: camac/instance/placeholders/serializers.py
-msgid "Review building commission"
-msgstr "Datum der Prüfung durch die Gemeinde"
-
-#: camac/instance/placeholders/serializers.py
-msgid "Dossier completed date"
-msgstr "Datum Dossier vollständig"
-
-#: camac/instance/placeholders/serializers.py
 msgid "Link to publication"
 msgstr "Link zur öffentlichen Auflage"
 
@@ -920,10 +901,6 @@ msgstr "Eigene Stellungnahmen"
 #: camac/instance/placeholders/serializers.py
 msgid "The street of the building site"
 msgstr "Die Strasse des Bauvorhabens"
-
-#: camac/instance/placeholders/serializers.py
-msgid "The street number of the building site"
-msgstr "Die Hausnummer des Bauvorhabens"
 
 #: camac/instance/placeholders/serializers.py
 msgid "TODAY"
@@ -2416,6 +2393,34 @@ msgid "Zone"
 msgstr "Zusammenzug von  Grundnutzung, überlagerte Nutzungen und Schutzobjekte"
 
 #: camac/instance/placeholders/serializers.py
+msgid "The street number of the building site"
+msgstr "Die Hausnummer des Bauvorhabens"
+
+#: camac/instance/placeholders/serializers.py
+msgid "DOSSIER_COMPLETED_DATE"
+msgstr "DATUM_DOSSIER_VOLLSTAENDIG"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Dossier completed date"
+msgstr "Datum Dossier vollständig"
+
+#: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_DATE"
+msgstr "PUBLIKATIONSDATUM"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Publication date"
+msgstr "Publikationsdatum"
+
+#: camac/instance/placeholders/serializers.py
+msgid "REVIEW_BUILDING_COMMISSION"
+msgstr "DATUM_PRUEFUNG_DURCH_GEMEINDE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Review building commission"
+msgstr "Datum der Prüfung durch die Gemeinde"
+
+#: camac/instance/placeholders/serializers.py
 msgid "Feedback of the invited services"
 msgstr "Rückmeldungen der eingeladenen Fachstellen"
 
@@ -2473,6 +2478,14 @@ msgid ""
 msgstr ""
 "Adresslinie 2 des/r Rechnungsempfänger/in falls vorhanden, ansonsten die des/"
 "r Gesuchsteller/in"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ALL_APPLICANTS_REFERENCE_NUMBER"
+msgstr "ALLE_GESUCHSTELLER_REFERENZNUMMER"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Reference numbers of all applicants"
+msgstr "Referenznummern aller Gesuchsteller/innen"
 
 #: camac/instance/placeholders/serializers.py
 msgid "RESPONSIBLE_AUTHORITY"
