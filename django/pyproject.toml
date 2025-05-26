@@ -257,6 +257,7 @@ omit = [
     "camac/core/management/commands/migrate_rejection_feedback_ur.py",
     "camac/core/management/commands/migrate_gwr_relevancy_tasks.py",
     "camac/core/management/commands/fix_sz_cancelled_archiving.py",
+    "camac/core/management/commands/migrate_oereb_answer_ur.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
