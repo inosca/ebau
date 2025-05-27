@@ -1,6 +1,7 @@
 rulesets:
   responsible-user:
     title: Zuständigkeit
+    info: Hier können Regeln für die automatische Zuteilung von Dossiers an bestimmte Sachbearbeiter/innen erstellt werden. Die Regeln für die Zuständigkeit können nach Dossiertyp (z.B. Baugesuch mit UVP, Reklame) und nach Gemeinde vergeben werden ("Gebietschema"). Die Liste funktioniert hierarchisch, das heisst die oberste Regel bestimmt die Zuständigkeit im Dossier. Es können somit Regeln zu Dossiertypen und Gemeinden kombiniert werden.
     new: Neue Zuständigkeitsregel hinzufügen
     edit: Zuständigkeitsregel bearbeiten
     responsible-user: Zuständige Person
