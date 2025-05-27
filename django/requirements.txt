@@ -17,7 +17,7 @@ django-excel==0.0.10
 # Not updated because of rest_framework_json_api still uses the deprecated
 # schema methods
 django-filter==24.3
-django-generic-api-permissions==1.0.0
+django-generic-api-permissions==1.0.1
 django-ipware==7.0.1
 django-json-widget==2.0.1
 django-presigned-url==0.1.1

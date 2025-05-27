@@ -50,12 +50,12 @@ def _configure_geometer_access(
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", lf("admin_user"), 17),
-        ("Reader", lf("user"), 17),
-        ("Canton", lf("user"), 17),
-        ("Municipality", lf("user"), 17),
-        ("Service", lf("user"), 17),
-        ("Geometer", lf("user"), 17),
+        ("Applicant", lf("admin_user"), 19),
+        ("Reader", lf("user"), 19),
+        ("Canton", lf("user"), 19),
+        ("Municipality", lf("user"), 18),
+        ("Service", lf("user"), 18),
+        ("Geometer", lf("user"), 19),
     ],
 )
 @pytest.mark.parametrize(

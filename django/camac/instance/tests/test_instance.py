@@ -35,16 +35,16 @@ from camac.permissions.models import InstanceACL
         (
             "Applicant",
             lf("admin_user"),
-            20,
+            29,
             1,
             {"instance", "form", "document"},
         ),
         # reader should see instances from other users but has no editables
-        ("Reader", lf("user"), 20, 1, set()),
-        ("Canton", lf("user"), 20, 1, {"form", "document"}),
-        ("Municipality", lf("user"), 21, 1, {"form", "document"}),
-        ("Service", lf("user"), 21, 1, {"form", "document"}),
-        ("Public", lf("user"), 2, 0, {}),
+        ("Reader", lf("user"), 29, 1, set()),
+        ("Canton", lf("user"), 26, 1, {"form", "document"}),
+        ("Municipality", lf("user"), 28, 1, {"form", "document"}),
+        ("Service", lf("user"), 28, 1, {"form", "document"}),
+        ("Public", lf("user"), 5, 0, {}),
     ],
 )
 def test_instance_list(
@@ -1632,7 +1632,7 @@ def test_instance_export_list(
     )
     add_field(name="bezeichnung", value="Bezeichnung")
 
-    with django_assert_num_queries(4):
+    with django_assert_num_queries(6):
         response = admin_client.get(
             url,
             data={
