@@ -3476,6 +3476,11 @@ GENERIC_PERMISSIONS_PERMISSION_CLASSES = [
 GENERIC_PERMISSIONS_VALIDATION_CLASSES = [
     "camac.alexandria.extensions.validations.CustomValidation"
 ]
+GENERIC_PERMISSIONS_BYPASS_VISIBILITIES = {
+    "alexandria_core.Category": ["children", "parent"],
+    "alexandria_core.Document": ["marks", "files", "category"],
+    "alexandria_core.File": ["original", "renderings", "document"],
+}
 
 # Celery
 REDIS_HOST = env.str("REDIS_HOST", default="redis")
