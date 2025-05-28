@@ -35,21 +35,12 @@ class CustomVisibility(InstanceQuerysetMixin):
 
         Return a list of instance identifiers.
         """
-        result = getattr(request, "_visibility_instances_cache", None)
-        if result is not None:  # pragma: no cover
-            return result
-
         self.request = request
-        filtered = CalumaInstanceFilterSet(
+        return CalumaInstanceFilterSet(
             data=filters(request),
             queryset=self.get_queryset(),
             request=request,
-        )
-
-        instance_ids = list(filtered.qs.values_list("pk", flat=True))
-
-        setattr(request, "_visibility_instances_cache", instance_ids)
-        return instance_ids
+        ).qs
 
     @filter_queryset_for(BaseModel)
     def filter_queryset_for_all(self, queryset, request):  # pragma: no cover
