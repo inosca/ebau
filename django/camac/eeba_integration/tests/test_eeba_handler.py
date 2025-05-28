@@ -30,7 +30,6 @@ def test_create_eeba_integration_success(
             "timeout": 30,
             "relation": {"type": ".eBau", "eBauId": gr_instance.pk},
         },
-        extra_headers={"Test-Authorization": None},
     )
 
 
@@ -400,8 +399,6 @@ def test_patch_eeba_integration_success(
             "relation": {"type": ".eBau", "eBauId": "new-123"},
         },
         uuid=integration_value,
-        # TODO: Cleanup
-        extra_headers={"Test-Authorization": None},
     )
 
 

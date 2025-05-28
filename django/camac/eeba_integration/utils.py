@@ -5,6 +5,7 @@ from caluma.caluma_core.exceptions import ConfigurationError
 from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Answer, Question
 from caluma.caluma_form.validators import CustomValidationError
+from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
@@ -70,3 +71,18 @@ def extract_integration_id(response):
             integration_id = None
 
     return integration_id
+
+
+def exchange_token(session, subject_token):
+    data = [
+        ("grant_type", "urn:ietf:params:oauth:grant-type:token-exchange"),
+        ("client_id", settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT),
+        ("client_secret", settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT_SECRET),
+        ("subject_token", subject_token),
+        ("subject_token_type", "urn:ietf:params:oauth:token-type:access_token"),
+        ("requested_token_type", "urn:ietf:params:oauth:token-type:access_token"),
+        ("scope", f"openid {settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE}"),
+    ]
+    resp = session.post(settings.KEYCLOAK_OIDC_TOKEN_URL, data=data)
+    resp.raise_for_status()
+    return resp.json()["access_token"]

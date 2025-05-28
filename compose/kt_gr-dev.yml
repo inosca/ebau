@@ -132,6 +132,8 @@ services:
       - KC_HOSTNAME=ebau-keycloak.localhost
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=camac
+      - KC_SPI_OAUTH2_TOKEN_EXCHANGE_DEFAULT_PROVIDER=standard
+      - KC_SPI_OAUTH2_TOKEN_EXCHANGE_EBAU_ENABLED=false
     networks:
       - ebau.localhost
     command:

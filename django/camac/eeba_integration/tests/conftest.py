@@ -13,7 +13,7 @@ def override_eeba_base_url(settings):
 def patch_get_authorization_header(mocker):
     mocker.patch(
         "camac.eeba_integration.client.get_authorization_header",
-        return_value="dummy_auth_token",
+        return_value="Bearer dummy_auth_token",
     )
 
 
@@ -43,10 +43,10 @@ def clean_eeba_answers(gr_instance):
 
 @pytest.fixture
 def client():
-    auth_token = "test_auth_token"
+    auth_header = "Bearer test_auth_token"
     shared_secret = "test_shared_secret"
     base_url = "http://example.com"
-    return EebaClient(auth_token, shared_secret, base_url)
+    return EebaClient(auth_header, shared_secret, base_url)
 
 
 @pytest.fixture
@@ -87,3 +87,11 @@ def eeba_handler_instance(db, dummy_request, gr_instance, client):
     handler = EebaHandler(dummy_request, gr_instance)
     handler.eeba_client = client
     return handler
+
+
+@pytest.fixture(autouse=True)
+def patch_exchange_token(mocker):
+    mocker.patch(
+        "camac.eeba_integration.client.utils.exchange_token",
+        return_value="dummy_exchanged_token",
+    )

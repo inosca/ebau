@@ -21,17 +21,26 @@ logger = logging.getLogger(__name__)
 class EebaClient:
     def __init__(
         self,
-        auth_token,
+        auth_header,
         shared_secret=settings.EEBA_SHARED_SECRET,
         base_url=settings.EEBA_BASE_URL,
     ):
         self.base_url = base_url
         self.session = requests.Session()
+
+        # Extract token
+        _, raw_token = auth_header.split()
+
+        # Exchange it once for our scoped token
+        exchanged = utils.exchange_token(self.session, raw_token)
+
+        # Use the exchanged token for eEBA calls
         self.default_headers = {
+            "Authorization": f"Bearer {exchanged}",
             "X-EBAU-EEBA-SECRET": shared_secret,
-            "Authorization": auth_token,
             "Content-Type": "application/json",
         }
+
         self.endpoints = {
             "create_resource": {"method": "POST", "path": "/integrations/"},
             "update_resource": {"method": "PATCH", "path": "/integrations/{uuid}"},
@@ -62,9 +71,6 @@ class EebaClient:
         headers = self.default_headers.copy()
         if extra_headers:
             extra_headers = extra_headers.copy()
-            # TODO: Cleanup
-            if test_authorization := extra_headers.pop("Test-Authorization", None):
-                headers["Authorization"] = test_authorization  # pragma: no cover
             headers.update(extra_headers)
 
         method_handlers = {
@@ -90,9 +96,9 @@ class EebaHandler:
     def __init__(self, request, instance):
         self.request = request
         self.instance = instance
+        self.auth_header = get_authorization_header(request)
         self.state_manager = EebaIntegrationState(instance.case.document)
-        self.auth_token = get_authorization_header(request)
-        self.eeba_client = EebaClient(self.auth_token)
+        self.eeba_client = EebaClient(self.auth_header)
 
     def create_eeba_integration(self, timeout):
         data = {
@@ -102,12 +108,10 @@ class EebaHandler:
                 "eBauId": self.instance.pk,
             },
         }
+
         create_response = self.eeba_client.make_request(
             action="create_resource",
             data=data,
-            extra_headers={
-                "Test-Authorization": self.request.headers.get("Test-Authorization")
-            },
         )
         integration_id = utils.extract_integration_id(create_response)
         if not integration_id:
@@ -146,17 +150,14 @@ class EebaHandler:
 
         Return updated state, required, and web_url answer values.
         """
-        # TODO: Cleanup
-        extra_headers = {
-            "Test-Authorization": self.request.headers.get("Test-Authorization")
-        }
         current_state_value = self.state_manager.get_state()
 
         action = "rerun" if current_state_value in ("completed", "rerun") else "retry"
 
         try:
             self.eeba_client.make_request(
-                action, uuid=integration_id, extra_headers=extra_headers
+                action,
+                uuid=integration_id,
             )
             return self.get_eeba_needed(integration_id, timeout)
 
@@ -246,10 +247,8 @@ class EebaHandler:
         Return a tuple (state_answer, required_answer, web_url_answer)
         """
         language = self.request.headers.get("Accept-Language", "de")
-        # TODO: Cleanup
         extra_headers = {
             "Accept-Language": language,
-            "Test-Authorization": self.request.headers.get("Test-Authorization"),
         }
 
         response_data = self.poll_action(
@@ -289,15 +288,11 @@ class EebaHandler:
                 "eBauId": new_instance_id,
             },
         }
-        # TODO: Cleanup
-        extra_headers = {
-            "Test-Authorization": self.request.headers.get("Test-Authorization")
-        }
+
         response = self.eeba_client.make_request(
             action="update_resource",
             data=data,
             uuid=integration_id,
-            extra_headers=extra_headers,
         )
 
         logger.info(

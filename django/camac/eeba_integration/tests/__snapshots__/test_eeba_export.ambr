@@ -1,10 +1,15 @@
 # serializer version: 1
-# name: test_eeba_export[kt_gr-gr_master_data_case--403-Applicant-admin_user]
+# name: test_eeba_export[kt_gr-gr_master_data_case--eeba-export-403-Applicant-admin_user]
   dict({
     'detail': 'Invalid or missing X-EBAU-EEBA-SECRET header.',
   })
 # ---
-# name: test_eeba_export[kt_gr-gr_master_data_case-shared_secret-200-Applicant-admin_user]
+# name: test_eeba_export[kt_gr-gr_master_data_case-shared_secret--403-Applicant-admin_user]
+  dict({
+    'detail': 'Sie sind nicht berechtigt diese Aktion durchzuführen.',
+  })
+# ---
+# name: test_eeba_export[kt_gr-gr_master_data_case-shared_secret-eeba-export-200-Applicant-admin_user]
   dict({
     'applicant': dict({
       'city': 'Testingen',
@@ -62,7 +67,7 @@
       'zip': 3600,
     }),
     'readOnly': True,
-    'statusName': 'David Rangel',
+    'statusName': 'Pamela Horton',
     'volumes': dict({
       'deconstructionMaterial': None,
       'excavation': None,
@@ -74,7 +79,7 @@
     }),
   })
 # ---
-# name: test_eeba_export[kt_so-so_master_data_case-shared_secret-403-Applicant-admin_user]
+# name: test_eeba_export[kt_so-so_master_data_case-shared_secret-eeba-export-403-Applicant-admin_user]
   dict({
     'detail': 'Sie sind nicht berechtigt diese Aktion durchzuführen.',
   })

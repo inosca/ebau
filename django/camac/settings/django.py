@@ -3082,6 +3082,17 @@ KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
 KEYCLOAK_SCOPES = env.str("KEYCLOAK_SCOPES", default="openid email")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
 KEYCLOAK_PORTAL_CLIENT = env.str("KEYCLOAK_PORTAL_CLIENT", default="portal")
+KEYCLOAK_EEBA_CLIENT = env.str("KEYCLOAK_EEBA_CLIENT", default="eeba")
+KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT = env.str(
+    "KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT", default="eeba-token-exchange"
+)
+KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT_SECRET = env.str(
+    "KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT_SECRET",
+    default="FNVoLgpLjowJGYCQoBLLiZAq2CCpRod9",
+)
+KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE = env.str(
+    "KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE", default="eeba-export"
+)
 
 # Client used by PHP to do privileged actions
 KEYCLOAK_CAMAC_ADMIN_CLIENT = env.str(

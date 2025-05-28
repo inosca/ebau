@@ -8,8 +8,8 @@ from camac.caluma.extensions.permissions import CustomPermission
 from camac.eeba_integration.client import EebaHandler
 from camac.eeba_integration.exceptions import handle_view_exceptions
 from camac.eeba_integration.permissions import (
+    HasEebaExportPermission,
     HasEebaPermission,
-    HasEebaSharedSecretPermission,
 )
 from camac.eeba_integration.serializers import EebaExportSerializer
 from camac.instance.mixins import InstanceQuerysetMixin
@@ -19,9 +19,12 @@ from camac.permissions import api as permissions_api
 
 class EebaExportView(InstanceQuerysetMixin, RetrieveAPIView):
     queryset = Instance.objects.select_related("case")
-    permission_classes = [HasEebaSharedSecretPermission]
+    permission_classes = [
+        HasEebaExportPermission,
+    ]
     renderer_classes = [JSONRenderer]
     instance_field = None
+    allow_external_clients = True
 
     def get(self, request, *args, **kwargs):
         """Export instance data for eEBA integration."""
