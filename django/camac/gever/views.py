@@ -2,7 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from rest_framework import status
 from rest_framework.generics import CreateAPIView
 
-from camac.gever.constants import ALL_AGR_SERVICE_SLUGS
+from camac.gever.utils import get_all_agr_service_slugs
 
 from ..instance.models import Instance
 from .api import GeverAPI
@@ -10,7 +10,7 @@ from .api import GeverAPI
 
 class GeverSyncView(CreateAPIView):
     def create(self, request, **kwargs):
-        if request.group.service.slug not in ALL_AGR_SERVICE_SLUGS:
+        if request.group.service.slug not in get_all_agr_service_slugs():
             return HttpResponse(status=status.HTTP_403_FORBIDDEN)
 
         # TODO: this should go throught the visibility layer instead

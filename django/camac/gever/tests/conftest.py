@@ -13,10 +13,6 @@ from camac.core import utils as core_utils
 from camac.gever import apimodels
 from camac.gever.api import GeverAPI
 from camac.gever.client import Endpoint, GEVERClient
-from camac.gever.constants import (
-    AGR_SERVICE_SLUG_BAUEN,
-    AGR_SERVICE_SLUG_SHOOTING_NOISE,
-)
 
 
 @pytest.fixture(scope="module")
@@ -191,8 +187,12 @@ def be_gever_task(settings):
 
 @pytest.fixture
 def gever_groups(group_factory, be_gever_settings):
-    agr_group_main = group_factory(service__slug=AGR_SERVICE_SLUG_BAUEN)
-    agr_group_shooting = group_factory(service__slug=AGR_SERVICE_SLUG_SHOOTING_NOISE)
+    agr_group_main = group_factory(
+        service__slug=settings.GEVER["AGR_SERVICE_SLUG_BAUEN"]
+    )
+    agr_group_shooting = group_factory(
+        service__slug=settings.GEVER["AGR_SERVICE_SLUG_SHOOTING_NOISE"]
+    )
 
     return (agr_group_main, agr_group_shooting)
 

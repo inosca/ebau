@@ -1,8 +1,9 @@
 import datetime
 
 import pytest
+from django.conf import settings
 
-from camac.gever import apimodels, constants, models
+from camac.gever import apimodels, models
 from camac.gever.client import GEVERClient
 
 
@@ -43,4 +44,4 @@ def test_template_paths(gever_config_data):
         .values_list("slug", flat=True)
     )
 
-    assert sorted(constants.GESCHAEFT_TEMPLATES) == slugs
+    assert sorted(settings.GEVER["GESCHAEFT_TEMPLATES"].values()) == slugs

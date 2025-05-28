@@ -5,8 +5,9 @@ import typing
 import uuid
 from logging import getLogger
 
+from django.conf import settings
+
 from camac.document.views import AttachmentView
-from camac.gever import constants
 from camac.instance.master_data import MasterData
 from camac.user.models import Group
 
@@ -15,10 +16,9 @@ if typing.TYPE_CHECKING:  # pragma: no cover
     from camac.instance.models import Instance
 
 
-from camac.gever.constants import ALL_AGR_SERVICE_SLUGS
+from camac.gever.utils import get_all_agr_service_slugs
 
 from . import apimodels, client, models
-from .constants import AGR_SERVICE_SLUG_BAUEN
 
 log = getLogger(__name__)
 
@@ -122,7 +122,9 @@ class GeverAPI:
                 "agr-erledigungsart-auswahl"
             ),
             customGrundbucheintrag=self.mapping.mapped_answer("agr-grundbucheintrag"),
-            customVerfahrensstand=self._verfahrensstand(constants.VERFAHRENSSTAND_OPEN),
+            customVerfahrensstand=self._verfahrensstand(
+                settings.GEVER["VERFAHRENSSTAND_OPEN"]
+            ),
             customKoordinatenX=self.mapping.gever_answerdata.get("agr-koordinate-ost"),
             customKoordinatenY=self.mapping.gever_answerdata.get("agr-koordinate-nord"),
             customParzellen=self.mapping.gever_answerdata.get("agr-parzellen"),
@@ -271,7 +273,7 @@ class GeverAPI:
         # This (ab)uses the AttachmentView to get the visible documents
         res = {}
         av = AttachmentView()
-        for service_slug in ALL_AGR_SERVICE_SLUGS:
+        for service_slug in get_all_agr_service_slugs():
             av.request = GeverAPI._fake_request(
                 group=Group.objects.get(service__slug=service_slug)
             )
@@ -406,7 +408,7 @@ class InstanceGeschaeftMapping:
 
     def dossier_type_short(self):
         """Return "VA" or "BG" depending on dossier type."""
-        return constants.INSTANCE_TYPE_SHORT[self.dossier_type()]
+        return settings.GEVER["INSTANCE_TYPE_SHORT"][self.dossier_type()]
 
     def dossier_type(self):
         return self.instance.case.document.form.name.de
@@ -416,19 +418,20 @@ class InstanceGeschaeftMapping:
         # TODO: This is currently incomplete (but not yet specified), as the
         # client noted that there are four additional variants for "Schiesslärm"
         # as well that we didn't know about before
+        templates = settings.GEVER["GESCHAEFT_TEMPLATES"]
 
         template_defs = {
             "BG": {
-                "municipality": constants.TEMPLATE_GESCHAEFT_EBAU_BG_GEMEINDE,
-                "rsta": constants.TEMPLATE_GESCHAEFT_EBAU_BG_RSTA,
+                "municipality": templates["TEMPLATE_GESCHAEFT_EBAU_BG_GEMEINDE"],
+                "rsta": templates["TEMPLATE_GESCHAEFT_EBAU_BG_RSTA"],
             },
             "PÄ": {
-                "municipality": constants.TEMPLATE_GESCHAEFT_EBAU_BG_GEMEINDE,
-                "rsta": constants.TEMPLATE_GESCHAEFT_EBAU_BG_RSTA,
+                "municipality": templates["TEMPLATE_GESCHAEFT_EBAU_BG_GEMEINDE"],
+                "rsta": templates["TEMPLATE_GESCHAEFT_EBAU_BG_RSTA"],
             },
             "VA": {
-                "municipality": constants.TEMPLATE_GESCHAEFT_EBAU_VA_GEMEINDE,
-                "rsta": constants.TEMPLATE_GESCHAEFT_EBAU_VA_RSTA,
+                "municipality": templates["TEMPLATE_GESCHAEFT_EBAU_VA_GEMEINDE"],
+                "rsta": templates["TEMPLATE_GESCHAEFT_EBAU_VA_RSTA"],
             },
         }
         dossier_type = str(self.dossier_type_short())
@@ -483,7 +486,7 @@ class InstanceGeschaeftMapping:
         # TODO: This should match one of the AGR groups (as of now,
         # the main AGR group; later: shooting noise group as well)
         responsible = self.instance.responsible_services.filter(
-            service__slug=AGR_SERVICE_SLUG_BAUEN
+            service__slug=settings.GEVER["AGR_SERVICE_SLUG_BAUEN"]
         ).first()
 
         if not responsible:

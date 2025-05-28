@@ -3,17 +3,12 @@ from caluma.caluma_form.models import Document
 from caluma.caluma_workflow.events import (
     post_resume_work_item,
 )
-from caluma.caluma_workflow.models import Task, WorkItem
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
 
 from camac.caluma.api import CalumaApi
-from camac.gever.constants import (
-    AGR_SERVICE_SLUG_BAUEN,
-    GEVER_TASK_SLUG,
-    INSTANCE_TYPE_SHORT,
-)
-from camac.gever.utils import is_agr_addressed
+from camac.gever.utils import get_gever_task, is_agr_addressed
 from camac.instance.master_data import MasterData
 from camac.user.models import Service
 
@@ -31,9 +26,9 @@ def post_resume_inquiry_for_gever(
     if case.work_items.filter(task_id="gever").exists():
         return  # "gever" work-item already exists
 
-    task = Task.objects.get(pk=GEVER_TASK_SLUG)
+    task = get_gever_task()
 
-    agr_service = Service.objects.get(slug=AGR_SERVICE_SLUG_BAUEN)
+    agr_service = Service.objects.get(slug=settings.GEVER["AGR_SERVICE_SLUG_BAUEN"])
 
     gever_work_item = WorkItem.objects.create(
         task=task,
@@ -74,7 +69,7 @@ def post_resume_inquiry_for_gever(
 def has_preliminary_clarification(instance):  # pragma: no cover
     for link in instance.get_linked_instances():
         document = link.case.document
-        instance_type = INSTANCE_TYPE_SHORT[document.form.name.de]
+        instance_type = settings.GEVER["INSTANCE_TYPE_SHORT"][document.form.name.de]
         if instance_type == "VA":
             return True
 
@@ -83,7 +78,7 @@ def has_preliminary_clarification(instance):  # pragma: no cover
 
 def create_agr_title(master_data):  # pragma: no cover
     document = master_data.case.document
-    instance_type = INSTANCE_TYPE_SHORT[document.form.name.de]
+    instance_type = settings.GEVER["INSTANCE_TYPE_SHORT"][document.form.name.de]
     gemeinde = master_data.municipality_name
     ebau_nr = master_data.dossier_number
     street = master_data.street
