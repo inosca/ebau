@@ -8,8 +8,8 @@ export default {
     billingType: false,
     legalBasis: false,
     costCenter: false,
-    releaseForClearing: true,
-    productNumber: true,
+    releaseForClearing: false,
+    productNumber: false,
   },
   cases: {
     createPaper: false,
