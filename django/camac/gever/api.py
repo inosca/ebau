@@ -271,12 +271,19 @@ class GeverAPI:
     def get_documents_to_sync(self):
         """Return a list of all the document-module attachments to be copied."""
         # This (ab)uses the AttachmentView to get the visible documents
-        res = {}
         av = AttachmentView()
+        all_groups = {}
         for service_slug in get_all_agr_service_slugs():
-            av.request = GeverAPI._fake_request(
-                group=Group.objects.get(service__slug=service_slug)
+            all_groups.update(
+                {
+                    grp.pk: grp
+                    for grp in Group.objects.filter(service__slug=service_slug)
+                }
             )
+
+        res = {}
+        for group in all_groups.values():
+            av.request = GeverAPI._fake_request(group=group)
             res.update(
                 {
                     doc.pk: doc
