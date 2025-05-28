@@ -82,7 +82,10 @@
 # ---
 # name: test_swagger_paths[kt_uri]
   list([
-    '/public-caluma-instances',
+    '/v1/attachments',
+    '/v1/attachments/files/',
+    '/v1/attachments/{attachment_id}',
+    '/v1/public-caluma-instances',
   ])
 # ---
 # name: test_swagger_paths[test]

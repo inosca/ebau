@@ -2659,6 +2659,7 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     form_type = serializers.SerializerMethodField()
     form_description = serializers.SerializerMethodField()
     authority = serializers.SerializerMethodField()
+    linked_instances = serializers.SerializerMethodField()
 
     def get_master_data(self, case):
         request = self.context["request"]
@@ -2754,6 +2755,11 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
 
     def get_dossier_nr(self, case):
         return self.get_master_data(case).dossier_number
+
+    def get_linked_instances(self, obj):
+        if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
+            return obj.instance.get_linked_instances().values_list("pk", flat=True)
+        return []
 
     class Meta:
         model = workflow_models.Case

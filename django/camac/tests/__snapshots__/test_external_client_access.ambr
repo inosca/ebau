@@ -108,6 +108,9 @@
   list([
     'get:/api/redoc/',
     'get:/api/swagger/',
+    'get:/api/v1/attachments',
+    'get:/api/v1/attachments/files/',
     'get:/api/v1/public-caluma-instances',
+    'post:/api/v1/attachments',
   ])
 # ---

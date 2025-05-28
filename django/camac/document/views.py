@@ -204,9 +204,9 @@ class AttachmentView(
     @classmethod
     def include_in_swagger(cls):
         return (
-            bool(settings.ECH0211)
-            and settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
-        )
+            # This endpoint is used by UR for the öreb dossiers
+            bool(settings.ECH0211) or settings.APPLICATION_NAME == "kt_uri"
+        ) and settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
 
     def has_object_destroy_permission(self, attachment):
         perms = permissions.SectionPermissions(self.permissions_manager())
@@ -385,7 +385,8 @@ class AttachmentDownloadView(
     @classmethod
     def include_in_swagger(cls):
         return (
-            bool(settings.ECH0211)
+            # This endpoint is used by UR for the öreb dossiers
+            (bool(settings.ECH0211) or settings.APPLICATION_NAME == "kt_uri")
             and settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
         )
 
