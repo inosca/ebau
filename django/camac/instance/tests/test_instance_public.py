@@ -169,7 +169,7 @@ def test_public_caluma_instance_ur(
 @pytest.mark.parametrize(
     "is_oereb_form,instance_state__name,num_queries,is_visible",
     [
-        (True, "comm", 17, True),
+        (True, "comm", 21, True),
         (False, "comm", 1, False),
         (True, "new", 3, False),
         (True, "new_portal", 3, False),
@@ -186,12 +186,15 @@ def test_public_caluma_instance_oereb_ur(
     form_factory,
     user_group_factory,
     group_factory,
+    instance_factory,
+    instance_group_factory,
     role,
     utils,
     is_oereb_form,
     master_data_is_visible_mock,
 ):
     settings.APPLICATION_NAME = "kt_uri"
+    application_settings["SHORT_NAME"] = "ur"
     application_settings["INSTANCE_HIDDEN_STATES"] = settings.APPLICATIONS["kt_uri"][
         "INSTANCE_HIDDEN_STATES"
     ]
@@ -239,6 +242,12 @@ def test_public_caluma_instance_oereb_ur(
         question_type=Question.TYPE_CHOICE,
     )
 
+    instance_group = instance_group_factory()
+    linked_instance_1 = instance_factory(instance_group=instance_group)
+    linked_instance_2 = instance_factory(instance_group=instance_group)
+    ur_instance.instance_group = instance_group
+    ur_instance.save()
+
     url = reverse("public-caluma-instance-list")
 
     with django_assert_num_queries(num_queries):
@@ -255,6 +264,10 @@ def test_public_caluma_instance_oereb_ur(
         assert result[0]["attributes"]["legal-state"] == "typ-des-verfahrens-meldung"
         assert result[0]["attributes"]["dossier-nr"] == "1201-20-001"
         assert result[0]["attributes"]["authority"] == "Leitbehörde Altdorf"
+        assert result[0]["attributes"]["linked-instances"] == [
+            linked_instance_1.pk,
+            linked_instance_2.pk,
+        ]
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
