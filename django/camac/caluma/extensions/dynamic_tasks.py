@@ -208,7 +208,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
             "complete-check-vollstaendigkeitspruefung-complete",
             "complete-check-vollstaendigkeitspruefung-incomplete",
             "complete-check-vollstaendigkeitspruefung-incomplete-wait",
-        ]:
+        ] and case.document.form.slug.startswith("building-permit"):
             tasks.append("check-gwr-relevancy")
 
         return tasks
