@@ -73,13 +73,15 @@
               </td>
             {{/each}}
           </tr>
-        {{else}}{{#unless this.casesQuery.isLoading}}
+        {{else}}
+          {{#unless this.casesQuery.isLoading}}
             <tr>
               <td colspan={{this.tableColumns.length}} class="uk-text-center">
                 {{t "global.empty"}}
               </td>
             </tr>
-          {{/unless}}{{/each}}
+          {{/unless}}
+        {{/each}}
 
         {{#if this.casesQuery.isLoading}}
           <tr>
