@@ -1,95 +1,11 @@
-<table class="uk-table uk-table-striped uk-table-hover">
-  <thead>
-    <tr>
-      {{#each this.tableColumns as |tColumn|}}
-        <CaseTable::Header
-          @column={{tColumn}}
-          @currentOrder={{@order}}
-          @onSetOrder={{@onSetOrder}}
-        />
-      {{/each}}
-    </tr>
-  </thead>
-  <tbody>
-    {{#if this.showEntries}}
-      {{#each this.casesQuery.value as |node|}}
-        <tr
-          role="link"
-          class="pointer
-            {{if
-              node.activationWarning
-              (concat 'activation-warning-row ' node.activationWarning)
-            }}"
-          {{on "click" (fn this.redirectToCase node)}}
-        >
-          {{#each this.tableColumns as |tColumn|}}
-            <td
-              class="{{if (eq tColumn.name 'dossierNumber') 'uk-text-nowrap'}}
-                {{if
-                  (eq tColumn.name 'intent')
-                  'uk-text-truncate uk-table-expand'
-                }}
-                {{if
-                  (includes tColumn.name (array 'applicants' 'address'))
-                  'uk-text-break'
-                }}
-                "
-              title={{if
-                (eq tColumn.name "instanceState")
-                (get node "instanceStateDescription")
-              }}
-            >
-              {{#if (eq tColumn.name "applicant")}}
-                {{get node (concat tColumn.name ".name")}}
-              {{else}}
-                {{get node tColumn.name}}
-              {{/if}}
-            </td>
-          {{/each}}
-        </tr>
-      {{else}}
-        <tr>
-          <td colspan={{this.tableColumns.length}} class="uk-text-center">
-            {{#if this.casesQuery.isLoading}}
-              <UkSpinner />
-            {{else}}
-              {{t "global.empty"}}
-            {{/if}}
-          </td>
-        </tr>
-      {{/each}}
-
-      {{#if this.casesQuery.hasNextPage}}
-        <tr>
-          <td colspan={{this.tableColumns.length}} class="uk-text-center">
-            {{#if this.casesQuery.isLoading}}
-              <UkSpinner @ratio="0.5" />
-            {{else}}
-              <button
-                type="button"
-                class="uk-button uk-button-link"
-                {{on "click" this.casesQuery.fetchMore}}
-              >
-                {{t "global.loadMore"}}
-              </button>
-            {{/if}}
-          </td>
-        </tr>
-      {{/if}}
-    {{else}}
-      <tr>
-        <td colspan={{this.tableColumns.length}} class="uk-text-center">
-          {{t "cases.no-filters"}}
-        </td>
-      </tr>
-    {{/if}}
-  </tbody>
-</table>
-
 {{#if (and this.showEntries this.casesQuery.value.length)}}
-  <div class="uk-margin" uk-grid>
+  <div uk-grid>
+    <PaginationInfo
+      @query={{this.casesQuery}}
+      class="uk-text-right uk-margin-small-left uk-margin-remove-bottom"
+    />
     {{#if (has-feature "cases.exportExcel")}}
-      <div>
+      <div class="uk-width-expand uk-text-right">
         <a
           href=""
           class="uk-link-text uk-margin-small-right"
@@ -104,9 +20,85 @@
         </a>
       </div>
     {{/if}}
-    <PaginationInfo
-      @query={{this.casesQuery}}
-      class="uk-width-expand uk-margin-remove"
-    />
   </div>
 {{/if}}
+
+<div uk-height-viewport="offset-bottom: 20">
+  <table class="uk-table uk-table-striped uk-table-hover">
+    <thead>
+      <tr>
+        {{#each this.tableColumns as |tColumn|}}
+          <CaseTable::Header
+            @column={{tColumn}}
+            @currentOrder={{@order}}
+            @onSetOrder={{@onSetOrder}}
+          />
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#if this.showEntries}}
+        {{#each this.casesQuery.value as |node|}}
+          <tr
+            role="link"
+            class="pointer
+              {{if
+                node.activationWarning
+                (concat 'activation-warning-row ' node.activationWarning)
+              }}"
+            {{on "click" (fn this.redirectToCase node)}}
+          >
+            {{#each this.tableColumns as |tColumn|}}
+              <td
+                class="{{if (eq tColumn.name 'dossierNumber') 'uk-text-nowrap'}}
+                  {{if
+                    (eq tColumn.name 'intent')
+                    'uk-text-truncate uk-table-expand'
+                  }}
+                  {{if
+                    (includes tColumn.name (array 'applicants' 'address'))
+                    'uk-text-break'
+                  }}
+                  "
+                title={{if
+                  (eq tColumn.name "instanceState")
+                  (get node "instanceStateDescription")
+                }}
+              >
+                {{#if (eq tColumn.name "applicant")}}
+                  {{get node (concat tColumn.name ".name")}}
+                {{else}}
+                  {{get node tColumn.name}}
+                {{/if}}
+              </td>
+            {{/each}}
+          </tr>
+        {{else}}{{#unless this.casesQuery.isLoading}}
+            <tr>
+              <td colspan={{this.tableColumns.length}} class="uk-text-center">
+                {{t "global.empty"}}
+              </td>
+            </tr>
+          {{/unless}}{{/each}}
+
+        {{#if this.casesQuery.isLoading}}
+          <tr>
+            <td colspan={{this.tableColumns.length}} class="uk-text-center">
+              <UkSpinner />
+            </td>
+          </tr>
+        {{else if this.casesQuery.hasNextPage}}
+          <tr
+            {{in-viewport onEnter=this.casesQuery.fetchMore viewportSpy=true}}
+          ></tr>
+        {{/if}}
+      {{else}}
+        <tr>
+          <td colspan={{this.tableColumns.length}} class="uk-text-center">
+            {{t "cases.no-filters"}}
+          </td>
+        </tr>
+      {{/if}}
+    </tbody>
+  </table>
+</div>
