@@ -8,32 +8,37 @@ from django.conf import settings
 from django.db import transaction
 
 from camac.caluma.api import CalumaApi
-from camac.gever.constants import INSTANCE_TYPE_SHORT
+from camac.gever.constants import (
+    AGR_SERVICE_SLUG_BAUEN,
+    GEVER_TASK_SLUG,
+    INSTANCE_TYPE_SHORT,
+)
+from camac.gever.utils import is_agr_addressed
 from camac.instance.master_data import MasterData
-
-# TODO: implement tests for GEVER, chicken-egg problem
+from camac.user.models import Service
 
 
 @on(post_resume_work_item, raise_exception=True)
+@filter_events(lambda: settings.GEVER.get("ENABLED"))
 @filter_events(lambda work_item: work_item.task_id == "inquiry")
+@filter_events(is_agr_addressed)
 @transaction.atomic
 def post_resume_inquiry_for_gever(
     sender, work_item, user, context=None, **kwargs
 ):  # pragma: no cover
-    if not settings.GEVER.get("ENABLED"):
-        return
-
     case = work_item.case.family
 
     if case.work_items.filter(task_id="gever").exists():
         return  # "gever" work-item already exists
 
-    task = Task.objects.get(pk="gever")
+    task = Task.objects.get(pk=GEVER_TASK_SLUG)
+
+    agr_service = Service.objects.get(slug=AGR_SERVICE_SLUG_BAUEN)
 
     gever_work_item = WorkItem.objects.create(
         task=task,
         name=task.name,
-        addressed_groups=settings.GEVER["AGR_GROUPS"],
+        addressed_groups=[str(agr_service.pk)],
         case=case,
         status=WorkItem.STATUS_READY,
         document=Document.objects.create_document_for_task(task, None),

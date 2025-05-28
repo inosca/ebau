@@ -38,6 +38,13 @@ VERFAHRENSSTAND_OPEN = "verfahrensstand-open"
 HERKUNFT_MUNICIPALITY = "herkunft-gemeinde"
 HERKUNFT_RSTA = "herkunft-rsta"
 
+# Service slugs
+AGR_SERVICE_SLUG_BAUEN = "agr-bauen"
+AGR_SERVICE_SLUG_SHOOTING_NOISE = "agr-schiesslaerm"
+ALL_AGR_SERVICE_SLUGS = [AGR_SERVICE_SLUG_BAUEN, AGR_SERVICE_SLUG_SHOOTING_NOISE]
+
+GEVER_TASK_SLUG = "gever"
+
 INSTANCE_TYPE_SHORT = {
     "Einfache Vorabklärung": "VA",
     "Vollständige Vorabklärung": "VA",

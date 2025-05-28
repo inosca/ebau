@@ -5,8 +5,6 @@ import typing
 import uuid
 from logging import getLogger
 
-from django.conf import settings
-
 from camac.document.views import AttachmentView
 from camac.gever import constants
 from camac.instance.master_data import MasterData
@@ -16,7 +14,11 @@ if typing.TYPE_CHECKING:  # pragma: no cover
     from camac.document.models import Attachment
     from camac.instance.models import Instance
 
+
+from camac.gever.constants import ALL_AGR_SERVICE_SLUGS
+
 from . import apimodels, client, models
+from .constants import AGR_SERVICE_SLUG_BAUEN
 
 log = getLogger(__name__)
 
@@ -267,13 +269,12 @@ class GeverAPI:
     def get_documents_to_sync(self):
         """Return a list of all the document-module attachments to be copied."""
         # This (ab)uses the AttachmentView to get the visible documents
-        all_agr_groups = (
-            settings.GEVER["AGR_GROUPS"] + settings.GEVER["AGR_SHOOTING_GROUPS"]
-        )
         res = {}
         av = AttachmentView()
-        for group in all_agr_groups:
-            av.request = GeverAPI._fake_request(group=Group.objects.get(pk=group))
+        for service_slug in ALL_AGR_SERVICE_SLUGS:
+            av.request = GeverAPI._fake_request(
+                group=Group.objects.get(service__slug=service_slug)
+            )
             res.update(
                 {
                     doc.pk: doc
@@ -482,8 +483,9 @@ class InstanceGeschaeftMapping:
         # TODO: This should match one of the AGR groups (as of now,
         # the main AGR group; later: shooting noise group as well)
         responsible = self.instance.responsible_services.filter(
-            service__groups__in=settings.GEVER["AGR_GROUPS"]
+            service__slug=AGR_SERVICE_SLUG_BAUEN
         ).first()
+
         if not responsible:
             # This happens if AGR didn't define a responsible person
             # before triggering the sync

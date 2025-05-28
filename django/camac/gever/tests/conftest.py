@@ -13,6 +13,10 @@ from camac.core import utils as core_utils
 from camac.gever import apimodels
 from camac.gever.api import GeverAPI
 from camac.gever.client import Endpoint, GEVERClient
+from camac.gever.constants import (
+    AGR_SERVICE_SLUG_BAUEN,
+    AGR_SERVICE_SLUG_SHOOTING_NOISE,
+)
 
 
 @pytest.fixture(scope="module")
@@ -187,11 +191,8 @@ def be_gever_task(settings):
 
 @pytest.fixture
 def gever_groups(group_factory, be_gever_settings):
-    agr_group_main = group_factory()
-    agr_group_shooting = group_factory()
-
-    be_gever_settings["AGR_GROUPS"] = [agr_group_main.pk]
-    be_gever_settings["AGR_SHOOTING_GROUPS"] = [agr_group_shooting.pk]
+    agr_group_main = group_factory(service__slug=AGR_SERVICE_SLUG_BAUEN)
+    agr_group_shooting = group_factory(service__slug=AGR_SERVICE_SLUG_SHOOTING_NOISE)
 
     return (agr_group_main, agr_group_shooting)
 
@@ -204,6 +205,7 @@ def be_gever_workitem(
     caluma_answer_factory,
     caluma_document_factory,
     caluma_question_option_factory,
+    gever_groups,
 ):
     gever_task, _ = workflow_models.Task.objects.get_or_create(
         slug="gever", defaults={"type": workflow_models.Task.TYPE_COMPLETE_TASK_FORM}
@@ -212,7 +214,7 @@ def be_gever_workitem(
     gever_work_item = workflow_models.WorkItem.objects.create(
         task=gever_task,
         name=gever_task.name,
-        addressed_groups=settings.GEVER["AGR_GROUPS"],
+        addressed_groups=[str(g.service_id) for g in gever_groups],
         case=be_instance.case,
         status=workflow_models.WorkItem.STATUS_READY,
         document=form_models.Document.objects.create_document_for_task(
