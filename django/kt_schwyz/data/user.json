@@ -37706,7 +37706,7 @@
     "model": "user.service",
     "pk": 196,
     "fields": {
-      "slug": "tax-administration",
+      "slug": null,
       "service_group": 5,
       "service_parent": null,
       "name": "Kantonale Steuerverwaltung",
@@ -39449,6 +39449,30 @@
       "logo": "",
       "disabled": 0,
       "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 350,
+    "fields": {
+      "slug": "tax-administration",
+      "service_group": 2,
+      "service_parent": null,
+      "name": "Liegenschaftenschätzung Steuerverwaltung",
+      "description": "Liegenschaftenschätzung Steuerverwaltung",
+      "sort": 223,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null
