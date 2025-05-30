@@ -791,9 +791,24 @@ def test_task_send_claim_handler(
     # workflow notification templates
     caluma_send_notification = notification_template_factory()
     caluma_fill_notification = notification_template_factory()
-    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["send-additional-demand"][
-        "notification"
-    ]["template_slug"] = caluma_send_notification.slug
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
+        "send-additional-demand"
+    ] = [
+        {
+            "event": "completed",
+            "notification": {
+                "template_slug": caluma_send_notification.slug,
+                "recipient_types": ["applicant"],
+            },
+        },
+        {
+            "event": "completed",
+            "notification": {
+                "template_slug": caluma_send_notification.slug,
+                "recipient_types": ["additional_demand_inviter"],
+            },
+        },
+    ]
     application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["fill-additional-demand"][
         "notification"
     ]["template_slug"] = caluma_fill_notification.slug
