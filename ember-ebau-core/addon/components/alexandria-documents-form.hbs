@@ -1,3 +1,26 @@
+<UkModal
+  @visible={{this.showDuplicateModal}}
+  @onHide={{fn (mut this.showDuplicateModal) false}}
+  as |modal|
+>
+  <modal.body>
+    {{t
+      "documents.duplicateFileUpload"
+      count=(get this.duplicateFileNames "length")
+      filenames=this.formattedDuplicateFilenames
+      htmlSafe=true
+    }}
+    {{t "documents.duplicateFileUploadGuide" htmlSafe=true}}
+  </modal.body>
+  <modal.footer class="uk-text-right">
+    <UkButton
+      @color="default"
+      @label={{t "global.cancel"}}
+      @onClick={{fn (mut this.showDuplicateModal) false}}
+    />
+  </modal.footer>
+</UkModal>
+
 {{#if this.allRequiredTags.length}}
   <p class="uk-text-bold">
     {{#if this.showReducedConfirmText}}

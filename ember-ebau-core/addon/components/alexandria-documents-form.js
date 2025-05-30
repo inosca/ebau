@@ -1,9 +1,9 @@
 import { service } from "@ember/service";
+import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { task, dropTask } from "ember-concurrency";
-import { confirm } from "ember-uikit";
 import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
@@ -19,6 +19,8 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   @service alexandriaDocuments;
 
   @tracked uploadedAttachmentIds = [];
+  @tracked duplicateFileNames = [];
+  @tracked showDuplicateModal = false;
 
   categories = trackedFunction(this, async () => {
     await Promise.resolve();
@@ -94,6 +96,15 @@ export default class AlexandriaDocumentsFormComponent extends Component {
         [category]: [...(tree[category] || []), tag],
       });
     }, {});
+  }
+
+  get formattedDuplicateFilenames() {
+    return htmlSafe(
+      this.duplicateFileNames
+        .sort()
+        .map((name) => `<li>${name}</li>`)
+        .join(""),
+    );
   }
 
   get allAttachments() {
@@ -173,23 +184,13 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       )
     ).flat();
 
-    const duplicateFileNames = newFilenames.filter((name) =>
+    this.duplicateFileNames = newFilenames.filter((name) =>
       existingFilenames.includes(name),
     );
 
-    // if there are duplicate filenames, show a confirmation dialog first
-    if (
-      duplicateFileNames.length &&
-      !(await confirm(
-        this.intl.t("documents.duplicateFileUpload", {
-          count: duplicateFileNames.length,
-          filenames: duplicateFileNames
-            .sort()
-            .map((name) => `<li>${name}</li>`)
-            .join(""),
-        }),
-      ))
-    ) {
+    // if there are duplicate filenames, cancel and show a modal
+    this.showDuplicateModal = this.duplicateFileNames.length > 0;
+    if (this.showDuplicateModal) {
       return;
     }
 
