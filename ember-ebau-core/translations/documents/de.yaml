@@ -25,7 +25,8 @@ documents:
   date: Hochgeladen am {date} um {time}
   deleteError: Beim Löschen der Datei ist etwas schief gelaufen
   deleteInfo: Wollen Sie die Datei "{filename}" wirklich löschen?
-  duplicateFileUpload: "<p>{count, plural, =1 {Das Dokument} other {Die Dokumente}}:</p><ul>{filenames}</ul><p>{count, plural, =1 {wurde} other {wurden}} bereits hochgeladen. Wollen Sie mit dem Upload fortfahren und {count, plural, =1 {das Dokument} other {diese Dokumente}} doppelt hochladen oder wollen Sie den Upload abbrechen?</p>"
+  duplicateFileUpload: "<p>{count, plural, =1 {Die folgende Datei wurde bereits hochgeladen} other {Die folgenden Dateien wurden bereits hochgeladen}}:</p><ul>{filenames}</ul>"
+  duplicateFileUploadGuide: ""
   deleteSuccess: Die Datei wurde erfolgreich gelöscht
   download: Datei herunterladen
   downloadError: Beim Herunterladen der Datei ist etwas schief gelaufen

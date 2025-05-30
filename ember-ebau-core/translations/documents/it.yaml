@@ -25,7 +25,8 @@ documents:
   date: Caricato in data {date} alle {time}
   deleteError: Durante l'eliminazione del file qualcosa è andato storto.
   deleteInfo: Cancella davvero il file "{filename}"?
-  duplicateFileUpload: "<p>{count, plural, =1 {Il documento} other {I documenti}}:</p><ul>{filenames}</ul><p>{count, plural, =1 {è già stato caricato} other {sono già stati caricati}}. Vuoi continuare con il caricamento e {count, plural, =1 {caricare di nuovo il documento} other {caricare di nuovo questi documenti}} oppure vuoi annullare il caricamento?</p>"
+  duplicateFileUpload: "<p>{count, plural, =1 {Il seguente file è già stato caricato} other {I seguenti file sono già stati caricati}}:</p><ul>{filenames}</ul>"
+  duplicateFileUploadGuide: ""
   deleteSuccess: Il file è stato eliminato con successo.
   download: Scarica file
   downloadError: Durante il download del file qualcosa è andato storto.
