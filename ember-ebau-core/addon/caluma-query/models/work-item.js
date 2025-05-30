@@ -320,6 +320,14 @@ export default class CustomWorkItemModel extends WorkItemModel {
       );
     }
 
+    if (this.ebauModules.isLegacyApp && this.isControlledByCurrentService) {
+      const query = this.ebauModules.directLinkConfig[configKey];
+      return Object.entries(this._getLinkPlaceholders()).reduce(
+        (url, [key, value]) => url.replace(`{{${key}}}`, value),
+        `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${query}`,
+      );
+    }
+
     if (!this.abilities.can("edit work-item", this)) {
       return null;
     }
