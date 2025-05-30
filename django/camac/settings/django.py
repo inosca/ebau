@@ -2111,10 +2111,6 @@ APPLICATIONS = {
                 },
                 "send-additional-demand": {
                     "history_text": _("Additional demand sent"),
-                    "notification": {
-                        "template_slug": "send-additional-demand",
-                        "recipient_types": ["applicant", "additional_demand_inviter"],
-                    },
                 },
                 "fill-additional-demand": {
                     "history_text": _("Additional demand was answered"),
@@ -2130,6 +2126,24 @@ APPLICATIONS = {
                     # for notification see events/construction-acceptance.py
                     "ech_event": "camac.ech0211.signals.finished",
                 },
+            },
+            "CALUMA_WORKFLOW_NOTIFICATIONS": {
+                "send-additional-demand": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "send-additional-demand-public",
+                            "recipient_types": ["applicant"],
+                        },
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "send-additional-demand-internal",
+                            "recipient_types": ["additional_demand_inviter"],
+                        },
+                    },
+                ],
             },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,
