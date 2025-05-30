@@ -570,8 +570,6 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
             file.save()
             instance.alexandria_file = file
 
-        instance.file_attachment.delete()
-        instance.file_attachment = None
         instance.save()
         return instance
 

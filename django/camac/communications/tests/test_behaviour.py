@@ -452,8 +452,10 @@ def test_convert_attachment_to_document(
         assert communications_attachment.file_attachment
         return
 
+    # After conversion, we expect the attachment to be *copied* over
+    # to the documents module, the existing attachment should remain however.
     assert communications_attachment.document_attachment
-    assert not communications_attachment.file_attachment
+    assert communications_attachment.file_attachment
 
     expected_json = {
         "data": {

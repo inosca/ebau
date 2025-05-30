@@ -201,4 +201,4 @@ def test_convert_to_alexandria_attachment(
     if expected_status == status.HTTP_200_OK:
         communications_attachment.refresh_from_db()
         assert communications_attachment.alexandria_file
-        assert not communications_attachment.file_attachment
+        assert communications_attachment.file_attachment
