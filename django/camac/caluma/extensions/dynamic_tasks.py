@@ -244,18 +244,28 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("after-inquiries-completed")
     def resolve_after_inquiries_completed(self, case, user, prev_work_item, context):
-        # Further work-items should only be created if there are no
-        # further ready sibling inquiries (i.e. within same distribution case)
-        # with the same controlling group as the previously completed inquiry.
-        if (
+        tasks = []
+
+        has_sibling_inquiries = (
             Inquiry.objects.for_case(case)
             .controlled_by(prev_work_item.controlling_groups)
             .only_pending()
             .exists()
-        ):
-            return []
+        )
 
-        tasks = []
+        # Further work-items should only be created if there are no
+        # further ready sibling inquiries (i.e. within same distribution case)
+        # with the same controlling group as the previously completed inquiry.
+        #
+        # This behaviour can be disabled by settings the
+        # `ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM` to `True`. If that setting is
+        # enabled, every completion will create a new work item to check the
+        # answered inquiries.
+        if (
+            has_sibling_inquiries
+            and not settings.DISTRIBUTION["ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM"]
+        ):
+            return tasks
 
         # If no check-inquiries work-item exists yet addressed to
         # the controlling group of the previously completed inquiry,
@@ -268,6 +278,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         if not check_inquiries.exists() and not prev_work_item.meta.get("is-direct"):
             tasks.append(settings.DISTRIBUTION["INQUIRY_CHECK_TASK"])
+
+        # Early return as we don't want to create a distribution complete work
+        # item even if `ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM` is enabled.
+        if has_sibling_inquiries:
+            return tasks
 
         # If no check-distribution work-item exists addressed to
         # the lead authority, then it should be created if the
