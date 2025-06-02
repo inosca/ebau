@@ -13,6 +13,7 @@ from caluma.caluma_workflow.events import (
 from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
 from django.utils import timezone
+from pytest_lazy_fixtures import lf
 
 from camac.caluma.extensions.events.caluma_workflow_notifications import (
     post_complete_caluma_workflow_notifications,
@@ -589,43 +590,52 @@ def test_set_meta_attributes(
     assert work_item.meta == expected_meta
 
 
-@pytest.mark.parametrize("application_name", ["kt_bern", "kt_schwyz"])
-@pytest.mark.parametrize("has_assigned_users", [True, False])
+@pytest.fixture
+def user1(user_factory):
+    return user_factory(username="user1")
+
+
+@pytest.fixture
+def user2(user_factory):
+    return user_factory(username="user2")
+
+
 @pytest.mark.parametrize(
-    "has_addressed_groups,expected_users",
-    [(False, 0), (True, 1)],
+    "addressed_service,assigned_user,responsible_user,bypass_responsible_user,expected_user",
+    [
+        (None, None, lf("user1"), False, None),
+        (lf("service"), lf("user1"), lf("user2"), False, lf("user1")),
+        (lf("service"), None, lf("user2"), False, lf("user2")),
+        (lf("service"), None, None, False, None),
+        (lf("service"), None, lf("user2"), True, None),
+    ],
 )
 def test_set_assigned_user(
     db,
-    instance,
+    addressed_service,
+    assigned_user,
+    bypass_responsible_user,
     caluma_admin_user,
-    user,
-    user_factory,
     caluma_work_item_factory,
-    instance_responsibility_factory,
+    expected_user,
+    instance,
     responsible_service_factory,
-    has_assigned_users,
-    has_addressed_groups,
-    expected_users,
-    application_name,
+    responsible_user,
 ):
-    service = None
-    addressed_groups = []
-    assigned_users = [user_factory().username] if has_assigned_users else []
-
-    service = responsible_service_factory(
-        instance=instance, responsible_user=user
-    ).service
-
-    if has_addressed_groups:
-        addressed_groups = [service.pk] if service else [123]
+    if addressed_service and responsible_user:
+        responsible_service_factory(
+            instance=instance,
+            service=addressed_service,
+            responsible_user=responsible_user,
+        )
 
     work_item = caluma_work_item_factory(
-        addressed_groups=addressed_groups, assigned_users=assigned_users
+        addressed_groups=[str(addressed_service.pk)] if addressed_service else [],
+        assigned_users=[assigned_user.username] if assigned_user else [],
+        meta={"bypass-responsible-user": bypass_responsible_user},
     )
 
-    case = work_item.case
-    instance.case = case
+    instance.case = work_item.case
     instance.save()
 
     send_event(
@@ -638,12 +648,10 @@ def test_set_assigned_user(
 
     work_item.refresh_from_db()
 
-    if has_assigned_users:
-        assert work_item.assigned_users == assigned_users
+    if expected_user is None:
+        assert work_item.assigned_users == []
     else:
-        assert len(work_item.assigned_users) == expected_users
-        if expected_users:
-            assert work_item.assigned_users == [user.username]
+        assert work_item.assigned_users == [expected_user.username]
 
 
 @pytest.mark.parametrize(

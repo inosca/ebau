@@ -5,10 +5,7 @@ from factory.django import DjangoModelFactory
 from camac.instance.factories import InstanceFactory
 from camac.sanctions.models import Sanction, SanctionTemplate
 from camac.user.factories import ServiceFactory, UserFactory
-
-
-def choice_keys(choices: tuple):
-    return [choice[0] for choice in choices]
+from camac.utils import choice_keys
 
 
 class NewSanctionFactory(DjangoModelFactory):

@@ -13,10 +13,7 @@ from camac.billing.models import (
 from camac.billing.utils import add_taxes_to_final_rate, calculate_final_rate
 from camac.instance.factories import InstanceFactory
 from camac.user.factories import GroupFactory, UserFactory
-
-
-def choice_keys(choices: tuple):
-    return [choice[0] for choice in choices]
+from camac.utils import choice_keys
 
 
 class BillingV2CommonEntryFactory(DjangoModelFactory):

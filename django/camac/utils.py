@@ -355,3 +355,7 @@ def retry(fn, number_of_tries=2, sleep_between_tries=0):
                 raise
             time.sleep(sleep_between_tries)
             number_of_tries -= 1
+
+
+def choice_keys(choices: tuple):
+    return [choice[0] for choice in choices]
