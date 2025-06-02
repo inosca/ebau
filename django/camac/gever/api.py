@@ -8,13 +8,15 @@ from logging import getLogger
 from django.conf import settings
 
 from camac.document.views import AttachmentView
-from camac.gever import constants
 from camac.instance.master_data import MasterData
 from camac.user.models import Group
 
 if typing.TYPE_CHECKING:  # pragma: no cover
     from camac.document.models import Attachment
     from camac.instance.models import Instance
+
+
+from camac.gever.utils import get_all_agr_service_slugs
 
 from . import apimodels, client, models
 
@@ -120,7 +122,9 @@ class GeverAPI:
                 "agr-erledigungsart-auswahl"
             ),
             customGrundbucheintrag=self.mapping.mapped_answer("agr-grundbucheintrag"),
-            customVerfahrensstand=self._verfahrensstand(constants.VERFAHRENSSTAND_OPEN),
+            customVerfahrensstand=self._verfahrensstand(
+                settings.GEVER["VERFAHRENSSTAND_OPEN"]
+            ),
             customKoordinatenX=self.mapping.gever_answerdata.get("agr-koordinate-ost"),
             customKoordinatenY=self.mapping.gever_answerdata.get("agr-koordinate-nord"),
             customParzellen=self.mapping.gever_answerdata.get("agr-parzellen"),
@@ -267,13 +271,19 @@ class GeverAPI:
     def get_documents_to_sync(self):
         """Return a list of all the document-module attachments to be copied."""
         # This (ab)uses the AttachmentView to get the visible documents
-        all_agr_groups = (
-            settings.GEVER["AGR_GROUPS"] + settings.GEVER["AGR_SHOOTING_GROUPS"]
-        )
-        res = {}
         av = AttachmentView()
-        for group in all_agr_groups:
-            av.request = GeverAPI._fake_request(group=Group.objects.get(pk=group))
+        all_groups = {}
+        for service_slug in get_all_agr_service_slugs():
+            all_groups.update(
+                {
+                    grp.pk: grp
+                    for grp in Group.objects.filter(service__slug=service_slug)
+                }
+            )
+
+        res = {}
+        for group in all_groups.values():
+            av.request = GeverAPI._fake_request(group=group)
             res.update(
                 {
                     doc.pk: doc
@@ -405,7 +415,7 @@ class InstanceGeschaeftMapping:
 
     def dossier_type_short(self):
         """Return "VA" or "BG" depending on dossier type."""
-        return constants.INSTANCE_TYPE_SHORT[self.dossier_type()]
+        return settings.GEVER["INSTANCE_TYPE_SHORT"][self.dossier_type()]
 
     def dossier_type(self):
         return self.instance.case.document.form.name.de
@@ -415,19 +425,20 @@ class InstanceGeschaeftMapping:
         # TODO: This is currently incomplete (but not yet specified), as the
         # client noted that there are four additional variants for "Schiesslärm"
         # as well that we didn't know about before
+        templates = settings.GEVER["GESCHAEFT_TEMPLATES"]
 
         template_defs = {
             "BG": {
-                "municipality": constants.TEMPLATE_GESCHAEFT_EBAU_BG_GEMEINDE,
-                "rsta": constants.TEMPLATE_GESCHAEFT_EBAU_BG_RSTA,
+                "municipality": templates["TEMPLATE_GESCHAEFT_EBAU_BG_GEMEINDE"],
+                "rsta": templates["TEMPLATE_GESCHAEFT_EBAU_BG_RSTA"],
             },
             "PÄ": {
-                "municipality": constants.TEMPLATE_GESCHAEFT_EBAU_BG_GEMEINDE,
-                "rsta": constants.TEMPLATE_GESCHAEFT_EBAU_BG_RSTA,
+                "municipality": templates["TEMPLATE_GESCHAEFT_EBAU_BG_GEMEINDE"],
+                "rsta": templates["TEMPLATE_GESCHAEFT_EBAU_BG_RSTA"],
             },
             "VA": {
-                "municipality": constants.TEMPLATE_GESCHAEFT_EBAU_VA_GEMEINDE,
-                "rsta": constants.TEMPLATE_GESCHAEFT_EBAU_VA_RSTA,
+                "municipality": templates["TEMPLATE_GESCHAEFT_EBAU_VA_GEMEINDE"],
+                "rsta": templates["TEMPLATE_GESCHAEFT_EBAU_VA_RSTA"],
             },
         }
         dossier_type = str(self.dossier_type_short())
@@ -482,8 +493,9 @@ class InstanceGeschaeftMapping:
         # TODO: This should match one of the AGR groups (as of now,
         # the main AGR group; later: shooting noise group as well)
         responsible = self.instance.responsible_services.filter(
-            service__groups__in=settings.GEVER["AGR_GROUPS"]
+            service__slug=settings.GEVER["AGR_SERVICE_SLUG_BAUEN"]
         ).first()
+
         if not responsible:
             # This happens if AGR didn't define a responsible person
             # before triggering the sync

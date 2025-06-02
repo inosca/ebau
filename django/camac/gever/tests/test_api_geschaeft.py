@@ -9,7 +9,6 @@ from camac.gever.client import GEVERClient
 
 @pytest.mark.django_db(reset_sequences=True)
 # TODO: mark using all GESCHAEFT_TEMPLATES once the templates work
-# @pytest.mark.parametrize("template", constants.GESCHAEFT_TEMPLATES + [None])
 @pytest.mark.parametrize("template", [None])
 @pytest.mark.parametrize("template_as_obj", [True, False])
 @pytest.mark.vcr

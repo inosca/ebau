@@ -116771,7 +116771,7 @@
     "model": "user.service",
     "pk": 20032,
     "fields": {
-      "slug": null,
+      "slug": "agr-bauen",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -116915,7 +116915,7 @@
     "model": "user.service",
     "pk": 20038,
     "fields": {
-      "slug": null,
+      "slug": "agr-schiesslaerm",
       "service_group": 1,
       "service_parent": null,
       "name": null,
