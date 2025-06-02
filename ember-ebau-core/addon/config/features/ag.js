@@ -34,6 +34,9 @@ export default {
     withdrawInstance: true,
   },
   internalCaseCreation: true,
+  cases: {
+    exportExcel: true,
+  },
   dms: {
     hideDownloadButton: true,
   },
