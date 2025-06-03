@@ -3413,54 +3413,55 @@ def test_send_notifications(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance_state__name,instance__user,form_slug,expected_instance_state,expected_work_items",
+    "instance_state__name,instance__user",
+    [("new", lf("admin_user"))],
+)
+@pytest.mark.parametrize(
+    "service_group__name,form_slug,expected_instance_state,expected_work_items",
     [
         (
-            "Municipality",
-            "new",
-            lf("admin_user"),
+            "municipality",
             "internes-dossier",
             "to-finish",
             {"create-manual-workitems", "formal-exam", "init-additional-demand"},
         ),
         (
-            "Service",
-            "new",
-            lf("admin_user"),
+            "service-afb",
             "anfrage-intern",
             "subm",
             {"create-manual-workitems", "cantonal-exam", "distribution"},
         ),
         (
-            "Municipality",
-            "new",
-            lf("admin_user"),
+            "municipality",
             "anfrage-intern",
             "subm",
             {"create-manual-workitems", "formal-exam"},
         ),
+        (
+            "municipality-light",
+            "anfrage-intern",
+            "subm",
+            {"create-manual-workitems", "distribution"},
+        ),
     ],
 )
 def test_instance_submit_ag_internal(
+    db,
     admin_client,
-    application_settings,
+    ag_instance,
+    ag_master_data_settings,
     disable_ech0211_settings,
-    caluma_dynamic_option_factory,
-    instance_state_factory,
+    expected_instance_state,
+    expected_work_items,
+    form_slug,
     instance_service_factory,
+    instance_state_factory,
     master_data_is_visible_mock,
     mock_generate_and_store_pdf,
     mocker,
-    service_factory,
+    service,
     set_application_ag,
-    settings,
-    ag_instance,
-    ag_master_data_settings,
     utils,
-    form_slug,
-    expected_instance_state,
-    role,
-    expected_work_items,
 ):
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
@@ -3470,27 +3471,13 @@ def test_instance_submit_ag_internal(
     instance_state_factory(name="init-distribution")
     instance_state_factory(name="to-finish")
 
-    municipality_service = service_factory(service_group__name="municipality")
-    afb_service = service_factory(service_group__name="service-afb", slug="afb")
-    responsible_service = (
-        afb_service if role.name == "Service" else municipality_service
-    )
+    if service.service_group.name == "service-afb":
+        service.slug = "afb"
+        service.save()
 
-    instance_service_factory(
-        instance=ag_instance,
-        service=responsible_service,
-    )
+    instance_service_factory(instance=ag_instance, service=service)
 
-    utils.add_answer(
-        ag_instance.case.document, "gemeinde", str(municipality_service.pk)
-    )
-    caluma_dynamic_option_factory(
-        question_id="gemeinde",
-        document=ag_instance.case.document,
-        slug=str(municipality_service.pk),
-        label={"de": municipality_service.name},
-    )
-
+    utils.add_municipality(ag_instance.case.document, "gemeinde", service)
     ag_instance.case.document.form_id = form_slug
     ag_instance.case.document.save()
 
@@ -3503,7 +3490,6 @@ def test_instance_submit_ag_internal(
     ).values_list("task_id", flat=True)
     assert response.status_code == status.HTTP_200_OK
     assert ag_instance.instance_state.name == expected_instance_state
-    assert ag_instance.responsible_service() == responsible_service
     assert set(work_items) == expected_work_items
 
 

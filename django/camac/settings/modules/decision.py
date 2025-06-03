@@ -126,8 +126,10 @@ DECISION = {
             },
         },
         "POSITIVE_DECISIONS": ["APPROVED"],
-        # "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "construction-acceptance",
-        # "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-acceptance"],
+        # TODO: adjust for "Baubegleitung"
+        "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "to-finish",
+        # "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
+        # "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-monitoring"],
     },
     "test": {
         "ENABLED": True,

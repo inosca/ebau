@@ -678,6 +678,10 @@ ECH0211 = {
                 "new_state": "decision",
                 "type": ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
             },
+            {
+                "prev_state": "decision",
+                "type": ECH_STATUS_NOTIFICATION_ENTSCHIEDEN,
+            },
         ],
         "TASK_MAP": {
             "circulation": {

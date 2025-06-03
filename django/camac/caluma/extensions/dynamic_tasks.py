@@ -165,6 +165,15 @@ class CustomDynamicTasks(BaseDynamicTasks):
             tasks.append("geometer")
         return tasks
 
+    def resolve_after_decision_ag(self, case, user, prev_work_item, context):
+        if domain_logic.DecisionLogic.should_continue_after_decision(
+            case.instance, prev_work_item
+        ):
+            return ["complete-instance"]
+
+        # TODO: construction monitoring
+        return []
+
     @register_dynamic_task("after-complete-check-ur")
     def resolve_after_complete_check_ur(self, case, user, prev_work_item, context):
         tasks = []
@@ -355,15 +364,18 @@ class CustomDynamicTasks(BaseDynamicTasks):
             "objections",
         ]
 
-        if case.document.form_id == "plangenehmigungsverfahren-bund":
+        authority_service_group = case.instance.responsible_service().service_group.name
+
+        if authority_service_group == "municipality-light":
+            return [*tasks, "distribution"]
+        elif case.document.form_id == "plangenehmigungsverfahren-bund":
             return [*tasks, *pgv_tasks]
         elif case.document.form_id == "plangenehmigungsverfahren-gas":
             return [*tasks, *pgv_tasks, "init-additional-demand"]
         elif case.document.form_id == "anfrage-intern":
-            responsible = case.instance.responsible_service().service_group.name
-            if responsible == "municipality":
+            if authority_service_group == "municipality":
                 return [*tasks, "formal-exam"]
-            elif responsible == "service-afb":
+            elif authority_service_group == "service-afb":
                 return [*tasks, "distribution", "cantonal-exam"]
             else:  # pragma: no cover
                 raise ("Did not find valid responsible service for 'Anfrage intern'")
