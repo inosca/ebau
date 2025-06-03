@@ -16,6 +16,7 @@ from django_filters.rest_framework import (
 
 from camac.billing.views import BillingV2EntryViewset
 from camac.constants import kt_uri as uri_constants
+from camac.core.utils import canton_aware
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
 from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
@@ -141,13 +142,10 @@ class PublicServiceFilterSet(FilterSet):
             return queryset
 
         service = self.request.group.service
-        service_group = service.service_group.name
         instance = Instance.objects.get(pk=value)
+        config_key = self.get_config_key_for_distribution_filter(service, instance)
 
-        if instance.responsible_service() == service:
-            service_group = "authority"
-
-        applied_config = config.get(service_group, config.get("default", []))
+        applied_config = config.get(config_key, config.get("default", []))
 
         filters = {
             "include": Q(service_parent=service),
@@ -180,6 +178,21 @@ class PublicServiceFilterSet(FilterSet):
                         )
 
         return queryset.filter(filters["include"]).exclude(filters["exclude"])
+
+    @canton_aware
+    def get_config_key_for_distribution_filter(self, service, instance):
+        if instance.responsible_service() == service:
+            return "authority"
+
+        return service.service_group.name
+
+    def get_config_key_for_distribution_filter_ag(self, service, instance):
+        service_group = service.service_group.name
+
+        if instance.responsible_service() == service and service_group != "service-afb":
+            return "authority"
+
+        return service_group
 
     def filter_is_active_service_for_instance(self, queryset, name, value):
         return queryset.filter(
