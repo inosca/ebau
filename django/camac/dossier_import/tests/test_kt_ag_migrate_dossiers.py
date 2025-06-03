@@ -79,6 +79,7 @@ def test_migrate_and_update_all(
         _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
 
 
+@pytest.mark.order(1)  # Slow tests should run first
 def test_migrate_from_zip(db, setup_dossier_import_ag, snapshot):
     out = StringIO()
     err = StringIO()

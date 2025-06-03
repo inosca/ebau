@@ -76,7 +76,7 @@ def ch_locale():
     locale.setlocale(locale.LC_ALL, "")
 
 
-@pytest.mark.order(2)
+@pytest.mark.order(1)  # Slow tests should run first
 @pytest.mark.freeze_time("2023-01-06 16:10")
 def test_document_merge_service_snapshot(
     db,
