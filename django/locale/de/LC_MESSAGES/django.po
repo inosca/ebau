@@ -1860,6 +1860,22 @@ msgid "Work items"
 msgstr "Aufgaben"
 
 #: camac/work_items/models.py
+msgid "No service"
+msgstr "Keine Organisation"
+
+#: camac/work_items/models.py
+msgid "Current service and responsible user (if exists)"
+msgstr "Eigene Organisation und verantwortliche Person (falls gesetzt)"
+
+#: camac/work_items/models.py
+msgid "Current service and current user"
+msgstr "Eigene Organisation und eigener Benutzer"
+
+#: camac/work_items/models.py
+msgid "Current service and no user"
+msgstr "Eigene Organisation und kein Benutzer"
+
+#: camac/work_items/models.py
 msgid "Lead time in days"
 msgstr "Vorlaufzeit in Tagen"
 
@@ -1868,20 +1884,8 @@ msgid "The current date in addition to this value will determine the deadline"
 msgstr "Das momentane Datum addiert mit diesem Wert wird die Frist bestimmen"
 
 #: camac/work_items/models.py
-msgid "Automatically addressed to current service"
-msgstr "Automatisch an die momentane Organisation zuweisen"
-
-#: camac/work_items/models.py
-msgid "Automatically assigned to current user"
-msgstr "Automatisch an den momentanen Benutzer zuweisen"
-
-#: camac/work_items/models.py
-msgid ""
-"This can only be enabled if \"Automatically addressed to current service\" "
-"is enabled as well"
-msgstr ""
-"Dies kann nur aktiviert werden, wenn \"Automatisch an die momentane "
-"Organisation zuweisen\" auch aktiviert ist"
+msgid "Responsibility rule"
+msgstr "Zuständigkeitsregel"
 
 #: camac/work_items/models.py
 msgid "Work item template"

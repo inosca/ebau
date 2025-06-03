@@ -137,7 +137,11 @@ def set_assigned_user(sender, work_item, user, **kwargs):
         None,
     )
 
-    if len(work_item.assigned_users) or not addressed_group:
+    if (
+        len(work_item.assigned_users)
+        or not addressed_group
+        or work_item.meta.get("bypass-responsible-user")
+    ):
         return
 
     responsible = list(

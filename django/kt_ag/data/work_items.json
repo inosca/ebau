@@ -7,8 +7,7 @@
       "name": "Besprechung / Augenschein organisieren",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": true,
+      "responsibility_rule": "CURRENT_USER",
       "services": [],
       "service_groups": [4]
     }
@@ -21,8 +20,7 @@
       "name": "Unterlagenergänzung schreiben",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": true,
+      "responsibility_rule": "CURRENT_USER",
       "services": [],
       "service_groups": [4]
     }
@@ -35,8 +33,7 @@
       "name": "Stellungnahme / Entscheid schreiben",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": true,
+      "responsibility_rule": "CURRENT_USER",
       "services": [],
       "service_groups": [4]
     }
@@ -49,8 +46,7 @@
       "name": "Überprüfung UVP-Pflicht",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": false,
+      "responsibility_rule": "RESPONSIBLE_USER",
       "services": [],
       "service_groups": [4]
     }
@@ -63,8 +59,7 @@
       "name": "Kontrolle",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": true,
+      "responsibility_rule": "CURRENT_USER",
       "services": [],
       "service_groups": [4]
     }
@@ -77,8 +72,7 @@
       "name": "Stellungnahme / Entscheid überarbeiten",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": false,
+      "responsibility_rule": "RESPONSIBLE_USER",
       "services": [],
       "service_groups": [4]
     }
@@ -91,8 +85,7 @@
       "name": "Freigabe prüfen",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": false,
+      "responsibility_rule": "NO_USER",
       "services": [],
       "service_groups": [1, 4]
     }
@@ -105,8 +98,7 @@
       "name": "Kontrolle nachträgliches Baugesuch",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": false,
+      "responsibility_rule": "NO_USER",
       "services": [],
       "service_groups": [4]
     }
@@ -119,8 +111,7 @@
       "name": "Vollzugskontrolle",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": false,
+      "responsibility_rule": "NO_USER",
       "services": [],
       "service_groups": [4]
     }
@@ -133,8 +124,7 @@
       "name": "Dokumente versenden",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": false,
+      "responsibility_rule": "RESPONSIBLE_USER",
       "services": [],
       "service_groups": [4]
     }
@@ -147,8 +137,7 @@
       "name": "Publikation veranlassen",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": false,
+      "responsibility_rule": "NO_USER",
       "services": [],
       "service_groups": [4]
     }
@@ -161,8 +150,7 @@
       "name": "Grundbuchanmerkungen",
       "description": "",
       "lead_time": null,
-      "addressed_to_current_service": true,
-      "assigned_to_current_user": false,
+      "responsibility_rule": "NO_USER",
       "services": [],
       "service_groups": [4]
     }

@@ -162,17 +162,24 @@ export default class WorkItemDetailNewComponent extends Component {
       return;
     }
 
+    const rule = this.selectedTemplate.responsibilityRule;
+    const currentService = rule !== "NONE";
+    const currentUser = rule === "CURRENT_USER";
+    const bypassResponsible = rule === "NO_USER";
+
     this.workItem.title = this.selectedTemplate.name;
     this.workItem.description = this.selectedTemplate.description;
-    this.workItem.meta = { "template-id": this.selectedTemplate.id };
+    this.workItem.meta = {
+      "template-id": this.selectedTemplate.id,
+      "bypass-responsible-user": bypassResponsible,
+    };
     this.workItem.deadline = DateTime.now()
       .plus({ days: this.selectedTemplate.leadTime ?? 10 })
       .toJSDate();
-    this.workItem.addressedGroups = this.selectedTemplate
-      .addressedToCurrentService
+    this.workItem.addressedGroups = currentService
       ? [this.args.serviceId.toString()]
       : [];
-    this.workItem.assignedUsers = this.selectedTemplate.assignedToCurrentUser
+    this.workItem.assignedUsers = currentUser
       ? [this.ebauModules.userName]
       : [];
   }

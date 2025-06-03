@@ -17,6 +17,15 @@ def next_sort():
 
 
 class WorkItemTemplate(models.Model):
+    class ResponsibilityRuleChoices(models.TextChoices):
+        NONE = "NONE", _("No service")
+        RESPONSIBLE_USER = (
+            "RESPONSIBLE_USER",
+            _("Current service and responsible user (if exists)"),
+        )
+        CURRENT_USER = "CURRENT_USER", _("Current service and current user")
+        NO_USER = "NO_USER", _("Current service and no user")
+
     id = models.UUIDField(
         primary_key=True,
         default=uuid_extensions.uuid7,
@@ -52,16 +61,10 @@ class WorkItemTemplate(models.Model):
             "The current date in addition to this value will determine the deadline"
         ),
     )
-    addressed_to_current_service = models.BooleanField(
-        default=False,
-        verbose_name=_("Automatically addressed to current service"),
-    )
-    assigned_to_current_user = models.BooleanField(
-        default=False,
-        verbose_name=_("Automatically assigned to current user"),
-        help_text=_(
-            'This can only be enabled if "Automatically addressed to current service" is enabled as well'
-        ),
+    responsibility_rule = models.CharField(
+        choices=ResponsibilityRuleChoices.choices,
+        max_length=20,
+        verbose_name=_("Responsibility rule"),
     )
 
     def __str__(self):
@@ -71,15 +74,3 @@ class WorkItemTemplate(models.Model):
         verbose_name = _("Work item template")
         verbose_name_plural = _("Work item templates")
         ordering = ["sort"]
-        constraints = [
-            # Make sure that assigned_to_current_user can only be true if
-            # addressed_to_current_service is true as well.
-            models.CheckConstraint(
-                check=models.Q(assigned_to_current_user=False)
-                | models.Q(
-                    assigned_to_current_user=True,
-                    addressed_to_current_service=True,
-                ),
-                name="current_user_requires_current_service",
-            )
-        ]

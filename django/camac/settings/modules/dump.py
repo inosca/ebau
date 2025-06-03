@@ -314,7 +314,6 @@ DUMP = {
                 "alexandria_core.Category",
                 "alexandria_core.Mark",
                 "permissions.AccessLevel",
-                "work_items.WorkItemTemplate",
             ],
             # Exclude models which are managed by the customer alone from sync -
             # instead it will be dumped as data. This will most likely be
@@ -356,6 +355,7 @@ DUMP = {
                 "permissions",
                 "billing",
                 "gever",
+                "work_items",
             ],
             # List of models that are included in "APPS" but should not be
             # dumped into the data dump files

@@ -11,8 +11,7 @@ class WorkItemTemplateAdmin(EbauAdminMixin, SortableAdminMixin, ModelAdmin):
     list_display = [
         "name",
         "lead_time",
-        "addressed_to_current_service",
-        "assigned_to_current_user",
+        "responsibility_rule",
         "get_service_names",
         "get_service_group_names",
     ]
