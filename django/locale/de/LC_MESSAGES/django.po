@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-15 18:01+0200\n"
+"POT-Creation-Date: 2025-06-03 09:58+0200\n"
 "PO-Revision-Date: 2024-09-12 15:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -472,13 +472,13 @@ msgstr ""
 msgid "Hidden?"
 msgstr ""
 
-#: camac/core/admin/inlines.py camac/notification/admin/inlines.py
-#: camac/user/admin/inlines.py
+#: camac/core/admin/inlines.py camac/instance/admin.py
+#: camac/notification/admin/inlines.py camac/user/admin/inlines.py
 msgid "Translation"
 msgstr "Übersetzung"
 
-#: camac/core/admin/inlines.py camac/notification/admin/inlines.py
-#: camac/user/admin/inlines.py
+#: camac/core/admin/inlines.py camac/instance/admin.py
+#: camac/notification/admin/inlines.py camac/user/admin/inlines.py
 msgid "Translations"
 msgstr "Übersetzungen"
 
@@ -877,6 +877,10 @@ msgstr ""
 msgid "ECH Dossier submitted"
 msgstr "eCH Dossier eingereicht"
 
+#: camac/gever/apps.py
+msgid "GEVER"
+msgstr ""
+
 #: camac/gis/admin.py
 msgid "Disable selected GIS data sources"
 msgstr "Ausgewählte GIS Datenquellen deaktivieren"
@@ -1074,6 +1078,14 @@ msgid "Applicants emails"
 msgstr "Email Gesuchsteller/in"
 
 #: camac/instance/export/serializers.py
+msgid "Decision"
+msgstr "Bauentscheid"
+
+#: camac/instance/export/serializers.py
+msgid "Building project"
+msgstr "Bauvorhaben"
+
+#: camac/instance/export/serializers.py
 msgid "Administrative District"
 msgstr "Verwaltungskreis"
 
@@ -1086,10 +1098,6 @@ msgid "Arrival RSTA"
 msgstr "Eingang RSTA"
 
 #: camac/instance/export/serializers.py
-msgid "Decision"
-msgstr "Bauentscheid"
-
-#: camac/instance/export/serializers.py
 msgid "SB1 submission date"
 msgstr "SB1 Eingabedatum"
 
@@ -1100,10 +1108,6 @@ msgstr "SB2 Eingabedatum"
 #: camac/instance/export/serializers.py
 msgid "Tags"
 msgstr "Schlagworte"
-
-#: camac/instance/export/serializers.py
-msgid "Building project"
-msgstr "Bauvorhaben"
 
 #: camac/instance/export/serializers.py
 msgid "Building permit type"
@@ -1460,6 +1464,26 @@ msgstr ""
 #: camac/objection/serializers.py
 msgid "Objection %(objection) already has a representative"
 msgstr "Einsprache %(objection) hat bereits einen Vertreter"
+
+#: camac/rulesets/serializers.py
+msgid "Municipalities and application types can't both be empty"
+msgstr ""
+
+#: camac/rulesets/serializers.py
+msgid "Municipalities and application types can't both be set"
+msgstr ""
+
+#: camac/rulesets/serializers.py
+msgid "User is not a member of this service"
+msgstr ""
+
+#: camac/rulesets/views.py
+msgid "`order` must include all IDs"
+msgstr ""
+
+#: camac/rulesets/views.py
+msgid "`order` contains inexistent IDs"
+msgstr ""
 
 #: camac/sanctions/serializers.py
 #, python-format

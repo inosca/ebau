@@ -2160,6 +2160,13 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "Address line 2 of the invoice recipient if available, otherwise that of the applicant"
         ),
     )
+    alle_gesuchsteller_referenznummer = fields.MasterDataPersonField(
+        source="applicants",
+        fallback_source="applicants",
+        fields=["reference_number"],
+        aliases=[_("ALL_APPLICANTS_REFERENCE_NUMBER")],
+        description=_("Reference numbers of all applicants"),
+    )
     zustaendige_behoerde = fields.MasterDataField(
         source="pgv_responsible_authority",
         aliases=[_("RESPONSIBLE_AUTHORITY")],

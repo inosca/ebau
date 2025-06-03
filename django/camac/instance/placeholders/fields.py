@@ -845,6 +845,9 @@ class MasterDataPersonField(MasterDataField):
                 )
             )
 
+        if "reference_number" in self.fields:
+            parts.append(row.get("reference_number"))
+
         return clean_join(*parts, separator=", ")
 
     def to_representation(self, value):
