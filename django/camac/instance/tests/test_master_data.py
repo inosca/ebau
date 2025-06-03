@@ -327,3 +327,27 @@ def test_get_question_slug(master_data_settings, property_name, expected):
     }
 
     assert MasterData.get_question_slug(property_name) == expected
+
+
+@pytest.mark.parametrize("case_id_as_str", [True, False])
+@pytest.mark.parametrize("have_request", [True, False])
+def test_masterdata_from_request_cache(
+    db, be_instance, mocker, have_request, case_id_as_str
+):
+    if have_request:
+        # Don't need an actual request for this to work
+        mocker.patch("caluma.caluma_core.models.HistoricalRecords.context")
+
+    # Even if the second call is str instead of UUID, we expect the cached
+    # version if we can cache on the request object
+    caseid_second_call = (
+        str(be_instance.case.pk) if case_id_as_str else be_instance.case.pk
+    )
+
+    md0 = MasterData.from_case_id(be_instance.case.pk)
+    md1 = MasterData.from_case_id(caseid_second_call)
+
+    if have_request:
+        assert md0 is md1
+    else:
+        assert md0 is not md1
