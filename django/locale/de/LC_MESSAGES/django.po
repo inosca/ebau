@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-03 09:58+0200\n"
+"POT-Creation-Date: 2025-06-03 10:07+0200\n"
 "PO-Revision-Date: 2024-09-12 15:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1467,23 +1467,23 @@ msgstr "Einsprache %(objection) hat bereits einen Vertreter"
 
 #: camac/rulesets/serializers.py
 msgid "Municipalities and application types can't both be empty"
-msgstr ""
+msgstr "Gemeinden und Dossiertypen können nicht beide leer gelassen werden"
 
 #: camac/rulesets/serializers.py
 msgid "Municipalities and application types can't both be set"
-msgstr ""
+msgstr "Gemeinden und Dossiertypen können nicht beide ausgefüllt werden"
 
 #: camac/rulesets/serializers.py
 msgid "User is not a member of this service"
-msgstr ""
+msgstr "Benutzer ist kein Mitglied dieser Organisation"
 
 #: camac/rulesets/views.py
 msgid "`order` must include all IDs"
-msgstr ""
+msgstr "`order` muss alle IDs beinhalten"
 
 #: camac/rulesets/views.py
 msgid "`order` contains inexistent IDs"
-msgstr ""
+msgstr "`order` beinhaltet nicht existierende IDs"
 
 #: camac/sanctions/serializers.py
 #, python-format
