@@ -217,6 +217,7 @@ def test_after_decision_gr(
     )
 
 
+@pytest.mark.parametrize("always_create_inquiry_check_work_item", [True, False])
 @pytest.mark.parametrize(
     "is_lead_authority",
     [False, True],
@@ -225,13 +226,18 @@ def test_dynamic_task_after_inquiries_completed(
     db,
     caluma_admin_user,
     distribution_child_case_be,  # noqa: F811
-    be_distribution_settings,  # noqa: F811
+    be_distribution_settings,
     inquiry_factory_be,  # noqa: F811
     service,
     service_factory,
     is_lead_authority,
     be_ech0211_settings,
+    always_create_inquiry_check_work_item,
 ):
+    be_distribution_settings["ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM"] = (
+        always_create_inquiry_check_work_item
+    )
+
     invited_service = service_factory()
     if is_lead_authority:
         inquiry1 = inquiry_factory_be(sent=True)
@@ -269,7 +275,10 @@ def test_dynamic_task_after_inquiries_completed(
 
     # No check-distribution or check-inquiries work-item should be created
     # since there are pending controlling inquiries left.
-    assert check_inquiries_work_items.count() == 0
+    if always_create_inquiry_check_work_item:
+        assert check_inquiries_work_items.count() == 1
+    else:
+        assert check_inquiries_work_items.count() == 0
     assert check_distribution_work_items.count() == 0
 
     answer_inquiry(inquiry2)

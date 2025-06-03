@@ -70,6 +70,7 @@ DISTRIBUTION = {
                 *_: has_permission_for_inquiry_answer_document(group, document),
             },
         },
+        "ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM": False,
     },
     "kt_bern": {
         "ENABLED": True,
@@ -455,6 +456,7 @@ DISTRIBUTION = {
                 "recipient_types": ["services_with_incomplete_inquiries"],
             },
         },
+        "ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM": True,
     },
     "demo": {"ENABLED": True},
 }
