@@ -1,11 +1,13 @@
 import { service } from "@ember/service";
-import { camelize, dasherize } from "@ember/string";
+import { camelize } from "@ember/string";
 import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import BaseQuery from "@projectcaluma/ember-core/caluma-query/queries/base";
 import { queryManager } from "ember-apollo-client";
+import { findAll } from "ember-data-resources";
 import { gql } from "graphql-tag";
 import { trackedFunction } from "reactiveweb/function";
+import { validate as isUUID } from "uuid";
 
 import mainConfig from "ember-ebau-core/config/main";
 import workItemListConfig from "ember-ebau-core/config/work-item-list";
@@ -15,6 +17,7 @@ import apolloQuery from "ember-ebau-core/resources/apollo";
 import getProcessData, {
   fetchIfNotCached,
 } from "ember-ebau-core/utils/work-item";
+import { addTaskOrTemplateFilter } from "ember-ebau-core/utils/work-item-filters";
 
 class WorkItemListQuery extends BaseQuery {
   dataKey = "allWorkItems";
@@ -241,6 +244,18 @@ export default class WorkItemListWrapperComponent extends Component {
     return workItems;
   }
 
+  get gqlTaskFilter() {
+    if (this.args.task === "all") {
+      return [];
+    }
+
+    if (isUUID(this.args.task)) {
+      return [{ metaValue: [{ key: "template-id", value: this.args.task }] }];
+    }
+
+    return [{ task: this.args.task }];
+  }
+
   get gqlFilter() {
     return [
       { hasDeadline: true },
@@ -261,7 +276,7 @@ export default class WorkItemListWrapperComponent extends Component {
       ...(this.args.type === "unread"
         ? [{ metaValue: [{ key: "not-viewed", value: true }] }]
         : []),
-      ...(this.args.task !== "all" ? [{ task: this.args.task }] : []),
+      ...this.gqlTaskFilter,
     ];
   }
 
@@ -278,10 +293,27 @@ export default class WorkItemListWrapperComponent extends Component {
 
     const availableTasks = workItemListConfig.availableTasks;
 
-    return [
+    const tasks = [
       ...(availableTasks.roles[this.args.baseRole] ?? []),
       ...(availableTasks.services[this.args.serviceId] ?? []),
       ...(availableTasks.default ?? []),
+    ];
+
+    const templates = availableTasks.includeTemplates
+      ? this.workItemTemplates.records?.map((tpl) => tpl.id)
+      : [];
+
+    return [
+      ...tasks.map((slug) => ({
+        slug,
+        gqlAlias: camelize(slug),
+        type: "task",
+      })),
+      ...templates.map((slug, i) => ({
+        slug,
+        gqlAlias: `template${i + 1}`,
+        type: "template",
+      })),
     ];
   }
 
@@ -303,7 +335,11 @@ export default class WorkItemListWrapperComponent extends Component {
     this,
     () => ({
       query: taskNamesQuery,
-      variables: { tasks: this._taskSlugs },
+      variables: {
+        tasks: this._taskSlugs
+          .filter(({ type }) => type === "task")
+          .map(({ slug }) => slug),
+      },
     }),
     "allTasks.edges",
     (data) =>
@@ -311,6 +347,8 @@ export default class WorkItemListWrapperComponent extends Component {
         return { ...obj, [node.slug]: node.name };
       }, {}),
   );
+
+  workItemTemplates = findAll(this, "work-item-template");
 
   availableTasks = trackedFunction(this, async () => {
     if (!this.workItemsQuery.value || this._taskSlugs.length === 0) {
@@ -332,22 +370,12 @@ export default class WorkItemListWrapperComponent extends Component {
     */
 
     const body = this._taskSlugs
-      .map(camelize)
-      .map((snakeCaseTaskSlug, i) => {
-        const filters = [...this.gqlFilter];
-        const existingTaskFilter = filters.find((filter) => filter.task);
-
-        if (existingTaskFilter) {
-          existingTaskFilter.task = this._taskSlugs[i];
-        } else {
-          filters.push({ task: this._taskSlugs[i] });
-        }
+      .map(({ slug, gqlAlias, type }) => {
+        const filters = addTaskOrTemplateFilter(this.gqlFilter, type, slug);
 
         // The weird string stuff and replacement stuff is required because of the differences between JSON and GraphQL
         // such as graphql enums, etc.
-        return `${snakeCaseTaskSlug}: allWorkItems(filter: ${JSON.stringify(
-          filters,
-        )
+        return `${gqlAlias}: allWorkItems(filter: ${JSON.stringify(filters)
           .replace(/"(\w+)":/g, "$1:")
           .replace(/"SUSPENDED"/g, "SUSPENDED")
           .replace(/"COMPLETED"/g, "COMPLETED")
@@ -371,25 +399,29 @@ export default class WorkItemListWrapperComponent extends Component {
     // Prepare options for select
     return [
       { value: "all", label: this.intl.t("workItems.filters.all") },
-      ...Object.entries(allTasks).map(([alias, { totalCount }]) => {
-        const taskSlug = dasherize(alias);
-        const labelKey = `workItems.filters.task.${taskSlug}`;
+      ...this._taskSlugs.map(({ slug, type, gqlAlias }) => {
+        const labelKey = `workItems.filters.task.${slug}`;
+        let taskName;
 
-        // By default, the task names are taken from the actual task models via
-        // GraphQL. However, in UR there are some cases where they wanted a
-        // different task name in the filter which is why we allow for an
-        // override here.
-        const taskName = this.intl.exists(labelKey)
-          ? this.intl.t(labelKey)
-          : this.taskNames.value?.[taskSlug];
+        if (type === "task") {
+          // By default, the task names are taken from the actual task models via
+          // GraphQL. However, in UR there are some cases where they wanted a
+          // different task name in the filter which is why we allow for an
+          // override here.
+          taskName = this.intl.exists(labelKey)
+            ? this.intl.t(labelKey)
+            : this.taskNames.value?.[slug];
+        } else if (type === "template") {
+          taskName = this.store.peekRecord("work-item-template", slug).name;
+        }
 
         return {
           label: this.intl.t("workItems.filters.task.generic", {
             taskName,
-            count: totalCount,
+            count: allTasks[gqlAlias]?.totalCount ?? 0,
             htmlSafe: true,
           }),
-          value: taskSlug,
+          value: slug,
         };
       }),
     ];
