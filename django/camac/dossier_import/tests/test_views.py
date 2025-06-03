@@ -397,6 +397,7 @@ def test_state_transitions(
     action,
     status_before,
     expected_response_code,
+    django_q_sync_mode,
     status_after,
     caluma_case_factory,
     host,
@@ -404,7 +405,6 @@ def test_state_transitions(
 ):
     setup_dossier_writer(config)
     settings.INTERNAL_BASE_URL = f"https://{host}.example.com"
-    # settings.Q_CLUSTER["sync"] = True  # doesn't work, unfortunately
 
     dossier_import = dossier_import_factory(
         status=status_before,

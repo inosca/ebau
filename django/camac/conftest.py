@@ -3243,3 +3243,21 @@ def create_caluma_publication(db, caluma_work_item_factory, utils, request):
         return work_item
 
     return wrapper
+
+
+@pytest.fixture
+def django_q_sync_mode(settings):
+    """Set Django-Q to Sync mode for the duration of the test case.
+
+    That way, background tasks will run immediately instead of being
+    scheduled, so we can actually test them like normal code.
+    """
+    import django_q.conf
+
+    before = django_q.conf.Conf.SYNC
+    django_q.conf.Conf.SYNC = True
+
+    try:
+        yield
+    finally:
+        django_q.conf.Conf.SYNC = before

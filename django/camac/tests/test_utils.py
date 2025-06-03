@@ -2,6 +2,7 @@ from contextlib import nullcontext as no_exception
 from datetime import date
 
 import pytest
+from django_q.tasks import async_task, result
 
 from .. import utils
 
@@ -166,3 +167,21 @@ def test_retry_utility(fail_forever, expectation):
 
     with expectation:
         assert utils.retry(do_the_thing) == 5
+
+
+def _example_task(n1, n2):
+    return n1 + n2
+
+
+def test_django_q_sync_fixture_disabled(db):
+    """Demo: Django-Q Background task without sync mode."""
+    task_id = async_task(_example_task, 1, 3)
+    assert task_id
+    assert result(task_id, wait=10) is None
+
+
+def test_django_q_sync_fixture_enabled(db, django_q_sync_mode):
+    """Demo: Django-Q Background task with sync mode fixture."""
+    task_id = async_task(_example_task, 1, 3)
+    assert task_id
+    assert result(task_id, wait=10) == 4
