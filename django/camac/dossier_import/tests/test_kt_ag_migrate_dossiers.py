@@ -3,6 +3,7 @@ import shutil
 from io import StringIO
 from typing import Any, Dict, List
 
+import pytest
 from caluma.caluma_form.models import Answer
 from django.core.management import call_command
 
@@ -19,6 +20,7 @@ def get_test_files():
     return list(input_files)
 
 
+@pytest.mark.order(1)  # Slow tests should run first
 def test_migrate_json_file_again(db, setup_dossier_import_ag, snapshot):
     for input_file in get_test_files():
         print("migrating file", input_file)
@@ -40,6 +42,7 @@ def _migrate_from_file_and_assert(input_file, snapshot):
     _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
 
 
+@pytest.mark.order(1)  # Slow tests should run first
 def test_migrate_and_update_all(db, setup_dossier_import_ag, snapshot):
     out = StringIO()
     err = StringIO()

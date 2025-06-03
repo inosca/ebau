@@ -13,6 +13,7 @@ from camac.dossier_import.tests.test_dossier_import_case import (
 
 
 @pytest.mark.parametrize("config", ["kt_schwyz"])
+@pytest.mark.order(1)  # Slow tests should run first
 def test_import_dossiers_exceptions(
     db,
     settings,
@@ -45,6 +46,7 @@ def test_import_dossiers_exceptions(
         ("kt_so", False, lf("so_instance")),
     ],
 )
+@pytest.mark.order(1)  # Slow tests should run first
 def test_import_dossiers_manage_command(
     db,
     settings,
