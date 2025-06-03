@@ -7,6 +7,7 @@ from caluma.caluma_workflow.api import (
 )
 from django.urls import reverse
 from django.utils.timezone import make_aware
+from django_q.models import Task
 
 from camac.core import utils as core_utils
 from camac.gever import client
@@ -29,6 +30,7 @@ def test_gever_workflow(
     service_factory,
     caluma_admin_user,
     be_distribution_settings,
+    django_q_sync_mode,
     group_factory,
     active_inquiry_factory,
     user_factory,
@@ -95,8 +97,11 @@ def test_gever_workflow(
     )
     assert resp.status_code == 200
 
-    # Verify GEVER is synced
+    # Check Background task execution
+    task = Task.objects.get(id=resp.json()["task_id"])
+    assert task.success
 
+    # Verify GEVER is synced
     gever = client.GEVERClient()
     be_instance.case.refresh_from_db()
     matching = gever.geschaeft.by_guid(be_instance.case.meta["gever_base_geschaeft_id"])
