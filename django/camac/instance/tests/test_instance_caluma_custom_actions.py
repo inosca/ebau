@@ -402,19 +402,24 @@ def test_change_responsible_service_audit_validation(
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,expected_status",
+    "role__name,expected_status,is_appeal",
     [
-        ("Municipality", status.HTTP_200_OK),
-        ("Support", status.HTTP_200_OK),
-        ("Applicant", status.HTTP_403_FORBIDDEN),
+        ("Municipality", status.HTTP_200_OK, False),
+        ("Municipality", status.HTTP_403_FORBIDDEN, True),
+        ("Support", status.HTTP_200_OK, False),
+        ("Applicant", status.HTTP_403_FORBIDDEN, False),
     ],
 )
 def test_instance_convert_modification(
     admin_client,
     caluma_answer_factory,
     be_instance,
+    is_appeal,
     expected_status,
 ):
+    be_instance.case.meta["is-appeal"] = is_appeal
+    be_instance.case.save()
+
     caluma_answer_factory(
         question_id="beschreibung-bauvorhaben",
         value="foo",
