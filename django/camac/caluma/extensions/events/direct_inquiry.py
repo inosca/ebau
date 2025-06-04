@@ -38,7 +38,7 @@ def complete_direct_inquiry(sender, work_item, user, context=None, **kwargs):
     )
 
     for parent_inquiry in (
-        Inquiry.objects.for_case(work_item.case)
+        Inquiry.objects.for_distribution_case(work_item.case)
         .addressed_to(work_item.controlling_groups)
         .only_pending()
     ):

@@ -256,7 +256,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         tasks = []
 
         has_sibling_inquiries = (
-            Inquiry.objects.for_case(case)
+            Inquiry.objects.for_distribution_case(case)
             .controlled_by(prev_work_item.controlling_groups)
             .only_pending()
             .exists()
