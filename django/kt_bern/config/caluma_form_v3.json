@@ -9096,7 +9096,7 @@
     "pk": "qs-verantwortlicher-v3",
     "fields": {
       "created_at": "2023-08-11T07:57:42.461Z",
-      "modified_at": "2023-11-24T09:18:41.033Z",
+      "modified_at": "2025-06-04T08:40:47.747Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -9107,7 +9107,7 @@
       "is_hidden": "!(\"bs-qs-verantwortlich-identisch-v3\"|answer == \"ist-der-qs-verantwortliche-identisch-mit-dem-gesuchsteller-nein\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Infotext mit einer aktualisierten Erl\\u00e4uterung und QSS-Matrix (Dokument \\\"Tabelle QSS.xlsx\\\")\", \"fr\": \"Infotext mit einer aktualisierten Erl\\u00e4uterung und QSS-Matrix (Dokument \\\"Tabelle QSS.xlsx\\\")\", \"it\": null}",
+      "info_text": "{\"de\": \"Geb\\u00e4ude und Anlagen sowie bauliche oder nutzungsbezogene \\u00c4nderungen an allen Bauten und Anlagen werden in eine der vier Qualit\\u00e4tssicherungsstufen (QSS 1 bis 4) eingeteilt. Ab QSS 2 muss der QS-Verantwortliche Brandschutz \\u00fcber eine Ausbildung verf\\u00fcgen, die von der VKF anerkannt ist.\\n\\n[Infoplattform f\\u00fcr Brandschutz](https://heureka.gvb.ch/de/startseite/)\\n\\n[QSS-Logik ](/assets/downloads/Tabelle_QSS_DE_FR.xlsx)\", \"fr\": \"Toutes les nouvelles constructions, de m\\u00eame que les modifications structurelles ou les changements d'affectation des b\\u00e2timents et autres ouvrages existants sont class\\u00e9s dans le syst\\u00e8me d'assurance qualit\\u00e9, qui compte quatre degr\\u00e9s. A partir du degr\\u00e9 2, le responsable de l'assurance qualit\\u00e9 en protection incendie doit \\u00eatre au b\\u00e9n\\u00e9fice d\\u2019une formation reconnue par l\\u2019Association des \\u00e9tablissements cantonaux d\\u2019assurance incendie (AEAI).\\n\\n[Plate-forme d'information pour la protection incendie](https://heureka.gvb.ch/de/startseite/)\\n\\n[Syst\\u00e8me d'assurance qualit\\u00e9](/assets/downloads/eBau_QSS%20Stufen_Neu.pdf)\", \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
