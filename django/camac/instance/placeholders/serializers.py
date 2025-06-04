@@ -1465,6 +1465,18 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("LEGAL_REPRESENTATIVE")],
         description=_("Name of the legal representative"),
     )
+    zirkulation_rueckmeldungen = fields.InquiriesField(
+        status=WorkItem.STATUS_COMPLETED,
+        props=[
+            ("opinion", "STELLUNGNAHME"),
+            ("ancillary_clauses", "NEBENBESTIMMUNGEN"),
+            ("answer", "ANTWORT"),
+            ("service", "VON"),
+            ("completion_date", "BEANTWORTET"),
+        ],
+        aliases=[_("CIRCULATION_FEEDBACK")],
+        description=_("Opinions and ancillary clauses of the invited services"),
+    )
     zirkulation_rsta = fields.InquiriesField(
         service_group="district",
         aliases=[_("CIRCULATION_DISTRICT")],
