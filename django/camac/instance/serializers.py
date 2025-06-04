@@ -2226,6 +2226,14 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
         from_service = instance.responsible_service(filter_type=filter_type)
         to_service = validated_data["to"]
 
+        if to_service.service_group.name == "municipality":
+            caluma_api.update_or_create_answer(
+                document=instance.case.document,
+                question_slug="gemeinde",
+                value=str(to_service.pk),
+                user=self.context["request"].caluma_info.context.user,
+            )
+
         instance.instance_services.filter(service=from_service).update(active=0)
         instance.instance_services.update_or_create(
             service=to_service,
