@@ -222,9 +222,13 @@ def post_create_check_additional_demand(
             "Please check the settings for ADDITIONAL_DEMAND."
         )
 
-    fill_additional_demand = work_item.case.work_items.get(
-        task_id=settings.ADDITIONAL_DEMAND["FILL_TASK"],
-        status=WorkItem.STATUS_COMPLETED,
+    fill_additional_demand = (
+        work_item.case.work_items.filter(
+            task_id=settings.ADDITIONAL_DEMAND["FILL_TASK"],
+            status=WorkItem.STATUS_COMPLETED,
+        )
+        .order_by("-created_at")
+        .first()
     )
 
     if fill_additional_demand.meta.get("ech-init-workitem"):
