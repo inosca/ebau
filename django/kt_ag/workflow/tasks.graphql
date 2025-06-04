@@ -180,3 +180,18 @@ mutation CreateCompleteInstanceTask {
     clientMutationId
   }
 }
+
+mutation CreateCheckPATask {
+  saveSimpleTask(
+    input: {
+      slug: "check-pa"
+      name: "PA kontrollieren und Gebühren auslösen"
+      addressGroups: "[\"afb\"]|groups"
+      controlGroups: "[\"afb\"]|groups"
+      leadTime: 1209600 # 14 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.alexandria\",\"models\":[\"INSTANCE_ID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}

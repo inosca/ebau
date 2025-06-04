@@ -1217,7 +1217,7 @@
           },
           {
               "status": "ready",
-              "task_id": "objections"
+              "task_id": "init-construction-monitoring"
           },
           {
               "status": "skipped",
@@ -1230,6 +1230,10 @@
           {
               "status": "skipped",
               "task_id": "formal-exam"
+          },
+          {
+              "status": "skipped",
+              "task_id": "objections"
           },
           {
               "status": "skipped",

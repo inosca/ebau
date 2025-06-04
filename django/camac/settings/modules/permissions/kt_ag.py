@@ -20,11 +20,12 @@ STATES_ALL = RequireInstanceState(
         "finished",
         "decision",
         "init-distribution",
-        "construction-acceptance",
+        "construction-monitoring",
         "rejected",
         "withdrawal",
         "withdrawn",
         "to-finish",
+        "decided",
     ]
 )
 NO_CORRECTION = ~RequireInstanceState(["correction"])
@@ -75,6 +76,9 @@ MODULE_COMMUNICATIONS = STATES_ALL & ROLES_NO_READONLY
 MODULE_COMPLETE_INSTANCE = (
     RequireWorkItem("complete-instance", "ready") & ROLES_NO_READONLY
 )
+MODULE_CONSTRUCTION_MONITORING = (
+    RequireWorkItem("init-construction-monitoring") & ROLES_NO_READONLY
+)
 MODULE_CORRECTIONS = (
     (STATES_ALL | RequireInstanceState(["correction"]))
     & ROLES_NO_READONLY
@@ -119,6 +123,10 @@ MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN"])
 MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
 MODULE_PORTAL_COMMUNICATIONS_WRITE = (
     MODULE_PORTAL_COMMUNICATIONS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+)
+MODULE_PORTAL_CONSTRUCTION_MONITORING_READ = RequireWorkItem("construction-stage")
+MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
+    MODULE_PORTAL_CONSTRUCTION_MONITORING_READ & HasApplicantRole(["ADMIN", "EDITOR"])
 )
 MODULE_PORTAL_DOCUMENTS_WRITE = (
     RequireWorkItem("submit", "ready")
@@ -168,6 +176,14 @@ AG_PERMISSIONS_SETTINGS = {
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
             ("communications-read", MODULE_PORTAL_COMMUNICATIONS_READ),
             ("communications-write", MODULE_PORTAL_COMMUNICATIONS_WRITE),
+            (
+                "construction-monitoring-read",
+                MODULE_PORTAL_CONSTRUCTION_MONITORING_READ,
+            ),
+            (
+                "construction-monitoring-write",
+                MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE,
+            ),
             ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
             ("form-read", MODULE_PORTAL_FORM_READ),
             ("form-write", MODULE_PORTAL_FORM_WRITE),
@@ -210,6 +226,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("complete-instance-read", MODULE_COMPLETE_INSTANCE),
+            ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
+            ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
             ("corrections-read", MODULE_CORRECTIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),

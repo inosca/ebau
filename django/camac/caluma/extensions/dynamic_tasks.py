@@ -23,7 +23,7 @@ from camac.instance.utils import (
     geometer_cadastral_survey_is_necessary,
     geometer_cadastral_survey_necessary_answer,
 )
-from camac.user.models import User
+from camac.user.models import Service, User
 
 
 def check_gwr_relevancy(case, user, prev_work_item, context, task_slug):
@@ -71,7 +71,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return tasks
 
-    @canton_aware
     def resolve_after_decision_so(self, case, user, prev_work_item, context):
         if domain_logic.DecisionLogic.should_continue_after_decision(
             case.instance, prev_work_item
@@ -109,7 +108,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return [settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"]]
 
-    @canton_aware
     def resolve_after_decision_gr(self, case, user, prev_work_item, context):
         construction_monitoring_task = (
             settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"]
@@ -166,13 +164,25 @@ class CustomDynamicTasks(BaseDynamicTasks):
         return tasks
 
     def resolve_after_decision_ag(self, case, user, prev_work_item, context):
+        tasks = []
+
+        if (
+            Inquiry.objects.for_root_case(case)
+            .addressed_to(Service.objects.get(slug="afb"))
+            .only_answered()
+        ):
+            tasks.append("check-pa")
+
         if domain_logic.DecisionLogic.should_continue_after_decision(
             case.instance, prev_work_item
         ):
-            return ["complete-instance"]
+            tasks.append(
+                settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"]
+            )
+        else:
+            tasks.append(settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"])
 
-        # TODO: construction monitoring
-        return []
+        return tasks
 
     @register_dynamic_task("after-complete-check-ur")
     def resolve_after_complete_check_ur(self, case, user, prev_work_item, context):

@@ -218,29 +218,40 @@ def test_after_decision_gr(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,expected_tasks",
+    "afb_involved,should_continue,expected_tasks",
     [
-        ("municipality", []),
-        ("municipality-light", ["complete-instance"]),
+        (True, True, {"check-pa", "init-construction-monitoring"}),
+        (True, False, {"check-pa", "complete-instance"}),
+        (False, True, {"init-construction-monitoring"}),
+        (False, False, {"complete-instance"}),
     ],
 )
 def test_after_decision_ag(
     db,
-    ag_decision_settings,
+    active_inquiry_factory,
+    afb_involved,
+    ag_construction_monitoring_settings,
     ag_instance,
     expected_tasks,
     mocker,
-    service,
-    set_application_ag,
+    service_factory,
+    should_continue,
 ):
+    afb = service_factory(slug="afb")
+
     mocker.patch(
-        "camac.instance.models.Instance.responsible_service",
-        return_value=service,
+        "camac.instance.domain_logic.decision.DecisionLogic.should_continue_after_decision",
+        return_value=should_continue,
     )
 
+    if afb_involved:
+        active_inquiry_factory(ag_instance, afb, status=WorkItem.STATUS_COMPLETED)
+
     assert (
-        CustomDynamicTasks().resolve_after_decision_ag(
-            ag_instance.case, None, None, None
+        set(
+            CustomDynamicTasks().resolve_after_decision_ag(
+                ag_instance.case, None, None, None
+            )
         )
         == expected_tasks
     )

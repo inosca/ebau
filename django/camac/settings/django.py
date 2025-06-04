@@ -2571,6 +2571,7 @@ APPLICATIONS = {
                         "fill-publication",
                         "information-of-neighbors",
                         "fill-information-of-neighbors",
+                        "objections",
                     ],
                     "cancel": [
                         "init-additional-demand",
@@ -2579,9 +2580,11 @@ APPLICATIONS = {
                         "create-information-of-neighbors",
                     ],
                 },
-                # Cancel manual work items after complete instance
+                # Cancel manual work items after complete instance and skip AfB
+                # specific work items
                 "complete-instance": {
                     "cancel": ["create-manual-workitems"],
+                    "skip": ["check-pa", "cantonal-exam"],
                 },
                 "fill-publication": {"complete": ["publication"]},
                 "fill-information-of-neighbors": {
@@ -2618,6 +2621,9 @@ APPLICATIONS = {
                     },
                     "ech_event": "camac.ech0211.signals.file_subsequently",
                 },
+                "complete-construction-monitoring": {
+                    "next_instance_state": "to-finish",
+                },
                 "complete-instance": {
                     "next_instance_state": "finished",
                     "history_text": _("Procedure completed"),
@@ -2632,7 +2638,9 @@ APPLICATIONS = {
                     "init-distribution": "inProcedure",
                     "correction": "inProcedure",
                     "circulation": "inProcedure",
-                    "construction-acceptance": "constructionAcceptance",
+                    "construction-monitoring": "constructionMonitoring",
+                    "to-finish": "decided",
+                    "decided": "decided",
                     "decision": "inProcedure",
                     "finished": "done",
                     "rejected": "rejected",

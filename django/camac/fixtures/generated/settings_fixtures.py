@@ -511,6 +511,18 @@ def so_construction_monitoring_settings(settings, request):
 
 
 @pytest.fixture
+def ag_construction_monitoring_settings(settings, request):
+    """Module-specific settings for construction monitoring (canton AG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="construction_monitoring",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def demo_construction_monitoring_settings(settings, request):
     """Module-specific settings for construction monitoring (canton DEMO)."""
     return generate_module_settings(
