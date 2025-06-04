@@ -294,6 +294,18 @@ GR_PERMISSIONS_SETTINGS = {
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
+        "geometer": [
+            ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
+            ("dms-generate-read", MODULE_DMS_GENERATE),
+            ("form-read", MODULE_FORM),
+            (
+                "instance-download-form-as-pdf",
+                ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF,
+            ),
+            ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("work-items-read", MODULE_WORK_ITEMS),
+        ],
     },
     "EVENT_HANDLER": "camac.permissions.config.kt_gr.PermissionEventHandlerGR",
     "MIGRATION": {
