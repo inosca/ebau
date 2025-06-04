@@ -1,0 +1,796 @@
+[
+  {
+    "model": "user.service",
+    "pk": 170,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": "Tiefbaudienste Stadt Chur",
+      "description": null,
+      "sort": 4,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 171,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": "HMQ AG",
+      "description": null,
+      "sort": 5,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 172,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": "Beck + Partner AG",
+      "description": null,
+      "sort": 6,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 173,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": "Darnuzer Ingenieure AG",
+      "description": null,
+      "sort": 7,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 174,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": "GEO Grischa AG",
+      "description": null,
+      "sort": 8,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 175,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": "Grünenfelder und Partner AG",
+      "description": null,
+      "sort": 9,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 176,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": "Cavigelli Ingenieure AG",
+      "description": null,
+      "sort": 10,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 177,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": "Donatsch + Partner AG",
+      "description": null,
+      "sort": 11,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 178,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": "Riccardo Calastri GR SA",
+      "description": null,
+      "sort": 12,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 179,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": "Giudicetti e Baumann SA",
+      "description": null,
+      "sort": 13,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 180,
+    "fields": {
+      "slug": null,
+      "service_group": 2,
+      "service_parent": null,
+      "name": "Kindschi indschegners e geometers SA",
+      "description": null,
+      "sort": 14,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 295,
+    "fields": {
+      "service": 170,
+      "language": "de",
+      "name": "Tiefbaudienste Stadt Chur",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 296,
+    "fields": {
+      "service": 171,
+      "language": "de",
+      "name": "HMQ AG",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 297,
+    "fields": {
+      "service": 172,
+      "language": "de",
+      "name": "Beck + Partner AG",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 298,
+    "fields": {
+      "service": 173,
+      "language": "de",
+      "name": "Darnuzer Ingenieure AG",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 299,
+    "fields": {
+      "service": 174,
+      "language": "de",
+      "name": "GEO Grischa AG",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 300,
+    "fields": {
+      "service": 175,
+      "language": "de",
+      "name": "Grünenfelder und Partner AG",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 301,
+    "fields": {
+      "service": 176,
+      "language": "de",
+      "name": "Cavigelli Ingenieure AG",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 302,
+    "fields": {
+      "service": 177,
+      "language": "de",
+      "name": "Donatsch + Partner AG",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 303,
+    "fields": {
+      "service": 178,
+      "language": "de",
+      "name": "Riccardo Calastri GR SA",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 304,
+    "fields": {
+      "service": 179,
+      "language": "de",
+      "name": "Giudicetti e Baumann SA",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 305,
+    "fields": {
+      "service": 180,
+      "language": "de",
+      "name": "Kindschi indschegners e geometers SA",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10333,
+    "fields": {
+      "role": 20002,
+      "service": 170,
+      "disabled": 0,
+      "name": "Sachbearbeitung Tiefbaudienste Stadt Chur",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10334,
+    "fields": {
+      "role": 20002,
+      "service": 171,
+      "disabled": 0,
+      "name": "Sachbearbeitung HMQ AG",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10335,
+    "fields": {
+      "role": 20002,
+      "service": 172,
+      "disabled": 0,
+      "name": "Sachbearbeitung Beck + Partner AG",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10336,
+    "fields": {
+      "role": 20002,
+      "service": 173,
+      "disabled": 0,
+      "name": "Sachbearbeitung Darnuzer Ingenieure AG",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10337,
+    "fields": {
+      "role": 20002,
+      "service": 174,
+      "disabled": 0,
+      "name": "Sachbearbeitung GEO Grischa AG",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10338,
+    "fields": {
+      "role": 20002,
+      "service": 175,
+      "disabled": 0,
+      "name": "Sachbearbeitung Grünenfelder und Partner AG",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10339,
+    "fields": {
+      "role": 20002,
+      "service": 176,
+      "disabled": 0,
+      "name": "Sachbearbeitung Cavigelli Ingenieure AG",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10340,
+    "fields": {
+      "role": 20002,
+      "service": 177,
+      "disabled": 0,
+      "name": "Sachbearbeitung Donatsch + Partner AG",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10341,
+    "fields": {
+      "role": 20002,
+      "service": 178,
+      "disabled": 0,
+      "name": "Sachbearbeitung Riccardo Calastri GR SA",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10342,
+    "fields": {
+      "role": 20002,
+      "service": 179,
+      "disabled": 0,
+      "name": "Sachbearbeitung Giudicetti e Baumann SA",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10343,
+    "fields": {
+      "role": 20002,
+      "service": 180,
+      "disabled": 0,
+      "name": "Sachbearbeitung Kindschi indschegners e geometers SA",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+
+  {
+    "model": "user.groupt",
+    "pk": 27479,
+    "fields": {
+      "group": 10333,
+      "language": "de",
+      "name": "Sachbearbeitung Tiefbaudienste Stadt Chur",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27480,
+    "fields": {
+      "group": 10334,
+      "language": "de",
+      "name": "Sachbearbeitung HMQ AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27481,
+    "fields": {
+      "group": 10335,
+      "language": "de",
+      "name": "Sachbearbeitung Beck + Partner AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27482,
+    "fields": {
+      "group": 10336,
+      "language": "de",
+      "name": "Sachbearbeitung Darnuzer Ingenieure AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27483,
+    "fields": {
+      "group": 10337,
+      "language": "de",
+      "name": "Sachbearbeitung GEO Grischa AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27484,
+    "fields": {
+      "group": 10338,
+      "language": "de",
+      "name": "Sachbearbeitung Grünenfelder und Partner AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27485,
+    "fields": {
+      "group": 10339,
+      "language": "de",
+      "name": "Sachbearbeitung Cavigelli Ingenieure AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27486,
+    "fields": {
+      "group": 10340,
+      "language": "de",
+      "name": "Sachbearbeitung Donatsch + Partner AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27487,
+    "fields": {
+      "group": 10341,
+      "language": "de",
+      "name": "Sachbearbeitung Riccardo Calastri GR SA",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27488,
+    "fields": {
+      "group": 10342,
+      "language": "de",
+      "name": "Sachbearbeitung Giudicetti e Baumann SA",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27489,
+    "fields": {
+      "group": 10343,
+      "language": "de",
+      "name": "Sachbearbeitung Kindschi indschegners e geometers SA",
+      "city": null
+    }
+  },
+
+  {
+    "model": "user.groupt",
+    "pk": 27479,
+    "fields": {
+      "group": 10333,
+      "language": "it",
+      "name": "Funzionario Tiefbaudienste Stadt Chur",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27480,
+    "fields": {
+      "group": 10334,
+      "language": "it",
+      "name": "Funzionario HMQ AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27481,
+    "fields": {
+      "group": 10335,
+      "language": "it",
+      "name": "Funzionario Beck + Partner AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27482,
+    "fields": {
+      "group": 10336,
+      "language": "it",
+      "name": "Funzionario Darnuzer Ingenieure AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27483,
+    "fields": {
+      "group": 10337,
+      "language": "it",
+      "name": "Funzionario GEO Grischa AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27484,
+    "fields": {
+      "group": 10338,
+      "language": "it",
+      "name": "Funzionario Grünenfelder und Partner AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27485,
+    "fields": {
+      "group": 10339,
+      "language": "it",
+      "name": "Funzionario Cavigelli Ingenieure AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27486,
+    "fields": {
+      "group": 10340,
+      "language": "it",
+      "name": "Funzionario Donatsch + Partner AG",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27487,
+    "fields": {
+      "group": 10341,
+      "language": "it",
+      "name": "Funzionario Riccardo Calastri GR SA",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27488,
+    "fields": {
+      "group": 10342,
+      "language": "it",
+      "name": "Funzionario Giudicetti e Baumann SA",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27489,
+    "fields": {
+      "group": 10343,
+      "language": "it",
+      "name": "Funzionario Kindschi indschegners e geometers SA",
+      "city": null
+    }
+  }
+]

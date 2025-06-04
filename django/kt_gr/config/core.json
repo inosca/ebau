@@ -6670,6 +6670,54 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 21000001,
+    "fields": {
+      "resource": 140000,
+      "role": 20002
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 21000002,
+    "fields": {
+      "resource": 20006,
+      "role": 20002
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 21000003,
+    "fields": {
+      "resource": 14000007,
+      "role": 20002
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 21000004,
+    "fields": {
+      "resource": 14000003,
+      "role": 20002
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 21000005,
+    "fields": {
+      "resource": 14000004,
+      "role": 20002
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 21000006,
+    "fields": {
+      "resource": 14000005,
+      "role": 20002
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 20006,
     "fields": {
