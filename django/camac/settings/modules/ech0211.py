@@ -721,6 +721,10 @@ ECH0211 = {
         "KIND_OF_PROCEEDINGS": {
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
         },
+        "CLAIM": {
+            "ENABLED": True,
+            "ALEXANDRIA_CATEGORY": "unterlagenergaenzung",
+        },
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
                 ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
@@ -729,15 +733,14 @@ ECH0211 = {
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
                 ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
                 ECH_FILE_SUBSEQUENTLY: {
-                    "desc": "Nachforderung beantworten (💡 wird noch ergänzt um 'directive')",
+                    "desc": "Nachforderung beantworten",
                 },
                 ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
-                    "desc": "Rückzug des Baugesuchs melden (⏳ noch in Entwicklung)",
+                    "desc": "Rückzug des Baugesuchs melden",
                 },
                 ECH_CLAIM: {"desc": "Nachforderungen durch Fachstelle"},
             },
             "POST_TABLE_DATA": {
-                "5200115": {"disabled": True},  # Claim
                 "5100011": {"disabled": True},  # Change responsibility
             },
         },
