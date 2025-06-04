@@ -1615,7 +1615,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return []  # pragma: no cover
 
     def _get_recipients_abwasser_uri(self, instance):
-        service = Service.objects.filter(name="AWU").first()
+        service = Service.objects.filter(slug="awu").first()
         if service:
             return [{"to": service.email}]
         return []  # pragma: no cover

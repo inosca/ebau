@@ -9,7 +9,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['construction-step-schlussabnahme-gebaeude']|tasks"
+      "next": "['construction-step-schlussabnahme-gebaeude', 'construction-step-av-status-building']|tasks"
     }
   },
   {
@@ -139,7 +139,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-schlussabnahme-gebaeude', 'after-construction-step', 'liegenschaftsschaetzung', 'construction-step-av-status-building']|tasks"
+      "next": "['after-schlussabnahme-gebaeude', 'after-construction-step', 'liegenschaftsschaetzung']|tasks"
     }
   },
   {
@@ -410,7 +410,7 @@
         "is-actionable-for-control": false,
         "redirectToWorkItemsAfterCompletion": true
       },
-      "address_groups": "['geometer-ur','municipality']|groups",
+      "address_groups": "['geometer-ur', 'municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-av-state-project",
@@ -435,14 +435,14 @@
       "meta": {
         "construction-step": {
           "next": ["construction-step-schlussabnahme-projekt"],
-          "index": 2,
+          "index": 1,
           "total": 3
         },
         "construction-step-id": "construction-step-schlussabnahme-gebaeude",
         "is-actionable-for-control": false,
         "redirectToWorkItemsAfterCompletion": true
       },
-      "address_groups": "['municipality', 'geometer-ur']|groups",
+      "address_groups": "['geometer-ur']|groups",
       "control_groups": "['municipality', '']|groups",
       "is_archived": false,
       "form": "construction-step-av-status-building",
@@ -915,7 +915,7 @@
       "meta": {
         "construction-step": {
           "next": ["construction-step-schlussabnahme-projekt"],
-          "index": 1,
+          "index": 2,
           "total": 3,
           "needs-approval": "construction-step-schlussabnahme-gebaeude-is-approved"
         },
