@@ -56,5 +56,25 @@
       "name": "Support",
       "city": null
     }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 40001,
+    "fields": {
+      "group": 1,
+      "language": "de",
+      "name": "Admin",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 40002,
+    "fields": {
+      "group": 3,
+      "language": "de",
+      "name": "Portal",
+      "city": null
+    }
   }
 ]

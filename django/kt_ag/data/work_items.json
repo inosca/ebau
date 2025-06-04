@@ -46,7 +46,7 @@
       "name": "Überprüfung UVP-Pflicht",
       "description": "",
       "lead_time": null,
-      "responsibility_rule": "RESPONSIBLE_USER",
+      "responsibility_rule": "NO_USER",
       "services": [],
       "service_groups": [4]
     }
@@ -124,7 +124,7 @@
       "name": "Dokumente versenden",
       "description": "",
       "lead_time": null,
-      "responsibility_rule": "RESPONSIBLE_USER",
+      "responsibility_rule": "NO_USER",
       "services": [],
       "service_groups": [4]
     }
