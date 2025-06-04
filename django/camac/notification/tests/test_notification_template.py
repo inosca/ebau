@@ -471,7 +471,7 @@ def test_notification_template_gvg(
 
 def test_recipient_abwasser_uri(db, service_factory):
     serializer = serializers.NotificationTemplateSendmailSerializer()
-    awu_service = service_factory(name="AWU")
+    awu_service = service_factory(slug="awu")
     assert serializer._get_recipients_abwasser_uri(None) == [{"to": awu_service.email}]
 
 
