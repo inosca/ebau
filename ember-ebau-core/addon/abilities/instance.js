@@ -160,7 +160,7 @@ export default class InstanceAbility extends Ability {
       !this.ebauModules.isReadOnlyRole &&
       !hasInstanceState(
         this.model,
-        mainConfig.changeResponsibleService.forbiddenInstanceStates(this.type),
+        mainConfig.changeResponsibleService.forbiddenInstanceStates[this.type],
       ) &&
       // Active service is passed into the permission check
       parseInt(this.activeService?.id) === this.ebauModules.serviceId
