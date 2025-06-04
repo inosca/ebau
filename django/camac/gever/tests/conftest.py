@@ -229,8 +229,8 @@ def be_gever_workitem(
     # We only set the stuff that's *required* here.
     af(question_id="agr-titel", value=ff.text())
     af(question_id="agr-grundbucheintrag", value="agr-grundbucheintrag-ja")
-    af(question_id="agr-koordinate-nord", value=99991234.3)
-    af(question_id="agr-koordinate-ost", value=134333.4)
+    af(question_id="agr-koordinate-nord", value=1300000.0)
+    af(question_id="agr-koordinate-ost", value=2480000.0)
     af(question_id="agr-parzellen", value="1234,4566")
     af(question_id="agr-voranfrage", value="agr-voranfrage-nein")
 
