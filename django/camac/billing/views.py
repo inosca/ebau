@@ -26,7 +26,11 @@ from camac.billing.wilken.domain_logic import generate_invoices
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import is_permission_mode_fully_enabled
-from camac.user.permissions import IsAllowedClientToken, permission_aware
+from camac.user.permissions import (
+    IsAllowedClientToken,
+    IsWilkenClientToken,
+    permission_aware,
+)
 from camac.user.utils import get_group
 
 
@@ -162,14 +166,9 @@ log: Logger = getLogger(__name__)
 
 
 class ExportInvoicesView(APIView):
-    permission_classes = [IsAllowedClientToken & IsAuthenticated]
-    allow_external_clients = True
+    permission_classes = [IsWilkenClientToken & IsAuthenticated]
 
     def post(self, request: Request) -> response.Response | FileResponse:
-        wilken_client = settings.BILLING.get("WILKEN", {}).get("KEYCLOAK_CLIENT")
-        if not request.auth["azp"] == wilken_client:
-            raise PermissionDenied()
-
         match generate_invoices():
             case invoices, archive:
                 for invoice in invoices:
