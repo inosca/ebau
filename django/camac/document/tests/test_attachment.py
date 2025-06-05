@@ -1,5 +1,6 @@
 import io
 import json
+from contextlib import nullcontext as no_exception
 from copy import deepcopy
 from datetime import timedelta
 
@@ -10,7 +11,7 @@ from django.urls import reverse
 from django.utils import timezone
 from PIL import Image
 from pytest_lazy_fixtures import lf, lfc
-from rest_framework import status
+from rest_framework import exceptions, status
 
 from camac.document import models, permissions, serializers
 from camac.permissions.conditions import Always
@@ -587,6 +588,72 @@ def test_attachment_create(
         assert response.getvalue() == path.read()
 
         assert len(mailoutbox) == 1
+
+
+@pytest.mark.parametrize(
+    "has_permission, expectation",
+    [
+        (False, pytest.raises(exceptions.PermissionDenied)),
+        (True, no_exception()),
+    ],
+)
+def test_accesslevel_based_attachment_create_permission(
+    admin_user,
+    ur_instance,
+    has_permission,
+    mocker,
+    expectation,
+):
+    get_permissions = mocker.patch(
+        "camac.permissions.api.PermissionManager.get_permissions"
+    )
+    get_permissions.return_value = (
+        ["documents-write"] if has_permission else ["documents-read"]
+    )
+
+    serializer = serializers.AttachmentSerializer()
+    with expectation:
+        serializer.create(
+            validated_data={
+                "instance": ur_instance,
+                "size": 1000,
+                "user": admin_user,
+            }
+        )
+
+
+@pytest.mark.parametrize(
+    "has_permission, expectation",
+    [
+        (False, pytest.raises(exceptions.PermissionDenied)),
+        (True, no_exception()),
+    ],
+)
+def test_accesslevel_based_attachment_update_permission(
+    admin_user,
+    ur_instance,
+    attachment,
+    attachment_section,
+    service,
+    has_permission,
+    mocker,
+    expectation,
+):
+    get_permissions = mocker.patch(
+        "camac.permissions.api.PermissionManager.get_permissions"
+    )
+    get_permissions.return_value = (
+        ["documents-write"] if has_permission else ["documents-read"]
+    )
+
+    serializer = serializers.AttachmentSerializer()
+    with expectation:
+        serializer.update(
+            attachment,
+            validated_data={
+                "test": "changed",
+            },
+        )
 
 
 def test_attachment_download_404(admin_client, attachment):

@@ -7,6 +7,7 @@ from django.contrib.auth.models import AnonymousUser
 from django.core.cache import cache
 from django.db.models import Q, QuerySet, Subquery
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from rest_framework.exceptions import PermissionDenied
 
 from camac.instance.models import Instance
@@ -199,13 +200,13 @@ class PermissionManager:
         """Enforce presence of at least one of the given permissions."""
         if self.has_any(instance, required_permissions):
             return
-        raise PermissionDenied("You do not have the required permission to do this")
+        raise PermissionDenied(_("You do not have the required permission to do this"))
 
     def require_all(self, instance, required_permissions: Union[str, List[str]]):
         """Enforce presence of all of the given the given permissions."""
         if self.has_all(instance, required_permissions):
             return
-        raise PermissionDenied("You do not have the required permission to do this")
+        raise PermissionDenied(_("You do not have the required permission to do this"))
 
     def _access_level_config(self, access_level_slug):
         """Return the config for the given access level.

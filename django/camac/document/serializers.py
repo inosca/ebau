@@ -335,6 +335,16 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
+        # Check for documents-write permission only if permissions
+        # module permissions are present
+        permissions = self.permissions_manager().get_permissions(
+            validated_data["instance"]
+        )
+        if permissions:
+            self.permissions_manager().require_all(
+                validated_data["instance"], "documents-write"
+            )
+
         attachment = super().create(validated_data)
         attachment_sections = attachment.attachment_sections.all()
 
@@ -360,6 +370,10 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         return attachment
 
     def update(self, instance, validated_data):
+        permissions = self.permissions_manager().get_permissions(instance.instance)
+        if permissions:
+            self.permissions_manager().require_all(instance.instance, "documents-write")
+
         if (
             not (
                 instance.instance.instance_state.name == "new"

@@ -12606,12 +12606,12 @@
       "resource": 42,
       "name": "Dokumente",
       "description": "Dokumente anschauen für Dossier, die nicht in der Pendenzenliste sind",
-      "template": "",
-      "class_field": "",
+      "template": null,
+      "class_field": null,
       "hidden": 0,
       "sort": 4,
       "form_group": 161,
-      "require_permission": null
+      "require_permission": "documents-read"
     }
   },
   {
@@ -12675,7 +12675,7 @@
       "hidden": 0,
       "sort": 3,
       "form_group": 161,
-      "require_permission": null
+      "require_permission": "form-read"
     }
   },
   {
@@ -12787,7 +12787,7 @@
       "hidden": 0,
       "sort": 1,
       "form_group": 161,
-      "require_permission": null
+      "require_permission": "dashboard-read"
     }
   },
   {
@@ -12819,7 +12819,7 @@
       "hidden": 0,
       "sort": 3,
       "form_group": 161,
-      "require_permission": null
+      "require_permission": "form-read"
     }
   },
   {
@@ -12835,7 +12835,7 @@
       "hidden": 0,
       "sort": 4,
       "form_group": 161,
-      "require_permission": null
+      "require_permission": "documents-read"
     }
   },
   {
@@ -12963,7 +12963,7 @@
       "hidden": 0,
       "sort": 12,
       "form_group": 161,
-      "require_permission": null
+      "require_permission": "history-read"
     }
   },
   {
@@ -13234,6 +13234,22 @@
       "class_field": null,
       "hidden": 1,
       "sort": 9,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 14000042,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 12000003,
+      "name": "Berechtigungen",
+      "description": null,
+      "template": "/ember-camac-ng/permissions.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 35,
       "form_group": 161,
       "require_permission": null
     }
@@ -15528,6 +15544,13 @@
   {
     "model": "core.irpage",
     "pk": 14000041,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 14000042,
     "fields": {
       "pdf_class": null
     }
@@ -34583,6 +34606,123 @@
       "instance_resource": 14000033,
       "role": 4,
       "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002614,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002615,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002616,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002617,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002618,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002619,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002620,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002621,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002622,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002623,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002624,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002625,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002626,
+    "fields": {
+      "instance_resource": 14000042,
+      "role": 6,
+      "instance_state": 33
     }
   },
   {
