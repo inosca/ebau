@@ -62,11 +62,8 @@ export default class InquiryAnswerStatusComponent extends Component {
 
       const inquiryAnswerStatusOptions = {
         bab: [
-          "inquiry-answer-status-approved",
-          "inquiry-answer-status-rejected",
-          "inquiry-answer-status-written-off",
-          "inquiry-answer-status-negative",
           "inquiry-answer-status-positive",
+          "inquiry-answer-status-negative",
           "inquiry-answer-status-not-involved",
         ],
         uso: [
