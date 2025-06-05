@@ -40,13 +40,12 @@ export default class CustomSession extends Session {
       )
       .then((res) => res.json());
 
-    // This changes all keys to camel case
     this.store.pushPayload(response);
+    const user = this.store.peekRecord("user", response.data.id);
 
     // we have to know which is the current group
-    const relationships = response.data.relationships;
-    const defaultGroup = relationships.defaultGroup?.data?.id;
-    const availableGroups = relationships.groups?.data?.map(({ id }) => id);
+    const defaultGroup = user.defaultGroup?.id;
+    const availableGroups = user.groups?.map(({ id }) => id);
 
     let groupId = this.group;
     if (!groupId || !availableGroups.includes(groupId)) {
@@ -59,7 +58,7 @@ export default class CustomSession extends Session {
     const service = await group?.service;
 
     return {
-      user: this.store.peekRecord("user", response.data.id),
+      user,
       group,
       role: await group?.role,
       service,
