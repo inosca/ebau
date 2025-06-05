@@ -8,7 +8,7 @@ export default {
   billing: {
     charge: false,
     organization: false,
-    reducedTaxRate: false,
+    reducedTaxRate: true,
     orderTaxByRate: false,
     displayService: false,
     billingType: false,
