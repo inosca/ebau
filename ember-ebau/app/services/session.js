@@ -40,11 +40,12 @@ export default class CustomSession extends Session {
       )
       .then((res) => res.json());
 
+    // This changes all keys to camel case
     this.store.pushPayload(response);
 
     // we have to know which is the current group
     const relationships = response.data.relationships;
-    const defaultGroup = relationships["default-group"]?.data?.id;
+    const defaultGroup = relationships.defaultGroup?.data?.id;
     const availableGroups = relationships.groups?.data?.map(({ id }) => id);
 
     let groupId = this.group;
