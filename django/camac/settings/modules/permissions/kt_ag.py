@@ -107,7 +107,9 @@ MODULE_REJECTION = RequireInstanceState(["subm", "rejected"]) & ~IsServiceGroup(
     ["municipality-light"]
 )
 MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
-MODULE_WORK_ITEMS = STATES_ALL & ROLES_NO_READONLY
+MODULE_WORK_ITEMS = (
+    STATES_ALL & ROLES_NO_READONLY & ~IsServiceGroup(["municipality-light"])
+)
 
 MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
 MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (

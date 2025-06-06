@@ -195,7 +195,7 @@ export default {
             "trusted-service-lead",
             "trusted-service-clerk",
           ],
-          serviceGroups: ["municipality", "municipality-light", "service-afb"],
+          serviceGroups: ["municipality", "service-afb"],
           category: "special-procedure",
         },
         {
@@ -218,7 +218,7 @@ export default {
             "trusted-service-lead",
             "trusted-service-clerk",
           ],
-          serviceGroups: ["municipality", "municipality-light", "service-afb"],
+          serviceGroups: ["municipality", "service-afb"],
           category: "special-procedure",
         },
       ],
