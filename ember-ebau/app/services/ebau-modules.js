@@ -49,6 +49,16 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.session.isMunicipalityLeadRole;
   }
 
+  get isTrustedServiceRole() {
+    // TODO: Implement when Kt. UR is switched to ember-ebau
+    return false;
+  }
+
+  get isCoordinationRole() {
+    // TODO: Implement when Kt. UR is switched to ember-ebau
+    return false;
+  }
+
   get baseRole() {
     return this.session.rolePermission;
   }

@@ -113,6 +113,18 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
 
             return qs.filter(access_level_id="municipality-before-submission")
 
+        elif role_name == "trusted_service":
+            # For UR only: All instance ACLs can be seen by coordination and trusted service, which have access to all instances
+            qs = self.get_queryset_for_trusted_service()
+
+            return qs
+
+        elif role_name == "coordination":
+            # For UR only: All instance ACLs can be seen by coordination and trusted service, which have access to all instances
+            qs = self.get_queryset_for_coordination()
+
+            return qs
+
         return models.InstanceACL.objects.none()
 
     @action(methods=["post"], detail=True)
@@ -174,6 +186,12 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
             has_permission = instance.instance_services.filter(
                 **active_service_filters, service_id=request_service_id
             ).exists()
+
+            # As soon as the permission module is fully activated in UR, this will be handled through the permission module
+            if settings.APPLICATION_NAME == "kt_uri":
+                group = get_group(self)
+                role_name = get_role_name(group)
+                has_permission |= role_name in ["trusted_service", "coordination"]
         else:
             has_permission = request_service_id == instance.group.service_id
 
@@ -236,6 +254,12 @@ class AccessLevelViewset(ReadOnlyModelViewSet):
         return super().get_queryset()
 
     def get_queryset_for_support(self):
+        return super().get_queryset()
+
+    def get_queryset_for_trusted_service(self):
+        return super().get_queryset()
+
+    def get_queryset_for_coordination(self):
         return super().get_queryset()
 
 

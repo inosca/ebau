@@ -141,6 +141,13 @@ export default class InstanceAbility extends Ability {
         )
       );
     }
+    if (macroCondition(getOwnConfig().application === "ur")) {
+      return (
+        this.ebauModules.isTrustedServiceRole ||
+        this.ebauModules.isCoordinationRole ||
+        isAuthority(this.model, this.ebauModules.serviceId)
+      );
+    }
     return isAuthority(this.model, this.ebauModules.serviceId);
   }
 

@@ -131,4 +131,5 @@ export default {
     instanceState: "rejected",
     allowedInstanceStates: ["comm", "circ", "done", "control"],
   },
+  trustedServiceRole: 4,
 };

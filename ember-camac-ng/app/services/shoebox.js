@@ -1,5 +1,6 @@
 import { getOwner } from "@ember/application";
 import Service from "@ember/service";
+import config from "ember-ebau-core/config/main";
 
 export default class ShoeboxService extends Service {
   get content() {
@@ -65,5 +66,9 @@ export default class ShoeboxService extends Service {
 
   get isCoordinationRole() {
     return ["coordination", "coordination-lead"].includes(this.role);
+  }
+
+  get isTrustedServiceRole() {
+    return this.content.roleId === config.trustedServiceRole;
   }
 }

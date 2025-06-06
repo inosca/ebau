@@ -92,6 +92,12 @@ class InstanceACLSerializer(serializers.ModelSerializer):
         )
         return self._do_create(validated_data)
 
+    def create_rbac_for_trusted_service(self, validated_data):
+        return self.create_rbac_for_municipality(validated_data)
+
+    def create_rbac_for_coordination(self, validated_data):
+        return self.create_rbac_for_municipality(validated_data)
+
     def _do_create(self, validated_data):
         validated_data["created_by_user"] = self.context["request"].user
         validated_data["created_by_service"] = self.context["request"].group.service

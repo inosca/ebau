@@ -1,3 +1,5 @@
+from collections import namedtuple
+from contextlib import nullcontext as no_exception
 from datetime import datetime, timedelta
 
 import pytest
@@ -9,6 +11,7 @@ from camac.permissions import api
 from camac.permissions.conditions import Always
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
+from camac.permissions.views import InstanceACLViewset
 from camac.utils import get_dict_item
 
 
@@ -122,6 +125,34 @@ def test_list_acl_view_for_applicant(
     assert hidden_access_level.slug not in ids
 
 
+@pytest.mark.parametrize("role__name", ["TrustedService", "Coordination"])
+def test_list_acl_view_for_ur(
+    db,
+    access_level_factory,
+    admin_client,
+    instance,
+    service,
+):
+    visible_access_level = access_level_factory(slug="read")
+
+    api.grant(
+        instance,
+        grant_type=api.GRANT_CHOICES.SERVICE.value,
+        access_level=visible_access_level,
+        service=service,
+    )
+
+    response = admin_client.get(
+        reverse("instance-acls-list"), {"instance": instance.pk}
+    )
+
+    result = response.json()["data"]
+    assert len(result) == 1
+
+    ids = [i["relationships"]["access-level"]["data"]["id"] for i in result]
+    assert visible_access_level.slug in ids
+
+
 @pytest.mark.parametrize("set_end_time", [True, False])
 @pytest.mark.parametrize("set_start_time", [True, False])
 @pytest.mark.parametrize(
@@ -220,6 +251,58 @@ def test_create_acl(
         assert created_by_user == str(admin_client.user.id)
     else:
         assert result.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.parametrize(
+    "role__name,access_level_slug",
+    [
+        ("TrustedService", "read"),
+        ("Coordination", "read"),
+    ],
+)
+def test_create_acl_ur(
+    db,
+    instance,
+    admin_client,
+    permissions_settings,
+    access_level_factory,
+    service,
+    access_level_slug,
+    settings,
+    application_settings,
+    use_instance_service,
+):
+    url = reverse("instance-acls-list")
+
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["SHORT_NAME"] = "ur"
+    access_level = access_level_factory(slug=access_level_slug)
+
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [("foo", "*"), ("bar", "*")]
+    }
+
+    post_data = {
+        "data": {
+            "attributes": {
+                "grant-type": "SERVICE",
+            },
+            "relationships": {
+                "instance": {"data": {"id": instance.pk, "type": "instances"}},
+                "service": {"data": {"id": service.pk, "type": "public-services"}},
+                "access-level": {
+                    "data": {"id": access_level.pk, "type": "access-levels"}
+                },
+            },
+            "type": "instance-acls",
+        },
+    }
+
+    result = admin_client.post(url, post_data)
+
+    result_data = result.json()
+
+    assert result.status_code == status.HTTP_201_CREATED, result_data
 
 
 @pytest.mark.parametrize(
@@ -444,6 +527,8 @@ def test_get_access_levels(
         ("so", True, "geometer", "OFF", "Municipality", "ALL_EXCEPT_ONE"),
         ("sz", True, "read", "OFF", "Municipality", 1),
         ("ur", True, "read", "OFF", "Municipality", 1),
+        ("ur", True, "read", "OFF", "TrustedService", 1),
+        ("ur", True, "read", "OFF", "Coordination", 1),
     ],
 )
 def test_assignable_filter(
@@ -789,3 +874,37 @@ def test_list_with_permissions(
     result = admin_client.get(url, {"instance": instance.pk} if query_instance else {})
 
     assert len(result.json()["data"]) == expected_count
+
+
+@pytest.mark.parametrize("role__name,", ["TrustedService", "Coordination"])
+def test_enforce_change_permission_ur(
+    db,
+    settings,
+    admin_user,
+    application_settings,
+    ur_instance,
+    mocker,
+    access_level_factory,
+    instance_acl_factory,
+    permissions_settings,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["SHORT_NAME"] = "ur"
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
+    mocker.patch(
+        "camac.constants.kt_uri.ROLE_TRUSTED_SERVICE", ur_instance.group.role.pk
+    )
+    instance_acl_factory(
+        user=admin_user,
+        access_level=access_level_factory(slug="read"),
+        instance=ur_instance,
+    )
+
+    Request = namedtuple("request", ["group"])
+    request = Request(group=ur_instance.group)
+    view = InstanceACLViewset()
+    view.request = request
+
+    with no_exception():
+        view.enforce_change_permission(ur_instance, "read")
