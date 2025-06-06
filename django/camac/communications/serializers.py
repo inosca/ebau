@@ -1,6 +1,6 @@
 import json
 from logging import getLogger
-from mimetypes import guess_type
+from mimetypes import add_type, guess_type
 
 import magic
 from alexandria.core import models as alexandria_models
@@ -33,6 +33,7 @@ log = getLogger(__name__)
 
 def validate_mime_type(file):
     content_type_header = file.content_type
+    add_type("text/xml", ".xtf")
     extension_type, _ = guess_type(file.name)
 
     if not content_type_header:  # pragma: no cover
