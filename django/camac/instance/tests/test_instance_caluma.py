@@ -2457,6 +2457,7 @@ def test_rejection(
     new_instance = Instance.objects.get(pk=new_instance_id)
 
     assert new_instance.instance_state == new_state
+    assert new_instance.copy_source == source_instance
 
     case = new_instance.case
 
@@ -2545,6 +2546,7 @@ def test_be_copy_responsible_user_on_submit(
     new_instance = Instance.objects.get(pk=new_instance_id)
 
     assert new_instance.instance_state == new_state
+    assert new_instance.copy_source == source_instance
 
     case = new_instance.case
     utils.add_municipality(case.document, "gemeinde", service)
@@ -2833,9 +2835,9 @@ def test_create_instance_from_modification(
     )
 
     assert response.status_code == status.HTTP_201_CREATED
-    assert CalumaApi().is_modification(
-        Instance.objects.get(pk=response.json()["data"]["id"])
-    )
+    new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
+    assert CalumaApi().is_modification(new_instance)
+    assert new_instance.copy_source == be_instance
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -3295,6 +3297,9 @@ def test_copy_rejected_instance(
     )
 
     assert response.status_code == expected_status
+    if response.status_code == status.HTTP_201_CREATED:
+        new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
+        assert new_instance.copy_source == so_instance
 
 
 @pytest.mark.parametrize(
