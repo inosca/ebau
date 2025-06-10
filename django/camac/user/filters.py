@@ -189,7 +189,11 @@ class PublicServiceFilterSet(FilterSet):
     def get_config_key_for_distribution_filter_ag(self, service, instance):
         service_group = service.service_group.name
 
-        if instance.responsible_service() == service and service_group != "service-afb":
+        if (
+            instance.responsible_service() == service
+            and service_group != "service-afb"
+            and service_group != "municipality-light"
+        ):
             return "authority"
 
         return service_group

@@ -22,6 +22,18 @@
     'some-municipality',
   })
 # ---
+# name: test_ag_distribution_services[municipality-light-False]
+  set({
+    'afb',
+    'my-subservice',
+  })
+# ---
+# name: test_ag_distribution_services[municipality-light-True]
+  set({
+    'afb',
+    'my-subservice',
+  })
+# ---
 # name: test_ag_distribution_services[service-afb-False]
   set({
     'aew',

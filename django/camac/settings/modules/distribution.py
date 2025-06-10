@@ -444,6 +444,16 @@ DISTRIBUTION = {
                     ]
                 }
             ],
+            "municipality-light": [
+                {
+                    "include": [
+                        (
+                            "services",
+                            ["afb"],
+                        ),
+                    ]
+                }
+            ],
         },
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
