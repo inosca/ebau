@@ -11,6 +11,7 @@ from . import (  # noqa: F401
     check_gwr_relevancy,
     complete_check,
     construction_monitoring,
+    deadlines,
     decision,
     direct_inquiry,
     distribution,
