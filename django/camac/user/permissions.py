@@ -324,6 +324,9 @@ class IsWilkenClientToken(permissions.BasePermission):
     code = "unallowed_azp"
 
     def has_permission(self, request, view):
-        return request.auth.get("azp", "") == settings.BILLING.get("WILKEN", {}).get(
-            "KEYCLOAK_CLIENT"
-        )
+        try:
+            return (
+                request.auth.get("azp", "") == settings.BILLING.wilken.keycloak_client
+            )
+        except AttributeError:
+            return False

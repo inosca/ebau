@@ -41,14 +41,14 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
     product_number_name = serializers.SerializerMethodField()
 
     def get_product_number_name(self, model):
-        config = settings.BILLING.get("PRODUCT_NUMBERS", None)
+        config = getattr(settings.BILLING, "product_numbers", None)
         if not config:
             return ""
 
         product_number = [
-            product_number.get("name")
+            product_number.name
             for product_number in config
-            if str(product_number.get("number")) == str(model.product_number)
+            if str(product_number.number) == str(model.product_number)
         ]
 
         return product_number[0] if len(product_number) else ""

@@ -7,6 +7,7 @@ from django.db.models import Q
 
 from camac.billing.models import BillingV2Entry
 from camac.instance.models import Instance
+from camac.settings.modules.billing_schema import ProductNumberConfig
 
 
 class OrganizationTotals(TypedDict):
@@ -165,7 +166,7 @@ def stringify_price(price: float) -> str:
 
 
 def get_invoice_text_sz(instance: Instance) -> str:
-    newline: str = settings.BILLING["WILKEN"].get("NEWLINE_CHARACTER", "\r\n")
+    newline: str = settings.BILLING.wilken.newline_character
 
     construction_leads = instance.fields.filter(name="bauherrschaft-override").first()
     if not construction_leads:
@@ -211,11 +212,11 @@ def get_invoice_text_sz(instance: Instance) -> str:
 
 
 def get_customer_number_sz(instance: Instance) -> str:
-    return settings.BILLING["WILKEN"]["CUSTOMER_NUMBERS"][instance.location.name]
+    return settings.BILLING.wilken.customer_numbers[instance.location.name]
 
 
 def validate_product_number_conditions(
-    product_number_config: dict[str, bool | list[str]],
+    product_number_config: ProductNumberConfig,
     service_slug: str,
     has_previous_invoice: bool,
 ) -> bool:
@@ -223,18 +224,14 @@ def validate_product_number_conditions(
 
     # All config options we need to check for validity with their default values
     config = {
-        "number": product_number_config.get("number"),
-        "only_for_services": product_number_config.get("only_for_services"),
-        "not_for_services": product_number_config.get("not_for_services"),
-        "only_subsequent_charge": product_number_config.get(
-            "only_subsequent_charge", False
-        ),
+        "number": product_number_config.number,
+        "only_for_services": product_number_config.only_for_services,
+        "not_for_services": product_number_config.not_for_services,
+        "only_subsequent_charge": product_number_config.only_subsequent_charge,
     }
 
     def test_condition(key, value):
         match (key, value):
-            case ("number", None):
-                return False
             case ("only_subsequent_charge", cond):
                 return has_previous_invoice == cond
             case ("only_for_services", services) if type(services) is list:

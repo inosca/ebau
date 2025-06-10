@@ -15,6 +15,7 @@ from camac.billing.utils import (
 )
 from camac.billing.views import BillingV2EntryViewset
 from camac.instance.models import Instance
+from camac.settings.modules.billing_schema import BillingConfig, ProductNumberConfig
 
 
 def test_calculate_final_rate() -> None:
@@ -327,10 +328,13 @@ def test_billing_entry_create_with_ag_processing_fee(
 
 
 def test_billing_entry_create_with_product_number(
-    db, admin_client, sz_instance, sz_billing_settings
+    db, admin_client, sz_instance, sz_billing_settings: BillingConfig
 ):
-    sz_billing_settings["PRODUCT_NUMBERS"] = [
-        {"number": 1, "name": "test"},
+    sz_billing_settings.product_numbers = [
+        ProductNumberConfig(
+            number=1,
+            name="test",
+        )
     ]
     response = admin_client.post(
         reverse("billing-v2-entry-list"),
@@ -359,32 +363,37 @@ def test_billing_entry_create_with_product_number(
 
 
 def test_product_numbers(
-    db, admin_client, sz_instance, sz_billing_settings, service_factory, invoice_factory
+    db,
+    admin_client,
+    sz_instance,
+    sz_billing_settings: BillingConfig,
+    service_factory,
+    invoice_factory,
 ):
     service = service_factory(slug="test")
     group = admin_client.user.groups.first()
     group.service = service
     group.save()
-    sz_billing_settings["PRODUCT_NUMBERS"] = [
-        {
-            "number": 1,
-        },
-        {
-            "number": 2,
-            "name": "test2",
-            "not_for_services": ["test"],
-        },
-        {
-            "number": 3,
-            "name": "test3",
-            "only_for_services": ["test"],
-        },
-        {
-            "number": 4,
-            "name": "test4",
-            "only_subsequent_charge": True,
-        },
-        {},  # Invalid config
+    sz_billing_settings.product_numbers = [
+        ProductNumberConfig(
+            number=1,
+            name="",
+        ),
+        ProductNumberConfig(
+            number=2,
+            name="test2",
+            not_for_services=["test"],
+        ),
+        ProductNumberConfig(
+            number=3,
+            name="test3",
+            only_for_services=["test"],
+        ),
+        ProductNumberConfig(
+            number=4,
+            name="test4",
+            only_subsequent_charge=True,
+        ),
     ]
     url = reverse("product-numbers")
     response = admin_client.get(

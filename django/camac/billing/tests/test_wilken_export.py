@@ -16,6 +16,7 @@ from camac.billing.wilken.domain_logic import (
     generate_wilken_files,
 )
 from camac.instance.models import Instance
+from camac.settings.modules.billing_schema import BillingConfig
 
 DEFAULT_PRODUCT_NUMBER: int = 200000
 
@@ -29,7 +30,7 @@ def test_generate_invoices(
     form_factory,
     admin_client,
     admin_user,
-    sz_billing_settings,
+    sz_billing_settings: BillingConfig,
 ) -> None:
     instance: list[Instance] = instance_factory(
         form=form_factory(name="baugesuch"), location=location_factory(name="Schwyz")
@@ -73,7 +74,9 @@ def test_generate_invoices(
     assert billing_entries[2].date_charged is None
 
 
-def test_generate_invoices_empty(db, instance_factory, sz_billing_settings) -> None:
+def test_generate_invoices_empty(
+    db, instance_factory, sz_billing_settings: BillingConfig
+) -> None:
     instance_factory.create_batch(3)
     result = generate_invoices()
     assert result is None
@@ -85,7 +88,7 @@ def test_generate_models_for_invoice(
     instance_factory,
     form_factory,
     location_factory,
-    sz_billing_settings,
+    sz_billing_settings: BillingConfig,
 ) -> None:
     form_building_permit = form_factory(name="baugesuch")
     form_project_change = form_factory(name="projektanderung")
@@ -140,11 +143,11 @@ def test_generate_models_for_invoice_raise(
     billing_v2_entry_factory,
     instance_factory,
     form_factory,
-    sz_billing_settings,
+    sz_billing_settings: BillingConfig,
     mocker,
 ) -> None:
     logger = mocker.patch("camac.billing.wilken.domain_logic.log")
-    sz_billing_settings["WILKEN"]["INVOICE_TEXT"] = "{non_existent_key}"
+    sz_billing_settings.wilken.payment_purpose = "{non_existent_key}"
     form_building_permit = form_factory(name="baugesuch")
 
     instance_two_billing_entries = instance_factory(form=form_building_permit)
@@ -165,7 +168,7 @@ def test_generate_models_for_invoice_raise(
 
 @pytest.mark.freeze_time("2023-05-22")
 def test_generate_wilken_files(
-    db, invoice_factory, line_item_factory, sz_billing_settings, snapshot
+    db, invoice_factory, line_item_factory, sz_billing_settings: BillingConfig, snapshot
 ) -> None:
     invoice1: Invoice = invoice_factory(
         customer_number="12345",
@@ -201,18 +204,14 @@ def test_generate_wilken_files(
     assert len(files) == 1
 
     file: BytesIO = files[0]
-    snapshot.assert_match(
-        file.getvalue().decode(sz_billing_settings["WILKEN"]["ENCODING"])
-    )
+    snapshot.assert_match(file.getvalue().decode(sz_billing_settings.wilken.encoding))
 
 
 @pytest.mark.freeze_time("2023-05-22")
 def test_generate_wilken_files_and_archive(
-    db, invoice_factory, instance_factory, sz_billing_settings, snapshot
+    db, invoice_factory, instance_factory, sz_billing_settings: BillingConfig, snapshot
 ) -> None:
-    sz_billing_settings["WILKEN"]["INVOICE_FILE_NAME"] = (
-        "invoice_{datetime}_{identifier}.csv"
-    )
+    sz_billing_settings.wilken.invoice_file_name = "invoice_{datetime}_{identifier}.csv"
     instance: Instance = instance_factory()
     invoices: list[Invoice] = invoice_factory.create_batch(230, instance=instance)
     files: list[BytesIO] = generate_wilken_files(invoices)
@@ -220,7 +219,7 @@ def test_generate_wilken_files_and_archive(
     assert len(files) == 3
     for file in files:
         snapshot.assert_match(
-            file.getvalue().decode(sz_billing_settings["WILKEN"]["ENCODING"])
+            file.getvalue().decode(sz_billing_settings.wilken.encoding)
         )
         file.seek(0)
 
@@ -236,7 +235,7 @@ def test_generate_wilken_files_and_archive(
 
 def test_get_invoice_text_sz(
     db,
-    sz_billing_settings,
+    sz_billing_settings: BillingConfig,
     instance_factory,
     location_factory,
     form_field_factory,
@@ -284,7 +283,7 @@ def test_get_invoice_text_sz(
 
 def test_get_invoice_text_overrides_sz(
     db,
-    sz_billing_settings,
+    sz_billing_settings: BillingConfig,
     instance_factory,
     location_factory,
     form_field_factory,

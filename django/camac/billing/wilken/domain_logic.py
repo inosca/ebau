@@ -23,6 +23,7 @@ from camac.billing.wilken.data import (
     WilkenRow,
 )
 from camac.instance.models import Instance
+from camac.settings.modules.billing_schema import WilkenConfig
 
 log: Logger = getLogger(__name__)
 
@@ -93,13 +94,13 @@ def generate_models_for_invoice() -> list[Invoice]:
 
 
 def create_invoice(instance: Instance) -> Invoice:
-    wilken_settings = settings.BILLING["WILKEN"]
+    wilken_settings: WilkenConfig = settings.BILLING.wilken
     return Invoice.objects.create(
         customer_number=get_customer_number_sz(instance),
-        clerk=wilken_settings["CLERK"],
-        user_id=wilken_settings["USER_ID"],
+        clerk=wilken_settings.clerk,
+        user_id=wilken_settings.user_id,
         invoice_text=get_invoice_text_sz(instance),
-        payment_purpose=wilken_settings["PAYMENT_PURPOSE"].format(
+        payment_purpose=wilken_settings.payment_purpose.format(
             instance_id=instance.identifier
         ),
         instance=instance,
@@ -186,9 +187,9 @@ def generate_wilken_files(
         )
 
     # We are creating a BytesIO file so we don't have to actually write a tmp file.
-    wilken_settings = settings.BILLING["WILKEN"]
+    wilken_settings: WilkenConfig = settings.BILLING.wilken
     invoice_file: BytesIO = BytesIO()
-    stream_writer: StreamWriter = getwriter(wilken_settings["ENCODING"])(invoice_file)
+    stream_writer: StreamWriter = getwriter(wilken_settings.encoding)(invoice_file)
     writer = csv.writer(
         stream_writer, delimiter=";", quotechar='"', quoting=csv.QUOTE_MINIMAL
     )
@@ -201,13 +202,13 @@ def generate_wilken_files(
 def create_archive(files: list[BytesIO]) -> BytesIO:
     import zipfile
 
-    wilken_settings = settings.BILLING["WILKEN"]
+    wilken_settings: WilkenConfig = settings.BILLING.wilken
 
     zip_buffer = BytesIO()
 
     with zipfile.ZipFile(zip_buffer, "a", zipfile.ZIP_STORED, False) as zip_file:
         for index, file in enumerate(files):
-            file_name = wilken_settings["INVOICE_FILE_NAME"].format(
+            file_name = wilken_settings.invoice_file_name.format(
                 identifier=index + 1, datetime=datetime.now().strftime("%Y%m%d%H%M%S")
             )
             zip_file.writestr(file_name, file.getvalue())
