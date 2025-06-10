@@ -536,7 +536,7 @@ class InquiryStateFilter(CharFilter):
             inquiries = (
                 Inquiry.objects.annotate(
                     has_open_sibling_inquiry=Exists(
-                        Inquiry.objects.for_case(OuterRef("case"))
+                        Inquiry.objects.for_distribution_case(OuterRef("case"))
                         .addressed_to(self.parent.request.group.service_id)
                         .only_pending()
                     )
@@ -752,7 +752,7 @@ class InstanceFilterSet(FilterSet):
     def filter_with_cantonal_participation(self, queryset, name, value):
         return queryset.filter(
             Exists(
-                Inquiry.objects.for_case(OuterRef("case"))
+                Inquiry.objects.for_root_case(OuterRef("case"))
                 .addressed_to(uri_constants.KOOR_SERVICE_IDS)
                 .only_active()
             )
@@ -763,7 +763,7 @@ class InstanceFilterSet(FilterSet):
             pks = [str(pk) for pk in value] if isinstance(value, list) else [str(value)]
             return queryset.filter(
                 Exists(
-                    Inquiry.objects.for_case(OuterRef("case"))
+                    Inquiry.objects.for_root_case(OuterRef("case"))
                     .addressed_to(pks)
                     .only_active()
                 )

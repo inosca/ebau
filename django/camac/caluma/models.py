@@ -96,16 +96,21 @@ class InquiryQuerySet(QuerySet["Inquiry"]):
 
         return self.exclude(status=WorkItem.STATUS_CANCELED)
 
-    def for_case(self: T, case: Case | UUID | str | OuterRef | None) -> T:
-        """Return all inquries for a given case.
-
-        The passed case can also be a child case of a case that contains inquiries.
-        """
+    def for_root_case(self: T, case: Case | UUID | str | OuterRef | None) -> T:
+        """Return all inquries for a given root case."""
 
         if isinstance(case, Case):
             case = case.pk
 
-        return self.filter(Q(case=case) | Q(case__family=case))
+        return self.filter(case__family=case)
+
+    def for_distribution_case(self: T, case: Case | UUID | str | OuterRef | None) -> T:
+        """Return all inquries for a given distribution case."""
+
+        if isinstance(case, Case):
+            case = case.pk
+
+        return self.filter(case=case)
 
     def for_instance(self: T, instance: Instance | int | OuterRef | None) -> T:
         """Return all inquries for a given instance."""

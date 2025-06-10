@@ -445,7 +445,9 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
             work_item=addressed_check_work_item, user=user, context=context
         )
 
-    pending_inquiries = Inquiry.objects.for_case(work_item.case).only_pending()
+    pending_inquiries = Inquiry.objects.for_distribution_case(
+        work_item.case
+    ).only_pending()
 
     # If there are no more pending inquiries addressed to the service that just
     # completed an inquiry and the addressed group is not the responsible service,
@@ -508,7 +510,9 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
 @filter_by_task("DISTRIBUTION_COMPLETE_TASK")
 @transaction.atomic
 def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
-    for work_item in Inquiry.objects.for_case(work_item.case).only_pending():
+    for work_item in Inquiry.objects.for_distribution_case(
+        work_item.case
+    ).only_pending():
         # unanswered inquiries must be skipped
         skip_work_item(work_item=work_item, user=user, context=context)
 
@@ -538,7 +542,9 @@ def pre_complete_distribution(sender, work_item, user, context=None, **kwargs):
 @transaction.atomic
 def post_complete_distribution(sender, work_item, user, context=None, **kwargs):
     has_inquiries = (
-        Inquiry.objects.for_case(work_item.case).exclude_withdrawn().exists()
+        Inquiry.objects.for_distribution_case(work_item.case)
+        .exclude_withdrawn()
+        .exists()
     )
 
     text = (
@@ -560,7 +566,7 @@ def post_complete_distribution(sender, work_item, user, context=None, **kwargs):
 @transaction.atomic
 def post_cancel_inquiry(sender, work_item, user, context=None, **kwargs):
     if (
-        not Inquiry.objects.for_case(work_item.case)
+        not Inquiry.objects.for_distribution_case(work_item.case)
         .addressed_to(work_item.addressed_groups)
         .exclude_withdrawn()
         .exists()

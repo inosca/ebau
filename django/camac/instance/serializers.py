@@ -226,7 +226,7 @@ class InstanceSerializer(
         filters = Q(
             pk__in=list(
                 itertools.chain(
-                    *Inquiry.objects.for_case(obj.case)
+                    *Inquiry.objects.for_root_case(obj.case)
                     .only_active()
                     .values_list("addressed_groups", flat=True)
                 )
