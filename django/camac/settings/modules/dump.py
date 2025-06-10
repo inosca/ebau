@@ -630,6 +630,8 @@ DUMP = {
                     "user.Group": Q(pk__lte=3),
                     "user.GroupT": Q(pk__lte=3),
                 },
+                # Deadlines
+                "deadlines": {"deadlines.DeadlineType": Q()},
                 # Distribution
                 **DISTRIBUTION_DUMP_CONFIG,
                 # Additional demand
