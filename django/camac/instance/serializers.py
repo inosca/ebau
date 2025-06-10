@@ -41,6 +41,7 @@ from camac.core.utils import (
     generate_ebau_nr,
     generate_sort_key,
 )
+from camac.deadlines import models as deadlines_models
 from camac.document.models import AttachmentSection
 from camac.ech0211.signals import (
     change_responsibility,
@@ -61,6 +62,7 @@ from camac.permissions.switcher import (
 )
 from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.responsible.models import ResponsibleService
+from camac.settings.modules.deadlines_schema import DeadlinesConfig
 from camac.tags.models import Keyword
 from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
@@ -552,6 +554,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     dossier_number = serializers.SerializerMethodField()
     ebau_number = serializers.SerializerMethodField()
 
+    is_suspended = serializers.SerializerMethodField()  # "Sistiert"
     is_paper = serializers.SerializerMethodField()  # "Papierdossier
     is_modification = serializers.SerializerMethodField()  # "Projektänderung"
     copy_source = serializers.CharField(required=False, write_only=True)
@@ -575,6 +578,14 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     def get_is_paper(self, instance):
         return CalumaApi().is_paper(instance)
+
+    def get_is_suspended(self, instance):
+        return (
+            str(self.context["request"].group.service.pk)
+            in instance.case.meta.get("suspended-services", [])
+            if self.context["request"].group.service and instance.case
+            else False
+        )
 
     def get_is_modification(self, instance):
         return CalumaApi().is_modification(instance)
@@ -1202,6 +1213,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     class Meta(InstanceSerializer.Meta):
         fields = InstanceSerializer.Meta.fields + (
             "caluma_form",
+            "is_suspended",
             "is_paper",
             "is_modification",
             "copy_source",
@@ -1222,6 +1234,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "caluma_form",
+            "is_suspended",
             "is_paper",
             "is_modification",
             "public_status",
@@ -1302,6 +1315,15 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         form_name = form_slug.upper() if form_slug else "MAIN"
         section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
         return settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
+
+    def _init_deadline(self, instance):
+        deadlines_settings: DeadlinesConfig | None = settings.DEADLINES
+        if not deadlines_settings or not deadlines_settings.enabled:  # pragma: no cover
+            return
+
+        deadlines_models.InstanceDeadline.objects.create_deadline(
+            instance=instance, service=instance.responsible_service()
+        )
 
     def _generate_and_store_pdf(self, instance, form_slug=None):
         if not settings.APPLICATION.get("STORE_PDF", False):  # pragma: no cover
@@ -1909,6 +1931,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._be_extend_validity_skip_ebau_number(case)
             self._be_copy_responsible_person(instance)
             self._ur_copy_oereb_instance_for_koor_afj(instance)
+            self._init_deadline(instance)
 
             instance_submitted.send(
                 sender=self.__class__,
