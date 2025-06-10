@@ -45,6 +45,8 @@ def public_data(
     instance_acl_factory,
     keyword_factory,
     new_sanction_factory,
+    suspension_factory,
+    instance_deadline_factory,
 ):
     attachment = attachment_factory(instance=be_instance, context={"isPublished": True})
     attachment_version_factory(attachment=attachment)
@@ -65,6 +67,8 @@ def public_data(
     keyword = keyword_factory()
     keyword.instances.set([be_instance])
     new_sanction_factory(instance=be_instance)
+    deadline = instance_deadline_factory(instance=be_instance)
+    suspension_factory(deadline=deadline)
 
     create_caluma_publication(be_instance)
 

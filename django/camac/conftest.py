@@ -44,6 +44,7 @@ from camac.billing import factories as billing_factories
 from camac.caluma.utils import CalumaInfo
 from camac.communications import factories as communications_factories
 from camac.core import factories as core_factories
+from camac.deadlines import factories as deadlines_factories
 from camac.document import factories as document_factories
 from camac.document.tests.data import django_file
 from camac.dossier_import import factories as dossier_import_factories
@@ -126,6 +127,7 @@ register_module(external_factories)
 register_module(sanction_factories)
 register_module(work_items_factories)
 register_module(rulesets_factories)
+register_module(deadlines_factories)
 
 # do not register alexandria factories, as there are too many conflicts
 
