@@ -115,6 +115,17 @@ MODULE_WORK_ITEMS = (
     STATES_ALL & ROLES_NO_READONLY & ~IsServiceGroup(["municipality-light"])
 )
 
+MODULE_DEADLINES_SUSPENSION = (
+    STATES_ALL
+    & IsServiceGroup(["municipality", "service-afb"])
+    & HasRole(["municipality-lead", "service-lead", "subservice"])
+)
+MODULE_DEADLINES_DEADLINE = (
+    STATES_ALL
+    & IsServiceGroup(["municipality", "service-afb"])
+    & HasRole(["municipality-lead", "service-lead", "subservice"])
+)
+
 MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
 MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
     MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & HasApplicantRole(["ADMIN", "EDITOR"])

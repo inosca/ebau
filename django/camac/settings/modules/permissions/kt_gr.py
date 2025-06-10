@@ -1,3 +1,4 @@
+from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.permissions.conditions import (
     Always,
     HasApplicantRole,
@@ -36,7 +37,6 @@ FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_VERSIONS, "solaranlage"])
 
 # Role rules
 ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
-
 
 # Module rules
 #
@@ -88,6 +88,16 @@ MODULE_REJECTION = STATES_ALL
 MODULE_RELATED_GWR_PROJECTS = STATES_ALL & FORMS_ONLY_BUILDING_PERMIT
 MODULE_RESPONSIBLE = STATES_ALL
 MODULE_WORK_ITEMS = STATES_ALL
+MODULE_DEADLINES_SUSPENSION = (
+    STATES_ALL
+    & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
+    & HasRole(["municipality-lead", "service-lead"])
+)
+MODULE_DEADLINES_DEADLINE = (
+    STATES_ALL
+    & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
+    & HasRole(["municipality-lead", "service-lead"])
+)
 
 MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN"])
 MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
@@ -200,6 +210,10 @@ GR_PERMISSIONS_SETTINGS = {
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
+            ("deadlines-suspensions-read", MODULE_DEADLINES_SUSPENSION),
+            ("deadlines-suspensions-write", MODULE_DEADLINES_SUSPENSION),
+            ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
+            ("deadlines-deadlines-write", MODULE_DEADLINES_DEADLINE),
         ],
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
@@ -248,6 +262,10 @@ GR_PERMISSIONS_SETTINGS = {
             ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
+            ("deadlines-suspensions-read", MODULE_DEADLINES_SUSPENSION),
+            ("deadlines-suspensions-write", MODULE_DEADLINES_SUSPENSION),
+            ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
+            ("deadlines-deadlines-write", MODULE_DEADLINES_DEADLINE),
         ],
         "read": [
             ("communications-write", MODULE_COMMUNICATIONS),
