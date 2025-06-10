@@ -771,6 +771,7 @@
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
+      "slug": null,
       "name": "Externe Fachstellen",
       "sort": 3
     }
@@ -779,6 +780,7 @@
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
+      "slug": "fachstellen",
       "name": "Fachstellen",
       "sort": 2
     }
@@ -787,6 +789,7 @@
     "model": "user.servicegroup",
     "pk": 3,
     "fields": {
+      "slug": null,
       "name": "Gemeinde",
       "sort": 4
     }
@@ -795,6 +798,7 @@
     "model": "user.servicegroup",
     "pk": 4,
     "fields": {
+      "slug": "baugesuchszentrale",
       "name": "Baugesuchszentrale",
       "sort": 1
     }
@@ -803,6 +807,7 @@
     "model": "user.servicegroup",
     "pk": 5,
     "fields": {
+      "slug": null,
       "name": "Fachstellen Gemeinden",
       "sort": 5
     }

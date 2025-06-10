@@ -322,6 +322,7 @@
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
+      "slug": null,
       "name": "service",
       "sort": null
     }
@@ -330,6 +331,7 @@
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
+      "slug": null,
       "name": "municipality",
       "sort": null
     }
@@ -338,6 +340,7 @@
     "model": "user.servicegroup",
     "pk": 3,
     "fields": {
+      "slug": null,
       "name": "authority-bab",
       "sort": null
     }
@@ -346,6 +349,7 @@
     "model": "user.servicegroup",
     "pk": 4,
     "fields": {
+      "slug": null,
       "name": "uso",
       "sort": null
     }
@@ -354,6 +358,7 @@
     "model": "user.servicegroup",
     "pk": 5,
     "fields": {
+      "slug": null,
       "name": null,
       "sort": null
     }

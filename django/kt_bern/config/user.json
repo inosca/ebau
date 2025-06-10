@@ -632,6 +632,7 @@
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
+      "slug": null,
       "name": "service",
       "sort": null
     }
@@ -640,6 +641,7 @@
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
+      "slug": null,
       "name": "municipality",
       "sort": null
     }
@@ -648,6 +650,7 @@
     "model": "user.servicegroup",
     "pk": 3,
     "fields": {
+      "slug": null,
       "name": "construction-control",
       "sort": null
     }
@@ -656,6 +659,7 @@
     "model": "user.servicegroup",
     "pk": 20000,
     "fields": {
+      "slug": null,
       "name": "district",
       "sort": null
     }
@@ -664,6 +668,7 @@
     "model": "user.servicegroup",
     "pk": 20001,
     "fields": {
+      "slug": null,
       "name": "lead-service",
       "sort": null
     }
@@ -672,6 +677,7 @@
     "model": "user.servicegroup",
     "pk": 20003,
     "fields": {
+      "slug": null,
       "name": "geometer",
       "sort": null
     }
