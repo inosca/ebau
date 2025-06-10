@@ -28,6 +28,10 @@ module("Acceptance | billing", function (hooks) {
       id: service.id,
     });
 
+    this.serviceGroup = publicService.serviceGroup;
+    service.serviceGroup = this.serviceGroup;
+    service.save();
+
     this.instance = this.server.create("instance", {
       activeService: publicService,
     });
@@ -83,7 +87,10 @@ module("Acceptance | billing", function (hooks) {
   });
 
   test("it can release billing entries for clearing", async function (assert) {
-    this.features.enable("billing.releaseForClearing");
+    this.features.enable("billing.releaseForClearing.enabled");
+    this.features.set("billing.releaseForClearing.allowedForServiceGroups", [
+      this.serviceGroup.slug,
+    ]);
 
     this.server.createList("billing-v2-entry", 2, {
       group: this.group,

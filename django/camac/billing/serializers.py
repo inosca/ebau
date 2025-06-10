@@ -9,13 +9,16 @@ from camac.billing.utils import (
     add_taxes_to_final_rate,
     calculate_final_rate,
     get_totals,
+    validate_product_number,
 )
 from camac.instance.master_data import MasterData
+from camac.settings.modules.billing_schema import ProductNumberConfig
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
     GroupResourceRelatedField,
 )
 from camac.user.serializers import CurrentGroupDefault
+from camac.user.utils import get_group
 
 
 class BillingV2CommonEntrySerializer(serializers.ModelSerializer):
@@ -53,8 +56,8 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
 
         return product_number[0] if len(product_number) else ""
 
-    def validate(self, data):
-        validated_data = super().validate(data)
+    def validate(self, attrs):
+        validated_data = super().validate(attrs)
 
         if (
             validated_data["calculation"]
@@ -82,7 +85,42 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
             tax_rate=Decimal(validated_data["tax_rate"]),
         )
 
+        # We want to also validate the product_number
+        # if its empty in case the service is required to
+        # set one.
+        if not validated_data.get("product_number") and hasattr(
+            settings.BILLING, "product_numbers"
+        ):
+            self.validate_product_number(None)
+
         return validated_data
+
+    def validate_product_number(self, product_number):
+        request = self.context["request"]
+        config: list[ProductNumberConfig] | None = settings.BILLING.product_numbers
+
+        if not config:
+            return None
+
+        group = get_group(request)
+        instance = self.initial_data.get("instance", {}).get("id")
+
+        valid_product_numbers = [
+            product_number_config.number
+            for product_number_config in validate_product_number(group, instance)
+        ]
+
+        if not product_number and len(valid_product_numbers) != 0:
+            raise serializers.ValidationError(
+                "You have not supplied a value for the field product_number."
+            )
+
+        if str(product_number) in [str(pn) for pn in valid_product_numbers]:
+            return product_number
+        else:
+            raise serializers.ValidationError(
+                "You have supplied an invalid value for the field product_number."
+            )
 
     def get_root_meta(self, resource, many):
         """Calculate totals for the returned data.

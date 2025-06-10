@@ -37,11 +37,12 @@ billing:
   apply-construction-costs: Baukosten aus Formular übernehmen
   apply-construction-costs-empty: Es konnten keine Baukosten im Formular gefunden werden
   release-for-clearing: Zur Verrechnung freigeben
+  release-for-clearing-error: Die Einträge konnten nicht freigegeben werden. Ein Fehler ist aufgetretten.
   released-for-clearing: Freigegeben
   confirm-release-for-clearing: Sobald der Eintrag zur Verrechnung freigegeben wurde wird die Rechnung innerhalb der nächsten 24 Stunden automatisch generiert.
   product-number: Produktnummer
   remark: Bemerkung
-  product-number-empty: Keine Produktnummer
+  product-number-empty: Wählen Sie eine Produktnummer
 
   organizations:
     cantonal: Kantonal

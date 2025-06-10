@@ -6,6 +6,12 @@ from camac.settings.modules.billing_schema import (
     WilkenConfig,
 )
 
+CANTONAL_SERVICE_GROUP_SLUGS = [
+    "baugesuchszentrale",
+    "fachstellen",
+]
+
+
 BILLING = ModuleConfig[BillingConfig](
     default=BillingConfig(),
     kt_schwyz=BillingConfig(
@@ -15,6 +21,7 @@ BILLING = ModuleConfig[BillingConfig](
                 number=100000,
                 name="ARE BGZ, kant. Baubewilligung, Gebühren",
                 not_for_services=["amfz-brandschutz", "laboratorium-urkantone"],
+                only_for_service_groups=CANTONAL_SERVICE_GROUP_SLUGS,
             ),
             ProductNumberConfig(
                 number=150000,
@@ -85,5 +92,6 @@ BILLING = ModuleConfig[BillingConfig](
             },
             keycloak_client="wilken",
         ),
+        cantonal_service_group_slugs=CANTONAL_SERVICE_GROUP_SLUGS,
     ),
 )

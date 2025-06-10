@@ -116,32 +116,30 @@
     </div>
   {{/if}}
 
-  {{#if (has-feature "billing.productNumber")}}
+  {{#if
+    (and (has-feature "billing.productNumber") this.productNumbers.value.length)
+  }}
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="product-number">
         {{t "billing.product-number"}}
+        <span class="uk-text-danger">*</span>
       </label>
       <div class="uk-form-controls">
         <select
           class="uk-select"
           name="product-number"
           id="product-number"
+          required
           {{on "change" this.update}}
         >
-          {{#if this.productNumbers.isLoading}}
-            <option selected value="">
-              {{t "global.loadingPrompt"}}
+          <option selected disabled value="">
+            {{t "billing.product-number-empty"}}
+          </option>
+          {{#each this.productNumbers.value as |productNumber|}}
+            <option value={{productNumber.number}}>
+              {{productNumber.name}}
             </option>
-          {{else}}
-            <option selected>
-              {{t "billing.product-number-empty"}}
-            </option>
-            {{#each this.productNumbers.value as |productNumber|}}
-              <option value={{productNumber.number}}>
-                {{productNumber.name}}
-              </option>
-            {{/each}}
-          {{/if}}
+          {{/each}}
         </select>
       </div>
     </div>

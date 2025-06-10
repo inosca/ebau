@@ -21,7 +21,7 @@
       {{#if
         (or
           (await (can "charge billing-v2-entries"))
-          (can "release-for-clearing billing-v2-entries")
+          (await (can "release-for-clearing billing-v2-entries"))
         )
       }}
         <th data-test-charge>
@@ -48,7 +48,7 @@
       <th data-test-amount>{{t "billing.amount"}}</th>
       <th class="uk-text-right" data-test-final-rate>{{t "billing.total"}}</th>
       <th data-test-added>{{t "billing.created-at"}}</th>
-      {{#if (has-feature "billing.releaseForClearing")}}
+      {{#if (has-feature "billing.releaseForClearing.enabled")}}
         <th data-test-released-for-clearing>{{t
             "billing.released-for-clearing"
           }}</th>

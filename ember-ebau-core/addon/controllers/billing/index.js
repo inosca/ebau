@@ -79,7 +79,9 @@ export default class BillingIndexController extends Controller {
 
   releaseForClearing = dropTask(this, async () => {
     if (
-      this.abilities.cannot("release-for-clearing billing-v2-entries") ||
+      (await this.abilities.cannot(
+        "release-for-clearing billing-v2-entries",
+      )) ||
       !this.selectedRows.length ||
       !(await confirm(this.intl.t("billing.confirm-release-for-clearing")))
     ) {
