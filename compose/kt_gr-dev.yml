@@ -248,6 +248,11 @@ services:
     ports:
       - "6900-7000:6900-7000"
 
+  celery-beat:
+    <<: *django
+    ports: []
+    command: celery-beat-dev
+
 networks:
   ebau.localhost:
 
