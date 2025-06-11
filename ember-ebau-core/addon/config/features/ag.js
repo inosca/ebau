@@ -12,6 +12,10 @@ export default {
     enabled: true,
     snippets: true,
   },
+  deadlines: {
+    enabled: true,
+    useEndDate: false,
+  },
   permissions: {
     applicantRoles: true,
   },

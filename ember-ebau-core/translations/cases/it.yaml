@@ -12,6 +12,8 @@ cases:
     coordinationShort: "Sigla servizio di coordinamento"
     createdAt: "Data di creazione"
     deadlineColor: ""
+    deadlineEndDate: ""
+    processDuration: ""
     decisionDate: "Data della decisione"
     dossierCreated: "Dossier pervenuto / registrato"
     dossierNumber: "N. dossier"
@@ -88,7 +90,7 @@ cases:
     keywordSearch: "Ricerca per parole chiave"
     keywordSearch-placeholder: ""
     keywordSearch-hint: "La ricerca per parole chiave può durare più a lungo poiché vengono controllati i dati di tutti i dossier."
-    keywordSearchTooShort: 'I singoli termini della ricerca per parole chiave devono avere almeno tre lettere, ad es. nuova EFZ o «sett. 1»'
+    keywordSearchTooShort: "I singoli termini della ricerca per parole chiave devono avere almeno tre lettere, ad es. nuova EFZ o «sett. 1»"
     landowner-placeholder: ""
     calumaKeywordSearch: "Ricerca per parole chiave"
     calumaKeywordSearch-placeholder: ""

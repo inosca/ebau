@@ -6,6 +6,7 @@ import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerConstructionMonitoring from "ember-ebau-core/modules/construction-monitoring";
 import registerCorrections from "ember-ebau-core/modules/corrections";
+import registerDeadlines from "ember-ebau-core/modules/deadlines";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerDossierImport from "ember-ebau-core/modules/dossier-import";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
@@ -83,6 +84,7 @@ Router.map(function () {
         registerBilling(this);
         registerRejection(this);
         registerPermissions(this);
+        registerDeadlines(this);
         registerConstructionMonitoring(this);
         registerLinkedInstances(this);
         registerCorrections(this);
