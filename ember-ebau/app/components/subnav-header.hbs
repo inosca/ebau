@@ -22,6 +22,9 @@
         class="uk-label subnav-header__label subnav-header__label--secondary"
       >{{@case.decision}}</span>
     {{/if}}
+    {{#if @case.instance.isSuspended}}
+      <span class="uk-label subnav-header__label">{{t "nav.suspended"}}</span>
+    {{/if}}
     {{#if @case.instance.isPaper}}
       <span class="uk-label subnav-header__label">{{t "nav.paper"}}</span>
     {{/if}}

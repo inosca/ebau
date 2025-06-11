@@ -10,7 +10,7 @@ from django.utils.timezone import now
 
 from camac.caluma.extensions.events.general import get_instance
 from camac.deadlines import models as deadlines_models
-from camac.user.models import Service, User
+from camac.user.models import Service
 
 
 def filter_by_tasks(task_ids):
@@ -66,7 +66,6 @@ def post_create_fill_additional_demand(sender, work_item, user, context=None, **
         if deadline := instance.deadlines.filter(service=service).first():
             deadlines_models.Suspension.objects.create(
                 deadline=deadline,
-                user=User.objects.get(username=user.username),
                 work_item=work_item,
                 reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND,
                 start_date=now(),
