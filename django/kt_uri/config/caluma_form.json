@@ -28273,6 +28273,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "montageart-schaufensterreklame",
+    "fields": {
+      "created_at": "2025-06-11T10:25:02.118Z",
+      "modified_at": "2025-06-11T10:25:02.118Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schaufensterreklame\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "montageart-ueber-dach",
     "fields": {
       "created_at": "2020-10-29T18:57:26.709Z",
@@ -57202,10 +57219,10 @@
     "pk": "montageart",
     "fields": {
       "created_at": "2020-10-21T12:34:37.089Z",
-      "modified_at": "2020-11-30T20:29:43.564Z",
+      "modified_at": "2025-06-11T10:25:02.389Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Montageart\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -57214,7 +57231,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -77548,60 +77565,75 @@
     "model": "caluma_form.questionoption",
     "pk": "montageart.montageart-freistehend-zb-pylone",
     "fields": {
-      "created_at": "2020-11-30T20:29:43.741Z",
-      "modified_at": "2020-11-30T20:29:43.741Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-06-11T10:25:02.444Z",
+      "modified_at": "2025-06-11T10:25:02.444Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "montageart",
       "option": "montageart-freistehend-zb-pylone",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "montageart.montageart-montage-flach-an-fassade",
     "fields": {
-      "created_at": "2020-11-30T20:29:43.600Z",
-      "modified_at": "2020-11-30T20:29:43.600Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-06-11T10:25:02.431Z",
+      "modified_at": "2025-06-11T10:25:02.431Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "montageart",
       "option": "montageart-montage-flach-an-fassade",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "montageart.montageart-montage-rechtwinklig-an-fassade",
     "fields": {
-      "created_at": "2020-11-30T20:29:43.575Z",
-      "modified_at": "2020-11-30T20:29:43.575Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-06-11T10:25:02.423Z",
+      "modified_at": "2025-06-11T10:25:02.423Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "montageart",
       "option": "montageart-montage-rechtwinklig-an-fassade",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "montageart.montageart-montage-ueber-dach",
     "fields": {
-      "created_at": "2020-11-30T20:29:43.604Z",
-      "modified_at": "2020-11-30T20:29:43.604Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-06-11T10:25:02.438Z",
+      "modified_at": "2025-06-11T10:25:02.438Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "montageart",
       "option": "montageart-montage-ueber-dach",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "montageart.montageart-schaufensterreklame",
+    "fields": {
+      "created_at": "2025-06-11T10:25:02.416Z",
+      "modified_at": "2025-06-11T10:25:02.416Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "montageart",
+      "option": "montageart-schaufensterreklame",
+      "sort": 1
     }
   },
   {
