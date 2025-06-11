@@ -181,6 +181,10 @@ export default function makeServer(config) {
 
       this.resource("work-item-list-filter-preset");
 
+      this.resource("deadline-types", { only: ["index"] });
+      this.resource("suspensions");
+      this.resource("instance-deadlines");
+
       this.namespace = ""; // reset namespace
 
       this.post("/graphql", graphqlHandler(this), 200);
