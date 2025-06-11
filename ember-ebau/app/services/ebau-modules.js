@@ -1,3 +1,4 @@
+import { getOwner } from "@ember/application";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import EbauModulesService from "ember-ebau-core/services/ebau-modules";
@@ -68,7 +69,13 @@ export default class CustomEbauModulesService extends EbauModulesService {
   redirectToCaseWorkItems() {
     this.router
       .transitionTo("cases.detail.work-items", this.instanceId)
-      .then(() => this.router.refresh());
+      .then(() => {
+        this.router.refresh();
+
+        // Refresh the cases query on the detail controller to make sure the
+        // data on the case (e.g dossier number) is up-to-date
+        getOwner(this).lookup("controller:cases.detail").cases.query.fetch();
+      });
   }
 
   redirectToInstance(instanceId) {
