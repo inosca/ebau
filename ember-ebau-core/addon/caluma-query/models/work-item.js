@@ -48,6 +48,14 @@ export default class CustomWorkItemModel extends WorkItemModel {
     this.assignedUsers = [user.username];
   }
 
+  get isCaseSuspendedForMyService() {
+    const caseMeta = this.raw?.case?.meta ?? {};
+
+    return (caseMeta["suspended-services"] ?? [])
+      .map(parseInt)
+      .includes(parseInt(this.ebauModules.serviceId));
+  }
+
   get addressedService() {
     if (!this.addressedGroups.length) return null;
 
