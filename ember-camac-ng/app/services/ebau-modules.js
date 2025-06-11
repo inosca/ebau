@@ -40,6 +40,14 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.shoebox.isMunicipalityLeadRole;
   }
 
+  get isTrustedServiceRole() {
+    return this.shoebox.isTrustedServiceRole;
+  }
+
+  get isCoordinationRole() {
+    return this.shoebox.isCoordinationRole;
+  }
+
   get baseRole() {
     return this.shoebox.baseRole;
   }

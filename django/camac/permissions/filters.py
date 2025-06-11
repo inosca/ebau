@@ -38,6 +38,16 @@ class AccessLevelFilterset(FilterSet):
     def filter_assignable_in_instance_rbac(self, qs, name, value):
         return qs.none()  # pragma: no cover
 
+    def filter_assignable_in_instance_rbac_for_trusted_service(self, qs, name, value):
+        # Uri currently only allows "read" to be assigned by a municipality, trusted service or coordination
+        qs = qs.filter(pk="read")
+        return qs
+
+    def filter_assignable_in_instance_rbac_for_coordination(self, qs, name, value):
+        # Uri currently only allows "read" to be assigned by a municipality, trusted service or coordination
+        qs = qs.filter(pk="read")
+        return qs
+
     @canton_aware
     def filter_assignable_in_instance_rbac_for_municipality(self, qs, name, value):
         # By default, nobody gets to see anything - we want to allow
@@ -64,7 +74,7 @@ class AccessLevelFilterset(FilterSet):
         return qs
 
     def filter_assignable_in_instance_rbac_for_municipality_ur(self, qs, name, value):
-        # Uri currently only allows "read" to be assigned by a municipality
+        # Uri currently only allows "read" to be assigned by a municipality, trusted service or coordination
         qs = qs.filter(pk="read")
         return qs
 
