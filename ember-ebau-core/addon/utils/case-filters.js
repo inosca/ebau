@@ -1,3 +1,4 @@
+import { getOwnConfig, macroCondition } from "@embroider/macros";
 import { DateTime } from "luxon";
 
 import caseTableConfig from "ember-ebau-core/config/case-table";
@@ -78,15 +79,19 @@ export function getCalumaFilters(filter, casesBackend) {
           },
         ],
       },
-      municipality: {
-        hasAnswer: [
-          {
-            question: "gemeinde",
-            value: filter.municipality,
-            lookup: "EXACT",
-          },
-        ],
-      },
+      ...(macroCondition(getOwnConfig().application !== "ur")
+        ? {
+            municipality: {
+              hasAnswer: [
+                {
+                  question: "gemeinde",
+                  value: filter.municipality,
+                  lookup: "EXACT",
+                },
+              ],
+            },
+          }
+        : {}),
       parcel: {
         searchAnswers: [
           {
@@ -191,6 +196,11 @@ export function getCamacFilters({
     inquiry_completed_after: filter.inquiryCompletedAfter,
     inquiry_state: filter.inquiryState,
     inquiry_answer: filter.inquiryAnswer,
+    ...(macroCondition(getOwnConfig().application === "ur")
+      ? {
+          location: filter.municipality,
+        }
+      : {}),
   };
   const specificFilters = {
     "camac-ng": {
