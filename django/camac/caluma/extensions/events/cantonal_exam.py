@@ -1,7 +1,7 @@
 from datetime import timedelta
 
 from caluma.caluma_core.events import on
-from caluma.caluma_workflow.events import post_resume_work_item
+from caluma.caluma_workflow.events import post_create_work_item, post_resume_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
@@ -37,3 +37,20 @@ def set_cantonal_exam_deadline(sender, work_item, user, context=None, **kwargs):
 
     cantonal_exam.deadline = date_to_deadline(now().date() + timedelta(days=5))
     cantonal_exam.save(update_fields=["deadline"])
+
+
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
+def set_cantonal_exam_deadline_anfrage_intern(
+    sender, work_item, user, context=None, **kwargs
+):
+    if settings.APPLICATION_NAME != "kt_ag" or work_item.task_id != "cantonal-exam":
+        return
+
+    responsible_service = work_item.case.instance.responsible_service()
+
+    if responsible_service.slug != "afb":
+        return
+
+    work_item.deadline = date_to_deadline(now().date() + timedelta(days=5))
+    work_item.save(update_fields=["deadline"])
