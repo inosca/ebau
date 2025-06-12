@@ -26,6 +26,7 @@ PLACEHOLDERS = {
             "ancillary_clauses": ("inquiry-answer", "ANCILLARY_CLAUSES"),
             "answer": ("inquiry-answer", "STATUS"),
         },
+        "BILLING_ENTRY_FIELDS": ["POSITION", "BETRAG"],
     },
     "kt_so": {
         "ENABLED": True,
@@ -88,6 +89,20 @@ PLACEHOLDERS = {
             "forward": ("inquiry-answer", "FORWARD"),
             "remark": ("inquiry", "REMARK"),
         },
+        "BILLING_ENTRY_FIELDS": [
+            "POSITION",
+            "BETRAG",
+            "RECHTSGRUNDLAGE",
+            "KOSTENSTELLE",
+            "STUNDEN",
+            "STUNDENSATZ",
+            "ANTEIL_PROZENT",
+            "GESAMTKOSTEN",
+            "BERECHNUNG",
+            "MEHRWERTSTEUER",
+            "ART",
+            "VERRECHNUNG",
+        ],
     },
     "kt_bern": {"ENABLED": True},
     "kt_gr": {"ENABLED": True},
@@ -100,6 +115,11 @@ PLACEHOLDERS = {
         "INQUIRY_FIELD_MAPPINGS": {
             "remarks": ("inquiry-answer", "REMARKS"),
         },
+        "BILLING_ENTRY_FIELDS": [
+            "POSITION",
+            "BETRAG",
+            "BEMERKUNG",
+        ],
     },
     "test": {"ENABLED": True},
 }

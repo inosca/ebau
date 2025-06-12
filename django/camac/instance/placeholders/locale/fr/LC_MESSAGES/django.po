@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-03 09:58+0200\n"
+"POT-Creation-Date: 2025-06-12 15:41+0200\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -90,6 +90,10 @@ msgstr "OPPOSITIONS"
 #| msgid "BILLING_ENTRIES"
 msgid "BILLING_TYPE"
 msgstr "EMOLUMENTS"
+
+#: camac/instance/placeholders/fields.py
+msgid "REMARK"
+msgstr "REMARQUE"
 
 #: camac/instance/placeholders/fields.py
 msgid "ANSWER"
@@ -2741,6 +2745,18 @@ msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "Department of the current service"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_MUNICIPALITY_END"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_GAZETTE_END"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "End date of the publication in the gazette"
 msgstr ""
 
 #: camac/instance/placeholders/utils.py

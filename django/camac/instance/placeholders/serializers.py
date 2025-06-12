@@ -2205,6 +2205,27 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("CURRENT_SERVICE_DEPARTMENT")],
         description=_("Department of the current service"),
     )
+    publikation_gemeinde_ende = fields.PublicationField(
+        source="ende-publikationsorgan-gemeinde",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("PUBLICATION_MUNICIPALITY_END")],
+        description=_(
+            "End date of the publication in the publication organ of the municipality"
+        ),
+    )
+    publikation_amtsblatt_ende = fields.PublicationField(
+        source="ende-publikation-kantonsamtsblatt",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("PUBLICATION_GAZETTE_END")],
+        description=_("End date of the publication in the gazette"),
+    )
+    baukosten = fields.MasterDataField(
+        source="construction_costs",
+        aliases=[_("CONSTRUCTION_COSTS")],
+        description=_("Construction costs"),
+    )
 
     def get_koordinaten(self, instance):
         return get_koordinaten_by_json_props(instance, "markers")

@@ -187,25 +187,24 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
         nested_aliases = {
             "POSITION": [_("POSITION")],
             "BETRAG": [_("AMOUNT")],
+            "RECHTSGRUNDLAGE": [_("LEGAL_BASIS")],
+            "KOSTENSTELLE": [_("COST_CENTER")],
+            "STUNDEN": [_("HOURS")],
+            "STUNDENSATZ": [_("HOURLY_RATE")],
+            "ANTEIL_PROZENT": [_("PERCENTAGE")],
+            "GESAMTKOSTEN": [_("TOTAL_COST")],
+            "BERECHNUNG": [_("CALCULATION")],
+            "MEHRWERTSTEUER": [_("VAT")],
+            "ART": [_("ORGANISATION")],
+            "VERRECHNUNG": [_("BILLING_TYPE")],
+            "BEMERKUNG": [_("REMARK")],
         }
 
-        if settings.APPLICATION_NAME == "kt_so":
-            nested_aliases.update(
-                {
-                    "RECHTSGRUNDLAGE": [_("LEGAL_BASIS")],
-                    "KOSTENSTELLE": [_("COST_CENTER")],
-                    "STUNDEN": [_("HOURS")],
-                    "STUNDENSATZ": [_("HOURLY_RATE")],
-                    "ANTEIL_PROZENT": [_("PERCENTAGE")],
-                    "GESAMTKOSTEN": [_("TOTAL_COST")],
-                    "BERECHNUNG": [_("CALCULATION")],
-                    "MEHRWERTSTEUER": [_("VAT")],
-                    "ART": [_("ORGANISATION")],
-                    "VERRECHNUNG": [_("BILLING_TYPE")],
-                }
-            )
-
-        return nested_aliases
+        return {
+            k: v
+            for k, v in nested_aliases.items()
+            if k in settings.PLACEHOLDERS["BILLING_ENTRY_FIELDS"]
+        }
 
     def format_rate(self, value):
         if value is None:
@@ -223,38 +222,51 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
         data = []
 
         for entry in value:
-            row = {
-                "POSITION": entry.text,
-                "BETRAG": self.format_rate(entry.final_rate),
-            }
-
-            if settings.APPLICATION_NAME == "kt_so":
-                row.update(
-                    {
-                        "RECHTSGRUNDLAGE": entry.legal_basis,
-                        "KOSTENSTELLE": entry.cost_center,
-                        "STUNDEN": entry.hours,
-                        "STUNDENSATZ": self.format_rate(entry.hourly_rate),
-                        "ANTEIL_PROZENT": entry.percentage,
-                        "GESAMTKOSTEN": self.format_rate(entry.total_cost),
-                        "BERECHNUNG": self.get_choice_label(
-                            BillingV2Entry.CalculationModes.choices, entry.calculation
-                        ),
-                        "MEHRWERTSTEUER": self.get_choice_label(
-                            BillingV2Entry.TaxModes, entry.tax_mode
-                        ),
-                        "ART": self.get_choice_label(
-                            BillingV2Entry.Organizations, entry.organization
-                        ),
-                        "VERRECHNUNG": self.get_choice_label(
-                            BillingV2Entry.BillingTypes, entry.billing_type
-                        ),
-                    }
-                )
-
-            data.append(row)
+            data.append(
+                {
+                    field_name: self.get_entry_field(entry, field_name)
+                    for field_name in settings.PLACEHOLDERS["BILLING_ENTRY_FIELDS"]
+                }
+            )
 
         return data
+
+    def get_entry_field(self, entry, field_name):  # noqa: C901
+        match field_name:
+            case "POSITION":
+                return entry.text
+            case "BETRAG":
+                return self.format_rate(entry.final_rate)
+            case "RECHTSGRUNDLAGE":
+                return entry.legal_basis
+            case "KOSTENSTELLE":
+                return entry.cost_center
+            case "STUNDEN":
+                return entry.hours
+            case "STUNDENSATZ":
+                return self.format_rate(entry.hourly_rate)
+            case "ANTEIL_PROZENT":
+                return entry.percentage
+            case "GESAMTKOSTEN":
+                return self.format_rate(entry.total_cost)
+            case "BERECHNUNG":
+                return self.get_choice_label(
+                    BillingV2Entry.CalculationModes.choices, entry.calculation
+                )
+            case "MEHRWERTSTEUER":
+                return self.get_choice_label(BillingV2Entry.TaxModes, entry.tax_mode)
+            case "ART":
+                return self.get_choice_label(
+                    BillingV2Entry.Organizations, entry.organization
+                )
+            case "VERRECHNUNG":
+                return self.get_choice_label(
+                    BillingV2Entry.BillingTypes, entry.billing_type
+                )
+            case "BEMERKUNG":
+                return entry.remark
+            case _:  # pragma: no cover
+                return None
 
     def get_choice_label(self, choices, value):
         for choice in choices:
