@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='servicegroup',
             name='slug',
-            field=models.SlugField(blank=True, default=None, null=True, unique=True),
+            field=models.SlugField(blank=True, default=None, null=True, unique=True, max_length=100),
         ),
         migrations.RunPython(set_name_as_slug, migrations.RunPython.noop)
     ]
