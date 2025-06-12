@@ -421,7 +421,7 @@ class Instance(models.Model):
                 else:
                     completed_check_additional_demand_work_items_closed_at = [
                         wi.closed_at
-                        for wi in self._all_work_items
+                        for wi in self.case.work_items.all()
                         if (
                             wi.task_id == "check-additional-demand"
                             and wi.status == WorkItem.STATUS_COMPLETED
