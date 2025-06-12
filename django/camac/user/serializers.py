@@ -451,8 +451,6 @@ class PublicRoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
 
 
 class PublicServiceGroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
-    slug = serializers.CharField(source="name")
-
     class Meta:
         model = models.ServiceGroup
         fields = (

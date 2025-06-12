@@ -37,7 +37,7 @@ export default class BillingTableComponent extends Component {
       colspan += 1;
     }
 
-    if (hasFeature("billing.releaseForClearing")) {
+    if (hasFeature("billing.releaseForClearing.enabled")) {
       colspan += 1;
     }
 

@@ -5,9 +5,10 @@ from typing import List, TypedDict, Union
 from django.conf import settings
 from django.db.models import Q
 
-from camac.billing.models import BillingV2Entry
+from camac.billing.models import BillingV2Entry, Invoice
 from camac.instance.models import Instance
 from camac.settings.modules.billing_schema import ProductNumberConfig
+from camac.user.models import Group, Service
 
 
 class OrganizationTotals(TypedDict):
@@ -217,7 +218,7 @@ def get_customer_number_sz(instance: Instance) -> str:
 
 def validate_product_number_conditions(
     product_number_config: ProductNumberConfig,
-    service_slug: str,
+    service: Service,
     has_previous_invoice: bool,
 ) -> bool:
     """Validate if the conditions configured for a product number are met."""
@@ -226,6 +227,7 @@ def validate_product_number_conditions(
     config = {
         "number": product_number_config.number,
         "only_for_services": product_number_config.only_for_services,
+        "only_for_service_groups": product_number_config.only_for_service_groups,
         "not_for_services": product_number_config.not_for_services,
         "only_subsequent_charge": product_number_config.only_subsequent_charge,
     }
@@ -235,16 +237,41 @@ def validate_product_number_conditions(
             case ("only_subsequent_charge", cond):
                 return has_previous_invoice == cond
             case ("only_for_services", services) if type(services) is list:
-                if not service_slug:
+                if not service.slug:
                     return False
-                return service_slug in services
+                return service.slug in services
+            case ("only_for_service_groups", service_groups) if (
+                type(service_groups) is list
+            ):
+                if not service.service_group.slug:
+                    return False
+                return service.service_group.slug in service_groups
             case ("not_for_services", services) if type(services) is list:
-                if not service_slug:
+                if not service.slug:
                     return True
-                return service_slug not in services
+                return service.slug not in services
             # In case any of the properties don't match up with the datatype
             # we excpect, we just ignore them instead of failing.
             case _:
                 return True
 
     return all([test_condition(key, value) for key, value in config.items()])
+
+
+def validate_product_number(group: Group, instance: str) -> list[ProductNumberConfig]:
+    config: list[ProductNumberConfig] | None = settings.BILLING.product_numbers
+
+    if not config:
+        return []
+
+    has_previous_invoice = Invoice.objects.filter(instance=instance).exists()
+
+    return [
+        product_number_config
+        for product_number_config in config
+        if validate_product_number_conditions(
+            product_number_config,
+            group.service,
+            has_previous_invoice,
+        )
+    ]

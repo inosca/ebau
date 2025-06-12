@@ -12,6 +12,13 @@ class ProductNumberConfig(EBauConfig):
         description="List of service slugs which this product number is visible for.",
         default=None,
     )
+    only_for_service_groups: list[str] | None = Field(
+        description=(
+            "List of service_group slugs which this product number is visible for."
+            "For example if you want to only allow product numbers for cantonal services."
+        ),
+        default=None,
+    )
     not_for_services: list[str] | None = Field(
         description="List of service slugs which this product number is NOT visible for.",
         default=None,
@@ -52,4 +59,10 @@ class BillingConfig(ModuleApplicationConfig):
         ),
         default=None,
     )
-    wilken: WilkenConfig | None = None
+    wilken: WilkenConfig | None = Field(
+        description="Configuration for the wilken export feature (currently for SZ)",
+        default=None,
+    )
+    cantonal_service_group_slugs: list[str] | None = Field(
+        description="Which ServiceGroup's are cantonal. List of slugs.", default=None
+    )

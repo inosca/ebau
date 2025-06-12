@@ -29,11 +29,19 @@ export default class BillingV2EntryAbility extends Ability {
     );
   }
 
-  get canReleaseForClearing() {
+  async canReleaseForClearing() {
+    const service = await this.store.findRecord(
+      "service",
+      this.ebauModules.serviceId,
+      { include: "service_group" },
+    );
+    const isCantonal = (
+      hasFeature("billing.releaseForClearing.allowedForServiceGroups") ?? []
+    ).includes(service.serviceGroup.get("slug"));
     return (
-      hasFeature("billing.releaseForClearing") &&
+      hasFeature("billing.releaseForClearing.enabled") &&
       this.canEdit &&
-      isAuthority(this.instance, this.ebauModules.serviceId)
+      isCantonal
     );
   }
 

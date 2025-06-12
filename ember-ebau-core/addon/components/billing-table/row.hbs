@@ -1,8 +1,8 @@
 <tr>
   {{#if
     (or
-      (await (can "charge billing-v2-entries"))
-      (can "release-for-clearing billing-v2-entries")
+      (can "charge billing-v2-entries")
+      (await (can "release-for-clearing billing-v2-entries"))
     )
   }}
     <td data-test-entry-charge>
@@ -11,8 +11,8 @@
         class="uk-checkbox"
         aria-label={{t "billing.toggle-row"}}
         title={{t "billing.toggle-row"}}
-        disabled={{not-eq @entry.dateCharged null}}
-        checked={{or (not-eq @entry.dateCharged null) @selected}}
+        disabled={{or @entry.dateCharged @entry.releasedForClearing}}
+        checked={{or @entry.dateCharged @entry.releasedForClearing @selected}}
         data-test-toggle
         {{on "change" this.toggle}}
       />
@@ -40,7 +40,7 @@
     {{format-number @entry.finalRate minimumFractionDigits=2}}
   </td>
   <td data-test-entry-added>{{format-date @entry.dateAdded format="date"}}</td>
-  {{#if (has-feature "billing.releaseForClearing")}}
+  {{#if (has-feature "billing.releaseForClearing.enabled")}}
     <td data-test-entry-released-for-clearing>{{format-date
         @entry.releasedForClearing
         format="date"

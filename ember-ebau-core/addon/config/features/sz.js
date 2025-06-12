@@ -8,7 +8,10 @@ export default {
     billingType: false,
     legalBasis: false,
     costCenter: false,
-    releaseForClearing: false,
+    releaseForClearing: {
+      enabled: false,
+      allowedForServiceGroups: ["baugesuchszentrale", "fachstelle"],
+    },
     productNumber: false,
   },
   cases: {

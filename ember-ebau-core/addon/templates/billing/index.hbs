@@ -28,7 +28,7 @@
         data-test-charge-submit
       />
     {{/if}}
-    {{#if (can "release-for-clearing billing-v2-entries")}}
+    {{#if (await (can "release-for-clearing billing-v2-entries"))}}
       <UkButton
         @label={{t "billing.release-for-clearing"}}
         @loading={{this.releaseForClearing.isRunning}}

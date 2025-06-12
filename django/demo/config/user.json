@@ -451,6 +451,7 @@
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
+      "slug": null,
       "name": "service",
       "sort": null
     }
@@ -459,6 +460,7 @@
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
+      "slug": null,
       "name": "municipality",
       "sort": null
     }

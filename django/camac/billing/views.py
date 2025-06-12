@@ -15,18 +15,19 @@ from rest_framework.views import APIView
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.billing.filters import BillingV2EntryFilterSet
-from camac.billing.models import BillingV2Entry, BillingV2EntryTemplate, Invoice
+from camac.billing.models import BillingV2Entry, BillingV2EntryTemplate
 from camac.billing.serializers import (
     BillingV2BulkEntryIdsSerializer,
     BillingV2EntrySerializer,
     BillingV2EntryTemplateSerializer,
 )
-from camac.billing.utils import validate_product_number_conditions
+from camac.billing.utils import (
+    validate_product_number,
+)
 from camac.billing.wilken.domain_logic import generate_invoices
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import is_permission_mode_fully_enabled
-from camac.settings.modules.billing_schema import ProductNumberConfig
 from camac.user.models import Group
 from camac.user.permissions import (
     IsAllowedClientToken,
@@ -71,10 +72,10 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
     def get_queryset_for_public(self):
         return self.queryset.none()
 
-    def has_object_release_for_clearing_permission(self, obj):
+    def has_release_for_clearing_permission(self):
         return (
-            obj.instance.responsible_service(filter_type="municipality")
-            == self.request.group.service
+            self.request.group.service.service_group.slug
+            in settings.BILLING.cantonal_service_group_slugs
         )
 
     def has_object_destroy_permission(self, obj):
@@ -141,26 +142,18 @@ class ProductNumbersView(APIView):
     permission_classes = [IsAllowedClientToken & IsAuthenticated]
 
     def get(self, request):
-        config: list[ProductNumberConfig] | None = getattr(
-            settings.BILLING, "product_numbers", None
-        )
-        instance: str = request.query_params.get("for_instance", None)
+        instance: str | None = request.query_params.get("for_instance", None)
         group: Group | None = get_group(request)
 
-        if not config or not instance or not group:
+        if not instance or not group:
             return response.Response([], status=status.HTTP_400_BAD_REQUEST)
-
-        has_previous_invoice: bool = Invoice.objects.filter(instance=instance).exists()
 
         valid_product_numbers: list[dict[str, int | str]] = [
             {
                 "number": product_number_config.number,
                 "name": product_number_config.name,
             }
-            for product_number_config in config
-            if validate_product_number_conditions(
-                product_number_config, group.service.slug, has_previous_invoice
-            )
+            for product_number_config in validate_product_number(group, instance)
         ]
 
         return response.Response(valid_product_numbers, status=status.HTTP_200_OK)

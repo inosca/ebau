@@ -251,7 +251,13 @@ def test_billing_entry_visibilities(
 
 @pytest.mark.freeze_time("2023-11-06")
 @pytest.mark.parametrize("role__name", [("Municipality")])
-def test_billing_entry_release_for_clearing(db, admin_client, billing_v2_entry) -> None:
+def test_billing_entry_release_for_clearing(
+    db, admin_client, billing_v2_entry, sz_billing_settings, group
+) -> None:
+    service_group = group.service.service_group
+    service_group.slug = sz_billing_settings.cantonal_service_group_slugs[0]
+    service_group.save()
+
     url = reverse("billing-v2-entry-release-for-clearing", args=[billing_v2_entry.pk])
     response = admin_client.patch(url)
 
@@ -328,7 +334,7 @@ def test_billing_entry_create_with_ag_processing_fee(
 
 
 def test_billing_entry_create_with_product_number(
-    db, admin_client, sz_instance, sz_billing_settings: BillingConfig
+    db, admin_client, sz_instance, sz_billing_settings: BillingConfig, group
 ):
     sz_billing_settings.product_numbers = [
         ProductNumberConfig(
@@ -336,6 +342,10 @@ def test_billing_entry_create_with_product_number(
             name="test",
         )
     ]
+    service_group = group.service.service_group
+    service_group.slug = sz_billing_settings.cantonal_service_group_slugs[0]
+    service_group.save()
+
     response = admin_client.post(
         reverse("billing-v2-entry-list"),
         data={
@@ -360,6 +370,70 @@ def test_billing_entry_create_with_product_number(
     attributes = response.json()["data"]["attributes"]
     assert attributes["product-number"] == "1"
     assert attributes["product-number-name"] == "test"
+
+    response = admin_client.post(
+        reverse("billing-v2-entry-list"),
+        data={
+            "data": {
+                "type": "billing-v2-entries",
+                "attributes": {
+                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+                    "total-cost": 1050,
+                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
+                    "tax-rate": 7.7,
+                    "text": "Test",
+                },
+                "relationships": {
+                    "instance": {"data": {"id": sz_instance.pk, "type": "instances"}}
+                },
+            }
+        },
+    )
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+    response = admin_client.post(
+        reverse("billing-v2-entry-list"),
+        data={
+            "data": {
+                "type": "billing-v2-entries",
+                "attributes": {
+                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+                    "total-cost": 1050,
+                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
+                    "tax-rate": 7.7,
+                    "text": "Test",
+                    "product-number": "3290",
+                },
+                "relationships": {
+                    "instance": {"data": {"id": sz_instance.pk, "type": "instances"}}
+                },
+            }
+        },
+    )
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+    sz_billing_settings.product_numbers = None
+    response = admin_client.post(
+        reverse("billing-v2-entry-list"),
+        data={
+            "data": {
+                "type": "billing-v2-entries",
+                "attributes": {
+                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+                    "total-cost": 1050,
+                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
+                    "tax-rate": 7.7,
+                    "text": "Test",
+                    "product-number": "3290",
+                },
+                "relationships": {
+                    "instance": {"data": {"id": sz_instance.pk, "type": "instances"}}
+                },
+            }
+        },
+    )
+    assert response.status_code == status.HTTP_201_CREATED
+    assert response.data["product_number"] is None
 
 
 def test_product_numbers(
@@ -393,6 +467,11 @@ def test_product_numbers(
             number=4,
             name="test4",
             only_subsequent_charge=True,
+        ),
+        ProductNumberConfig(
+            number=5,
+            name="test5",
+            only_for_service_groups=["test_sg"],
         ),
     ]
     url = reverse("product-numbers")
@@ -432,6 +511,9 @@ def test_product_numbers(
     invoice.delete()
     service.slug = None
     service.save()
+    service.service_group.slug = "test_sg"
+    service.service_group.save()
+
     response = admin_client.get(
         url,
         {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
@@ -442,4 +524,25 @@ def test_product_numbers(
             "number": 2,
             "name": "test2",
         },
+        {
+            "number": 5,
+            "name": "test5",
+        },
     ]
+
+
+def test_product_numbers_empty(
+    db,
+    admin_client,
+    sz_instance,
+    sz_billing_settings,
+):
+    sz_billing_settings.product_numbers = None
+    url = reverse("product-numbers")
+    response = admin_client.get(
+        url,
+        {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json()["data"] == []
