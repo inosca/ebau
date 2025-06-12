@@ -42,7 +42,6 @@ FROM quay.io/keycloak/keycloak:${VERSION} AS keycloak-builder
 
 ENV KC_DB=postgres
 ENV KC_HTTP_RELATIVE_PATH=/auth
-ENV KC_HOSTNAME_STRICT_HTTPS=false
 ENV KC_HTTP_ENABLED=true
 ENV KC_HTTP_RELATIVE_PATH=/auth
 ENV KC_LOG_LEVEL=warn
@@ -64,3 +63,36 @@ COPY cache-ispn-tcpstatic.xml /opt/keycloak/conf/cache-ispn-tcpstatic.xml
 COPY custom-entrypoint.sh /opt/keycloak/bin/
 ENTRYPOINT ["/opt/keycloak/bin/custom-entrypoint.sh"]
 CMD ["start", "--optimized"]
+
+# currently we have two versions of keycloak running, v25 and v26, so we need to
+# create two different build targets until all cantons are upgraded.
+# this is because the ENV `KC_HOSTNAME_STRICT_HTTPS` should be removed for v26.
+# a canton that uses v26 should use the keycloak-v26 build target to stop early.
+#
+# compose file reference:
+#
+# ````
+#   keycloak:
+#     build:
+#       context: ../keycloak
+#       args:
+#         VERSION: 26.2
+#       target: keycloak-v26
+# ````
+FROM keycloak-builder AS keycloak-v26
+
+# For existing cantons that are not upgraded yet we use the keycloak-v25 build target
+# to still add the ENV variable.
+# since this is the last target this will be the default, so no changes are needed
+# in the compose files.
+#
+# compose file reference:
+#
+# ````
+#   keycloak:
+#     build:
+#       context: ../keycloak
+# ````
+FROM keycloak-builder AS keycloak-v25
+
+ENV KC_HOSTNAME_STRICT_HTTPS=false

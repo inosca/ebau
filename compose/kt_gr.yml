@@ -76,6 +76,9 @@ services:
   keycloak:
     build:
       context: ../keycloak
+      args:
+        VERSION: 26.2
+      target: keycloak-v26
       cache_from:
         - acr.run/camac-ng/camac-ng/keycloak:master
 
