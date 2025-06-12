@@ -17,7 +17,6 @@ from camac.instance.utils import get_lead_authority
 from camac.user.relations import CurrentUserResourceRelatedField
 
 from . import models
-from .authentication import JSONWebTokenKeycloakAuthentication
 
 
 class CurrentGroupDefault(object):
@@ -567,25 +566,32 @@ class KeycloakApplySerializer(RestSerializer):
             question=question,
             document=document,
             user=self.context["request"].caluma_info.context.user,
-            value=int(value) if question.type == "integer" else value,
+            value=int(value) if question.type == Question.TYPE_INTEGER else value,
         )
 
         return True
 
     def create(self, validated_data):
+        user = self.context["request"].user
         document = validated_data["document"]
         written_questions = set()
 
-        jwt_auth = JSONWebTokenKeycloakAuthentication()
-        jwt_token = jwt_auth.get_jwt_value(self.context["request"])
-        userinfo = jwt_auth.keycloak.userinfo(jwt_token.decode())
-
-        for question_slug, attribute in settings.USER[
-            "QUESTION_OIDC_ATTRIBUTES_MAPPING"
+        for question_slug, attributes in settings.USER[
+            "QUESTION_USER_ATTRIBUTES_MAPPING"
         ].items():
-            success = self._write_answer(
-                document, question_slug, userinfo.get(attribute)
-            )
+            if not isinstance(attributes, list):
+                attributes = [attributes]
+
+            value = ""
+            for attr in attributes:
+                value = getattr(user, attr)
+
+                if value:
+                    # If the attribute is not empty, we don't check the next
+                    # attribute at all.
+                    break
+
+            success = self._write_answer(document, question_slug, value)
 
             if success:
                 written_questions.add(question_slug)

@@ -151,7 +151,6 @@ def test_user_keycloak_apply(
     gr_user_settings,
     admin_client,
     admin_user,
-    mocker,
     gr_instance,
     settings,
     requests_mock,
@@ -173,18 +172,6 @@ def test_user_keycloak_apply(
             }
         },
     )
-    mocker.patch(
-        "camac.user.authentication.JSONWebTokenKeycloakAuthentication.get_jwt_value",
-        lambda self, token: type("token", (bytes,), {"decode": lambda: None}),
-    )
-    token_value = {
-        "sub": admin_user.username,
-        "email": admin_user.email,
-        "family_name": admin_user.surname,
-        "given_name": admin_user.name,
-    }
-    userinfo = mocker.patch("keycloak.KeycloakOpenID.userinfo")
-    userinfo.return_value = token_value
 
     response = admin_client.post(
         reverse("keycloak-apply"),
@@ -203,16 +190,13 @@ def test_user_keycloak_apply(
         answers = gr_instance.case.document.answers.all()
 
         assert (
-            answers.get(question_id="e-mail-gesuchstellerin").value
-            == token_value["email"]
+            answers.get(question_id="e-mail-gesuchstellerin").value == admin_user.email
         )
         assert (
-            answers.get(question_id="vorname-gesuchstellerin").value
-            == token_value["given_name"]
+            answers.get(question_id="vorname-gesuchstellerin").value == admin_user.name
         )
         assert (
-            answers.get(question_id="name-gesuchstellerin").value
-            == token_value["family_name"]
+            answers.get(question_id="name-gesuchstellerin").value == admin_user.surname
         )
 
 
