@@ -307,7 +307,7 @@
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
-      "slug": null,
+      "slug": "service-cantonal",
       "name": "service-cantonal",
       "sort": null
     }
@@ -316,7 +316,7 @@
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
-      "slug": null,
+      "slug": "municipality",
       "name": "municipality",
       "sort": null
     }
@@ -325,7 +325,7 @@
     "model": "user.servicegroup",
     "pk": 3,
     "fields": {
-      "slug": null,
+      "slug": "service-external",
       "name": "service-external",
       "sort": null
     }
@@ -334,7 +334,7 @@
     "model": "user.servicegroup",
     "pk": 4,
     "fields": {
-      "slug": null,
+      "slug": "service-afb",
       "name": "service-afb",
       "sort": null
     }
@@ -343,7 +343,7 @@
     "model": "user.servicegroup",
     "pk": 5,
     "fields": {
-      "slug": null,
+      "slug": "authority-pgv",
       "name": "authority-pgv",
       "sort": null
     }
@@ -352,7 +352,7 @@
     "model": "user.servicegroup",
     "pk": 6,
     "fields": {
-      "slug": null,
+      "slug": "municipality-light",
       "name": "municipality-light",
       "sort": null
     }
