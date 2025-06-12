@@ -496,7 +496,9 @@ class ServiceGroup(core_models.MultilingualModel, models.Model):
     service_group_id = models.AutoField(
         db_column="SERVICE_GROUP_ID", primary_key=True, verbose_name=_("ID")
     )
-    slug = models.SlugField(unique=True, null=True, blank=True, default=None)
+    slug = models.SlugField(
+        unique=True, null=True, blank=True, default=None, max_length=100
+    )
     name = models.CharField(
         db_column="NAME", max_length=100, blank=True, null=True, verbose_name=_("Name")
     )
