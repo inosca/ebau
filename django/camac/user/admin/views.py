@@ -252,11 +252,13 @@ class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
 
 @register(Role)
 class RoleAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
-    exclude_ml = ["name", "group_prefix"]
+    exclude_ml = ["group_prefix"]
     inlines_ml = [RoleTInline]
     list_display = ["role_id", "get_name"]
+    list_display_ml = ["name", "get_name"]
     list_per_page = 20
     ordering = ["pk"]
+    ordering_ml = ["name"]
     prefetch_related_ml = ["trans"]
     search_fields = ["name"]
     search_fields_ml = ["trans__name"]
@@ -269,11 +271,13 @@ class RoleAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
 @register(ServiceGroup)
 class ServiceGroupAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     exclude = ["sort"]
-    exclude_ml = ["name", "sort"]
+    exclude_ml = ["sort"]
     inlines_ml = [ServiceGroupTInline]
     list_display = ["service_group_id", "get_name"]
+    list_display_ml = ["name", "get_name"]
     list_per_page = 20
     ordering = ["pk"]
+    ordering_ml = ["name"]
     prefetch_related_ml = ["trans"]
     search_fields = ["name"]
     search_fields_ml = ["trans__name"]
