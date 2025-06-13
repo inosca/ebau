@@ -11,6 +11,7 @@ legal-submission:
   legal-claimants: "Parti"
   status: "Stato"
   withdrawn: "Ritirato?"
+  has-representative: ""
 
   loading-error: "Errore nel tentativo di caricare la rivendicazione"
   create-error: "Errore nel tentativo di creare la rivendicazione"

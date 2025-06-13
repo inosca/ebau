@@ -75,6 +75,9 @@
         {{#if (this.hasColumn "withdrawn")}}
           <th>{{t "legal-submission.withdrawn"}}</th>
         {{/if}}
+        {{#if (this.hasColumn "has-representative")}}
+          <th>{{t "legal-submission.has-representative"}}</th>
+        {{/if}}
         <th></th>
       </tr>
     </thead>

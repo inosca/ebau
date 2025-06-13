@@ -17,6 +17,9 @@
   {{#if (this.hasColumn "withdrawn")}}
     <td>{{t (concat "global." (if this.withdrawn "yes" "no"))}}</td>
   {{/if}}
+  {{#if (this.hasColumn "has-representative")}}
+    <td>{{t (concat "global." (if this.hasRepresentative "yes" "no"))}}</td>
+  {{/if}}
   <td>
     <div class="uk-flex uk-flex-middle uk-flex-right">
       <LinkTo
