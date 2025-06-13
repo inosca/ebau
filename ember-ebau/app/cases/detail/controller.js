@@ -9,6 +9,7 @@ export default class DetailController extends Controller {
 
   // only fetch the case as the instance is already fetched in the route
   cases = useCalumaQuery(this, allCases, () => ({
+    options: { pageSize: 1 },
     filter: [
       {
         metaValue: [{ key: "camac-instance-id", value: this.model.id }],
