@@ -1036,7 +1036,9 @@ def test_dms_placeholders_ur(
 
 
 @pytest.mark.freeze_time("2016-06-06 13:37", tick=True)
-@pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.parametrize(
+    "role__name,service_group__name", [("municipality-lead", "municipality")]
+)
 @pytest.mark.django_db(
     transaction=True, reset_sequences=True
 )  # always reset instance id
@@ -1047,7 +1049,9 @@ def test_dms_placeholders_ag(
     ag_dms_config,
     ag_master_data_case,
     ag_publication_settings,
+    billing_v2_entry_factory,
     create_caluma_publication,
+    group,
     multilang,
     responsible_service_factory,
     service,
@@ -1081,13 +1085,19 @@ def test_dms_placeholders_ag(
         responsible_user__mobile="079 345 67 89",
     )
 
-    # Information of neighbors
-    create_caluma_publication(
+    # Publication
+    publication = create_caluma_publication(
         ag_instance,
         module_settings=ag_publication_settings,
         addressed_groups=[str(service.pk)],
-        document__pk="5d55b605-df4b-4484-aa91-7cd23f89ba22",
+        end=date(2025, 7, 1),
     )
+    utils.add_answer(publication.document, "publikation-text", "Text zur Publikation")
+    utils.add_answer(
+        publication.document, "ende-publikation-kantonsamtsblatt", date(2025, 8, 1)
+    )
+
+    # Information of neighbors
     information_of_neighbors = create_caluma_publication(
         ag_instance,
         publication_type="NEIGHBORS",
@@ -1099,6 +1109,15 @@ def test_dms_placeholders_ag(
         information_of_neighbors.document,
         "nachbarschaftsorientierung-auswaertige-anstoesser",
         [ag_personal_row_factory(), ag_personal_row_factory(True)],
+    )
+
+    # Billing
+    billing_v2_entry_factory(
+        text="Nutzungsbewilligung",
+        final_rate=200,
+        remark="Nr. 1234",
+        group=group,
+        instance=ag_instance,
     )
 
     url = reverse("instance-dms-placeholders", args=[ag_instance.pk])
