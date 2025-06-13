@@ -68,6 +68,12 @@ class MultilingualAdminMixin:
     def get_search_fields(self, *args, **kwargs):
         return self._get_multilingual("search_fields")
 
+    def get_list_display(self, *args, **kwargs):
+        return self._get_multilingual("list_display")
+
+    def get_ordering(self, *args, **kwargs):
+        return self._get_multilingual("ordering")
+
     def generate_query(self, orm_lookup, bit):
         match = re.match(rf".*trans{LOOKUP_SEP}", orm_lookup)
         query = {orm_lookup: bit}

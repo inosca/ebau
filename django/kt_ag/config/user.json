@@ -55,28 +55,10 @@
   },
   {
     "model": "user.role",
-    "pk": 8,
-    "fields": {
-      "role_parent": null,
-      "name": "service-clerk",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
     "pk": 9,
     "fields": {
       "role_parent": null,
       "name": "municipality-read",
-      "group_prefix": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 10,
-    "fields": {
-      "role_parent": null,
-      "name": "service-read",
       "group_prefix": null
     }
   },
@@ -205,31 +187,11 @@
   },
   {
     "model": "user.rolet",
-    "pk": 10,
-    "fields": {
-      "role": 8,
-      "language": "de",
-      "name": "Sachbearbeitung externe Fachstelle",
-      "group_prefix": "Sachbearbeitung"
-    }
-  },
-  {
-    "model": "user.rolet",
     "pk": 11,
     "fields": {
       "role": 9,
       "language": "de",
       "name": "Einsichtsberechtigte Gemeinde",
-      "group_prefix": "Einsichtsberechtigte"
-    }
-  },
-  {
-    "model": "user.rolet",
-    "pk": 12,
-    "fields": {
-      "role": 10,
-      "language": "de",
-      "name": "Einsichtsberechtigte externe Fachstelle",
       "group_prefix": "Einsichtsberechtigte"
     }
   },
@@ -307,7 +269,7 @@
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
-      "slug": null,
+      "slug": "service-cantonal",
       "name": "service-cantonal",
       "sort": null
     }
@@ -316,7 +278,7 @@
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
-      "slug": null,
+      "slug": "municipality",
       "name": "municipality",
       "sort": null
     }
@@ -325,7 +287,7 @@
     "model": "user.servicegroup",
     "pk": 3,
     "fields": {
-      "slug": null,
+      "slug": "service-external",
       "name": "service-external",
       "sort": null
     }
@@ -334,7 +296,7 @@
     "model": "user.servicegroup",
     "pk": 4,
     "fields": {
-      "slug": null,
+      "slug": "service-afb",
       "name": "service-afb",
       "sort": null
     }
@@ -343,7 +305,7 @@
     "model": "user.servicegroup",
     "pk": 5,
     "fields": {
-      "slug": null,
+      "slug": "authority-pgv",
       "name": "authority-pgv",
       "sort": null
     }
@@ -352,7 +314,7 @@
     "model": "user.servicegroup",
     "pk": 6,
     "fields": {
-      "slug": null,
+      "slug": "municipality-light",
       "name": "municipality-light",
       "sort": null
     }
