@@ -84,7 +84,7 @@ export default class CustomEbauModulesService extends EbauModulesService {
 
         // Refresh the cases query on the detail controller to make sure the
         // data on the case (e.g dossier number) is up-to-date
-        getOwner(this).lookup("controller:cases.detail").cases.query.fetch();
+        getOwner(this).lookup("controller:cases.detail").cases.refresh();
       });
   }
 
