@@ -107,6 +107,22 @@ DISTRIBUTION = {
             },
         },
         "SUGGESTIONS": BE_DISTRIBUTION_SUGGESTIONS,
+        "AVAILABLE_SERVICES_FOR_INQUIRY": {
+            "default": [
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            [
+                                "municipality",
+                                "service",
+                                "district",
+                            ],
+                        )
+                    ]
+                },
+            ],
+        },
         "PERMISSIONS": {
             "CompleteWorkItem": {
                 "INQUIRY_ANSWER_FILL_TASK": lambda group, *_: is_lead_role(group),
