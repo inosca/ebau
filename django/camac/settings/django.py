@@ -427,12 +427,7 @@ APPLICATIONS = {
             ],
             # geometer-v5
             "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Oberarth, Immensee, Brunnen)": [
-                137,  # Brandschutz (Geoinfra)
-                149,  # Grundstücksentwässerung (Geoinfra)
-                334,  # Umweltschutzbeauftragter (Geoinfra)
                 359,  # Geometer (Geoinfra)
-                360,  # Baurecht (Geoinfra)
-                361,  # Kontrolle Hochbau (Geoinfra)
             ],
             "GEO Netz AG (Lachen, Seewen)": [
                 313,  # GEO Netz AG (Geometer)
