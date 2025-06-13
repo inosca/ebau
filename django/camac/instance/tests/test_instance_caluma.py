@@ -3435,7 +3435,7 @@ def test_send_notifications(
             "municipality",
             "anfrage-intern",
             "subm",
-            {"create-manual-workitems", "formal-exam"},
+            {"create-manual-workitems", "formal-exam", "cantonal-exam"},
         ),
         (
             "municipality-light",
@@ -3454,6 +3454,7 @@ def test_instance_submit_ag_internal(
     expected_instance_state,
     expected_work_items,
     form_slug,
+    service_factory,
     instance_service_factory,
     instance_state_factory,
     master_data_is_visible_mock,
@@ -3474,6 +3475,8 @@ def test_instance_submit_ag_internal(
     if service.service_group.name == "service-afb":
         service.slug = "afb"
         service.save()
+    else:
+        service_factory(slug="afb", service_group__name="service-afb")
 
     instance_service_factory(instance=ag_instance, service=service)
 

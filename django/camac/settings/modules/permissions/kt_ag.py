@@ -206,6 +206,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("audit-read", MODULE_AUDIT),
             ("billing-read", MODULE_BILLING),
             ("billing-charge", MODULE_BILLING),
+            ("cantonal-exam-read", MODULE_CANTONAL_EXAM),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("complete-instance-read", MODULE_COMPLETE_INSTANCE),
@@ -215,6 +216,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("dms-generate-read", MODULE_DMS_GENERATE),
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
+            ("form-kantonale-pruefung-write", MODULE_CANTONAL_EXAM),
             ("form-read", MODULE_FORM),
             (
                 "form-write",
