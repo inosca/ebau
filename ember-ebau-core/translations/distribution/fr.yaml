@@ -1,4 +1,5 @@
 distribution:
+  all: "Tous"
   districts: "Préfectures"
   municipalities: "Communes"
   services: "Offices cantonaux et offices spécialisés"
