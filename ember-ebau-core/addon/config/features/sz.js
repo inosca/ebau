@@ -9,10 +9,10 @@ export default {
     legalBasis: false,
     costCenter: false,
     releaseForClearing: {
-      enabled: false,
+      enabled: true,
       allowedForServiceGroups: ["baugesuchszentrale", "fachstelle"],
     },
-    productNumber: false,
+    productNumber: true,
   },
   cases: {
     createPaper: false,
