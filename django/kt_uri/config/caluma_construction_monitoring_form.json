@@ -37,6 +37,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "construction-monitoring-update-gwr-state-complete",
+    "fields": {
+      "created_at": "2024-08-23T13:52:20.457Z",
+      "modified_at": "2024-08-23T13:52:20.457Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Projektabschluss)\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "construction-step-av-state-project",
     "fields": {
       "created_at": "2025-01-13T09:57:29.737Z",
@@ -594,6 +612,51 @@
       "form": "complete-instance",
       "question": "complete-instance-zwg",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring-update-gwr-state-complete.abschliessen-projektabschluss",
+    "fields": {
+      "created_at": "2025-06-16T09:35:35.165Z",
+      "modified_at": "2025-06-16T09:35:35.165Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring-update-gwr-state-complete",
+      "question": "abschliessen-projektabschluss",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring-update-gwr-state-complete.bemerkungen-projektabschluss",
+    "fields": {
+      "created_at": "2025-06-16T09:35:16.132Z",
+      "modified_at": "2025-06-16T09:35:16.132Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring-update-gwr-state-complete",
+      "question": "bemerkungen-projektabschluss",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-monitoring-update-gwr-state-complete.status-aktualisiert-projektabschluss",
+    "fields": {
+      "created_at": "2025-06-16T09:34:35.842Z",
+      "modified_at": "2025-06-16T09:34:35.842Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-monitoring-update-gwr-state-complete",
+      "question": "status-aktualisiert-projektabschluss",
+      "sort": 3
     }
   },
   {
@@ -2462,6 +2525,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "abschliessen-projektabschluss",
+    "fields": {
+      "created_at": "2025-06-16T09:35:34.926Z",
+      "modified_at": "2025-06-16T09:35:34.926Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "av-gebaeudeabbruch-bemerkungen",
     "fields": {
       "created_at": "2025-03-14T07:25:32.127Z",
@@ -2894,6 +2993,40 @@
     "fields": {
       "created_at": "2025-05-14T11:21:55.552Z",
       "modified_at": "2025-05-14T11:21:55.552Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-projektabschluss",
+    "fields": {
+      "created_at": "2025-06-16T09:35:16.017Z",
+      "modified_at": "2025-06-16T09:35:16.017Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": null,
@@ -4873,6 +5006,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "status-aktualisiert-projektabschluss",
+    "fields": {
+      "created_at": "2025-06-16T09:34:35.641Z",
+      "modified_at": "2025-06-16T09:34:35.641Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wann wurde der Status aktualisiert?\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},

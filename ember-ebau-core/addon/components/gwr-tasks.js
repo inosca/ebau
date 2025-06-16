@@ -34,6 +34,7 @@ export default class GrGisComponent extends Component {
               "construction-step-gwr-state-construction-start",
               "construction-step-gwr-state-demolition",
               "construction-step-gwr-state-building",
+              "construction-monitoring-update-gwr-state-complete",
             ],
           },
         },
