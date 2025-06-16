@@ -1,8 +1,4 @@
 @charset "UTF-8";
-.uk-form-label {
-  font-weight: bolder;
-}
-
 /* ========================================================================
    Component: Base
  ========================================================================== */
@@ -14,7 +10,7 @@
 html {
   /* 1 */
   font-family: "Arial", sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: normal;
   line-height: 1.5;
   /* 2 */
@@ -287,7 +283,7 @@ h4, .uk-h4 {
 }
 
 h5, .uk-h5 {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.4;
 }
 
@@ -5885,7 +5881,7 @@ ul.uk-nav-sub {
 /* Secondary modifier
  ========================================================================== */
 .uk-nav-secondary {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
 }
 .uk-nav-secondary > :not(.uk-nav-divider) + :not(.uk-nav-header, .uk-nav-divider) {
@@ -8424,7 +8420,7 @@ ul.uk-nav-sub {
 }
 
 .uk-text-default {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -12242,8 +12238,38 @@ h2#app-title a {
   font-weight: 700;
 }
 
+.uk-button-default {
+  padding: 16px 30px;
+  line-height: inherit;
+}
+
 .uk-card-default {
   background-color: rgba(255, 255, 255, 0.9);
+}
+
+.uk-form-label {
+  font-weight: bolder;
+}
+
+#kc-social-providers-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(calc(50% - 16px), 1fr));
+  gap: 8px;
+  /* gap: 10px 0; /* if {a.zocial} margin changes re-add  */
+  align-content: stretch;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 5px 5px 0 15px;
+}
+#kc-social-providers-buttons div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#kc-social-providers-buttons div a {
+  height: 100%;
+  margin-bottom: auto;
 }
 
 /*# sourceMappingURL=style.css.map */
