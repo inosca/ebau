@@ -1,0 +1,5 @@
+additional-demand:
+  hint: |+
+    <div class="uk-alert">
+    <strong>Hinweis:</strong> Die Nachforderung wird dem Gesuchstellenden direkt zugestellt. Aktenergänzungen über die Leitbehörde (Gemeinde oder ARE) haben über die Zirkulation zu erfolgen.
+    </div>
