@@ -395,7 +395,6 @@ APPLICATIONS = {
             ],
             "Wild Ingenieure AG (Küssnacht)": [
                 150,  # Wild Ingenieure AG (Geometer)
-                151,  # Wild Ingenieure AG (Gde_Bez Ingenieur)
             ],
             # geometer-v2 (only removal)
             # geometer-v3
@@ -422,7 +421,6 @@ APPLICATIONS = {
             ],
             # geometer-v4
             "geometrie plus ag (Einsiedeln, Freienbach)": [
-                144,  # geometrie plus ag (Gde_Bez Ingenieur),
                 154,  # geometrie plus ag (Geometer)
             ],
             # geometer-v5
