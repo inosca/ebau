@@ -14,7 +14,8 @@
       "location": null,
       "case": "edf81bff-4f33-48d6-b8de-2aee7643a97e",
       "instance_group": null,
-      "rejection_feedback": null
+      "rejection_feedback": null,
+      "copy_source": null
     }
   },
   {
@@ -32,7 +33,8 @@
       "location": null,
       "case": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1",
       "instance_group": null,
-      "rejection_feedback": null
+      "rejection_feedback": null,
+      "copy_source": null
     }
   },
   {
@@ -50,7 +52,8 @@
       "location": null,
       "case": "e9197275-36df-460c-b261-ff27f781c5d9",
       "instance_group": null,
-      "rejection_feedback": null
+      "rejection_feedback": null,
+      "copy_source": null
     }
   },
   {

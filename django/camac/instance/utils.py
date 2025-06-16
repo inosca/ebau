@@ -150,6 +150,7 @@ def copy_instance(
     serializer.save()
 
     new_instance = serializer.instance
+    new_instance.copy_source = instance
 
     for instance_service in instance.instance_services.exclude(
         service__service_group__name="construction-control"

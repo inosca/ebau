@@ -1107,6 +1107,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 source_instance = visible_instances.get(pk=copy_source)
             except models.Instance.DoesNotExist:
                 raise exceptions.ValidationError(_("Source instance not found"))
+            validated_data["copy_source"] = source_instance
 
             caluma_form = caluma_api.get_form_slug(source_instance)
             if (

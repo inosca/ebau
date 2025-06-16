@@ -250,9 +250,7 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             # the instance_id filter is set.
             # Whether the instances are actually visible in that moment, is checked
             # previously.
-            qs = qs.filter(
-                Q(pk=value) | Q(case__document__copies__case__instance=value)
-            )
+            qs = qs.filter(Q(pk=value) | Q(copy_source=value))
 
         if filter_type in ["case_id", "instance_id"] and value:
             qs._single_instance_mode = True

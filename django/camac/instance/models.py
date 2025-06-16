@@ -180,6 +180,9 @@ class Instance(models.Model):
         InstanceGroup, models.SET_NULL, related_name="instances", null=True
     )
     rejection_feedback = models.TextField(blank=True, null=True)
+    copy_source = models.ForeignKey(
+        "Instance", models.SET_NULL, related_name="copies", null=True
+    )
 
     def _get_queryset_for_linked_instances(self, queryset):
         return queryset if queryset else Instance.objects.all()
