@@ -88,8 +88,10 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
         # We want to also validate the product_number
         # if its empty in case the service is required to
         # set one.
-        if not validated_data.get("product_number") and hasattr(
-            settings.BILLING, "product_numbers"
+        if (
+            not validated_data.get("product_number")
+            and hasattr(settings.BILLING, "product_numbers")
+            and settings.BILLING.product_numbers is not None
         ):
             self.validate_product_number(None)
 
@@ -110,10 +112,14 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
             for product_number_config in validate_product_number(group, instance)
         ]
 
-        if not product_number and len(valid_product_numbers) != 0:
-            raise serializers.ValidationError(
-                "You have not supplied a value for the field product_number."
-            )
+        # If there are no valid product numbers for the
+        # current service, allow the field to be empty.
+        if not product_number:
+            if len(valid_product_numbers):
+                raise serializers.ValidationError(
+                    "You have not supplied a value for the field product_number."
+                )
+            return product_number
 
         if str(product_number) in [str(pn) for pn in valid_product_numbers]:
             return product_number
