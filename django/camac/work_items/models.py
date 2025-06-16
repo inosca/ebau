@@ -26,6 +26,7 @@ class WorkItemTemplate(models.Model):
             _("Current service and responsible user (if exists)"),
         )
         CURRENT_USER = "CURRENT_USER", _("Current service and current user")
+        SPECIFIC_USER = "SPECIFIC_USER", _("Current service and specific user")
         NO_USER = "NO_USER", _("Current service and no user")
 
     id = models.UUIDField(
@@ -67,6 +68,17 @@ class WorkItemTemplate(models.Model):
         choices=ResponsibilityRuleChoices.choices,
         max_length=20,
         verbose_name=_("Responsibility rule"),
+    )
+    assigned_user = models.ForeignKey(
+        "user.User",
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        verbose_name=_("Assigned user"),
+        help_text=_(
+            'The assigned user will only be considered if the responsibility rule "%(rule)s" is selected above'
+        )
+        % dict(rule=ResponsibilityRuleChoices.SPECIFIC_USER.label),
     )
 
     def __str__(self):
