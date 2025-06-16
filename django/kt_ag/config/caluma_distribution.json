@@ -922,7 +922,7 @@
       "is_published": true,
       "is_archived": false,
       "allow_all_forms": false,
-      "start_tasks": ["fill-inquiry"],
+      "start_tasks": ["check-document-supplement", "fill-inquiry"],
       "allow_forms": ["inquiry-answer"]
     }
   }

@@ -81,6 +81,20 @@ mutation FillInquiryTask {
   }
 }
 
+mutation CheckDocumentSupplementTask {
+  saveSimpleTask(
+    input: {
+      slug: "check-document-supplement"
+      name: "Unterlagenergänzung prüfen"
+      addressGroups: "info.context.addressed_groups"
+      controlGroups: "info.context.addressed_groups"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.alexandria\",\"models\":[\"INSTANCE_ID\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CheckInquiriesTask {
   saveSimpleTask(
     input: {
@@ -147,7 +161,7 @@ mutation InquiryWorkflow {
     input: {
       slug: "inquiry"
       name: "Stellungnahme"
-      startTasks: ["fill-inquiry"]
+      startTasks: ["fill-inquiry", "check-document-supplement"]
       allowForms: ["inquiry-answer"]
       isPublished: true
     }
