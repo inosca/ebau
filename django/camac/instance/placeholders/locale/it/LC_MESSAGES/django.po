@@ -184,8 +184,6 @@ msgid "DISPATCH_DECISION_FURTHER_SERVICES"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-#, fuzzy
-#| msgid "MARKS"
 msgid "REMARKS"
 msgstr "DEMARCAZIONI"
 
@@ -196,10 +194,21 @@ msgid "DATE_START"
 msgstr "DATA_TIMBRO_POSTALE"
 
 #: camac/instance/placeholders/fields.py
-#, fuzzy
-#| msgid "DATE_DOCUMENT"
 msgid "DATE_END"
-msgstr "DATA_DOCUMENTO"
+msgstr "DATA_FINE"
+
+#: camac/instance/placeholders/fields.py
+#: camac/instance/placeholders/serializers.py
+msgid "SITUATION"
+msgstr "FATTISPECIE"
+
+#: camac/instance/placeholders/fields.py
+msgid "CONSIDERATIONS"
+msgstr "CONSIDERANDI"
+
+#: camac/instance/placeholders/fields.py
+msgid "STATEMENT"
+msgstr "VALUTAZIONE"
 
 #: camac/instance/placeholders/fields.py
 msgid "DATE_POSTMARK"
@@ -1792,10 +1801,6 @@ msgstr "DG_DATA"
 #: camac/instance/placeholders/serializers.py
 msgid "Date placeholder for the 'rrb_start' form field"
 msgstr "Data della messa sotto protezione DG"
-
-#: camac/instance/placeholders/serializers.py
-msgid "SITUATION"
-msgstr "FATTISPECIE"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Situation of the request"

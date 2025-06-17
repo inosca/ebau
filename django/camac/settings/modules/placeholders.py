@@ -105,7 +105,16 @@ PLACEHOLDERS = {
         ],
     },
     "kt_bern": {"ENABLED": True},
-    "kt_gr": {"ENABLED": True},
+    "kt_gr": {
+        "ENABLED": True,
+        "INQUIRY_FIELD_MAPPINGS": {
+            "situation": ("inquiry-answer", "SITUATION"),
+            "considerations": ("inquiry-answer", "CONSIDERATIONS"),
+            "statement": ("inquiry-answer", "STATEMENT"),
+            "ancillary_clauses": ("inquiry-answer", "ANCILLARY_CLAUSES"),
+            "comments": ("inquiry-answer", "COMMENTS"),
+        },
+    },
     "kt_uri": {"ENABLED": True},
     "kt_ag": {
         "ENABLED": True,

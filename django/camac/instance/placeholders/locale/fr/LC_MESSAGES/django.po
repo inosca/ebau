@@ -70,10 +70,8 @@ msgid "TOTAL_COST"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-#, fuzzy
-#| msgid "SITUATION"
 msgid "CALCULATION"
-msgstr "SITUATION"
+msgstr "CALCULATION"
 
 #: camac/instance/placeholders/fields.py
 msgid "VAT"
@@ -195,10 +193,21 @@ msgid "DATE_START"
 msgstr "CONTRAT_DATE"
 
 #: camac/instance/placeholders/fields.py
-#, fuzzy
-#| msgid "DATE_DOCUMENT"
 msgid "DATE_END"
 msgstr "DATE_DOCUMENT"
+
+#: camac/instance/placeholders/fields.py
+#: camac/instance/placeholders/serializers.py
+msgid "SITUATION"
+msgstr "SITUATION_DE_FAIT"
+
+#: camac/instance/placeholders/fields.py
+msgid "CONSIDERATIONS"
+msgstr "POSITION"
+
+#: camac/instance/placeholders/fields.py
+msgid "STATEMENT"
+msgstr "AFFIRMATION"
 
 #: camac/instance/placeholders/fields.py
 msgid "DATE_POSTMARK"
@@ -217,10 +226,8 @@ msgid "OPPOSING_ADDRESS"
 msgstr "REQUERANT_ADRESSE_1"
 
 #: camac/instance/placeholders/fields.py
-#, fuzzy
-#| msgid "SITUATION"
 msgid "OPPOSING_SALUTATION"
-msgstr "SITUATION"
+msgstr "FORMULE_DE_SALUTATION_OPPOSANT"
 
 #: camac/instance/placeholders/fields.py
 #, fuzzy
@@ -269,10 +276,8 @@ msgid "NAME_JURISTIC_PERSON"
 msgstr "NOM_LEGAL"
 
 #: camac/instance/placeholders/fields.py
-#, fuzzy
-#| msgid "SITUATION"
 msgid "SALUTATION"
-msgstr "SITUATION"
+msgstr "SALUTATION"
 
 #: camac/instance/placeholders/fields.py
 #, fuzzy
@@ -1820,10 +1825,6 @@ msgid "Date placeholder for the 'rrb_start' form field"
 msgstr "Date de mise sous protection ACE"
 
 #: camac/instance/placeholders/serializers.py
-msgid "SITUATION"
-msgstr "SITUATION"
-
-#: camac/instance/placeholders/serializers.py
 msgid "Situation of the request"
 msgstr "Situation de la demande"
 
@@ -2234,10 +2235,8 @@ msgid "Names and addresses of all applicant representatives"
 msgstr "Noms et adresses de toutes les personnes resprésentantes"
 
 #: camac/instance/placeholders/serializers.py
-#, fuzzy
-#| msgid "SITUATION"
 msgid "APPLICANT_SALUTATION"
-msgstr "SITUATION"
+msgstr "APPLICANT_SALUTATION"
 
 #: camac/instance/placeholders/serializers.py
 #, fuzzy
