@@ -7,7 +7,7 @@ from ..jexl import ExtractTransformSubjectAnalyzer
 
 
 @pytest.mark.parametrize(
-    "expression, expected_transforms",
+    "expression,expected_value",
     [
         ('63 > 62 ? "test"|transform1 : "test2"|transform2', {"test"}),
         ('63 > 62 ? "test"|transform1 : "test2"|transform1', {"test", "test2"}),
@@ -15,10 +15,8 @@ from ..jexl import ExtractTransformSubjectAnalyzer
         ('"test2"|transform1', {"test2"}),
     ],
 )
-def test_extract_transforms(expression, expected_transforms):
+def test_extract_transform_subject_analyzer(expression, expected_value):
     jexl = JEXL()
-    jexl.add_transform("transform1", lambda x: x)
-    jexl.add_transform("transform2", lambda x: x)
 
     assert set(
         jexl.analyze(
@@ -27,4 +25,4 @@ def test_extract_transforms(expression, expected_transforms):
                 ExtractTransformSubjectAnalyzer, transforms=["transform1"]
             ),
         )
-    ) == set(expected_transforms)
+    ) == set(expected_value)
