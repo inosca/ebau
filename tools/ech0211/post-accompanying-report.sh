@@ -66,6 +66,12 @@ xml_payload=$(cat <<EOF
       <ns2:remark>Wird in das Feld "Stellungnahme" übernommen.</ns2:remark>
       <ns2:ancillaryClauses>Wird in das Feld "Nebenbestimmungen" übernommen.</ns2:ancillaryClauses>
       <ns2:ancillaryClauses>Wird in das Feld "Nebenbestimmungen" übernommen.</ns2:ancillaryClauses>
+      <ns2:extension>
+        <situation>Wird aus dem Feld "Sachverhalt" abgefüllt.</situation>
+        <considerations>Wird aus dem Feld "Erwägungen" abgefüllt.</considerations>
+        <comments>Wird aus dem Feld "Bemerkungen" abgefüllt.</comments>
+        <documentsAvailable>true</documentsAvailable>
+      </ns2:extension>
     </ns2:eventAccompanyingReport>
   </ns2:delivery>
 EOF
