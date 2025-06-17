@@ -186,8 +186,11 @@ DISTRIBUTION = {
             "REOPEN_TASKS": ["fill-inquiry"],
         },
         "QUESTIONS": {
+            "SITUATION": "inquiry-answer-situation",
+            "CONSIDERATIONS": "inquiry-answer-considerations",
             "STATEMENT": "inquiry-answer-assessment",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+            "COMMENTS": "stellungnahme-bemerkungen",
             "DEADLINE": "inquiry-deadline",
         },
         "NOTIFY_ON_CANCELLATION": True,

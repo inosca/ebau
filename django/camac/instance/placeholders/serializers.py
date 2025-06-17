@@ -865,6 +865,21 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("SHELTER_REMARKS")],
         description=_("Remarks on the shelters"),
     )
+    zirkulation_rueckmeldungen = fields.InquiriesField(
+        status=WorkItem.STATUS_COMPLETED,
+        props=[
+            ("opinion", "STELLUNGNAHME"),
+            ("ancillary_clauses", "NEBENBESTIMMUNGEN"),
+            ("answer", "ANTWORT"),
+            ("service", "VON"),
+            ("situation", "SACHVERHALT"),
+            ("considerations", "ERWAEGUNGEN"),
+            ("statement", "BEURTEILUNG"),
+            ("comments", "BEMERKUNGEN"),
+        ],
+        aliases=[_("CIRCULATION_FEEDBACK")],
+        description=_("Opinions and ancillary clauses of the invited services"),
+    )
 
     def get_zonenplan(self, instance):
         answer = Answer.objects.filter(

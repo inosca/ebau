@@ -462,6 +462,9 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
             "BEMERKUNGEN": [_("REMARKS")],
             "DATUM_START": [_("DATE_START")],
             "DATUM_ENDE": [_("DATE_END")],
+            "SACHVERHALT": [_("SITUATION")],
+            "ERWAEGUNGEN": [_("CONSIDERATIONS")],
+            "BEURTEILUNG": [_("STATEMENT")],
         }
 
         nested_aliases = (

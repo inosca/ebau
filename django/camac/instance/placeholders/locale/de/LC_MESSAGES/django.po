@@ -179,6 +179,19 @@ msgid "DATE_END"
 msgstr "DATUM_ENDE"
 
 #: camac/instance/placeholders/fields.py
+#: camac/instance/placeholders/serializers.py
+msgid "SITUATION"
+msgstr "SACHVERHALT"
+
+#: camac/instance/placeholders/fields.py
+msgid "CONSIDERATIONS"
+msgstr "ERWAEGUNGEN"
+
+#: camac/instance/placeholders/fields.py
+msgid "STATEMENT"
+msgstr "BEURTEILUNG"
+
+#: camac/instance/placeholders/fields.py
 msgid "DATE_POSTMARK"
 msgstr "DATUM_POSTSTEMPEL"
 
@@ -1688,10 +1701,6 @@ msgstr "RRB_DATUM"
 #: camac/instance/placeholders/serializers.py
 msgid "Date placeholder for the 'rrb_start' form field"
 msgstr "Datum der Unterschutzstellung RRB"
-
-#: camac/instance/placeholders/serializers.py
-msgid "SITUATION"
-msgstr "SACHVERHALT"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Situation of the request"
