@@ -32,7 +32,18 @@
       class="uk-height-1-1"
     >
       <:header>
-        <p class="uk-margin-right uk-margin-left">{{this.category.name}}</p>
+        <p class="uk-margin-right uk-margin-left">
+          {{maybe-translate
+            (concat "documents.categories." this.category.id ".title")
+            this.category.name
+          }}
+        </p>
+        <p class="uk-margin-remove-top uk-width-1-1 uk-text-left">
+          {{maybe-translate
+            (concat "documents.categories." this.category.id ".hint")
+            htmlSafe=true
+          }}
+        </p>
       </:header>
       <:footer>
         {{#if (or @loading @attachments.length)}}
