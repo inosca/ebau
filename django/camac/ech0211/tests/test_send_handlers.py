@@ -1004,12 +1004,13 @@ def test_kind_of_proceedings_send_handler(
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(
-    "has_inquiry,has_attachment,document_backend",
+    "has_inquiry,has_attachment,document_backend,documents_available",
     (
-        (True, False, "camac-ng"),
-        (True, True, "camac-ng"),
-        (False, False, "camac-ng"),
-        (True, True, "alexandria"),
+        (True, False, "camac-ng", True),
+        (True, True, "camac-ng", True),
+        (False, False, "camac-ng", True),
+        (True, True, "alexandria", True),
+        (True, True, "alexandria", False),
     ),
 )
 def test_accompanying_report_send_handler(
@@ -1036,6 +1037,7 @@ def test_accompanying_report_send_handler(
     has_attachment,
     has_inquiry,
     document_backend,
+    documents_available,
 ):
     notification_template_factory(slug="05-bericht-erstellt")
     settings.APPLICATION["DOCUMENT_BACKEND"] = document_backend
@@ -1109,7 +1111,13 @@ def test_accompanying_report_send_handler(
                 name="MyFile.pdf",
             )
 
-    data = CreateFromDocument(xml_data("accompanying_report"))
+    xml = xml_data("accompanying_report")
+    if not documents_available:
+        xml = xml.replace(
+            "<documentsAvailable>true</documentsAvailable>",
+            "<documentsAvailable>false</documentsAvailable>",
+        )
+    data = CreateFromDocument(xml)
 
     handler = AccompanyingReportSendHandler(
         data=data,

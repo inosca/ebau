@@ -492,6 +492,7 @@ def test_accompanying_report_event_handler_alexandria(
 
 
 @pytest.mark.freeze_time("2022-06-03")
+@pytest.mark.parametrize("documents_available", [True, False])
 def test_accompanying_report_event_handler_extension(
     db,
     active_inquiry_factory,
@@ -503,6 +504,7 @@ def test_accompanying_report_event_handler_extension(
     set_application_gr,
     ech_snapshot,
     multilang,
+    documents_available,
     service,
     utils,
 ):
@@ -553,7 +555,7 @@ def test_accompanying_report_event_handler_extension(
     utils.add_answer(
         inquiry.child_case.document,
         "stellungnahme-in-dokumentanablage",
-        value=["stellungnahme-in-dokumentanablage-ja"],
+        value=["stellungnahme-in-dokumentanablage-ja"] if documents_available else [],
         options=["stellungnahme-in-dokumentanablage-ja"],
         question_type=Question.TYPE_MULTIPLE_CHOICE,
     )
@@ -564,3 +566,8 @@ def test_accompanying_report_event_handler_extension(
     assert Message.objects.count() == 1
     message = Message.objects.first()
     ech_snapshot(message.body)
+
+    if documents_available:
+        assert "<documentsAvailable>true</documentsAvailable>" in message.body
+    else:
+        assert "<documentsAvailable>false</documentsAvailable>" in message.body

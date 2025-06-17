@@ -461,8 +461,14 @@ class AccompanyingReportSendHandler(BaseSendHandler):
 
                 value = text_value
                 # map values for choice questions
-                if text_value == "true" and mapping.get("true_value"):
-                    value = mapping["true_value"]
+                if text_value == "true" and mapping.get("true_value", None) is not None:
+                    value = (
+                        [mapping["true_value"]]
+                        if question.type == Question.TYPE_MULTIPLE_CHOICE
+                        else mapping["true_value"]
+                    )
+                elif text_value == "false":
+                    value = [] if question.type == Question.TYPE_MULTIPLE_CHOICE else ""
 
                 save_answer(
                     document=self.inquiry.child_case.document,
