@@ -23,7 +23,7 @@ instances:
 
 documents:
   tags:
-    brandschutzdokumente: "Brandschutzdokumente — bitte zusammen mit Situationsplan in Dokumentenbereich Brandschutz (Feuerpolizei) ablegen"
+    brandschutzdokumente: 'Brandschutzdokumente — Zusätzlich nur für den Brandschutz relevante Planunterlagen und Dokumente sind im Bereich "Brandschutzdokumente (Feuerpolizei)" abzulegen. Vermeiden Sie den Upload von doppelten Planunterlagen!'
     weitere-unterlagen: "Allgemeine Unterlagen"
 
 support:
