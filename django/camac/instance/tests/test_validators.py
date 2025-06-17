@@ -356,6 +356,90 @@ DEFAULT_FORM_CONFIG = {
             "new",
             True,  # ValidationError, expects option for question-2, received string
         ),
+        (
+            {
+                "question-0": {
+                    "label": "Question 0",
+                    "type": "radio",
+                    "required": True,
+                    "config": {
+                        "options": [
+                            '{"formType": "municipality"}',
+                            '{"formType": "district"}',
+                            '{"formType": "canton"}',
+                        ]
+                    },
+                },
+                "question-1": {
+                    "label": "Question 1",
+                    "type": "radio",
+                    "required": True,
+                    "active-expression": "'question-0'|value|json['formType'] in ['municipality', 'district']",
+                    "config": {"options": ["Yes", "No"]},
+                },
+            },
+            [("question-0", '{"formType": "municipality"}'), ("question-1", "Yes")],
+            {"question-0": True, "question-1": True},
+            {"question-0": True, "question-1": True},
+            "new",
+            False,
+        ),
+        (
+            {
+                "question-0": {
+                    "label": "Question 0",
+                    "type": "radio",
+                    "required": True,
+                    "config": {
+                        "options": [
+                            '{"formType": "municipality"}',
+                            '{"formType": "district"}',
+                            '{"formType": "canton"}',
+                        ]
+                    },
+                },
+                "question-1": {
+                    "label": "Question 1",
+                    "type": "radio",
+                    "required": True,
+                    "active-expression": "'question-0'|value|json['formType'] in ['municipality', 'district']",
+                    "config": {"options": ["Yes", "No"]},
+                },
+            },
+            [("question-0", '{"formType": "canton"}')],
+            {"question-0": True, "question-1": False},
+            {"question-0": True, "question-1": False},
+            "new",
+            False,  # question-1 not active
+        ),
+        (
+            {
+                "question-0": {
+                    "label": "Question 0",
+                    "type": "radio",
+                    "required": True,
+                    "config": {
+                        "options": [
+                            '{"formType": "municipality"}',
+                            '{"formType": "district"}',
+                            '{"formType": "canton"}',
+                        ]
+                    },
+                },
+                "question-1": {
+                    "label": "Question 1",
+                    "type": "radio",
+                    "required": True,
+                    "active-expression": "'question-0'|value|json['formType'] in ['municipality', 'district']",
+                    "config": {"options": ["Yes", "No"]},
+                },
+            },
+            [("question-0", '{"formType": "district"}')],
+            {"question-0": True, "question-1": True},
+            {"question-0": True, "question-1": True},
+            "new",
+            True,  # ValidationError, question-1 is required but missing
+        ),
     ],
 )
 def test_form_data_validator_validation(
