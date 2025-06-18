@@ -10,7 +10,7 @@ export default {
     costCenter: false,
     releaseForClearing: {
       enabled: true,
-      allowedForServiceGroups: ["baugesuchszentrale", "fachstelle"],
+      allowedForServiceGroups: ["baugesuchszentrale", "fachstellen"],
     },
     productNumber: true,
   },

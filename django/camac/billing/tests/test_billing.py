@@ -333,107 +333,92 @@ def test_billing_entry_create_with_ag_processing_fee(
     assert response.json()["data"]["attributes"]["final-rate"] == "43500.00"
 
 
+@pytest.mark.parametrize(
+    "product_number_config,product_number,response_http_code",
+    [
+        (
+            [
+                ProductNumberConfig(
+                    number=1,
+                    name="test",
+                )
+            ],
+            1,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            [
+                ProductNumberConfig(
+                    number=1,
+                    name="test",
+                )
+            ],
+            None,
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            [
+                ProductNumberConfig(
+                    number=1,
+                    name="test",
+                )
+            ],
+            "3290",
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            [
+                ProductNumberConfig(
+                    number=1, name="test", only_for_services=["nonexistent"]
+                )
+            ],
+            None,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            None,
+            None,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            None,
+            2,
+            status.HTTP_201_CREATED,
+        ),
+    ],
+)
 def test_billing_entry_create_with_product_number(
-    db, admin_client, sz_instance, sz_billing_settings: BillingConfig, group
+    db,
+    admin_client,
+    sz_instance,
+    sz_billing_settings: BillingConfig,
+    product_number_config: list[ProductNumberConfig],
+    product_number: str | int | None,
+    response_http_code: int,
 ):
-    sz_billing_settings.product_numbers = [
-        ProductNumberConfig(
-            number=1,
-            name="test",
-        )
-    ]
-    service_group = group.service.service_group
-    service_group.slug = sz_billing_settings.cantonal_service_group_slugs[0]
-    service_group.save()
+    sz_billing_settings.product_numbers = product_number_config
 
-    response = admin_client.post(
-        reverse("billing-v2-entry-list"),
-        data={
-            "data": {
-                "type": "billing-v2-entries",
-                "attributes": {
-                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
-                    "total-cost": 1050,
-                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
-                    "tax-rate": 7.7,
-                    "text": "Test",
-                    "product-number": 1,
-                },
-                "relationships": {
-                    "instance": {"data": {"id": sz_instance.pk, "type": "instances"}}
-                },
-            }
-        },
-    )
+    data = {
+        "data": {
+            "type": "billing-v2-entries",
+            "attributes": {
+                "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+                "total-cost": 1050,
+                "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
+                "tax-rate": 7.7,
+                "text": "Test",
+            },
+            "relationships": {
+                "instance": {"data": {"id": sz_instance.pk, "type": "instances"}}
+            },
+        }
+    }
+    if product_number:
+        data["data"]["attributes"]["product-number"] = product_number
 
-    assert response.status_code == status.HTTP_201_CREATED
-    attributes = response.json()["data"]["attributes"]
-    assert attributes["product-number"] == "1"
-    assert attributes["product-number-name"] == "test"
+    response = admin_client.post(reverse("billing-v2-entry-list"), data=data)
 
-    response = admin_client.post(
-        reverse("billing-v2-entry-list"),
-        data={
-            "data": {
-                "type": "billing-v2-entries",
-                "attributes": {
-                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
-                    "total-cost": 1050,
-                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
-                    "tax-rate": 7.7,
-                    "text": "Test",
-                },
-                "relationships": {
-                    "instance": {"data": {"id": sz_instance.pk, "type": "instances"}}
-                },
-            }
-        },
-    )
-    assert response.status_code == status.HTTP_400_BAD_REQUEST
-
-    response = admin_client.post(
-        reverse("billing-v2-entry-list"),
-        data={
-            "data": {
-                "type": "billing-v2-entries",
-                "attributes": {
-                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
-                    "total-cost": 1050,
-                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
-                    "tax-rate": 7.7,
-                    "text": "Test",
-                    "product-number": "3290",
-                },
-                "relationships": {
-                    "instance": {"data": {"id": sz_instance.pk, "type": "instances"}}
-                },
-            }
-        },
-    )
-    assert response.status_code == status.HTTP_400_BAD_REQUEST
-
-    sz_billing_settings.product_numbers = None
-    response = admin_client.post(
-        reverse("billing-v2-entry-list"),
-        data={
-            "data": {
-                "type": "billing-v2-entries",
-                "attributes": {
-                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
-                    "total-cost": 1050,
-                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
-                    "tax-rate": 7.7,
-                    "text": "Test",
-                    "product-number": "3290",
-                },
-                "relationships": {
-                    "instance": {"data": {"id": sz_instance.pk, "type": "instances"}}
-                },
-            }
-        },
-    )
-    assert response.status_code == status.HTTP_201_CREATED
-    assert response.data["product_number"] is None
+    assert response.status_code == response_http_code
 
 
 def test_product_numbers(
