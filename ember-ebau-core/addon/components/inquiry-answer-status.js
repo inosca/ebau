@@ -60,27 +60,47 @@ export default class InquiryAnswerStatusComponent extends Component {
 
       const optionType = isAuthorityBaB ? "bab" : isUso ? "uso" : "default";
 
+      const formType = (this.formType.value ?? "").startsWith(
+        "vorlaeufige-beurteilung",
+      )
+        ? "vorlaeufige-beurteilung"
+        : "any";
+
       const inquiryAnswerStatusOptions = {
-        bab: [
-          "inquiry-answer-status-positive",
-          "inquiry-answer-status-negative",
-          "inquiry-answer-status-not-involved",
-        ],
-        uso: [
-          "inquiry-answer-status-following",
-          "inquiry-answer-status-renounced",
-        ],
-        default: [
-          "inquiry-answer-status-positive",
-          "inquiry-answer-status-negative",
-          "inquiry-answer-status-claim",
-          "inquiry-answer-status-not-involved",
-        ],
+        bab: {
+          "vorlaeufige-beurteilung": [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-not-involved",
+          ],
+          any: [
+            "inquiry-answer-status-approved",
+            "inquiry-answer-status-rejected",
+            "inquiry-answer-status-written-off",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-not-involved",
+          ],
+        },
+        uso: {
+          any: [
+            "inquiry-answer-status-following",
+            "inquiry-answer-status-renounced",
+          ],
+        },
+        default: {
+          any: [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-claim",
+            "inquiry-answer-status-not-involved",
+          ],
+        },
       };
 
-      return this.args.field.options.filter((option) => {
-        return inquiryAnswerStatusOptions[optionType].includes(option.slug);
-      });
+      return this.args.field.options.filter((option) =>
+        inquiryAnswerStatusOptions[optionType][formType].includes(option.slug),
+      );
     } else if (macroCondition(getOwnConfig().application === "ag")) {
       const isAfB =
         parseInt(
