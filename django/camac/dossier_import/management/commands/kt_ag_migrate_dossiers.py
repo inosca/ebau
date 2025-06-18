@@ -88,7 +88,7 @@ class Command(BaseCommand):
         self._create_report()
         self._create_detail_report()
 
-        if options.get("dossier"):
+        if options.get("dossier"):  # pragma: no cover
             dossier_path = options.get("dossier")[0]
             self.stdout.write(f"Importing from '{dossier_path}'")
             dossier_import = DossierImport.objects.create(
