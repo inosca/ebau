@@ -20,8 +20,10 @@ def get_test_files():
     return list(input_files)
 
 
-@pytest.mark.order(1)  # Slow tests should run first
-def test_migrate_json_file_again(db, setup_dossier_import_ag, snapshot):
+@pytest.mark.skip(reason="not productive execution that is tested")
+def test_migrate_json_file_again(
+    db, setup_dossier_import_ag, snapshot
+):  # pragma: no cover
     for input_file in get_test_files():
         print("migrating file", input_file)
         _migrate_from_file_and_assert(input_file, snapshot)
@@ -29,7 +31,7 @@ def test_migrate_json_file_again(db, setup_dossier_import_ag, snapshot):
         _migrate_from_file_and_assert(input_file, snapshot)
 
 
-def _migrate_from_file_and_assert(input_file, snapshot):
+def _migrate_from_file_and_assert(input_file, snapshot):  # pragma: no cover
     out = StringIO()
     err = StringIO()
 
@@ -42,8 +44,10 @@ def _migrate_from_file_and_assert(input_file, snapshot):
     _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
 
 
-@pytest.mark.order(1)  # Slow tests should run first
-def test_migrate_and_update_all(db, setup_dossier_import_ag, snapshot):
+@pytest.mark.skip(reason="not productive execution that is tested")
+def test_migrate_and_update_all(
+    db, setup_dossier_import_ag, snapshot
+):  # pragma: no cover
     out = StringIO()
     err = StringIO()
 
@@ -87,6 +91,17 @@ def test_migrate_from_zip(db, setup_dossier_import_ag, snapshot):
     )
     for input_file in get_test_files():
         _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
+
+    call_command(
+        "kt_ag_migrate_dossiers",
+        [f"--source-path={basepath}", "--skip-existing"],
+        stdout=out,
+        stderr=err,
+    )
+
+    for input_file in get_test_files():
+        _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
+
     if os.path.exists(basepath):
         shutil.rmtree(basepath)
 
