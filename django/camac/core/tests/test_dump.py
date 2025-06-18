@@ -10,7 +10,7 @@ from django.core.management import call_command
 from camac.core.models import Resource
 
 
-@pytest.mark.order(1)  # Always run this test first
+@pytest.mark.order(1)  # Slow tests should run first
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
 def test_dump_and_load(
     db,
