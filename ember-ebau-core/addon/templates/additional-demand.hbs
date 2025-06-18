@@ -2,9 +2,11 @@
   <p>{{t "additional-demand.paper" htmlSafe=true}}</p>
 {{else}}
   <div uk-grid>
-    <div class="uk-width-1-1">
-      {{maybe-translate "additional-demand.hint" htmlSafe=true}}
-    </div>
+    {{#if this.session.isInternal}}
+      <div class="uk-width-1-1">
+        {{maybe-translate "additional-demand.hint" htmlSafe=true}}
+      </div>
+    {{/if}}
     <div class="uk-width-1-3">
       <AdditionalDemand::List @instanceId={{@model}} />
     </div>

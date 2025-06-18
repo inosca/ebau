@@ -1,3 +1,4 @@
+import AdditionalDemandController from "ember-ebau-core/controllers/additional-demand";
 import { registerModule } from "ember-ebau-core/modules";
 import AdditionalDemandRoute from "ember-ebau-core/routes/additional-demand";
 import AdditionalDemandDetailRoute from "ember-ebau-core/routes/additional-demand/detail";
@@ -17,7 +18,9 @@ export default function register(router, options = {}) {
       "additional-demand/index": AdditionalDemandIndexRoute,
       "additional-demand/detail": AdditionalDemandDetailRoute,
     },
-    controllers: {},
+    controllers: {
+      "additional-demand": AdditionalDemandController,
+    },
     templates: {
       "additional-demand": AdditionalDemandTemplate,
       "additional-demand/index": AdditionalDemandIndexTemplate,
