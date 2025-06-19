@@ -2,6 +2,7 @@ import re
 from typing import Any, List, Tuple, Union
 
 import pyexcel_xlsx
+from caluma.caluma_workflow.models import WorkItem
 from rapidfuzz import fuzz
 
 
@@ -59,3 +60,10 @@ def get_worksheet_headings_and_rows(file) -> Tuple[List[str], List[dict]]:
     ]
 
     return headings, rows
+
+
+def mark_work_items_as_imported(work_items: list[WorkItem]) -> None:
+    """Mark all WorkItem's received as imported via `meta["imported"] = True`."""
+    for work_item in work_items:
+        work_item.meta = {**work_item.meta, "imported": True}
+        work_item.save()

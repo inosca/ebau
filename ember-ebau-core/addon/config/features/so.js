@@ -69,4 +69,7 @@ export default {
     correctForm: true,
     withdrawInstance: true,
   },
+  workItemList: {
+    hideImportedWorkItems: true,
+  },
 };

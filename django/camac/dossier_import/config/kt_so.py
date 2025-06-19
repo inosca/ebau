@@ -17,6 +17,7 @@ from camac.dossier_import.messages import (
     MessageCodes,
     Severity,
 )
+from camac.dossier_import.utils import mark_work_items_as_imported
 from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
     CalumaAnswerWriter,
@@ -187,6 +188,8 @@ class KtSolothurnDossierWriter(DossierWriter):
 
     def _post_write_fields(self, instance, dossier):
         self._write_triage_fields(instance)
+        work_items = instance.case.work_items.all()
+        mark_work_items_as_imported(work_items)
 
     def _write_triage_fields(self, instance: Instance):
         """Write triage answers for personal data.
