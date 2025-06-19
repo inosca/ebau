@@ -13,5 +13,6 @@ repos:
       name: format code
       language: system
       entry: ruff format
+      args: ["--config", "django/pyproject.toml", "--isolated", "--force-exclude"]
       types: [python]
       pass_filenames: true
