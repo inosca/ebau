@@ -181,12 +181,16 @@ def test_dynamic_task_after_decision(
 
 
 @pytest.mark.parametrize(
-    "construction_monitoring_enabled,should_continue,expected_tasks",
+    "construction_monitoring_enabled,positive_decision,form_id,expected_tasks",
     [
-        (True, True, ["init-construction-monitoring"]),
-        (True, False, []),
-        (False, True, ["construction-acceptance"]),
-        (False, False, []),
+        (True, True, "baugesuch-v3", ["init-construction-monitoring"]),
+        (True, True, "vorlaeufige-beurteilung-v3", []),
+        (True, False, "baugesuch-v3", []),
+        (True, False, "vorlaeufige-beurteilung-v3", []),
+        (False, True, "baugesuch-v3", ["construction-acceptance"]),
+        (False, True, "vorlaeufige-beurteilung-v3", []),
+        (False, False, "baugesuch-v3", []),
+        (False, False, "vorlaeufige-beurteilung-v3", []),
     ],
 )
 def test_after_decision_gr(
@@ -197,16 +201,20 @@ def test_after_decision_gr(
     gr_instance,
     # parametrize
     construction_monitoring_enabled,
+    positive_decision,
+    form_id,
     expected_tasks,
-    should_continue,
+    application_settings,
 ):
+    application_settings["SHORT_NAME"] = "gr"
     gr_construction_monitoring_settings["ENABLED"] = construction_monitoring_enabled
 
     mocker.patch.object(
         domain_logic.DecisionLogic,
-        "should_continue_after_decision",
-        return_value=should_continue,
+        "is_positive_decision",
+        return_value=positive_decision,
     )
+    gr_instance.case.document.form_id = form_id
 
     custom_dynamic_task = CustomDynamicTasks()
     assert (

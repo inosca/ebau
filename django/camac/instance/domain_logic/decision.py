@@ -74,6 +74,21 @@ class DecisionLogic:
         return cls.is_positive_decision(decision=decision)
 
     @classmethod
+    def should_continue_after_decision_gr(
+        cls, instance: Instance, work_item: workflow_models.WorkItem
+    ) -> bool:
+        # for vorlaeufige-beurteilung dossier, we do not continue the workflow.
+        if instance.case.document.form_id.startswith("vorlaeufige-beurteilung"):
+            return []
+
+        decision = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=work_item,
+        )
+
+        return cls.is_positive_decision(decision=decision)
+
+    @classmethod
     def should_continue_after_decision_so(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
