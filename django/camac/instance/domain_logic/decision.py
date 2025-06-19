@@ -145,10 +145,34 @@ class DecisionLogic:
     @classmethod
     def should_continue_after_decision_ag(
         cls, instance: Instance, work_item: workflow_models.WorkItem
-    ) -> bool:  # pragma: no cover
-        # TODO: Implement logic after decision for Kt. AG. For now, all dossiers
-        # will be finished after the decision except municipality light dossiers.
-        return instance.responsible_service().service_group.name == "municipality-light"
+    ) -> bool:
+        if instance.instance_state.name == settings.WITHDRAWAL["INSTANCE_STATE"]:
+            # If the current instance state is withdrawal (Zum Rückzug) we don't
+            # even care what decision is selected, the workflow is finished in
+            # every case.
+            return False
+
+        if instance.responsible_service().service_group.name == "municipality-light":
+            # Instances of DIBA light municipalities are finished after the
+            # decision
+            return False
+
+        decision = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=work_item,
+        )
+        demolition = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DEMOLITION"],
+            work_item=work_item,
+        )
+
+        # Decision needs to be positive (or partially positive) or negative with
+        # a demolition as the demolition itself needs construction monitoring as
+        # well.
+        return cls.is_positive_decision(decision=decision) or (
+            decision == settings.DECISION["ANSWERS"]["DECISION"]["REJECTED"]
+            and demolition == settings.DECISION["ANSWERS"]["DEMOLITION"]["WITH"]
+        )
 
     @classmethod
     def should_continue_after_decision_be(

@@ -663,7 +663,7 @@ ECH0211 = {
                 "type": ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
             },
             {
-                "new_state": "construction-acceptance",
+                "new_state": "construction-monitoring",
                 "type": ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG,
             },
             {
@@ -679,7 +679,7 @@ ECH0211 = {
                 "type": ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
             },
             {
-                "prev_state": "decision",
+                "new_state": ["to-finish", "decided"],
                 "type": ECH_STATUS_NOTIFICATION_ENTSCHIEDEN,
             },
         ],

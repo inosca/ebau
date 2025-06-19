@@ -737,6 +737,8 @@ def caluma_workflow_config_ag(
         settings.ROOT_DIR("kt_ag/config/caluma_workflow.json"),
         settings.ROOT_DIR("kt_ag/config/caluma_distribution.json"),
         settings.ROOT_DIR("kt_ag/config/caluma_additional_demand.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_construction_monitoring_workflow.json"),
+        settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_form.json"),
     )
 
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
@@ -2621,27 +2623,44 @@ def decision_factory_so(so_instance, so_decision_settings):
 
 
 @pytest.fixture
-def decision_factory_ag(ag_instance, ag_decision_settings):
-    call_command(
-        "loaddata", settings.ROOT_DIR("kt_ag/config/caluma_decision_form.json")
-    )
-
+def decision_factory_ag(
+    ag_instance, ag_decision_settings, caluma_work_item_factory, utils
+):
     def factory(
         instance=ag_instance,
         decision=ag_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
         decision_date=date.today(),
+        demolition=None,
     ):
-        work_item = instance.case.work_items.get(task_id=ag_decision_settings["TASK"])
+        work_item = instance.case.work_items.filter(
+            task_id=ag_decision_settings["TASK"]
+        ).first()
 
-        work_item.document.answers.create(
-            question_id=ag_decision_settings["QUESTIONS"]["DECISION"],
-            value=decision,
+        if not work_item:
+            work_item = caluma_work_item_factory(
+                task_id=ag_decision_settings["TASK"],
+                case=instance.case,
+                child_case=None,
+            )
+
+        utils.add_answer(
+            work_item.document,
+            ag_decision_settings["QUESTIONS"]["DECISION"],
+            decision,
         )
 
-        work_item.document.answers.create(
-            question_id=ag_decision_settings["QUESTIONS"]["DATE"],
-            date=decision_date,
+        utils.add_answer(
+            work_item.document,
+            ag_decision_settings["QUESTIONS"]["DATE"],
+            decision_date,
         )
+
+        if demolition:
+            utils.add_answer(
+                work_item.document,
+                ag_decision_settings["QUESTIONS"]["DEMOLITION"],
+                demolition,
+            )
 
         return work_item
 

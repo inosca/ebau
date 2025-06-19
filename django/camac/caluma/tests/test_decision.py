@@ -467,51 +467,49 @@ def test_complete_decision_withdrawn(
 
 
 @pytest.mark.parametrize(
-    "service_group__name,form_slug,decision,expected_status,expected_work_items",
+    "service_group__name,expected_status,expected_work_items,complete_afterwards",
     [
-        ("municipality", "baugesuch", "APPROVED", "finished", set()),
+        (
+            "municipality",
+            "decided",
+            {"init-construction-monitoring"},
+            ["init-construction-monitoring", "complete-instance"],
+        ),
         (
             "municipality-light",
-            "anfrage-intern",
-            "APPROVED",
             "to-finish",
             {"complete-instance"},
+            ["complete-instance"],
         ),
     ],
 )
 def test_complete_decision_ag(
     db,
-    application_settings,
-    caluma_admin_user,
-    decision_factory_ag,
-    disable_ech0211_settings,
-    form_slug,
-    instance_state_factory,
-    multilang,
-    settings,
-    master_data_is_visible_mock,
-    ag_master_data_settings,
+    ag_construction_monitoring_settings,
     ag_decision_settings,
     ag_instance,
-    caluma_work_item_factory,
+    caluma_admin_user,
+    complete_afterwards,
+    decision_factory_ag,
+    disable_ech0211_settings,
     expected_status,
     expected_work_items,
-    decision,
+    instance_state_factory,
     mocker,
     service,
+    service_factory,
+    set_application_ag,
 ):
-    settings.APPLICATION_NAME = "kt_ag"
-    application_settings["SHORT_NAME"] = "ag"
+    service_factory(slug="afb")
 
-    instance_state_factory(name="finished")
+    instance_state_factory(name="decided")
     instance_state_factory(name="to-finish")
+    instance_state_factory(name="finished")
 
+    mocker.patch("camac.notification.utils.send_mail")
     mocker.patch(
         "camac.instance.models.Instance.responsible_service", return_value=service
     )
-
-    ag_instance.case.document.form_id = form_slug
-    ag_instance.case.document.save()
 
     # In order to not test the whole workflow, we cancel the submit work item
     # and create a decision work item for the test.
@@ -520,20 +518,14 @@ def test_complete_decision_ag(
         caluma_admin_user,
     )
 
-    decision_work_item = caluma_work_item_factory(
-        task_id=ag_decision_settings["TASK"],
-        case=ag_instance.case,
-        child_case=None,
-    )
-    decision_factory_ag(
+    decision_work_item = decision_factory_ag(
         ag_instance,
-        ag_decision_settings["ANSWERS"]["DECISION"][decision],
+        ag_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
     )
 
     complete_work_item(decision_work_item, caluma_admin_user)
 
     ag_instance.refresh_from_db()
-
     assert ag_instance.instance_state.name == expected_status
     assert (
         set(
@@ -544,13 +536,14 @@ def test_complete_decision_ag(
         == expected_work_items
     )
 
-    if expected_status == "to-finish":
+    for task_id in complete_afterwards:
         complete_work_item(
-            ag_instance.case.work_items.get(task_id="complete-instance"),
+            ag_instance.case.work_items.get(task_id=task_id),
             caluma_admin_user,
+            context={"skip": True},  # To allow skipping of construction monitoring
         )
-        ag_instance.refresh_from_db()
 
+    ag_instance.refresh_from_db()
     assert not ag_instance.case.work_items.filter(status=WorkItem.STATUS_READY).exists()
     assert ag_instance.instance_state.name == "finished"
     assert ag_instance.case.status == Case.STATUS_COMPLETED
@@ -772,3 +765,48 @@ def test_decision_work_item_name(
     work_item.refresh_from_db()
 
     assert work_item.name.translate() == expected_work_item_name
+
+
+@pytest.mark.parametrize(
+    "service_group__name,instance_state__name,decision,demolition,expected",
+    [
+        ("municipality", "decision", "APPROVED", None, True),
+        ("municipality", "decision", "PARTIALLY_APPROVED", None, True),
+        ("municipality", "decision", "REJECTED", "WITH", True),
+        ("municipality", "decision", "REJECTED", "WITHOUT", False),
+        ("municipality", "decision", "WITHDRAWAL", None, False),
+        # If instance state is withdrawn, never continue
+        ("baugesuch", "withdrawal", "WITHDRAWAL", None, False),
+        ("baugesuch", "withdrawal", "APPROVED", None, False),
+        # Municipality light instances never continue
+        ("municipality-light", "decision", "APPROVED", None, False),
+        ("municipality-light", "decision", "PARTIALLY_APPROVED", None, False),
+        ("municipality-light", "decision", "REJECTED", "WITH", False),
+    ],
+)
+def test_should_continue_after_decision_ag(
+    db,
+    ag_decision_settings,
+    ag_instance,
+    decision_factory_ag,
+    decision,
+    demolition,
+    expected,
+    mocker,
+    service,
+    set_application_ag,
+):
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service", return_value=service
+    )
+
+    decision_work_item = decision_factory_ag(
+        ag_instance,
+        decision=ag_decision_settings["ANSWERS"]["DECISION"][decision],
+        demolition=ag_decision_settings["ANSWERS"]["DEMOLITION"].get(demolition),
+    )
+
+    assert (
+        DecisionLogic.should_continue_after_decision(ag_instance, decision_work_item)
+        == expected
+    )

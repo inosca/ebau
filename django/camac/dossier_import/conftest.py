@@ -157,6 +157,7 @@ def load_fixtures_ag(
     service_factory,
     ag_decision_settings,
     ag_permissions_settings,
+    ag_construction_monitoring_settings,
 ):
     extra_fixtures = [
         settings.ROOT_DIR("kt_ag/config/caluma_audit_form.json"),

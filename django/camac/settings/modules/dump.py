@@ -729,6 +729,7 @@ DUMP = {
                 "caluma_decision_form": generate_form_dump_config(regex=r"^entscheid"),
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
+                **CONSTRUCTION_MONITORING_DUMP_CONFIG,
                 # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
                 "user_core_groups": {
                     "user.Group": Q(role__name__in=["admin", "applicant", "support"]),

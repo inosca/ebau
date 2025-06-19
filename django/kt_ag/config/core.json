@@ -131,7 +131,7 @@
       "template": "/ember-camac-ng/corrections.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 20,
+      "sort": 22,
       "form_group": 2000000,
       "require_permission": "corrections-read"
     }
@@ -211,7 +211,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 15,
+      "sort": 17,
       "form_group": 2000000,
       "require_permission": "additional-demands-read"
     }
@@ -259,9 +259,25 @@
       "template": "/ember-camac-ng/legal-submission.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 16,
+      "sort": 18,
       "form_group": 2000000,
       "require_permission": "legal-submissions-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 15000008,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2000001,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/construction-monitoring.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 14,
+      "form_group": 2000000,
+      "require_permission": "construction-monitoring-read"
     }
   },
   {
@@ -339,7 +355,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 18,
+      "sort": 20,
       "form_group": 2000000,
       "require_permission": "journal-read"
     }
@@ -355,7 +371,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 19,
+      "sort": 21,
       "form_group": 2000000,
       "require_permission": "history-read"
     }
@@ -371,7 +387,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 21,
+      "sort": 23,
       "form_group": 2000000,
       "require_permission": "permissions-read"
     }
@@ -387,7 +403,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 22,
+      "sort": 15,
       "form_group": 2000000,
       "require_permission": "complete-instance-read"
     }
@@ -403,7 +419,7 @@
       "template": "/ember-camac-ng/billing.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 17,
+      "sort": 19,
       "form_group": 2000000,
       "require_permission": "billing-read"
     }
@@ -435,7 +451,7 @@
       "template": "/ember-camac-ng/rejection.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 14,
+      "sort": 16,
       "form_group": 2000000,
       "require_permission": "rejection-read"
     }
@@ -547,6 +563,16 @@
       "instance_resource": 15000007,
       "language": "de",
       "name": "Einwendungen",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 15000008,
+    "fields": {
+      "instance_resource": 15000008,
+      "language": "de",
+      "name": "Baubegleitung",
       "description": null
     }
   },
@@ -692,7 +718,7 @@
     "model": "core.remberlist",
     "pk": 2000001,
     "fields": {
-      "instance_states": "1,120004,120005,120006,120007,120008,120009,120010,120011,120012,120013,120014"
+      "instance_states": "1,120004,120005,120006,120007,120008,120009,120010,120011,120012,120013,120014,120015"
     }
   },
   {

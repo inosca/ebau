@@ -100,9 +100,9 @@
     "model": "instance.instancestate",
     "pk": 120010,
     "fields": {
-      "name": "construction-acceptance",
+      "name": "construction-monitoring",
       "sort": 6,
-      "description": ""
+      "description": null
     }
   },
   {
@@ -138,6 +138,15 @@
     "fields": {
       "name": "to-finish",
       "sort": 10,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120015,
+    "fields": {
+      "name": "decided",
+      "sort": 11,
       "description": null
     }
   },
@@ -217,8 +226,8 @@
     "fields": {
       "instance_state": 120010,
       "language": "de",
-      "name": "Bauabnahme",
-      "description": ""
+      "name": "Baubegleitung",
+      "description": null
     }
   },
   {
@@ -258,6 +267,16 @@
       "instance_state": 120014,
       "language": "de",
       "name": "Zum Abschluss",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120045,
+    "fields": {
+      "instance_state": 120015,
+      "language": "de",
+      "name": "Entschieden",
       "description": null
     }
   }

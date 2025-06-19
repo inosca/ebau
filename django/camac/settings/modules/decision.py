@@ -113,6 +113,7 @@ DECISION = {
         "QUESTIONS": {
             "DECISION": "entscheid-entscheid",
             "DATE": "entscheid-datum",
+            "DEMOLITION": "entscheid-entscheidtyp-abweisung",
         },
         "ANSWERS": {
             "DECISION": {
@@ -120,16 +121,15 @@ DECISION = {
                 "REJECTED": "entscheid-entscheid-abweisung",
                 "PARTIALLY_APPROVED": "entscheid-entscheid-teilbaubewilligung",
                 "WITHDRAWAL": "entscheid-entscheid-rueckzug",
-                # Only for preliminary clarification and construction notification
-                # "POSITIVE": "entscheid-entscheid-positiv",
-                # "NEGATIVE": "entscheid-entscheid-negativ",
+            },
+            "DEMOLITION": {
+                "WITH": "entscheid-entscheidtyp-abweisung-mit-rueckbau",
+                "WITHOUT": "entscheid-entscheidtyp-abweisung-ohne-rueckbau",
             },
         },
-        "POSITIVE_DECISIONS": ["APPROVED"],
-        # TODO: adjust for "Baubegleitung"
-        "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "to-finish",
-        # "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
-        # "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-monitoring"],
+        "POSITIVE_DECISIONS": ["APPROVED", "PARTIALLY_APPROVED"],
+        "INSTANCE_STATE_AFTER_NEGATIVE_DECISION": "to-finish",
+        "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
     },
     "test": {
         "ENABLED": True,
