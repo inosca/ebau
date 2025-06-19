@@ -16,6 +16,7 @@ from caluma.caluma_workflow.models import Case, WorkItem
 from django.utils.timezone import now
 
 from camac.constants import kt_bern as bern_constants
+from camac.user.models import Service
 
 
 def _inquiry_factory(
@@ -139,6 +140,37 @@ def distribution_case_sz(
 
 
 @pytest.fixture
+def distribution_case_ag(
+    ag_instance,
+    caluma_admin_user,
+    instance_state_factory,
+    ag_distribution_settings,
+    set_application_ag,
+    service,
+    service_factory,
+    mocker,
+):
+    mocker.patch("camac.notification.utils.send_mail")
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service,
+    )
+
+    instance_state_factory(name="init-distribution")
+    instance_state_factory(name="circulation")
+    service_factory(slug="afb")
+
+    case = ag_instance.case
+
+    for task in ["submit", "formal-exam"]:
+        skip_work_item(
+            work_item=case.work_items.get(task_id=task), user=caluma_admin_user
+        )
+
+    return case
+
+
+@pytest.fixture
 def distribution_child_case_be(distribution_case_be, be_distribution_settings):
     return distribution_case_be.work_items.get(
         task_id=be_distribution_settings["DISTRIBUTION_TASK"]
@@ -156,6 +188,13 @@ def distribution_child_case_gr(distribution_case_gr, gr_distribution_settings):
 def distribution_child_case_sz(distribution_case_sz, sz_distribution_settings):
     return distribution_case_sz.work_items.get(
         task_id=sz_distribution_settings["DISTRIBUTION_TASK"]
+    ).child_case
+
+
+@pytest.fixture
+def distribution_child_case_ag(distribution_case_ag, ag_distribution_settings):
+    return distribution_case_ag.work_items.get(
+        task_id=ag_distribution_settings["DISTRIBUTION_TASK"]
     ).child_case
 
 
@@ -217,6 +256,27 @@ def inquiry_factory_sz(
             user=caluma_admin_user,
             distribution_child_case=distribution_child_case_sz,
             distribution_settings=sz_distribution_settings,
+        )
+
+    return factory
+
+
+@pytest.fixture
+def inquiry_factory_ag(
+    ag_distribution_settings,
+    caluma_admin_user,
+    distribution_child_case_ag,
+    service_factory,
+    service,
+):
+    def factory(to_service=service_factory(), from_service=service, sent=False):
+        return _inquiry_factory(
+            to_service=to_service,
+            from_service=from_service,
+            sent=sent,
+            user=caluma_admin_user,
+            distribution_child_case=distribution_child_case_ag,
+            distribution_settings=ag_distribution_settings,
         )
 
     return factory
@@ -1293,3 +1353,47 @@ def test_set_cantonal_exam_deadline(
         assert cantonal_exam.deadline is None
     else:
         assert cantonal_exam.deadline == now()
+
+
+@pytest.mark.freeze_time("2025-01-24")
+@pytest.mark.parametrize(
+    "is_afb,has_sibling_inquiries,expected_status",
+    [
+        (False, False, WorkItem.STATUS_CANCELED),
+        (False, True, WorkItem.STATUS_CANCELED),
+        (True, False, WorkItem.STATUS_CANCELED),
+        (True, True, WorkItem.STATUS_READY),
+    ],
+)
+def test_set_document_supplement_deadline(
+    db,
+    caluma_admin_user,
+    disable_additional_demand_settings,
+    disable_ech0211_settings,
+    expected_status,
+    has_sibling_inquiries,
+    inquiry_factory_ag,
+    is_afb,
+    service_factory,
+    settings,
+):
+    settings.APPLICATION_NAME = "kt_ag"
+
+    service = Service.objects.get(slug="afb") if is_afb else service_factory()
+    inquiry = inquiry_factory_ag(service)
+
+    if has_sibling_inquiries:
+        inquiry_factory_ag(service, sent=True)
+
+    resume_work_item(inquiry, caluma_admin_user)
+
+    check_work_item = inquiry.child_case.work_items.get(
+        task_id="check-document-supplement"
+    )
+
+    assert check_work_item.status == expected_status
+
+    if expected_status == WorkItem.STATUS_READY:
+        assert check_work_item.deadline.date().isoformat() == "2025-01-29"
+    else:
+        assert check_work_item.deadline is None

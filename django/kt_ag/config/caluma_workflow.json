@@ -199,6 +199,34 @@
   },
   {
     "model": "caluma_workflow.task",
+    "pk": "check-document-supplement",
+    "fields": {
+      "created_at": "2025-06-16T12:07:12.709Z",
+      "modified_at": "2025-06-16T12:07:12.709Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Unterlagenerg\\u00e4nzung pr\\u00fcfen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.alexandria",
+          "models": ["INSTANCE_ID"]
+        }
+      },
+      "address_groups": "info.context.addressed_groups",
+      "control_groups": "info.context.addressed_groups",
+      "is_archived": false,
+      "form": null,
+      "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
     "pk": "complete-instance",
     "fields": {
       "created_at": "2025-04-25T14:04:02.579Z",

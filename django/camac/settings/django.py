@@ -2587,6 +2587,7 @@ APPLICATIONS = {
                 "fill-information-of-neighbors": {
                     "complete": ["information-of-neighbors"]
                 },
+                "fill-inquiry": {"complete": ["check-document-supplement"]},
             },
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {
