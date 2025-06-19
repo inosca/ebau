@@ -69,8 +69,12 @@ def get_header_tags(instance, current_service):
     return ", ".join(tags.values_list("name", flat=True)) if tags.exists() else None
 
 
+def get_authority(instance):
+    return instance.responsible_service(filter_type="municipality")
+
+
 def get_header_authority(instance):
-    service = instance.responsible_service(filter_type="municipality")
+    service = get_authority(instance)
 
     return service.get_name() if service else None
 
@@ -188,6 +192,17 @@ class DMSHandler:
                 graceful_get(master_data, "gis_coordinates", default=None)
             ),
         }
+
+        if settings.DMS.get("ADD_ADDRESS_DATA"):
+            municipality = get_authority(instance)
+            address_data = {
+                "addressRecipient": municipality.get_trans_attr("name"),
+                "addressStreet": municipality.address,
+                "addressCityZip": clean_join(
+                    municipality.get_trans_attr("city"), municipality.zip
+                ),
+            }
+            data.update(address_data)
 
         if settings.DMS.get("ADD_HEADER_DATA"):
             header_data = {

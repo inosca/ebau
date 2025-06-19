@@ -2,6 +2,7 @@ from django.utils.translation import gettext_lazy as _
 
 DMS = {
     "default": {
+        "ADD_ADDRESS_DATA": False,
         "ADD_HEADER_DATA": True,
         "USE_NUMBER_SEPARATOR": False,
     },
@@ -310,6 +311,7 @@ DMS = {
     },
     "kt_so": {
         "ENABLED": True,
+        "ADD_ADDRESS_DATA": True,
         "USE_NUMBER_SEPARATOR": True,
         "FORM": {
             "_base": {

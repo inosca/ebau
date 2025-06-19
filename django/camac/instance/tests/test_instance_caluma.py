@@ -1976,6 +1976,7 @@ def test_generate_and_store_pdf_in_alexandria(
     serializer = CalumaInstanceSubmitSerializer()
 
     dms_settings["ADD_HEADER_DATA"] = False
+    dms_settings["ADD_ADDRESS_DATA"] = True
     dms_settings["FORM"] = {
         "main-form": {"template": "some-template"},
     }
