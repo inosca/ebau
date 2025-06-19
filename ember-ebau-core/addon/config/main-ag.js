@@ -46,6 +46,8 @@ export default {
     juristicNameApplicant: "name-juristische-person-gesuchstellerin",
     isJuristicApplicant: "juristische-person-gesuchstellerin",
     isJuristicApplicantYes: "juristische-person-gesuchstellerin-ja",
+    hasRepresentativeApplicant: "vertretung-gesuchstellerin",
+    hasRepresentativeApplicantYes: "vertretung-gesuchstellerin-ja",
     personalDataApplicant: "personalien-gesuchstellerin",
     coordinates: "gis-map",
   },
@@ -151,6 +153,7 @@ export default {
       date: "einwendung-datum",
       "legal-claimants": "einwendung-einwendende",
       withdrawn: "einwendung-zurueckgezogen",
+      "has-representative": "einwendung-einwendende",
     },
   },
   displayedForms: [

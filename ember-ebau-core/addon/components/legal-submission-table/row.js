@@ -62,6 +62,23 @@ export default class LegalSubmissionTableRowComponent extends Component {
     );
   }
 
+  get hasRepresentative() {
+    const claimants = getAnswer(
+      this.args.legalSubmission,
+      legalSubmission.columns["has-representative"],
+    )?.node.tableValue;
+
+    return (claimants ?? [])
+      .map((row) =>
+        getAnswerDisplayValue(
+          row,
+          mainConfig.answerSlugs.hasRepresentativeApplicant,
+          false,
+        ),
+      )
+      .includes(mainConfig.answerSlugs.hasRepresentativeApplicantYes);
+  }
+
   @dropTask
   @confirmTask("legal-submission.delete-confirm")
   *delete() {

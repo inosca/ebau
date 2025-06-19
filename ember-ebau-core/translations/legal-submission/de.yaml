@@ -11,6 +11,7 @@ legal-submission:
   legal-claimants: "Rechtsbegehrende"
   status: "Status"
   withdrawn: "Zurückgezogen?"
+  has-representative: "Vertretung?"
 
   loading-error: "Fehler beim Laden der Rechtsbegehren"
   create-error: "Fehler beim Erstellen des Rechtsbegehren"

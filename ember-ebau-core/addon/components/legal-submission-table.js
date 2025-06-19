@@ -87,13 +87,16 @@ export default class LegalSubmissionTableComponent extends Component {
         fetchPolicy: "network-only",
         variables: {
           orderQuestion: mainConfig.legalSubmission.orderQuestion,
-          questions: Object.values(mainConfig.legalSubmission.columns),
+          questions: [
+            ...new Set(Object.values(mainConfig.legalSubmission.columns)),
+          ],
           personQuestions: [
             mainConfig.answerSlugs.firstNameApplicant,
             mainConfig.answerSlugs.lastNameApplicant,
             mainConfig.answerSlugs.juristicNameApplicant,
             mainConfig.answerSlugs.isJuristicApplicant,
-          ],
+            mainConfig.answerSlugs.hasRepresentativeApplicant,
+          ].filter(Boolean),
           filter: [
             { rootDocument: this.rootDocumentId },
             { form: mainConfig.legalSubmission.tableForm },
