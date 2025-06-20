@@ -1,16 +1,24 @@
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
+import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { performHelper } from "ember-concurrency/helpers/perform";
 import { DateTime } from "luxon";
 
+import workItemListConfig from "ember-ebau-core/config/work-item-list";
+import completeWorkItem from "ember-ebau-core/gql/mutations/complete-work-item.graphql";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class WorkItemListItemComponent extends Component {
+  @queryManager apollo;
+
+  @service store;
+
   @service ebauModules;
   @service router;
   @service intl;
   @service abilities;
+  @service notification;
 
   get actions() {
     return [
@@ -18,6 +26,7 @@ export default class WorkItemListItemComponent extends Component {
       this.toggleReadAction,
       this.assignToMeAction,
       this.readAction,
+      this.completeAction,
     ].filter(Boolean);
   }
 
@@ -29,6 +38,20 @@ export default class WorkItemListItemComponent extends Component {
     return {
       action: performHelper([this.edit], {}),
       title: this.intl.t("workItems.actions.edit"),
+    };
+  }
+
+  get completeAction() {
+    if (
+      !workItemListConfig.completeAction ||
+      this.abilities.cannot("complete work-item", this.args.workItem)
+    ) {
+      return null;
+    }
+
+    return {
+      action: performHelper([this.complete], {}),
+      title: this.intl.t("workItems.actions.finish"),
     };
   }
 
@@ -111,6 +134,23 @@ export default class WorkItemListItemComponent extends Component {
     event.preventDefault();
 
     yield this.args.workItem.assignToMe();
+  }
+
+  @dropTask
+  *complete(event) {
+    event.preventDefault();
+    try {
+      yield this.apollo.mutate({
+        mutation: completeWorkItem,
+        variables: { id: this.args.workItem.id },
+      });
+
+      this.args.onComplete?.();
+
+      this.notification.success(this.intl.t("workItems.finishSuccess"));
+    } catch {
+      this.notification.danger(this.intl.t("workItems.saveError"));
+    }
   }
 
   @dropTask

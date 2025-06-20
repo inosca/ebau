@@ -27,11 +27,15 @@ workItems:
 
   saveSuccess: "Compito salvato con successo"
   finishSuccess: "Compito concluso con successo"
+  cancelSuccess:
   fetchError: "Errore nel tentativo di caricare i compiti"
   saveError: "Errore nel tentativo di salvare il compito"
+  cancelError:
 
   editFormLabel: "Modulo per l'elaborazione di un compito"
   completeFormLabel: "Modulo per la conclusione di un compito"
+
+  cancelConfirm:
 
   actions:
     title: "Operazioni"
@@ -43,6 +47,7 @@ workItems:
     edit: "Elabora compito"
     read: "Visualizza il compito"
     finish: "Concludi il compito"
+    discard:
 
   filters:
     responsible: "Responsabile"

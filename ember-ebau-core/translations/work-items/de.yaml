@@ -27,8 +27,12 @@ workItems:
 
   saveSuccess: "Aufgabe erfolgreich gespeichert"
   finishSuccess: "Aufgabe erfolgreich abgeschlossen"
+  cancelSuccess: "Aufgabe erfolgreich verworfen"
   fetchError: "Fehler beim Laden der Aufgaben"
   saveError: "Fehler beim Speichern der Aufgabe"
+  cancelError: "Fehler beim Verwerfen der Aufgabe"
+
+  cancelConfirm: "Möchten Sie die Aufgabe wirklich verwerfen?"
 
   editFormLabel: "Formular zum Bearbeiten einer Aufgabe"
   completeFormLabel: "Formular zum Abschliessen einer Aufgabe"
@@ -44,6 +48,7 @@ workItems:
     edit: "Aufgabe bearbeiten"
     read: "Aufgabe ansehen"
     finish: "Aufgabe abschliessen"
+    discard: "Aufgabe verfwerfen"
 
   filters:
     responsible: "Verantwortlich"
