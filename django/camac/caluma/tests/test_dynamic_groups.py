@@ -305,26 +305,27 @@ def test_dynamic_group_service_bab(
 
 
 @pytest.mark.parametrize(
-    "location_id,bab_name,service_slug",
+    "bab_name,service_slug",
     [
-        (1, "ARE BaB Kreis 2", "bab-kreis-2"),
-        (2, "ARE BaB Kreis 1", "bab-kreis-1"),
-        (3, "ARE BaB Kreis 3", "bab-kreis-3"),
+        ("ARE BaB Kreis 1", "bab-kreis-1"),
+        ("ARE BaB Kreis 2", "bab-kreis-2"),
+        ("ARE BaB Kreis 3", "bab-kreis-3"),
     ],
 )
 def test_dynamic_group_service_bab_ur(
     db,
     service_factory,
     ur_instance,
-    location_id,
     bab_name,
+    application_settings,
     service_slug,
     location_factory,
 ):
-    ur_instance.location_id = location_id
-    ur_instance.save()
-
-    location_factory(pk=location_id)
+    location = location_factory()
+    ur_instance.location_id = location.pk
+    application_settings["CALUMA"]["BAB_MUNICIPALITY_MAPPING"] = {
+        location.pk: service_slug,
+    }
 
     bab_service = service_factory(
         name=bab_name,
