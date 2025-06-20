@@ -8,6 +8,7 @@ profile:
   position: Position
   phone: Telefon
   mobile: Mobile
+  division: Abteilung
 
   success: Die Profildaten wurden erfolgreich gespeichert
   error: Fehler beim Speichern der Profildaten

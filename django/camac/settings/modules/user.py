@@ -25,6 +25,12 @@ USER = {
             "vorname-gesuchstellerin": "given_name",
             "name-gesuchstellerin": "family_name",
         },
-        "ALLOWED_WRITE_ATTRIBUTES": ["title", "position", "phone", "mobile"],
+        "ALLOWED_WRITE_ATTRIBUTES": [
+            "title",
+            "position",
+            "phone",
+            "mobile",
+            "division",
+        ],
     },
 }

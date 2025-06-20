@@ -28,6 +28,7 @@ module("Acceptance | profile", function (hooks) {
     await fillIn("input[name=position]", "Project manager");
     await fillIn("input[name=phone]", "+41 31 999 99 99");
     await fillIn("input[name=mobile]", "+41 79 999 99 99");
+    await fillIn("input[name=division]", "Department of Otolaryngology");
 
     this.server.patch("/api/v1/me", function ({ users }, request) {
       const {
@@ -35,6 +36,7 @@ module("Acceptance | profile", function (hooks) {
       } = JSON.parse(request.requestBody);
 
       assert.deepEqual(attributes, {
+        division: "Department of Otolaryngology",
         mobile: "+41 79 999 99 99",
         phone: "+41 31 999 99 99",
         position: "Project manager",

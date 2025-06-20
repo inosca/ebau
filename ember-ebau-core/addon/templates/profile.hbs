@@ -37,6 +37,11 @@
     @name="mobile"
     @label={{t "profile.mobile"}}
   />
+  <f.input
+    @errorComponent={{this.errorComponent}}
+    @name="division"
+    @label={{t "profile.division"}}
+  />
   <f.submit
     @disabled={{or f.model.isInvalid f.model.isPristine this.save.isRunning}}
     @loading={{this.save.isRunning}}

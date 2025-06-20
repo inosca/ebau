@@ -109,6 +109,12 @@ class User(AbstractBaseUser):
         null=True,
         verbose_name=_("Mobile"),
     )
+    division = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        verbose_name=_("Division"),
+    )
 
     @property
     def is_superuser(self):
