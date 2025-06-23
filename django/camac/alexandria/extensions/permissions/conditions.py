@@ -90,3 +90,16 @@ class BaBService(Condition):
             and self.request.group.service.service_group.name
             == settings.BAB["SERVICE_GROUP"]
         ) == self.value
+
+
+class HasAnyMark(Condition):
+    def evaluate(self) -> bool:
+        slugs = self.value
+
+        if not isinstance(slugs, list):
+            slugs = [slugs]
+
+        if not self.document or not hasattr(self.document, "marks"):
+            return False
+
+        return self.document.marks.filter(pk__in=slugs).exists()

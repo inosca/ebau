@@ -71,6 +71,7 @@ A permission can be conditional, which means only if the condition is met, the a
 - `ReadyWorkItem`: Check if a `READY` work item with the given `task_id` is found in the case family of the instance.
     - Special case for `additional-demand`, as we only check on a specific child case defined by `caluma-document-id`
     - More special cases can be implemented by creating a function, to get the work item which has to be checked, in the format `get_{task_id}`.
+- `HasAnyMark`: Check if the document has specfic marks. (List or String)
 
 Conditions are defined in [conditions.py](permissions/conditions.py) as classes. The configured conditions must match the class name.
 

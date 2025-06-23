@@ -1,3 +1,5 @@
+from .alexandria_config.kt_ag import CONFIG as AG_CONFIG
+
 ALEXANDRIA = {
     "default": {
         "ENABLED": False,
@@ -19,8 +21,18 @@ ALEXANDRIA = {
         },
         "TAG_VISIBILITY": "all",
         "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung"],
+        "PERMISSIONS_CONFIG": {},
     },
-    "kt_ag": {"ENABLED": True, "CUSTOM_ROLE_MAPPINGS": {"service-afb": "afb"}},
+    "kt_ag": {
+        "ENABLED": True,
+        "CUSTOM_ROLE_MAPPINGS": {
+            "service-afb": "afb",
+            "service-cantonal": "cantonal",
+            "service-external": "external",
+        },
+        "APPEND_ROLE_TO_CUSTOM_ROLE_MAPPING": True,
+        "PERMISSIONS_CONFIG": AG_CONFIG,
+    },
     "kt_gr": {
         "ENABLED": True,
         "MARK_VISIBILITY": {
