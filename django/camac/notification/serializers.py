@@ -51,6 +51,7 @@ from camac.instance.placeholders import fields
 from camac.instance.utils import (
     geometer_cadastral_survey_is_necessary,
     geometer_cadastral_survey_necessary_answer,
+    get_localized_geometer,
 )
 from camac.instance.validators import transform_coordinates
 from camac.lookups import Any
@@ -1208,35 +1209,8 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
     def _get_recipients_localized_geometer(self, instance):
-        if not settings.APPLICATION.get("LOCALIZED_GEOMETER_SERVICE_MAPPING"):
-            return []  # pragma: no cover
-
-        geometer_answer = (
-            instance.fields.filter(
-                name__in=settings.APPLICATION.get("GEOMETER_FORM_FIELDS", [])
-            )
-            .values_list("value", flat=True)
-            .first()
-        )
-
-        if not geometer_answer:
-            return []
-
-        geometer_service_ids = settings.APPLICATION[
-            "LOCALIZED_GEOMETER_SERVICE_MAPPING"
-        ].get(geometer_answer, [])
-
-        # TODO: For geometers that have groups that have a subset of locations and a
-        # group without any location, are the groups containing the location to be preferred?
-        geometer_services = Service.objects.filter(
-            Q(groups__locations__in=[instance.location])
-            | Q(groups__locations__isnull=True),
-            pk__in=geometer_service_ids,
-        )[:1]
-
-        return flatten(
-            [self._get_responsible(instance, service) for service in geometer_services]
-        )
+        geometer_service = get_localized_geometer(instance)
+        return self._get_responsible(instance, geometer_service)
 
     def _get_recipients_lisag(self, instance):
         groups = Group.objects.filter(name="Lisag")
