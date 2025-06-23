@@ -4,7 +4,7 @@ import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import BaseQuery from "@projectcaluma/ember-core/caluma-query/queries/base";
 import { queryManager } from "ember-apollo-client";
-import { findRecord, query } from "ember-data-resources";
+import { query } from "ember-data-resources";
 import { gql } from "graphql-tag";
 import { trackedFunction } from "reactiveweb/function";
 import { validate as isUUID } from "uuid";
@@ -246,7 +246,26 @@ export default class WorkItemListWrapperComponent extends Component {
 
   get gqlTaskFilter() {
     if (this.args.task === "all") {
-      return [];
+      const emptyFilters = [];
+
+      if (this.preset?.prefilterTasks) {
+        emptyFilters.push({ tasks: this.preset.excludedTasks, invert: true });
+      }
+
+      if (this.preset?.prefilterWorkItemTemplates) {
+        emptyFilters.push({
+          metaValue: [
+            {
+              key: "template-id",
+              value: [...this.preset.excludedWorkItemTemplates, "NONE"],
+              lookup: "IN",
+            },
+          ],
+          invert: true,
+        });
+      }
+
+      return emptyFilters;
     }
 
     if (isUUID(this.args.task)) {
@@ -300,13 +319,14 @@ export default class WorkItemListWrapperComponent extends Component {
 
     let tasks = [
       ...(availableTasks.roles[this.args.baseRole] ?? []),
+      ...(availableTasks.serviceGroups[this.args.serviceGroupSlug] ?? []),
       ...(availableTasks.services[this.args.serviceId] ?? []),
       ...(availableTasks.default ?? []),
     ];
 
     if (this.args.preset) {
-      const presetTasks = this.preset.record?.tasks;
-      if (this.preset.record?.prefilterTasks) {
+      const presetTasks = this.preset?.tasks;
+      if (this.preset?.prefilterTasks) {
         tasks = tasks.filter((task) => presetTasks.includes(task));
       }
     }
@@ -364,11 +384,11 @@ export default class WorkItemListWrapperComponent extends Component {
     ...(this.args.preset ? { included_in_preset: this.args.preset } : {}),
   }));
 
-  preset = findRecord(
-    this,
-    "work-item-list-filter-preset",
-    () => this.args.preset,
-  );
+  get preset() {
+    const allPresets = this.store.peekAll("work-item-list-filter-preset");
+
+    return allPresets.find((preset) => preset.id === this.args.preset);
+  }
 
   availableTasks = trackedFunction(this, async () => {
     if (!this.workItemsQuery.value || this._taskSlugs.length === 0) {

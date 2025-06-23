@@ -8,7 +8,11 @@ export default class WorkItemListFilterPresetModel extends LocalizedModel {
   @attr queryParams;
   @attr category;
   @attr prefilterTasks;
+  @attr prefilterWorkItemTemplates;
   @attr tasks;
+  @attr excludedTasks;
+  @attr excludedWorkItemTemplates;
+  @attr sort;
 
   get presetCategory() {
     return CATEGORIES[this.category];

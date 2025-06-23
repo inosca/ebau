@@ -16,6 +16,9 @@ export default {
       service: ["inquiry", "check-inquiries"],
       subservice: ["inquiry"],
     },
+    serviceGroups: {
+      "service-afb": ["check-pa", "cantonal-exam"],
+    },
     services: {},
     default: [],
   },

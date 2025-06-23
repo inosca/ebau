@@ -26,7 +26,7 @@ export default class WorkItemListFilterPresetsComponent extends Component {
         [category]: [
           ...(groups[category] ? groups[category] : []),
           preset,
-        ].sort(),
+        ].sort((a, b) => a.sort - b.sort),
       };
     }, {});
   }

@@ -39,7 +39,7 @@ class WorkItemTemplateAdmin(EbauAdminMixin, SortableAdminMixin, ModelAdmin):
 
 @register(WorkItemListFilterPreset)
 class WorkItemListFilterPresetAdmin(
-    EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin
+    EbauAdminMixin, LocalizedFieldsAdminMixin, SortableAdminMixin, ModelAdmin
 ):
     list_display = [
         "name",
