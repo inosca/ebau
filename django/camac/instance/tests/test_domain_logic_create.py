@@ -7,10 +7,23 @@ from camac.instance.domain_logic.create import CreateInstanceLogic
 
 
 @pytest.mark.parametrize(
-    "skip_exported_form_attachment,expected_copies",
+    "application_short_name,is_modification,skip_exported_form_attachment,expected_copies",
     [
-        (False, 3),
-        (True, 2),
+        # default/SO with alexandria attachments
+        ("so", False, False, 3),
+        ("so", True, False, 3),
+        ("so", False, True, 2),
+        ("so", True, True, 2),
+        # BE with camac attachments
+        ("bern", False, False, 3),
+        ("bern", True, False, 3),
+        ("bern", False, True, 2),
+        ("bern", True, True, 2),
+        # GR with alexandria and no copy for modifications
+        ("gr", False, False, 3),
+        ("gr", True, False, 0),
+        ("gr", False, True, 2),
+        ("gr", True, True, 0),
     ],
 )
 def test_copy_attachments(
@@ -19,9 +32,12 @@ def test_copy_attachments(
     application_settings,
     instance_with_case,
     caluma_workflow_config_gr,
+    application_short_name,
+    is_modification,
     skip_exported_form_attachment,
     expected_copies,
 ):
+    application_settings["SHORT_NAME"] = application_short_name
     application_settings["DOCUMENT_BACKEND"] = "alexandria"
 
     source_instance = instance_with_case(instance_factory())
@@ -66,7 +82,10 @@ def test_copy_attachments(
     assert File.objects.filter(variant=File.Variant.ORIGINAL).count() == total_docs
 
     CreateInstanceLogic.copy_attachments(
-        source_instance, target_instance, skip_exported_form_attachment
+        source_instance,
+        target_instance,
+        skip_exported_form_attachment,
+        is_modification,
     )
 
     assert Document.objects.count() == total_docs + expected_copies
@@ -75,20 +94,21 @@ def test_copy_attachments(
         == total_docs + expected_copies
     )
 
-    new_document = (
-        Document.objects.filter(title=docs[0].title).order_by("-created_at").first()
-    )
-    new_file = new_document.get_latest_original()
-    old_file = files[0]
+    if expected_copies > 0:
+        new_document = (
+            Document.objects.filter(title=docs[0].title).order_by("-created_at").first()
+        )
+        new_file = new_document.get_latest_original()
+        old_file = files[0]
 
-    assert new_document.metainfo["camac-instance-id"] == str(target_instance.pk)
-    assert new_document.instance_document.instance_id == target_instance.pk
-    assert new_document.metainfo["caluma-document-id"] == str(
-        target_instance.case.document.pk
-    )
+        assert new_document.metainfo["camac-instance-id"] == str(target_instance.pk)
+        assert new_document.instance_document.instance_id == target_instance.pk
+        assert new_document.metainfo["caluma-document-id"] == str(
+            target_instance.case.document.pk
+        )
 
-    assert new_file.name == old_file.name
-    assert new_file.id != old_file.id
+        assert new_file.name == old_file.name
+        assert new_file.id != old_file.id
 
 
 def test_copy_applicants(

@@ -430,67 +430,103 @@ class CreateInstanceLogic:
                 request=None, instance=target, applicant=new_applicant
             )
 
-    @staticmethod
-    def copy_attachments(source, target, skip_exported_form_attachment=False):
+    @classmethod
+    @canton_aware
+    def copy_attachments(
+        cls,
+        source,
+        target,
+        skip_exported_form_attachment=False,
+        is_modification=False,
+    ):
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
-            categories = settings.ALEXANDRIA.get("INSTANCE_COPY_CATEGORIES", [])
-            alexandria_documents = Document.objects.filter(
-                Q(
-                    **{
-                        "metainfo__camac-instance-id": str(source.pk),
-                    }
-                )
-                & (
-                    Q(category_id__in=categories)
-                    | Q(category__parent_id__in=categories)
-                )
+            CreateInstanceLogic.copy_alexandria_attachments(
+                source,
+                target,
+                skip_exported_form_attachment=skip_exported_form_attachment,
             )
-            if skip_exported_form_attachment:
-                alexandria_documents = alexandria_documents.exclude(
-                    metainfo__has_key="system-generated"
-                )
-
-            for document in alexandria_documents:
-                new_document = document.clone()
-                new_document.metainfo["camac-instance-id"] = str(target.pk)
-                new_document.instance_document.instance_id = target.pk
-                new_document.instance_document.save()
-                if new_document.metainfo.get("caluma-document-id"):
-                    new_document.metainfo["caluma-document-id"] = str(
-                        target.case.document.pk
-                    )
-                new_document.save()
-
         else:
-            attachments = source.attachments.all()
+            CreateInstanceLogic.copy_camac_attachments(
+                source,
+                target,
+                skip_exported_form_attachment=skip_exported_form_attachment,
+            )
 
-            if skip_exported_form_attachment:
-                form_attachment_name = (
-                    slugify(f"{source.pk}-{source.case.document.form.name}") + ".pdf"
+    @classmethod
+    def copy_attachments_gr(
+        cls,
+        source,
+        target,
+        skip_exported_form_attachment=False,
+        is_modification=False,
+    ):
+        if is_modification:
+            return
+
+        CreateInstanceLogic.copy_alexandria_attachments(
+            source, target, skip_exported_form_attachment=skip_exported_form_attachment
+        )
+
+    @staticmethod
+    def copy_alexandria_attachments(
+        source, target, skip_exported_form_attachment=False
+    ):
+        categories = settings.ALEXANDRIA.get("INSTANCE_COPY_CATEGORIES", [])
+        alexandria_documents = Document.objects.filter(
+            Q(
+                **{
+                    "metainfo__camac-instance-id": str(source.pk),
+                }
+            )
+            & (Q(category_id__in=categories) | Q(category__parent_id__in=categories))
+        )
+        if skip_exported_form_attachment:
+            alexandria_documents = alexandria_documents.exclude(
+                metainfo__has_key="system-generated"
+            )
+
+        for document in alexandria_documents:
+            new_document = document.clone()
+            new_document.metainfo["camac-instance-id"] = str(target.pk)
+            new_document.instance_document.instance_id = target.pk
+            new_document.instance_document.save()
+            if new_document.metainfo.get("caluma-document-id"):
+                new_document.metainfo["caluma-document-id"] = str(
+                    target.case.document.pk
                 )
-                attachments = source.attachments.filter(~Q(name=form_attachment_name))
+            new_document.save()
 
-            for attachment in attachments:
-                try:
-                    new_file = ContentFile(attachment.path.read())
-                except FileNotFoundError:  # pragma: no cover
-                    # file does not exist so use the old file
-                    new_file = attachment.path
+    @staticmethod
+    def copy_camac_attachments(source, target, skip_exported_form_attachment=False):
+        attachments = source.attachments.all()
 
-                # store sections first
-                sections = attachment.attachment_sections.all()
+        if skip_exported_form_attachment:
+            form_attachment_name = (
+                slugify(f"{source.pk}-{source.case.document.form.name}") + ".pdf"
+            )
+            attachments = source.attachments.filter(~Q(name=form_attachment_name))
 
-                # copy the file
-                new_file.name = attachment.path.name
-                attachment.path = new_file
+        for attachment in attachments:
+            try:
+                new_file = ContentFile(attachment.path.read())
+            except FileNotFoundError:  # pragma: no cover
+                # file does not exist so use the old file
+                new_file = attachment.path
 
-                attachment.attachment_id = None
-                attachment.instance = target
-                attachment.uuid = uuid4()
-                attachment.save()
+            # store sections first
+            sections = attachment.attachment_sections.all()
 
-                attachment.attachment_sections.set(sections)
-                attachment.save()
+            # copy the file
+            new_file.name = attachment.path.name
+            attachment.path = new_file
+
+            attachment.attachment_id = None
+            attachment.instance = target
+            attachment.uuid = uuid4()
+            attachment.save()
+
+            attachment.attachment_sections.set(sections)
+            attachment.save()
 
     @staticmethod
     def copy_ebau_number(source_instance, target_instance, case):
@@ -551,9 +587,14 @@ class CreateInstanceLogic:
         if source_instance:
             if settings.APPLICATION.get("LINK_INSTANCES_ON_COPY"):
                 link_instances(instance, source_instance)  # pragma: no cover
+
             CreateInstanceLogic.copy_attachments(
-                source_instance, instance, skip_exported_form_attachment
+                source_instance,
+                instance,
+                skip_exported_form_attachment,
+                is_modification,
             )
+
             if not is_modification:
                 CreateInstanceLogic.copy_applicants(source_instance, instance)
                 instance.form = source_instance.form
