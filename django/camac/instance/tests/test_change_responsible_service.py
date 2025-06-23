@@ -9,7 +9,7 @@ from camac.permissions import api as permissions_api
 from camac.permissions.switcher import PERMISSION_MODE
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["Municipality", "Support"])
 @pytest.mark.parametrize(
     "service_type,expected_status",
     [

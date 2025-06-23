@@ -164,13 +164,16 @@ export default class InstanceAbility extends Ability {
     }
 
     return (
-      !this.ebauModules.isReadOnlyRole &&
-      !hasInstanceState(
-        this.model,
-        mainConfig.changeResponsibleService.forbiddenInstanceStates[this.type],
-      ) &&
-      // Active service is passed into the permission check
-      parseInt(this.activeService?.id) === this.ebauModules.serviceId
+      this.ebauModules.isSupportRole ||
+      (!this.ebauModules.isReadOnlyRole &&
+        !hasInstanceState(
+          this.model,
+          mainConfig.changeResponsibleService.forbiddenInstanceStates[
+            this.type
+          ],
+        ) &&
+        // Active service is passed into the permission check
+        parseInt(this.activeService?.id) === this.ebauModules.serviceId)
     );
   }
 

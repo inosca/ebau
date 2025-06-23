@@ -45910,7 +45910,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 40000,
       "require_permission": "history-read"
     }
@@ -46118,7 +46118,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 40000,
       "require_permission": "audit-log-read"
     }
@@ -46182,7 +46182,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 40000,
       "require_permission": "changelog-read"
     }
@@ -46343,6 +46343,22 @@
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
       "sort": 19,
+      "form_group": 40000,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12000010,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 150000,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/change-lead-authority.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3,
       "form_group": 40000,
       "require_permission": null
     }
@@ -47733,6 +47749,16 @@
   },
   {
     "model": "core.instanceresourcet",
+    "pk": 12000014,
+    "fields": {
+      "instance_resource": 12000010,
+      "language": "de",
+      "name": "Leitbehörde",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
     "pk": 14000000,
     "fields": {
       "instance_resource": 14000000,
@@ -48251,6 +48277,13 @@
   {
     "model": "core.irpage",
     "pk": 12000009,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 12000010,
     "fields": {
       "pdf_class": null
     }
@@ -54078,6 +54111,123 @@
     "fields": {
       "instance_resource": 12000009,
       "role": 3,
+      "instance_state": 120003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000245,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 20000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000246,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 20003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000247,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000248,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 20005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000249,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 20010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000250,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000251,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000252,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000253,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 10000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000254,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 20009
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000255,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000256,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12000257,
+    "fields": {
+      "instance_resource": 12000010,
+      "role": 10000,
       "instance_state": 120003
     }
   },
