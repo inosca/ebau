@@ -164,10 +164,11 @@ def test_change_responsible_service(
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "access_level_name,expected_status",
+    "access_level_name,change_to_municipality,expected_status",
     [
-        ("lead-authority", status.HTTP_204_NO_CONTENT),
-        ("involved-authority", status.HTTP_403_FORBIDDEN),
+        ("lead-authority", True, status.HTTP_204_NO_CONTENT),
+        ("lead-authority", False, status.HTTP_204_NO_CONTENT),
+        ("involved-authority", False, status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_change_responsible_service_with_permission_module(
@@ -178,6 +179,7 @@ def test_change_responsible_service_with_permission_module(
     access_level_factory,
     service,
     access_level_name,
+    change_to_municipality,
     expected_status,
     service_factory,
     instance_state_factory,
@@ -193,7 +195,11 @@ def test_change_responsible_service_with_permission_module(
         access_level=access_level_factory(pk=access_level_name),
         service=service,
     )
-    new_service = service_factory()
+    new_service = (
+        service_factory(service_group__name="municipality")
+        if change_to_municipality
+        else service_factory()
+    )
     response = admin_client.post(
         reverse("instance-change-responsible-service", args=[be_instance.pk]),
         {
@@ -207,3 +213,7 @@ def test_change_responsible_service_with_permission_module(
         },
     )
     assert response.status_code == expected_status
+    if change_to_municipality:
+        be_instance.case.document.answers.filter(
+            question_id="gemeinde"
+        ).first().value == new_service.pk
