@@ -28,7 +28,6 @@ from camac.caluma.extensions.events.complete_check import (
     send_notification_after_complete_check,
 )
 from camac.caluma.extensions.events.general import post_decision_ur
-from camac.constants import kt_uri as uri_constants
 from camac.instance.models import HistoryEntryT
 
 
@@ -883,22 +882,28 @@ def test_post_create_reject_work_item(
 
 
 @pytest.mark.parametrize(
-    "question_slug,value, form_id",
+    "question_slug,value,is_solaranlage,is_reklame,is_gebaeudetechnik",
     [
         (
             "solaranlage-art-des-gesuchs",
             "solaranlage-art-des-gesuchs-solaranlage-baubewilligungspflichtig",
-            uri_constants.FORM_MELDUNG_SOLARANLAGE,
+            True,
+            False,
+            False,
         ),
         (
             "reklame-art-des-gesuchs",
             "reklame-art-des-gesuchs-reklamegesuch-baubewilligungspflichtig",
-            uri_constants.FORM_REKLAME,
+            False,
+            True,
+            False,
         ),
         (
             "gebaeudetechnik-art-des-gesuchs",
             "gebaeudetechnik-art-des-gesuchs-gebaeudetechnik-baubewilligungspflichtig",
-            uri_constants.FORM_MELDUNG_GEBAEUDETECHNIK,
+            False,
+            False,
+            True,
         ),
     ],
 )
@@ -911,19 +916,52 @@ def test_convert_special_form_to_construction_permit_ur(
     ur_instance,
     caluma_admin_user,
     form_factory,
+    mocker,
+    is_solaranlage,
+    is_reklame,
+    is_gebaeudetechnik,
     set_application_ur,
     question_slug,
     value,
-    form_id,
     instance_state_factory,
     notification_template_factory,
 ):
     notification_template_factory(slug="3-1-dossier-angenommen")
-    form_factory(form_id=form_id)
+    form = form_factory()
+    mocker.patch(
+        "camac.constants.kt_uri.FORM_MELDUNG_SOLARANLAGE", form.pk
+    ) if is_solaranlage else (
+        mocker.patch("camac.constants.kt_uri.FORM_REKLAME", form.pk)
+        if is_reklame
+        else mocker.patch(
+            "camac.constants.kt_uri.FORM_MELDUNG_GEBAEUDETECHNIK", form.pk
+        )
+    )
+    mocker.patch(
+        "camac.constants.kt_uri.CALUMA_SPECIAL_FORM_QUESTION_VALUE_MAP",
+        {
+            form.pk: {
+                "question": "solaranlage-art-des-gesuchs"
+                if is_solaranlage
+                else (
+                    "reklame-art-des-gesuchs"
+                    if is_reklame
+                    else "gebaeudetechnik-art-des-gesuchs"
+                ),
+                "value": "solaranlage-art-des-gesuchs-solaranlage-baubewilligungspflichtig"
+                if is_solaranlage
+                else (
+                    "reklame-art-des-gesuchs-reklamegesuch-baubewilligungspflichtig"
+                    if is_reklame
+                    else "gebaeudetechnik-art-des-gesuchs-gebaeudetechnik-baubewilligungspflichtig"
+                ),
+            },
+        },
+    )
     instance_state_factory(name="comm")
 
     complete_check_document = caluma_document_factory()
-    ur_instance.form_id = form_id
+    ur_instance.form_id = form.pk
     ur_instance.save()
     caluma_answer_factory(
         document=complete_check_document,
