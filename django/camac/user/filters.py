@@ -15,6 +15,7 @@ from django_filters.rest_framework import (
 )
 
 from camac.billing.views import BillingV2EntryViewset
+from camac.caluma.api import CalumaApi
 from camac.constants import kt_uri as uri_constants
 from camac.core.utils import canton_aware
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
@@ -209,6 +210,9 @@ class PublicServiceFilterSet(FilterSet):
             return False
 
         return instance.case.meta.get("is-bab", False)
+
+    def _condition_is_imported(self, instance):
+        return CalumaApi().is_imported(instance)
 
     def _condition_is_appeal(self, instance):
         if not settings.APPEAL:  # pragma: no cover

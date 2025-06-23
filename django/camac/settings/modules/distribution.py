@@ -315,7 +315,10 @@ DISTRIBUTION = {
                 {"exclude": [("services", ["arp"])]},
                 # Hide some ARP and other cantonal services in BaB dossiers
                 {
-                    "conditions": [{"name": "is_bab"}],
+                    "conditions": [
+                        {"name": "is_bab"},
+                        {"name": "is_imported", "invert": True},
+                    ],
                     "exclude": [
                         (
                             "services",
@@ -340,12 +343,16 @@ DISTRIBUTION = {
                         {"name": "is_bab"},
                         {"name": "is_appeal", "invert": True},
                         {"name": "publication_is_done", "invert": True},
+                        {"name": "is_imported", "invert": True},
                     ],
                     "exclude": [("services", ["arp-bab"])],
                 },
                 # Never show ARP BaB service in BiB dossiers
                 {
-                    "conditions": [{"name": "is_bab", "invert": True}],
+                    "conditions": [
+                        {"name": "is_bab", "invert": True},
+                        {"name": "is_imported", "invert": True},
+                    ],
                     "exclude": [("services", ["arp-bab"])],
                 },
             ],
