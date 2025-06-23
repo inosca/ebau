@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 14:51+0200\n"
+"POT-Creation-Date: 2025-06-20 18:17+0200\n"
 "PO-Revision-Date: 2024-09-12 16:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1473,7 +1473,7 @@ msgstr "delete_by_purpose n'a pas été fourni avec le paramètre requis"
 msgid "Objection %(objection) already has a representative"
 msgstr "Objection %(objection) a déjà un représentant"
 
-#: camac/permissions/api.py
+#: camac/permissions/api.py camac/permissions/tests/test_lowlevel_api.py
 msgid "You do not have the required permission to do this"
 msgstr ""
 
@@ -1909,4 +1909,40 @@ msgstr ""
 
 #: camac/work_items/models.py
 msgid "Work item templates"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Standard filter preset category"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Service filter preset category"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Service group filter preset category"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Query params"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Prefilter work item templates"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Prefilter tasks"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Tasks"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Work item list filter preset"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Work item list filter presets"
 msgstr ""

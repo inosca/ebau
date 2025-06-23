@@ -1,5 +1,6 @@
 export default {
   showTaskFilter: true,
+  showFilterPresets: true,
   taskFilterAsDropdown: true,
   availableTasks: {
     includeTemplates: true,

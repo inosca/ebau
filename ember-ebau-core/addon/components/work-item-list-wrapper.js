@@ -4,7 +4,7 @@ import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import BaseQuery from "@projectcaluma/ember-core/caluma-query/queries/base";
 import { queryManager } from "ember-apollo-client";
-import { findAll } from "ember-data-resources";
+import { findRecord, query } from "ember-data-resources";
 import { gql } from "graphql-tag";
 import { trackedFunction } from "reactiveweb/function";
 import { validate as isUUID } from "uuid";
@@ -293,11 +293,18 @@ export default class WorkItemListWrapperComponent extends Component {
 
     const availableTasks = workItemListConfig.availableTasks;
 
-    const tasks = [
+    let tasks = [
       ...(availableTasks.roles[this.args.baseRole] ?? []),
       ...(availableTasks.services[this.args.serviceId] ?? []),
       ...(availableTasks.default ?? []),
     ];
+
+    if (this.args.preset) {
+      const presetTasks = this.preset.record?.tasks;
+      if (this.preset.record?.prefilterTasks) {
+        tasks = tasks.filter((task) => presetTasks.includes(task));
+      }
+    }
 
     const templates = availableTasks.includeTemplates
       ? this.workItemTemplates.records?.map((tpl) => tpl.id)
@@ -348,7 +355,15 @@ export default class WorkItemListWrapperComponent extends Component {
       }, {}),
   );
 
-  workItemTemplates = findAll(this, "work-item-template");
+  workItemTemplates = query(this, "work-item-template", () => ({
+    ...(this.args.preset ? { included_in_preset: this.args.preset } : {}),
+  }));
+
+  preset = findRecord(
+    this,
+    "work-item-list-filter-preset",
+    () => this.args.preset,
+  );
 
   availableTasks = trackedFunction(this, async () => {
     if (!this.workItemsQuery.value || this._taskSlugs.length === 0) {

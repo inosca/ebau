@@ -1,86 +1,106 @@
-<Filters as |Filter|>
-  <Filter.Select
-    @name="responsible"
-    @searchEnabled={{true}}
-    @searchField="label"
-    @label={{t "workItems.filters.responsible"}}
-    @options={{this.allResponsibles.value}}
-    @selected={{@responsible}}
-    @onChange={{@setFilter}}
-    class="uk-width-1-5"
-  />
-  <Filter.RadioButtons
-    @name="type"
-    @label={{t "workItems.filters.type"}}
-    @selected={{@type}}
-    @options={{array
-      (hash value="all" label=(t "workItems.filters.all"))
-      (hash value="unread" label=(t "workItems.filters.unread"))
-    }}
-    @onChange={{@setFilter}}
-  />
-
-  <Filter.RadioButtons
-    @name="status"
-    @label={{t "workItems.filters.status"}}
-    @selected={{@status}}
-    @options={{array
-      (hash value="READY" label=(t "workItems.filters.open"))
-      (hash value="COMPLETED" label=(t "workItems.filters.closed"))
-      (hash value="SUSPENDED" label=(t "workItems.filters.suspended"))
-    }}
-    @onChange={{@setFilter}}
-  />
-  <Filter.RadioButtons
-    @name="role"
-    @label={{t "workItems.filters.role"}}
-    @selected={{@role}}
-    @options={{array
-      (hash value="active" label=(t "workItems.filters.active"))
-      (hash value="control" label=(t "workItems.filters.control"))
-    }}
-    @onChange={{@setFilter}}
-  />
-  <Filter.RadioButtons
-    @name="order"
-    @label={{t "workItems.filters.order"}}
-    @selected={{@order}}
-    @options={{array
-      (hash value="urgent" label=(t "workItems.filters.urgent"))
-      (hash value="new" label=(t "workItems.filters.new"))
-    }}
-    @onChange={{@setFilter}}
-  />
-  {{#if (and this.workItemListConfig.showTaskFilter this.availableTasks.value)}}
-    {{#if this.workItemListConfig.taskFilterAsDropdown}}
+<div class="uk-flex">
+  <div class="uk-width-expand">
+    <Filters as |Filter|>
       <Filter.Select
-        @name="task"
+        @name="responsible"
         @searchEnabled={{true}}
         @searchField="label"
-        @label={{t "workItems.filters.task.title"}}
-        @options={{this.availableTasks.value}}
-        @selected={{@task}}
+        @label={{t "workItems.filters.responsible"}}
+        @options={{this.allResponsibles.value}}
+        @selected={{@responsible}}
         @onChange={{@setFilter}}
-        class="uk-width-1-3"
+        class="uk-width-1-5"
       />
-    {{else}}
       <Filter.RadioButtons
-        @name="task"
-        @label={{t "workItems.filters.task.title"}}
-        @selected={{@task}}
-        @options={{this.availableTasks.value}}
+        @name="type"
+        @label={{t "workItems.filters.type"}}
+        @selected={{@type}}
+        @options={{array
+          (hash value="all" label=(t "workItems.filters.all"))
+          (hash value="unread" label=(t "workItems.filters.unread"))
+        }}
         @onChange={{@setFilter}}
-        data-test-task-radio
       />
-    {{/if}}
-  {{/if}}
-</Filters>
 
-<WorkItemList
-  @query={{this.workItemsQuery}}
-  @columns={{this.columns}}
-  @highlight={{not-eq @status "COMPLETED"}}
-  @useLinkTo={{@useLinkTo}}
-  @baseRoute={{@baseRoute}}
-  data-test-work-item-list
-/>
+      <Filter.RadioButtons
+        @name="status"
+        @label={{t "workItems.filters.status"}}
+        @selected={{@status}}
+        @options={{array
+          (hash value="READY" label=(t "workItems.filters.open"))
+          (hash value="COMPLETED" label=(t "workItems.filters.closed"))
+          (hash value="SUSPENDED" label=(t "workItems.filters.suspended"))
+        }}
+        @onChange={{@setFilter}}
+      />
+      <Filter.RadioButtons
+        @name="role"
+        @label={{t "workItems.filters.role"}}
+        @selected={{@role}}
+        @options={{array
+          (hash value="active" label=(t "workItems.filters.active"))
+          (hash value="control" label=(t "workItems.filters.control"))
+        }}
+        @onChange={{@setFilter}}
+      />
+      <Filter.RadioButtons
+        @name="order"
+        @label={{t "workItems.filters.order"}}
+        @selected={{@order}}
+        @options={{array
+          (hash value="urgent" label=(t "workItems.filters.urgent"))
+          (hash value="new" label=(t "workItems.filters.new"))
+        }}
+        @onChange={{@setFilter}}
+      />
+      {{#if
+        (and this.workItemListConfig.showTaskFilter this.availableTasks.value)
+      }}
+        {{#if this.workItemListConfig.taskFilterAsDropdown}}
+          <Filter.Select
+            @name="task"
+            @searchEnabled={{true}}
+            @searchField="label"
+            @label={{t "workItems.filters.task.title"}}
+            @options={{this.availableTasks.value}}
+            @selected={{@task}}
+            @onChange={{@setFilter}}
+            class="uk-width-1-3"
+          />
+        {{else}}
+          <Filter.RadioButtons
+            @name="task"
+            @label={{t "workItems.filters.task.title"}}
+            @selected={{@task}}
+            @options={{this.availableTasks.value}}
+            @onChange={{@setFilter}}
+            data-test-task-radio
+          />
+        {{/if}}
+      {{/if}}
+    </Filters>
+
+    <WorkItemList
+      @query={{this.workItemsQuery}}
+      @columns={{this.columns}}
+      @highlight={{not-eq @status "COMPLETED"}}
+      @useLinkTo={{@useLinkTo}}
+      @baseRoute={{@baseRoute}}
+      data-test-work-item-list
+    />
+
+  </div>
+
+  {{#if this.workItemListConfig.showFilterPresets}}
+    <div
+      class="uk-width-1-5 uk-flex-none uk-margin-medium-left uk-margin-small-top"
+    >
+      <WorkItemListFilterPresets
+        @useLinkTo={{@useLinkTo}}
+        @baseRoute={{@baseRoute}}
+        @selected={{@preset}}
+      />
+    </div>
+  {{/if}}
+
+</div>

@@ -28,6 +28,15 @@ const sharedConfig = {
         : ["deadline", "responsible"]),
     ].filter((value) => value !== null);
   },
+  filterDefaults: {
+    order: "urgent",
+    responsible: "all",
+    type: "all",
+    role: "active",
+    status: "READY",
+    task: "all",
+    preset: null,
+  },
 };
 
 export default { ...sharedConfig, ...config.default };

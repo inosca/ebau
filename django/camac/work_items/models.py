@@ -1,6 +1,8 @@
 import uuid_extensions
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from localized_fields.fields import LocalizedCharField
 
 from camac.models import dynamic_default_value
 
@@ -74,3 +76,57 @@ class WorkItemTemplate(models.Model):
         verbose_name = _("Work item template")
         verbose_name_plural = _("Work item templates")
         ordering = ["sort"]
+
+
+class WorkItemListFilterPreset(models.Model):
+    class PresetCategoryChoices(models.TextChoices):
+        STANDARD = "STANDARD", _("Standard filter preset category")
+        SERVICE = (
+            "SERVICE",
+            _("Service filter preset category"),
+        )
+        SERVICE_GROUP = "SERVICE_GROUP", _("Service group filter preset category")
+
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid_extensions.uuid7,
+        editable=False,
+        verbose_name=_("ID"),
+    )
+    name = LocalizedCharField(verbose_name=_("Name"))
+    services = models.ManyToManyField(
+        "user.Service",
+        blank=True,
+        verbose_name=_("Services"),
+    )
+    service_groups = models.ManyToManyField(
+        "user.ServiceGroup",
+        blank=True,
+        verbose_name=_("Service groups"),
+    )
+    query_params = models.JSONField(verbose_name=_("Query params"))
+    prefilter_work_item_templates = models.BooleanField(
+        default=False, verbose_name=_("Prefilter work item templates")
+    )
+    work_item_templates = models.ManyToManyField(
+        "work_items.WorkItemTemplate",
+        related_name="filter_presets",
+        blank=True,
+        verbose_name=_("Work item templates"),
+    )
+    prefilter_tasks = models.BooleanField(
+        default=False, verbose_name=_("Prefilter tasks")
+    )
+    tasks = ArrayField(
+        models.CharField(max_length=150),
+        default=list,
+        blank=True,
+        verbose_name=_("Tasks"),
+    )
+
+    def __str__(self):
+        return self.name.get()
+
+    class Meta:
+        verbose_name = _("Work item list filter preset")
+        verbose_name_plural = _("Work item list filter presets")
