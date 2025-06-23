@@ -1253,6 +1253,72 @@ def test_condition_ready_work_item_additional_demand(
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("role__name", ["applicant"])
+@pytest.mark.parametrize(
+    "method,document_marks,marks_condition,status_code",
+    [
+        ("post", [], "decision", HTTP_201_CREATED),
+        ("post", [], "", HTTP_201_CREATED),
+        ("delete", [], "decision", HTTP_403_FORBIDDEN),
+        ("delete", ["other"], "decision", HTTP_403_FORBIDDEN),
+        ("delete", ["other"], "", HTTP_403_FORBIDDEN),
+        ("delete", ["decision"], "decision", HTTP_204_NO_CONTENT),
+        ("delete", ["decision"], ["decision"], HTTP_204_NO_CONTENT),
+        ("delete", ["other", "decision"], ["decision"], HTTP_204_NO_CONTENT),
+    ],
+)
+def test_condition_access_has_any_mark(
+    db,
+    admin_client,
+    gr_instance,
+    mocker,
+    status_code,
+    document_marks,
+    marks_condition,
+    method,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[gr_instance.pk],
+    )
+
+    category = CategoryFactory(
+        metainfo={
+            "access": {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                        {
+                            "permission": "delete",
+                            "scope": "All",
+                            "condition": {
+                                "HasAnyMark": marks_condition,
+                            },
+                        },
+                    ],
+                },
+            }
+        }
+    )
+
+    metainfo = {"camac-instance-id": gr_instance.pk}
+    document = DocumentFactory(title="Foo", category=category, metainfo=metainfo)
+    for mark_slug in document_marks:
+        document.marks.add(MarkFactory(slug=mark_slug))
+
+    if method == "delete":
+        response = admin_client.delete(reverse("document-detail", args=[document.pk]))
+    elif method == "post":
+        data = document_post_data(category.pk, gr_instance.pk, metainfo)
+
+        response = getattr(admin_client, method)(
+            reverse("document-list"), data, format="multipart"
+        )
+
+    assert response.status_code == status_code
+
+
 @pytest.mark.parametrize(
     "role__name,method,status_code,access",
     [

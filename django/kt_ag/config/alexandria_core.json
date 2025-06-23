@@ -6,53 +6,11 @@
       "created_at": "2020-08-04T13:24:00.704Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-12-20T13:22:42.722Z",
+      "modified_at": "2025-06-23T13:22:17.168Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "afb": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "tags",
-                  "category",
-                  "marks"
-                ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
-          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -72,8 +30,129 @@
           "applicant": {
             "visibility": "all"
           },
-          "service-lead": {
-            "visibility": "all"
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "afb-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
           },
           "municipality-lead": {
             "visibility": "all",
@@ -83,55 +162,41 @@
               },
               {
                 "scope": "All",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "tags",
-                  "category",
-                  "marks"
-                ],
+                "fields": ["category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
                 "permission": "update"
               },
               {
-                "scope": "Service",
+                "scope": "All",
+                "fields": ["marks"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
-                "permission": "delete"
-              }
-            ]
-          },
-          "trusted-service-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
+                "permission": "update"
               },
               {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "category"],
+                "scope": "All",
+                "fields": ["title", "description", "date"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -145,17 +210,240 @@
               {
                 "scope": "Service",
                 "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
                 "permission": "delete"
               }
             ]
+          },
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "external-subservice": {
+            "visibility": "all"
+          },
+          "external-service-lead": {
+            "visibility": "all"
+          },
+          "afb-trusted-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "afb-trusted-service-read": {
+            "visibility": "all"
+          },
+          "cantonal-trusted-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal-trusted-service-read": {
+            "visibility": "all"
           }
         }
       },
@@ -174,51 +462,11 @@
       "created_at": "2020-08-04T13:24:00.690Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-01-31T13:29:09.046Z",
+      "modified_at": "2025-06-23T13:22:17.193Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "afb": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "fields": ["title", "description", "date", "category", "marks"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags"],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
-          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -235,7 +483,7 @@
               }
             ]
           },
-          "subservice": {
+          "afb-subservice": {
             "visibility": "all",
             "permissions": [
               {
@@ -243,13 +491,13 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "category"],
+                "fields": ["category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -258,11 +506,25 @@
               {
                 "scope": "All",
                 "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
                 "permission": "update"
               }
             ]
           },
-          "service-lead": {
+          "cantonal-subservice": {
             "visibility": "all",
             "permissions": [
               {
@@ -270,13 +532,13 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "category"],
+                "fields": ["category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -289,12 +551,116 @@
               },
               {
                 "scope": "Service",
+                "fields": ["title", "description", "date"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              }
+            ]
+          },
+          "external-subservice": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              }
+            ]
+          },
+          "external-service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -302,21 +668,49 @@
               }
             ]
           },
-          "trusted-service-lead": {
+          "afb-trusted-service-lead": {
             "visibility": "all",
             "permissions": [
               {
                 "permission": "create"
               },
               {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "category"],
+                "scope": "All",
+                "fields": ["category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -330,17 +724,93 @@
               {
                 "scope": "Service",
                 "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
                 "permission": "delete"
               }
             ]
+          },
+          "afb-trusted-service-read": {
+            "visibility": "all"
+          },
+          "cantonal-trusted-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal-trusted-service-read": {
+            "visibility": "all"
           }
         }
       },
@@ -359,69 +829,11 @@
       "created_at": "2020-08-04T13:24:00.677Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-12-20T13:20:45.392Z",
+      "modified_at": "2025-06-23T13:22:17.148Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "afb": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "fields": ["title", "description", "date", "tags", "marks"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "fields": ["category"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
-          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -461,28 +873,21 @@
             "visibility": "all",
             "permissions": [
               {
-                "scope": "Service",
-                "fields": ["title", "description", "date"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
                 "scope": "All",
                 "fields": ["tags"],
                 "permission": "update"
               }
             ]
           },
-          "service-lead": {
-            "visibility": "all"
+          "afb-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           },
           "municipality-lead": {
             "visibility": "all",
@@ -492,22 +897,22 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
                 "permission": "create"
               },
               {
-                "scope": "All",
-                "fields": ["title", "description", "date", "tags", "marks"],
+                "scope": "Service",
+                "fields": ["category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -521,8 +926,41 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -530,26 +968,12 @@
               },
               {
                 "scope": "Service",
-                "fields": ["category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
                     "construction-monitoring",
-                    "to-finish",
                     "decided"
                   ]
                 },
@@ -565,7 +989,26 @@
               }
             ]
           },
-          "trusted-service-lead": {
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "external-subservice": {
+            "visibility": "all"
+          },
+          "external-service-lead": {
+            "visibility": "all"
+          },
+          "afb-trusted-service-lead": {
             "visibility": "all",
             "permissions": [
               {
@@ -573,8 +1016,8 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -582,13 +1025,32 @@
               },
               {
                 "scope": "All",
-                "fields": ["title", "description", "date", "tags", "marks"],
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["marks"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -601,8 +1063,8 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -614,14 +1076,83 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
                 "permission": "delete"
               }
             ]
+          },
+          "afb-trusted-service-read": {
+            "visibility": "all"
+          },
+          "cantonal-trusted-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-trusted-service-read": {
+            "visibility": "all"
           }
         }
       },
@@ -716,53 +1247,11 @@
       "created_at": "2020-08-04T13:24:00.699Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-12-20T13:23:43.952Z",
+      "modified_at": "2025-06-23T13:22:17.176Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "afb": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "tags",
-                  "category",
-                  "marks"
-                ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
-          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -786,32 +1275,54 @@
                 "permission": "create"
               },
               {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "category"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
                 "scope": "All",
                 "fields": ["tags"],
                 "permission": "update"
               },
               {
                 "scope": "Service",
+                "fields": ["title", "description", "date"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -819,25 +1330,11 @@
               }
             ]
           },
-          "service-lead": {
+          "afb-subservice": {
             "visibility": "all",
             "permissions": [
               {
                 "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "category"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
               },
               {
                 "scope": "All",
@@ -846,12 +1343,48 @@
               },
               {
                 "scope": "Service",
+                "fields": ["title", "description", "date"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -867,55 +1400,41 @@
               },
               {
                 "scope": "All",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "tags",
-                  "category",
-                  "marks"
-                ],
+                "fields": ["category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
                 "permission": "update"
               },
               {
-                "scope": "Service",
+                "scope": "All",
+                "fields": ["marks"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
-                "permission": "delete"
-              }
-            ]
-          },
-          "trusted-service-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
+                "permission": "update"
               },
               {
-                "scope": "Service",
-                "fields": ["title", "description", "date", "category"],
+                "scope": "All",
+                "fields": ["title", "description", "date"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -929,17 +1448,358 @@
               {
                 "scope": "Service",
                 "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
                 "permission": "delete"
               }
             ]
+          },
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "external-subservice": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "external-service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "afb-trusted-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "afb-trusted-service-read": {
+            "visibility": "all"
+          },
+          "cantonal-trusted-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~HasAnyMark": "decision"
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "HasAnyMark": "decision",
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal-trusted-service-read": {
+            "visibility": "all"
           }
         }
       },
@@ -958,45 +1818,11 @@
       "created_at": "2020-08-04T13:24:00.708Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-12-20T13:24:19.998Z",
+      "modified_at": "2025-06-23T13:22:17.183Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "afb": {
-            "visibility": "service",
-            "permissions": [
-              {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -1014,31 +1840,24 @@
             ]
           },
           "subservice": {
-            "visibility": "service",
+            "visibility": "service-and-subservice",
             "permissions": [
               {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -1047,32 +1866,25 @@
               }
             ]
           },
-          "service-lead": {
-            "visibility": "service",
+          "afb-subservice": {
+            "visibility": "service-and-subservice",
             "permissions": [
               {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -1082,31 +1894,24 @@
             ]
           },
           "municipality-lead": {
-            "visibility": "service",
+            "visibility": "service-and-subservice",
             "permissions": [
               {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -1115,32 +1920,28 @@
               }
             ]
           },
-          "trusted-service-lead": {
-            "visibility": "service",
+          "municipality-read": {
+            "visibility": "service-and-subservice"
+          },
+          "cantonal-subservice": {
+            "visibility": "service-and-subservice",
             "permissions": [
               {
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
                 "permission": "create"
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -1148,6 +1949,120 @@
                 "permission": "delete"
               }
             ]
+          },
+          "external-subservice": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "external-service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "afb-trusted-service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "afb-trusted-service-read": {
+            "visibility": "service-and-subservice"
+          },
+          "cantonal-trusted-service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "metainfo", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal-trusted-service-read": {
+            "visibility": "service-and-subservice"
           }
         }
       },
@@ -1166,69 +2081,11 @@
       "created_at": "2024-12-20T09:35:18.710Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-01-31T14:11:13.711Z",
+      "modified_at": "2025-06-23T13:22:17.160Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
-          "afb": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "fields": ["title", "description", "date", "tags", "marks"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "fields": ["category"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "delete"
-              }
-            ]
-          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -1264,8 +2121,25 @@
               }
             ]
           },
-          "service-lead": {
-            "visibility": "all"
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "afb-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
           },
           "municipality-lead": {
             "visibility": "all",
@@ -1275,26 +2149,12 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
                 "permission": "create"
-              },
-              {
-                "scope": "All",
-                "fields": ["title", "description", "date", "tags", "marks"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
               },
               {
                 "scope": "Service",
@@ -1303,11 +2163,44 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -1316,8 +2209,8 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
@@ -1325,7 +2218,26 @@
               }
             ]
           },
-          "trusted-service-lead": {
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "external-subservice": {
+            "visibility": "all"
+          },
+          "external-service-lead": {
+            "visibility": "all"
+          },
+          "afb-trusted-service-lead": {
             "visibility": "all",
             "permissions": [
               {
@@ -1333,26 +2245,12 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
                 "permission": "create"
-              },
-              {
-                "scope": "All",
-                "fields": ["title", "description", "date", "tags", "marks"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-monitoring",
-                    "to-finish",
-                    "decided"
-                  ]
-                },
-                "permission": "update"
               },
               {
                 "scope": "Service",
@@ -1361,11 +2259,44 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
                 "permission": "update"
               },
               {
@@ -1374,14 +2305,83 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
-                    "construction-monitoring",
                     "to-finish",
+                    "construction-monitoring",
                     "decided"
                   ]
                 },
                 "permission": "delete"
               }
             ]
+          },
+          "afb-trusted-service-read": {
+            "visibility": "all"
+          },
+          "cantonal-trusted-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "to-finish",
+                    "construction-monitoring",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal-trusted-service-read": {
+            "visibility": "all"
           }
         }
       },
