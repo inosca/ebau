@@ -1524,7 +1524,7 @@ msgstr "ALLE_NACHBARN"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Name and address of all the neighbors"
-msgstr "Name und Adresse aller Nachbarn"
+msgstr "Alle Nachbarn, welche in der Nachbarschaftsorientierung erfasst wurden"
 
 #: camac/instance/placeholders/serializers.py
 msgid "All legal submissions of the type \"objection\""

@@ -3540,8 +3540,8 @@
         }),
       ]),
       'description': dict({
-        'de': 'Name und Adresse aller Nachbarn',
-        'fr': 'Nom et adresse de tous les voisins',
+        'de': 'Alle Nachbarn, welche in der Nachbarschaftsorientierung erfasst wurden',
+        'fr': 'Tous les voisins qui ont été répertoriés lors de la communication aux voisins et voisines',
       }),
       'nested_aliases': dict({
         'ADDRESS_1': list([
