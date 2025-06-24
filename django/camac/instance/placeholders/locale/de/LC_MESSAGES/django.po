@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-12 15:41+0200\n"
+"POT-Creation-Date: 2025-06-24 15:50+0200\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2551,6 +2551,38 @@ msgstr "PUBLIKATION_AMTSBLATT_ENDE"
 #: camac/instance/placeholders/serializers.py
 msgid "End date of the publication in the gazette"
 msgstr "Enddatum der Publikation im Amtsblatt"
+
+#: camac/instance/placeholders/serializers.py
+msgid "LOGGED_IN_MOBILE"
+msgstr "ANGEMELDET_MOBILE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Mobile of the currently logged in user"
+msgstr "Mobilenummer des/r momentan angemeldeten Benutzer/in"
+
+#: camac/instance/placeholders/serializers.py
+msgid "LOGGED_IN_POSITION"
+msgstr "ANGEMELDET_POSITION"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Position of the currently logged in user"
+msgstr "Position des/r momentan angemeldeten Benutzer/in"
+
+#: camac/instance/placeholders/serializers.py
+msgid "LOGGED_IN_PHONE"
+msgstr "ANGEMELDET_TELEFON"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Phone of the currently logged in user"
+msgstr "Telefonnummer des/r momentan angemeldeten Benutzer/in"
+
+#: camac/instance/placeholders/serializers.py
+msgid "LOGGED_IN_TITLE"
+msgstr "ANGEMELDET_TITEL"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Title of the currently logged in user"
+msgstr "Titel des/r momentan angemeldeten Benutzer/in"
 
 #: camac/instance/placeholders/utils.py
 msgid "Yes"
