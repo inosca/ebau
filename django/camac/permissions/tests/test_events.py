@@ -1,3 +1,4 @@
+import random
 import re
 from datetime import timedelta
 
@@ -613,6 +614,65 @@ def test_completed_involve_tax_administration_sz(
         access_level="read",
         service=tax_administration,
     )
+    assert acls.exists()
+
+
+def test_decided_involve_localized_geometer_sz(
+    db,
+    application_settings,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    form_field_factory,
+    instance_state_factory,
+    mocker,
+    service,
+    service_factory,
+    settings,
+    sz_access_levels,
+    sz_construction_monitoring_settings,
+    sz_instance,
+    sz_permissions_settings,
+):
+    settings.APPLICATION_NAME = "kt_schwyz"
+    is_redac = instance_state_factory(name="redac")
+    is_done = instance_state_factory(name="done")
+    mocker.patch("camac.notification.utils.send_mail", return_value=None)
+
+    application_settings["GEOMETER_FORM_FIELDS"] = ["geometer"]
+    geometer_services = service_factory.create_batch(4)
+    application_settings["LOCALIZED_GEOMETER_SERVICE_MAPPING"] = {
+        service.name: [service.pk] for service in geometer_services
+    }
+    geometer_service = random.choice(geometer_services)
+
+    sz_instance.instance_state = is_redac
+    sz_instance.save()
+    form_field_factory.create(
+        instance=sz_instance,
+        name=random.choice(application_settings["GEOMETER_FORM_FIELDS"]),
+        value=geometer_service.name,
+    )
+    work_item = caluma_work_item_factory(
+        task_id="make-decision",
+        case=sz_instance.case,
+        child_case=None,
+        addressed_groups=[service.pk],
+        controlling_groups=[service.pk],
+        status=WorkItem.STATUS_READY,
+    )
+    acls = InstanceACL.objects.filter(
+        instance=sz_instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level="read",
+        service=geometer_service,
+    )
+
+    assert not acls.exists()
+
+    workflow_api.complete_work_item(work_item=work_item, user=caluma_admin_user)
+    sz_instance.refresh_from_db()
+
+    assert sz_instance.instance_state == is_done
     assert acls.exists()
 
 

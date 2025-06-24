@@ -19,6 +19,7 @@ from django.db import transaction
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
+from camac.permissions import events as permissions_events
 from camac.responsible.models import ResponsibleService
 
 log = getLogger()
@@ -265,3 +266,12 @@ def post_decision_ur(sender, work_item, user, context, **kwargs):
     )
     for review_work_item in review_work_items:
         workflow_api.skip_work_item(review_work_item, user, context)
+
+
+@on(post_complete_work_item, raise_exception=True)
+@transaction.atomic
+@filter_events(lambda work_item: work_item.task.slug == "make-decision")
+def post_decision_sz(sender, work_item, user, context, **kwargs):
+    """Trigger permission updates after decision has been made."""
+    if settings.APPLICATION_NAME == "kt_schwyz":
+        permissions_events.Trigger.decision_decreed(None, work_item.case.instance)

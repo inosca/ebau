@@ -256,6 +256,7 @@ omit = [
     "camac/core/management/commands/correction_of_koor_dossiers_ur.py",
     "camac/core/management/commands/clean_dangling_objects.py",
     "camac/permissions//management/commands/grant_read_permissions_to_tax_administration_if_involved.py",
+    "camac/permissions//management/commands/grant_read_permissions_to_geometer_if_selected.py",
     "camac/core/management/commands/migrate_rejection_feedback_ur.py",
     "camac/core/management/commands/migrate_gwr_relevancy_tasks.py",
     "camac/core/management/commands/fix_sz_cancelled_archiving.py",

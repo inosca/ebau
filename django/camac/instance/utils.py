@@ -279,4 +279,5 @@ def get_localized_geometer(instance: Instance) -> Service | None:
         Q(groups__locations__in=[instance.location])
         | Q(groups__locations__isnull=True),
         pk__in=geometer_service_ids,
+        disabled=0,
     ).first()
