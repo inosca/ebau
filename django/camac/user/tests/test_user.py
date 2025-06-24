@@ -181,12 +181,9 @@ def test_user_keycloak_apply(
 
     assert response.status_code == expected_status
     if response.status_code == status.HTTP_201_CREATED:
-        assert set(response.json()["questions"]) == {
-            "e-mail-gesuchstellerin",
-            "vorname-gesuchstellerin",
-            "name-gesuchstellerin",
-        }
-
+        assert set(response.json()["questions"]) == set(
+            settings.USER.question_user_attributes_mapping.keys()
+        )
         answers = gr_instance.case.document.answers.all()
 
         assert (
@@ -201,7 +198,7 @@ def test_user_keycloak_apply(
 
 
 def test_me_patch(admin_client, admin_user, user_settings, application_settings):
-    user_settings["ALLOWED_WRITE_ATTRIBUTES"] = [
+    user_settings.allowed_write_attributes = [
         "title",
         "position",
         "phone",

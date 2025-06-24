@@ -104,7 +104,7 @@ class CurrentUserSerializer(UserSerializer):
 
         extra_kwargs = super().get_extra_kwargs()
 
-        for field_name in settings.USER.get("ALLOWED_WRITE_ATTRIBUTES", []):
+        for field_name in getattr(settings.USER, "allowed_write_attributes", []):
             if (
                 field_name in settings.APPLICATION.get("OIDC_SYNC_USER_ATTRIBUTES")
                 or field_name not in extra_kwargs
@@ -578,9 +578,10 @@ class KeycloakApplySerializer(RestSerializer):
         document = validated_data["document"]
         written_questions = set()
 
-        for question_slug, attributes in settings.USER[
-            "QUESTION_USER_ATTRIBUTES_MAPPING"
-        ].items():
+        for (
+            question_slug,
+            attributes,
+        ) in settings.USER.question_user_attributes_mapping.items():
             if not isinstance(attributes, list):
                 attributes = [attributes]
 

@@ -1,36 +1,46 @@
-USER = {
-    "default": {},
-    "kt_gr": {
-        "ENABLED": True,
-        "QUESTION_USER_ATTRIBUTES_MAPPING": {
+from camac.settings.ebau_schema import ModuleConfig
+from camac.settings.modules.user_schema import (
+    UserConfig,
+)
+
+USER = ModuleConfig[UserConfig](
+    default=UserConfig(),
+    kt_gr=UserConfig(
+        enabled=True,
+        question_user_attributes_mapping={
             "e-mail-gesuchstellerin": "email",
-            "vorname-gesuchstellerin": "name",
-            "name-gesuchstellerin": "surname",
+            "name-gesuchstellerin": "name",
+            "vorname-gesuchstellerin": "surname",
         },
-    },
-    "kt_ag": {
-        "ENABLED": True,
-        "QUESTION_USER_ATTRIBUTES_MAPPING": {
+    ),
+    kt_ag=UserConfig(
+        enabled=True,
+        question_user_attributes_mapping={
             "e-mail-gesuchstellerin": "email",
-            "vorname-gesuchstellerin": "name",
-            "name-gesuchstellerin": "surname",
+            "name-gesuchstellerin": "name",
+            "vorname-gesuchstellerin": "surname",
             "telefon-oder-mobile-gesuchstellerin": ["phone", "mobile"],
         },
-        "ALLOWED_WRITE_ATTRIBUTES": ["title", "position", "phone", "mobile"],
-    },
-    "kt_so": {
-        "ENABLED": True,
-        "QUESTION_OIDC_ATTRIBUTES_MAPPING": {
+        allowed_write_attributes=[
+            "title",
+            "position",
+            "phone",
+            "mobile",
+        ],
+    ),
+    kt_so=UserConfig(
+        enabled=True,
+        question_user_attributes_mapping={
             "e-mail-gesuchstellerin": "email",
-            "vorname-gesuchstellerin": "given_name",
-            "name-gesuchstellerin": "family_name",
+            "name-gesuchstellerin": "name",
+            "vorname-gesuchstellerin": "surname",
         },
-        "ALLOWED_WRITE_ATTRIBUTES": [
+        allowed_write_attributes=[
             "title",
             "position",
             "phone",
             "mobile",
             "division",
         ],
-    },
-}
+    ),
+)
