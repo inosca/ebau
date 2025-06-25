@@ -160,7 +160,7 @@ def test_suggestion_for_instance_filter_caluma(
             [],
         ),
         (
-            7,
+            5,
             3,
             {
                 # active (wald-forstlich and wald-auswirkung active)
@@ -184,7 +184,7 @@ def test_suggestion_for_instance_filter_caluma(
             [1234],
         ),
         (
-            7,
+            5,
             3,
             {
                 "SUBMODULES": [],
@@ -208,7 +208,7 @@ def test_suggestion_for_instance_filter_caluma(
             [4444],
         ),
         (
-            7,
+            5,
             3,
             {
                 # active (wald-forstlich active)
@@ -233,7 +233,7 @@ def test_suggestion_for_instance_filter_caluma(
             [1234, 4444],
         ),
         (
-            7,
+            5,
             3,
             {
                 # active (wald-auswirkungen active)
@@ -255,7 +255,7 @@ def test_suggestion_for_instance_filter_caluma(
             [1234, 5678],
         ),
         (
-            7,
+            5,
             3,
             {
                 # not active (wald-auswirkungen and wald-forstlich not active)
