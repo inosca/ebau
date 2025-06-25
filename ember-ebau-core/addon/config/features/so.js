@@ -72,5 +72,8 @@ export default {
   workItemList: {
     hideImportedWorkItems: true,
   },
-  profile: true,
+  profile: {
+    enabled: true,
+    showDivision: true,
+  },
 };

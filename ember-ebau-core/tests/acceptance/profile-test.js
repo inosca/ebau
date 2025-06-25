@@ -3,10 +3,12 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { module, test } from "qunit";
 
 import { setupApplicationTest } from "dummy/tests/helpers";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Acceptance | profile", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
+  setupFeatures(hooks);
 
   hooks.beforeEach(async function () {
     const user = this.server.create("user");
@@ -17,6 +19,7 @@ module("Acceptance | profile", function (hooks) {
   });
 
   test("update profile data", async function (assert) {
+    this.features.enable("profile.showDivision");
     await visit("/profile");
 
     assert.dom("input[name=username]").isDisabled();
