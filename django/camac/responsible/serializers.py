@@ -32,10 +32,12 @@ class ResponsibleServiceSerializer(InstanceEditableMixin, serializers.ModelSeria
         return responsible_service
 
     def update(self, responsible_service, validated_data):
+        old_user = responsible_service.responsible_user
+
         responsible_service = super().update(responsible_service, validated_data)
 
         ResponsibleServiceDomainLogic.update_responsibility(
-            responsible_service, self.context
+            responsible_service, self.context, old_user
         )
 
         return responsible_service
