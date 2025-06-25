@@ -55,6 +55,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bab.bab-abschliessen",
+    "fields": {
+      "created_at": "2025-06-25T12:12:45.479Z",
+      "modified_at": "2025-06-25T12:12:45.479Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bab-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bab.bab-art-der-massnahme",
     "fields": {
       "created_at": "2024-06-20T16:26:29.811Z",
@@ -65,7 +80,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-art-der-massnahme",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -80,7 +95,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-art-grundlage-verfahren-titel",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -95,7 +110,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-bewilligungsgrund",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -110,7 +125,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-entscheid",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -125,7 +140,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-flaechenbedarf-fruchtfolgeflaechen",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -140,7 +155,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-gebaeude-abbruch",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -155,7 +170,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-kompensation-fruchtfolgeflaechen",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -170,7 +185,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-lage-flaechenbedarf-tabelle",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -185,7 +200,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-lage-flaechenbedarf-titel",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -200,7 +215,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-neue-gebaeude",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -215,7 +230,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-nutzung-nach-rpg",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -230,7 +245,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-objektart",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -245,7 +260,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-stabilisierung-gebaeude-titel",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -260,7 +275,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-stabilisierungsziel",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -275,7 +290,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-typ-der-auftraggeber",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -320,7 +335,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "versiegelte-entsiegelte-flaechen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -2187,6 +2202,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bab-abschliessen",
+    "fields": {
+      "created_at": "2025-06-25T12:12:45.333Z",
+      "modified_at": "2025-06-25T12:12:45.333Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bab-art-der-massnahme",
     "fields": {
       "created_at": "2024-06-20T16:26:29.576Z",
@@ -2387,14 +2438,14 @@
     "pk": "bab-flaechenbedarf-fruchtfolgeflaechen",
     "fields": {
       "created_at": "2024-06-21T07:19:30.049Z",
-      "modified_at": "2024-06-21T09:57:12.577Z",
+      "modified_at": "2025-06-25T12:12:28.792Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Fl\\u00e4chenbedarf Fruchtfolgefl\\u00e4chen (m\\u00b2)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -2524,14 +2575,14 @@
     "pk": "bab-kompensation-fruchtfolgeflaechen",
     "fields": {
       "created_at": "2024-06-21T07:20:10.644Z",
-      "modified_at": "2024-06-21T09:57:31.790Z",
+      "modified_at": "2025-06-25T12:12:23.357Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Kompensation Fruchtfolgefl\\u00e4chen (m\\u00b2)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
