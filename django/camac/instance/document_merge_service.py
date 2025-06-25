@@ -777,7 +777,7 @@ class DMSVisitor:
     def collect_static_field(self, field):
         return {"content": None}
 
-    def collect_number_field(self, field):
+    def collect_number_field(self, field, convert_to_int_if_bigger_than=1_000_000):
         value = field.get_value()
 
         if (
@@ -787,6 +787,11 @@ class DMSVisitor:
                 field.slug() not in settings.DMS.get("NUMBER_SEPARATOR_EXCEPTIONS", [])
             )
         ):
+            # To prevent scientific notation and numbers after the decimal point,
+            # we check if a value is bigger than a threshold and then convert to int.
+            # Here, it's used to prevent scientific notation on coordinates.
+            if value > convert_to_int_if_bigger_than:
+                value = int(value)
             value = f"{value:n}"
 
         return {"value": value}
