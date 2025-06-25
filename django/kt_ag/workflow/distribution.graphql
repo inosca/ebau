@@ -88,7 +88,7 @@ mutation CheckDocumentSupplementTask {
       name: "Unterlagenergänzung prüfen"
       addressGroups: "info.context.addressed_groups"
       controlGroups: "info.context.addressed_groups"
-      meta: "{\"directLink\":{\"route\":\"cases.detail.alexandria\",\"models\":[\"INSTANCE_ID\"]}}"
+      meta: "{\"is-manually-completable\":true}"
     }
   ) {
     clientMutationId
