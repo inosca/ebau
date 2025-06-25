@@ -648,6 +648,42 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 69,
+    "fields": {
+      "slug": "additional-demand-decision-accept",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 70,
+    "fields": {
+      "slug": "additional-demand-decision-reject",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 71,
+    "fields": {
+      "slug": "send-additional-demand-applicant",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -1293,6 +1329,42 @@
       "purpose": "Entscheid Gesuchsteller nicht registriert (Anderweitiger Geschäftsabschluss)",
       "subject": "Information über Entscheid (eBau Nr. {{EBAU_NUMBER}}) / Information sur le prononcé de la décision (n° eBau {{EBAU_NUMBER}})",
       "body": "Guten Tag\r\n\r\nDer Entscheid zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde gefällt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem eBau Portal des Kantons Bern erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nLa décision relative à l'affaire portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été rendue.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nPour pouvoir consulter ou participer au traitement du dossier, il est nécessaire de s'enregistrer auprès du portail eBau du canton de Berne.\r\n\r\nVous pouvez vous enregistrer sous le lien suivant : {{ REGISTRATION_LINK }}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre."
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 101,
+    "fields": {
+      "template": 69,
+      "template_slug": "additional-demand-decision-accept",
+      "language": "de",
+      "purpose": "Nachforderung geprüft positiv",
+      "subject": "Nachforderung akzeptiert (Dossier-Nr. {{DOSSIER_NR}}) / *** version française ***",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung angeschlossen im Dossier-Nr.  {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n*** version française ***"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 102,
+    "fields": {
+      "template": 70,
+      "template_slug": "additional-demand-decision-reject",
+      "language": "de",
+      "purpose": "Nachforderung geprüft negativ",
+      "subject": "Nachforderung abgelehnt (Dossier-Nr. {{DOSSIER_NR}}) / *** version française ***",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde ihre Nachforderung abgelehnt im Dossier-Nr. {DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n*** version française ***"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 103,
+    "fields": {
+      "template": 71,
+      "template_slug": "send-additional-demand-applicant",
+      "language": "de",
+      "purpose": "03 Zusätzliche Unterlagen notwendig (Gesuchsteller)",
+      "subject": "Zusätzliche Unterlagen notwendig (eBau Nr. {{EBAU_NUMBER}}) / Documents complémentaires requis (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nDie Prüfung hat ergeben, dass für die Beurteilung des Dossiers mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) noch weitere Unterlagen / Dokumente notwendig sind. Bitte öffnen Sie das Menü \"Nachforderungen\" unter folgendem Link:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nIl ressort d'un premier examen que d'autres documents / indications (selon le document annexé) sont nécessaires à l'appréciation du dossier portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}). Veuillez ouvrir le menu \"Demande de complément d'information\" au moyen du lien suivant:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   }
 ]

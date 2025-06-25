@@ -510,6 +510,7 @@ DUMP = {
                 # Distribution
                 **DISTRIBUTION_DUMP_CONFIG,
                 **GEVER_DUMP_CONFIG,
+                **ADDITIONAL_DEMAND_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
