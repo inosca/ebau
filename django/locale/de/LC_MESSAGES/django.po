@@ -1859,6 +1859,10 @@ msgstr "Es existieren mehrere Benutzer mit dieser E-Mail-Adresse"
 msgid "User is already in group"
 msgstr "Der Benutzer ist bereits in dieser Gruppe"
 
+#: camac/work_items/admin.py camac/work_items/models.py
+msgid "Assigned user"
+msgstr "Zuständiger Benutzer"
+
 #: camac/work_items/apps.py
 msgid "Work items"
 msgstr "Aufgaben"
@@ -1876,6 +1880,10 @@ msgid "Current service and current user"
 msgstr "Eigene Organisation und eigener Benutzer"
 
 #: camac/work_items/models.py
+msgid "Current service and specific user"
+msgstr "Eigene Organisation und bestimmter Benutzer"
+
+#: camac/work_items/models.py
 msgid "Current service and no user"
 msgstr "Eigene Organisation und kein Benutzer"
 
@@ -1890,6 +1898,15 @@ msgstr "Das momentane Datum addiert mit diesem Wert wird die Frist bestimmen"
 #: camac/work_items/models.py
 msgid "Responsibility rule"
 msgstr "Zuständigkeitsregel"
+
+#: camac/work_items/models.py
+#, python-format
+msgid ""
+"The assigned user will only be considered if the responsibility rule "
+"\"%(rule)s\" is selected above"
+msgstr ""
+"Der zuständige Benutzer wird nur beachtet, wenn die Zuständigkeitsregel "
+"\"%(rule)s\" oberhalb ausgewählt wurde"
 
 #: camac/work_items/models.py
 msgid "Work item template"

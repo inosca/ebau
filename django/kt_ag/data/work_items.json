@@ -8,6 +8,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "CURRENT_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [4]
     }
@@ -21,6 +22,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "CURRENT_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [4]
     }
@@ -34,6 +36,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "CURRENT_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [4]
     }
@@ -47,6 +50,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "NO_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [4]
     }
@@ -60,6 +64,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "CURRENT_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [4]
     }
@@ -73,6 +78,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "RESPONSIBLE_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [4]
     }
@@ -86,6 +92,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "NO_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [1, 4]
     }
@@ -99,6 +106,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "NO_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [4]
     }
@@ -112,6 +120,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "NO_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [4]
     }
@@ -125,6 +134,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "NO_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [4]
     }
@@ -138,6 +148,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "NO_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [4]
     }
@@ -151,6 +162,7 @@
       "description": "",
       "lead_time": null,
       "responsibility_rule": "NO_USER",
+      "assigned_user": null,
       "services": [],
       "service_groups": [4]
     }

@@ -35,7 +35,9 @@ export default class WorkItemDetailNewComponent extends Component {
   @tracked workItem = new NewWorkItem();
   @tracked selectedTemplate = null;
 
-  workItemTemplates = findAll(this, "work-item-template");
+  workItemTemplates = findAll(this, "work-item-template", () => ({
+    include: "assigned_user",
+  }));
 
   get responsibleService() {
     return this.services.find((service) =>
@@ -164,8 +166,17 @@ export default class WorkItemDetailNewComponent extends Component {
 
     const rule = this.selectedTemplate.responsibilityRule;
     const currentService = rule !== "NONE";
-    const currentUser = rule === "CURRENT_USER";
     const bypassResponsible = rule === "NO_USER";
+
+    let assignedUsers = [];
+
+    if (rule === "CURRENT_USER") {
+      assignedUsers = [this.ebauModules.userName];
+    } else if (rule === "SPECIFIC_USER") {
+      assignedUsers = [
+        this.selectedTemplate.get("assignedUser.username"),
+      ].filter(Boolean);
+    }
 
     this.workItem.title = this.selectedTemplate.name;
     this.workItem.description = this.selectedTemplate.description;
@@ -179,8 +190,6 @@ export default class WorkItemDetailNewComponent extends Component {
     this.workItem.addressedGroups = currentService
       ? [this.args.serviceId.toString()]
       : [];
-    this.workItem.assignedUsers = currentUser
-      ? [this.ebauModules.userName]
-      : [];
+    this.workItem.assignedUsers = assignedUsers;
   }
 }

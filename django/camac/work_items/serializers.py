@@ -4,6 +4,10 @@ from camac.work_items.models import WorkItemListFilterPreset, WorkItemTemplate
 
 
 class WorkItemTemplateSerializer(serializers.ModelSerializer):
+    included_serializers = {
+        "assigned_user": "camac.user.serializers.PublicUserSerializer"
+    }
+
     class Meta:
         model = WorkItemTemplate
         exclude = ["services", "service_groups"]

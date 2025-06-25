@@ -15,11 +15,16 @@ class WorkItemTemplateAdmin(EbauAdminMixin, SortableAdminMixin, ModelAdmin):
         "name",
         "lead_time",
         "responsibility_rule",
+        "get_user_full_name",
         "get_service_names",
         "get_service_group_names",
     ]
     search_fields = ["name"]
-    autocomplete_fields = ["services", "service_groups"]
+    autocomplete_fields = ["services", "service_groups", "assigned_user"]
+
+    @display(description=_("Assigned user"))
+    def get_user_full_name(self, obj):
+        return obj.assigned_user.get_full_name() if obj.assigned_user else None
 
     @display(description=_("Services"))
     def get_service_names(self, obj):
