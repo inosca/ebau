@@ -1045,6 +1045,7 @@ def test_dms_placeholders_ur(
 def test_dms_placeholders_ag(
     db,
     admin_client,
+    admin_user,
     ag_distribution_settings,
     ag_dms_config,
     ag_master_data_case,
@@ -1119,6 +1120,13 @@ def test_dms_placeholders_ag(
         group=group,
         instance=ag_instance,
     )
+
+    # Current user
+    admin_user.mobile = "+41 79 012 34 56"
+    admin_user.phone = "+41 31 012 34 56"
+    admin_user.title = "Master of Science"
+    admin_user.position = "Project manager"
+    admin_user.save()
 
     url = reverse("instance-dms-placeholders", args=[ag_instance.pk])
 

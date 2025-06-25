@@ -1587,6 +1587,12 @@
     'ALLE_VERTRETER': 'Jimenez, Rollins and Long, Tiffany Perry',
     'ALLE_VERTRETER_NAME_ADDRESS': 'Jimenez, Rollins and Long, Tiffany Perry, Jeffrey Gardens 49848, 2709 Parkhaven',
     'ALLE_VERTRETER_NAME_ADRESSE': 'Jimenez, Rollins and Long, Tiffany Perry, Jeffrey Gardens 49848, 2709 Parkhaven',
+    'ANGEMELDET_EMAIL': 'admin@example.com',
+    'ANGEMELDET_MOBILE': '+41 79 012 34 56',
+    'ANGEMELDET_NAME': 'Admin User',
+    'ANGEMELDET_POSITION': 'Project manager',
+    'ANGEMELDET_TELEFON': '+41 31 012 34 56',
+    'ANGEMELDET_TITEL': 'Master of Science',
     'AUSWAERTIGE_ANSTOESSER': list([
       dict({
         'ADDRESS_1': 'Brown Curve 68072',

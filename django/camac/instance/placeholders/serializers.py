@@ -2241,6 +2241,36 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("CONSTRUCTION_COSTS")],
         description=_("Construction costs"),
     )
+    angemeldet_email = fields.CurrentUserField(
+        source="email",
+        aliases=[_("LOGGED_IN_EMAIL")],
+        description=_("Email address of the currently logged in user"),
+    )
+    angemeldet_mobile = fields.CurrentUserField(
+        source="mobile",
+        aliases=[_("LOGGED_IN_MOBILE")],
+        description=_("Mobile of the currently logged in user"),
+    )
+    angemeldet_name = fields.CurrentUserField(
+        source="full_name",
+        aliases=[_("LOGGED_IN_NAME")],
+        description=_("Name of the currently logged in user"),
+    )
+    angemeldet_position = fields.CurrentUserField(
+        source="position",
+        aliases=[_("LOGGED_IN_POSITION")],
+        description=_("Position of the currently logged in user"),
+    )
+    angemeldet_telefon = fields.CurrentUserField(
+        source="phone",
+        aliases=[_("LOGGED_IN_PHONE")],
+        description=_("Phone of the currently logged in user"),
+    )
+    angemeldet_titel = fields.CurrentUserField(
+        source="title",
+        aliases=[_("LOGGED_IN_TITLE")],
+        description=_("Title of the currently logged in user"),
+    )
 
     def get_koordinaten(self, instance):
         return get_koordinaten_by_json_props(instance, "markers")
