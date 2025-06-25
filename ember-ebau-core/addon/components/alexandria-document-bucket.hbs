@@ -38,14 +38,21 @@
             this.category.name
           }}
         </p>
-        <p class="uk-margin-remove-top uk-width-1-1 uk-text-left">
-          {{maybe-translate
-            (concat "documents.categories." this.category.id ".hint")
-            htmlSafe=true
-          }}
-        </p>
       </:header>
       <:footer>
+        {{#if
+          (maybe-translate
+            (concat "documents.categories." this.category.id ".hint")
+          )
+        }}
+          <p class="uk-width-1-1 uk-text-left">
+            {{maybe-translate
+              (concat "documents.categories." this.category.id ".hint")
+              htmlSafe=true
+            }}
+          </p>
+        {{/if}}
+
         {{#if (or @loading @attachments.length)}}
           <div class="uk-text-left uk-margin uk-width-1-1">
             <AlexandriaAttachmentList
