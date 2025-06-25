@@ -8701,6 +8701,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'ZUSTAENDIG_MOBILE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_MOBILE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Mobilenummer des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ZUSTAENDIG_NAME': dict({
       'aliases': list([
         dict({
@@ -8709,6 +8721,42 @@
       ]),
       'description': dict({
         'de': 'Name des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZUSTAENDIG_POSITION': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_POSITION',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Position des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZUSTAENDIG_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_TELEFON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZUSTAENDIG_TITEL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_TITEL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Titel des/r zuständigen/r Mitarbeiter/in',
       }),
       'nested_aliases': dict({
       }),
@@ -10166,7 +10214,11 @@
     'ZIRKULATION_GEMEINDEN[].FRIST',
     'ZIRKULATION_GEMEINDEN[].NAME',
     'ZUSTAENDIG_EMAIL',
+    'ZUSTAENDIG_MOBILE',
     'ZUSTAENDIG_NAME',
+    'ZUSTAENDIG_POSITION',
+    'ZUSTAENDIG_TELEFON',
+    'ZUSTAENDIG_TITEL',
   ])
 # ---
 # name: test_dms_placeholders_empty[Municipality]
@@ -12580,7 +12632,11 @@
     'ZIRKULATION_GEMEINDEN': list([
     ]),
     'ZUSTAENDIG_EMAIL': '',
+    'ZUSTAENDIG_MOBILE': '',
     'ZUSTAENDIG_NAME': '',
+    'ZUSTAENDIG_POSITION': '',
+    'ZUSTAENDIG_TELEFON': '',
+    'ZUSTAENDIG_TITEL': '',
   })
 # ---
 # name: test_dms_placeholders_ur[Municipality]
