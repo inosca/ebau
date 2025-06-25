@@ -296,7 +296,7 @@
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung (bestehend)",
       "subject": "Einsicht respektive Mitarbeit (Dossier Nr. {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nSie haben Zugriff auf das Dossier-Nummer {{ DOSSIER_NR }} erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nSie haben Zugriff auf das Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -308,7 +308,7 @@
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung (neu)",
       "subject": "Einsicht respektive Mitarbeit (Dossier Nr. {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nSie haben Zugriff auf das Dossier-Nummer {{ DOSSIER_NR }} erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem Online-Schalter des Kantons Solothurn erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: https://my.so.ch/Pages/Authentication/Login.aspx?IDP=OpenID\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nSie haben Zugriff auf das Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nUm das Dossier einsehen respektive mitbearbeiten zu können, ist eine Registrierung auf dem Online-Schalter des Kantons Solothurn erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: https://my.so.ch/Pages/Authentication/Login.aspx?IDP=OpenID\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -320,7 +320,7 @@
       "language": "de",
       "purpose": "Empfang Baugesuch (Gesuchsteller)",
       "subject": "Erfolgreiche Einreichung (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nIhr Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} wurde erfolgreich an die Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) übermittelt.\r\n\r\nBitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn das Unterschriftenblatt ausgedruckt und unterzeichnet bei der Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingereicht wurde.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nIhr Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) wurde erfolgreich an die Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) übermittelt.\r\n\r\nBitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn das Unterschriftenblatt ausgedruckt und unterzeichnet bei der Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingereicht wurde.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -344,7 +344,7 @@
       "language": "de",
       "purpose": "Nachforderung akzeptiert (Gesuchsteller)",
       "subject": "Nachforderung akzeptiert (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung abgeschlossen im Dossier-Nummer {{ DOSSIER_NR }}.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung abgeschlossen im Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}).\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -356,7 +356,7 @@
       "language": "de",
       "purpose": "Nachforderung abgelehnt",
       "subject": "Nachforderung abgelehnt (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde ihre Nachforderung abgelehnt im Dossier-Nummer {{ DOSSIER_NR }}.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nIm eBau wurde ihre Nachforderung abgelehnt im Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}).\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -368,7 +368,7 @@
       "language": "de",
       "purpose": "Nachforderung neu",
       "subject": "Neue Nachforderung (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nZu Ihrem Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ist in eBau eine Nachforderung der Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nZu Ihrem Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) ist in eBau eine Nachforderung der Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -380,7 +380,7 @@
       "language": "de",
       "purpose": "Nachforderung beantwortet",
       "subject": "Nachforderung beantwortet (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung beantwortet im Dossier-Nummer {{ DOSSIER_NR }}.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung beantwortet im Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}).\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -416,7 +416,7 @@
       "language": "de",
       "purpose": "Entscheid (Gesuchsteller)",
       "subject": "Information über Entscheid (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nZu Ihrem Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ist in eBau ein Entscheid der Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nZu Ihrem Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) ist in eBau ein Entscheid der Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -428,7 +428,7 @@
       "language": "de",
       "purpose": "Entscheid (Behörden)",
       "subject": "Information über Entscheid (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nDer Bauentscheid zum Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) wurde gefällt. Den Entscheid mit den Rechtsmitteln finden Sie in den eBau-Dokumenten:\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/documents\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -440,7 +440,7 @@
       "language": "de",
       "purpose": "Dossierkorrektur",
       "subject": "Dossierkorrektur (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nZu dem von Ihnen eingereichten Dossier mit der Nr. {{ DOSSIER_NR }} wurden von der Gemeinde Korrekturen erfasst. Sie können das korrigierte Dossier unter folgendem Link einsehen:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nZu dem von Ihnen eingereichten Dossier mit der Nr. {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) wurden von der Gemeinde Korrekturen erfasst. Sie können das korrigierte Dossier unter folgendem Link einsehen:\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -452,7 +452,7 @@
       "language": "de",
       "purpose": "Rückweisung",
       "subject": "Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nZu Ihrem Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ist in eBau eine Rückweisung der Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nZu Ihrem Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) ist in eBau eine Rückweisung der Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -464,7 +464,7 @@
       "language": "de",
       "purpose": "Rückzug",
       "subject": "Dossier zurückgezogen (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde das Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} zurückgezogen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nIm eBau wurde das Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) zurückgezogen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -476,7 +476,7 @@
       "language": "de",
       "purpose": "Neue Nachricht (Gesuchsteller)",
       "subject": "Neue Nachricht (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nZu Ihrem Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ist in eBau eine Nachricht eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/communications\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nZu Ihrem Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) ist in eBau eine Nachricht eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/communications\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -488,7 +488,7 @@
       "language": "de",
       "purpose": "Neue Nachricht (Behörden)",
       "subject": "Neue Nachricht (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nSie haben eine neue Nachricht auf dem Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} erhalten.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/communications\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nSie haben eine neue Nachricht auf dem Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) erhalten.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/communications\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -500,7 +500,7 @@
       "language": "de",
       "purpose": "Beschwerde eingegangen",
       "subject": "Beschwerde eingegangen (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nBeim Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} wurde ein Beschwerdenverfahren initialisiert und der Entscheid wurde aufgehoben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nBeim Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) wurde ein Beschwerdenverfahren initialisiert und der Entscheid wurde aufgehoben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -512,7 +512,7 @@
       "language": "de",
       "purpose": "Nachforderung akzeptiert (Gemeinde)",
       "subject": "Nachforderung akzeptiert (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung abgeschlossen im Dossier-Nummer {{ DOSSIER_NR }}.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung abgeschlossen im Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}).\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -536,7 +536,7 @@
       "language": "de",
       "purpose": "Empfang Andere (Gesuchsteller)",
       "subject": "Erfolgreiche Einreichung (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nIhre {{ FORM_NAME_DE }} mit der Dossier-Nummer {{ DOSSIER_NR }} wurde erfolgreich an die Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) übermittelt.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nIhre {{ FORM_NAME_DE }} mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) wurde erfolgreich an die Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) übermittelt.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -548,7 +548,7 @@
       "language": "de",
       "purpose": "Beurteilung (Gesuchsteller)",
       "subject": "Information über Beurteilung (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nZu Ihrer {{ FORM_NAME_DE }} mit der Dossier-Nummer {{ DOSSIER_NR }} ist in eBau eine Beurteilung der Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nZu Ihrer {{ FORM_NAME_DE }} mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) ist in eBau eine Beurteilung der Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
@@ -560,7 +560,7 @@
       "language": "de",
       "purpose": "Baubegleitung (Gesuchsteller)",
       "subject": "Information zur Baubegleitung (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nZu Ihrem Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ist in eBau eine Information zur Baubegleitung durch die Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/construction-monitoring\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nZu Ihrem Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) ist in eBau eine Information zur Baubegleitung durch die Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/construction-monitoring\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
