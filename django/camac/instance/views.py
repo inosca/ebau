@@ -334,10 +334,14 @@ class InstanceView(
         )
 
     @has_object_change_responsible_service_permission.register_old
+    @permission_aware
     def _has_object_change_responsible_service_permission(self, instance):
         return instance.instance_services.filter(
             active=1, service=self.request.group.service
         ).exists()
+
+    def _has_object_change_responsible_service_permission_for_support(self, instance):
+        return True
 
     @permission_aware
     def has_object_set_ebau_number_permission(self, instance):
