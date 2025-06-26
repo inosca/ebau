@@ -346,6 +346,7 @@ DMS = {
                     # Questions
                     "is-paper",
                     "projektaenderung",
+                    "nutzungsplanung-grundnutzung-kanton",
                 ],
             },
         },

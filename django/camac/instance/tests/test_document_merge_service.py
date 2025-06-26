@@ -609,3 +609,45 @@ def test_documents_for_additional_demand(
     else:
         assert applicant_file.document.title in filenames
         assert applicant_file.checksum in checksums
+
+
+def test_print_meta_attributes(
+    db,
+    ch_locale,
+    dms_settings,
+    caluma_form_question_factory,
+    caluma_form_factory,
+    so_instance,
+    utils,
+    snapshot,
+):
+    dms_settings["FORM"] = {"baugesuch": {"forms": ["print-form"]}}
+
+    so_instance.case.document.form = caluma_form_factory(slug="print-form")
+
+    caluma_form_question_factory(
+        form_id="print-form",
+        question__slug="integer",
+        question__type=Question.TYPE_INTEGER,
+    )
+    caluma_form_question_factory(
+        form_id="print-form",
+        question__slug="float",
+        question__type=Question.TYPE_FLOAT,
+    )
+
+    caluma_form_question_factory(
+        form_id="print-form",
+        question__slug="integer-print",
+        question__type=Question.TYPE_INTEGER,
+        question__meta={"printLabel": {"de": "print-label"}},
+    )
+
+    utils.add_answer(so_instance.case.document, "integer", 57000000)
+    utils.add_answer(so_instance.case.document, "float", 1304.12)
+    utils.add_answer(so_instance.case.document, "integer-print", 12)
+
+    visitor = DMSVisitor(so_instance.case.document, so_instance, BaseUser())
+
+    data = visitor.build_form_structure()
+    snapshot.assert_match(data)

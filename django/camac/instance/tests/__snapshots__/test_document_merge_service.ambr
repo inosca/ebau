@@ -2902,3 +2902,32 @@
     'uploadedAt': 'Hochgeladen am 07.09.2022 um 14:01',
   })
 # ---
+# name: test_print_meta_attributes
+  list([
+    dict({
+      'label': 'Heidelore Sager-Thanel',
+      'slug': 'float',
+      'type': 'FloatQuestion',
+      'value': 1304.12,
+    }),
+    dict({
+      'label': 'Hellmut Benthin-Stahr',
+      'slug': 'integer',
+      'type': 'IntegerQuestion',
+      'value': 57000000,
+    }),
+    dict({
+      'label': 'print-label',
+      'slug': 'integer-print',
+      'type': 'IntegerQuestion',
+      'value': 12,
+    }),
+    dict({
+      'children': list([
+      ]),
+      'label': 'Unterschriften',
+      'slug': '8-unterschriften',
+      'type': 'FormQuestion',
+    }),
+  ])
+# ---
