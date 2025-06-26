@@ -1248,7 +1248,7 @@
                   'label': 'Nein',
                 }),
               ]),
-              'label': 'Gebiet mit bekannten oder vermuteten archäologischen Objekten',
+              'label': 'Gebiet mit archäologischer Fundstelle oder archäologischem Schutzgebiet',
               'slug': 'gebiet-mit-archaeologischen-objekten',
               'type': 'ChoiceQuestion',
             }),
