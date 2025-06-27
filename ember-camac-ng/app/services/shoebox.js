@@ -1,5 +1,6 @@
 import { getOwner } from "@ember/application";
 import Service from "@ember/service";
+import { findRecord } from "ember-data-resources";
 import config from "ember-ebau-core/config/main";
 
 export default class ShoeboxService extends Service {
@@ -70,5 +71,18 @@ export default class ShoeboxService extends Service {
 
   get isTrustedServiceRole() {
     return this.content.roleId === config.trustedServiceRole;
+  }
+
+  service = findRecord(this, "service", () => [
+    this.shoebox.serviceId,
+    { include: "service_group" },
+  ]);
+
+  get serviceSlug() {
+    return this.service.record?.slug;
+  }
+
+  get serviceGroupSlug() {
+    return this.service.record?.serviceGroup.get("slug");
   }
 }

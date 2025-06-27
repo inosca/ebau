@@ -1,5 +1,7 @@
+from functools import partial
+
 import uuid_extensions
-from django.contrib.postgres.fields import ArrayField
+from django.apps import apps
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from localized_fields.fields import LocalizedCharField
@@ -8,12 +10,14 @@ from camac.models import dynamic_default_value
 
 
 @dynamic_default_value(0)
-def next_sort():
-    last = (
-        WorkItemTemplate.objects.order_by("-sort")
-        .values_list("sort", flat=True)
-        .first()
-    )
+def next_sort(model_name=None):
+    # Previous migrations rely on this method without
+    # passing a value for model_name
+    if not model_name:
+        return 0  # pragma: no cover
+
+    model = apps.get_model("work_items", model_name)
+    last = model.objects.order_by("-sort").values_list("sort", flat=True).first()
 
     return last + 1 if last else 0
 
@@ -35,7 +39,7 @@ class WorkItemTemplate(models.Model):
         editable=False,
         verbose_name=_("ID"),
     )
-    sort = models.PositiveIntegerField(default=next_sort)
+    sort = models.PositiveIntegerField(default=partial(next_sort, "WorkItemTemplate"))
     services = models.ManyToManyField(
         "user.Service",
         blank=True,
@@ -105,6 +109,9 @@ class WorkItemListFilterPreset(models.Model):
         editable=False,
         verbose_name=_("ID"),
     )
+    sort = models.PositiveIntegerField(
+        default=partial(next_sort, "WorkItemListFilterPreset")
+    )
     name = LocalizedCharField(verbose_name=_("Name"))
     services = models.ManyToManyField(
         "user.Service",
@@ -129,9 +136,9 @@ class WorkItemListFilterPreset(models.Model):
     prefilter_tasks = models.BooleanField(
         default=False, verbose_name=_("Prefilter tasks")
     )
-    tasks = ArrayField(
-        models.CharField(max_length=150),
-        default=list,
+    tasks = models.ManyToManyField(
+        "caluma_workflow.Task",
+        related_name="+",
         blank=True,
         verbose_name=_("Tasks"),
     )
@@ -142,3 +149,4 @@ class WorkItemListFilterPreset(models.Model):
     class Meta:
         verbose_name = _("Work item list filter preset")
         verbose_name_plural = _("Work item list filter presets")
+        ordering = ["sort"]

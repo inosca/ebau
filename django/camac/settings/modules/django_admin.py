@@ -74,6 +74,7 @@ DJANGO_ADMIN = {
         "CUSTOMER_MANAGED_MODELS": [
             "billing.BillingV2EntryTemplate",
             "work_items.WorkItemTemplate",
+            "work_items.WorkItemListFilterPreset",
         ],
     },
 }

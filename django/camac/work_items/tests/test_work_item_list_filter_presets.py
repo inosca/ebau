@@ -136,3 +136,67 @@ def test_preset_category(
     )
 
     assert serializer.get_category(preset) == expected
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_preset_tasks(
+    db,
+    user_group,
+    work_item_list_filter_preset_factory,
+    caluma_task_factory,
+):
+    preset = work_item_list_filter_preset_factory(prefilter_tasks=True)
+    task = caluma_task_factory()
+    preset.tasks.set([task])
+    serializer = serializers.WorkItemListFilterPresetSerializer()
+
+    assert list(serializer.get_tasks(preset)) == [task.slug]
+
+    preset.prefilter_tasks = False
+    preset.save()
+
+    assert list(serializer.get_tasks(preset)) == []
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_preset_excluded_tasks(
+    db,
+    user_group,
+    work_item_list_filter_preset_factory,
+    caluma_task_factory,
+):
+    preset = work_item_list_filter_preset_factory(prefilter_tasks=True)
+    task_included = caluma_task_factory()
+    task_excluded = caluma_task_factory()
+    preset.tasks.set([task_included])
+    serializer = serializers.WorkItemListFilterPresetSerializer()
+
+    assert list(serializer.get_excluded_tasks(preset)) == [task_excluded.slug]
+
+    preset.prefilter_tasks = False
+    preset.save()
+
+    assert list(serializer.get_excluded_tasks(preset)) == []
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_preset_excluded_work_item_templates(
+    db,
+    user_group,
+    work_item_list_filter_preset_factory,
+    work_item_template_factory,
+):
+    preset = work_item_list_filter_preset_factory(prefilter_work_item_templates=True)
+    template_included = work_item_template_factory()
+    template_excluded = work_item_template_factory()
+    preset.work_item_templates.set([template_included])
+    serializer = serializers.WorkItemListFilterPresetSerializer()
+
+    assert list(serializer.get_excluded_work_item_templates(preset)) == [
+        template_excluded.pk
+    ]
+
+    preset.prefilter_work_item_templates = False
+    preset.save()
+
+    assert list(serializer.get_excluded_work_item_templates(preset)) == []
