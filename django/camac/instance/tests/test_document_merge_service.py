@@ -627,13 +627,15 @@ def test_print_meta_attributes(
 
     caluma_form_question_factory(
         form_id="print-form",
-        question__slug="integer",
-        question__type=Question.TYPE_INTEGER,
+        question__slug="float",
+        question__type=Question.TYPE_FLOAT,
+        sort=0,
     )
     caluma_form_question_factory(
         form_id="print-form",
-        question__slug="float",
-        question__type=Question.TYPE_FLOAT,
+        question__slug="integer",
+        question__type=Question.TYPE_INTEGER,
+        sort=1,
     )
 
     caluma_form_question_factory(
@@ -641,6 +643,7 @@ def test_print_meta_attributes(
         question__slug="integer-print",
         question__type=Question.TYPE_INTEGER,
         question__meta={"printLabel": {"de": "print-label"}},
+        sort=2,
     )
 
     utils.add_answer(so_instance.case.document, "integer", 57000000)

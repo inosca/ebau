@@ -2905,22 +2905,22 @@
 # name: test_print_meta_attributes
   list([
     dict({
-      'label': 'Heidelore Sager-Thanel',
-      'slug': 'float',
-      'type': 'FloatQuestion',
-      'value': 1304.12,
+      'label': 'print-label',
+      'slug': 'integer-print',
+      'type': 'IntegerQuestion',
+      'value': 12,
     }),
     dict({
-      'label': 'Hellmut Benthin-Stahr',
+      'label': 'Heidelore Sager-Thanel',
       'slug': 'integer',
       'type': 'IntegerQuestion',
       'value': 57000000,
     }),
     dict({
-      'label': 'print-label',
-      'slug': 'integer-print',
-      'type': 'IntegerQuestion',
-      'value': 12,
+      'label': 'Hellmut Benthin-Stahr',
+      'slug': 'float',
+      'type': 'FloatQuestion',
+      'value': 1304.12,
     }),
     dict({
       'children': list([
