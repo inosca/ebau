@@ -855,6 +855,7 @@ def test_dms_placeholders(
 
     tag_factory.create_batch(5, service=group.service, instance=be_instance)
     responsible_service_factory(instance=be_instance, service=group.service)
+
     decision = decision_factory(
         decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
         decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][

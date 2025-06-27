@@ -41,6 +41,8 @@ DECISION = {
                 "POSITIVE": "decision-decision-assessment-positive",
                 "POSITIVE_WITH_RESERVATION": "decision-decision-assessment-positive-with-reservation",
                 "NEGATIVE": "decision-decision-assessment-negative",
+                # Building permit and preliminary clarification
+                "OTHER": "decision-decision-assessment-other",
             },
             "APPROVAL_TYPE": {
                 "CONSTRUCTION_TEE_WITH_RESTORATION": "decision-approval-type-construction-tee-with-restoration",

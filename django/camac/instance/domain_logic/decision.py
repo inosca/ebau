@@ -359,3 +359,55 @@ class DecisionLogic:
             case__family__instance=instance,
         ):
             cancel_work_item(manual_work_item, user)
+
+    @classmethod
+    @canton_aware
+    def get_notification_config(cls, instance, work_item):
+        if instance.case.meta.get("is-appeal") and settings.APPEAL:
+            return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
+        return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
+
+    @classmethod
+    def get_notification_config_be(cls, instance, work_item):
+        if instance.case.meta.get("is-appeal") and settings.APPEAL:
+            return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
+
+        decision_answer = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=work_item,
+        )
+
+        if settings.DECISION["ANSWERS"]["DECISION"]["OTHER"] == decision_answer:
+            return settings.APPLICATION["NOTIFICATIONS"].get("DECISION_OTHER", [])
+
+        if instance.case.workflow_id == "preliminary-clarification":
+            return settings.APPLICATION["NOTIFICATIONS"].get(
+                "DECISION_PRELIMINARY_CLARIFICATION", []
+            )
+        return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
+
+    @classmethod
+    def get_notification_config_gr(cls, instance, work_item):
+        # TODO(GR): replace by preliminary clarification workflow
+        if instance.case.document.form.slug in [
+            "bauanzeige",
+            "bauanzeige-v3",
+            "vorlaeufige-beurteilung",
+            "vorlaeufige-beurteilung-v3",
+        ]:
+            return settings.APPLICATION["NOTIFICATIONS"].get(
+                "NON_BUILDING_PERMIT_DECISION", []
+            )
+
+        return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
+
+    @classmethod
+    def get_notification_config_so(cls, instance, work_item):
+        if instance.case.meta.get("is-appeal") and settings.APPEAL:
+            return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
+        elif instance.case.document.form_id != "baugesuch":  # pragma: no cover
+            return settings.APPLICATION["NOTIFICATIONS"].get(
+                "NON_BUILDING_PERMIT_DECISION", []
+            )
+
+        return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])

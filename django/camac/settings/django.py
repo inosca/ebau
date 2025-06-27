@@ -1022,6 +1022,24 @@ APPLICATIONS = {
                     ],
                 },
             ],
+            "DECISION_OTHER": [
+                {
+                    "template_slug": "other-decision-applicant",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "other-decision-applicant-not-registered",
+                    "recipient_types": ["unregistered_applicant"],
+                },
+                {
+                    "template_slug": "other-decision-authority",
+                    "recipient_types": [
+                        "leitbehoerde",
+                        "involved_in_distribution",
+                        "inactive_municipality",
+                    ],
+                },
+            ],
             "COMPLETE_MANUAL_WORK_ITEM": [
                 {
                     "template_slug": "complete-manual-work-item",
