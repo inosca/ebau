@@ -19,7 +19,7 @@
       },
       "is_published": true,
       "is_archived": false,
-      "source": null
+      "source": "bauanzeige"
     }
   },
   {
@@ -42,7 +42,7 @@
       },
       "is_published": true,
       "is_archived": false,
-      "source": null
+      "source": "baugesuch-v2"
     }
   },
   {
@@ -101,7 +101,7 @@
       },
       "is_published": true,
       "is_archived": false,
-      "source": null
+      "source": "vorlaeufige-beurteilung"
     }
   },
   {
