@@ -1,0 +1,8 @@
+mutation CancelWorkItem($id: ID!, $context: JSONString) {
+  cancelWorkItem(input: { id: $id, context: $context }) {
+    clientMutationId
+    workItem {
+      id
+    }
+  }
+}

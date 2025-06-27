@@ -25,8 +25,12 @@ workItems:
 
   saveSuccess: "Tâche sauvegardée avec succès"
   finishSuccess: "Tâche terminée avec succès"
+  cancelSuccess:
   fetchError: "Erreur lors du chargement des tâches"
   saveError: "Erreur en sauvegarder la tâche"
+  cancelError:
+
+  cancelConfirm:
 
   editFormLabel: "Formulaire pour modifier une tâche"
   completeFormLabel: "Formulaire pour terminer une tâche"
@@ -40,6 +44,7 @@ workItems:
     assignToMe: "Se référer à moi"
     edit: "Modifier la tâche"
     finish: "Terminer la tâche"
+    discard:
 
   filters:
     responsible: "Responsable"

@@ -8,6 +8,8 @@ import { dropTask } from "ember-concurrency";
 import { query } from "ember-data-resources";
 import { cached } from "tracked-toolbox";
 
+import { confirmTask } from "ember-ebau-core/decorators";
+import cancelWorkItem from "ember-ebau-core/gql/mutations/cancel-workitem.graphql";
 import completeWorkItem from "ember-ebau-core/gql/mutations/complete-work-item.graphql";
 import saveWorkItem from "ember-ebau-core/gql/mutations/save-workitem.graphql";
 import { processNewWorkItems } from "ember-ebau-core/utils/work-item";
@@ -99,6 +101,25 @@ export default class WorkItemDetailEditComponent extends Component {
     } catch (error) {
       console.error(error);
       this.notification.danger(this.intl.t("workItems.saveError"));
+    }
+  }
+
+  @dropTask
+  @confirmTask("workItems.cancelConfirm")
+  *cancelWorkItem(event) {
+    event.preventDefault();
+
+    try {
+      yield this.apollo.mutate({
+        mutation: cancelWorkItem,
+        variables: { id: this.workItem.id },
+      });
+
+      this.notification.success(this.intl.t("workItems.cancelSuccess"));
+
+      this.router.transitionTo(`${this.args.baseRoute}.index`);
+    } catch {
+      this.notification.danger(this.intl.t("workItems.cancelError"));
     }
   }
 

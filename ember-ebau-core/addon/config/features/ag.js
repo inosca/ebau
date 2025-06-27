@@ -51,4 +51,7 @@ export default {
       templateName: (locale) => `eingabequittung-${locale}`,
     },
   },
+  workItems: {
+    cancel: true,
+  },
 };

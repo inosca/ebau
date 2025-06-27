@@ -86,6 +86,7 @@
       @highlight={{not-eq @status "COMPLETED"}}
       @useLinkTo={{@useLinkTo}}
       @baseRoute={{@baseRoute}}
+      @onComplete={{this.workItemsQuery.refresh}}
       data-test-work-item-list
     />
 

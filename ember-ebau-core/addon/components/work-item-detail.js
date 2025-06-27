@@ -1,3 +1,4 @@
+import { action } from "@ember/object";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
@@ -59,4 +60,10 @@ export default class WorkItemDetailComponent extends Component {
       "allWorkItems.totalCount",
     );
   });
+
+  @action
+  refreshWorkItems() {
+    this.readyWorkItemsQuery.refresh();
+    this.completedWorkItemsQuery.refresh();
+  }
 }
