@@ -9,9 +9,9 @@ nav:
   modification: "Projektänderung"
   suspended: "Sistiert"
   masterData:
-    label: "Stammdaten"
-    hide: "Stammdaten verstecken"
-    show: "Stammdaten anzeigen"
+    label: "Erweiterte Stammdaten"
+    hide: "Erweiterte Stammdaten verstecken"
+    show: "Erweiterte Stammdaten anzeigen"
 
 global:
   title: "eBau"

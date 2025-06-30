@@ -3,14 +3,13 @@
   <SubNavigation @instanceId={{@model.id}} />
 </aside>
 
-{{#if this.useFullScreen}}
-  <div class="full-screen-content">
-    {{outlet}}
-  </div>
-{{else}}
-  <div class="uk-container main-content with-sidebar">
-    <CaseHeader @case={{this.case}} />
-
-    {{outlet}}
-  </div>
-{{/if}}
+<CaseHeader @case={{this.case}} @fullscreen={{this.useFullScreen}} />
+<div
+  class={{if
+    this.useFullScreen
+    "full-screen-content"
+    "uk-container main-content"
+  }}
+>
+  {{outlet}}
+</div>
