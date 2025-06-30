@@ -74,7 +74,7 @@ export default class ShoeboxService extends Service {
   }
 
   service = findRecord(this, "service", () => [
-    this.shoebox.serviceId,
+    this.content.serviceId,
     { include: "service_group" },
   ]);
 
