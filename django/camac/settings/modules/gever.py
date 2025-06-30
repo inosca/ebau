@@ -5,7 +5,7 @@ GEVER = {
         "ENABLED": False,
     },
     "kt_bern": {
-        "ENABLED": True,
+        "ENABLED": False,
         # For dev purposes, run the following, then put the results in .env
         # tools/get_gever_credentials.py
         "CLIENT_ID": env.str("GEVER_CLIENT_ID", default="gever-client-id"),
