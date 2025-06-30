@@ -1199,6 +1199,8 @@
     'form_type': 'form-type-oereb',
     'joined_street_and_number': False,
     'land_use': 'Zone 123',
+    'landowners': list([
+    ]),
     'legal_state': list([
       'typ-des-verfahrens-genehmigung',
     ]),
@@ -1217,6 +1219,8 @@
         'origin_of_coordinates': 901,
         'plot_number': 123456789,
       }),
+    ]),
+    'project_authors': list([
     ]),
     'proposal': 'Grosses Haus',
     'protected': 'Altes Haus',
