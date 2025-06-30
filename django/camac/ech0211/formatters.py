@@ -696,7 +696,7 @@ def accompanying_report(
             caluma_value = caluma_answer.value
             if caluma_answer.question.type == Question.TYPE_MULTIPLE_CHOICE:
                 caluma_value = str(mapping["true_value"] in caluma_value).lower()
-            xml_value = xml_doc.createTextNode(caluma_value)
+            xml_value = xml_doc.createTextNode(caluma_value or "")
             xml_element.appendChild(xml_value)
 
             report.extension._appendWildcardElement(value=xml_element)

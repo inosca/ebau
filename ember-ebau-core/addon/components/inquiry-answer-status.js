@@ -83,12 +83,22 @@ export default class InquiryAnswerStatusComponent extends Component {
           ],
         },
         uso: {
+          "vorlaeufige-beurteilung": [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-not-involved",
+          ],
           any: [
             "inquiry-answer-status-following",
             "inquiry-answer-status-renounced",
           ],
         },
         default: {
+          "vorlaeufige-beurteilung": [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-not-involved",
+          ],
           any: [
             "inquiry-answer-status-positive",
             "inquiry-answer-status-negative",
