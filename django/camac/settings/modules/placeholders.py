@@ -115,7 +115,9 @@ PLACEHOLDERS = {
             "comments": ("inquiry-answer", "COMMENTS"),
         },
     },
-    "kt_uri": {"ENABLED": True},
+    "kt_uri": {
+        "ENABLED": True,
+    },
     "kt_ag": {
         "ENABLED": True,
         "INQUIRY_DEFAULT_FIELDS": [

@@ -1608,6 +1608,64 @@ MASTER_DATA = {
             "land_use": ("answer", "grundnutzung"),
             "overlayed_land_use": ("answer", "ueberlagerte-nutzungen"),
             "protected": ("answer", "schutzobjekte"),
+            "project_authors": (
+                "table",
+                "project-author",
+                {
+                    "column_mapping": {
+                        "last_name": "last-name",
+                        "first_name": "first-name",
+                        "street": "street",
+                        "street_number": "street-number",
+                        "zip": "zip",
+                        "town": "city",
+                        "is_juristic_person": (
+                            "is-juristic-person",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "is-juristic-person-yes": True,
+                                            "is-juristic-person-no": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "juristic-person-name",
+                    }
+                },
+            ),
+            "landowners": (
+                "table",
+                "landowner",
+                {
+                    "column_mapping": {
+                        "last_name": "last-name",
+                        "first_name": "first-name",
+                        "street": "street",
+                        "street_number": "street-number",
+                        "zip": "zip",
+                        "town": "city",
+                        "is_juristic_person": (
+                            "is-juristic-person",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "is-juristic-person-yes": True,
+                                            "is-juristic-person-no": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "juristic-person-name",
+                    }
+                },
+            ),
         },
     },
     "demo": {
