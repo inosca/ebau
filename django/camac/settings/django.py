@@ -2251,12 +2251,6 @@ APPLICATIONS = {
         # If the calculated deadline falls on a weekend or public holiday,
         # it will be postponed to the next working day.
         "DEADLINE_POSTPONE_NEXT_WORKINGDAY": True,
-        "EEBA_HIDDEN_QUESTIONS_SLUGS": {
-            "integration_id": "eeba-integration-id",
-            "state": "eeba-state",
-            "required": "eeba-required",
-            "web_url": "eeba-web-url",
-        },
     },
     "kt_so": {
         "SHORT_NAME": "so",
@@ -3082,17 +3076,7 @@ KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
 KEYCLOAK_SCOPES = env.str("KEYCLOAK_SCOPES", default="openid email")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
 KEYCLOAK_PORTAL_CLIENT = env.str("KEYCLOAK_PORTAL_CLIENT", default="portal")
-KEYCLOAK_EEBA_CLIENT = env.str("KEYCLOAK_EEBA_CLIENT", default="eeba")
-KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT = env.str(
-    "KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT", default="eeba-token-exchange"
-)
-KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT_SECRET = env.str(
-    "KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT_SECRET",
-    default="FNVoLgpLjowJGYCQoBLLiZAq2CCpRod9",
-)
-KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE = env.str(
-    "KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE", default="eeba-export"
-)
+
 
 # Client used by PHP to do privileged actions
 KEYCLOAK_CAMAC_ADMIN_CLIENT = env.str(
@@ -3412,23 +3396,6 @@ GWR_HOUSING_STAT_BASE_URI = env.str(
 )
 
 
-# EEBA Kt. GR
-EEBA_SHARED_SECRET = env.str(
-    "EEBA_SHARED_SECRET", "4z5hKJ2eQYXaGxvG9B8JfQ6C5L4A2mX5k7P0dQvNc4g="
-)
-
-EEBA_BASE_URL = build_url(
-    env.str(
-        "EEBA_BASE_URL",
-        default(
-            "https://eba-int2.gr.ch/api/v1",
-            "https://eba.gr.ch/api/v1",
-        ),
-    )
-)
-EEBA_TIMEOUT_SECONDS = env.int("EEBA_TIMEOUT_SECONDS", default=60)
-
-
 # Until running tasks can be manually canceled we want a timeout
 DJANGO_Q_TASK_TIMEOUT_HOURS = env.int("DJANGO_Q_TASK_TIMEOUT_HOURS", default=6)
 
@@ -3545,6 +3512,7 @@ SERVICE = load_module_settings("service")
 CHANGE_FORM = load_module_settings("change_form")
 GEVER = load_module_settings("gever")
 RULESETS = load_module_settings("rulesets")
+EEBA_INTEGRATION = load_module_settings("eeba_integration")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

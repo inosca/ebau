@@ -1,7 +1,6 @@
 import pytest
 import requests
 from caluma.caluma_form.models import Answer
-from django.conf import settings
 
 from camac.eeba_integration import utils
 from camac.eeba_integration.client import EebaHandler
@@ -14,10 +13,10 @@ from camac.eeba_integration.exceptions import (
 
 
 def test_create_eeba_integration_success(
-    db, eeba_handler_instance, gr_instance, make_mock_response, mocker
+    db, eeba_handler_instance, gr_instance, make_eeba_mock_response, mocker
 ):
     headers = {"Location": "http://example.com/api/integrations/456"}
-    dummy_response = make_mock_response({}, headers=headers)
+    dummy_response = make_eeba_mock_response({}, headers=headers)
     eeba_handler_instance.eeba_client.make_request = mocker.MagicMock(
         return_value=dummy_response
     )
@@ -34,10 +33,10 @@ def test_create_eeba_integration_success(
 
 
 def test_create_eeba_integration_failure(
-    db, eeba_handler_instance, gr_instance, make_mock_response, mocker
+    db, eeba_handler_instance, gr_instance, make_eeba_mock_response, mocker
 ):
     headers = {"Location": ""}
-    dummy_response = make_mock_response({}, headers=headers)
+    dummy_response = make_eeba_mock_response({}, headers=headers)
     eeba_handler_instance.eeba_client.make_request = mocker.MagicMock(
         return_value=dummy_response
     )
@@ -379,7 +378,12 @@ def test_get_eeba_needed_failed_answer(
 
 
 def test_patch_eeba_integration_success(
-    db, clean_eeba_answers, eeba_handler_instance, gr_instance, mocker
+    db,
+    clean_eeba_answers,
+    eeba_handler_instance,
+    gr_instance,
+    mocker,
+    gr_eeba_integration_settings,
 ):
     document = gr_instance.case.document
     integration_value = "int-patch"
@@ -395,7 +399,7 @@ def test_patch_eeba_integration_success(
     eeba_handler_instance.eeba_client.make_request.assert_called_once_with(
         action="update_resource",
         data={
-            "timeout": settings.EEBA_TIMEOUT_SECONDS,
+            "timeout": gr_eeba_integration_settings["EEBA_TIMEOUT_SECONDS"],
             "relation": {"type": ".eBau", "eBauId": "new-123"},
         },
         uuid=integration_value,
@@ -454,10 +458,10 @@ def test_process_response_data_missing_status():
 # Tests for poll_action
 
 
-def test_poll_action_success(eeba_handler_instance, mocker, make_mock_response):
+def test_poll_action_success(eeba_handler_instance, mocker, make_eeba_mock_response):
     mocker.patch("time.sleep", return_value=None)
     response_dict = {"status": "completed", "result": "done"}
-    dummy_response = make_mock_response(response_dict)
+    dummy_response = make_eeba_mock_response(response_dict)
     eeba_handler_instance.eeba_client.make_request = mocker.MagicMock(
         return_value=dummy_response
     )
@@ -473,9 +477,9 @@ def test_poll_action_success(eeba_handler_instance, mocker, make_mock_response):
     eeba_handler_instance.eeba_client.make_request.assert_called()
 
 
-def test_poll_action_timeout(eeba_handler_instance, mocker, make_mock_response):
+def test_poll_action_timeout(eeba_handler_instance, mocker, make_eeba_mock_response):
     response_dict = {"status": "inProgress"}
-    dummy_response = make_mock_response(response_dict)
+    dummy_response = make_eeba_mock_response(response_dict)
     eeba_handler_instance.eeba_client.make_request = mocker.MagicMock(
         return_value=dummy_response
     )

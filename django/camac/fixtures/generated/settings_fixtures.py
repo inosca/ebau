@@ -1303,6 +1303,42 @@ def ag_ech0211_settings(settings, request):
 
 
 @pytest.fixture
+def eeba_integration_settings(settings, request):
+    """Module-specific settings for eeba integration (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="eeba_integration",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_eeba_integration_settings(settings, request):
+    """Disable the eeba integration module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="eeba_integration",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def gr_eeba_integration_settings(settings, request):
+    """Module-specific settings for eeba integration (canton GR)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="eeba_integration",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def gever_settings(settings, request):
     """Module-specific settings for gever (default)."""
     return generate_module_settings(

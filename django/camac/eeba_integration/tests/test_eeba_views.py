@@ -2,6 +2,7 @@ import pytest
 from django.http import response as http_response
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
+from rest_framework import status
 
 from camac.eeba_integration.exceptions import (
     EebaHandlerServerException,
@@ -29,7 +30,7 @@ def test_eeba_check_integration_view_success(
     )
     response = admin_client.post(url, format="json", data={})
 
-    assert response.status_code == 200
+    assert response.status_code == status.HTTP_200_OK
     assert response.data == dummy_result
 
 
@@ -43,7 +44,7 @@ def test_eeba_check_integration_view_permission_denied(
     )
     response = admin_client.post(url, format="json", data={})
 
-    assert response.status_code == 403
+    assert response.status_code == status.HTTP_403_FORBIDDEN
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
@@ -58,7 +59,7 @@ def test_eeba_check_integration_view_instance_not_found(
 
     response = admin_client.post(url, format="json", data={})
 
-    assert response.status_code == 404
+    assert response.status_code == status.HTTP_404_NOT_FOUND
     assert response.data == {"error": "No Instance matches the given query."}
 
 
@@ -74,7 +75,7 @@ def test_eeba_check_integration_view_instance_server_error(
 
     response = admin_client.post(url, format="json", data={})
 
-    assert response.status_code == 500
+    assert response.status_code == status.HTTP_500_INTERNAL_SERVER_ERROR
     assert response.data == {"error": "An unexpected error occurred."}
 
 
@@ -87,7 +88,7 @@ def test_eeba_patch_integration_view_missing_new_instance_id(
     url = reverse("patch-eeba-integration", kwargs={"pk": gr_instance.pk})
     response = admin_client.patch(url, format="json", data={})
 
-    assert response.status_code == 400
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert response.data == {"error": "new_instance_id is required."}
 
 
@@ -96,7 +97,7 @@ def test_eeba_patch_integration_view_success(
     admin_client, mocker, gr_instance, set_application_gr
 ):
     url = reverse("patch-eeba-integration", kwargs={"pk": gr_instance.pk})
-    dummy_response = mocker.MagicMock(status_code=204)
+    dummy_response = mocker.MagicMock(status_code=status.HTTP_204_NO_CONTENT)
     mocker.patch(
         "camac.eeba_integration.client.EebaHandler.patch_eeba_integration",
         return_value=dummy_response,
@@ -105,7 +106,7 @@ def test_eeba_patch_integration_view_success(
     data = {"new_instance_id": "new123"}
     response = admin_client.patch(url, format="json", data=data)
 
-    assert response.status_code == 200
+    assert response.status_code == status.HTTP_200_OK
     assert response.data == {"success": "Integration patched successfully."}
 
 
@@ -114,7 +115,7 @@ def test_eeba_patch_integration_view_failure(
     admin_client, mocker, gr_instance, set_application_gr
 ):
     url = reverse("patch-eeba-integration", kwargs={"pk": gr_instance.pk})
-    dummy_response = mocker.MagicMock(status_code=500)
+    dummy_response = mocker.MagicMock(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
     mocker.patch(
         "camac.eeba_integration.client.EebaHandler.patch_eeba_integration",
         return_value=dummy_response,
@@ -123,5 +124,5 @@ def test_eeba_patch_integration_view_failure(
     data = {"new_instance_id": "new123"}
     response = admin_client.patch(url, format="json", data=data)
 
-    assert response.status_code == 500
+    assert response.status_code == status.HTTP_500_INTERNAL_SERVER_ERROR
     assert response.data == {"error": "Integration patching failed."}

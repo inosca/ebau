@@ -5,8 +5,8 @@ from camac.eeba_integration.client import EebaClient, EebaHandler
 
 
 @pytest.fixture(autouse=True)
-def override_eeba_base_url(settings):
-    settings.EEBA_BASE_URL = "https://example.com"
+def override_eeba_base_url(gr_eeba_integration_settings):
+    gr_eeba_integration_settings["EEBA_BASE_URL"] = "https://example.com"
 
 
 @pytest.fixture(autouse=True)
@@ -42,7 +42,7 @@ def clean_eeba_answers(gr_instance):
 
 
 @pytest.fixture
-def client():
+def eeba_client(set_application_gr):
     auth_header = "Bearer test_auth_token"
     shared_secret = "test_shared_secret"
     base_url = "http://example.com"
@@ -50,12 +50,12 @@ def client():
 
 
 @pytest.fixture
-def mock_session(mocker):
+def mock_eeba_session(mocker):
     return mocker.MagicMock()
 
 
 @pytest.fixture
-def make_mock_response(mocker):
+def make_eeba_mock_response(mocker):
     def _make_response(json_data, status=200, error_side_effect=None, headers=None):
         response = mocker.MagicMock()
         response.json.return_value = json_data
@@ -70,7 +70,7 @@ def make_mock_response(mocker):
     return _make_response
 
 
-class DummyRequest:
+class DummyEebaRequest:
     def __init__(self, data=None, headers=None):
         self.data = data or {}
         self.headers = headers or {}
@@ -78,19 +78,19 @@ class DummyRequest:
 
 
 @pytest.fixture
-def dummy_request():
-    return DummyRequest(data={}, headers={"Accept-Language": "de"})
+def dummy_eeba_request():
+    return DummyEebaRequest(data={}, headers={"Accept-Language": "de"})
 
 
 @pytest.fixture
-def eeba_handler_instance(db, dummy_request, gr_instance, client):
-    handler = EebaHandler(dummy_request, gr_instance)
-    handler.eeba_client = client
+def eeba_handler_instance(db, dummy_eeba_request, gr_instance, eeba_client):
+    handler = EebaHandler(dummy_eeba_request, gr_instance)
+    handler.eeba_client = eeba_client
     return handler
 
 
 @pytest.fixture(autouse=True)
-def patch_exchange_token(mocker):
+def patch_eeba_exchange_token(mocker):
     mocker.patch(
         "camac.eeba_integration.client.utils.exchange_token",
         return_value="dummy_exchanged_token",

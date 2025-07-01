@@ -2,7 +2,7 @@ from django.conf import settings
 
 from camac.eeba_integration import utils
 
-EEBA_HIDDEN_QUESTIONS_SLUGS = settings.APPLICATION.get(
+EEBA_HIDDEN_QUESTIONS_SLUGS = settings.EEBA_INTEGRATION.get(
     "EEBA_HIDDEN_QUESTIONS_SLUGS", {}
 )
 

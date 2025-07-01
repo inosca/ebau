@@ -11,7 +11,7 @@ from camac.eeba_integration import utils
 from camac.eeba_integration.exceptions import (
     EebaHandlerBadRequestException,
     EebaHandlerServerException,
-    handle_exceptions,
+    handle_eeba_client_exceptions,
 )
 from camac.eeba_integration.state_manager import EebaIntegrationState
 
@@ -22,8 +22,8 @@ class EebaClient:
     def __init__(
         self,
         auth_header,
-        shared_secret=settings.EEBA_SHARED_SECRET,
-        base_url=settings.EEBA_BASE_URL,
+        shared_secret=settings.EEBA_INTEGRATION.get("EEBA_SHARED_SECRET"),
+        base_url=settings.EEBA_INTEGRATION.get("EEBA_BASE_URL"),
     ):
         self.base_url = base_url
         self.session = requests.Session()
@@ -49,7 +49,7 @@ class EebaClient:
             "retry": {"method": "POST", "path": "/integrations/{uuid}/retry"},
         }
 
-    @handle_exceptions
+    @handle_eeba_client_exceptions
     def make_request(self, action, data=None, uuid=None, extra_headers=None):
         if action not in self.endpoints:
             raise ValueError(_("Unknown action: %s") % action)
@@ -168,7 +168,9 @@ class EebaHandler:
         ):
             return self._process_failed_response(action="retry")
 
-    def check_eeba_needed(self, timeout=settings.EEBA_TIMEOUT_SECONDS) -> dict:
+    def check_eeba_needed(
+        self, timeout=settings.EEBA_INTEGRATION.get("EEBA_TIMEOUT_SECONDS")
+    ) -> dict:
         """
         Check and handle the state of the eEBA integration.
 
@@ -238,7 +240,7 @@ class EebaHandler:
             self.state_manager.get_web_url(),
         )
 
-    @handle_exceptions
+    @handle_eeba_client_exceptions
     def get_eeba_needed(self, integration_id, timeout):
         """
         Poll the 'get_resource' endpoint until a terminal state is reached, update answers.
@@ -273,7 +275,7 @@ class EebaHandler:
         Retrieve the current integration ID from the document's hidden answers.
         Raise EebaHandlerBadRequestException if the integration ID is not found.
         """
-        timeout = settings.EEBA_TIMEOUT_SECONDS
+        timeout = settings.EEBA_INTEGRATION.get("EEBA_TIMEOUT_SECONDS")
 
         integration_id = self.state_manager.get_integration_id()
         if not integration_id:

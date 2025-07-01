@@ -74,14 +74,23 @@ def extract_integration_id(response):
 
 
 def exchange_token(session, subject_token):
+    """Exchange the portal issued token for a token with updated eeba audience and scope."""
+    export_scope = settings.EEBA_INTEGRATION.get("KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE")
+
     data = [
         ("grant_type", "urn:ietf:params:oauth:grant-type:token-exchange"),
-        ("client_id", settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT),
-        ("client_secret", settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT_SECRET),
+        (
+            "client_id",
+            settings.EEBA_INTEGRATION.get("KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT"),
+        ),
+        (
+            "client_secret",
+            settings.EEBA_INTEGRATION.get("KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT_SECRET"),
+        ),
         ("subject_token", subject_token),
         ("subject_token_type", "urn:ietf:params:oauth:token-type:access_token"),
         ("requested_token_type", "urn:ietf:params:oauth:token-type:access_token"),
-        ("scope", f"openid {settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE}"),
+        ("scope", f"openid {export_scope}"),
     ]
     resp = session.post(settings.KEYCLOAK_OIDC_TOKEN_URL, data=data)
     resp.raise_for_status()

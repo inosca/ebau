@@ -233,7 +233,7 @@ def HasSharedSecret(**kwargs):
             shared_secret_settings_key = kwargs.get("settings_key")
 
             shared_secret = request.headers.get(shared_secret_header)
-            expected_secret = getattr(settings, shared_secret_settings_key)
+            expected_secret = settings.EEBA_INTEGRATION.get(shared_secret_settings_key)
 
             if shared_secret != expected_secret:
                 raise PermissionDenied(

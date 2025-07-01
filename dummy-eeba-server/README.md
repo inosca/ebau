@@ -31,5 +31,4 @@ This project includes a local dummy service (`/dummy-eeba`) to simulate the thir
 If you see errors related to eEBA integration, check that:
 - The dummy-eeba service is running (for local).
 - The `EEBA_BASE_URL` env var is set correctly.
-
-Note that the DUMMY_RESOURCES dictionary exists only in memory so a restart of the dummy-eeba service can result in not found responses
+- Note that the DUMMY_RESOURCES dictionary exists only in memory so a restart of the dummy-eeba service can result in not found responses

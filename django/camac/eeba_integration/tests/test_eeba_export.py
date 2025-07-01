@@ -14,7 +14,7 @@ from rest_framework.test import APIClient
             "kt_gr",
             lf("gr_master_data_case"),
             "shared_secret",
-            settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE,
+            "eeba-export",
             status.HTTP_200_OK,
         ),
         (
@@ -28,14 +28,14 @@ from rest_framework.test import APIClient
             "kt_gr",
             lf("gr_master_data_case"),
             "",
-            settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE,
+            "eeba-export",
             status.HTTP_403_FORBIDDEN,
         ),
         (
             "kt_so",
             lf("so_master_data_case"),
             "shared_secret",
-            settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE,
+            "eeba-export",
             status.HTTP_403_FORBIDDEN,
         ),
     ],
@@ -49,11 +49,11 @@ def test_eeba_export(
     scope,
     expected_status,
     set_application_gr,
-    settings,
+    gr_eeba_integration_settings,
     snapshot,
 ):
     settings.APPLICATION_NAME = canton_name
-    settings.EEBA_SHARED_SECRET = "shared_secret"
+    gr_eeba_integration_settings["EEBA_SHARED_SECRET"] = "shared_secret"
 
     client = APIClient()
 

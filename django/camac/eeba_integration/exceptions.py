@@ -23,7 +23,7 @@ class EebaHandlerServerException(Exception):
     pass
 
 
-def handle_exceptions(function):
+def handle_eeba_client_exceptions(function):
     """
     Handle exceptions for client methods decorator.
 

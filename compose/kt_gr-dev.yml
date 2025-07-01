@@ -113,7 +113,6 @@ services:
     volumes:
       - ../dummy-eeba-server:/app
 
-
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
     build:

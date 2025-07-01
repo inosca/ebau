@@ -81,7 +81,9 @@ def is_eeba_token_exchange_client(request):
     if not getattr(request, "auth"):  # pragma: no cover
         return False
 
-    return request.auth.get("azp") == settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT
+    return request.auth.get("azp") == settings.EEBA_INTEGRATION.get(
+        "KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT"
+    )
 
 
 def _get_group_for_portal(request):

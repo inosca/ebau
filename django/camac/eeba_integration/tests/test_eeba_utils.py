@@ -7,25 +7,33 @@ from requests.exceptions import HTTPError
 from camac.eeba_integration.utils import exchange_token
 
 
-def test_exchange_token_success():
+def test_exchange_token_success(gr_eeba_integration_settings):
     session = MagicMock()
     resp = MagicMock()
     resp.json.return_value = {"access_token": "dummy-exchanged-token"}
     session.post.return_value = resp
 
     token = exchange_token(session, subject_token="original-token")
-
+    scope = gr_eeba_integration_settings["KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE"]
     assert token == "dummy-exchanged-token"
     session.post.assert_called_once_with(
         settings.KEYCLOAK_OIDC_TOKEN_URL,
         data=[
             ("grant_type", "urn:ietf:params:oauth:grant-type:token-exchange"),
-            ("client_id", settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT),
-            ("client_secret", settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT_SECRET),
+            (
+                "client_id",
+                gr_eeba_integration_settings["KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT"],
+            ),
+            (
+                "client_secret",
+                gr_eeba_integration_settings[
+                    "KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT_SECRET"
+                ],
+            ),
             ("subject_token", "original-token"),
             ("subject_token_type", "urn:ietf:params:oauth:token-type:access_token"),
             ("requested_token_type", "urn:ietf:params:oauth:token-type:access_token"),
-            ("scope", f"openid {settings.KEYCLOAK_EEBA_TOKEN_EXCHANGE_SCOPE}"),
+            ("scope", f"openid {scope}"),
         ],
     )
 
