@@ -722,6 +722,8 @@ class InstanceView(
             user=request.caluma_info.context.user,
         )
 
+        self.add_project_personalities_to_applicants(instance)
+
         # send notification email when configured
         notification_template = settings.APPLICATION["NOTIFICATIONS"].get("SUBMIT")
         if notification_template and instance.group.service.notification:
@@ -731,8 +733,6 @@ class InstanceView(
                 recipient_types=["municipality"],
                 instance={"id": pk, "type": "instances"},
             )
-
-        self.add_project_personalities_to_applicants(instance)
 
         return response.Response(data=serializer.data)
 
