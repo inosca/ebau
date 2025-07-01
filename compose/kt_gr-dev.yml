@@ -102,6 +102,18 @@ services:
     stdin_open: true
     command: devserver
 
+  dummy-eeba:
+    networks:
+      - ebau.localhost
+    build:
+      context: ../dummy-eeba-server
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    volumes:
+      - ../dummy-eeba-server:/app
+
+
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
     build:
