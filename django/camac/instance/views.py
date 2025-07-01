@@ -722,17 +722,9 @@ class InstanceView(
             user=request.caluma_info.context.user,
         )
 
-        self.add_project_personalities_to_applicants(instance)
+        newly_added = self.add_project_personalities_to_applicants(instance)
 
-        # send notification email when configured
-        notification_template = settings.APPLICATION["NOTIFICATIONS"].get("SUBMIT")
-        if notification_template and instance.group.service.notification:
-            send_mail(
-                notification_template,
-                self.get_serializer_context(),
-                recipient_types=["municipality"],
-                instance={"id": pk, "type": "instances"},
-            )
+        self._notify_municipality_and_applicants(instance, newly_added)
 
         return response.Response(data=serializer.data)
 
@@ -765,13 +757,26 @@ class InstanceView(
 
     @canton_aware
     def add_project_personalities_to_applicants(self, instance):
-        return  # pragma: no cover
+        """
+        Create applicants from personalities.
+
+        Returns a list of all newly created applicants. For generic cantons, this doesn't
+        do anything, so the returned list is empty.
+        """
+        return []  # pragma: no cover
 
     def add_project_personalities_to_applicants_sz(self, instance):
+        """
+        Create applicants from personalities (Schwyz).
+
+        This ensures that each project personality is added as an applicant to instance,
+        to ensure that all stated project personalities have access to the instance.
+
+        Returns a list of all newly created applicants.
+        """
+
         involved_emails = self.get_project_personalities_emails(instance)
-        notification_template = settings.APPLICATION["NOTIFICATIONS"]["APPLICANT"].get(
-            "NEW"
-        )
+        newly_added = []
 
         for email in involved_emails:
             user = User.objects.filter(email=email).first()
@@ -790,14 +795,37 @@ class InstanceView(
                 Trigger.applicant_added(
                     request=self.request, instance=instance, applicant=new_applicant
                 )
-                if notification_template:
-                    send_mail(
-                        notification_template,
-                        self.get_serializer_context(),
-                        recipient_types=["email_list"],
-                        email_list=email,
-                        instance={"id": instance.pk, "type": "instances"},
-                    )
+                newly_added.append(new_applicant)
+
+        return newly_added
+
+    def _notify_municipality_and_applicants(self, instance, applicants):
+        """Send notifications to the municipality and all newly added applicants."""
+
+        notification_template_municipality = settings.APPLICATION["NOTIFICATIONS"].get(
+            "SUBMIT"
+        )
+        notification_template_applicant = settings.APPLICATION["NOTIFICATIONS"][
+            "APPLICANT"
+        ].get("NEW")
+
+        if notification_template_municipality and instance.group.service.notification:
+            send_mail(
+                notification_template_municipality,
+                self.get_serializer_context(),
+                recipient_types=["municipality"],
+                instance={"id": instance.pk, "type": "instances"},
+            )
+
+        if notification_template_applicant:
+            for applicant in applicants:
+                send_mail(
+                    notification_template_applicant,
+                    self.get_serializer_context(),
+                    recipient_types=["email_list"],
+                    email_list=applicant.email,
+                    instance={"id": instance.pk, "type": "instances"},
+                )
 
     def _custom_serializer_action(
         self, request, pk=None, status_code=None, perform_save=True
