@@ -37,7 +37,10 @@
               {{/if}}
             </a>
             {{#if
-              (or this.session.groups.records.length (has-feature "profile"))
+              (or
+                this.session.groups.records.length
+                (has-feature "profile.enabled")
+              )
             }}
               <div
                 uk-dropdown
@@ -60,7 +63,7 @@
                       </a>
                     </li>
                   {{/each}}
-                  {{#if (has-feature "profile")}}
+                  {{#if (has-feature "profile.enabled")}}
                     {{#if this.session.groups.records.length}}
                       <li class="uk-nav-divider"></li>
                     {{/if}}

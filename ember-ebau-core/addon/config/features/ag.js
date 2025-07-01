@@ -40,7 +40,10 @@ export default {
   dms: {
     hideDownloadButton: true,
   },
-  profile: true,
+  profile: {
+    enabled: true,
+    showDivision: false,
+  },
   organisation: {
     department: true,
   },

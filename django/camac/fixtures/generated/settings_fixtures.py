@@ -2083,6 +2083,18 @@ def disable_user_settings(settings, request):
 
 
 @pytest.fixture
+def so_user_settings(settings, request):
+    """Module-specific settings for user (canton SO)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="user",
+        canton="kt_so",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def gr_user_settings(settings, request):
     """Module-specific settings for user (canton GR)."""
     return generate_module_settings(

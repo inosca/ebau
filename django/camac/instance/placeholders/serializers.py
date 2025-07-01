@@ -2046,6 +2046,26 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("CANTONAL_EXAM_DECISION_OPENING_TYPE_CANTON")],
         description=_("Decision opening type (Canton)"),
     )
+    zustaendig_titel = fields.ResponsibleUserField(
+        source="title",
+        aliases=[_("RESPONSIBLE_TITLE")],
+        description=_("Title of the responsible employee"),
+    )
+    zustaendig_position = fields.ResponsibleUserField(
+        source="position",
+        aliases=[_("RESPONSIBLE_POSITION")],
+        description=_("Position of the responsible employee"),
+    )
+    zustaendig_mobile = fields.ResponsibleUserField(
+        source="mobile",
+        aliases=[_("RESPONSIBLE_MOBILE")],
+        description=_("Mobile of the responsible employee"),
+    )
+    zustaendig_telefon = fields.ResponsibleUserField(
+        source="phone",
+        aliases=[_("RESPONSIBLE_PHONE")],
+        description=_("Phone of the responsible employee"),
+    )
 
     class Meta:
         exclude = [

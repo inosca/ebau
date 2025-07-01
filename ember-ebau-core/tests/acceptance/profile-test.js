@@ -3,10 +3,12 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { module, test } from "qunit";
 
 import { setupApplicationTest } from "dummy/tests/helpers";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Acceptance | profile", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
+  setupFeatures(hooks);
 
   hooks.beforeEach(async function () {
     const user = this.server.create("user");
@@ -17,6 +19,7 @@ module("Acceptance | profile", function (hooks) {
   });
 
   test("update profile data", async function (assert) {
+    this.features.enable("profile.showDivision");
     await visit("/profile");
 
     assert.dom("input[name=username]").isDisabled();
@@ -28,6 +31,7 @@ module("Acceptance | profile", function (hooks) {
     await fillIn("input[name=position]", "Project manager");
     await fillIn("input[name=phone]", "+41 31 999 99 99");
     await fillIn("input[name=mobile]", "+41 79 999 99 99");
+    await fillIn("input[name=division]", "Department of Otolaryngology");
 
     this.server.patch("/api/v1/me", function ({ users }, request) {
       const {
@@ -35,6 +39,7 @@ module("Acceptance | profile", function (hooks) {
       } = JSON.parse(request.requestBody);
 
       assert.deepEqual(attributes, {
+        division: "Department of Otolaryngology",
         mobile: "+41 79 999 99 99",
         phone: "+41 31 999 99 99",
         position: "Project manager",
