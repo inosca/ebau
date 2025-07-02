@@ -6841,6 +6841,22 @@
   },
   {
     "model": "user.group",
+    "pk": 458,
+    "fields": {
+      "role": 11,
+      "service": 20,
+      "disabled": 0,
+      "name": "Projektgenehmigung nach StraG",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
     "pk": 506,
     "fields": {
       "role": 5,
@@ -32973,6 +32989,14 @@
     "fields": {
       "group": 507,
       "location": 23
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 3370,
+    "fields": {
+      "group": 458,
+      "location": 33
     }
   },
   {

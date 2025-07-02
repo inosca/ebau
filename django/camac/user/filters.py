@@ -264,9 +264,12 @@ class PublicServiceFilterSet(FilterSet):
         return not has_running_publication and has_completed_publication
 
     def filter_suggestion_for_instance(self, queryset, name, value):
-        suggested_service_ids_or_slugs = get_service_suggestions(
-            Instance.objects.get(pk=value)
-        )
+        form_backend = settings.APPLICATION["FORM_BACKEND"]
+        if form_backend == "camac-ng":
+            instance = Instance.objects.select_related("form__family").get(pk=value)
+        else:
+            instance = Instance.objects.get(pk=value)
+        suggested_service_ids_or_slugs = get_service_suggestions(instance)
 
         if all(isinstance(item, str) for item in list(suggested_service_ids_or_slugs)):
             return queryset.filter(slug__in=suggested_service_ids_or_slugs)

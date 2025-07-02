@@ -1502,6 +1502,9 @@ def test_instance_submit_sz(
     application_settings["SHORT_DOSSIER_NUMBER"] = short_dossier_number
     application_settings["STORE_PDF"]["SECTION"] = attachment_section.pk
 
+    form.family = form
+    form.save()
+
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="baugesuch"),
@@ -1692,6 +1695,9 @@ def test_instance_export_detail(
     application_settings["COORDINATE_QUESTION"] = "punkte"
 
     url = reverse("instance-export-detail", args=[instance.pk])
+
+    form.family = form
+    form.save()
 
     add_field = functools.partial(form_field_factory, instance=instance)
     add_field(
