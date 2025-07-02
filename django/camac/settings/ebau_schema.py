@@ -12,7 +12,7 @@ Module = TypeVar("Module")
 
 
 class ModuleConfig(EBauConfig, Generic[Module]):
-    default: Module | None = None
+    default: Module
     demo: Module | None = None
     test: Module | None = None
     kt_schwyz: Module | None = None
