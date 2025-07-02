@@ -44,7 +44,7 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
     product_number_name = serializers.SerializerMethodField()
 
     def get_product_number_name(self, model):
-        config = getattr(settings.BILLING, "product_numbers", None)
+        config = settings.BILLING.product_numbers
         if not config:
             return ""
 
@@ -90,8 +90,7 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
         # set one.
         if (
             not validated_data.get("product_number")
-            and hasattr(settings.BILLING, "product_numbers")
-            and settings.BILLING.product_numbers is not None
+            and settings.BILLING.product_numbers
         ):
             self.validate_product_number(None)
 
