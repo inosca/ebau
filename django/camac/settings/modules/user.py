@@ -1,7 +1,5 @@
 from camac.settings.ebau_schema import ModuleConfig
-from camac.settings.modules.user_schema import (
-    UserConfig,
-)
+from camac.settings.modules.user_schema import UserConfig
 
 USER = ModuleConfig[UserConfig](
     default=UserConfig(),
