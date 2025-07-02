@@ -749,11 +749,14 @@ class InstanceView(
         ).values("value")
 
         emails = [
-            personality.get("email").strip()
+            email
             for field in form_fields_value
             if field.get("value")
             for personality in field["value"]
-            if personality.get("email")
+            if (
+                (personality_email := personality.get("email"))
+                and (email := personality_email.strip())
+            )
         ]
 
         return emails
