@@ -55279,7 +55279,7 @@
       "label": "{\"de\": \"Entsorgung\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!('parzelle'|answer|mapby('parzellennummer') && 'gemeinde'|answer)",
+      "is_hidden": "true",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
