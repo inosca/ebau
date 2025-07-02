@@ -3471,7 +3471,7 @@ def load_module_settings(module_name, application_name=APPLICATION_NAME):
                 app_config,
             )
 
-        return None
+        return module.default
     else:
         app_config = module.get(application_name, {})
 

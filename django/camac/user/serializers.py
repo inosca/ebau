@@ -104,7 +104,10 @@ class CurrentUserSerializer(UserSerializer):
 
         extra_kwargs = super().get_extra_kwargs()
 
-        for field_name in getattr(settings.USER, "allowed_write_attributes", []):
+        if not settings.USER.allowed_write_attributes:
+            return extra_kwargs
+
+        for field_name in settings.USER.allowed_write_attributes:
             if (
                 field_name in settings.APPLICATION.get("OIDC_SYNC_USER_ATTRIBUTES")
                 or field_name not in extra_kwargs
