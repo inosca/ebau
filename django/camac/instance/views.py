@@ -6,7 +6,9 @@ import django_excel
 from caluma.caluma_form import models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
+from django.core.exceptions import ValidationError as DjangoValidationError
 from django.core.files import File
+from django.core.validators import EmailValidator as DjangoEmailValidator
 from django.db import transaction
 from django.db.models import CharField, F, OuterRef, Q, QuerySet, Subquery, Value
 from django.db.models.expressions import Func
@@ -785,6 +787,12 @@ class InstanceView(
         newly_added = []
 
         for email in involved_emails:
+            # Skip invalid email addresses:
+            try:
+                DjangoEmailValidator()(email)
+            except DjangoValidationError:
+                continue
+
             user = User.objects.filter(email=email).first()
             applicant = Applicant.objects.filter(
                 instance=instance,

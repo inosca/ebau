@@ -1536,10 +1536,24 @@ def test_instance_submit_sz(
     add_field(name="bohrungsdaten", value="Test")
     add_field(name="anlagen-mit-erheblichen-schadstoffemissionen", value="Ja")
     add_field(name="anlagen-mit-erheblichen-schadstoffemissionen-welche", value="Test")
-    add_field(name="grundeigentumerschaft", value=[{"name": "Bund"}])
     add_field(name="gwr", value=[{"name": "Name", "wohnungen": [{"stockwerk": "1OG"}]}])
     add_field(
         name="punkte", value=[[{"lat": 47.02433179952733, "lng": 8.634144559228435}]]
+    )
+    add_field(
+        name="grundeigentumerschaft-v2",
+        value=[
+            {
+                "ort": "Test village",
+                "plz": 1234,
+                "tel": "0123456789",
+                "name": "Doe",
+                "email": "invalid-email",
+                "anrede": "Herr",
+                "strasse": "Unterstrasse 123",
+                "vorname": "John",
+            }
+        ],
     )
     add_field(
         name="bauherrschaft-v3",
@@ -1597,9 +1611,19 @@ def test_instance_submit_sz(
             .get()
             .value[0]["email"]
         )
-
         assert Applicant.objects.filter(
             instance=instance.pk, email=involved_person_email
+        ).exists()
+
+        invalid_person_email = (
+            FormField.objects.filter(
+                name="grundeigentumerschaft-v2", instance=instance.pk
+            )
+            .get()
+            .value[0]["email"]
+        )
+        assert not Applicant.objects.filter(
+            instance=instance.pk, email=invalid_person_email
         ).exists()
 
 
