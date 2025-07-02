@@ -1,6 +1,6 @@
 import { action, get } from "@ember/object";
 import { service } from "@ember/service";
-import { getConfig } from "@embroider/macros";
+import { getConfig, macroCondition, getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
 import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
@@ -55,6 +55,47 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
 
   get accessToken() {
     return this.session.data.authenticated.access_token;
+  }
+
+  get documentListColumns() {
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      return {
+        type: {
+          label: "type",
+          labelHidden: true,
+        },
+        title: {
+          label: "document-title",
+          sort: true,
+        },
+        marks: {
+          label: "marks",
+          labelHidden: true,
+        },
+        date: {
+          label: "date",
+          sort: true,
+        },
+        modifiedAt: {
+          label: "modified-at",
+          sort: true,
+        },
+        createdByUser: {
+          label: "created-by-user",
+          sort: true,
+        },
+        createdByGroup: {
+          label: "created-by-group",
+          sort: true,
+        },
+        category: {
+          label: "category",
+        },
+      };
+    }
+
+    // Fallback of null means that the default alexandria columns will be used
+    return null;
   }
 
   @action
