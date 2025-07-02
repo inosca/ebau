@@ -1,5 +1,6 @@
 import mimetypes
 from datetime import timedelta
+from logging import getLogger
 
 import django_excel
 from caluma.caluma_form import models as form_models
@@ -73,6 +74,8 @@ from .placeholders.serializers import (
     SoDMSPlaceholdersSerializer,
     UrDMSPlaceholdersSerializer,
 )
+
+logger = getLogger(__name__)
 
 
 class InstanceStateView(ReadOnlyModelViewSet):
@@ -810,22 +813,28 @@ class InstanceView(
         ].get("NEW")
 
         if notification_template_municipality and instance.group.service.notification:
-            send_mail(
-                notification_template_municipality,
-                self.get_serializer_context(),
-                recipient_types=["municipality"],
-                instance={"id": instance.pk, "type": "instances"},
-            )
+            try:
+                send_mail(
+                    notification_template_municipality,
+                    self.get_serializer_context(),
+                    recipient_types=["municipality"],
+                    instance={"id": instance.pk, "type": "instances"},
+                )
+            except Exception as e:  # pragma: no cover
+                logger.exception(e)
 
         if notification_template_applicant:
             for applicant in applicants:
-                send_mail(
-                    notification_template_applicant,
-                    self.get_serializer_context(),
-                    recipient_types=["email_list"],
-                    email_list=applicant.email,
-                    instance={"id": instance.pk, "type": "instances"},
-                )
+                try:
+                    send_mail(
+                        notification_template_applicant,
+                        self.get_serializer_context(),
+                        recipient_types=["email_list"],
+                        email_list=applicant.email,
+                        instance={"id": instance.pk, "type": "instances"},
+                    )
+                except Exception as e:  # pragma: no cover
+                    logger.exception(e)
 
     def _custom_serializer_action(
         self, request, pk=None, status_code=None, perform_save=True
