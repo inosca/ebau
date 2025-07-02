@@ -1069,6 +1069,7 @@ def caluma_forms_gr(settings):
     caluma_form_models.Form.objects.create(slug="publikation")
     caluma_form_models.Form.objects.create(slug="construction-monitoring")
     caluma_form_models.Form.objects.create(slug="personalien-tabelle")
+    caluma_form_models.Form.objects.create(slug="entsorgung")
 
     # dynamic choice options get cached, so we clear them
     # to ensure the new "gemeinde" options will be valid
@@ -1083,6 +1084,14 @@ def caluma_forms_gr(settings):
     settings.DATA_SOURCE_CLASSES = [
         "camac.caluma.extensions.data_sources.Municipalities"
     ]
+
+    for slug in ["eeba-integration-id", "eeba-required", "eeba-state", "eeba-web-url"]:
+        caluma_form_models.Question.objects.create(
+            slug=slug, type=caluma_form_models.Question.TYPE_TEXT
+        )
+        caluma_form_models.FormQuestion.objects.create(
+            form_id="entsorgung", question_id=slug
+        )
 
     for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
         question = caluma_form_models.Question.objects.create(

@@ -3077,6 +3077,7 @@ KEYCLOAK_SCOPES = env.str("KEYCLOAK_SCOPES", default="openid email")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
 KEYCLOAK_PORTAL_CLIENT = env.str("KEYCLOAK_PORTAL_CLIENT", default="portal")
 
+
 # Client used by PHP to do privileged actions
 KEYCLOAK_CAMAC_ADMIN_CLIENT = env.str(
     "KEYCLOAK_CAMAC_ADMIN_CLIENT", default="camac-admin"
@@ -3395,11 +3396,6 @@ GWR_HOUSING_STAT_BASE_URI = env.str(
 )
 
 
-# EEBA Kt. GR
-EEBA_SHARED_SECRET = env.str(
-    "EEBA_SHARED_SECRET", "4z5hKJ2eQYXaGxvG9B8JfQ6C5L4A2mX5k7P0dQvNc4g="
-)
-
 # Until running tasks can be manually canceled we want a timeout
 DJANGO_Q_TASK_TIMEOUT_HOURS = env.int("DJANGO_Q_TASK_TIMEOUT_HOURS", default=6)
 
@@ -3516,6 +3512,7 @@ SERVICE = load_module_settings("service")
 CHANGE_FORM = load_module_settings("change_form")
 GEVER = load_module_settings("gever")
 RULESETS = load_module_settings("rulesets")
+EEBA_INTEGRATION = load_module_settings("eeba_integration")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

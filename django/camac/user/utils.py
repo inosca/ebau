@@ -77,6 +77,15 @@ def is_portal_client(request):
     return request.auth.get("azp") == settings.KEYCLOAK_PORTAL_CLIENT
 
 
+def is_eeba_token_exchange_client(request):
+    if not getattr(request, "auth"):  # pragma: no cover
+        return False
+
+    return request.auth.get("azp") == settings.EEBA_INTEGRATION.get(
+        "KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT"
+    )
+
+
 def _get_group_for_portal(request):
     """
     Get group for portal users.
@@ -86,8 +95,9 @@ def _get_group_for_portal(request):
     "azp" (authorized party) claim, and programatically assign the correct group for
     them.
     """
-    if not settings.APPLICATION.get("PORTAL_GROUP", None) or not is_portal_client(
-        request
+    # Canton GR portal client tokens are exchanged through eeba token exchange client and should be assigned portal group.
+    if not settings.APPLICATION.get("PORTAL_GROUP", None) or not any(
+        (is_portal_client(request), is_eeba_token_exchange_client(request))
     ):
         return None
 

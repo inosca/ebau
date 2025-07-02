@@ -1912,8 +1912,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "clientHost",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "clientHost",
               "jsonType.label": "String"
@@ -1927,8 +1928,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "clientAddress",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "clientAddress",
               "jsonType.label": "String"
@@ -1942,8 +1944,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "client_id",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "client_id",
               "jsonType.label": "String"
@@ -2174,14 +2177,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-full-name-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "oidc-address-mapper",
-              "oidc-usermodel-attribute-mapper",
-              "oidc-usermodel-property-mapper",
               "saml-user-property-mapper",
+              "saml-role-list-mapper",
               "saml-user-attribute-mapper",
-              "saml-role-list-mapper"
+              "oidc-full-name-mapper",
+              "oidc-address-mapper",
+              "oidc-usermodel-property-mapper",
+              "oidc-usermodel-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2205,14 +2208,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-attribute-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
-              "oidc-usermodel-attribute-mapper",
-              "saml-role-list-mapper",
-              "saml-user-property-mapper",
-              "oidc-usermodel-property-mapper",
+              "oidc-full-name-mapper",
               "oidc-address-mapper",
-              "oidc-full-name-mapper"
+              "saml-user-attribute-mapper",
+              "saml-user-property-mapper",
+              "saml-role-list-mapper",
+              "oidc-usermodel-attribute-mapper",
+              "oidc-usermodel-property-mapper",
+              "oidc-sha256-pairwise-sub-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -3256,6 +3259,7 @@
         "ech-client": [],
         "test-gemeinde": [],
         "admin-cli": [],
+        "eeba-token-exchange": [],
         "dossier-import": [],
         "portal": [],
         "account": [
@@ -4694,6 +4698,60 @@
         ]
       },
       {
+        "id": "710ac738-a252-4077-b367-daff2c6c6886",
+        "clientId": "eeba-token-exchange",
+        "name": "",
+        "description": "Client to facilitate token exchange for eeba integration",
+        "rootUrl": "",
+        "adminUrl": "",
+        "baseUrl": "",
+        "surrogateAuthRequired": false,
+        "enabled": true,
+        "alwaysDisplayInConsole": false,
+        "clientAuthenticatorType": "client-secret",
+        "secret": "FNVoLgpLjowJGYCQoBLLiZAq2CCpRod9",
+        "redirectUris": ["/*"],
+        "webOrigins": ["/*"],
+        "notBefore": 0,
+        "bearerOnly": false,
+        "consentRequired": false,
+        "standardFlowEnabled": false,
+        "implicitFlowEnabled": false,
+        "directAccessGrantsEnabled": false,
+        "serviceAccountsEnabled": false,
+        "publicClient": false,
+        "frontchannelLogout": true,
+        "protocol": "openid-connect",
+        "attributes": {
+          "realm_client": "false",
+          "oidc.ciba.grant.enabled": "false",
+          "client.secret.creation.time": "1750153801",
+          "backchannel.logout.session.required": "true",
+          "standard.token.exchange.enabled": "true",
+          "post.logout.redirect.uris": "+",
+          "oauth2.device.authorization.grant.enabled": "false",
+          "backchannel.logout.revoke.offline.tokens": "false"
+        },
+        "authenticationFlowBindingOverrides": {},
+        "fullScopeAllowed": true,
+        "nodeReRegistrationTimeout": -1,
+        "defaultClientScopes": [
+          "web-origins",
+          "acr",
+          "roles",
+          "profile",
+          "eeba-export",
+          "basic",
+          "email"
+        ],
+        "optionalClientScopes": [
+          "address",
+          "phone",
+          "offline_access",
+          "microprofile-jwt"
+        ]
+      },
+      {
         "id": "e1610afe-fdf2-43b5-bdb3-09f0ee5d9f1b",
         "clientId": "portal",
         "name": "",
@@ -4808,6 +4866,21 @@
               "single": "false",
               "attribute.nameformat": "Basic",
               "attribute.name": "Role"
+            }
+          },
+          {
+            "id": "f6ab7652-7ee7-4f6b-8e70-3c5bb2e1b5ca",
+            "name": "aud-eeba-token-exchange",
+            "protocol": "openid-connect",
+            "protocolMapper": "oidc-audience-mapper",
+            "consentRequired": false,
+            "config": {
+              "included.client.audience": "eeba-token-exchange",
+              "id.token.claim": "false",
+              "lightweight.claim": "false",
+              "introspection.token.claim": "true",
+              "access.token.claim": "true",
+              "userinfo.token.claim": "false"
             }
           },
           {
@@ -5958,6 +6031,35 @@
         ]
       },
       {
+        "id": "98b6f10e-2bed-496d-990a-4be4fd752809",
+        "name": "eeba-export",
+        "description": "Scope for eeba audience and eeba export",
+        "protocol": "openid-connect",
+        "attributes": {
+          "include.in.token.scope": "true",
+          "display.on.consent.screen": "false",
+          "gui.order": "",
+          "consent.screen.text": ""
+        },
+        "protocolMappers": [
+          {
+            "id": "f968ac98-832d-40e3-b78a-c70a1e01aa78",
+            "name": "aud-eeba",
+            "protocol": "openid-connect",
+            "protocolMapper": "oidc-audience-mapper",
+            "consentRequired": false,
+            "config": {
+              "included.client.audience": "eeba",
+              "id.token.claim": "false",
+              "lightweight.claim": "false",
+              "introspection.token.claim": "true",
+              "access.token.claim": "true",
+              "userinfo.token.claim": "false"
+            }
+          }
+        ]
+      },
+      {
         "id": "a764e6ff-dcb0-48dc-9d0a-360bedea89ca",
         "name": "web-origins",
         "description": "OpenID Connect scope for add allowed web origins to the access token",
@@ -5996,8 +6098,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "client_id",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "client_id",
               "jsonType.label": "String"
@@ -6011,8 +6114,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "clientAddress",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "clientAddress",
               "jsonType.label": "String"
@@ -6026,8 +6130,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "clientHost",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "clientHost",
               "jsonType.label": "String"
@@ -6043,7 +6148,8 @@
       "email",
       "roles",
       "web-origins",
-      "acr"
+      "acr",
+      "eeba-export"
     ],
     "defaultOptionalClientScopes": [
       "offline_access",
@@ -6097,11 +6203,11 @@
               "saml-user-attribute-mapper",
               "saml-user-property-mapper",
               "saml-role-list-mapper",
-              "oidc-full-name-mapper",
               "oidc-usermodel-attribute-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
               "oidc-address-mapper",
               "oidc-usermodel-property-mapper",
-              "oidc-sha256-pairwise-sub-mapper"
+              "oidc-full-name-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -6171,14 +6277,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-usermodel-property-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
               "saml-user-attribute-mapper",
+              "saml-role-list-mapper",
               "oidc-full-name-mapper",
               "saml-user-property-mapper",
-              "saml-role-list-mapper",
+              "oidc-address-mapper",
               "oidc-usermodel-attribute-mapper",
-              "oidc-address-mapper"
+              "oidc-usermodel-property-mapper",
+              "oidc-sha256-pairwise-sub-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
