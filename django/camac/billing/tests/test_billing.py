@@ -425,7 +425,7 @@ def test_product_numbers(
     db,
     admin_client,
     sz_instance,
-    sz_billing_settings: BillingConfig,
+    sz_billing_settings,
     service_factory,
     invoice_factory,
 ):
@@ -522,7 +522,7 @@ def test_product_numbers_empty(
     sz_instance,
     sz_billing_settings,
 ):
-    sz_billing_settings.product_numbers = None
+    sz_billing_settings.product_numbers = []
     url = reverse("product-numbers")
     response = admin_client.get(
         url,

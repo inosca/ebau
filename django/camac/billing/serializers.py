@@ -98,7 +98,7 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
 
     def validate_product_number(self, product_number):
         request = self.context["request"]
-        config: list[ProductNumberConfig] | None = settings.BILLING.product_numbers
+        config: list[ProductNumberConfig] = settings.BILLING.product_numbers
 
         if not config:
             return None

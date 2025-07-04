@@ -236,17 +236,15 @@ def validate_product_number_conditions(
         match (key, value):
             case ("only_subsequent_charge", cond):
                 return has_previous_invoice == cond
-            case ("only_for_services", services) if type(services) is list:
+            case ("only_for_services", services) if services:
                 if not service.slug:
                     return False
                 return service.slug in services
-            case ("only_for_service_groups", service_groups) if (
-                type(service_groups) is list
-            ):
+            case ("only_for_service_groups", service_groups) if service_groups:
                 if not service.service_group.slug:
                     return False
                 return service.service_group.slug in service_groups
-            case ("not_for_services", services) if type(services) is list:
+            case ("not_for_services", services) if services:
                 if not service.slug:
                     return True
                 return service.slug not in services
@@ -259,7 +257,7 @@ def validate_product_number_conditions(
 
 
 def validate_product_number(group: Group, instance: str) -> list[ProductNumberConfig]:
-    config: list[ProductNumberConfig] | None = settings.BILLING.product_numbers
+    config: list[ProductNumberConfig] = settings.BILLING.product_numbers
 
     if not config:
         return []
