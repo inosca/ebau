@@ -124,6 +124,17 @@ export default {
       withdrawn: "einsprache-zurueckgezogen",
     },
   },
+  legalAppeal: {
+    task: "appeals",
+    tableForm: "beschwerde",
+    tableQuestion: "beschwerden",
+    orderQuestion: "beschwerde-datum",
+    columns: {
+      date: "beschwerde-datum",
+      "legal-claimants": "beschwerde-einsprechende",
+      withdrawn: "beschwerde-zurueckgezogen",
+    },
+  },
   rejection: {
     instanceState: "rejected",
     allowedInstanceStates: [

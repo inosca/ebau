@@ -1587,7 +1587,7 @@
     "fields": {
       "instance_resource": 12000018,
       "language": "de",
-      "name": "Einsprachen",
+      "name": "Einsprachen / Beschwerden",
       "description": null
     }
   },
@@ -1597,7 +1597,7 @@
     "fields": {
       "instance_resource": 12000018,
       "language": "it",
-      "name": "Opposizioni",
+      "name": "Opposizioni / Reclami",
       "description": null
     }
   },
