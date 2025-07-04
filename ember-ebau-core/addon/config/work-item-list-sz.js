@@ -17,7 +17,5 @@ export default {
         "check-inquiries",
       ],
     },
-    services: {},
-    default: [],
   },
 };
