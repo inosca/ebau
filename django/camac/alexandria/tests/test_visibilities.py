@@ -10,6 +10,8 @@ from alexandria.core.models import Document
 from django.urls import reverse
 from rest_framework.status import HTTP_200_OK
 
+from camac.constants.kt_gr import ARE_SERVICE_GROUP
+
 
 @pytest.fixture
 def alexandria_setup(
@@ -218,6 +220,102 @@ def test_category_visibility(db, admin_client, role, expected):
 
     url = reverse("category-list")
     response = admin_client.get(url)
+
+    assert response.status_code == HTTP_200_OK
+    json = response.json()
+    assert set([obj["id"] for obj in json["data"]]) == set(expected)
+
+
+@pytest.mark.parametrize(
+    "role__name,service_group__name,inquired_by_are,expected",
+    [
+        # babfiltered never visible for applicant
+        ("applicant", "applicant", False, ["common"]),
+        ("applicant", "applicant", True, ["common"]),
+        # babfiltered always visible for ARE service
+        ("service", ARE_SERVICE_GROUP, False, ["common", "babfiltered", "service"]),
+        ("service", ARE_SERVICE_GROUP, True, ["common", "babfiltered", "service"]),
+        # babfiltered only visible when invited by ARE
+        ("service", "service", False, ["common", "service"]),
+        ("service", "service", True, ["common", "babfiltered", "service"]),
+        (
+            "municipality",
+            "municipality",
+            False,
+            ["common", "municipality", "municipality-parent", "service"],
+        ),
+        (
+            "municipality",
+            "municipality",
+            True,
+            ["common", "babfiltered", "municipality", "municipality-parent", "service"],
+        ),
+    ],
+)
+def test_category_visibility_camac_instance_gr(
+    db,
+    admin_client,
+    service_factory,
+    caluma_document_factory,
+    caluma_work_item_factory,
+    role,
+    service_group,
+    service,
+    inquired_by_are,
+    gr_instance,
+    expected,
+    distribution_settings,
+    set_application_gr,
+):
+    are_service = service_factory(service_group__name=ARE_SERVICE_GROUP)
+
+    CategoryFactory(
+        slug="common",
+        metainfo={
+            "access": {
+                "applicant": {"visibility": "all"},
+                "municipality": {"visibility": "all"},
+                "service": {"visibility": "all"},
+            },
+        },
+    )
+    CategoryFactory(
+        slug="babfiltered",
+        metainfo={
+            "access": {
+                "municipality": {"visibility": "all"},
+                "service": {"visibility": "all"},
+            },
+            "hideInBab": True,
+        },
+    )
+    municipality_category = CategoryFactory(
+        slug="municipality",
+        metainfo={"access": {"municipality": {"visibility": "all"}}},
+    )
+    CategoryFactory(slug="municipality-parent", parent=municipality_category)
+    CategoryFactory(
+        slug="service",
+        metainfo={
+            "access": {
+                "service": {"visibility": "service"},
+                "municipality": {"visibility": "all"},
+            }
+        },
+    )
+
+    # create an inquiry for the service
+    inquired_by = are_service if inquired_by_are else service_factory()
+    caluma_work_item_factory(
+        case=gr_instance.case,
+        task_id=distribution_settings["INQUIRY_TASK"],
+        document=caluma_document_factory(form_id="inquiry"),
+        addressed_groups=[str(service.pk)],
+        controlling_groups=[str(inquired_by.pk)],
+    )
+
+    url = reverse("category-list")
+    response = admin_client.get(url, {"camac-instance-id": gr_instance.pk})
 
     assert response.status_code == HTTP_200_OK
     json = response.json()

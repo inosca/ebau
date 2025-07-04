@@ -2011,7 +2011,8 @@
               }
             ]
           }
-        }
+        },
+        "hideInBab": true
       },
       "name": "{\"de\": \"Stellungnahmen ans ARE\", \"fr\": \"\", \"it\": \"Prese di posizione all'UST-GR\"}",
       "description": "{\"de\": \"Hier werden Stellungnahmen, Verf\\u00fcgungen und weitere Dokumente zu Handen des Amts f\\u00fcr Raumentwicklung hochgeladen. Die Dokumente sind ausschliesslich f\\u00fcr das ARE sichtbar. Andere Fachstellen haben keinen Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"Qui vengono caricati prese di posizione, decisioni e altri documenti all'attenzione dell'Ufficio per lo sviluppo del territorio (UST-GR). I documenti sono visibili esclusivamente per l'UST-GR. Gli altri servizi non hanno accesso ai documenti caricati in questa cartella.\"}",

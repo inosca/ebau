@@ -1,10 +1,9 @@
 import { action, get } from "@ember/object";
 import { service } from "@ember/service";
-import { getConfig, macroCondition, getOwnConfig } from "@embroider/macros";
+import { getConfig, getOwnConfig, macroCondition } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
 import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
-
 const coreConfig = getConfig("ember-ebau-core");
 const allowedWebDAVMimeTypes = coreConfig.allowedWebDAVMimeTypes;
 const enableOriginalDocumentFilename =
@@ -23,6 +22,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   @service session;
   @service intl;
   @service router;
+  @service ebauModules;
 
   @tracked instanceId;
   @tracked documentId;
@@ -31,6 +31,17 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
     return {
       document: [{ key: "camac-instance-id", value: String(this.instanceId) }],
     };
+  }
+
+  get categoryQueryParameters() {
+    const params = {};
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      if (this.instanceId) {
+        params["camac-instance-id"] = String(this.instanceId);
+      }
+    }
+
+    return params;
   }
 
   get defaultModelMeta() {
@@ -45,6 +56,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   get activeGroup() {
     return this.session.service?.id;
   }
+
   set activeGroup(_) {
     // we do not need the setter
   }
