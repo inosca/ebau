@@ -14,7 +14,8 @@ from django.conf import settings
 from django.db.models import Prefetch, QuerySet
 from django.utils.translation import get_language
 
-from camac.core.models import MultilingualModel
+from camac.core.models import MultilingualModel, ServiceContent
+from camac.user.models import Service
 from camac.utils import get_dict_item
 
 log = getLogger(__name__)
@@ -890,6 +891,37 @@ class MasterData(object):
         return queryset.select_related(*select_related).prefetch_related(
             *prefetch_related
         )
+
+    def municipality_service_content_resolver(self, lookup) -> Optional[str]:
+        """Find the municipality service content.
+
+        Resolve the municipality specific text for a form.
+
+        Example configuration for a instance_service_content value:
+
+        MASTER_DATA = {
+            "demo": {
+                "CONFIG": {
+                    "municipality_service_content": ("municipality_service_content", "municipality_slug")
+                }
+            }
+        }
+        """
+        municipality_slug = getattr(self, lookup, None)
+        if not municipality_slug:
+            return None
+
+        municipality = Service.objects.filter(pk=municipality_slug).first()
+        service_content = (
+            ServiceContent.objects.filter(
+                service=municipality,
+                forms__slug__in=[self.case.document.form.slug],
+            ).first()
+            if municipality
+            else None
+        )
+
+        return str(service_content.content) if service_content else None
 
 
 class MultipleCaseMasterdata:

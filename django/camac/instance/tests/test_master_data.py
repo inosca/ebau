@@ -351,3 +351,57 @@ def test_masterdata_from_request_cache(
         assert md0 is md1
     else:
         assert md0 is not md1
+
+
+@pytest.mark.parametrize(
+    "has_municipality_answer,expected",
+    [(True, "service content example"), (False, None)],
+)
+def test_master_data_municipality_service_content_resolver(
+    db,
+    master_data_settings,
+    caluma_case_factory,
+    caluma_document_factory,
+    caluma_dynamic_option_factory,
+    service_factory,
+    service_content_factory,
+    utils,
+    has_municipality_answer,
+    expected,
+):
+    master_data_settings["CONFIG"] = {
+        "municipality_slug": (
+            "answer",
+            "gemeinde",
+            {"value_parser": "dynamic_option", "prop": "slug"},
+        ),
+        "municipality_service_content": (
+            "municipality_service_content",
+            "municipality_slug",
+        ),
+    }
+
+    document = caluma_document_factory(form__slug="test-form")
+    case = caluma_case_factory(
+        document=document,
+    )
+    municipality = service_factory(service_group__name="municipality")
+    if has_municipality_answer:
+        utils.add_answer(document, "gemeinde", str(municipality.pk))
+        caluma_dynamic_option_factory(
+            slug=str(municipality.pk),
+            question_id="gemeinde",
+            document=document,
+        )
+
+    service_content = service_content_factory(
+        service=municipality,
+        content="service content example",
+    )
+    service_content.forms.set([document.form])
+    service_content.save()
+
+    master_data = MasterData(case)
+    master_data_value = getattr(master_data, "municipality_service_content")
+
+    assert master_data_value == expected

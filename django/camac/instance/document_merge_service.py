@@ -244,6 +244,9 @@ class DMSHandler:
                 "projectAuthors": enrich_personal_data(
                     graceful_get(master_data, "project_authors")
                 ),
+                "municipalityServiceContent": graceful_get(
+                    master_data, "municipality_service_content"
+                ),
                 "municipalityHeader": graceful_get(master_data, "municipality_name"),
                 "tagHeader": get_header_tags(instance, service),
                 "authorityHeader": get_header_authority(instance),
