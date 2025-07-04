@@ -11,6 +11,7 @@ import mainConfig from "ember-ebau-core/config/main";
 export default class CommunicationAttachmentSectionDropdownComponent extends Component {
   @service store;
   @service ebauModules;
+  @service("alexandria-config") config;
 
   @tracked dropdownOpen = false;
 
@@ -25,6 +26,7 @@ export default class CommunicationAttachmentSectionDropdownComponent extends Com
         : await this.store.query("category", {
             filter: { hasParent: false },
             include: "children",
+            ...this.config.categoryQueryParameters,
           });
 
     if (!this.args.onlyWithUploadPermission) {
