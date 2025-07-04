@@ -573,6 +573,10 @@ msgid "MUNICIPALITY_EMAIL"
 msgstr "EMAIL_COMUNE"
 
 #: camac/instance/placeholders/serializers.py
+msgid "MUNICIPALITY_SERVICE_CONTENT"
+msgstr "COMUNE_SERVIZIO_CONTENUTO"
+
+#: camac/instance/placeholders/serializers.py
 msgid "Email address of the municipality"
 msgstr "Indirizzo e-mail del comune"
 

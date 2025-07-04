@@ -2096,6 +2096,10 @@ MASTER_DATA = {
                 "gemeinde",
                 {"value_parser": "dynamic_option", "prop": "slug"},
             ),
+            "municipality_service_content": (
+                "municipality_service_content",
+                "municipality_slug",
+            ),
             "construction_zone": (
                 "answer",
                 "das-bauvorhaben-befindet-sich-in",
