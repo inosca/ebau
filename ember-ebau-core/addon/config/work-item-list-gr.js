@@ -14,7 +14,6 @@ export default {
       subservice: ["inquiry"],
       uso: ["inquiry"],
     },
-    services: [],
   },
   columns(status, role) {
     return [

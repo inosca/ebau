@@ -20,8 +20,6 @@ export default {
     serviceGroups: {
       "service-afb": ["check-pa", "cantonal-exam"],
     },
-    services: {},
-    default: [],
   },
   columns(status, role) {
     return [

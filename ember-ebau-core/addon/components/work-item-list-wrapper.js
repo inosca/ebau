@@ -318,9 +318,9 @@ export default class WorkItemListWrapperComponent extends Component {
     const availableTasks = workItemListConfig.availableTasks;
 
     let tasks = [
-      ...(availableTasks.roles[this.args.baseRole] ?? []),
-      ...(availableTasks.serviceGroups[this.args.serviceGroupSlug] ?? []),
-      ...(availableTasks.services[this.args.serviceId] ?? []),
+      ...(availableTasks.roles?.[this.args.baseRole] ?? []),
+      ...(availableTasks.serviceGroups?.[this.args.serviceGroupSlug] ?? []),
+      ...(availableTasks.services?.[this.args.serviceId] ?? []),
       ...(availableTasks.default ?? []),
     ];
 
