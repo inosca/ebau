@@ -1,0 +1,67 @@
+query LegalAppealDocuments(
+  $filter: [DocumentFilterSetType]
+  $orderQuestion: String!
+  $questions: [ID]!
+  $personQuestions: [ID]!
+) {
+  allDocuments(filter: $filter, order: [{ answerValue: $orderQuestion }]) {
+    edges {
+      node {
+        id
+        answers(filter: [{ questions: $questions }]) {
+          edges {
+            node {
+              id
+              question {
+                slug
+              }
+              ... on StringAnswer {
+                stringValue: value
+                selectedOption {
+                  label
+                  slug
+                }
+              }
+              ... on ListAnswer {
+                listValue: value
+                selectedOptions {
+                  edges {
+                    node {
+                      label
+                      slug
+                    }
+                  }
+                }
+              }
+              ... on DateAnswer {
+                dateValue: value
+              }
+              ... on TableAnswer {
+                tableValue: value {
+                  id
+                  answers(filter: [{ questions: $personQuestions }]) {
+                    edges {
+                      node {
+                        id
+                        question {
+                          slug
+                        }
+                        ... on StringAnswer {
+                          stringValue: value
+                          selectedOption {
+                            label
+                            slug
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

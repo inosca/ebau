@@ -10,3 +10,7 @@
     {{t "legal-submission.hint"}}
   </div>
 {{/if}}
+
+{{#if (await (can "view legal-appeal"))}}
+  <LegalAppealTable />
+{{/if}}

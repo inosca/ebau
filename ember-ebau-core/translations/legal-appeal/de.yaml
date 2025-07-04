@@ -1,0 +1,16 @@
+legal-appeal:
+  new: "Neue Beschwerde"
+  edit: "Beschwerde bearbeiten"
+
+  receipt-date: "Datum Eingang"
+  title: "Titel"
+  legal-claimants: "Beschwerdeführende"
+  withdrawn: "Zurückgezogen?"
+  has-representative: "Vertretung?"
+
+  loading-error: "Fehler beim Laden der Beschwerde"
+  create-error: "Fehler beim Erstellen der Beschwerde"
+
+  delete-confirm: "Wollen Sie die Beschwerde wirklich löschen?"
+  delete-success: "Die Beschwerde wurde erfolgreich gelöscht."
+  delete-error: "Fehler beim Löschen der Beschwerden"

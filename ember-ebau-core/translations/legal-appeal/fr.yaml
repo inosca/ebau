@@ -1,0 +1,15 @@
+legal-appeal:
+  new: "Nouvelle plainte"
+  edit: "Modifier la plainte"
+
+  receipt-date: "Date de réception"
+  title: "Titre"
+  legal-claimants: "Parties plaignantes"
+  has-representative: "Représentant(e) ?"
+
+  loading-error: "Erreur lors du chargement des plaintes"
+  create-error: "Erreur lors de la création de la plainte"
+
+  delete-confirm: "Voulez-vous vraiment supprimer la plainte ?"
+  delete-success: "La plainte a été supprimée avec succès."
+  delete-error: "Erreur lors de la suppression de la plainte"
