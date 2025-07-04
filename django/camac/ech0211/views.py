@@ -14,9 +14,14 @@ from generic_permissions.visibilities import VisibilityViewMixin
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 from rest_framework import status
 from rest_framework.authentication import get_authorization_header
-from rest_framework.exceptions import NotFound, ParseError
+from rest_framework.exceptions import NotFound, ParseError, PermissionDenied
 from rest_framework.generics import get_object_or_404
-from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
+from rest_framework.mixins import (
+    CreateModelMixin,
+    DestroyModelMixin,
+    ListModelMixin,
+    RetrieveModelMixin,
+)
 from rest_framework.parsers import JSONParser, MultiPartParser
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
@@ -24,6 +29,7 @@ from rest_framework.serializers import Serializer
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_xml.renderers import XMLRenderer
 
+from camac.communications.models import CommunicationsAttachment
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.ech0211.models import Message
 from camac.ech0211.throttling import ECHMessageThrottle
@@ -298,6 +304,7 @@ class ECHFileView(
     VisibilityViewMixin,
     RetrieveModelMixin,
     CreateModelMixin,
+    DestroyModelMixin,
     GenericViewSet,
 ):
     queryset = File.objects
@@ -402,3 +409,37 @@ class ECHFileView(
             },
             status=status.HTTP_201_CREATED,
         )
+
+    @swagger_auto_schema(
+        tags=["eCH-0211 files"],
+        manual_parameters=[
+            group_param,
+        ],
+        operation_summary="Delete a file",
+        operation_description=get_operation_description(),
+        auto_schema=conditional_factory(
+            SwaggerAutoSchema, lambda: settings.ECH0211.get("API_LEVEL") == "full"
+        ),
+    )
+    def destroy(self, request, *args, **kwargs):
+        if (
+            settings.ECH0211.get("API_LEVEL") != "full"
+            or settings.APPLICATION["DOCUMENT_BACKEND"] != "alexandria"
+        ):
+            raise NotFound()
+
+        file = self.get_object()
+
+        # do not allow deletion of files that are linked to a communication attachment
+        if CommunicationsAttachment.objects.filter(alexandria_file=file).exists():
+            raise PermissionDenied()
+
+        # execute the file deletion
+        document = file.document
+        response = super().destroy(request, *args, **kwargs)
+
+        # also delete the document if it has no remaining files
+        if document.files.count() == 0:
+            document.delete()
+
+        return response
