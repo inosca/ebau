@@ -49,7 +49,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get isCaseSuspendedForMyService() {
-    const caseMeta = this.raw?.case?.meta ?? {};
+    const caseMeta = this.case?.meta ?? {};
 
     return (caseMeta["suspended-services"] ?? [])
       .map(parseInt)
