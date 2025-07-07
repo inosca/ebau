@@ -83,10 +83,14 @@ class PatchedCategoryViewSet(views.CategoryViewSet):
         params = self.request.query_params
         queryset = super().get_queryset()
 
+        # If no group or service is set, ignore the filter.
+        if not self.request.group or not self.request.group.service:  # pragma: no cover
+            return queryset
+
         service_group = self.request.group.service.service_group
 
         # ARE service group does not need filtering.
-        if service_group.name == ARE_SERVICE_GROUP:
+        if not service_group or service_group.name == ARE_SERVICE_GROUP:
             return queryset
 
         # If a service is not invited by ARE, exclude alexandria categories
