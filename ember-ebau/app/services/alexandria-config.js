@@ -102,6 +102,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
         },
         category: {
           label: "category",
+          sort: true,
         },
       };
     }
