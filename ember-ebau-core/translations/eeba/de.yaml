@@ -1,0 +1,16 @@
+eeba:
+  integration:
+    re_check: "Seit der letzten Prüfung wurden Änderungen an relevanten Fragen vorgenommen. Bitte prüfen Sie erneut, ob eine Entsorgungserklärung für Ihr Gesuch eingereicht werden muss."
+    check: "Prüfen, ob eEBA nötig"
+    open: "eEBA öffnen"
+    status_eeba: "Status der eEBA"
+    status:
+      none: "Entwurf"
+      completed: "Abgeschlossen"
+      rerun: "Wiederholen"
+      retry: "Wiederholen"
+    description:
+      required: |-
+        Basierend auf Ihren Eingaben ist die Eingabe einer elektronischen Entsorgungserklärung (eEBA) <strong>nötig</strong>. Es wurde bereits eine eEBA für diese Gesuch vorbereitet. Bitte vergessen Sia nach Eingabe der eEBA   nicht, dieses Gesuch zu vervollständigen und einzureichen.
+      not_required: |-
+        Basierend auf Ihren Eingaben ist die Eingabe einer elektronischen Entsorgungserklärung (eEBA) <strong>nicht nötig</strong>. Falls die Lokalisierung oder die oben gemachten Eingaben ändern, können Sie die Notwendigkeit einer eEBA hier erneut prüfen.
