@@ -1,3 +1,4 @@
+import re
 from dataclasses import dataclass, field
 from logging import getLogger
 from operator import attrgetter
@@ -921,7 +922,15 @@ class MasterData(object):
             else None
         )
 
-        return str(service_content.content) if service_content else None
+        return (
+            self._markdown_links_to_plain_text(str(service_content.content))
+            if service_content
+            else None
+        )
+
+    def _markdown_links_to_plain_text(self, value: str) -> str:
+        """Convert markdown links to plain text."""
+        return re.sub(r"\[[^\]]+\]\(([^\)]+)\)", r"\1", value)
 
 
 class MultipleCaseMasterdata:

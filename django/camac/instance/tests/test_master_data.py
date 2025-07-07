@@ -355,7 +355,13 @@ def test_masterdata_from_request_cache(
 
 @pytest.mark.parametrize(
     "has_municipality_answer,expected",
-    [(True, "service content example"), (False, None)],
+    [
+        (
+            True,
+            "service content example https://example.com/test?query=1 and https://example.com/test?query=2",
+        ),
+        (False, None),
+    ],
 )
 def test_master_data_municipality_service_content_resolver(
     db,
@@ -396,7 +402,7 @@ def test_master_data_municipality_service_content_resolver(
 
     service_content = service_content_factory(
         service=municipality,
-        content="service content example",
+        content="service content example [Link Label](https://example.com/test?query=1) and [Link Label #2](https://example.com/test?query=2)",
     )
     service_content.forms.set([document.form])
     service_content.save()
