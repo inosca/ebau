@@ -95,6 +95,12 @@ export default class WorkItemListItemComponent extends Component {
     };
   }
 
+  get rowClasses() {
+    return this.args.workItem?.isCaseSuspendedForMyService
+      ? "workitem--suspended"
+      : "";
+  }
+
   get highlightClasses() {
     if (!this.args.highlight) return "";
 

@@ -1,0 +1,6 @@
+.main-content .uk-table tr.workitem--suspended {
+  &,
+  a {
+    color: color.adjust($global-muted-color, $lightness: 10%);
+  }
+}

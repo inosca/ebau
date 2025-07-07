@@ -619,6 +619,42 @@ def test_correction_settings(settings, request):
 
 
 @pytest.fixture
+def deadlines_settings(settings, request):
+    """Module-specific settings for deadlines (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="deadlines",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_deadlines_settings(settings, request):
+    """Disable the deadlines module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="deadlines",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def gr_deadlines_settings(settings, request):
+    """Module-specific settings for deadlines (canton GR)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="deadlines",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def decision_settings(settings, request):
     """Module-specific settings for decision (default)."""
     return generate_module_settings(

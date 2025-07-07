@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-20 13:58+0200\n"
-"PO-Revision-Date: 2025-06-20 14:02+0200\n"
+"POT-Creation-Date: 2025-06-27 14:31+0200\n"
+"PO-Revision-Date: 2024-09-12 16:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -42,13 +42,15 @@ msgid "Email '%(email)s' has already access to instance %(instance)s"
 msgstr ""
 "L'utilisateur avec l'email '%(email)s' a déjà accès au dossier %(instance)s"
 
-#: camac/billing/admin.py camac/billing/models.py camac/user/models.py
-#: camac/work_items/admin.py camac/work_items/models.py
+#: camac/billing/admin.py camac/billing/models.py camac/deadlines/admin.py
+#: camac/deadlines/models.py camac/user/models.py camac/work_items/admin.py
+#: camac/work_items/models.py
 msgid "Services"
 msgstr "Organisations"
 
-#: camac/billing/admin.py camac/billing/models.py camac/user/models.py
-#: camac/work_items/admin.py camac/work_items/models.py
+#: camac/billing/admin.py camac/billing/models.py camac/deadlines/admin.py
+#: camac/deadlines/models.py camac/user/models.py camac/work_items/admin.py
+#: camac/work_items/models.py
 msgid "Service groups"
 msgstr "Types d'organisation"
 
@@ -160,8 +162,8 @@ msgstr ""
 msgid "Remark"
 msgstr "Remarque"
 
-#: camac/billing/models.py camac/core/admin/views.py camac/user/admin/views.py
-#: camac/user/models.py camac/work_items/models.py
+#: camac/billing/models.py camac/core/admin/views.py camac/deadlines/models.py
+#: camac/user/admin/views.py camac/user/models.py camac/work_items/models.py
 msgid "Name"
 msgstr "Nom"
 
@@ -377,6 +379,11 @@ msgstr "Informer requérants en compensation des charges"
 msgid "Issue statement on appeal"
 msgstr "Prendre position sur le recours"
 
+#: camac/caluma/tests/test_deadlines.py camac/deadlines/models.py
+#: camac/deadlines/tests/test_model_suspensions.py
+msgid "Automatic"
+msgstr ""
+
 #: camac/communications/serializers.py
 msgid "Missing Content-Type header"
 msgstr ""
@@ -520,6 +527,51 @@ msgstr ""
 
 #: camac/core/models.py
 msgid "Service contents"
+msgstr ""
+
+#: camac/deadlines/models.py camac/work_items/models.py
+msgid "Lead time in days"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Is default"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Deadline type"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Deadline types"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Additional demand suspension"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Manual suspension"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Process deadline days"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "The number of days processed since the start date."
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Instance deadline"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Instance deadlines"
+msgstr ""
+
+#: camac/deadlines/serializers.py
+#: camac/deadlines/tests/test_model_suspensions.py
+msgid "End date must be after start date."
 msgstr ""
 
 #: camac/document/filters.py
@@ -1901,10 +1953,6 @@ msgstr ""
 
 #: camac/work_items/models.py
 msgid "Current service and no user"
-msgstr ""
-
-#: camac/work_items/models.py
-msgid "Lead time in days"
 msgstr ""
 
 #: camac/work_items/models.py

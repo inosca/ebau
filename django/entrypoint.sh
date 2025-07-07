@@ -25,6 +25,8 @@ if [ "$#" -lt 1 ]; then
   echo "   - qcluster          to run the django-q service"
   echo "   - celery            to run the celery service"
   echo "   - celerydev         to run the celery service in development mode"
+  echo "   - celery-beat       to run the celery beat scheduler"
+  echo "   - celery-beat-dev   to run the celery beat scheduler in development mode"
   echo "   - webdav            to run the webdav server via gunicorn and webdav.wsgi"
   echo ""
   echo "Any other command will be run as-is (for example you can run bash"
@@ -80,6 +82,12 @@ case "$1" in
     wait-for-it ${REDIS_HOST:-redis}:${REDIS_PORT:-6379}
     watchmedo auto-restart -d . --recursive -p '*.py' -- celery -A camac worker -l INFO -E -O fair;
     ;;
+  celery-beat)
+    exec celery -A camac beat -l INFO -E -O fair --scheduler django_celery_beat.schedulers:DatabaseScheduler
+      ;;
+  celery-beat-dev)
+    exec watchmedo auto-restart -d . --recursive -p '*.py' -- celery -A camac worker -l INFO -E -O fair --scheduler django_celery_beat.schedulers:DatabaseScheduler
+  ;;
   webdav )
     exec gunicorn --workers "${DJANGO_WEBDAV_GUNICORN_WORKERS:-8}" --access-logfile - --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" --bind :"${DJANGO_WEBDAV_SERVER_PORT:-8000}" camac.wsgi_dav
     ;;

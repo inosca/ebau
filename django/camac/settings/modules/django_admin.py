@@ -26,6 +26,7 @@ DJANGO_ADMIN = {
             "core.ServiceContent",
             "gis.GISDataSource",
             "notification.NotificationTemplate",
+            "deadlines.DeadlineType",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "notification.NotificationTemplate",

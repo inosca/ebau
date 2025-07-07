@@ -11,6 +11,7 @@ PUBLICATION = {
         },
         "SHOW_MAIN_FORM": False,
         "NEIGHBORS_TABLE_QUESTION": None,
+        "QUESTIONS": {"MUNICIPALITY_END_DATE": "ende-publikationsorgan-gemeinde"},
     },
     "test": {
         "ENABLED": True,

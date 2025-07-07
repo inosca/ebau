@@ -91,6 +91,7 @@ INSTALLED_APPS = [
     "localized_fields",
     "psqlextra",
     "simple_history",
+    "django_celery_beat",
     # Camac and it's dependencies
     "drf_yasg",
     "camac.core.apps.DefaultConfig",
@@ -135,6 +136,7 @@ INSTALLED_APPS = [
     "camac.sanctions.apps.SanctionsConfig",
     "camac.work_items.apps.WorkItemsConfig",
     "camac.rulesets.apps.RulesetsConfig",
+    "camac.deadlines.apps.DeadlinesConfig",
 ]
 
 if DEBUG:  # pragma: no cover
@@ -3513,6 +3515,7 @@ CHANGE_FORM = load_module_settings("change_form")
 GEVER = load_module_settings("gever")
 RULESETS = load_module_settings("rulesets")
 EEBA_INTEGRATION = load_module_settings("eeba_integration")
+DEADLINES = load_module_settings("deadlines")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

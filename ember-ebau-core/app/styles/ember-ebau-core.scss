@@ -10,6 +10,7 @@ $custom-muted-color-light: color.adjust(
 );
 
 @import "modules/dossier-import";
+@import "modules/deadlines";
 @import "components/filters/select";
 @import "components/additional-demand";
 @import "components/billing-table";

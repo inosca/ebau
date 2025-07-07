@@ -139,6 +139,17 @@ services:
       - "6900-7000:6900-7000"
     command: celerydev
 
+  celery-beat:
+    <<: *django
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
+      args:
+        REQUIREMENTS: requirements-dev.txt
+    ports: []
+    command: celery-beat-dev
+
   ember-caluma-portal:
     user: nginx:nginx
     environment:

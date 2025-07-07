@@ -27,6 +27,10 @@ export default {
   communications: {
     enabled: true,
   },
+  deadlines: {
+    enabled: true,
+    useEndDate: true,
+  },
   additionalDemands: true,
   dashboard: {
     useLegacy: true,

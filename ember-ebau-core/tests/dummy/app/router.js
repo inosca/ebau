@@ -3,6 +3,7 @@ import { service } from "@ember/service";
 
 import config from "dummy/config/environment";
 import registerBilling from "ember-ebau-core/modules/billing";
+import registerDeadlines from "ember-ebau-core/modules/deadlines";
 import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerProfile from "ember-ebau-core/modules/profile";
 import registerRejection from "ember-ebau-core/modules/rejection";
@@ -45,4 +46,5 @@ Router.map(function () {
   registerProfile(this);
   registerServicePermissions(this);
   registerRulesets(this);
+  registerDeadlines(this);
 });

@@ -113,6 +113,13 @@ CONSTRUCTION_MONITORING_DUMP_CONFIG = {
     },
 }
 
+CELERY_DUMP_CONFIG = {
+    "celery": {
+        "django_celery_beat.PeriodicTask": Q(),
+        "django_celery_beat.IntervalSchedule": Q(),
+    },
+}
+
 DUMP = {
     "default": {
         "CONFIG": {
@@ -630,6 +637,8 @@ DUMP = {
                     "user.Group": Q(pk__lte=3),
                     "user.GroupT": Q(pk__lte=3),
                 },
+                # Deadlines
+                "deadlines": {"deadlines.DeadlineType": Q()},
                 # Distribution
                 **DISTRIBUTION_DUMP_CONFIG,
                 # Additional demand
@@ -638,6 +647,7 @@ DUMP = {
                     **generate_form_dump_config(regex=r"^publikation?$"),
                 },
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
+                **CELERY_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
@@ -688,6 +698,7 @@ DUMP = {
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
+                **CELERY_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
@@ -752,6 +763,7 @@ DUMP = {
                 "caluma_objection_form": generate_form_dump_config(
                     regex=r"^einwendung(en)?"
                 ),
+                **CELERY_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

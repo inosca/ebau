@@ -159,6 +159,20 @@ export default class CustomCaseBaseModel extends CaseModel {
     return this.#responsible.value;
   }
 
+  #deadline = trackedFunction(this, async () => {
+    return (
+      await this.store.query("instance-deadline", {
+        filter: {
+          instance: this.instanceId,
+        },
+      })
+    )[0];
+  });
+
+  get deadline() {
+    return this.#deadline.value;
+  }
+
   getAnswerDisplayValue(slug) {
     return getAnswerDisplayValue(this.raw.document, slug);
   }

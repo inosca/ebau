@@ -11,6 +11,7 @@ export default class InstanceModel extends Model {
   @attr name;
   @attr calumaForm;
   @attr meta;
+  @attr("boolean") isSuspended;
   @attr isModification;
   @attr isPaper;
   @attr dossierNumber;
@@ -32,6 +33,12 @@ export default class InstanceModel extends Model {
   previousInstanceState;
   @belongsTo("public-service", { inverse: null, async: true, readOnly: true })
   activeService;
+  @belongsTo("instance-deadline", {
+    inverse: null,
+    async: true,
+    readOnly: true,
+  })
+  deadline;
 
   @hasMany("service", { inverse: null, async: true, readOnly: true })
   circulationInitializerServices;

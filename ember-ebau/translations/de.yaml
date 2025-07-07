@@ -7,6 +7,7 @@ nav:
   appeal: "Beschwerdeverfahren"
   bab: "BaB"
   modification: "Projektänderung"
+  suspended: "Sistiert"
   masterData:
     label: "Stammdaten"
     hide: "Stammdaten verstecken"
@@ -39,7 +40,7 @@ global:
 
 case:
   new:
-    button: 
+    button:
       label: "Neues Dossier"
     title: "Neues Dossier erfassen"
     sections:

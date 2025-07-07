@@ -5,6 +5,7 @@ caluma-alexandria==7.2.4
 celery==5.4.0
 codetiming==1.4.0
 cryptography==44.0.2
+django-celery-beat==2.7.0
 dataclasses-json==0.6.7
 deepmerge==2.0
 defusedxml==0.7.1

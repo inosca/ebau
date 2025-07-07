@@ -114,6 +114,10 @@ services:
     <<: *django
     command: celery
 
+  celery-beat:
+    <<: *django
+    command: celery-beat
+
 volumes:
   pgdata:
   redis_data:
