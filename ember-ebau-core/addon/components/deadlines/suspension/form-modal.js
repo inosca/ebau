@@ -1,7 +1,6 @@
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { didCancel, task } from "ember-concurrency";
-import { DateTime } from "luxon";
 
 import parseError from "ember-ebau-core/utils/parse-error";
 import DeadlinesSuspensionValidations from "ember-ebau-core/validations/suspension-form";
@@ -12,7 +11,7 @@ export default class DeadlineSuspensionFormModalComponent extends Component {
   @service store;
 
   validations = DeadlinesSuspensionValidations;
-  today = DateTime.now().toISODate();
+  today = new Date();
   formData = {};
 
   constructor(...args) {

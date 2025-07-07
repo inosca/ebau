@@ -2,7 +2,6 @@ import { service } from "@ember/service";
 import { isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { didCancel, task, timeout } from "ember-concurrency";
-import { DateTime } from "luxon";
 
 import DeadlinesDeadlineValidations from "../../../validations/deadline-form";
 
@@ -14,7 +13,7 @@ export default class DeadlineDeadlineFormModalComponent extends Component {
   @service store;
 
   validations = DeadlinesDeadlineValidations;
-  today = DateTime.now().toISODate();
+  today = new Date();
   formData = {};
 
   constructor(...args) {

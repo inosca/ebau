@@ -4,3 +4,9 @@
     color: color.adjust($global-muted-color, $lightness: 10%);
   }
 }
+
+.main-content #deadlines-detail-grid > div {
+  min-height: 36px;
+  margin: 0;
+  align-content: center;
+}
