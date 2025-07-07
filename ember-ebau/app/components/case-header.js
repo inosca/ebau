@@ -12,15 +12,23 @@ export default class CaseHeaderComponent extends Component {
   @service notification;
   @service intl;
 
-  @tracked hideHeader =
+  @tracked compact =
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? false;
+
+  get extended() {
+    return !this.compact;
+  }
+
+  get toggleButtonTooltip() {
+    return `nav.masterData.${this.compact ? "show" : "hide"}`;
+  }
 
   @action
   toggleHeader() {
-    const value = !this.hideHeader;
+    const value = !this.compact;
 
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(value));
-    this.hideHeader = value;
+    this.compact = value;
   }
 
   @dropTask
