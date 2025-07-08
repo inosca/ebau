@@ -8,22 +8,22 @@ class ProductNumberConfig(EBauConfig):
     name: str = Field(
         description="Name of the product number. Use gettext if it needs to be translated."
     )
-    only_for_services: list[str] | None = Field(
+    only_for_services: list[str] = Field(
         description="List of service slugs which this product number is visible for.",
-        default=None,
+        default=[],
     )
-    only_for_service_groups: list[str] | None = Field(
+    only_for_service_groups: list[str] = Field(
         description=(
             "List of service_group slugs which this product number is visible for."
             "For example if you want to only allow product numbers for cantonal services."
         ),
-        default=None,
+        default=[],
     )
-    not_for_services: list[str] | None = Field(
+    not_for_services: list[str] = Field(
         description="List of service slugs which this product number is NOT visible for.",
-        default=None,
+        default=[],
     )
-    only_subsequent_charge: bool | None = Field(
+    only_subsequent_charge: bool = Field(
         description="Should this product number be only available if an invoice exists already.",
         default=False,
     )
@@ -51,18 +51,18 @@ class WilkenConfig(EBauConfig):
 
 
 class BillingConfig(ModuleApplicationConfig):
-    product_numbers: list[ProductNumberConfig] | None = Field(
+    product_numbers: list[ProductNumberConfig] = Field(
         description=(
             "Configure product numbers which can be selected in the billing module "
             "when creating new billing entries. This also requires the `productNumber` flag "
             "to be set to true in `ember-ebau-core/addon/config/features/[canton].js`."
         ),
-        default=None,
+        default=[],
     )
     wilken: WilkenConfig | None = Field(
         description="Configuration for the wilken export feature (currently for SZ)",
         default=None,
     )
-    cantonal_service_group_slugs: list[str] | None = Field(
-        description="Which ServiceGroup's are cantonal. List of slugs.", default=None
+    cantonal_service_group_slugs: list[str] = Field(
+        description="Which ServiceGroup's are cantonal. List of slugs.", default=[]
     )
