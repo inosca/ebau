@@ -1,3 +1,6 @@
+{{#if (maybe-translate "legal-submission.header")}}
+  <h2>{{t "legal-submission.header"}}</h2>
+{{/if}}
 <LegalSubmissionTable
   @types={{this.types}}
   @status={{this.status}}
@@ -12,5 +15,6 @@
 {{/if}}
 
 {{#if (await (can "view legal-appeal"))}}
+  <h2 class="uk-margin-large-top">{{t "legal-appeal.header"}}</h2>
   <LegalAppealTable />
 {{/if}}
