@@ -620,7 +620,6 @@
             "propertyName": "art_txt"
           },
           {
-            "cast": "integer",
             "question": "parzellen.flaeche-m",
             "propertyName": "flaechenmass"
           }

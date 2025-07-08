@@ -46979,7 +46979,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Fl\\u00e4che [m\\u00b2]\", \"fr\": null, \"it\": null}",
-      "type": "integer",
+      "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,

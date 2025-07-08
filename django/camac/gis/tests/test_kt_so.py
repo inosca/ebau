@@ -113,7 +113,7 @@ def so_data_sources(caluma_question_factory, settings, mock_municipalities):
         ("e-grid", Question.TYPE_TEXT),
         ("lagekoordinaten-ost", Question.TYPE_FLOAT),
         ("lagekoordinaten-nord", Question.TYPE_FLOAT),
-        ("flaeche-m", Question.TYPE_INTEGER),
+        ("flaeche-m", Question.TYPE_TEXT),
         ("nutzungsplanung-grundnutzung", Question.TYPE_TEXTAREA),
         ("nutzungsplanung-grundnutzung-kanton", Question.TYPE_TEXTAREA),
         ("nutzungsplanung-weitere-festlegungen", Question.TYPE_TEXTAREA),
