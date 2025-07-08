@@ -2177,14 +2177,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-sha256-pairwise-sub-mapper",
               "saml-user-property-mapper",
-              "saml-role-list-mapper",
-              "saml-user-attribute-mapper",
+              "oidc-usermodel-attribute-mapper",
               "oidc-full-name-mapper",
               "oidc-address-mapper",
+              "saml-user-attribute-mapper",
+              "saml-role-list-mapper",
               "oidc-usermodel-property-mapper",
-              "oidc-usermodel-attribute-mapper"
+              "oidc-sha256-pairwise-sub-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2210,12 +2210,12 @@
             "allowed-protocol-mapper-types": [
               "oidc-full-name-mapper",
               "oidc-address-mapper",
-              "saml-user-attribute-mapper",
               "saml-user-property-mapper",
+              "saml-user-attribute-mapper",
               "saml-role-list-mapper",
               "oidc-usermodel-attribute-mapper",
-              "oidc-usermodel-property-mapper",
-              "oidc-sha256-pairwise-sub-mapper"
+              "oidc-sha256-pairwise-sub-mapper",
+              "oidc-usermodel-property-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -4682,6 +4682,60 @@
         "authenticationFlowBindingOverrides": {},
         "fullScopeAllowed": true,
         "nodeReRegistrationTimeout": -1,
+        "protocolMappers": [
+          {
+            "id": "5fe3e52e-f5b6-4fe3-acd7-f469bedb47e3",
+            "name": "eEbaCommunityId",
+            "protocol": "openid-connect",
+            "protocolMapper": "oidc-usermodel-attribute-mapper",
+            "consentRequired": false,
+            "config": {
+              "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "user.attribute": "eEbaCommunityId",
+              "id.token.claim": "true",
+              "lightweight.claim": "false",
+              "access.token.claim": "true",
+              "claim.name": "eEbaCommunityId",
+              "jsonType.label": "String"
+            }
+          },
+          {
+            "id": "553a10a6-ee69-4656-84b7-dd9dbd02dbfa",
+            "name": "origin",
+            "protocol": "openid-connect",
+            "protocolMapper": "oidc-hardcoded-claim-mapper",
+            "consentRequired": false,
+            "config": {
+              "introspection.token.claim": "true",
+              "claim.value": "eeba",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
+              "lightweight.claim": "false",
+              "access.token.claim": "true",
+              "claim.name": "origin",
+              "jsonType.label": "String",
+              "access.tokenResponse.claim": "false"
+            }
+          },
+          {
+            "id": "1abfe0e2-d550-4106-a1b7-c16a91796ca0",
+            "name": "client roles",
+            "protocol": "openid-connect",
+            "protocolMapper": "oidc-usermodel-client-role-mapper",
+            "consentRequired": false,
+            "config": {
+              "introspection.token.claim": "true",
+              "multivalued": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
+              "lightweight.claim": "false",
+              "access.token.claim": "true",
+              "claim.name": "resource_access.${client_id}.roles",
+              "jsonType.label": "String"
+            }
+          }
+        ],
         "defaultClientScopes": [
           "web-origins",
           "acr",
@@ -4735,6 +4789,26 @@
         "authenticationFlowBindingOverrides": {},
         "fullScopeAllowed": true,
         "nodeReRegistrationTimeout": -1,
+        "protocolMappers": [
+          {
+            "id": "74ed17f7-3fe6-4d09-a5b1-a66c13255491",
+            "name": "origin",
+            "protocol": "openid-connect",
+            "protocolMapper": "oidc-hardcoded-claim-mapper",
+            "consentRequired": false,
+            "config": {
+              "introspection.token.claim": "true",
+              "claim.value": "eeba",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
+              "lightweight.claim": "false",
+              "access.token.claim": "true",
+              "claim.name": "origin",
+              "jsonType.label": "String",
+              "access.tokenResponse.claim": "false"
+            }
+          }
+        ],
         "defaultClientScopes": [
           "web-origins",
           "acr",
@@ -6200,14 +6274,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-attribute-mapper",
+              "oidc-full-name-mapper",
+              "oidc-address-mapper",
+              "oidc-usermodel-attribute-mapper",
+              "oidc-usermodel-property-mapper",
               "saml-user-property-mapper",
               "saml-role-list-mapper",
-              "oidc-usermodel-attribute-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "oidc-address-mapper",
-              "oidc-usermodel-property-mapper",
-              "oidc-full-name-mapper"
+              "saml-user-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -6277,13 +6351,13 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
+              "oidc-usermodel-attribute-mapper",
               "saml-user-attribute-mapper",
-              "saml-role-list-mapper",
               "oidc-full-name-mapper",
               "saml-user-property-mapper",
               "oidc-address-mapper",
-              "oidc-usermodel-attribute-mapper",
               "oidc-usermodel-property-mapper",
+              "saml-role-list-mapper",
               "oidc-sha256-pairwise-sub-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
