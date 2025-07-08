@@ -649,12 +649,12 @@
     "pk": "meldung-pv",
     "fields": {
       "created_at": "2024-09-06T07:34:40.981Z",
-      "modified_at": "2024-09-06T07:56:08.533Z",
+      "modified_at": "2025-07-08T09:08:04.581Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "name": "{\"de\": \"Meldung PV-Anlage\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Meldung Solaranlage\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
         "order": 2,
