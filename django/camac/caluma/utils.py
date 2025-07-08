@@ -22,9 +22,11 @@ from django.db.models import (
     IntegerField,
     OuterRef,
     Q,
+    QuerySet,
     Value,
     When,
 )
+from django.db.models.expressions import Subquery
 from django.db.models.functions import Cast
 from django.utils.translation import get_language
 from jwt import decode as jwt_decode
@@ -181,22 +183,137 @@ def sync_inquiry_deadline(
     return inquiry
 
 
-def work_item_by_addressed_service_condition(service_condition):
-    return Exists(
-        Service.objects.filter(
-            Any(
-                F("pk"),
-                Cast(
-                    OuterRef("addressed_groups"),
-                    output_field=ArrayField(IntegerField()),
-                ),
-            )
-            & Q(service_condition)
+def filter_services_on_outerref(outer_ref_field: str, service_condition: Q) -> QuerySet:
+    """Return a queryset of services which are in the outer_ref_field and filtered by service_condition."""
+    return Service.objects.filter(
+        Any(
+            F("pk"),
+            Cast(
+                OuterRef(outer_ref_field),
+                output_field=ArrayField(IntegerField()),
+            ),
         )
+        & Q(service_condition)
     )
 
 
-def visible_inquiries_expression(group: Group) -> Expression:
+def work_item_by_addressed_service_condition(service_condition: Q) -> Subquery:
+    """Filter work_items with addressed_groups by service_condition."""
+    return Exists(filter_services_on_outerref("addressed_groups", service_condition))
+
+
+def get_additional_inquiries_filters(group: Group) -> Expression | Subquery | Q:
+    current_service = group.service
+    match settings.APPLICATION_NAME:
+        case "kt_schwyz":
+            # Inquiries in which the current service is not involved (addressed or controlling)
+            # are only visible if the current service is permitted to see the work-item
+            # according to its service_group.
+            visibility_config = settings.APPLICATION.get(
+                "INTER_SERVICE_GROUP_VISIBILITIES"
+            )
+            return work_item_by_addressed_service_condition(
+                Q(
+                    service_group__pk__in=visibility_config.get(
+                        current_service.service_group_id, []
+                    )
+                ),
+            )
+        case "kt_bern":
+            # Inquiries in which the current service is not involved (addressed or controlling)
+            # are only visible if they are not addressed to subservices or if the current
+            # service is the parent service of the addressed subservice.
+            return work_item_by_addressed_service_condition(
+                Q(service_parent__isnull=True) | Q(service_parent_id=current_service.pk)
+            )
+        case "kt_gr" if group.role.name == "subservice":
+            # Subservices can see "adjecent" subservices inquiries
+            return work_item_by_addressed_service_condition(
+                Q(service_parent_id=current_service.service_parent_id)
+                & ~Q(groups__role__name="uso"),
+            )
+        case "kt_so":
+            filters = (
+                # Inquiries of child services of the current service
+                Q(service_parent_id=current_service.pk)
+                # Inquiries of services which have the same parent service as the current service
+                | Q(
+                    service_parent_id__isnull=False,
+                    service_parent_id=current_service.service_parent_id,
+                )
+            )
+            if (
+                current_service.service_parent is None
+                and current_service.service_group.name
+                in [
+                    "service-cantonal",
+                    "service-bab",
+                ]
+            ):
+                return work_item_by_addressed_service_condition(
+                    filters
+                    # Inquiries of services without a parent service
+                    | Q(service_parent__isnull=True),
+                )
+
+            return Exists(
+                filter_services_on_outerref("addressed_groups", filters)
+                # Show only additional inquiries which are not controlled
+                # by a cantonal or bab service.
+                | (
+                    filter_services_on_outerref(
+                        "controlling_groups",
+                        ~Q(
+                            service_group__name__in=[
+                                "service-cantonal",
+                                "service-bab",
+                            ],
+                        ),
+                    )
+                    & filter_services_on_outerref(
+                        "addressed_groups",
+                        Q(
+                            service_parent__isnull=False,
+                        ),
+                    )
+                )
+            )
+        case "kt_ag" if (
+            current_service.service_parent is None
+            and current_service.service_group.name
+            in [
+                "service-cantonal",
+                "service-afb",
+            ]
+        ):
+            # Cantonal services (including the AfB) can see inquiries from other
+            # cantonal services and external services
+            cantonal_visibility = Q(
+                service_parent__isnull=True,
+                service_group__name__in=[
+                    "service-cantonal",
+                    "service-external",
+                    "service-afb",
+                ],
+            )
+
+            if current_service.service_group.name == "service-afb":
+                # The AfB can additionally see inquiries from subservices of
+                # cantonal services
+                # TODO: This requirements needs to be confirmed by the customer. It
+                # may be, that the AfB should also be allowed to see inquiries from
+                # subservices of external services
+                cantonal_visibility |= Q(
+                    service_parent__isnull=False,
+                    service_parent__service_group__name="service-cantonal",
+                )
+            return work_item_by_addressed_service_condition(cantonal_visibility)
+        case _:
+            # Services only see their own inquiries
+            return Value(False)
+
+
+def visible_inquiries_expression(group: Group) -> Q | Expression:
     """
     Filter to query inquiries visible to a certain group.
 
@@ -208,77 +325,8 @@ def visible_inquiries_expression(group: Group) -> Expression:
     if not group or not group.service:  # pragma: no cover
         return Value(False)
 
+    additional_inquiries_filter = get_additional_inquiries_filters(group)
     service = group.service
-
-    additional_inquiries_filter = Value(True)
-    if settings.APPLICATION_NAME == "kt_schwyz":
-        # Inquiries in which the current service is not involved (addressed or controlling)
-        # are only visible if the current service is permitted to see the work-item
-        # according to its service_group.
-        visibility_config = settings.APPLICATION.get("INTER_SERVICE_GROUP_VISIBILITIES")
-        additional_inquiries_filter = work_item_by_addressed_service_condition(
-            Q(service_group__pk__in=visibility_config.get(service.service_group_id, []))
-        )
-    elif settings.APPLICATION_NAME == "kt_bern":
-        # Inquiries in which the current service is not involved (addressed or controlling)
-        # are only visible if they are not addressed to subservices or if the current
-        # service is the parent service of the addressed subservice.
-        additional_inquiries_filter = work_item_by_addressed_service_condition(
-            Q(service_parent__isnull=True) | Q(service_parent_id=service.pk)
-        )
-    elif settings.APPLICATION_NAME == "kt_gr":
-        if group.role.name == "subservice":
-            # Subservices can see "adjecent" subservices inquiries
-            additional_inquiries_filter = work_item_by_addressed_service_condition(
-                Q(service_parent_id=service.service_parent_id)
-                & ~Q(groups__role__name="uso")
-            )
-        else:
-            # Services only see their own inquiries
-            additional_inquiries_filter = Value(False)
-    elif settings.APPLICATION_NAME == "kt_so":
-        additional_inquiries_filter = work_item_by_addressed_service_condition(
-            # Inquiries of services without a parent service
-            Q(service_parent__isnull=True)
-            # Inquiries of child services of the current service
-            | Q(service_parent_id=service.pk)
-            # Inquiries of services which have the same parent service as the current service
-            | Q(service_parent_id=service.service_parent_id)
-        )
-    elif settings.APPLICATION_NAME == "kt_ag":
-        # Per default, only inquiries where the current service is involved
-        # (controlling or addressed) are visible
-        additional_inquiries_filter = Value(False)
-
-        # Cantonal services (including the AfB) can see inquiries from other
-        # cantonal services and external services
-        cantonal_visibility = Q(
-            service_parent__isnull=True,
-            service_group__name__in=[
-                "service-cantonal",
-                "service-external",
-                "service-afb",
-            ],
-        )
-
-        if service.service_group.name == "service-afb":
-            # The AfB can additionally see inquiries from subservices of
-            # cantonal services
-            # TODO: This requirements needs to be confirmed by the customer. It
-            # may be, that the AfB should also be allowed to see inquiries from
-            # subservices of external services
-            cantonal_visibility |= Q(
-                service_parent__isnull=False,
-                service_parent__service_group__name="service-cantonal",
-            )
-
-        if service.service_parent is None and service.service_group.name in [
-            "service-cantonal",
-            "service-afb",
-        ]:
-            additional_inquiries_filter = work_item_by_addressed_service_condition(
-                cantonal_visibility
-            )
 
     direct_inquiries_when = Value(False)
     if settings.DISTRIBUTION["QUESTIONS"].get("DIRECT"):

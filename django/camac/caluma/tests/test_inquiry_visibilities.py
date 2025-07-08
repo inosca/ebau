@@ -125,6 +125,10 @@ def so_inquiries(
     root_service = service_factory(name="root_service")
     service_1 = service_factory(name="service_1")
     service_2 = service_factory(name="service_2")
+    canton_service = service_factory(
+        name="canton_service", service_group__name="service-cantonal"
+    )
+    bab_service = service_factory(name="bab_service", service_group__name="service-bab")
 
     service_1_subservice_1 = service_factory(
         name="service_1_subservice_1", service_parent=service_1
@@ -143,7 +147,12 @@ def so_inquiries(
             (root_service, service_2),
             (service_1, service_1_subservice_1),
             (service_1, service_1_subservice_2),
+            (service_1, canton_service),
             (service_2, service_2_subservice_1),
+            (service_2, canton_service),
+            (canton_service, bab_service),
+            (canton_service, service_1_subservice_1),
+            (bab_service, service_1),
         ]
     ]
 
@@ -157,7 +166,54 @@ def so_inquiries(
     return select_service
 
 
-@pytest.mark.parametrize("service_name", ["service_1", "service_1_subservice_1"])
+@pytest.mark.parametrize(
+    "service_name,expected_services",
+    [
+        (
+            "service_1",
+            [
+                "service_1",
+                "service_1_subservice_1",
+                "service_1_subservice_2",
+                "canton_service",
+            ],
+        ),
+        (
+            "service_1_subservice_1",
+            [
+                "service_1_subservice_1",
+                "service_1_subservice_2",
+            ],
+        ),
+        (
+            "service_2",
+            [
+                "service_2",
+                "service_2_subservice_1",
+                "canton_service",
+            ],
+        ),
+        (
+            "canton_service",
+            [
+                "service_1",
+                "service_1_subservice_1",
+                "service_2",
+                "canton_service",
+                "bab_service",
+            ],
+        ),
+        (
+            "bab_service",
+            [
+                "service_1",
+                "service_2",
+                "canton_service",
+                "bab_service",
+            ],
+        ),
+    ],
+)
 def test_inquiry_visibility_so(
     db,
     caluma_admin_schema_executor_for_group,
@@ -165,6 +221,7 @@ def test_inquiry_visibility_so(
     gr_instance,
     so_inquiries,
     service_name,
+    expected_services,
     mocker,
     settings,
     gql,
@@ -185,27 +242,20 @@ def test_inquiry_visibility_so(
 
     assert not result.errors
 
-    visible_service_ids = set(
+    inquiries = [edge["node"] for edge in result.data["allWorkItems"]["edges"]]
+    visible_service_names = set(
         chain(
             *[
-                [int(id) for id in edge["node"]["addressedGroups"]]
-                for edge in result.data["allWorkItems"]["edges"]
+                [
+                    Service.objects.get(pk=int(id)).name
+                    for id in inquiry["addressedGroups"]
+                ]
+                for inquiry in inquiries
             ]
         )
     )
 
-    expected_service_ids = set(
-        Service.objects.filter(
-            name__in=[
-                "service_1",
-                "service_2",
-                "service_1_subservice_1",
-                "service_1_subservice_2",
-            ]
-        ).values_list("pk", flat=True)
-    )
-
-    assert expected_service_ids == visible_service_ids
+    assert set(expected_services) == visible_service_names
 
 
 def test_inquiry_visibility_ag(
