@@ -1,11 +1,14 @@
 import mimetypes
 from datetime import timedelta
+from logging import getLogger
 
 import django_excel
 from caluma.caluma_form import models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
+from django.core.exceptions import ValidationError as DjangoValidationError
 from django.core.files import File
+from django.core.validators import EmailValidator as DjangoEmailValidator
 from django.db import transaction
 from django.db.models import CharField, F, OuterRef, Q, QuerySet, Subquery, Value
 from django.db.models.expressions import Func
@@ -73,6 +76,8 @@ from .placeholders.serializers import (
     SoDMSPlaceholdersSerializer,
     UrDMSPlaceholdersSerializer,
 )
+
+logger = getLogger(__name__)
 
 
 class InstanceStateView(ReadOnlyModelViewSet):
@@ -722,17 +727,9 @@ class InstanceView(
             user=request.caluma_info.context.user,
         )
 
-        # send notification email when configured
-        notification_template = settings.APPLICATION["NOTIFICATIONS"].get("SUBMIT")
-        if notification_template and instance.group.service.notification:
-            send_mail(
-                notification_template,
-                self.get_serializer_context(),
-                recipient_types=["municipality"],
-                instance={"id": pk, "type": "instances"},
-            )
+        newly_added = self.add_project_personalities_to_applicants(instance)
 
-        self.add_project_personalities_to_applicants(instance)
+        self._notify_municipality_and_applicants(instance, newly_added)
 
         return response.Response(data=serializer.data)
 
@@ -754,26 +751,48 @@ class InstanceView(
         ).values("value")
 
         emails = [
-            personality.get("email").strip()
+            email
             for field in form_fields_value
             if field.get("value")
             for personality in field["value"]
-            if personality.get("email")
+            if (
+                (personality_email := personality.get("email"))
+                and (email := personality_email.strip())
+            )
         ]
 
         return emails
 
     @canton_aware
     def add_project_personalities_to_applicants(self, instance):
-        return  # pragma: no cover
+        """
+        Create applicants from personalities.
+
+        Returns a list of all newly created applicants. For generic cantons, this doesn't
+        do anything, so the returned list is empty.
+        """
+        return []  # pragma: no cover
 
     def add_project_personalities_to_applicants_sz(self, instance):
+        """
+        Create applicants from personalities (Schwyz).
+
+        This ensures that each project personality is added as an applicant to instance,
+        to ensure that all stated project personalities have access to the instance.
+
+        Returns a list of all newly created applicants.
+        """
+
         involved_emails = self.get_project_personalities_emails(instance)
-        notification_template = settings.APPLICATION["NOTIFICATIONS"]["APPLICANT"].get(
-            "NEW"
-        )
+        newly_added = []
 
         for email in involved_emails:
+            # Skip invalid email addresses:
+            try:
+                DjangoEmailValidator()(email)
+            except DjangoValidationError:
+                continue
+
             user = User.objects.filter(email=email).first()
             applicant = Applicant.objects.filter(
                 instance=instance,
@@ -790,14 +809,43 @@ class InstanceView(
                 Trigger.applicant_added(
                     request=self.request, instance=instance, applicant=new_applicant
                 )
-                if notification_template:
+                newly_added.append(new_applicant)
+
+        return newly_added
+
+    def _notify_municipality_and_applicants(self, instance, applicants):
+        """Send notifications to the municipality and all newly added applicants."""
+
+        notification_template_municipality = settings.APPLICATION["NOTIFICATIONS"].get(
+            "SUBMIT"
+        )
+        notification_template_applicant = settings.APPLICATION["NOTIFICATIONS"][
+            "APPLICANT"
+        ].get("NEW")
+
+        if notification_template_municipality and instance.group.service.notification:
+            try:
+                send_mail(
+                    notification_template_municipality,
+                    self.get_serializer_context(),
+                    recipient_types=["municipality"],
+                    instance={"id": instance.pk, "type": "instances"},
+                )
+            except Exception as e:  # pragma: no cover
+                logger.exception(e)
+
+        if notification_template_applicant:
+            for applicant in applicants:
+                try:
                     send_mail(
-                        notification_template,
+                        notification_template_applicant,
                         self.get_serializer_context(),
                         recipient_types=["email_list"],
-                        email_list=email,
+                        email_list=applicant.email,
                         instance={"id": instance.pk, "type": "instances"},
                     )
+                except Exception as e:  # pragma: no cover
+                    logger.exception(e)
 
     def _custom_serializer_action(
         self, request, pk=None, status_code=None, perform_save=True
