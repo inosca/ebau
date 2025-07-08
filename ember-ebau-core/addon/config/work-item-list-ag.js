@@ -13,12 +13,14 @@ export default {
         "init-distribution",
         "check-inquiries",
         "decision",
+        "check-distribution",
+        "init-construction-monitoring",
       ],
       service: ["inquiry", "check-inquiries"],
       subservice: ["inquiry"],
     },
     serviceGroups: {
-      "service-afb": ["check-pa", "cantonal-exam"],
+      "service-afb": ["check-pa", "cantonal-exam", "check-document-supplement"],
     },
   },
   columns(status, role) {

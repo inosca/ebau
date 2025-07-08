@@ -237,7 +237,7 @@
         "06800de6-a93f-7974-8000-d5c55b6f8e01",
         "06800de6-f4f8-700e-8000-cd790d311ba6"
       ],
-      "tasks": ["cantonal-exam", "check-inquiries"]
+      "tasks": ["cantonal-exam", "check-document-supplement", "check-inquiries"]
     }
   },
   {
@@ -258,16 +258,8 @@
       "prefilter_tasks": true,
       "services": [],
       "service_groups": [4],
-      "work_item_templates": [
-        "06800de5-6c59-7b04-8000-481785d17480",
-        "06800de5-b1bf-7d0a-8000-3d6a8526a89f",
-        "06800de5-f652-7df9-8000-ee8b9335fe49",
-        "06800de6-5a1c-753f-8000-6d43f87ec4bf",
-        "06800de6-a93f-7974-8000-d5c55b6f8e01",
-        "06800de6-f4f8-700e-8000-cd790d311ba6",
-        "06800de7-3cdf-700c-8000-67839a3ad880"
-      ],
-      "tasks": ["cantonal-exam", "check-inquiries"]
+      "work_item_templates": ["06800de7-3cdf-700c-8000-67839a3ad880"],
+      "tasks": []
     }
   },
   {
@@ -293,7 +285,7 @@
         "06800de9-6966-7c43-8000-1512ffbf48f4",
         "06800de9-cb9c-7df0-8000-580aba0e04e1"
       ],
-      "tasks": ["inquiry"]
+      "tasks": ["check-pa", "inquiry"]
     }
   },
   {
