@@ -12,3 +12,4 @@ legal-submission:
   delete-error: "Fehler beim Löschen der Einsprache"
 
   hint: Das Einspracheschreiben kann im Dokumentenordner "Einsprachen" abgelegt werden. Bitte beachten Sie, dass das Register "Einsprache" lediglich eine Hilfestellung darstellt und das Einspracheverfahren nicht über eBau abgewickelt werden kann.
+  header: "Einsprachen"
