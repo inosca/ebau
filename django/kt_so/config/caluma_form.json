@@ -5591,7 +5591,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "art-der-bauwerke",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -5666,7 +5666,22 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "bauprojekt-titel",
-      "sort": 29
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt.bauten-einrichtungen-arbeitnehmende-betroffen",
+    "fields": {
+      "created_at": "2025-07-08T09:27:00.439Z",
+      "modified_at": "2025-07-08T09:27:00.439Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauprojekt",
+      "question": "bauten-einrichtungen-arbeitnehmende-betroffen",
+      "sort": 23
     }
   },
   {
@@ -5741,7 +5756,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "beschreibung-projektaenderung",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -5786,7 +5801,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "einfache-hochbaute",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -5966,7 +5981,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "stand-der-realisierung",
-      "sort": 27
+      "sort": 28
     }
   },
   {
@@ -5981,7 +5996,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "status-bauprojekt",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -6026,7 +6041,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "umschreibung-bauprojekt",
-      "sort": 26
+      "sort": 27
     }
   },
   {
@@ -21447,6 +21462,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bauten-einrichtungen-arbeitnehmende-betroffen-ja",
+    "fields": {
+      "created_at": "2025-07-08T09:27:00.068Z",
+      "modified_at": "2025-07-08T09:27:00.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauten-einrichtungen-arbeitnehmende-betroffen-nein",
+    "fields": {
+      "created_at": "2025-07-08T09:27:00.066Z",
+      "modified_at": "2025-07-08T09:27:00.066Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bau-vorhaben-betrifft-hobbymaessige-tierhaltung",
     "fields": {
       "created_at": "2023-11-13T08:08:16.098Z",
@@ -36536,7 +36585,7 @@
     "pk": "arbeitssicherheit-und-gesundheitsschutz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-07-03T07:58:38.387Z",
+      "modified_at": "2025-07-08T09:38:26.867Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36544,7 +36593,7 @@
       "label": "{\"de\": \"Arbeitssicherheit / Gesundheitsschutz\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-verkauf\",\n\t\t\"nutzungszwecke-lager\",\n\t\t\"nutzungszwecke-forstwirtschaft\",\n\t\t\"nutzungszwecke-gastgewerbe\",\n\t\t\"nutzungszwecke-oeffentlich-zugaenglich\"\n\t] intersects \"nutzungszwecke\"|answer\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-verkauf\",\n\t\t\"nutzungszwecke-lager\",\n\t\t\"nutzungszwecke-forstwirtschaft\",\n\t\t\"nutzungszwecke-gastgewerbe\",\n\t\t\"nutzungszwecke-oeffentlich-zugaenglich\"\n\t] intersects \"nutzungszwecke\"|answer || 'bauten-einrichtungen-arbeitnehmende-betroffen'|answer == 'bauten-einrichtungen-arbeitnehmende-betroffen-ja'\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -38721,6 +38770,37 @@
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "\"anlagetyp-lageranlage-wassergefaehrdende-fluessigkeiten\" != \"anlagetyp\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauten-einrichtungen-arbeitnehmende-betroffen",
+    "fields": {
+      "created_at": "2025-07-08T09:27:00.331Z",
+      "modified_at": "2025-07-08T09:57:15.838Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sind von dem Vorhaben f\\u00fcr Bauten und / oder Einrichtungen Arbeitnehmende betroffen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "\"einfache-hochbaute\"|answer == \"einfache-hochbaute-nein\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -70193,6 +70273,36 @@
       "question": "baustoffe",
       "option": "baustoffe-stahl",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauten-einrichtungen-arbeitnehmende-betroffen.bauten-einrichtungen-arbeitnehmende-betroffen-ja",
+    "fields": {
+      "created_at": "2025-07-08T09:57:15.848Z",
+      "modified_at": "2025-07-08T09:57:15.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauten-einrichtungen-arbeitnehmende-betroffen",
+      "option": "bauten-einrichtungen-arbeitnehmende-betroffen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauten-einrichtungen-arbeitnehmende-betroffen.bauten-einrichtungen-arbeitnehmende-betroffen-nein",
+    "fields": {
+      "created_at": "2025-07-08T09:57:15.845Z",
+      "modified_at": "2025-07-08T09:57:15.845Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bauten-einrichtungen-arbeitnehmende-betroffen",
+      "option": "bauten-einrichtungen-arbeitnehmende-betroffen-nein",
+      "sort": 1
     }
   },
   {

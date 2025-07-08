@@ -54,5 +54,9 @@ SO_DISTRIBUTION_SUGGESTIONS = {
             "aushublagerplaetze-oder-baupisten-ja",
         ): ["arp-bab"],
         ("bab", "bab-ja"): ["arp-bab"],
+        (
+            "bauten-einrichtungen-arbeitnehmende-betroffen",
+            "bauten-einrichtungen-arbeitnehmende-betroffen-ja",
+        ): ["awa-arbeitsinspektorat"],
     },
 }
