@@ -383,7 +383,6 @@ APPLICATIONS = {
             ],
             "Geoterra AG (Siebnen, Pfäffikon, Einsiedeln)": [
                 129,  # Geoterra AG (Geometer) - (deactivated)
-                147,  # Geoterra AG (Gde_Bez Ingenieur) - (deactivated)
             ],
             "GEO Netz AG (Schwyz, Lachen)": [
                 313,  # GEO Netz AG (Geometer)
