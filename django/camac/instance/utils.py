@@ -261,10 +261,12 @@ def get_localized_geometer(instance: Instance) -> Service | None:
     if not service_mapping:
         return None  # pragma: no cover
 
+    form_fields = settings.APPLICATION.get("GEOMETER_FORM_FIELDS")
+    if not form_fields:
+        return None  # pragma: no cover
+
     geometer_answer = (
-        instance.fields.filter(
-            name__in=settings.APPLICATION.get("GEOMETER_FORM_FIELDS", [])
-        )
+        instance.fields.filter(name__in=form_fields)
         .values_list("value", flat=True)
         .first()
     )
