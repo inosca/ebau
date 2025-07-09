@@ -954,7 +954,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\", \"it\": \"E-mail\"}",
       "type": "text",
-      "is_required": "!(info.root.form in [\"einsprache\", \"beschwerde\"])",
+      "is_required": "!(info.root.form in [\"einsprache\", \"beschwerde\"] || 'is-paper'|answer == 'is-paper-yes')",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
