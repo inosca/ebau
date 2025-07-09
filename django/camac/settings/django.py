@@ -392,7 +392,6 @@ APPLICATIONS = {
                 # No service found
             ],
             "geometrie plus ag (Freienbach, Einsiedeln)": [
-                144,  # geometrie plus ag (Gde_Bez Ingenieur)
                 154,  # geometrie plus ag (Geometer)
             ],
             "Wild Ingenieure AG (Küssnacht)": [
@@ -401,21 +400,9 @@ APPLICATIONS = {
             # geometer-v2 (only removal)
             # geometer-v3
             "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Goldau, Küssnacht, Brunnen)": [
-                148,  # Geoinfra Goldau (Geometer)
-                149,  # Geoinfra Goldau (Gde_Bez Ingenieur)
-                299,  # Geoinfra Küssnacht (Geometer)
-                300,  # Geoinfra Küssnacht (Gde_Bez Ingenieur)
-                301,  # Geoinfra Brunnen (Geometer)
-                302,  # Geoinfra Brunnen (Gde_Bez Ingenieur)
-                303,  # Geoinfra Siebnen (Geometer)
-                304,  # Geoinfra Einsiedeln (Geometer)
-                305,  # Geoinfra Pfäffikon (Geometer)
-                306,  # Geoinfra Pfäffikon (Gde_Bez Ingenieur)
-                333,  # Geoinfra Siebnen (Gde_Bez Ingenieur)
-                334,  # Geoinfra Siebnen (Gde Umwelt)
+                359,  # Geometer (Geoinfra)
             ],
             "geometrie plus ag (Freienbach)": [
-                144,  # geometrie plus ag (Gde_Bez Ingenieur)
                 154,  # geometrie plus ag (Geometer)
             ],
             "GEO Netz AG (Lachen, Schwyz)": [
