@@ -8,6 +8,7 @@ from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow import models as workflow_models
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from django.conf import settings
+from django.db.models import Q
 from django.db.models.query import QuerySet
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
@@ -253,3 +254,30 @@ def get_changeable_forms(current_form: str) -> Set[str]:
             ]
         )
     )
+
+
+def get_localized_geometer(instance: Instance) -> Service | None:
+    service_mapping = settings.APPLICATION.get("LOCALIZED_GEOMETER_SERVICE_MAPPING")
+    if not service_mapping:
+        return None  # pragma: no cover
+
+    geometer_answer = (
+        instance.fields.filter(
+            name__in=settings.APPLICATION.get("GEOMETER_FORM_FIELDS", [])
+        )
+        .values_list("value", flat=True)
+        .first()
+    )
+    if not geometer_answer:
+        return None
+
+    geometer_service_ids = service_mapping.get(geometer_answer, [])
+
+    # TODO: For geometers that have groups that have a subset of locations and a
+    # group without any location, are the groups containing the location to be preferred?
+    return Service.objects.filter(
+        Q(groups__locations__in=[instance.location])
+        | Q(groups__locations__isnull=True),
+        pk__in=geometer_service_ids,
+        disabled=0,
+    ).first()
