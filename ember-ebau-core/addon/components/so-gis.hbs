@@ -69,7 +69,7 @@
       <GisApplyButton
         @document={{@field.document}}
         @disabled={{not this.point}}
-        @params={{hash x=this.point.x y=this.point.y}}
+        @params={{hash x=this.point.x y=this.point.y applied="ja"}}
         @instanceId={{@context.instanceId}}
       />
     {{/unless}}

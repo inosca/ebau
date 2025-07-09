@@ -13336,6 +13336,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "lokalisierung.gis-daten-uebernommen",
+    "fields": {
+      "created_at": "2025-07-09T13:43:45.268Z",
+      "modified_at": "2025-07-09T13:43:45.268Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lokalisierung",
+      "question": "gis-daten-uebernommen",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "lokalisierung.gis-karte",
     "fields": {
       "created_at": "2023-08-18T10:40:36.814Z",
@@ -13346,7 +13361,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gis-karte",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -13406,7 +13421,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "lokalisierung-titel",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -24923,6 +24938,23 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gis-daten-uebernommen-ja",
+    "fields": {
+      "created_at": "2025-07-09T13:43:45.015Z",
+      "modified_at": "2025-07-09T13:44:37.358Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "true",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -46973,27 +47005,27 @@
     "pk": "flaeche-m",
     "fields": {
       "created_at": "2024-08-22T10:41:56.164Z",
-      "modified_at": "2024-08-22T10:41:56.164Z",
+      "modified_at": "2025-07-09T07:25:40.629Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Fl\\u00e4che [m\\u00b2]\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
-        "min_value": null
+        "min_value": null,
+        "max_length": null,
+        "min_length": null
       },
-      "meta": {
-        "widgetOverride": "cf-field/input/number-separator"
-      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -49476,6 +49508,39 @@
       "static_content": "{\"de\": \"---\\n\\n#### Gew\\u00e4sserschutz\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gis-daten-uebernommen",
+    "fields": {
+      "created_at": "2025-07-09T13:43:45.167Z",
+      "modified_at": "2025-07-09T14:41:01.906Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Daten aus GIS Karte \\u00fcbernommen\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -73392,6 +73457,21 @@
       "modified_by_group": null,
       "question": "gesundheitsschaedliche-aetzende-brand-oder-explosionsgefaehrliche-stoffe-relevant",
       "option": "gesundheitsschaedliche-aetzende-brand-oder-explosionsgefaehrliche-stoffe-relevant-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gis-daten-uebernommen.gis-daten-uebernommen-ja",
+    "fields": {
+      "created_at": "2025-07-09T14:41:01.917Z",
+      "modified_at": "2025-07-09T14:41:01.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gis-daten-uebernommen",
+      "option": "gis-daten-uebernommen-ja",
       "sort": 1
     }
   },

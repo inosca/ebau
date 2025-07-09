@@ -17,6 +17,11 @@
           "hidden": true,
           "question": "parzellen.lagekoordinaten-nord",
           "parameterName": "y"
+        },
+        {
+          "hidden": true,
+          "question": "gis-daten-uebernommen",
+          "parameterName": "applied"
         }
       ],
       "disabled": false,
