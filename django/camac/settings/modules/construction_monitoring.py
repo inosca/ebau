@@ -40,28 +40,19 @@ CONSTRUCTION_MONITORING = {
             "construction-step-schlussabnahme-gebaeude": [
                 {
                     "template_slug": "complete-construction-step-schlussabnahme-gebaeude",
-                    "recipient_types": [
-                        "involved_in_construction_step",
-                        "localized_geometer",
-                    ],
+                    "recipient_types": ["involved_in_construction_step", "geometer"],
                 },
             ],
             "construction-step-schlussabnahme-projekt": [
                 {
                     "template_slug": "complete-construction-step-schlussabnahme-projekt",
-                    "recipient_types": [
-                        "involved_in_construction_step",
-                        "localized_geometer",
-                    ],
+                    "recipient_types": ["involved_in_construction_step", "geometer"],
                 },
             ],
             "complete-instance": [
                 {
                     "template_slug": "notify-complete-instance",
-                    "recipient_types": [
-                        "involved_in_construction_step",
-                        "localized_geometer",
-                    ],
+                    "recipient_types": ["involved_in_construction_step", "geometer"],
                 },
             ],
         },

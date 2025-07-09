@@ -618,7 +618,7 @@ def test_completed_involve_tax_administration_sz(
 
 
 @pytest.mark.parametrize("have_geometer,expect_acl", [(True, True), (False, False)])
-def test_decided_involve_localized_geometer_sz(
+def test_decided_involve_geometer_sz(
     db,
     application_settings,
     caluma_admin_user,
@@ -643,7 +643,7 @@ def test_decided_involve_localized_geometer_sz(
 
     application_settings["GEOMETER_FORM_FIELDS"] = ["geometer"]
     geometer_services = service_factory.create_batch(4)
-    application_settings["LOCALIZED_GEOMETER_SERVICE_MAPPING"] = {
+    application_settings["GEOMETER_SERVICE_MAPPING"] = {
         service.name: service.pk for service in geometer_services
     }
 

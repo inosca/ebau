@@ -8,7 +8,6 @@ from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow import models as workflow_models
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from django.conf import settings
-from django.db.models import Q
 from django.db.models.query import QuerySet
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
@@ -256,8 +255,8 @@ def get_changeable_forms(current_form: str) -> Set[str]:
     )
 
 
-def get_localized_geometer(instance: Instance) -> Service | None:
-    service_mapping = settings.APPLICATION.get("LOCALIZED_GEOMETER_SERVICE_MAPPING")
+def get_geometer_service(instance: Instance) -> Service | None:
+    service_mapping = settings.APPLICATION.get("GEOMETER_SERVICE_MAPPING")
     if not service_mapping:
         return None  # pragma: no cover
 
@@ -277,9 +276,4 @@ def get_localized_geometer(instance: Instance) -> Service | None:
     if not geometer_service_id:
         return None
 
-    return Service.objects.filter(
-        Q(groups__locations__in=[instance.location])
-        | Q(groups__locations__isnull=True),
-        pk=geometer_service_id,
-        disabled=0,
-    ).first()
+    return Service.objects.filter(pk=geometer_service_id, disabled=0).first()

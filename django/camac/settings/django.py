@@ -291,7 +291,7 @@ APPLICATIONS = {
             "gvg",
             # SZ
             "involved_in_construction_step",
-            "localized_geometer",
+            "geometer",
             "tax_administration",
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
@@ -376,7 +376,7 @@ APPLICATIONS = {
         },
         # Important: All versions of the geometer form-field option need to be included!
         # geometer form-field option: service id
-        "LOCALIZED_GEOMETER_SERVICE_MAPPING": {
+        "GEOMETER_SERVICE_MAPPING": {
             # geometer
             "Trigonet AG (Stans)": 152,  # Trigonet AG (Geometer) - (deactivated)
             "Geoterra AG (Siebnen, Pfäffikon, Einsiedeln)": 129,  # Geoterra AG (Geometer) - (deactivated)
@@ -411,7 +411,7 @@ APPLICATIONS = {
         },
         "CUSTOM_NOTIFICATION_TYPES": [
             "involved_in_construction_step",
-            "localized_geometer",
+            "geometer",
             "tax_administration",
         ],
         "PUBLICATION_DURATION": timedelta(days=20),
@@ -536,7 +536,7 @@ APPLICATIONS = {
                         "event": "completed",
                         "notification": {
                             "template_slug": "complete-make-decision",
-                            "recipient_types": ["localized_geometer"],
+                            "recipient_types": ["geometer"],
                         },
                     }
                 ],

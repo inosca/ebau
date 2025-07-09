@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 
 from camac.instance.models import Instance
-from camac.instance.utils import get_localized_geometer
+from camac.instance.utils import get_geometer_service
 from camac.permissions import api as permissions_api
 from camac.permissions.models import InstanceACL
 
@@ -71,8 +71,8 @@ class Command(BaseCommand):
         manager = permissions_api.PermissionManager.for_anonymous()
 
         for instance in instances.iterator():
-            localized_geometer = get_localized_geometer(instance)
-            if not localized_geometer:
+            geometer_service = get_geometer_service(instance)
+            if not geometer_service:
                 geometer_answer = (
                     instance.fields.filter(
                         name__in=settings.APPLICATION.get("GEOMETER_FORM_FIELDS", [])
@@ -81,7 +81,7 @@ class Command(BaseCommand):
                     .first()
                 )
 
-                # Not finding a localized geometer is expected for these:
+                # Not finding any geometer service is expected for these:
                 if geometer_answer in [
                     "Trigonet AG (Stans)",  # all deactivated
                     "HSK Ingenieur AG (Goldau, Küssnacht, Brunnen)",  # no service mapped
@@ -93,7 +93,7 @@ class Command(BaseCommand):
                 # Unexpected, error out:
                 self.stdout.write(
                     self.style.ERROR(
-                        f"No localized geometer found on instance {instance.identifier} (pk:{instance.pk})."
+                        f"No geometer service found on instance {instance.identifier} (pk:{instance.pk})."
                     )
                 )
                 return
@@ -102,7 +102,7 @@ class Command(BaseCommand):
                 instance=instance,
                 grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
                 access_level="read",
-                service=localized_geometer,
+                service=geometer_service,
             )
             if geometer_permissions.exists():
                 # ACL object already exists, nothing to do:
@@ -113,10 +113,10 @@ class Command(BaseCommand):
                     instance,
                     grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
                     access_level="read",
-                    service=localized_geometer,
+                    service=geometer_service,
                 )
             self.stdout.write(
                 self.style.SUCCESS(
-                    f"Granted {localized_geometer.name} (pk:{localized_geometer.pk}) access on {instance.identifier} (pk:{instance.pk})"
+                    f"Granted {geometer_service.name} (pk:{geometer_service.pk}) access on {instance.identifier} (pk:{instance.pk})"
                 )
             )
