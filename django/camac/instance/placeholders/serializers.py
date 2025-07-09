@@ -15,6 +15,7 @@ from rest_framework import serializers
 from camac.caluma.api import CalumaApi
 from camac.core.translations import get_translations_canton_aware
 from camac.instance.models import Instance
+from camac.instance.placeholders.utils import format_gis_center_coordinates
 from camac.user.models import Service
 from camac.utils import build_url, clean_join
 
@@ -31,10 +32,6 @@ def sanitize_value(value):
     return value if value is not None else ""
 
 
-def format_coordinate(number):
-    return f"{int(number):,}".replace(",", "'")
-
-
 def get_koordinaten_by_json_props(
     instance: Instance, attr: Literal["center", "markers"]
 ) -> str:
@@ -45,21 +42,18 @@ def get_koordinaten_by_json_props(
 
     data = []
 
-    coordinates = json.loads(raw_gis_coordinates).get(attr)
-
-    if not coordinates:  # pragma: no cover
-        return ""
-
     if attr == "markers":
+        coordinates = json.loads(raw_gis_coordinates).get(attr)
+        if not coordinates:  # pragma: no cover
+            return ""
+
         for coordinate in coordinates:
             x = f"{round(coordinate['x']):_}".replace("_", "’")
             y = f"{round(coordinate['y']):_}".replace("_", "’")
             data.append(f"{x} / {y}")
 
     if attr == "center":
-        data.append(
-            f"{format_coordinate(coordinates['x'])} / {format_coordinate(coordinates['y'])}"
-        )
+        data.append(format_gis_center_coordinates(raw_gis_coordinates))
 
     return clean_join(*data, separator="; ")
 
