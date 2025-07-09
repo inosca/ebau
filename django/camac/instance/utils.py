@@ -273,13 +273,13 @@ def get_localized_geometer(instance: Instance) -> Service | None:
     if not geometer_answer:
         return None
 
-    geometer_service_ids = service_mapping.get(geometer_answer, [])
+    geometer_service_id = service_mapping.get(geometer_answer, None)
+    if not geometer_service_id:
+        return None
 
-    # TODO: For geometers that have groups that have a subset of locations and a
-    # group without any location, are the groups containing the location to be preferred?
     return Service.objects.filter(
         Q(groups__locations__in=[instance.location])
         | Q(groups__locations__isnull=True),
-        pk__in=geometer_service_ids,
+        pk=geometer_service_id,
         disabled=0,
     ).first()

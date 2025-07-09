@@ -9,12 +9,13 @@ from camac.notification.serializers import (
     "role__name,service__email", [("support", "geometer@example.com")]
 )
 @pytest.mark.parametrize(
-    "has_geometer,has_location,has_same_location,expected",
+    "has_geometer,has_location,has_same_location,has_configured_geometer,expected",
     [
-        (True, False, False, [{"to": "geometer@example.com"}]),
-        (True, True, True, [{"to": "geometer@example.com"}]),
-        (True, True, False, []),
-        (False, True, False, []),
+        (True, False, False, True, [{"to": "geometer@example.com"}]),
+        (True, True, True, True, [{"to": "geometer@example.com"}]),
+        (True, False, False, False, []),
+        (True, True, True, False, []),
+        (False, True, False, True, []),
     ],
 )
 def test_recipient_localized_geometer(
@@ -26,6 +27,7 @@ def test_recipient_localized_geometer(
     location_factory,
     service,
     group,
+    has_configured_geometer,
     has_geometer,
     has_location,
     has_same_location,
@@ -33,7 +35,7 @@ def test_recipient_localized_geometer(
 ):
     application_settings["GEOMETER_FORM_FIELDS"] = ["geometer-v3"]
     application_settings["LOCALIZED_GEOMETER_SERVICE_MAPPING"] = {
-        "Test Geometer": [service.pk],
+        "Test Geometer": service.pk,
     }
 
     if not has_location:
@@ -45,7 +47,9 @@ def test_recipient_localized_geometer(
             sz_instance_with_form.save()
 
         form_field_factory(
-            instance=sz_instance_with_form, name="geometer-v3", value="Test Geometer"
+            instance=sz_instance_with_form,
+            name="geometer-v3",
+            value="Test Geometer" if has_configured_geometer else "Unknown Geometer",
         )
 
     serializer = PermissionlessNotificationTemplateSendmailSerializer(
