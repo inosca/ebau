@@ -161,7 +161,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -418,7 +418,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -639,7 +639,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -649,7 +649,7 @@
     "pk": "meldung-pv",
     "fields": {
       "created_at": "2024-09-06T07:34:40.981Z",
-      "modified_at": "2025-07-08T09:08:04.581Z",
+      "modified_at": "2025-07-10T08:54:47.876Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -662,7 +662,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "meldung"
     }
@@ -683,7 +683,7 @@
         "is-creatable": false,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -832,7 +832,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch"
     }
@@ -945,7 +945,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -5591,7 +5591,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "art-der-bauwerke",
-      "sort": 25
+      "sort": 24
     }
   },
   {
@@ -5666,22 +5666,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "bauprojekt-titel",
-      "sort": 30
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "bauprojekt.bauten-einrichtungen-arbeitnehmende-betroffen",
-    "fields": {
-      "created_at": "2025-07-08T09:27:00.439Z",
-      "modified_at": "2025-07-08T09:27:00.439Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "bauprojekt",
-      "question": "bauten-einrichtungen-arbeitnehmende-betroffen",
-      "sort": 23
+      "sort": 29
     }
   },
   {
@@ -5756,7 +5741,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "beschreibung-projektaenderung",
-      "sort": 26
+      "sort": 25
     }
   },
   {
@@ -5981,7 +5966,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "stand-der-realisierung",
-      "sort": 28
+      "sort": 27
     }
   },
   {
@@ -5996,7 +5981,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "status-bauprojekt",
-      "sort": 29
+      "sort": 28
     }
   },
   {
@@ -6041,7 +6026,7 @@
       "modified_by_group": null,
       "form": "bauprojekt",
       "question": "umschreibung-bauprojekt",
-      "sort": 27
+      "sort": 26
     }
   },
   {
@@ -13141,21 +13126,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "hochbau.wohnungen-info",
-    "fields": {
-      "created_at": "2025-07-08T09:14:33.303Z",
-      "modified_at": "2025-07-08T09:14:33.303Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "hochbau",
-      "question": "wohnungen-info",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "koordinaten-fliessgewaesser-tabelle.bezeichnung-der-einleitstelle",
     "fields": {
       "created_at": "2024-04-24T13:47:06.394Z",
@@ -13336,21 +13306,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "lokalisierung.gis-daten-uebernommen",
-    "fields": {
-      "created_at": "2025-07-09T13:43:45.268Z",
-      "modified_at": "2025-07-09T13:43:45.268Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "lokalisierung",
-      "question": "gis-daten-uebernommen",
-      "sort": 22
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "lokalisierung.gis-karte",
     "fields": {
       "created_at": "2023-08-18T10:40:36.814Z",
@@ -13361,7 +13316,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "gis-karte",
-      "sort": 23
+      "sort": 22
     }
   },
   {
@@ -13421,7 +13376,7 @@
       "modified_by_group": null,
       "form": "lokalisierung",
       "question": "lokalisierung-titel",
-      "sort": 24
+      "sort": 23
     }
   },
   {
@@ -24948,13 +24903,13 @@
     "pk": "gis-daten-uebernommen-ja",
     "fields": {
       "created_at": "2025-07-09T13:43:45.015Z",
-      "modified_at": "2025-07-09T13:44:37.358Z",
+      "modified_at": "2025-07-14T13:29:58.589Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"ja\", \"fr\": null, \"it\": null}",
-      "is_hidden": "true",
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -36450,14 +36405,14 @@
     "pk": "anzahl-zimmer",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2025-07-08T09:20:19.355Z",
+      "modified_at": "2023-09-20T10:53:04.262Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
       "label": "{\"de\": \"Anzahl Zimmer\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -36617,7 +36572,7 @@
     "pk": "arbeitssicherheit-und-gesundheitsschutz",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2025-07-08T09:38:26.867Z",
+      "modified_at": "2024-07-03T07:58:38.387Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -36625,7 +36580,7 @@
       "label": "{\"de\": \"Arbeitssicherheit / Gesundheitsschutz\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-verkauf\",\n\t\t\"nutzungszwecke-lager\",\n\t\t\"nutzungszwecke-forstwirtschaft\",\n\t\t\"nutzungszwecke-gastgewerbe\",\n\t\t\"nutzungszwecke-oeffentlich-zugaenglich\"\n\t] intersects \"nutzungszwecke\"|answer || 'bauten-einrichtungen-arbeitnehmende-betroffen'|answer == 'bauten-einrichtungen-arbeitnehmende-betroffen-ja'\n)",
+      "is_hidden": "!(\n\t[\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-verkauf\",\n\t\t\"nutzungszwecke-lager\",\n\t\t\"nutzungszwecke-forstwirtschaft\",\n\t\t\"nutzungszwecke-gastgewerbe\",\n\t\t\"nutzungszwecke-oeffentlich-zugaenglich\"\n\t] intersects \"nutzungszwecke\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -46866,14 +46821,14 @@
     "pk": "flaeche",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2025-07-08T09:20:15.571Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_at": "2023-09-20T10:55:22.124Z",
+      "created_by_user": "2023-09-20T10:55:22.124Z",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
       "label": "{\"de\": \"Fl\\u00e4che\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -49523,7 +49478,7 @@
     "pk": "gis-daten-uebernommen",
     "fields": {
       "created_at": "2025-07-09T13:43:45.167Z",
-      "modified_at": "2025-07-09T14:41:01.906Z",
+      "modified_at": "2025-07-14T14:09:55.228Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -49539,7 +49494,9 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "hideLabel": true
+        "hideLabel": true,
+        "hiddenAnswers": ["gis-daten-uebernommen-ja"],
+        "widgetOverride": "cf-radio-hide-answers"
       },
       "data_source": null,
       "row_form": null,
@@ -54917,14 +54874,14 @@
     "pk": "kocheinrichtung",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2025-07-08T09:20:12.171Z",
+      "modified_at": "2023-09-20T10:56:36.156Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
       "label": "{\"de\": \"Kocheinrichtung\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -55853,14 +55810,14 @@
     "pk": "lage",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2025-07-08T09:20:28.458Z",
+      "modified_at": "2023-09-20T10:52:01.646Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
       "label": "{\"de\": \"Lage\", \"fr\": null, \"it\": null}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -56897,14 +56854,14 @@
     "pk": "maisonette",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2025-07-08T09:20:33.882Z",
+      "modified_at": "2023-09-20T10:50:46.378Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
       "label": "{\"de\": \"Maisonette\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -62927,15 +62884,15 @@
     "pk": "stockwerknummer",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2025-07-08T09:19:57.588Z",
+      "modified_at": "2024-05-22T09:15:07.712Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Stockwerknummer\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "(\"stockwerktyp\"|answer in [\"stockwerktyp-obergeschoss\", \"stockwerktyp-untergeschoss\" ] )",
-      "is_hidden": "false",
+      "is_required": "true",
+      "is_hidden": "!(\n\t\"stockwerktyp\"|answer in [\n\t\t\"stockwerktyp-obergeschoss\",\n\t\t\"stockwerktyp-untergeschoss\"\n\t]\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -67193,14 +67150,14 @@
     "pk": "zwg",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2025-07-08T09:20:08.179Z",
+      "modified_at": "2024-05-22T09:13:46.102Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nutzungsbeschr\\u00e4nkung Zweitwohnungsgesetz\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -73464,8 +73421,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gis-daten-uebernommen.gis-daten-uebernommen-ja",
     "fields": {
-      "created_at": "2025-07-09T14:41:01.917Z",
-      "modified_at": "2025-07-09T14:41:01.917Z",
+      "created_at": "2025-07-14T14:09:55.236Z",
+      "modified_at": "2025-07-14T14:09:55.236Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74469,11 +74426,11 @@
     "model": "caluma_form.questionoption",
     "pk": "kocheinrichtung.kocheinrichtung-keine-kocheinrichtung",
     "fields": {
-      "created_at": "2025-07-08T09:20:12.177Z",
-      "modified_at": "2025-07-08T09:20:12.177Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-09-20T10:56:36.160Z",
+      "modified_at": "2023-09-20T10:56:36.160Z",
+      "created_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
       "question": "kocheinrichtung",
       "option": "kocheinrichtung-keine-kocheinrichtung",
@@ -74484,11 +74441,11 @@
     "model": "caluma_form.questionoption",
     "pk": "kocheinrichtung.kocheinrichtung-kochnische-greater-4-m2",
     "fields": {
-      "created_at": "2025-07-08T09:20:12.180Z",
-      "modified_at": "2025-07-08T09:20:12.180Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-09-20T10:56:36.164Z",
+      "modified_at": "2023-09-20T10:56:36.164Z",
+      "created_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
       "question": "kocheinrichtung",
       "option": "kocheinrichtung-kochnische-greater-4-m2",
@@ -74499,11 +74456,11 @@
     "model": "caluma_form.questionoption",
     "pk": "kocheinrichtung.kocheinrichtung-kueche-less-4-m2",
     "fields": {
-      "created_at": "2025-07-08T09:20:12.183Z",
-      "modified_at": "2025-07-08T09:20:12.183Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-09-20T10:56:36.166Z",
+      "modified_at": "2023-09-20T10:56:36.166Z",
+      "created_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
       "question": "kocheinrichtung",
       "option": "kocheinrichtung-kueche-less-4-m2",
@@ -74859,11 +74816,11 @@
     "model": "caluma_form.questionoption",
     "pk": "maisonette.maisonette-ja",
     "fields": {
-      "created_at": "2025-07-08T09:20:33.890Z",
-      "modified_at": "2025-07-08T09:20:33.890Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-09-20T10:50:46.386Z",
+      "modified_at": "2023-09-20T10:50:46.386Z",
+      "created_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
       "question": "maisonette",
       "option": "maisonette-ja",
@@ -74874,11 +74831,11 @@
     "model": "caluma_form.questionoption",
     "pk": "maisonette.maisonette-nein",
     "fields": {
-      "created_at": "2025-07-08T09:20:33.888Z",
-      "modified_at": "2025-07-08T09:20:33.888Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2023-09-20T10:50:46.383Z",
+      "modified_at": "2023-09-20T10:50:46.383Z",
+      "created_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
       "modified_by_group": null,
       "question": "maisonette",
       "option": "maisonette-nein",
@@ -79974,8 +79931,8 @@
     "model": "caluma_form.questionoption",
     "pk": "zwg.zwg-erstwohnung",
     "fields": {
-      "created_at": "2025-07-08T09:20:08.191Z",
-      "modified_at": "2025-07-08T09:20:08.191Z",
+      "created_at": "2024-05-22T09:13:46.134Z",
+      "modified_at": "2024-05-22T09:13:46.134Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -79989,8 +79946,8 @@
     "model": "caluma_form.questionoption",
     "pk": "zwg.zwg-keine",
     "fields": {
-      "created_at": "2025-07-08T09:20:08.193Z",
-      "modified_at": "2025-07-08T09:20:08.193Z",
+      "created_at": "2024-05-22T09:13:46.142Z",
+      "modified_at": "2024-05-22T09:13:46.142Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80004,8 +79961,8 @@
     "model": "caluma_form.questionoption",
     "pk": "zwg.zwg-touristisch-a",
     "fields": {
-      "created_at": "2025-07-08T09:20:08.188Z",
-      "modified_at": "2025-07-08T09:20:08.188Z",
+      "created_at": "2024-05-22T09:13:46.128Z",
+      "modified_at": "2024-05-22T09:13:46.128Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -80019,8 +79976,8 @@
     "model": "caluma_form.questionoption",
     "pk": "zwg.zwg-touristisch-b",
     "fields": {
-      "created_at": "2025-07-08T09:20:08.185Z",
-      "modified_at": "2025-07-08T09:20:08.185Z",
+      "created_at": "2024-05-22T09:13:46.118Z",
+      "modified_at": "2024-05-22T09:13:46.119Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",

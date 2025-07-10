@@ -678,6 +678,7 @@ DUMP = {
                         group__role__name__in=["admin", "applicant", "support"]
                     ),
                 },
+                "caluma_form_v2": generate_form_dump_config(version=2),
                 "caluma_bab_exam_form": generate_form_dump_config(
                     regex=r"^(materielle-pruefung-bab|mp-bab)"
                 ),

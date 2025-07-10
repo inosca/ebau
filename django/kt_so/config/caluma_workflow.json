@@ -566,13 +566,13 @@
       "allow_all_forms": false,
       "start_tasks": ["submit"],
       "allow_forms": [
-        "baugesuch",
-        "erdwaermesonden",
-        "meldung",
-        "meldung-pv",
-        "migriertes-dossier",
-        "reklamegesuch",
-        "voranfrage"
+        "baugesuch-v2",
+        "erdwaermesonden-v2",
+        "meldung-pv-v2",
+        "meldung-v2",
+        "migriertes-dossier-v2",
+        "reklamegesuch-v2",
+        "voranfrage-v2"
       ]
     }
   }
