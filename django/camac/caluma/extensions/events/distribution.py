@@ -270,6 +270,9 @@ def post_redo_inquiry(sender, work_item, user, context=None, **kwargs):
     for work_item_to_complete in work_items_to_complete:
         complete_work_item(work_item=work_item_to_complete, user=user, context=context)
 
+    # send notification to the addressed service
+    send_inquiry_notification("INQUIRY_REDO", work_item, user)
+
 
 def _get_default_deadline(settings):
     return delay_next_workingday(
