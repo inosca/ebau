@@ -324,6 +324,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 28,
+    "fields": {
+      "slug": "bericht-wiedereroffnet",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -645,6 +657,18 @@
       "purpose": "Rückzug ausgelöst / Ritiro innescato",
       "subject": "Rückzug ausgelöst (Dossier-Nummer {{ DOSSIER_NR }}) / Ritiro innescato (dossier n. {{ DOSSIER_NR }})",
       "body": "Guten Tag\r\n\r\nIm eBau wurde das Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} zurückgezogen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nil dossier n. {{ DOSSIER_NR }} è stato ritirato da eBau.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 48,
+    "fields": {
+      "template": 28,
+      "template_slug": "bericht-wiedereroffnet",
+      "language": "de",
+      "purpose": "Hinweis auf das Verfahren / Indicazione relativa alla procedura",
+      "subject": "Hinweis auf das Verfahren (Dossier-Nr. {{DOSSIER_NR}}) / Indicazione relativa alla procedura (Dossier No. {{DOSSIER_NR}})",
+      "body": "Hallo\r\n\r\nIhre Stellungnahme zum Dossier Nr. {{DOSSIER_NR}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}} wurde zurückgesetzt und kann überarbeitet werden.\r\n\r\nBemerkung:\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{CURRENT_SERVICE_DE}}\r\n\r\n---\r\n\r\nCiao,\r\n\r\nLa sua prese di posizione sul dossier n. {{DOSSIER_NR}}, {{FORM_NAME_IT}}, {{MUNICIPALITY_IT}} è stata reseta e può essere rivista.\r\n\r\nCommento:\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{CURRENT_SERVICE_IT}}"
     }
   }
 ]
