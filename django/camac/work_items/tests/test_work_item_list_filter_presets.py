@@ -2,15 +2,22 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
-from camac.conftest import FakeRequest
-from camac.work_items import models, serializers
+from camac.work_items import serializers
 
 
 @pytest.mark.parametrize(
     "role__name,expected_presets",
     [
         ("Applicant", set()),
-        ("Municipality", {"global", "my-service", "my-service-group"}),
+        (
+            "Municipality",
+            {
+                ("global", "STANDARD"),
+                ("my-service", "SERVICE"),
+                ("my-service-group", "SERVICE_GROUP"),
+                ("my-service-and-service-group", "SERVICE"),
+            },
+        ),
     ],
 )
 def test_work_item_filter_preset_list(
@@ -26,6 +33,7 @@ def test_work_item_filter_preset_list(
         ("global", None, None),
         ("my-service", [service], None),
         ("my-service-group", None, [service_group]),
+        ("my-service-and-service-group", [service], [service_group]),
         ("other-service", [service_factory()], None),
         ("other-service-group", None, [service_group_factory()]),
     ]:
@@ -42,7 +50,9 @@ def test_work_item_filter_preset_list(
     data = response.json()["data"]
 
     assert len(data) == len(expected_presets)
-    assert set([e["attributes"]["name"]["de"] for e in data]) == expected_presets
+    assert {
+        (e["attributes"]["name"]["de"], e["attributes"]["category"]) for e in data
+    } == expected_presets
 
 
 @pytest.mark.parametrize(
@@ -83,72 +93,18 @@ def test_included_in_preset_filter(
     assert set([e["attributes"]["name"] for e in data]) == expected_names
 
 
-@pytest.mark.parametrize(
-    "role__name,visible_to_service,visible_to_service_group,expected",
-    [
-        (
-            "Municipality",
-            False,
-            False,
-            models.WorkItemListFilterPreset.PresetCategoryChoices.STANDARD,
-        ),
-        (
-            "Municipality",
-            True,
-            False,
-            models.WorkItemListFilterPreset.PresetCategoryChoices.SERVICE,
-        ),
-        (
-            "Municipality",
-            False,
-            True,
-            models.WorkItemListFilterPreset.PresetCategoryChoices.SERVICE_GROUP,
-        ),
-        (
-            "Municipality",
-            True,
-            True,
-            models.WorkItemListFilterPreset.PresetCategoryChoices.SERVICE,
-        ),
-    ],
-)
-def test_preset_category(
-    db,
-    user_group,
-    work_item_list_filter_preset_factory,
-    visible_to_service,
-    visible_to_service_group,
-    expected,
-):
-    preset = work_item_list_filter_preset_factory()
-    if visible_to_service:
-        preset.services.set([user_group.group.service])
-    if visible_to_service_group:
-        preset.service_groups.set([user_group.group.service.service_group])
-
-    serializer = serializers.WorkItemListFilterPresetSerializer(
-        context={
-            "request": FakeRequest(
-                user=user_group.user,
-                group=user_group.group,
-            )
-        }
-    )
-
-    assert serializer.get_category(preset) == expected
-
-
-@pytest.mark.parametrize("role__name", ["Municipality"])
 def test_preset_tasks(
     db,
-    user_group,
+    fake_request,
     work_item_list_filter_preset_factory,
     caluma_task_factory,
 ):
     preset = work_item_list_filter_preset_factory(prefilter_tasks=True)
     task = caluma_task_factory()
     preset.tasks.set([task])
-    serializer = serializers.WorkItemListFilterPresetSerializer()
+    serializer = serializers.WorkItemListFilterPresetSerializer(
+        context={"request": fake_request}
+    )
 
     assert list(serializer.get_tasks(preset)) == [task.slug]
 
@@ -158,10 +114,9 @@ def test_preset_tasks(
     assert list(serializer.get_tasks(preset)) == []
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
 def test_preset_excluded_tasks(
     db,
-    user_group,
+    fake_request,
     work_item_list_filter_preset_factory,
     caluma_task_factory,
 ):
@@ -169,7 +124,9 @@ def test_preset_excluded_tasks(
     task_included = caluma_task_factory()
     task_excluded = caluma_task_factory()
     preset.tasks.set([task_included])
-    serializer = serializers.WorkItemListFilterPresetSerializer()
+    serializer = serializers.WorkItemListFilterPresetSerializer(
+        context={"request": fake_request}
+    )
 
     assert list(serializer.get_excluded_tasks(preset)) == [task_excluded.slug]
 
@@ -179,10 +136,9 @@ def test_preset_excluded_tasks(
     assert list(serializer.get_excluded_tasks(preset)) == []
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
 def test_preset_excluded_work_item_templates(
     db,
-    user_group,
+    fake_request,
     work_item_list_filter_preset_factory,
     work_item_template_factory,
 ):
@@ -190,7 +146,9 @@ def test_preset_excluded_work_item_templates(
     template_included = work_item_template_factory()
     template_excluded = work_item_template_factory()
     preset.work_item_templates.set([template_included])
-    serializer = serializers.WorkItemListFilterPresetSerializer()
+    serializer = serializers.WorkItemListFilterPresetSerializer(
+        context={"request": fake_request}
+    )
 
     assert list(serializer.get_excluded_work_item_templates(preset)) == [
         template_excluded.pk
