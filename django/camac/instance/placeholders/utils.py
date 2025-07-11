@@ -125,14 +125,25 @@ def format_gis_center_coordinates(value):
 
     try:
         json_data = json.loads(value)
-        center = json_data.get("center")
     except json.JSONDecodeError:
         return None
 
-    if center and center["x"] and center["y"]:
+    if center := get_gis_center_coordinate(json_data):
         return f"{format_coordinate(center['x'])} / {format_coordinate(center['y'])}"
 
     return None
+
+
+def get_gis_center_coordinate(json_data):
+    center = json_data.get("center", None)
+
+    if center and center.get("x") and center.get("y"):
+        return center
+
+    # fallback to the first marker if no center is defined
+    markers = json_data.get("markers", [])
+
+    return markers[0] if markers else None
 
 
 def format_coordinate(number):

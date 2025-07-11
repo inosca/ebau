@@ -1172,6 +1172,7 @@ def test_yes_no(options, expected):
 @pytest.mark.parametrize(
     "available_data,expected",
     [
+        # ignore empty/invalid date
         (None, None),
         ("", None),
         ("{invalid-json}", None),
@@ -1179,8 +1180,19 @@ def test_yes_no(options, expected):
             '{"valid-no-center": {"x": 2760558.123, "y": 1170288.456}}',
             None,
         ),
+        # use center if provided
         (
             '{"center": {"x": 2760558.123, "y": 1170288.456}}',
+            "2'760'558 / 1'170'288",
+        ),
+        # fallback to first marker if no center is provided
+        (
+            '{"markers": [{"x": 2760558.123, "y": 1170288.456}, {"x": 2609995.123, "y": 1271340.456}]}',
+            "2'760'558 / 1'170'288",
+        ),
+        # ignore markers if valid center is provided
+        (
+            '{"markers": [{"x": 2569941.123, "y": 1298923.123}, {"x": 2609995.123, "y": 1271340.456}], "center": {"x": 2760558.123, "y": 1170288.456}}',
             "2'760'558 / 1'170'288",
         ),
     ],
