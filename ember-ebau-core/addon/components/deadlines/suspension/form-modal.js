@@ -25,6 +25,10 @@ export default class DeadlineSuspensionFormModalComponent extends Component {
     }
   }
 
+  get isCreate() {
+    return !this.args.suspension?.id;
+  }
+
   saveSuspension = task({ drop: true }, async (changeset) => {
     try {
       const startDate = changeset.pendingData.startDate;

@@ -59,13 +59,15 @@
     </modal.body>
     <modal.footer>
       <div class="uk-align-left">
-        <f.button
-          class="uk-button-danger"
-          @label={{t "global.delete"}}
-          @disabled={{f.loading}}
-          {{on "click" @onDelete}}
-          data-test-suspension-delete
-        />
+        {{#unless this.isCreate}}
+          <f.button
+            class="uk-button-danger"
+            @label={{t "global.delete"}}
+            @disabled={{f.loading}}
+            {{on "click" @onDelete}}
+            data-test-suspension-delete
+          />
+        {{/unless}}
       </div>
 
       <div class="uk-align-right">

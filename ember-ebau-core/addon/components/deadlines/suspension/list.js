@@ -39,6 +39,9 @@ export default class DeadlinesSuspensionListComponent extends Component {
     if (this.args.afterSave) {
       this.args.afterSave();
     }
+
+    // reload instance for case header updates
+    this.store.findRecord("instance", this.args.deadline.instance.id);
   }
 
   @action
