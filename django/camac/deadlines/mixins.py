@@ -21,7 +21,8 @@ class DeadlinePermissionMixin:
     def has_deadline_access(self, service: Service) -> bool:
         """Check if the service group is allowed."""
         return (
-            service.service_group
+            service
+            and service.service_group
             and service.service_group.name in self.allowed_service_groups()
         )
 
