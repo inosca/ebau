@@ -296,11 +296,9 @@ export default class WorkItemListWrapperComponent extends Component {
         ? [{ metaValue: [{ key: "not-viewed", value: true }] }]
         : []),
       ...this.gqlTaskFilter,
-      ...[
-        hasFeature("workItemList.hideImportedWorkItems")
-          ? { metaValue: [{ key: "imported", value: true }], invert: true }
-          : {},
-      ],
+      ...(hasFeature("workItemList.hideImportedWorkItems")
+        ? [{ metaValue: [{ key: "imported", value: true }], invert: true }]
+        : []),
     ];
   }
 

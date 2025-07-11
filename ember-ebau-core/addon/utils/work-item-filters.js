@@ -2,20 +2,27 @@ export function cleanTaskAndTemplateFilters(filters) {
   return (
     filters
       // Remove all task filters
-      .filter((flt) => !flt.task)
+      .filter((flt) => !flt.task && !flt.tasks)
       .map((flt) => {
         if (flt.metaValue) {
           // Remove meta value filters that filter for the key "template-id"
+          const filtered = flt.metaValue.filter(
+            (metaFlt) => metaFlt.key !== "template-id",
+          );
+
+          if (!filtered.length) {
+            return null;
+          }
+
           return {
             ...flt,
-            metaValue: flt.metaValue.filter(
-              (metaFlt) => metaFlt.key !== "template-id",
-            ),
+            metaValue: filtered,
           };
         }
 
         return flt;
       })
+      .filter(Boolean)
   );
 }
 
