@@ -23,6 +23,12 @@ export default class DeadlinesDeadlineDetailComponent extends Component {
   }
 
   @action
+  reload() {
+    // reload instance for case header updates
+    this.store.findRecord("instance", this.args.deadline.instance.id);
+  }
+
+  @action
   async editDeadline() {
     if (!(await this.abilities.can("edit deadline"))) {
       return;
