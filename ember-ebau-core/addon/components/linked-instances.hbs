@@ -26,7 +26,10 @@
         {{on "click" (perform this.unLinkDossier linkedInstance)}}
       >
       </button>
+    {{else}}
+      <br />
     {{/if}}
+
   {{else}}
     <span class="uk-text-meta">{{t
         "cases.miscellaneous.noLinkedInstances"
