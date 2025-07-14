@@ -62434,7 +62434,7 @@
     "pk": "solaranlagenpflicht",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "modified_at": "2025-07-14T14:23:46.691Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -62447,7 +62447,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Pflicht zur Nutzung der Sonnenenergie bei Geb\\u00e4uden (Neubauten) gem\\u00e4ss Energiegesetz (EnG)\\n\\nGem\\u00e4ss Artikel 45a EnG ist beim Bau neuer Geb\\u00e4ude mit einer anrechenbaren Geb\\u00e4udefl\\u00e4che von mehr als 300 m\\u00b2 auf den D\\u00e4chern oder an den Fassaden eine Solaranlage, beispielsweise eine Photovoltaik- oder eine Solarthermieanlage, zu erstellen. \\n\\nGem\\u00e4ss Artikel 29a des Energiereglements (EnR) muss die Leistung der installierten Solaranlage mindestens  20 W pro m\\u00b2 anrechenbarer Geb\\u00e4udefl\\u00e4che betragen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"####Pflicht zur Nutzung der Sonnenenergie bei Geb\\u00e4uden (Neubauten) gem\\u00e4ss Energiegesetz (EnG)\\n\\nGem\\u00e4ss Artikel 45a EnG ist beim Bau neuer Geb\\u00e4ude mit einer anrechenbaren Geb\\u00e4udefl\\u00e4che von mehr als 300 m\\u00b2 auf den D\\u00e4chern oder an den Fassaden eine Solaranlage, beispielsweise eine Photovoltaik- oder eine Solarthermieanlage, zu erstellen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
