@@ -97,7 +97,7 @@ class CommunicationsAttachment(models.Model):
 
     document_attachment = models.ForeignKey(
         "document.Attachment",
-        on_delete=models.DO_NOTHING,
+        on_delete=models.SET_NULL,
         related_name="+",
         blank=True,
         null=True,
@@ -105,7 +105,7 @@ class CommunicationsAttachment(models.Model):
     )
     alexandria_file = models.ForeignKey(
         "alexandria_core.File",
-        on_delete=models.DO_NOTHING,
+        on_delete=models.SET_NULL,
         related_name="+",
         blank=True,
         null=True,
