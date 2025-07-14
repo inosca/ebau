@@ -5880,6 +5880,38 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 606,
+    "fields": {
+      "role": 9,
+      "service": 133,
+      "disabled": 0,
+      "name": "",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 607,
+    "fields": {
+      "role": 10,
+      "service": 133,
+      "disabled": 0,
+      "name": "",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 4,
     "fields": {
@@ -9125,7 +9157,7 @@
     "fields": {
       "group": 548,
       "language": "de",
-      "name": "Sachbearbeitung Amt für Wirtschaft und Arbeit",
+      "name": "Sachbearbeitung Amt für Wirtschaft und Arbeit (Arbeitsinspektorat)",
       "city": null
     }
   },
@@ -9135,7 +9167,7 @@
     "fields": {
       "group": 549,
       "language": "de",
-      "name": "Administration Amt für Wirtschaft und Arbeit",
+      "name": "Administration Amt für Wirtschaft und Arbeit (Arbeitsinspektorat)",
       "city": null
     }
   },
@@ -9496,6 +9528,26 @@
       "group": 605,
       "language": "de",
       "name": "Sachbearbeitung Kantonale Koordinationsstelle Bauen ausserhalb Bauzone",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 606,
+    "fields": {
+      "group": 606,
+      "language": "de",
+      "name": "Administration Amt für Wirtschaft und Arbeit (Energiefachstelle)",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 607,
+    "fields": {
+      "group": 607,
+      "language": "de",
+      "name": "Sachbearbeitung Amt für Wirtschaft und Arbeit (Energiefachstelle)",
       "city": null
     }
   },
@@ -12284,7 +12336,7 @@
     "model": "user.service",
     "pk": 111,
     "fields": {
-      "slug": null,
+      "slug": "awa-arbeitsinspektorat",
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -12775,6 +12827,30 @@
       "city": null,
       "address": null,
       "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 133,
+    "fields": {
+      "slug": null,
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 18,
+      "phone": "032 627 94 11",
+      "zip": "4509",
+      "city": null,
+      "address": "Untere Sternengasse 2",
+      "email": null,
       "website": null,
       "logo": "",
       "disabled": 0,
@@ -14098,9 +14174,9 @@
     "fields": {
       "service": 111,
       "language": "de",
-      "name": "Amt für Wirtschaft und Arbeit",
-      "description": "Amt für Wirtschaft und Arbeit",
-      "city": null,
+      "name": "Amt für Wirtschaft und Arbeit (Arbeitsinspektorat)",
+      "description": "Amt für Wirtschaft und Arbeit (Arbeitsinspektorat)",
+      "city": "Solothurn",
       "department": null
     }
   },
@@ -14341,6 +14417,18 @@
       "name": "Kantonale Koordinationsstelle Bauen ausserhalb Bauzone",
       "description": "Kantonale Koordinationsstelle Bauen ausserhalb Bauzone",
       "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 133,
+    "fields": {
+      "service": 133,
+      "language": "de",
+      "name": "Amt für Wirtschaft und Arbeit (Energiefachstelle)",
+      "description": "Amt für Wirtschaft und Arbeit (Energiefachstelle)",
+      "city": "Solothurn",
       "department": null
     }
   }
