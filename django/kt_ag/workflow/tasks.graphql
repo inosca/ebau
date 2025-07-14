@@ -189,7 +189,22 @@ mutation CreateCheckPATask {
       addressGroups: "[\"afb\"]|groups"
       controlGroups: "[\"afb\"]|groups"
       leadTime: 1209600 # 14 days
-      meta: "{\"directLink\":{\"route\":\"cases.detail.alexandria\",\"models\":[\"INSTANCE_ID\"]}}"
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateTriggerBillingTask {
+  saveSimpleTask(
+    input: {
+      slug: "trigger-billing"
+      name: "Gebühren auslösen"
+      addressGroups: "[\"afb\"]|groups"
+      controlGroups: "[\"afb\"]|groups"
+      leadTime: 31536000 # 365 days
+      meta: "{\"is-manually-completable\":true}"
     }
   ) {
     clientMutationId

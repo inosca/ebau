@@ -187,7 +187,7 @@ mutation InquiryFlow {
     input: {
       workflow: "distribution"
       tasks: ["inquiry"]
-      next: "[\"after-inquiries-completed\", \"redo-inquiry\"]|tasks"
+      next: "[\"after-inquiries-completed\", \"redo-inquiry\", \"maybe-trigger-billing\"]|tasks"
     }
   ) {
     clientMutationId

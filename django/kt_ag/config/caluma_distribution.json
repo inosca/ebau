@@ -574,7 +574,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "[\"after-inquiries-completed\", \"redo-inquiry\"]|tasks"
+      "next": "[\"after-inquiries-completed\", \"redo-inquiry\", \"maybe-trigger-billing\"]|tasks"
     }
   },
   {
