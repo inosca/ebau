@@ -153,7 +153,9 @@ def test_sogis_client(
     vcr_config,
 ):
     x, y = scenario["coords"]
-    response = admin_client.get(reverse("gis-data"), data={"x": x, "y": y})
+    response = admin_client.get(
+        reverse("gis-data"), data={"x": x, "y": y, "applied": "ja"}
+    )
 
     assert response.status_code == status.HTTP_200_OK
 
