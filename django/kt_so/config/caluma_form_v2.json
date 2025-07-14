@@ -27,7 +27,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Baugesuch\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch V2\", \"fr\": null, \"it\": null}",
       "meta": {
         "order": 1,
         "category": "building-permit",
@@ -68,7 +68,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Erdw\\u00e4rmesonden (EWS)\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Erdw\\u00e4rmesonden (EWS) V2\", \"fr\": null, \"it\": null}",
       "meta": {
         "order": 3,
         "category": "special-procedure",
@@ -91,7 +91,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Generelle Fachthemen\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"V2\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Generelle Fachthemen V2\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -109,7 +109,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Hochbau\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Hochbau V2\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -145,7 +145,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Meldung Solaranlage\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Meldung Solaranlage V2\", \"fr\": null, \"it\": null}",
       "meta": {
         "order": 2,
         "category": "special-procedure",
@@ -168,7 +168,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Meldung (Anzeige)\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Meldung (Anzeige) V2\", \"fr\": null, \"it\": null}",
       "meta": {
         "order": 1,
         "category": "special-procedure",
@@ -191,7 +191,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Migriertes Dossier Lokalisierung\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Migriertes Dossier Lokalisierung V2\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -209,7 +209,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Migriertes Dossier\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Migriertes Dossier V2\", \"fr\": null, \"it\": null}",
       "meta": {
         "is-creatable": false,
         "is-main-form": true
@@ -230,7 +230,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Grundst\\u00fcck Tabelle\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Grundst\\u00fcck Tabelle V2\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -248,7 +248,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Reklamegesuch\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Reklamegesuch V2\", \"fr\": null, \"it\": null}",
       "meta": {
         "order": 2,
         "category": "building-permit",
@@ -271,7 +271,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Voranfrage\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Voranfrage V2\", \"fr\": null, \"it\": null}",
       "meta": {
         "order": 1,
         "category": "preliminary-clarification",
@@ -294,7 +294,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Wohnungen Tabelle\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Wohnungen Tabelle V2\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -553,7 +553,7 @@
       "modified_by_group": null,
       "form": "bauprojekt-v2",
       "question": "bauprojekt-titel",
-      "sort": 30
+      "sort": 31
     }
   },
   {
@@ -783,6 +783,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v2.kurzbeschreibung-bauprojekt",
+    "fields": {
+      "created_at": "2025-07-14T14:27:09.703Z",
+      "modified_at": "2025-07-14T14:27:09.703Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauprojekt-v2",
+      "question": "kurzbeschreibung-bauprojekt",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bauprojekt-v2.mindest-und-grenzabstaende",
     "fields": {
       "created_at": "2025-07-10T08:44:40.500Z",
@@ -823,7 +838,7 @@
       "modified_by_group": null,
       "form": "bauprojekt-v2",
       "question": "stand-der-realisierung",
-      "sort": 28
+      "sort": 29
     }
   },
   {
@@ -838,7 +853,7 @@
       "modified_by_group": null,
       "form": "bauprojekt-v2",
       "question": "status-bauprojekt",
-      "sort": 29
+      "sort": 30
     }
   },
   {
