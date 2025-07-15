@@ -3320,3 +3320,12 @@ def django_q_sync_mode(settings):
         yield
     finally:
         django_q.conf.Conf.SYNC = before
+
+
+@pytest.fixture
+def fake_request(rf, admin_user, group):
+    request = rf.request()
+    request.user = admin_user
+    request.group = group
+
+    return request
