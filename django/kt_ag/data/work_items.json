@@ -285,7 +285,7 @@
         "06800de9-6966-7c43-8000-1512ffbf48f4",
         "06800de9-cb9c-7df0-8000-580aba0e04e1"
       ],
-      "tasks": ["check-pa", "inquiry"]
+      "tasks": ["check-pa", "inquiry", "trigger-billing"]
     }
   },
   {

@@ -1397,3 +1397,51 @@ def test_set_document_supplement_deadline(
         assert check_work_item.deadline.date().isoformat() == "2025-01-29"
     else:
         assert check_work_item.deadline is None
+
+
+@pytest.mark.freeze_time("2025-07-14")
+@pytest.mark.parametrize(
+    "is_afb,form_slug,expected_deadline",
+    [
+        (True, "baugesuch", "2026-07-14"),
+        (True, "anfrage", "2025-08-13"),
+        (False, "baugesuch", None),
+    ],
+)
+def test_set_trigger_billing_deadline(
+    db,
+    ag_distribution_settings,
+    caluma_admin_user,
+    disable_additional_demand_settings,
+    disable_ech0211_settings,
+    expected_deadline,
+    form_slug,
+    inquiry_factory_ag,
+    is_afb,
+    service_factory,
+    settings,
+    ag_instance,
+):
+    settings.APPLICATION_NAME = "kt_ag"
+
+    ag_instance.case.document.form_id = form_slug
+    ag_instance.case.document.save()
+
+    service = Service.objects.get(slug="afb") if is_afb else service_factory()
+    inquiry = inquiry_factory_ag(service, sent=True)
+
+    skip_work_item(
+        work_item=inquiry.child_case.work_items.get(
+            task_id=ag_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]
+        ),
+        user=caluma_admin_user,
+    )
+
+    trigger_work_item = inquiry.case.work_items.filter(
+        task_id="trigger-billing"
+    ).first()
+
+    if is_afb:
+        assert trigger_work_item.deadline.date().isoformat() == expected_deadline
+    else:
+        assert trigger_work_item is None

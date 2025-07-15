@@ -20,7 +20,12 @@ export default {
       subservice: ["inquiry"],
     },
     serviceGroups: {
-      "service-afb": ["check-pa", "cantonal-exam", "check-document-supplement"],
+      "service-afb": [
+        "check-pa",
+        "cantonal-exam",
+        "check-document-supplement",
+        "trigger-billing",
+      ],
     },
   },
   columns(status, role) {

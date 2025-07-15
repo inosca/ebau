@@ -322,6 +322,16 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return tasks
 
+    @register_dynamic_task("maybe-trigger-billing")
+    def resolve_maybe_trigger_billing(self, case, user, prev_work_item, context):
+        if (
+            str(Service.objects.get(slug="afb").pk)
+            not in prev_work_item.addressed_groups
+        ):
+            return []
+
+        return ["trigger-billing"]
+
     @register_dynamic_task("after-ebau-number")
     def resolve_after_ebau_number(self, case, user, prev_work_item, context):
         tasks = [
