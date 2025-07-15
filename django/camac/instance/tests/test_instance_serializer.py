@@ -104,3 +104,61 @@ def test_ur_get_responsible_service(
         )
 
     assert serializer._ur_get_responsible_service(ur_instance) == mock_service
+
+
+@pytest.mark.parametrize(
+    "form_slug,expected_notifications",
+    [
+        (
+            "baugesuch",
+            (
+                "empfang-anfragebaugesuch-behorden",
+                "empfang-anfragebaugesuch-gesuchsteller",
+            ),
+        ),
+        (
+            "vorlaeufige-beurteilung",
+            (
+                "empfang-anfragevorabklarung-behorden",
+                "empfang-anfragevorabklarung-gesuchsteller",
+            ),
+        ),
+        (
+            "vorlaeufige-beurteilung-v3",
+            (
+                "empfang-anfragevorabklarung-behorden",
+                "empfang-anfragevorabklarung-gesuchsteller",
+            ),
+        ),
+        (
+            "other",
+            (
+                "empfang-anfragebaugesuch-behorden",
+                "empfang-anfragebaugesuch-gesuchsteller",
+            ),
+        ),
+    ],
+)
+def test_send_notifications_gr(
+    db,
+    instance_factory,
+    caluma_case_factory,
+    form_slug,
+    expected_notifications,
+    set_application_gr,
+    mocker,
+):
+    case = caluma_case_factory(
+        document__form__slug=form_slug,
+        instance=instance_factory(),
+    )
+
+    serializer = CalumaInstanceSubmitSerializer()
+
+    mocked_send = mocker.patch.object(serializer, "_send_notification")
+    serializer._send_notifications(case)
+
+    assert mocked_send.call_count == 2
+    assert set(
+        [call.kwargs["template_slug"] for call in mocked_send.call_args_list]
+    ) == set(expected_notifications)

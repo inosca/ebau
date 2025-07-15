@@ -1619,6 +1619,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         ):
             notification_key = "SUBMIT_OTHERS"
 
+        if settings.APPLICATION_NAME == "kt_gr" and case.document.form_id.startswith(
+            "vorlaeufige-beurteilung"
+        ):
+            notification_key = "SUBMIT_PRELIMINARY_CLARIFICATION"
+
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"].get(
             notification_key, []
