@@ -16148,7 +16148,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "eingabequittung-korrekt",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -16208,7 +16208,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "hinweis-auflistung",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -16224,6 +16224,21 @@
       "form": "vollstaendigkeitspruefung",
       "question": "hinweis-baugesuch",
       "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.hinweis-eingabequittung",
+    "fields": {
+      "created_at": "2025-07-15T08:59:31.238Z",
+      "modified_at": "2025-07-15T08:59:31.238Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "hinweis-eingabequittung",
+      "sort": 9
     }
   },
   {
@@ -61289,6 +61304,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Arch\\u00e4ologie und Denkmalpflege:** Bitte nehmen Sie mit [der zust\\u00e4ndigen Bauberaterin / dem zust\\u00e4ndigen Bauberater](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/DPGDokumentAblage/bauberatung_gebietszuteilung_d.pdf) Kontakt auf.\", \"fr\": \"\", \"it\": \"**Archeologia e conservazione dei monumenti storici:** Si prega di contattare [la / il competente consulente edile](https://www.gr.ch/DE/institutionen/verwaltung/ekud/afk/dpg/bereiche/administration/SiteAssets/IT_Bauberatung_Gebietszuteilung.pdf).\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-eingabequittung",
+    "fields": {
+      "created_at": "2025-07-15T08:59:31.185Z",
+      "modified_at": "2025-07-15T08:59:42.535Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"hinweis-eingabequittung\", \"fr\": null, \"it\": \"hinweis-eingabequittung\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\"> Die Eingabequittung ist einzuscannen und unter Dokumente \\u201cBeteiligte Beh\\u00f6rden\\u201d abzulegen. </div>\", \"fr\": \"\", \"it\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\"> La ricevuta deve essere scannerizzata e archiviata tra i documenti \\u201cAutorit\\u00e0 coinvolte\\u201d. </div>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,

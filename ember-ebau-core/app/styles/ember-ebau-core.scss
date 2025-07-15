@@ -51,3 +51,7 @@ tr[role="link"] {
   background-color: $custom-muted-color-light;
   color: $text-muted-color;
 }
+
+.border-highlight {
+  border-left: 4px solid $global-danger-background;
+}
