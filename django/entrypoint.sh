@@ -83,10 +83,10 @@ case "$1" in
     watchmedo auto-restart -d . --recursive -p '*.py' -- celery -A camac worker -l INFO -E -O fair;
     ;;
   celery-beat)
-    exec celery -A camac beat -l INFO -E -O fair --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    exec celery -A camac beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
       ;;
   celery-beat-dev)
-    exec watchmedo auto-restart -d . --recursive -p '*.py' -- celery -A camac worker -l INFO -E -O fair --scheduler django_celery_beat.schedulers:DatabaseScheduler
+    exec watchmedo auto-restart -d . --recursive -p '*.py' -- celery -A camac beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
   ;;
   webdav )
     exec gunicorn --workers "${DJANGO_WEBDAV_GUNICORN_WORKERS:-8}" --access-logfile - --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" --bind :"${DJANGO_WEBDAV_SERVER_PORT:-8000}" camac.wsgi_dav
