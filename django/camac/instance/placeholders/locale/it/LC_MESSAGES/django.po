@@ -105,8 +105,16 @@ msgid "ANSWERED"
 msgstr "RISPOSTO"
 
 #: camac/instance/placeholders/fields.py
+msgid "ANSWERED_TIMESTAMP"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
 msgid "CREATED"
 msgstr "CREATO"
+
+#: camac/instance/placeholders/fields.py
+msgid "CREATED_TIMESTAMP"
+msgstr ""
 
 #: camac/instance/placeholders/fields.py
 msgid "SERVICE"
@@ -2111,6 +2119,10 @@ msgid "Name of the person responsible for QS"
 msgstr "Nome della persona responsabile della GQ"
 
 #: camac/instance/placeholders/serializers.py
+msgid "All inquiries"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
 msgid "PUBLICATION_DATE_GAZETTE"
 msgstr "DATA_PUBBLICAZIONE_ORGANO_PUBBLICAZIONE"
 
@@ -2487,6 +2499,10 @@ msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "JOURNAL_ENTRY_DATE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "JOURNAL_ENTRY_DATE_TIMESTAMP"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py

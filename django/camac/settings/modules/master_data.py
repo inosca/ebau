@@ -2944,6 +2944,13 @@ MASTER_DATA = {
                                 "value_parser": "human_readable_date",
                             },
                         ),
+                        "date_timestamp": (
+                            "mp-bab-datum-eintrag",
+                            {
+                                "value_key": "date",
+                                "value_parser": "datetime_timestamp",
+                            },
+                        ),
                         "type": (
                             "mp-bab-art-des-eintrages",
                             {

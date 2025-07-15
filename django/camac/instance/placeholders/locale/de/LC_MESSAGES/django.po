@@ -2003,6 +2003,10 @@ msgid "Name of the person responsible for QS"
 msgstr "Angaben des QS Verantwortlichen"
 
 #: camac/instance/placeholders/serializers.py
+msgid "All inquiries"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
 msgid "PUBLICATION_DATE_GAZETTE"
 msgstr "PUBLIKATION_ANZEIGER"
 
@@ -2356,6 +2360,10 @@ msgstr "Kantonale Prüfung Journal"
 #: camac/instance/placeholders/serializers.py
 msgid "JOURNAL_ENTRY_DATE"
 msgstr "DATUM_EINTRAG"
+
+#: camac/instance/placeholders/serializers.py
+msgid "JOURNAL_ENTRY_DATE_TIMESTAMP"
+msgstr "DATUM_EINTRAG_TIMESTAMP"
 
 #: camac/instance/placeholders/serializers.py
 msgid "JOURNAL_ENTRY_TYPE"

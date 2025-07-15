@@ -2030,6 +2030,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         description=_("Cantonal exam journal"),
         nested_aliases={
             "date": [_("JOURNAL_ENTRY_DATE")],
+            "date_timestamp": [_("JOURNAL_ENTRY_DATE_TIMESTAMP")],
             "type": [_("JOURNAL_ENTRY_TYPE")],
             "involved": [_("JOURNAL_PARTICIPANTS_PRESENT")],
             "facts": [_("JOURNAL_FACTS")],

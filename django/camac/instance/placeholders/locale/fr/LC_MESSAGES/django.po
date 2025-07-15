@@ -102,8 +102,16 @@ msgid "ANSWERED"
 msgstr "REPONDU"
 
 #: camac/instance/placeholders/fields.py
+msgid "ANSWERED_TIMESTAMP"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
 msgid "CREATED"
 msgstr "CREE"
+
+#: camac/instance/placeholders/fields.py
+msgid "CREATED_TIMESTAMP"
+msgstr ""
 
 #: camac/instance/placeholders/fields.py
 msgid "SERVICE"
@@ -2119,6 +2127,10 @@ msgid "Name of the person responsible for QS"
 msgstr "Nom de la personne responsable du QS"
 
 #: camac/instance/placeholders/serializers.py
+msgid "All inquiries"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
 #, fuzzy
 #| msgid "PUBLICATION_1_GAZETTE"
 msgid "PUBLICATION_DATE_GAZETTE"
@@ -2549,6 +2561,10 @@ msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "JOURNAL_ENTRY_DATE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "JOURNAL_ENTRY_DATE_TIMESTAMP"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py

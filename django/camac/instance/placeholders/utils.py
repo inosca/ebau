@@ -5,6 +5,7 @@ from typing import List, Union
 from babel.dates import format_date
 from caluma.caluma_form.models import Document
 from django.conf import settings
+from django.utils import timezone
 from django.utils.translation import get_language, gettext as _
 
 from camac.caluma.utils import find_answer
@@ -172,6 +173,19 @@ def human_readable_date(value: Union[datetime, date, None]) -> str:
         return None
 
     return format_date(value, "long", locale=get_language())
+
+
+def datetime_timestamp(value: Union[datetime, None]) -> str:
+    """Format datetime to a timestamp.
+
+    >>> datetime_timestamp(date(2021, 10, 4))
+    "2021-04-10T23:59:59"
+    """
+
+    if not value:
+        return ""
+
+    return value.astimezone(tz=timezone.get_default_timezone()).isoformat()
 
 
 def row_to_person(document: Document) -> dict:
