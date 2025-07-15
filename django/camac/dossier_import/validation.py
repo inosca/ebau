@@ -115,9 +115,45 @@ def get_dossier_cell_by_column(dossier_id, col_name, rows):
     return row.get(col_name.upper(), None)
 
 
-def _validate_date_fields(
-    dossier_id, dossier_messages, headings, rows, allow_delete=False
-) -> bool:
+def iter_dossier_fields(dossier_id, dossier_messages, headings, rows):
+    """Iterate over dossier fields values."""
+    for column in headings:
+        value = get_dossier_cell_by_column(dossier_id, column, rows)
+        message_defaults = {
+            "dossier_id": dossier_id,
+            "field_name": column,
+            "messages": dossier_messages,
+        }
+        yield column, value, message_defaults
+
+
+def _handle_delete_keyword(
+    field, value, message_defaults: dict, allow_delete: bool = True
+):
+    if not value:
+        return
+
+    if value != settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
+        return
+
+    if allow_delete:
+        messages.append_or_update_dossier_message(
+            code=MessageCodes.VALUE_DELETED,
+            detail=_("Existing value will be deleted"),
+            level=messages.Severity.INFO.value,
+            **message_defaults,
+        )
+        return
+    messages.append_or_update_dossier_message(
+        code=MessageCodes.FIELD_VALIDATION_ERROR,
+        detail=_(f"{settings.DOSSIER_IMPORT['DELETE_KEYWORD']} is without effect"),
+        level=messages.Severity.WARNING.value,
+        **message_defaults,
+    )
+    return
+
+
+def _validate_date_field(field, value, message_defaults: dict) -> bool:
     # pyexcel-xlsx may provide data from cells based on the cell formatting.
     # Specs define that we accept values in the XlsxFileDossierLoader.date_format.
     # something similar to "03.04.2001".
@@ -125,52 +161,26 @@ def _validate_date_fields(
     # strings with correctly entered data. In that case we should try to parse that
     # value or return instructions.
     valid = True
-    for date_column in [heading for heading in headings if heading.endswith("-DATE")]:
-        if date := get_dossier_cell_by_column(dossier_id, date_column, rows):
-            # We'll use these for handling messages below repeatedly.
-            # Individual messages require `code`, `detail` and `level`
-            # set separately.
-            message_defaults = {
-                "dossier_id": dossier_id,
-                "field_name": date_column,
-                "messages": dossier_messages,
-            }
+    if not field.endswith("-DATE"):
+        return valid
 
-            if date == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
-                if allow_delete:
-                    messages.append_or_update_dossier_message(
-                        code=MessageCodes.VALUE_DELETED,
-                        detail="Date will be deleted",
-                        level=messages.Severity.INFO.value,
-                        **message_defaults,
-                    )
+    if not value:
+        return valid
 
-                else:
-                    messages.append_or_update_dossier_message(
-                        code=MessageCodes.FIELD_VALIDATION_ERROR,
-                        detail=_(
-                            "The value %(value)s will be ignored because deletion is not supported for new dossiers."
-                        )
-                        % {"value": date},
-                        level=messages.Severity.WARNING.value,
-                        **message_defaults,
-                    )
+    if value == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
+        return valid
 
-                continue
-
-            if not isinstance(date, timezone.datetime):
-                try:
-                    date = timezone.datetime.strptime(
-                        date, XlsxFileDossierLoader.date_format
-                    )
-                except ValueError:
-                    messages.append_or_update_dossier_message(
-                        detail=str(date),
-                        code=MessageCodes.DATE_FIELD_VALIDATION_ERROR.value,
-                        level=messages.Severity.ERROR.value,
-                        **message_defaults,
-                    )
-                    valid = False
+    if not isinstance(value, timezone.datetime):
+        try:
+            timezone.datetime.strptime(value, XlsxFileDossierLoader.date_format)
+        except ValueError:
+            messages.append_or_update_dossier_message(
+                detail=str(value),
+                code=MessageCodes.DATE_FIELD_VALIDATION_ERROR.value,
+                level=messages.Severity.ERROR.value,
+                **message_defaults,
+            )
+            valid = False
     return valid
 
 
@@ -195,22 +205,24 @@ def _validate_existing_dossier(dossier_id, dossier_msgs, headings, rows):
             messages=dossier_msgs,
             level=messages.Severity.INFO.value,
         )
-
-    _validate_date_fields(dossier_id, dossier_msgs, headings, rows, allow_delete=True)
-    return True
+    validations = []
+    for field, value, default_message in iter_dossier_fields(
+        dossier_id, dossier_msgs, headings, rows
+    ):
+        _handle_delete_keyword(field, value, default_message, allow_delete=True)
+        validations.append(_validate_date_field(field, value, default_message))
+    return all(validations)
 
 
 def _validate_new_dossier(dossier_id, dossier_msgs, headings, rows):
-    # New dossiers require additional columns to the `ID` column.
-    # If we encounter this we rather immediately raise to avoid complex
-    # communication.
     _raise_for_missing_columns(
         headings, *[col_name.upper() for col_name in REQUIRED_COLUMNS]
     )
     valid = True
+
     # check that status is not empty and also valid
     status = get_dossier_cell_by_column(dossier_id, "status", rows)
-    existing_status = [e.value for e in TargetStatus]
+    valid_status = [e.value for e in TargetStatus]
     if not status:
         messages.append_or_update_dossier_message(
             dossier_id=dossier_id,
@@ -221,8 +233,8 @@ def _validate_new_dossier(dossier_id, dossier_msgs, headings, rows):
             level=messages.Severity.ERROR.value,
         )
         valid = False
-    elif status not in existing_status:
-        if similar := get_similar_value(status, existing_status):  # pragma: no cover
+    elif status not in valid_status:
+        if similar := get_similar_value(status, valid_status):  # pragma: no cover
             detail = _('%(original)s - did you mean "%(similar)s"?') % dict(
                 original=status, similar=similar
             )
@@ -250,10 +262,15 @@ def _validate_new_dossier(dossier_id, dossier_msgs, headings, rows):
             level=messages.Severity.ERROR.value,
         )
         valid = False
-    valid = _validate_date_fields(
-        dossier_id, dossier_msgs, headings, rows, allow_delete=False
-    )
-    return valid
+
+    validations = []
+    for field, value, default_message in iter_dossier_fields(
+        dossier_id, dossier_msgs, headings, rows
+    ):
+        _handle_delete_keyword(field, value, default_message, allow_delete=False)
+        validations.append(_validate_date_field(field, value, default_message))
+    validations.append(valid)
+    return all(validations)
 
 
 def _raise_for_missing_columns(headings, *columns):
