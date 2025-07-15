@@ -96,8 +96,16 @@ msgid "ANSWERED"
 msgstr "BEANTWORTET"
 
 #: camac/instance/placeholders/fields.py
+msgid "ANSWERED_TIMESTAMP"
+msgstr "BEANTWORTET_TIMESTAMP"
+
+#: camac/instance/placeholders/fields.py
 msgid "CREATED"
 msgstr "ERSTELLT"
+
+#: camac/instance/placeholders/fields.py
+msgid "CREATED_TIMESTAMP"
+msgstr "ERSTELLT_TIMESTAMP"
 
 #: camac/instance/placeholders/fields.py
 msgid "SERVICE"

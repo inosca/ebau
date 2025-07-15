@@ -1712,6 +1712,16 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
 
 class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    zirkulation_alle = fields.InquiriesField(
+        service_group=[
+            "municipality",
+            "service-cantonal",
+            "service-extra-cantonal",
+            "service-bab",
+        ],
+        aliases=[_("CIRCULATION_ALL")],
+        description=_("All inquiries"),
+    )
     zirkulation_fachstellen = fields.InquiriesField(
         service_group=["service-cantonal", "service-extra-cantonal", "service-bab"],
         aliases=[_("CIRCULATION_SERVICES")],

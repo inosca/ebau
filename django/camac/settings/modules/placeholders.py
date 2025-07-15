@@ -76,6 +76,8 @@ PLACEHOLDERS = {
             ("notices_arp", "HINWEISE_AN_LEITBEHOERDE_ARP"),
             ("forward", "VERSAND_ENTSCHEID_WEITERE_STELLEN"),
             ("remark", "BEMERKUNGEN"),
+            ("creation_date_timestamp", "ERSTELLT_TIMESTAMP"),
+            ("completion_date_timestamp", "BEANTWORTET_TIMESTAMP"),
         ],
         "INQUIRY_FIELD_MAPPINGS": {
             "feedback": ("inquiry-answer", "STATUS"),

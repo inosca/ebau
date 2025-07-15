@@ -440,7 +440,9 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         all_nested_aliases = {
             "ANTWORT": [_("ANSWER")],
             "BEANTWORTET": [_("ANSWERED")],
+            "BEANTWORTET_TIMESTAMP": [_("ANSWERED_TIMESTAMP")],
             "ERSTELLT": [_("CREATED")],
+            "ERSTELLT_TIMESTAMP": [_("CREATED_TIMESTAMP")],
             "FACHSTELLE": [_("SERVICE")],
             "FRIST": [_("DEADLINE")],
             "NAME": [_("NAME")],
@@ -494,8 +496,16 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
             "service_with_prefix": lambda i: f"- {self.get_service(i, 'addressed_groups')}",
             "deadline": lambda i: i.deadline.strftime("%d.%m.%Y"),
             "creation_date": lambda i: i.created_at.strftime("%d.%m.%Y"),
+            "creation_date_timestamp": lambda i: i.created_at.astimezone(
+                timezone.get_default_timezone()
+            ).isoformat(),
             "completion_date": lambda i: (
                 i.closed_at.strftime("%d.%m.%Y")
+                if i.status == WorkItem.STATUS_COMPLETED
+                else None
+            ),
+            "completion_date_timestamp": lambda i: (
+                i.closed_at.astimezone(timezone.get_default_timezone()).isoformat()
                 if i.status == WorkItem.STATUS_COMPLETED
                 else None
             ),
