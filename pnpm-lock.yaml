@@ -1314,6 +1314,9 @@ importers:
       '@projectcaluma/ember-workflow':
         specifier: 14.3.0
         version: 14.3.0(@ember/test-helpers@4.0.4(@babel/core@7.26.10)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-data@4.12.8(@babel/core@7.26.10)(@ember/string@4.0.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1))(ember-resources@7.0.3(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
+      dompurify:
+        specifier: 3.2.6
+        version: 3.2.6
       ember-alexandria:
         specifier: 10.7.0
         version: 10.7.0(fd4rrr34h63fojki5hq3adr6v4)
@@ -1332,6 +1335,9 @@ importers:
       ember-cli-htmlbars:
         specifier: 6.3.0
         version: 6.3.0
+      ember-cli-showdown:
+        specifier: 9.0.1
+        version: 9.0.1(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       ember-concurrency:
         specifier: 4.0.3
         version: 4.0.3(@babel/core@7.26.10)(@glimmer/tracking@1.1.2)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
@@ -1480,9 +1486,6 @@ importers:
       ember-cli-sass:
         specifier: 11.0.1
         version: 11.0.1
-      ember-cli-showdown:
-        specifier: 9.0.1
-        version: 9.0.1(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(webpack@5.97.1)
       ember-cli-terser:
         specifier: 4.0.2
         version: 4.0.2
@@ -1534,6 +1537,9 @@ importers:
       eslint-plugin-qunit:
         specifier: 8.1.2
         version: 8.1.2(eslint@9.16.0)
+      focus-trap:
+        specifier: 6.9.4
+        version: 6.9.4
       globals:
         specifier: 15.13.0
         version: 15.13.0
@@ -3082,6 +3088,9 @@ packages:
   '@types/symlink-or-copy@1.2.2':
     resolution: {integrity: sha512-MQ1AnmTLOncwEf9IVU+B2e4Hchrku5N67NkgcAHW0p3sdzPe0FNMANxEm6OJUzPniEQGkeT3OROLlCwZJLWFZA==}
 
+  '@types/trusted-types@2.0.7':
+    resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
+
   '@ungap/structured-clone@0.3.4':
     resolution: {integrity: sha512-TSVh8CpnwNAsPC5wXcIyh92Bv1gq6E9cNDeeLu7Z4h8V4/qWtXJp7y42qljRkqcpmsve1iozwv1wr+3BNdILCg==}
 
@@ -4569,6 +4578,9 @@ packages:
   domhandler@5.0.3:
     resolution: {integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==}
     engines: {node: '>= 4'}
+
+  dompurify@3.2.6:
+    resolution: {integrity: sha512-/2GogDQlohXPZe6D6NOgQvXLPSYBqIWMnZ8zzOhn09REE4eyAzb+Hed3jhoM9OkuaJ8P6ZGTTVWQKAi8ieIzfQ==}
 
   domutils@1.7.0:
     resolution: {integrity: sha512-Lgd2XcJ/NjEw+7tFvfKxOzCYKZsdct5lczQ2ZaQY8Djz7pfAD3Gbp8ySJWtreII/vDlMVmxwa6pHmdxIYgttDg==}
@@ -11419,6 +11431,9 @@ snapshots:
 
   '@types/symlink-or-copy@1.2.2': {}
 
+  '@types/trusted-types@2.0.7':
+    optional: true
+
   '@ungap/structured-clone@0.3.4': {}
 
   '@webassemblyjs/ast@1.14.1':
@@ -13166,6 +13181,10 @@ snapshots:
   domhandler@5.0.3:
     dependencies:
       domelementtype: 2.3.0
+
+  dompurify@3.2.6:
+    optionalDependencies:
+      '@types/trusted-types': 2.0.7
 
   domutils@1.7.0:
     dependencies:

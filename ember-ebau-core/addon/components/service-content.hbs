@@ -7,6 +7,7 @@
       class="markdown-content service-content uk-background-muted uk-padding-small"
       @markdown={{this.content.value}}
       @openLinksInNewWindow={{true}}
+      @extensions="DOMPurify"
     />
   {{/if}}
 </div>
