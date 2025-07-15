@@ -344,6 +344,7 @@ def test_accompanying_report_event_handler_alexandria(
     admin_user,
     mocker,
     application_settings,
+    freezer,
 ):
     application_settings["DOCUMENT_BACKEND"] = "alexandria"
 
@@ -360,6 +361,7 @@ def test_accompanying_report_event_handler_alexandria(
     subservice = service_factory(service_parent=service)
     other_service = service_factory()
 
+    freezer.move_to("12:01")
     FileFactory(
         document=DocumentFactory(
             id="958750f4-c4ca-4b8f-b890-c13c1b5d4262",
@@ -369,6 +371,7 @@ def test_accompanying_report_event_handler_alexandria(
             created_by_group=str(service.pk),
         ),
     )
+    freezer.move_to("12:02")
     FileFactory(
         document=DocumentFactory(
             id="93d531e7-24bb-49a1-9d4a-03d328981d0e",
@@ -378,6 +381,7 @@ def test_accompanying_report_event_handler_alexandria(
             created_by_group=str(subservice.pk),
         ),
     )
+    freezer.move_to("12:03")
     FileFactory(
         document=DocumentFactory(
             id="b1a826b3-fb17-43f6-8575-984180384a64",
@@ -387,6 +391,7 @@ def test_accompanying_report_event_handler_alexandria(
             created_by_group=str(service.pk),
         ),
     )
+    freezer.move_to("12:04")
     FileFactory(
         document=DocumentFactory(
             id="5077d44e-159a-40a0-9efb-32067aae8f08",
