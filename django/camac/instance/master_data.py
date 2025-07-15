@@ -15,6 +15,7 @@ from django.conf import settings
 from django.db.models import Prefetch, QuerySet
 from django.utils.translation import get_language
 
+from camac import request_cache
 from camac.core.models import MultilingualModel, ServiceContent
 from camac.user.models import Service
 from camac.utils import get_dict_item
@@ -83,10 +84,9 @@ class MasterData(object):
         commandline management commands)
         """
         try:
-            request = HistoricalRecords.context.request
-            if not hasattr(request, "_cached_master_data"):
-                setattr(request, "_cached_master_data", {})
-            return request._cached_master_data
+            return request_cache.get_or_set(
+                HistoricalRecords.context.request, "_cached_master_data", {}
+            )
 
         except AttributeError:
             return None

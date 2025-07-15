@@ -1,6 +1,7 @@
 from caluma.caluma_workflow.models import Task
 from rest_framework_json_api import serializers
 
+from camac import request_cache
 from camac.work_items.models import WorkItemListFilterPreset, WorkItemTemplate
 
 
@@ -20,28 +21,6 @@ class WorkItemListFilterPresetSerializer(serializers.ModelSerializer):
     excluded_tasks = serializers.SerializerMethodField()
     excluded_work_item_templates = serializers.SerializerMethodField()
 
-    def _get_all_tasks(self):
-        request = self.context["request"]
-
-        if not hasattr(request, "_all_tasks"):
-            request._all_tasks = set(
-                Task.objects.exclude(pk="create-manual-workitems").values_list(
-                    "pk", flat=True
-                )
-            )
-
-        return request._all_tasks
-
-    def _get_all_work_item_templates(self):
-        request = self.context["request"]
-
-        if not hasattr(request, "_all_work_item_templates"):
-            request._all_work_item_templates = set(
-                WorkItemTemplate.objects.values_list("pk", flat=True)
-            )
-
-        return request._all_work_item_templates
-
     def get_tasks(self, obj):
         if not obj.prefilter_tasks:
             return set()
@@ -52,13 +31,29 @@ class WorkItemListFilterPresetSerializer(serializers.ModelSerializer):
         if not obj.prefilter_tasks:
             return set()
 
-        return self._get_all_tasks() - self.get_tasks(obj)
+        all_tasks = request_cache.get_or_set(
+            self.context["request"],
+            "_all_tasks",
+            lambda: set(
+                Task.objects.exclude(pk="create-manual-workitems").values_list(
+                    "pk", flat=True
+                )
+            ),
+        )
+
+        return all_tasks - self.get_tasks(obj)
 
     def get_excluded_work_item_templates(self, obj):
         if not obj.prefilter_work_item_templates:
             return set()
 
-        return self._get_all_work_item_templates() - {
+        all_work_item_templates = request_cache.get_or_set(
+            self.context["request"],
+            "_all_work_item_templates",
+            lambda: set(WorkItemTemplate.objects.values_list("pk", flat=True)),
+        )
+
+        return all_work_item_templates - {
             template.pk for template in obj.work_item_templates.all()
         }
 
