@@ -53,10 +53,6 @@ export default {
   },
   submitComponent: {
     requiredPermissions: null,
-    export: {
-      enabled: (instance) => !instance.isPaper,
-      templateName: (locale) => `eingabequittung-${locale}`,
-    },
   },
   workItems: {
     cancel: true,

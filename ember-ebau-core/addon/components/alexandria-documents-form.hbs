@@ -45,7 +45,12 @@
     {{/if}}
     <div class="uk-margin-left">
       {{#each fields as |field|}}
-        <CfField input @field={{field}} @disabled={{@disabled}} />
+        <CfField
+          input
+          @field={{field}}
+          @disabled={{@disabled}}
+          @context={{@context}}
+        />
       {{/each}}
     </div>
   {{/each-in}}
@@ -55,19 +60,24 @@
 
 {{#if this.allOtherFields.length}}
   {{#each this.allOtherFields as |field|}}
-    <CfField input @field={{field}} @disabled={{@disabled}} />
+    <CfField
+      input
+      @field={{field}}
+      @disabled={{@disabled}}
+      @context={{@context}}
+    />
   {{/each}}
   <hr />
 {{/if}}
 
-{{#if this.categories.value}}
+{{#if (and (not this.categories.isLoading) this.categories.records)}}
   <div
     uk-grid
     uk-height-match
     class="uk-grid-small uk-child-width-1-1
-      {{if (gt this.categories.value.length 1) 'uk-child-width-1-2@m'}}"
+      {{if (gt this.categories.records.length 1) 'uk-child-width-1-2@m'}}"
   >
-    {{#each this.categories.value as |category|}}
+    {{#each this.categories.records as |category|}}
       <AlexandriaDocumentBucket
         @category={{category}}
         @disabled={{@disabled}}

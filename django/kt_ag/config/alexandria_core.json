@@ -1248,6 +1248,25 @@
   },
   {
     "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-eingabequittung",
+    "fields": {
+      "created_at": "2025-07-11T08:28:09.629Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-07-11T11:33:08.052Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Eingabequittung\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\"]",
+      "color": "#9CDD69",
+      "parent": "beilagen-zum-gesuch",
+      "sort": 5
+    }
+  },
+  {
+    "model": "alexandria_core.category",
     "pk": "beilagen-zum-gesuch-grundstuecksangaben",
     "fields": {
       "created_at": "2023-08-23T13:17:14.214Z",

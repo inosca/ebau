@@ -4,6 +4,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { task, dropTask } from "ember-concurrency";
+import { query } from "ember-data-resources";
 import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
@@ -22,15 +23,9 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   @tracked duplicateFileNames = [];
   @tracked showDuplicateModal = false;
 
-  categories = trackedFunction(this, async () => {
-    await Promise.resolve();
-
-    return await this.store.query("category", {
-      filter: {
-        slugs: String(this.categorySlugs),
-      },
-    });
-  });
+  categories = query(this, "category", () => ({
+    slugs: String(this.categorySlugs),
+  }));
 
   get categorySlugs() {
     return this.field.question.raw.meta["alexandria-categories"];
@@ -136,7 +131,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   }
 
   attachments = trackedFunction(this, async () => {
-    return (this.categories.value ?? []).reduce((obj, category) => {
+    return (this.categories.records ?? []).reduce((obj, category) => {
       return {
         ...obj,
         [category.get("id")]: this.allAttachments.filter(
