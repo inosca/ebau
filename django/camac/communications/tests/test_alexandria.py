@@ -138,6 +138,7 @@ def test_create_message_with_alexandria_attachment(
 )
 def test_convert_to_alexandria_attachment(
     admin_client,
+    user,
     communications_attachment,
     expected_status,
     has_key,
@@ -170,6 +171,9 @@ def test_convert_to_alexandria_attachment(
     communications_attachment.document_attachment = None
     communications_attachment.save()
 
+    communications_attachment.message.created_by_user = user
+    communications_attachment.message.save()
+
     response = admin_client.patch(
         reverse(
             "communications-attachment-convert-to-document",
@@ -201,4 +205,5 @@ def test_convert_to_alexandria_attachment(
     if expected_status == status.HTTP_200_OK:
         communications_attachment.refresh_from_db()
         assert communications_attachment.alexandria_file
+        assert communications_attachment.alexandria_file.created_by_user == str(user.pk)
         assert communications_attachment.file_attachment
