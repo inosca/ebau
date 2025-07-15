@@ -719,7 +719,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
             *[
                 clean_join(
                     *[
-                        f"{int(plot.get(key)):,}".replace(",", "’")
+                        f"{round(plot.get(key)):,}".replace(",", "’")
                         for key in ["coord_east", "coord_north"]
                         if plot.get(key)
                     ],

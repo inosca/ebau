@@ -147,7 +147,7 @@ def get_gis_center_coordinate(json_data):
 
 
 def format_coordinate(number):
-    return f"{int(number):,}".replace(",", "'")
+    return f"{round(number):,}".replace(",", "'")
 
 
 def clean_and_add_full_name(entry):

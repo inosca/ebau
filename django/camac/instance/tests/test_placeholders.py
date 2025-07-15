@@ -1,5 +1,6 @@
 import pathlib
 from datetime import date, datetime
+from unittest.mock import Mock
 
 import faker
 import pytest
@@ -22,6 +23,7 @@ from django.utils.translation import override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
+from camac.instance.placeholders.serializers import DMSPlaceholdersSerializer
 from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
     get_tel_and_email,
@@ -1202,3 +1204,31 @@ def test_format_gis_center_coordinates(
     expected,
 ):
     assert format_gis_center_coordinates(available_data) == expected
+
+
+@pytest.mark.parametrize(
+    "coord_east,coord_north,expected",
+    [
+        # no rounding
+        (2760558.123, 1170288.456, "2’760’558 / 1’170’288"),
+        # rounded up
+        (2760558.567, 1170288.899, "2’760’559 / 1’170’289"),
+        (2701783.599, 1171109.999, "2’701’784 / 1’171’110"),
+    ],
+)
+def test_get_koordinaten(coord_east, coord_north, expected, mocker):
+    master_data_mock = Mock()
+    master_data_mock.plot_data = [
+        {"coord_east": coord_east, "coord_north": coord_north}
+    ]
+
+    instance_mock = Mock()
+    mocker.patch(
+        "camac.instance.master_data.MasterData.from_case_id",
+        return_value=master_data_mock,
+    )
+
+    assert (
+        DMSPlaceholdersSerializer(instance_mock).get_koordinaten(instance_mock)
+        == expected
+    )
