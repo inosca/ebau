@@ -7,5 +7,5 @@ DEADLINES = ModuleConfig[DeadlinesConfig](
     kt_so=DeadlinesConfig(),
     kt_uri=DeadlinesConfig(),
     kt_schwyz=DeadlinesConfig(),
-    kt_ag=DeadlinesConfig(),
+    kt_ag=DeadlinesConfig(enabled=True),
 )
