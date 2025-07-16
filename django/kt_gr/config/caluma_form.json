@@ -53820,7 +53820,8 @@
           "gleisaushub-volumen",
           "baujahr-aeltestes-betroffenes-objekt",
           "das-bauvorhaben-befindet-sich-in-kataster-belasteter-standorte",
-          "eeba-is-dirty"
+          "eeba-is-dirty",
+          "eeba-confirmation"
         ]
       },
       "data_source": null,

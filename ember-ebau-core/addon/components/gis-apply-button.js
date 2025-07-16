@@ -1,9 +1,11 @@
 import { service } from "@ember/service";
+import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, task, timeout } from "ember-concurrency";
 
+import { EEBA_ANSWER_QUESTIONS } from "ember-ebau-core/config/eeba";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class GisApplyButtonComponent extends Component {
@@ -11,6 +13,7 @@ export default class GisApplyButtonComponent extends Component {
   @service notification;
   @service fetch;
   @service calumaStore;
+  @service eebaClient;
 
   @queryManager apollo;
 
@@ -100,10 +103,32 @@ export default class GisApplyButtonComponent extends Component {
 
     this.showModal = false;
 
-    await Promise.all(
-      questions.map((slug) =>
-        this.args.document.findField(slug)?.refreshAnswer.linked().perform(),
-      ),
-    );
+    return await this.onComplete(questions);
   });
+
+  async onComplete(questions) {
+    const promises = questions.map((slug) =>
+      this.args.document.findField(slug)?.refreshAnswer.linked().perform(),
+    );
+
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      // trigger EEBA update on the confirmation field to set the EEBA isDirty flag,
+      // and reset the state if it was completed.
+      const confirmField = this.args.document.findField(
+        EEBA_ANSWER_QUESTIONS.CONFIRMATION,
+      );
+
+      if (confirmField?.question?.raw) {
+        promises.push(
+          this.eebaClient.onSaveEebaRefresh(
+            this.args.document,
+            this.args.document.findField(EEBA_ANSWER_QUESTIONS.CONFIRMATION)
+              .question.raw,
+          ),
+        );
+      }
+    }
+
+    return await Promise.all(promises);
+  }
 }
