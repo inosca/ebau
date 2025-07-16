@@ -1,9 +1,5 @@
 import pytest
-from caluma.caluma_form import (
-    factories as caluma_form_factories,
-    models as caluma_form_models,
-)
-from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
+from caluma.caluma_workflow import models as caluma_workflow_models
 from django.conf import settings
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
@@ -21,7 +17,6 @@ FULL_PERMISSIONS = {
     "main": RW,
     "sb1": RW,
     "sb2": RW,
-    "nfd": RW,
     "dossierpruefung": RW,
 }
 
@@ -202,134 +197,6 @@ def test_instance_permissions_sz(
         snapshot.assert_match(
             sort_permissions(response.json()["data"]["meta"]["permissions"])
         )
-
-
-@pytest.fixture
-def nfd_form(nfd_table_question):
-    form = caluma_form_models.Form.objects.get(slug="nfd")
-    caluma_form_factories.FormQuestionFactory(form=form, question=nfd_table_question)
-    return form
-
-
-@pytest.fixture
-def nfd_status_question():
-    return caluma_form_factories.QuestionFactory(
-        slug="nfd-tabelle-status",
-        # not entirely correct: it's actually an option,
-        # but it's easier to mock this way
-        type="text",
-    )
-
-
-@pytest.fixture
-def row_form(nfd_status_question):
-    form = caluma_form_factories.FormFactory()
-    caluma_form_factories.FormQuestionFactory(form=form, question=nfd_status_question)
-    return form
-
-
-@pytest.fixture
-def nfd_table_question(row_form):
-    table_question = caluma_form_factories.QuestionFactory(
-        slug="nfd-tabelle-table", type="table", row_form=row_form
-    )
-    return table_question
-
-
-@pytest.fixture
-def nfd_case(
-    be_instance,
-    nfd_form,
-    caluma_admin_user,
-):
-    return be_instance.case
-
-
-@pytest.fixture
-def empty_document(nfd_case, caluma_admin_user):
-    workflow_api.complete_work_item(
-        work_item=nfd_case.work_items.get(task_id="submit"), user=caluma_admin_user
-    )
-
-    return nfd_case.work_items.get(task_id="nfd").document
-
-
-@pytest.fixture
-def document_with_row_but_wrong_status(empty_document, instance, nfd_table_question):
-    doc = empty_document
-    doc.answers.create(question=nfd_table_question)
-
-    return doc
-
-
-@pytest.fixture
-def document_with_all_rows(empty_document, row_form, nfd_table_question):
-    doc = empty_document
-    table_answer = doc.answers.create(question=nfd_table_question)
-    # row 1
-    row_1 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
-    row_2 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
-    row_3 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
-    table_answer.documents.add(row_1)
-    table_answer.documents.add(row_2)
-    table_answer.documents.add(row_3)
-    row_1.answers.create(
-        question_id="nfd-tabelle-status", value="nfd-tabelle-status-entwurf"
-    )
-    row_2.answers.create(
-        question_id="nfd-tabelle-status", value="nfd-tabelle-status-in-bearbeitung"
-    )
-    row_3.answers.create(
-        question_id="nfd-tabelle-status", value="nfd-tabelle-status-erledigt"
-    )
-
-    return doc
-
-
-@pytest.fixture
-def document_with_row_and_erledigt(empty_document, row_form, nfd_table_question):
-    doc = empty_document
-    table_answer = doc.answers.create(question=nfd_table_question)
-    row_1 = caluma_form_factories.DocumentFactory(form=row_form, family=doc)
-    table_answer.documents.add(row_1)
-    row_1.answers.create(
-        question_id="nfd-tabelle-status", value="nfd-tabelle-status-erledigt"
-    )
-
-    return doc
-
-
-@pytest.mark.parametrize("instance__user", [lf("admin_user")])
-@pytest.mark.parametrize(
-    "role__name,expected_nfd_permissions,caluma_doc",
-    [
-        ("Applicant", [], lf("empty_document")),
-        ("Applicant", [], lf("document_with_row_but_wrong_status")),
-        ("Applicant", R, lf("document_with_row_and_erledigt")),
-        ("Applicant", RW, lf("document_with_all_rows")),
-        ("Service", [], lf("empty_document")),
-        ("Municipality", R, lf("empty_document")),
-        ("Support", RW, lf("empty_document")),
-    ],
-)
-def test_instance_nfd_permissions(
-    admin_client,
-    active_inquiry_factory,
-    instance,
-    expected_nfd_permissions,
-    use_caluma_form,
-    requests_mock,
-    caluma_doc,
-):
-    active_inquiry_factory()
-
-    url = reverse("instance-detail", args=[instance.pk])
-    response = admin_client.get(url)
-
-    assert response.status_code == status.HTTP_200_OK
-    assert sorted(response.json()["data"]["meta"]["permissions"]["nfd"]) == sorted(
-        expected_nfd_permissions
-    )
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

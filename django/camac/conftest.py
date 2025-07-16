@@ -155,7 +155,6 @@ FORM_QUESTION_MAP_BE = [
     ("sb1-v2", "is-paper"),
     ("sb1-v2", "personalien-sb1-sb2"),
     ("sb2", "is-paper"),
-    ("nfd", "is-paper"),
     ("decision", "decision-workflow"),
 ]
 

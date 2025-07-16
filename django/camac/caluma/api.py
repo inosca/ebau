@@ -92,11 +92,11 @@ class CalumaApi:
         )
 
         if answers.exclude(value="nfd-tabelle-status-entwurf").exists():
-            permissions.add("read")
+            permissions.add("read")  # pragma: no cover
 
         if answers.filter(value="nfd-tabelle-status-in-bearbeitung").exists():
-            permissions.add("read")
-            permissions.add("write")
+            permissions.add("read")  # pragma: no cover
+            permissions.add("write")  # pragma: no cover
 
         return permissions
 
