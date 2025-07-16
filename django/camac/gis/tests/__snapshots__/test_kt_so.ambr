@@ -14,17 +14,17 @@
     }),
     'nutzungsplanung-grundnutzung': dict({
       'hidden': False,
-      'label': 'Tülay Rörricht',
+      'label': 'Sinaida Siering-Christoph',
       'value': '4-geschossige Mischzone, ZR § 6 und 17',
     }),
     'nutzungsplanung-grundnutzung-kanton': dict({
       'hidden': True,
-      'label': 'Sinaida Siering-Christoph',
+      'label': 'Rainer Ullmann',
       'value': 'N133_Gewerbezone_mit_Wohnen_Mischzone_4_G_und_groesser',
     }),
     'nutzungsplanung-weitere-festlegungen': dict({
       'hidden': False,
-      'label': 'Rainer Ullmann',
+      'label': 'Kay-Uwe Wagner',
       'value': 'Erschliessungsplan (Linie): Baulinie Strasse, Erschliessungsplan (Linie): Strassenbaulinie für 1-geschossige Bauten, Erschliessungsplan (Linie): Gestaltungsbaulinie, Erschliessungsplan (Linie): min. Abstand gem. § 46 kant. Bauverordnung entlang Gemeindestrasse (5.0m), Fläche: Archäologische Fundstellen',
     }),
     'ort': dict({
@@ -50,8 +50,8 @@
           }),
           'flaeche-m': dict({
             'hidden': False,
-            'label': 'Ing. Helen Jungfer',
-            'value': 1465,
+            'label': 'Tülay Rörricht',
+            'value': '1465',
           }),
           'grundbuchkreis': dict({
             'hidden': False,
@@ -102,7 +102,7 @@
   dict({
     'weitere-gis-informationen': dict({
       'hidden': False,
-      'label': 'Kay-Uwe Wagner',
+      'label': 'Herr Michail Säuberlich B.Eng.',
       'value': 'Bodenbedeckung: geschlossener_Wald, Bodenbedeckung: fliessendes Gewaesser',
     }),
   })
@@ -111,7 +111,7 @@
   dict({
     'fruchtfolgeflaeche': dict({
       'hidden': False,
-      'label': 'Herr Michail Säuberlich B.Eng.',
+      'label': 'Ayten Sölzer',
       'value': 'Fruchtfolgeflächen-Qualität: geeignet',
     }),
   })
@@ -120,7 +120,7 @@
   dict({
     'naturgefahren-gis': dict({
       'hidden': False,
-      'label': 'Ayten Sölzer',
+      'label': 'Dipl.-Ing. Nelli Rogge',
       'value': 'Gefahrenstufe: mittel, Charakterisierung: U6',
     }),
   })
@@ -129,7 +129,7 @@
   dict({
     'altlasten-gis': dict({
       'hidden': False,
-      'label': 'Dipl.-Ing. Nelli Rogge',
+      'label': 'Erhard Oestrovsky',
       'value': 'Belastet, sanierungsbedürftig',
     }),
   })
@@ -138,7 +138,7 @@
   dict({
     'gewaesserschutz': dict({
       'hidden': False,
-      'label': 'Erhard Oestrovsky',
+      'label': 'Janos Pohl',
       'value': 'Schutzzone: S1',
     }),
   })
@@ -147,7 +147,7 @@
   dict({
     'denkmalschutz': dict({
       'hidden': False,
-      'label': 'Janos Pohl',
+      'label': 'Patrik Müller MBA.',
       'value': 'Denkmalschutzobjekt: Buristurm, Denkmalschutz Schutzstufe: geschützt',
     }),
   })
@@ -156,7 +156,7 @@
   dict({
     'archaeologie': dict({
       'hidden': False,
-      'label': 'Patrik Müller MBA.',
+      'label': 'Matthias Hauffer',
       'value': 'Röm. Münze und versch. Einzelfunde, Neuzeitliche Schanze',
     }),
   })
@@ -165,7 +165,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Matthias Hauffer',
+      'label': 'Daniele Noack',
       'value': 'IVS Regional und Lokal: Lohn/Rütifeld - Lüsslingen, Nr. des IVS Regional und Lokal: SO 563',
     }),
   })
@@ -174,7 +174,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Matthias Hauffer',
+      'label': 'Daniele Noack',
       'value': 'IVS National: Buechrain - Lohn, Nr. des IVS National: SO 6.1.2',
     }),
   })
@@ -183,7 +183,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Matthias Hauffer',
+      'label': 'Daniele Noack',
       'value': 'BLN: Weissenstein, Nr. des BLN: 1010',
     }),
   })
@@ -192,7 +192,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Matthias Hauffer',
+      'label': 'Daniele Noack',
       'value': 'Trockenwiesen und -weiden (TWW): Bützen',
     }),
   })
@@ -201,7 +201,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Matthias Hauffer',
+      'label': 'Daniele Noack',
       'value': 'Hochmoore: Chlepfimoos/Burgmoos, BLN: Steineberg – Steinhof – Burgäschisee, Nr. des BLN: 1313',
     }),
   })
@@ -210,7 +210,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Matthias Hauffer',
+      'label': 'Daniele Noack',
       'value': 'Amphibien Ortsfeste Objekte: Grenchner Witi, Wasser- und Zugvogelreservate: Witi (BE,SO)',
     }),
   })
@@ -219,7 +219,7 @@
   dict({
     'bundesinventare': dict({
       'hidden': False,
-      'label': 'Matthias Hauffer',
+      'label': 'Daniele Noack',
       'value': 'Auengebiete: Aare bei Altreu',
     }),
   })

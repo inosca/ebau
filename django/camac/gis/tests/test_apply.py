@@ -36,6 +36,16 @@ def gis_apply_data(
     )
     caluma_form_question_factory(
         form=main_form,
+        question__slug="plz",
+        question__type=Question.TYPE_INTEGER,
+    )
+    caluma_form_question_factory(
+        form=main_form,
+        question__slug="flaeche",
+        question__type=Question.TYPE_FLOAT,
+    )
+    caluma_form_question_factory(
+        form=main_form,
         question__slug="schutzzone",
         question__type=Question.TYPE_MULTIPLE_CHOICE,
     )
@@ -68,6 +78,16 @@ def gis_apply_data(
             "hidden": False,
             "label": "Ort",
             "value": "Bern",
+        },
+        "flaeche": {
+            "hidden": False,
+            "label": "Ort",
+            "value": 12.8,
+        },
+        "plz": {
+            "hidden": False,
+            "label": "Ort",
+            "value": 9102,
         },
         "schutzzone": {
             "hidden": False,
@@ -165,6 +185,12 @@ def test_gis_apply(
 
         assert answers.get(question_id="ort").value == "Bern"
         assert answers.get(question_id="ort").meta["gis-value"] == "Bern"
+
+        assert answers.get(question_id="plz").value == 9102
+        assert answers.get(question_id="plz").meta["gis-value"] == 9102
+
+        assert answers.get(question_id="flaeche").value == 12.8
+        assert answers.get(question_id="flaeche").meta["gis-value"] == 12.8
 
         assert answers.get(question_id="schutzzone").value == [
             "schutzzone-ueb",

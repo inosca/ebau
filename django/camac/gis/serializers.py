@@ -16,7 +16,7 @@ from camac.instance.models import Instance
 
 def convert_answer_value(question_type: str, value: Any) -> int | float | Any:
     match question_type:
-        case "int":
+        case "integer":
             return int(value)
         case "float":
             return float(value)

@@ -8,6 +8,8 @@ from django.core.management.base import BaseCommand
 from django.core.serializers.json import Serializer
 from django.db.models import Q
 
+from camac.settings.modules.dump import DumpConfig
+
 
 class CamacDumpSerializer(Serializer):
     def handle_m2m_field(self, obj, field):
@@ -43,15 +45,12 @@ class Command(BaseCommand):
                 serializer.serialize(itertools.chain(*querysets), indent=2, stream=out)
 
     def get_models(self):
-        config_models = set(
-            settings.DUMP["CONFIG"]["MODELS"]
-            + settings.DUMP["CONFIG"]["MODELS_REFERENCING_DATA"]
-        ) - set(settings.DUMP["CONFIG"]["EXCLUDED_MODELS"])
-
-        group_models = (
-            set(itertools.chain(*settings.DUMP["CONFIG"]["GROUPS"].values()))
-            - config_models
+        config = settings.DUMP["CONFIG"]
+        config_models = set(config["MODELS"] + config["MODELS_REFERENCING_DATA"]) - set(
+            config["EXCLUDED_MODELS"]
         )
+
+        group_models = set(itertools.chain(*config["GROUPS"].values())) - config_models
 
         return [
             (
@@ -63,6 +62,14 @@ class Command(BaseCommand):
         ]
 
     def handle(self, *app_labels, **options):
+        dump_config = settings.DUMP["CONFIG"]
+        filter_list = [
+            (
+                name,
+                filters,
+            )
+            for name, filters in dump_config["GROUPS"].items()
+        ]
         for model_identifier, app_label, model_label, group_only in self.get_models():
             model = apps.get_model(app_label, model_label)
 
@@ -74,7 +81,9 @@ class Command(BaseCommand):
             for (
                 filter_group,
                 model_filters,
-            ) in self.get_filter_groups_ordered_by_complexity(model_identifier).items():
+            ) in self.get_filter_groups_ordered_by_complexity(
+                model_identifier, filter_list
+            ):
                 filtered_queryset = (
                     model.objects.exclude(pk__in=excluded_pks)
                     .filter(model_filters)
@@ -94,22 +103,54 @@ class Command(BaseCommand):
         self.dump(options["output_dir"])
 
     def get_filter_groups_ordered_by_complexity(
-        self, model_identifier: str
-    ) -> collections.OrderedDict:
-        return collections.OrderedDict(
-            sorted(
-                [
-                    (
-                        name,
-                        filters[model_identifier],
-                    )
-                    for name, filters in settings.DUMP["CONFIG"]["GROUPS"].items()
-                    if model_identifier in filters
-                ],
-                key=lambda tpl: self.get_condition_complexity_score(tpl[1]),
-                reverse=True,
+        self,
+        model_identifier: str,
+        filters: list[tuple[str, dict[str, Q] | DumpConfig]],
+    ) -> list[tuple[str, Q]]:
+        filter_list: list[tuple[str, Q]] = [
+            (
+                name,
+                config[model_identifier],
             )
+            for name, config in filters
+            if model_identifier in config
+        ]
+
+        if not filter_list:
+            return filter_list
+
+        sorted_filter_list = sorted(
+            filter_list,
+            key=lambda tpl: self.get_condition_complexity_score(tpl[1]),
+            reverse=True,
         )
+
+        # The followign code block essentially just inserts the
+        # dependencies in front of the groups defining them.
+        filters_with_dependency: list[tuple[str, DumpConfig]] = [
+            tpl for tpl in filters if isinstance(tpl[1], DumpConfig)
+        ]
+        for name, config in filters_with_dependency:
+            try:
+                config_index = next(
+                    index
+                    for index, config in enumerate(sorted_filter_list)
+                    if config[0] == name
+                )
+                dependency_index, dependency_config = next(
+                    (index, dependency_config)
+                    for index, dependency_config in enumerate(sorted_filter_list)
+                    if dependency_config[0] == config.dependency
+                )
+            except StopIteration:
+                # A dependency is defined but the dependency has no
+                # filters for the current model_identifier.
+                continue
+
+            del sorted_filter_list[dependency_index]
+            sorted_filter_list.insert(config_index, dependency_config)
+
+        return sorted_filter_list
 
     def get_condition_complexity_score(self, condition: Q) -> int:
         score = 0
