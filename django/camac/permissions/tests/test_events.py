@@ -592,19 +592,10 @@ def test_completed_involve_tax_administration_sz(
     set_application_sz,
     service_factory,
     caluma_work_item_factory,
-    caluma_answer_factory,
 ):
     tax_administration = service_factory.create(
         slug=set_application_sz["TAX_ADMINISTRATION"]
     )
-    work_item = caluma_work_item_factory(
-        case=sz_instance.case, task_id="complete-instance"
-    )
-    answer = caluma_answer_factory(
-        question_id="steuerverwaltung-informieren",
-        value=["steuerverwaltung-informieren-steuerverwaltung-informieren"],
-    )
-    work_item.document.answers.add(answer)
 
     events.Trigger.instance_completed(None, sz_instance)
 

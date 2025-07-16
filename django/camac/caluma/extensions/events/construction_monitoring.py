@@ -109,19 +109,6 @@ def can_perform_construction_monitoring(instance):
     return form_family and form_family.name in allow_forms
 
 
-def is_tax_administration_involved(work_item: WorkItem):
-    """Check if on instance completion the tax administration was involved."""
-    return (
-        work_item
-        and work_item.document.answers.filter(
-            question_id="steuerverwaltung-informieren",
-            value__contains=[
-                "steuerverwaltung-informieren-steuerverwaltung-informieren"
-            ],
-        ).exists()
-    )
-
-
 CONSTRUCTION_STEP_TRANSLATIONS = {
     "construction-step-plan-construction-stage": _("Baubegleitung planen"),
     "construction-step-baufreigabe": _("Baufreigabe"),
@@ -337,13 +324,12 @@ def post_complete_instance(
                 camac_user,
             )
 
-    if is_tax_administration_involved(work_item):
-        notifications.append(
-            {
-                "template_slug": "notify-complete-instance",
-                "recipient_types": ["tax_administration"],
-            }
-        )
+    notifications.append(
+        {
+            "template_slug": "notify-complete-instance",
+            "recipient_types": ["tax_administration"],
+        }
+    )
 
     for config in notifications:
         send_mail_without_request(
