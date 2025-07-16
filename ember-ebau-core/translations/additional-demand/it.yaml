@@ -6,6 +6,10 @@ additional-demand:
   answer: "Risposta"
   check: "Esame"
   sent-message: "Inviata in data {date}"
+  header-info:
+    fill-additional-demand: ""
+    check-additional-demand: ""
+    send-additional-demand: ""
   empty: "Nessuna richiesta di precisazioni disponibile."
   empty-create: 'Clicca su «+» per avviare una richiesta di precisazioni.'
   no-create: 'Allo stato attuale non è possibile generare una richiesta di precisazioni.'

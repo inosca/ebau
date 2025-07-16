@@ -2,6 +2,10 @@
     "additional-demand.documents"
   }}</label>
 <div
+  uk-grid={{if (gt this.buckets.length 1) "masonry: next"}}
+  class="uk-child-width-1-1
+    {{if (gt this.buckets.length 1) 'uk-grid-small uk-child-width-1-2@m'}}
+    "
   {{did-insert (perform this.fetchAttachments)}}
   {{will-destroy this.teardown}}
 >

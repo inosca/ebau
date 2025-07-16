@@ -68,10 +68,34 @@ mutation CheckAdditionalDemandTask {
   }
 }
 
-mutation InitAdditionalDemandFlow {
+mutation InitAdditionalDemandBuildingPermitFlow {
   addWorkflowFlow(
     input: {
       workflow: "building-permit"
+      tasks: ["init-additional-demand"]
+      next: "[\"init-additional-demand\", \"additional-demand\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InitAdditionalDemandInternalFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "internal"
+      tasks: ["init-additional-demand"]
+      next: "[\"init-additional-demand\", \"additional-demand\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InitAdditionalDemandPreliminaryClarificationFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "preliminary-clarification"
       tasks: ["init-additional-demand"]
       next: "[\"init-additional-demand\", \"additional-demand\"]|tasks"
     }

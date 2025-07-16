@@ -6,6 +6,10 @@ additional-demand:
   answer: "Antwort"
   check: "Prüfung"
   sent-message: "Gesendet am {date}"
+  header-info:
+    fill-additional-demand: "Beantwortet am {date} durch {user}"
+    check-additional-demand: "Geprüft am {date} durch {user}"
+    send-additional-demand: "Gesendet am {date} durch {user}"
   empty: "Keine Nachforderungen vorhanden."
   empty-create: 'Klicken Sie "+" um eine Nachforderung zu starten.'
   no-create: 'Im aktuellen Zustand können keine Nachforderungen erstellt werden.'

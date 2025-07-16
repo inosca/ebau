@@ -54,7 +54,9 @@ export default {
     enabled: true,
   },
   constructionMonitoring: true,
-  additionalDemands: true,
+  additionalDemands: {
+    enabled: true,
+  },
   submitComponent: {
     requiredPermissions: ["instance-submit"],
     export: {

@@ -9,31 +9,27 @@ class InstanceSummaryFilterSet(FilterSet):
 
     period = BaseCSVFilter(method="filter_submitted_in_period")
 
-    def filter_submitted_in_period(self, queryset, name, value, prefix=""):
+    def filter_submitted_in_period(self, queryset, name, value, prefix="case__"):
         if len(value) != 2:
             raise ValidationError()
         start, end = value
         filters = Q()
         if start:
-            submitted_after = Q(
-                **{f"{prefix}case__meta__paper-submit-date__gte": start}
-            ) | Q(
+            submitted_after = Q(**{f"{prefix}meta__paper-submit-date__gte": start}) | Q(
                 Q(
-                    ~Q(**{f"{prefix}case__meta__has_key": "paper-submit-date"})
-                    | Q(**{f"{prefix}case__meta__paper-submit-date": None})
+                    ~Q(**{f"{prefix}meta__has_key": "paper-submit-date"})
+                    | Q(**{f"{prefix}meta__paper-submit-date": None})
                 )
-                & Q(**{f"{prefix}case__meta__submit-date__gte": start})
+                & Q(**{f"{prefix}meta__submit-date__gte": start})
             )
             filters.add(submitted_after, conn_type=Q.AND)
         if end:
-            submitted_before = Q(
-                **{f"{prefix}case__meta__paper-submit-date__lte": end}
-            ) | Q(
+            submitted_before = Q(**{f"{prefix}meta__paper-submit-date__lte": end}) | Q(
                 Q(
-                    ~Q(**{f"{prefix}case__meta__has_key": "paper-submit-date"})
-                    | Q(**{f"{prefix}case__meta__paper-submit-date": None})
+                    ~Q(**{f"{prefix}meta__has_key": "paper-submit-date"})
+                    | Q(**{f"{prefix}meta__paper-submit-date": None})
                 )
-                & Q(**{f"{prefix}case__meta__submit-date__lte": end})
+                & Q(**{f"{prefix}meta__submit-date__lte": end})
             )
             filters.add(submitted_before, conn_type=Q.AND)
         return queryset.filter(filters)
@@ -47,7 +43,7 @@ class ClaimSummaryFilterSet(InstanceSummaryFilterSet):
 
     def filter_documents_for_period(self, queryset, name, value):
         return self.filter_submitted_in_period(
-            queryset, name, value, prefix="family__work_item__"
+            queryset, name, value, prefix="case__family__"
         )
 
 

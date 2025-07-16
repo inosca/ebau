@@ -2,9 +2,11 @@ from django.db.models import Q
 
 from camac.permissions.conditions import (
     Always,
+    HasApplicantRole,
     HasRole,
     IsAppeal,
     RequireInstanceState,
+    RequireWorkItem,
 )
 from camac.permissions.switcher import PERMISSION_MODE
 
@@ -86,6 +88,11 @@ MODULE_RESPONSIBLE_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
 
 MODULE_HEADER_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
 MODULE_HEADER_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
+
+MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
+MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
+    MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+)
 
 BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = RequireInstanceState(
     [
@@ -316,6 +323,16 @@ BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS = BE_BASE_AUTHORITY_PERMISSIONS + [
         "instance-change-responsible-service",
         BE_MUNICIPALITY_ACCESSIBLE_STATES & ~RequireInstanceState(["in_progress"]),
     ),
+    (
+        "additional-demands-read",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES & RequireWorkItem("init-additional-demand"),
+    ),
+    (
+        "additional-demands-write",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES
+        & RequireWorkItem("init-additional-demand")
+        & HasRole(["municipality-lead"]),
+    ),
 ]
 
 GEOMETER_RW = (
@@ -369,6 +386,8 @@ BE_PERMISSIONS_SETTINGS = {
             ("applicant-remove", Always()),
             ("applicant-add", Always()),
             ("applicant-read", Always()),
+            ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
+            ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
         ],
         "lead-authority": BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS,
         "involved-authority": BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS,

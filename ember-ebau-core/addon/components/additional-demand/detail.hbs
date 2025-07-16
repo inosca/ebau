@@ -21,12 +21,29 @@
           {{/if}}
         </h3>
         {{#if demand.isCompleted}}
-          <span class="uk-text-muted uk-text-small uk-margin-bottom">
-            {{t
-              "additional-demand.sent-message"
-              date=(format-date demand.closedAt format="datetime")
-            }}
-          </span>
+          {{#if (has-feature "additionalDemands.showAuthor")}}
+            <span class="uk-text-muted uk-text-small uk-margin-bottom">
+              {{concat
+                (t
+                  (concat "additional-demand.header-info." demand.task.slug)
+                  date=(format-date demand.closedAt format="datetime")
+                  user=demand.closedByUser.fullName
+                )
+                (if
+                  demand.closedByGroup.name
+                  (concat " (" demand.closedByGroup.name ")")
+                )
+              }}
+            </span>
+            <hr class="uk-margin-bottom" />
+          {{else}}
+            <span class="uk-text-muted uk-text-small uk-margin-bottom">
+              {{t
+                "additional-demand.sent-message"
+                date=(format-date demand.closedAt format="datetime")
+              }}
+            </span>
+          {{/if}}
         {{/if}}
         <CfContent
           @documentId={{demand.document.id}}

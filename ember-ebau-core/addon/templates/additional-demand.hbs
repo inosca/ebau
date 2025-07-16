@@ -1,6 +1,8 @@
 {{#if @model.isPaper}}
   <p>{{t "additional-demand.paper" htmlSafe=true}}</p>
-{{else}}
+{{/if}}
+
+{{#if (or (has-feature "additionalDemands.showMigrated") (not @model.isPaper))}}
   <div uk-grid>
     {{#if this.session.isInternal}}
       <div class="uk-width-1-1">

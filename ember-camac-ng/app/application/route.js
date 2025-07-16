@@ -2,6 +2,8 @@ import Route from "@ember/routing/route";
 import { service } from "@ember/service";
 import CamacAdditionalDemandFilesComponent from "ember-ebau-core/components/camac-additional-demand-files";
 import CamacSchnurgeruestabnahmeFilesComponent from "ember-ebau-core/components/camac-schnurgeruestabnahme-files";
+import CfSnippetsTextComponent from "ember-ebau-core/components/cf-snippets-text";
+import CfSnippetsTextareaComponent from "ember-ebau-core/components/cf-snippets-textarea";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionInfoGeometerComponent from "ember-ebau-core/components/decision/info-geometer";
@@ -20,8 +22,6 @@ import UIkit from "uikit";
 import AssignEbauNumberButtonComponent from "camac-ng/components/assign-ebau-number-button";
 import CfCollapsibleTextareaComponent from "camac-ng/components/cf-collapsible-textarea";
 import CfDownloadPdfComponent from "camac-ng/components/cf-download-pdf";
-import CfSnippetsTextComponent from "camac-ng/components/cf-snippets-text";
-import CfSnippetsTextareaComponent from "camac-ng/components/cf-snippets-textarea";
 import GeverSyncButtonComponent from "camac-ng/components/gever-sync-button";
 import SuggestEbauNumberComponent from "camac-ng/components/suggest-ebau-number";
 

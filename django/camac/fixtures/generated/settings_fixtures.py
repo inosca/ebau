@@ -79,6 +79,18 @@ def ag_additional_demand_settings(settings, request):
 
 
 @pytest.fixture
+def be_additional_demand_settings(settings, request):
+    """Module-specific settings for additional demand (canton BE)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="additional_demand",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def address_assignment_settings(settings, request):
     """Module-specific settings for address assignment (default)."""
     return generate_module_settings(

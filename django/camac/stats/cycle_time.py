@@ -1,7 +1,7 @@
 import datetime
 from typing import Dict, List, Tuple
 
-from caluma.caluma_form.models import Answer, Document
+from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
 from django.db.models import Avg, Count, IntegerField, OuterRef, QuerySet, Subquery
 from django.db.models.fields.json import KeyTextTransform
@@ -97,17 +97,17 @@ def _retrieve_waiting_periods(
     instance: Instance,
 ) -> List[Tuple[datetime.datetime, datetime.datetime]]:
     """
-    Retrieve a list of waiting periods from an Instance's claims.
+    Retrieve a list of waiting periods from an Instance's additional demands.
 
-    A claim is an answer document in the answer table `nfd-tabelle`
+    An additional demand waiting period is calculated based on creation and close date of
+    fill-additional-demand work item
 
     Returns the list sorted ASC by start time of the duration
     """
 
-    rows = Document.objects.filter(
-        form_id="nfd-tabelle",
-        family__work_item__task_id="nfd",
-        family__work_item__case=instance.case,
+    rows = WorkItem.objects.filter(
+        task_id="fill-additional-demand",
+        case__family=instance.case,
     )
 
     try:
@@ -121,19 +121,15 @@ def _retrieve_waiting_periods(
 
     results = []
     for row in rows.iterator():
-        request_answer = row.answers.filter(
-            question_id="nfd-tabelle-datum-anfrage"
-        ).first()
-        response_answer = row.answers.filter(
-            question_id="nfd-tabelle-datum-antwort"
-        ).first()
-        if (request_answer and request_answer.date) is None or (
-            response_answer and response_answer.date
-        ) is None:
+        request_datetime = row.created_at
+        response_datetime = row.closed_at
+        if request_datetime is None or response_datetime is None:
             continue
-        if decision_date and response_answer.date > decision_date:
+        if (decision_date and response_datetime) and (
+            response_datetime.date() > decision_date
+        ):
             continue
-        results.append((request_answer.date, response_answer.date))
+        results.append((request_datetime.date(), response_datetime.date()))
     return sorted(results, key=lambda pair: pair[0])
 
 
@@ -166,7 +162,6 @@ def compute_cycle_time(instance: Instance) -> Dict:
     cumulated_extra_time = (decision_date - cycle_start.date()).days
 
     cumulated_idle_time = _compute_total_idle_days(_retrieve_waiting_periods(instance))
-
     for inst in _rejected_instances(instance):
         extra_time, idle_time = _get_cycle_time(inst)
         cumulated_extra_time += extra_time

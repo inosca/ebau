@@ -2,8 +2,6 @@ import datetime
 from collections import namedtuple
 
 import pytest
-from caluma.caluma_form import factories as caluma_form_factories
-from caluma.caluma_form.models import Document
 from caluma.caluma_workflow.models import WorkItem
 from dateutil import relativedelta
 from django.urls import reverse
@@ -32,14 +30,11 @@ def test_summary_filter_period(
     admin_client,
     instance_factory,
     caluma_case_factory,
-    caluma_document_factory,
-    caluma_work_item_factory,
+    additional_demand_work_item,
     filter_params,
     expected,
+    caluma_workflow_config_be,
 ):
-    caluma_form_factories.FormFactory(slug="nfd")
-    caluma_form_factories.FormFactory(slug="nfd-tabelle")
-
     def make_instance(exp_meta, paper_submit_date, submit_date):
         case = caluma_case_factory(
             meta={
@@ -48,10 +43,8 @@ def test_summary_filter_period(
                 "paper-submit-date": paper_submit_date,
             },
         )
-        instance_factory(case=case)
-        claim_doc = caluma_document_factory(form_id="nfd")
-        caluma_document_factory(form_id="nfd-tabelle", family=claim_doc)
-        caluma_work_item_factory(document=claim_doc, case=case)
+        instance = instance_factory(case=case)
+        additional_demand_work_item(instance=instance, status=WorkItem.STATUS_COMPLETED)
 
     make_instance("first-with-paper", datetime.date(1985, 5, 15).isoformat(), None)
     make_instance("second-with-paper", datetime.date(1992, 5, 15).isoformat(), None)
@@ -77,14 +70,12 @@ def test_summary_filter_period(
 
     claims_summary_view = ClaimSummaryView()
     filtered_claims = backend.filter_queryset(
-        request, Document.objects.filter(form_id="nfd-tabelle"), claims_summary_view
+        request,
+        WorkItem.objects.filter(task_id="fill-additional-demand"),
+        claims_summary_view,
     )
     assert sorted(
-        list(
-            filtered_claims.values_list(
-                "family__work_item__case__meta__expected", flat=True
-            )
-        )
+        list(filtered_claims.values_list("case__family__meta__expected", flat=True))
     ) == sorted(expected)
 
 
@@ -168,11 +159,39 @@ def test_summary_instances(
     "role__name,expected", [("Support", 2), ("Municipality", 1), ("Service", 0)]
 )
 def test_summary_claims(
-    service_factory, admin_client, role, group, nfd_tabelle_document_row, expected
+    service_factory,
+    admin_client,
+    role,
+    group,
+    be_instance,
+    additional_demand_work_item,
+    expected,
 ):
-    nfd_tabelle_document_row(group.service_id, "nfd-tabelle-status-beantwortet")
-    nfd_tabelle_document_row(group.service_id, "nfd-tabelle-status-entwurf")
-    nfd_tabelle_document_row(service_factory().pk, "nfd-tabelle-status-beantwortet")
+    # Completed fill additional demand work item
+    # Visible to Support and Municipality as the service_id corresponds to Municipality
+    additional_demand_work_item(
+        task_id="fill-additional-demand",
+        instance=be_instance,
+        status=WorkItem.STATUS_COMPLETED,
+        service_id=group.service_id,
+    )
+
+    # Not visible in summary as it's not a completed fill additional demand work item
+    additional_demand_work_item(
+        task_id="send-additional-demand",
+        instance=be_instance,
+        service_id=group.service_id,
+        status=WorkItem.STATUS_READY,
+    )
+
+    # Completed fill additional demand work item
+    # Visible only to Support as service_id is different from Municipality
+    additional_demand_work_item(
+        task_id="fill-additional-demand",
+        instance=be_instance,
+        status=WorkItem.STATUS_COMPLETED,
+        service_id=service_factory().pk,
+    )
     url = reverse("claims-summary")
     response = admin_client.get(url)
     result = response.json()

@@ -38,6 +38,7 @@ NOTIFICATION_CLAIM_IN_PROGRESS_MUNICIPALITY = (
 NOTIFICATION_CLAIM_ANSWERED = "03-nachforderung-beantwortet-leitbehorde"
 
 
+# TODO: Cleanup after additional-demands module is live
 class CustomValidation(BaseValidation):
     def _send_claim_notification(
         self, info, instance, template_slug, recipient_types

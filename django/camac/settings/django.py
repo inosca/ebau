@@ -1088,6 +1088,17 @@ APPLICATIONS = {
                         "recipient_types": ["unanswered_inquiries"],
                     },
                 },
+                "send-additional-demand": {
+                    "history_text": _("Additional demand sent"),
+                },
+                "fill-additional-demand": {
+                    "history_text": _("Additional demand was answered"),
+                    "notification": {
+                        "template_slug": "03-nachforderung-beantwortet-leitbehorde",
+                        "recipient_types": ["leitbehoerde", "inactive_municipality"],
+                    },
+                    "ech_event": "camac.ech0211.signals.file_subsequently",
+                },
                 "complete": {
                     "next_instance_state": "finished",
                     "ech_event": "camac.ech0211.signals.finished",
@@ -1115,6 +1126,22 @@ APPLICATIONS = {
                             work_item
                         ),
                     }
+                ],
+                "send-additional-demand": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "send-additional-demand-applicant",
+                            "recipient_types": ["applicant"],
+                        },
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "03-zusaetzliche-unterlagen-notwendig-gemeinde",
+                            "recipient_types": ["inactive_municipality"],
+                        },
+                    },
                 ],
             },
             "INTERNAL_FORMS": [
@@ -1167,7 +1194,10 @@ APPLICATIONS = {
                         "create-publication",
                         "information-of-neighbors",
                         "create-information-of-neighbors",
+                        "init-additional-demand",
+                        "additional-demand",
                     ],
+                    # TODO: Remove nfd
                     "complete": ["nfd", "gever"],
                 },
                 "complete": {

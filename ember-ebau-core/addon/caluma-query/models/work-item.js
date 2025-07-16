@@ -93,6 +93,16 @@ export default class CustomWorkItemModel extends WorkItemModel {
     );
   }
 
+  get closedByGroup() {
+    return (
+      this.raw.closedByGroup &&
+      this.store.peekRecord(
+        this.ebauModules.storeServiceName,
+        this.raw.closedByGroup,
+      )
+    );
+  }
+
   get isAddressedToCurrentService() {
     return parseInt(this.addressedService?.id) === this.ebauModules.serviceId;
   }
@@ -290,9 +300,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
   // TODO: Consider moving this logic to the backend, so that we don't have
   // to always fetch parent work items.
   _getLinkPlaceholders() {
-    const inquiryWorkItem = [this.raw, this.raw.case.parentWorkItem]
-      .filter(Boolean)
-      .find((workItem) => workItem.task.slug === "inquiry");
+    const workItems = [this.raw, this.raw.case.parentWorkItem].filter(Boolean);
+    const inquiryWorkItem = workItems.find(
+      (workItem) => workItem.task.slug === "inquiry",
+    );
 
     if (inquiryWorkItem) {
       return {
@@ -303,9 +314,20 @@ export default class CustomWorkItemModel extends WorkItemModel {
       };
     }
 
-    const constructionStepWorkItem = [this.raw, this.raw.case.parentWorkItem]
-      .filter(Boolean)
-      .find((workItem) => workItem.meta?.["construction-step-id"]);
+    const checkAdditionalDemandWorkItem = workItems.find(
+      (workItem) => workItem.task.slug === "check-additional-demand",
+    );
+
+    if (checkAdditionalDemandWorkItem) {
+      return {
+        ADDITIONAL_DEMAND_CASE_UUID: decodeId(
+          checkAdditionalDemandWorkItem.case.id,
+        ),
+      };
+    }
+    const constructionStepWorkItem = workItems.find(
+      (workItem) => workItem.meta?.["construction-step-id"],
+    );
 
     if (constructionStepWorkItem) {
       return {

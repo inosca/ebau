@@ -6,6 +6,7 @@ import { queryManager } from "ember-apollo-client";
 
 import CustomWorkItemModel from "ember-ebau-core/caluma-query/models/work-item";
 import additionalDemandQuery from "ember-ebau-core/gql/queries/additional-demand/list.graphql";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import apolloQuery from "ember-ebau-core/resources/apollo";
 
 export default class EbauModulesService extends Service {
@@ -29,20 +30,47 @@ export default class EbauModulesService extends Service {
     null,
     async (data) => {
       const servicesToFetch = new Set();
+      const usersToFetch = new Set();
 
       data.demands.edges.forEach((edge) => {
         const workItem = new CustomWorkItemModel(edge.node);
         setOwner(workItem, getOwner(this));
 
+        if (hasFeature("additionalDemands.showAuthor")) {
+          workItem.childCase.workItems.forEach((childWorkItem) => {
+            if (childWorkItem.isCompleted) {
+              if (!childWorkItem.closedByUser) {
+                usersToFetch.add(childWorkItem.raw.closedByUser);
+              }
+              if (!childWorkItem.closedByGroup) {
+                servicesToFetch.add(childWorkItem.raw.closedByGroup);
+              }
+            }
+          });
+        }
+
         if (!workItem.createdByGroup) {
           servicesToFetch.add(workItem.raw.createdByGroup);
         }
+
+        if (!workItem.addressedService) {
+          workItem.raw.addressedGroups.forEach((serviceId) =>
+            servicesToFetch.add(serviceId),
+          );
+        }
       });
 
-      if (servicesToFetch.size) {
+      const services = [...servicesToFetch].filter(Boolean);
+
+      if (services.length) {
         await this.store.query(this.ebauModules.storeServiceName, {
-          service_id: [...servicesToFetch].join(","),
+          service_id: services.join(","),
         });
+      }
+
+      const users = [...usersToFetch].filter(Boolean);
+      if (users.length) {
+        await this.store.query("public-user", { username: users.join(",") });
       }
 
       return data;

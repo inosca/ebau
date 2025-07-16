@@ -25,7 +25,9 @@ export default {
     revert: true,
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
-  additionalDemands: true,
+  additionalDemands: {
+    enabled: true,
+  },
   publication: {
     showMainForm: true,
   },

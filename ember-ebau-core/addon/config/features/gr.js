@@ -32,7 +32,9 @@ export default {
     enabled: true,
     useEndDate: true,
   },
-  additionalDemands: true,
+  additionalDemands: {
+    enabled: true,
+  },
   dashboard: {
     useLegacy: true,
   },

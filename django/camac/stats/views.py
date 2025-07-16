@@ -1,6 +1,6 @@
 from datetime import date
 
-from caluma.caluma_form.models import Answer, Document
+from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import (
@@ -46,10 +46,8 @@ from .serializers import (
 class ClaimSummaryView(ListAPIView):
     renderer_classes = [JSONRenderer]
     filterset_class = ClaimSummaryFilterSet
-    queryset = Document.objects.filter(form_id="nfd-tabelle").exclude(
-        answers__question_id="nfd-tabelle-status",
-        answers__value="nfd-tabelle-status-entwurf",
-    )
+    queryset = WorkItem.objects.filter(task_id="fill-additional-demand")
+
     serializer_class = ClaimSummarySerializer
 
     @permission_aware
@@ -58,9 +56,7 @@ class ClaimSummaryView(ListAPIView):
 
     def get_queryset_for_municipality(self):
         service_id = self.request.group.service_id
-        return self.queryset.filter(
-            answers__question_id="nfd-tabelle-behoerde", answers__value=service_id
-        )
+        return self.queryset.filter(created_by_group=service_id)
 
     def get_queryset_for_support(self):
         return self.queryset

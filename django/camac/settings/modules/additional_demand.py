@@ -108,4 +108,20 @@ ADDITIONAL_DEMAND = {
             ],
         },
     },
+    "kt_bern": {
+        "ENABLED": True,
+        "ALLOW_SUBSERVICES": False,
+        "HISTORY_ENTRIES": {
+            "ACCEPTED": _("Additional demand accepted"),
+            "REJECTED": _("Additional demand rejected"),
+        },
+        "NOTIFICATIONS": {
+            "REJECTED": [
+                {
+                    "recipient_types": ["applicant", "inactive_municipality"],
+                    "template_slug": "additional-demand-decision-reject",
+                }
+            ],
+        },
+    },
 }
