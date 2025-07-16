@@ -32,6 +32,10 @@ communications:
     uploadedToDMS: Im Dokumentenmodul gespeichert
     attachmentSections: Kategorien
     involvedEntities: "Teilnehmer: {entities}"
+    delete: Löschen
+    deleteError: Beim Löschen der Datei ist etwas schief gelaufen
+    deleteConfirm: Wollen Sie die Datei wirklich löschen?
+    
 
   new:
     linkFile: Sie können auch Dateien aus

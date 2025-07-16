@@ -1,4 +1,5 @@
 import { service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { Ability } from "ember-can";
 
 export default class extends Ability {
@@ -23,7 +24,11 @@ export default class extends Ability {
       );
     }
 
-    if (!this.topic || this.ebauModules.isReadOnlyRole) {
+    if (
+      !this.topic ||
+      this.ebauModules.isReadOnlyRole ||
+      this.ebauModules.isSupportRole
+    ) {
       return false;
     }
 
@@ -37,11 +42,25 @@ export default class extends Ability {
         "communications-write",
       );
     }
+    if (this.ebauModules.isSupportRole) {
+      return false;
+    }
 
     return true;
   }
 
   get canLinkAttachments() {
-    return !this.ebauModules.isReadOnlyRole && !this.ebauModules.isApplicant;
+    return (
+      !this.ebauModules.isReadOnlyRole &&
+      !this.ebauModules.isApplicant &&
+      !this.ebauModules.isSupportRole
+    );
+  }
+
+  get canDeleteAttachments() {
+    if (macroCondition(getOwnConfig().application === "be")) {
+      return this.ebauModules.isSupportRole;
+    }
+    return false;
   }
 }

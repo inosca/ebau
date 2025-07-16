@@ -32,6 +32,9 @@ communications:
     uploadedToDMS: Salvato nel modulo documenti
     attachmentSections: Categorie
     involvedEntities: "Partecipanti: {entities}"
+    delete: Elimina
+    deleteError: "Durante l'eliminazione del file qualcosa è andato storto."
+    deleteConfirm: Cancella davvero il file?
 
   new:
     linkFile: È anche possibile collegare direttamente dei file dal modulo documenti

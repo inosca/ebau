@@ -33,7 +33,7 @@ def some_read_and_some_unread_topics(
     return topics_with_all_read, topics_with_unread
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["Municipality", "Support"])
 def test_topic_flag_has_unread(
     db, admin_client, be_instance, some_read_and_some_unread_topics
 ):
@@ -53,8 +53,11 @@ def test_topic_flag_has_unread(
         rec["id"] for rec in resp.json()["data"] if not rec["attributes"]["has-unread"]
     ]
 
-    assert set(received_ids_unread) == set(unread_ids)
-    assert set(received_ids_read) == set(read_ids)
+    if admin_client.user.groups.first().role.name == "Support":
+        assert received_ids_read == []
+    else:
+        assert set(received_ids_unread) == set(unread_ids)
+        assert set(received_ids_read) == set(read_ids)
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

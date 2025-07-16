@@ -19,6 +19,7 @@ from rest_framework import exceptions
 from camac import jinja
 from camac.constants import kt_uri as uri_constants
 from camac.rulesets.holidays import AargauAdministrationHolidays
+from camac.user.permissions import get_role_name
 
 
 class DocxRenderer:
@@ -402,3 +403,9 @@ def get_unversioned_slug(form_slug: str) -> str:
     'form-slug'
     """
     return re.sub(r"(-v\d+$)", "", form_slug)
+
+
+def is_support(request):
+    if request.group:
+        return get_role_name(request.group) == "support"
+    return False
