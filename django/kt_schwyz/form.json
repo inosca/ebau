@@ -1813,7 +1813,6 @@
         "fruchtfolgeflache-nicht-kompensationspflichtig-begrundung",
         "fruchtfolgeflache-kompensationsflache",
         "fruchtfolgeflache-kompensationsflache-projekt",
-        "fruchtfolgeflache-kompensationsflache-parzelle",
         "aussenbeleuchtung",
         "wassergefahrdende-stoffe",
         "brandschutztechnisch-gefahrliche-stoffe",
@@ -1914,7 +1913,6 @@
         "fruchtfolgeflache-nicht-kompensationspflichtig-begrundung",
         "fruchtfolgeflache-kompensationsflache",
         "fruchtfolgeflache-kompensationsflache-projekt",
-        "fruchtfolgeflache-kompensationsflache-parzelle",
         "aussenbeleuchtung",
         "wassergefahrdende-stoffe",
         "brandschutztechnisch-gefahrliche-stoffe",
@@ -11702,27 +11700,21 @@
       }
     },
     "fruchtfolgeflache-kompensationsflache": {
-      "label": "Ist ein Bodenaufwertungsprojekt oder eine neu kartierte Fläche mit einer vertraglichen Absicherung vorhanden?",
-      "hint": "Arbeitshilfe &laquo;<a href=\"https://www.sz.ch/behoerden/verwaltung/volkswirtschaftsdepartement/amt-fuer-raumentwicklung/projekte-und-grundlagen.html/8756-8758-8802-10373-11039-12551#js-cms-accordion-header--4-0\" target=\"_blank\">Umgang mit Fruchtfolgeflächen</a>&raquo;\n\n**Bodenaufwertungsprojekt**: Für das Bodenaufwertungsprojekt muss ein separates Gesuch vorhanden sein. Dieses muss parallel zum Hauptgesuch eingereicht werden.\n\n**Neu kartierte Fläche**: Folgende Unterlagen sind mit dem Gesuch einzureichen:\n* Nachweis der FFF-Qualität des Bodens\n* Situationsplan\n* Vertragliche Absicherung",
+      "label": "Ist ein Bodenaufwertungsprojekt, eine neu kartierte Fläche mit einer vertraglichen Absicherung, oder eine Beteiligung an einem Kompensationsprojekt vorhanden?",
+      "hint": "Arbeitshilfe &laquo;<a href=\"https://www.sz.ch/behoerden/verwaltung/volkswirtschaftsdepartement/amt-fuer-raumentwicklung/projekte-und-grundlagen.html/8756-8758-8802-10373-11039-12551#js-cms-accordion-header--4-0\" target=\"_blank\">Umgang mit Fruchtfolgeflächen</a>&raquo;\n\n * **Bodenaufwertungsprojekt**: Für das Bodenaufwertungsprojekt muss ein separates Gesuch vorhanden sein. Dieses muss parallel zum Hauptgesuch eingereicht werden.\n * **Neu kartierte Fläche**: Folgende Unterlagen sind mit dem Gesuch einzureichen:\n     - Nachweis der FFF-Qualität des Bodens\n     - Situationsplan\n     - Vertragliche Sicherstellung der Fläche\n * **Beteiligung Grossprojekt**: Folgende Unterlagen sind mit dem Gesuch einzureichen:\n     - Vertragliche Sicherstellung der Fläche",
       "type": "radio",
       "required": true,
       "active-expression": "'fruchtfolgeflache-kompensationspflichtig'|value == 'Ja'",
       "config": {
         "options": [
           "Bodenaufwertungsprojekt",
-          "Neu kartierte Fläche (vertraglich abgesichert)"
+          "Neu kartierte Fläche (vertraglich abgesichert)",
+          "Eine Beteiligung an einem Kompensationsgrossprojekt"
         ]
       }
     },
     "fruchtfolgeflache-kompensationsflache-projekt": {
-      "label": "Projektnummer des Bodenaufwertungsprojekts",
-      "type": "text",
-      "required": true,
-      "active-expression": "'fruchtfolgeflache-kompensationsflache'|value == 'Bodenaufwertungsprojekt'",
-      "config": {}
-    },
-    "fruchtfolgeflache-kompensationsflache-parzelle": {
-      "label": "Parzellennummer des Bodenaufwertungsprojekts",
+      "label": "Projektnummer (eBau-Nr.) des <a href=\"https://www.sz.ch/behoerden/verwaltung/volkswirtschaftsdepartement/amt-fuer-raumentwicklung/projekte-und-grundlagen.html/8756-8758-8802-10373-11039-12551#js-cms-accordion-header--4-0\" target=\"_blank\">Bodenaufwertungsprojekts</a>",
       "type": "text",
       "required": true,
       "active-expression": "'fruchtfolgeflache-kompensationsflache'|value == 'Bodenaufwertungsprojekt'",
