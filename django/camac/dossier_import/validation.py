@@ -130,12 +130,8 @@ def iter_dossier_fields(dossier_id, dossier_messages, headings, rows):
 def _handle_delete_keyword(
     field, value, message_defaults: dict, allow_delete: bool = True
 ):
-    if not value:
+    if not value or value != settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
         return
-
-    if value != settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
-        return
-
     if allow_delete:
         messages.append_or_update_dossier_message(
             code=MessageCodes.VALUE_DELETED,
@@ -146,7 +142,7 @@ def _handle_delete_keyword(
         return
     messages.append_or_update_dossier_message(
         code=MessageCodes.FIELD_VALIDATION_ERROR,
-        detail=_(f"{settings.DOSSIER_IMPORT['DELETE_KEYWORD']} is without effect"),
+        detail=_("Deletion not allowed"),
         level=messages.Severity.WARNING.value,
         **message_defaults,
     )
@@ -160,28 +156,26 @@ def _validate_date_field(field, value, message_defaults: dict) -> bool:
     # Uplodaded documents can feature those columns formatted as datetime as well as
     # strings with correctly entered data. In that case we should try to parse that
     # value or return instructions.
-    valid = True
     if not field.endswith("-DATE"):
-        return valid
+        return True
 
-    if not value:
-        return valid
+    if not value or value == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
+        return True
 
-    if value == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
-        return valid
+    if isinstance(value, timezone.datetime):
+        return True
 
-    if not isinstance(value, timezone.datetime):
-        try:
-            timezone.datetime.strptime(value, XlsxFileDossierLoader.date_format)
-        except ValueError:
-            messages.append_or_update_dossier_message(
-                detail=str(value),
-                code=MessageCodes.DATE_FIELD_VALIDATION_ERROR.value,
-                level=messages.Severity.ERROR.value,
-                **message_defaults,
-            )
-            valid = False
-    return valid
+    try:
+        timezone.datetime.strptime(value, XlsxFileDossierLoader.date_format)
+        return True
+    except ValueError:
+        messages.append_or_update_dossier_message(
+            detail=str(value),
+            code=MessageCodes.DATE_FIELD_VALIDATION_ERROR.value,
+            level=messages.Severity.ERROR.value,
+            **message_defaults,
+        )
+        return False
 
 
 def _validate_existing_dossier(dossier_id, dossier_msgs, headings, rows):
