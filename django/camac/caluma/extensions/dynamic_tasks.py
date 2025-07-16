@@ -597,6 +597,8 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("after-formal-exam")
     def resolve_after_formal_exam(self, case, user, prev_work_item, context):
+        tasks = [settings.DISTRIBUTION["DISTRIBUTION_TASK"]]
+
         if settings.PUBLICATION.get(
             "AFTER_FORMAL_EXAM_PUBLICATION_TASKS", []
         ) and case.document.form.slug not in [
@@ -606,8 +608,13 @@ class CustomDynamicTasks(BaseDynamicTasks):
             "vorlaeufige-beurteilung-v3",
             "solaranlage",
         ]:
-            return settings.PUBLICATION["AFTER_FORMAL_EXAM_PUBLICATION_TASKS"]
-        return [settings.DISTRIBUTION["DISTRIBUTION_TASK"]]
+            tasks += settings.PUBLICATION["AFTER_FORMAL_EXAM_PUBLICATION_TASKS"]
+
+        if settings.ADDRESS_ASSIGNMENT:
+            if domain_logic.AddressAssignmentLogic.requires_address_assignment(case):
+                tasks += [settings.ADDRESS_ASSIGNMENT["SUGGESTION_TASK"]]
+
+        return tasks
 
     @register_dynamic_task("after-complete-instance")
     def after_complete_instance(self, case, user, prev_work_item, context):
@@ -696,3 +703,14 @@ class CustomDynamicTasks(BaseDynamicTasks):
             tasks.extend(["information-of-neighbors", "fill-information-of-neighbors"])
 
         return tasks
+
+    @register_dynamic_task("after-address-assignment-confirm-suggestion")
+    def resolve_after_address_assignment_confirm_suggestion(
+        self, case, user, prev_work_item, context
+    ):
+        if domain_logic.AddressAssignmentLogic.address_check_was_positive(
+            prev_work_item
+        ):
+            return []
+        else:
+            return [settings.ADDRESS_ASSIGNMENT.get("SUGGESTION_TASK")]

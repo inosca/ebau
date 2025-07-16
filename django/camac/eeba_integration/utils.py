@@ -1,50 +1,9 @@
 import logging
 from urllib.parse import urlparse
 
-from caluma.caluma_core.exceptions import ConfigurationError
-from caluma.caluma_form import api as form_api
-from caluma.caluma_form.models import Answer, Question
-from caluma.caluma_form.validators import CustomValidationError
 from django.conf import settings
 
 logger = logging.getLogger(__name__)
-
-
-def get_answer(question, document):
-    """
-    Retrieve the value of the Answer model instance.
-
-    Return the answer value if found, otherwise None.
-    """
-    answer = Answer.objects.filter(question=question, document=document).first()
-    return answer.value if answer else None
-
-
-def save_answer(document, question_slug, answer_value):
-    """
-    Save an answer for a question.
-
-    This function performs side effects such as retrieving the question and saving the answer.
-    It assumes that permission has already been verified.
-
-    Return the updated Answer instance on success, or None if any step fails.
-    """
-    try:
-        question = Question.objects.get(pk=question_slug)
-    except Question.DoesNotExist:  # pragma: no cover
-        logger.error("Question with slug '%s' does not exist", question_slug)
-        return None
-
-    try:
-        updated_answer = form_api.save_answer(
-            question=question, document=document, value=answer_value
-        )
-        return updated_answer
-    except (ConfigurationError, CustomValidationError) as e:  # pragma: no cover
-        logger.error(
-            "Failed to save answer for question '%s': %s", question_slug, str(e)
-        )
-        return None
 
 
 def extract_integration_id(response):

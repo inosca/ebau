@@ -506,6 +506,7 @@ def test_distribution_permission_for_answer(
         ("Support", WorkItem.STATUS_COMPLETED, False, True),
         ("Coordination", WorkItem.STATUS_READY, True, True),
         ("uso", WorkItem.STATUS_READY, True, True),
+        ("Geometer", WorkItem.STATUS_READY, True, True),
     ],
 )
 def test_simple_caluma_form_permissions(
@@ -748,6 +749,16 @@ def test_has_caluma_form_edit_permission_for_municipality():
         permission, "has_caluma_form_edit_permission_for_municipality"
     ) as mock_function:
         permission.has_caluma_form_edit_permission_for_trusted_service(None, None)
+        mock_function.assert_called_once()
+
+
+def test_has_caluma_form_edit_permission_for_geometer():
+    permission = CustomPermission()
+
+    with patch.object(
+        permission, "has_caluma_form_edit_permission_for_municipality"
+    ) as mock_function:
+        permission.has_caluma_form_edit_permission_for_geometer(None, None)
         mock_function.assert_called_once()
 
 

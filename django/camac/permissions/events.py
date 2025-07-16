@@ -107,9 +107,13 @@ class Trigger:
     inquiry_sent = EventTrigger()
     inquiry_completed = EventTrigger()
     instance_copied = EventTrigger()
+    formal_exam_completed = EventTrigger()
 
     applicant_added = EventTrigger("Whenever an applicant is invited/added")
     applicant_removed = EventTrigger("Whenever an applicant is removed")
+    geometer_work_item_created = EventTrigger(
+        "Whenever a work item, addressed to the geometer dynamic group, is created"
+    )
 
 
 class PermissionEventHandler(metaclass=ABCMeta):
@@ -213,6 +217,12 @@ class EmptyEventHandler(PermissionEventHandler):
         return  # pragma: no cover
 
     def instance_retrieved(self, instance: Instance, group: Group):
+        return  # pragma: no cover
+
+    def formal_exam_completed(self, instance: Instance, work_item: WorkItem):
+        return  # pragma: no cover
+
+    def geometer_work_item_created(self, work_item: WorkItem):
         return  # pragma: no cover
 
 

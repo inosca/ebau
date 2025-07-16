@@ -2,7 +2,7 @@ import pytest
 import requests
 from caluma.caluma_form.models import Answer
 
-from camac.eeba_integration import utils
+from camac.caluma import utils
 from camac.eeba_integration.client import EebaHandler
 from camac.eeba_integration.exceptions import (
     EebaHandlerBadRequestException,

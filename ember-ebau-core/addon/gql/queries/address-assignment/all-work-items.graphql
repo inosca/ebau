@@ -1,0 +1,26 @@
+query GetAddressAssignmentWorkItems($instanceId: GenericScalar!) {
+  allWorkItems(
+    filter: [
+      {
+        tasks: [
+          "address-assignment-make-suggestion"
+          "address-assignment-confirm-suggestion"
+        ]
+      }
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+    ]
+    order: [{ attribute: CREATED_AT, direction: ASC }]
+  ) {
+    edges {
+      node {
+        id
+        status
+        closedAt
+        addressedGroups
+        document {
+          id
+        }
+      }
+    }
+  }
+}

@@ -1237,6 +1237,22 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 22000000,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/address-assignment.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 9,
+      "form_group": 2000000,
+      "require_permission": "address-assignment-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 23000000,
     "fields": {
       "available_instance_resource": "page",
@@ -1754,6 +1770,26 @@
       "instance_resource": 12000017,
       "language": "it",
       "name": "Dossier collegati",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 22000000,
+    "fields": {
+      "instance_resource": 22000000,
+      "language": "de",
+      "name": "Addressvergabe",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 22000001,
+    "fields": {
+      "instance_resource": 22000000,
+      "language": "it",
+      "name": "Attribuzione dell'indirizzo",
       "description": null
     }
   },
@@ -6710,46 +6746,6 @@
     "pk": 21000001,
     "fields": {
       "resource": 140000,
-      "role": 20002
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 21000002,
-    "fields": {
-      "resource": 20006,
-      "role": 20002
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 21000003,
-    "fields": {
-      "resource": 14000007,
-      "role": 20002
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 21000004,
-    "fields": {
-      "resource": 14000003,
-      "role": 20002
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 21000005,
-    "fields": {
-      "resource": 14000004,
-      "role": 20002
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 21000006,
-    "fields": {
-      "resource": 14000005,
       "role": 20002
     }
   },

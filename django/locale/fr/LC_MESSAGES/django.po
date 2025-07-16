@@ -282,6 +282,14 @@ msgstr ""
 msgid "Construction step completed"
 msgstr ""
 
+#: camac/caluma/extensions/events/address_assignment.py
+#, python-brace-format
+msgid ""
+"Address suggestion accepted and address updated in form from "
+"{old_street_value} to {new_street_value}"
+msgstr ""
+"Suggestion d’adresse acceptée et adresse mise à jour dans le formulaire, de {old_street_value} à {new_street_value}"
+
 #: camac/caluma/extensions/events/audit.py
 msgid "Exam skipped"
 msgstr "Examen sauté"
@@ -1077,6 +1085,15 @@ msgstr "Aucun modèle n'est spécifié pour le formulaire '%(form_slug)s'."
 #: camac/user/authentication.py
 msgid "Signature has expired."
 msgstr "La signature a expiré."
+
+#: camac/instance/domain_logic/address_assignment.py
+#, python-brace-format
+msgid ""
+"Address suggestion accepted and address updated in form from {master_data."
+"street} to {new_street_value}"
+msgstr ""
+"La proposition d’adresse a été acceptée et l’adresse a été modifiée de "
+"{master_data.street} à {new_street_value}."
 
 #: camac/instance/domain_logic/rejection.py
 msgid "Instance can't be rejected while there is an open circulation"

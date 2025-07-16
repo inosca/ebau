@@ -2031,6 +2031,7 @@ APPLICATIONS = {
             "subservice": "service",
             "support": "support",
             "uso": "uso",
+            "geometer": "geometer",
         },
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
@@ -2074,9 +2075,14 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main", "einsprachen"],
+            "FORM_PERMISSIONS": [
+                "main",
+                "einsprachen",
+                "address-assignment-make-suggestion",
+            ],
             "FORM_PERMISSIONS_MAPPING": {
                 "form-einsprachen-write": "legal-submissions-write",
+                "form-address-assignment-make-suggestion-write": "address-assignment-write",
             },
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
@@ -3497,6 +3503,7 @@ DOSSIER_IMPORT = load_module_settings("dossier_import")
 BAB = load_module_settings("bab")
 PROJECT_MODIFICATION = load_module_settings("project_modification")
 USER = load_module_settings("user")
+ADDRESS_ASSIGNMENT = load_module_settings("address_assignment")
 SERVICE = load_module_settings("service")
 CHANGE_FORM = load_module_settings("change_form")
 GEVER = load_module_settings("gever")

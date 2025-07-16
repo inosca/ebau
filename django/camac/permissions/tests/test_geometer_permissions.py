@@ -3,6 +3,8 @@ from django.urls import reverse
 
 from camac.permissions import api
 from camac.permissions.conditions import Always
+from camac.permissions.events import Trigger
+from camac.permissions.models import InstanceACL
 
 """
 Geometer permissions tests.
@@ -94,3 +96,21 @@ def test_geometer_instance_access(
         # one either way, but let's make sure we get the right one
         # nonetheless)
         assert res_after_acl_data[0]["id"] == str(instance.pk)
+
+
+def test_construction_monitoring_geometer_work_item_created(
+    db,
+    caluma_work_item_factory,
+    gr_permissions_settings,
+    admin_user,
+    gr_instance,
+    gr_access_levels,
+):
+    work_item = caluma_work_item_factory(
+        addressed_groups=[str(admin_user.groups.first().service.pk)],
+        task__address_groups=["geometer"],
+        case=gr_instance.case,
+    )
+
+    Trigger.geometer_work_item_created(None, work_item)
+    assert InstanceACL.objects.count() == 1

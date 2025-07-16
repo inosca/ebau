@@ -102,6 +102,13 @@ ADDITIONAL_DEMAND_DUMP_CONFIG = {
     }
 }
 
+ADDRESS_ASSIGNMENT_CONFIG = {
+    "caluma_address_assignment": {
+        **generate_form_dump_config(r"address-assignment"),
+        **generate_workflow_dump_config(r"address-assignment"),
+    }
+}
+
 CONSTRUCTION_MONITORING_REGEX = r"(construction-monitoring|construction-stage|construction-step|complete-instance(-municipality|-canton)*)"
 
 CONSTRUCTION_MONITORING_DUMP_CONFIG = {
@@ -648,6 +655,7 @@ DUMP = {
                 },
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
                 **CELERY_DUMP_CONFIG,
+                **ADDRESS_ASSIGNMENT_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",

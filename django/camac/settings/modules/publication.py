@@ -86,7 +86,6 @@ PUBLICATION = {
         "AFTER_FORMAL_EXAM_PUBLICATION_TASKS": [
             "fill-publication",
             "publication",
-            "distribution",
         ],
         "SHOW_MAIN_FORM": True,
     },

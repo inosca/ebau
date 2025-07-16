@@ -1,5 +1,7 @@
 from logging import getLogger
 
+from caluma.caluma_workflow.models import WorkItem
+
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api
@@ -199,3 +201,17 @@ class InstanceCopyHandlerMixin:
             acl.pk = None
             acl.instance = instance
             acl.save()
+
+
+class ConstructionMonitoringHandlerMixin:
+    def geometer_work_item_created(self, work_item: WorkItem):
+        if "geometer" in work_item.task.address_groups:
+            for addr in work_item.addressed_groups:
+                addr_service = Service.objects.get(pk=addr)
+                self.manager.grant(
+                    work_item.case.family.instance,
+                    grant_type="SERVICE",
+                    access_level="geometer",
+                    service=addr_service,
+                    event_name="received-work-item",
+                )
