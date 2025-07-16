@@ -289,6 +289,15 @@ msgstr ""
 msgid "Construction step completed"
 msgstr "abgeschlossen"
 
+#: camac/caluma/extensions/events/address_assignment.py
+#, python-brace-format
+msgid ""
+"Address suggestion accepted and address updated in form from "
+"{old_street_value} to {new_street_value}"
+msgstr ""
+"Adressvorschlag wurde akzeptiert und Adresse wurde von {old_street_value} "
+"zu {new_street_value} geändert."
+
 #: camac/caluma/extensions/events/audit.py
 msgid "Exam skipped"
 msgstr "Dossierprüfung übersprungen"
@@ -1084,6 +1093,15 @@ msgstr "Keine Druckvorlage für das Caluma Formular %(form_slug)s spezifiziert."
 #: camac/user/authentication.py
 msgid "Signature has expired."
 msgstr "Signatur ist abgelaufen."
+
+#: camac/instance/domain_logic/address_assignment.py
+#, python-brace-format
+msgid ""
+"Address suggestion accepted and address updated in form from {master_data."
+"street} to {new_street_value}"
+msgstr ""
+"Adressvorschlag wurde akzeptiert und Adresse wurde von {master_data.street} "
+"zu {new_street_value} geändert."
 
 #: camac/instance/domain_logic/rejection.py
 msgid "Instance can't be rejected while there is an open circulation"

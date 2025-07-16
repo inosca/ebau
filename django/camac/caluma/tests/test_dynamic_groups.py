@@ -449,3 +449,11 @@ def test_dynamic_group_afb_ag(db, service_factory, instance):
     assert CustomDynamicGroups().resolve("afb")(
         None, instance.case, None, None, None
     ) == [str(service.pk)]
+
+
+def test_dynamic_group_gebaudeversicherung(db, service_factory):
+    service = service_factory(slug="gvg")
+
+    assert CustomDynamicGroups().resolve("gebaudeversicherung")(
+        None, None, None, None, None
+    ) == [str(service.pk)]

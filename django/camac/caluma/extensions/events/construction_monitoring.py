@@ -24,6 +24,7 @@ from camac.core.utils import create_history_entry
 from camac.ech0211.signals import construction_monitoring_started
 from camac.notification.utils import send_mail_without_request
 from camac.permissions import events as permissions_events
+from camac.permissions.events import Trigger
 from camac.user.models import User
 
 from .general import get_instance
@@ -434,3 +435,10 @@ def post_create_plan_construction_stage_ur(sender, work_item, user, context, **k
                     "construction-step-schlussabnahme-gebaeude",
                 ],
             )
+
+
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
+def post_create_geometer_work_item(sender, work_item, user, context, **kwargs):
+    if work_item.task.address_groups and "geometer" in work_item.task.address_groups:
+        Trigger.geometer_work_item_created(None, work_item)

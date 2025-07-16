@@ -79,6 +79,42 @@ def ag_additional_demand_settings(settings, request):
 
 
 @pytest.fixture
+def address_assignment_settings(settings, request):
+    """Module-specific settings for address assignment (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="address_assignment",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_address_assignment_settings(settings, request):
+    """Disable the address assignment module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="address_assignment",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def gr_address_assignment_settings(settings, request):
+    """Module-specific settings for address assignment (canton GR)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="address_assignment",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def alexandria_settings(settings, request):
     """Module-specific settings for alexandria (default)."""
     return generate_module_settings(

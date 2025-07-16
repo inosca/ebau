@@ -1256,3 +1256,33 @@ def test_visible_construction_step_work_items_expression_for_trusted_service():
         )
         == Value(True)
     )
+
+
+@pytest.mark.parametrize("role__name", ("Geometer",))
+def test_visible_construction_step_work_items_expression_for_geometer(
+    db,
+    caluma_work_item_factory,
+    admin_user,
+    caluma_admin_schema_executor,
+    gr_construction_monitoring_settings,
+):
+    caluma_work_item_factory(
+        addressed_groups=[str(admin_user.groups.first().service.pk)],
+        deadline=make_aware(datetime(2024, 10, 17)),
+    )
+    query = """
+        query WorkItemsForTasks {
+            allWorkItems {
+                edges {
+                    node {
+                        task {
+                            slug
+                        }
+                    }
+                }
+            }
+        }
+    """
+    result = caluma_admin_schema_executor(query)
+
+    assert len(result.data["allWorkItems"]["edges"]) == 1

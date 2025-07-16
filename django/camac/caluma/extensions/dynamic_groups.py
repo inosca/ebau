@@ -132,6 +132,12 @@ class CustomDynamicGroups(BaseDynamicGroups):
         )
         return [str(geometer.pk) for geometer in geometers]
 
+    @register_dynamic_group("gebaudeversicherung")
+    def resolve_gebaudeversicherung(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        return [str(Service.objects.get(slug="gvg").pk)]
+
     @register_dynamic_group("geometer-ur")
     def resolve_geometer_ur(self, task, case, user, prev_work_item, context, **kwargs):
         return [

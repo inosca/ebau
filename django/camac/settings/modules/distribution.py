@@ -233,8 +233,8 @@ DISTRIBUTION = {
         "SUGGESTIONS": GR_DISTRIBUTION_SUGGESTIONS,
         "AVAILABLE_SERVICES_FOR_INQUIRY": {
             "default": [
-                # Never show AIB or the base GVG service
-                {"exclude": [("services", ["aib", "gvg"])]},
+                # Never show AIB
+                {"exclude": [("services", ["aib"])]},
                 {
                     "include": [
                         (

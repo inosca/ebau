@@ -1008,6 +1008,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-projekt-gebaeude-nachtragen.construction-step-schlussabnahme-projekt-gebaeude-nachtragen-datum",
+    "fields": {
+      "created_at": "2025-07-10T14:58:42.094Z",
+      "modified_at": "2025-07-10T14:58:42.094Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-projekt-gebaeude-nachtragen",
+      "question": "construction-step-schlussabnahme-projekt-gebaeude-nachtragen-datum",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "construction-step-schlussabnahme-projekt-melden.construction-step-schlussabnahme-projekt-melden-bemerkungen",
     "fields": {
       "created_at": "2024-01-17T09:54:44.734Z",
@@ -2899,6 +2914,37 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Wann wurde das Geb\\u00e4ude erstellt?\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-projekt-gebaeude-nachtragen-datum",
+    "fields": {
+      "created_at": "2025-07-10T14:58:42.058Z",
+      "modified_at": "2025-07-10T14:58:42.058Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachgetragen am\", \"fr\": null, \"it\": null}",
       "type": "date",
       "is_required": "true",
       "is_hidden": "false",

@@ -1,6 +1,7 @@
 from django.conf import settings
 
-from camac.eeba_integration import utils
+from camac.caluma import utils
+from camac.caluma.utils import get_answer, save_answer
 
 EEBA_HIDDEN_QUESTIONS_SLUGS = settings.EEBA_INTEGRATION.get(
     "EEBA_HIDDEN_QUESTIONS_SLUGS", {}
@@ -53,9 +54,7 @@ class EebaIntegrationState:
         Returns:
             The result of the save operation, as provided by utils.save_answer.
         """
-        return utils.save_answer(
-            self.document, self.integration_id_slug, integration_id
-        )
+        return save_answer(self.document, self.integration_id_slug, integration_id)
 
     def get_state(self):
         """
@@ -64,7 +63,7 @@ class EebaIntegrationState:
         Returns:
             The state value stored for the document, or None if not set.
         """
-        return utils.get_answer(self.state_slug, self.document)
+        return get_answer(self.state_slug, self.document)
 
     def set_state(self, state_value):
         """
@@ -76,7 +75,7 @@ class EebaIntegrationState:
         Returns:
             The result of the save operation, as provided by utils.save_answer.
         """
-        return utils.save_answer(self.document, self.state_slug, state_value)
+        return save_answer(self.document, self.state_slug, state_value)
 
     def get_required(self):
         """
@@ -85,7 +84,7 @@ class EebaIntegrationState:
         Returns:
             The value of the eeba-required field stored for the document, or None if not set.
         """
-        return utils.get_answer(self.required_slug, self.document)
+        return get_answer(self.required_slug, self.document)
 
     def set_required(self, required_value):
         """
@@ -97,7 +96,7 @@ class EebaIntegrationState:
         Returns:
             The result of the save operation, as provided by utils.save_answer.
         """
-        return utils.save_answer(self.document, self.required_slug, required_value)
+        return save_answer(self.document, self.required_slug, required_value)
 
     def get_web_url(self):
         """
@@ -106,7 +105,7 @@ class EebaIntegrationState:
         Returns:
             The web URL stored for the document, or None if not set.
         """
-        return utils.get_answer(self.web_url_slug, self.document)
+        return get_answer(self.web_url_slug, self.document)
 
     def set_web_url(self, web_url):
         """
@@ -118,4 +117,4 @@ class EebaIntegrationState:
         Returns:
             The result of the save operation, as provided by utils.save_answer.
         """
-        return utils.save_answer(self.document, self.web_url_slug, web_url)
+        return save_answer(self.document, self.web_url_slug, web_url)

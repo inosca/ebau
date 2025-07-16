@@ -94,7 +94,7 @@
     "pk": 20002,
     "fields": {
       "role_parent": null,
-      "name": null,
+      "name": "geometer",
       "group_prefix": null
     }
   },

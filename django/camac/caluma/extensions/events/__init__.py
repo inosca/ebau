@@ -4,6 +4,7 @@
 
 from . import (  # noqa: F401
     additional_demand,
+    address_assignment,
     audit,
     bab,
     caluma_workflow_notifications,
@@ -16,6 +17,7 @@ from . import (  # noqa: F401
     distribution,
     distribution_ag_afb_specific,
     ebau_number,
+    formal_exam,
     general,
     gever,
     rejection,

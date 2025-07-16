@@ -16148,7 +16148,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "eingabequittung-korrekt",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -16163,7 +16163,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "einverstaendnis-grundeigentuemerin-vorhanden",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -16178,7 +16178,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "entspricht-voraussetzungen-einer-bauanzeige",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -16193,7 +16193,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "gesuchsunterlagen-vollstaendig",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -16208,7 +16208,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "hinweis-auflistung",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -16223,7 +16223,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "hinweis-baugesuch",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -16238,6 +16238,21 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "lage-des-vorhabens-korrekt",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.neue-adresse-notwendig",
+    "fields": {
+      "created_at": "2025-06-02T14:31:46.182Z",
+      "modified_at": "2025-06-02T14:31:46.182Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "neue-adresse-notwendig",
       "sort": 3
     }
   },
@@ -16253,7 +16268,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "verfahrensart",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -30488,6 +30503,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "neue-adresse-notwendig-ja",
+    "fields": {
+      "created_at": "2025-06-02T14:31:51.723Z",
+      "modified_at": "2025-06-02T14:31:51.723Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "neue-adresse-notwendig-nein",
+    "fields": {
+      "created_at": "2025-06-02T14:31:51.726Z",
+      "modified_at": "2025-06-02T14:31:51.726Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "neue-oder-bestehende-anlage-alt-bestehend",
     "fields": {
       "created_at": "2023-07-07T08:36:27.281Z",
@@ -41940,141 +41989,6 @@
       "type": "date",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "\"additional-demand-decision\"|answer != \"additional-demand-decision-reject\"",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "address-assignment-complete",
-    "fields": {
-      "created_at": "2025-01-08T12:08:08.854Z",
-      "modified_at": "2025-01-08T12:08:08.854Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Address-assignment-complete\", \"fr\": null, \"it\": null}",
-      "type": "action_button",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "color": "primary",
-        "action": "complete",
-        "show_validation": false,
-        "validate_on_enter": false
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "address-assignment-remark",
-    "fields": {
-      "created_at": "2025-01-08T12:32:33.932Z",
-      "modified_at": "2025-01-08T12:32:33.932Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"address-assignment-remark\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "address-assignment-street",
-    "fields": {
-      "created_at": "2025-01-07T12:03:42.813Z",
-      "modified_at": "2025-01-07T12:05:14.788Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Strasse/Flurname, Nr.\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "address-assignment-valid",
-    "fields": {
-      "created_at": "2025-01-08T12:08:59.733Z",
-      "modified_at": "2025-01-08T12:33:07.818Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Address-assignment-valid\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -67892,7 +67806,7 @@
     "pk": "neue-adresse-notwendig",
     "fields": {
       "created_at": "2025-01-07T12:10:27.336Z",
-      "modified_at": "2025-03-05T09:12:54.122Z",
+      "modified_at": "2025-06-02T14:31:51.763Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -90031,6 +89945,36 @@
       "modified_by_group": null,
       "question": "netzgebunden",
       "option": "netzgebunden-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "neue-adresse-notwendig.neue-adresse-notwendig-ja",
+    "fields": {
+      "created_at": "2025-06-02T14:31:51.769Z",
+      "modified_at": "2025-06-02T14:31:51.769Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "neue-adresse-notwendig",
+      "option": "neue-adresse-notwendig-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "neue-adresse-notwendig.neue-adresse-notwendig-nein",
+    "fields": {
+      "created_at": "2025-06-02T14:31:51.767Z",
+      "modified_at": "2025-06-02T14:31:51.767Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "neue-adresse-notwendig",
+      "option": "neue-adresse-notwendig-nein",
       "sort": 1
     }
   },

@@ -383,6 +383,12 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             Q(addressed_groups__contains=[str(group.service_id)])
         )
 
+    def visible_construction_step_work_items_expression_for_geometer(self, group):
+        return (Q(is_construction_monitoring_control=False)) | (
+            # Construction-monitoring work-item addressed to current service
+            Q(addressed_groups__contains=[str(group.service_id)])
+        )
+
     def visible_construction_step_work_items_expression_for_trusted_service(
         self, group
     ):

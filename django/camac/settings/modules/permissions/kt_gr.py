@@ -37,6 +37,7 @@ FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_VERSIONS, "solaranlage"])
 
 # Role rules
 ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
+ROLES_GEOMETER = HasRole(["geometer"])
 
 # Module rules
 #
@@ -50,7 +51,9 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 MODULE_ADDITIONAL_DEMANDS = STATES_ALL & RequireWorkItem("init-additional-demand")
 
 MODULE_CONSTRUCTION_ACCEPTANCE = RequireWorkItem("construction-acceptance")
-MODULE_CONSTRUCTION_MONITORING = RequireWorkItem("init-construction-monitoring")
+MODULE_CONSTRUCTION_MONITORING = (
+    RequireWorkItem("init-construction-monitoring") | ROLES_GEOMETER
+)
 MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_CORRECTIONS = (
     STATES_ALL | RequireInstanceState(["correction"])
@@ -88,6 +91,10 @@ MODULE_REJECTION = STATES_ALL
 MODULE_RELATED_GWR_PROJECTS = STATES_ALL & FORMS_ONLY_BUILDING_PERMIT
 MODULE_RESPONSIBLE = STATES_ALL
 MODULE_WORK_ITEMS = STATES_ALL
+MODULE_ADDRESS_ASSIGNMENT = STATES_ALL & (
+    RequireWorkItem("address-assignment-make-suggestion")
+    | RequireWorkItem("address-assignment-confirm-suggestion")
+)
 MODULE_DEADLINES_SUSPENSION = (
     STATES_ALL
     & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
@@ -210,6 +217,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
+            ("address-assignment-read", MODULE_ADDRESS_ASSIGNMENT),
             ("deadlines-suspensions-read", MODULE_DEADLINES_SUSPENSION),
             ("deadlines-suspensions-write", MODULE_DEADLINES_SUSPENSION),
             ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
@@ -262,6 +270,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
+            ("address-assignment-read", MODULE_ADDRESS_ASSIGNMENT),
             ("deadlines-suspensions-read", MODULE_DEADLINES_SUSPENSION),
             ("deadlines-suspensions-write", MODULE_DEADLINES_SUSPENSION),
             ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
@@ -303,7 +312,8 @@ GR_PERMISSIONS_SETTINGS = {
             ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
             ("responsible-read", Always()),
             ("work-items-read", Always()),
-            # TODO still incomplete
+            ("address-assignment-read", Always()),
+            ("address-assignment-write", Always()),
         ],
         "uso": [
             ("communications-read", MODULE_COMMUNICATIONS),
@@ -330,6 +340,10 @@ GR_PERMISSIONS_SETTINGS = {
             ),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("work-items-read", MODULE_WORK_ITEMS),
+            ("address-assignment-read", MODULE_ADDRESS_ASSIGNMENT),
+            ("address-assignment-write", MODULE_ADDRESS_ASSIGNMENT),
+            ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
+            ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
         ],
     },
     "EVENT_HANDLER": "camac.permissions.config.kt_gr.PermissionEventHandlerGR",
