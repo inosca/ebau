@@ -106,14 +106,14 @@
     ]),
     'stats': dict({
       'attachments': 4,
-      'dossiers': 4,
+      'dossiers': 1,
     }),
     'warning': list([
       '''
         1 Dokumentenverzeichnisse haben keine Referenz in der Metadatendatei und werden nicht importiert:
         2017-84
       ''',
-      '4 Dossiers ohne Dokumentenverzeichnis.',
+      '1 Dossiers ohne Dokumentenverzeichnis.',
     ]),
   })
 # ---
@@ -224,14 +224,14 @@
     ]),
     'stats': dict({
       'attachments': 4,
-      'dossiers': 4,
+      'dossiers': 1,
     }),
     'warning': list([
       '''
         1 Dokumentenverzeichnisse haben keine Referenz in der Metadatendatei und werden nicht importiert:
         2017-84
       ''',
-      '4 Dossiers ohne Dokumentenverzeichnis.',
+      '1 Dossiers ohne Dokumentenverzeichnis.',
     ]),
   })
 # ---
@@ -342,14 +342,14 @@
     ]),
     'stats': dict({
       'attachments': 4,
-      'dossiers': 4,
+      'dossiers': 1,
     }),
     'warning': list([
       '''
         1 Dokumentenverzeichnisse haben keine Referenz in der Metadatendatei und werden nicht importiert:
         2017-84
       ''',
-      '4 Dossiers ohne Dokumentenverzeichnis.',
+      '1 Dossiers ohne Dokumentenverzeichnis.',
     ]),
   })
 # ---
@@ -460,14 +460,14 @@
     ]),
     'stats': dict({
       'attachments': 4,
-      'dossiers': 4,
+      'dossiers': 1,
     }),
     'warning': list([
       '''
         1 Dokumentenverzeichnisse haben keine Referenz in der Metadatendatei und werden nicht importiert:
         2017-84
       ''',
-      '4 Dossiers ohne Dokumentenverzeichnis.',
+      '1 Dossiers ohne Dokumentenverzeichnis.',
     ]),
   })
 # ---
@@ -606,14 +606,14 @@
     ]),
     'stats': dict({
       'attachments': 4,
-      'dossiers': 4,
+      'dossiers': 1,
     }),
     'warning': list([
       '''
         1 Dokumentenverzeichnisse haben keine Referenz in der Metadatendatei und werden nicht importiert:
         2017-84
       ''',
-      '4 Dossiers ohne Dokumentenverzeichnis.',
+      '1 Dossiers ohne Dokumentenverzeichnis.',
     ]),
   })
 # ---
@@ -724,14 +724,14 @@
     ]),
     'stats': dict({
       'attachments': 4,
-      'dossiers': 4,
+      'dossiers': 1,
     }),
     'warning': list([
       '''
         1 Dokumentenverzeichnisse haben keine Referenz in der Metadatendatei und werden nicht importiert:
         2017-84
       ''',
-      '4 Dossiers ohne Dokumentenverzeichnis.',
+      '1 Dossiers ohne Dokumentenverzeichnis.',
     ]),
   })
 # ---
