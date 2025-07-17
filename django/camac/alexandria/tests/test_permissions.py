@@ -1864,6 +1864,115 @@ def test_move_document(
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("role__name", ["municipality"])
+@pytest.mark.parametrize(
+    "document_created_by_group,source_category_visibility,target_category_visibility,"
+    "source_category_permissions,target_category_permissions,status_code",
+    [
+        (
+            "admin",
+            "all",
+            "all",
+            [{"permission": "create"}],
+            [{"permission": "create"}],
+            HTTP_201_CREATED,
+        ),
+        ("admin", "all", "all", [{"permission": "create"}], [], HTTP_403_FORBIDDEN),
+        (
+            "other",
+            "service",
+            "service",
+            [{"scope": "Service", "permission": "create"}],
+            [{"scope": "Service", "permission": "create"}],
+            HTTP_403_FORBIDDEN,
+        ),
+        (
+            "other",
+            "all",
+            "service",
+            [{"scope": "All", "permission": "create"}],
+            [{"scope": "Service", "permission": "create"}],
+            HTTP_201_CREATED,
+        ),
+    ],
+)
+def test_copy_document(
+    db,
+    admin_client,
+    service_factory,
+    caluma_admin_user,
+    instance,
+    mocker,
+    document_created_by_group,
+    source_category_visibility,
+    target_category_visibility,
+    source_category_permissions,
+    status_code,
+    target_category_permissions,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[instance.pk],
+    )
+
+    CategoryFactory(
+        slug="source-category",
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": source_category_visibility,
+                    "permissions": source_category_permissions,
+                },
+            }
+        },
+    )
+
+    CategoryFactory(
+        slug="target-category",
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": target_category_visibility,
+                    "permissions": target_category_permissions,
+                },
+            }
+        },
+    )
+
+    created_by_group = (
+        caluma_admin_user.group
+        if document_created_by_group == "admin"
+        else document_created_by_group
+    )
+
+    document = DocumentFactory(
+        category_id="source-category",
+        metainfo={"camac-instance-id": instance.pk},
+        created_by_group=created_by_group,
+        modified_by_group=created_by_group,
+    )
+
+    data = {
+        "data": {
+            "type": "documents",
+            "id": document.pk,
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": "target-category",
+                        "type": "categories",
+                    },
+                }
+            },
+        },
+    }
+
+    url = reverse("document-detail", args=[document.pk]) + "/copy"
+    response = admin_client.post(url, data)
+
+    assert response.status_code == status_code
+
+
 @pytest.mark.parametrize(
     "role__name,status_code,access",
     [
