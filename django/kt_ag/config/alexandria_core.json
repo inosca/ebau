@@ -6,7 +6,7 @@
       "created_at": "2020-08-04T13:24:00.704Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-06-24T14:15:29.604Z",
+      "modified_at": "2025-06-30T12:53:53.029Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -462,7 +462,7 @@
       "created_at": "2020-08-04T13:24:00.690Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-06-24T14:15:29.631Z",
+      "modified_at": "2025-06-30T12:53:53.052Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -892,7 +892,7 @@
       "created_at": "2020-08-04T13:24:00.677Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-06-24T14:15:29.584Z",
+      "modified_at": "2025-06-30T12:53:53.012Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -1329,7 +1329,7 @@
       "created_at": "2020-08-04T13:24:00.699Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-06-24T14:15:29.614Z",
+      "modified_at": "2025-06-30T12:53:53.037Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -1900,7 +1900,7 @@
       "created_at": "2020-08-04T13:24:00.708Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-06-24T14:15:29.624Z",
+      "modified_at": "2025-06-30T12:53:53.044Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -1925,6 +1925,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "Service",
                 "permission": "create"
               },
               {
@@ -1952,6 +1953,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "Service",
                 "permission": "create"
               },
               {
@@ -1979,6 +1981,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "Service",
                 "permission": "create"
               },
               {
@@ -2009,6 +2012,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "Service",
                 "permission": "create"
               },
               {
@@ -2036,6 +2040,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "Service",
                 "permission": "create"
               },
               {
@@ -2063,6 +2068,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "Service",
                 "permission": "create"
               },
               {
@@ -2090,6 +2096,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "Service",
                 "permission": "create"
               },
               {
@@ -2120,6 +2127,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "Service",
                 "permission": "create"
               },
               {
@@ -2163,7 +2171,7 @@
       "created_at": "2024-12-20T09:35:18.710Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-06-24T14:15:29.593Z",
+      "modified_at": "2025-06-30T12:53:53.021Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {

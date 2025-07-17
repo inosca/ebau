@@ -112,6 +112,7 @@ class CustomPermission:
         instance: Instance,
         category: Category,
         document: Union[Document, None] = None,
+        created_by_group: Union[str, None] = None,
     ) -> set:
         category_permissions = resolve_permissions(category, request.group)
 
@@ -126,9 +127,9 @@ class CustomPermission:
         for permission in category_permissions["permissions"]:
             all_checks_met = True
 
-            if document and permission["permission"] != "create":
+            if document and "scope" in permission:
                 all_checks_met &= getattr(scopes, permission["scope"])(
-                    request.group, document
+                    request.group, document, created_by_group
                 ).evaluate()
 
             required_conditions = permission.get("condition")
@@ -218,11 +219,24 @@ class CustomPermission:
         new_category_id = get_dict_item(
             request.parsed_data, "category.id", default=None
         )
+
+        # checks for move or copy
         if new_category_id and category.pk != new_category_id:
             new_category = Category.objects.get(pk=new_category_id)
 
+            # set created_by_group for document, when request path ends with /copy
+            created_by_group = (
+                request.group.service_id
+                if request.method == "POST" and request.path.endswith("/copy")
+                else document.created_by_group
+            )
+
             available_permissions_new_category = self.get_available_permissions(
-                request, instance, new_category, document
+                request,
+                instance,
+                new_category,
+                document,
+                created_by_group,
             )
             needed_permissions_new_category = {MODE_CREATE}
 

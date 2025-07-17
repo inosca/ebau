@@ -945,6 +945,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -977,6 +978,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1012,6 +1014,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1044,6 +1047,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1076,6 +1080,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1108,6 +1113,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1178,6 +1184,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "ServiceAndSubservice",
                 "fields": [
                   "title",
                   "description",
@@ -1208,6 +1215,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "ServiceAndSubservice",
                 "fields": [
                   "title",
                   "description",
@@ -1241,6 +1249,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "ServiceAndSubservice",
                 "fields": [
                   "title",
                   "description",
@@ -1271,6 +1280,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "ServiceAndSubservice",
                 "fields": [
                   "title",
                   "description",
@@ -1301,6 +1311,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "ServiceAndSubservice",
                 "fields": [
                   "title",
                   "description",
@@ -1331,6 +1342,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "ServiceAndSubservice",
                 "fields": [
                   "title",
                   "description",

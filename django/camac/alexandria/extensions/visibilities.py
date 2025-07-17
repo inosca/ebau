@@ -75,7 +75,7 @@ class CustomVisibility(InstanceQuerysetMixin):
         # categories where only documents from my own service are readable
         aggregated_filter |= Q(
             get_category_access_rule(prefix, "service", role)
-            & Q(**{f"{prefix}modified_by_group": str(request.group.service_id)})
+            & Q(**{f"{prefix}created_by_group": str(request.group.service_id)})
         )
         # categories where only documents from my own service, it's parent and
         # their subservices are readable
@@ -83,7 +83,7 @@ class CustomVisibility(InstanceQuerysetMixin):
             get_category_access_rule(prefix, "service-and-subservice", role)
             & Q(
                 **{
-                    f"{prefix}modified_by_group__in": get_service_parent_and_children(
+                    f"{prefix}created_by_group__in": get_service_parent_and_children(
                         request.group.service_id
                     )
                 }
