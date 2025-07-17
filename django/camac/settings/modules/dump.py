@@ -122,7 +122,7 @@ CONSTRUCTION_MONITORING_DUMP_CONFIG = {
 
 CELERY_DUMP_CONFIG = {
     "celery": {
-        "django_celery_beat.PeriodicTask": Q(),
+        "django_celery_beat.PeriodicTask": ~Q(task="celery.backend_cleanup"),
         "django_celery_beat.IntervalSchedule": Q(),
     },
 }
