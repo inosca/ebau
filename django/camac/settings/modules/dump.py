@@ -122,7 +122,7 @@ CONSTRUCTION_MONITORING_DUMP_CONFIG = {
 
 CELERY_DUMP_CONFIG = {
     "celery": {
-        "django_celery_beat.PeriodicTask": Q(),
+        "django_celery_beat.PeriodicTask": ~Q(task="celery.backend_cleanup"),
         "django_celery_beat.IntervalSchedule": Q(),
     },
 }
@@ -644,8 +644,6 @@ DUMP = {
                     "user.Group": Q(pk__lte=3),
                     "user.GroupT": Q(pk__lte=3),
                 },
-                # Deadlines
-                "deadlines": {"deadlines.DeadlineType": Q()},
                 # Distribution
                 **DISTRIBUTION_DUMP_CONFIG,
                 # Additional demand

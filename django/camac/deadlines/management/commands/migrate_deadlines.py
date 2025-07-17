@@ -69,7 +69,11 @@ class Command(BaseCommand):
                 if verbosity >= 1:
                     start_date = self._format_date(deadline.start_date)
                     end_date = self._format_date(deadline.process_deadline_date)
-                    lead_time = self._format_days(deadline.deadline_type.lead_time)
+                    lead_time = self._format_days(
+                        deadline.deadline_type.lead_time
+                        if deadline.deadline_type
+                        else 0
+                    )
 
                     log.info(
                         f"  > Created deadline for instance {deadline.instance.pk} and service "
