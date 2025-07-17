@@ -589,8 +589,8 @@ msgstr "Dossier-Fristen"
 
 #: camac/deadlines/serializers.py
 #: camac/deadlines/tests/test_model_suspensions.py
-msgid "End date must be after start date."
-msgstr "Das Enddatum muss nach dem Startdatum liegen."
+msgid "End date can not be before start date."
+msgstr "Das Enddatum kann nicht vor dem Startdatum liegen."
 
 #: camac/document/filters.py
 msgid ""

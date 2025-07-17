@@ -24,7 +24,9 @@ export default class DeadlineDeadlineFormModalComponent extends Component {
     const typeValue = type ? { id: type.id, name: type.name } : null;
     this.formData = {
       type: typeValue,
-      startDate: this.args.deadline.startDate,
+      startDate: this.args.deadline.startDate
+        ? new Date(this.args.deadline.startDate.toDateString())
+        : null,
     };
   }
 

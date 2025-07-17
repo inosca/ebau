@@ -13,7 +13,7 @@ export default {
     snippets: true,
   },
   deadlines: {
-    enabled: true,
+    enabled: false,
     useEndDate: false,
   },
   permissions: {

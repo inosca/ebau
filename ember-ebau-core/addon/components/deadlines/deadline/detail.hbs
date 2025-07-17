@@ -21,14 +21,16 @@
         {{else}}
           -
         {{/if}}
-        <IconButton
-          @icon="pencil"
-          @onClick={{this.editDeadline}}
-          @disabled={{this.showModal}}
-          @loading={{this.showModal}}
-          title={{t "deadlines.action.deadline.edit"}}
-          data-test-edit-deadline-date-button
-        />
+        {{#if (await (can "edit deadline" @deadline instance=@instance))}}
+          <IconButton
+            @icon="pencil"
+            @onClick={{this.editDeadline}}
+            @disabled={{this.showModal}}
+            @loading={{this.showModal}}
+            title={{t "deadlines.action.deadline.edit"}}
+            data-test-edit-deadline-date-button
+          />
+        {{/if}}
       </div>
       <div class="uk-width-1-2 uk-width-1-4@m uk-first-column">
         <strong>{{t "deadlines.deadline.detail.totalDaysOfSuspension"}}</strong>

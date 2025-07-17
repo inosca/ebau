@@ -7,6 +7,7 @@ import { queryManager } from "ember-apollo-client";
 export default class AdditionalDemandDetailComponent extends Component {
   @service ebauModules;
   @service additionalDemand;
+  @service store;
 
   @queryManager apollo;
 
@@ -24,7 +25,20 @@ export default class AdditionalDemandDetailComponent extends Component {
   onSuccessComplete() {
     return Promise.all([
       this.additionalDemand.refetch(),
-      this.ebauModules.onAdditionalDemandComplete(),
+      this.ebauModules.onAdditionalDemandComplete
+        ? this.ebauModules.onAdditionalDemandComplete()
+        : null,
+      // reload instance for case header updates
+      this.store.findRecord("instance", this.instanceId),
+    ]);
+  }
+
+  @action
+  onCancelComplete() {
+    return Promise.all([
+      this.additionalDemand.refetch(),
+      // reload instance for case header updates
+      this.store.findRecord("instance", this.instanceId),
     ]);
   }
 }

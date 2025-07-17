@@ -566,7 +566,7 @@ def test_suspension_deletion_and_update_gr(
     "test_case,error",
     [
         ("ok", False),
-        ("date_order", _("End date must be after start date.")),
+        ("date_order", _("End date can not be before start date.")),
     ],
 )
 def test_suspension_save_validation_gr(
