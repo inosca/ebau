@@ -2201,6 +2201,16 @@ APPLICATIONS = {
                     "recipient_types": ["leitbehoerde"],
                 },
             ],
+            "SUBMIT_PRELIMINARY_CLARIFICATION": [
+                {
+                    "template_slug": "empfang-anfragevorabklarung-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "empfang-anfragevorabklarung-behorden",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
             "APPLICANT": {
                 "NEW": "gesuchsbearbeitungs-einladung-neu",
                 "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
