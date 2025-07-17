@@ -550,7 +550,7 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
                 raise PermissionDenied()
 
             document, file = create_alexandria_document_file(
-                user=self.context["request"].user.pk,
+                user=instance.message.created_by_user.pk,
                 group=self.context["request"].group.service_id,
                 category=validated_data["category"],
                 document_title=instance.filename,
