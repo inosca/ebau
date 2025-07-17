@@ -45,7 +45,7 @@
     <WorkItemButton
       @mutation="cancel"
       @workItemId={{this.demand.id}}
-      @onSuccess={{this.additionalDemand.refetch}}
+      @onSuccess={{this.onCancelComplete}}
     >
       {{t "additional-demand.cancel"}}
     </WorkItemButton>

@@ -19,6 +19,10 @@ from camac.deadlines import models as deadlines_models
         ("service", "service-lead", 0),
     ],
 )
+@pytest.mark.parametrize(
+    "close_action",
+    ["complete", "cancel"],
+)
 def test_events_deadlines_additional_demand_suspensions_gr(
     db,
     admin_user,
@@ -30,6 +34,7 @@ def test_events_deadlines_additional_demand_suspensions_gr(
     gr_deadlines_settings,
     gr_permissions_settings,
     set_application_gr,
+    close_action,
     expected_count,
     mocker,
 ):
@@ -55,7 +60,7 @@ def test_events_deadlines_additional_demand_suspensions_gr(
         case=case,
         task=Task.objects.get(slug=gr_additional_demand_settings["FILL_TASK"]),
     )
-    caluma_work_item_factory(
+    main_workitem = caluma_work_item_factory(
         case=case,
         child_case=case,
         task=Task.objects.get(slug=gr_additional_demand_settings["TASK"]),
@@ -78,7 +83,7 @@ def test_events_deadlines_additional_demand_suspensions_gr(
         suspension = deadlines_models.Suspension.objects.first()
         assert suspension.deadline.service == service
         assert suspension.deadline.instance == case.family.instance
-        assert suspension.work_item == workitem
+        assert suspension.work_item == main_workitem
         assert suspension.end_date is None
         assert (
             suspension.reason
@@ -90,12 +95,17 @@ def test_events_deadlines_additional_demand_suspensions_gr(
         assert suspension.author_formatted == _("Automatic")
 
         # trigger the event for completing the additional demand work item
-        deadlines.post_complete_fill_additional_demand(
-            sender=None, work_item=workitem, user=None, context=None
-        )
+        if close_action == "complete":
+            deadlines.post_complete_fill_additional_demand(
+                sender=None, work_item=workitem, user=None, context=None
+            )
+        else:
+            deadlines.post_cancel_additional_demand(
+                sender=None, work_item=main_workitem, user=None, context=None
+            )
 
         assert deadlines_models.Suspension.objects.count() == 1, (
-            "suspension should be created"
+            "still only one suspension should exist"
         )
         suspension.refresh_from_db()
         assert suspension.end_date is not None

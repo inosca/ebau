@@ -1,5 +1,6 @@
 from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_workflow.events import (
+    post_cancel_work_item,
     post_complete_work_item,
     post_create_work_item,
 )
@@ -56,8 +57,8 @@ def post_create_fill_additional_demand(sender, work_item, user, context=None, **
         WorkItem.objects.filter(
             child_case=work_item.case, task__slug=settings.ADDITIONAL_DEMAND.get("TASK")
         )
-        .order_by("created_at")
-        .last()
+        .order_by("-created_at")
+        .first()
     )
     if main_workitem:
         service = Service.objects.get(pk=main_workitem.created_by_group)
@@ -66,11 +67,34 @@ def post_create_fill_additional_demand(sender, work_item, user, context=None, **
         if deadline := instance.deadlines.filter(service=service).first():
             deadlines_models.Suspension.objects.create(
                 deadline=deadline,
-                work_item=work_item,
+                work_item=main_workitem,
                 reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND,
                 start_date=now(),
             )
             deadline.recalculate_progression()
+
+
+@on(post_cancel_work_item, raise_exception=True)
+@filter_by_additional_demand_task("TASK")
+@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@transaction.atomic
+def post_cancel_additional_demand(sender, work_item, user, context=None, **kwargs):
+    """Update the deadline when an additional demand is canceled.
+
+    The suspension will be closed and the deadline will be recalculated.
+    """
+
+    service = Service.objects.get(pk=work_item.created_by_group)
+    instance = get_instance(work_item)
+
+    if deadline := instance.deadlines.filter(service=service).first():
+        if suspension := (
+            deadlines_models.Suspension.objects.for_deadline(deadline)
+            .for_additional_demand(work_item=work_item)
+            .order_by("-created_at")
+            .first()
+        ):
+            suspension.complete()
 
 
 @on(post_complete_work_item, raise_exception=True)
@@ -96,7 +120,8 @@ def post_complete_fill_additional_demand(
         if deadline := instance.deadlines.filter(service=service).first():
             if suspension := (
                 deadlines_models.Suspension.objects.for_deadline(deadline)
-                .for_additional_demand(work_item=work_item)
+                .for_additional_demand(work_item=main_workitem)
+                .order_by("-created_at")
                 .first()
             ):
                 suspension.complete()

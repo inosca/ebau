@@ -18,8 +18,12 @@ export default class DeadlineSuspensionFormModalComponent extends Component {
     super(...args);
     if (this.args.suspension) {
       this.formData = {
-        startDate: this.args.suspension.startDate,
-        endDate: this.args.suspension.endDate,
+        startDate: this.args.suspension.startDate
+          ? new Date(this.args.suspension.startDate.toDateString())
+          : null,
+        endDate: this.args.suspension.endDate
+          ? new Date(this.args.suspension.endDate.toDateString())
+          : null,
         reasonText: this.args.suspension.reasonText,
       };
     }

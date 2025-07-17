@@ -38,9 +38,9 @@ class SuspensionSerializer(serializers.ModelSerializer):
     def validate(self, data):
         if data.get("start_date") and data.get("end_date"):
             # Validate that start date is before end date
-            if data["start_date"] >= data["end_date"]:
+            if data["start_date"] > data["end_date"]:
                 raise serializers.ValidationError(
-                    _("End date must be after start date.")
+                    _("End date can not be before start date.")
                 )
 
         return data

@@ -9,6 +9,7 @@ export default class CustomEbauModulesService extends EbauModulesService {
 
   // This is set set by the case detail route
   @tracked instanceId = null;
+  @tracked onAdditionalDemandComplete = () => {};
 
   get userId() {
     return this.session.user?.id;

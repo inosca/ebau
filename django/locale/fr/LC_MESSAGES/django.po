@@ -579,7 +579,7 @@ msgstr ""
 
 #: camac/deadlines/serializers.py
 #: camac/deadlines/tests/test_model_suspensions.py
-msgid "End date must be after start date."
+msgid "End date can not be before start date."
 msgstr ""
 
 #: camac/document/filters.py
