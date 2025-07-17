@@ -1,6 +1,6 @@
 import Service, { service } from "@ember/service";
 
-import { EEBA_ANSWER_QUESTIONS } from "ember-ebau-core/config/eeba";
+import { EEBA_ANSWER_QUESTIONS, EEBA_STATE } from "ember-ebau-core/config/eeba";
 
 export default class EebaClientService extends Service {
   @service fetch;
@@ -37,7 +37,8 @@ export default class EebaClientService extends Service {
       return;
     }
 
-    const isDirtyField = document.findField("eeba-is-dirty");
+    const isDirtyField = document.findField(EEBA_ANSWER_QUESTIONS.IS_DIRTY);
+    const stateField = document.findField(EEBA_ANSWER_QUESTIONS.STATE);
     const isDirtyYes = `${EEBA_ANSWER_QUESTIONS.IS_DIRTY}-ja`;
 
     // mark the eEBA as dirty if the question is not already set to dirty.
@@ -48,6 +49,13 @@ export default class EebaClientService extends Service {
     ) {
       isDirtyField.answer.value = isDirtyYes;
       await isDirtyField.save.perform();
+
+      // if the eEBA was already completed before, but a change was made,
+      // the result is invalidated so we reset the eEBA state answer to NONE.
+      if (stateField.answer.value === EEBA_STATE.COMPLETED) {
+        stateField.answer.value = EEBA_STATE.NONE;
+        await stateField.save.perform();
+      }
     }
 
     // refresh all linked fields except the one that was just saved.
