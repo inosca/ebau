@@ -256,23 +256,17 @@ def get_changeable_forms(current_form: str) -> Set[str]:
 
 
 def get_geometer_service(instance: Instance) -> Service | None:
-    service_mapping = settings.APPLICATION.get("GEOMETER_SERVICE_MAPPING")
-    if not service_mapping:
-        return None  # pragma: no cover
-
-    form_fields = settings.APPLICATION.get("GEOMETER_FORM_FIELDS")
-    if not form_fields:
-        return None  # pragma: no cover
-
     geometer_answer = (
-        instance.fields.filter(name__in=form_fields)
+        instance.fields.filter(name__in=settings.APPLICATION["GEOMETER_FORM_FIELDS"])
         .values_list("value", flat=True)
         .first()
     )
     if not geometer_answer:
         return None
 
-    geometer_service_id = service_mapping.get(geometer_answer, None)
+    geometer_service_id = settings.APPLICATION["GEOMETER_SERVICE_MAPPING"].get(
+        geometer_answer, None
+    )
     if not geometer_service_id:
         return None
 
