@@ -115,15 +115,11 @@ MODULE_WORK_ITEMS = (
     STATES_ALL & ROLES_NO_READONLY & ~IsServiceGroup(["municipality-light"])
 )
 
-MODULE_DEADLINES_SUSPENSION = (
-    STATES_ALL
-    & IsServiceGroup(["municipality", "service-afb"])
-    & HasRole(["municipality-lead", "service-lead", "subservice"])
+MODULE_DEADLINES_SUSPENSION = STATES_ALL & (
+    (IsServiceGroup(["municipality"]) & (HasRole(["municipality-lead"]))) | ROLES_AFB
 )
-MODULE_DEADLINES_DEADLINE = (
-    STATES_ALL
-    & IsServiceGroup(["municipality", "service-afb"])
-    & HasRole(["municipality-lead", "service-lead", "subservice"])
+MODULE_DEADLINES_DEADLINE = STATES_ALL & (
+    (IsServiceGroup(["municipality"]) & (HasRole(["municipality-lead"]))) | ROLES_AFB
 )
 
 MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
@@ -226,6 +222,19 @@ AG_PERMISSIONS_SETTINGS = {
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
+            (
+                "deadlines-suspensions-read",
+                MODULE_DEADLINES_SUSPENSION,
+            ),
+            (
+                "deadlines-suspensions-write",
+                MODULE_DEADLINES_SUSPENSION,
+            ),
+            ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
+            (
+                "deadlines-deadlines-write",
+                MODULE_DEADLINES_DEADLINE,
+            ),
         ],
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
@@ -269,6 +278,19 @@ AG_PERMISSIONS_SETTINGS = {
             ("work-items-read", MODULE_WORK_ITEMS),
             ("instance-change-form", ACTION_INSTANCE_CHANGE_FORM),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
+            (
+                "deadlines-suspensions-read",
+                MODULE_DEADLINES_SUSPENSION,
+            ),
+            (
+                "deadlines-suspensions-write",
+                MODULE_DEADLINES_SUSPENSION,
+            ),
+            ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
+            (
+                "deadlines-deadlines-write",
+                MODULE_DEADLINES_DEADLINE,
+            ),
         ],
         "read": [
             ("documents-read", MODULE_DOCUMENTS),
