@@ -290,12 +290,10 @@ class AttachmentView(
         attachment_object = self.get_object()
 
         if CommunicationsAttachment.objects.filter(
-            document_attachment=attachment_object
+            document_attachment=attachment_object, file_attachment__in=[None, ""]
         ).exists():
-            # Prevent deletion: The delete wouldn't work either way, but
-            # due to ordering of events, the file would be deleted on-disk
-            # while the document object would still exist, causing a 404
-            # on subsequent download attempts
+            # Prevent deletion: if communication attachment is only linked (not copied)
+            # then we must not delete the document
             raise ValidationError(
                 _(
                     "Cannot delete this document, as it is "
