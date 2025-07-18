@@ -31,6 +31,7 @@ DJANGO_ADMIN = {
         "CUSTOMER_MANAGED_MODELS": [
             "notification.NotificationTemplate",
             "core.ServiceContent",
+            "deadlines.DeadlineType",
         ],
     },
     "kt_so": {
