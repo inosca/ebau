@@ -99,6 +99,7 @@ services:
       DATA_SOURCE_CLASSES: camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.PreliminaryClarificationTargets,camac.caluma.extensions.data_sources.Countries,camac.caluma.extensions.data_sources.Buildings,camac.caluma.extensions.data_sources.Landowners
       DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
+      FORMAT_VALIDATOR_CLASSES: camac.caluma.extensions.format_validators.EvenProjectNumberFormatValidator
       # Alexandria
       ALEXANDRIA_ENABLE_PDF_CONVERSION: true
       ALEXANDRIA_USE_MANABI: true
