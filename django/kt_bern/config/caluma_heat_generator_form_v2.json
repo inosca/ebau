@@ -2618,7 +2618,7 @@
     "pk": "heat-generator-new-v2",
     "fields": {
       "created_at": "2024-06-03T08:15:44.183Z",
-      "modified_at": "2024-06-05T07:35:21.740Z",
+      "modified_at": "2025-07-08T09:35:22.658Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2626,7 +2626,7 @@
       "label": "{\"de\": \"Neue W\\u00e4rmeerzeuger\", \"fr\": \"Nouveau g\\u00e9n\\u00e9rateur de chaleur\", \"it\": null}",
       "type": "table",
       "is_required": "true",
-      "is_hidden": "!(\n\t!(\n\t\t'heat-generator-category'|answer\n\t\tintersects\n    \t[\n    \t\t'heat-generator-category-wohnen-mfh',\n        \t'heat-generator-category-wohnen-efh',\n        \t'heat-generator-category-verwaltung',\n        \t'heat-generator-category-schulen',\n        \t'heat-generator-category-verkauf',\n        \t'heat-generator-category-restaurants'\n    \t]\n\t) ||\n\t'heat-generator-age'|answer == 'heat-generator-age-nein' ||\n\t'heat-generator-substitution-with-fossil'|answer == 'heat-generator-substitution-with-fossil-nein'\n)",
+      "is_hidden": "!(\n\t(\n\t    'heat-generator-category'|answer([])|length != 0 &&\n\t    !(\n\t\t    'heat-generator-category'|answer\n\t\t    intersects\n    \t    [\n    \t\t    'heat-generator-category-wohnen-mfh',\n        \t    'heat-generator-category-wohnen-efh',\n        \t    'heat-generator-category-verwaltung',\n        \t    'heat-generator-category-schulen',\n        \t    'heat-generator-category-verkauf',\n        \t    'heat-generator-category-restaurants'\n    \t    ]\n\t    )\n\t)\n\t\n\t|| 'heat-generator-age'|answer(null) == 'heat-generator-age-nein'\n\t\n\t|| 'heat-generator-substitution-with-fossil'|answer(null) == 'heat-generator-substitution-with-fossil-nein'\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
