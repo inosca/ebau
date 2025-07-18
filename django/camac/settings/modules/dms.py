@@ -470,6 +470,7 @@ DMS = {
                     "einreichen",
                     "bestaetigung",
                     "gis-map",
+                    "eingabequittung",
                 ],
             },
         },
