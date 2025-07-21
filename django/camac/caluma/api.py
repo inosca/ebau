@@ -184,7 +184,7 @@ class CalumaApi:
 
         if is_root_document:
             work_item = instance.case.work_items.filter(task_id="submit").first()
-        elif hasattr(document, "work_item"):
+        elif hasattr(document, "work_item"):  # pragma: no cover
             work_item = document.work_item
 
         if not work_item:  # pragma: no cover

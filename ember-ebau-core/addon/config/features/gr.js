@@ -9,7 +9,6 @@ export default {
     useCaptchaAuthentication: true,
   },
   rejection: {
-    useLegacyClaims: false,
     snippets: false,
     revert: true,
   },

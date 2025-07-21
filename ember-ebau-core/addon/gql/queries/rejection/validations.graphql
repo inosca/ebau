@@ -1,6 +1,5 @@
 query RejectionValidations(
   $instanceId: GenericScalar!
-  $useLegacyClaims: Boolean!
 ) {
   distribution: allWorkItems(
     filter: [
@@ -11,56 +10,13 @@ query RejectionValidations(
   ) {
     totalCount
   }
-  legacyClaims: allCases(
-    filter: [{ metaValue: { key: "camac-instance-id", value: $instanceId } }]
-  ) @include(if: $useLegacyClaims) {
-    edges {
-      node {
-        id
-        workItems(filter: [{ task: "nfd" }]) {
-          edges {
-            node {
-              id
-              document {
-                id
-                answers(filter: [{ question: "nfd-tabelle-table" }]) {
-                  edges {
-                    node {
-                      id
-                      ... on TableAnswer {
-                        value {
-                          id
-                          answers(
-                            filter: [{ question: "nfd-tabelle-status" }]
-                          ) {
-                            edges {
-                              node {
-                                id
-                                ... on StringAnswer {
-                                  value
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
   claims: allWorkItems(
     filter: [
       { task: "additional-demand" }
       { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
       { status: READY }
     ]
-  ) @skip(if: $useLegacyClaims) {
+  ) {
     totalCount
   }
 }

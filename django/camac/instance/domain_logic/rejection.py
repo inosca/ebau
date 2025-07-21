@@ -1,4 +1,3 @@
-from caluma.caluma_form.models import Document
 from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow.api import (
     cancel_case,
@@ -53,14 +52,6 @@ class RejectionLogic:
                 task_id=settings.ADDITIONAL_DEMAND["TASK"],
                 status=WorkItem.STATUS_READY,
                 case__family__instance=instance,
-            ).exists()
-        ) or (
-            settings.APPLICATION_NAME == "kt_bern"
-            and Document.objects.filter(
-                form_id="nfd-tabelle",
-                answers__question_id="nfd-tabelle-status",
-                answers__value="nfd-tabelle-status-in-bearbeitung",
-                family__work_item__case__instance=instance,
             ).exists()
         ):
             raise ValidationError(

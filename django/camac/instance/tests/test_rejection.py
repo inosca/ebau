@@ -48,11 +48,6 @@ def test_has_permission(
             lf("additional_demand_settings"),
             "Das Dossier kann nicht zurückgewiesen werden solange noch Nachforderungen offen sind.",
         ),
-        (
-            "claim_legacy",
-            lf("disable_additional_demand_settings"),
-            "Das Dossier kann nicht zurückgewiesen werden solange noch Nachforderungen offen sind.",
-        ),
     ],
 )
 def test_validate(
@@ -79,18 +74,6 @@ def test_validate(
             case=be_instance.case,
             task=task_obj,
             status=WorkItem.STATUS_READY,
-        )
-
-    elif reason == "claim_legacy":
-        settings.APPLICATION_NAME = "kt_bern"
-        document = caluma_document_factory(form_id="nfd")
-
-        caluma_work_item_factory(case=be_instance.case, document=document)
-
-        caluma_answer_factory(
-            document=caluma_document_factory(form__slug="nfd-tabelle", family=document),
-            question__slug="nfd-tabelle-status",
-            value="nfd-tabelle-status-in-bearbeitung",
         )
 
     with pytest.raises(ValidationError) as e:

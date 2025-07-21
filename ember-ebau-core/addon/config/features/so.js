@@ -20,7 +20,6 @@ export default {
     costCenter: true,
   },
   rejection: {
-    useLegacyClaims: false,
     snippets: false,
     revert: false,
   },
