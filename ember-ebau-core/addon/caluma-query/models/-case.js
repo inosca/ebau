@@ -1,6 +1,7 @@
 import { getOwner, setOwner } from "@ember/application";
 import { service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
+import { DateTime } from "luxon";
 import { trackedFunction } from "reactiveweb/function";
 
 import CustomWorkItemModel from "ember-ebau-core/caluma-query/models/work-item";
@@ -66,13 +67,15 @@ export default class CustomCaseBaseModel extends CaseModel {
   }
 
   get submitDate() {
-    const submitDate = this.raw.meta["submit-date"]?.split("T")[0];
-
-    return submitDate
-      ? this.intl.formatDate(submitDate, {
-          format: "date",
-        })
-      : null;
+    // rawSubmitDate is UTC so by parsing it to DateTime, we make sure we get a date with correct timezone
+    const rawSubmitDate = this.raw.meta["submit-date"];
+    if (rawSubmitDate) {
+      const date = DateTime.fromISO(rawSubmitDate);
+      return this.intl.formatDate(date, {
+        format: "date",
+      });
+    }
+    return null;
   }
 
   get intent() {

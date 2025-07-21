@@ -118,7 +118,7 @@ export function getCalumaFilters(filter, casesBackend) {
             key: "submit-date",
             lookup: "LTE",
             value: DateTime.fromISO(filter.submitDateBefore)
-              .startOf("day")
+              .endOf("day")
               .toUTC()
               .toISO(),
           },
