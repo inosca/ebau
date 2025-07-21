@@ -113,7 +113,11 @@ class CommunicationsAttachment(models.Model):
     )
 
     def __str__(self):
-        atype = "uploaded" if self.file_attachment else "via docs module"
+        atype = (
+            "via docs module"
+            if self.document_attachment or self.alexandria_file
+            else "uploaded"
+        )
         msg = self.message_id and str(self.message) or "(no msg)"
         return f"Attachment on {msg}: {self.filename} ({atype})"
 

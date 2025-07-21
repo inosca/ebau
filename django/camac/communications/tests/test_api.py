@@ -117,7 +117,18 @@ def test_create_message(
     if with_doc_attachments:
         for x in range(2):
             attachments.append(
-                json.dumps({"id": str(attachment_factory().pk), "type": "attachments"})
+                json.dumps(
+                    {
+                        "id": str(
+                            attachment_factory(
+                                path=django_file("multiple-pages.pdf"),
+                                context={"displayName": "Doc"},
+                                name=f"file_{x}.pdf",
+                            ).pk
+                        ),
+                        "type": "attachments",
+                    }
+                )
             )
 
     resp = admin_client.post(
@@ -139,10 +150,10 @@ def test_create_message(
     new_message = topic_with_admin_involved.messages.get(pk=resp.json()["data"]["id"])
     assert new_message.attachments.count() == len(attachments)
     for attachment in new_message.attachments.all():
-        if attachment.file_attachment:
-            assert attachment.file_attachment.read()
-        else:
+        assert attachment.file_attachment.read()
+        if with_doc_attachments and attachment.document_attachment:
             assert attachment.document_attachment
+            assert attachment.file_attachment.name.endswith("Doc.pdf")
 
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
@@ -189,9 +200,10 @@ def test_attachment_download(
 
     if has_document:
         communications_attachment.document_attachment = attachment_factory()
-        expected_file_content = (
-            communications_attachment.document_attachment.path.read()
-        )
+        if not has_file:
+            expected_file_content = (
+                communications_attachment.document_attachment.path.read()
+            )
     else:
         communications_attachment.document_attachment = None
 

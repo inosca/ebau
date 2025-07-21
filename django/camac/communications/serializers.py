@@ -1,4 +1,5 @@
 import json
+import os
 from logging import getLogger
 from mimetypes import add_type, guess_type
 
@@ -127,23 +128,21 @@ class CommunicationsAttachmentField(serializers.ResourceRelatedField):
     def to_internal_value(self, data):
         """Transform the *incoming* primitive data into a native value."""
 
-        doc_id = None
-        file = None
+        attachment = models.CommunicationsAttachment()
+
+        # When ID exists it references an existing file
         if isinstance(data, str):
             doc_ref = json.loads(data)
-            doc_id = doc_ref["id"]
+            if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+                attachment.document_attachment_id = doc_ref["id"]
+                attachment.file_type = attachment.document_attachment.mime_type
+            elif settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+                attachment.alexandria_file_id = doc_ref["id"]
+                attachment.file_type = attachment.alexandria_file.mime_type
+
         else:
-            file = data
-
-        attachment = models.CommunicationsAttachment(
-            file_attachment=file,
-            file_type=file.content_type if file else None,
-        )
-
-        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
-            attachment.document_attachment_id = doc_id
-        elif settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
-            attachment.alexandria_file_id = doc_id
+            attachment.file_attachment = data
+            attachment.file_type = data.content_type
 
         return attachment
 
@@ -363,6 +362,33 @@ class MessageSerializer(serializers.ModelSerializer):
 
         for attachment in attachments:
             attachment.message = message
+
+            # file_attachment can not be created in CommunicationsAttachmentField,
+            # due to the reliance on the message relationship for the path
+            if attachment.document_attachment:
+                file = attachment.document_attachment.path
+                original_name = attachment.document_attachment.name
+                display_name = attachment.document_attachment.context.get(
+                    "displayName", original_name
+                )
+            elif attachment.alexandria_file:
+                file = attachment.alexandria_file.content
+                original_name = attachment.alexandria_file.name
+                display_name = (
+                    attachment.alexandria_file.document.title or original_name
+                )
+            else:
+                file = original_name = display_name = None
+
+            if file and original_name and display_name:
+                _, ext = os.path.splitext(original_name)
+                new_name = (
+                    f"{display_name}{ext}"
+                    if not display_name.endswith(ext)
+                    else display_name
+                )
+                attachment.file_attachment.save(new_name, file, save=False)
+
             attachment.save()
 
         events.notify_receivers(message, context=self.context)
@@ -429,7 +455,9 @@ class MessageSerializer(serializers.ModelSerializer):
     def validate_attachments(self, value):
         for attachment in value:
             # only need to check "inline" uploaded files, not linked ones
-            if attachment.file_attachment:
+            if attachment.file_attachment and not (
+                attachment.document_attachment or attachment.alexandria_file
+            ):
                 validate_file_infection(attachment.file_attachment)
                 validate_mime_type(attachment.file_attachment.file)
                 self._validate_allowed_mime_types(attachment.file_attachment.file)
