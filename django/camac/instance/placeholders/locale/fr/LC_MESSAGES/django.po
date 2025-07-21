@@ -1642,7 +1642,7 @@ msgstr "RESPONSABLE_AUTORITE_DIRECTRICE"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Responsible user of the authority"
-msgstr "Personne responsable de l'autorité directrice compétente"
+msgstr "Personne responsable de l'organisation"
 
 #: camac/instance/placeholders/serializers.py
 msgid "NEIGHBORS"
