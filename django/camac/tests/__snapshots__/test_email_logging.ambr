@@ -1,0 +1,24 @@
+# serializer version: 1
+# name: test_error_email
+  '''
+  USER: AnonymousUser
+  
+  GET:
+  foo = 'bar'
+  
+  POST: No POST data
+  
+  FILES: No FILES data
+  
+  COOKIES: No cookie data
+  
+  META:
+  HTTP_AUTHORIZATION = '********************'
+  HTTP_COOKIE = '********************'
+  HTTP_USER_AGENT = 'pytest'
+  HTTP_X_CAMAC_GROUP = '123'
+  
+  Settings:
+  Using settings module
+  '''
+# ---
