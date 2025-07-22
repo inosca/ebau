@@ -1520,7 +1520,7 @@ msgstr "LEITPERSON"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Responsible user of the authority"
-msgstr "Zuständige Person der zuständigen Leitbehörde"
+msgstr "Zuständige Person der Organisation"
 
 #: camac/instance/placeholders/serializers.py
 msgid "NEIGHBORS"

@@ -3291,8 +3291,8 @@
         }),
       ]),
       'description': dict({
-        'de': 'Zuständige Person der zuständigen Leitbehörde',
-        'fr': "Personne responsable de l'autorité directrice compétente",
+        'de': 'Zuständige Person der Organisation',
+        'fr': "Personne responsable de l'organisation",
       }),
       'nested_aliases': dict({
       }),
