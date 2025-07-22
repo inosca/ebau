@@ -3456,6 +3456,14 @@ OIDC_LASTNAME_CLAIM = env.str("DJANGO_OIDC_LASTNAME_CLAIM", default="family_name
 
 OIDC_VERIFY_SSL = env.bool("OIDC_VERIFY_SSL", default=True)
 
+# PKCE configuration for django-admin
+# See https://mozilla-django-oidc.readthedocs.io/en/latest/settings.html#OIDC_USE_PKCE
+OIDC_USE_PKCE = env.bool("OIDC_USE_PKCE", default=True)
+OIDC_PKCE_CODE_CHALLENGE_METHOD = env.str(
+    "OIDC_PKCE_CODE_CHALLENGE_METHOD", default="S256"
+)
+OIDC_PKCE_CODE_VERIFIER_SIZE = env.int("OIDC_PKCE_CODE_VERIFIER_SIZE", default=64)
+
 STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [])
 
 
