@@ -15,11 +15,11 @@ from camac.permissions.switcher import permission_switching_method
 from camac.utils import get_dict_item
 
 
-def resolve_permissions(category, user):
+def resolve_permissions(category, group):
     if category.parent:
-        return resolve_permissions(category.parent, user)
+        return resolve_permissions(category.parent, group)
 
-    return get_dict_item(category.metainfo, f"access.{get_role(user)}", default=None)
+    return get_dict_item(category.metainfo, f"access.{get_role(group)}", default=None)
 
 
 MODE_CREATE = "create"
@@ -112,9 +112,9 @@ class CustomPermission:
         instance: Instance,
         category: Category,
         document: Union[Document, None] = None,
+        created_by_group: Union[str, None] = None,
     ) -> set:
-        user = request.caluma_info.context.user
-        category_permissions = resolve_permissions(category, user)
+        category_permissions = resolve_permissions(category, request.group)
 
         if not category_permissions or "permissions" not in category_permissions:
             return set()
@@ -127,9 +127,9 @@ class CustomPermission:
         for permission in category_permissions["permissions"]:
             all_checks_met = True
 
-            if document and permission["permission"] != "create":
+            if document and "scope" in permission:
                 all_checks_met &= getattr(scopes, permission["scope"])(
-                    user, document
+                    request.group, document, created_by_group
                 ).evaluate()
 
             required_conditions = permission.get("condition")
@@ -168,7 +168,7 @@ class CustomPermission:
     @permission_for(BaseModel)
     @object_permission_for(BaseModel)
     def has_permission_default(self, request, document=None):  # pragma: no cover
-        return get_role(request.caluma_info.context.user) == "support"
+        return get_role(request.group) == "support"
 
     @permission_for(Document)
     @object_permission_for(Document)
@@ -219,11 +219,24 @@ class CustomPermission:
         new_category_id = get_dict_item(
             request.parsed_data, "category.id", default=None
         )
+
+        # checks for move or copy
         if new_category_id and category.pk != new_category_id:
             new_category = Category.objects.get(pk=new_category_id)
 
+            # set created_by_group for document, when request path ends with /copy
+            created_by_group = (
+                request.group.service_id
+                if request.method == "POST" and request.path.endswith("/copy")
+                else document.created_by_group
+            )
+
             available_permissions_new_category = self.get_available_permissions(
-                request, instance, new_category, document
+                request,
+                instance,
+                new_category,
+                document,
+                created_by_group,
             )
             needed_permissions_new_category = {MODE_CREATE}
 
@@ -249,9 +262,7 @@ class CustomPermission:
             settings.APPLICATION_NAME == "kt_gr"
             and request.method == "POST"
             and document.files.filter(variant=File.Variant.ORIGINAL).count() >= 1
-            and not scopes.ServiceAndSubservice(
-                request.caluma_info.context.user, document
-            ).evaluate()
+            and not scopes.ServiceAndSubservice(request.group, document).evaluate()
         ):
             return False
 
@@ -273,7 +284,7 @@ class CustomPermission:
     @permission_for(Tag)
     @object_permission_for(Tag)
     def has_permission_for_tag(self, request, tag=None):
-        role = get_role(request.caluma_info.context.user)
+        role = get_role(request.group)
 
         if role == "support":
             # Support can create, edit and delete tags

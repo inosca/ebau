@@ -14,7 +14,7 @@ export function hasInstanceState(instance, instanceState) {
     .map((slug) => parseInt(mainConfig.instanceStates[slug]))
     .filter(Boolean);
 
-  return ids.includes(parseInt(instance.belongsTo("instanceState").id()));
+  return ids.includes(parseInt(instance?.belongsTo("instanceState").id()));
 }
 
 export function isAuthority(instance, serviceId) {
@@ -56,11 +56,16 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  get canChangeForm() {
+  async canChangeForm() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "instance-change-form",
+      );
+    }
+
     return (
-      (this.ebauModules.isSupportRole ||
-        this.ebauModules.isMunicipalityLeadRole) &&
-      mainConfig.interchangeableForms.flat().includes(this.model.calumaForm)
+      this.ebauModules.isSupportRole || this.ebauModules.isMunicipalityLeadRole
     );
   }
 
@@ -87,7 +92,7 @@ export default class InstanceAbility extends Ability {
     return (this.model.meta?.permissions?.main || []).includes("write");
   }
 
-  // GR & SO
+  // GR & SO & BE
   get canCorrect() {
     return (
       // disabled until isMunicipalityLeadRole works in ember-ebau
@@ -102,7 +107,8 @@ export default class InstanceAbility extends Ability {
       // disabled until isMunicipalityLeadRole works in ember-ebau
       // (this.ebauModules.isSupportRole ||
       //   this.ebauModules.isMunicipalityLeadRole) &&
-      hasInstanceState(this.model, mainConfig.correction?.instanceState)
+      hasInstanceState(this.model, mainConfig.correction?.instanceState) ||
+      hasInstanceState(this.model, "new")
     );
   }
 
@@ -135,10 +141,56 @@ export default class InstanceAbility extends Ability {
         )
       );
     }
+    if (macroCondition(getOwnConfig().application === "ur")) {
+      return (
+        this.ebauModules.isTrustedServiceRole ||
+        this.ebauModules.isCoordinationRole ||
+        isAuthority(this.model, this.ebauModules.serviceId)
+      );
+    }
     return isAuthority(this.model, this.ebauModules.serviceId);
   }
 
   async canWithdraw() {
     return await this.permissions.hasAll(this.model?.id, "instance-withdraw");
+  }
+
+  async canChangeResponsibleService() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "instance-change-responsible-service",
+      );
+    }
+
+    return (
+      this.ebauModules.isSupportRole ||
+      (!this.ebauModules.isReadOnlyRole &&
+        !hasInstanceState(
+          this.model,
+          mainConfig.changeResponsibleService.forbiddenInstanceStates[
+            this.type
+          ],
+        ) &&
+        // Active service is passed into the permission check
+        parseInt(this.activeService?.id) === this.ebauModules.serviceId)
+    );
+  }
+
+  async canUnsubscribeResponsibleService() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "instance-unsubscribe-responsible-service",
+      );
+    }
+
+    return (
+      !this.ebauModules.isReadOnlyRole &&
+      // Involved services are passed into the permission check
+      (this.involvedServices ?? [])
+        .map((service) => parseInt(service.id))
+        .includes(this.ebauModules.serviceId)
+    );
   }
 }

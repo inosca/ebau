@@ -33,6 +33,7 @@ from rest_framework_json_api import serializers
 
 from camac.billing.models import BillingV2Entry
 from camac.caluma.api import CalumaApi
+from camac.caluma.models import Inquiry
 from camac.caluma.utils import find_answer, get_answer_display_value
 from camac.communications.models import CommunicationsMessage
 from camac.constants import kt_uri as uri_constants
@@ -50,12 +51,13 @@ from camac.instance.placeholders import fields
 from camac.instance.utils import (
     geometer_cadastral_survey_is_necessary,
     geometer_cadastral_survey_necessary_answer,
+    get_localized_geometer,
 )
 from camac.instance.validators import transform_coordinates
 from camac.lookups import Any
 from camac.permissions.models import InstanceACL
 from camac.user.models import Group, Role, Service, User
-from camac.user.utils import unpack_service_emails
+from camac.user.utils import get_tax_administration, unpack_service_emails
 from camac.utils import build_url, clean_join, flatten, get_responsible_koor_service_id
 
 from ..core import models as core_models
@@ -80,6 +82,9 @@ RECIPIENT_TYPE_NAMES = {
     "involved_in_distribution": translation.gettext_noop("Involved services"),
     "involved_in_districution_except_gvg": translation.gettext_noop(
         "Involved services"
+    ),
+    "services_with_incomplete_inquiries": translation.gettext_noop(
+        "Services which have incomplete inquiries"
     ),
     "leitbehoerde": translation.gettext_noop("Authority"),
     "municipality": translation.gettext_noop("Municipality"),
@@ -198,6 +203,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     instance_id = serializers.IntegerField()
     public_dossier_link = serializers.SerializerMethodField()
     internal_dossier_link = serializers.SerializerMethodField()
+    distribution_link = serializers.SerializerMethodField()
     registration_link = serializers.SerializerMethodField()
     dossier_nr = serializers.SerializerMethodField()
     leitbehoerde_name_de = serializers.SerializerMethodField()
@@ -333,7 +339,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def _get_row_answer_value(self, row, slug, fallback=None):
         try:
             return row.answers.get(question_id=slug).value
-        except caluma_form_models.Answer.DoesNotExist:
+        except caluma_form_models.Answer.DoesNotExist:  # pragma: no cover
             return fallback
 
     def get_parzelle(self, instance):
@@ -455,20 +461,20 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         if not settings.DISTRIBUTION or not self.inquiry:
             return ""
 
-        all_inquiries = caluma_workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=instance,
-            controlling_groups=self.inquiry.controlling_groups,
-        ).exclude(
-            status__in=[
-                caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
-                caluma_workflow_models.WorkItem.STATUS_CANCELED,
-            ]
+        all_inquiries = (
+            Inquiry.objects.for_instance(instance)
+            .controlled_by(self.inquiry.controlling_groups)
+            .exclude(
+                status__in=[
+                    caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
+                    caluma_workflow_models.WorkItem.STATUS_CANCELED,
+                    caluma_workflow_models.WorkItem.STATUS_SKIPPED,
+                    caluma_workflow_models.WorkItem.STATUS_REDO,
+                ]
+            )
         )
         all_inquiries_count = all_inquiries.count()
-        pending_inquiries_count = all_inquiries.filter(
-            status=caluma_workflow_models.WorkItem.STATUS_READY
-        ).count()
+        pending_inquiries_count = all_inquiries.only_pending().count()
 
         if not all_inquiries.exists():  # pragma: no cover (this should never happen)
             return ""
@@ -560,6 +566,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_internal_dossier_link(self, instance):
         return instance.get_internal_url()
 
+    def get_distribution_link(self, instance):
+        return build_url(
+            instance.get_internal_url(),
+            "/distribution",
+        )
+
     def get_public_dossier_link(self, instance):
         return settings.PUBLIC_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
 
@@ -629,7 +641,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_billing_total_kommunal(self, instance):
         return (
             BillingV2Entry.objects.filter(
-                instance=instance, organization=BillingV2Entry.MUNICIPAL
+                instance=instance, organization=BillingV2Entry.Organizations.MUNICIPAL
             ).aggregate(total=Sum("final_rate"))["total"]
             or "0.00"
         )
@@ -637,7 +649,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_billing_total_kanton(self, instance):
         return (
             BillingV2Entry.objects.filter(
-                instance=instance, organization=BillingV2Entry.CANTONAL
+                instance=instance, organization=BillingV2Entry.Organizations.CANTONAL
             ).aggregate(total=Sum("final_rate"))["total"]
             or "0.00"
         )
@@ -662,7 +674,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return (
             BillingV2Entry.objects.filter(
                 instance=instance,
-                organization=BillingV2Entry.MUNICIPAL,
+                organization=BillingV2Entry.Organizations.MUNICIPAL,
                 date_charged__isnull=True,
             ).aggregate(total=Sum("final_rate"))["total"]
             or "0.00"
@@ -672,7 +684,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return (
             BillingV2Entry.objects.filter(
                 instance=instance,
-                organization=BillingV2Entry.CANTONAL,
+                organization=BillingV2Entry.Organizations.CANTONAL,
                 date_charged__isnull=True,
             ).aggregate(total=Sum("final_rate"))["total"]
             or "0.00"
@@ -693,16 +705,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         )
 
         return (
-            caluma_workflow_models.WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                case__family__instance=instance,
-            )
-            .exclude(
-                status__in=[
-                    caluma_workflow_models.WorkItem.STATUS_CANCELED,
-                    caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
-                ]
-            )
+            Inquiry.objects.for_instance(instance)
+            .only_active()
             .annotate(
                 service_group_id=Subquery(
                     service_subquery.values("service_group_id")[:1]
@@ -1131,6 +1135,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "acl_authorized",
             # GR specific
             "involved_in_distribution_except_gvg",
+            "services_with_incomplete_inquiries",
             *settings.APPLICATION.get("CUSTOM_NOTIFICATION_TYPES", []),
         )
     )
@@ -1182,15 +1187,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_koor_bg_users(self, instance):
         return self._notify_service(uri_constants.KOOR_BG_SERVICE_ID)
 
-    def _get_recipients_koor_bd_users(self, instance):
-        return self._notify_service(uri_constants.KOOR_BD_SERVICE_ID)
-
-    def _get_recipients_koor_sd_users(self, instance):
-        return self._notify_service(uri_constants.KOOR_SD_SERVICE_ID)
-
-    def _get_recipients_koor_afe_users(self, instance):
-        return self._notify_service(uri_constants.KOOR_AFE_SERVICE_ID)
-
     def _get_recipients_koor_afj_users(self, instance):
         return self._notify_service(uri_constants.KOOR_AFJ_SERVICE_ID)
 
@@ -1213,28 +1209,8 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
     def _get_recipients_localized_geometer(self, instance):
-        if not settings.APPLICATION.get("LOCALIZED_GEOMETER_SERVICE_MAPPING"):
-            return []  # pragma: no cover
-
-        geometer_answer = instance.fields.filter(
-            name__in=settings.APPLICATION.get("GEOMETER_FORM_FIELDS", [])
-        ).values_list("value", flat=True)[0]
-
-        geometer_service_ids = settings.APPLICATION[
-            "LOCALIZED_GEOMETER_SERVICE_MAPPING"
-        ].get(geometer_answer, [])
-
-        # TODO: For geometers that have groups that have a subset of locations and a
-        # group without any location, are the groups containing the location to be preferred?
-        geometer_services = Service.objects.filter(
-            Q(groups__locations__in=[instance.location])
-            | Q(groups__locations__isnull=True),
-            pk__in=geometer_service_ids,
-        )[:1]
-
-        return flatten(
-            [self._get_responsible(instance, service) for service in geometer_services]
-        )
+        geometer_service = get_localized_geometer(instance)
+        return self._get_responsible(instance, geometer_service)
 
     def _get_recipients_lisag(self, instance):
         groups = Group.objects.filter(name="Lisag")
@@ -1355,15 +1331,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         if not settings.DISTRIBUTION:  # pragma: no cover
             return []
 
-        inquiries = caluma_workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=instance,
-        ).exclude(
-            status__in=[
-                caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
-                caluma_workflow_models.WorkItem.STATUS_CANCELED,
-            ],
-        )
+        inquiries = Inquiry.objects.for_instance(instance).only_active()
 
         not_involved_answer = (
             settings.DISTRIBUTION["ANSWERS"].get("STATUS", {}).get("NOT_INVOLVED")
@@ -1402,11 +1370,28 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         if not settings.DISTRIBUTION:  # pragma: no cover
             return []
 
-        addressed_groups = caluma_workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status=caluma_workflow_models.WorkItem.STATUS_SKIPPED,
-            case__family__instance=instance,
-        ).values_list("addressed_groups", flat=True)
+        addressed_groups = (
+            Inquiry.objects.for_instance(instance)
+            .filter(status=caluma_workflow_models.WorkItem.STATUS_SKIPPED)
+            .values_list("addressed_groups", flat=True)
+        )
+
+        return flatten(
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(
+                    pk__in=list(chain(*addressed_groups))
+                )
+            ]
+        )
+
+    def _get_recipients_services_with_incomplete_inquiries(self, instance):
+        if not settings.DISTRIBUTION:  # pragma: no cover
+            return []
+
+        inquiries = Inquiry.objects.for_instance(instance).only_skipped()
+
+        addressed_groups = inquiries.values_list("addressed_groups", flat=True)
 
         return flatten(
             [
@@ -1493,12 +1478,22 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_work_item_addressed(self, instance):
         work_item = self.validated_data.get("work_item")
 
-        return flatten(
-            [
-                self._get_responsible(instance, service, work_item)
-                for service in Service.objects.filter(pk__in=work_item.addressed_groups)
-            ]
-        )
+        data = []
+        for group in work_item.addressed_groups:
+            if group == "applicant":
+                data.append(self._get_recipients_applicant(instance))
+            elif group == "municipality":
+                data.append(self._get_recipients_municipality(instance))
+            else:
+                data.append(
+                    flatten(
+                        [
+                            self._get_responsible(instance, service, work_item)
+                            for service in Service.objects.filter(pk=group)
+                        ]
+                    )
+                )
+        return flatten(data)
 
     def _get_recipients_additional_demand_inviter(self, instance):
         if not settings.ADDITIONAL_DEMAND:  # pragma: no cover
@@ -1507,15 +1502,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         current_group = self.validated_data.get(
             "work_item"
         ).case.parent_work_item.addressed_groups
-        inquiries = caluma_workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=instance,
-            addressed_groups=current_group,
-        ).exclude(
-            status__in=[
-                caluma_workflow_models.WorkItem.STATUS_SUSPENDED,
-                caluma_workflow_models.WorkItem.STATUS_CANCELED,
-            ],
+
+        inquiries = (
+            Inquiry.objects.for_instance(instance)
+            .addressed_to(current_group)
+            .only_active()
         )
 
         groups = inquiries.values_list("controlling_groups", flat=True)
@@ -1557,7 +1548,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ]
         )
 
-    def _get_recipients_invited_to_schlussabnhame_projekt(self, instance):
+    def _get_recipients_invited_to_schlussabnahme_projekt(self, instance):
         work_item = self.validated_data.get("work_item")
         case = work_item.case
         if not settings.CONSTRUCTION_MONITORING or (
@@ -1585,18 +1576,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             )
 
     def _get_recipients_tax_administration(self, instance):
-        service = Service.objects.filter(
-            pk=settings.APPLICATION.get("TAX_ADMINISTRATION")
-        ).first()
+        service = get_tax_administration()
         if service:
             return self._get_responsible(instance, service)
 
-        return []  # pragma: no cover
-
-    def _get_recipients_aib(self, instance):
-        service = Service.objects.filter(name="aib").first()
-        if service:
-            return [{"to": service.email}]
         return []  # pragma: no cover
 
     def _get_recipients_gvg(self, instance):
@@ -1606,16 +1589,16 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return []  # pragma: no cover
 
     def _get_recipients_abwasser_uri(self, instance):
-        service = Service.objects.filter(name="AWU").first()
+        service = Service.objects.filter(slug="awu").first()
         if service:
             return [{"to": service.email}]
         return []  # pragma: no cover
 
     def _get_recipients_immissionsschutz_be(self, instance):
-        service = Service.objects.filter(email="info.luft@be.ch").first()
+        service = Service.objects.filter(slug="feuerungskontrolle-weu").first()
         if service:
             return [{"to": service.email}]
-        return []  # pragma: no cover
+        return []
 
     def _get_recipients_schnurgeruestabnahme_uri(self, instance):
         work_item = self.validated_data.get("work_item")
@@ -1642,6 +1625,32 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             return []  # pragma: no cover
         else:
             return self._get_recipients_municipality(instance)
+
+    def _get_recipients_geometer_uri(self, instance):
+        service = Service.objects.filter(name="AGO (Geometer)").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
+
+    def _get_recipients_fgs_uri(self, instance):
+        service = Service.objects.filter(name="FGS").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
+
+    def _get_recipients_abm_zs_uri(self, instance):
+        service = Service.objects.filter(name="ABM ZS").first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
+
+    def _get_recipients_liegenschaftsschaetzung_uri(self, instance):
+        service = Service.objects.filter(
+            pk=uri_constants.AMT_FUER_STEUERN_LIEGENSCHAFTSSCHAETZUNG_SERVICE_ID
+        ).first()
+        if service:
+            return [{"to": service.email}]
+        return []  # pragma: no cover
 
     def _recipient_log(self, recipients):
         return ", ".join(

@@ -59,8 +59,7 @@ def decision_dispatch_method(fn: Callable) -> Callable:
             name = fn.__name__
 
             raise MissingEventHandler(
-                f"{owner}.{name}: No implementation "
-                f"registered for {decision_result!r}"
+                f"{owner}.{name}: No implementation registered for {decision_result!r}"
             )
         impl = _registry[decision_result]
         return impl(self, *args, **kwargs)
@@ -99,17 +98,22 @@ class Trigger:
     """Contains any event that may cause a permissions change."""
 
     decision_decreed = EventTrigger()
-    construction_acceptance_completed = EventTrigger()
     instance_created = EventTrigger()
     instance_submitted = EventTrigger()
     instance_retrieved = EventTrigger()
+    instance_completed = EventTrigger()
     changed_responsible_service = EventTrigger()
+    unsubscribed_responsible_service = EventTrigger()
     inquiry_sent = EventTrigger()
     inquiry_completed = EventTrigger()
     instance_copied = EventTrigger()
+    formal_exam_completed = EventTrigger()
 
     applicant_added = EventTrigger("Whenever an applicant is invited/added")
     applicant_removed = EventTrigger("Whenever an applicant is removed")
+    geometer_work_item_created = EventTrigger(
+        "Whenever a work item, addressed to the geometer dynamic group, is created"
+    )
 
 
 class PermissionEventHandler(metaclass=ABCMeta):
@@ -152,11 +156,6 @@ class PermissionEventHandler(metaclass=ABCMeta):
     def instance_created(self, instance: Instance): ...  # pragma: no cover
 
     @abstractmethod
-    def construction_acceptance_completed(
-        self, instance: Instance
-    ): ...  # pragma: no cover
-
-    @abstractmethod
     def instance_submitted(self, instance: Instance): ...  # pragma: no cover
 
     @abstractmethod
@@ -185,10 +184,10 @@ class EmptyEventHandler(PermissionEventHandler):
     def instance_created(self, instance: Instance):
         return  # pragma: no cover
 
-    def decision_decreed(self, instance: Instance):
+    def instance_completed(self, instance: Instance):
         return  # pragma: no cover
 
-    def construction_acceptance_completed(self, instance: Instance):
+    def decision_decreed(self, instance: Instance):
         return  # pragma: no cover
 
     def instance_submitted(self, instance: Instance):
@@ -197,6 +196,9 @@ class EmptyEventHandler(PermissionEventHandler):
     def changed_responsible_service(
         self, instance: Instance, from_service: Service, to_service: Service
     ):
+        return  # pragma: no cover
+
+    def unsubscribed_responsible_service(self, instance: Instance, service: Service):
         return  # pragma: no cover
 
     def applicant_added(self, instance: Instance, applicant):
@@ -215,6 +217,12 @@ class EmptyEventHandler(PermissionEventHandler):
         return  # pragma: no cover
 
     def instance_retrieved(self, instance: Instance, group: Group):
+        return  # pragma: no cover
+
+    def formal_exam_completed(self, instance: Instance, work_item: WorkItem):
+        return  # pragma: no cover
+
+    def geometer_work_item_created(self, work_item: WorkItem):
         return  # pragma: no cover
 
 
@@ -237,7 +245,10 @@ def acl_created(sender, instance, created, **kwargs):
     acl = instance
     del instance  # just to avoid confusion
 
-    if acl.metainfo and acl.metainfo.get("disable-notification-on-creation"):
+    if (
+        not settings.PERMISSIONS
+        or acl.created_by_event not in settings.PERMISSIONS["EVENTS_WITH_NOTIFICATION"]
+    ):
         # useful for setting up test acls
         return
 

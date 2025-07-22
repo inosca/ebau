@@ -1,3 +1,4 @@
+import re
 from urllib.parse import urlencode
 
 from caluma.caluma_form import models as caluma_form_models
@@ -136,16 +137,20 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
         resource_type = obj.available_resource_id
 
         if resource_type == "page":
+            if match := re.match(r"\/dashboard\/(.*).phtml", obj.template):
+                return f"/static-content/{match.groups()[0]}"
+
             type_mapping = {
-                "/dashboard/faq.phtml": "/static-content/faq",
-                "/dashboard/help.phtml": "/static-content/help",
-                "/dashboard/news.phtml": "/static-content/news",
                 "/ember-camac-ng/dms-admin.phtml": "/dms-admin",
                 "/ember-camac-ng/service-permissions.phtml": "/service-permissions",
                 "/ember-camac-ng/gwr-global.phtml": "/gwr",
                 "/ember-camac-ng/communications-global.phtml": "/communications-global",
                 "/ember-camac-ng/dossierimport.phtml": "/dossier-import",
                 "/ember-camac-ng/alexandria-search.phtml": "/documents/search",
+                "/ember-camac-ng/snippets-admin.phtml": "/snippets-admin",
+                "/ember-camac-ng/snippets.phtml": "/snippets",
+                "/ember-camac-ng/news.phtml": "/static-content/news",
+                "/ember-camac-ng/rulesets.phtml": "/rulesets",
             }
             return type_mapping.get(obj.template)
 
@@ -212,6 +217,8 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
                 "/ember-camac-ng/communications.phtml": "communications",
                 "/ember-camac-ng/construction-monitoring.phtml": "construction-monitoring",
                 "/ember-camac-ng/linked-instances.phtml": "linked-instances",
+                "/ember-camac-ng/address-assignment.phtml": "address-assignment",
+                "/ember-camac-ng/deadlines.phtml": "deadlines",
             }
             return type_mapping.get(obj.template)
 
@@ -231,7 +238,7 @@ class InstanceResourceSerializer(serializers.ModelSerializer, MultilingualSerial
 
 
 class StaticContentSerializer(serializers.ModelSerializer):
-    content = serializers.CharField()
+    content = serializers.CharField(allow_blank=True)
 
     class Meta:
         model = models.StaticContent

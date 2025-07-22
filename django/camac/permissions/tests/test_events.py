@@ -1,3 +1,4 @@
+import random
 import re
 from datetime import timedelta
 
@@ -11,7 +12,7 @@ from rest_framework import status
 from camac.constants import kt_gr as gr_constants
 from camac.instance.models import Instance, InstanceState
 from camac.instance.utils import copy_instance
-from camac.permissions import events, exceptions
+from camac.permissions import api as permissions_api, events, exceptions
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.user.models import ServiceRelation
@@ -89,6 +90,54 @@ def test_instance_submit(db, instance, access_level, permissions_settings):
 
 
 @pytest.mark.parametrize(
+    "involve_feuerungskontrolle,expected_count", [(True, 1), (False, 0)]
+)
+def test_permission_event_handler_be(
+    db,
+    be_instance,
+    involve_feuerungskontrolle,
+    permissions_settings,
+    expected_count,
+    service_factory,
+    access_level_factory,
+    caluma_question_factory,
+):
+    access_level_factory(slug="read")
+    be_instance.case.document.form.slug = "heat-generator"
+    be_instance.case.document.form.save()
+    be_instance.case.document.answers.create(
+        question=caluma_question_factory(pk="heat-generator-combustion-database-v2"),
+        value="heat-generator-combustion-database-v2-ja"
+        if involve_feuerungskontrolle
+        else "heat-generator-combustion-database_v2-nein",
+    )
+    service_factory(
+        slug="feuerungskontrolle-weu",
+    )
+
+    permissions_settings["EVENT_HANDLER"] = (
+        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+    )
+
+    assert InstanceACL.objects.filter(instance=be_instance).count() == 0
+
+    CustomTrigger.instance_submitted(None, instance=be_instance)
+
+    be_instance.refresh_from_db()
+
+    assert InstanceACL.objects.filter(instance=be_instance).count() == expected_count
+
+    assert (
+        InstanceACL.objects.filter(
+            instance=be_instance,
+            service__slug="feuerungskontrolle-weu",
+            access_level_id="read",
+        ).exists()
+        == involve_feuerungskontrolle
+    )
+
+
+@pytest.mark.parametrize(
     "involve_geometer,geometer_relation_exists,expected_count",
     [(True, True, 2), (True, False, 1), (False, True, 1)],
 )
@@ -115,7 +164,7 @@ def test_decision_event_handler_be(
     application_settings["SHORT_NAME"] = "be"
     instance_state_factory(name="sb1")
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
 
     be_instance.case.document.answers.create(
@@ -200,10 +249,11 @@ def test_decision_event_handler_gr(
     expected_count,
     gr_permissions_settings,
     gr_distribution_settings,
+    gr_construction_monitoring_settings,
     instance_state_factory,
     settings,
     application_settings,
-    answer_factory,
+    caluma_answer_factory,
     service_factory,
     caluma_admin_user,
     access_level_factory,
@@ -223,7 +273,7 @@ def test_decision_event_handler_gr(
         )
 
     if checkbox_checked:
-        answer_factory(
+        caluma_answer_factory(
             document=gr_instance.case.work_items.filter(task_id="decision")
             .first()
             .document,
@@ -245,81 +295,6 @@ def test_decision_event_handler_gr(
 
     gvg_acl = acls.filter(service=gvg_service)
     assert gvg_acl.count() == expected_count
-
-
-@pytest.mark.parametrize(
-    "checkbox_checked,expected_count",
-    [(True, 1), (False, 0)],
-)
-def test_construction_acceptance_event_handler_gr(
-    db,
-    gr_instance,
-    checkbox_checked,
-    expected_count,
-    gr_permissions_settings,
-    gr_distribution_settings,
-    instance_state_factory,
-    settings,
-    answer_factory,
-    service_factory,
-    caluma_admin_user,
-    gr_decision_settings,
-    access_level_factory,
-    gr_ech0211_settings,
-):
-    settings.APPLICATION_NAME = "kt_gr"
-    aib_service = service_factory(name=gr_constants.AIB_SERVICE_SLUG)
-
-    for task_id in [
-        "submit",
-        "formal-exam",
-        "distribution",
-    ]:
-        workflow_api.skip_work_item(
-            work_item=gr_instance.case.work_items.get(task_id=task_id),
-            user=caluma_admin_user,
-        )
-
-    instance_state_factory(name="construction-acceptance")
-
-    answer_factory(
-        document=gr_instance.case.work_items.filter(task_id="decision")
-        .first()
-        .document,
-        question__slug="decision-decision",
-        value="decision-decision-approved",
-    )
-
-    workflow_api.complete_work_item(
-        work_item=gr_instance.case.work_items.get(task_id="decision"),
-        user=caluma_admin_user,
-    )
-
-    if checkbox_checked:
-        answer_factory(
-            document=gr_instance.case.work_items.filter(
-                task_id="construction-acceptance"
-            )
-            .first()
-            .document,
-            question__slug="fuer-aib-freigeben",
-            value=["fuer-aib-freigeben-ja"],
-        )
-    access_level_factory(slug="read")
-    instance_state_factory(name="finished")
-
-    assert InstanceACL.objects.filter(instance=gr_instance).count() == 0
-
-    workflow_api.complete_work_item(
-        work_item=gr_instance.case.work_items.get(task_id="construction-acceptance"),
-        user=caluma_admin_user,
-    )
-
-    acls = InstanceACL.objects.filter(instance=gr_instance)
-    assert acls.count() == expected_count
-
-    aib_acl = acls.filter(service=aib_service)
-    assert aib_acl.count() == expected_count
 
 
 @pytest.mark.freeze_time("2022-06-03")
@@ -369,7 +344,7 @@ def test_submit_create_acl_be(
 
     # Event handler so we actually get the ACL
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
 
     be_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.LOGGING
@@ -409,9 +384,9 @@ def test_submit_create_acl_be(
         ]
     )
 
-    assert (
-        logged_discrepancies == expected_discrepancies
-    ), "There are permissions module discrepancies that are either unexpected or are expected but weren't logged"
+    assert logged_discrepancies == expected_discrepancies, (
+        "There are permissions module discrepancies that are either unexpected or are expected but weren't logged"
+    )
 
     # After submission, there must be municipality access unless it's a paper instance
     if is_paper:
@@ -433,7 +408,7 @@ def test_change_responsible_service(
     be_permissions_settings,
 ):
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
     new_responsible = service_factory()
 
@@ -506,7 +481,7 @@ def test_create_instance_event_be(
     service_group,
 ):
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
     if is_paper:
         service_group.name = "municipality"
@@ -566,7 +541,7 @@ def test_send_inquiry(
     mocker,
 ):
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
     mocker.patch(
         "camac.notification.management.commands.send_inquiry_reminders.TEMPLATE_REMINDER_CIRCULATION",
@@ -609,6 +584,98 @@ def test_submitted_so(so_access_levels, so_instance, instance_acl_factory):
     assert not the_acl.is_active()
 
 
+def test_completed_involve_tax_administration_sz(
+    db,
+    sz_permissions_settings,
+    sz_access_levels,
+    sz_instance,
+    set_application_sz,
+    service_factory,
+    caluma_work_item_factory,
+    caluma_answer_factory,
+):
+    tax_administration = service_factory.create(
+        slug=set_application_sz["TAX_ADMINISTRATION"]
+    )
+    work_item = caluma_work_item_factory(
+        case=sz_instance.case, task_id="complete-instance"
+    )
+    answer = caluma_answer_factory(
+        question_id="steuerverwaltung-informieren",
+        value=["steuerverwaltung-informieren-steuerverwaltung-informieren"],
+    )
+    work_item.document.answers.add(answer)
+
+    events.Trigger.instance_completed(None, sz_instance)
+
+    acls = InstanceACL.objects.filter(
+        instance=sz_instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level="read",
+        service=tax_administration,
+    )
+    assert acls.exists()
+
+
+def test_decided_involve_localized_geometer_sz(
+    db,
+    application_settings,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    form_field_factory,
+    instance_state_factory,
+    mocker,
+    service,
+    service_factory,
+    settings,
+    sz_access_levels,
+    sz_construction_monitoring_settings,
+    sz_instance,
+    sz_permissions_settings,
+):
+    settings.APPLICATION_NAME = "kt_schwyz"
+    is_redac = instance_state_factory(name="redac")
+    is_done = instance_state_factory(name="done")
+    mocker.patch("camac.notification.utils.send_mail", return_value=None)
+
+    application_settings["GEOMETER_FORM_FIELDS"] = ["geometer"]
+    geometer_services = service_factory.create_batch(4)
+    application_settings["LOCALIZED_GEOMETER_SERVICE_MAPPING"] = {
+        service.name: [service.pk] for service in geometer_services
+    }
+    geometer_service = random.choice(geometer_services)
+
+    sz_instance.instance_state = is_redac
+    sz_instance.save()
+    form_field_factory.create(
+        instance=sz_instance,
+        name=random.choice(application_settings["GEOMETER_FORM_FIELDS"]),
+        value=geometer_service.name,
+    )
+    work_item = caluma_work_item_factory(
+        task_id="make-decision",
+        case=sz_instance.case,
+        child_case=None,
+        addressed_groups=[service.pk],
+        controlling_groups=[service.pk],
+        status=WorkItem.STATUS_READY,
+    )
+    acls = InstanceACL.objects.filter(
+        instance=sz_instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level="read",
+        service=geometer_service,
+    )
+
+    assert not acls.exists()
+
+    workflow_api.complete_work_item(work_item=work_item, user=caluma_admin_user)
+    sz_instance.refresh_from_db()
+
+    assert sz_instance.instance_state == is_done
+    assert acls.exists()
+
+
 @pytest.mark.parametrize("permission_mode", [PERMISSION_MODE.FULL, PERMISSION_MODE.OFF])
 @pytest.mark.parametrize("new_meta_flag", ["is-appeal", "is-rejected-appeal", None])
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
@@ -627,7 +694,7 @@ def test_copy_be(
 ):
     be_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
 
     # support role will get access to the new instance

@@ -7,6 +7,7 @@ Diese Schnittstelle entspricht in weiten Teilen der Gemeindeschnittstelle des Ka
 - Auf den "group" Parameter kann verzichtet werden, da im Kt. GR keine dedizierte "Baukontrolle"-Rolle existiert
 - Dokumente werden über `ech/v1/files` hoch/runtergeladen (statt über `api/v1/attachments`), da im Kt. GR ein modernisiertes Dokumentenmodul eingesetzt wird
 - Gemeinden können Gesuche, welche über ihr eigenes Portal eingereicht wurden, mit der POST Message `submit` an eBau weiterleiten.
+- Auf die POST Meldung `kindOfProceedings` kann verzichtet werden.
 
 ## Authentifizierung
 
@@ -48,15 +49,17 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 - Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` die kantonale Dossiernummer und unter `dossierIdentification` den technischen Primärschlüssel "Dossier ID" ("Instance id")
 
-- Der Type `localOrganisationId` enthält unter `organisationId` unsere Service id. Service ids können über den `/api/v1/public-services/` endpoint abgefragt werden.
+- Der Type `localOrganisationId` enthält unter `organisationId` unsere Organisations id. Organisations ids können über den `/api/v1/public-services/` endpoint abgefragt werden.
 
-- Der von uns empfangene Typ `task`, um Stellungnahmen anzufordern (Spezifikation 3.2) muss zwingend die Service id der einzuladenden Stelle im `extension` Typ enthalten:
+- Der von uns empfangene Typ `task`, um Stellungnahmen anzufordern (Spezifikation 3.2) muss zwingend die Organisations id der einzuladenden Stelle im `extension` Typ enthalten:
 
   ```xml
   <ns2:extension>
-    <serviceId>23</serviceId>
+    <organisationId>23</organisationId>
   </ns2:extension>
   ```
+
+  Deprecated: Das bisherige Tag `serviceId` wurde mit `organisationId` ersetzt. `serviceId` wird aber weiterhin unterstützt.
 
 - Der eCH-Standard forciert, dass bei den meisten Meldungen ein `document` mitgeschickt wird. Dieses `document` wird (mit Ausnahme von `accompanyingReport`) von eBau ignoriert. Dokumente werden über unsere API hoch- und heruntergeladen. Beim Hochladen werden sie bereits einer `Instance`, sowie einer oder mehreren `AttachmentSection` zugewiesen. Somit sind Dokumente in eCH Meldungen, die von eBau erhalten werden, redundant und werden ignoriert.
 
@@ -69,7 +72,7 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 - `buildingCategory` wird immer auf `1040` gesetzt.
 
-- `documentStatusType` wird immer auf `signed` gesetzt.
+- `documentStatusType` wird immer auf `undefined` gesetzt.
 
 - `realestateType` wird immer auf `8` gesetzt.
 
@@ -83,8 +86,6 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 - 4.2 Bauverfahren abschliessen: Bei Voranfragen wird der Prozess mit einem Entscheid (bzw. fachlich einer Beurteilung) abgeschlossen. "close dossier" hat entgegen der Spezifikation für Voranfragen also keine Bedeutung. Stattdessen wird der Prozess mit "notice ruling" abgeschlossen (siehe Kap. 3.2).
 
-- 5.3.5 Rückzug des Baugesuchs: Diese Funktion ist nicht in eBau implementiert, darum kann diese Message nicht ausgeliefert werden.
-
 - Judgements in `NoticeRuling` werden in eBau wie folgt gemappt:
 
   | Judgement | Descision               | Besonderheiten                     |
@@ -97,6 +98,14 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 - `relationshipToPerson`: Sollte es sich bei einem Eintrag um eine juristische Person handeln, sieht eCH keine
   Felder vor für Vor- und Nachname der Kontaktperson. Wir füllen diese Namen daher in das Feld
   `organisationAdditionalName` im Format: "Vorname Name".
+
+- `accompanyingReport` hat Werte in `extension` welche zusätzliche Informationen im eBau darstellen.
+  - `situation`: Sachverhalt
+  - `considerations`: Erwägungen
+  - `comments`: Bemerkungen
+  - `documentsAvailable` (true/false): Die Stellungnahme/Verfügung/Bewilligung befindet sich in der Dokumentenablage
+  - `organisationId`: Id der Organisation welche den `accompanyingReport` ausgefüllt hat
+  - `organisationName`: Name der Organisation welche den `accompanyingReport` ausgefüllt hat
 
 ## Message Typen
 

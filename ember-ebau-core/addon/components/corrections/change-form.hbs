@@ -1,0 +1,48 @@
+<p class="uk-text-large">{{t "corrections.change-form.title"}}</p>
+<p>{{t "corrections.change-form.description" htmlSafe=true}}</p>
+{{#if this.availableForms.value}}
+  <form
+    aria-label={{t "corrections.change-form.form-label"}}
+    {{on "submit" this.save.perform}}
+  >
+    <div class="uk-grid-small" uk-grid>
+      <div class="uk-width-expand">
+        <select
+          class="uk-select {{if (is-legacy-app) 'uk-form-small'}}"
+          aria-label={{t "corrections.change-form.label"}}
+          disabled={{await (cannot "change form of instance" @instance)}}
+          required
+          {{on "change" this.setForm}}
+        >
+          <option></option>
+          {{#each this.availableForms.value as |form|}}
+            <option
+              value={{form.slug}}
+              selected={{eq this.form form.slug}}
+            >{{form.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div>
+        <UkButton
+          @color="primary"
+          @type="submit"
+          @label={{t "global.save"}}
+          @disabled={{or
+            this.changeForm.isRunning
+            (eq @instance.calumaForm this.form)
+            (await (cannot "change form of instance" @instance))
+          }}
+        />
+      </div>
+    </div>
+  </form>
+{{else if (not this.availableForms.isLoading)}}
+  <p class="uk-text-muted">{{t "corrections.change-form.not-possible"}}</p>
+{{/if}}
+
+{{#if this.showHint}}
+  <div class="uk-alert uk-alert-warning">
+    {{t "corrections.change-form.invalid-form-hint" htmlSafe=true}}
+  </div>
+{{/if}}

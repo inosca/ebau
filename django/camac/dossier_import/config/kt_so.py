@@ -17,6 +17,7 @@ from camac.dossier_import.messages import (
     MessageCodes,
     Severity,
 )
+from camac.dossier_import.utils import mark_work_items_as_imported
 from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
     CalumaAnswerWriter,
@@ -75,6 +76,7 @@ class KtSolothurnDossierWriter(DossierWriter):
     submit_date = CaseMetaWriter(
         target="submit-date", formatter="datetime-to-string", protected=True
     )
+    decision_date = CalumaAnswerWriter(target="entscheid-datum", task="decision")
     publication_date = CalumaAnswerWriter(target="datum-publikation")
     construction_start_date = CalumaAnswerWriter(target="datum-baubeginn")
     profile_approval_date = CalumaAnswerWriter(target="datum-schnurgeruestabnahme")
@@ -158,23 +160,23 @@ class KtSolothurnDossierWriter(DossierWriter):
             ).values_list("name", flat=True)
         )
 
-    def existing_dossier(self, dossier_id):
+    def find_existing_instance(self, dossier, user):
         keyword = Keyword.objects.filter(
-            name=dossier_id, service=self._group.service
+            name=dossier.id, service=self._group.service
         ).first()
 
         return keyword.instances.first() if keyword else None
 
-    def set_dossier_id(self, instance, dossier_id):
+    def link_instance_and_dossier(self, instance, dossier, user):
         keyword = Keyword.objects.filter(
-            name=dossier_id, service=self._group.service
+            name=dossier.id, service=self._group.service
         ).first()
 
         if keyword:  # pragma: no cover
             # This only happens after an import was undone
             keyword.instances.add(instance)
         else:
-            instance.keywords.create(name=dossier_id, service=self._group.service)
+            instance.keywords.create(name=dossier.id, service=self._group.service)
 
     def _post_create_instance(self, instance: Instance, dossier: Dossier):
         save_answer(
@@ -186,6 +188,8 @@ class KtSolothurnDossierWriter(DossierWriter):
 
     def _post_write_fields(self, instance, dossier):
         self._write_triage_fields(instance)
+        work_items = instance.case.work_items.all()
+        mark_work_items_as_imported(work_items)
 
     def _write_triage_fields(self, instance: Instance):
         """Write triage answers for personal data.

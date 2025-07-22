@@ -10,7 +10,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 3,
+        "sort": 4,
         "access": {
           "are": {
             "visibility": "all",
@@ -37,14 +37,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -56,7 +49,7 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags"],
+                "fields": ["tags", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -129,22 +122,10 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
-                  "files"
+                  "files",
+                  "tags"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -191,14 +172,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -248,6 +222,15 @@
               },
               {
                 "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "category",
+                  "files",
+                  "tags",
+                  "marks"
+                ],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -276,7 +259,8 @@
       "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *R\\u00fcckmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"Qui il comune carica i documenti che devono essere consultabili per tutte le parti coinvolte (ad es. programma della procedura, decisione edilizia). Le persone richiedenti possono visualizzare questi documenti nel portale eBau al menu *Riscontri*.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#CB68C1",
-      "parent": null
+      "parent": null,
+      "sort": 3
     }
   },
   {
@@ -315,13 +299,13 @@
                 "permission": "create"
               },
               {
-                "scope": "Service",
+                "scope": "All",
                 "fields": [
+                  "tags",
+                  "category",
                   "title",
                   "description",
                   "date",
-                  "metainfo",
-                  "category",
                   "files"
                 ],
                 "condition": {
@@ -335,18 +319,6 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -374,6 +346,9 @@
               }
             ]
           },
+          "subservice": {
+            "visibility": "all"
+          },
           "service-lead": {
             "visibility": "all",
             "permissions": [
@@ -399,14 +374,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -447,7 +415,8 @@
       "description": "{\"de\": \"Diese Kategorie dient dem Dokumentenaustausch zwischen kantonalen Fachstellen. Alle kantonalen Fachstellen haben Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"Questa categoria serve allo scambio di documenti tra i servizi cantonali. Tutti i servizi cantonali hanno accesso ai documenti caricati.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
-      "parent": null
+      "parent": null,
+      "sort": 10
     }
   },
   {
@@ -461,7 +430,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 5,
+        "sort": 6,
         "access": {
           "are": {
             "visibility": "all"
@@ -522,7 +491,8 @@
       "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente zur Bauabnahme hochgeladen, welche f\\u00fcr alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Bauabnahmeprotokoll). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *R\\u00fcckmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"Qui il comune carica i documenti per il collaudo che devono essere consultabili per tutte le autorit\\u00e0 coinvolte (ad es. protocollo del collaudo). Le persone richiedenti possono visualizzare questi documenti nel portale eBau al menu *Riscontri*.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#CB68C1",
-      "parent": null
+      "parent": null,
+      "sort": 5
     }
   },
   {
@@ -536,7 +506,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 1,
         "access": {
           "are": {
             "visibility": "all",
@@ -566,6 +535,18 @@
                 "scope": "All",
                 "fields": ["title", "description", "date", "tags", "marks"],
                 "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true,
                   "~InstanceState": [
                     "rejected",
                     "finished",
@@ -670,7 +651,9 @@
                 "permission": "create"
               },
               {
+                "marks": ["void"],
                 "scope": "Service",
+                "fields": ["title", "description", "date", "marks"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -720,7 +703,15 @@
               },
               {
                 "scope": "All",
-                "fields": ["title", "description", "date", "tags", "marks"],
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": ["rejected", "finished"]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "marks"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -780,7 +771,8 @@
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind f\\u00fcr alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti e possono essere consultati da tutte le autorit\\u00e0 coinvolte nella procedura.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
-      "parent": null
+      "parent": null,
+      "sort": 1
     }
   },
   {
@@ -790,17 +782,16 @@
       "created_at": "2024-04-12T15:10:45.367Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.803Z",
+      "modified_at": "2025-06-23T14:56:20.347Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {
-        "sort": 3
-      },
+      "metainfo": {},
       "name": "{\"de\": \"Brandschutz (Feuerpolizei)\", \"fr\": \"\", \"it\": \"Protezione antincendio (polizia del fuoco)\"}",
-      "description": "{\"de\": \"Unter die Begriffe Brandschutz (Feuerpolizei) fallen alle f\\u00fcr die feuerpolizeiliche Bewilligung notwendigen Gesuchsunterlagen (Situationsplan, Brandschutzpl\\u00e4ne [Grundriss, Schnitte, Fassaden etc.], Brandschutzkonzept, evtl. VKF-Zulassungen, Leistungserkl\\u00e4rungen etc.).\", \"fr\": \"\", \"it\": \"Con \\u00abProtezione antincendio (polizia del fuoco)\\u00bb si intende tutta la documentazione di domanda necessaria per il permesso di polizia del fuoco (piano di situazione, piani antincendio [pianta, sezione, facciate, ecc.], strategia antincendio, ev. omologazioni AICAA, dichiarazioni di prestazione, ecc.).\"}",
+      "description": "{\"de\": \"Unter die Begriffe Brandschutzdokumente (Feuerpolizei) fallen alle f\\u00fcr die feuerpolizeiliche Bewilligung notwendigen Gesuchsunterlagen (Brandschutzpl\\u00e4ne [Grundriss, Schnitte, Fassaden etc.], Brandschutzkonzept, evtl. VKF-Zulassungen, Leistungserkl\\u00e4rungen etc.).\", \"fr\": \"\", \"it\": \"Con \\u00abProtezione antincendio (polizia del fuoco)\\u00bb si intende tutta la documentazione di domanda necessaria per il permesso di polizia del fuoco (piani antincendio [pianta, sezione, facciate, ecc.], strategia antincendio, ev. omologazioni AICAA, dichiarazioni di prestazione, ecc.).\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 3
     }
   },
   {
@@ -813,14 +804,13 @@
       "modified_at": "2024-08-28T12:24:54.806Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {
-        "sort": 1
-      },
+      "metainfo": {},
       "name": "{\"de\": \"Grundst\\u00fccksangaben, Projektpl\\u00e4ne und -beschrieb\", \"fr\": \"\", \"it\": \"Indicazioni relative al fondo, piani di progetto e descrizione del progetto\"}",
       "description": "{\"de\": \"Unter die Begriffe Situationspl\\u00e4ne, Projektpl\\u00e4ne, Projektbeschrieb, Grundst\\u00fccksangaben fallen Gesuchsunterlagen wie z.B. Kartenausschnitt 1:25'000, Grundbuchauszug und Situationsplan 1:500 oder 1:1'000, Aufnahmepl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile) und fachgerechte Projektpl\\u00e4ne (Grundrisse, Schnitte, Ansichten, L\\u00e4ngen- und Querprofile, Normalprofile), Umgebungspl\\u00e4ne, Kanalisationsplan, Baubeschrieb etc.\", \"fr\": \"\", \"it\": \"Con \\u00abpiani di situazione\\u00bb, \\u00abpiani di progetto\\u00bb, \\u00abdescrizione del progetto\\u00bb, \\u00abindicazioni relative al fondo\\u00bb si intende la documentazione di domanda come ad es. l'estratto della carta in scala 1:25'000, l'estratto del registro fondiario e il piano di situazione in scala 1:500 o 1:1'000, i piani di rilievo (piante, sezioni, viste, profili longitudinali e trasversali, profili normali) e i piani di progetto professionali (piante, sezioni, viste, profili longitudinali e trasversali, profili normali), i piani delle aree circostanti, il piano delle canalizzazioni, la descrizione della costruzione, ecc.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 1
     }
   },
   {
@@ -833,14 +823,13 @@
       "modified_at": "2024-08-28T12:24:54.808Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {
-        "sort": 2
-      },
+      "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begr\\u00fcndungen\", \"fr\": \"\", \"it\": \"Perizie, prove, motivazioni\"}",
       "description": "{\"de\": \"Unter die Begriffe \\\"Gutachten, Nachweise, Begr\\u00fcndungen\\\" fallen Gesuchsunterlagen wie z.B. Fotodokumentation der bestehenden Baute/Anlage, Formulare zu Zusatzgesuchen (Rodungsgesuch) etc.\", \"fr\": \"\", \"it\": \"Con \\u00abPerizie, prove, motivazioni\\u00bb si intende la documentazione di domanda come ad es. le fotografie delle costruzioni/degli impianti esistenti, i moduli relativi a domande supplementari (domanda di dissodamento), ecc.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 2
     }
   },
   {
@@ -853,14 +842,80 @@
       "modified_at": "2024-08-28T12:24:54.811Z",
       "modified_by_user": null,
       "modified_by_group": null,
-      "metainfo": {
-        "sort": 4
-      },
+      "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"Altra documentazione di domanda\"}",
       "description": "{\"de\": \"Unter den Begriff \\\"weitere Gesuchsunterlagen\\\" fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, L\\u00e4rmschutznachweise, Energienachweise, Bericht zur Umweltvert\\u00e4glichkeitspr\\u00fcfung (UVP), Bodenkundliches Fachgutachten, Vopr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung.\", \"fr\": \"\", \"it\": \"Con \\u00abAltra documentazione di domanda\\u00bb si intende la documentazione di domanda come ad es. i calcoli dettagliati degli indici di utilizzazione che dovranno essere applicati, gli attestati di protezione fonica, i certificati energetici, il rapporto relativo all'esame dell'impatto sull'ambiente (EIA), la perizia pedologica, la decisione dell'Assicurazione fabbricati relativa all'esame preliminare.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
-      "parent": "beilagen-zum-gesuch"
+      "parent": "beilagen-zum-gesuch",
+      "sort": 4
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beschwerden",
+    "fields": {
+      "created_at": "2025-06-30T06:32:58.562Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-07-03T12:03:08.949Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 3,
+        "access": {
+          "are": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Beschwerden\", \"fr\": \"\", \"it\": \"Reclami\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "color": "#E1B422",
+      "parent": "einsprachen-beschwerden",
+      "sort": 5
     }
   },
   {
@@ -874,7 +929,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 4,
+        "sort": 5,
         "access": {
           "are": {
             "visibility": "all",
@@ -901,14 +956,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -920,7 +968,7 @@
               },
               {
                 "scope": "All",
-                "fields": ["tags"],
+                "fields": ["tags", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -983,14 +1031,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1049,14 +1090,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1134,7 +1168,142 @@
       "description": "{\"de\": \"Hier werden die von den beteiligten Beh\\u00f6rden erfassten Dokumente (z.B. Verf\\u00fcgungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur f\\u00fcr die am Verfahren beteiligten Beh\\u00f6rden sichtbar, nicht aber f\\u00fcr die Gesuchstellenden.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti compilati dalle autorit\\u00e0 coinvolte (ad es. decisioni, rapporti ufficiali e tecnici, prese di posizione). Questi documenti sono visibili solo per le autorit\\u00e0 coinvolte nella procedura, ma non per le persone richiedenti.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#8791EC",
-      "parent": null
+      "parent": null,
+      "sort": 4
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "einsprachen",
+    "fields": {
+      "created_at": "2023-11-23T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-07-03T12:02:40.646Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 3,
+        "access": {
+          "are": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"Opposizioni\"}",
+      "description": "{\"de\": \"Hier k\\u00f6nnen Sie die Einsprachen und den Schriftenverkehr zur Einsprache ablegen. Keine andere Organisation hat Zugriff auf diesen Ordner (Ausnahme: ARE im BAB-Verfahren im Lesemodus).\", \"fr\": \"\", \"it\": \"Qui \\u00e8 possibile deporre le opposizioni e lo scambio degli scritti legati alle opposizioni. Nessun'altra organizzazione ha accesso a questa cartella (ad eccezione dell'UST in modalit\\u00e0 di lettura nell'ambito della procedura EFZ).\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "color": "#E1B422",
+      "parent": "einsprachen-beschwerden",
+      "sort": 5
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "einsprachen-beschwerden",
+    "fields": {
+      "created_at": "2025-07-03T12:02:09.380Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-07-03T12:04:41.293Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 3,
+        "access": {
+          "are": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Einsprachen / Beschwerden\", \"fr\": \"\", \"it\": \"Opposizioni / Reclami\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
+      "color": "#E1B422",
+      "parent": null,
+      "sort": 5
     }
   },
   {
@@ -1148,12 +1317,13 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 6,
+        "sort": 7,
         "access": {
           "are": {
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1172,7 +1342,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1189,6 +1358,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1206,7 +1376,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1239,6 +1408,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1256,7 +1426,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1273,6 +1442,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1290,7 +1460,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1307,6 +1476,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1324,7 +1494,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1343,7 +1512,8 @@
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation (ohne Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\\u00e4nkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere visibili solo all'interno della propria organizzazione (senza servizi di rango inferiore). In questa cartella non vi sono limitazioni per quanto riguarda i formati di file ammessi.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#DB8B72",
-      "parent": null
+      "parent": null,
+      "sort": 6
     }
   },
   {
@@ -1357,12 +1527,13 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 7,
+        "sort": 8,
         "access": {
           "are": {
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "ServiceAndSubservice",
                 "fields": [
                   "title",
                   "description",
@@ -1381,7 +1552,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1414,6 +1584,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "ServiceAndSubservice",
                 "fields": [
                   "title",
                   "description",
@@ -1431,7 +1602,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1448,6 +1618,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "ServiceAndSubservice",
                 "fields": [
                   "title",
                   "description",
@@ -1465,7 +1636,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1482,6 +1652,7 @@
             "visibility": "service-and-subservice",
             "permissions": [
               {
+                "scope": "ServiceAndSubservice",
                 "fields": [
                   "title",
                   "description",
@@ -1499,7 +1670,6 @@
                   "title",
                   "description",
                   "date",
-                  "metainfo",
                   "category",
                   "tags",
                   "files"
@@ -1518,7 +1688,8 @@
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche innerhalb der eigenen Organisation (mit Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschr\\u00e4nkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere visibili all'interno della propria organizzazione (compresi i servizi di rango inferiore). In questa cartella non vi sono limitazioni per quanto riguarda i formati di file ammessi.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#af6023",
-      "parent": null
+      "parent": null,
+      "sort": 7
     }
   },
   {
@@ -1532,7 +1703,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
-        "sort": 2,
         "access": {
           "are": {
             "visibility": "all",
@@ -1546,6 +1716,18 @@
                   ]
                 },
                 "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true,
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
               },
               {
                 "scope": "All",
@@ -1583,6 +1765,23 @@
               }
             ]
           },
+          "uso": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              }
+            ]
+          },
           "support": {
             "visibility": "all",
             "permissions": [
@@ -1615,7 +1814,7 @@
                 "permission": "create"
               },
               {
-                "scope": "All",
+                "scope": "Applicant",
                 "condition": {
                   "ReadyWorkItem": "fill-additional-demand",
                   "~InstanceState": [
@@ -1625,6 +1824,23 @@
                   ]
                 },
                 "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
               }
             ]
           },
@@ -1676,12 +1892,6 @@
                 "permission": "delete"
               }
             ]
-          },
-          "subservice": {
-            "visibility": "all"
-          },
-          "uso": {
-            "visibility": "all"
           },
           "municipality-lead": {
             "visibility": "all",
@@ -1747,10 +1957,11 @@
         }
       },
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"Richiesta di precisazioni\"}",
-      "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden im Rahmen von Nachforderungen hochgeladen und sind f\\u00fcr alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti nel quadro delle richieste di precisazioni e possono essere consultati da tutte le autorit\\u00e0 coinvolte nella procedura.\"}",
+      "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden und Beh\\u00f6rden im Rahmen von Nachforderungen hochgeladen und sind f\\u00fcr Gesuchsteller und alle am Verfahren beteiligten Beh\\u00f6rden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti nel quadro delle richieste di precisazioni e possono essere consultati da tutte le autorit\\u00e0 coinvolte nella procedura.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#66CFC9",
-      "parent": null
+      "parent": null,
+      "sort": 2
     }
   },
   {
@@ -1800,6 +2011,11 @@
                 "permission": "update"
               },
               {
+                "scope": "All",
+                "fields": ["name", "description", "date"],
+                "permission": "update"
+              },
+              {
                 "scope": "Service",
                 "condition": {
                   "~InstanceState": [
@@ -1816,6 +2032,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1836,14 +2053,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1894,6 +2104,7 @@
             "visibility": "service",
             "permissions": [
               {
+                "scope": "Service",
                 "fields": [
                   "title",
                   "description",
@@ -1914,14 +2125,7 @@
               },
               {
                 "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "files"
-                ],
+                "fields": ["title", "description", "date", "category", "files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1952,13 +2156,74 @@
               }
             ]
           }
-        }
+        },
+        "hideInBab": true
       },
       "name": "{\"de\": \"Stellungnahmen ans ARE\", \"fr\": \"\", \"it\": \"Prese di posizione all'UST-GR\"}",
       "description": "{\"de\": \"Hier werden Stellungnahmen, Verf\\u00fcgungen und weitere Dokumente zu Handen des Amts f\\u00fcr Raumentwicklung hochgeladen. Die Dokumente sind ausschliesslich f\\u00fcr das ARE sichtbar. Andere Fachstellen haben keinen Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"Qui vengono caricati prese di posizione, decisioni e altri documenti all'attenzione dell'Ufficio per lo sviluppo del territorio (UST-GR). I documenti sono visibili esclusivamente per l'UST-GR. Gli altri servizi non hanno accesso ai documenti caricati in questa cartella.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
-      "parent": null
+      "parent": null,
+      "sort": 9
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "system",
+    "fields": {
+      "created_at": "2024-02-11T09:51:00.010Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2024-02-11T09:51:00.010Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 8,
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Situationsplan\", \"fr\": \"\", \"it\": \"Piano della situazione\"}",
+      "description": "{\"de\": \"Hier werden Systemdokumente hochgeladen.\", \"fr\": \"\", \"it\": \"Qui vengono caricati documenti di sistema.\"}",
+      "allowed_mime_types": "[\"image/png\"]",
+      "color": "#CCCCCC",
+      "parent": null,
+      "sort": null
     }
   },
   {
@@ -1997,27 +2262,16 @@
                 "permission": "create"
               },
               {
-                "scope": "Service",
+                "scope": "All",
                 "fields": [
+                  "tags",
+                  "category",
                   "title",
                   "description",
+                  "files",
                   "date",
-                  "metainfo",
-                  "category",
-                  "files"
+                  "marks"
                 ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "fields": ["tags"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -2043,6 +2297,18 @@
           "uso": {
             "visibility": "all",
             "permissions": [
+              {
+                "scope": "Service",
+                "fields": ["files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
               {
                 "scope": "All",
                 "fields": ["tags"],
@@ -2079,7 +2345,8 @@
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche Umweltschutzorganisationen zug\\u00e4nglich gemacht werden sollen. Dokumente in dieser Kategorie k\\u00f6nnen vom ARE hochgeladen und von USOs eingesehen werden.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere accessibili per le organizzazioni ambientaliste. I documenti in questa categoria possono essere caricati dall'UST-GR ed essere consultati dalle organizzazioni ambientaliste.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
-      "parent": null
+      "parent": null,
+      "sort": 8
     }
   },
   {
@@ -2095,7 +2362,7 @@
       "metainfo": {
         "sort": 1
       },
-      "name": "{\"de\": \"Entscheiddokument\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Entscheiddokument\", \"fr\": \"\", \"it\": \"Documento relativo alla decisione\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }
   },
@@ -2112,7 +2379,7 @@
       "metainfo": {
         "sort": 2
       },
-      "name": "{\"de\": \"Publikationsdokument\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Publikationsdokument\", \"fr\": \"\", \"it\": \"Documento da pubblicare\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }
   },
@@ -2129,8 +2396,8 @@
       "metainfo": {
         "sort": 4
       },
-      "name": "{\"de\": \"Vertraulich\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Dieses Dokument enth\\u00e4lt pers\\u00f6nliche Daten. Das Dokument kann nicht \\u00f6ffentlich publiziert werden.\", \"fr\": \"\", \"it\": \"\"}"
+      "name": "{\"de\": \"Vertraulich\", \"fr\": \"\", \"it\": \"Confidenziale\"}",
+      "description": "{\"de\": \"Dieses Dokument enth\\u00e4lt pers\\u00f6nliche Daten. Das Dokument kann nicht \\u00f6ffentlich publiziert werden.\", \"fr\": \"\", \"it\": \"Questo documento contiene dati personali. Il documento non pu\\u00f2 essere pubblicato pubblicamente.\"}"
     }
   },
   {
@@ -2146,7 +2413,7 @@
       "metainfo": {
         "sort": 3
       },
-      "name": "{\"de\": \"Ung\\u00fcltig\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Ung\\u00fcltig\", \"fr\": \"\", \"it\": \"Non valido\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
     }
   }

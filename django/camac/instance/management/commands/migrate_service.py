@@ -88,7 +88,7 @@ class Command(BaseCommand):
         sources = options["source"].split(",")
         queries = []
         for source in sources:
-            queries.append(f'\n-- source: {source}, target: {options["target"]}')
+            queries.append(f"\n-- source: {source}, target: {options['target']}")
             for table, columns in self._filter(self._get_all_service_foreign_keys()):
                 for column in columns.split(";"):
                     queries.append(

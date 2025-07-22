@@ -1,13 +1,5 @@
 workItems:
   filters:
     task:
-      init-distribution: "Zirkulation initialisieren ({count})"
-      complete-check: "Vollständigkeitsprüfung durchführen ({count})"
-      make-decision: "Entscheid verfügen ({count})"
-      fill-inquiry: "Stellungnahme verfassen ({count})"
-      check-inquiry: "Stellungnahme prüfen ({count})"
-      check-inquiries: "Rückmeldungen abgleichen ({count})"
-      alter-inquiry: "Stellungnahme anpassen ({count})"
-      inquiry: "Stellungnahme zustellen ({count})"
-      init-construction-monitoring: "Baubegleitung starten ({count})"
-      complete-instance: "Verfahren abschliessen ({count})"
+      # Override because SZ does not want the red highlight for the count
+      generic: "{taskName} ({count})"

@@ -1,0 +1,16 @@
+legal-appeal:
+  new: "Nuovo ricorso"
+  edit: "Modifica ricorso"
+
+  receipt-date: "Data di ricezione"
+  title: "Titolo"
+  legal-claimants: "Ricorrenti"
+  withdrawn: "Ritirato?"
+  has-representative: "Con rappresentante?"
+
+  loading-error: "Errore durante il caricamento del ricorso"
+  create-error: "Errore durante la creazione del ricorso"
+
+  delete-confirm: "Sei sicuro di voler cancellare il ricorso?"
+  delete-success: "Il ricorso è stato eliminato con successo."
+  delete-error: "Errore durante l'eliminazione del ricorso"

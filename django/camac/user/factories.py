@@ -48,9 +48,10 @@ class ServiceTFactory(DjangoModelFactory):
 
 
 class UserFactory(DjangoModelFactory):
-    name = Faker("name")
+    name = Faker("first_name")
     email = Faker("email")
-    username = Faker("name")
+    username = Faker("user_name")
+    surname = Faker("last_name")
     disabled = 0
     language = "de"
 

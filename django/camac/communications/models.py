@@ -1,10 +1,13 @@
 import os.path
+import uuid
 
-from alexandria.core.api import make_signature_components
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.urls import reverse
+from django_presigned_url.presign_urls import (
+    make_presigned_url,
+)
 
 
 def entity_for_current_user(request):
@@ -71,8 +74,11 @@ class CommunicationsMessage(models.Model):
 
 
 def attachment_path_directory_path(attachment, filename):
-    return "communications/files/{0}/{1}/{2}".format(
-        attachment.message.topic.instance_id, attachment.message.topic.pk, filename
+    return "communications/files/{0}/{1}/{2}/{3}".format(
+        attachment.message.topic.instance_id,
+        attachment.message.topic.pk,
+        uuid.uuid4(),
+        filename,
     )
 
 
@@ -81,13 +87,17 @@ class CommunicationsAttachment(models.Model):
         CommunicationsMessage, on_delete=models.CASCADE, related_name="attachments"
     )
     file_attachment = models.FileField(
-        null=True, default=None, blank=True, upload_to=attachment_path_directory_path
+        null=True,
+        default=None,
+        blank=True,
+        upload_to=attachment_path_directory_path,
+        max_length=250,
     )
     file_type = models.CharField(max_length=250, null=True, default=None, blank=True)
 
     document_attachment = models.ForeignKey(
         "document.Attachment",
-        on_delete=models.DO_NOTHING,
+        on_delete=models.SET_NULL,
         related_name="+",
         blank=True,
         null=True,
@@ -95,7 +105,7 @@ class CommunicationsAttachment(models.Model):
     )
     alexandria_file = models.ForeignKey(
         "alexandria_core.File",
-        on_delete=models.DO_NOTHING,
+        on_delete=models.SET_NULL,
         related_name="+",
         blank=True,
         null=True,
@@ -111,14 +121,10 @@ class CommunicationsAttachment(models.Model):
         if self.alexandria_file:
             return self.alexandria_file.get_download_url(request)
 
-        url, expires, signature = make_signature_components(
-            str(self.pk),
-            request.get_host(),
-            scheme=request.META.get("wsgi.url_scheme", "http"),
-            download_path=reverse("communications-attachment-download", args=[self.pk]),
+        return make_presigned_url(
+            reverse("communications-attachment-download", args=[self.pk]),
+            request,
         )
-
-        return f"{url}?expires={expires}&signature={signature}"
 
     @property
     def filename(self):

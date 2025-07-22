@@ -19,7 +19,11 @@ from camac.alexandria.extensions.visibilities import (
     CustomVisibility as CustomAlexandriaVisibility,
 )
 from camac.billing.models import BillingV2Entry
-from camac.caluma.utils import find_answer, work_item_by_addressed_service_condition
+from camac.caluma.models import Inquiry
+from camac.caluma.utils import (
+    find_answer,
+    work_item_by_addressed_service_condition,
+)
 from camac.user.models import Service, User
 from camac.utils import build_url, clean_join, get_dict_item
 
@@ -183,19 +187,28 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
         nested_aliases = {
             "POSITION": [_("POSITION")],
             "BETRAG": [_("AMOUNT")],
+            "RECHTSGRUNDLAGE": [_("LEGAL_BASIS")],
+            "KOSTENSTELLE": [_("COST_CENTER")],
+            "STUNDEN": [_("HOURS")],
+            "STUNDENSATZ": [_("HOURLY_RATE")],
+            "ANTEIL_PROZENT": [_("PERCENTAGE")],
+            "GESAMTKOSTEN": [_("TOTAL_COST")],
+            "BERECHNUNG": [_("CALCULATION")],
+            "MEHRWERTSTEUER": [_("VAT")],
+            "ART": [_("ORGANISATION")],
+            "VERRECHNUNG": [_("BILLING_TYPE")],
+            "BEMERKUNG": [_("REMARK")],
         }
 
-        if settings.APPLICATION_NAME == "kt_so":
-            nested_aliases.update(
-                {
-                    "RECHTSGRUNDLAGE": [_("LEGAL_BASIS")],
-                    "KOSTENSTELLE": [_("COST_CENTER")],
-                }
-            )
-
-        return nested_aliases
+        return {
+            k: v
+            for k, v in nested_aliases.items()
+            if k in settings.PLACEHOLDERS["BILLING_ENTRY_FIELDS"]
+        }
 
     def format_rate(self, value):
+        if value is None:
+            return ""
         return f"{value:,.2f}".replace(",", "’")
 
     def to_representation(self, value):
@@ -209,33 +222,66 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
         data = []
 
         for entry in value:
-            row = {
-                "POSITION": entry.text,
-                "BETRAG": self.format_rate(entry.final_rate),
-            }
-
-            if settings.APPLICATION_NAME == "kt_so":
-                row.update(
-                    {
-                        "RECHTSGRUNDLAGE": entry.legal_basis,
-                        "KOSTENSTELLE": entry.cost_center,
-                    }
-                )
-
-            data.append(row)
+            data.append(
+                {
+                    field_name: self.get_entry_field(entry, field_name)
+                    for field_name in settings.PLACEHOLDERS["BILLING_ENTRY_FIELDS"]
+                }
+            )
 
         return data
 
-    def get_attribute(self, instance):
-        own_filters = (
-            {"group__service": self.context["request"].group.service}
-            if self.own
-            else {}
-        )
+    def get_entry_field(self, entry, field_name):  # noqa: C901
+        match field_name:
+            case "POSITION":
+                return entry.text
+            case "BETRAG":
+                return self.format_rate(entry.final_rate)
+            case "RECHTSGRUNDLAGE":
+                return entry.legal_basis
+            case "KOSTENSTELLE":
+                return entry.cost_center
+            case "STUNDEN":
+                return entry.hours
+            case "STUNDENSATZ":
+                return self.format_rate(entry.hourly_rate)
+            case "ANTEIL_PROZENT":
+                return entry.percentage
+            case "GESAMTKOSTEN":
+                return self.format_rate(entry.total_cost)
+            case "BERECHNUNG":
+                return self.get_choice_label(
+                    BillingV2Entry.CalculationModes.choices, entry.calculation
+                )
+            case "MEHRWERTSTEUER":
+                return self.get_choice_label(BillingV2Entry.TaxModes, entry.tax_mode)
+            case "ART":
+                return self.get_choice_label(
+                    BillingV2Entry.Organizations, entry.organization
+                )
+            case "VERRECHNUNG":
+                return self.get_choice_label(
+                    BillingV2Entry.BillingTypes, entry.billing_type
+                )
+            case "BEMERKUNG":
+                return entry.remark
+            case _:  # pragma: no cover
+                return None
 
-        return BillingV2Entry.objects.filter(instance=instance, **own_filters).order_by(
-            "organization", "pk"
-        )
+    def get_choice_label(self, choices, value):
+        for choice in choices:
+            if choice[0] == value:
+                return choice[1]
+
+    def get_attribute(self, instance):
+        service = self.context["request"].group.service
+
+        queryset = BillingV2Entry.objects.visible_for(service).filter(instance=instance)
+
+        if self.own:
+            queryset = queryset.filter(group__service=service)
+
+        return queryset.order_by("organization", "pk")
 
 
 class PublicationField(AliasedMixin, serializers.ReadOnlyField):
@@ -244,6 +290,7 @@ class PublicationField(AliasedMixin, serializers.ReadOnlyField):
         value_key="value",
         parser=lambda value: value,
         only_own=True,
+        all_publications=False,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -251,6 +298,7 @@ class PublicationField(AliasedMixin, serializers.ReadOnlyField):
         self.value_key = value_key
         self.parser = parser
         self.only_own = only_own
+        self.all_publications = all_publications
 
     def to_representation(self, value):
         return self.parser(super().to_representation(value))
@@ -267,6 +315,9 @@ class PublicationField(AliasedMixin, serializers.ReadOnlyField):
                 addressed_groups=[str(self.context["request"].group.service_id)]
             )
 
+        if self.all_publications:
+            return self.get_all_publications(work_items)
+
         work_item = work_items.order_by("-created_at").first()
 
         answer = (
@@ -277,14 +328,46 @@ class PublicationField(AliasedMixin, serializers.ReadOnlyField):
 
         return getattr(answer, self.value_key, "") if answer else ""
 
+    def get_all_publications(self, work_items):
+        parsed_work_items = []
+        for work_item in work_items.order_by("-created_at"):
+            parsed_work_item = {}
+            for answer in work_item.document.answers.all():
+                question = answer.question
+                value = answer.value
+                if question.pk == "publikation-organ":
+                    value = [
+                        {
+                            "NAME": str(option.label),
+                            "EMAIL": option.meta.get("email"),
+                        }
+                        for option in answer.selected_options
+                    ]
+                elif question.type == "date":
+                    value = human_readable_date(answer.date)
+
+                question_alias = question.pk.upper().replace("-", "_")
+                parsed_work_item[question_alias] = value
+            parsed_work_items.append(parsed_work_item)
+
+        return parsed_work_items
+
 
 class MasterDataField(AliasedMixin, serializers.ReadOnlyField):
-    def __init__(self, join_by=None, sum_by=None, parser=lambda value: value, **kwargs):
+    def __init__(
+        self,
+        join_by=None,
+        sum_by=None,
+        parser=lambda value: value,
+        fallback_source=None,
+        **kwargs,
+    ):
         super().__init__(**kwargs)
 
         self.join_by = join_by
         self.sum_by = sum_by
         self.parser = parser
+        self.fallback_source = fallback_source
 
     def to_representation(self, value):
         if self.join_by and isinstance(value, list):
@@ -303,13 +386,21 @@ class MasterDataField(AliasedMixin, serializers.ReadOnlyField):
 
         return self.parser(super().to_representation(value))
 
-    def get_attribute(self, instance):
+    def _get_attribute(self, instance, source):
         if not get_dict_item(
-            settings.MASTER_DATA, f"CONFIG.{self.source}", default=None
+            settings.MASTER_DATA, f"CONFIG.{source}", default=None
         ):  # pragma: no cover
             return None
 
-        return getattr(instance._master_data, self.source)
+        return getattr(instance._master_data, source)
+
+    def get_attribute(self, instance):
+        value = self._get_attribute(instance, self.source)
+
+        if value in [None, []] and self.fallback_source is not None:
+            value = self._get_attribute(instance, self.fallback_source)
+
+        return value
 
 
 class JointField(AliasedMixin, serializers.ReadOnlyField):
@@ -336,17 +427,16 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(
         self,
         only_own=False,
-        props=[
-            ("service", "NAME"),
-            ("deadline", "FRIST"),
-            ("creation_date", "ERSTELLT"),
-            ("completion_date", "BEANTWORTET"),
-        ],
+        only_own_controlling=None,
+        props=None,
         join_by=None,
         service_group=None,
         status=None,
         **kwargs,
     ):
+        if not props:
+            props = settings.PLACEHOLDERS.get("INQUIRY_DEFAULT_FIELDS", [])
+
         all_nested_aliases = {
             "ANTWORT": [_("ANSWER")],
             "BEANTWORTET": [_("ANSWERED")],
@@ -358,6 +448,23 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
             "STELLUNGNAHME": [_("OPINION")],
             "TEXT": [_("TEXT")],
             "VON": [_("BY")],
+            "RUECKMELDUNG_FAZIT": [_("FEEDBACK_CONCLUSION")],
+            "ZUSTIMMENDE_BEURTEILUNGEN": [_("APPROVING_ASSESSMENTS")],
+            "ABLEHNENDE_BEURTEILUNGEN": [_("REJECTING_ASSESSMENTS")],
+            "NACHFORDERUNG": [_("ADDITIONAL_DEMAND")],
+            "EINSPRACHEN": [_("OBJECTIONS")],
+            "HINWEISE_AN_GESUCHSTELLERIN": [_("NOTES_TO_APPLICANT")],
+            "HINWEISE_AN_LEITBEHOERDE": [_("NOTES_TO_AUTHORITY")],
+            "HINWEISE_AN_LEITBEHOERDE_ARP": [_("NOTES_TO_AUTHORITY_ARP")],
+            "VERSAND_ENTSCHEID_WEITERE_STELLEN": [
+                _("DISPATCH_DECISION_FURTHER_SERVICES")
+            ],
+            "BEMERKUNGEN": [_("REMARKS")],
+            "DATUM_START": [_("DATE_START")],
+            "DATUM_ENDE": [_("DATE_END")],
+            "SACHVERHALT": [_("SITUATION")],
+            "ERWAEGUNGEN": [_("CONSIDERATIONS")],
+            "BEURTEILUNG": [_("STATEMENT")],
         }
 
         nested_aliases = (
@@ -372,6 +479,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         self.props = props
         self.join_by = join_by
         self.service_group = service_group
+        self.only_own_controlling = only_own_controlling
         self.status = status
 
     def get_service(self, inquiry, type):
@@ -382,20 +490,8 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
 
     def get_prop_value(self, inquiry, prop):
         prop_mapping = {
-            "opinion": lambda i: find_answer(
-                i.child_case.document,
-                settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"],
-            ),
-            "ancillary_clauses": lambda i: find_answer(
-                i.child_case.document,
-                settings.DISTRIBUTION["QUESTIONS"]["ANCILLARY_CLAUSES"],
-            ),
-            "answer": lambda i: find_answer(
-                i.child_case.document,
-                settings.DISTRIBUTION["QUESTIONS"]["STATUS"],
-            ),
             "service": lambda i: self.get_service(i, "addressed_groups"),
-            "service_with_prefix": lambda i: f"- {self.get_service(i,'addressed_groups')}",
+            "service_with_prefix": lambda i: f"- {self.get_service(i, 'addressed_groups')}",
             "deadline": lambda i: i.deadline.strftime("%d.%m.%Y"),
             "creation_date": lambda i: i.created_at.strftime("%d.%m.%Y"),
             "completion_date": lambda i: (
@@ -403,10 +499,36 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                 if i.status == WorkItem.STATUS_COMPLETED
                 else None
             ),
+            "start_date": lambda i: i.case.parent_work_item.created_at.strftime(
+                "%d.%m.%Y"
+            ),
+            "end_date": lambda i: (
+                i.case.parent_work_item.closed_at.strftime("%d.%m.%Y")
+                if i.case.parent_work_item.status == WorkItem.STATUS_COMPLETED
+                else None
+            ),
         }
 
         if isinstance(prop, tuple):
             prop = prop[0]
+
+        answer_type, slug = settings.PLACEHOLDERS["INQUIRY_FIELD_MAPPINGS"].get(
+            prop, (None, None)
+        )
+
+        if answer_type == "inquiry":
+            return find_answer(
+                inquiry.document, settings.DISTRIBUTION["QUESTIONS"][slug]
+            )
+        elif answer_type == "inquiry-answer":
+            return (
+                find_answer(
+                    inquiry.child_case.document,
+                    settings.DISTRIBUTION["QUESTIONS"][slug],
+                )
+                if inquiry.child_case is not None
+                else None
+            )
 
         try:
             return prop_mapping.get(prop)(inquiry)
@@ -436,10 +558,8 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
         if not service:  # pragma: no cover
             return None
 
-        queryset = WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=instance,
-            status__in=(
+        queryset = Inquiry.objects.for_instance(instance).for_status(
+            *(
                 [self.status]
                 if self.status
                 else [
@@ -449,17 +569,25 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
                     WorkItem.STATUS_SKIPPED,
                 ]
             ),
-        ).filter(
-            work_item_by_addressed_service_condition(
-                Q(service_parent__isnull=True) | Q(service_parent_id=service.pk)
-            )
         )
 
         if self.only_own:
             queryset = queryset.exclude(status=WorkItem.STATUS_SUSPENDED).filter(
                 addressed_groups__contains=[str(service.pk)]
             )
-        elif self.service_group:
+        elif self.only_own_controlling:
+            queryset = queryset.filter(controlling_groups__contains=[str(service.pk)])
+        else:
+            # if we're not filtering based on addressed / controlling groups, make sure that addressed
+            # service exists
+            # TODO: do we really need this?!
+            queryset = queryset.filter(
+                work_item_by_addressed_service_condition(
+                    Q(service_parent__isnull=True) | Q(service_parent_id=service.pk)
+                )
+            )
+
+        if self.service_group:
             service_groups = self.service_group
 
             if not isinstance(service_groups, list):
@@ -732,6 +860,9 @@ class MasterDataPersonField(MasterDataField):
                 )
             )
 
+        if "reference_number" in self.fields:
+            parts.append(row.get("reference_number"))
+
         return clean_join(*parts, separator=", ")
 
     def to_representation(self, value):
@@ -808,7 +939,7 @@ class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
     def get_work_item(self, instance):
         return (
             instance.case.work_items.filter(
-                task_id="information-of-neighbors",
+                task_id=settings.PUBLICATION["FILL_TASKS"]["NEIGHBORS"],
                 status=WorkItem.STATUS_COMPLETED,
                 addressed_groups=[str(self.context["request"].group.service_id)],
                 **{"meta__is-published": True},
@@ -820,44 +951,29 @@ class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
     def get_attribute(self, instance):
         work_item = self.get_work_item(instance)
 
-        if work_item and self.type in ["link", "qr_code"]:
+        if not work_item:
+            return None
+
+        if self.type in ["link", "qr_code"]:
             return build_url(
                 settings.PUBLIC_BASE_URL,
                 f"/public-instances/{instance.pk}/form?key={str(work_item.document.pk)[:7]}",
             )
-
-        elif work_item and self.type == "neighbors":
+        elif self.type == "neighbors":
             table = work_item.document.answers.filter(
-                question_id="information-of-neighbors-neighbors"
+                question_id=settings.PUBLICATION["NEIGHBORS_TABLE_QUESTION"]
             ).first()
 
-            def get_value(row, question):
-                answer = row.answers.filter(question_id=question).first()
-                return answer.value if answer else None
-
             return [
-                {
-                    "last_name": get_value(row, "name-gesuchstellerin"),
-                    "first_name": get_value(row, "vorname-gesuchstellerin"),
-                    "street": get_value(row, "strasse-gesuchstellerin"),
-                    "street_number": get_value(row, "nummer-gesuchstellerin"),
-                    "zip": get_value(row, "plz-gesuchstellerin"),
-                    "town": get_value(row, "ort-gesuchstellerin"),
-                    "is_juristic_person": (
-                        get_value(
-                            row,
-                            "juristische-person-gesuchstellerin",
-                        )
-                        == "juristische-person-gesuchstellerin-ja"
-                    ),
-                    "juristic_name": get_value(
-                        row, "name-juristische-person-gesuchstellerin"
-                    ),
-                }
-                for row in (table.documents.all() if table else [])
+                row_to_person(row)
+                for row in (
+                    table.documents.all().order_by("-answerdocument__sort")
+                    if table
+                    else []
+                )
             ]
 
-        return None
+        return None  # pragma: no cover
 
     def to_representation(self, value):
         if value and self.type == "qr_code":
@@ -909,8 +1025,6 @@ class DecisionField(AliasedMixin, serializers.ReadOnlyField):
                 else [self.compare_to]
             )
 
-        if answer.question.type == Question.TYPE_DATE:
-            return human_readable_date(answer.date)
         elif answer.question.type == Question.TYPE_CHOICE:
             option = answer.selected_options[0]
 

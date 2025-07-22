@@ -1,7 +1,10 @@
 from caluma.caluma_core.events import on
+from caluma.caluma_form import api as form_api
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import complete_work_item, start_case
 from caluma.caluma_workflow.events import (
+    post_cancel_work_item,
     post_complete_case,
     post_complete_work_item,
     post_create_work_item,
@@ -13,6 +16,7 @@ from django.utils.translation import gettext_noop
 
 from camac.caluma.utils import filter_by_task_base, filter_by_workflow_base
 from camac.core.utils import create_history_entry
+from camac.ech0211.signals import file_subsequently
 from camac.notification.utils import send_mail_without_request
 from camac.user.models import User
 
@@ -41,9 +45,9 @@ def filter_by_task(settings_keys):
     return filter_by_task_base(settings_keys, get_additional_demand_settings)
 
 
-def _has_pending_checks(work_item):
+def _has_pending_work_items(work_item, task_id):
     return WorkItem.objects.filter(
-        task_id=settings.ADDITIONAL_DEMAND["CHECK_TASK"],
+        task_id=task_id,
         case__family=get_instance(work_item).case.family,
         status=WorkItem.STATUS_READY,
     ).exists()
@@ -107,7 +111,9 @@ def post_complete_check_additional_demand(
     )
 
     instance = get_instance(work_item)
-    has_pending_checks = _has_pending_checks(work_item)
+    has_pending_checks = _has_pending_work_items(
+        work_item, settings.ADDITIONAL_DEMAND["CHECK_TASK"]
+    )
 
     for config in settings.ADDITIONAL_DEMAND["NOTIFICATIONS"].get(decision_key, []):
         send_mail_without_request(
@@ -130,7 +136,7 @@ def post_complete_check_additional_demand(
         camac_user = User.objects.get(username=user.username)
 
         instance.set_instance_state(
-            settings.ADDITIONAL_DEMAND["STATES"]["AFTER_ADDITIONAL_DEMANDS"],
+            instance.previous_instance_state.name,
             camac_user,
         )
 
@@ -149,3 +155,92 @@ def post_complete_check_additional_demand(
                 workflow_api.resume_work_item(
                     work_item=suspended_distribution_work_item, user=user
                 )
+
+
+@on(post_cancel_work_item, raise_exception=True)
+@filter_by_task("TASK")
+@transaction.atomic
+def post_cancel_additional_demand(sender, work_item, user, context=None, **kwargs):
+    if settings.APPLICATION_NAME != "kt_uri":  # pragma: no cover
+        return
+
+    has_pending_additional_demands = _has_pending_work_items(
+        work_item, settings.ADDITIONAL_DEMAND["TASK"]
+    )
+
+    if not has_pending_additional_demands:
+        instance = get_instance(work_item)
+        camac_user = User.objects.get(username=user.username)
+        instance.set_instance_state(
+            instance.previous_instance_state.name,
+            camac_user,
+        )
+
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_by_task("FILL_TASK")
+@transaction.atomic
+def post_complete_fill_additional_demand_file_subsequently(
+    sender, work_item, user, context=None, **kwargs
+):
+    """Send the file_subsequently signal when the fill task is completed."""
+    if settings.ECH0211.get("API_LEVEL") == "full":
+        camac_user = User.objects.get(username=user.username)
+        file_subsequently.send(
+            sender="post_complete_additional_demand_file_subsequently",
+            instance=work_item.case.family.instance,
+            user_pk=camac_user.pk,
+            group_pk=user.camac_group,
+            inquiry=work_item,
+        )
+
+
+@on(post_create_work_item, raise_exception=True)
+@filter_by_task("CHECK_TASK")
+@transaction.atomic
+def post_create_check_additional_demand(
+    sender, work_item, user, context=None, **kwargs
+):
+    """Autocomplete the check task when created through eCH0211.
+
+    If the "fill-additional-demand" was created through eCH0211, immediately set the
+    decision to "unknown" when the check task is created because the eCH-0211 V2 API
+    spec doesn't cover the act of "checking an additional demand".
+    """
+    # ignore if the eCH0211 claim is not enabled
+    if settings.ECH0211.get("API_LEVEL") != "full" or not settings.ECH0211.get(
+        "CLAIM", {}
+    ).get("ENABLED", False):
+        return
+
+    decision_unknown = settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"].get(
+        "UNKNOWN", None
+    )
+    if not decision_unknown:
+        raise Exception(
+            "The decision `UNKNOWN` value is not set in the settings. "
+            "Please check the settings for ADDITIONAL_DEMAND."
+        )
+
+    fill_additional_demand = (
+        work_item.case.work_items.filter(
+            task_id=settings.ADDITIONAL_DEMAND["FILL_TASK"],
+            status=WorkItem.STATUS_COMPLETED,
+        )
+        .order_by("-created_at")
+        .first()
+    )
+
+    if fill_additional_demand.meta.get("ech-init-workitem"):
+        form_api.save_answer(
+            document=work_item.document,
+            question=Question.objects.get(
+                pk=settings.ADDITIONAL_DEMAND["QUESTIONS"]["DECISION"]
+            ),
+            value=decision_unknown,
+        )
+        workflow_api.complete_work_item(
+            work_item=work_item,
+            user=user,
+            context=context,
+        )

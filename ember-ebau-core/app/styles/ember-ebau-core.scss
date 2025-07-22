@@ -1,5 +1,33 @@
-$custom-muted-color-dark: #{darken($global-muted-background, 15%)};
-$custom-muted-color-light: #{darken($global-muted-background, 5%)};
+@use "sass:color";
+
+$custom-muted-color-dark: color.adjust(
+  $global-muted-background,
+  $lightness: -15%
+);
+$custom-muted-color-light: color.adjust(
+  $global-muted-background,
+  $lightness: -5%
+);
+
+@import "modules/dossier-import";
+@import "modules/deadlines";
+@import "components/filters/select";
+@import "components/additional-demand";
+@import "components/billing-table";
+@import "components/billing-global-table";
+@import "components/dropzone";
+@import "components/icon-button";
+@import "components/linked-instances";
+@import "components/link-instance-button";
+@import "components/gis";
+@import "components/saving-indicator";
+@import "components/watermark";
+@import "components/service-content";
+@import "link-attachments";
+@import "communications-module";
+@import "permissions-module";
+@import "construction-monitoring";
+@import "diff";
 
 .multi-line-text {
   overflow-wrap: break-word;
@@ -24,21 +52,6 @@ tr[role="link"] {
   color: $text-muted-color;
 }
 
-@import "modules/dossier-import";
-@import "components/filters/select";
-@import "components/additional-demand";
-@import "components/billing-table";
-@import "components/billing-global-table";
-@import "components/dropzone";
-@import "components/icon-button";
-@import "components/linked-instances";
-@import "components/link-instance-button";
-@import "components/gr-gis";
-@import "components/saving-indicator";
-@import "components/watermark";
-@import "components/service-content";
-@import "link-attachments";
-@import "communications-module";
-@import "permissions-module";
-@import "construction-monitoring";
-@import "diff";
+.border-highlight {
+  border-left: 4px solid $global-danger-background;
+}

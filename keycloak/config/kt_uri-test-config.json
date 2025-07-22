@@ -2983,13 +2983,13 @@
         "alwaysDisplayInConsole": false,
         "clientAuthenticatorType": "client-secret",
         "redirectUris": [
-          "http://ember-ebau.local/*",
+          "http://ember-ebau.localhost/*",
           "http://localhost:4200/*",
-          "http://ebau.local/*"
+          "http://ebau.localhost/*"
         ],
         "webOrigins": [
-          "http://ebau.local",
-          "http://ember-ebau.local",
+          "http://ebau.localhost",
+          "http://ember-ebau.localhost",
           "http://localhost:4200"
         ],
         "notBefore": 0,
@@ -3372,10 +3372,10 @@
         "clientAuthenticatorType": "client-secret",
         "secret": "89a52ad9-18f2-4b28-b0d7-dd3e35ff7877",
         "redirectUris": [
-          "http://ebau-portal.local/*",
+          "http://ebau-portal.localhost/*",
           "http://localhost:4200/*"
         ],
-        "webOrigins": ["http://localhost:4200", "http://ebau-portal.local"],
+        "webOrigins": ["http://localhost:4200", "http://ebau-portal.localhost"],
         "notBefore": 0,
         "bearerOnly": false,
         "consentRequired": false,

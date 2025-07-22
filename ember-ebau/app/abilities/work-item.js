@@ -35,4 +35,12 @@ export default class InstanceAbility extends Ability {
       this.model.raw.task.meta["is-manually-completable"]
     );
   }
+
+  get canCancel() {
+    return (
+      this.model.isReady &&
+      this.model.isCreatedByCurrentService &&
+      this.model.raw.task.meta["is-manually-completable"]
+    );
+  }
 }

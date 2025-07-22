@@ -64,7 +64,7 @@ module("Acceptance | navigation", function (hooks) {
 
       assert
         .dom("a.be-navbar-internal-link")
-        .hasAttribute("href", "http://ebau.local");
+        .hasAttribute("href", "http://ebau.localhost");
 
       await visit(`/instances/${instanceId}`);
       await waitFor("a.be-navbar-internal-link");
@@ -73,7 +73,7 @@ module("Acceptance | navigation", function (hooks) {
         .dom("a.be-navbar-internal-link")
         .hasAttribute(
           "href",
-          "http://ebau.local/index/redirect-to-instance-resource/instance-id/1",
+          "http://ebau.localhost/index/redirect-to-instance-resource/instance-id/1",
         );
     },
   );

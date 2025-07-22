@@ -9,7 +9,7 @@ from rest_framework import response, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.generics import CreateAPIView
-from rest_framework.mixins import RetrieveModelMixin
+from rest_framework.mixins import RetrieveModelMixin, UpdateModelMixin
 from rest_framework.parsers import JSONParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.renderers import JSONRenderer
@@ -25,7 +25,7 @@ from camac.caluma.extensions.permissions import CustomPermission
 from camac.core.views import MultilangMixin
 from camac.swagger.utils import get_operation_description, group_param
 from camac.token_exchange.permissions import RequireLoT
-from camac.user.permissions import permission_aware
+from camac.user.permissions import IsAllowedClientToken, permission_aware
 
 from . import filters, models, serializers
 
@@ -168,20 +168,29 @@ class MeView(
     AutoPrefetchMixin,
     PreloadIncludesMixin,
     RetrieveModelMixin,
+    UpdateModelMixin,
     GenericViewSet,
 ):
     """Me view returns current user."""
 
     model = get_user_model()
     serializer_class = serializers.CurrentUserSerializer
-    permission_classes = [IsAuthenticated & RequireLoT]
+    permission_classes = [IsAuthenticated & IsAllowedClientToken & RequireLoT]
+
+    # Explicitly remove lookup field and url kwarg to allow patching on /me
+    # without an ID in the URL without an ID in the URL. The proper user will be
+    # determined with the custom `get_object` method.
+    lookup_field = None
+    lookup_url_kwarg = None
 
     @classmethod
     def include_in_swagger(cls):
         return bool(settings.ECH0211)
 
     def get_object(self, *args, **kwargs):
-        return self.request.user
+        # Explicitly fetch the user object from the database in order to avoid
+        # caching issues.
+        return get_user_model().objects.get(pk=self.request.user.pk)
 
     @swagger_auto_schema(
         tags=["User"],
@@ -250,7 +259,7 @@ class GroupView(MultilangMixin, ReadOnlyModelViewSet):
 class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
     filterset_class = filters.PublicGroupFilterSet
     serializer_class = serializers.PublicGroupSerializer
-    permission_classes = [IsAuthenticated & RequireLoT]
+    permission_classes = [IsAuthenticated & IsAllowedClientToken & RequireLoT]
     queryset = models.Group.objects.filter(disabled=False)
 
     def get_queryset(self):

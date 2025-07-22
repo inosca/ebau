@@ -91,7 +91,7 @@ export default class AuditController extends Controller {
           fetchPolicy: "network-only",
           variables: { instanceId: this.model },
         },
-        "allCases.edges.firstObject.node.meta.ebau-number",
+        "allCases.edges.0.node.meta.ebau-number",
       );
 
       const response = yield this.apollo.query({
@@ -122,7 +122,7 @@ export default class AuditController extends Controller {
       yield this.fetchAdditionalData.perform(workItems);
 
       return workItems;
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("audit.loadingError"));
     }
   }

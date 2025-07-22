@@ -7,9 +7,7 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
-from caluma.caluma_form.factories import QuestionFactory
 from caluma.caluma_workflow import (
-    api as workflow_api,
     factories as caluma_workflow_factories,
     models as caluma_workflow_models,
 )
@@ -140,8 +138,8 @@ def test_notification_template_merge(
     application_settings,
     form_field_factory,
     publication_entry,
-    work_item_factory,
-    document_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
     settings,
     snapshot,
     utils,
@@ -183,8 +181,10 @@ def test_notification_template_merge(
         }
     }
 
-    work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
-    work_item.document = document_factory(form_id="bauverwaltung")
+    work_item = caluma_work_item_factory(
+        task_id="building-authority", case=sz_instance.case
+    )
+    work_item.document = caluma_document_factory(form_id="bauverwaltung")
     work_item.save()
     utils.add_answer(
         work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo"
@@ -198,7 +198,6 @@ def test_notification_template_merge(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-datum",
         timezone.now(),
-        "date",
     )
     utils.add_answer(
         work_item.document,
@@ -425,92 +424,6 @@ def test_notification_template_sendmail(
         assert mailoutbox[0].body == settings.EMAIL_PREFIX_BODY + "Test body"
 
 
-@pytest.mark.parametrize("user__email", ["applicant@example.com"])
-@pytest.mark.parametrize(
-    "form_name,released_for_aib,expected_recipients",
-    [
-        ("baugesuch", True, ["info@aib.gr.ch", "applicant@example.com"]),
-        ("baugesuch", False, ["applicant@example.com"]),
-        ("solaranlage", True, ["info@aib.gr.ch", "applicant@example.com"]),
-        ("solaranlage", False, ["applicant@example.com"]),
-        ("bauanzeige", True, ["info@aib.gr.ch", "applicant@example.com"]),
-        ("bauanzeige", False, ["applicant@example.com"]),
-        ("vorlaeufige-beurteilung", True, []),
-        ("vorlaeufige-beurteilung", False, []),
-    ],
-)
-@pytest.mark.parametrize("role__name", ["Municipality"])
-def test_notification_template_construction_acceptance(
-    caluma_admin_user,
-    gr_instance,
-    caluma_workflow_config_gr,
-    settings,
-    form_name,
-    mailoutbox,
-    expected_recipients,
-    application_settings,
-    instance_state_factory,
-    notification_template_factory,
-    set_application_gr,
-    gr_decision_settings,
-    gr_distribution_settings,
-    answer_factory,
-    released_for_aib,
-    service_factory,
-):
-    instance_state_factory(name="finished")
-    instance_state_factory(name="construction-acceptance")
-    notification_template_factory(slug="bauabnahme")
-    notification_template_factory(slug="bauabnahme-gesuchsteller")
-
-    service_factory(name="aib", email="info@aib.gr.ch")
-
-    gr_instance.case.document.form = caluma_form_models.Form.objects.create(
-        pk=form_name
-    )
-    gr_instance.case.document.save()
-
-    for task_id in [
-        "submit",
-        "formal-exam",
-        "distribution",
-        "decision",
-    ]:
-        if task_id == "decision":
-            QuestionFactory(slug="decision-decision")
-            gr_instance.case.work_items.get(task_id=task_id).document.answers.create(
-                question_id="decision-decision", value="decision-decision-approved"
-            )
-        workflow_api.skip_work_item(
-            work_item=gr_instance.case.work_items.get(task_id=task_id),
-            user=caluma_admin_user,
-        )
-
-    if released_for_aib:
-        answer_factory(
-            document=gr_instance.case.work_items.filter(
-                task_id="construction-acceptance"
-            )
-            .first()
-            .document,
-            question__slug="fuer-aib-freigeben",
-            value=["fuer-aib-freigeben-ja"],
-        )
-
-    workflow_api.complete_work_item(
-        work_item=gr_instance.case.work_items.get(task_id="construction-acceptance"),
-        user=caluma_admin_user,
-    )
-
-    assert len(mailoutbox) == len(expected_recipients)
-
-    if form_name != "vorlaeufige-beurteilung":
-        if not released_for_aib:
-            assert len(mailoutbox) == 1
-        else:
-            assert [m.recipients() for m in mailoutbox]
-
-
 @pytest.mark.parametrize(
     "notification_template__subject,instance__identifier",
     [("{{identifier}}", "identifer")],
@@ -558,7 +471,7 @@ def test_notification_template_gvg(
 
 def test_recipient_abwasser_uri(db, service_factory):
     serializer = serializers.NotificationTemplateSendmailSerializer()
-    awu_service = service_factory(name="AWU")
+    awu_service = service_factory(slug="awu")
     assert serializer._get_recipients_abwasser_uri(None) == [{"to": awu_service.email}]
 
 
@@ -570,9 +483,9 @@ def test_recipient_schnurgeruestabnahme_uri(
     ur_instance,
     construction_monitoring_settings,
     check_by_geometer,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     service_factory,
     notification_template,
 ):
@@ -587,20 +500,20 @@ def test_recipient_schnurgeruestabnahme_uri(
             "subject": "test",
             "work_item": {
                 "type": "work-items",
-                "id": work_item_factory(case=ur_instance.case).pk,
+                "id": caluma_work_item_factory(case=ur_instance.case).pk,
             },
         }
     )
     serializer.is_valid()
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=ur_instance.case,
-        document=document_factory(),
+        document=caluma_document_factory(),
         task_id=settings.CONSTRUCTION_MONITORING[
             "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
         ],
     )
     ago_service = service_factory(name="AGO (Geometer)")
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question_id="schnurgeruestabnahme-durch",
         value="wer-fuehrt-die-schnurgeruestabnahme-durch-geometer"
@@ -617,6 +530,110 @@ def test_recipient_schnurgeruestabnahme_uri(
         ]
 
 
+def test_recipient_fgs_uri(
+    db,
+    ur_instance,
+    service_factory,
+    notification_template,
+):
+    service_factory(name="FGS", email="fgs@example.com")
+
+    serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "instance": {"type": "instances", "id": ur_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "recipient_types": ["fgs_uri"],
+            "subject": "test",
+        }
+    )
+    serializer.is_valid()
+    assert serializer._get_recipients_fgs_uri(ur_instance) == [
+        {"to": "fgs@example.com"}
+    ]
+
+
+def test_recipient_abm_zs_uri(
+    db,
+    ur_instance,
+    service_factory,
+    notification_template,
+):
+    service_factory(name="ABM ZS", email="abm-zs@example.com")
+
+    serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "instance": {"type": "instances", "id": ur_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "recipient_types": ["abm_zs_uri"],
+            "subject": "test",
+        }
+    )
+    serializer.is_valid()
+    assert serializer._get_recipients_abm_zs_uri(ur_instance) == [
+        {"to": "abm-zs@example.com"}
+    ]
+
+
+def test_recipient_liegenschaftsschaetzung_uri(
+    db,
+    ur_instance,
+    service_factory,
+    notification_template,
+    mocker,
+):
+    liegenschaftsschaetzung_service = service_factory(
+        email="liegenschaftsschaetzung@example.com",
+    )
+    mocker.patch(
+        "camac.constants.kt_uri.AMT_FUER_STEUERN_LIEGENSCHAFTSSCHAETZUNG_SERVICE_ID",
+        liegenschaftsschaetzung_service.pk,
+    )
+
+    serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "instance": {"type": "instances", "id": ur_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "recipient_types": ["liegenschaftsschaetzung_uri"],
+            "subject": "test",
+        }
+    )
+    serializer.is_valid()
+    assert serializer._get_recipients_liegenschaftsschaetzung_uri(ur_instance) == [
+        {"to": "liegenschaftsschaetzung@example.com"}
+    ]
+
+
+def test_recipient_geometer_uri(
+    db, ur_instance, service_factory, notification_template
+):
+    service_factory(name="AGO (Geometer)", email="geometer@example.com")
+
+    serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "instance": {"type": "instances", "id": ur_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "recipient_types": ["geometer_uri"],
+            "subject": "test",
+        }
+    )
+    serializer.is_valid()
+    assert serializer._get_recipients_geometer_uri(ur_instance) == [
+        {"to": "geometer@example.com"}
+    ]
+
+
 @pytest.mark.parametrize(
     "user__email,service__email",
     [("user@example.com", "service@example.com, service2@example.com")],
@@ -629,9 +646,12 @@ def test_recipient_schnurgeruestabnahme_uri(
     "form_slug",
     [
         "baupolizeiliches-verfahren",
+        "baupolizeiliches-verfahren-v2",
         "hecken-feldgehoelze-baeume",
         "klaerung-baubewilligungspflicht",
+        "klaerung-baubewilligungspflicht-v2",
         "zutrittsermaechtigung",
+        "zutrittsermaechtigung-v2",
     ],
 )
 def test_notification_template_sendmail_rsta_forms(
@@ -774,7 +794,7 @@ def test_notification_placeholders(
     billing_v2_entry_factory,
     objection,
     objection_participant_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     distribution_settings,
     utils,
 ):
@@ -793,14 +813,14 @@ def test_notification_placeholders(
         workflow_date=timezone.make_aware(datetime(2019, 9, 24, 10)),
     ).workflow_item.pk
 
-    work_item_factory(
+    caluma_work_item_factory(
         case=sz_instance.case,
         status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
         task_id=distribution_settings["DISTRIBUTION_INIT_TASK"],
         closed_at=timezone.make_aware(datetime(2019, 9, 24, 10)),
     )
 
-    building_authority_work_item = work_item_factory(
+    building_authority_work_item = caluma_work_item_factory(
         case=sz_instance.case,
         status=caluma_workflow_models.WorkItem.STATUS_READY,
         task_id="building-authority",
@@ -901,7 +921,7 @@ def test_notification_caluma_placeholders(
 ):
     # make sure that tests also run locally when INTERNAL_BASE_URL might be something else
     application_settings["INTERNAL_FRONTEND"] = "camac"
-    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
     notification_template.body = """
         BASE_URL: {{BASE_URL}}
         EBAU_NUMBER: {{EBAU_NUMBER}}
@@ -1135,12 +1155,18 @@ def test_recipient_type_municipality_users(
         assert res == []
 
 
+@pytest.mark.parametrize("addressed_service", ["applicant", "municipality", None])
 def test_recipient_type_work_item_addressed(
-    db, be_instance, service, work_item_factory, notification_template, user_group
+    db,
+    be_instance,
+    service,
+    addressed_service,
+    caluma_work_item_factory,
+    notification_template,
+    user_group,
 ):
-    work_item = work_item_factory(
-        addressed_groups=[str(service.pk)],
-        # controlling_groups=[str(service.pk)],
+    work_item = caluma_work_item_factory(
+        addressed_groups=[str(service.pk), addressed_service],
     )
     be_instance.responsible_services.create(
         service=service, responsible_user=user_group.user
@@ -1162,13 +1188,29 @@ def test_recipient_type_work_item_addressed(
     serializer.is_valid()
     assert not serializer.errors
 
-    assert serializer._get_recipients_work_item_addressed(be_instance) == [
-        {"cc": service.email, "to": user_group.user.email}
-    ]
+    if addressed_service == "applicant":
+        assert serializer._get_recipients_work_item_addressed(be_instance) == [
+            {"cc": service.email, "to": user_group.user.email},
+            {"to": user_group.user.email},
+        ]
+    elif addressed_service == "municipality":
+        assert serializer._get_recipients_work_item_addressed(be_instance) == [
+            {"to": user_group.user.email, "cc": service.email},
+            {"to": user_group.user.email, "cc": service.email},
+        ]
+    else:
+        assert serializer._get_recipients_work_item_addressed(be_instance) == [
+            {"cc": service.email, "to": user_group.user.email}
+        ]
 
 
 def test_recipient_type_work_item_controlling(
-    db, be_instance, service, work_item_factory, notification_template, user_group
+    db,
+    be_instance,
+    service,
+    caluma_work_item_factory,
+    notification_template,
+    user_group,
 ):
     be_instance.responsible_services.create(
         service=service, responsible_user=user_group.user
@@ -1233,14 +1275,21 @@ def test_recipient_type_koor_users(
 ):
     koor_bg = service_factory()
     koor_np = service_factory()
+    koor_afj = service_factory()
     instance_bg = instance_factory()
     instance_np = instance_factory()
+    instance_afj = instance_factory()
 
     mocker.patch("camac.constants.kt_uri.KOOR_BG_SERVICE_ID", koor_bg.pk)
     mocker.patch("camac.constants.kt_uri.KOOR_NP_SERVICE_ID", koor_np.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_AFJ_SERVICE_ID", koor_afj.pk)
     mocker.patch(
         "camac.constants.kt_uri.RESPONSIBLE_KOORS",
-        {koor_bg.pk: [instance_bg.form.pk], koor_np.pk: [instance_np.form.pk]},
+        {
+            koor_bg.pk: [instance_bg.form.pk],
+            koor_np.pk: [instance_np.form.pk],
+            koor_afj.pk: [instance_afj.form.pk],
+        },
     )
 
     serializer = serializers.NotificationTemplateSendmailSerializer()
@@ -1248,15 +1297,21 @@ def test_recipient_type_koor_users(
     # instance / form doesn't matter
     bg_recipients = serializer._get_recipients_koor_bg_users(instance_bg)
     np_recipients = serializer._get_recipients_koor_np_users(instance_bg)
+    afj_recipients = serializer._get_recipients_koor_afj_users(instance_bg)
 
     # instance / form matters
     responsible_recipients_bg = serializer._get_recipients_responsible_koor(instance_bg)
     responsible_recipients_np = serializer._get_recipients_responsible_koor(instance_np)
+    responsible_recipients_afj = serializer._get_recipients_responsible_koor(
+        instance_afj
+    )
 
     assert bg_recipients == [{"to": koor_bg.email}]
     assert np_recipients == [{"to": koor_np.email}]
+    assert afj_recipients == [{"to": koor_afj.email}]
     assert responsible_recipients_bg == [{"to": koor_bg.email}]
     assert responsible_recipients_np == [{"to": koor_np.email}]
+    assert responsible_recipients_afj == [{"to": koor_afj.email}]
 
 
 @pytest.mark.parametrize("group__name", ["Lisag"])
@@ -1308,7 +1363,6 @@ def test_recipient_geometer_acl_services(
             instance=be_instance,
             access_level=access_level_factory(slug="geometer"),
             service=geometer_service,
-            metainfo={"disable-notification-on-creation": True},
         )
         permissions_settings["geometer"] = [("foo", ["*"])]
 
@@ -1318,19 +1372,31 @@ def test_recipient_geometer_acl_services(
 
 
 @pytest.mark.parametrize(
-    "mail_to_immission_control,expected",
-    [(True, [{"to": "info.luft@be.ch"}]), (False, [])],
+    "has_heat_generator_service,expected",
+    [(True, [{"to": "feuerungskontrolle@example.ch"}]), (False, [])],
 )
 def test_recipient_immissionsschutz(
     db,
     be_instance,
-    mail_to_immission_control,
+    has_heat_generator_service,
     expected,
     service_factory,
+    instance_acl_factory,
+    access_level_factory,
+    permissions_settings,
 ):
-    if mail_to_immission_control:
-        service_factory(email="info.luft@be.ch")
-
+    if has_heat_generator_service:
+        feuerungskontrolle_service = service_factory(
+            email="feuerungskontrolle@example.ch",
+            slug="feuerungskontrolle-weu",
+        )
+        instance_acl_factory(
+            instance=be_instance,
+            access_level=access_level_factory(slug="read"),
+            service=feuerungskontrolle_service,
+            metainfo={"disable-notification-on-creation": True},
+        )
+        permissions_settings["read"] = [("foo", ["*"])]
     serializer = serializers.NotificationTemplateSendmailSerializer()
 
     assert serializer._get_recipients_immissionsschutz_be(be_instance) == expected
@@ -1356,93 +1422,37 @@ def test_ur_placeholders(
     mailoutbox,
     settings,
     has_parcel_filled,
+    utils,
 ):
-    caluma_form_models.Question.objects.create(
-        slug="proposal-description",
-        type=caluma_form_models.Question.TYPE_TEXT,
+    utils.add_answer(
+        ur_instance.case.document, "proposal-description", "my description"
     )
-    parcel_form = caluma_form_models.Form.objects.create(slug="parcel-form")
-    parcel_question = caluma_form_models.Question.objects.create(
-        slug="parcel-number",
-        type=caluma_form_models.Question.TYPE_TEXT,
+    utils.add_table_answer(
+        ur_instance.case.document,
+        "parcels",
+        [
+            {
+                "parcel-number": "123" if has_parcel_filled else "",
+            }
+        ],
     )
-    caluma_form_models.FormQuestion.objects.create(
-        form=parcel_form, question=parcel_question
+    utils.add_table_answer(
+        ur_instance.case.document,
+        "applicant",
+        [
+            {
+                "is-juristic-person": "is-juristic-person-yes",
+                "juristic-person-name": "juristic-person-name",
+                "first-name": "first-name",
+                "last-name": "last-name",
+                "street": "street",
+                "street-number": "street-number",
+                "zip": "zip",
+                "city": None,
+                "country": None,
+            }
+        ],
     )
-
-    caluma_form_models.Question.objects.create(
-        slug="parcels",
-        type=caluma_form_models.Question.TYPE_TABLE,
-        row_form=parcel_form,
-    )
-
-    personal_data_form = caluma_form_models.Form.objects.create(
-        slug="personal-data-form"
-    )
-    personal_questions = [
-        caluma_form_models.Question.objects.create(
-            slug=slug,
-            type=caluma_form_models.Question.TYPE_TEXT,
-        )
-        for slug in [
-            "first-name",
-            "last-name",
-            "juristic-person-name",
-            "street",
-            "street-number",
-            "zip",
-            "city",
-        ]
-    ]
-    is_juristic_person_question = caluma_form_models.Question.objects.create(
-        slug="is-juristic-person",
-        type=caluma_form_models.Question.TYPE_CHOICE,
-    )
-
-    [
-        caluma_form_models.FormQuestion.objects.create(
-            form=personal_data_form, question=question
-        )
-        for question in personal_questions + [is_juristic_person_question]
-    ]
-
-    applicant_question = caluma_form_models.Question.objects.create(
-        slug="applicant",
-        type=caluma_form_models.Question.TYPE_TABLE,
-        row_form=personal_data_form,
-    )
-    main_form = caluma_form_models.Form.objects.get(pk="main-form")
-    caluma_form_models.FormQuestion.objects.create(
-        form=main_form, question=applicant_question
-    )
-
-    ur_instance.case.document.answers.create(
-        value="my description", question_id="proposal-description"
-    )
-    parcel_row_doc = caluma_form_models.Document.objects.create(form=parcel_form)
-    if has_parcel_filled:
-        parcel_row_doc.answers.create(value="123", question=parcel_question)
-
-    parcel_table_answer = ur_instance.case.document.answers.create(
-        question_id="parcels"
-    )
-    parcel_table_answer.documents.add(parcel_row_doc)
-    parcel_table_answer.save()
-
-    applicant_row_doc = caluma_form_models.Document.objects.create(
-        form=personal_data_form
-    )
-    [
-        applicant_row_doc.answers.create(value=question.slug, question=question)
-        for question in personal_questions[:-1]  # test for missing answers as well
-    ]
-    applicant_row_doc.answers.create(
-        value="is-juristic-person-yes", question=is_juristic_person_question
-    )
-
-    table_answer = ur_instance.case.document.answers.create(question_id="applicant")
-    table_answer.documents.add(applicant_row_doc)
-    table_answer.save()
 
     sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
         data={
@@ -1596,8 +1606,8 @@ def test_notification_bauverwaltung_placeholders(
     sz_instance,
     notification_template,
     application_settings,
-    work_item_factory,
-    document_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
     settings,
     utils,
 ):
@@ -1612,8 +1622,10 @@ def test_notification_bauverwaltung_placeholders(
         }
     }
 
-    work_item = work_item_factory(task_id="building-authority", case=sz_instance.case)
-    work_item.document = document_factory(form_id="bauverwaltung")
+    work_item = caluma_work_item_factory(
+        task_id="building-authority", case=sz_instance.case
+    )
+    work_item.document = caluma_document_factory(form_id="bauverwaltung")
     work_item.save()
     utils.add_answer(
         work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo"
@@ -1628,7 +1640,6 @@ def test_notification_bauverwaltung_placeholders(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-datum",
         date,
-        "date",
     )
     utils.add_table_answer(
         work_item.document,
@@ -1723,8 +1734,8 @@ def test_notification_additional_demand(
     gr_instance,
     service,
     service_factory,
-    case_factory,
-    work_item_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
     notification_template,
     user_group,
     active_inquiry_factory,
@@ -1732,9 +1743,9 @@ def test_notification_additional_demand(
 ):
     inviter = service_factory()
     active_inquiry_factory(gr_instance, service, inviter)
-    case = case_factory()
-    work_item_factory(addressed_groups=[str(service.pk)], child_case=case)
-    work_item = work_item_factory(case=case)
+    case = caluma_case_factory()
+    caluma_work_item_factory(addressed_groups=[str(service.pk)], child_case=case)
+    work_item = caluma_work_item_factory(case=case)
 
     serializer = serializers.NotificationTemplateSendmailSerializer(
         data={
@@ -1771,19 +1782,19 @@ def test_notifications_without_receivers_sz(
 def test_get_schlussabnahme_uhrzeit(
     db,
     instance_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     construction_monitoring_settings,
-    document_factory,
-    answer_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
 ):
     instance = instance_factory()
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task__slug=construction_monitoring_settings[
             "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
         ],
-        document=document_factory(),
+        document=caluma_document_factory(),
     )
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question__slug="construction-step-schlussabnahme-projekt-planen-zeit-der-abnahme",
         value="09:00",
@@ -1799,19 +1810,19 @@ def test_get_schlussabnahme_uhrzeit(
 def test_get_schlussabnahme_datum(
     db,
     instance_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     construction_monitoring_settings,
-    document_factory,
-    answer_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
 ):
     instance = instance_factory()
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task__slug=construction_monitoring_settings[
             "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
         ],
-        document=document_factory(),
+        document=caluma_document_factory(),
     )
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question__slug="construction-step-schlussabnahme-projekt-planen-datum-der-abnahme",
         date="2024-01-01",
@@ -1824,26 +1835,26 @@ def test_get_schlussabnahme_datum(
     assert serializer.get_schlussabnahme_datum(instance) == "01.01.2024"
 
 
-def test_get_recipients_invited_to_schlussabnhame_projekt(
+def test_get_recipients_invited_to_schlussabnahme_projekt(
     db,
     notification_template,
     instance_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     construction_monitoring_settings,
-    document_factory,
-    answer_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     service_factory,
-    case_factory,
+    caluma_case_factory,
 ):
-    instance = instance_factory(case=case_factory())
+    instance = instance_factory(case=caluma_case_factory())
     service = service_factory()
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task__slug=construction_monitoring_settings[
             "CONSTRUCTION_STEP_PLAN_SCHLUSSABNAHME_PROJEKT_TASK"
         ],
-        document=document_factory(),
+        document=caluma_document_factory(),
     )
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question__slug="construction-step-schlussabnahme-projekt-planen-fachstellen",
         value=[service.pk],
@@ -1865,6 +1876,6 @@ def test_get_recipients_invited_to_schlussabnhame_projekt(
         }
     )
     serializer.is_valid()
-    assert serializer._get_recipients_invited_to_schlussabnhame_projekt(instance) == [
+    assert serializer._get_recipients_invited_to_schlussabnahme_projekt(instance) == [
         {"to": service.email}
     ]

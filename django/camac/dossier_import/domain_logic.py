@@ -6,11 +6,11 @@ import traceback
 from dataclasses import asdict
 from functools import wraps
 from logging import getLogger
+from typing import Callable
 
 import requests
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
 from django.utils.module_loading import import_string
 from requests_toolbelt.multipart.encoder import MultipartEncoder
@@ -19,7 +19,7 @@ from camac.core.utils import generate_ebau_nr
 from camac.dossier_import.dossier_classes import (
     Dossier,
 )
-from camac.dossier_import.loaders import XlsxFileDossierLoader
+from camac.dossier_import.loaders import DossierLoader
 from camac.dossier_import.messages import (
     DOSSIER_IMPORT_STATUS_ERROR,
     DossierSummary,
@@ -52,11 +52,20 @@ def delay_and_refresh(func):
 
 
 @delay_and_refresh
-def perform_import(dossier_import):
+def perform_import(
+    dossier_import: DossierImport,
+    skip_existing=False,
+    notify_dossier_imported: Callable[[Dossier, DossierSummary], None] = lambda d,
+    m: None,
+):
     try:
         configured_writer_cls = import_string(settings.DOSSIER_IMPORT["WRITER_CLASS"])
-
-        loader = XlsxFileDossierLoader()
+        configured_loader_cls = import_string(
+            settings.DOSSIER_IMPORT.get(
+                "LOADER_CLASS", "camac.dossier_import.loaders.XlsxFileDossierLoader"
+            )
+        )
+        loader: DossierLoader = configured_loader_cls()
 
         writer = configured_writer_cls(
             user_id=User.objects.get(username=settings.DOSSIER_IMPORT["USER"]).pk,
@@ -64,12 +73,13 @@ def perform_import(dossier_import):
             location_id=dossier_import.location and dossier_import.location.pk,
         )
         dossier_import.messages["import"] = {"details": []}
-        for dossier in loader.load_dossiers(dossier_import.get_archive()):
+        for dossier in loader.load_dossiers(dossier_import):
             dossier: Dossier
             try:
                 message = writer.import_dossier(
                     dossier,
                     str(dossier_import.id),
+                    skip_existing,
                 )
             except Exception as e:  # pragma: no cover  # noqa: B902
                 # We need to catch unhandled exeptions in single dossier imports
@@ -93,6 +103,7 @@ def perform_import(dossier_import):
                 )
             dossier_import.messages["import"]["details"].append(asdict(message))
             dossier_import.save()
+            notify_dossier_imported(dossier, message)
         update_summary(dossier_import)
         dossier_import.messages["import"]["completed"] = timezone.localtime().strftime(
             "%Y-%m-%dT%H:%M:%S%z"
@@ -215,15 +226,23 @@ def get_or_create_ebau_nr(ebau_number, service, submit_date=None):
     return generate_ebau_nr(None, submit_date.year) if submit_date else None
 
 
-def set_status_callback(task):  # pragma: no cover
-    # this is not covered as long as the sync mode of django-q is not fixed
+def set_status_callback(task):
     dossier_import = task.args[0]
+
     try:
         dossier_import.refresh_from_db()
-    except ObjectDoesNotExist:
-        # the undo task deletes the instance on success:
+    except DossierImport.DoesNotExist:
+        # the undo task deletes the instance on success
         return
-    if task.result and task.result == dossier_import.IMPORT_STATUS_UNDONE:
+
+    if task.result == dossier_import.IMPORT_STATUS_UNDONE:
+        # fallback to cover race condition when deleting the import on undo
         return
-    dossier_import.status = task.result or dossier_import.set_progressing_to_failed()
+
+    if task.result in [status[0] for status in DossierImport.IMPORT_STATUS_CHOICES]:
+        status = task.result
+    else:
+        status = dossier_import.set_progressing_to_failed()
+
+    dossier_import.status = status
     dossier_import.save()

@@ -1,7 +1,7 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { service } from "@ember/service";
 import { macroCondition, getOwnConfig } from "@embroider/macros";
-import { dropTask } from "ember-concurrency";
+import { dropTask, task } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
 import { confirm } from "ember-uikit";
 
@@ -86,7 +86,7 @@ export default class InstancesEditIndexController extends Controller {
       yield this.editController.instance.destroyRecord();
       this.notification.success(this.intl.t("instances.deleteInstanceSuccess"));
       yield this.router.transitionTo("instances");
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("instances.deleteInstanceError"));
     }
   }
@@ -119,15 +119,29 @@ export default class InstancesEditIndexController extends Controller {
 
   @dropTask
   *downloadReceipt() {
+    const EINGABEQUITTUNG = `eingabequittung-${this.intl.primaryLocale.split("-")[0]}`;
+    const templateMapping = {
+      so: "signatures",
+    };
+
     try {
       yield this.dms.generatePdf(this.editController.instance.id, {
-        template: `eingabequittung-${this.intl.primaryLocale.split("-")[0]}`,
+        template: templateMapping[config.APPLICATION.name] ?? EINGABEQUITTUNG,
       });
     } catch (e) {
       console.error(e);
       this.notification.danger(this.intl.t("dms.downloadError"));
     }
   }
+
+  downloadFormAsPdf = task({ drop: true }, async () => {
+    try {
+      return await this.dms.generatePdf(this.editController.instance.id, {});
+    } catch (e) {
+      console.error(e);
+      this.notification.danger(this.intl.t("dms.downloadError"));
+    }
+  });
 
   @dropTask
   *createNewFormMessageBuildingServices() {
@@ -170,7 +184,7 @@ export default class InstancesEditIndexController extends Controller {
       );
 
       yield this.router.transitionTo("instances");
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("instances.withdrawInstanceError"));
     }
   }

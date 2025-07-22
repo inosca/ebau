@@ -58,4 +58,5 @@ SZ_PERMISSIONS_SETTINGS = {
     "PERMISSION_MODE": getattr(
         PERMISSION_MODE, env.str("PERMISSION_MODULE_MODE", default="OFF")
     ),
+    "EVENT_HANDLER": "camac.permissions.config.kt_sz.PermissionEventHandlerSZ",
 }

@@ -27,10 +27,15 @@ urlpatterns = [
     re_path(r"^api/v1/", include("camac.tags.urls")),
     re_path(r"^api/v1/", include("camac.billing.urls")),
     re_path(r"^api/v1/", include("camac.permissions.urls")),
+    re_path(r"^api/v1/", include("camac.eeba_integration.urls")),
     re_path(r"^api/v1/stats/", include("camac.stats.urls")),
     re_path(r"^api/v1/gis/", include("camac.gis.urls")),
     re_path(r"^api/v1/linker/", include("ebau_gwr.linker.urls")),
     re_path(r"^api/v1/", include("ebau_gwr.token_proxy.urls")),
+    re_path(r"^api/v1/", include("camac.sanctions.urls")),
+    re_path(r"^api/v1/", include("camac.work_items.urls")),
+    re_path(r"^api/v1/", include("camac.rulesets.urls")),
+    re_path(r"^api/v1/", include("camac.deadlines.urls")),
     re_path(
         r"^graphql",
         CamacAuthenticatedGraphQLView.as_view(graphiql=settings.DEBUG),
@@ -38,7 +43,7 @@ urlpatterns = [
     ),
     re_path(r"^alexandria/api/v1/", include("camac.alexandria.urls")),
     re_path(
-        r"^api/swagger(?P<format>\.json|\.yaml)$",
+        r"^api/swagger\.(?P<format>json|yaml)$",
         schema_view.without_ui(cache_timeout=0),
         name="schema-json",
     ),
@@ -67,4 +72,9 @@ if settings.ENABLE_SILK:  # pragma: no cover
 if settings.ENABLE_TOKEN_EXCHANGE:
     urlpatterns.append(
         re_path(r"^api/v1/", include("camac.token_exchange.urls")),
+    )
+
+if settings.GEVER.get("ENABLED"):  # pragma: no cover
+    urlpatterns.append(
+        re_path(r"^api/v1/", include("camac.gever.urls")),
     )

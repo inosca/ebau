@@ -35,15 +35,17 @@ export default class CustomSession extends Session {
     await Promise.resolve();
 
     const response = await this.fetch
-      .fetch("/api/v1/me?include=groups,groups.role,groups.service")
+      .fetch(
+        "/api/v1/me?include=groups,groups.role,groups.service,groups.service.service_group",
+      )
       .then((res) => res.json());
 
     this.store.pushPayload(response);
+    const user = this.store.peekRecord("user", response.data.id);
 
     // we have to know which is the current group
-    const relationships = response.data.relationships;
-    const defaultGroup = relationships["default-group"]?.data?.id;
-    const availableGroups = relationships.groups?.data?.map(({ id }) => id);
+    const defaultGroup = user.defaultGroup?.id;
+    const availableGroups = user.groups?.map(({ id }) => id);
 
     let groupId = this.group;
     if (!groupId || !availableGroups.includes(groupId)) {
@@ -53,12 +55,14 @@ export default class CustomSession extends Session {
     }
 
     const group = groupId ? this.store.peekRecord("group", groupId) : null;
+    const service = await group?.service;
 
     return {
-      user: this.store.peekRecord("user", response.data.id),
+      user,
       group,
       role: await group?.role,
-      service: await group?.service,
+      service,
+      serviceGroup: await service?.serviceGroup,
     };
   });
 
@@ -76,6 +80,10 @@ export default class CustomSession extends Session {
 
   get role() {
     return this._data.value?.role;
+  }
+
+  get serviceGroup() {
+    return this._data.value?.serviceGroup;
   }
 
   // this is the same as "baseRole" in ember-camac-ng shoebox

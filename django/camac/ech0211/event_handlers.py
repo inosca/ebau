@@ -4,8 +4,10 @@ from uuid import uuid4
 
 from alexandria.core.models import Document
 from django.conf import settings
-from django.db.models import Q
+from django.db.models import CharField, Q
+from django.db.models.functions import Cast
 from django.dispatch import receiver
+from django.http import HttpRequest
 from django.utils import timezone
 from pyxb import (
     IncompleteElementContentError,
@@ -14,7 +16,6 @@ from pyxb import (
 )
 
 from camac.constants.kt_bern import (
-    ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     ECH_ACCOMPANYING_REPORT,
     ECH_CHANGE_RESPONSIBILITY,
     ECH_CLAIM,
@@ -23,7 +24,7 @@ from camac.constants.kt_bern import (
     ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
 )
 from camac.document.models import Attachment
-from camac.user.models import Service
+from camac.user.models import Service, User
 
 from .formatters import (
     accompanying_report,
@@ -51,6 +52,7 @@ from .signals import (
     sb1_submitted,
     sb2_submitted,
     task_send,
+    withdrawn,
 )
 
 logger = logging.getLogger(__name__)
@@ -69,6 +71,19 @@ class BaseEventHandler:
         self.message_date = timezone.now()
         self.message_id = uuid4()
         self.message_receiver = self.instance.responsible_service()
+
+    def get_fake_request(self):
+        user = User.objects.get(pk=self.user_pk) if self.user_pk else None
+        group = self.message_receiver.groups.first() if self.message_receiver else None
+
+        if not user or not group:
+            return None
+
+        request = HttpRequest()
+        request.user = user
+        request.group = group
+
+        return request
 
     def get_xml(self, **kwargs):  # pragma: no cover
         raise NotImplementedError()
@@ -110,7 +125,7 @@ class SubmitEventHandler(BaseEventHandler):
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 eventSubmitPlanningPermissionApplication=submit(
-                    self.instance, self.event_type
+                    self.instance, self.event_type, request=self.get_fake_request()
                 ),
             ).toxml()
         except (
@@ -138,7 +153,7 @@ class FileSubsequentlyEventHandler(BaseEventHandler):
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 eventSubmitPlanningPermissionApplication=submit(
-                    self.instance, self.event_type
+                    self.instance, self.event_type, request=self.get_fake_request()
                 ),
             ).toxml()
         except (
@@ -205,7 +220,9 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
                 message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                eventRequest=request(self.instance, self.event_type),
+                eventRequest=request(
+                    self.instance, self.event_type, request=self.get_fake_request()
+                ),
             ).toxml()
         except (
             IncompleteElementContentError,
@@ -255,6 +272,7 @@ class TaskEventHandler(BaseEventHandler):
                     comment=str(config["comment"]),
                     deadline=self.inquiry.deadline if self.inquiry else None,
                     documents=documents,
+                    request=self.get_fake_request(),
                 ),
             ).toxml()
         except (
@@ -275,22 +293,33 @@ class AccompanyingReportEventHandler(BaseEventHandler):
     event_type = "accompanying report"
     message_type = ECH_ACCOMPANYING_REPORT
 
-    def __init__(
-        self, instance, inquiry, user_pk=None, group_pk=None, attachments=None
-    ):
+    def __init__(self, instance, inquiry, user_pk=None, group_pk=None, documents=None):
         super().__init__(instance, user_pk, group_pk)
 
         self.inquiry = inquiry
-        if not attachments:
-            self.attachments = self.instance.attachments.filter(
-                attachment_sections__pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
-                group__service__in=Service.objects.filter(
-                    Q(pk=self.inquiry.addressed_groups[0])
-                    | Q(service_parent_id=self.inquiry.addressed_groups[0])
-                ),
-            )
-        else:
-            self.attachments = attachments
+
+        services = Service.objects.filter(
+            Q(pk=self.inquiry.addressed_groups[0])
+            | Q(service_parent_id=self.inquiry.addressed_groups[0])
+        ).annotate(id_string=Cast("pk", CharField()))
+
+        if not documents:
+            if settings.APPLICATION.get("DOCUMENT_BACKEND") == "camac-ng":
+                documents = Attachment.objects.filter(
+                    instance=self.instance,
+                    attachment_sections__pk=settings.ECH0211["ACCOMPANYING_REPORT"][
+                        "attachment_section"
+                    ],
+                    group__service__in=services,
+                )
+            else:
+                documents = Document.objects.filter(
+                    instance_document__instance=self.instance,
+                    category=settings.ECH0211["ACCOMPANYING_REPORT"]["category"],
+                    created_by_group__in=services.values_list("id_string", flat=True),
+                )
+
+        self.documents = documents
 
     def get_xml(self):
         try:
@@ -303,8 +332,9 @@ class AccompanyingReportEventHandler(BaseEventHandler):
                 eventAccompanyingReport=accompanying_report(
                     self.instance,
                     self.event_type,
-                    self.attachments,
+                    self.documents,
                     self.inquiry,
+                    self.get_fake_request(),
                 ),
             ).toxml()
         except (
@@ -397,14 +427,14 @@ def task_callback(sender, instance, user_pk, group_pk, inquiry=None, **kwargs):
 @receiver(accompanying_report_send)
 @if_ech_enabled(api_level="full")
 def accompanying_report_callback(
-    sender, instance, user_pk, group_pk, inquiry, attachments, **kwargs
+    sender, instance, user_pk, group_pk, inquiry, documents, **kwargs
 ):
     handler = AccompanyingReportEventHandler(
         instance,
         user_pk=user_pk,
         group_pk=group_pk,
         inquiry=inquiry,
-        attachments=attachments,
+        documents=documents,
     )
     handler.run()
 
@@ -420,6 +450,15 @@ def file_subsequently_callback(sender, instance, user_pk, group_pk, **kwargs):
 @if_ech_enabled(api_level="full")
 def change_responsibility_callback(sender, instance, user_pk, group_pk, **kwargs):
     handler = ChangeResponsibilityEventHandler(
+        instance, user_pk=user_pk, group_pk=group_pk
+    )
+    handler.run()
+
+
+@receiver(withdrawn)
+@if_ech_enabled(api_level="full")
+def withdrawn_callback(sender, instance, user_pk, group_pk, **kwargs):
+    handler = WithdrawPlanningPermissionApplicationEventHandler(
         instance, user_pk=user_pk, group_pk=group_pk
     )
     handler.run()

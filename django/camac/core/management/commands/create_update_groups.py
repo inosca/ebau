@@ -21,19 +21,18 @@ def create_sql_file(sql_file):
         if any(item in group.name for item in german):
             file.write(
                 f"""UPDATE "GROUP_T"
-            SET "NAME" = '{set_uppercase(group.name.replace(
-                    "Sachbearbeiter", "collaborateur"
-                ).replace(
-                    "Einsichtsberechtigte", "personne autorisée à consulter"
-                ).replace (
-                    "Leitung", "responsable"
-                ).replace (
-                    "Leitbehörde", "autorité directrice"
-                ).replace (
-                    "Baukontrolle", "contrôle construction"
-                ).replace (
-                    "'", "''"
-                ))}'
+            SET "NAME" = '{
+                    set_uppercase(
+                        group.name.replace("Sachbearbeiter", "collaborateur")
+                        .replace(
+                            "Einsichtsberechtigte", "personne autorisée à consulter"
+                        )
+                        .replace("Leitung", "responsable")
+                        .replace("Leitbehörde", "autorité directrice")
+                        .replace("Baukontrolle", "contrôle construction")
+                        .replace("'", "''")
+                    )
+                }'
             WHERE id = {group.pk};"""
             )
     file.close()

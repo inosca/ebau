@@ -1,4 +1,5 @@
 import weakref
+from collections import OrderedDict
 from pathlib import Path
 
 import pytest
@@ -47,7 +48,7 @@ def test_bad_file_format_dossier_xlsx(
     )
     loader = XlsxFileDossierLoader()
     with pytest.raises(InvalidImportDataError):
-        all(loader.load_dossiers(dossier_import.get_archive()))
+        all(loader.load_dossiers(dossier_import))
 
 
 @pytest.mark.parametrize(
@@ -61,11 +62,14 @@ def test_bad_file_format_dossier_xlsx(
 @pytest.mark.parametrize("location__communal_federal_number", ["1312"])
 @pytest.mark.parametrize("service__external_identifier", ["2601"])
 @pytest.mark.parametrize(
-    "config,camac_instance,perm_settings",
+    "config,camac_instance,perm_settings,expected_warnings",
     [
-        ("kt_schwyz", lf("sz_instance_with_form"), None),
-        ("kt_bern", lf("be_instance"), lf("be_permissions_settings")),
-        ("kt_so", lf("so_instance"), None),
+        ("kt_schwyz", lf("sz_instance_with_form"), None, 0),
+        # expected_warnings: BE has an invalid email in the repsonsible column.
+        # See test_writers.test_responsible_user_writer()
+        ("kt_bern", lf("be_instance"), lf("be_permissions_settings"), 1),
+        # expected_warnings: SO doesn't accept plain text files.
+        ("kt_so", lf("so_instance"), None, 1),
     ],
 )
 def test_create_instance_dossier_import_case(
@@ -79,10 +83,11 @@ def test_create_instance_dossier_import_case(
     group,
     settings,
     perm_settings,
+    expected_warnings,
 ):
     if config == "kt_bern":
         perm_settings["EVENT_HANDLER"] = (
-            "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+            "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
         )
     # The test import file features faulty lines
     # 7 lines total. duplicate IDs are ignored
@@ -95,15 +100,11 @@ def test_create_instance_dossier_import_case(
     )
     loader = XlsxFileDossierLoader()
 
-    for dossier in loader.load_dossiers(dossier_import.get_archive()):
+    for dossier in loader.load_dossiers(dossier_import):
         message = writer.import_dossier(dossier, str(dossier_import.pk))
         dossier_import.messages["import"]["details"].append(message.to_dict())
     update_summary(dossier_import)
     assert dossier_import.messages["import"]["summary"]["stats"]["dossiers"] == 2
-
-    # bern has an invalid email in the repsonsible column.
-    # See test_writers.test_responsible_user_writer()
-    expected_warnings = 1 if config == "kt_bern" else 0
 
     assert (
         len(dossier_import.messages["import"]["summary"]["warning"])
@@ -402,56 +403,13 @@ COMMON_IMPORT_ROWS = [
 ]
 
 IMPORT_ROWS_BE = [
-    # based on existing ebau-number and service access resulting ebau-number differs
-    ({"STATUS": "SUBMITTED", "CANTONAL-ID": None}, "dossier_number"),  # None
+    ({"CANTONAL-ID": None}, "dossier_number"),
     (
         {
-            "STATUS": "APPROVED",
-            "CANTONAL-ID": None,
-        },
-        "dossier_number",
-    ),  # 2017-1
-    (
-        {
-            "STATUS": "DONE",
-            "CANTONAL-ID": None,
-        },
-        "dossier_number",
-    ),  # 2017-1
-    (
-        {"CANTONAL-ID": "2020-1"},
-        "dossier_number",
-    ),  # 2020-1
-    (
-        {
-            "CANTONAL-ID": "2020-2",
-        },
-        "dossier_number",
-    ),  # 2017-1
-    (
-        {
-            "COORDINATE-E": "2`710`662",
-            "COORDINATE-N": "1`225`997",
+            "COORDINATE-E": "2`710`662,2`706`670",
+            "COORDINATE-N": "1`225`997,1`223`992",
             "PARCEL": "`123`,2BA",
             "EGRID": "HK207838123456,EGRIDDELLEY",
-        },
-        "plot_data",
-    ),
-    (
-        {
-            "COORDINATE-E": "1`225`997",
-            "COORDINATE-N": "2`710`662",
-            "PARCEL": "`123`,2BA",
-            "EGRID": "HK207838123456,EGRIDDELLEY",
-        },
-        "plot_data",
-    ),
-    (
-        {
-            "COORDINATE-E": "2`710`662",
-            "COORDINATE-N": "1`225`997",
-            "PARCEL": "`123`,2BA",
-            "EGRID": "HK207838123456",
         },
         "plot_data",
     ),
@@ -459,73 +417,60 @@ IMPORT_ROWS_BE = [
 ] + COMMON_IMPORT_ROWS
 
 
-@pytest.mark.parametrize(
-    "is_empty",
-    [True, False],
-)
-@pytest.mark.parametrize("config,camac_instance", [("kt_bern", lf("be_instance"))])
-@pytest.mark.parametrize("dossier_row_patch,expected_target", IMPORT_ROWS_BE)
+@pytest.mark.parametrize("is_empty", [True, False])
 def test_record_loading_be(
     db,
     setup_dossier_writer,
     instance_factory,
     instance_with_case,
     instance_service_factory,
-    camac_instance,
+    be_instance,
     dossier_loader,
     dossier_row_sparse,
     dossier,
-    config,
-    dossier_row_patch,
-    expected_target,
     snapshot,
     is_empty,
     mocker,
-    work_item_factory,
+    caluma_work_item_factory,
     master_data_is_visible_mock,
+    settings,
 ):
     """Load data from import record, make persistant and verify with master_data API."""
-    writer = setup_dossier_writer(config)
+    writer = setup_dossier_writer("kt_bern")
 
-    if expected_target == "dossier_number":
-        existing_instance = instance_factory()
-        instance_service_factory(
-            instance=existing_instance, service=writer._group.service
-        )
-        existing_instance = instance_with_case(existing_instance)
-        existing_instance.case.meta.update({"ebau-number": "2020-1"})
-        existing_instance.case.save()
+    be_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    be_instance.case.document.save()
 
-        foreign_instance = instance_factory()
-        instance_service_factory(instance=foreign_instance)
-        foreign_instance = instance_with_case(foreign_instance)
-        foreign_instance.case.meta.update({"ebau-number": "2020-2"})
-        foreign_instance.case.save()
+    # Setup needed work items
+    caluma_work_item_factory(
+        task_id="decision",
+        case=be_instance.case,
+        document__form_id="decision",
+    )
 
-    if expected_target == "decision_date":
-        work_item_factory(task_id="decision", case=camac_instance.case)
-
-    # test overwriting values
+    # Test overwriting values
     if not is_empty:
-        writer.write_fields(camac_instance, dossier)
-        mocker.patch.object(writer, "existing_dossier", camac_instance)
-        instance_service_factory(instance=camac_instance, service=writer._group.service)
+        writer.write_fields(be_instance, dossier)
+        mocker.patch.object(writer, "find_existing_instance", be_instance)
+        instance_service_factory(instance=be_instance, service=writer._group.service)
 
-    dossier_row_sparse.update(dossier_row_patch)
-    dossier = dossier_loader._load_dossier(dossier_row_sparse)
-    writer.write_fields(camac_instance, dossier)
-    md = MasterData(camac_instance.case)
-    assert getattr(md, expected_target) == snapshot(exclude=paths("0.row_id"))
+    data = OrderedDict()
+    for dossier_row_patch, expected_target in IMPORT_ROWS_BE:
+        dossier = dossier_loader._load_dossier(dossier_row_sparse | dossier_row_patch)
+        writer.write_fields(be_instance, dossier)
+        md = MasterData(be_instance.case)
+        data[expected_target] = getattr(md, expected_target)
+
+    assert data == snapshot(exclude=paths("landowners.0.row_id"))
 
 
 IMPORT_ROWS_SO = [
-    ({"STATUS": "SUBMITTED", "CANTONAL-ID": "2024-3"}, "dossier_number"),  # None
     (
         {
             "COORDINATE-E": 2710662.123,
             "COORDINATE-N": 1225997.123,
-            "PARCEL": "`123`,2BA",
-            "EGRID": "HK207838123456,EGRIDDELLEY",
+            "PARCEL": "1",
+            "EGRID": "CH123456789123",
         },
         "plot_data",
     ),
@@ -534,10 +479,8 @@ IMPORT_ROWS_SO = [
 
 
 @pytest.mark.parametrize("is_empty", [True, False])
-@pytest.mark.parametrize("config,camac_instance", [("kt_so", lf("so_instance"))])
-@pytest.mark.parametrize("dossier_row_patch,expected_target", IMPORT_ROWS_SO)
 def test_record_loading_so(
-    work_item_factory,
+    caluma_work_item_factory,
     dossier,
     setup_dossier_writer,
     master_data_is_visible_mock,
@@ -545,29 +488,43 @@ def test_record_loading_so(
     dossier_loader,
     mocker,
     instance_service_factory,
-    camac_instance,
-    config,
+    so_instance,
     is_empty,
-    dossier_row_patch,
-    expected_target,
     snapshot,
+    settings,
 ):
-    writer = setup_dossier_writer(config)
+    writer = setup_dossier_writer("kt_so")
 
-    if expected_target == "decision_date":
-        work_item_factory(task_id="decision", case=camac_instance.case)
+    so_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    so_instance.case.document.save()
 
-    # test overwriting values
+    # Setup needed work items
+    caluma_work_item_factory(
+        task_id="decision",
+        case=so_instance.case,
+        document__form_id="entscheid",
+    )
+
+    # Test overwriting values
     if not is_empty:
-        writer.write_fields(camac_instance, dossier)
-        mocker.patch.object(writer, "existing_dossier", camac_instance)
-        instance_service_factory(instance=camac_instance, service=writer._group.service)
+        writer.write_fields(so_instance, dossier)
+        mocker.patch.object(writer, "find_existing_instance", so_instance)
+        instance_service_factory(instance=so_instance, service=writer._group.service)
 
-    dossier_row_sparse.update(dossier_row_patch)
-    dossier = dossier_loader._load_dossier(dossier_row_sparse)
-    writer.write_fields(camac_instance, dossier)
-    md = MasterData(camac_instance.case)
-    assert getattr(md, expected_target) == snapshot(exclude=paths("0.row_id"))
+    data = OrderedDict()
+    for dossier_row_patch, expected_target in IMPORT_ROWS_SO:
+        dossier = dossier_loader._load_dossier(dossier_row_sparse | dossier_row_patch)
+        writer.write_fields(so_instance, dossier)
+        md = MasterData(so_instance.case)
+        data[expected_target] = getattr(md, expected_target)
+
+    assert data == snapshot(
+        exclude=paths(
+            "applicants.0.row_id",
+            "project_authors.0.row_id",
+            "landowners.0.row_id",
+        )
+    )
 
 
 IMPORT_ROWS_SZ = [
@@ -586,7 +543,7 @@ IMPORT_ROWS_SZ = [
         },
         "plot_data",
     ),
-    (  # make sure the building authority table line is set correcto
+    (
         {
             "FINAL-APPROVAL-DATE": timezone.datetime(2021, 12, 12),
             "COMPLETION-DATE": timezone.datetime(2021, 12, 12),
@@ -597,42 +554,78 @@ IMPORT_ROWS_SZ = [
 
 
 @pytest.mark.parametrize("is_empty", [True, False])
-@pytest.mark.parametrize(
-    "config,camac_instance",
-    [
-        ("kt_schwyz", lf("sz_instance")),
-    ],
-)
-@pytest.mark.parametrize("dossier_row_patch,target", IMPORT_ROWS_SZ)
 def test_record_loading_sz(
     db,
     setup_dossier_writer,
-    camac_instance,
+    sz_instance,
     dossier_row_sparse,
-    config,
     dossier,
     dossier_loader,
     mocker,
     snapshot,
-    dossier_row_patch,
-    target,
     is_empty,
-    work_item_factory,
+    caluma_work_item_factory,
     master_data_is_visible_mock,
 ):
     """Load data from import record, make persistent and verify with master_data API."""
-    writer = setup_dossier_writer(config)
-    if not is_empty:
-        # fill the instance's fields ..
-        writer.write_fields(camac_instance, dossier)
-        mocker.patch.object(writer, "existing_dossier", camac_instance)
+    writer = setup_dossier_writer("kt_schwyz")
 
-    dossier_row_sparse.update(dossier_row_patch)
-    work_item_factory(task_id="building-authority", case=camac_instance.case)
-    dossier = dossier_loader._load_dossier(dossier_row_sparse)
-    writer.write_fields(camac_instance, dossier)
-    md = MasterData(camac_instance.case)
-    snapshot.assert_match(getattr(md, target))
+    # Setup needed work items
+    caluma_work_item_factory(
+        task_id="building-authority",
+        case=sz_instance.case,
+        document__form_id="bauverwaltung",
+    )
+
+    # Test overwriting values
+    if not is_empty:
+        writer.write_fields(sz_instance, dossier)
+        mocker.patch.object(writer, "find_existing_instance", sz_instance)
+
+    data = OrderedDict()
+    for dossier_row_patch, expected_target in IMPORT_ROWS_SZ:
+        dossier = dossier_loader._load_dossier(dossier_row_sparse | dossier_row_patch)
+        writer.write_fields(sz_instance, dossier)
+        md = MasterData(sz_instance.case)
+        data[expected_target] = getattr(md, expected_target)
+
+    assert data == snapshot
+
+
+def test_record_loading_invalid_coordinates(
+    db,
+    be_instance,
+    dossier_loader,
+    dossier_row_sparse,
+    dossier,
+    master_data_is_visible_mock,
+    settings,
+    setup_dossier_writer,
+):
+    """Load data from import record, make persistant and verify with master_data API."""
+    writer = setup_dossier_writer("kt_bern")
+
+    be_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    be_instance.case.document.save()
+
+    dossier = dossier_loader._load_dossier(
+        dossier_row_sparse
+        | {
+            # E & N are switched up and therefore invalid
+            "COORDINATE-E": "1`225`997",
+            "COORDINATE-N": "2`710`662",
+            "PARCEL": "1",
+            "EGRID": "CH123456789123",
+        }
+    )
+
+    writer.write_fields(be_instance, dossier)
+
+    plot_data = MasterData(be_instance.case).plot_data
+
+    assert len(plot_data) == 1
+    assert plot_data[0]["coord_east"] is None
+    assert plot_data[0]["coord_north"] is None
 
 
 @pytest.mark.parametrize(
@@ -672,25 +665,28 @@ def test_record_loading_all_empty(
 def test_reimport_delete_values(
     db,
     setup_dossier_writer,
-    work_item_factory,
+    caluma_work_item_factory,
     camac_instance,
     dossier_row_full,
-    dossier_row_sparse,
     master_data_is_visible_mock,
     config,
     snapshot,
     import_rows,
+    settings,
 ):
     """Setup dossier and reimport field with empty value."""
     writer = setup_dossier_writer(config)
+
+    camac_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    camac_instance.case.document.save()
+
     loader = XlsxFileDossierLoader()
     excluded = ["ID", "STATUS", "PROPOSAL", "SUBMIT-DATE"]
     dossier = loader._load_dossier(dossier_row_full)
     writer.write_fields(camac_instance, dossier)
     deletable_fields = {key: "<LÖSCHEN>" for key in dossier_row_full.keys()}
     orig_values = {}
-    dossier_row_sparse.update(deletable_fields)
-    work_item_factory(task_id="building-authority", case=camac_instance.case)
+    caluma_work_item_factory(task_id="building-authority", case=camac_instance.case)
     md = MasterData(camac_instance.case)
     targets = set(
         [
@@ -704,6 +700,9 @@ def test_reimport_delete_values(
         orig_values[target] = getattr(md, target)
     dossier = loader._load_dossier(deletable_fields)
     writer.write_fields(camac_instance, dossier)
+
+    # refresh masterdata to avoid any caching issues
+    md = MasterData(camac_instance.case)
     for target in targets:
         # verify that non-deletable or generated values are untouched
         if target in ["submit-date", "proposal", "dossier_number", "application_type"]:
@@ -753,25 +752,28 @@ def test_delete_case_meta_field(
 def test_reimport_ignores_empty(
     db,
     setup_dossier_writer,
-    work_item_factory,
+    caluma_work_item_factory,
     camac_instance,
     dossier_row_full,
-    dossier_row_sparse,
     master_data_is_visible_mock,
     config,
     snapshot,
+    settings,
 ):
     """Setup dossier and reimport field with empty value."""
     writer = setup_dossier_writer(config)
+
+    camac_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    camac_instance.case.document.save()
+
     loader = XlsxFileDossierLoader()
     if config == "kt_bern":
-        work_item_factory(task_id="decision", case=camac_instance.case)
+        caluma_work_item_factory(task_id="decision", case=camac_instance.case)
     dossier = loader._load_dossier(dossier_row_full)
     writer.write_fields(camac_instance, dossier)
     empty_rows = {key: None for key in dossier_row_full.keys() if key != "ID"}
     orig_values = {}
-    dossier_row_sparse.update(empty_rows)
-    work_item_factory(task_id="building-authority", case=camac_instance.case)
+    caluma_work_item_factory(task_id="building-authority", case=camac_instance.case)
     md = MasterData(camac_instance.case)
     targets = set(
         [target for _, target in IMPORT_ROWS_BE + IMPORT_ROWS_SZ + IMPORT_ROWS_SO]
@@ -782,7 +784,7 @@ def test_reimport_ignores_empty(
             orig_values[target] = getattr(md, target)
         except AttributeError:
             continue
-    dossier = loader._load_dossier(dossier_row_full)
+    dossier = loader._load_dossier(dossier_row_full | empty_rows)
     writer.write_fields(camac_instance, dossier)
     for target in targets:
         try:
@@ -823,9 +825,9 @@ def test_record_loading_exceptions(
     """Load data from import record, make persistent and verify with master_data API."""
     setup_dossier_writer(config)
     loader = XlsxFileDossierLoader()
-    dossier_row_sparse.update(dossier_row_patch)
-    del dossier_row_sparse["STATUS"]
-    dossier = loader._load_dossier(dossier_row_sparse)
+    dossier_row_data = dossier_row_sparse | dossier_row_patch
+    del dossier_row_data["STATUS"]
+    dossier = loader._load_dossier(dossier_row_data)
     for key, value in expected.items():
         assert getattr(dossier._meta, key) == value
 
@@ -1010,7 +1012,7 @@ def test_set_workflow_state_be(
     be_permissions_settings,
 ):
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
     # This test skips instance creation where the instance's instance_state is set to the correct
     # state.
@@ -1181,9 +1183,9 @@ def test_set_workflow_state_so(
 
     for task_id, expected_status in expected_work_items_states:
         work_item = so_instance.case.work_items.get(task_id=task_id)
-        assert (
-            work_item.status == expected_status
-        ), f"Expected status {expected_status} for work item {task_id} but got {work_item.status}"
+        assert work_item.status == expected_status, (
+            f"Expected status {expected_status} for work item {task_id} but got {work_item.status}"
+        )
 
     assert so_instance.case.status == expected_case_status
 
@@ -1206,21 +1208,28 @@ def test_import_documents(dossier, setup_dossier_writer, camac_instance, config)
         Attachment(
             file_accessor=django_file("1MB.pdf").open(), name="pläne/Grundriss.pdf"
         ),
+        Attachment(
+            file_accessor=django_file("no-thumbnail.txt").open(), name="Test.txt"
+        ),
     ]
     writer._create_dossier_attachments(dossier, camac_instance)
 
     if config == "kt_so":
         camac_instance.alexandria_instance_documents.count() == len(dossier.attachments)
         for attachment in dossier.attachments:
-            if alexandria_doc := camac_instance.alexandria_instance_documents.filter(
+            alexandria_doc = camac_instance.alexandria_instance_documents.filter(
                 document__title=attachment.name
-            ).first():
+            ).first()
+
+            if attachment.file_accessor.name.endswith(".txt"):
+                assert not alexandria_doc
+            else:
+                assert alexandria_doc
                 attachment.file_accessor.seek(0)
                 assert (
                     attachment.file_accessor.read()
                     == alexandria_doc.document.get_latest_original().content.file.file.read()
                 )
-            assert alexandria_doc
     else:
         assert camac_instance.attachments.count() == len(dossier.attachments)
         for attachment in dossier.attachments:

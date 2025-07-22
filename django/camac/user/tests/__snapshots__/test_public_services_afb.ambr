@@ -1,0 +1,95 @@
+# serializer version: 1
+# name: test_ag_distribution_services[municipality-False]
+  set({
+    'my-subservice',
+  })
+# ---
+# name: test_ag_distribution_services[municipality-True]
+  set({
+    'aew',
+    'afb',
+    'agv-bs',
+    'agv-esp',
+    'amb',
+    'axpo',
+    'bks-dp',
+    'bks-ka',
+    'dgs-avs-lmi',
+    'dgs-avs-vet',
+    'dvi-awa-iga',
+    'gvm',
+    'my-subservice',
+    'some-municipality',
+  })
+# ---
+# name: test_ag_distribution_services[municipality-light-False]
+  set({
+    'afb',
+    'my-subservice',
+  })
+# ---
+# name: test_ag_distribution_services[municipality-light-True]
+  set({
+    'afb',
+    'my-subservice',
+  })
+# ---
+# name: test_ag_distribution_services[service-afb-False]
+  set({
+    'aew',
+    'agv-bs',
+    'agv-esp',
+    'amb',
+    'axpo',
+    'bks-dp',
+    'bks-ka',
+    'dgs-avs-lmi',
+    'dgs-avs-vet',
+    'dvi-awa-iga',
+    'gvm',
+    'my-subservice',
+    'some-cantonal-service',
+    'some-municipality',
+  })
+# ---
+# name: test_ag_distribution_services[service-afb-True]
+  set({
+    'aew',
+    'agv-bs',
+    'agv-esp',
+    'amb',
+    'axpo',
+    'bks-dp',
+    'bks-ka',
+    'dgs-avs-lmi',
+    'dgs-avs-vet',
+    'dvi-awa-iga',
+    'gvm',
+    'my-subservice',
+    'some-cantonal-service',
+    'some-municipality',
+  })
+# ---
+# name: test_ag_distribution_services[service-cantonal-False]
+  set({
+    'my-subservice',
+  })
+# ---
+# name: test_ag_distribution_services[service-cantonal-True]
+  set({
+    'aew',
+    'afb',
+    'agv-bs',
+    'agv-esp',
+    'amb',
+    'axpo',
+    'bks-dp',
+    'bks-ka',
+    'dgs-avs-lmi',
+    'dgs-avs-vet',
+    'dvi-awa-iga',
+    'gvm',
+    'my-subservice',
+    'some-municipality',
+  })
+# ---

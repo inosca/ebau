@@ -1,5 +1,7 @@
 import pytest
-from pytest_lazy_fixtures import lf
+from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFactory
+from caluma.caluma_form.models import Question
+from caluma.caluma_workflow.models import WorkItem
 
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
@@ -10,78 +12,9 @@ from camac.constants.kt_bern import (
 )
 from camac.ech0211.signals import file_subsequently, instance_submitted
 
-from ...conftest import FakeRequest
 from ...core.models import InstanceService
-from ...instance.serializers import InstanceSubmitSerializer
 from .. import event_handlers
 from ..models import Message
-
-
-@pytest.mark.parametrize(
-    "instance__user,location__communal_federal_number,instance_state__name",
-    [(lf("admin_user"), "1311", "new")],
-)
-@pytest.mark.parametrize(
-    "role__name,instance__location,form__name",
-    [
-        ("Support", lf("location"), "baugesuch"),
-    ],
-)
-@pytest.mark.freeze_time("2022-07-07")
-def test_submit_event_sz(
-    db,
-    set_application_sz,
-    ech_instance_sz,
-    sz_ech0211_settings,
-    rf,
-    admin_client,
-    role,
-    user_group,
-    instance,
-    instance_state,
-    instance_state_factory,
-    instance_with_case,
-    form,
-    form_field_factory,
-    caplog,
-    ech_snapshot,
-    master_data_is_visible_mock,
-):
-    instance.identifier = "TEST-90-22-002"
-    instance.instance_group = ech_instance_sz.instance_group
-    instance.save()
-    instance = instance_with_case(instance)
-
-    instance_state_factory(name="subm")
-    serializer = InstanceSubmitSerializer(
-        context={
-            "request": FakeRequest(
-                user=ech_instance_sz.user,
-                group=user_group.group,
-            )
-        }
-    )
-
-    caplog.clear()
-    serializer.update(
-        ech_instance_sz,
-        validated_data={
-            "data": {
-                "type": "instances",
-                "attributes": {
-                    "copy-source": str(ech_instance_sz.pk),
-                    "is-modification": True,
-                },
-            }
-        },
-    )
-
-    caplog.clear()
-
-    assert Message.objects.count() == 1
-    message = Message.objects.first()
-    assert message.receiver.get_name() == ech_instance_sz.group.service.name
-    ech_snapshot(message.body)
 
 
 @pytest.mark.freeze_time("2022-06-03")
@@ -195,7 +128,7 @@ def test_event_handlers(
 def test_accompanying_report_event_handler(
     db,
     active_inquiry_factory,
-    answer_factory,
+    caluma_answer_factory,
     attachment_factory,
     attachment_section_factory,
     be_distribution_settings,
@@ -256,19 +189,19 @@ def test_accompanying_report_event_handler(
         addressed_service=parent_service,
     )
 
-    answer_factory(
+    caluma_answer_factory(
         document=inquiry.child_case.document,
         question_id=be_distribution_settings["QUESTIONS"]["STATUS"],
         value=be_distribution_settings["ANSWERS"]["STATUS"]["UNKNOWN"],
     )
 
     if notices_exists:
-        answer_factory(
+        caluma_answer_factory(
             document=inquiry.child_case.document,
             question_id=be_distribution_settings["QUESTIONS"]["STATEMENT"],
             value="lorem ipsum " * 100,  # 1200 characters
         )
-        answer_factory(
+        caluma_answer_factory(
             document=inquiry.child_case.document,
             question_id=be_distribution_settings["QUESTIONS"]["ANCILLARY_CLAUSES"],
             value="nebenbestimmung\r\nblablabla\r\nblu; yeah ",
@@ -393,3 +326,183 @@ def test_skip_events_sz(
         sender=None, instance=ech_instance_sz, user_pk=None, group_pk=None
     )
     assert Message.objects.count() == 0
+
+
+@pytest.mark.freeze_time("2022-06-03")
+def test_accompanying_report_event_handler_alexandria(
+    db,
+    active_inquiry_factory,
+    caluma_answer_factory,
+    so_distribution_settings,
+    ech_instance_so,
+    so_ech0211_settings,
+    ech_snapshot,
+    service_factory,
+    set_application_so,
+    service,
+    group,
+    admin_user,
+    mocker,
+    application_settings,
+    freezer,
+):
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service", return_value=service
+    )
+
+    visibility = {"access": {group.role.name: {"visibility": "all"}}}
+    category = CategoryFactory(metainfo=visibility)
+    other_category = CategoryFactory(metainfo=visibility)
+
+    so_ech0211_settings["ACCOMPANYING_REPORT"] = {"category": category.pk}
+
+    subservice = service_factory(service_parent=service)
+    other_service = service_factory()
+
+    freezer.move_to("12:01")
+    FileFactory(
+        document=DocumentFactory(
+            id="958750f4-c4ca-4b8f-b890-c13c1b5d4262",
+            title="service-visible-document",
+            metainfo={"camac-instance-id": ech_instance_so.pk},
+            category=category,
+            created_by_group=str(service.pk),
+        ),
+    )
+    freezer.move_to("12:02")
+    FileFactory(
+        document=DocumentFactory(
+            id="93d531e7-24bb-49a1-9d4a-03d328981d0e",
+            title="subservice-visible-document",
+            metainfo={"camac-instance-id": ech_instance_so.pk},
+            category=category,
+            created_by_group=str(subservice.pk),
+        ),
+    )
+    freezer.move_to("12:03")
+    FileFactory(
+        document=DocumentFactory(
+            id="b1a826b3-fb17-43f6-8575-984180384a64",
+            title="service-hidden-document",
+            metainfo={"camac-instance-id": ech_instance_so.pk},
+            category=other_category,
+            created_by_group=str(service.pk),
+        ),
+    )
+    freezer.move_to("12:04")
+    FileFactory(
+        document=DocumentFactory(
+            id="5077d44e-159a-40a0-9efb-32067aae8f08",
+            title="other-service-hidden-document",
+            metainfo={"camac-instance-id": ech_instance_so.pk},
+            category=category,
+            created_by_group=str(other_service.pk),
+        ),
+    )
+
+    inquiry = active_inquiry_factory(
+        for_instance=ech_instance_so,
+        addressed_service=service,
+    )
+
+    caluma_answer_factory(
+        document=inquiry.child_case.document,
+        question_id=so_distribution_settings["QUESTIONS"]["STATUS"],
+        value=so_distribution_settings["ANSWERS"]["STATUS"]["UNKNOWN"],
+    )
+
+    handler = event_handlers.AccompanyingReportEventHandler(
+        ech_instance_so,
+        inquiry=inquiry,
+        user_pk=admin_user.pk,
+        group_pk=group.pk,
+    )
+    handler.run()
+
+    assert Message.objects.count() == 1
+    message = Message.objects.first()
+    ech_snapshot(message.body)
+
+
+@pytest.mark.freeze_time("2022-06-03")
+@pytest.mark.parametrize("documents_available", [True, False])
+def test_accompanying_report_event_handler_extension(
+    db,
+    active_inquiry_factory,
+    caluma_answer_factory,
+    caluma_form_question_factory,
+    gr_distribution_settings,
+    ech_instance_gr,
+    gr_ech0211_settings,
+    set_application_gr,
+    ech_snapshot,
+    multilang,
+    documents_available,
+    service,
+    utils,
+):
+    gr_ech0211_settings["ACCOMPANYING_REPORT"]["EXTENSION_MAPPING"] = {
+        "inquiry-answer-considerations": {
+            "tag": "considerations",
+        },
+        "inquiry-answer-situation": {
+            "tag": "situation",
+        },
+        "empty-choice": {
+            "tag": "emptyChoice",
+            "true_value": "foo",
+        },
+        "stellungnahme-in-dokumentanablage": {
+            "tag": "documentsAvailable",
+            "true_value": "stellungnahme-in-dokumentanablage-ja",
+        },
+    }
+    inquiry = active_inquiry_factory(
+        for_instance=ech_instance_gr,
+        addressed_service=service,
+        status=WorkItem.STATUS_COMPLETED,
+        closed_by_group=service.pk,
+    )
+
+    caluma_answer_factory(
+        document=inquiry.child_case.document,
+        question_id=gr_distribution_settings["QUESTIONS"]["STATUS"],
+        value=gr_distribution_settings["ANSWERS"]["STATUS"]["POSITIVE"],
+    )
+    caluma_answer_factory(
+        document=inquiry.child_case.document,
+        question_id=gr_distribution_settings["QUESTIONS"]["STATEMENT"],
+        value="Stated",
+    )
+    # Extension values
+    caluma_answer_factory(
+        document=inquiry.child_case.document,
+        question_id="inquiry-answer-considerations",
+        value="Considered",
+    )
+    caluma_form_question_factory(
+        form=inquiry.child_case.document.form,
+        question__type=Question.TYPE_MULTIPLE_CHOICE,
+        question__slug="empty-choice",
+    )
+    utils.add_answer(
+        inquiry.child_case.document,
+        "stellungnahme-in-dokumentanablage",
+        value=["stellungnahme-in-dokumentanablage-ja"] if documents_available else [],
+        options=["stellungnahme-in-dokumentanablage-ja"],
+        question_type=Question.TYPE_MULTIPLE_CHOICE,
+    )
+
+    eh = event_handlers.AccompanyingReportEventHandler(ech_instance_gr, inquiry=inquiry)
+    eh.run()
+
+    assert Message.objects.count() == 1
+    message = Message.objects.first()
+    ech_snapshot(message.body)
+
+    if documents_available:
+        assert "<documentsAvailable>true</documentsAvailable>" in message.body
+    else:
+        assert "<documentsAvailable>false</documentsAvailable>" in message.body

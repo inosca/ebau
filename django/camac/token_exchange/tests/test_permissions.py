@@ -50,7 +50,9 @@ def test_require_lot_permission(
     db, admin_client, expected_status, lot, mocker, role_name
 ):
     mocker.patch("camac.token_exchange.permissions.get_lot", return_value=lot)
-    mocker.patch("camac.user.utils.is_portal_client", return_value=True)
+    mocker.patch(
+        "camac.token_exchange.permissions.is_exchanged_token", return_value=True
+    )
     mocker.patch("camac.user.permissions.get_role_name", return_value=role_name)
 
     response = admin_client.get(reverse("me"))
@@ -85,12 +87,16 @@ def test_require_lot_permission_graphql(
             settings.OIDC_USERNAME_CLAIM: admin_user.username,
         },
     )
-    mocker.patch("camac.caluma.utils.jwt_decode")
+    mocker.patch(
+        "camac.caluma.utils.jwt_decode", return_value={"azp": settings.KEYCLOAK_CLIENT}
+    )
     mocker.patch("camac.token_exchange.permissions.get_lot", return_value=lot)
-    mocker.patch("camac.user.utils.is_portal_client", return_value=True)
+    mocker.patch(
+        "camac.token_exchange.permissions.is_exchanged_token", return_value=True
+    )
     mocker.patch("camac.user.permissions.get_role_name", return_value=role_name)
 
-    settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.local"
+    settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.localhost"
 
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token", X_CAMAC_GROUP=group.pk)
 

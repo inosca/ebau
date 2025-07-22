@@ -1,0 +1,76 @@
+<h2 class="uk-margin-remove-top">
+  {{#if @id}}
+    {{t "snippets.edit"}}
+  {{else}}
+    {{t "snippets.new"}}
+  {{/if}}
+</h2>
+
+{{#if this.model.isLoading}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio="2" />
+  </div>
+{{else}}
+  <form class="uk-form uk-form-stacked" {{on "submit" (perform this.save)}}>
+    {{#unless this.hasCategory}}
+      <div class="uk-margin">
+        <label class="uk-form-label uk-text-bold" for="purpose">
+          {{t "snippets.category"}}
+        </label>
+        <div class="uk-form-controls uk-flex">
+          <Input
+            @type="text"
+            @value={{this.model.value.purpose}}
+            class="uk-input"
+            name="purpose"
+            id="purpose"
+            required
+          />
+        </div>
+      </div>
+    {{/unless}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="subject">
+        {{t "snippets.title"}}
+      </label>
+      <div class="uk-form-controls uk-flex">
+        <Input
+          @type="text"
+          @value={{this.model.value.subject}}
+          class="uk-input"
+          name="subject"
+          id="subject"
+          required
+        />
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="body">
+        {{t "snippets.text"}}
+      </label>
+      <div class="uk-form-controls uk-flex">
+        <Textarea
+          @value={{this.model.value.body}}
+          class="uk-textarea"
+          name="body"
+          id="body"
+          required
+          {{autoresize mode="height"}}
+        />
+      </div>
+    </div>
+    <div class="uk-margin">
+      <UkButton
+        @type="submit"
+        @color="primary"
+        @label={{t "global.save"}}
+        data-test-save-snippet
+      />
+      <UkButton
+        @label={{t "global.cancel"}}
+        @onClick={{this.cancel}}
+        data-test-cancel-edit-snippet
+      />
+    </div>
+  </form>
+{{/if}}

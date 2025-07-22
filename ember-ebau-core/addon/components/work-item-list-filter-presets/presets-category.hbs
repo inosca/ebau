@@ -1,0 +1,19 @@
+<label class="uk-form-label uk-text-bold" data-test-presets-category>
+  {{@label}}
+</label>
+<ul class="uk-list uk-margin-small-top">
+  {{#each @presets as |preset|}}
+    <li
+      class="uk-text-muted uk-text-small uk-link-reset
+        {{if (eq @selected preset.query.preset) 'uk-text-bold'}}"
+    >
+      <LinkTo
+        data-test-preset={{preset.id}}
+        @route="work-items"
+        @query={{preset.query}}
+      >
+        {{preset.name}}
+      </LinkTo>
+    </li>
+  {{/each}}
+</ul>

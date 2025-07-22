@@ -81,6 +81,7 @@ class InstanceState(core_models.MultilingualModel, models.Model):
     class Meta:
         managed = True
         db_table = "INSTANCE_STATE"
+        ordering = ("sort",)
 
 
 class InstanceStateT(models.Model):
@@ -179,6 +180,9 @@ class Instance(models.Model):
         InstanceGroup, models.SET_NULL, related_name="instances", null=True
     )
     rejection_feedback = models.TextField(blank=True, null=True)
+    copy_source = models.ForeignKey(
+        "Instance", models.SET_NULL, related_name="copies", null=True
+    )
 
     def _get_queryset_for_linked_instances(self, queryset):
         return queryset if queryset else Instance.objects.all()
@@ -302,18 +306,12 @@ class Instance(models.Model):
 
     def has_inquiry(self, service_id):
         """Return true if the given service is part of the circulation."""
+        from camac.caluma.models import Inquiry
+
         return (
-            WorkItem.objects.filter(
-                case__family=self.case,
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups=[str(service_id)],
-            )
-            .exclude(
-                status__in=[
-                    WorkItem.STATUS_SUSPENDED,
-                    WorkItem.STATUS_CANCELED,
-                ],
-            )
+            Inquiry.objects.for_instance(self)
+            .addressed_to(service_id)
+            .only_active()
             .exists()
         )
 
@@ -344,8 +342,8 @@ class Instance(models.Model):
             ).first()
 
         return (
-            Service.objects.get(pk=md.municipality.get("slug"))
-            if md.municipality
+            Service.objects.get(pk=md.municipality_slug)
+            if md.municipality_slug
             else None
         )
 
@@ -358,6 +356,105 @@ class Instance(models.Model):
             service_group__name="Mitglieder Baukommissionen",
             groups__locations__in=self.municipality.groups.first().locations.all(),
         ).first()
+
+    @canton_aware
+    def publication_date(self):
+        raise NotImplementedError("Not implemented in this canton")  # pragma: no cover
+
+    def publication_date_ur(self):
+        return self.publication_entries.values_list(
+            "publication_date", flat=True
+        ).first()
+
+    @canton_aware
+    def completed_date(self):
+        raise NotImplementedError("Not implemented in this canton")  # pragma: no cover
+
+    def completed_date_ur(self):
+        # In Uri "Dossier vollständig" means that all required information is available
+        # to continue with the instance.
+        complete_check_work_item = next(
+            (
+                wi
+                for wi in self.case.work_items.all()
+                if wi.task_id == "complete-check"
+                and wi.status == WorkItem.STATUS_COMPLETED
+            ),
+            None,
+        )
+
+        if complete_check_work_item:
+            if not complete_check_work_item.document.answers.exists():
+                # for migrated dossiers in Uri there is no "complete-check"
+                return None  # pragma: no cover
+
+            complete_check_answer = complete_check_work_item.document.answers.get(
+                question_id="complete-check-vollstaendigkeitspruefung"
+            ).value
+
+            if (
+                complete_check_answer
+                == "complete-check-vollstaendigkeitspruefung-complete"
+            ):
+                # Dossier is "vollständig"
+                return complete_check_work_item.closed_at
+
+            if complete_check_answer in [
+                "complete-check-vollstaendigkeitspruefung-incomplete",
+                "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+            ]:
+                # Dossier was incomplete during the check and additional-demands were required
+                open_additional_demand_work_items = [
+                    wi
+                    for wi in self.case.work_items.all()
+                    if (
+                        wi.task_id
+                        in [
+                            "send-additional-demand",
+                            "fill-additional-demand",
+                            "check-additional-demand",
+                        ]
+                        and wi.status == WorkItem.STATUS_READY
+                    )
+                ]
+
+                if len(open_additional_demand_work_items):
+                    # There are open additional-demands
+                    return None
+                else:
+                    completed_check_additional_demand_work_items_closed_at = [
+                        wi.closed_at
+                        for wi in self.case.work_items.all()
+                        if (
+                            wi.task_id == "check-additional-demand"
+                            and wi.status == WorkItem.STATUS_COMPLETED
+                        )
+                    ]
+                    if completed_check_additional_demand_work_items_closed_at:
+                        return max(
+                            completed_check_additional_demand_work_items_closed_at
+                        )
+
+        return None  # pragma: no cover
+
+    @canton_aware
+    def review_building_commission_date(self):
+        raise NotImplementedError("Not implemented in this canton")  # pragma: no cover
+
+    def review_building_commission_date_ur(self):
+        work_item = self.case.work_items.filter(task_id="instance-management").first()
+
+        if not work_item:  # pragma: no cover
+            return
+
+        answer = work_item.document.answers.filter(
+            question_id="pruefung-durch-gemeinde"
+        ).first()
+
+        if not answer:  # pragma: no cover
+            return
+
+        return answer.date
 
     class Meta:
         managed = True

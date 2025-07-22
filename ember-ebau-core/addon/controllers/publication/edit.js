@@ -79,14 +79,13 @@ export default class PublicationEditController extends Controller {
           },
         },
       });
-    } catch (e) {
+    } catch {
       this.notification.danger(this.intl.t("publication.cancelError"));
     }
   }
 
   @action async refreshNavigation(transitionToIndex = false) {
-    const { task, startQuestion, endQuestion } =
-      mainConfig.publication[this.model.type];
+    const { task, dateRanges } = mainConfig.publication[this.model.type];
 
     await this.apollo.query({
       query: getPublications,
@@ -94,9 +93,7 @@ export default class PublicationEditController extends Controller {
       variables: {
         instanceId: this.ebauModules.instanceId,
         task,
-        startQuestion,
-        endQuestion,
-        fetchDates: Boolean(startQuestion && endQuestion),
+        dateQuestions: dateRanges.flat(),
       },
     });
 

@@ -1,5 +1,38 @@
 <h2>{{t "workItems.new"}}</h2>
 
+{{#if this.workItemTemplates.records.length}}
+  <form class="uk-form-stacked" aria-label={{t "workItems.templates.select"}}>
+    <label class="uk-form-label">{{t "workItems.templates.info"}}</label>
+    <div class="uk-grid-small" uk-grid>
+      <div class="uk-width-expand uk-form-controls">
+        <PowerSelect
+          @searchEnabled={{true}}
+          @searchField="name"
+          @allowClear={{true}}
+          @options={{this.workItemTemplates.records}}
+          @selected={{this.selectedTemplate}}
+          @placeholder={{t "workItems.templates.select"}}
+          @onChange={{fn (mut this.selectedTemplate)}}
+          class="uk-select"
+          as |template|
+        >
+          {{template.name}}
+        </PowerSelect>
+      </div>
+
+      <div>
+        <UkButton
+          @label={{t "workItems.templates.apply"}}
+          @onClick={{this.applyTemplate}}
+          @disabled={{not this.selectedTemplate}}
+        />
+      </div>
+    </div>
+  </form>
+
+  <div class="uk-margin-top uk-margin-bottom master-data-divider" />
+{{/if}}
+
 <form class="uk-form-stacked" {{on "submit" (perform this.createWorkItem)}}>
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold">
@@ -28,20 +61,20 @@
       <label class="uk-form-label uk-text-bold">
         {{t "workItems.assignedUser"}}
       </label>
-    </div>
-    <div class="uk-form-controls">
-      <PowerSelect
-        @searchEnabled={{true}}
-        @searchField="fullName"
-        @renderInPlace={{true}}
-        @options={{this.users.records}}
-        @selected={{this.responsibleUser}}
-        @noMatchesMessage={{t "global.noMatch"}}
-        @onChange={{fn (mut this.responsibleUser)}}
-        as |user|
-      >
-        {{user.fullName}}
-      </PowerSelect>
+      <div class="uk-form-controls">
+        <PowerSelect
+          @searchEnabled={{true}}
+          @searchField="fullName"
+          @renderInPlace={{true}}
+          @options={{this.users.records}}
+          @selected={{this.responsibleUser}}
+          @noMatchesMessage={{t "global.noMatch"}}
+          @onChange={{fn (mut this.responsibleUser)}}
+          as |user|
+        >
+          {{user.fullName}}
+        </PowerSelect>
+      </div>
     </div>
   {{/if}}
 

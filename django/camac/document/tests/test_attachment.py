@@ -1,5 +1,7 @@
 import io
 import json
+from contextlib import nullcontext as no_exception
+from copy import deepcopy
 from datetime import timedelta
 
 import pytest
@@ -9,10 +11,11 @@ from django.urls import reverse
 from django.utils import timezone
 from PIL import Image
 from pytest_lazy_fixtures import lf, lfc
-from rest_framework import status
+from rest_framework import exceptions, status
 
 from camac.document import models, permissions, serializers
 from camac.permissions.conditions import Always
+from camac.permissions.models import GRANT_CHOICES
 from camac.utils import build_url
 
 from .data import django_file
@@ -48,12 +51,12 @@ def _configure_geometer_access(
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", lf("admin_user"), 14),
-        ("Reader", lf("user"), 14),
-        ("Canton", lf("user"), 14),
-        ("Municipality", lf("user"), 14),
-        ("Service", lf("user"), 14),
-        ("Geometer", lf("user"), 16),
+        ("Applicant", lf("admin_user"), 19),
+        ("Reader", lf("user"), 19),
+        ("Canton", lf("user"), 19),
+        ("Municipality", lf("user"), 18),
+        ("Service", lf("user"), 18),
+        ("Geometer", lf("user"), 19),
     ],
 )
 @pytest.mark.parametrize(
@@ -535,7 +538,7 @@ def test_attachment_create(
     acl_mode,
     role,
     mocker,
-    case_factory,
+    caluma_case_factory,
     application_settings,
 ):
     url = reverse("attachment-list")
@@ -549,7 +552,7 @@ def test_attachment_create(
     application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
     application_settings["ATTACHMENT_MAX_SIZE"] = 0.9 * 1024 * 1024
     if case_status:
-        sz_instance.case = case_factory(status=case_status)
+        sz_instance.case = caluma_case_factory(status=case_status)
         sz_instance.save()
 
     path = django_file(filename)
@@ -577,15 +580,80 @@ def test_attachment_create(
         response = admin_client.get(attributes["path"])
         assert response.status_code == status.HTTP_200_OK
         assert response["Content-Disposition"] == (
-            'attachment; filename="{0}"'.format(filename)
+            'inline; filename="{0}"'.format(filename)
         )
         assert response["Content-Type"].startswith(mime_type)
-        assert response["X-Accel-Redirect"] == "/attachments/files/%s/%s" % (
-            sz_instance.pk,
-            filename,
-        )
+
+        path.seek(0)
+        assert response.getvalue() == path.read()
 
         assert len(mailoutbox) == 1
+
+
+@pytest.mark.parametrize(
+    "has_permission, expectation",
+    [
+        (False, pytest.raises(exceptions.PermissionDenied)),
+        (True, no_exception()),
+    ],
+)
+def test_accesslevel_based_attachment_create_permission(
+    admin_user,
+    ur_instance,
+    has_permission,
+    mocker,
+    expectation,
+):
+    get_permissions = mocker.patch(
+        "camac.permissions.api.PermissionManager.get_permissions"
+    )
+    get_permissions.return_value = (
+        ["documents-write"] if has_permission else ["documents-read"]
+    )
+
+    serializer = serializers.AttachmentSerializer()
+    with expectation:
+        serializer.create(
+            validated_data={
+                "instance": ur_instance,
+                "size": 1000,
+                "user": admin_user,
+            }
+        )
+
+
+@pytest.mark.parametrize(
+    "has_permission, expectation",
+    [
+        (False, pytest.raises(exceptions.PermissionDenied)),
+        (True, no_exception()),
+    ],
+)
+def test_accesslevel_based_attachment_update_permission(
+    admin_user,
+    ur_instance,
+    attachment,
+    attachment_section,
+    service,
+    has_permission,
+    mocker,
+    expectation,
+):
+    get_permissions = mocker.patch(
+        "camac.permissions.api.PermissionManager.get_permissions"
+    )
+    get_permissions.return_value = (
+        ["documents-write"] if has_permission else ["documents-read"]
+    )
+
+    serializer = serializers.AttachmentSerializer()
+    with expectation:
+        serializer.update(
+            attachment,
+            validated_data={
+                "test": "changed",
+            },
+        )
 
 
 def test_attachment_download_404(admin_client, attachment):
@@ -889,6 +957,116 @@ def test_attachment_update_context(
     application_settings["ATTACHMENT_AFTER_DECISION_STATES"] = [finished_state_name]
 
     aasa.instance.instance_state = instance_state
+
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=(
+            admin_user.groups.first().service
+            if is_active_service
+            else group_factory().service
+        ),
+    )
+
+    aasa.instance.save()
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "test": {
+                admin_user.groups.first().role.name.lower(): {
+                    permission: [attachment_section.pk]
+                }
+            }
+        },
+    )
+
+    data = {
+        "data": {
+            "type": "attachments",
+            "id": aasa.pk,
+            "relationships": {
+                "attachment-sections": {
+                    "data": [
+                        {"type": "attachment-sections", "id": attachment_section.pk}
+                    ]
+                }
+            },
+        }
+    }
+    if new_context:
+        data["data"]["attributes"] = {"context": new_context}
+
+    response = admin_client.patch(url, data=data)
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "attachment__context,new_context,attachment__mime_type,permission,status_code,is_active_service,role__name,attachment_section__allowed_mime_types",
+    [
+        # change of isDecision to True with allowed mime_type
+        (
+            {"isDecision": False},
+            {"isDecision": True},
+            "application/pdf",
+            permissions.WritePermission,
+            status.HTTP_200_OK,
+            True,
+            "Canton",
+            [],
+        ),
+        # change of isDecision to False with any mime_type
+        (
+            {"isDecision": True},
+            {"isDecision": False},
+            "application/xml",
+            permissions.WritePermission,
+            status.HTTP_200_OK,
+            True,
+            "Canton",
+            [],
+        ),
+        (
+            {"isDecision": True},
+            {"isDecision": False},
+            "application/pdf",
+            permissions.WritePermission,
+            status.HTTP_200_OK,
+            True,
+            "Canton",
+            [],
+        ),
+        # change of isDecision to True with not allowed mime_type
+        (
+            {"isDecision": False},
+            {"isDecision": True},
+            "application/xml",
+            permissions.WritePermission,
+            status.HTTP_400_BAD_REQUEST,
+            True,
+            "Canton",
+            [],
+        ),
+    ],
+)
+def test_attachment_update_context_be(
+    admin_client,
+    admin_user,
+    application_settings,
+    attachment_section,
+    attachment_attachment_sections,
+    group_factory,
+    status_code,
+    is_active_service,
+    new_context,
+    mocker,
+    permission,
+):
+    application_settings["DECISION_DOCUMENT_MIMETYPES"] = deepcopy(
+        settings.APPLICATIONS["kt_bern"]["DECISION_DOCUMENT_MIMETYPES"]
+    )
+    aasa = attachment_attachment_sections.attachment
+    url = reverse("attachment-detail", args=[aasa.pk])
 
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
@@ -1576,3 +1754,83 @@ def test_convert_docx_to_word(
     response = admin_client.post(url)
 
     assert response.status_code == status.HTTP_201_CREATED
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_accesslevel_based_permission(
+    admin_client,
+    attachment_section_factory,
+    instance,
+    attachment_factory,
+    mocker,
+    access_level_factory,
+    service_factory,
+    instance_acl_factory,
+):
+    """
+    Testing the accesslevel based document visibility.
+
+    If a user has an ACL on a given instance, the corresponding access level
+    may also grant some document ("attachment") visibility. We test that
+    two different permission types (ReadPermission and AdminInternalPermission)
+    work as expected.
+    """
+    section_a = attachment_section_factory(name="Section A")
+    section_b = attachment_section_factory(name="Section B")
+
+    my_service = admin_client.user.get_default_group().service
+    other_service = service_factory()
+
+    instance.location = admin_client.user.get_default_group().locations.first()
+    instance.save()
+
+    def af(name, service, section):
+        att = attachment_factory(name=name, service=service, instance=instance)
+        att.attachment_sections.set([section])
+        return att
+
+    doc_a_same = af("Doc A Same", my_service, section_a)
+    doc_a_othr = af("Doc A Othr", other_service, section_a)
+    doc_b_same = af("Doc B Same", my_service, section_b)
+    doc_b_othr = af("Doc B Othr", other_service, section_b)  # noqa
+
+    url = reverse("attachment-list")
+
+    level = access_level_factory(name="mylevel", slug="mylevel")
+
+    instance_acl_factory(
+        instance=instance,
+        service=my_service,
+        access_level=level,
+        grant_type=GRANT_CHOICES.SERVICE.value,
+    )
+
+    # fix permissions
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS_BY_ACCESSLEVEL",
+        {
+            "test": {
+                level.slug: {
+                    permissions.ReadPermission: (
+                        permissions._allow_always,
+                        [section_a.pk],
+                    ),
+                    permissions.AdminInternalPermission: (
+                        permissions._allow_always,
+                        [section_b.pk],
+                    ),
+                }
+            }
+        },
+    )
+
+    response = admin_client.get(url)
+
+    resp_data = response.json()
+    resp_ids = set([rec["id"] for rec in resp_data["data"]])
+
+    expect_ids = set([str(doc_a_same.pk), str(doc_a_othr.pk), str(doc_b_same.pk)])
+    # doc_b_othr should NOT be part of the result - section B as "admin internal"
+    # permissions, so should only see same-service documents
+
+    assert resp_ids == expect_ids

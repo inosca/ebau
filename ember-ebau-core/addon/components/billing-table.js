@@ -1,6 +1,7 @@
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
+import { trackedFunction } from "reactiveweb/function";
 
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
@@ -9,8 +10,12 @@ export default class BillingTableComponent extends Component {
 
   @tracked hideCharged = false;
 
+  #colspanTotalLabel = trackedFunction(this, async () => {
+    return (await this.abilities.can("charge billing-v2-entries")) ? 5 : 4;
+  });
+
   get colspanTotalLabel() {
-    return this.abilities.can("charge billing-v2-entries") ? 5 : 4;
+    return this.#colspanTotalLabel.value;
   }
 
   get colspanTotalFill() {
@@ -25,6 +30,18 @@ export default class BillingTableComponent extends Component {
     }
 
     if (hasFeature("billing.billingType")) {
+      colspan += 1;
+    }
+
+    if (hasFeature("billing.productNumber")) {
+      colspan += 1;
+    }
+
+    if (hasFeature("billing.releaseForClearing.enabled")) {
+      colspan += 1;
+    }
+
+    if (hasFeature("billing.remark")) {
       colspan += 1;
     }
 

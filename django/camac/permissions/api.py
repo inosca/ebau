@@ -3,9 +3,11 @@ from datetime import datetime, timedelta
 from typing import List, Optional, Union
 
 from django.conf import ImproperlyConfigured, settings
+from django.contrib.auth.models import AnonymousUser
 from django.core.cache import cache
-from django.db.models import QuerySet, Subquery
+from django.db.models import Q, QuerySet, Subquery
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 from rest_framework.exceptions import PermissionDenied
 
 from camac.instance.models import Instance
@@ -35,6 +37,9 @@ class ACLUserInfo:
         # TODO: Token ACL is not specified yet, so this part is always unset
 
         user = request.user if hasattr(request, "user") else None
+        if isinstance(user, AnonymousUser):
+            user = None
+
         try:
             service = request.group.service
         except AttributeError:
@@ -195,13 +200,13 @@ class PermissionManager:
         """Enforce presence of at least one of the given permissions."""
         if self.has_any(instance, required_permissions):
             return
-        raise PermissionDenied("You do not have the required permission to do this")
+        raise PermissionDenied(_("You do not have the required permission to do this"))
 
     def require_all(self, instance, required_permissions: Union[str, List[str]]):
         """Enforce presence of all of the given the given permissions."""
         if self.has_all(instance, required_permissions):
             return
-        raise PermissionDenied("You do not have the required permission to do this")
+        raise PermissionDenied(_("You do not have the required permission to do this"))
 
     def _access_level_config(self, access_level_slug):
         """Return the config for the given access level.
@@ -316,7 +321,7 @@ class PermissionManager:
 
         return queryset.filter(self.get_q_object(instance_prefix)).distinct()
 
-    def get_q_object(self, instance_prefix):
+    def get_q_object(self, instance_prefix, only_level=None):
         """Return a Q object to only show the entries with active ACL.
 
         The Q object will filter a queryset such that only entries are returned
@@ -325,13 +330,36 @@ class PermissionManager:
         In contrast to the `filter_queryset()` method above, this is useful if
         you need to invert the filtering mechanism, or combine it with other
         expressions (combine using OR to extend visibilities for example)
+
+        If you pass `only_level="some_access_level"`, only ACLs with the
+        given level are considered.
         """
 
         acl_prefix = f"{instance_prefix}__acls" if instance_prefix else "acls"
         filter = InstanceACL.filter_for_current_user(
             **self.userinfo.to_kwargs(), acl_prefix=acl_prefix
         )
+
+        if only_level:
+            filter = filter & Q(**{f"{acl_prefix}__access_level_id": only_level})
         return filter
+
+    def current_access_levels(self, instance=None) -> list[str]:
+        """Return a list of access level slugs relevant for the current user.
+
+        The list spans all access levels that the user has in any possible
+        situation. Useful for building visibility queries.
+
+        If the `instance` parameter is given, only the access levels that
+        are granted on that instance are returned.
+        """
+        qs = models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
+        if instance:
+            qs = qs.filter(instance=instance)
+
+        return list(
+            qs.distinct("access_level_id").values_list("access_level_id", flat=True)
+        )
 
     def involved_services(self, instance: Instance) -> QuerySet:
         """Return a queryset of involved services for the given instance.

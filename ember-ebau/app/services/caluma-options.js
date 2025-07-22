@@ -1,8 +1,10 @@
 import { service } from "@ember/service";
+import { getOwnConfig } from "@embroider/macros";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
 import { cantonAware } from "ember-ebau-core/decorators";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
 import { cached } from "tracked-toolbox";
 
 export default class CustomCalumaOptionsService extends CalumaOptionsService {
@@ -34,30 +36,17 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return authorityId === parseInt(this.currentGroupId);
   }
 
-  async _fetchIfNotCached(modelName, idFilter, identifiers) {
-    const cachedIdentifiers = this.store
-      .peekAll(modelName)
-      .map((model) => model.id);
-
-    const uncachedIdentifiers = identifiers.filter(
-      (identifier) => !cachedIdentifiers.includes(String(identifier)),
-    );
-
-    if (uncachedIdentifiers.length) {
-      await this.store.query(modelName, {
-        [idFilter]: String(uncachedIdentifiers),
-      });
-    }
-
-    return this.store.peekAll(modelName);
-  }
-
   resolveUsers(identifiers) {
-    return this._fetchIfNotCached("public-user", "username", identifiers);
+    return fetchIfNotCached("public-user", "username", identifiers, this.store);
   }
 
   resolveGroups(identifiers) {
-    return this._fetchIfNotCached("public-service", "service_id", identifiers);
+    return fetchIfNotCached(
+      "public-service",
+      "service_id",
+      identifiers,
+      this.store,
+    );
   }
 
   @cantonAware
@@ -78,6 +67,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     "inquiry-answer-notices-for-authority-arp",
     "inquiry-answer-forward",
   ];
+  static distributionInfoQuestionsAG = ["inquiry-answer-status"];
 
   @cantonAware
   static distributionStatusMapping = {};
@@ -111,6 +101,16 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       color: "emphasis",
     },
   };
+  static distributionStatusMappingAG = {
+    "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
+    "inquiry-answer-status-positive-sanctions": INQUIRY_STATUS.POSITIVE,
+    "inquiry-answer-status-positive-partially": INQUIRY_STATUS.POSITIVE,
+    "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
+    "inquiry-answer-status-negative-deconstruction": INQUIRY_STATUS.NEGATIVE,
+    "inquiry-answer-status-statement": { icon: "eye", color: "emphasis" },
+    "inquiry-answer-status-claim": INQUIRY_STATUS.NEEDS_INTERACTION,
+    "inquiry-answer-status-not-involved": { icon: "reply", color: "emphasis" },
+  };
 
   @cantonAware
   get distributionServiceGroups() {
@@ -118,21 +118,44 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   }
 
   get distributionServiceGroupsGR() {
-    return {
-      suggestions: { disabled: true },
-      "authority-bab": {
-        label: "distribution.authority-bab",
-      },
-      service: {
-        label: "distribution.services",
-      },
-      municipality: {
-        label: "distribution.municipalities",
-      },
-      subservice: {
-        label: "distribution.subservices",
-      },
-    };
+    if (this.ebauModules.instanceId) {
+      const instance = this.store.peekRecord(
+        "instance",
+        this.ebauModules.instanceId,
+      );
+
+      if (["bauanzeige", "bauanzeige-v3"].includes(instance.calumaForm)) {
+        return {
+          suggestions: { disabled: false },
+          municipality: {
+            label: "distribution.municipalities",
+          },
+          service: {
+            label: "distribution.services",
+          },
+          subservice: {
+            label: "distribution.subservices",
+          },
+        };
+      }
+
+      return {
+        suggestions: { disabled: false },
+        "authority-bab": {
+          label: "distribution.authority-bab",
+        },
+        service: {
+          label: "distribution.services",
+        },
+        municipality: {
+          label: "distribution.municipalities",
+        },
+        subservice: {
+          label: "distribution.subservices",
+        },
+      };
+    }
+    return {};
   }
 
   get distributionServiceGroupsSO() {
@@ -144,7 +167,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       municipality: {
         label: "distribution.municipalities",
       },
-      "service-cantonal": {
+      "service-cantonal;service-bab": {
         label: "distribution.services-cantonal",
       },
       "service-extra-cantonal": {
@@ -165,11 +188,28 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
     if (this.session.rolePermission === "municipality" && !this.isAuthority) {
       Reflect.deleteProperty(fullConfig, "municipality");
-      Reflect.deleteProperty(fullConfig, "service-cantonal");
+      Reflect.deleteProperty(fullConfig, "service-cantonal;service-bab");
       Reflect.deleteProperty(fullConfig, "service-extra-cantonal");
     }
 
     return fullConfig;
+  }
+
+  get distributionServiceGroupsAG() {
+    return {
+      subservice: {
+        label: "distribution.subservices",
+      },
+      "service-cantonal;service-afb": {
+        label: "distribution.services-cantonal",
+      },
+      "service-external": {
+        label: "distribution.services-external",
+      },
+      municipality: {
+        label: "distribution.municipalities",
+      },
+    };
   }
 
   @cantonAware
@@ -189,27 +229,40 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return ["subservice"];
   }
 
+  static distributionButtons = {
+    "fill-inquiry": {
+      color: "primary",
+      label: "distribution.send-answer",
+      status: "caluma.distribution.answer.buttons.compose.status",
+      willCompleteInquiry: true,
+    },
+  };
+
+  @cantonAware
+  static distributionDefaultLeadTime = 30;
+  static distributionDefaultLeadTimeAG = 14;
+
   @cached
   get distribution() {
     return {
-      ui: { readonly: this.session.isReadOnlyRole },
+      ui: {
+        readonly: this.session.isReadOnlyRole,
+        new: {
+          showAllServices: getOwnConfig().application === "ag",
+        },
+      },
       inquiry: {
         answer: {
           infoQuestions: CustomCalumaOptionsService.distributionInfoQuestions,
-          buttons: {
-            "fill-inquiry": {
-              color: "primary",
-              label: "distribution.send-answer",
-              status: "caluma.distribution.answer.buttons.compose.status",
-              willCompleteInquiry: true,
-            },
-          },
+          buttons: CustomCalumaOptionsService.distributionButtons,
           statusMapping: CustomCalumaOptionsService.distributionStatusMapping,
         },
       },
       new: {
         types: this.distributionServiceGroups,
         defaultTypes: this.distributionDefaultServiceGroups,
+        defaultDeadlineLeadTime:
+          CustomCalumaOptionsService.distributionDefaultLeadTime,
       },
       permissions: {
         completeDistribution: () => this.session.isLeadRole,
@@ -221,7 +274,8 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         checkInquiries: () => this.session.isLeadRole,
       },
       hooks: {
-        postCompleteDistribution: () => this.ebauModules.redirectToWorkItems(),
+        postCompleteDistribution: () =>
+          this.ebauModules.redirectToCaseWorkItems(),
       },
       inquiryReminderNotificationTemplateSlug: "inquiry-reminder",
     };
@@ -235,10 +289,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           : type === "suggestions"
             ? { suggestion_for_instance: this.currentInstanceId }
             : {
-                service_group_name:
-                  type === "service-cantonal"
-                    ? [type, "service-bab"].join(",")
-                    : type,
+                service_group_name: type.split(";").join(","),
                 has_parent: false,
               };
 

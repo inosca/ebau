@@ -11,37 +11,59 @@ from camac.utils import build_url
 
 
 @pytest.fixture
-def gis_apply_data(form_question_factory, question_option_factory, caluma_forms_so):
+def gis_apply_data(
+    caluma_form_question_factory,
+    caluma_question_option_factory,
+    caluma_question_factory,
+    caluma_forms_so,
+):
     main_form = Form.objects.get(pk="main-form")
     plot_form = Form.objects.create(slug="parzelle")
 
-    form_question_factory(
+    # Question exists but is not in the form - should be skipped
+    caluma_question_factory(slug="question-not-in-form", type=Question.TYPE_CHOICE)
+
+    caluma_form_question_factory(
         form=plot_form,
         question__slug="e-grid",
         question__type=Question.TYPE_TEXT,
     )
 
-    form_question_factory(
+    caluma_form_question_factory(
         form=main_form,
         question__slug="ort",
         question__type=Question.TYPE_TEXT,
     )
-    form_question_factory(
+    caluma_form_question_factory(
         form=main_form,
         question__slug="schutzzone",
         question__type=Question.TYPE_MULTIPLE_CHOICE,
     )
-    form_question_factory(
+    caluma_form_question_factory(
         form=main_form,
         question__slug="parzellen",
         question__type=Question.TYPE_TABLE,
         question__row_form=plot_form,
     )
 
-    question_option_factory(question_id="schutzzone", option__slug="schutzzone-ueb")
-    question_option_factory(question_id="schutzzone", option__slug="schutzzone-au")
+    caluma_question_option_factory(
+        question_id="schutzzone", option__slug="schutzzone-ueb"
+    )
+    caluma_question_option_factory(
+        question_id="schutzzone", option__slug="schutzzone-au"
+    )
 
     data = {
+        "question-not-in-form": {
+            "hidden": False,
+            "label": "Diese Frage ist nicht in diesem Formular!",
+            "value": "Geht nicht",
+        },
+        "question-does-not-exist": {
+            "hidden": False,
+            "label": "Diese Frage gibt es nicht!",
+            "value": "Geht nicht",
+        },
         "ort": {
             "hidden": False,
             "label": "Ort",
@@ -133,9 +155,13 @@ def test_gis_apply(
     assert response.status_code == expected_status
 
     if response.status_code == status.HTTP_201_CREATED:
-        assert set(response.json()["questions"]) == set(data.keys())
+        ignored_keys = {"question-not-in-form", "question-does-not-exist"}
+
+        assert set(response.json()["questions"]) == set(data.keys()) - ignored_keys
 
         answers = so_instance.case.document.answers.all()
+
+        assert answers.filter(question_id__in=ignored_keys).count() == 0
 
         assert answers.get(question_id="ort").value == "Bern"
         assert answers.get(question_id="ort").meta["gis-value"] == "Bern"

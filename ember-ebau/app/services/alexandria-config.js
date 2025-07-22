@@ -1,11 +1,13 @@
 import { action, get } from "@ember/object";
 import { service } from "@ember/service";
-import { getConfig } from "@embroider/macros";
+import { getConfig, getOwnConfig, macroCondition } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
-
-const allowedWebDAVMimeTypes =
-  getConfig("ember-ebau-core").allowedWebDAVMimeTypes;
+import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
+const coreConfig = getConfig("ember-ebau-core");
+const allowedWebDAVMimeTypes = coreConfig.allowedWebDAVMimeTypes;
+const enableOriginalDocumentFilename =
+  coreConfig.enableAlexandriaOriginalDocumentFilename === true;
 
 export default class CustomAlexandriaConfigService extends AlexandriaConfigService {
   markIcons = {
@@ -20,8 +22,10 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   @service session;
   @service intl;
   @service router;
+  @service ebauModules;
 
   @tracked instanceId;
+  @tracked documentId;
 
   get modelMetaFilters() {
     return {
@@ -29,15 +33,30 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
     };
   }
 
+  get categoryQueryParameters() {
+    const params = {};
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      if (this.instanceId) {
+        params["camac-instance-id"] = String(this.instanceId);
+      }
+    }
+
+    return params;
+  }
+
   get defaultModelMeta() {
     return {
-      document: { "camac-instance-id": String(this.instanceId) },
+      document: {
+        "camac-instance-id": String(this.instanceId),
+        "caluma-document-id": this.documentId,
+      },
     };
   }
 
   get activeGroup() {
-    return this.session.service.id;
+    return this.session.service?.id;
   }
+
   set activeGroup(_) {
     // we do not need the setter
   }
@@ -50,18 +69,62 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
     return this.session.data.authenticated.access_token;
   }
 
-  @action
-  resolveUser(id) {
-    if (!id) return "-";
+  get documentListColumns() {
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      return {
+        type: {
+          label: "type",
+          labelHidden: true,
+        },
+        title: {
+          label: "document-title",
+          sort: true,
+        },
+        marks: {
+          label: "marks",
+          labelHidden: true,
+        },
+        date: {
+          label: "date",
+          sort: true,
+        },
+        modifiedAt: {
+          label: "modified-at",
+          sort: true,
+        },
+        createdByUser: {
+          label: "created-by-user",
+          sort: true,
+        },
+        createdByGroup: {
+          label: "created-by-group",
+          sort: true,
+        },
+        category: {
+          label: "category",
+          sort: true,
+        },
+      };
+    }
 
-    return this.store.peekRecord("user", id)?.fullName ?? "-";
+    // Fallback of null means that the default alexandria columns will be used
+    return null;
   }
 
   @action
-  resolveGroup(id) {
+  async resolveUser(id) {
     if (!id) return "-";
 
-    return this.store.peekRecord("service", id)?.name ?? "-";
+    await fetchIfNotCached("public-user", "id", [id], this.store);
+    return this.store.peekRecord("public-user", id)?.fullName ?? "-";
+  }
+
+  @action
+  async resolveGroup(id) {
+    if (!id) return "-";
+
+    await fetchIfNotCached("public-service", "id", [id], this.store);
+    return this.store.peekRecord("public-service", id)?.name ?? "-";
   }
 
   extractDocumentProperties(documents, key) {
@@ -79,12 +142,12 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
     const requests = [];
     if (users.length) {
       requests.push(
-        this.store.query("user", { filter: { id: users.join(",") } }),
+        this.store.query("public-user", { filter: { id: users.join(",") } }),
       );
     }
     if (groups.length) {
       requests.push(
-        await this.store.query("service", {
+        await this.store.query("public-service", {
           filter: { service_id: groups.join(",") },
         }),
       );
@@ -124,4 +187,5 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   enablePDFConversion = true;
   enableWebDAV = true;
   allowedWebDAVMimeTypes = allowedWebDAVMimeTypes.split(",");
+  enableOriginalDocumentFilename = enableOriginalDocumentFilename;
 }

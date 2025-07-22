@@ -1,3 +1,6 @@
+# TODO: revert if xfail is removed
+# pragma: exclude file
+
 from pathlib import Path
 
 import pytest
@@ -156,7 +159,7 @@ def parashift_data(
     instance_state_factory,
     group_factory,
     location_factory,
-    question_factory,
+    caluma_question_factory,
     authority_location_factory,
     caluma_workflow_config_ur,
     attachment_section_factory,

@@ -18,6 +18,8 @@ TEST_IMPORT_FILE_PATH = str(
     Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/"
 )
 
+JSON_INPUT_DIR = Path(__file__).parent / "tests/data/kt_ag_json"
+
 
 @pytest.fixture
 def archive_file(settings):
@@ -95,8 +97,7 @@ def dossier_row_full(dossier_row_sparse):
         ("PROJECTAUTHOR-PHONE", "0771234123"),
         ("PROJECTAUTHOR-EMAIL", "urlichkissling@example.com"),
     ]
-    dossier_row_sparse.update(data)
-    return dossier_row_sparse
+    return dossier_row_sparse | OrderedDict(data)
 
 
 @pytest.fixture()
@@ -116,8 +117,8 @@ def load_fixtures_so(
     settings,
     caluma_workflow_config_so,
     so_dossier_import_settings,
-    document_factory,
-    dynamic_option_factory,
+    caluma_document_factory,
+    caluma_dynamic_option_factory,
     service_factory,
     so_decision_settings,
     so_construction_monitoring_settings,
@@ -126,6 +127,7 @@ def load_fixtures_so(
     extra_fixtures = [
         settings.ROOT_DIR("kt_so/config/permissions.json"),
         settings.ROOT_DIR("kt_so/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_so/config/caluma_form_default_answers.json"),
         settings.ROOT_DIR("kt_so/config/caluma_decision_form.json"),
         settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_form.json"),
         settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_workflow.json"),
@@ -133,11 +135,49 @@ def load_fixtures_so(
 
     caluma_workflow_config_so.allow_forms.add("migriertes-dossier")
     service = service_factory(service_group__name="municipality")
-    dynamic_option_factory(
-        slug=str(service.pk), question_id="gemeinde", document=document_factory()
+    caluma_dynamic_option_factory(
+        slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
     )
 
-    so_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory().pk
+    so_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory(
+        allowed_mime_types=["application/pdf"]
+    ).pk
+
+    yield service, extra_fixtures
+
+
+@pytest.fixture
+def load_fixtures_ag(
+    db,
+    settings,
+    caluma_workflow_config_ag,
+    ag_dossier_import_settings,
+    caluma_document_factory,
+    caluma_dynamic_option_factory,
+    service_factory,
+    ag_decision_settings,
+    ag_permissions_settings,
+    ag_construction_monitoring_settings,
+):
+    extra_fixtures = [
+        settings.ROOT_DIR("kt_ag/config/caluma_audit_form.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_decision_form.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_form_common.json"),
+        settings.ROOT_DIR("kt_ag/config/permissions.json"),
+        settings.ROOT_DIR("kt_ag/config/user.json"),
+        settings.ROOT_DIR("kt_ag/config/user_core_groups.json"),
+        settings.ROOT_DIR("kt_ag/data/user.json"),
+    ]
+
+    service = service_factory(service_group__name="municipality")
+    caluma_dynamic_option_factory(
+        slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
+    )
+
+    ag_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory(
+        allowed_mime_types=["application/pdf"]
+    ).pk
 
     yield service, extra_fixtures
 
@@ -169,8 +209,8 @@ def load_fixtures_be(
     decision_factory,
     service_factory,
     construction_control_for,
-    document_factory,
-    dynamic_option_factory,
+    caluma_document_factory,
+    caluma_dynamic_option_factory,
     be_permissions_settings,
     application_settings,
 ):
@@ -187,8 +227,8 @@ def load_fixtures_be(
     ]
     service = service_factory(service_group__name="municipality")
     construction_control_for(service)
-    dynamic_option_factory(
-        slug=str(service.pk), question_id="gemeinde", document=document_factory()
+    caluma_dynamic_option_factory(
+        slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
     )
     yield service, django_fixture_paths
 
@@ -259,3 +299,31 @@ def setup_dossier_writer(
         return dossier_writer
 
     return wrapper
+
+
+@pytest.fixture()
+def setup_dossier_import_ag(
+    request,
+    settings,
+    set_application_ag,
+    role_factory,
+):
+    config = "kt_ag"
+    # Needed for permissions module `instance_created` trigger
+    role_factory(name="Support")
+
+    common_fixtures_paths = [
+        # list of fixtures common to all configs. e. g.:
+        settings.ROOT_DIR(f"{config}/config/instance.json"),
+    ]
+
+    settings.APPLICATION_NAME = config
+    short_name = settings.APPLICATIONS[config]["SHORT_NAME"]
+    service, config_fixtures = request.getfixturevalue(f"load_fixtures_{short_name}")
+
+    fixture_paths = common_fixtures_paths + config_fixtures
+    if len(fixture_paths):
+        call_command("loaddata", *fixture_paths)
+
+    settings.MEDIA_ROOT = JSON_INPUT_DIR
+    settings.DOSSIER_IMPORT["SAP_ACCESS"]["json_target_dir"] = JSON_INPUT_DIR

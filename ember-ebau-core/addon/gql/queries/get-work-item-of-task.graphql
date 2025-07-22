@@ -12,8 +12,15 @@ query GetWorkItemOfTask($instanceId: GenericScalar!, $task: ID!) {
         id
         status
         addressedGroups
+        task {
+          slug
+          meta
+        }
         document {
           id
+          form {
+            slug
+          }
         }
       }
     }

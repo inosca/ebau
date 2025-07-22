@@ -201,12 +201,18 @@ export default class InstancesIndexController extends Controller {
           { key: answerSlugs.specialId, value: this._specialId },
           {
             key: "submit-date",
-            value: DateTime.fromISO(this._submitFrom).startOf("day").toISO(),
+            value: DateTime.fromISO(this._submitFrom)
+              .startOf("day")
+              .toUTC()
+              .toISO(),
             lookup: "GTE",
           },
           {
             key: "submit-date",
-            value: DateTime.fromISO(this._submitTo).endOf("day").toISO(),
+            value: DateTime.fromISO(this._submitTo)
+              .endOf("day")
+              .toUTC()
+              .toISO(),
             lookup: "LTE",
           },
         ].filter(({ value }) => !isEmpty(value)),

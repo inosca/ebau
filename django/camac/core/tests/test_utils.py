@@ -4,14 +4,14 @@ from camac.core import utils
 
 
 @pytest.mark.freeze_time("2020-10-16")
-def test_max_ebau_nr(db, case_factory, instance_factory, question, chapter):
+def test_max_ebau_nr(db, caluma_case_factory, instance_factory, question, chapter):
     assert utils.generate_ebau_nr(None, 2020) == "2020-1"
 
-    case_factory(meta={"ebau-number": "2020-123"})
-    case_factory(meta={"ebau-number": "2020-99"})
+    caluma_case_factory(meta={"ebau-number": "2020-123"})
+    caluma_case_factory(meta={"ebau-number": "2020-99"})
     assert utils.generate_ebau_nr(None, 2020) == "2020-124"
 
-    case_factory(meta={"ebau-number": "2019-100"})
+    caluma_case_factory(meta={"ebau-number": "2019-100"})
     assert utils.generate_ebau_nr(None, 2019) == "2019-101"
     assert utils.generate_ebau_nr(None, 2020) == "2020-124"
     assert utils.generate_ebau_nr(None, 2021) == "2021-1"
@@ -21,7 +21,7 @@ def test_max_ebau_nr(db, case_factory, instance_factory, question, chapter):
 def test_assign_ebau_nr(
     db,
     question,
-    case_factory,
+    caluma_case_factory,
     chapter,
     instance_with_case,
     instance_factory,
@@ -44,7 +44,7 @@ def test_assign_ebau_nr(
     inst3 = instance_with_case(instance_factory())
     assert utils.assign_ebau_nr(inst3, 2019) == "2019-1"
 
-    case_factory(meta={"ebau-number": "2017-420"})
+    caluma_case_factory(meta={"ebau-number": "2017-420"})
     inst4 = instance_with_case(instance_factory())
     assert utils.assign_ebau_nr(inst4, 2017) == "2017-421"
 
@@ -71,13 +71,30 @@ def test_canton_aware_decorator(db, role, expected, canton, application_settings
 
 
 @pytest.mark.freeze_time("2020-10-16")
-def test_generate_sort_key(db, case_factory):
+def test_generate_sort_key(db, caluma_case_factory):
     assert utils.generate_sort_key(utils.generate_ebau_nr(None, 2020)) == 2020000001
 
-    case_factory(meta={"ebau-number": "2020-123"})
-    case_factory(meta={"ebau-number": "2020-99"})
+    caluma_case_factory(meta={"ebau-number": "2020-123"})
+    caluma_case_factory(meta={"ebau-number": "2020-99"})
     assert utils.generate_sort_key(utils.generate_ebau_nr(None, 2020)) == 2020000124
 
     assert utils.generate_sort_key("2020-999999") == 2020999999
     assert utils.generate_sort_key("KW-07-21-999999") == 721999999
     assert utils.generate_sort_key("1201-2021-13") == 12012021000013
+
+
+def test_tika_does_not_write_own_log():
+    """Tika wants to write it's own log file. Ensure our settings disable it.
+
+    Tika uses env variables to configure it's own logging, but we want our
+    logging config to take precedence, and most importantly, don't want Tika
+    to try starting/writing a logfile in /tmp (which is it's default behaviour).
+    """
+
+    # lazy import to avoid test discovery from tripping up
+    # the settings - loading order is important here
+    from tika import tika
+
+    # If we've successfully disabled tika's own log, it's logfile won't point
+    # to that path
+    assert tika.log_file != "/tmp/tika.log"

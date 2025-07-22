@@ -100,7 +100,7 @@ class HasRole(Check):
     required_roles: List[str]
 
     def apply(self, userinfo, instance):
-        return any(userinfo.role.name == role for role in self.required_roles)
+        return userinfo.role.name in self.required_roles
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -234,7 +234,7 @@ class IsForm(Check):
     forms: List[str]
 
     def apply(self, userinfo, instance):
-        return any(instance.case.document.form_id == form for form in self.forms)
+        return instance.case.document.form_id in self.forms
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -259,7 +259,7 @@ class HasApplicantRole(Check):
         if not applicant:
             return False
 
-        return any(applicant.role == role for role in self.roles)
+        return applicant.role in self.roles
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -299,6 +299,7 @@ class RequireWorkItem(Check):
 
     task_id: str
     status: Optional[str] = None
+    addressed_to_current_service: Optional[bool] = False
 
     def apply(self, userinfo, instance):
         from caluma.caluma_workflow.models import WorkItem
@@ -309,6 +310,11 @@ class RequireWorkItem(Check):
 
         if self.status:
             work_items = work_items.filter(status=self.status)
+
+        if self.addressed_to_current_service:
+            work_items = work_items.filter(
+                addressed_groups__contains=[str(userinfo.service.pk)]
+            )
 
         return work_items.exists()
 
@@ -321,3 +327,25 @@ class RequireWorkItem(Check):
 
     def __repr__(self):  # pragma: no cover
         return f"RequireWorkItem({self.task_id})"
+
+
+@dataclass
+class IsServiceGroup(Check):
+    """Permission check for requiring any service group of a given list."""
+
+    required_service_groups: List[str]
+    allow_caching: bool = True
+
+    def apply(self, userinfo, instance):
+        if not userinfo.service:
+            return False
+
+        return userinfo.service.service_group.name in self.required_service_groups
+
+    def __eq__(self, other: Check):  # pragma: no cover
+        return isinstance(other, IsServiceGroup) and set(
+            other.required_service_groups
+        ) == set(self.required_service_groups)
+
+    def __repr__(self):
+        return f"IsServiceGroup({', '.join(sorted(self.required_service_groups))})"

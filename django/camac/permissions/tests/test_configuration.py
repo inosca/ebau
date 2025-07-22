@@ -9,8 +9,7 @@ from camac.permissions.utils import IncompatibleCheck, extract_allowed_states
 
 @pytest.mark.xfail(
     reason=(
-        "Complaining about all the duplicate configs, but "
-        "this is not an actual problem"
+        "Complaining about all the duplicate configs, but this is not an actual problem"
     )
 )
 def test_duplicate_conditionals(db, any_application):

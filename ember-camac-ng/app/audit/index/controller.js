@@ -32,7 +32,7 @@ export default class AuditIndexController extends Controller {
       yield this.auditController.fetchAudit.perform();
 
       this.notification.success(this.intl.t("audit.skipSuccess"));
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("audit.skipError"));
     }
   }

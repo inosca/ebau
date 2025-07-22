@@ -44,7 +44,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "complete-check-baubewilligungspflichtig",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -74,7 +74,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "complete-check-vollstaendigkeitspruefung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -89,7 +89,22 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "profilierung",
-      "sort": 7
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "complete-check.rejection-feedback",
+    "fields": {
+      "created_at": "2025-02-28T09:34:04.333Z",
+      "modified_at": "2025-02-28T09:34:04.333Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "complete-check",
+      "question": "rejection-feedback",
+      "sort": 3
     }
   },
   {
@@ -104,7 +119,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "unterlagen-plaene",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -119,7 +134,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "unterschriften",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -134,7 +149,7 @@
       "modified_by_group": null,
       "form": "complete-check",
       "question": "unterschriftenblatt-eingereicht",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -501,10 +516,10 @@
     "pk": "complete-check-baubewilligungspflichtig",
     "fields": {
       "created_at": "2023-12-08T09:59:09.968Z",
-      "modified_at": "2024-08-23T06:29:42.198Z",
+      "modified_at": "2025-03-14T05:41:42.675Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Baubewilligungsverfahren durchf\\u00fchren?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -512,7 +527,7 @@
       "is_hidden": "info.case.form in [\"cantonal-territory-usage\", \"konzession-waermeentnahme\", \"bohrbewilligung-waermeentnahme\", \"pgv-gemeindestrasse\", \"bgbb\", \"oereb\", \"oereb-verfahren-gemeinde\", \"verfahren-gemeinde\", \"mitbericht-kanton\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"## Baubewilligungsverfahren durchf\\u00fchren / Dossier umwandeln in ein Baugesuch\\n\\nDie Auswahl \\\"\\\"ja\\\"\\\", wandelt die Verfahren, Baugesuch-Vorabkl\\u00e4rung, Reklamegesuch, Solaranlage und Geb\\u00e4udetechnik automatisch in ein Baubewilligungsverfahren um. Diese k\\u00f6nnen dann gleich wie das ordentliche Baubewilligungsverfahren publiziert und weiter bearbeitet werden.\\n\\nBeim Verfahren \\u00abBaumeldung f\\u00fcr geringf\\u00fcgige Vorhaben\\u00bb ist die Umwandlung in ein Baugesuch nicht m\\u00f6glich. Wenn bei einer Baumeldung festgestellt wird, dass ein Baubewilligungsverfahren notwendig ist, muss dieses via URec im Rahmen der Vollst\\u00e4ndigkeitspr\\u00fcfung an die Bauherrschaft zur\\u00fcckgeschickt und die Eingabe eines Baugesuches verlangt werden. Das Formular \\u00abBaumeldung f\\u00fcr geringf\\u00fcgige Vorhaben\\u00bb beinhaltet nur wenige Angaben und ist f\\u00fcr ein Baubewilligungsverfahren nicht geeignet.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -532,12 +547,12 @@
     "pk": "complete-check-begruendung",
     "fields": {
       "created_at": "2023-12-05T12:42:45.182Z",
-      "modified_at": "2024-08-02T08:57:04.835Z",
+      "modified_at": "2024-10-25T09:04:17.288Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Begr\\u00fcndung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "info.case.form in [\"cantonal-territory-usage\", \"konzession-waermeentnahme\", \"bohrbewilligung-waermeentnahme\", \"pgv-gemeindestrasse\", \"bgbb\", \"oereb\", \"oereb-verfahren-gemeinde\", \"verfahren-gemeinde\", \"mitbericht-kanton\"]",
@@ -566,10 +581,10 @@
     "pk": "complete-check-vollstaendigkeitspruefung",
     "fields": {
       "created_at": "2023-12-08T09:58:18.628Z",
-      "modified_at": "2024-08-07T07:39:49.219Z",
+      "modified_at": "2025-03-14T05:43:06.236Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Resultat der Vollst\\u00e4ndigkeitspr\\u00fcfung\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -577,7 +592,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"## GWR Aufgaben\\n\\nWenn ein Dossier im Formular Vollst\\u00e4ndigkeitspr\\u00fcfung als vollst\\u00e4ndig angenommen wird oder wenn die Auswahl \\\"Nachforderung, weiter zur materiellen Pr\\u00fcfung\\\" ausgew\\u00e4hlt wird, generiert URec f\\u00fcr die Bauverwaltung nebst den Aufgaben \\u00abFreigeben f\\u00fcr Baukommission\\u00bb und \\u00abZirkulation starten\\u00bb, auch die Aufgabe \\\"GWR Relevanz pr\\u00fcfen\\\". Die Aufgabe wird im Menu \\u00abDossierbezogene Aufgaben\\u00bb angezeigt. Entsprechend der Auswahl im Formular GWR Relevanz pr\\u00fcfen (ja oder nein) werden dann die folgenden GWR Aufgaben automatisch und entsprechend dem Prozessablauf angezeigt.\\n\\nWenn die Auswahl \\\"Nachforderung, auf Antwort warten\\\" gew\\u00e4hlt wird, wird die Aufgabe \\\"\\\"GWR Relevanz pr\\u00fcfen\\\", erst generiert, wenn die Nachforderung von der Bauverwaltung abgeschlossen wird (der Gesuchsteller schickt die nachgeforderten Unterlagen via URec, die Bauverwaltung schliesst die Nachforderung ab, Nachforderung vollst\\u00e4ndig).\\n\\nWenn die Auswahl \\\"Dossier zur\\u00fcckweisen\\\" angeklickt wird, werden keine GWR Aufgaben generiert.\\n\\n## Dossier zur\\u00fcckweisen\\n\\nWenn ein Dossier zur\\u00fcckgewiesen wird, \\u00f6ffnet sich ein neues Textfeld. Bitte geben Sie hier den Grund der R\\u00fcckweisung an und klicken Sie auf abschliessen. Der Gesuchsteller erh\\u00e4lt eine Mail dass sein Dossier zur\\u00fcckgewiesen wurde und kann den Grund der R\\u00fcckweisung auf dem Portal anschauen. Ein zur\\u00fcckgewiesenes Dossier kann vom Gesuchsteller wieder neu eingereicht werden. Es wird eine neue Dossiernummer generiert und der Prozess beginnt von vorne.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -612,6 +627,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rejection-feedback",
+    "fields": {
+      "created_at": "2025-02-27T09:54:47.682Z",
+      "modified_at": "2025-02-28T09:34:18.258Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begr\\u00fcndung f\\u00fcr die R\\u00fcckweisung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "\"complete-check-vollstaendigkeitspruefung-reject\" != \"complete-check-vollstaendigkeitspruefung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -720,11 +769,11 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-check-baubewilligungspflichtig.complete-check-baubewilligungspflichtig-anderes-verfahren",
     "fields": {
-      "created_at": "2024-08-23T06:29:42.205Z",
-      "modified_at": "2024-08-23T06:29:42.205Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-03-14T05:41:42.693Z",
+      "modified_at": "2025-03-14T05:41:42.693Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "complete-check-baubewilligungspflichtig",
       "option": "complete-check-baubewilligungspflichtig-anderes-verfahren",
@@ -735,11 +784,11 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-check-baubewilligungspflichtig.complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
     "fields": {
-      "created_at": "2024-08-23T06:29:42.218Z",
-      "modified_at": "2024-08-23T06:29:42.218Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-03-14T05:41:42.704Z",
+      "modified_at": "2025-03-14T05:41:42.704Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "complete-check-baubewilligungspflichtig",
       "option": "complete-check-baubewilligungspflichtig-baubewilligungspflichtig",
@@ -750,11 +799,11 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-check-baubewilligungspflichtig.complete-check-baubewilligungspflichtig-nicht-baubewilligungspflichtig",
     "fields": {
-      "created_at": "2024-08-23T06:29:42.216Z",
-      "modified_at": "2024-08-23T06:29:42.216Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-03-14T05:41:42.698Z",
+      "modified_at": "2025-03-14T05:41:42.698Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "complete-check-baubewilligungspflichtig",
       "option": "complete-check-baubewilligungspflichtig-nicht-baubewilligungspflichtig",
@@ -765,11 +814,11 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-check-vollstaendigkeitspruefung.complete-check-vollstaendigkeitspruefung-complete",
     "fields": {
-      "created_at": "2024-08-07T07:39:49.248Z",
-      "modified_at": "2024-08-07T07:39:49.248Z",
-      "created_by_user": "stephan.hug@adfinis.com",
+      "created_at": "2025-03-14T05:43:06.268Z",
+      "modified_at": "2025-03-14T05:43:06.268Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "complete-check-vollstaendigkeitspruefung",
       "option": "complete-check-vollstaendigkeitspruefung-complete",
@@ -780,11 +829,11 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-check-vollstaendigkeitspruefung.complete-check-vollstaendigkeitspruefung-incomplete",
     "fields": {
-      "created_at": "2024-08-07T07:39:49.245Z",
-      "modified_at": "2024-08-07T07:39:49.245Z",
-      "created_by_user": "stephan.hug@adfinis.com",
+      "created_at": "2025-03-14T05:43:06.261Z",
+      "modified_at": "2025-03-14T05:43:06.261Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "complete-check-vollstaendigkeitspruefung",
       "option": "complete-check-vollstaendigkeitspruefung-incomplete",
@@ -795,11 +844,11 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-check-vollstaendigkeitspruefung.complete-check-vollstaendigkeitspruefung-incomplete-wait",
     "fields": {
-      "created_at": "2024-08-07T07:39:49.242Z",
-      "modified_at": "2024-08-07T07:39:49.242Z",
-      "created_by_user": "stephan.hug@adfinis.com",
+      "created_at": "2025-03-14T05:43:06.255Z",
+      "modified_at": "2025-03-14T05:43:06.255Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "complete-check-vollstaendigkeitspruefung",
       "option": "complete-check-vollstaendigkeitspruefung-incomplete-wait",
@@ -810,11 +859,11 @@
     "model": "caluma_form.questionoption",
     "pk": "complete-check-vollstaendigkeitspruefung.complete-check-vollstaendigkeitspruefung-reject",
     "fields": {
-      "created_at": "2024-08-07T07:39:49.234Z",
-      "modified_at": "2024-08-07T07:39:49.234Z",
-      "created_by_user": "stephan.hug@adfinis.com",
+      "created_at": "2025-03-14T05:43:06.249Z",
+      "modified_at": "2025-03-14T05:43:06.249Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "stephan.hug@adfinis.com",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "complete-check-vollstaendigkeitspruefung",
       "option": "complete-check-vollstaendigkeitspruefung-reject",

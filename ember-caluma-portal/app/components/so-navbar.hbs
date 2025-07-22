@@ -49,8 +49,16 @@
         </li>
         <li>
           <LinkTo
-            @route="static-content"
-            @model="portal-faq"
+            @route={{if
+              this.session.enforcePublicAccess
+              "public-instances.static-content"
+              "static-content"
+            }}
+            @model={{if
+              this.session.enforcePublicAccess
+              "portal-faq-public"
+              "portal-faq"
+            }}
             title={{t "nav.faq"}}
           >
             <FaIcon @icon="question-circle" />

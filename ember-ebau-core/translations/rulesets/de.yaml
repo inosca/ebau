@@ -1,0 +1,26 @@
+rulesets:
+  responsible-user:
+    title: Zuständigkeit
+    info: Hier können Regeln für die automatische Zuteilung von Dossiers an bestimmte Sachbearbeiter/innen erstellt werden. Die Regeln für die Zuständigkeit können nach Dossiertyp (z.B. Baugesuch mit UVP, Reklame) und nach Gemeinde vergeben werden ("Gebietschema"). Die Liste funktioniert hierarchisch, das heisst die oberste Regel bestimmt die Zuständigkeit im Dossier. Es können somit Regeln zu Dossiertypen und Gemeinden kombiniert werden.
+    new: Neue Zuständigkeitsregel hinzufügen
+    edit: Zuständigkeitsregel bearbeiten
+    responsible-user: Zuständige Person
+    empty: Es wurden noch keine Zuständigkeitsregeln definiert
+
+    types:
+      municipalities: Gemeinden
+      application-types: Dossiertypen
+
+    delete:
+      title: Zuständigkeitsregel löschen
+      confirm: Wollen Sie die Zuständigkeitsregel wirklich löschen?
+      success: Zuständigkeitsregel wurde gelöscht
+      error: Fehler beim Löschen der Zuständigkeitsregel
+
+    save:
+      success: Zuständigkeitsregel wurde erfolgreich gespeichert
+      error: Fehler beim Speichern der Zuständigkeitsregel
+
+    reorder:
+      success: Zuständigkeitsregeln wurden erfolgreich neu geordnet
+      error: Fehler beim Neuordnen der Zuständigkeitsregeln

@@ -1,0 +1,14 @@
+{% include "_header.j2" %}
+
+
+{% for import in imports %}
+from {{import.path}} import {{import.name}} as {{import.alias}}
+{% endfor %}
+
+
+{% for cls in classes %}
+class {{cls.prefix}}{{cls.name}}({{cls.path}}.{{cls.name}}):
+    _model_name_prefix = "{{cls.prefix|lower}}"
+
+
+{% endfor %}

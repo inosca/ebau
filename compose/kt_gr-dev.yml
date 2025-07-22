@@ -3,11 +3,13 @@ services:
     ports:
       - "11211:11211"
     networks:
-      - ebau.local
+      - ebau.localhost
 
   proxy:
     volumes:
-      - ../proxy/kt_gr.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../proxy/kt_gr.conf:/etc/nginx/conf.d/default.conf.in:ro
+      - ../proxy/csp_headers.inc:/etc/nginx/conf.d/csp_headers.inc:ro
+      - ../proxy/docker-entrypoint.d/90-nameserver.sh:/docker-entrypoint.d/90-nameserver.sh:ro
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
     depends_on:
@@ -21,12 +23,12 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.local:
+      ebau.localhost:
         aliases:
-          - ember-ebau.local
-          - ebau-portal.local
-          - ebau-rest-portal.local
-          - ebau-keycloak.local
+          - ember-ebau.localhost
+          - ebau-portal.localhost
+          - ebau-rest-portal.localhost
+          - ebau-keycloak.localhost
 
   db:
     # Workaround, same name of image as cache_from
@@ -48,7 +50,7 @@ services:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pgdata:/var/lib/postgresql/data
     networks:
-      - ebau.local
+      - ebau.localhost
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -69,16 +71,17 @@ services:
     environment:
       - APPLICATION_ENV=development
       - ENV=development # used in caluma and alexandria settings
-      - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
+      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
       - DATABASE_PASSWORD=camac
       - DATABASE_USER=camac
       - DJANGO_EMAIL_HOST=mailpit
       - DJANGO_EMAIL_PORT=1025
       - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       - PYTHONDONTWRITEBYTECODE=1
-      - DJANGO_INTERNAL_BASE_URL=http://ember-ebau.local
+      - DJANGO_INTERNAL_BASE_URL=http://ember-ebau.localhost
       - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
+      - CONSTRUCTION_MONITORING_ENABLED=true
       # Alexandria
       - ALEXANDRIA_DMS_URL=http://document-merge-service:8000/document-merge-service/api/v1
       - ALEXANDRIA_ENABLE_CONTENT_SEARCH=true
@@ -94,10 +97,21 @@ services:
       - CELERY_WORKER_CONCURRENCY=1
       - PYTHONUNBUFFERED=1
     networks:
-      - ebau.local
+      - ebau.localhost
     tty: true
     stdin_open: true
     command: devserver
+
+  dummy-eeba:
+    networks:
+      - ebau.localhost
+    build:
+      context: ../dummy-eeba-server
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    volumes:
+      - ../dummy-eeba-server:/app
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
@@ -105,7 +119,7 @@ services:
       args:
         - ENABLE_WATERMARK=true
     networks:
-      - ebau.local
+      - ebau.localhost
 
   ember-ebau:
     image: acr.run/camac-ng/camac-ng/ember-ebau:master
@@ -113,7 +127,7 @@ services:
       args:
         - ENABLE_WATERMARK=true
     networks:
-      - ebau.local
+      - ebau.localhost
 
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
@@ -126,11 +140,13 @@ services:
       - KC_DB_PASSWORD=camac
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
       - KC_DB_USERNAME=camac
-      - KC_HOSTNAME=ebau-keycloak.local
+      - KC_HOSTNAME=ebau-keycloak.localhost
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=camac
+      - KC_SPI_OAUTH2_TOKEN_EXCHANGE_DEFAULT_PROVIDER=standard
+      - KC_SPI_OAUTH2_TOKEN_EXCHANGE_EBAU_ENABLED=false
     networks:
-      - ebau.local
+      - ebau.localhost
     command:
       [
         "start",
@@ -141,7 +157,7 @@ services:
 
   mailpit:
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       - MP_WEBROOT=mailpit
 
@@ -150,7 +166,7 @@ services:
     depends_on:
       - db
     networks:
-      - ebau.local
+      - ebau.localhost
     cap_add:
       - CAP_SYS_ADMIN
     security_opt:
@@ -158,7 +174,7 @@ services:
     environment:
       - ENV=dev
       - ISOLATE_UNOCONV=true
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_USER=camac
@@ -186,10 +202,10 @@ services:
     environment:
       - MINIO_ROOT_USER=minio
       - MINIO_ROOT_PASSWORD=minio123
-      - MINIO_BROWSER_REDIRECT_URL=http://ember-ebau.local/minio/ui
+      - MINIO_BROWSER_REDIRECT_URL=http://ember-ebau.localhost/minio/ui
     command: server data --console-address ":9090"
     networks:
-      - ebau.local
+      - ebau.localhost
 
   mc:
     image: minio/mc:RELEASE.2024-07-31T15-58-33Z
@@ -204,7 +220,7 @@ services:
     depends_on:
       - minio
     networks:
-      - ebau.local
+      - ebau.localhost
 
   clamav:
     profiles:
@@ -214,15 +230,15 @@ services:
     environment:
       - ENABLE_DEFINITIONS_UPDATE=false
     networks:
-      - ebau.local
+      - ebau.localhost
 
   tika:
     networks:
-      - ebau.local
+      - ebau.localhost
 
   redis:
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       - REDIS_PASSWORD=redis
 
@@ -232,8 +248,13 @@ services:
     ports:
       - "6900-7000:6900-7000"
 
+  celery-beat:
+    <<: *django
+    ports: []
+    command: celery-beat-dev
+
 networks:
-  ebau.local:
+  ebau.localhost:
 
 volumes:
   minio_data:

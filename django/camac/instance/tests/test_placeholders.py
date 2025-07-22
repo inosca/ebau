@@ -1,5 +1,6 @@
 import pathlib
-from datetime import date
+from datetime import date, datetime
+from unittest.mock import Mock
 
 import faker
 import pytest
@@ -16,69 +17,64 @@ from caluma.caluma_form.models import Option, Question
 from caluma.caluma_workflow.factories import WorkItemFactory
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.timezone import make_aware
 from django.utils.translation import override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
+from camac.instance.placeholders.serializers import DMSPlaceholdersSerializer
 from camac.instance.placeholders.utils import (
+    format_gis_center_coordinates,
     get_tel_and_email,
     get_yes_no,
     human_readable_date,
 )
-from camac.tests.data import so_personal_row_factory
-
-from .test_master_data import be_master_data_case, gr_master_data_case  # noqa
+from camac.tests.data import (
+    ag_personal_row_factory,
+    so_fill_cantonal_exam,
+    so_personal_row_factory,
+)
 
 
 @pytest.fixture
-def be_dms_config(settings, be_placeholders_settings):
-    original_languages = settings.LANGUAGES
-    settings.LANGUAGES = [
-        (code, name) for code, name in settings.LANGUAGES if code in ["de", "fr"]
-    ]
+def be_dms_config(settings, application_settings, be_placeholders_settings):
     settings.APPLICATION_NAME = "kt_bern"
-    settings.INTERNAL_BASE_URL = "http://ebau.local"
-    yield
-    settings.LANGUAGES = original_languages
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
+    application_settings["SHORT_NAME"] = "be"
+    application_settings["AVAILABLE_LANGUAGES"] = ["de", "fr"]
 
 
 @pytest.fixture
-def gr_dms_config(settings):
-    original_languages = settings.LANGUAGES
-    settings.LANGUAGES = [
-        (code, name) for code, name in settings.LANGUAGES if code in ["de", "it"]
-    ]
+def gr_dms_config(settings, application_settings, gr_placeholders_settings):
     settings.APPLICATION_NAME = "kt_gr"
-    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
-    yield
-    settings.LANGUAGES = original_languages
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
+    application_settings["SHORT_NAME"] = "gr"
+    application_settings["AVAILABLE_LANGUAGES"] = ["de", "it"]
 
 
 @pytest.fixture
 def so_dms_config(settings, application_settings, so_placeholders_settings):
-    original_languages = settings.LANGUAGES
-    settings.LANGUAGES = [
-        (code, name) for code, name in settings.LANGUAGES if code in ["de"]
-    ]
     settings.APPLICATION_NAME = "kt_so"
-    settings.INTERNAL_BASE_URL = "http://ember-ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
     application_settings["SHORT_NAME"] = "so"
-    yield
-    settings.LANGUAGES = original_languages
+    application_settings["AVAILABLE_LANGUAGES"] = ["de"]
 
 
 @pytest.fixture
-def ur_dms_config(settings, application_settings):
-    original_languages = settings.LANGUAGES
-    settings.LANGUAGES = [
-        (code, name) for code, name in settings.LANGUAGES if code in ["de"]
-    ]
+def ur_dms_config(settings, application_settings, ur_placeholders_settings):
     settings.APPLICATION_NAME = "kt_uri"
-    settings.INTERNAL_BASE_URL = "http://ember.local"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
     application_settings["SHORT_NAME"] = "ur"
-    yield
-    settings.LANGUAGES = original_languages
+    application_settings["AVAILABLE_LANGUAGES"] = ["de"]
+
+
+@pytest.fixture
+def ag_dms_config(settings, application_settings, ag_placeholders_settings):
+    settings.APPLICATION_NAME = "kt_ag"
+    settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
+    application_settings["SHORT_NAME"] = "ag"
+    application_settings["AVAILABLE_LANGUAGES"] = ["de"]
 
 
 @pytest.fixture
@@ -113,10 +109,10 @@ def test_dms_placeholders_gr(
     snapshot,
     gr_distribution_settings,
     service_factory,
-    work_item_factory,
-    document_factory,
-    question_factory,
-    form_question_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_question_factory,
+    caluma_form_question_factory,
     active_inquiry_factory,
     gr_dms_config,
     group,
@@ -222,7 +218,7 @@ def test_dms_placeholders_gr(
     utils.add_answer(
         gr_instance.case.document,
         "gis-map",
-        '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}, {"x": 2609995.12345,"y": 1271340.12345}] }',
+        '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}], "center": {"x": 2609995.12345,"y": 1271340.12345} }',
     )
 
     # Prepare project modification
@@ -231,21 +227,21 @@ def test_dms_placeholders_gr(
     )
 
     # decision
-    decision_work_item = work_item_factory(
+    decision_work_item = caluma_work_item_factory(
         case=gr_instance.case,
         task_id="decision",
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form_id="decision"),
+        document=caluma_document_factory(form_id="decision"),
     )
-    decision_question = question_factory(
+    decision_question = caluma_question_factory(
         slug="decision-decision", type=Question.TYPE_CHOICE
     )
-    decision_date_question = question_factory(
+    decision_date_question = caluma_question_factory(
         slug="decision-date", type=Question.TYPE_DATE
     )
     Option.objects.create(slug="decision-decision-approved", label="Bewilligt")
-    form_question_factory(form_id="decision", question=decision_question)
-    form_question_factory(form_id="decision", question=decision_date_question)
+    caluma_form_question_factory(form_id="decision", question=decision_question)
+    caluma_form_question_factory(form_id="decision", question=decision_date_question)
     decision_work_item.document.answers.create(
         question_id="decision-decision",
         value="decision-decision-approved",
@@ -293,12 +289,12 @@ def test_dms_placeholders_gr(
         AnswerFactory(
             document=inquiry.child_case.document,
             question=stellungnahme_question,
-            value=f"Stellungnahme {i+1}",
+            value=f"Stellungnahme {i + 1}",
         )
         AnswerFactory(
             document=inquiry.child_case.document,
             question=nebenbestimmungen_question,
-            value=f"Nebenbestimmungen {i+1}",
+            value=f"Nebenbestimmungen {i + 1}",
         )
 
     url = reverse("instance-dms-placeholders", args=[gr_instance.pk])
@@ -310,6 +306,9 @@ def test_dms_placeholders_gr(
 
 @pytest.mark.freeze_time("2024-01-18 13:37", tick=True)
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.django_db(
+    transaction=True, reset_sequences=True
+)  # always reset instance id
 def test_dms_placeholders_so(
     db,
     admin_client,
@@ -321,12 +320,14 @@ def test_dms_placeholders_so(
     so_dms_config,
     so_instance,
     service_factory,
-    work_item_factory,
-    dynamic_option_factory,
+    caluma_work_item_factory,
+    caluma_dynamic_option_factory,
     mocker,
     multilang,
     utils,
-    document_factory,
+    caluma_document_factory,
+    active_inquiry_factory,
+    master_data_is_visible_mock,
 ):
     # Authority
     authority = service_factory(
@@ -348,13 +349,10 @@ def test_dms_placeholders_so(
     # Municipality
     municipality = service_factory(website="https://gemeinde.ch")
     utils.add_answer(so_instance.case.document, "gemeinde", str(municipality.pk))
-    dynamic_option_factory(
+    caluma_dynamic_option_factory(
         slug=str(municipality.pk),
         question_id="gemeinde",
         document=so_instance.case.document,
-    )
-    mocker.patch(
-        "camac.instance.master_data.MasterData._answer_is_visible", return_value=True
     )
 
     # Land use
@@ -400,8 +398,8 @@ def test_dms_placeholders_so(
     )
 
     # Objection
-    objections_work_item = work_item_factory(
-        task_id="einsprachen",
+    objections_work_item = caluma_work_item_factory(
+        task__pk="einsprachen",
         document__form_id="einsprachen",
         case=so_instance.case,
     )
@@ -436,7 +434,7 @@ def test_dms_placeholders_so(
     )
 
     # Publication
-    publication_work_item = work_item_factory(
+    publication_work_item = caluma_work_item_factory(
         case=so_instance.case,
         task_id="fill-publication",
         status=WorkItem.STATUS_COMPLETED,
@@ -518,65 +516,69 @@ def test_dms_placeholders_so(
     )
 
     # Decision
-    decision_work_item = work_item_factory(
+    decision_work_item = caluma_work_item_factory(
         case=so_instance.case,
         task_id="decision",
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form_id="entscheid"),
+        document=caluma_document_factory(form_id="entscheid"),
     )
     utils.add_answer(decision_work_item.document, "entscheid-datum", date(2024, 4, 18))
+
+    # General data
+    utils.add_answer(so_instance.case.document, "ort", "Rüttenen")
+
+    # Distribution
+    inquiry = active_inquiry_factory(
+        so_instance,
+        service_factory(
+            trans__name="Solothurnische Gebäudeversicherung (SGV)",
+            service_group__name="service-cantonal",
+        ),
+        status=WorkItem.STATUS_COMPLETED,
+        closed_at=make_aware(faker.Faker().date_time()),
+    )
+
+    # Draft inquiry
+    active_inquiry_factory(
+        so_instance,
+        service_factory(
+            trans__name="Amt für Umwelt (AfU)",
+            service_group__name="service-cantonal",
+        ),
+        status=WorkItem.STATUS_SUSPENDED,
+    )
+
+    utils.add_answer(inquiry.document, "inquiry-remark", "Bemerkungen")
+
+    for q, v in [
+        ("inquiry-answer-status", "inquiry-answer-status-positive"),
+        ("inquiry-answer-positive-assessments", "Zustimmend"),
+        ("inquiry-answer-negative-assessments", "Ablehnend"),
+        ("inquiry-answer-rejection-additional-demand", "Nachforderung"),
+        ("inquiry-answer-objections", "Einsprachen"),
+        ("inquiry-answer-notices-for-applicant", "Hinweis Gesuchsteller/in"),
+        ("inquiry-answer-notices-for-authority", "Hinweis LB"),
+        ("inquiry-answer-notices-for-authority-arp", "Hinweis ARP"),
+        ("inquiry-answer-forward", "Weiterleiten an SGV"),
+    ]:
+        utils.add_answer(inquiry.child_case.document, q, v)
+
+    inquiry.case.parent_work_item.closed_at = make_aware(faker.Faker().date_time())
+    inquiry.case.parent_work_item.status = WorkItem.STATUS_COMPLETED
+    inquiry.case.parent_work_item.save()
+
+    # Cantonal exam
+    cantonal_exam = caluma_work_item_factory(
+        task_id="material-exam-bab", case=so_instance.case
+    )
+    so_fill_cantonal_exam(cantonal_exam.document, utils)
 
     url = reverse("instance-dms-placeholders", args=[so_instance.pk])
 
     response = admin_client.get(url)
 
     assert response.status_code == status.HTTP_200_OK
-
-    checked_keys = [
-        "ALLE_GESUCHSTELLER_LISTE",
-        "ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE",
-        "ALLE_GESUCHSTELLER_VERTRETER",
-        "ALLE_GRUNDEIGENTUEMER_LISTE",
-        "ALLE_PROJEKTVERFASSER_LISTE",
-        "ALLE_RECHNUNGSEMPFAENGER_LISTE",
-        "ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE",
-        "ALLE_RECHNUNGSEMPFAENGER",
-        "ANGEMELDET_EMAIL",
-        "ANGEMELDET_NAME",
-        "BAUENTSCHEID_DATUM",
-        "EIGENE_GEBUEHREN_TOTAL",
-        "EIGENE_GEBUEHREN",
-        "EINGEREICHTE_PLAENE",
-        "EINGEREICHTE_UNTERLAGEN",
-        "EINSPRACHEN",
-        "ENTSCHEIDDOKUMENTE",
-        "GEBUEHREN_TOTAL",
-        "GEBUEHREN",
-        "GEMEINDE_WEBSEITE",
-        "GESUCHSTELLER_ANREDE",
-        "GESUCHSTELLER_VERTRETER_ADRESSE_1",
-        "GESUCHSTELLER_VERTRETER_ADRESSE_2",
-        "GESUCHSTELLER_VERTRETER_NAME_ADRESSE",
-        "GESUCHSTELLER_VERTRETER",
-        "LEITBEHOERDE_NAME_ADRESSE",
-        "LEITBEHOERDE_WEBSEITE",
-        "MEINE_ORGANISATION_WEBSEITE",
-        "NUTZUNGSPLANUNG_GRUNDNUTZUNG",
-        "NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON",
-        "PUBLIKATION_AMTSBLATT",
-        "PUBLIKATION_ANZEIGER",
-        "PUBLIKATION_ENDE",
-        "PUBLIKATION_ORGAN",
-        "PUBLIKATION_START",
-        "RECHNUNGSEMPFAENGER_ADRESSE_1",
-        "RECHNUNGSEMPFAENGER_ADRESSE_2",
-        "RECHNUNGSEMPFAENGER_NAME_ADRESSE",
-        "RECHNUNGSEMPFAENGER",
-    ]
-
-    assert {
-        key: value for key, value in response.json().items() if key in checked_keys
-    } == snapshot
+    assert response.json() == snapshot
 
 
 @pytest.mark.freeze_time("2021-08-30", tick=True)
@@ -611,6 +613,7 @@ def test_dms_placeholders(
     be_dms_config,
     be_decision_settings,
     be_master_data_settings,
+    be_publication_settings,
     utils,
 ):
     application_settings["INTERNAL_FRONTEND"] = "camac"
@@ -820,12 +823,12 @@ def test_dms_placeholders(
         AnswerFactory(
             document=inquiry.child_case.document,
             question=stellungnahme_question,
-            value=f"Stellungnahme {i+1}",
+            value=f"Stellungnahme {i + 1}",
         )
         AnswerFactory(
             document=inquiry.child_case.document,
             question=nebenbestimmungen_question,
-            value=f"Nebenbestimmungen {i+1}",
+            value=f"Nebenbestimmungen {i + 1}",
         )
 
     for service_inquiry in service_inquiries:
@@ -854,6 +857,7 @@ def test_dms_placeholders(
 
     tag_factory.create_batch(5, service=group.service, instance=be_instance)
     responsible_service_factory(instance=be_instance, service=group.service)
+
     decision = decision_factory(
         decision=be_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
         decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][
@@ -959,12 +963,16 @@ def test_dms_placeholders_ur(
     ur_instance,
     ur_distribution_settings,
     utils,
-    dynamic_option_factory,
+    caluma_dynamic_option_factory,
     service_factory,
     group_factory,
     location_factory,
     ur_master_data_case,
-    question_factory,
+    caluma_question_factory,
+    caluma_answer_factory,
+    caluma_document_factory,
+    publication_entry_factory,
+    caluma_work_item_factory,
 ):
     # Municipality
     municipality = service_factory(
@@ -981,6 +989,34 @@ def test_dms_placeholders_ur(
         ur_master_data_case.document,
         value="1",
     )
+    complete_check_work_item = WorkItemFactory(
+        task_id="complete-check",
+        case=ur_instance.case,
+        closed_at=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
+        status=WorkItem.STATUS_COMPLETED,
+        document=caluma_document_factory(form_id="complete-check"),
+    )
+    caluma_answer_factory(
+        document=complete_check_work_item.document,
+        question__slug="complete-check-vollstaendigkeitspruefung",
+        value="complete-check-vollstaendigkeitspruefung-complete",
+    )
+    publication_entry_factory(
+        instance=ur_instance,
+        publication_date=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
+        publication_end_date=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
+        is_published=True,
+    )
+    work_item = WorkItemFactory(
+        task_id="instance-management",
+        case=ur_instance.case,
+        document=caluma_document_factory(),
+    )
+    caluma_answer_factory(
+        document=work_item.document,
+        question__slug="pruefung-durch-gemeinde",
+        date=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
+    )
 
     url = reverse("instance-dms-placeholders", args=[ur_instance.pk])
 
@@ -988,11 +1024,138 @@ def test_dms_placeholders_ur(
 
     assert response.status_code == status.HTTP_200_OK
 
-    checked_keys = ["GEMEINDE", "ZONE"]
+    checked_keys = [
+        "GEMEINDE",
+        "ZONE",
+        "HAUSNUMMER",
+        "PUBLIKATIONSDATUM",
+        "DATUM_PRUEFUNG_DURCH_GEMEINDE",
+        "DATUM_DOSSIER_VOLLSTAENDIG",
+    ]
 
     assert {
         key: value for key, value in response.json().items() if key in checked_keys
     } == snapshot
+
+
+@pytest.mark.freeze_time("2016-06-06 13:37", tick=True)
+@pytest.mark.parametrize(
+    "role__name,service_group__name", [("municipality-lead", "municipality")]
+)
+@pytest.mark.django_db(
+    transaction=True, reset_sequences=True
+)  # always reset instance id
+def test_dms_placeholders_ag(
+    db,
+    admin_client,
+    admin_user,
+    ag_distribution_settings,
+    ag_dms_config,
+    ag_master_data_case,
+    ag_publication_settings,
+    billing_v2_entry_factory,
+    create_caluma_publication,
+    group,
+    multilang,
+    responsible_service_factory,
+    service,
+    snapshot,
+    utils,
+):
+    ag_instance = ag_master_data_case.instance
+
+    # GIS
+    utils.add_answer(
+        ag_instance.case.document,
+        "gis-map",
+        '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}, {"x": 2609995.12345,"y": 1271340.12345}] }',
+    )
+
+    # Current service
+    service_t = service.trans.first()
+    service_t.department = "Departement Bau, Verkehr und Umwelt"
+    service_t.save()
+
+    # Responsible user
+    responsible_service_factory(
+        instance=ag_instance,
+        service=service,
+        responsible_user__name="John",
+        responsible_user__surname="Doe",
+        responsible_user__email="john.doe@acme.com",
+        responsible_user__phone="012 345 67 89",
+        responsible_user__title="Master of Science",
+        responsible_user__position="Projektleiter",
+        responsible_user__mobile="079 345 67 89",
+    )
+
+    # Publication
+    publication = create_caluma_publication(
+        ag_instance,
+        module_settings=ag_publication_settings,
+        addressed_groups=[str(service.pk)],
+        end=date(2025, 7, 1),
+    )
+    utils.add_answer(publication.document, "publikation-text", "Text zur Publikation")
+    utils.add_answer(
+        publication.document, "ende-publikation-kantonsamtsblatt", date(2025, 8, 1)
+    )
+
+    # Information of neighbors
+    information_of_neighbors = create_caluma_publication(
+        ag_instance,
+        publication_type="NEIGHBORS",
+        module_settings=ag_publication_settings,
+        addressed_groups=[str(service.pk)],
+        document__pk="878109fb-24c4-43e8-a00f-76999ca0f531",
+    )
+    utils.add_table_answer(
+        information_of_neighbors.document,
+        "nachbarschaftsorientierung-auswaertige-anstoesser",
+        [ag_personal_row_factory(), ag_personal_row_factory(True)],
+    )
+
+    # Billing
+    billing_v2_entry_factory(
+        text="Nutzungsbewilligung",
+        final_rate=200,
+        remark="Nr. 1234",
+        group=group,
+        instance=ag_instance,
+    )
+
+    # Current user
+    admin_user.mobile = "+41 79 012 34 56"
+    admin_user.phone = "+41 31 012 34 56"
+    admin_user.title = "Master of Science"
+    admin_user.position = "Project manager"
+    admin_user.save()
+
+    url = reverse("instance-dms-placeholders", args=[ag_instance.pk])
+
+    response = admin_client.get(url)
+    result = response.json()
+    assert response.status_code == status.HTTP_200_OK
+    assert result == snapshot
+
+    # Remove invoice recipient
+    ag_instance.case.document.answers.filter(
+        question_id="personalien-rechnungsempfaenger"
+    ).delete()
+
+    fallback_response = admin_client.get(url)
+    fallback_result = fallback_response.json()
+    assert fallback_response.status_code == status.HTTP_200_OK
+
+    for a_prop, ir_prop in [
+        ("GESUCHSTELLER", "RECHNUNGSEMPFAENGER"),
+        ("GESUCHSTELLER_ADRESSE_1", "RECHNUNGSEMPFAENGER_ADRESSE_1"),
+        ("GESUCHSTELLER_ADRESSE_2", "RECHNUNGSEMPFAENGER_ADRESSE_2"),
+    ]:
+        # Make sure fallback is not used if invoice recipient is available
+        assert result[ir_prop] != result[a_prop]
+        # Make sure fallback is used if invoice recipient is not available
+        assert fallback_result[ir_prop] == fallback_result[a_prop]
 
 
 @pytest.mark.parametrize(
@@ -1006,3 +1169,66 @@ def test_dms_placeholders_ur(
 )
 def test_yes_no(options, expected):
     assert get_yes_no(options) == expected
+
+
+@pytest.mark.parametrize(
+    "available_data,expected",
+    [
+        # ignore empty/invalid date
+        (None, None),
+        ("", None),
+        ("{invalid-json}", None),
+        (
+            '{"valid-no-center": {"x": 2760558.123, "y": 1170288.456}}',
+            None,
+        ),
+        # use center if provided
+        (
+            '{"center": {"x": 2760558.123, "y": 1170288.456}}',
+            "2'760'558 / 1'170'288",
+        ),
+        # fallback to first marker if no center is provided
+        (
+            '{"markers": [{"x": 2760558.123, "y": 1170288.456}, {"x": 2609995.123, "y": 1271340.456}]}',
+            "2'760'558 / 1'170'288",
+        ),
+        # ignore markers if valid center is provided
+        (
+            '{"markers": [{"x": 2569941.123, "y": 1298923.123}, {"x": 2609995.123, "y": 1271340.456}], "center": {"x": 2760558.123, "y": 1170288.456}}',
+            "2'760'558 / 1'170'288",
+        ),
+    ],
+)
+def test_format_gis_center_coordinates(
+    available_data,
+    expected,
+):
+    assert format_gis_center_coordinates(available_data) == expected
+
+
+@pytest.mark.parametrize(
+    "coord_east,coord_north,expected",
+    [
+        # no rounding
+        (2760558.123, 1170288.456, "2’760’558 / 1’170’288"),
+        # rounded up
+        (2760558.567, 1170288.899, "2’760’559 / 1’170’289"),
+        (2701783.599, 1171109.999, "2’701’784 / 1’171’110"),
+    ],
+)
+def test_get_koordinaten(coord_east, coord_north, expected, mocker):
+    master_data_mock = Mock()
+    master_data_mock.plot_data = [
+        {"coord_east": coord_east, "coord_north": coord_north}
+    ]
+
+    instance_mock = Mock()
+    mocker.patch(
+        "camac.instance.master_data.MasterData.from_case_id",
+        return_value=master_data_mock,
+    )
+
+    assert (
+        DMSPlaceholdersSerializer(instance_mock).get_koordinaten(instance_mock)
+        == expected
+    )

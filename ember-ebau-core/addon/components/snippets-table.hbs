@@ -1,0 +1,47 @@
+<div class="uk-margin">
+  <div class="uk-search uk-search-default uk-width-1">
+    <span uk-search-icon></span>
+    <input
+      class="uk-search-input"
+      type="search"
+      value={{@search}}
+      placeholder={{t "global.searchPrompt"}}
+      aria-label={{t "global.search"}}
+      data-test-search
+      {{on "input" this.onSearch.perform}}
+    />
+  </div>
+</div>
+
+{{#if this.snippets.isLoading}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio="2" />
+  </div>
+{{else}}
+  {{#each-in this.categories as |category snippets|}}
+    <SnippetsTable::Category
+      @editable={{@editable}}
+      @category={{category}}
+      @snippets={{snippets}}
+      @refresh={{this.refresh}}
+    />
+  {{else}}
+    <p class="uk-text-center uk-text-meta">
+      {{#if @search}}
+        {{t "snippets.empty-search"}}
+      {{else}}
+        {{t "snippets.empty"}}
+      {{/if}}
+    </p>
+  {{/each-in}}
+
+  {{#if @editable}}
+    <LinkTo
+      @route={{module-route "snippets-admin" "new"}}
+      class="uk-button uk-button-primary"
+      data-test-new-category
+    >
+      {{t "snippets.new-category"}}
+    </LinkTo>
+  {{/if}}
+{{/if}}

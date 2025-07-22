@@ -4,17 +4,24 @@ import datetime
 import itertools
 import logging
 import re
-from typing import List
+import xml.dom.minidom
+from typing import Union
 
 import pyxb
 from alexandria.core.models import Document
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
+from django.db.models import QuerySet
+from django.http import HttpRequest
 from django.urls import reverse
 from django.utils import timezone
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac import camac_metadata
+from camac.alexandria.extensions.visibilities import (
+    CustomVisibility as CustomAlexandriaVisibility,
+)
 from camac.caluma.utils import find_answer
 from camac.core.utils import canton_aware
 from camac.document.models import Attachment
@@ -24,6 +31,7 @@ from camac.ech0211.constants import (
     ECH_JUDGEMENT_WRITTEN_OFF,
 )
 from camac.instance.models import Instance
+from camac.user.models import Service
 from camac.utils import build_url
 
 from ..instance.master_data import MasterData
@@ -47,11 +55,12 @@ def clean_version(full_version: str) -> str:
     """Remove prerelease info from version.
 
     This is needed because the eCH standard only allows a maximum of 10
-    characters in the version field.
+    characters in the version field. Further we want to strip canton pre-
+    fixes and additional suffixes.
     """
-    match = re.search(r"^\d+.\d+.\d+", full_version)
+    match = re.search(r"(?:[a-z]{0,2}-)?v?(\d+\.\d+\.\d+)", full_version)
 
-    return match.group(0) if match else full_version
+    return match.group(1) if match else full_version
 
 
 def handle_ja_nein_bool(value):
@@ -66,7 +75,7 @@ def assure_string_length(value, min_length=1, max_length=0):
         str(value)
     )  # Handle None and bool and also computed values
     if len(value) > max_length:
-        return f"{value[:max_length - 1]}…"
+        return f"{value[: max_length - 1]}…"
     elif len(value) < min_length:
         return f"{value}{'.' * (min_length - len(value))}"  # TODO cover
     return value
@@ -91,11 +100,12 @@ def authority(service, organization_category=None):
     )
 
 
-def get_zip(value):
-    if not value or not len(str(value)) == 4:
+def get_zip(value, optional=False):
+    if not value or not len(str(value)) == 4 or not str(value).isdigit():
         # use 9999 for non swiss zips
-        return 9999
-    return value
+        return None if optional else 9999
+
+    return int(value)
 
 
 def get_cost(value):
@@ -104,14 +114,24 @@ def get_cost(value):
     return value
 
 
-def get_all_documents(instance):
-    # TODO check visibility!!
+def get_all_documents(instance, request):
+    documents = Document.objects.filter(instance_document__instance=instance)
+
     if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
-        return get_documents(instance.attachments.all())
-    return get_documents(Document.objects.filter(instance_document__instance=instance))
+        documents = instance.attachments.all()
+
+    return get_documents(documents, request)
 
 
-def get_documents(documents):
+def get_documents(documents, request):
+    if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+        if not request:  # pragma: no cover
+            documents = documents.none()
+        else:
+            documents = CustomAlexandriaVisibility().filter_queryset_for_document(
+                documents, request
+            )
+
     if not documents:
         return [
             ns_nachrichten_t0.documentType(
@@ -129,7 +149,7 @@ def get_documents(documents):
         ]
     if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
         return get_camac_documents(documents)
-    return get_alexandria_documents(documents)
+    return get_alexandria_documents(documents, request)
 
 
 def get_camac_documents(documents):
@@ -163,37 +183,51 @@ def get_camac_documents(documents):
     ]
 
 
-def get_alexandria_documents(documents):
-    return [
-        ns_nachrichten_t0.documentType(
-            uuid=str(doc.pk),
-            titles=pyxb.BIND(title=[doc.title]),
-            status="undefined",  # ech0039 documentStatusType
-            documentKind=doc.category.name.translate(),
-            keywords=pyxb.BIND(
-                keyword=list(
-                    # TODO check visibility
-                    doc.tags.values_list("name", flat=True)
+def get_document_status_type(document):
+    """Map alexandria marks to ech0039 documentStatusType."""
+    marks = document.marks.values_list("pk", flat=True)
+    for k, v in settings.ECH0211.get("ALEXANDRIA_MARKS_STATUS_MAP", {}).items():
+        if k in marks:
+            return v
+
+    return "created"
+
+
+def parse_alexandria_document(document, request):
+    tags = (
+        CustomAlexandriaVisibility()
+        .filter_queryset_for_tag(document.tags, request)
+        .order_by("name")
+        .values_list("name", flat=True)
+    )
+
+    return ns_nachrichten_t0.documentType(
+        uuid=str(document.pk),
+        titles=pyxb.BIND(title=[document.title]),
+        status=get_document_status_type(document),
+        documentKind=document.category.name.translate(),
+        keywords=pyxb.BIND(keyword=list(tags)) if tags.exists() else None,
+        files=ns_nachrichten_t0.filesType(
+            file=[
+                ns_nachrichten_t0.fileType(
+                    pathFileName=build_url(
+                        settings.INTERNAL_BASE_URL,
+                        reverse("ech-file-detail", args=[file.pk]),
+                    ),
+                    mimeType=file.mime_type,
                 )
-            )
-            if doc.tags.exists()
-            else None,
-            files=ns_nachrichten_t0.filesType(
-                file=[
-                    ns_nachrichten_t0.fileType(
-                        pathFileName=build_url(
-                            settings.INTERNAL_BASE_URL,
-                            reverse("ech-file-detail", args=[file.pk]),
-                        ),
-                        mimeType="application/octet-stream",
-                    )
-                    for file in doc.files.filter(variant="original").order_by(
-                        "-created_at"
-                    )
-                ]
-            ),
-        )
-        for doc in documents.order_by("-created_at")
+                for file in document.files.filter(variant="original").order_by(
+                    "-created_at"
+                )
+            ]
+        ),
+    )
+
+
+def get_alexandria_documents(documents, request):
+    return [
+        parse_alexandria_document(document, request)
+        for document in documents.order_by("-created_at")
     ]
 
 
@@ -225,6 +259,15 @@ def get_location_address(md):
     )
 
 
+def get_parking_lots(md):
+    if hasattr(md, "parking_lots"):
+        return bool(md.parking_lots)
+    elif hasattr(md, "civil_engineering"):
+        return any((row.get("is_parking_lot", False) for row in md.civil_engineering))
+
+    return False
+
+
 def make_dummy_address_ech0044():
     return [
         pyxb.BIND(
@@ -251,7 +294,7 @@ def municipality(md):
     )
 
 
-def application(instance: Instance):
+def application(instance: Instance, request: HttpRequest):
     """Create and format an application's properties based on the instance's MasterData."""
     md = MasterData(instance.case)
     if md.decision_date and not isinstance(
@@ -263,8 +306,12 @@ def application(instance: Instance):
         ns_application.realestateInformationType(
             realestate=ns_objektwesen.realestateType(  # eCH0129 4.8.1
                 realestateIdentification=ns_objektwesen.realestateIdentificationType(
-                    EGRID=plot.get("egrid_number", "unknown"),
-                    number=str(plot.get("plot_number", "unknown")),
+                    EGRID=assure_string_length(
+                        plot.get("egrid_number") or "unknown", max_length=14
+                    ),
+                    number=assure_string_length(
+                        str(plot.get("plot_number", "unknown")), max_length=12
+                    ),
                 ),
                 realestateType="8",  # mentioned in swagger README
                 coordinates=(
@@ -303,7 +350,7 @@ def application(instance: Instance):
                             town=assure_string_length(owner.get("town"), max_length=40),
                             swissZipCode=get_zip(owner.get("zip")),
                             # foreignZipCode minOccurs=0
-                            country="CH",
+                            country=owner.get("country_code", "CH"),
                         ),
                     )
                 )
@@ -348,7 +395,7 @@ def application(instance: Instance):
             md.profile_approval_date, datetime.datetime
         ),  # 3.1.1.6
         profilingDate=md.profile_approval_date,  # 3.1.1.7
-        parkingLotsYesNo=bool(md.parking_lots),
+        parkingLotsYesNo=get_parking_lots(md),
         natureRisk=(
             [
                 ns_application.natureRiskType(
@@ -392,7 +439,7 @@ def application(instance: Instance):
         referencedPlanningPermissionApplication=[
             permission_application_identification(i) for i in related_instances
         ],  # Referenzierte Baugesuche 3.1.1.22 TODO: verify!
-        document=get_all_documents(instance),  # 3.2
+        document=get_all_documents(instance, request),  # 3.2
         decisionRuling=CantonSpecific.decision_ruling(instance, md),  # 3.4
         zone=(
             [  # TODO: 3.8
@@ -450,7 +497,7 @@ def status_notification(instance: Instance):
 
 
 class BaseDeliveryFormatter:
-    def format_base_delivery(self, instance: Instance):
+    def format_base_delivery(self, instance: Instance, request: HttpRequest):
         """Make a well formatted baseDeliveryType from MasterData ready config."""
 
         responsible_service = instance.responsible_service(filter_type="municipality")
@@ -459,29 +506,27 @@ class BaseDeliveryFormatter:
 
         return ns_application.eventBaseDeliveryType(
             planningPermissionApplicationInformation=[
-                (
-                    pyxb.BIND(
-                        planningPermissionApplication=application(instance),
-                        relationshipToPerson=format_relationships_to_persons(md),
-                        decisionAuthority=decision_authority(
-                            responsible_service,
-                            organization_category=md.organization_category,
-                        ),
-                        entryOffice=office(
-                            responsible_service,
-                            organization_category=md.organization_category,
-                        ),
-                    )
+                pyxb.BIND(
+                    planningPermissionApplication=application(instance, request),
+                    relationshipToPerson=format_relationships_to_persons(md),
+                    decisionAuthority=decision_authority(
+                        responsible_service,
+                        organization_category=md.organization_category,
+                    ),
+                    entryOffice=office(
+                        responsible_service,
+                        organization_category=md.organization_category,
+                    ),
                 )
             ]
         )
 
 
-def submit(instance: Instance, event_type: str = "submit"):
+def submit(instance: Instance, event_type: str = "submit", request: HttpRequest = None):
     # Submit with master data conforming answer processing.
     return ns_application.eventSubmitPlanningPermissionApplicationType(
         eventType=ns_application.eventTypeType(event_type),
-        planningPermissionApplication=application(instance),
+        planningPermissionApplication=application(instance, request),
         relationshipToPerson=format_relationships_to_persons(MasterData(instance.case)),
     )
 
@@ -499,7 +544,7 @@ def person_to_ech0129_personIdentifcationType(person):
                 person.get("juristic_name", ""), max_length=255
             ),
             organisationAdditionalName=assure_string_length(
-                f'{person.get("first_name", "")} {person.get("last_name", "")}'.strip(),
+                f"{person.get('first_name', '')} {person.get('last_name', '')}".strip(),
                 max_length=255,
             ),
             uid=ns_company_identification.uidStructureType(
@@ -525,7 +570,7 @@ def person_to_ech0129_personIdentifcationType(person):
             ),
             town=assure_string_length(person.get("town", ""), max_length=40),
             swissZipCode=get_zip(person.get("zip", "")),
-            country="CH",
+            country=person.get("country_code", "CH"),
         ),
     )
 
@@ -575,7 +620,12 @@ def directive(comment, deadline=None):
 
 
 def request(
-    instance: Instance, event_type: str, comment=None, deadline=None, documents=None
+    instance: Instance,
+    event_type: str,
+    comment=None,
+    deadline=None,
+    documents=None,
+    request: HttpRequest = None,
 ):
     return ns_application.eventRequestType(
         eventType=ns_application.eventTypeType(event_type),
@@ -583,15 +633,16 @@ def request(
             instance
         ),
         directive=directive(comment, deadline) if comment else None,
-        document=get_documents(documents) if documents else None,
+        document=get_documents(documents, request) if documents else None,
     )
 
 
 def accompanying_report(
     instance: Instance,
     event_type: str,
-    attachments: List[Attachment],
+    documents: Union[QuerySet[Attachment], QuerySet[Document]],
     inquiry: WorkItem,
+    request: HttpRequest,
 ):
     status = inquiry.child_case.document.answers.get(
         question_id=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
@@ -603,26 +654,65 @@ def accompanying_report(
 
         return [assure_string_length(handle_string_values(answer), max_length=950)]
 
-    return ns_application.eventAccompanyingReportType(
+    report = ns_application.eventAccompanyingReportType(
         eventType=ns_application.eventTypeType(event_type),
         planningPermissionApplicationIdentification=permission_application_identification(
             instance
         ),
-        document=get_documents(attachments),
+        document=get_documents(documents, request),
         remark=prepare_notice(
             find_answer(
                 inquiry.child_case.document,
-                settings.DISTRIBUTION["QUESTIONS"]["STATEMENT"],
+                settings.DISTRIBUTION["QUESTIONS"].get("STATEMENT"),
             )
         ),
         ancillaryClauses=prepare_notice(
             find_answer(
                 inquiry.child_case.document,
-                settings.DISTRIBUTION["QUESTIONS"]["ANCILLARY_CLAUSES"],
+                settings.DISTRIBUTION["QUESTIONS"].get("ANCILLARY_CLAUSES"),
             )
         ),
         judgement=settings.ECH0211["JUDGEMENT_MAPPING"].get(status.value),
     )
+
+    if extensions := settings.ECH0211["ACCOMPANYING_REPORT"].get("EXTENSION_MAPPING"):
+        # Add xml tags to extension attribute
+        xml_dom = xml.dom.minidom.getDOMImplementation()
+        xml_doc = xml_dom.createDocument(None, "root", None)
+
+        report.extension = pyxb.binding.datatypes.anyType()
+
+        answers_by_slug = {
+            ans.question_id: ans
+            for ans in inquiry.child_case.document.answers.filter(
+                question_id__in=extensions.keys()
+            ).select_related("question")
+        }
+        for slug, mapping in extensions.items():
+            if slug not in answers_by_slug:
+                continue
+            xml_element = xml_doc.createElement(mapping["tag"])
+            caluma_answer = answers_by_slug[slug]
+            caluma_value = caluma_answer.value
+            if caluma_answer.question.type == Question.TYPE_MULTIPLE_CHOICE:
+                caluma_value = str(mapping["true_value"] in caluma_value).lower()
+            xml_value = xml_doc.createTextNode(caluma_value or "")
+            xml_element.appendChild(xml_value)
+
+            report.extension._appendWildcardElement(value=xml_element)
+
+        service = Service.objects.get(pk=inquiry.closed_by_group)
+        service_info = {
+            "organisationId": str(service.pk),
+            "organisationName": service.get_name(),
+        }
+        for tag, value in service_info.items():
+            xml_element = xml_doc.createElement(tag)
+            xml_value = xml_doc.createTextNode(value)
+            xml_element.appendChild(xml_value)
+            report.extension._appendWildcardElement(value=xml_element)
+
+    return report
 
 
 def change_responsibility(instance: Instance):
@@ -713,7 +803,7 @@ def decision_authority(service, organization_category=None):
                 town=assure_string_length(
                     service.get_trans_attr("city") or "unknown", max_length=40
                 ),
-                swissZipCode=service.zip,
+                swissZipCode=get_zip(service.zip, optional=True),
                 street=assure_string_length(service.address, max_length=60),
                 country="CH",
             ),
@@ -810,6 +900,10 @@ class CantonSpecific:
         return cls.caluma_decision_ruling(instance, md)
 
     @classmethod
+    def decision_ruling_ag(cls, instance, md):  # pragma: no cover
+        return cls.caluma_decision_ruling(instance, md)
+
+    @classmethod
     def caluma_decision_ruling(cls, instance, md):
         caluma_workflow_slug = instance.case.workflow.slug
         work_item = instance.case.work_items.filter(
@@ -862,6 +956,21 @@ class CantonSpecific:
     @canton_aware
     def building_information(cls, instance, md):
         return []
+
+    @classmethod
+    def building_information_so(cls, instance, md):
+        return [
+            ns_application.buildingInformationType(
+                building=ns_objektwesen.buildingType(
+                    EGID=building.get("egid"),
+                    name=assure_string_length(
+                        building.get("name"), min_length=3, max_length=40
+                    ),
+                    buildingCategory=building.get("building_category"),
+                )
+            )
+            for building in md.buildings
+        ]
 
     @classmethod
     def building_information_be(cls, instance, md):

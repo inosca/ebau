@@ -1,0 +1,122 @@
+<ValidatedForm
+  @model={{changeset @model this.validations}}
+  @on-submit={{this.save.perform}}
+  as |f|
+>
+  <h3>
+    {{#if f.model.isNew}}
+      {{t "rulesets.responsible-user.new"}}
+    {{else}}
+      {{t "rulesets.responsible-user.edit"}}
+    {{/if}}
+  </h3>
+
+  {{#if f.model.isNew}}
+    <div class="uk-margin">
+      <div class="uk-button-group">
+        {{#each (array "municipalities" "application-types") as |type|}}
+          <UkButton
+            @label={{t (concat "rulesets.responsible-user.types." type)}}
+            @color={{if (eq this.type type) "primary" "default"}}
+            @onClick={{fn this.changeType f.model type}}
+            data-test-rule-type={{type}}
+          />
+        {{/each}}
+      </div>
+    </div>
+  {{/if}}
+
+  <div class="uk-margin">
+    {{#if (eq this.type "municipalities")}}
+      <f.input
+        @name="municipalities"
+        @label={{t "rulesets.responsible-user.types.municipalities"}}
+        @required={{true}}
+        @errorComponent={{this.errorComponent}}
+        as |fi|
+      >
+        <PowerSelectMultiple
+          @triggerId="municipalities"
+          @selected={{fi.value}}
+          @onChange={{fi.update}}
+          @renderInPlace={{true}}
+          @loadingMessage={{t "global.loadingPrompt"}}
+          @searchEnabled={{true}}
+          @searchField="name"
+          @options={{this.municipalities.records}}
+          @noMatchesMessage={{t "global.noMatch"}}
+          class="uk-select"
+          as |municipality|
+        >
+          {{municipality.name}}
+        </PowerSelectMultiple>
+      </f.input>
+    {{else if (eq this.type "application-types")}}
+      <f.input
+        @name="applicationTypes"
+        @label={{t "rulesets.responsible-user.types.application-types"}}
+        @required={{true}}
+        @errorComponent={{this.errorComponent}}
+        as |fi|
+      >
+        <PowerSelectMultiple
+          @triggerId="applicationTypes"
+          @selected={{fi.value}}
+          @onChange={{fi.update}}
+          @renderInPlace={{true}}
+          @loadingMessage={{t "global.loadingPrompt"}}
+          @searchEnabled={{true}}
+          @searchField="name"
+          @options={{this.applicationTypes.records}}
+          @noMatchesMessage={{t "global.noMatch"}}
+          class="uk-select"
+          as |applicationType|
+        >
+          {{applicationType.name}}
+        </PowerSelectMultiple>
+      </f.input>
+    {{/if}}
+  </div>
+
+  <div class="uk-margin">
+    <f.input
+      @name="responsibleUser"
+      @label={{t "rulesets.responsible-user.responsible-user"}}
+      @required={{true}}
+      @errorComponent={{this.errorComponent}}
+      as |fi|
+    >
+      <PowerSelect
+        @triggerId="responsibleUser"
+        @selected={{fi.value}}
+        @onChange={{fi.update}}
+        @renderInPlace={{true}}
+        @loadingMessage={{t "global.loadingPrompt"}}
+        @searchEnabled={{true}}
+        @searchField="fullName"
+        @options={{this.users.records}}
+        @noMatchesMessage={{t "global.noMatch"}}
+        class="uk-select"
+        as |user|
+      >
+        {{user.fullName}}
+      </PowerSelect>
+    </f.input>
+  </div>
+
+  <div class="uk-margin">
+    <f.submit
+      @disabled={{or f.model.isInvalid this.save.isRunning}}
+      @loading={{this.save.isRunning}}
+      @label={{t "global.save"}}
+      data-test-save
+    />
+    <LinkTo
+      @route={{module-route "rulesets" "responsible-user.index"}}
+      class="uk-button uk-button-default"
+      data-test-cancel
+    >
+      {{t "global.cancel"}}
+    </LinkTo>
+  </div>
+</ValidatedForm>

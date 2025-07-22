@@ -14,7 +14,7 @@ export default class CasesDetailRoute extends Route {
 
     try {
       // fetch instance to allow reloading after state changes
-      // from ebau-modules.js (redirectToWorkItems)
+      // from ebau-modules.js (redirectToCaseWorkItems)
       return await this.store.findRecord("instance", instance_id, {
         include: "instance_state,responsible_service_users,linked_instances",
       });

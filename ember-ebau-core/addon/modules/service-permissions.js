@@ -1,3 +1,4 @@
+import ServicePermissionsController from "ember-ebau-core/controllers/service-permissions";
 import ServicePermissionsOrganiationController from "ember-ebau-core/controllers/service-permissions/organisation";
 import ServicePermissionsPermissionsAddController from "ember-ebau-core/controllers/service-permissions/permissions/add";
 import ServicePermissionsPermissionsIndexController from "ember-ebau-core/controllers/service-permissions/permissions/index";
@@ -55,6 +56,7 @@ export default function register(router, options = {}) {
         ServicePermissionsSubServicesIndexRoute,
     },
     controllers: {
+      "service-permissions": ServicePermissionsController,
       "service-permissions/permissions/index":
         ServicePermissionsPermissionsIndexController,
       "service-permissions/permissions/add":

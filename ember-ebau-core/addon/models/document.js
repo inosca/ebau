@@ -34,16 +34,23 @@ export default class CustomDocumentModel extends DocumentModel {
 
   @dropTask
   *download(event) {
+    yield this._download(event);
+  }
+
+  async _download(event) {
     event?.preventDefault();
 
     try {
-      const file = (yield this.files).find(
+      const file = (await this.files).find(
         (file) => file.variant === "original",
       );
 
+      if (file.isDownloadUrlExpired) {
+        await file.reload();
+      }
+
       open(file.downloadUrl);
     } catch (e) {
-      /* eslint-disable-next-line no-console */
       console.error(e);
       this.notification.danger(this.intl.t("documents.downloadError"));
     }

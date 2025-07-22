@@ -1,0 +1,42 @@
+{{#if this.instance.isLoading}}
+  <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
+{{else if this.instance.record}}
+  <div class="uk-child-width-1-2" uk-grid>
+    {{#if (has-feature "corrections.correctForm")}}
+      <div>
+        <Corrections::Document @instance={{this.instance.record}} />
+      </div>
+    {{/if}}
+    {{#if (has-feature "corrections.withdrawInstance")}}
+      <div>
+        <Corrections::WithdrawInstance @instance={{this.instance.record}} />
+      </div>
+    {{/if}}
+    {{#if (has-feature "corrections.changeForm")}}
+      <div>
+        <Corrections::ChangeForm @instance={{this.instance.record}} />
+      </div>
+    {{/if}}
+    {{#if (has-feature "corrections.changeDossierNumber")}}
+      <div>
+        <Corrections::ChangeDossierNumber @instance={{this.instance.record}} />
+      </div>
+    {{/if}}
+    {{#if
+      (and
+        (has-feature "corrections.convertModification")
+        this.instance.record.isModification
+        (not this.isAppeal.value)
+      )
+    }}
+      <div>
+        <Corrections::ConvertModification @instance={{this.instance.record}} />
+      </div>
+    {{/if}}
+    {{#if (has-feature "corrections.archiveInstance")}}
+      <div>
+        <Corrections::ArchiveInstance @instance={{this.instance.record}} />
+      </div>
+    {{/if}}
+  </div>
+{{/if}}

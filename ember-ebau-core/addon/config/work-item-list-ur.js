@@ -1,17 +1,19 @@
 export default {
+  pageSize: 50,
   showTaskFilter: true,
   availableTasks: {
     roles: {
       municipality: [
         "complete-check",
+        "check-additional-demand",
         "init-distribution",
         "check-inquiries",
         "decision",
         "init-construction-monitoring",
         "complete-instance",
       ],
-      service: ["inquiry"],
-      coordination: ["inquiry", "check-inquiries"],
+      service: ["inquiry", "check-inquiries", "check-additional-demand"],
+      coordination: ["inquiry", "check-inquiries", "check-additional-demand"],
     },
     services: {},
     default: [],

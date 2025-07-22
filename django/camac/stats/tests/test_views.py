@@ -31,9 +31,9 @@ from camac.stats.views import ClaimSummaryView, InstanceSummaryView
 def test_summary_filter_period(
     admin_client,
     instance_factory,
-    case_factory,
-    document_factory,
-    work_item_factory,
+    caluma_case_factory,
+    caluma_document_factory,
+    caluma_work_item_factory,
     filter_params,
     expected,
 ):
@@ -42,7 +42,7 @@ def test_summary_filter_period(
 
     def make_instance(exp_meta, paper_submit_date, submit_date):
         instance = instance_factory()
-        case = case_factory(
+        case = caluma_case_factory(
             instance=instance,
             meta={
                 "expected": exp_meta,
@@ -50,9 +50,9 @@ def test_summary_filter_period(
                 "paper-submit-date": paper_submit_date,
             },
         )
-        claim_doc = document_factory(form_id="nfd")
-        document_factory(form_id="nfd-tabelle", family=claim_doc)
-        work_item_factory(document=claim_doc, case=case)
+        claim_doc = caluma_document_factory(form_id="nfd")
+        caluma_document_factory(form_id="nfd-tabelle", family=claim_doc)
+        caluma_work_item_factory(document=claim_doc, case=case)
         instance.save()
 
     make_instance("first-with-paper", datetime.date(1985, 5, 15).isoformat(), None)
@@ -91,7 +91,9 @@ def test_summary_filter_period(
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
-def test_summary_instances(admin_client, instance_factory, case_factory, freezer, role):
+def test_summary_instances(
+    admin_client, instance_factory, caluma_case_factory, freezer, role
+):
     fake = Faker()
     period_length = 10
     beginning_of_time = datetime.datetime(1980, 12, 31)
@@ -130,7 +132,7 @@ def test_summary_instances(admin_client, instance_factory, case_factory, freezer
                 }
             )
         cases.append(
-            case_factory.create(
+            caluma_case_factory.create(
                 instance=inst,
                 meta=meta,
             )

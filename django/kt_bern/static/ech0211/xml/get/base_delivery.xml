@@ -182,7 +182,7 @@
                     <ns7:status>signed</ns7:status>
                     <ns7:files>
                         <ns7:file>
-                            <ns7:pathFileName>http://camac-ng.local/api/v1/attachments/files/?attachments=17</ns7:pathFileName>
+                            <ns7:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=17</ns7:pathFileName>
                             <ns7:mimeType>video/x-flv</ns7:mimeType>
                         </ns7:file>
                     </ns7:files>

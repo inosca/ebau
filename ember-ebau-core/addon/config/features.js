@@ -11,6 +11,8 @@ if (macroCondition(getOwnConfig().application === "be")) {
   features = importSync("ember-ebau-core/config/features/gr");
 } else if (macroCondition(getOwnConfig().application === "so")) {
   features = importSync("ember-ebau-core/config/features/so");
+} else if (macroCondition(getOwnConfig().application === "ag")) {
+  features = importSync("ember-ebau-core/config/features/ag");
 } else if (macroCondition(getOwnConfig().application === "demo")) {
   features = importSync("ember-ebau-core/config/features/demo");
 }

@@ -1,26 +1,31 @@
+@use "sass:color";
 @import "variables";
-
 @import "ember-uikit";
 @import "ember-alexandria";
 
-$border-color: darken($global-muted-background, 10%);
+$border-color: color.adjust($global-muted-background, $lightness: -10%);
 $main-nav-height: 80px;
+$master-data-header-height: 48px;
+$master-data-divider-height: 22px;
 $sidebar-width: 240px;
 $sidebar-padding: 48px;
 $main-navigation-background: $global-primary-background !default;
 
+// We need this as stylelint-prettier will format this line as it currently is
+// or raise a lint error and stylelint-scss will raise the error we silenced.
+// So no way to statisfy both.
+/* stylelint-disable-next-line */
+$master-data-heigth: calc($main-nav-height + $master-data-divider-height + $master-data-header-height + $global-margin);
+
 @import "a11y";
 @import "power-select";
-
 @import "modules/alexandria";
 @import "modules/work-items";
-
 @import "components/main-navigation";
 @import "components/sub-navigation";
 @import "components/subnav-header";
 @import "components/header";
 @import "components/work-item-list";
-
 @import "@projectcaluma/ember-form";
 @import "@projectcaluma/ember-distribution";
 @import "ember-ebau-gwr";
@@ -32,8 +37,28 @@ $main-navigation-background: $global-primary-background !default;
   padding-bottom: $global-margin;
 }
 
-.nav-sidebar + .main-content {
-  padding-left: $sidebar-width + $container-padding-horizontal;
+.nav-sidebar + .master-data-header {
+  margin-top: $main-nav-height;
+  padding-top: $global-margin;
+  padding-left: $sidebar-width + $container-padding-horizontal-m;
+  padding-right: $container-padding-horizontal-m;
+
+  & ~ .master-data-divider {
+    margin-left: $sidebar-width;
+    height: $master-data-divider-height;
+  }
+
+  &.compact {
+    height: $master-data-header-height;
+  }
+}
+
+.master-data-header ~ .main-content {
+  padding-left: $sidebar-width + $container-padding-horizontal-m;
+
+  // Reset .main-content
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .ca-label {
@@ -43,10 +68,9 @@ $main-navigation-background: $global-primary-background !default;
 
 .full-screen-content {
   margin-left: $sidebar-width + 1px;
-  margin-top: $main-nav-height;
 
   & > div {
-    height: calc(100vh - $main-nav-height);
+    height: calc(100vh - $master-data-heigth);
   }
 }
 

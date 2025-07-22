@@ -28,10 +28,7 @@ export default class extends Ability {
   }
 
   async canCreate() {
-    if (
-      this.ebauModules.applicationName === "caluma-portal" &&
-      this.session.isInternal
-    ) {
+    if (this.ebauModules.isPortal && this.session.isInternal) {
       return false;
     }
 

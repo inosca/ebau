@@ -10,8 +10,9 @@ import {
   getAnswerDisplayValue,
   getAnswer,
 } from "ember-ebau-core/utils/get-answer";
+import { getNames } from "ember-ebau-core/utils/get-applicants";
 
-const { answerSlugs, legalSubmission } = mainConfig;
+const { legalSubmission } = mainConfig;
 
 export default class LegalSubmissionTableRowComponent extends Component {
   @service notification;
@@ -50,32 +51,32 @@ export default class LegalSubmissionTableRowComponent extends Component {
   get withdrawn() {
     return (
       getAnswer(this.args.legalSubmission, legalSubmission.columns.withdrawn)
-        ?.node.listValue.length > 0 ?? false
+        ?.node.listValue.length > 0
     );
   }
 
   get legalClaimants() {
-    const rows = getAnswer(
+    return getNames(
       this.args.legalSubmission,
       legalSubmission.columns["legal-claimants"],
+    );
+  }
+
+  get hasRepresentative() {
+    const claimants = getAnswer(
+      this.args.legalSubmission,
+      legalSubmission.columns["has-representative"],
     )?.node.tableValue;
 
-    if (!rows) return "";
-
-    return rows
-      ?.map((row) => {
-        const isJuristic =
-          getAnswer(row, answerSlugs.isJuristicApplicant)?.node.stringValue ===
-          answerSlugs.isJuristicApplicantYes;
-
-        return isJuristic
-          ? getAnswerDisplayValue(row, answerSlugs.juristicNameApplicant)
-          : [
-              getAnswerDisplayValue(row, answerSlugs.lastNameApplicant),
-              getAnswerDisplayValue(row, answerSlugs.firstNameApplicant),
-            ].join(" ");
-      })
-      .join(", ");
+    return (claimants ?? [])
+      .map((row) =>
+        getAnswerDisplayValue(
+          row,
+          mainConfig.answerSlugs.hasRepresentativeApplicant,
+          false,
+        ),
+      )
+      .includes(mainConfig.answerSlugs.hasRepresentativeApplicantYes);
   }
 
   @dropTask
@@ -90,7 +91,7 @@ export default class LegalSubmissionTableRowComponent extends Component {
       this.notification.success(this.intl.t("legal-submission.delete-success"));
 
       this.args.onDelete();
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("legal-submission.delete-error"));
     }
   }

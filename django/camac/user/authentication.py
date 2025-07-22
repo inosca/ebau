@@ -30,13 +30,24 @@ request_logger = logging.getLogger("django.request")
 
 
 class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
-    def __init__(self):
-        self.keycloak = KeycloakOpenID(
-            server_url=settings.KEYCLOAK_URL,
-            client_id=settings.KEYCLOAK_CLIENT,
-            realm_name=settings.KEYCLOAK_REALM,
-            verify=settings.OIDC_VERIFY_SSL,
-        )
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # We initialize the keycloak property on the *class*
+        # instead of the object, so the KC client can reuse the TCP
+        # connections and LibSSL state.
+        cls = type(self)
+        if not hasattr(cls, "keycloak"):
+            setattr(
+                cls,
+                "keycloak",
+                KeycloakOpenID(
+                    server_url=settings.KEYCLOAK_URL,
+                    client_id=settings.KEYCLOAK_CLIENT,
+                    realm_name=settings.KEYCLOAK_REALM,
+                    verify=settings.OIDC_VERIFY_SSL,
+                ),
+            )
 
     def get_jwt_value(self, request):
         auth = get_authorization_header(request).split()
@@ -224,13 +235,13 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 class DjangoAdminOIDCAuthenticationBackend(
     OIDCAuthenticationBackend
 ):  # pragma: no cover
-    def get_userinfo_or_introspection(self, access_token):
+    def get_userinfo_cached(self, access_token):
         return self.cached_request(self.get_userinfo, access_token, "auth.userinfo")
 
     def get_or_create_user(self, access_token, id_token, payload):
         """Verify claims and return user, otherwise raise an Exception."""
 
-        claims = self.get_userinfo_or_introspection(access_token)
+        claims = self.get_userinfo_cached(access_token)
 
         users = self.filter_users_by_claims(claims)
 

@@ -240,21 +240,27 @@ class KtBernDossierWriter(DossierWriter):
             ).values_list("name", flat=True)
         )
 
-    def existing_dossier(self, dossier_id):
+    def find_existing_instance(self, dossier, user):
         return (
             tag := Tags.objects.filter(
-                name=dossier_id, service=self._group.service
+                name=dossier.id, service=self._group.service
             ).first()
         ) and tag.instance
 
-    def set_dossier_id(self, instance, dossier_id):
-        """Make the instance retrievable by dossier_id."""
+    def link_instance_and_dossier(self, instance, dossier, user):
+        """Make the instance retrievable by the dossier.
+
+        The reverse of `self.find_existing_instance`
+        :param instance:
+        :param dossier:
+        :param user:
+        """
         Tags.objects.create(
-            name=dossier_id, service=self._group.service, instance=instance
+            name=dossier.id, service=self._group.service, instance=instance
         )
         construction_control = get_construction_control(self._group.service)
         Tags.objects.create(
-            name=dossier_id, service=construction_control, instance=instance
+            name=dossier.id, service=construction_control, instance=instance
         )
 
     def _post_create_instance(self, instance, dossier):

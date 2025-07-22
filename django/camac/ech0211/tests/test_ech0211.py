@@ -36,6 +36,12 @@ from camac.ech0211 import formatters
             lf("ech_instance_so"),
             lf("so_master_data_settings"),
         ),
+        (
+            "kt_ag",
+            lf("set_application_ag"),
+            lf("ech_instance_ag"),
+            lf("ag_master_data_settings"),
+        ),
     ],
 )
 def test_generate_delivery(
@@ -47,6 +53,7 @@ def test_generate_delivery(
     master_data_is_visible_mock,
     _master_data_settings,
     reload_ech0211_urls,
+    fake_request,
 ):
     base_delivery_formatter = formatters.BaseDeliveryFormatter()
 
@@ -60,7 +67,9 @@ def test_generate_delivery(
         camac_instance,
         subject="Einfache Vorabklärung",
         message_type=ECH_BASE_DELIVERY,
-        eventBaseDelivery=base_delivery_formatter.format_base_delivery(camac_instance),
+        eventBaseDelivery=base_delivery_formatter.format_base_delivery(
+            camac_instance, fake_request
+        ),
     )
     xml_data = delivery.toxml()
     my_dir = os.path.dirname(__file__)

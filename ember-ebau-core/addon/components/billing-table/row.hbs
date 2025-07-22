@@ -1,13 +1,18 @@
 <tr>
-  {{#if (can "charge billing-v2-entries")}}
+  {{#if
+    (or
+      (can "charge billing-v2-entries")
+      (await (can "release-for-clearing billing-v2-entries"))
+    )
+  }}
     <td data-test-entry-charge>
       <input
         type="checkbox"
         class="uk-checkbox"
         aria-label={{t "billing.toggle-row"}}
         title={{t "billing.toggle-row"}}
-        disabled={{not-eq @entry.dateCharged null}}
-        checked={{or (not-eq @entry.dateCharged null) @selected}}
+        disabled={{or @entry.dateCharged @entry.releasedForClearing}}
+        checked={{or @entry.dateCharged @entry.releasedForClearing @selected}}
         data-test-toggle
         {{on "change" this.toggle}}
       />
@@ -19,6 +24,11 @@
       <span class="uk-text-italic">({{@entry.legalBasis}})</span>
     {{/if}}
   </td>
+  {{#if (has-feature "billing.remark")}}
+    <td data-test-entry-remark>
+      <TruncatedText @maxLength={{50}} @content={{@entry.remark}} />
+    </td>
+  {{/if}}
   {{#if (has-feature "billing.displayService")}}
     <td data-test-entry-service>{{@entry.group.service.name}}</td>
   {{else}}
@@ -30,6 +40,12 @@
     {{format-number @entry.finalRate minimumFractionDigits=2}}
   </td>
   <td data-test-entry-added>{{format-date @entry.dateAdded format="date"}}</td>
+  {{#if (has-feature "billing.releaseForClearing.enabled")}}
+    <td data-test-entry-released-for-clearing>{{format-date
+        @entry.releasedForClearing
+        format="date"
+      }}</td>
+  {{/if}}
   {{#if (has-feature "billing.charge")}}
     <td data-test-entry-charged>{{format-date
         @entry.dateCharged
@@ -51,6 +67,13 @@
           <span class="uk-text-italic">({{t "billing.cost-center-short"}}
             {{@entry.costCenter}})</span>
         {{/if}}
+      {{/if}}
+    </td>
+  {{/if}}
+  {{#if (has-feature "billing.productNumber")}}
+    <td data-test-entry-productNumber>
+      {{#if @entry.productNumber}}
+        {{@entry.productNumberName}}
       {{/if}}
     </td>
   {{/if}}

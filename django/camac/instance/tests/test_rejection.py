@@ -58,9 +58,9 @@ def test_validate(
     db,
     be_instance,
     active_inquiry_factory,
-    document_factory,
-    answer_factory,
-    work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+    caluma_work_item_factory,
     settings,
     reason,
     module_settings,
@@ -69,19 +69,19 @@ def test_validate(
     if reason == "inquiry":
         active_inquiry_factory(be_instance)
     elif reason == "claim":
-        work_item_factory(
+        caluma_work_item_factory(
             case=be_instance.case,
             task__slug=module_settings["TASK"],
             status=WorkItem.STATUS_READY,
         )
     elif reason == "claim_legacy":
         settings.APPLICATION_NAME = "kt_bern"
-        document = document_factory(form_id="nfd")
+        document = caluma_document_factory(form_id="nfd")
 
-        work_item_factory(case=be_instance.case, document=document)
+        caluma_work_item_factory(case=be_instance.case, document=document)
 
-        answer_factory(
-            document=document_factory(form__slug="nfd-tabelle", family=document),
+        caluma_answer_factory(
+            document=caluma_document_factory(form__slug="nfd-tabelle", family=document),
             question__slug="nfd-tabelle-status",
             value="nfd-tabelle-status-in-bearbeitung",
         )
@@ -93,6 +93,7 @@ def test_validate(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("allow_revert", [True, False])
 def test_reject_instance(
     db,
     be_instance,
@@ -102,9 +103,18 @@ def test_reject_instance(
     rejection_settings,
     notification_template,
     mailoutbox,
+    allow_revert,
+    caluma_work_item_factory,
 ):
     instance_state_factory(name=rejection_settings["INSTANCE_STATE"])
 
+    work_item = caluma_work_item_factory(
+        case=be_instance.case,
+        status=WorkItem.STATUS_READY,
+        child_case=None,
+    )
+
+    rejection_settings["ALLOW_REVERT"] = allow_revert
     rejection_settings["ALLOWED_INSTANCE_STATES"] = [be_instance.instance_state.name]
     rejection_settings["NOTIFICATIONS"] = {
         "REJECTED": [
@@ -114,6 +124,7 @@ def test_reject_instance(
             }
         ]
     }
+    rejection_settings["WORK_ITEM"] = {"TASK": work_item.task_id}
 
     response = admin_client.post(
         reverse("instance-rejection", args=[be_instance.pk]),
@@ -129,9 +140,15 @@ def test_reject_instance(
     assert response.status_code == status.HTTP_200_OK
 
     be_instance.refresh_from_db()
+    work_item.refresh_from_db()
 
+    if allow_revert:
+        assert be_instance.case.status == Case.STATUS_SUSPENDED
+    else:
+        assert be_instance.case.status == Case.STATUS_CANCELED
+
+    assert work_item.status == WorkItem.STATUS_COMPLETED
     assert be_instance.instance_state.name == rejection_settings["INSTANCE_STATE"]
-    assert be_instance.case.status == Case.STATUS_SUSPENDED
     assert (
         be_instance.history.filter(history_type=HistoryActionConfig.HISTORY_TYPE_STATUS)
         .latest("created_at")

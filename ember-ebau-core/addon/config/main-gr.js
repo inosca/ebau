@@ -1,6 +1,6 @@
 export default {
   name: "gr",
-  languages: ["de"],
+  languages: ["de", "it"],
   fallbackLanguage: "de",
   prodUrl: "ebau.admin.gr.ch",
   allowApplicantManualWorkItem: false,
@@ -17,6 +17,8 @@ export default {
     correction: 120008,
     "init-distribution": 120009,
     rejected: 120011,
+    withdrawn: 120012,
+    withdrawal: 120013,
   },
   gwr: {
     cantonAbbreviation: "GR",
@@ -37,6 +39,7 @@ export default {
     objectStreet: "street-and-housenumber",
     objectLocation: "ort-grundstueck",
     description: "beschreibung-bauvorhaben",
+    modificationDescription: "beschreibung-projektaenderung",
     municipality: "gemeinde",
     specialId: "dossier-number",
     parcel: "parzelle",
@@ -81,6 +84,16 @@ export default {
   publication: {
     public: {
       task: "fill-publication",
+      dateRanges: [
+        [
+          "beginn-publikationsorgan-gemeinde",
+          "ende-publikationsorgan-gemeinde",
+        ],
+        [
+          "beginn-publikation-kantonsamtsblatt",
+          "ende-publikation-kantonsamtsblatt",
+        ],
+      ],
     },
   },
   decision: {
@@ -91,12 +104,35 @@ export default {
     },
     colorMapping: {
       "decision-decision-approved": "uk-alert-success",
+      "decision-decision-approved-with-reservation": "uk-alert-success",
       "decision-decision-rejected": "uk-alert-danger",
       "decision-decision-written-off": "uk-alert-warning",
       "decision-decision-positive": "uk-alert-success",
       "decision-decision-negative": "uk-alert-danger",
-      "decision-decision-positive-with-reservation": "uk-alert-warning",
+      "decision-decision-positive-with-reservation": "uk-alert-success",
       "decision-decision-retreat": "uk-alert-warning",
+    },
+  },
+  legalSubmission: {
+    task: "objections",
+    tableForm: "einsprache",
+    tableQuestion: "einsprachen",
+    orderQuestion: "einsprache-datum",
+    columns: {
+      date: "einsprache-datum",
+      "legal-claimants": "einsprache-einsprechende",
+      withdrawn: "einsprache-zurueckgezogen",
+    },
+  },
+  legalAppeal: {
+    task: "appeals",
+    tableForm: "beschwerde",
+    tableQuestion: "beschwerden",
+    orderQuestion: "beschwerde-datum",
+    columns: {
+      date: "beschwerde-datum",
+      "legal-claimants": "beschwerde-einsprechende",
+      withdrawn: "beschwerde-zurueckgezogen",
     },
   },
   rejection: {
@@ -105,6 +141,14 @@ export default {
       "subm",
       "init-distribution",
       "circulation",
+      "decision",
+    ],
+  },
+  withdrawal: {
+    allowedInstanceStates: [
+      "subm",
+      "init-distribution",
+      "distribution",
       "decision",
     ],
   },
@@ -123,7 +167,7 @@ export default {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
   },
   modification: {
-    allowForms: ["baugesuch"],
+    allowForms: ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
     disallowStates: ["new"],
   },
 };

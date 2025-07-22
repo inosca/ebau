@@ -1,22 +1,17 @@
-<div
-  class="master-data-header {{if this.hideHeader 'master-data-header--hidden'}}"
->
+<div class="master-data-header {{if this.compact 'compact'}}" ...attributes>
   <div
-    class="uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-margin-bottom uk-grid-small"
+    class="uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-6@l uk-grid-small"
     uk-grid
   >
     <div>
       <div class="uk-text-bold">{{t "cases.tableHeaders.address"}}</div>
       {{or @case.address "-"}}
     </div>
-    <div>
-      <div class="uk-text-bold">{{t "cases.tableHeaders.parcel"}}</div>
-      {{or @case.plots "-"}}
-      {{#if @case.coordinatesLink}}(<a
-          href={{@case.coordinatesLink}}
-          target="_blank"
-          rel="noopener noreferrer"
-        >{{format-coordinate @case.centerCoordinate}}</a>){{/if}}
+    <div class={{if this.compact "uk-text-truncate"}}>
+      <div class="uk-text-bold">{{t "cases.tableHeaders.intent"}}</div>
+      <TruncatedText
+        @content={{or @case.modificationDescription @case.intent "-"}}
+      />
     </div>
     <div>
       <div class="uk-text-bold">{{t "cases.tableHeaders.applicants"}}</div>
@@ -27,54 +22,100 @@
       {{or @case.municipality "-"}}
     </div>
     <div>
-      <div class="uk-text-bold">{{t "cases.tableHeaders.responsibility"}}</div>
-      {{or @case.responsible.fullName "-"}}
-    </div>
-    <div>
-      <div class="uk-text-bold">{{t "cases.tableHeaders.submitDate"}}</div>
-      {{or @case.submitDate "-"}}
-    </div>
-    <div>
-      <div class="uk-text-bold">{{t "cases.header.printPreview"}}</div>
-      <a href="#" {{on "click" (perform this.downloadPdf)}}>
-        {{#if this.downloadPdf.isRunning}}
-          <UkSpinner @ratio="0.6" />
-        {{else}}
-          <UkIcon @icon="file-pdf" />
+      <div class="uk-text-bold">
+        {{t "cases.tableHeaders.submitDate"}}
+        {{#if
+          (and (has-feature "deadlines.enabled") (await (can "read deadline")))
+        }}
+          /
+          {{or
+            (if
+              (has-feature "deadlines.useEndDate")
+              (t "cases.tableHeaders.deadlineEndDate")
+            )
+            (t "cases.tableHeaders.processDuration")
+          }}
         {{/if}}
-        {{t "cases.header.form"}}
-      </a>
-    </div>
-    <div>
-      <div class="uk-text-bold">{{t "cases.tableHeaders.intent"}}</div>
-      <TruncatedText @content={{or @case.intent "-"}} />
-    </div>
-    <div class="uk-width-1-2">
-      <div class="uk-text-bold">{{t "cases.header.keywords"}}</div>
-      {{#if @case.instance}}
-        <CaseHeader::Keywords @instance={{@case.instance}} />
-      {{else}}
-        -
+      </div>
+      {{or @case.submitDate "-"}}
+
+      {{#if
+        (and (has-feature "deadlines.enabled") (await (can "read deadline")))
+      }}
+        /
+        <LinkTo @route={{module-route "deadlines" "index"}}>
+          {{#if (has-feature "deadlines.useEndDate")}}
+            {{if
+              @case.deadline.processDeadlineDate
+              (format-date @case.deadline.processDeadlineDate format="date")
+              (t "deadlines.deadline.noEndDate")
+            }}
+          {{else}}
+            {{t
+              "deadlines.deadline.processDurationText"
+              count=(or @case.deadline.processDeadlineDays 0)
+            }}
+          {{/if}}
+        </LinkTo>
       {{/if}}
     </div>
+    <div>
+      <div class="uk-text-bold">{{t "cases.tableHeaders.parcel"}}</div>
+      {{or @case.plots "-"}}
+      {{#if @case.coordinatesLink}}(<a
+          href={{@case.coordinatesLink}}
+          target="_blank"
+          rel="noopener noreferrer"
+        >{{format-coordinate @case.centerCoordinate}}</a>){{/if}}
+    </div>
+    {{#if this.extended}}
+      <div>
+        <div class="uk-text-bold">{{t
+            "cases.tableHeaders.responsibility"
+          }}</div>
+        {{or @case.responsible.fullName "-"}}
+      </div>
+      <div>
+        <div class="uk-text-bold">{{t "cases.header.printPreview"}}</div>
+        <a href="#" {{on "click" (perform this.downloadPdf)}}>
+          {{#if this.downloadPdf.isRunning}}
+            <UkSpinner @ratio="0.6" />
+          {{else}}
+            <UkIcon @icon="file-pdf" />
+          {{/if}}
+          {{t "cases.header.form"}}
+        </a>
+      </div>
+      <div class="uk-flex uk-flex-column">
+        <div class="uk-text-bold">{{t
+            "cases.tableHeaders.linkedInstances"
+          }}</div>
+        <LinkedInstancesCounter @case={{@case}} />
+      </div>
+      <div class="uk-width-1-2">
+        <div class="uk-text-bold">{{t "cases.header.keywords"}}</div>
+        {{#if @case.instance}}
+          <CaseHeader::Keywords @instance={{@case.instance}} />
+        {{else}}
+          -
+        {{/if}}
+      </div>
+    {{/if}}
   </div>
 </div>
 
-<div
-  class="uk-margin-bottom master-data-divider
-    {{if this.hideHeader 'master-data-divider--hidden'}}"
->
+<div class="master-data-divider {{unless @fullscreen 'uk-margin-bottom'}}">
   <button
     type="button"
-    class="master-data-divider__toggle uk-button uk-button-link"
+    class="master-data-divider__toggle uk-button uk-button-link uk-margin-right"
     {{on "click" this.toggleHeader}}
     {{uk-tooltip
-      (t (concat "nav.masterData." (if this.hideHeader "show" "hide")))
+      (t this.toggleButtonTooltip)
       pos="right"
       animation="uk-animation-fade"
     }}
   >
     {{t "nav.masterData.label"}}
-    <UkIcon @icon={{if this.hideHeader "eye" "eye-slash"}} />
+    <UkIcon @icon={{if this.compact "eye" "eye-slash"}} />
   </button>
 </div>

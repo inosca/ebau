@@ -1,9 +1,7 @@
 import itertools
 import json
 import re
-from collections import namedtuple
 from functools import singledispatchmethod
-from io import StringIO
 from logging import getLogger
 
 from alexandria.core import models as alexandria_models
@@ -11,9 +9,9 @@ from alexandria.core.api import create_document_file as create_alexandria_docume
 from caluma.caluma_form import models as form_models
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
+from dateutil.parser import ParserError, parse
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.core.management import call_command
 from django.db import transaction
 from django.db.models import Q
 from django.utils import timezone
@@ -22,14 +20,14 @@ from generic_permissions.visibilities import (
     VisibilityResourceRelatedField,
     VisibilitySerializerMixin,
 )
-from rest_framework import exceptions
+from rest_framework import exceptions, response, status
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma.api import CalumaApi
+from camac.caluma.models import Inquiry
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     Answer,
-    Answer as CamacAnswer,
     AuthorityLocation,
     HistoryActionConfig,
     InstanceLocation,
@@ -37,7 +35,13 @@ from camac.core.models import (
     WorkflowEntry,
 )
 from camac.core.serializers import MultilingualField, MultilingualSerializer
-from camac.core.utils import create_history_entry, generate_ebau_nr, generate_sort_key
+from camac.core.utils import (
+    canton_aware,
+    create_history_entry,
+    generate_ebau_nr,
+    generate_sort_key,
+)
+from camac.deadlines import models as deadlines_models
 from camac.document.models import AttachmentSection
 from camac.ech0211.signals import (
     change_responsibility,
@@ -49,7 +53,7 @@ from camac.instance.domain_logic import link_instances
 from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
-from camac.instance.utils import copy_instance, fill_ebau_number
+from camac.instance.utils import copy_instance, fill_ebau_number, get_changeable_forms
 from camac.notification.utils import send_mail, send_mail_without_request
 from camac.permissions import api as permissions_api, events as permissions_events
 from camac.permissions.switcher import (
@@ -58,6 +62,7 @@ from camac.permissions.switcher import (
 )
 from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.responsible.models import ResponsibleService
+from camac.settings.modules.deadlines_schema import DeadlinesConfig
 from camac.tags.models import Keyword
 from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
@@ -223,16 +228,8 @@ class InstanceSerializer(
         filters = Q(
             pk__in=list(
                 itertools.chain(
-                    *workflow_models.WorkItem.objects.filter(
-                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                        case__family=obj.case,
-                    )
-                    .exclude(
-                        status__in=[
-                            workflow_models.WorkItem.STATUS_CANCELED,
-                            workflow_models.WorkItem.STATUS_SUSPENDED,
-                        ]
-                    )
+                    *Inquiry.objects.for_root_case(obj.case)
+                    .only_active()
                     .values_list("addressed_groups", flat=True)
                 )
             )
@@ -479,27 +476,24 @@ class CamacInstanceChangeFormSerializer(serializers.Serializer):
     form = serializers.CharField()
 
     def validate_form(self, value):
-        if value not in settings.APPLICATION.get("INTERCHANGEABLE_FORMS", []):
+        current_form = self.instance.form.name
+        valid_forms = get_changeable_forms(current_form)
+
+        if not valid_forms:
+            raise exceptions.ValidationError(
+                _("The current form '%(form)s' can't be changed")
+                % {"form": current_form}
+            )
+        elif value not in valid_forms:
             raise exceptions.ValidationError(
                 _("'%(form)s' is not a valid form type") % {"form": value}
             )
+        elif value == current_form:
+            raise exceptions.ValidationError(
+                _("Form is already of type '%(form)s'") % {"form": value}
+            )
 
         return value
-
-    def validate(self, data):
-        if self.instance.form.name not in settings.APPLICATION.get(
-            "INTERCHANGEABLE_FORMS", []
-        ):
-            raise exceptions.ValidationError(
-                _("The current form '%(form)s' can't be changed")
-                % {"form": self.instance.form.name}
-            )
-        elif self.instance.form.name == data["form"]:
-            raise exceptions.ValidationError(
-                _("Form is already of type '%(form)s'") % {"form": data["form"]}
-            )
-
-        return data
 
     @transaction.atomic
     def update(self, instance, validated_data):
@@ -560,6 +554,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     dossier_number = serializers.SerializerMethodField()
     ebau_number = serializers.SerializerMethodField()
 
+    is_suspended = serializers.SerializerMethodField()  # "Sistiert"
     is_paper = serializers.SerializerMethodField()  # "Papierdossier
     is_modification = serializers.SerializerMethodField()  # "Projektänderung"
     copy_source = serializers.CharField(required=False, write_only=True)
@@ -580,22 +575,17 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     decision = serializers.SerializerMethodField()
     involved_at = serializers.SerializerMethodField()
     is_after_decision = serializers.SerializerMethodField()
-    rejection_feedback = serializers.SerializerMethodField()
-
-    def get_rejection_feedback(self, instance):
-        if settings.APPLICATION_NAME == "kt_uri":
-            rejection = CamacAnswer.objects.filter(
-                instance=instance,
-                chapter_id=uri_constants.REJECTION_FEEDBACK_CHAPTER_ID,
-                question_id=uri_constants.REJECTION_FEEDBACK_QUESTION_ID,
-            ).first()
-
-            return rejection.answer if rejection else None
-
-        return instance.rejection_feedback
 
     def get_is_paper(self, instance):
         return CalumaApi().is_paper(instance)
+
+    def get_is_suspended(self, instance):
+        return (
+            str(self.context["request"].group.service.pk)
+            in instance.case.meta.get("suspended-services", [])
+            if self.context["request"].group.service and instance.case
+            else False
+        )
 
     def get_is_modification(self, instance):
         return CalumaApi().is_modification(instance)
@@ -658,16 +648,9 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             return None
 
         return (
-            workflow_models.WorkItem.objects.filter(
-                case__family__instance=instance,
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                status__in=[
-                    workflow_models.WorkItem.STATUS_READY,
-                    workflow_models.WorkItem.STATUS_COMPLETED,
-                    workflow_models.WorkItem.STATUS_SKIPPED,
-                ],
-                addressed_groups=[str(service_id)],
-            )
+            Inquiry.objects.for_instance(instance)
+            .addressed_to(service_id)
+            .only_active()
             .order_by("child_case__created_at")
             .values_list("child_case__created_at", flat=True)
             .first()
@@ -1028,18 +1011,23 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
     @get_permissions.register_old
     def _get_permissions(self, instance):
+        form_permissions = {}
+
+        for form in settings.APPLICATION.get("CALUMA", {}).get(
+            "FORM_PERMISSIONS", set()
+        ):
+            fn_name = f"_get_{form.replace('-', '_')}_form_permissions"
+            fn = getattr(self, fn_name, None)
+
+            if callable(fn):
+                form_permissions[form] = sorted(fn(instance))
+            else:  # pragma: no cover
+                # If no method is defined no permissions are granted
+                form_permissions[form] = []
+
         return {
             "case-meta": self._get_case_meta_permissions(instance),
-            **{
-                form: sorted(
-                    getattr(self, f"_get_{form.replace('-','_')}_form_permissions")(
-                        instance
-                    )
-                )
-                for form in settings.APPLICATION.get("CALUMA", {}).get(
-                    "FORM_PERMISSIONS", set()
-                )
-            },
+            **form_permissions,
         }
 
     def get_name(self, instance):
@@ -1130,6 +1118,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                 source_instance = visible_instances.get(pk=copy_source)
             except models.Instance.DoesNotExist:
                 raise exceptions.ValidationError(_("Source instance not found"))
+            validated_data["copy_source"] = source_instance
 
             caluma_form = caluma_api.get_form_slug(source_instance)
             if (
@@ -1224,6 +1213,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     class Meta(InstanceSerializer.Meta):
         fields = InstanceSerializer.Meta.fields + (
             "caluma_form",
+            "is_suspended",
             "is_paper",
             "is_modification",
             "copy_source",
@@ -1244,6 +1234,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "caluma_form",
+            "is_suspended",
             "is_paper",
             "is_modification",
             "public_status",
@@ -1261,24 +1252,29 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
-    _master_data_cache = {}
-
     def get_master_data(self, case):
-        if case.pk not in self._master_data_cache:
-            self._master_data_cache[case.pk] = MasterData(case)
+        request = self.context["request"]
+        if not hasattr(request, "_master_data_cache"):
+            request._master_data_cache = {}
 
-        return self._master_data_cache[case.pk]
+        if case.pk not in request._master_data_cache:
+            request._master_data_cache[case.pk] = MasterData(case)
+
+        return request._master_data_cache[case.pk]
 
     def _create_history_entry(self, text):
         create_history_entry(self.instance, self.context["request"].user, text)
 
-    def _send_notification(self, template_slug, recipient_types):
+    def _send_notification(self, template_slug, recipient_types, instance=None):
         """Send notification email."""
         send_mail(
             template_slug,
             self.context,
             recipient_types=recipient_types,
-            instance={"type": "instances", "id": self.instance.pk},
+            instance={
+                "type": "instances",
+                "id": instance.pk if instance else self.instance.pk,
+            },
         )
 
     def _set_submit_date(self, case, instance):
@@ -1319,6 +1315,15 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         form_name = form_slug.upper() if form_slug else "MAIN"
         section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
         return settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
+
+    def _init_deadline(self, instance):
+        deadlines_settings: DeadlinesConfig | None = settings.DEADLINES
+        if not deadlines_settings or not deadlines_settings.enabled:  # pragma: no cover
+            return
+
+        deadlines_models.InstanceDeadline.objects.create_deadline(
+            instance=instance, service=instance.responsible_service()
+        )
 
     def _generate_and_store_pdf(self, instance, form_slug=None):
         if not settings.APPLICATION.get("STORE_PDF", False):  # pragma: no cover
@@ -1592,29 +1597,19 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         notification_key = "SUBMIT"
         if case.workflow_id == "preliminary-clarification":  # pragma: no cover
             notification_key = "SUBMIT_PRELIMINARY_CLARIFICATION"
-        if case.document.form_id == "cantonal-territory-usage":
-            if case.instance.group_id == uri_constants.KOOR_SD_GROUP_ID:
-                notification_key = "SUBMIT_KOOR_SD"
-            else:
-                notification_key = "SUBMIT_KOOR_BD"
         if case.document.form_id in [
             "heat-generator",
             "heat-generator-v2",
+            "heat-generator-v3",
         ]:
             self._send_heat_generator_notifications(case)
             notification_key = "SUBMIT_HEAT_GENERATOR"
-        if case.document.form_id in [
-            "konzession-waermeentnahme",
-            "bohrbewilligung-waermeentnahme",
-        ]:
-            notification_key = "SUBMIT_KOOR_AFE"
-        if case.document.form_id == "pgv-gemeindestrasse":
-            notification_key = "SUBMIT_KOOR_BD"
 
-        if case.meta.get("oereb_copy"):
-            notification_key = "SUBMIT_KOOR_AFJ"
-        elif case.document.form_id == "oereb":
-            notification_key = "SUBMIT_KOOR_NP"
+        if (
+            case.instance.group_id in uri_constants.KOOR_GROUP_IDS
+            and settings.APPLICATION_NAME == "kt_uri"
+        ):
+            notification_key = "SUBMIT_KOOR"
 
         if case.document.form_id == "mitbericht-kanton":
             return
@@ -1624,10 +1619,21 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         ):
             notification_key = "SUBMIT_OTHERS"
 
+        if settings.APPLICATION_NAME == "kt_gr" and case.document.form_id.startswith(
+            "vorlaeufige-beurteilung"
+        ):
+            notification_key = "SUBMIT_PRELIMINARY_CLARIFICATION"
+
         # send out emails upon submission
-        for notification_config in settings.APPLICATION["NOTIFICATIONS"][
-            notification_key
-        ]:
+        for notification_config in settings.APPLICATION["NOTIFICATIONS"].get(
+            notification_key, []
+        ):
+            if case.meta and case.meta.get("oereb_copy"):
+                self._send_notification(
+                    **settings.APPLICATION["NOTIFICATIONS"]["COPY_AFJ"],
+                    instance=case.instance,
+                )
+
             self._send_notification(**notification_config)
 
     def _ur_link_technische_bewilligung(self, instance):
@@ -1682,6 +1688,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             form_slug == "bgbb" and instance.group_id == uri_constants.KOOR_AFG_GROUP_ID
         ):
             return Service.objects.get(pk=uri_constants.KOOR_AFG_SERVICE_ID)
+        elif form_slug == "mitbericht-bund":
+            return Service.objects.get(pk=instance.group.service.pk)
 
         # fallback default case
         return Service.objects.filter(
@@ -1704,18 +1712,44 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 create_instance_service(instance, service.pk)
                 return
 
-            # FIXME: use master data instead!
-            municipality = case.document.answers.get(question_id="gemeinde").value
+            municipality = self.get_master_data(case).municipality_slug
 
-            if (
-                settings.APPLICATION_NAME == "kt_so"
-                and case.document.answers.filter(
-                    question_id="kanton-leitbehoerde", value="kanton-leitbehoerde-ja"
-                ).exists()
-            ):
-                municipality = Service.objects.get(service_group__name="canton").pk
+            if custom_instance_service := self._get_custom_instance_service(case):
+                municipality = custom_instance_service
 
             create_instance_service(instance, int(municipality))
+
+    @canton_aware
+    def _get_custom_instance_service(self, case):
+        return None
+
+    def _get_custom_instance_service_so(self, case):
+        if case.document.answers.filter(
+            question_id="kanton-leitbehoerde", value="kanton-leitbehoerde-ja"
+        ).exists():
+            return (
+                Service.objects.filter(
+                    service_group__name="canton",
+                    service_parent__isnull=True,
+                )
+                .values_list("pk", flat=True)
+                .first()
+            )
+
+        return None  # pragma: no cover
+
+    def _get_custom_instance_service_ag(self, case):
+        if self.get_master_data(case).is_pgv:
+            return (
+                Service.objects.filter(
+                    service_group__name="authority-pgv",
+                    service_parent__isnull=True,
+                )
+                .values_list("pk", flat=True)
+                .first()
+            )
+
+        return None  # pragma: no cover
 
     @transaction.atomic
     def _generate_identifier(self, case, instance):
@@ -1816,6 +1850,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
     def _so_handle_special_forms(self, instance):
+        if settings.APPLICATION_NAME != "kt_so":
+            return
+
         user = self.context["request"].user
 
         if instance.case.document.form_id == "voranfrage":
@@ -1824,13 +1861,31 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance.set_instance_state("decision", user)
 
     def _so_handle_bab(self, instance):
-        if not settings.BAB:
+        if not settings.BAB or settings.APPLICATION_NAME != "kt_so":
             return
 
         md = self.get_master_data(instance.case)
 
         if any(getattr(md, prop) for prop in settings.BAB["MASTER_DATA_PROPERTIES"]):
             instance.case.meta["is-bab"] = True
+
+    def _ag_handle_pgv(self, instance):
+        if (
+            settings.APPLICATION_NAME != "kt_ag"
+            or not self.get_master_data(instance.case).is_pgv
+        ):
+            return
+
+        instance.instance_state = models.InstanceState.objects.get(
+            name="init-distribution"
+        )
+
+    def _ag_handle_special_forms(self, instance):
+        if settings.APPLICATION_NAME != "kt_ag":
+            return
+
+        if instance.case.document.form_id == "internes-dossier":
+            instance.set_instance_state("to-finish", self.context["request"].user)
 
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
@@ -1865,6 +1920,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._ur_prepare_cantonal_instances(instance)
             self._so_handle_special_forms(instance)
             self._so_handle_bab(instance)
+            self._ag_handle_pgv(instance)
+            self._ag_handle_special_forms(instance)
 
             instance.save()
 
@@ -1879,6 +1936,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._be_extend_validity_skip_ebau_number(case)
             self._be_copy_responsible_person(instance)
             self._ur_copy_oereb_instance_for_koor_afj(instance)
+            self._init_deadline(instance)
 
             instance_submitted.send(
                 sender=self.__class__,
@@ -1975,30 +2033,24 @@ class CalumaInstanceArchiveSerializer(serializers.Serializer):
 class CalumaInstanceChangeFormSerializer(serializers.Serializer):
     """Handle changing the form of an instance."""
 
-    interchangeable_forms = [
-        ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
-        ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
-        ["baugesuch-v3", "baugesuch-generell-v3", "baugesuch-mit-uvp-v3"],
-        ["baugesuch-v5", "baugesuch-generell-v5", "baugesuch-mit-uvp-v5"],
-    ]
-
     form = serializers.CharField()
 
     def validate_form(self, value):
-        current_form = CalumaApi().get_form_slug(self.instance)
-        valid_forms = next(
-            filter(lambda f: current_form in f, self.interchangeable_forms), None
-        )
+        current_form = self.instance.case.document.form_id
+        valid_forms = get_changeable_forms(current_form)
 
         if not valid_forms:
             raise exceptions.ValidationError(
                 _("The current form '%(form)s' can't be changed")
                 % {"form": current_form}
             )
-
-        if value not in valid_forms:
+        elif value not in valid_forms:
             raise exceptions.ValidationError(
                 _("'%(form)s' is not a valid form type") % {"form": value}
+            )
+        elif value == current_form:
+            raise exceptions.ValidationError(
+                _("Form is already of type '%(form)s'") % {"form": value}
             )
 
         return value
@@ -2010,6 +2062,16 @@ class CalumaInstanceChangeFormSerializer(serializers.Serializer):
         case.document.form_id = validated_data["form"]
         case.document.save()
 
+        try:
+            DocumentValidator().validate(
+                instance.case.document,
+                self.context["request"].caluma_info.context.user,
+            )
+        except CustomValidationError:
+            return response.Response(
+                data={"messages": ["form_invalid"]}, status=status.HTTP_200_OK
+            )
+
         # create a history entry
         create_history_entry(
             self.instance,
@@ -2017,7 +2079,7 @@ class CalumaInstanceChangeFormSerializer(serializers.Serializer):
             gettext_noop("Changed form type"),
         )
 
-        return instance
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
 
     class Meta:
         resource_name = "instance-change-forms"
@@ -2090,6 +2152,26 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
 
     class Meta:
         resource_name = "instance-set-ebau-numbers"
+
+
+class CalumaInstanceUnsubscribeResponsibleServiceSerializer(serializers.Serializer):
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        service = self.context["request"].group.service
+
+        instance.instance_services.filter(
+            service_id=service.pk,
+            active=0,
+        ).delete()
+
+        permissions_events.Trigger.unsubscribed_responsible_service(
+            self.context["request"], instance, service
+        )
+
+        return instance
+
+    class Meta:
+        resource_name = "instance-unsubscribe-responsible-services"
 
 
 class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
@@ -2172,6 +2254,14 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
         from_service = instance.responsible_service(filter_type=filter_type)
         to_service = validated_data["to"]
 
+        if to_service.service_group.name == "municipality":
+            caluma_api.update_or_create_answer(
+                document=instance.case.document,
+                question_slug="gemeinde",
+                value=str(to_service.pk),
+                user=self.context["request"].caluma_info.context.user,
+            )
+
         instance.instance_services.filter(service=from_service).update(active=0)
         instance.instance_services.update_or_create(
             service=to_service,
@@ -2203,31 +2293,6 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
 
     class Meta:
         resource_name = "instance-change-responsible-services"
-
-
-class CalumaInstanceFixWorkItemsSerializer(serializers.Serializer):
-    dry = serializers.BooleanField(default=True)
-    output = serializers.CharField()
-
-    def update(self, instance, validated_data):
-        output = StringIO()
-
-        call_command(
-            "fix_work_items",
-            instance=instance.pk,
-            no_color=True,
-            stdout=output,
-            **validated_data,
-        )
-
-        Response = namedtuple("Response", ("dry", "output", "pk"))
-
-        return Response(**validated_data, output=output.getvalue(), pk=None)
-
-    class Meta:
-        resource_name = "instance-fix-work-items"
-        fields = ("dry", "output")
-        read_only_fields = ("output",)
 
 
 class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
@@ -2407,6 +2472,17 @@ class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
     def validate(self, data):
         validated_data = super().validate(data)
+
+        question = settings.FORM_CONFIG["questions"].get(validated_data["name"])
+        question_type = question.get("type", None)
+        if question_type == "date":
+            try:
+                parse(validated_data["value"])
+            except ParserError:
+                raise exceptions.ValidationError(
+                    _("%(given_time)s is not a valid date time")
+                    % {"given_time": validated_data["value"]}
+                )
 
         for history_field in settings.APPLICATION.get("FORM_FIELD_HISTORY_ENTRY", []):
             if not validated_data["name"] == history_field["name"]:  # pragma: no cover
@@ -2599,7 +2675,7 @@ class IssueTemplateSetApplySerializer(InstanceEditableMixin, serializers.Seriali
         resource_name = "issue-template-sets-apply"
 
 
-class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cover
+class PublicCalumaInstanceSerializer(serializers.Serializer):
     """Serialize public caluma instances."""
 
     document_id = serializers.CharField(read_only=True)
@@ -2620,24 +2696,23 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
     form_type = serializers.SerializerMethodField()
     form_description = serializers.SerializerMethodField()
     authority = serializers.SerializerMethodField()
-
-    _master_data_cache = {}
+    linked_instances = serializers.SerializerMethodField()
 
     def get_master_data(self, case):
         request = self.context["request"]
         if not hasattr(request, "_master_data_cache"):
             request._master_data_cache = {}
+
         if case.pk not in request._master_data_cache:
-            request._master_data_cache[case.pk] = MasterData(case)
+            if multi_masterdata := getattr(request, "_masterdata", None):
+                request._master_data_cache[case.pk] = multi_masterdata.for_case(case)
+            else:  # pragma: no cover
+                request._master_data_cache[case.pk] = MasterData(case)
 
         return request._master_data_cache[case.pk]
 
     def get_municipality(self, case):
-        municipality = self.get_master_data(case).municipality
-        if not municipality:
-            return None
-
-        return municipality.get("label") if "label" in municipality else municipality
+        return self.get_master_data(case).municipality_name
 
     def get_applicant(self, case):
         return clean_join(
@@ -2717,6 +2792,11 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):  # pragma: no cove
 
     def get_dossier_nr(self, case):
         return self.get_master_data(case).dossier_number
+
+    def get_linked_instances(self, obj):
+        if settings.APPLICATION.get("USE_OEREB_FIELDS_FOR_PUBLIC_ENDPOINT"):
+            return obj.instance.get_linked_instances().values_list("pk", flat=True)
+        return []
 
     class Meta:
         model = workflow_models.Case
@@ -2800,6 +2880,19 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
             new_instance.case.save()
             new_instance.set_instance_state("init-distribution", user)
 
+            for task in [
+                settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"],
+                settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"],
+            ]:
+                work_item = instance.case.work_items.filter(task_id=task).first()
+
+                if work_item:
+                    workflow_api.complete_work_item(
+                        work_item=work_item,
+                        user=caluma_user,
+                        context={"skip": True},
+                    )
+
             instance.set_instance_state("finished", user)
 
         # Add history entry to source instance
@@ -2822,11 +2915,7 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
 
 class CalumaInstanceCorrectionSerializer(serializers.Serializer):
     def validate(self, data):
-        if workflow_models.WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status=workflow_models.WorkItem.STATUS_READY,
-            case__family__instance=self.instance,
-        ).exists():
+        if Inquiry.objects.for_instance(self.instance).only_pending().exists():
             raise exceptions.ValidationError(
                 _("The Dossier can't be correct because there are running inquiries.")
             )

@@ -9,6 +9,7 @@ from camac.caluma.extensions.events.construction_monitoring import (
     can_perform_construction_monitoring,
     post_complete_construction_control,
     post_create_construction_control,
+    post_create_plan_construction_stage_ur,
 )
 from camac.caluma.extensions.visibilities import CustomVisibility
 from camac.instance.models import InstanceState
@@ -196,6 +197,7 @@ def test_complete_construction_stage(
     db,
     sz_instance,
     sz_construction_monitoring_settings,
+    notification_template,
     construction_monitoring_initialized_case_sz,
     construction_stage_factory_sz,
     caluma_admin_schema_executor,
@@ -205,8 +207,16 @@ def test_complete_construction_stage(
     cancel,
     utils,
 ):
-    case = sz_instance.case
+    sz_construction_monitoring_settings["NOTIFICATIONS"][
+        sz_construction_monitoring_settings["CONSTRUCTION_STAGE_WORKFLOW"]
+    ] = [
+        {
+            "template_slug": notification_template.slug,
+            "recipient_types": ["leitbehoerde"],
+        },
+    ]
 
+    case = sz_instance.case
     construction_stage = case.work_items.filter(
         task_id=sz_construction_monitoring_settings["CONSTRUCTION_STAGE_TASK"]
     ).first()
@@ -281,6 +291,8 @@ def test_complete_construction_stage(
     construction_stage_factory_sz(case)
     complete_construction_monitoring.refresh_from_db()
     assert complete_construction_monitoring.deadline is None
+
+    assert len(mail.outbox) == (0 if cancel else 1)
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
@@ -424,8 +436,8 @@ def test_can_perform_construction_monitoring_allow_forms(
     db,
     instance,
     construction_monitoring_settings,
-    case_factory,
-    document_factory,
+    caluma_case_factory,
+    caluma_document_factory,
     form_factory,
     # parametrize fixtures
     allow_forms_setting,
@@ -434,9 +446,9 @@ def test_can_perform_construction_monitoring_allow_forms(
 ):
     instance.form.family = form_factory(name="building-permit-camac")
     instance.save()
-    case_factory(
+    caluma_case_factory(
         instance=instance,
-        document=document_factory(form__slug="building-permit-caluma"),
+        document=caluma_document_factory(form__slug="building-permit-caluma"),
     )
 
     construction_monitoring_settings["ALLOW_FORMS"] = allow_forms_setting
@@ -460,19 +472,21 @@ def test_can_perform_construction_monitoring_ur(
     instance,
     set_application_ur,
     construction_monitoring_settings,
-    case_factory,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     #
     expected_value,
     decision_answer,
 ):
-    case_factory(instance=instance)
-    complete_check_work_item = work_item_factory(
-        case=instance.case, task__slug="complete-check", document=document_factory()
+    caluma_case_factory(instance=instance)
+    complete_check_work_item = caluma_work_item_factory(
+        case=instance.case,
+        task__slug="complete-check",
+        document=caluma_document_factory(),
     )
-    answer_factory(
+    caluma_answer_factory(
         document=complete_check_work_item.document,
         question__slug="complete-check-baubewilligungspflichtig",
         value=decision_answer,
@@ -483,25 +497,25 @@ def test_can_perform_construction_monitoring_ur(
 def test_post_create_construction_control(
     db,
     instance_factory,
-    case_factory,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     ur_construction_monitoring_settings,
 ):
-    instance = instance_factory(case=case_factory())
-    previous_construction_control_work_item = work_item_factory(
+    instance = instance_factory(case=caluma_case_factory())
+    previous_construction_control_work_item = caluma_work_item_factory(
         case=instance.case,
         task__slug="construction-control",
-        document=document_factory(),
+        document=caluma_document_factory(),
         status=WorkItem.STATUS_COMPLETED,
     )
-    answer_factory(
+    caluma_answer_factory(
         document=previous_construction_control_work_item.document,
         question__slug="construction-control-date",
         date="2024-12-24",
     )
-    construction_control_work_item = work_item_factory(
+    construction_control_work_item = caluma_work_item_factory(
         case=instance.case, task_id="construction-control"
     )
 
@@ -513,38 +527,38 @@ def test_post_create_construction_control(
     )
     construction_control_work_item.refresh_from_db()
 
-    assert (
-        construction_control_work_item.name != old_name
-    ), "the name should have been updated."
-    assert (
-        construction_control_work_item.deadline != old_deadline
-    ), "the deadline should have been set accordingly."
+    assert construction_control_work_item.name != old_name, (
+        "the name should have been updated."
+    )
+    assert construction_control_work_item.deadline != old_deadline, (
+        "the deadline should have been set accordingly."
+    )
 
 
 def test_post_complete_construction_control(
     db,
     instance_factory,
-    case_factory,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     construction_monitoring_settings,
     caluma_admin_user,
     instance_state_factory,
     ur_construction_monitoring_settings,
 ):
     instance = instance_factory(
-        case=case_factory(),
+        case=caluma_case_factory(),
         instance_state=instance_state_factory(name="some-instance-state"),
     )
     instance_state_factory(name="arch")
 
-    construction_control_work_item = work_item_factory(
+    construction_control_work_item = caluma_work_item_factory(
         case=instance.case,
         task__slug="construction-control",
-        document=document_factory(),
+        document=caluma_document_factory(),
     )
-    answer_factory(
+    caluma_answer_factory(
         document=construction_control_work_item.document,
         question__slug="construction-control-control",
         value="construction-control-control-control-performed-no-more-controls",
@@ -560,3 +574,48 @@ def test_post_complete_construction_control(
     instance.refresh_from_db()
 
     assert instance.instance_state.name == "arch"
+
+
+def test_post_create_plan_construction_stage_ur(
+    db,
+    set_application_ur,
+    ur_construction_monitoring_settings,
+    ur_instance,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+):
+    check_gwr_relevancy_work_item = caluma_work_item_factory(
+        document=ur_instance.case.document,
+        case=ur_instance.case,
+        task_id="check-gwr-relevancy",
+        status="completed",
+    )
+    caluma_answer_factory(
+        document=check_gwr_relevancy_work_item.document,
+        question__slug="fuer-gwr-relevant",
+        value="fuer-gwr-relevant-ja",
+    )
+
+    plan_stage_work_item = caluma_work_item_factory(
+        case=ur_instance.case,
+        task_id="construction-step-plan-construction-stage",
+        document=caluma_document_factory(
+            form_id="construction-step-plan-construction-stage"
+        ),
+    )
+    post_create_plan_construction_stage_ur(
+        None, user=None, work_item=plan_stage_work_item, context={}
+    )
+    assert (
+        "construction-step-baubeginn"
+        in plan_stage_work_item.document.answers.get(
+            question_id="construction-steps"
+        ).value
+    )
+    assert (
+        "construction-step-schlussabnahme-gebaeude"
+        in plan_stage_work_item.document.answers.get(
+            question_id="construction-steps"
+        ).value
+    )

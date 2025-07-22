@@ -52,7 +52,7 @@
                     <button
                       type="button"
                       class="uk-button uk-button-link uk-text-danger uk-margin-small-left"
-                      uk-tooltip={{t "dms.docs.complex-info"}}
+                      {{uk-tooltip (t "dms.docs.complex-info")}}
                       {{on "click" (fn (mut this.showComplexInfo) true)}}
                     >
                       <UkIcon @icon="info" @ratio="0.8" />
@@ -61,7 +61,7 @@
                     <button
                       type="button"
                       class="uk-button uk-button-link uk-margin-small-left"
-                      uk-tooltip={{t "dms.docs.copy-to-clipboard"}}
+                      {{uk-tooltip (t "dms.docs.copy-to-clipboard")}}
                       {{on "click" (fn this.copyToClipboard placeholder)}}
                     >
                       <UkIcon @icon="copy" @ratio="0.8" />

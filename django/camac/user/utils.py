@@ -1,5 +1,6 @@
 import logging
 from functools import reduce
+from typing import Optional
 
 from caluma.caluma_form.models import Answer, Question
 from django.conf import settings
@@ -8,7 +9,7 @@ from django.core.cache import cache
 from django.db.models import Q
 
 from camac.instance.validators import FormDataValidator
-from camac.user.models import Role
+from camac.user.models import Group, Role, Service
 
 from . import models
 from .permissions import is_public_access
@@ -31,7 +32,7 @@ def unpack_service_emails(queryset):
         yield from emails.split(",")
 
 
-def get_group(request):
+def get_group(request) -> Optional[Group]:
     """
     Get group based on request.
 
@@ -70,16 +71,19 @@ def get_group(request):
 
 
 def is_portal_client(request):
-    if not getattr(request, "auth"):
+    if not getattr(request, "auth"):  # pragma: no cover
         return False
 
-    portal_client = settings.KEYCLOAK_PORTAL_CLIENT
+    return request.auth.get("azp") == settings.KEYCLOAK_PORTAL_CLIENT
 
-    clients = request.auth.get("aud")
-    if not isinstance(clients, list):
-        clients = [clients]
 
-    return portal_client in clients
+def is_eeba_token_exchange_client(request):
+    if not getattr(request, "auth"):  # pragma: no cover
+        return False
+
+    return request.auth.get("azp") == settings.EEBA_INTEGRATION.get(
+        "KEYCLOAK_EEBA_TOKEN_EXCHANGE_CLIENT"
+    )
 
 
 def _get_group_for_portal(request):
@@ -88,11 +92,12 @@ def _get_group_for_portal(request):
 
     Users who log into the public-facing "portal" have no group assignment in
     CAMAC. Instead, identify them based on the OIDC client given in the token's
-    "aud" (audience) claim, and programatically assign the correct group for
+    "azp" (authorized party) claim, and programatically assign the correct group for
     them.
     """
-    if not settings.APPLICATION.get("PORTAL_GROUP", None) or not is_portal_client(
-        request
+    # Canton GR portal client tokens are exchanged through eeba token exchange client and should be assigned portal group.
+    if not settings.APPLICATION.get("PORTAL_GROUP", None) or not any(
+        (is_portal_client(request), is_eeba_token_exchange_client(request))
     ):
         return None
 
@@ -210,9 +215,15 @@ def get_service_suggestions_camac_ng(instance, suggestions):
     return suggested_services
 
 
-def get_support_role():
+def get_support_role() -> Role | None:
     """Find the correct support role via ROLE_PERMISSIONS setting."""
 
     role_perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
     role_name = next(k for k, v in role_perms.items() if v == "support")
     return Role.objects.get(name=role_name)
+
+
+def get_tax_administration() -> Service | None:
+    return Service.objects.filter(
+        slug=settings.APPLICATION.get("TAX_ADMINISTRATION")
+    ).first()

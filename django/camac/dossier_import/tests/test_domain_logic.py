@@ -1,21 +1,29 @@
 import dataclasses
 import datetime
 import mimetypes
+from collections import namedtuple
 
 import pytest
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import Case
 from django.utils import timezone
 
-from camac.dossier_import.domain_logic import perform_import, undo_import
+from camac.dossier_import.domain_logic import (
+    get_or_create_ebau_nr,
+    perform_import,
+    set_status_callback,
+    undo_import,
+)
+from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import MessageCodes
+from camac.dossier_import.models import DossierImport
 from camac.instance.master_data import MasterData
 from camac.settings.modules.master_data import MASTER_DATA
 
 
-def test_undo_import(db, dossier_import, case_factory, instance_with_case):
-    case_factory.create_batch(2, meta={"import-id": str(dossier_import.pk)})
-    case_factory()  # unrelated case
+def test_undo_import(db, dossier_import, caluma_case_factory, instance_with_case):
+    caluma_case_factory.create_batch(2, meta={"import-id": str(dossier_import.pk)})
+    caluma_case_factory()  # unrelated case
     undo_import(dossier_import)
     assert not Case.objects.filter(
         **{"meta__import-id": str(dossier_import.pk)}
@@ -70,7 +78,9 @@ def test_perform_reimport(  # noqa: C901
     )
     perform_import(first_import)
 
-    imported_dossier = writer.existing_dossier(dossier_id)
+    imported_dossier = writer.find_existing_instance(
+        Dossier(id=dossier_id, proposal=""), writer._caluma_user
+    )
 
     if config == "kt_bern":
         # Ensure responsible user is imported. Currently only defined in BERN
@@ -122,7 +132,7 @@ def test_perform_reimport(  # noqa: C901
     # get the imported values from the secondary archive that should have
     # been written to the dossier
     reimport.source_file.file.seek(0)
-    dossier = next(dossier_loader.load_dossiers(reimport.get_archive()), None)
+    dossier = next(dossier_loader.load_dossiers(reimport), None)
     dossier_dict = dict(
         (field.name, getattr(dossier, field.name))
         for field in dataclasses.fields(dossier)
@@ -222,3 +232,86 @@ def test_perform_reimport(  # noqa: C901
         # if the attachment was unchanged: assert that it is identical and that the date attribute hasn't changed
         assert original_attachment_bytes == current_attachment_bytes
         assert modified_at == now.date()
+
+
+@pytest.mark.parametrize(
+    "dossier_import__status,task_result,did_delete_import,expected_status",
+    [
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            False,
+            DossierImport.IMPORT_STATUS_IMPORTED,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            "some error",
+            False,
+            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
+            "some error",
+            False,
+            DossierImport.IMPORT_STATUS_UNDO_FAILED,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
+            DossierImport.IMPORT_STATUS_UNDONE,
+            False,
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS,
+            DossierImport.IMPORT_STATUS_UNDONE,
+            True,
+            None,
+        ),
+    ],
+)
+def test_set_status_callback(
+    db, dossier_import, task_result, did_delete_import, expected_status
+):
+    Task = namedtuple("Task", ["result", "args"])
+    task = Task(result=task_result, args=[dossier_import])
+
+    if did_delete_import:
+        dossier_import.delete()
+
+    set_status_callback(task)
+
+    if not did_delete_import:
+        dossier_import.refresh_from_db()
+        assert dossier_import.status == expected_status
+    else:
+        with pytest.raises(DossierImport.DoesNotExist):
+            dossier_import.refresh_from_db()
+
+
+def test_get_or_create_ebau_nr(
+    db,
+    caluma_workflow_config_be,
+    instance_factory,
+    instance_service_factory,
+    instance_with_case,
+    service_factory,
+):
+    my_service = service_factory()
+    other_service = service_factory()
+
+    my_instance = instance_with_case(instance_factory())
+    my_instance.case.meta["ebau-number"] = "2025-1"
+    my_instance.case.save()
+    instance_service_factory(instance=my_instance, service=my_service)
+
+    other_instance = instance_with_case(instance_factory())
+    other_instance.case.meta["ebau-number"] = "2025-2"
+    other_instance.case.save()
+    instance_service_factory(instance=other_instance, service=other_service)
+
+    submit_date = datetime.date(2024, 1, 1)
+
+    assert get_or_create_ebau_nr(None, my_service, submit_date) == "2024-1"
+    assert get_or_create_ebau_nr("2025-2", my_service, submit_date) == "2024-1"
+    assert get_or_create_ebau_nr("2025-1", my_service, submit_date) == "2025-1"
+    assert get_or_create_ebau_nr(None, my_service, None) is None

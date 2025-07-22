@@ -114,6 +114,12 @@ class Attachment(models.Model):
         return display_name
 
     def make_copy_with_new_file(self, new_file, group, user):
+        display_name = (
+            self.context.get("displayName").replace(".docx", ".pdf")
+            if self.context.get("displayName")
+            else None
+        )
+
         copy = Attachment.objects.create(
             path=new_file,
             instance=self.instance,
@@ -124,7 +130,7 @@ class Attachment(models.Model):
             date=now(),
             group=group,
             service=group.service,
-            context={**self.context, "displayName": None},
+            context={**self.context, "displayName": display_name},
         )
         copy.attachment_sections.set(self.attachment_sections.all())
         copy.save()
@@ -162,9 +168,17 @@ class AttachmentVersion(models.Model):
 
 
 class AttachmentSectionQuerySet(models.QuerySet):
-    def filter_group(self, group, instance=None):
+    def filter_group(self, group, permissions_manager, instance=None):
         permission_info = permissions.section_permissions(group, instance)
-        visible_section_ids = permission_info.keys()
+        visible_section_ids = list(permission_info.keys())
+
+        levels = permissions_manager.current_access_levels(instance)
+        for level in levels:
+            level_perms = permissions.get_accesslevel_permissions(
+                level, permissions_manager, instance
+            )
+            for section_ids in level_perms.values():
+                visible_section_ids.extend(section_ids)
 
         return self.filter(pk__in=visible_section_ids)
 
@@ -209,29 +223,6 @@ class AttachmentSection(core_models.MultilingualModel, models.Model):
         models.CharField(max_length=255, choices=MIME_TYPE_CHOICES),
         default=_get_default_mime_types,
     )
-
-    def get_permission(self, group, instance=None):
-        return permissions.section_permissions(group, instance).get(self.pk)
-
-    def can_destroy(self, attachment, group):
-        permission_class = self.get_permission(group, attachment.instance)
-        return (
-            permission_class.can_destroy(attachment, group)
-            if permission_class
-            else False
-        )
-
-    def can_write(self, attachment, group, instance=None):
-        permission_class = self.get_permission(
-            group, attachment.instance if attachment else instance
-        )
-        return (
-            permission_class.can_write(
-                attachment, group, instance or attachment.instance
-            )
-            if permission_class
-            else False
-        )
 
     class Meta:
         managed = True

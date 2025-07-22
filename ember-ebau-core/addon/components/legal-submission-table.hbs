@@ -75,6 +75,9 @@
         {{#if (this.hasColumn "withdrawn")}}
           <th>{{t "legal-submission.withdrawn"}}</th>
         {{/if}}
+        {{#if (this.hasColumn "has-representative")}}
+          <th>{{t "legal-submission.has-representative"}}</th>
+        {{/if}}
         <th></th>
       </tr>
     </thead>
@@ -87,16 +90,16 @@
         />
       {{else}}
         <tr>
-          <td colspan={{this.colspan}} class="uk-text-center">{{t
+          <td colspan={{this.colspan.value}} class="uk-text-center">{{t
               "global.empty"
             }}</td>
         </tr>
       {{/each}}
     </tbody>
-    {{#if (can "edit legal-submission" this.workItem.value)}}
+    {{#if (await (can "edit legal-submission" this.workItem.value))}}
       <tfoot>
         <tr>
-          <td colspan={{this.colspan}} class="uk-text-center">
+          <td colspan={{this.colspan.value}} class="uk-text-center">
             <UkButton
               @color="link"
               @loading={{this.create.isRunning}}

@@ -2,7 +2,9 @@ from unittest.mock import Mock
 
 import pytest
 import requests
+from alexandria.core import factories as alexandria_factories
 from alexandria.core.factories import CategoryFactory, MarkFactory
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 from django.core.management import call_command
@@ -20,6 +22,7 @@ from camac.document.tests.data import django_file
 from camac.ech0211.tests.utils import xml_data
 from camac.instance.document_merge_service import DMSHandler
 from camac.instance.models import Instance
+from camac.permissions import api as permissions_api
 
 from ..constants import (
     ECH_JUDGEMENT_APPROVED,
@@ -551,7 +554,7 @@ def test_task_send_handler(
     notification_template_factory,
     service_factory,
     set_application_be,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     notification_template_factory(slug="03-verfahrensablauf-fachstelle")
 
@@ -590,23 +593,28 @@ def test_task_send_handler(
             task_id=be_distribution_settings["INQUIRY_CREATE_TASK"]
         ).delete()
     elif test_case == "multiple_create_inquiry":
-        work_item_factory(
+        caluma_work_item_factory(
             task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
             status=WorkItem.STATUS_READY,
             case=distribution_case,
             addressed_groups=[str(group.service.pk)],
         )
     elif test_case == "invalid_service_id":
-        xml = xml.replace("<serviceId>23</serviceId>", "<serviceId>string</serviceId>")
+        xml = xml.replace(
+            "<organisationId>23</organisationId>",
+            "<organisationId>string</organisationId>",
+        )
     elif test_case == "same_service":
         xml = xml.replace(
-            "<serviceId>23</serviceId>", f"<serviceId>{group.service.pk}</serviceId>"
+            "<organisationId>23</organisationId>",
+            f"<organisationId>{group.service.pk}</organisationId>",
         )
 
     if test_case != "no_service":
         service = service_factory(email="s1@example.com")
         xml = xml.replace(
-            "<serviceId>23</serviceId>", f"<serviceId>{service.pk}</serviceId>"
+            "<organisationId>23</organisationId>",
+            f"<organisationId>{service.pk}</organisationId>",
         )
 
     data = CreateFromDocument(xml)
@@ -649,6 +657,10 @@ def test_task_send_handler(
         else:
             assert inquiry.deadline.isoformat() == "2020-03-15T00:00:00+00:00"
 
+        inquiry.document.answers.filter(
+            question_id=be_distribution_settings["QUESTIONS"]["REMARK"]
+        ).values == "Anforderung einer Stellungnahme"
+
         assert len(mailoutbox) == 1
         assert service.email in mailoutbox[0].to
     else:
@@ -656,11 +668,70 @@ def test_task_send_handler(
             handler.apply()
 
 
+def test_task_send_handler_gr_skips_formal_exam(
+    db,
+    admin_user,
+    caluma_admin_user,
+    ech_instance_gr,
+    instance_state_factory,
+    notification_template_factory,
+    service_factory,
+    set_application_gr,
+    gr_distribution_settings,
+    gr_ech0211_settings,
+    gr_additional_demand_settings,
+):
+    notification_template_factory(slug="verfahrensablauf-fachstelle")
+    notification_template_factory(slug="verfahrensablauf-uso")
+    notification_template_factory(slug="bericht-erstellt")
+    notification_template_factory(slug="zirkulation-abgebrochen")
+
+    state = instance_state_factory(name="subm")
+    instance_state_factory(name="circulation")
+    ech_instance_gr.instance_state = state
+    ech_instance_gr.save()
+
+    group = admin_user.groups.first()
+    group.service = ech_instance_gr.services.first()
+    target_service = service_factory()
+    group.save()
+
+    workflow_api.complete_work_item(
+        work_item=ech_instance_gr.case.work_items.first(),  # submit work item
+        user=caluma_admin_user,
+    )
+
+    xml = xml_data("task")
+    xml = xml.replace(
+        "<organisationId>23</organisationId>",
+        f"<organisationId>{target_service.pk}</organisationId>",
+    )
+    data = CreateFromDocument(xml)
+
+    handler = TaskSendHandler(
+        data=data,
+        queryset=Instance.objects,
+        user=admin_user,
+        group=group,
+        auth_header="Bearer: some token",
+        caluma_user=caluma_admin_user,
+        request=None,
+    )
+
+    handler.apply()
+
+    assert (
+        ech_instance_gr.case.work_items.get(task_id="formal-exam").status
+        == WorkItem.STATUS_SKIPPED
+    )
+
+
 def test_task_send_handler_no_permission(
     admin_user,
     ech_instance_be,
     be_ech0211_settings,
     caluma_admin_user,
+    set_application_be,
 ):
     group = admin_user.groups.first()
     group.service = ech_instance_be.services.first()
@@ -678,6 +749,144 @@ def test_task_send_handler_no_permission(
         request=None,
     )
     assert handler.has_permission()[0] is False
+
+
+@pytest.mark.parametrize(
+    "test_case,success",
+    [
+        ("claim_not_enabled", False),
+        ("wrong_state", False),
+        ("no_access", False),
+        ("ok", True),
+    ],
+)
+@pytest.mark.parametrize(
+    "access_level__slug", ["distribution-service", "lead-authority"]
+)
+def test_task_send_claim_handler(
+    rf,
+    db,
+    set_application_gr,
+    admin_user,
+    caluma_admin_user,
+    ech_instance_gr,
+    instance_state_factory,
+    notification_template_factory,
+    gr_additional_demand_settings,
+    gr_permissions_settings,
+    gr_ech0211_settings,
+    application_settings,
+    mocker,
+    mailoutbox,
+    test_case,
+    success,
+    access_level,
+):
+    mocker.patch.object(
+        CustomAlexandriaPermission,
+        "get_available_permissions",
+        return_value={MODE_CREATE},
+    )
+
+    # workflow notification templates
+    caluma_send_notification = notification_template_factory()
+    caluma_fill_notification = notification_template_factory()
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
+        "send-additional-demand"
+    ] = [
+        {
+            "event": "completed",
+            "notification": {
+                "template_slug": caluma_send_notification.slug,
+                "recipient_types": ["applicant"],
+            },
+        },
+        {
+            "event": "completed",
+            "notification": {
+                "template_slug": caluma_send_notification.slug,
+                "recipient_types": ["additional_demand_inviter"],
+            },
+        },
+    ]
+    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["fill-additional-demand"][
+        "notification"
+    ]["template_slug"] = caluma_fill_notification.slug
+
+    # enable/disable claim settings based on the test case
+    gr_ech0211_settings["CLAIM"]["ENABLED"] = test_case != "claim_not_enabled"
+
+    # user/group permissions for ech claim call
+    group = admin_user.groups.first()
+    group.service = ech_instance_gr.responsible_service()
+    group.save()
+
+    if not test_case == "no_access":
+        permissions_api.grant(
+            ech_instance_gr,
+            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+            access_level=access_level,
+            service=group.service,
+        )
+
+    # ech0211 claim alexandria category
+    alexandria_category = CategoryFactory()
+    gr_ech0211_settings["CLAIM"]["ALEXANDRIA_CATEGORY"] = alexandria_category.pk
+
+    # prepare instance state
+    workflow_api.complete_work_item(
+        work_item=ech_instance_gr.case.work_items.get(task_id="submit"),
+        user=caluma_admin_user,
+    )
+    state = instance_state_factory(name="circulation")
+    ech_instance_gr.instance_state = state
+    ech_instance_gr.save()
+
+    # override instance state to invalid state to test wrong_state case
+    if test_case == "wrong_state":
+        state = instance_state_factory(name="other")
+        ech_instance_gr.instance_state = state
+        ech_instance_gr.save()
+
+    # prepare claim handler with xml template
+    request = rf.request()
+    request.user = admin_user
+    request.group = group
+    request.role = group.role
+    xml = xml_data("claim")
+    data = CreateFromDocument(xml)
+    handler = TaskSendHandler(
+        data=data,
+        queryset=Instance.objects,
+        user=admin_user,
+        group=group,
+        auth_header="Bearer: some token",
+        caluma_user=caluma_admin_user,
+        request=request,
+    )
+
+    # check for permission boolean based on success
+    assert handler.has_permission()[0] is success
+
+    if test_case in ["wrong_state", "no_access"]:
+        assert (
+            handler.has_permission()[1] == "You don't have permission to send a claim."
+        )
+    elif test_case == "claim_not_enabled":
+        assert (
+            handler.has_permission()[1] == "Claim is not enabled for this application."
+        )
+    elif success:
+        # on success the permission message should be None and apply should succeed
+        assert handler.has_permission()[1] is None
+        handler.apply()
+        assert len(mailoutbox) == 2
+        assert caluma_send_notification.subject in mailoutbox[0].subject
+        assert ech_instance_gr.user.email in mailoutbox[0].to
+        assert caluma_send_notification.subject in mailoutbox[1].subject
+        assert admin_user.email in mailoutbox[1].to
+        # no eCH message yet, only after filling by applicant
+        assert Message.objects.count() == 0
 
 
 @pytest.mark.freeze_time("2022-06-03")
@@ -794,8 +1003,16 @@ def test_kind_of_proceedings_send_handler(
 
 
 @pytest.mark.freeze_time("2022-06-03")
-@pytest.mark.parametrize("has_attachment", [True, False])
-@pytest.mark.parametrize("has_inquiry", [True, False])
+@pytest.mark.parametrize(
+    "has_inquiry,has_attachment,document_backend,documents_available",
+    (
+        (True, False, "camac-ng", True),
+        (True, True, "camac-ng", True),
+        (False, False, "camac-ng", True),
+        (True, True, "alexandria", True),
+        (True, True, "alexandria", False),
+    ),
+)
 def test_accompanying_report_send_handler(
     db,
     active_inquiry_factory,
@@ -807,16 +1024,46 @@ def test_accompanying_report_send_handler(
     ech_instance_be,
     be_ech0211_settings,
     ech_snapshot,
-    has_attachment,
-    has_inquiry,
     mailoutbox,
     notification_template_factory,
     service,
     set_application_be,
     user_group_factory,
-    work_item_factory,
+    caluma_work_item_factory,
+    caluma_form_question_factory,
+    caluma_question_option_factory,
+    settings,
+    #
+    has_attachment,
+    has_inquiry,
+    document_backend,
+    documents_available,
 ):
     notification_template_factory(slug="05-bericht-erstellt")
+    settings.APPLICATION["DOCUMENT_BACKEND"] = document_backend
+    be_ech0211_settings["ACCOMPANYING_REPORT"]["EXTENSION_MAPPING"] = {
+        "inquiry-text-answer": {
+            "tag": "situation",
+        },
+        "inquiry-checkbox": {
+            "tag": "documentsAvailable",
+            "true_value": "inquiry-checked",
+        },
+    }
+    caluma_form_question_factory(
+        form=ech_instance_be.case.document.form,
+        question__slug="inquiry-text-answer",
+        question__type=Question.TYPE_TEXT,
+    )
+    q = caluma_form_question_factory(
+        form=ech_instance_be.case.document.form,
+        question__slug="inquiry-checkbox",
+        question__type=Question.TYPE_CHOICE,
+    ).question
+    caluma_question_option_factory(
+        question=q,
+        option__slug="inquiry-checked",
+    )
 
     user_group = user_group_factory(default_group=1)
 
@@ -826,7 +1073,7 @@ def test_accompanying_report_send_handler(
             addressed_service=user_group.group.service,
         )
 
-        work_item_factory(
+        caluma_work_item_factory(
             task_id=be_distribution_settings["INQUIRY_ANSWER_FILL_TASK"],
             case=existing_inquiry.child_case,
             child_case=None,
@@ -838,12 +1085,39 @@ def test_accompanying_report_send_handler(
     support_group.save()
 
     if has_attachment:
-        attachment = attachment_factory(
-            name="MyFile.pdf", uuid="00000000-0000-0000-0000-000000000000"
-        )
-        attachment.attachment_sections.add(attachment_section_factory(pk=7))
+        if document_backend == "camac-ng":
+            attachment = attachment_factory(
+                name="MyFile.pdf", uuid="00000000-0000-0000-0000-000000000000"
+            )
+            attachment.attachment_sections.add(attachment_section_factory(pk=7))
 
-    data = CreateFromDocument(xml_data("accompanying_report"))
+        if document_backend == "alexandria":
+            alexandria_factories.FileFactory(
+                document=alexandria_factories.DocumentFactory(
+                    id="e39500fd-3eb1-48a5-afe4-0e3b03c4f13a",
+                    metainfo={"camac-instance-id": ech_instance_be.pk},
+                    category__metainfo={},
+                ),
+                name="MyHiddenFile.pdf",
+            )
+            alexandria_factories.FileFactory(
+                document=alexandria_factories.DocumentFactory(
+                    id="00000000-0000-0000-0000-000000000000",
+                    metainfo={"camac-instance-id": ech_instance_be.pk},
+                    category__metainfo={
+                        "access": {support_group.role.name: {"visibility": "all"}}
+                    },
+                ),
+                name="MyFile.pdf",
+            )
+
+    xml = xml_data("accompanying_report")
+    if not documents_available:
+        xml = xml.replace(
+            "<documentsAvailable>true</documentsAvailable>",
+            "<documentsAvailable>false</documentsAvailable>",
+        )
+    data = CreateFromDocument(xml)
 
     handler = AccompanyingReportSendHandler(
         data=data,
@@ -886,6 +1160,12 @@ def test_accompanying_report_send_handler(
         ).exists()
         assert inquiry.child_case.document.answers.filter(
             question_id=be_distribution_settings["QUESTIONS"]["ANCILLARY_CLAUSES"]
+        ).exists()
+        assert inquiry.child_case.document.answers.filter(
+            question_id="inquiry-text-answer"
+        ).exists()
+        assert inquiry.child_case.document.answers.filter(
+            question_id="inquiry-checkbox"
         ).exists()
 
         assert service.email in mailoutbox[0].to
@@ -937,7 +1217,7 @@ def test_submit_send_handler(
     caluma_admin_user,
     ech_snapshot,
     instance_state_factory,
-    question_factory,
+    caluma_question_factory,
     mocked_request_object,
     mailoutbox,
     notification_template_factory,
@@ -955,10 +1235,10 @@ def test_submit_send_handler(
     gr_ech0211_settings["SUBMIT_PLANNING_PERMISSION_APPLICATION"]["FORM_ID"] = form.pk
     instance_state_factory(name="new")
     instance_state_factory(name="subm")
-    question_factory(slug="material-question-exam")
-    question_factory(slug="complete-material-exam")
-    question_factory(slug="oeffentliche-auflage")
-    question_factory(slug="fuer-gvg-freigeben")
+    caluma_question_factory(slug="material-question-exam")
+    caluma_question_factory(slug="complete-material-exam")
+    caluma_question_factory(slug="oeffentliche-auflage")
+    caluma_question_factory(slug="fuer-gvg-freigeben")
     call_command(
         "loaddata",
         settings.ROOT_DIR("kt_gr/config/caluma_form.json"),
@@ -1025,23 +1305,49 @@ def test_submit_send_handler(
         )
         assert (
             instance.case.document.answers.get(
-                question_id="personalien-gesuchstellerin"
-            )
-            .documents.first()
-            .answers.get(question_id="name-gesuchstellerin")
-            .value
-            == "Muster"
-        )
-        assert (
-            instance.case.document.answers.get(
                 question_id="beschreibung-bauvorhaben"
             ).value
             == "Testbeschreibung"
         )
-        assert (
-            instance.alexandria_instance_documents.all().first().document.files.count()
-            == 2
+
+        applicant_person = (
+            instance.case.document.answers.get(
+                question_id="personalien-gesuchstellerin"
+            )
+            .documents.filter(
+                answers__question_id="juristische-person-gesuchstellerin",
+                answers__value="juristische-person-gesuchstellerin-nein",
+            )
+            .first()
         )
+        assert (
+            applicant_person.answers.get(question_id="name-gesuchstellerin").value
+            == "Muster"
+        )
+        applicant_org = (
+            instance.case.document.answers.get(
+                question_id="personalien-gesuchstellerin"
+            )
+            .documents.filter(
+                answers__question_id="juristische-person-gesuchstellerin",
+                answers__value="juristische-person-gesuchstellerin-ja",
+            )
+            .first()
+        )
+        assert (
+            applicant_org.answers.get(
+                question_id="name-juristische-person-gesuchstellerin"
+            ).value
+            == "BAUAG"
+        )
+
+        assert instance.alexandria_instance_documents.count() == 1
+        alexandria_document = instance.alexandria_instance_documents.first().document
+        assert alexandria_document.title == "dummy"
+        assert alexandria_document.files.count() == 2
+
+        # Prevent some race conditions on which file is returned first
+        assert alexandria_document.files.order_by("-name").first().name == "photo.jpg"
 
         assert len(mailoutbox) == 0
         assert Message.objects.count() == 0

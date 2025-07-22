@@ -1,4 +1,5 @@
 import json
+from contextlib import nullcontext
 from datetime import date
 
 import pytest
@@ -6,23 +7,27 @@ from caluma.caluma_core.permissions import AllowAny
 from caluma.caluma_core.visibilities import Any
 from caluma.caluma_workflow.models import WorkItem
 
+from camac.caluma.api import CalumaApi
+
 
 @pytest.fixture
-def appeal_deadline_factory(answer_factory, be_appeal_settings, document_factory):
+def appeal_deadline_factory(
+    caluma_answer_factory, be_appeal_settings, caluma_document_factory
+):
     def wrapper(deadline):
-        row = document_factory(form_id=be_appeal_settings["ROW_FORM"])
+        row = caluma_document_factory(form_id=be_appeal_settings["ROW_FORM"])
 
-        answer_factory(
+        caluma_answer_factory(
             document=row,
             question_id=be_appeal_settings["QUESTIONS"]["AUTHORITY"],
             value=be_appeal_settings["ANSWERS"]["AUTHORITY"]["LEGAL_DEPARTEMENT"],
         )
-        answer_factory(
+        caluma_answer_factory(
             document=row,
             question_id=be_appeal_settings["QUESTIONS"]["TYPE"],
             value=be_appeal_settings["ANSWERS"]["TYPE"]["DEADLINE"],
         )
-        answer_factory(
+        caluma_answer_factory(
             document=row,
             question_id=be_appeal_settings["QUESTIONS"]["DATE"],
             date=deadline,
@@ -36,13 +41,13 @@ def appeal_deadline_factory(answer_factory, be_appeal_settings, document_factory
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_validate_create_inquiry_context(
     db,
-    work_item_factory,
+    caluma_work_item_factory,
     service,
     be_instance,
     caluma_admin_schema_executor,
     distribution_settings,
 ):
-    work_item = work_item_factory(case=be_instance.case, child_case=None)
+    work_item = caluma_work_item_factory(case=be_instance.case, child_case=None)
 
     distribution_settings["INQUIRY_CREATE_TASK"] = work_item.task_id
 
@@ -77,17 +82,21 @@ def test_appeal_work_item(
     gql,
     mocker,
     service,
-    work_item_factory,
+    caluma_work_item_factory,
+    notification_template_factory,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
     mocker.patch("caluma.caluma_core.mutation.Mutation.permission_classes", [AllowAny])
+    notification_template_factory(slug="create-manual-work-item")
 
-    work_item = work_item_factory(case=be_instance.case, child_case=None)
+    work_item = caluma_work_item_factory(
+        case=be_instance.case, child_case=None, document__form_id="appeal"
+    )
 
     dates = [date(2023, 4, 20), date(2023, 5, 1)]
     rows = [str(appeal_deadline_factory(deadline).pk) for deadline in dates]
 
-    work_item_to_delete = work_item_factory(
+    work_item_to_delete = caluma_work_item_factory(
         case=be_instance.case,
         task_id=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
         meta={
@@ -145,14 +154,14 @@ def test_appeal_work_item_update(
     caluma_admin_schema_executor,
     gql,
     mocker,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
     mocker.patch("caluma.caluma_core.mutation.Mutation.permission_classes", [AllowAny])
 
     row = appeal_deadline_factory(date(2023, 4, 21))
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=be_instance.case,
         task_id=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
         meta={"is-appeal-statement-deadline": True, "appeal-row-id": str(row.pk)},
@@ -174,3 +183,41 @@ def test_appeal_work_item_update(
     work_item.refresh_from_db()
 
     assert work_item.deadline.date().isoformat() == "2025-01-01"
+
+
+@pytest.mark.parametrize(
+    "q_type, value, skip_on_error, expect_error",
+    [
+        ("choice", "foo", True, False),
+        ("choice", "foo", False, True),
+        ("text", "foo", False, False),
+        ("text", "foo", True, False),
+    ],
+)
+def test_update_or_create_answer(
+    db,
+    be_instance,
+    caluma_form_question_factory,
+    q_type,
+    value,
+    skip_on_error,
+    expect_error,
+):
+    question = caluma_form_question_factory(
+        question__type=q_type, form=be_instance.case.document.form
+    ).question
+
+    if expect_error:
+        expectation = pytest.raises(Exception)
+    else:
+        # expect no raise
+        expectation = nullcontext()
+
+    with expectation:
+        CalumaApi().update_or_create_answer(
+            be_instance.case.document,
+            question.slug,
+            value="hello",
+            user=None,
+            skip_on_error=skip_on_error,
+        )

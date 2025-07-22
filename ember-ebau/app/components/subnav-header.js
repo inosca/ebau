@@ -1,8 +1,11 @@
+import { action } from "@ember/object";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 
 export default class SubnavHeaderComponent extends Component {
   @service intl;
+  @service router;
+  @service notification;
 
   get name() {
     if (!this.args.case) {
@@ -24,5 +27,14 @@ export default class SubnavHeaderComponent extends Component {
     }
 
     return fullName.replace(/\(\)/g, "").replace(/\s+/g, " ").trim();
+  }
+
+  @action
+  copyLink(dossierNumber, event) {
+    event?.preventDefault();
+    const url = this.router.urlFor("cases.detail", this.args.case.instance);
+
+    navigator.clipboard.writeText(`${window.location.origin}${url}`);
+    this.notification.success(this.intl.t("cases.copy.success"));
   }
 }

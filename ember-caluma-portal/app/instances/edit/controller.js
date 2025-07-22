@@ -80,7 +80,7 @@ export default class InstancesEditController extends Controller {
         }))
       : query(this, "document", () => ({
           filter: {
-            category: config.APPLICATION.documents.feedbackSections.join(","),
+            categories: config.APPLICATION.documents.feedbackSections.join(","),
             metainfo: JSON.stringify([
               { key: "camac-instance-id", value: String(this.model) },
             ]),

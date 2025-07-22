@@ -2,6 +2,7 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { isDevelopingApp, isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 import config from "caluma-portal/config/environment";
 
@@ -100,6 +101,11 @@ export default class BeNavbarComponent extends Component {
   @action
   logout(event) {
     event.preventDefault();
+
+    if (hasFeature("login.tokenExchange")) {
+      // Reset the group ID to avoid errors after a re-login via token exchange
+      this.session.groupId = null;
+    }
 
     this.session.singleLogout();
   }

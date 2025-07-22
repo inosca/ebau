@@ -217,24 +217,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "baeume-hecken",
-    "fields": {
-      "created_at": "2020-10-05T07:24:30.026Z",
-      "modified_at": "2020-12-10T12:48:50.132Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"B\\u00e4ume / Hecken\", \"fr\": \"Arbres / haies\", \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "baugesuch",
     "fields": {
       "created_at": "2019-04-01T15:25:51.743Z",
@@ -295,29 +277,6 @@
         "is-main-form": true
       },
       "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "baupolizeiliches-verfahren",
-    "fields": {
-      "created_at": "2020-10-12T11:08:17.405Z",
-      "modified_at": "2020-10-12T11:08:17.405Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Baupolizeiliches Verfahren\", \"fr\": \"Proc\\u00e9dure de police des constructions\", \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {
-        "order": 4,
-        "category": "special-procedure",
-        "is-creatable": true,
-        "is-main-form": true
-      },
-      "is_published": true,
       "is_archived": false,
       "source": null
     }
@@ -432,24 +391,6 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "dokumente-hecken-feldgehoelze-baeume",
-    "fields": {
-      "created_at": "2020-10-05T15:40:12.999Z",
-      "modified_at": "2020-10-05T15:40:12.999Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Dokumente (Hecken / Feldgeh\\u00f6lze / B\\u00e4ume)\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "dokumente-sb1",
     "fields": {
       "created_at": "2019-06-17T10:54:16.160Z",
@@ -460,24 +401,6 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "dokumente-vorabklaerung",
-    "fields": {
-      "created_at": "2019-10-08T12:22:59.032Z",
-      "modified_at": "2019-10-09T08:11:27.333Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Dokumente (Vorabkl\\u00e4rung)\", \"fr\": \"Documents (Demandes pr\\u00e9alables)\", \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -750,29 +673,6 @@
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "klaerung-baubewilligungspflicht",
-    "fields": {
-      "created_at": "2020-10-15T14:09:35.141Z",
-      "modified_at": "2020-12-17T13:20:21.730Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": \"Clarification de l'octroi d'un permis de construire\", \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "meta": {
-        "order": 2,
-        "category": "special-procedure",
-        "is-creatable": true,
-        "is-main-form": true
-      },
-      "is_published": true,
       "is_archived": false,
       "source": null
     }
@@ -1328,29 +1228,6 @@
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.form",
-    "pk": "zutrittsermaechtigung",
-    "fields": {
-      "created_at": "2020-10-16T05:35:52.595Z",
-      "modified_at": "2020-10-16T05:35:52.595Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Zutrittserm\\u00e4chtigung\", \"fr\": \"Autorisation d'acc\\u00e8s\", \"it\": null}",
-      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "meta": {
-        "order": 3,
-        "category": "special-procedure",
-        "is-creatable": true,
-        "is-main-form": true
-      },
-      "is_published": true,
       "is_archived": false,
       "source": null
     }
@@ -1998,6 +1875,36 @@
       "form": "6-dokumente",
       "question": "brandschutzplan-dokument",
       "sort": 56
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "6-dokumente.dokumente-infotext-bauprofile",
+    "fields": {
+      "created_at": "2024-12-19T17:03:28.561Z",
+      "modified_at": "2024-12-19T17:03:28.561Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "6-dokumente",
+      "question": "dokumente-infotext-bauprofile",
+      "sort": 73
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "6-dokumente.dokumente-infotext-ebs-5er-formulare",
+    "fields": {
+      "created_at": "2024-12-19T17:03:16.299Z",
+      "modified_at": "2024-12-19T17:03:16.299Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "6-dokumente",
+      "question": "dokumente-infotext-ebs-5er-formulare",
+      "sort": 74
     }
   },
   {
@@ -3892,81 +3799,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baeume-hecken.beschreibung-der-ersatzpflanzung",
-    "fields": {
-      "created_at": "2020-10-05T07:51:17.905Z",
-      "modified_at": "2020-10-05T07:51:17.905Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baeume-hecken",
-      "question": "beschreibung-der-ersatzpflanzung",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baeume-hecken.gesuchstyp",
-    "fields": {
-      "created_at": "2020-10-05T07:43:39.521Z",
-      "modified_at": "2020-10-05T07:43:39.521Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baeume-hecken",
-      "question": "gesuchstyp",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baeume-hecken.handelt-es-sich-um-einen-kranken-baum",
-    "fields": {
-      "created_at": "2020-10-05T07:49:37.168Z",
-      "modified_at": "2020-10-05T07:49:37.168Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baeume-hecken",
-      "question": "handelt-es-sich-um-einen-kranken-baum",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baeume-hecken.ist-eine-ersatzpflanzung-vorgesehen",
-    "fields": {
-      "created_at": "2020-10-05T07:47:55.135Z",
-      "modified_at": "2020-10-05T07:47:55.135Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baeume-hecken",
-      "question": "ist-eine-ersatzpflanzung-vorgesehen",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baeume-hecken.objekt-nummer-gemaess-inventar",
-    "fields": {
-      "created_at": "2020-10-05T07:44:39.644Z",
-      "modified_at": "2020-10-05T07:44:39.644Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baeume-hecken",
-      "question": "objekt-nummer-gemaess-inventar",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "baugesuch.1-allgemeine-informationen",
     "fields": {
       "created_at": "2019-09-25T10:19:35.974Z",
@@ -4323,66 +4155,6 @@
       "form": "baugesuch-mit-uvp",
       "question": "8-freigabequittung",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baupolizeiliches-verfahren.8-freigabequittung",
-    "fields": {
-      "created_at": "2020-10-12T11:10:13.700Z",
-      "modified_at": "2020-10-12T11:10:13.700Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baupolizeiliches-verfahren",
-      "question": "8-freigabequittung",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baupolizeiliches-verfahren.allgemeine-angaben-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-12T11:15:25.797Z",
-      "modified_at": "2020-10-12T11:15:25.797Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baupolizeiliches-verfahren",
-      "question": "allgemeine-angaben-kurz-formular",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baupolizeiliches-verfahren.dokumente-vorabklaerung-form",
-    "fields": {
-      "created_at": "2020-10-19T12:21:52.205Z",
-      "modified_at": "2020-10-19T12:21:52.205Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baupolizeiliches-verfahren",
-      "question": "dokumente-vorabklaerung-form",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "baupolizeiliches-verfahren.personalien-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-12T11:09:19.942Z",
-      "modified_at": "2020-10-12T11:09:19.942Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "baupolizeiliches-verfahren",
-      "question": "personalien-kurz-formular",
-      "sort": 4
     }
   },
   {
@@ -5632,96 +5404,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "dokumente-hecken-feldgehoelze-baeume.baumfaellbegruendung-dokument",
-    "fields": {
-      "created_at": "2020-10-05T16:02:10.128Z",
-      "modified_at": "2020-10-05T16:02:10.128Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-hecken-feldgehoelze-baeume",
-      "question": "baumfaellbegruendung-dokument",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-hecken-feldgehoelze-baeume.baumfaellgutachten-dokument",
-    "fields": {
-      "created_at": "2020-10-05T16:01:46.770Z",
-      "modified_at": "2020-10-05T16:01:46.770Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-hecken-feldgehoelze-baeume",
-      "question": "baumfaellgutachten-dokument",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-hecken-feldgehoelze-baeume.dokumente-platzhalter",
-    "fields": {
-      "created_at": "2020-10-05T15:41:14.875Z",
-      "modified_at": "2020-10-05T15:41:14.875Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-hecken-feldgehoelze-baeume",
-      "question": "dokumente-platzhalter",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-hecken-feldgehoelze-baeume.entfernen-von-hecken-und-feldgehoelzen-dokument",
-    "fields": {
-      "created_at": "2020-10-05T16:03:08.499Z",
-      "modified_at": "2020-10-05T16:03:08.499Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-hecken-feldgehoelze-baeume",
-      "question": "entfernen-von-hecken-und-feldgehoelzen-dokument",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-hecken-feldgehoelze-baeume.situationsplan-ersatzpflanzung-und-rodung",
-    "fields": {
-      "created_at": "2020-10-05T16:02:32.638Z",
-      "modified_at": "2020-10-05T16:02:32.638Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-hecken-feldgehoelze-baeume",
-      "question": "situationsplan-ersatzpflanzung-und-rodung",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-hecken-feldgehoelze-baeume.situationsplan-hecken-feldgehoelze-baeume-dokument",
-    "fields": {
-      "created_at": "2020-10-05T15:57:49.555Z",
-      "modified_at": "2020-10-05T15:57:49.555Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-hecken-feldgehoelze-baeume",
-      "question": "situationsplan-hecken-feldgehoelze-baeume-dokument",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "dokumente-sb1.dokumente-platzhalter",
     "fields": {
       "created_at": "2019-09-25T10:19:39.470Z",
@@ -5731,21 +5413,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "dokumente-sb1",
-      "question": "dokumente-platzhalter",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "dokumente-vorabklaerung.dokumente-platzhalter",
-    "fields": {
-      "created_at": "2019-10-08T12:23:20.905Z",
-      "modified_at": "2019-10-08T12:23:20.905Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "dokumente-vorabklaerung",
       "question": "dokumente-platzhalter",
       "sort": 1
     }
@@ -8252,66 +7919,6 @@
       "modified_by_group": null,
       "form": "immissionsschutz",
       "question": "wird-aussenlaerm-erzeugt",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "klaerung-baubewilligungspflicht.8-freigabequittung",
-    "fields": {
-      "created_at": "2020-10-15T14:10:01.260Z",
-      "modified_at": "2020-10-15T14:10:01.260Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "klaerung-baubewilligungspflicht",
-      "question": "8-freigabequittung",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "klaerung-baubewilligungspflicht.allgemeine-angaben-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-15T14:10:38.871Z",
-      "modified_at": "2020-10-15T14:10:38.871Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "klaerung-baubewilligungspflicht",
-      "question": "allgemeine-angaben-kurz-formular",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "klaerung-baubewilligungspflicht.dokumente-vorabklaerung-form",
-    "fields": {
-      "created_at": "2020-10-16T06:44:58.838Z",
-      "modified_at": "2020-10-16T06:44:58.838Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "klaerung-baubewilligungspflicht",
-      "question": "dokumente-vorabklaerung-form",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "klaerung-baubewilligungspflicht.personalien-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-15T14:10:54.642Z",
-      "modified_at": "2020-10-15T14:10:54.643Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "klaerung-baubewilligungspflicht",
-      "question": "personalien-kurz-formular",
       "sort": 4
     }
   },
@@ -12471,66 +12078,6 @@
     }
   },
   {
-    "model": "caluma_form.formquestion",
-    "pk": "zutrittsermaechtigung.8-freigabequittung",
-    "fields": {
-      "created_at": "2020-10-16T05:36:42.125Z",
-      "modified_at": "2020-10-16T05:36:42.125Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "zutrittsermaechtigung",
-      "question": "8-freigabequittung",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "zutrittsermaechtigung.allgemeine-angaben-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-16T05:36:25.233Z",
-      "modified_at": "2020-10-16T05:36:25.233Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "zutrittsermaechtigung",
-      "question": "allgemeine-angaben-kurz-formular",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "zutrittsermaechtigung.dokumente-vorabklaerung-form",
-    "fields": {
-      "created_at": "2020-10-16T06:49:50.442Z",
-      "modified_at": "2020-10-16T06:49:50.442Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "zutrittsermaechtigung",
-      "question": "dokumente-vorabklaerung-form",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "zutrittsermaechtigung.personalien-kurz-formular",
-    "fields": {
-      "created_at": "2020-10-16T05:36:12.971Z",
-      "modified_at": "2020-10-16T05:36:12.971Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "zutrittsermaechtigung",
-      "question": "personalien-kurz-formular",
-      "sort": 4
-    }
-  },
-  {
     "model": "caluma_form.option",
     "pk": "ableitung-haeusliche-abwaesser-abflusslose-grube",
     "fields": {
@@ -13977,40 +13524,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "baumfaellbegruendung-dokument-ja",
-    "fields": {
-      "created_at": "2020-10-05T10:45:16.206Z",
-      "modified_at": "2020-10-12T08:10:19.464Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baumf\\u00e4llbegr\\u00fcndung\", \"fr\": \"Justification de l'abattage des arbres\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "baumfaellgutachten-dokument-ja",
-    "fields": {
-      "created_at": "2020-10-05T09:51:57.509Z",
-      "modified_at": "2020-10-12T08:09:32.778Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baumf\\u00e4llgutachten\", \"fr\": \"Rapports sur l'abattage des arbres\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "bauprofile-bleiben-bis-bauentscheid-stehen-ja",
     "fields": {
       "created_at": "2019-04-10T13:29:16.765Z",
@@ -15320,23 +14833,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "entfernen-von-hecken-und-feldgehoelzen-dokument-ja",
-    "fields": {
-      "created_at": "2020-10-05T10:59:22.896Z",
-      "modified_at": "2020-10-12T08:10:42.678Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Begr\\u00fcndung f\\u00fcr Entfernen von Hecken und Feldgeh\\u00f6lzen\", \"fr\": \"Raisons pour lesquelles il faut enlever les haies et les arbustes des champs\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "entsorgungskonzept-dokument-ja",
     "fields": {
       "created_at": "2019-04-10T11:41:29.253Z",
@@ -16527,40 +16023,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "gesuchstyp-baum",
-    "fields": {
-      "created_at": "2020-10-05T07:43:39.211Z",
-      "modified_at": "2020-10-05T07:48:09.858Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baum\", \"fr\": \"Arbre\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "gesuchstyp-hecke-feldgehoelz",
-    "fields": {
-      "created_at": "2020-10-05T07:43:39.224Z",
-      "modified_at": "2020-12-10T12:48:27.896Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Hecke / Feldgeh\\u00f6lz\", \"fr\": \"Haies / bosquets champ\\u00eatres\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "gesuch-zur-ausnahme-dokument-ja",
     "fields": {
       "created_at": "2019-04-10T11:41:29.253Z",
@@ -17071,40 +16533,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "handelt-es-sich-um-einen-kranken-baum-ja",
-    "fields": {
-      "created_at": "2020-10-05T07:49:36.791Z",
-      "modified_at": "2020-10-05T08:20:12.137Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "handelt-es-sich-um-einen-kranken-baum-nein",
-    "fields": {
-      "created_at": "2020-10-05T07:49:36.805Z",
-      "modified_at": "2020-10-05T08:20:12.144Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "handelt-es-sich-um-ein-sensibles-objekt-ja",
     "fields": {
       "created_at": "2019-05-02T16:04:50.975Z",
@@ -17520,40 +16948,6 @@
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "ist-eine-ersatzpflanzung-vorgesehen-ja",
-    "fields": {
-      "created_at": "2020-10-05T07:47:54.826Z",
-      "modified_at": "2020-10-05T08:19:48.408Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "ist-eine-ersatzpflanzung-vorgesehen-nein",
-    "fields": {
-      "created_at": "2020-10-05T07:47:54.840Z",
-      "modified_at": "2020-10-05T08:19:48.415Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
       "is_hidden": "false",
@@ -21157,40 +20551,6 @@
       "modified_at": "2020-10-05T09:54:59.835Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Situationsplan\", \"fr\": \"Plan de situation\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "situationsplan-ersatzpflanzung-und-rodung-ja",
-    "fields": {
-      "created_at": "2020-10-05T10:48:50.458Z",
-      "modified_at": "2020-10-12T08:10:34.036Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Situationsplan Ersatzpflanzung und Rodung\", \"fr\": \"Plan de sc\\u00e9nario pour les plantations de remplacement et l'arrachage\", \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "situationsplan-hecken-feldgehoelze-baeume-dokument-ja",
-    "fields": {
-      "created_at": "2020-10-05T15:57:49.291Z",
-      "modified_at": "2020-10-12T08:10:04.428Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Situationsplan\", \"fr\": \"Plan de situation\", \"it\": null}",
@@ -25972,6 +25332,80 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "arg-koordinate-x",
+    "fields": {
+      "created_at": "2025-04-04T12:09:15.784Z",
+      "modified_at": "2025-04-04T15:42:16.539Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"ARG Koordinate X\", \"fr\": null, \"it\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "step": 0.0001,
+        "max_value": 90.0,
+        "min_value": -90.0
+      },
+      "meta": {
+        "widgetOverride": "coordinates-placeholder"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "arg-koordinate-y",
+    "fields": {
+      "created_at": "2025-04-04T12:10:19.970Z",
+      "modified_at": "2025-04-04T12:10:19.970Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ARG Koordinate Y\", \"fr\": null, \"it\": null}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "step": 1e-5,
+        "max_value": 180.0,
+        "min_value": -180.0
+      },
+      "meta": {
+        "widgetOverride": "coordinates-placeholder"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "art-der-baugrubenumschliessung",
     "fields": {
       "created_at": "2019-04-03T14:30:48.396Z",
@@ -26851,72 +26285,6 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": "(\"baukosten-total-chf\"|answer / \"gebaeudevolumen\"|answer)|round(2)",
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "baumfaellbegruendung-dokument",
-    "fields": {
-      "created_at": "2020-10-05T10:45:16.327Z",
-      "modified_at": "2020-12-10T12:45:40.262Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baumf\\u00e4llbegr\\u00fcndung\", \"fr\": \"Motif d'abbatage d'un arbre\", \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "!('ist-eine-ersatzpflanzung-vorgesehen-nein' == 'ist-eine-ersatzpflanzung-vorgesehen'|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "baumfaellgutachten-dokument",
-    "fields": {
-      "created_at": "2020-10-05T09:51:57.681Z",
-      "modified_at": "2020-12-10T12:45:32.631Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Baumf\\u00e4llgutachten\", \"fr\": \"Rapport d'expert pour l'abattage d'un arbre\", \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "!('ist-eine-ersatzpflanzung-vorgesehen-ja' == 'ist-eine-ersatzpflanzung-vorgesehen'|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
       "calc_dependents": "[]"
     }
   },
@@ -27805,40 +27173,6 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "beschreibung-der-ersatzpflanzung",
-    "fields": {
-      "created_at": "2020-10-05T07:51:17.726Z",
-      "modified_at": "2020-10-05T08:22:18.798Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Beschreibung der Ersatzpflanzung\", \"fr\": \"Description de la plantation de remplacement\", \"it\": null}",
-      "type": "textarea",
-      "is_required": "true",
-      "is_hidden": "!('gesuchstyp-hecke-feldgehoelz' in 'gesuchstyp'|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -29840,6 +29174,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dokumente-infotext-bauprofile",
+    "fields": {
+      "created_at": "2024-12-19T14:39:38.734Z",
+      "modified_at": "2025-01-06T09:17:44.018Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente Infotext Bauprofile\", \"fr\": \"Dokumente Infotext Bauprofile\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "'vorabklaerung' in form",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div>Gem\\u00e4ss Art. 16 BewD m\\u00fcssen im Zeitpunkt der Baueingabe die Bauprofile gestellt sein und bis zum rechtskr\\u00e4ftigen Bauentscheid stehen bleiben. Vor Rechtskraft der Baubewilligung darf mit den Bauarbeiten nicht begonnen werden.</div>\", \"fr\": \"<div>Conform\\u00e9ment \\u00e0 l'article 16 DPC, les gabarits doivent \\u00eatre pos\\u00e9s au moment du d\\u00e9p\\u00f4t de la demande de permis de construire et seront maintenus jusqu'\\u00e0 l'entr\\u00e9e en force de la d\\u00e9cision concernant le projet. Les travaux ne peuvent pas commencer avant l'entr\\u00e9e en force du permis de construire.</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentHint": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-infotext-ebs-5er-formulare",
+    "fields": {
+      "created_at": "2024-12-19T14:36:36.515Z",
+      "modified_at": "2025-01-06T09:17:34.027Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente Infotext EbS 5er Formulare\", \"fr\": \"Dokumente Infotext EbS 5er Formulare\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "'vorabklaerung' in form",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte stellen Sie sicher, dass auch das [Formular Erdbebensicherheit (EbS)](https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/de/Formulare-Vorlagen/Formulare-Baugesuchsteller/ebs-erdbebensicherheit-de.pdf) und die [gemeindespezifischen Formulare (5.0, 5.1, 5.2, 5.3 5.4, 5.5, 5.8)](https://www.bauen.dij.be.ch/de/start/baubewilligungsverfahren/eBau/formulare-fuer-baugesuchsteller) falls ben\\u00f6tigt, ausgef\\u00fcllt und hochgeladen sind.\", \"fr\": \"Veuillez vous assurer que le [formulaire S\\u00e9S S\\u00e9curit\\u00e9 Sismique](https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/fr/formulare-und-vorlagen/formulare-f%C3%BCr-baugesuchsteller/ebs-erdbebensicherheit-fr.pdf) et les [formulaires sp\\u00e9cifiques aux communes (5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.5, 5.8)](https://www.bauen.dij.be.ch/fr/start/baubewilligungsverfahren/eBau/formulare-fuer-baugesuchsteller) sont remplis et t\\u00e9l\\u00e9charg\\u00e9s si n\\u00e9cessaire.\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "documentHint": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dokumente-sb1",
     "fields": {
       "created_at": "2019-06-17T10:57:29.422Z",
@@ -29865,40 +29267,6 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "dokumente-sb1",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "dokumente-vorabklaerung-form",
-    "fields": {
-      "created_at": "2019-10-08T12:24:56.453Z",
-      "modified_at": "2019-10-09T08:15:06.232Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "widgetOverride": "be-documents-form",
-        "attachment-section": "'is-paper'|answer == 'is-paper-yes'? 13 : 1"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "dokumente-vorabklaerung",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -30321,7 +29689,7 @@
       "meta": {
         "action": "report",
         "hideLabel": true,
-        "widgetOverride": "be-submit-instance"
+        "widgetOverride": "submit-instance"
       },
       "data_source": null,
       "row_form": null,
@@ -30684,39 +30052,6 @@
       "static_content": "{\"de\": \"***\\n**Energie**\", \"fr\": \"***\\n**Energie**\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "entfernen-von-hecken-und-feldgehoelzen-dokument",
-    "fields": {
-      "created_at": "2020-10-05T10:59:23.011Z",
-      "modified_at": "2020-12-10T12:46:07.773Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Begr\\u00fcndung f\\u00fcr Entfernen von Hecken und Feldgeh\\u00f6lzen\", \"fr\": \"Motifs de la suppression de haies et de bosquets champ\\u00eatres\", \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "!('gesuchstyp-hecke-feldgehoelz' == 'gesuchstyp'|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32492,19 +31827,19 @@
     "pk": "gebiet-mit-archaeologischen-objekten",
     "fields": {
       "created_at": "2019-04-01T11:17:11.154Z",
-      "modified_at": "2021-07-08T13:30:09.677Z",
+      "modified_at": "2025-06-26T07:57:59.861Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gebiet mit bekannten oder vermuteten arch\\u00e4ologischen Objekten\", \"fr\": \"Secteur dans lequel la pr\\u00e9sence d'objets arch\\u00e9ologiques est connue ou suppos\\u00e9e\", \"it\": null}",
+      "label": "{\"de\": \"Gebiet mit arch\\u00e4ologischer Fundstelle oder arch\\u00e4ologischem Schutzgebiet\", \"fr\": \"Zone avec site arch\\u00e9ologique ou p\\u00e9rim\\u00e8tre de protection arch\\u00e9ologique\", \"it\": null}",
       "type": "choice",
       "is_required": "!(\n  'vorabklaerung' in form ||\n  'is-paper'|answer == 'is-paper-yes' ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n  )\n)",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Arch\\u00e4ologisches Inventar: Gebiet mit nachgewiesenen und vermuteten arch\\u00e4ologischen Fundstellen oder Objekten.\", \"fr\": \"Recensement arch\\u00e9ologique: emplacements d'objets ou de sites arch\\u00e9ologiques connus ou pr\\u00e9sum\\u00e9s.\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -32523,7 +31858,7 @@
     "pk": "gebiet-mit-naturgefahren",
     "fields": {
       "created_at": "2019-04-08T08:36:39.196Z",
-      "modified_at": "2024-10-14T14:20:56.758Z",
+      "modified_at": "2025-01-28T12:03:48.838Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -32534,7 +31869,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Als besonders sensible Bauten gelten:\\n  \\n- Geb\\u00e4ude und Anlagen, in denen sich besonders viele Personen aufhalten, die schwer zu evakuieren sind (wie Spit\\u00e4ler, Heime, Schulen) oder die besonderen Risiken ausgesetzt sind (z.B. Campingpl\\u00e4tze);\\n  \\n- Geb\\u00e4ude und Anlagen, an denen bereits geringe Einwirkungen grosse Sch\\u00e4den zur Folge haben (wie Schalt- und Telefonzentralen, Steuerungs- und Computeranlagen, Trink-wasserversorgungen, Kl\\u00e4ranlagen);\\n  \\n- Geb\\u00e4ude und Anlagen, an denen grosse Folgesch\\u00e4den auftreten k\\u00f6nnen (wie Deponien, Lagereinrichtungen oder Produktionsst\\u00e4tten mit Best\\u00e4nden an gef\\u00e4hrlichen Stoffen).\", \"fr\": \"Sont consid\\u00e9r\\u00e9s comme des b\\u00e2timents sensibles:\\n\\n- les b\\u00e2timents et installations dans lesquels se trouvent de nombreuses personnes dont certaines peuvent \\u00eatre difficiles \\u00e0 \\u00e9vacuer (p. ex. h\\u00f4pitaux, foyers, \\u00e9coles), ou qui sont soumis \\u00e0 des risques particuliers (p. ex. terrains de camping);\\n\\n- les b\\u00e2timents et installations auxquels des atteintes minimes peuvent causer de grands d\\u00e9g\\u00e2ts (p. ex. centres de commutation, postes centraux, centraux t\\u00e9l\\u00e9phoniques, installations de commande, serveurs centraux, installations d'alimentation en eau potable, stations d'\\u00e9puration);\\n\\n- les b\\u00e2timents et installations qui pourraient \\u00eatre \\u00e0 l'origine de tr\\u00e8s grands d\\u00e9g\\u00e2ts s'ils devaient subir un dommage (p. ex. d\\u00e9charges, installations de stockage, centres de production disposant de stocks de mati\\u00e8res dangereuses).\", \"it\": null}",
+      "info_text": "{\"de\": \"[Bewilligung von Bauvorhaben in Gefahrengebieten](https://www.naturgefahren.sites.be.ch/de/start/themen/bauen-in-gefahrengebieten/bewilligung-von-bauvorhaben-in-gefahrengebieten.html)\", \"fr\": \"[Autorisation de projets de construction dans les zones de danger](https://www.naturgefahren.sites.be.ch/fr/start/themen/bauen-in-gefahrengebieten/bewilligung-von-bauvorhaben-in-gefahrengebieten.html)\", \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -33055,37 +32390,6 @@
         "hideLabel": true,
         "documentCategory": "bauwerk-energie"
       },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "gesuchstyp",
-    "fields": {
-      "created_at": "2020-10-05T07:43:39.384Z",
-      "modified_at": "2020-10-05T07:48:10.076Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Gesuchstyp\", \"fr\": \"Type de demande\", \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -33805,41 +33109,10 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "handelt-es-sich-um-einen-kranken-baum",
-    "fields": {
-      "created_at": "2020-10-05T07:49:36.998Z",
-      "modified_at": "2020-10-05T08:20:12.293Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Handelt es sich um einen kranken Baum?\", \"fr\": \"S'agit-il d'un arbre malade ?\", \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "!('gesuchstyp-baum' in 'gesuchstyp'|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "handelt-es-sich-um-ein-sensibles-objekt",
     "fields": {
       "created_at": "2019-05-02T16:04:51.142Z",
-      "modified_at": "2024-07-23T08:25:22.189Z",
+      "modified_at": "2025-01-28T11:56:16.125Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -33850,8 +33123,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Als besonders sensible Bauten gelten:\\n  \\n- Geb\\u00e4ude und Anlagen, in denen sich besonders viele Personen aufhalten, die schwer zu evakuieren sind (wie Spit\\u00e4ler, Heime, Schulen) oder die besonderen Risiken ausgesetzt sind (z.B. Campingpl\\u00e4tze);\\n  \\n- Geb\\u00e4ude und Anlagen, an denen bereits geringe Einwirkungen grosse Sch\\u00e4den zur Folge haben (wie Schalt- und Telefonzentralen, Steuerungs- und Computeranlagen, Trink-wasserversorgungen, Kl\\u00e4ranlagen);\\n  \\n- Geb\\u00e4ude und Anlagen, an denen grosse Folgesch\\u00e4den auftreten k\\u00f6nnen (wie Deponien, Lagereinrichtungen oder Produktionsst\\u00e4tten mit Best\\u00e4nden an gef\\u00e4hrlichen Stoffen).\", \"fr\": \"Sont consid\\u00e9r\\u00e9s comme des b\\u00e2timents sensibles:\\n\\n- les b\\u00e2timents et installations dans lesquels se trouvent de nombreuses personnes dont certaines peuvent \\u00eatre difficiles \\u00e0 \\u00e9vacuer (p. ex. h\\u00f4pitaux, foyers, \\u00e9coles), ou qui sont soumis \\u00e0 des risques particuliers (p. ex. terrains de camping);\\n\\n- les b\\u00e2timents et installations auxquels des atteintes minimes peuvent causer de grands d\\u00e9g\\u00e2ts (p. ex. centres de commutation, postes centraux, centraux t\\u00e9l\\u00e9phoniques, installations de commande, serveurs centraux, installations d'alimentation en eau potable, stations d'\\u00e9puration);\\n\\n- les b\\u00e2timents et installations qui pourraient \\u00eatre \\u00e0 l'origine de tr\\u00e8s grands d\\u00e9g\\u00e2ts s'ils devaient subir un dommage (p. ex. d\\u00e9charges, installations de stockage, centres de production disposant de stocks de mati\\u00e8res dangereuses).\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -34723,37 +33996,6 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Sofern die definitiv \\u00fcberbaute und/oder die tempor\\u00e4r beanspruchte Bodenfl\\u00e4che 2000 m\\u00b2 \\u00fcbersteigt, ist das Bauvorhaben bodenrelevant.\\n  \\n[Bodenschutz](https://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen/baugesuchsformulare/formularbaugesuchsteller.assetref/dam/documents/JGK/AGR/de/Baubewilligungen/baugesuche/Baugesuchssteller/agr_baubewilligungsverfahren_formular_boden_de.pdf)\", \"fr\": \"D\\u00e8s lors que la surface qui sera d\\u00e9finitivement construite ou temporairement requise est sup\\u00e9rieure \\u00e0 2000 m\\u00b2, le projet de construction est consid\\u00e9r\\u00e9 comme ayant des r\\u00e9percussions sur le sol. Protection du sol\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "ist-eine-ersatzpflanzung-vorgesehen",
-    "fields": {
-      "created_at": "2020-10-05T07:47:54.989Z",
-      "modified_at": "2020-10-05T08:19:48.573Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ist eine Ersatzpflanzung vorgesehen?\", \"fr\": \"Une plantation de remplacement est-elle pr\\u00e9vue ?\", \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "!('gesuchstyp-baum' in 'gesuchstyp'|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -38372,40 +37614,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "objekt-nummer-gemaess-inventar",
-    "fields": {
-      "created_at": "2020-10-05T07:44:39.520Z",
-      "modified_at": "2020-10-05T08:18:58.218Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Objekt-Nummer gem\\u00e4ss Inventar\", \"fr\": \"Num\\u00e9ro de l'objet selon l'inventaire\", \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "!('gesuchstyp-baum' in 'gesuchstyp'|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "oeffentlichkeit",
     "fields": {
       "created_at": "2019-04-05T08:27:48.653Z",
@@ -39994,7 +39202,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Die akustische Qualit\\u00e4t von Arbeitsr\\u00e4umen mit st\\u00e4ndigen Arbeitspl\\u00e4tzen muss die Bedingung einer der drei folgenden Richtwertvarianten erf\\u00fcllen (freie Wahl der Methode):\\n  \\n- Mittlerer Schallabsorptionsgrad (as)\\n  \\n- Nachhallzeiten (TM)\\n  \\n- Schalldruckpegelabnahme pro Distanzverdoppelung (DL2)\\n  \\n[Akustische Grenz- und Richtwerte](https://www.suva.ch/material/dokumentationen/akustische%20grenz%20und%20richtwerte)\", \"fr\": \"L\\u2019acoustique des locaux abritant des postes de travail permanents doit satisfaire \\u00e0 l\\u2019une des trois valeurs indicatives suivantes (libre choix de la m\\u00e9thode): Coefficient d\\u2019absorption acoustique moyen (as) Temps de r\\u00e9verb\\u00e9ration (TM) Taux de d\\u00e9croissance spatiale par doublement de la distance (DL2) Valeurs acoustiques limites et indicatives\", \"it\": null}",
+      "info_text": "{\"de\": \"Die akustische Qualit\\u00e4t von Arbeitsr\\u00e4umen mit st\\u00e4ndigen Arbeitspl\\u00e4tzen muss die Bedingung einer der drei folgenden Richtwertvarianten erf\\u00fcllen (freie Wahl der Methode):\\n  \\n- Mittlerer Schallabsorptionsgrad (as)\\n  \\n- Nachhallzeiten (TM)\\n  \\n- Schalldruckpegelabnahme pro Distanzverdoppelung (DL2)\\n  \\n[Akustische Grenz- und Richtwerte](https://www.suva.ch/de-ch/download/dokument/merkblatt-laermschutz--grenzwerte-am-arbeitsplatz-und-schutzmassnahmen/merkblatt-laermschutz--grenzwerte-am-arbeitsplatz-und-schutzmassnahmen--86048.D)\", \"fr\": \"L\\u2019acoustique des locaux abritant des postes de travail permanents doit satisfaire \\u00e0 l\\u2019une des trois valeurs indicatives suivantes (libre choix de la m\\u00e9thode): Coefficient d\\u2019absorption acoustique moyen (as) Temps de r\\u00e9verb\\u00e9ration (TM) Taux de d\\u00e9croissance spatiale par doublement de la distance (DL2) [Valeurs acoustiques limites et indicatives](https://www.suva.ch/fr-ch/download/document/feuillet-d-information-protection-contre-le-bruit--valeurs-limites-au-poste-de-travail-et-mesures-de-protection/feuillet-d-information-protection-contre-le-bruit--valeurs-limites-au-poste-de-travail-et-mesures-de-protection--86048.F?lang=fr-CH)\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"***\\n**Raumakustik (Raumakustische Richtwerte f\\u00fcr Arbeitsr\\u00e4ume)**\", \"fr\": \"***\\n**Acoustique des locaux (valeurs indicatives en mati\\u00e8re d'acoustique des locaux de travail)**\", \"it\": \"\"}",
       "configuration": {},
@@ -41452,72 +40660,6 @@
       "meta": {
         "hideLabel": true,
         "documentCategory": "plaene"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "situationsplan-ersatzpflanzung-und-rodung",
-    "fields": {
-      "created_at": "2020-10-05T10:48:50.594Z",
-      "modified_at": "2020-12-10T12:45:51.357Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Situationsplan Ersatzpflanzung und Rodung\", \"fr\": \"Plan de situation pour les plantations de remplacement et le d\\u00e9frichement\", \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "'gesuchstyp-hecke-feldgehoelz' == 'gesuchstyp'|answer",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "situationsplan-hecken-feldgehoelze-baeume-dokument",
-    "fields": {
-      "created_at": "2020-10-05T15:57:49.418Z",
-      "modified_at": "2020-12-10T12:45:25.707Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Situationsplan\", \"fr\": \"Plan de situation\", \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "!('gesuchstyp-baum' == 'gesuchstyp'|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,
@@ -47404,36 +46546,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "baumfaellbegruendung-dokument.baumfaellbegruendung-dokument-ja",
-    "fields": {
-      "created_at": "2020-10-12T08:10:19.575Z",
-      "modified_at": "2020-10-12T08:10:19.575Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "baumfaellbegruendung-dokument",
-      "option": "baumfaellbegruendung-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "baumfaellgutachten-dokument.baumfaellgutachten-dokument-ja",
-    "fields": {
-      "created_at": "2020-10-12T08:09:32.894Z",
-      "modified_at": "2020-10-12T08:09:32.894Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "baumfaellgutachten-dokument",
-      "option": "baumfaellgutachten-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "bauprofile-bleiben-bis-bauentscheid-stehen.bauprofile-bleiben-bis-bauentscheid-stehen-ja",
     "fields": {
       "created_at": "2019-05-10T16:46:01.695Z",
@@ -48589,21 +47701,6 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "entfernen-von-hecken-und-feldgehoelzen-dokument.entfernen-von-hecken-und-feldgehoelzen-dokument-ja",
-    "fields": {
-      "created_at": "2020-10-12T08:10:42.755Z",
-      "modified_at": "2020-10-12T08:10:42.755Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "entfernen-von-hecken-und-feldgehoelzen-dokument",
-      "option": "entfernen-von-hecken-und-feldgehoelzen-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "entsorgungskonzept-dokument.entsorgungskonzept-dokument-ja",
     "fields": {
       "created_at": "2019-05-23T08:19:53.424Z",
@@ -49251,8 +48348,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebiet-mit-archaeologischen-objekten.gebiet-mit-archaeologischen-objekten-ja",
     "fields": {
-      "created_at": "2021-07-08T13:30:09.698Z",
-      "modified_at": "2021-07-08T13:30:09.698Z",
+      "created_at": "2025-06-26T07:57:59.888Z",
+      "modified_at": "2025-06-26T07:57:59.889Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -49266,8 +48363,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebiet-mit-archaeologischen-objekten.gebiet-mit-archaeologischen-objekten-nein",
     "fields": {
-      "created_at": "2021-07-08T13:30:09.689Z",
-      "modified_at": "2021-07-08T13:30:09.689Z",
+      "created_at": "2025-06-26T07:57:59.880Z",
+      "modified_at": "2025-06-26T07:57:59.880Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -49281,8 +48378,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebiet-mit-naturgefahren.gebiet-mit-naturgefahren-ja",
     "fields": {
-      "created_at": "2024-10-14T14:20:56.769Z",
-      "modified_at": "2024-10-14T14:20:56.769Z",
+      "created_at": "2025-01-28T12:03:48.845Z",
+      "modified_at": "2025-01-28T12:03:48.845Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -49296,8 +48393,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gebiet-mit-naturgefahren.gebiet-mit-naturgefahren-nein",
     "fields": {
-      "created_at": "2024-10-14T14:20:56.766Z",
-      "modified_at": "2024-10-14T14:20:56.766Z",
+      "created_at": "2025-01-28T12:03:48.842Z",
+      "modified_at": "2025-01-28T12:03:48.842Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -49649,36 +48746,6 @@
       "modified_by_group": null,
       "question": "gesuch-erleichterung-waermeschutz-dokument",
       "option": "gesuch-erleichterung-waermeschutz-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "gesuchstyp.gesuchstyp-baum",
-    "fields": {
-      "created_at": "2020-10-05T07:48:10.088Z",
-      "modified_at": "2020-10-05T07:48:10.088Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "gesuchstyp",
-      "option": "gesuchstyp-baum",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "gesuchstyp.gesuchstyp-hecke-feldgehoelz",
-    "fields": {
-      "created_at": "2020-10-05T07:48:10.084Z",
-      "modified_at": "2020-10-05T07:48:10.084Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "gesuchstyp",
-      "option": "gesuchstyp-hecke-feldgehoelz",
       "sort": 1
     }
   },
@@ -50134,40 +49201,10 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "handelt-es-sich-um-einen-kranken-baum.handelt-es-sich-um-einen-kranken-baum-ja",
-    "fields": {
-      "created_at": "2020-10-05T08:20:12.305Z",
-      "modified_at": "2020-10-05T08:20:12.305Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "handelt-es-sich-um-einen-kranken-baum",
-      "option": "handelt-es-sich-um-einen-kranken-baum-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "handelt-es-sich-um-einen-kranken-baum.handelt-es-sich-um-einen-kranken-baum-nein",
-    "fields": {
-      "created_at": "2020-10-05T08:20:12.301Z",
-      "modified_at": "2020-10-05T08:20:12.301Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "handelt-es-sich-um-einen-kranken-baum",
-      "option": "handelt-es-sich-um-einen-kranken-baum-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "handelt-es-sich-um-ein-sensibles-objekt.handelt-es-sich-um-ein-sensibles-objekt-ja",
     "fields": {
-      "created_at": "2024-07-23T08:25:22.194Z",
-      "modified_at": "2024-07-23T08:25:22.194Z",
+      "created_at": "2025-01-28T11:56:16.134Z",
+      "modified_at": "2025-01-28T11:56:16.134Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -50181,8 +49218,8 @@
     "model": "caluma_form.questionoption",
     "pk": "handelt-es-sich-um-ein-sensibles-objekt.handelt-es-sich-um-ein-sensibles-objekt-nein",
     "fields": {
-      "created_at": "2024-07-23T08:25:22.192Z",
-      "modified_at": "2024-07-23T08:25:22.192Z",
+      "created_at": "2025-01-28T11:56:16.132Z",
+      "modified_at": "2025-01-28T11:56:16.132Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -50534,36 +49571,6 @@
       "modified_by_group": null,
       "question": "ist-durch-das-bauvorhaben-boden-betroffen",
       "option": "ist-durch-das-bauvorhaben-boden-betroffen-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "ist-eine-ersatzpflanzung-vorgesehen.ist-eine-ersatzpflanzung-vorgesehen-ja",
-    "fields": {
-      "created_at": "2020-10-05T08:19:48.585Z",
-      "modified_at": "2020-10-05T08:19:48.585Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "ist-eine-ersatzpflanzung-vorgesehen",
-      "option": "ist-eine-ersatzpflanzung-vorgesehen-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "ist-eine-ersatzpflanzung-vorgesehen.ist-eine-ersatzpflanzung-vorgesehen-nein",
-    "fields": {
-      "created_at": "2020-10-05T08:19:48.581Z",
-      "modified_at": "2020-10-05T08:19:48.581Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "ist-eine-ersatzpflanzung-vorgesehen",
-      "option": "ist-eine-ersatzpflanzung-vorgesehen-nein",
       "sort": 1
     }
   },
@@ -53744,36 +52751,6 @@
       "modified_by_group": null,
       "question": "situationsplan-dokument",
       "option": "situationsplan-dokument-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "situationsplan-ersatzpflanzung-und-rodung.situationsplan-ersatzpflanzung-und-rodung-ja",
-    "fields": {
-      "created_at": "2020-10-12T08:10:34.131Z",
-      "modified_at": "2020-10-12T08:10:34.131Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "situationsplan-ersatzpflanzung-und-rodung",
-      "option": "situationsplan-ersatzpflanzung-und-rodung-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "situationsplan-hecken-feldgehoelze-baeume-dokument.situationsplan-hecken-feldgehoelze-baeume-dokument-ja",
-    "fields": {
-      "created_at": "2020-10-12T08:10:04.547Z",
-      "modified_at": "2020-10-12T08:10:04.547Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "question": "situationsplan-hecken-feldgehoelze-baeume-dokument",
-      "option": "situationsplan-hecken-feldgehoelze-baeume-dokument-ja",
       "sort": 1
     }
   },

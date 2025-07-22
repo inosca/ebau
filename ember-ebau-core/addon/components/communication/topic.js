@@ -70,7 +70,20 @@ export default class CommunicationTopicComponent extends Component {
       await this.newMessageResource.retry();
     } catch (error) {
       console.error(error);
-      this.notification.danger(this.intl.t("communications.new.saveError"));
+      let errorCode = error?.message;
+
+      if (error.response) {
+        const data = await error.response.json();
+        errorCode = data.errors?.[0].code;
+      }
+
+      if (errorCode === "infected") {
+        this.notification.danger(
+          this.intl.t("communications.new.uploadErrorVirus"),
+        );
+      } else {
+        this.notification.danger(this.intl.t("communications.new.saveError"));
+      }
     }
   });
 

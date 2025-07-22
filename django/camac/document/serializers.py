@@ -1,4 +1,3 @@
-import inspect
 import itertools
 import mimetypes
 from pathlib import Path
@@ -12,10 +11,12 @@ from manabi.util import from_string
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
+from camac.communications.serializers import validate_mime_type
 from camac.core import serializers as core_serializers
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
+from camac.permissions.api import PermissionManager
 from camac.relations import FormDataResourceRelatedField
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
@@ -32,30 +33,31 @@ from . import models, permissions
 class AttachmentSectionSerializer(
     core_serializers.MultilingualSerializer, serializers.ModelSerializer
 ):
-    permission_name = serializers.SerializerMethodField()
+    permission_names = serializers.SerializerMethodField()
     description = core_serializers.MultilingualField()
 
-    def get_permission_name(self, instance):
-        permission_class = instance.get_permission(
+    def get_permission_names(self, instance):
+        section_permissions = permissions.SectionPermissions(
+            PermissionManager.from_request(self.context["request"])
+        )
+
+        permission_classes = section_permissions.get_permissions(
+            instance,  # instance is the section, don't get confused
             self.context["request"].group,
             self.context["request"].query_params.get("instance"),
         )
 
-        if inspect.isclass(permission_class) and issubclass(
-            permission_class, permissions.Permission
-        ):
-            return dasherize(
-                underscore(permission_class.__name__.replace("Permission", ""))
-            )
+        result = [
+            dasherize(underscore(permission_class.__name__.replace("Permission", "")))
+            for permission_class in permission_classes
+            if permission_class
+        ]
 
-        elif isinstance(permission_class, str):  # pragma: no cover
-            return permission_class
-
-        return None  # pragma: no cover
+        return result or None
 
     class Meta:
         model = models.AttachmentSection
-        meta_fields = ("permission_name",)
+        meta_fields = ("permission_names",)
         fields = ("name", "description")
 
 
@@ -77,6 +79,8 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     }
 
     def get_webdav_link(self, instance):
+        section_permissions = permissions.SectionPermissions(self.permissions_manager())
+
         view = self.context["view"]
         group = self.context["request"].group
         if (
@@ -84,7 +88,9 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             or not view.has_object_update_permission(instance)
             or not any(
                 (
-                    section.can_write(instance, group)
+                    section_permissions.can_write(
+                        section, instance, group, instance.instance
+                    )
                     for section in instance.attachment_sections.all()
                 )
             )
@@ -112,7 +118,9 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         return f"ms-{handler}:ofe|u|{relative}"
 
     def _get_default_attachment_sections(self, group, instance):
-        return models.AttachmentSection.objects.filter_group(group, instance)[:1]
+        return models.AttachmentSection.objects.filter_group(
+            group, self.permissions_manager(), instance
+        )[:1]
 
     def validate_attachment_sections(self, attachment_sections):
         group = self.context["request"].group
@@ -141,13 +149,16 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             if self.instance
             else set()
         )
+        section_permissions = permissions.SectionPermissions(self.permissions_manager())
 
         for attachment_section in attachment_sections:
             if attachment_section.attachment_section_id in existing_section_ids:
                 # document already assigned, so even if it's forbidden,
                 # it's not a violation
                 continue
-            if not attachment_section.can_write(self.instance, group, instance):
+            if not section_permissions.can_write(
+                attachment_section, self.instance, group, instance
+            ):
                 raise exceptions.ValidationError(
                     _("Insufficent permissions to add file to section '%(section)s'.")
                     % {"section": attachment_section.get_name()}
@@ -164,7 +175,9 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         )
 
         for attachment_section in deleted_attachment_sections:
-            if not attachment_section.can_destroy(self.instance, group):
+            if not section_permissions.can_destroy(
+                attachment_section, self.instance, group
+            ):
                 raise exceptions.ValidationError(
                     _(
                         "Insufficent permissions to delete file from section '%(section)s'."
@@ -242,6 +255,33 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                     pk=service.pk
                 ).exists()
 
+            allowed_decision_mime_types = settings.APPLICATION.get(
+                "DECISION_DOCUMENT_MIMETYPES"
+            )
+
+            if (
+                allowed_decision_mime_types
+                and changed_props == ["isDecision"]
+                and context.get("isDecision")
+                and attachment.mime_type not in allowed_decision_mime_types
+                # Do not allow editable mime-type documents to be marked as decision but unmarking is allowed
+                # if "DECISION_DOCUMENT_MIMETYPES" is not set, do not perform validation
+            ):
+                raise exceptions.ValidationError(
+                    _(
+                        "Invalid mime type for marking attachment as decision. "
+                        "Allowed types for decision attachment are: %(allowed_mime_types)s"
+                    )
+                    % {
+                        "allowed_mime_types": ", ".join(
+                            [
+                                mime_type.split("/")[1]
+                                for mime_type in allowed_decision_mime_types
+                            ]
+                        ),
+                    }
+                )
+
             attachment_in_intern_section = attachment.attachment_sections.filter(
                 attachment_section_id=settings.APPLICATION.get(
                     "ATTACHMENT_SECTION_INTERNAL", None
@@ -284,6 +324,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             )
 
             self._validate_file_infection(path)
+            validate_mime_type(path)
             self._validate_allowed_mime_types(attachment_sections, path.content_type)
             self._validate_file_size(path)
 
@@ -294,6 +335,16 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         return data
 
     def create(self, validated_data):
+        # Check for documents-write permission only if permissions
+        # module permissions are present
+        permissions = self.permissions_manager().get_permissions(
+            validated_data["instance"]
+        )
+        if permissions:
+            self.permissions_manager().require_all(
+                validated_data["instance"], "documents-write"
+            )
+
         attachment = super().create(validated_data)
         attachment_sections = attachment.attachment_sections.all()
 
@@ -319,6 +370,10 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         return attachment
 
     def update(self, instance, validated_data):
+        permissions = self.permissions_manager().get_permissions(instance.instance)
+        if permissions:
+            self.permissions_manager().require_all(instance.instance, "documents-write")
+
         if (
             not (
                 instance.instance.instance_state.name == "new"

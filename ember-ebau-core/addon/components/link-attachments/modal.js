@@ -29,7 +29,7 @@ export default class LinkAttachmentsModalComponent extends Component {
       : query(this, "document", () => ({
           sort: "date",
           filter: {
-            category: this.attachmentSectionId,
+            categories: this.attachmentSectionId,
             metainfo: JSON.stringify({
               key: "camac-instance-id",
               value: String(this.instanceId),
@@ -119,7 +119,7 @@ export default class LinkAttachmentsModalComponent extends Component {
       this.toggleAttachment(data.id);
 
       scheduleOnce("afterRender", this, "reload");
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("link-attachments.upload-error"));
     }
   }

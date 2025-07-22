@@ -124,13 +124,6 @@ Docker can be used to get eBau up and running quickly. The following script guid
 make start-dev-env
 ```
 
-In case you want to manually modify /etc/hosts following domains need to point to
-127.0.0.1 (localhost):
-
-```
-ebau-portal.local ebau.local ebau-keycloak.local ember-ebau.local ebau-rest-portal.local
-```
-
 For automatic checks during commit (formatting, linting) you can setup a git hook with the following commands:
 
 ```bash
@@ -140,12 +133,12 @@ pre-commit install
 
 After, you should be able to use to the following services:
 
-- [ember-ebau.local](http://ember-ebau.local) - new main application used for "internal" users
-- [ebau-portal.local](http://ebau-portal.local) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
-- [ebau.local/django/admin/](http://ebau.local/django/admin/) - Django admin interface
-- [ebau-keycloak.local/auth](http://ebau-keycloak.local/auth/) - IAM solution
-- [ember-ebau.local/mailpit/](http://ember-ebau.local/mailpit/) - Mailpit UI
-- [ember-ebau.local/minio/ui/](http://ember-ebau.local/minio/ui/) - MinIO Admin UI
+- [ember-ebau.localhost](http://ember-ebau.localhost) - new main application used for "internal" users
+- [ebau-portal.localhost](http://ebau-portal.localhost) - public-facing portal (Caluma-based, default choice for new projects, used in Kt. BE, UR)
+- [ebau.localhost/django/admin/](http://ebau.localhost/django/admin/) - Django admin interface
+- [ebau-keycloak.localhost/auth](http://ebau-keycloak.localhost/auth/) - IAM solution
+- [ember-ebau.localhost/mailpit/](http://ember-ebau.localhost/mailpit/) - Mailpit UI
+- [ember-ebau.localhost/minio/ui/](http://ember-ebau.localhost/minio/ui/) - MinIO Admin UI
 
 ### Predefined credentials
 
@@ -245,7 +238,7 @@ The common pnpm workspace allows us to share code (e.g. addons) between the apps
 
 To enable `django-silk` for profiling, simply add `DJANGO_ENABLE_SILK=True`
 to your `django/.env` file. Then restart the django container and browse to
-http://ebau.local/api/silk/.
+http://ebau.localhost/api/silk/.
 
 ### Switching tenant
 
@@ -319,7 +312,7 @@ In development mode, the application is configured to send all email to a
 Mailpit instance, so unless you specify something else, no email will be
 sent out from the development environment.
 
-You can access the Mailpit via <http://ebau.local/mailpit/> . Any email sent out
+You can access the Mailpit via <http://ebau.localhost/mailpit/> . Any email sent out
 will be instantly visible there.
 
 ## Module and canton specifics

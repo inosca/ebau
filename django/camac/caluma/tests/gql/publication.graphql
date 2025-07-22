@@ -10,6 +10,13 @@ query {
     edges {
       node {
         id
+        answers {
+          edges {
+            node {
+              id
+            }
+          }
+        }
       }
     }
   }

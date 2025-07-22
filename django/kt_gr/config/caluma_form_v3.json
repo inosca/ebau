@@ -1,0 +1,1842 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "bauanzeige-v3",
+    "fields": {
+      "created_at": "2025-04-02T01:16:40.237Z",
+      "modified_at": "2025-04-02T01:40:24.589Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauanzeige\", \"fr\": null, \"it\": \"Annuncio di costruzione\"}",
+      "description": "{\"de\": \"Bauanzeige v3\", \"fr\": null, \"it\": \"Annuncio di costruzione\"}",
+      "meta": {
+        "order": 1,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "bauanzeige"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "baugesuch-v3",
+    "fields": {
+      "created_at": "2025-04-02T01:23:17.465Z",
+      "modified_at": "2025-04-02T01:40:04.634Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\", \"it\": \"Domanda di costruzione\"}",
+      "description": "{\"de\": \"Baugesuch v3\", \"fr\": \"Demande de permis de construire\", \"it\": \"Domanda di costruzione\"}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "baugesuch-v2"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "brandschutz-bauliche-angaben-v3",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.065Z",
+      "modified_at": "2025-04-03T15:19:39.423Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Brandschutz - Bauliche Angaben\", \"fr\": null, \"it\": \"Protezione antincendio - indicazioni edilizie\"}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "spezialformulare-v3",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.316Z",
+      "modified_at": "2025-04-03T15:47:14.891Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Spezialformulare\", \"fr\": null, \"it\": \"Moduli speciali\"}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "vorlaeufige-beurteilung-v3",
+    "fields": {
+      "created_at": "2025-04-02T08:27:32.486Z",
+      "modified_at": "2025-04-02T08:27:32.486Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vorl\\u00e4ufige Beurteilung (Vorabkl\\u00e4rung)\", \"fr\": null, \"it\": \"Valutazione provvisoria (esame preliminare)\"}",
+      "description": "{\"de\": \"Vorl\\u00e4ufige Beurteilung (Vorabkl\\u00e4rung) v3\", \"fr\": null, \"it\": \"Valutazione provvisoria (esame preliminare)\"}",
+      "meta": {
+        "order": 2,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "vorlaeufige-beurteilung"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige-v3.allgemeine-angaben",
+    "fields": {
+      "created_at": "2025-04-02T01:16:40.252Z",
+      "modified_at": "2025-04-02T01:16:40.252Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige-v3",
+      "question": "allgemeine-angaben",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige-v3.bauvorhaben",
+    "fields": {
+      "created_at": "2025-04-02T01:16:40.261Z",
+      "modified_at": "2025-04-02T01:16:40.261Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige-v3",
+      "question": "bauvorhaben",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige-v3.brandschutz-bauliche-angaben-v3",
+    "fields": {
+      "created_at": "2025-04-02T01:16:40.265Z",
+      "modified_at": "2025-04-02T01:16:40.265Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige-v3",
+      "question": "brandschutz-bauliche-angaben-v3",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige-v3.brandschutz-haustechnik-form",
+    "fields": {
+      "created_at": "2025-04-02T01:16:40.270Z",
+      "modified_at": "2025-04-02T01:16:40.270Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige-v3",
+      "question": "brandschutz-haustechnik-form",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige-v3.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2025-04-02T01:16:40.275Z",
+      "modified_at": "2025-04-02T01:16:40.275Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige-v3",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige-v3.einreichen",
+    "fields": {
+      "created_at": "2025-04-02T01:16:40.280Z",
+      "modified_at": "2025-04-02T01:16:40.280Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige-v3",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauanzeige-v3.personalien",
+    "fields": {
+      "created_at": "2025-04-02T01:16:40.284Z",
+      "modified_at": "2025-04-02T01:16:40.284Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauanzeige-v3",
+      "question": "personalien",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.allgemeine-informationen",
+    "fields": {
+      "created_at": "2025-04-02T01:23:17.478Z",
+      "modified_at": "2025-04-02T01:23:17.478Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "allgemeine-informationen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.bestaetigung",
+    "fields": {
+      "created_at": "2025-04-02T01:23:17.487Z",
+      "modified_at": "2025-04-02T01:23:17.487Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.dokumente-v2",
+    "fields": {
+      "created_at": "2025-04-03T15:45:31.335Z",
+      "modified_at": "2025-04-03T15:45:31.335Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "dokumente-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.einreichen",
+    "fields": {
+      "created_at": "2025-04-02T01:23:17.496Z",
+      "modified_at": "2025-04-02T01:23:17.496Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.nutzung-bauvorhaben",
+    "fields": {
+      "created_at": "2025-04-02T01:23:17.501Z",
+      "modified_at": "2025-04-02T01:23:17.501Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "nutzung-bauvorhaben",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.spezialformulare-v3",
+    "fields": {
+      "created_at": "2025-04-02T01:23:17.504Z",
+      "modified_at": "2025-04-02T01:23:17.504Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "spezialformulare-v3",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.abgehaengte-decken-in-fluchtwegen",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.099Z",
+      "modified_at": "2025-04-02T00:29:26.099Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "abgehaengte-decken-in-fluchtwegen",
+      "sort": 35
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.abstaende-zu-nachbargebaeude",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.111Z",
+      "modified_at": "2025-04-02T00:29:26.111Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "abstaende-zu-nachbargebaeude",
+      "sort": 52
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.andere-loeschwasserversorgungen",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.115Z",
+      "modified_at": "2025-04-02T00:29:26.115Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "andere-loeschwasserversorgungen",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.angaben-zum-gebaeude-titel",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.120Z",
+      "modified_at": "2025-04-02T00:29:26.120Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "angaben-zum-gebaeude-titel",
+      "sort": 59
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.anlagetyp",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.126Z",
+      "modified_at": "2025-04-02T00:29:26.126Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "anlagetyp",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.anlagetyp-beschreibung",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.133Z",
+      "modified_at": "2025-04-02T00:29:26.133Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "anlagetyp-beschreibung",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.anzahl-hydranten",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.140Z",
+      "modified_at": "2025-04-02T00:29:26.140Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "anzahl-hydranten",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.anzahl-personen",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.148Z",
+      "modified_at": "2025-04-02T00:29:26.148Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "anzahl-personen",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.anzahl-wohnungen",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.156Z",
+      "modified_at": "2025-04-02T00:29:26.156Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "anzahl-wohnungen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.art-des-gebaeude",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.168Z",
+      "modified_at": "2025-04-02T00:29:26.168Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "art-des-gebaeude",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.art-des-parkings",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.183Z",
+      "modified_at": "2025-04-02T00:29:26.183Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "art-des-parkings",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.aussenwaende",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.198Z",
+      "modified_at": "2025-04-02T00:29:26.198Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "aussenwaende",
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.bauart",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.205Z",
+      "modified_at": "2025-04-02T00:29:26.205Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "bauart",
+      "sort": 53
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.baukonstruktion-titel",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.213Z",
+      "modified_at": "2025-04-02T00:29:26.213Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "baukonstruktion-titel",
+      "sort": 47
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.bauliche-angaben-titel",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.219Z",
+      "modified_at": "2025-04-02T00:29:26.219Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "bauliche-angaben-titel",
+      "sort": 61
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.bedachung",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.224Z",
+      "modified_at": "2025-04-02T00:29:26.224Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "bedachung",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.bemerkungen",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.230Z",
+      "modified_at": "2025-04-02T00:29:26.230Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "bemerkungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.beschreibung-art-des-gebaeude",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.235Z",
+      "modified_at": "2025-04-02T00:29:26.235Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "beschreibung-art-des-gebaeude",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.beschreibung-aussenwaende",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.240Z",
+      "modified_at": "2025-04-02T00:29:26.240Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "beschreibung-aussenwaende",
+      "sort": 39
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.beschreibung-innenwaende",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.245Z",
+      "modified_at": "2025-04-02T00:29:26.245Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "beschreibung-innenwaende",
+      "sort": 43
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.beschreibung-tragwerk",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.250Z",
+      "modified_at": "2025-04-02T00:29:26.250Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "beschreibung-tragwerk",
+      "sort": 45
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.beschreibung-zwischendecken",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.256Z",
+      "modified_at": "2025-04-02T00:29:26.256Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "beschreibung-zwischendecken",
+      "sort": 41
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.bestaetigung-fks-richtlinie-v3",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.262Z",
+      "modified_at": "2025-04-02T00:29:26.262Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "bestaetigung-fks-richtlinie-v3",
+      "sort": 48
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.bodenbelaege-im-treppenhaus",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.267Z",
+      "modified_at": "2025-04-02T00:29:26.267Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "bodenbelaege-im-treppenhaus",
+      "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.bodenbelaege-in-korridoren",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.270Z",
+      "modified_at": "2025-04-02T00:29:26.270Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "bodenbelaege-in-korridoren",
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.brandbekaempfung-titel",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.274Z",
+      "modified_at": "2025-04-02T00:29:26.274Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "brandbekaempfung-titel",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.brandschutzeinrichtungen-titel",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.279Z",
+      "modified_at": "2025-04-02T00:29:26.279Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "brandschutzeinrichtungen-titel",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.deckenverkleidung-in-fluchtwegen",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.283Z",
+      "modified_at": "2025-04-02T00:29:26.283Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "deckenverkleidung-in-fluchtwegen",
+      "sort": 36
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.distanz-des-hydranten",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.288Z",
+      "modified_at": "2025-04-02T00:29:26.288Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "distanz-des-hydranten",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.einliegerwohnung-max-25-zimmer",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.293Z",
+      "modified_at": "2025-04-02T00:29:26.293Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "einliegerwohnung-max-25-zimmer",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.fassadenverkleidung",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.297Z",
+      "modified_at": "2025-04-02T00:29:26.297Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "fassadenverkleidung",
+      "sort": 38
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.feuerwehrzugaenglichkeit-titel",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.307Z",
+      "modified_at": "2025-04-02T00:29:26.307Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "feuerwehrzugaenglichkeit-titel",
+      "sort": 50
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.flachdach",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.313Z",
+      "modified_at": "2025-04-02T00:29:26.313Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "flachdach",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.gebaeudehoehe",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.319Z",
+      "modified_at": "2025-04-02T00:29:26.319Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "gebaeudehoehe",
+      "sort": 54
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.gebaeudevolumen",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.326Z",
+      "modified_at": "2025-04-02T00:29:26.326Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "gebaeudevolumen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.gesamte-verkaufsflaeche-m",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.332Z",
+      "modified_at": "2025-04-02T00:29:26.332Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "gesamte-verkaufsflaeche-m",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.geschosszahl-ueber-terrain",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.336Z",
+      "modified_at": "2025-04-02T00:29:26.336Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "geschosszahl-ueber-terrain",
+      "sort": 55
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.geschosszahl-unter-terrain",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.341Z",
+      "modified_at": "2025-04-02T00:29:26.341Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "geschosszahl-unter-terrain",
+      "sort": 56
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.grundflaeche-m",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.345Z",
+      "modified_at": "2025-04-02T00:29:26.345Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "grundflaeche-m",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.handfeuerloescher-standorte",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.349Z",
+      "modified_at": "2025-04-02T00:29:26.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "handfeuerloescher-standorte",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.handfeuerloescher-stueck",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.353Z",
+      "modified_at": "2025-04-02T00:29:26.353Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "handfeuerloescher-stueck",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.hinweis-feuerwehrzugaenglichkeit",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.357Z",
+      "modified_at": "2025-04-02T00:29:26.357Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "hinweis-feuerwehrzugaenglichkeit",
+      "sort": 49
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.hinweis-zustaendigkeit-gvg",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.361Z",
+      "modified_at": "2025-04-02T00:29:26.361Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "hinweis-zustaendigkeit-gvg",
+      "sort": 60
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.innenwaende",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.365Z",
+      "modified_at": "2025-04-02T00:29:26.365Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "innenwaende",
+      "sort": 44
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.laufbreite-der-haupttreppe",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.370Z",
+      "modified_at": "2025-04-02T00:29:26.370Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "laufbreite-der-haupttreppe",
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.lufttechnische-anlagen-titel",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.374Z",
+      "modified_at": "2025-04-02T00:29:26.374Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "lufttechnische-anlagen-titel",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.max-personenbelegung-im-groessten-raum",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.378Z",
+      "modified_at": "2025-04-02T00:29:26.378Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "max-personenbelegung-im-groessten-raum",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.nutzungsbedingte-anforderungen-titel",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.382Z",
+      "modified_at": "2025-04-02T00:29:26.382Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "nutzungsbedingte-anforderungen-titel",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.qualitaetssicherungsstufe-qss",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.386Z",
+      "modified_at": "2025-04-02T00:29:26.386Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "qualitaetssicherungsstufe-qss",
+      "sort": 58
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.stelldach",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.391Z",
+      "modified_at": "2025-04-02T00:29:26.391Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "stelldach",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.tragwerk",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.396Z",
+      "modified_at": "2025-04-02T00:29:26.396Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "tragwerk",
+      "sort": 46
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.treppen",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.400Z",
+      "modified_at": "2025-04-02T00:29:26.400Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "treppen",
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.treppenform",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.404Z",
+      "modified_at": "2025-04-02T00:29:26.404Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "treppenform",
+      "sort": 31
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.verantwortliche-person-qss",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.408Z",
+      "modified_at": "2025-04-02T00:29:26.408Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "verantwortliche-person-qss",
+      "sort": 57
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.voraussichtliche-bauvollendung-text",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.412Z",
+      "modified_at": "2025-04-02T00:29:26.412Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "voraussichtliche-bauvollendung-text",
+      "sort": 51
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.vorhandene-brandschutztechnische-einrichtungen",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.416Z",
+      "modified_at": "2025-04-02T00:29:26.416Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "vorhandene-brandschutztechnische-einrichtungen",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.waermedaemmung-der-aussenwand",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.421Z",
+      "modified_at": "2025-04-02T00:29:26.421Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "waermedaemmung-der-aussenwand",
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.wasserloeschposten-standorte",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.426Z",
+      "modified_at": "2025-04-02T00:29:26.426Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "wasserloeschposten-standorte",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.wasserloeschposten-stueck",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.430Z",
+      "modified_at": "2025-04-02T00:29:26.430Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "wasserloeschposten-stueck",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "brandschutz-bauliche-angaben-v3.zwischendecken",
+    "fields": {
+      "created_at": "2025-04-02T00:29:26.434Z",
+      "modified_at": "2025-04-02T00:29:26.434Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "brandschutz-bauliche-angaben-v3",
+      "question": "zwischendecken",
+      "sort": 42
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.abfallanlage",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.342Z",
+      "modified_at": "2025-04-02T01:16:27.342Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "abfallanlage",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.ableitung-von-industrie-und-gewerbeabwasser",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.350Z",
+      "modified_at": "2025-04-02T01:16:27.350Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "ableitung-von-industrie-und-gewerbeabwasser",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.anlagedatenblatt",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.363Z",
+      "modified_at": "2025-04-02T01:16:27.363Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "anlagedatenblatt",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.bauliche-angaben",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.369Z",
+      "modified_at": "2025-04-02T01:16:27.369Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "bauliche-angaben-v3",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.bauten-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.387Z",
+      "modified_at": "2025-04-02T01:16:27.387Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "bauten-ausserhalb-bauzone",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.betriebsleiterwohnhaus",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.392Z",
+      "modified_at": "2025-04-02T01:16:27.392Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "betriebsleiterwohnhaus",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.brandschutz-haustechnik",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.397Z",
+      "modified_at": "2025-04-02T01:16:27.397Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "brandschutz-haustechnik",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.eingriffe-in-gewaesserschutzbereichen",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.403Z",
+      "modified_at": "2025-04-02T01:16:27.403Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "eingriffe-in-gewaesserschutzbereichen",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.emissionserklaerung-form",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.408Z",
+      "modified_at": "2025-04-02T01:16:27.408Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "emissionserklaerung-form",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.entsorgung",
+    "fields": {
+      "created_at": "2025-06-16T13:27:08.893Z",
+      "modified_at": "2025-06-16T13:27:08.893Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "entsorgung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.feuerungsanlagen",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.413Z",
+      "modified_at": "2025-04-02T01:16:27.413Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "feuerungsanlagen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.gewinnung-von-kies",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.417Z",
+      "modified_at": "2025-04-02T01:16:27.417Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "gewinnung-von-kies",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.grundwasserentnahme-brauchwasser",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.421Z",
+      "modified_at": "2025-04-02T01:16:27.421Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "grundwasserentnahme-brauchwasser",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.gwr",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.425Z",
+      "modified_at": "2025-04-02T01:16:27.425Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "gwr",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.hecken-feldgehoelze-und-ufervegetation",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.430Z",
+      "modified_at": "2025-04-02T01:16:27.430Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "hecken-feldgehoelze-und-ufervegetation",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.komplexe-erdwaermesonden-v2",
+    "fields": {
+      "created_at": "2025-04-03T15:46:09.498Z",
+      "modified_at": "2025-04-03T15:46:09.498Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "komplexe-erdwaermesonden-v2",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.lageranlagen-mit-wassergefaehrdenden-fluessigkeiten",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.437Z",
+      "modified_at": "2025-04-02T01:16:27.437Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "lageranlagen-mit-wassergefaehrdenden-fluessigkeiten",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.mineralische-bauabfaelle",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.443Z",
+      "modified_at": "2025-04-02T01:16:27.443Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "mineralische-bauabfaelle",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.schutzplaetze",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.449Z",
+      "modified_at": "2025-04-02T01:16:27.449Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "schutzplaetze",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.solaranlage-baugesuch",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.456Z",
+      "modified_at": "2025-04-02T01:16:27.456Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "solaranlage-baugesuch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.stallbau-und-hofduengerlager",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.459Z",
+      "modified_at": "2025-04-02T01:16:27.459Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "stallbau-und-hofduengerlager",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.stationaere-verbrennungsmotoren",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.464Z",
+      "modified_at": "2025-04-02T01:16:27.464Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "stationaere-verbrennungsmotoren",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.terrainveraenderungen",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.468Z",
+      "modified_at": "2025-04-02T01:16:27.468Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "terrainveraenderungen",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.waermepumpenanlage-v2",
+    "fields": {
+      "created_at": "2025-04-03T15:46:03.180Z",
+      "modified_at": "2025-04-03T15:46:03.180Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "waermepumpenanlage-v2",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v3.wasserentnahme-aus-oberflaechengewaessern",
+    "fields": {
+      "created_at": "2025-04-02T01:16:27.475Z",
+      "modified_at": "2025-04-02T01:16:27.475Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v3",
+      "question": "wasserentnahme-aus-oberflaechengewaessern",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-beurteilung-v3.allgemeine-informationen",
+    "fields": {
+      "created_at": "2025-04-02T08:27:32.520Z",
+      "modified_at": "2025-04-02T08:27:32.520Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-beurteilung-v3",
+      "question": "allgemeine-informationen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-beurteilung-v3.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2025-04-02T08:27:32.525Z",
+      "modified_at": "2025-04-02T08:27:32.525Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-beurteilung-v3",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-beurteilung-v3.einreichen",
+    "fields": {
+      "created_at": "2025-04-02T08:27:32.530Z",
+      "modified_at": "2025-04-02T08:27:32.530Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-beurteilung-v3",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-beurteilung-v3.nutzung-bauvorhaben",
+    "fields": {
+      "created_at": "2025-04-02T08:27:32.534Z",
+      "modified_at": "2025-04-02T08:27:32.534Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-beurteilung-v3",
+      "question": "nutzung-bauvorhaben",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorlaeufige-beurteilung-v3.spezialformulare-v3",
+    "fields": {
+      "created_at": "2025-04-02T08:27:32.510Z",
+      "modified_at": "2025-04-02T08:27:32.510Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorlaeufige-beurteilung-v3",
+      "question": "spezialformulare-v3",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-fks-bestandesbau-ja-v3",
+    "fields": {
+      "created_at": "2024-08-14T16:01:55.341Z",
+      "modified_at": "2024-08-14T16:02:21.453Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestandesbau: Die Zug\\u00e4nglichkeit f\\u00fcr die Feuerwehr nach der FKS-Richtlinie f\\u00fcr Feuerwehrzufahrten, Bewegungs- und Stellfl\\u00e4chen ist nicht gew\\u00e4hrleistet.\", \"fr\": null, \"it\": \"Edificio esistente: Non \\u00e8 garantita l'accessibilit\\u00e0 per i vigili del fuoco secondo le linee guida CSP per le strade di accesso, le aree di manovra e i parcheggi dei vigili del fuoco.\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-fks-richtlinie-ja-v3",
+    "fields": {
+      "created_at": "2024-08-14T16:01:55.341Z",
+      "modified_at": "2024-08-14T16:02:21.453Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die gesuchstellende Person best\\u00e4tigt, dass die Anforderungen gem\\u00e4ss der FKS-Richtlinie f\\u00fcr Feuerwehrzufahrten, Bewegungs- und Stellfl\\u00e4chen sowie der VKF-Brandschutzrichtlinie 14-15 \\\"Verwendung von Baustoffen\\\" eingehalten werden\", \"fr\": null, \"it\": \"La persona richiedente conferma che sono rispettati i requisiti conformemente alla direttiva CSP concernente le vie di accesso, le superfici di manovra e di appoggio per i mezzi dei pompieri nonch\\u00e9 alla direttiva della protezione antincendio AICAA 14-15 \\u00abUtilizzo di materiali da costruzione\\u00bb\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauliche-angaben-v3",
+    "fields": {
+      "created_at": "2023-05-25T06:50:15.270Z",
+      "modified_at": "2024-09-11T14:58:35.221Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutz - Bauliche Angaben\", \"fr\": null, \"it\": \"Protezione antincendio - indicazioni edilizie\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"triage-brandschutz-gebaeude\" in \"triage-brandschutz\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "brandschutz-bauliche-angaben-v3",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-fks-richtlinie-v3",
+    "fields": {
+      "created_at": "2024-06-21T13:51:52.528Z",
+      "modified_at": "2024-09-11T14:58:36.523Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung Anforderung gem\\u00e4ss FKS-Richtlinie\", \"fr\": null, \"it\": \"Conferma requisito conformemente alla direttiva CSP\"}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"[FKS-Richtlinie f\\u00fcr Feuerwehrzufahrten, Bewegungs- und Stellfl\\u00e4chen](https://www.feukos.ch/de/unterlagen)\", \"fr\": null, \"it\": \"[Direttiva CSP concernente le vie di accesso, le superfici di manovra e di appoggio per i mezzi dei pompieri] (https://www.feukos.ch/it/documenti/)\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "brandschutz-bauliche-angaben-v3",
+    "fields": {
+      "created_at": "2023-07-03T06:40:11.779Z",
+      "modified_at": "2024-09-11T14:58:37.149Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutz - Bauliche Angaben\", \"fr\": null, \"it\": \"Protezione antincendio - indicazioni edilizie\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"bauanzeige-triage-brandschutz-gebaeude\" in \"bauanzeige-triage-brandschutz\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "brandschutz-bauliche-angaben-v3",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "spezialformulare-v3",
+    "fields": {
+      "created_at": "2023-04-12T08:23:22.640Z",
+      "modified_at": "2024-09-11T14:58:44.762Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zusatzformulare\", \"fr\": null, \"it\": \"Moduli supplementari\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "spezialformulare-v3",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-fks-richtlinie-v3.bestaetigung-fks-bestandesbau-ja-v3",
+    "fields": {
+      "created_at": "2024-08-14T16:02:21.505Z",
+      "modified_at": "2024-08-14T16:02:21.505Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bestaetigung-fks-richtlinie-v3",
+      "option": "bestaetigung-fks-bestandesbau-ja-v3",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-fks-richtlinie-v3.bestaetigung-fks-richtlinie-ja-v3",
+    "fields": {
+      "created_at": "2024-08-14T16:02:21.505Z",
+      "modified_at": "2024-08-14T16:02:21.505Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bestaetigung-fks-richtlinie-v3",
+      "option": "bestaetigung-fks-richtlinie-ja-v3",
+      "sort": 2
+    }
+  }
+]

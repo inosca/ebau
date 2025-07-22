@@ -3,8 +3,9 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { dropTask, task } from "ember-concurrency";
+import { dropTask, task, timeout } from "ember-concurrency";
 import { confirm } from "ember-uikit";
+import mime from "mime";
 
 import attachmentsConfig from "ember-ebau-core/config/attachments";
 
@@ -28,21 +29,35 @@ export default class AlexandriaDocumentBucketComponent extends Component {
 
   @tracked attachmentLoading = [];
 
+  @tracked filesToSave = [];
+
   get allowedMimetypes() {
-    return attachmentsConfig.allowedMimetypes;
+    return this.category.allowedMimeTypes ?? attachmentsConfig.allowedMimetypes;
+  }
+
+  get allowedExtensions() {
+    return this.allowedMimetypes
+      .map((mt) => mime.getExtension(mt))
+      .filter(Boolean);
   }
 
   get useConfidential() {
     return attachmentsConfig.useConfidential;
   }
 
-  @task
-  *upload(file) {
-    return yield this.onUpload({
-      file: file.file,
+  upload = task({ restartable: true }, async (file) => {
+    this.filesToSave = [...this.filesToSave, file];
+
+    // wait and restart the task on each call to this task to add more files.
+    // once the last file is added, upload all files at once
+    await timeout(100);
+
+    await this.onUpload({
+      files: this.filesToSave.map((f) => f.file),
       bucket: this.category.get("id"),
     });
-  }
+    this.filesToSave = [];
+  });
 
   @dropTask
   *delete(attachment) {
@@ -72,6 +87,12 @@ export default class AlexandriaDocumentBucketComponent extends Component {
 
   @action
   onValidationError() {
-    this.notification.danger(this.intl.t("documents.wrongMimeType"));
+    this.notification.danger(
+      this.intl.t("documents.wrongMimeTypeWithAllowed", {
+        allowed: this.allowedExtensions
+          .map((ext) => ext.toUpperCase())
+          .join(", "),
+      }),
+    );
   }
 }

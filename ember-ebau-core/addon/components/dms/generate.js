@@ -24,6 +24,7 @@ export default class DmsGenerateComponent extends Component {
   @service ebauModules;
   @service fetch;
   @service intl;
+  @service dms;
 
   @tracked template;
 
@@ -55,15 +56,22 @@ export default class DmsGenerateComponent extends Component {
         t.meta.service &&
         parseInt(t.meta.service) !== parseInt(this.ebauModules.serviceId),
     );
-    const systemTemplates = templates.filter((t) => !t.meta.service);
+    const systemTemplates = templates.filter(
+      (t) => !t.meta.service && !t.meta.serviceGroup,
+    );
 
     const ownUncategorized = ownTemplates.filter((t) => !t.meta.category);
     const inheritedUncategorized = inheritedTemplates.filter(
       (t) => !t.meta.category,
     );
 
+    const sharedTemplates = templates.filter(
+      (t) => t.meta.service_group === this.dms.serviceGroupSlug,
+    );
+    const sharedUncategorized = sharedTemplates.filter((t) => !t.meta.category);
     const categories = extractCategories(ownTemplates);
     const inheritedCategories = extractCategories(inheritedTemplates);
+    const sharedCategories = extractCategories(sharedTemplates);
 
     return [
       ...categories.map((category) => ({
@@ -94,6 +102,21 @@ export default class DmsGenerateComponent extends Component {
             },
           ]
         : []),
+      ...sharedCategories.map((category) => ({
+        groupName: `${category} (${this.intl.t("dms.shared")})`,
+        options: sharedTemplates.filter(
+          (t) => t.meta.category?.trim() === category,
+        ),
+      })),
+      ...(sharedUncategorized.length
+        ? [
+            {
+              groupName: this.intl.t("dms.sharedUncategorized"),
+              options: sharedUncategorized,
+            },
+          ]
+        : []),
+
       ...(systemTemplates.length
         ? [
             {
@@ -110,18 +133,25 @@ export default class DmsGenerateComponent extends Component {
     event.preventDefault();
 
     const body = new FormData();
-    body.append("data", JSON.stringify(this.placeholders.value));
+
+    // Make a deep copy of the placeholders in order to make it mutable
+    const data = JSON.parse(JSON.stringify(this.placeholders.value));
 
     yield Promise.all(
-      Object.entries(this.placeholders.value)
+      Object.entries(data)
         .filter((entry) => String(entry[1]).startsWith("data:"))
         .map(async ([key, value]) => {
           const res = await fetch(value);
           const blob = await res.blob();
 
           body.append("files", blob, key);
+
+          // Remove base64 string from JSON data to reduce payload size
+          delete data[key];
         }),
     );
+
+    body.append("data", JSON.stringify(data));
 
     try {
       const response = yield this.fetch.fetch(
@@ -149,7 +179,7 @@ export default class DmsGenerateComponent extends Component {
       } else {
         saveAs(blob, `${this.args.instanceId} - ${filename}`);
       }
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("dms.merge-error"));
     }
   }

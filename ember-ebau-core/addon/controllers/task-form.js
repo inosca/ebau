@@ -24,24 +24,9 @@ export default class TaskFormController extends Controller {
   });
 
   @action
-  redirectToWorkItems() {
-    if (
-      // TODO: This is spaghetti. Refactor. Currently it is very easy to break a canton by adding or removing a task type here that another canton uses without knowing about it.
-      [
-        "decision",
-        "formal-exam",
-        "material-exam",
-        "construction-acceptance",
-        "geometer",
-        "complete-instance",
-        "complete-check",
-        "release-for-bk",
-        "construction-monitoring-update-gwr-state",
-        "construction-monitoring-update-gwr-state-complete",
-        "gebaeudeschaetzung",
-      ].includes(this.model)
-    ) {
-      this.ebauModules.redirectToWorkItems();
+  redirectToCaseWorkItems() {
+    if (this.workItem.value?.task.meta.redirectToWorkItemsAfterCompletion) {
+      this.ebauModules.redirectToCaseWorkItems();
     }
   }
 }

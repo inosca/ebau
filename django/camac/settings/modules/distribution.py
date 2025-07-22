@@ -8,6 +8,12 @@ from camac.utils import (
     is_lead_role,
 )
 
+from .distribution_suggestions.kt_bern import BE_DISTRIBUTION_SUGGESTIONS
+from .distribution_suggestions.kt_gr import GR_DISTRIBUTION_SUGGESTIONS
+from .distribution_suggestions.kt_schwyz import SZ_DISTRIBUTION_SUGGESTIONS
+from .distribution_suggestions.kt_so import SO_DISTRIBUTION_SUGGESTIONS
+from .distribution_suggestions.kt_uri import UR_DISTRIBUTION_SUGGESTIONS
+
 """
 WARNING: Any key that is either "TASK or ends with "_TASK" will be picked up by the visibilty filter for work items (see django/camac/extensions/visibilities.py).
 """
@@ -37,6 +43,7 @@ DISTRIBUTION = {
         },
         "ANSWERS": {},
         "NOTIFICATIONS": {},
+        # For the suggestions services ids or slugs can be used but they shouldn't be mixed.
         "SUGGESTIONS": [],
         "DEFAULT_SUGGESTIONS": [],
         "PERMISSIONS": {
@@ -63,6 +70,7 @@ DISTRIBUTION = {
                 *_: has_permission_for_inquiry_answer_document(group, document),
             },
         },
+        "ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM": False,
     },
     "kt_bern": {
         "ENABLED": True,
@@ -98,409 +106,22 @@ DISTRIBUTION = {
                 "recipient_types": ["inquiry_controlling"],
             },
         },
-        "SUGGESTIONS": {
-            "FORM": {
-                "heat-generator": [20046],
-                "heat-generator-v2": [20046],
-            },
-            "QUESTIONS": {
-                (
-                    "art-versickerung-dach",
-                    "art-versickerung-dach-oberflaechengewaesser",
-                ): [20063],
-                (
-                    "art-versickerung-platz",
-                    "art-versickerung-platz-oberflachengewasser",
-                ): [20063],
-                (
-                    "art-versickerung-dach-v2",
-                    "art-versickerung-dach-v2-oberflaechengewaesser",
-                ): [20063],
-                (
-                    "art-versickerung-platz-v2",
-                    "art-versickerung-platz-v2-oberflaechengewaesser",
-                ): [20063],
-                (
-                    "ausnahme-im-sinne-von-artikel-64-kenv",
-                    "ausnahme-im-sinne-von-artikel-64-kenv-ja",
-                ): [20046],
-                (
-                    "aussenlaerm",
-                    "aussenlaerm-ja",
-                ): [20054],
-                (
-                    "bau-im-wald-oder-innerhalb-von-30-m-abstand",
-                    "bau-im-wald-oder-innerhalb-von-30-m-abstand-ja",
-                ): [20048],
-                (
-                    "baubeschrieb",
-                    "baubeschrieb-erweiterung-anbau",
-                ): [20068, 20055],
-                (
-                    "baubeschrieb",
-                    "baubeschrieb-neubau",
-                ): [20055],
-                (
-                    "baubeschrieb",
-                    "baubeschrieb-technische-anlage",
-                ): [20055],
-                (
-                    "baubeschrieb",
-                    "baubeschrieb-tiefbauanlage",
-                ): [20068],
-                (
-                    "baubeschrieb",
-                    "baubeschrieb-um-ausbau",
-                ): [20055, 20068],
-                (
-                    "baubeschrieb",
-                    "baubeschrieb-umnutzung",
-                ): [20055],
-                (
-                    "baugruppe-bauinventar",
-                    "baugruppe-bauinventar-ja",
-                ): [20043],
-                (
-                    "bauten-oder-pfaehlen-im-grundwasser",
-                    "bauten-oder-pfaehlen-im-grundwasser-ja",
-                ): [20050],
-                (
-                    "belasteter-standort",
-                    "belasteter-standort-ja",
-                ): [20050],
-                (
-                    "besondere-brandrisiken",
-                    "besondere-brandrisiken-ja",
-                ): [20057],
-                (
-                    "brandbelastung",
-                    "brandbelastung-ja",
-                ): [20057],
-                (
-                    "eigenstaendiger-grossverbraucher",
-                    "eigenstaendiger-grossverbraucher-ja",
-                ): [20046],
-                (
-                    "erhaltenswert",
-                    "erhaltenswert-ja",
-                ): [20043],
-                (
-                    "feuerungsanlagen",
-                    "feuerungsanlagen-holzfeuerungen",
-                ): [20057],
-                (
-                    "feuerungsanlagen",
-                    "feuerungsanlagen-ol-oder-gasfeuerungen-350-kw",
-                ): [20057],
-                (
-                    "feuerungsanlagen",
-                    "feuerungsanlagen-pellet-schnitzelfeuerungsanlage",
-                ): [20055, 20054, 20057],
-                (
-                    "gebiet-mit-archaeologischen-objekten",
-                    "gebiet-mit-archaeologischen-objekten-ja",
-                ): [20043],
-                (
-                    "gebiet-mit-naturgefahren",
-                    "gebiet-mit-naturgefahren-ja",
-                ): [20049],
-                (
-                    "gefahrenstufe",
-                    "gefahrenstufe-blau",
-                ): [20049],
-                (
-                    "gefahrenstufe",
-                    "gefahrenstufe-rot",
-                ): [20049],
-                (
-                    "gefahrenstufe",
-                    "gefahrenstufe-unbestimmt",
-                ): [20049],
-                (
-                    "gefaehrliche-stoffe",
-                    "gefaehrliche-stoffe-ja",
-                ): [20055],
-                (
-                    "geplante-anlagen",
-                    "geplante-anlagen-solar-oder-photovoltaik-anlage",
-                ): [20054],
-                (
-                    "grundwasserschutzzonen",
-                    "grundwasserschutzzonen-s1",
-                ): [20050],
-                (
-                    "grundwasserschutzzonen",
-                    "grundwasserschutzzonen-s2sh",
-                ): [20050],
-                (
-                    "grundwasserschutzzonen",
-                    "grundwasserschutzzonen-s3sm",
-                ): [20050],
-                (
-                    "grundwasserschutzzonen-v2",
-                    "grundwasserschutzzonen-v2-s1",
-                ): [20050],
-                (
-                    "grundwasserschutzzonen-v2",
-                    "grundwasserschutzzonen-v2-s2",
-                ): [20050],
-                (
-                    "grundwasserschutzzonen-v2",
-                    "grundwasserschutzzonen-v2-s3-s3zu",
-                ): [20050],
-                (
-                    "grundwasserschutzzonen-v2",
-                    "grundwasserschutzzonen-v2-sa",
-                ): [20050],
-                (
-                    "grundwasserschutzzonen-v2",
-                    "grundwasserschutzzonen-v2-sbw",
-                ): [20050],
-                (
-                    "grundwasserschutzzonen-v2",
-                    "grundwasserschutzzonen-v2-sh",
-                ): [20050],
-                (
-                    "grundwasserschutzzonen-v2",
-                    "grundwasserschutzzonen-v2-sm",
-                ): [20050],
-                (
-                    "ist-das-vorhaben-energierelevant",
-                    "ist-das-vorhaben-energierelevant-ja",
-                ): [20046],
-                (
-                    "ist-durch-das-bauvorhaben-boden-betroffen",
-                    "ist-durch-das-bauvorhaben-boden-betroffen-ja",
-                ): [20050],
-                (
-                    "ist-durch-das-bauvorhaben-boden-ober-unterboden-betroffen-v2",
-                    "ist-durch-das-bauvorhaben-boden-ober-unterboden-betroffen-v2-ja",
-                ): [20050],
-                (
-                    "ist-mit-bauabfaellen-zu-rechnen",
-                    "ist-mit-bauabfaellen-zu-rechnen-ja",
-                ): [20050],
-                (
-                    "k-objekt",
-                    "k-objekt-ja",
-                ): [20043],
-                (
-                    "klassierung-der-taetigkeit",
-                    "klassierung-der-taetigkeit-klasse-3",
-                ): [20055],
-                (
-                    "klassierung-der-taetigkeit",
-                    "klassierung-der-taetigkeit-klasse-4",
-                ): [20055],
-                (
-                    "maschinelle-arbeitsmittel",
-                    "maschinelle-arbeitsmittel-ja",
-                ): [20055],
-                (
-                    "maschinen-aus-den-folgenden-kategorien",
-                    "maschinen-aus-den-folgenden-kategorien-erzeugung",
-                ): [20055],
-                (
-                    "maschinen-aus-den-folgenden-kategorien",
-                    "maschinen-aus-den-folgenden-kategorien-reinigung",
-                ): [20055],
-                (
-                    "maschinen-aus-den-folgenden-kategorien",
-                    "maschinen-aus-den-folgenden-kategorien-strom",
-                ): [20055],
-                (
-                    "maschinen-aus-den-folgenden-kategorien",
-                    "maschinen-aus-den-folgenden-kategorien-transport",
-                ): [20055],
-                (
-                    "maschinen-aus-den-folgenden-kategorien",
-                    "maschinen-aus-den-folgenden-kategorien-werkhoefe",
-                ): [20055],
-                (
-                    "naturschutz",
-                    "naturschutz-ja",
-                ): [20065],
-                (
-                    "nutzungsart",
-                    "nutzungsart-andere",
-                ): [20054, 20055],
-                (
-                    "nutzungsart",
-                    "nutzungsart-dienstleistung",
-                ): [20054, 20055],
-                (
-                    "nutzungsart",
-                    "nutzungsart-gastgewerbe",
-                ): [20054, 20055],
-                (
-                    "nutzungsart",
-                    "nutzungsart-gewerbe",
-                ): [20054, 20055, 20074],
-                (
-                    "nutzungsart",
-                    "nutzungsart-industrie",
-                ): [20054, 20055, 20074],
-                (
-                    "nutzungsart",
-                    "nutzungsart-lager",
-                ): [20054, 20055],
-                (
-                    "nutzungsart",
-                    "nutzungsart-landwirtschaft",
-                ): [20054, 20055, 20074],
-                (
-                    "nutzungsart",
-                    "nutzungsart-verkauf",
-                ): [20054, 20055],
-                (
-                    "organismen-in-anlage",
-                    "organismen-in-anlage-andere",
-                ): [20055],
-                (
-                    "organismen-in-anlage",
-                    "organismen-in-anlage-bakterien",
-                ): [20055],
-                (
-                    "organismen-in-anlage",
-                    "organismen-in-anlage-viren",
-                ): [20055],
-                (
-                    "rrb",
-                    "rrb-ja",
-                ): [20043],
-                (
-                    "schuetzenswert",
-                    "schuetzenswert-ja",
-                ): [20043],
-                (
-                    "sind-belange-des-gewasserschutzes-betroffen",
-                    "sind-belange-des-gewasserschutzes-betroffen-ja",
-                ): [20050],
-                (
-                    "sind-belange-des-gewaesserschutzes-betroffen-v2",
-                    "sind-belange-des-gewaesserschutzes-betroffen-v2-ja",
-                ): [20050],
-                (
-                    "versickerung",
-                    "versickerung-nein",
-                ): [20063],
-                (
-                    "versickerung-v2",
-                    "versickerung-v2-nein",
-                ): [20063],
-                (
-                    "verunreinigte-abluft",
-                    "verunreinigte-abluft-ja",
-                ): [20054],
-                (
-                    "verwendungszweck-der-anlage",
-                    "verwendungszweck-der-anlage-andere",
-                ): [20055],
-                (
-                    "verwendungszweck-der-anlage",
-                    "verwendungszweck-der-anlage-diagnostik",
-                ): [20055],
-                (
-                    "verwendungszweck-der-anlage",
-                    "verwendungszweck-der-anlage-forschung",
-                ): [20055],
-                (
-                    "verwendungszweck-der-anlage",
-                    "verwendungszweck-der-anlage-gewaechshaus",
-                ): [20055],
-                (
-                    "verwendungszweck-der-anlage",
-                    "verwendungszweck-der-anlage-produktion",
-                ): [20055],
-                (
-                    "verwendungszweck-der-anlage",
-                    "verwendungszweck-der-anlage-tieranlage",
-                ): [20055],
-                (
-                    "verwendungszweck-der-anlage",
-                    "verwendungszweck-der-anlage-unterricht",
-                ): [20055],
-                (
-                    "was-fuer-ein-vorhaben",
-                    "was-fuer-ein-vorhaben-andere",
-                ): [20055],
-                (
-                    "was-fuer-ein-vorhaben",
-                    "was-fuer-ein-vorhaben-grossraumbueros",
-                ): [20055],
-                (
-                    "was-fuer-ein-vorhaben",
-                    "was-fuer-ein-vorhaben-spitaeler",
-                ): [20055],
-                (
-                    "was-fuer-ein-vorhaben",
-                    "was-fuer-ein-vorhaben-verkaufsgeschaefte",
-                ): [20055],
-                (
-                    "wassergefaehrdende-explosive-stoffe",
-                    "wassergefaehrdende-explosive-stoffe-ja",
-                ): [20050],
-                (
-                    "welche-art-vorhaben",
-                    "welche-art-vorhaben-erstellung-aussenraum",
-                ): [20068],
-                (
-                    "welche-art-vorhaben",
-                    "welche-art-vorhaben-fischhaltung-aquakulturanlage",
-                ): [20050, 20051, 20052, 20053, 20063],
-                (
-                    "welche-waermepumpen",
-                    "welche-waermepumpen-boden-untergrund",
-                ): [20053],
-                (
-                    "welche-waermepumpen",
-                    "welche-waermepumpen-luft",
-                ): [20054],
-                (
-                    "welche-waermepumpen",
-                    "welche-waermepumpen-wasser",
-                ): [20053, 20063],
-                (
-                    "werden-brandschutzabstaende-unterschritten",
-                    "werden-brandschutzabstande-unterschritten-ja",
-                ): [20057],
-                (
-                    "werden-siloanlagen-erstellt",
-                    "werden-siloanlagen-erstellt-ja",
-                ): [20055],
-                (
-                    "wildtierschutz",
-                    "wildtierschutz-ja",
-                ): [20064],
-                (
-                    "gesuchstyp",
-                    "gesuchstyp-baum",
-                ): [20065],
-                (
-                    "gesuchstyp",
-                    "gesuchstyp-hecke-feldgehoelz",
-                ): [20065],
-                (
-                    "handelt-es-sich-um-ein-sensibles-objekt",
-                    "handelt-es-sich-um-ein-sensibles-objekt-ja",
-                ): [20075, 20076, 20077, 20078],
-                (
-                    "sv-betrieb-neu-oder-bestehend-v3",
-                    "sv-betrieb-neu-oder-bestehend-v3-neu",
-                ): [20060],
-                (
-                    "sv-kurzbericht-risikoermittlung-v3",
-                    "sv-kurzbericht-risikoermittlung-v3-nein",
-                ): [20060],
-                (
-                    "sv-relevanz-gueltigkeit-v3",
-                    "sv-relevanz-gueltigkeit-v3-trifft-nicht-zu",
-                ): [20060],
-                (
-                    "triagefrage-biologische-sicherheit-v3",
-                    "triagefrage-biologische-sicherheit-v3-ja",
-                ): [20060],
-            },
+        "SUGGESTIONS": BE_DISTRIBUTION_SUGGESTIONS,
+        "AVAILABLE_SERVICES_FOR_INQUIRY": {
+            "default": [
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            [
+                                "municipality",
+                                "service",
+                                "district",
+                            ],
+                        )
+                    ]
+                },
+            ],
         },
         "PERMISSIONS": {
             "CompleteWorkItem": {
@@ -533,26 +154,7 @@ DISTRIBUTION = {
             "HINT": "inquiry-answer-hint",
         },
         "DEFAULT_SUGGESTIONS": [7],  # Baugesuchszentrale
-        "SUGGESTIONS": {
-            "SUBMODULES": [
-                ("fachthemen.landwirtschaft", [9]),
-                ("fachthemen.wald", [15]),
-                ("fachthemen.naturgefahren", [15]),
-                ("fachthemen.arbeitssicherheit-und-gesundheitsschutz", [4]),
-                ("fachthemen.zivilschutz", [79]),
-                ("fachthemen.zivilschutz-v2", [79]),
-                ("fachthemen.gewasserschutz", [267, 13]),
-                ("fachthemen.reklamen", [18]),
-                ("fachthemen.denkmalschutz-und-archaeologie", [8]),
-                ("fachthemen.fischerei", [267]),
-            ],
-            "QUESTIONS": [
-                (
-                    "'Ja' in 'lebensmittel-umgehen'|value || 'Ja' in 'offentlich-duschanlage-oder-bad'|value",
-                    [22],
-                )
-            ],
-        },
+        "SUGGESTIONS": SZ_DISTRIBUTION_SUGGESTIONS,
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
                 "template_slug": "einladung-zur-stellungnahme",
@@ -584,10 +186,14 @@ DISTRIBUTION = {
             "REOPEN_TASKS": ["fill-inquiry"],
         },
         "QUESTIONS": {
+            "SITUATION": "inquiry-answer-situation",
+            "CONSIDERATIONS": "inquiry-answer-considerations",
             "STATEMENT": "inquiry-answer-assessment",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+            "COMMENTS": "stellungnahme-bemerkungen",
             "DEADLINE": "inquiry-deadline",
         },
+        "NOTIFY_ON_CANCELLATION": True,
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
                 "template_slug": "verfahrensablauf-fachstelle",
@@ -600,6 +206,14 @@ DISTRIBUTION = {
             "INQUIRY_ANSWERED": {
                 "template_slug": "bericht-erstellt",
                 "recipient_types": ["inquiry_controlling"],
+            },
+            "INQUIRY_REDO": {
+                "template_slug": "bericht-wiedereroffnet",
+                "recipient_types": ["inquiry_addressed"],
+            },
+            "CANCELED_DISTRIBUTION": {
+                "template_slug": "zirkulation-abgebrochen",
+                "recipient_types": ["services_with_incomplete_inquiries"],
             },
         },
         "INQUIRY_TASK": "inquiry",
@@ -615,6 +229,26 @@ DISTRIBUTION = {
                 "CLAIM": "inquiry-answer-status-claim",
                 "UNKNOWN": "inquiry-answer-status-unknown",
             },
+        },
+        "SUGGESTIONS": GR_DISTRIBUTION_SUGGESTIONS,
+        "AVAILABLE_SERVICES_FOR_INQUIRY": {
+            "default": [
+                # Never show AIB
+                {"exclude": [("services", ["aib"])]},
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            [
+                                "municipality",
+                                "service",
+                                "authority-bab",
+                                "uso",
+                            ],
+                        )
+                    ]
+                },
+            ],
         },
     },
     "kt_so": {
@@ -632,6 +266,15 @@ DISTRIBUTION = {
             "STATEMENT": "inquiry-answer-positive-assessments",
             "ANCILLARY_CLAUSES": "inquiry-answer-notices-for-authority",
             "DIRECT": "inquiry-direct",
+            # For placeholders
+            "POSITIVE": "inquiry-answer-positive-assessments",
+            "NEGATIVE": "inquiry-answer-negative-assessments",
+            "ADDITIONAL_DEMAND": "inquiry-answer-rejection-additional-demand",
+            "OBJECTIONS": "inquiry-answer-objections",
+            "NOTICES_APPLICANT": "inquiry-answer-notices-for-applicant",
+            "NOTICES_AUTHORITY": "inquiry-answer-notices-for-authority",
+            "NOTICES_ARP": "inquiry-answer-notices-for-authority-arp",
+            "FORWARD": "inquiry-answer-forward",
         },
         "ANSWERS": {
             "STATUS": {
@@ -656,66 +299,83 @@ DISTRIBUTION = {
                 "recipient_types": ["inquiry_controlling"],
             },
         },
-        "SUGGESTIONS": {
-            "QUESTIONS": {
-                (
-                    "fumoir",
-                    "fumoir-ja",
-                ): [114],
-                (
-                    "infrastrukturanlagen-landschaft",
-                    "infrastrukturanlagen-landschaft-trinkwasser",
-                ): [114],
-                (
-                    "gefahrenstufen",
-                    "gefahrenstufen-geringe-gefaehrdung",
-                ): [115],
-                (
-                    "gefahrenstufen",
-                    "gefahrenstufen-mittlere-gefaehrdung",
-                ): [115],
-                (
-                    "gefahrenstufen",
-                    "gefahrenstufen-erhebliche-gefaehrdung",
-                ): [115],
-                (
-                    "gefahrenstufen",
-                    "gefahrenstufen-restgefaehrdung",
-                ): [115],
-                (
-                    "naturgefahrengefaehrdung",
-                    "naturgefahrengefaehrdung-ja",
-                ): [108, 112, 115],
-                (
-                    "gefaehrdung-durch-oberflaechenabfluss",
-                    "gefaehrdung-durch-oberflaechenabfluss-ja",
-                ): [115],
-                (
-                    "objektschutzmassnahmen-geplant",
-                    "objektschutzmassnahmen-geplant-ja",
-                ): [115],
-                (
-                    "objektschutzmassnahmen-beratung",
-                    "objektschutzmassnahmen-beratung-ja",
-                ): [115],
-                (
-                    "mindest-und-grenzabstaende",
-                    "mindest-und-grenzabstaende-gebaeudeabstand",
-                ): [115],
-                (
-                    "brandschutzplaene",
-                    "brandschutzplaene-ja",
-                ): [115],
-                (
-                    "aushublagerplaetze-oder-baupisten",
-                    "aushublagerplaetze-oder-baupisten-ja",
-                ): [109],
-                ("bab", "bab-ja"): [109],
-            },
+        "SUGGESTIONS": SO_DISTRIBUTION_SUGGESTIONS,
+        "AVAILABLE_SERVICES_FOR_INQUIRY": {
+            "authority": [
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            [
+                                "municipality",
+                                "service-cantonal",
+                                "service-extra-cantonal",
+                                "service-bab",
+                            ],
+                        )
+                    ]
+                },
+                # Never show ARP
+                {"exclude": [("services", ["arp"])]},
+                # Hide some ARP and other cantonal services in BaB dossiers
+                {
+                    "conditions": [
+                        {"name": "is_bab"},
+                        {"name": "is_imported", "invert": True},
+                    ],
+                    "exclude": [
+                        (
+                            "services",
+                            [
+                                "arp-naturschutz",
+                                "arp-heimatschutz",
+                                "arp-nutzungsplanung",
+                                "arp-fuss-und-wanderwege",
+                                "denkmalpflege",
+                                "afu",
+                                "awjf",
+                                "gesundheitsamt",
+                                "avt",
+                                "alw",
+                            ],
+                        )
+                    ],
+                },
+                # Only show ARP BaB service in BaB dossier if the publication is done
+                {
+                    "conditions": [
+                        {"name": "is_bab"},
+                        {"name": "is_appeal", "invert": True},
+                        {"name": "publication_is_done", "invert": True},
+                        {"name": "is_imported", "invert": True},
+                    ],
+                    "exclude": [("services", ["arp-bab"])],
+                },
+                # Never show ARP BaB service in BiB dossiers
+                {
+                    "conditions": [
+                        {"name": "is_bab", "invert": True},
+                        {"name": "is_imported", "invert": True},
+                    ],
+                    "exclude": [("services", ["arp-bab"])],
+                },
+            ],
+            "municipality": [],
+            "default": [
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            ["service-cantonal", "service-extra-cantonal"],
+                        )
+                    ]
+                },
+            ],
         },
     },
     "kt_uri": {
         "ENABLED": True,
+        "DEFAULT_DEADLINE_LEAD_TIME": 28,  # 28 days
         "INSTANCE_STATE_DISTRIBUTION": "comm",
         "HISTORY": {
             "COMPLETE_DISTRIBUTION": _("Circulation completed"),
@@ -729,181 +389,117 @@ DISTRIBUTION = {
             "STATEMENT": "inquiry-answer-statement",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
         },
+        "NOTIFY_ON_CANCELLATION": True,
         "NOTIFICATIONS": {
             "INQUIRY_SENT": {
-                "template_slug": "gemeindezirkulation-gestartet",
+                "template_slug": "4-1-zirkulation-gemeinde-gestartet",
                 "recipient_types": ["inquiry_addressed"],
             },
             "KOOR_INQUIRY_ANSWERED": {
-                "template_slug": "kantonale-bearbeitung-abgeschlossen",
+                "template_slug": "4-2-kantonale-bearbeitung-abgeschlossen",
                 "recipient_types": ["inquiry_controlling"],
+            },
+            "CANCELED_DISTRIBUTION": {
+                "template_slug": "4-13-zirkulation-abgebrochen",
+                "recipient_types": ["services_with_incomplete_inquiries"],
             },
         },
         "DEFAULT_SUGGESTIONS": [1],  # KOOR BG
-        "SUGGESTIONS": {
-            "QUESTIONS": {
-                (
-                    "purpose",
-                    "purpose-industrie",
-                ): [3],
-                (
-                    "purpose",
-                    "purpose-gewerbe",
-                ): [3],
-                (
-                    "purpose",
-                    "purpose-dienstleistung",
-                ): [82],
-                (
-                    "purpose",
-                    "purpose-verkauf",
-                ): [82],
-                (
-                    "purpose",
-                    "purpose-landwirtschaft",
-                ): [525],
-                (
-                    "purpose",
-                    "purpose-forstwirtschaft",
-                ): [546],
-                (
-                    "purpose",
-                    "purpose-gastgewerbe",
-                ): [3],
-                (
-                    "purpose",
-                    "purpose-oeffentlich-zugaenglich",
-                ): [82],
-                (
-                    "grundnutzung",
-                    "Gewerbezone",
-                ): [3],
-                (
-                    "grundnutzung",
-                    "Industriezone",
-                ): [3],
-                (
-                    "grundnutzung",
-                    "Kernzone",
-                ): [241],
-                (
-                    "grundnutzung",
-                    "Zone für öffentliche Bauten und Anlagen",
-                ): [82],
-                (
-                    "grundnutzung",
-                    "Landwirtschaftszone",
-                ): [96, 88, 261, 262],
-                (
-                    "grundnutzung",
-                    "Naturschutzzone",
-                ): [98],
-                (
-                    "grundnutzung",
-                    "Uferbereich",
-                ): [567, 568],
-                (
-                    "grundnutzung",
-                    "Gewässer",
-                ): [567, 568, 41, 88, 261, 262],
-                (
-                    "grundnutzung",
-                    "Verkehrsfläche ausserhalb Bauzone",
-                ): [88, 261, 262, 41],
-                (
-                    "grundnutzung",
-                    "Reservezone",
-                ): [88, 261, 262],
-                (
-                    "grundnutzung",
-                    "Wald",
-                ): [2, 88, 261, 262],
-                (
-                    "grundnutzung",
-                    "Deponiezone",
-                ): [567, 568],
-                (
-                    "grundnutzung",
-                    "Abbauzone",
-                ): [567, 568],
-                (
-                    "municipality",
-                    "1201",
-                ): [88],  # BaB 1
-                (
-                    "municipality",
-                    "1216",
-                ): [88],
-                (
-                    "municipality",
-                    "1209",
-                ): [88],
-                (
-                    "municipality",
-                    "1220",
-                ): [88],
-                (
-                    "municipality",
-                    "1208",
-                ): [88],
-                (
-                    "municipality",
-                    "1202",
-                ): [88],
-                (
-                    "municipality",
-                    "1210",
-                ): [88],
-                (
-                    "municipality",
-                    "1212",
-                ): [88],
-                (
-                    "municipality",
-                    "1217",
-                ): [261],  # BaB 2
-                (
-                    "municipality",
-                    "1207",
-                ): [261],
-                (
-                    "municipality",
-                    "1218",
-                ): [261],
-                (
-                    "municipality",
-                    "1219",
-                ): [261],
-                (
-                    "municipality",
-                    "1213",
-                ): [262],  # Bab 3
-                (
-                    "municipality",
-                    "1214",
-                ): [262],
-                (
-                    "municipality",
-                    "1204",
-                ): [262],
-                (
-                    "municipality",
-                    "1211",
-                ): [262],
-                (
-                    "municipality",
-                    "1215",
-                ): [262],
-                (
-                    "municipality",
-                    "1205",
-                ): [262],
-                (
-                    "municipality",
-                    "1203",
-                ): [262],
+        "SUGGESTIONS": UR_DISTRIBUTION_SUGGESTIONS,
+    },
+    "kt_ag": {
+        "ENABLED": True,
+        "DEFAULT_DEADLINE_LEAD_TIME": 14,
+        "INSTANCE_STATE_DISTRIBUTION": "circulation",
+        "NOTIFY_ON_CANCELLATION": True,
+        "QUESTIONS": {
+            "STATEMENT": "inquiry-answer-assessment",
+            "STATUS": "inquiry-answer-status",
+            "REMARKS": "inquiry-answer-remarks",
+        },
+        "ANSWERS": {
+            "STATUS": {
+                "POSITIVE": "inquiry-answer-status-positive",
+                "POSITIVE_SANCTIONS": "inquiry-answer-status-positive-sanctions",
+                "POSITIVE_PARTIALLY": "inquiry-answer-status-positive-partially",
+                "NEGATIVE": "inquiry-answer-status-negative",
+                "NEGATIVE_DECONSTRUCTION": "inquiry-answer-status-negative-deconstruction",
+                "STATEMENT": "inquiry-answer-status-statement",
+                "CLAIM": "inquiry-answer-status-claim",
+                "NOT_INVOLVED": "inquiry-answer-status-not-involved",
             },
         },
+        "HISTORY": {
+            "COMPLETE_DISTRIBUTION": _("Circulation completed"),
+            "SKIP_DISTRIBUTION": _("Circulation skipped"),
+            "REDO_DISTRIBUTION": _("Circulation reopened"),
+        },
+        "REDO_INQUIRY": {
+            "REOPEN_TASKS": ["fill-inquiry"],
+        },
+        "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES": {
+            "service-afb": 60,
+        },
+        "AVAILABLE_SERVICES_FOR_INQUIRY": {
+            "authority": [
+                {
+                    "include": [
+                        ("service_groups", ["service-afb", "municipality"]),
+                        (
+                            "services",
+                            [
+                                "agv-bs",
+                                "agv-esp",
+                                "bks-dp",
+                                "bks-ka",
+                                "dvi-awa-iga",
+                                "amb",
+                                "aew",
+                                "axpo",
+                                "gvm",
+                                "dgs-avs-vet",
+                                "dgs-avs-lmi",
+                            ],
+                        ),
+                    ]
+                }
+            ],
+            "service-afb": [
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            ["service-cantonal", "service-external", "municipality"],
+                        )
+                    ]
+                }
+            ],
+            "municipality-light": [
+                {
+                    "include": [
+                        (
+                            "services",
+                            ["afb"],
+                        ),
+                    ]
+                }
+            ],
+        },
+        "NOTIFICATIONS": {
+            "INQUIRY_SENT": {
+                "template_slug": "verfahrensablauf-fachstelle",
+                "recipient_types": ["inquiry_addressed"],
+            },
+            "INQUIRY_ANSWERED": {
+                "template_slug": "bericht-erstellt",
+                "recipient_types": ["inquiry_controlling"],
+            },
+            "CANCELED_DISTRIBUTION": {
+                "template_slug": "zirkulation-abgebrochen",
+                "recipient_types": ["services_with_incomplete_inquiries"],
+            },
+        },
+        "ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM": True,
     },
     "demo": {"ENABLED": True},
 }

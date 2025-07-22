@@ -14,7 +14,7 @@ $watermark-background-color: #a9a9a9 !default;
   transform: rotate(-45deg);
   background-color: $watermark-background-color;
   text-transform: uppercase;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px rgb(0 0 0 / 50%);
 }
 
 .so-navbar .watermark {

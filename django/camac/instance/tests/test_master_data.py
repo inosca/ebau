@@ -1,17 +1,12 @@
-from datetime import date
-
 import pytest
-from caluma.caluma_form import factories as caluma_form_factories
-from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
-    models as caluma_workflow_models,
 )
+from django.urls import reverse
 from django.utils.translation import override
 from pytest_lazy_fixtures import lf
+from rest_framework import status
 from syrupy.filters import paths
-
-from camac.tests.data import so_personal_row_factory
 
 from ..master_data import MasterData
 
@@ -169,759 +164,88 @@ def test_master_data_parsers(
     )
 
 
-@pytest.fixture
-def be_master_data_case(db, be_instance, group, master_data_is_visible_mock, utils):
-    be_instance.case.meta = {
-        "ebau-number": "2021-1",
-        "submit-date": "2021-03-31T13:17:08+0000",
-        "paper-submit-date": "2021-03-20T13:17:08+0000",
-    }
-    be_instance.case.save()
-
-    document = be_instance.case.document
-
-    # Simple data
-    utils.add_answer(document, "is-paper", "is-paper-no")
-    utils.add_answer(document, "beschreibung-bauvorhaben", "Grosses Haus")
-    utils.add_answer(
-        document, "beschreibung-projektaenderung", "Doch eher kleines Haus"
-    )
-    utils.add_answer(document, "strasse-flurname", "Musterstrasse")
-    utils.add_answer(document, "nr", 4)
-    utils.add_answer(document, "baukosten-in-chf", 199000)
-    utils.add_answer(document, "plz-grundstueck-v3", 3000)
-    utils.add_answer(document, "ort-grundstueck", "Musterhausen")
-    utils.add_answer(document, "baubeschrieb", "baubeschrieb-neubau", label="Neubau")
-    utils.add_answer(
-        document,
-        "gewaesserschutzbereich-v2",
-        ["gewaesserschutzbereich-v2-au"],
-        label=[{"de": "Aᵤ", "fr": "Aᵤ"}],
-    )
-    utils.add_answer(
-        document,
-        "nutzungsart",
-        ["nutzungsart-wohnen"],
-        label=[{"de": "Wohnen", "fr": "Vivre"}],
-    )
-    utils.add_answer(document, "nutzungszone", "Wohnzone W2")
-    utils.add_answer(document, "ueberbauungsordnung", "Überbauung XY")
-    utils.add_answer(document, "sachverhalt", "Sachverhalt Test")
-    utils.add_answer(
-        document,
-        "grundwasserschutzzonen-v2",
-        ["grundwasserschutzzonen-v2-s1"],
-        label=[{"de": "S1", "fr": "S1"}],
-    )
-    utils.add_answer(
-        document, "oeffentlichkeit", "oeffentlichkeit-oeffentlich", label="Öffentlich"
-    )
-    utils.add_answer(document, "alkoholausschank", "alkoholausschank-ja", label="Ja")
-    utils.add_answer(
-        document,
-        "schuetzenswert",
-        "schuetzenswert-ja",
-        question_label="Schützenswert",
-        label="Ja",
-    )
-    utils.add_answer(
-        document,
-        "erhaltenswert",
-        "erhaltenswert-nein",
-        question_label="Erhaltenswert",
-        label="Nein",
-    )
-    utils.add_answer(
-        document, "k-objekt", "k-objekt-ja", question_label="K-Objekt", label="Ja"
-    )
-    utils.add_answer(
-        document,
-        "baugruppe-bauinventar",
-        "baugruppe-bauinventar-ja",
-        question_label="Baugruppe Bauinventar",
-        label="Ja",
-    )
-    utils.add_answer(document, "bezeichnung-baugruppe", "Test Baugruppe")
-    utils.add_answer(document, "rrb", "rrb-ja", label="Ja")
-    utils.add_answer(
-        document,
-        "rrb-vom",
-        date(2022, 1, 1),
-        question_label="RRB vom",
-    )
-    utils.add_answer(document, "vertrag", "vertrag-ja", label="Ja")
-
-    utils.add_answer(
-        document,
-        "vertrag-vom",
-        date(2022, 2, 1),
-        question_label="Vertrag vom",
-    )
-    utils.add_answer(document, "sitzplaetze-garten", 20)
-
-    # Municipality
-    utils.add_answer(document, "gemeinde", "1")
-    caluma_form_factories.DynamicOptionFactory(
-        question_id="gemeinde",
-        document=be_instance.case.document,
-        slug="1",
-        label={"de": "Bern", "fr": "Berne"},
-    )
-
-    # Table data
-    utils.add_table_answer(
-        document,
-        "parzelle",
-        [
-            {
-                "parzellennummer": 473,
-                "e-grid-nr": "CH334687350542",
-                "lagekoordinaten-ost": 2599941,
-                "lagekoordinaten-nord": 1198923,
-            },
-            {
-                "parzellennummer": 2592,
-                "e-grid-nr": "CH913553467614",
-                "lagekoordinaten-ost": 2601995,
-                "lagekoordinaten-nord": 1201340,
-            },
-        ],
-    )
-    utils.add_table_answer(
-        document,
-        "personalien-gesuchstellerin",
-        [
-            {
-                "vorname-gesuchstellerin": "Max",
-                "name-gesuchstellerin": "Mustermann",
-                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
-                "name-juristische-person-gesuchstellerin": "ACME AG",
-                "strasse-gesuchstellerin": "Teststrasse",
-                "nummer-gesuchstellerin": 123,
-                "ort-gesuchstellerin": "Testhausen",
-                "plz-gesuchstellerin": 1234,
-            }
-        ],
-    )
-    utils.add_table_answer(
-        document,
-        "personalien-projektverfasserin",
-        [
-            {
-                "vorname-projektverfasserin": "Hans",
-                "name-projektverfasserin": "Müller",
-                "strasse-projektverfasserin": "Einweg",
-                "nummer-projektverfasserin": 9,
-                "plz-projektverfasserin": 3000,
-                "ort-projektverfasserin": "Bern",
-            },
-        ],
-    )
-    utils.add_table_answer(
-        document,
-        "personalien-gebaudeeigentumerin",
-        [
-            {
-                "vorname-gebaeudeeigentuemerin": "Peter",
-                "name-gebaeudeeigentuemerin": "Meier",
-                "strasse-gebaeudeeigentuemerin": "Thunstrasse",
-                "nummer-gebaeudeeigentuemerin": 88,
-                "plz-gebaeudeeigentuemerin": 3002,
-                "ort-gebaeudeeigentuemerin": "Bern",
-            },
-        ],
-    )
-    utils.add_table_answer(
-        document,
-        "personalien-grundeigentumerin",
-        [
-            {
-                "vorname-grundeigentuemerin": "Sandra",
-                "name-grundeigentuemerin": "Holzer",
-                "strasse-grundeigentuemerin": "Bernweg",
-                "nummer-grundeigentuemerin": 12,
-                "plz-grundeigentuemerin": 3002,
-                "ort-grundeigentuemerin": "Bern",
-            },
-        ],
-    )
-    utils.add_table_answer(
-        document,
-        "personalien-vertreterin-mit-vollmacht",
-        [
-            {
-                "juristische-person-vertreterin": "juristische-person-vertreterin-ja",
-                "name-juristische-person-vertreterin": "Mustermann und Söhne AG",
-                "strasse-vertreterin": "Juristenweg",
-                "nummer-vertreterin": 99,
-                "plz-vertreterin": 3008,
-                "ort-vertreterin": "Bern",
-            },
-        ],
-    )
-    utils.add_table_answer(
-        document, "ausschankraeume", [{"sitzplaetze": 20}, {"sitzplaetze": 15}]
-    )
-
-    # Störfallvorsorge
-    utils.add_answer(
-        document,
-        "triagefrage-stoerfallvorsorge-v3",
-        "triagefrage-stoerfallvorsorge-v3-ja",
-    )
-    utils.add_answer(
-        document,
-        "sv-geltungsbereich-begruendung-v3",
-        [
-            "sv-geltungsbereich-gebruendung-v3-mengenschwellen-ueberschritten",
-            "sv-geltungsbereich-begruendung-v3-gefahrenpotential",
-            "sv-geltungsbereich-begruendung-v3-einschliessungsverordnung-klasse-3-oder-4",
-        ],
-    )
-    utils.add_answer(
-        document,
-        "sv-kurzbericht-risikoermittlung-v3",
-        "sv-kurzbericht-risikoermittlung-v3-kurzbericht-risikoermittlung",
-    )
-
-    return be_instance.case
-
-
-@pytest.fixture
-def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, utils):
-    gr_instance.case.meta = {
-        "dossier-number": "2023-1",
-        "submit-date": "2021-03-31T13:17:08+0000",
-    }
-    gr_instance.case.save()
-
-    document = gr_instance.case.document
-
-    # Simple data
-    utils.add_answer(document, "beschreibung-bauvorhaben", "Einfamilienhaus")
-    utils.add_answer(document, "projektaenderung", "projektaenderung-ja")
-    utils.add_answer(document, "street-and-housenumber", "Teststrasse 12")
-    utils.add_answer(document, "plz-grundstueck-v3", 1234)
-    utils.add_answer(document, "ort-grundstueck", "Testhausen")
-    utils.add_answer(document, "baukosten", 4000)
-
-    # Municipality
-    utils.add_answer(document, "gemeinde", "18")
-    caluma_form_factories.DynamicOptionFactory(
-        question_id="gemeinde",
-        document=gr_instance.case.document,
-        slug="18",
-        label={"de": "Chur", "fr": "Chur"},
-    )
-
-    # Table data
-    utils.add_table_answer(
-        document,
-        "parzelle",
-        [
-            {
-                "parzellennummer": 123465,
-                "e-grid-nr": "CH334687150542",
-                "lagekoordinaten-ost": 2569941,
-                "lagekoordinaten-nord": 1298923,
-            },
-            {
-                "parzellennummer": 789876,
-                "e-grid-nr": "CH913545967614",
-                "lagekoordinaten-ost": 2609995,
-                "lagekoordinaten-nord": 1271340,
-            },
-        ],
-    )
-    utils.add_table_answer(
-        document,
-        "personalien-gesuchstellerin",
-        [
-            {
-                "vorname-gesuchstellerin": "Esther",
-                "name-gesuchstellerin": "Tester",
-                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
-                "name-juristische-person-gesuchstellerin": "Test AG",
-                "strasse-gesuchstellerin": "Testweg",
-                "nummer-gesuchstellerin": 321,
-                "ort-gesuchstellerin": "Testingen",
-                "plz-gesuchstellerin": 4321,
-            }
-        ],
-    )
-    utils.add_table_answer(
-        document,
-        "personalien-projektverfasserin",
-        [
-            {
-                "vorname-gesuchstellerin": "Hans",
-                "name-gesuchstellerin": "Muster",
-                "strasse-gesuchstellerin": "Bahnhofstrasse",
-                "nummer-gesuchstellerin": 3,
-                "plz-gesuchstellerin": 3600,
-                "ort-gesuchstellerin": "Thun",
-            },
-        ],
-    )
-    utils.add_table_answer(
-        document,
-        "personalien-grundeigentumerin",
-        [
-            {
-                "vorname-gesuchstellerin": "Sandra",
-                "name-gesuchstellerin": "Beispiel",
-                "strasse-gesuchstellerin": "Beispielstrasse",
-                "nummer-gesuchstellerin": 16,
-                "plz-gesuchstellerin": 2222,
-                "ort-gesuchstellerin": "Beispieldorf",
-            },
-        ],
-    )
-    utils.add_table_answer(
-        document,
-        "gebaeude-und-anlagen",
-        [
-            {
-                "amtliche-gebaeudenummer": "4-116",
-                "egid-nr": "CH334687150542",
-                # heating 1
-                "waermeerzeuger-heizung": "waermeerzeuger-heizung-7430",
-                "energie-waermequelle-heizung": "energie-waermequelle-heizung-7540",
-                # heating 2
-                "weitere-waermeerzeuger-heizung": "weitere-waermeerzeuger-heizung-7499",
-                "weitere-energie-waermequelle-heizung": "weitere-energie-waermequelle-heizung-7530",
-                # warm water 1
-                "waermeerzeuger-warmwasser": "waermeerzeuger-warmwasser-7651",
-                "energie-waermequelle-warmwasser": "energie-waermequelle-warmwasser-7510",
-                # warm water 2
-                "weitere-waermeerzeuger-warmwasser": "weitere-waermeerzeuger-warmwasser-7660",
-                "weitere-energie-waermequelle-warmwasser": "weitere-energie-waermequelle-warmwasser-7512",
-            },
-        ],
-    )
-
-    return gr_instance.case
-
-
-@pytest.fixture
-def so_master_data_case(
+def test_master_data_is_form_resolver(
     db,
-    master_data_is_visible_mock,
-    so_instance,
-    utils,
-    question_factory,
-    dynamic_option_factory,
+    master_data_settings,
+    caluma_case_factory,
+    caluma_document_factory,
 ):
-    so_instance.case.meta = {
-        "dossier-number": "2024-1",
-        "submit-date": "2024-02-22T13:17:08+0000",
-        "is-bab": True,
+    master_data_settings["CONFIG"] = {
+        "is_main_form": ("is_form", "main-form"),
+        "is_main_form_versioned": ("is_form", ["main-form", "main-form-v2"]),
+        "is_other_form": ("is_form", ["some-other-form", "some-other-form-v2"]),
     }
-    so_instance.case.save()
 
-    document = so_instance.case.document
+    document = caluma_document_factory(form__slug="main-form")
+    case = caluma_case_factory(document=document)
+    master_data = MasterData(case)
 
-    # Simple data
-    utils.add_answer(document, "is-paper", "is-paper-no")
-    utils.add_answer(document, "umschreibung-bauprojekt", "Grosses Haus")
-    utils.add_answer(document, "bemerkungen", "Das Haus ist wirklich gross..")
-    utils.add_answer(document, "strasse-flurname", "Musterstrasse")
-    utils.add_answer(document, "strasse-nummer", 4)
-    utils.add_answer(document, "gesamtkosten", 129000)
-    utils.add_answer(document, "ort", "Musterdorf")
-    utils.add_answer(document, "nutzungsplanung-grundnutzung", "Wohnzone 3 - AZ 0.6")
-    utils.add_answer(
-        document, "nutzungsplanung-grundnutzung-kanton", "N112_Wohnzone_3_G"
-    )
-    utils.add_answer(
-        document, "nutzungszwecke", "nutzungszwecke-wohnen", label="Wohnen"
-    )
-    utils.add_answer(document, "dauer-in-monaten", 18)
-    utils.add_answer(
-        document,
-        "art-der-bauwerke",
-        ["art-der-bauwerke-hochbaute", "art-der-bauwerke-tiefbaute"],
-    )
-
-    # BaB
-    utils.add_answer(
-        document,
-        "aushublagerplaetze-oder-baupisten",
-        "aushublagerplaetze-oder-baupisten-nein",
-    )
-    utils.add_answer(document, "bab", "bab-ja")
-
-    # Municipality
-    utils.add_answer(document, "gemeinde", "1")
-    dynamic_option_factory(
-        question_id="gemeinde",
-        document=so_instance.case.document,
-        slug="1",
-        label={"de": "Solothurn"},
-    )
-
-    # Plot
-    utils.add_table_answer(
-        document,
-        "parzellen",
-        [
-            {
-                "parzellennummer": 123456789,
-                "e-grid": "CH123456789",
-                "lagekoordinaten-ost": 2690970.9,
-                "lagekoordinaten-nord": 1192891.9,
-                "plz": "4500",
-            }
-        ],
-    )
-
-    # Applicant
-    utils.add_table_answer(document, "bauherrin", [so_personal_row_factory(True, True)])
-
-    # Landowner
-    utils.add_table_answer(
-        document, "grundeigentuemerin", [so_personal_row_factory(False, True, True)]
-    )
-
-    # Project author
-    utils.add_table_answer(document, "projektverfasserin", [so_personal_row_factory()])
-
-    # Invoice recipient
-    utils.add_table_answer(
-        document, "rechnungsempfaengerin", [so_personal_row_factory()]
-    )
-
-    # Buildings
-    buildings = utils.add_table_answer(
-        document,
-        "gebaeude",
-        [
-            {
-                "typ-des-bauwerks": "typ-des-bauwerks-parkhaus",
-                "gebaeude-bezeichnung": "Villa",
-                "art-der-arbeiten": ["art-der-arbeiten-neubau"],
-                "gebaeudekategorie": "gebaeudekategorie-ohne-wohnnutzung",
-            }
-        ],
-    )
-
-    # Dwellings
-    dwellings = utils.add_table_answer(
-        document,
-        "wohnungen",
-        [
-            {
-                "stockwerktyp": "stockwerktyp-obergeschoss",
-                "stockwerknummer": "2",
-                "lage": "Süd",
-                "anzahl-zimmer": "20",
-                "kocheinrichtung": "kocheinrichtung-kochnische-greater-4-m2",
-                "flaeche": "420",
-                "maisonette": "maisonette-ja",
-                "zwg": "zwg-keine",
-            },
-            {
-                "stockwerktyp": "stockwerktyp-parterre",
-                "lage": "Nord",
-                "anzahl-zimmer": "10",
-                "kocheinrichtung": "kocheinrichtung-keine-kocheinrichtung",
-                "flaeche": "72",
-                "maisonette": "maisonette-nein",
-                "zwg": "zwg-erstwohnung",
-            },
-        ],
-    )
-
-    # Energy devices
-    energy_devices = utils.add_table_answer(
-        document,
-        "gebaeudetechnik",
-        [
-            {
-                "anlagetyp": "anlagetyp-heizung-und-warmwasseraufbereitung",
-                "heizsystem-art": "-hauptheizung",
-                "hauptheizungsanlage": "hauptheizungsanlage-erdsonde",
-            },
-            {
-                "anlagetyp": "anlagetyp-hauptheizung",
-                "heizsystem-art": "-zusatzheizung",
-                "hauptheizungsanlage": "hauptheizungsanlage-sonne-thermisch",
-            },
-            {
-                "anlagetyp": "anlagetyp-warmwasser",
-                "heizsystem-art": "-zusatzheizung",
-                "hauptheizungsanlage": "hauptheizungsanlage-fernwaerme",
-            },
-        ],
-    )
-
-    building_question = question_factory(
-        slug="dazugehoeriges-gebaeude-auswahl", type=Question.TYPE_DYNAMIC_CHOICE
-    )
-    building_slug = str(buildings.documents.first().pk)
-
-    for row in dwellings.documents.all().union(energy_devices.documents.all()):
-        utils.add_answer(row, building_question.pk, building_slug)
-        dynamic_option_factory(
-            question=building_question,
-            document=row,
-            slug=building_slug,
-            label={"de": "Villa"},
-        )
-
-    # Nature risk
-    utils.add_table_answer(
-        document,
-        "gefahrenkartenprozesse",
-        [
-            {
-                "prozessart": {
-                    "value": "prozessart-murgang",
-                    "options": [("prozessart-murgang", "Murgang")],
-                },
-            }
-        ],
-    )
-
-    return so_instance.case
-
-
-@pytest.fixture
-def ur_master_data_case_gwr(
-    ur_instance, ur_master_data_case, workflow_entry_factory, utils
-):
-    ur_master_data_case.meta = {"dossier-number": "1201-21-003"}
-    ur_master_data_case.save()
-
-    document = ur_master_data_case.document
-
-    # Completed date
-    # Assert that workflow entry of last group (phase) is selected
-    workflow_entry = next(
-        filter(
-            lambda entry: entry.workflow_item_id == 67,
-            ur_instance.workflowentry_set.all(),
-        ),
-        None,
-    )
-
-    workflow_entry_factory(
-        instance=ur_instance,
-        workflow_date="2021-08-05 08:00:06+00",
-        group=2,
-        workflow_item=workflow_entry.workflow_item,
-    )
-
-    # Energy devices
-    # Check logic for heating / warmwater devices and
-    # primary / secondary devices
-    table_answer = document.answers.filter(question_id="haustechnik-tabelle").first()
-    utils.add_table_answer(
-        document,
-        "haustechnik-tabelle",
-        [
-            {
-                "gehoert-zu-gebaeudenummer": "Villa",
-                "anlagetyp": "anlagetyp-warmwasser",
-                "heizsystem-art": "-zusatzheizung",
-                "hauptheizungsanlage": "hauptheizungsanlage-gas",
-            }
-        ],
-        table_answer,
-    )
-
-    return ur_master_data_case
-
-
-@pytest.fixture
-def sz_master_data_case_gwr(sz_master_data_case, form_field_factory):
-    sz_instance = sz_master_data_case.instance
-
-    # GWR Form
-    form_field_factory(
-        instance=sz_instance,
-        name="gwr",
-        value=[
-            {
-                "kategorie": "Gebäude ohne Wohnnutzung",
-                "heizungsart": "Einzelofenheizung",
-                "energietrager-heizung": "Holz",
-                "energietrager-warmwasser": "Elektrizität",
-                "geschosse": 2,
-                "wohnungen": [
-                    {
-                        "stockwerk": "1. OG",
-                        "maisonette": "Ja",
-                        "lage": "Nord",
-                        "zimmer": 4,
-                        "flache": 42,
-                        "kuchenart": "Kochnische (unter 4m²)",
-                    }
-                ],
-            }
-        ],
-    )
-
-    return sz_instance.case
-
-
-@pytest.fixture
-def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
-    sz_instance = sz_master_data_case.instance
-
-    # GWR Form v2
-    form_field_factory(
-        instance=sz_instance,
-        name="gwr-v2",
-        value=[
-            {
-                "gebaeudebezeichnung": "Grosses Haus",
-                "kategorie": "Gebäude mit ausschliesslicher Wohnnutzung",
-                "zivilschutzraum": "Ja",
-                "heizungsart": "Wärmepumpe für mehrere Gebäude",
-                "energietrager-heizung": "Erdwärme (generisch)",
-                "waermeerzeuger-warmwasser": "Zentraler Elektroboiler",
-                "energietrager-warmwasser": "Sonne (thermisch)",
-                "geschosse": 4,
-                "wohnraeume": 24,
-                "wohnungen": [
-                    {
-                        "stockwerk": "Parterre",
-                        "maisonette": "Nein",
-                        "lage": "West",
-                        "zimmer": 2,
-                        "flache": 70,
-                        "kocheinrichtung": "Ja",
-                    },
-                    {
-                        "stockwerk": "2. UG",
-                        "maisonette": "Nein",
-                        "lage": "Ost",
-                        "zimmer": 3,
-                        "flache": 24,
-                        "kocheinrichtung": "Nein",
-                    },
-                ],
-            }
-        ],
-    )
-
-    return sz_instance.case
+    assert master_data.is_main_form is True
+    assert master_data.is_main_form_versioned is True
+    assert master_data.is_other_form is False
 
 
 @pytest.mark.parametrize(
-    "canton_master_data_settings,language,case,select_related,prefetch_related,num_queries",
+    "canton_master_data_settings,language,case,num_queries",
     [
-        (
+        pytest.param(
             lf("be_master_data_settings"),
             "de",
             lf("be_master_data_case"),
-            ["document"],
-            [
-                "document__answers",
-                "document__answers__question__options",
-                "document__answers__answerdocument_set",
-                "document__answers__answerdocument_set__document__answers",
-                "document__dynamicoption_set",
-                "work_items__document__answers",
-                "work_items__document__answers__answerdocument_set",
-                "work_items__document__answers__answerdocument_set__document__answers",
-            ],
-            # 1. Query for fetching case
-            # 2. Query for prefetching direct answers on case.document
-            # 3. Query for prefetching questions of answers
-            # 4. Query for prefetching options for questions
-            # 5. Query for prefetching row document relation tables
-            # 6. Query for prefetching row documents
-            # 7. Query for prefetching answer on previously prefetched row documents
-            # 8. Query for prefetching dynamic options
-            # 9. Query for fetching main form
-            # 10. ?
-            10,
+            17,
+            id="BE DE",
         ),
-        (
+        pytest.param(
             lf("be_master_data_settings"),
             "fr",
             lf("be_master_data_case"),
-            ["document"],
-            [
-                "document__answers",
-                "document__answers__question__options",
-                "document__answers__answerdocument_set",
-                "document__answers__answerdocument_set__document__answers",
-                "document__dynamicoption_set",
-                "work_items__document__answers",
-                "work_items__document__answers__answerdocument_set",
-                "work_items__document__answers__answerdocument_set__document__answers",
-            ],
-            10,
+            17,
+            id="BE FR",
         ),
-        (
+        pytest.param(
             lf("ur_master_data_settings"),
             "de",
             lf("ur_master_data_case"),
-            ["document", "instance"],
-            [
-                "document__answers",
-                "document__answers__answerdocument_set",
-                "document__answers__answerdocument_set__document__answers",
-                "document__dynamicoption_set",
-                "instance__workflowentry_set",
-                "instance__answers",
-            ],
-            # 1. Query for fetching case
-            # 2. Query for prefetching direct answers on case.document
-            # 3. Query for prefetching row document relation tables
-            # 4. Query for prefetching row documents
-            # 5. Query for prefetching answer on previously prefetched row documents
-            # 6. Query for prefetching dynamic options
-            # 7. Query for prefetching workflow entries
-            # 8. Query for prefetching camac core answers
-            8,
+            11,
+            id="UR",
         ),
-        (
+        pytest.param(
             lf("sz_master_data_settings"),
             "de",
             lf("sz_master_data_case_gwr"),
-            ["instance", "instance__form"],
-            ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
             # 2. Query for prefetching fields
             # 3. Query for prefetching workflow entries
             # 4. Query for prefetching work_items
             # 5. Query for selecting form
             5,
+            id="SZ GWR v1",
         ),
-        (
+        pytest.param(
             lf("sz_master_data_settings"),
             "de",
             lf("sz_master_data_case_gwr_v2"),
-            ["instance", "instance__form"],
-            ["instance__fields", "instance__workflowentry_set", "work_items"],
             # 1. Query for fetching case
             # 2. Query for prefetching fields
             # 3. Query for prefetching workflow entries
             # 4. Query for prefetching work_items
             # 5. Query for selecting form
             5,
+            id="SZ GWR v2",
         ),
-        (
+        pytest.param(
             lf("so_master_data_settings"),
             "de",
             lf("so_master_data_case"),
-            ["document"],
-            [
-                "document__answers",
-                "document__answers__question__options",
-                "document__answers__answerdocument_set",
-                "document__answers__answerdocument_set__document__answers",
-                "document__answers__answerdocument_set__document__answers__question__options",
-                "document__dynamicoption_set",
-                "work_items__document__answers",
-                "work_items__document__answers__answerdocument_set",
-                "work_items__document__answers__answerdocument_set__document__answers",
-            ],
-            17,
+            27,
+            id="SO",
+        ),
+        pytest.param(
+            lf("ag_master_data_settings"),
+            "de",
+            lf("ag_master_data_case"),
+            24,
+            id="AG",
         ),
     ],
 )
@@ -931,25 +255,13 @@ def test_master_data(
     django_assert_num_queries,
     language,
     case,
-    select_related,
-    prefetch_related,
     num_queries,
     canton_master_data_settings,
 ):
     with django_assert_num_queries(num_queries), override(language):
-        case = (
-            caluma_workflow_models.Case.objects.filter(pk=case.pk)
-            .select_related(*select_related)
-            .prefetch_related(*prefetch_related)
-            .first()
-        )
+        master_data = MasterData.from_case_id(case.pk)
 
-        master_data = MasterData(case)
-
-        assert {
-            key: getattr(master_data, key)
-            for key in canton_master_data_settings["CONFIG"].keys()
-        } == snapshot(
+        assert master_data.to_dict() == snapshot(
             exclude=paths(
                 "landowners.0.row_id",
                 "applicants.0.row_id",
@@ -957,3 +269,145 @@ def test_master_data(
                 "project_authors.0.row_id",
             )
         )
+
+
+@pytest.mark.parametrize("role__name", [("Municipality")])
+@pytest.mark.parametrize(
+    "query,expected_status",
+    [
+        ({}, status.HTTP_200_OK),
+        ({"fields": "some_property"}, status.HTTP_200_OK),
+        ({"fields": "not_configured"}, status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_master_data_api(
+    db,
+    admin_client,
+    expected_status,
+    ag_instance,
+    ag_master_data_settings,
+    query,
+    snapshot,
+):
+    ag_master_data_settings["CONFIG"] = {
+        "some_property": ("static", "Foo"),
+        "some_other_property": ("static", "Bar"),
+    }
+
+    response = admin_client.get(
+        reverse("instance-master-data", args=[ag_instance.pk]), data=query
+    )
+
+    assert response.status_code == expected_status
+    assert response.json() == snapshot
+
+
+@pytest.mark.parametrize(
+    "property_name,expected",
+    [
+        ("caluma_question", "caluma-question"),
+        ("caluma_table", "caluma-table"),
+        ("ng_question", "ng-question"),
+        ("ng_table", "ng-table"),
+        ("not_configured", None),
+        ("static", None),
+        ("case_meta", None),
+    ],
+)
+def test_get_question_slug(master_data_settings, property_name, expected):
+    master_data_settings["CONFIG"] = {
+        # Question properties
+        "caluma_question": ("answer", "caluma-question"),
+        "caluma_table": ("table", "caluma-table"),
+        "ng_question": ("ng_answer", "ng-question"),
+        "ng_table": ("ng_table", "ng-table"),
+        # Other properties
+        "static": ("static", "foo"),
+        "case_meta": ("case_meta", "bar"),
+    }
+
+    assert MasterData.get_question_slug(property_name) == expected
+
+
+@pytest.mark.parametrize("case_id_as_str", [True, False])
+@pytest.mark.parametrize("have_request", [True, False])
+def test_masterdata_from_request_cache(
+    db, be_instance, mocker, have_request, case_id_as_str
+):
+    if have_request:
+        # Don't need an actual request for this to work
+        mocker.patch("caluma.caluma_core.models.HistoricalRecords.context")
+
+    # Even if the second call is str instead of UUID, we expect the cached
+    # version if we can cache on the request object
+    caseid_second_call = (
+        str(be_instance.case.pk) if case_id_as_str else be_instance.case.pk
+    )
+
+    md0 = MasterData.from_case_id(be_instance.case.pk)
+    md1 = MasterData.from_case_id(caseid_second_call)
+
+    if have_request:
+        assert md0 is md1
+    else:
+        assert md0 is not md1
+
+
+@pytest.mark.parametrize(
+    "has_municipality_answer,expected",
+    [
+        (
+            True,
+            "service content example https://example.com/test?query=1 and https://example.com/test?query=2",
+        ),
+        (False, None),
+    ],
+)
+def test_master_data_municipality_service_content_resolver(
+    db,
+    master_data_settings,
+    caluma_case_factory,
+    caluma_document_factory,
+    caluma_dynamic_option_factory,
+    service_factory,
+    service_content_factory,
+    utils,
+    has_municipality_answer,
+    expected,
+):
+    master_data_settings["CONFIG"] = {
+        "municipality_slug": (
+            "answer",
+            "gemeinde",
+            {"value_parser": "dynamic_option", "prop": "slug"},
+        ),
+        "municipality_service_content": (
+            "municipality_service_content",
+            "municipality_slug",
+        ),
+    }
+
+    document = caluma_document_factory(form__slug="test-form")
+    case = caluma_case_factory(
+        document=document,
+    )
+    municipality = service_factory(service_group__name="municipality")
+    if has_municipality_answer:
+        utils.add_answer(document, "gemeinde", str(municipality.pk))
+        caluma_dynamic_option_factory(
+            slug=str(municipality.pk),
+            question_id="gemeinde",
+            document=document,
+        )
+
+    service_content = service_content_factory(
+        service=municipality,
+        content="service content example [Link Label](https://example.com/test?query=1) and [Link Label #2](https://example.com/test?query=2)",
+    )
+    service_content.forms.set([document.form])
+    service_content.save()
+
+    master_data = MasterData(case)
+    master_data_value = getattr(master_data, "municipality_service_content")
+
+    assert master_data_value == expected

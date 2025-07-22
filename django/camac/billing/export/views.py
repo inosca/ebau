@@ -64,6 +64,9 @@ class BillingV2EntryExportView(InstanceQuerysetMixin, ListAPIView):
 
     # Queryset for internal role permissions are handled
     # by InstanceQuerysetMixin
+    def get_base_queryset(self):
+        return super().get_base_queryset().visible_for(self.request.group.service)
+
     def get_queryset_for_applicant(self):
         return self.queryset.none()
 

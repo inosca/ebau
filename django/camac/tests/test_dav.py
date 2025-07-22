@@ -179,7 +179,9 @@ def test_callback(
     file_path = Path(settings.MEDIA_ROOT, "/".join(path.split("/")[-4:]))
     response = admin_client.get(path)
     assert response.status_code == 200
-    assert Path(response.headers["X-Sendfile"]) == file_path
+    with open(file_path, "rb") as f:
+        expected_content = f.read()
+    assert response.getvalue() == expected_content
 
     # Delete
     version = models.AttachmentVersion.objects.first()
@@ -189,10 +191,19 @@ def test_callback(
     assert not file_path.exists()
 
 
-def test_mock(mocker):
+def test_mock(
+    db,
+    mocker,
+    user_factory,
+    attachment_factory,
+):
     prepare_file()
     results = []
     calls = []
+
+    # Create user and attachment as used in make_token
+    user_factory(id=1)
+    attachment_factory(pk=2)
 
     def callback(token):
         calls.append(token)

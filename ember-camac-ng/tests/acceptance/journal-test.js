@@ -9,12 +9,6 @@ import { setupApplicationTest } from "camac-ng/tests/helpers";
 
 const USER_ID = 1;
 
-class FakeShoebox extends Service {
-  get content() {
-    return { userId: USER_ID };
-  }
-}
-
 module("Acceptance | journal", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
@@ -23,6 +17,15 @@ module("Acceptance | journal", function (hooks) {
     await authenticateSession({ token: "sometoken" });
 
     this.instance = this.server.create("instance");
+    const service = this.server.create("public-service");
+
+    class FakeShoebox extends Service {
+      get content() {
+        return { userId: USER_ID, serviceId: service.id };
+      }
+    }
+    this.service = service;
+    this.owner.register("service:shoebox", FakeShoebox);
   });
 
   test("it can list journal entires", async function (assert) {
@@ -53,11 +56,10 @@ module("Acceptance | journal", function (hooks) {
   });
 
   test("it can edit a journal entry", async function (assert) {
-    this.owner.register("service:shoebox", FakeShoebox);
-
     this.server.create("journal-entry", {
       instanceId: this.instance.id,
       userId: USER_ID,
+      service: this.service,
     });
 
     await visit(`/instances/${this.instance.id}/journal`);

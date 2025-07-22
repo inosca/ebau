@@ -1,4 +1,4 @@
-FROM ghcr.io/adfinis/document-merge-service:7.2.0
+FROM ghcr.io/adfinis/document-merge-service:7.3.7
 
 # Only root user can install packages
 USER root
@@ -8,6 +8,8 @@ RUN \
 USER document-merge-service
 
 ENV CACHE_BACKEND=django.core.cache.backends.memcached.PyMemcacheCache
+# https://pymemcache.readthedocs.io/en/latest/apidoc/pymemcache.client.base.html
+ENV CACHE_OPTIONS=connect_timeout=0.1,timeout=0.1,no_delay=True,ignore_exc=True
 ENV DATABASE_ENGINE=django.db.backends.postgresql
 ENV REQUIRE_AUTHENTICATION=True
 ENV PAGINATION_ENABLED=False
@@ -26,4 +28,5 @@ COPY $APPLICATION /tmp/document-merge-service/
 CMD /bin/sh -c "poetry run python ./manage.py migrate \
   && poetry run python manage.py loaddata /tmp/document-merge-service/dump.json \
   && poetry run python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.docx' \
+  && poetry run python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.xlsx' \
   && poetry run uwsgi"

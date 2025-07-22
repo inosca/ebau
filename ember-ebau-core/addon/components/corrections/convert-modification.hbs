@@ -1,0 +1,33 @@
+<div>
+  <p class="uk-text-large">
+    {{t "corrections.modification-to-new-dossier.title"}}
+  </p>
+  <p>{{t "corrections.modification-to-new-dossier.description"}}</p>
+  <UkButton
+    @color="primary"
+    @label={{t "corrections.modification-to-new-dossier.convert"}}
+    @onClick={{this.fetchConstructionDescription.perform}}
+  />
+</div>
+
+<UkModal @visible={{this.showModal}} as |Modal|>
+  <Modal.body>
+    <p>{{t "corrections.modification-to-new-dossier.info-text"}}</p>
+    <Textarea
+      class="uk-textarea"
+      @value={{this.constructionDescription}}
+      aria-label={{t "corrections.modification-to-new-dossier.input-label"}}
+      {{autoresize mode="height"}}
+    />
+  </Modal.body>
+  <Modal.footer>
+    <div class="uk-align-right uk-margin-top">
+      <UkButton @label={{t "global.cancel"}} @onClick={{this.toggleModal}} />
+      <UkButton
+        @color="primary"
+        @label={{t "corrections.modification-to-new-dossier.convert"}}
+        @onClick={{this.editConstructionDescription.perform}}
+      />
+    </div>
+  </Modal.footer>
+</UkModal>

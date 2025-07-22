@@ -49,9 +49,41 @@ export default class BillingIndexController extends Controller {
 
   charge = dropTask(this, async () => {
     if (
-      this.abilities.cannot("charge billing-v2-entries") ||
+      (await this.abilities.cannot("charge billing-v2-entries")) ||
       !this.selectedRows.length ||
       !(await confirm(this.intl.t("billing.confirm-charge")))
+    ) {
+      return;
+    }
+
+    try {
+      await this.fetch.fetch(`/api/v1/billing-v2-entries/charge-bulk`, {
+        method: "POST",
+        body: JSON.stringify({
+          entry_ids: this.selectedRows.map((id) => parseInt(id)),
+        }),
+        headers: {
+          "content-type": "application/json",
+          accept: "application/json",
+        },
+      });
+
+      // manually refresh in order to update the totals as well
+      await this.refresh();
+
+      this.selectedRows = [];
+    } catch {
+      this.notification.danger(this.intl.t("billing.charge-error"));
+    }
+  });
+
+  releaseForClearing = dropTask(this, async () => {
+    if (
+      (await this.abilities.cannot(
+        "release-for-clearing billing-v2-entries",
+      )) ||
+      !this.selectedRows.length ||
+      !(await confirm(this.intl.t("billing.confirm-release-for-clearing")))
     ) {
       return;
     }
@@ -60,7 +92,7 @@ export default class BillingIndexController extends Controller {
       await Promise.all(
         this.selectedRows.map(async (id) => {
           return await this.fetch.fetch(
-            `/api/v1/billing-v2-entries/${id}/charge`,
+            `/api/v1/billing-v2-entries/${id}/release-for-clearing`,
             { method: "PATCH" },
           );
         }),
@@ -70,8 +102,10 @@ export default class BillingIndexController extends Controller {
       await this.refresh();
 
       this.selectedRows = [];
-    } catch (e) {
-      this.notification.danger(this.intl.t("billing.charge-error"));
+    } catch {
+      this.notification.danger(
+        this.intl.t("billing.release-for-clearing-error"),
+      );
     }
   });
 }

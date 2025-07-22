@@ -9,6 +9,7 @@ const ENV_MAP = {
   kt_schwyz: "sz",
   kt_uri: "ur",
   kt_so: "so",
+  kt_ag: "ag",
   demo: "demo",
 };
 
@@ -18,7 +19,11 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
-    storeConfigInMeta: !["be", "so"].includes(ENV),
+    storeConfigInMeta: !["ag", "be", "so"].includes(ENV),
+    minifyCSS: {
+      // https://github.com/clean-css/clean-css/issues/1280
+      options: { level: { 1: { all: true, tidySelectors: false } } },
+    },
     "@embroider/macros": {
       setOwnConfig: {
         application: ENV,

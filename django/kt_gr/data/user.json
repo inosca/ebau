@@ -11,10 +11,14 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2024-09-06T13:00:16.853Z",
+      "last_login": "2025-05-22T07:47:15.424Z",
       "address": null,
       "city": null,
-      "zip": null
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
     }
   },
   {
@@ -32,7 +36,11 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
     }
   },
   {
@@ -50,7 +58,33 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 4,
+    "fields": {
+      "username": "dac6d4cd-34e5-44b1-977e-a62a69c019af",
+      "password": null,
+      "name": "dac6d4cd-34e5-44b1-977e-a62a69c019af",
+      "surname": "dac6d4cd-34e5-44b1-977e-a62a69c019af",
+      "email": null,
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": null,
+      "address": null,
+      "city": null,
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
     }
   },
   {
@@ -4034,6 +4068,38 @@
       "city": null,
       "address": null,
       "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10331,
+    "fields": {
+      "role": 4,
+      "service": 167,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "test@example.ch",
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10332,
+    "fields": {
+      "role": 6,
+      "service": 167,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "test@example.ch",
       "website": null
     }
   },
@@ -8988,6 +9054,46 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 27475,
+    "fields": {
+      "group": 10331,
+      "language": "de",
+      "name": "Sachbearbeitung Hindernisfreies Bauen Pro Infirmis",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27476,
+    "fields": {
+      "group": 10331,
+      "language": "it",
+      "name": "Evasione Servizio di consulenza costruzioni senza ostacoli Pro Infirmis",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27477,
+    "fields": {
+      "group": 10332,
+      "language": "de",
+      "name": "Administration Hindernisfreies Bauen Pro Infirmis",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27478,
+    "fields": {
+      "group": 10332,
+      "language": "it",
+      "name": "Amministrazione Servizio di consulenza costruzioni senza ostacoli Pro Infirmis",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -9087,9 +9193,43 @@
     }
   },
   {
+    "model": "user.usergroup",
+    "pk": 10,
+    "fields": {
+      "user": 1,
+      "group": 10037,
+      "default_group": 0,
+      "created_at": "2025-05-22T07:47:24.823Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 11,
+    "fields": {
+      "user": 4,
+      "group": 10035,
+      "default_group": 0,
+      "created_at": "2025-05-22T07:47:35.711Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 12,
+    "fields": {
+      "user": 4,
+      "group": 10037,
+      "default_group": 0,
+      "created_at": "2025-05-22T07:47:35.712Z",
+      "created_by": 1
+    }
+  },
+  {
     "model": "user.service",
     "pk": 1,
     "fields": {
+      "slug": "are",
       "service_group": 3,
       "service_parent": null,
       "name": null,
@@ -9105,6 +9245,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -9112,6 +9253,7 @@
     "model": "user.service",
     "pk": 2,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9127,13 +9269,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3542"
     }
   },
   {
     "model": "user.service",
     "pk": 3,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9149,13 +9293,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3701"
     }
   },
   {
     "model": "user.service",
     "pk": 4,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9171,13 +9317,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3921"
     }
   },
   {
     "model": "user.service",
     "pk": 5,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9193,13 +9341,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3681"
     }
   },
   {
     "model": "user.service",
     "pk": 6,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9215,13 +9365,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3544"
     }
   },
   {
     "model": "user.service",
     "pk": 7,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9237,13 +9389,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3781"
     }
   },
   {
     "model": "user.service",
     "pk": 8,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9259,13 +9413,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3721"
     }
   },
   {
     "model": "user.service",
     "pk": 9,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9281,13 +9437,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3792"
     }
   },
   {
     "model": "user.service",
     "pk": 10,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9303,13 +9461,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3981"
     }
   },
   {
     "model": "user.service",
     "pk": 11,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9325,13 +9485,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3551"
     }
   },
   {
     "model": "user.service",
     "pk": 12,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9347,13 +9509,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3804"
     }
   },
   {
     "model": "user.service",
     "pk": 13,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9369,13 +9533,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3837"
     }
   },
   {
     "model": "user.service",
     "pk": 14,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9391,13 +9557,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3831"
     }
   },
   {
     "model": "user.service",
     "pk": 15,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9413,13 +9581,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3805"
     }
   },
   {
     "model": "user.service",
     "pk": 16,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9435,13 +9605,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3661"
     }
   },
   {
     "model": "user.service",
     "pk": 17,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9457,13 +9629,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3782"
     }
   },
   {
     "model": "user.service",
     "pk": 18,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9479,13 +9653,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3901"
     }
   },
   {
     "model": "user.service",
     "pk": 19,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9501,13 +9677,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3911"
     }
   },
   {
     "model": "user.service",
     "pk": 20,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9523,13 +9701,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3881"
     }
   },
   {
     "model": "user.service",
     "pk": 21,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9545,13 +9725,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3851"
     }
   },
   {
     "model": "user.service",
     "pk": 22,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9567,13 +9749,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3982"
     }
   },
   {
     "model": "user.service",
     "pk": 23,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9589,13 +9773,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3722"
     }
   },
   {
     "model": "user.service",
     "pk": 24,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9611,13 +9797,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3673"
     }
   },
   {
     "model": "user.service",
     "pk": 25,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9633,13 +9821,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3572"
     }
   },
   {
     "model": "user.service",
     "pk": 26,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9655,13 +9845,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3731"
     }
   },
   {
     "model": "user.service",
     "pk": 27,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9677,13 +9869,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3713"
     }
   },
   {
     "model": "user.service",
     "pk": 28,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9699,13 +9893,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3861"
     }
   },
   {
     "model": "user.service",
     "pk": 29,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9721,13 +9917,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3951"
     }
   },
   {
     "model": "user.service",
     "pk": 30,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9743,13 +9941,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3662"
     }
   },
   {
     "model": "user.service",
     "pk": 31,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9765,13 +9965,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3732"
     }
   },
   {
     "model": "user.service",
     "pk": 32,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9787,13 +9989,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3862"
     }
   },
   {
     "model": "user.service",
     "pk": 33,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9809,13 +10013,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3633"
     }
   },
   {
     "model": "user.service",
     "pk": 34,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9831,13 +10037,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3832"
     }
   },
   {
     "model": "user.service",
     "pk": 35,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9853,13 +10061,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3961"
     }
   },
   {
     "model": "user.service",
     "pk": 36,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9875,13 +10085,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3619"
     }
   },
   {
     "model": "user.service",
     "pk": 37,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9897,13 +10109,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3863"
     }
   },
   {
     "model": "user.service",
     "pk": 38,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9919,13 +10133,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3952"
     }
   },
   {
     "model": "user.service",
     "pk": 39,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9941,13 +10157,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3871"
     }
   },
   {
     "model": "user.service",
     "pk": 40,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9963,13 +10181,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3882"
     }
   },
   {
     "model": "user.service",
     "pk": 41,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -9985,13 +10205,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3785"
     }
   },
   {
     "model": "user.service",
     "pk": 42,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10007,13 +10229,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3575"
     }
   },
   {
     "model": "user.service",
     "pk": 43,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10029,13 +10253,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3955"
     }
   },
   {
     "model": "user.service",
     "pk": 44,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10051,13 +10277,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3513"
     }
   },
   {
     "model": "user.service",
     "pk": 45,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10073,13 +10301,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3821"
     }
   },
   {
     "model": "user.service",
     "pk": 46,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10095,13 +10325,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3618"
     }
   },
   {
     "model": "user.service",
     "pk": 47,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10117,13 +10349,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3891"
     }
   },
   {
     "model": "user.service",
     "pk": 48,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10139,13 +10373,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3783"
     }
   },
   {
     "model": "user.service",
     "pk": 49,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10161,13 +10397,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3953"
     }
   },
   {
     "model": "user.service",
     "pk": 50,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10183,13 +10421,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3954"
     }
   },
   {
     "model": "user.service",
     "pk": 51,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10205,13 +10445,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3663"
     }
   },
   {
     "model": "user.service",
     "pk": 52,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10227,13 +10469,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3983"
     }
   },
   {
     "model": "user.service",
     "pk": 53,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10249,13 +10493,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3822"
     }
   },
   {
     "model": "user.service",
     "pk": 54,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10271,13 +10517,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3715"
     }
   },
   {
     "model": "user.service",
     "pk": 55,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10293,13 +10541,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3988"
     }
   },
   {
     "model": "user.service",
     "pk": 56,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10315,13 +10565,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3784"
     }
   },
   {
     "model": "user.service",
     "pk": 57,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10337,13 +10589,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3561"
     }
   },
   {
     "model": "user.service",
     "pk": 58,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10359,13 +10613,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3723"
     }
   },
   {
     "model": "user.service",
     "pk": 59,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10381,13 +10637,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3714"
     }
   },
   {
     "model": "user.service",
     "pk": 60,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10403,13 +10661,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3711"
     }
   },
   {
     "model": "user.service",
     "pk": 61,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10425,13 +10685,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3808"
     }
   },
   {
     "model": "user.service",
     "pk": 62,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10447,13 +10709,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3637"
     }
   },
   {
     "model": "user.service",
     "pk": 63,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10469,13 +10733,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3834"
     }
   },
   {
     "model": "user.service",
     "pk": 64,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10491,13 +10757,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3672"
     }
   },
   {
     "model": "user.service",
     "pk": 65,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10513,13 +10781,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3581"
     }
   },
   {
     "model": "user.service",
     "pk": 66,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10535,13 +10805,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3786"
     }
   },
   {
     "model": "user.service",
     "pk": 67,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10557,13 +10829,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3752"
     }
   },
   {
     "model": "user.service",
     "pk": 68,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10579,13 +10853,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3835"
     }
   },
   {
     "model": "user.service",
     "pk": 69,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10601,13 +10877,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3788"
     }
   },
   {
     "model": "user.service",
     "pk": 70,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10623,13 +10901,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3638"
     }
   },
   {
     "model": "user.service",
     "pk": 71,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10645,13 +10925,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3962"
     }
   },
   {
     "model": "user.service",
     "pk": 72,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10667,13 +10949,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3582"
     }
   },
   {
     "model": "user.service",
     "pk": 73,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10689,13 +10973,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3514"
     }
   },
   {
     "model": "user.service",
     "pk": 74,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10711,13 +10997,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3762"
     }
   },
   {
     "model": "user.service",
     "pk": 75,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10733,13 +11021,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3972"
     }
   },
   {
     "model": "user.service",
     "pk": 76,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10755,13 +11045,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3640"
     }
   },
   {
     "model": "user.service",
     "pk": 77,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10777,13 +11069,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3789"
     }
   },
   {
     "model": "user.service",
     "pk": 78,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10799,13 +11093,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3790"
     }
   },
   {
     "model": "user.service",
     "pk": 79,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10821,13 +11117,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3823"
     }
   },
   {
     "model": "user.service",
     "pk": 80,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10843,13 +11141,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3787"
     }
   },
   {
     "model": "user.service",
     "pk": 81,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10865,13 +11165,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3810"
     }
   },
   {
     "model": "user.service",
     "pk": 82,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10887,13 +11189,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3695"
     }
   },
   {
     "model": "user.service",
     "pk": 83,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10909,13 +11213,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3985"
     }
   },
   {
     "model": "user.service",
     "pk": 84,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10931,13 +11237,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3543"
     }
   },
   {
     "model": "user.service",
     "pk": 85,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10953,13 +11261,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3733"
     }
   },
   {
     "model": "user.service",
     "pk": 86,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10975,13 +11285,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3668"
     }
   },
   {
     "model": "user.service",
     "pk": 87,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -10997,13 +11309,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3945"
     }
   },
   {
     "model": "user.service",
     "pk": 88,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11019,13 +11333,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3734"
     }
   },
   {
     "model": "user.service",
     "pk": 89,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11041,13 +11357,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3987"
     }
   },
   {
     "model": "user.service",
     "pk": 90,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11063,13 +11381,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3669"
     }
   },
   {
     "model": "user.service",
     "pk": 91,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11085,13 +11405,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3932"
     }
   },
   {
     "model": "user.service",
     "pk": 92,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11107,13 +11429,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3986"
     }
   },
   {
     "model": "user.service",
     "pk": 93,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11129,13 +11453,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3946"
     }
   },
   {
     "model": "user.service",
     "pk": 94,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11151,13 +11477,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3670"
     }
   },
   {
     "model": "user.service",
     "pk": 95,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11173,13 +11501,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3847"
     }
   },
   {
     "model": "user.service",
     "pk": 96,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11195,13 +11525,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3603"
     }
   },
   {
     "model": "user.service",
     "pk": 97,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11217,13 +11549,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3764"
     }
   },
   {
     "model": "user.service",
     "pk": 98,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11239,13 +11573,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3506"
     }
   },
   {
     "model": "user.service",
     "pk": 99,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11261,13 +11597,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3746"
     }
   },
   {
     "model": "user.service",
     "pk": 100,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11283,13 +11621,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3712"
     }
   },
   {
     "model": "user.service",
     "pk": 101,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11305,13 +11645,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3947"
     }
   },
   {
     "model": "user.service",
     "pk": 102,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -11327,13 +11669,15 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
-      "external_identifier": null
+      "department": null,
+      "external_identifier": "3791"
     }
   },
   {
     "model": "user.service",
     "pk": 104,
     "fields": {
+      "slug": "aev",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11349,6 +11693,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11356,6 +11701,7 @@
     "model": "user.service",
     "pk": 106,
     "fields": {
+      "slug": "kiga",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11371,6 +11717,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11378,6 +11725,7 @@
     "model": "user.service",
     "pk": 107,
     "fields": {
+      "slug": "ajf",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11393,6 +11741,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11400,6 +11749,7 @@
     "model": "user.service",
     "pk": 109,
     "fields": {
+      "slug": "alg1",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11415,6 +11765,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11422,6 +11773,7 @@
     "model": "user.service",
     "pk": 110,
     "fields": {
+      "slug": "alg2",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11437,6 +11789,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11444,6 +11797,7 @@
     "model": "user.service",
     "pk": 111,
     "fields": {
+      "slug": "alt",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11459,6 +11813,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11466,6 +11821,7 @@
     "model": "user.service",
     "pk": 112,
     "fields": {
+      "slug": "amz",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11481,6 +11837,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11488,6 +11845,7 @@
     "model": "user.service",
     "pk": 113,
     "fields": {
+      "slug": "anu",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11503,6 +11861,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11510,6 +11869,7 @@
     "model": "user.service",
     "pk": 114,
     "fields": {
+      "slug": "awn",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11525,6 +11885,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11532,6 +11893,7 @@
     "model": "user.service",
     "pk": 116,
     "fields": {
+      "slug": "adg",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11547,6 +11909,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11554,6 +11917,7 @@
     "model": "user.service",
     "pk": 120,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11569,6 +11933,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11576,6 +11941,7 @@
     "model": "user.service",
     "pk": 121,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11591,6 +11957,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11598,6 +11965,7 @@
     "model": "user.service",
     "pk": 122,
     "fields": {
+      "slug": "bafu",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11613,6 +11981,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11620,6 +11989,7 @@
     "model": "user.service",
     "pk": 124,
     "fields": {
+      "slug": "denkmalpflege",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11635,6 +12005,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11642,6 +12013,7 @@
     "model": "user.service",
     "pk": 129,
     "fields": {
+      "slug": "gvg",
       "service_group": 1,
       "service_parent": null,
       "name": "gvg",
@@ -11657,6 +12029,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11664,6 +12037,7 @@
     "model": "user.service",
     "pk": 130,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11679,6 +12053,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11686,6 +12061,7 @@
     "model": "user.service",
     "pk": 154,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11701,6 +12077,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11708,6 +12085,7 @@
     "model": "user.service",
     "pk": 160,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11723,6 +12101,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11730,6 +12109,7 @@
     "model": "user.service",
     "pk": 161,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11745,6 +12125,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11752,6 +12133,7 @@
     "model": "user.service",
     "pk": 163,
     "fields": {
+      "slug": "tba",
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -11767,6 +12149,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11774,6 +12157,7 @@
     "model": "user.service",
     "pk": 164,
     "fields": {
+      "slug": null,
       "service_group": 4,
       "service_parent": 1,
       "name": null,
@@ -11789,6 +12173,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11796,6 +12181,7 @@
     "model": "user.service",
     "pk": 165,
     "fields": {
+      "slug": "aib",
       "service_group": 1,
       "service_parent": null,
       "name": "aib",
@@ -11811,6 +12197,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11818,6 +12205,7 @@
     "model": "user.service",
     "pk": 166,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": 18,
       "name": null,
@@ -11833,6 +12221,79 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 167,
+    "fields": {
+      "slug": "pro-infirmis",
+      "service_group": 1,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 3,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "pro-infirmis@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 168,
+    "fields": {
+      "slug": "gvg-brandschutz",
+      "service_group": 1,
+      "service_parent": null,
+      "name": "gvg-brandschutz",
+      "description": null,
+      "sort": 0,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 169,
+    "fields": {
+      "slug": "gvg-elementarschutz",
+      "service_group": 1,
+      "service_parent": null,
+      "name": "gvg-elementarschutz",
+      "description": null,
+      "sort": 0,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -11844,7 +12305,8 @@
       "language": "de",
       "name": "Amt für Raumentwicklung (ARE)",
       "description": "Amt für Raumentwicklung (ARE)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11855,7 +12317,8 @@
       "language": "de",
       "name": "Gemeinde Albula/Alvra",
       "description": "Gemeinde Albula/Alvra",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11866,7 +12329,8 @@
       "language": "de",
       "name": "Gemeinde Andeer",
       "description": "Gemeinde Andeer",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11877,7 +12341,8 @@
       "language": "de",
       "name": "Gemeinde Arosa",
       "description": "Gemeinde Arosa",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11888,7 +12353,8 @@
       "language": "de",
       "name": "Gemeinde Avers",
       "description": "Gemeinde Avers",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11899,7 +12365,8 @@
       "language": "de",
       "name": "Gemeinde Bergün Filisur",
       "description": "Gemeinde Bergün Filisur",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11910,7 +12377,8 @@
       "language": "de",
       "name": "Gemeinde Bever",
       "description": "Gemeinde Bever",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11921,7 +12389,8 @@
       "language": "de",
       "name": "Gemeinde Bonaduz",
       "description": "Gemeinde Bonaduz",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11932,7 +12401,8 @@
       "language": "de",
       "name": "Gemeinde Bregaglia",
       "description": "Gemeinde Bregaglia",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11943,7 +12413,8 @@
       "language": "de",
       "name": "Gemeinde Breil/Brigels",
       "description": "Gemeinde Breil/Brigels",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11954,7 +12425,8 @@
       "language": "de",
       "name": "Gemeinde Brusio",
       "description": "Gemeinde Brusio",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11965,7 +12437,8 @@
       "language": "de",
       "name": "Gemeinde Buseno",
       "description": "Gemeinde Buseno",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11976,7 +12449,8 @@
       "language": "de",
       "name": "Gemeinde Calanca",
       "description": "Gemeinde Calanca",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11987,7 +12461,8 @@
       "language": "de",
       "name": "Gemeinde Cama",
       "description": "Gemeinde Cama",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -11998,7 +12473,8 @@
       "language": "de",
       "name": "Gemeinde Castaneda",
       "description": "Gemeinde Castaneda",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12009,7 +12485,8 @@
       "language": "de",
       "name": "Gemeinde Cazis",
       "description": "Gemeinde Cazis",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12020,7 +12497,8 @@
       "language": "de",
       "name": "Gemeinde Celerina / Schlarigna",
       "description": "Gemeinde Celerina / Schlarigna",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12031,7 +12509,8 @@
       "language": "de",
       "name": "Gemeinde Chur",
       "description": "Gemeinde Chur",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12042,7 +12521,8 @@
       "language": "de",
       "name": "Gemeinde Churwalden",
       "description": "Gemeinde Churwalden",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12053,7 +12533,8 @@
       "language": "de",
       "name": "Gemeinde Conters im Prättigau",
       "description": "Gemeinde Conters im Prättigau",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12064,7 +12545,8 @@
       "language": "de",
       "name": "Gemeinde Davos",
       "description": "Gemeinde Davos",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12075,7 +12557,8 @@
       "language": "de",
       "name": "Gemeinde Disentis/Mustér",
       "description": "Gemeinde Disentis/Mustér",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12086,7 +12569,8 @@
       "language": "de",
       "name": "Gemeinde Domat/Ems",
       "description": "Gemeinde Domat/Ems",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12097,7 +12581,8 @@
       "language": "de",
       "name": "Gemeinde Domleschg",
       "description": "Gemeinde Domleschg",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12108,7 +12593,8 @@
       "language": "de",
       "name": "Gemeinde Falera",
       "description": "Gemeinde Falera",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12119,7 +12605,8 @@
       "language": "de",
       "name": "Gemeinde Felsberg",
       "description": "Gemeinde Felsberg",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12130,7 +12617,8 @@
       "language": "de",
       "name": "Gemeinde Ferrera",
       "description": "Gemeinde Ferrera",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12141,7 +12629,8 @@
       "language": "de",
       "name": "Gemeinde Fideris",
       "description": "Gemeinde Fideris",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12152,7 +12641,8 @@
       "language": "de",
       "name": "Gemeinde Fläsch",
       "description": "Gemeinde Fläsch",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12163,7 +12653,8 @@
       "language": "de",
       "name": "Gemeinde Flerden",
       "description": "Gemeinde Flerden",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12174,7 +12665,8 @@
       "language": "de",
       "name": "Gemeinde Flims",
       "description": "Gemeinde Flims",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12185,7 +12677,8 @@
       "language": "de",
       "name": "Gemeinde Furna",
       "description": "Gemeinde Furna",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12196,7 +12689,8 @@
       "language": "de",
       "name": "Gemeinde Fürstenau",
       "description": "Gemeinde Fürstenau",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12207,7 +12701,8 @@
       "language": "de",
       "name": "Gemeinde Grono",
       "description": "Gemeinde Grono",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12218,7 +12713,8 @@
       "language": "de",
       "name": "Gemeinde Grüsch",
       "description": "Gemeinde Grüsch",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12229,7 +12725,8 @@
       "language": "de",
       "name": "Gemeinde Ilanz/Glion",
       "description": "Gemeinde Ilanz/Glion",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12240,7 +12737,8 @@
       "language": "de",
       "name": "Gemeinde Jenaz",
       "description": "Gemeinde Jenaz",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12251,7 +12749,8 @@
       "language": "de",
       "name": "Gemeinde Jenins",
       "description": "Gemeinde Jenins",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12262,7 +12761,8 @@
       "language": "de",
       "name": "Gemeinde Klosters",
       "description": "Gemeinde Klosters",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12273,7 +12773,8 @@
       "language": "de",
       "name": "Gemeinde Küblis",
       "description": "Gemeinde Küblis",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12284,7 +12785,8 @@
       "language": "de",
       "name": "Gemeinde La Punt Chamues-ch",
       "description": "Gemeinde La Punt Chamues-ch",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12295,7 +12797,8 @@
       "language": "de",
       "name": "Gemeinde Laax",
       "description": "Gemeinde Laax",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12306,7 +12809,8 @@
       "language": "de",
       "name": "Gemeinde Landquart",
       "description": "Gemeinde Landquart",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12317,7 +12821,8 @@
       "language": "de",
       "name": "Gemeinde Lantsch/Lenz",
       "description": "Gemeinde Lantsch/Lenz",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12328,7 +12833,8 @@
       "language": "de",
       "name": "Gemeinde Lostallo",
       "description": "Gemeinde Lostallo",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12339,7 +12845,8 @@
       "language": "de",
       "name": "Gemeinde Lumnezia",
       "description": "Gemeinde Lumnezia",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12350,7 +12857,8 @@
       "language": "de",
       "name": "Gemeinde Luzein",
       "description": "Gemeinde Luzein",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12361,7 +12869,8 @@
       "language": "de",
       "name": "Gemeinde Madulain",
       "description": "Gemeinde Madulain",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12372,7 +12881,8 @@
       "language": "de",
       "name": "Gemeinde Maienfeld",
       "description": "Gemeinde Maienfeld",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12383,7 +12893,8 @@
       "language": "de",
       "name": "Gemeinde Malans",
       "description": "Gemeinde Malans",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12394,7 +12905,8 @@
       "language": "de",
       "name": "Gemeinde Masein",
       "description": "Gemeinde Masein",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12405,7 +12917,8 @@
       "language": "de",
       "name": "Gemeinde Medel (Lucmagn)",
       "description": "Gemeinde Medel (Lucmagn)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12416,7 +12929,8 @@
       "language": "de",
       "name": "Gemeinde Mesocco",
       "description": "Gemeinde Mesocco",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12427,7 +12941,8 @@
       "language": "de",
       "name": "Gemeinde Muntogna da Schons",
       "description": "Gemeinde Muntogna da Schons",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12438,7 +12953,8 @@
       "language": "de",
       "name": "Gemeinde Obersaxen Mundaun",
       "description": "Gemeinde Obersaxen Mundaun",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12449,7 +12965,8 @@
       "language": "de",
       "name": "Gemeinde Pontresina",
       "description": "Gemeinde Pontresina",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12460,7 +12977,8 @@
       "language": "de",
       "name": "Gemeinde Poschiavo",
       "description": "Gemeinde Poschiavo",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12471,7 +12989,8 @@
       "language": "de",
       "name": "Gemeinde Rhäzüns",
       "description": "Gemeinde Rhäzüns",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12482,7 +13001,8 @@
       "language": "de",
       "name": "Gemeinde Rheinwald",
       "description": "Gemeinde Rheinwald",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12493,7 +13013,8 @@
       "language": "de",
       "name": "Gemeinde Rongellen",
       "description": "Gemeinde Rongellen",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12504,7 +13025,8 @@
       "language": "de",
       "name": "Gemeinde Rossa",
       "description": "Gemeinde Rossa",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12515,7 +13037,8 @@
       "language": "de",
       "name": "Gemeinde Rothenbrunnen",
       "description": "Gemeinde Rothenbrunnen",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12526,7 +13049,8 @@
       "language": "de",
       "name": "Gemeinde Roveredo (GR)",
       "description": "Gemeinde Roveredo (GR)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12537,7 +13061,8 @@
       "language": "de",
       "name": "Gemeinde Safiental",
       "description": "Gemeinde Safiental",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12548,7 +13073,8 @@
       "language": "de",
       "name": "Gemeinde Sagogn",
       "description": "Gemeinde Sagogn",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12559,7 +13085,8 @@
       "language": "de",
       "name": "Gemeinde Samedan",
       "description": "Gemeinde Samedan",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12570,7 +13097,8 @@
       "language": "de",
       "name": "Gemeinde Samnaun",
       "description": "Gemeinde Samnaun",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12581,7 +13109,8 @@
       "language": "de",
       "name": "Gemeinde San Vittore",
       "description": "Gemeinde San Vittore",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12592,7 +13121,8 @@
       "language": "de",
       "name": "Gemeinde S-chanf",
       "description": "Gemeinde S-chanf",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12603,7 +13133,8 @@
       "language": "de",
       "name": "Gemeinde Scharans",
       "description": "Gemeinde Scharans",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12614,7 +13145,8 @@
       "language": "de",
       "name": "Gemeinde Schiers",
       "description": "Gemeinde Schiers",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12625,7 +13157,8 @@
       "language": "de",
       "name": "Gemeinde Schluein",
       "description": "Gemeinde Schluein",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12636,7 +13169,8 @@
       "language": "de",
       "name": "Gemeinde Schmitten (GR)",
       "description": "Gemeinde Schmitten (GR)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12647,7 +13181,8 @@
       "language": "de",
       "name": "Gemeinde Scuol",
       "description": "Gemeinde Scuol",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12658,7 +13193,8 @@
       "language": "de",
       "name": "Gemeinde Seewis im Prättigau",
       "description": "Gemeinde Seewis im Prättigau",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12669,7 +13205,8 @@
       "language": "de",
       "name": "Gemeinde Sils im Domleschg",
       "description": "Gemeinde Sils im Domleschg",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12680,7 +13217,8 @@
       "language": "de",
       "name": "Gemeinde Sils im Engadin/Segl",
       "description": "Gemeinde Sils im Engadin/Segl",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12691,7 +13229,8 @@
       "language": "de",
       "name": "Gemeinde Silvaplana",
       "description": "Gemeinde Silvaplana",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12702,7 +13241,8 @@
       "language": "de",
       "name": "Gemeinde Soazza",
       "description": "Gemeinde Soazza",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12713,7 +13253,8 @@
       "language": "de",
       "name": "Gemeinde St. Moritz",
       "description": "Gemeinde St. Moritz",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12724,7 +13265,8 @@
       "language": "de",
       "name": "Gemeinde Santa Maria in Calanca",
       "description": "Gemeinde Santa Maria in Calanca",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12735,7 +13277,8 @@
       "language": "de",
       "name": "Gemeinde Sufers",
       "description": "Gemeinde Sufers",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12746,7 +13289,8 @@
       "language": "de",
       "name": "Gemeinde Sumvitg",
       "description": "Gemeinde Sumvitg",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12757,7 +13301,8 @@
       "language": "de",
       "name": "Gemeinde Surses",
       "description": "Gemeinde Surses",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12768,7 +13313,8 @@
       "language": "de",
       "name": "Gemeinde Tamins",
       "description": "Gemeinde Tamins",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12779,7 +13325,8 @@
       "language": "de",
       "name": "Gemeinde Thusis",
       "description": "Gemeinde Thusis",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12790,7 +13337,8 @@
       "language": "de",
       "name": "Gemeinde Trimmis",
       "description": "Gemeinde Trimmis",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12801,7 +13349,8 @@
       "language": "de",
       "name": "Gemeinde Trin",
       "description": "Gemeinde Trin",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12812,7 +13361,8 @@
       "language": "de",
       "name": "Gemeinde Trun",
       "description": "Gemeinde Trun",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12823,7 +13373,8 @@
       "language": "de",
       "name": "Gemeinde Tschappina",
       "description": "Gemeinde Tschappina",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12834,7 +13385,8 @@
       "language": "de",
       "name": "Gemeinde Tschiertschen-Praden",
       "description": "Gemeinde Tschiertschen-Praden",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12845,7 +13397,8 @@
       "language": "de",
       "name": "Gemeinde Tujetsch",
       "description": "Gemeinde Tujetsch",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12856,7 +13409,8 @@
       "language": "de",
       "name": "Gemeinde Untervaz",
       "description": "Gemeinde Untervaz",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12867,7 +13421,8 @@
       "language": "de",
       "name": "Gemeinde Urmein",
       "description": "Gemeinde Urmein",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12878,7 +13433,8 @@
       "language": "de",
       "name": "Gemeinde Val Müstair",
       "description": "Gemeinde Val Müstair",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12889,7 +13445,8 @@
       "language": "de",
       "name": "Gemeinde Vals",
       "description": "Gemeinde Vals",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12900,7 +13457,8 @@
       "language": "de",
       "name": "Gemeinde Valsot",
       "description": "Gemeinde Valsot",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12911,7 +13469,8 @@
       "language": "de",
       "name": "Gemeinde Vaz/Obervaz",
       "description": "Gemeinde Vaz/Obervaz",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12922,7 +13481,8 @@
       "language": "de",
       "name": "Gemeinde Zernez",
       "description": "Gemeinde Zernez",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12933,7 +13493,8 @@
       "language": "de",
       "name": "Gemeinde Zillis-Reischen",
       "description": "Gemeinde Zillis-Reischen",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12944,7 +13505,8 @@
       "language": "de",
       "name": "Gemeinde Zizers",
       "description": "Gemeinde Zizers",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12955,7 +13517,8 @@
       "language": "de",
       "name": "Gemeinde Zuoz",
       "description": "Gemeinde Zuoz",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12966,7 +13529,8 @@
       "language": "de",
       "name": "Amt für Energie und Verkehr (AEV)",
       "description": "Amt für Energie und Verkehr (AEV)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12977,7 +13541,8 @@
       "language": "de",
       "name": "Amt für Industrie, Gewerbe und Arbeit (KIGA)",
       "description": "Amt für Industrie, Gewerbe und Arbeit (KIGA)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12988,7 +13553,8 @@
       "language": "de",
       "name": "Amt für Jagd und Fischerei (AJF)",
       "description": "Amt für Jagd und Fischerei (AJF)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -12999,7 +13565,8 @@
       "language": "de",
       "name": "Amt für Landwirtschaft und Geoinformation 1 (ALG1)",
       "description": "Amt für Landwirtschaft und Geoinformation 1 (ALG1)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13010,7 +13577,8 @@
       "language": "de",
       "name": "Amt für Landwirtschaft und Geoinformation 2 (ALG2)",
       "description": "Amt für Landwirtschaft und Geoinformation 2 (ALG2)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13021,7 +13589,8 @@
       "language": "de",
       "name": "Amt für Lebensmittelsicherheit und Tiergesundheit (ALT)",
       "description": "Amt für Lebensmittelsicherheit und Tiergesundheit (ALT)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13032,7 +13601,8 @@
       "language": "de",
       "name": "Amt für Militär und Zivilschutz (AMZ)",
       "description": "Amt für Militär und Zivilschutz (AMZ)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13043,7 +13613,8 @@
       "language": "de",
       "name": "Amt für Natur und Umwelt (ANU)",
       "description": "Amt für Natur und Umwelt (ANU)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13054,7 +13625,8 @@
       "language": "de",
       "name": "Amt für Wald und Naturgefahren (AWN)",
       "description": "Amt für Wald und Naturgefahren (AWN)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13065,7 +13637,8 @@
       "language": "de",
       "name": "Archäologischer Dienst Graubünden (ADG)",
       "description": "Archäologischer Dienst Graubünden (ADG)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13076,7 +13649,8 @@
       "language": "de",
       "name": "Bundesamt für Strassen (USTRA)",
       "description": "Bundesamt für Strassen (USTRA)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13087,7 +13661,8 @@
       "language": "de",
       "name": "Bundesamt für Strassen / Astra",
       "description": "Bundesamt für Strassen / Astra",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13098,7 +13673,8 @@
       "language": "de",
       "name": "Bundesamt für Umwelt / Biodiversität und Landschaft",
       "description": "Bundesamt für Umwelt / Biodiversität und Landschaft",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13109,7 +13685,8 @@
       "language": "de",
       "name": "Denkmalpflege GR",
       "description": "Denkmalpflege GR",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13120,7 +13697,8 @@
       "language": "de",
       "name": "Gebäudeversicherung Graubünden, Versicherung",
       "description": "Gebäudeversicherung Graubünden, Versicherung",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13131,7 +13709,8 @@
       "language": "de",
       "name": "Gebäudeversicherung Graubünden, Elementarschadenprävention",
       "description": "Gebäudeversicherung Graubünden, Elementarschadenprävention",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13142,7 +13721,8 @@
       "language": "de",
       "name": "Grundbuchinspektorat und Handelsregister",
       "description": "Grundbuchinspektorat und Handelsregister",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13153,7 +13733,8 @@
       "language": "de",
       "name": "Rhätische Bahn",
       "description": "Rhätische Bahn",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13164,7 +13745,8 @@
       "language": "de",
       "name": "SBB AG",
       "description": "SBB AG",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13175,7 +13757,8 @@
       "language": "de",
       "name": "Tiefbauamt GR",
       "description": "Tiefbauamt GR",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13186,7 +13769,8 @@
       "language": "de",
       "name": "Pro Natura",
       "description": "Pro Natura",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13197,7 +13781,8 @@
       "language": "de",
       "name": "Amt für Immobilienbewertung (AIB)",
       "description": "Amt für Immobilienbewertung (AIB)",
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13208,7 +13793,8 @@
       "language": "de",
       "name": "Unterfachstelle Test (Gemeinde Chur)",
       "description": "Unterfachstelle Test (Gemeinde Chur)",
-      "city": ""
+      "city": "",
+      "department": null
     }
   },
   {
@@ -13219,7 +13805,8 @@
       "language": "it",
       "name": "Comune di Albula/Alvra",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13230,7 +13817,8 @@
       "language": "it",
       "name": "Ufficio per l'industria, arti e mestieri e lavoro (UCIAML)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13241,7 +13829,8 @@
       "language": "it",
       "name": "Ufficio per l'agricoltura e la geoinformazione 2 (UAG2)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13252,7 +13841,8 @@
       "language": "it",
       "name": "Ufficio per la sicurezza delle derrate alimentari e la salute degli animali (USDA)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13263,7 +13853,8 @@
       "language": "it",
       "name": "Ufficio foreste e pericoli naturali (UFP)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13274,7 +13865,8 @@
       "language": "it",
       "name": "Servizio archeologico dei Grigioni",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13285,7 +13877,8 @@
       "language": "it",
       "name": "Ufficio federale delle strade / USTRA",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13296,7 +13889,8 @@
       "language": "it",
       "name": "Ufficio federale dell'ambiente / Biodiversità e paesaggio",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13307,7 +13901,8 @@
       "language": "it",
       "name": "Ferrovia Retica",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13318,7 +13913,8 @@
       "language": "it",
       "name": "FFS SA",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13329,7 +13925,8 @@
       "language": "it",
       "name": "Ufficio per le valutazioni immobiliari (UVI)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13340,7 +13937,8 @@
       "language": "it",
       "name": "Assicurazione fabbricati dei Grigioni, assicurazione",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13351,7 +13949,8 @@
       "language": "it",
       "name": "Ufficio dell'energia e dei trasporti (UEnTr)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13362,7 +13961,8 @@
       "language": "it",
       "name": "Ufficio per l'agricoltura e la geoinformazione (UAG)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13373,7 +13973,8 @@
       "language": "it",
       "name": "Ufficio per la caccia e la pesca (UCP)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13384,7 +13985,8 @@
       "language": "it",
       "name": "Ufficio per lo sviluppo del territorio (UST-GR)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13395,7 +13997,8 @@
       "language": "it",
       "name": "Servizio monumenti dei Grigioni",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13406,7 +14009,8 @@
       "language": "it",
       "name": "Ufficio per la natura e l'ambiente (UNA)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13417,7 +14021,8 @@
       "language": "it",
       "name": "Assicurazione fabbricati dei Grigioni, prevenzione danni elementari",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13428,7 +14033,8 @@
       "language": "it",
       "name": "Ufficio tecnico (UT)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13439,7 +14045,8 @@
       "language": "it",
       "name": "Ufficio federale delle strade (USTRA)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13450,7 +14057,8 @@
       "language": "it",
       "name": "Ufficio del militare e della protezione civile (UMPC)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13461,7 +14069,8 @@
       "language": "it",
       "name": "Comune di Andeer",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13472,7 +14081,8 @@
       "language": "it",
       "name": "Comune di Arosa",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13483,7 +14093,8 @@
       "language": "it",
       "name": "Comune di Avers",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13494,7 +14105,8 @@
       "language": "it",
       "name": "Comune di Bergün Filisur",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13505,7 +14117,8 @@
       "language": "it",
       "name": "Comune di Disentis/Mustér",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13516,7 +14129,8 @@
       "language": "it",
       "name": "Comune di Surses",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13527,7 +14141,8 @@
       "language": "it",
       "name": "Comune di Bever",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13538,7 +14153,8 @@
       "language": "it",
       "name": "Comune di Bonaduz",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13549,7 +14165,8 @@
       "language": "it",
       "name": "Comune di Bregaglia",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13560,7 +14177,8 @@
       "language": "it",
       "name": "Comune di Breil/Brigels",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13571,7 +14189,8 @@
       "language": "it",
       "name": "Comune di Brusio",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13582,7 +14201,8 @@
       "language": "it",
       "name": "Comune di Buseno",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13593,7 +14213,8 @@
       "language": "it",
       "name": "Comune di Calanca",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13604,7 +14225,8 @@
       "language": "it",
       "name": "Comune di Cama",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13615,7 +14237,8 @@
       "language": "it",
       "name": "Comune di Castaneda",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13626,7 +14249,8 @@
       "language": "it",
       "name": "Comune di Cazis",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13637,7 +14261,8 @@
       "language": "it",
       "name": "Comune di Celerina / Schlarigna",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13648,7 +14273,8 @@
       "language": "it",
       "name": "Comune di Coira",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13659,7 +14285,8 @@
       "language": "it",
       "name": "Comune di Churwalden",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13670,7 +14297,8 @@
       "language": "it",
       "name": "Comune di Conters im Prättigau",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13681,7 +14309,8 @@
       "language": "it",
       "name": "Comune di Davos",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13692,7 +14321,8 @@
       "language": "it",
       "name": "Comune di Domat/Ems",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13703,7 +14333,8 @@
       "language": "it",
       "name": "Comune di Falera",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13714,7 +14345,8 @@
       "language": "it",
       "name": "Comune di Felsberg",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13725,7 +14357,8 @@
       "language": "it",
       "name": "Comune di Ferrera",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13736,7 +14369,8 @@
       "language": "it",
       "name": "Comune di Fideris",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13747,7 +14381,8 @@
       "language": "it",
       "name": "Comune di Fläsch",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13758,7 +14393,8 @@
       "language": "it",
       "name": "Comune di Flerden",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13769,7 +14405,8 @@
       "language": "it",
       "name": "Comune di Flims",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13780,7 +14417,8 @@
       "language": "it",
       "name": "Comune di Furna",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13791,7 +14429,8 @@
       "language": "it",
       "name": "Comune di Fürstenau",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13802,7 +14441,8 @@
       "language": "it",
       "name": "Comune di Grono",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13813,7 +14453,8 @@
       "language": "it",
       "name": "Comune di Grüsch",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13824,7 +14465,8 @@
       "language": "it",
       "name": "Comune di Ilanz/Glion",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13835,7 +14477,8 @@
       "language": "it",
       "name": "Comune di Jenaz",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13846,7 +14489,8 @@
       "language": "it",
       "name": "Comune di Jenins",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13857,7 +14501,8 @@
       "language": "it",
       "name": "Comune di Klosters",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13868,7 +14513,8 @@
       "language": "it",
       "name": "Comune di Küblis",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13879,7 +14525,8 @@
       "language": "it",
       "name": "Comune di La Punt Chamues-ch",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13890,7 +14537,8 @@
       "language": "it",
       "name": "Comune di Laax",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13901,7 +14549,8 @@
       "language": "it",
       "name": "Comune di Landquart",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13912,7 +14561,8 @@
       "language": "it",
       "name": "Comune di Lantsch/Lenz",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13923,7 +14573,8 @@
       "language": "it",
       "name": "Comune di Lostallo",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13934,7 +14585,8 @@
       "language": "it",
       "name": "Comune di Lumnezia",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13945,7 +14597,8 @@
       "language": "it",
       "name": "Comune di Luzein",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13956,7 +14609,8 @@
       "language": "it",
       "name": "Comune di Madulain",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13967,7 +14621,8 @@
       "language": "it",
       "name": "Comune di Maienfeld",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13978,7 +14633,8 @@
       "language": "it",
       "name": "Comune di Malans",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -13989,7 +14645,8 @@
       "language": "it",
       "name": "Comune di Masein",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14000,7 +14657,8 @@
       "language": "it",
       "name": "Comune di Medel (Lucmagn)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14011,7 +14669,8 @@
       "language": "it",
       "name": "Comune di Mesocco",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14022,7 +14681,8 @@
       "language": "it",
       "name": "Comune di Muntogna da Schons",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14033,7 +14693,8 @@
       "language": "it",
       "name": "Comune di Obersaxen Mundaun",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14044,7 +14705,8 @@
       "language": "it",
       "name": "Comune di Pontresina",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14055,7 +14717,8 @@
       "language": "it",
       "name": "Comune di Poschiavo",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14066,7 +14729,8 @@
       "language": "it",
       "name": "Comune di Rhäzüns",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14077,7 +14741,8 @@
       "language": "it",
       "name": "Comune di Rheinwald",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14088,7 +14753,8 @@
       "language": "it",
       "name": "Comune di Rongellen",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14099,7 +14765,8 @@
       "language": "it",
       "name": "Comune di Rossa",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14110,7 +14777,8 @@
       "language": "it",
       "name": "Comune di Rothenbrunnen",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14121,7 +14789,8 @@
       "language": "it",
       "name": "Comune di Roveredo (GR)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14132,7 +14801,8 @@
       "language": "it",
       "name": "Comune di Safiental",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14143,7 +14813,8 @@
       "language": "it",
       "name": "Comune di Sagogn",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14154,7 +14825,8 @@
       "language": "it",
       "name": "Comune di Samedan",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14165,7 +14837,8 @@
       "language": "it",
       "name": "Comune di Samnaun",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14176,7 +14849,8 @@
       "language": "it",
       "name": "Comune di San Vittore",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14187,7 +14861,8 @@
       "language": "it",
       "name": "Comune di S-chanf",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14198,7 +14873,8 @@
       "language": "it",
       "name": "Comune di Scharans",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14209,7 +14885,8 @@
       "language": "it",
       "name": "Comune di Schiers",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14220,7 +14897,8 @@
       "language": "it",
       "name": "Comune di Schluein",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14231,7 +14909,8 @@
       "language": "it",
       "name": "Comune di Schmitten (GR)",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14242,7 +14921,8 @@
       "language": "it",
       "name": "Comune di Scuol",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14253,7 +14933,8 @@
       "language": "it",
       "name": "Comune di Seewis im Prättigau",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14264,7 +14945,8 @@
       "language": "it",
       "name": "Comune di Sils im Domleschg",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14275,7 +14957,8 @@
       "language": "it",
       "name": "Comune di Sils im Engadin/Segl",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14286,7 +14969,8 @@
       "language": "it",
       "name": "Comune di Silvaplana",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14297,7 +14981,8 @@
       "language": "it",
       "name": "Comune di Soazza",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14308,7 +14993,8 @@
       "language": "it",
       "name": "Comune di St. Moritz",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14319,7 +15005,8 @@
       "language": "it",
       "name": "Comune di Santa Maria in Calanca",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14330,7 +15017,8 @@
       "language": "it",
       "name": "Comune di Sufers",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14341,7 +15029,8 @@
       "language": "it",
       "name": "Comune di Sumvitg",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14352,7 +15041,8 @@
       "language": "it",
       "name": "Comune di Domleschg",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14363,7 +15053,8 @@
       "language": "it",
       "name": "Comune di Tamins",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14374,7 +15065,8 @@
       "language": "it",
       "name": "Comune di Thusis",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14385,7 +15077,8 @@
       "language": "it",
       "name": "Comune di Trimmis",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14396,7 +15089,8 @@
       "language": "it",
       "name": "Comune di Trin",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14407,7 +15101,8 @@
       "language": "it",
       "name": "Comune di Trun",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14418,7 +15113,8 @@
       "language": "it",
       "name": "Comune di Tschappina",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14429,7 +15125,8 @@
       "language": "it",
       "name": "Comune di Tschiertschen-Praden",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14440,7 +15137,8 @@
       "language": "it",
       "name": "Comune di Tujetsch",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14451,7 +15149,8 @@
       "language": "it",
       "name": "Comune di Untervaz",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14462,7 +15161,8 @@
       "language": "it",
       "name": "Comune di Urmein",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14473,7 +15173,8 @@
       "language": "it",
       "name": "Comune di Val Müstair",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14484,7 +15185,8 @@
       "language": "it",
       "name": "Comune di Vals",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14495,7 +15197,8 @@
       "language": "it",
       "name": "Comune di Valsot",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14506,7 +15209,8 @@
       "language": "it",
       "name": "Comune di Vaz/Obervaz",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14517,7 +15221,8 @@
       "language": "it",
       "name": "Comune di Zernez",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14528,7 +15233,8 @@
       "language": "it",
       "name": "Comune di Zillis-Reischen",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14539,7 +15245,8 @@
       "language": "it",
       "name": "Comune di Zizers",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
     }
   },
   {
@@ -14550,7 +15257,80 @@
       "language": "it",
       "name": "Comune di Zuoz",
       "description": null,
-      "city": null
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 289,
+    "fields": {
+      "service": 167,
+      "language": "de",
+      "name": "Fachstelle Hindernisfreies Bauen Pro Infirmis",
+      "description": "Fachstelle Hindernisfreies Bauen Pro Infirmis",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 290,
+    "fields": {
+      "service": 167,
+      "language": "it",
+      "name": "Servizio di consulenza costruzioni senza ostacoli Pro Infirmis",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 291,
+    "fields": {
+      "service": 168,
+      "language": "de",
+      "name": "Gebäudeversicherung Graubünden, Brandschutz (GVG)",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 292,
+    "fields": {
+      "service": 168,
+      "language": "it",
+      "name": "Assicurazione fabbricati dei Grigioni, protezione antincendio (GVG)",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 293,
+    "fields": {
+      "service": 169,
+      "language": "de",
+      "name": "Elementarschadenprävention (Gebäudeversicherung 1 (GVG1))",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 294,
+    "fields": {
+      "service": 169,
+      "language": "it",
+      "name": "Prevenzione dei danni elementari (Assicurazione stabili 1 (GVG1))",
+      "description": null,
+      "city": null,
+      "department": null
     }
   }
 ]

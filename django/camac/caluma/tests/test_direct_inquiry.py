@@ -23,7 +23,10 @@ def distribution_case_so(
     so_additional_demand_settings,
     so_distribution_settings,
     so_instance,
+    application_settings,
 ):
+    application_settings["SHORT_NAME"] = "so"
+
     mocker.patch("camac.notification.utils.send_mail")
 
     instance_state_factory(name="material-exam")

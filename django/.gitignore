@@ -67,3 +67,6 @@ target/
 
 # Media files
 media
+/result.xlsx
+/result-details.json
+/result.csv

@@ -23,6 +23,10 @@
     "kt_so": {
       "compose": "compose/kt_so.yml:compose/kt_so-dev.yml",
       "loadconfig": "make loadconfig"
+    },
+    "kt_ag": {
+      "compose": "compose/kt_ag.yml:compose/kt_ag-dev.yml",
+      "loadconfig": "make loadconfig"
     }
   },
   "profiles": {
@@ -36,7 +40,6 @@
     }
   },
   "env": "UID={}\nAPPLICATION={}\nCOMPOSE_FILE={}\nCOMPOSE_PROFILES={}\nDJANGO_CLAMD_ENABLED={}\n",
-  "build_cmd": "docker-compose up -d --build",
-  "up_cmd": "docker-compose up -d",
-  "append_cmd": "echo 127.0.0.1 ebau-portal.local ebau.local ebau-keycloak.local ember-ebau.local ebau-rest-portal.local | sudo tee -a /etc/hosts"
+  "build_cmd": "docker compose up -d --build",
+  "up_cmd": "docker compose up -d"
 }

@@ -15,13 +15,16 @@ decision:
       lo stato opposto rispetto a quello della decisione precedente <b>({status})</b>.
     rejected: |-
       Dopo aver registrato la decisione il presente dossier viene copiato
-      e viene impostato lo stato <b>({status})</b>. Il dossier attuale viene 
+      e viene impostato lo stato <b>({status})</b>. Il dossier attuale viene
       concluso.
+
+  additional-demand:
+    unknown: "La richiesta aggiuntiva è stata salvata con successo."
 
   appeal-confirm: |-
     Avvia davvero una nuova procedura di ricorso? Al presente dossier viene
     assegnato in modo irrevocabile lo stato <b>"concluso"</b>. Viene generato un
-    dossier di ricorso nel quale può essere documentata 
+    dossier di ricorso nel quale può essere documentata
     la procedura di ricorso.
 
   send-notification-success: "Notifiche inviate con successo"

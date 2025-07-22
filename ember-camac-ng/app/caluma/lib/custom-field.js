@@ -130,7 +130,12 @@ export default class CustomField extends Field {
           "decision-decision-assessment-negative",
           "decision-decision-assessment-other",
         ];
-      } else if (form === "klaerung-baubewilligungspflicht") {
+      } else if (
+        [
+          "klaerung-baubewilligungspflicht",
+          "klaerung-baubewilligungspflicht-v2",
+        ].includes(form)
+      ) {
         // Klärung Baubewilligungspflicht
         return [
           "decision-decision-assessment-obligated",

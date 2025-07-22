@@ -23,6 +23,7 @@ from camac.core.utils import (
     generate_sort_key,
     generate_special_id,
 )
+from camac.instance.master_data import MasterData
 from camac.instance.models import Instance, InstanceGroup
 from camac.permissions.events import Trigger
 from camac.user.models import Service
@@ -289,6 +290,12 @@ class CreateInstanceLogic:
         return generate_dossier_nr(instance, year or timezone.now().year)
 
     @classmethod
+    def generate_identifier_ag(
+        cls, instance: Instance, year: int = None
+    ) -> str:  # pragma: no cover
+        return generate_dossier_nr(instance, year or timezone.now().year)
+
+    @classmethod
     def generate_identifier_so(cls, instance: Instance, year: int = None) -> str:
         authority = instance.responsible_service()
 
@@ -372,6 +379,8 @@ class CreateInstanceLogic:
                 "projektaenderung",
                 "projektaenderung-ja" if is_modification else "projektaenderung-nein",
                 user,
+                # Not all forms have this question (Vorabklärungen for example)
+                skip_on_error=True,
             )
 
         if settings.APPLICATION["CALUMA"].get("USE_LOCATION") and instance.location:
@@ -395,14 +404,14 @@ class CreateInstanceLogic:
             # prefill municipality question if possible
             value = str(group.service.pk)
             source = Municipalities()
-            municipality_slug = settings.MASTER_DATA["CONFIG"]["municipality"][1]
+            municipality_question = MasterData.get_question_slug("municipality_slug")
 
             if source.validate_answer_value(
-                value, case.document, municipality_slug, None, None
+                value, case.document, municipality_question, None, None
             ):
                 caluma_api.update_or_create_answer(
                     case.document,
-                    municipality_slug,
+                    municipality_question,
                     value,
                     user,
                 )
@@ -410,68 +419,114 @@ class CreateInstanceLogic:
     @staticmethod
     def copy_applicants(source, target):
         for applicant in source.involved_applicants.all():
-            target.involved_applicants.update_or_create(
+            new_applicant = target.involved_applicants.create(
                 invitee=applicant.invitee,
-                defaults={
-                    "created": timezone.now(),
-                    "user": applicant.user,
-                    "email": applicant.email,
-                },
+                created=timezone.now(),
+                user=applicant.user,
+                email=applicant.email,
+                role=applicant.role,
             )
-            Trigger.applicant_added(request=None, instance=target, applicant=applicant)
+            Trigger.applicant_added(
+                request=None, instance=target, applicant=new_applicant
+            )
+
+    @classmethod
+    @canton_aware
+    def copy_attachments(
+        cls,
+        source,
+        target,
+        skip_exported_form_attachment=False,
+        is_modification=False,
+    ):
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+            CreateInstanceLogic.copy_alexandria_attachments(
+                source,
+                target,
+                skip_exported_form_attachment=skip_exported_form_attachment,
+            )
+        else:
+            CreateInstanceLogic.copy_camac_attachments(
+                source,
+                target,
+                skip_exported_form_attachment=skip_exported_form_attachment,
+            )
+
+    @classmethod
+    def copy_attachments_gr(
+        cls,
+        source,
+        target,
+        skip_exported_form_attachment=False,
+        is_modification=False,
+    ):
+        if is_modification:
+            return
+
+        CreateInstanceLogic.copy_alexandria_attachments(
+            source, target, skip_exported_form_attachment=skip_exported_form_attachment
+        )
 
     @staticmethod
-    def copy_attachments(source, target, skip_exported_form_attachment=False):
-        if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
-            alexandria_documents = Document.objects.filter(
-                **{"metainfo__camac-instance-id": str(source.pk)},
+    def copy_alexandria_attachments(
+        source, target, skip_exported_form_attachment=False
+    ):
+        categories = settings.ALEXANDRIA.get("INSTANCE_COPY_CATEGORIES", [])
+        alexandria_documents = Document.objects.filter(
+            Q(
+                **{
+                    "metainfo__camac-instance-id": str(source.pk),
+                }
             )
-            if skip_exported_form_attachment:
-                alexandria_documents = alexandria_documents.exclude(
-                    metainfo__has_key="system-generated"
+            & (Q(category_id__in=categories) | Q(category__parent_id__in=categories))
+        )
+        if skip_exported_form_attachment:
+            alexandria_documents = alexandria_documents.exclude(
+                metainfo__has_key="system-generated"
+            )
+
+        for document in alexandria_documents:
+            new_document = document.clone()
+            new_document.metainfo["camac-instance-id"] = str(target.pk)
+            new_document.instance_document.instance_id = target.pk
+            new_document.instance_document.save()
+            if new_document.metainfo.get("caluma-document-id"):
+                new_document.metainfo["caluma-document-id"] = str(
+                    target.case.document.pk
                 )
+            new_document.save()
 
-            for document in alexandria_documents:
-                new_document = document.clone()
-                new_document.metainfo["camac-instance-id"] = str(target.pk)
-                new_document.instance_document.instance_id = target.pk
-                new_document.instance_document.save()
-                if new_document.metainfo.get("caluma-document-id"):
-                    new_document.metainfo["caluma-document-id"] = str(
-                        target.case.document.pk
-                    )
-                new_document.save()
+    @staticmethod
+    def copy_camac_attachments(source, target, skip_exported_form_attachment=False):
+        attachments = source.attachments.all()
 
-        else:
-            attachments = source.attachments.all()
+        if skip_exported_form_attachment:
+            form_attachment_name = (
+                slugify(f"{source.pk}-{source.case.document.form.name}") + ".pdf"
+            )
+            attachments = source.attachments.filter(~Q(name=form_attachment_name))
 
-            if skip_exported_form_attachment:
-                form_attachment_name = (
-                    slugify(f"{source.pk}-{source.case.document.form.name}") + ".pdf"
-                )
-                attachments = source.attachments.filter(~Q(name=form_attachment_name))
+        for attachment in attachments:
+            try:
+                new_file = ContentFile(attachment.path.read())
+            except FileNotFoundError:  # pragma: no cover
+                # file does not exist so use the old file
+                new_file = attachment.path
 
-            for attachment in attachments:
-                try:
-                    new_file = ContentFile(attachment.path.read())
-                except FileNotFoundError:  # pragma: no cover
-                    # file does not exist so use the old file
-                    new_file = attachment.path
+            # store sections first
+            sections = attachment.attachment_sections.all()
 
-                # store sections first
-                sections = attachment.attachment_sections.all()
+            # copy the file
+            new_file.name = attachment.path.name
+            attachment.path = new_file
 
-                # copy the file
-                new_file.name = attachment.path.name
-                attachment.path = new_file
+            attachment.attachment_id = None
+            attachment.instance = target
+            attachment.uuid = uuid4()
+            attachment.save()
 
-                attachment.attachment_id = None
-                attachment.instance = target
-                attachment.uuid = uuid4()
-                attachment.save()
-
-                attachment.attachment_sections.set(sections)
-                attachment.save()
+            attachment.attachment_sections.set(sections)
+            attachment.save()
 
     @staticmethod
     def copy_ebau_number(source_instance, target_instance, case):
@@ -532,9 +587,14 @@ class CreateInstanceLogic:
         if source_instance:
             if settings.APPLICATION.get("LINK_INSTANCES_ON_COPY"):
                 link_instances(instance, source_instance)  # pragma: no cover
+
             CreateInstanceLogic.copy_attachments(
-                source_instance, instance, skip_exported_form_attachment
+                source_instance,
+                instance,
+                skip_exported_form_attachment,
+                is_modification,
             )
+
             if not is_modification:
                 CreateInstanceLogic.copy_applicants(source_instance, instance)
                 instance.form = source_instance.form
@@ -588,7 +648,7 @@ class CreateInstanceLogic:
 
         instance = Instance.objects.create(**data)
 
-        if not is_paper:
+        if not is_paper and (not source_instance or is_modification):
             new_applicant = instance.involved_applicants.create(
                 user=camac_user,
                 invitee=camac_user,

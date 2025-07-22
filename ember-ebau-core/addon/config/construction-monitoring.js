@@ -40,6 +40,9 @@ if (macroCondition(getOwnConfig().application === "sz")) {
 if (macroCondition(getOwnConfig().application === "ur")) {
   config = importSync("ember-ebau-core/config/construction-monitoring-ur");
 }
+if (macroCondition(getOwnConfig().application === "gr")) {
+  config = importSync("ember-ebau-core/config/construction-monitoring-gr");
+}
 
 const sharedConfig = {
   constructionSteps: [

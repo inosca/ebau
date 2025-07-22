@@ -16,6 +16,7 @@ from caluma.caluma_workflow.models import Case, WorkItem
 from django.utils.timezone import now
 
 from camac.constants import kt_bern as bern_constants
+from camac.user.models import Service
 
 
 def _inquiry_factory(
@@ -94,6 +95,10 @@ def distribution_case_gr(
     # this is needed so that simple workflow works
     notification_template_factory(slug="verfahrensablauf-fachstelle")
     notification_template_factory(slug="verfahrensablauf-uso")
+    notification_template_factory(
+        slug="zirkulation-abgebrochen",
+        subject="Information über vorzeitiger Abbruch der Stellungnahme",
+    )
     instance_state_factory(name="circulation")
     instance_state_factory(name="decision")
     instance_state_factory(
@@ -135,6 +140,37 @@ def distribution_case_sz(
 
 
 @pytest.fixture
+def distribution_case_ag(
+    ag_instance,
+    caluma_admin_user,
+    instance_state_factory,
+    ag_distribution_settings,
+    set_application_ag,
+    service,
+    service_factory,
+    mocker,
+):
+    mocker.patch("camac.notification.utils.send_mail")
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service,
+    )
+
+    instance_state_factory(name="init-distribution")
+    instance_state_factory(name="circulation")
+    service_factory(slug="afb")
+
+    case = ag_instance.case
+
+    for task in ["submit", "formal-exam"]:
+        skip_work_item(
+            work_item=case.work_items.get(task_id=task), user=caluma_admin_user
+        )
+
+    return case
+
+
+@pytest.fixture
 def distribution_child_case_be(distribution_case_be, be_distribution_settings):
     return distribution_case_be.work_items.get(
         task_id=be_distribution_settings["DISTRIBUTION_TASK"]
@@ -152,6 +188,13 @@ def distribution_child_case_gr(distribution_case_gr, gr_distribution_settings):
 def distribution_child_case_sz(distribution_case_sz, sz_distribution_settings):
     return distribution_case_sz.work_items.get(
         task_id=sz_distribution_settings["DISTRIBUTION_TASK"]
+    ).child_case
+
+
+@pytest.fixture
+def distribution_child_case_ag(distribution_case_ag, ag_distribution_settings):
+    return distribution_case_ag.work_items.get(
+        task_id=ag_distribution_settings["DISTRIBUTION_TASK"]
     ).child_case
 
 
@@ -213,6 +256,27 @@ def inquiry_factory_sz(
             user=caluma_admin_user,
             distribution_child_case=distribution_child_case_sz,
             distribution_settings=sz_distribution_settings,
+        )
+
+    return factory
+
+
+@pytest.fixture
+def inquiry_factory_ag(
+    ag_distribution_settings,
+    caluma_admin_user,
+    distribution_child_case_ag,
+    service_factory,
+    service,
+):
+    def factory(to_service=service_factory(), from_service=service, sent=False):
+        return _inquiry_factory(
+            to_service=to_service,
+            from_service=from_service,
+            sent=sent,
+            user=caluma_admin_user,
+            distribution_child_case=distribution_child_case_ag,
+            distribution_settings=ag_distribution_settings,
         )
 
     return factory
@@ -362,12 +426,12 @@ def test_send_inquiry(
     inquiry_factory_be,
     mailoutbox,
     service_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     service,
     be_ech0211_settings,
 ):
     addressed_service = service_factory()
-    work_item_factory(
+    caluma_work_item_factory(
         task_id=be_distribution_settings["DISTRIBUTION_CHECK_TASK"],
         case=distribution_child_case_be,
         status=WorkItem.STATUS_READY,
@@ -409,7 +473,7 @@ def test_send_inquiry_gr(
     mailoutbox,
     service_factory,
     group_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     service,
     settings,
     set_application_gr,
@@ -417,7 +481,7 @@ def test_send_inquiry_gr(
     gr_additional_demand_settings,
 ):
     addressed_service = service_factory(service_group__name="uso")
-    work_item_factory(
+    caluma_work_item_factory(
         task_id=settings.DISTRIBUTION["DISTRIBUTION_CHECK_TASK"],
         case=distribution_child_case_gr,
         status=WorkItem.STATUS_READY,
@@ -524,7 +588,7 @@ def test_complete_inquiry(
     mailoutbox,
     service,
     has_multiple_inquiries,
-    work_item_factory,
+    caluma_work_item_factory,
     service_factory,
     is_lead_authority,
 ):
@@ -545,7 +609,7 @@ def test_complete_inquiry(
         else None
     )
 
-    addressed_check_work_item = work_item_factory(
+    addressed_check_work_item = caluma_work_item_factory(
         task_id=be_distribution_settings["INQUIRY_CHECK_TASK"],
         case=inquiry1.case,
         status=WorkItem.STATUS_READY,
@@ -554,7 +618,7 @@ def test_complete_inquiry(
         child_case=None,
     )
 
-    addressed_redo_work_item = work_item_factory(
+    addressed_redo_work_item = caluma_work_item_factory(
         task_id=be_distribution_settings["INQUIRY_REDO_TASK"],
         case=inquiry1.case,
         status=WorkItem.STATUS_READY,
@@ -661,7 +725,7 @@ def test_complete_distribution(
     inquiry_factory_be,
     mailoutbox,
     service_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     be_ech0211_settings,
 ):
     service = service_factory()
@@ -671,7 +735,7 @@ def test_complete_distribution(
         to_service=service, sent=True
     )  # sent - will be skipped
 
-    check_distribution = work_item_factory(
+    check_distribution = caluma_work_item_factory(
         task_id=be_distribution_settings["DISTRIBUTION_CHECK_TASK"],
         case=distribution_child_case_be,
         status=WorkItem.STATUS_READY,
@@ -730,6 +794,47 @@ def test_complete_distribution(
 
     assert len(mailoutbox) == 1
     assert mailoutbox[0].to[0] == service.email
+
+
+def test_send_aborting_distribution_sends_notification(
+    db,
+    settings,
+    caluma_admin_user,
+    distribution_child_case_gr,
+    gr_distribution_settings,
+    mailoutbox,
+    service_factory,
+    caluma_work_item_factory,
+    disable_ech0211_settings,
+):
+    settings.DISTRIBUTION["NOTIFY_ON_CANCELLATION"] = True
+    service = service_factory()
+
+    inquiry_workitem = caluma_work_item_factory(
+        task_id=gr_distribution_settings["INQUIRY_TASK"],
+        case=distribution_child_case_gr,
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[str(service.pk)],
+        controlling_groups=[str(service.pk)],
+    )
+
+    mailoutbox.clear()
+
+    complete_work_item(
+        work_item=distribution_child_case_gr.work_items.get(
+            task_id=gr_distribution_settings["DISTRIBUTION_COMPLETE_TASK"],
+            status=WorkItem.STATUS_READY,
+        ),
+        user=caluma_admin_user,
+    )
+
+    inquiry_workitem.refresh_from_db()
+
+    assert len(mailoutbox) == 1
+    assert (
+        mailoutbox[0].subject
+        == "[eBau Test]: Information über vorzeitiger Abbruch der Stellungnahme"
+    )
 
 
 @pytest.mark.parametrize("has_inquiries", [True, False])
@@ -844,7 +949,7 @@ def test_reopen_distribution(
     service_factory,
     service,
     instance_state_factory,
-    task_factory,
+    caluma_task_factory,
     be_ech0211_settings,
 ):
     instance_state_distribution = instance_state_factory()
@@ -854,7 +959,7 @@ def test_reopen_distribution(
     )
     be_distribution_settings["HISTORY"] = {"REDO_DISTRIBUTION": "reopen"}
     be_distribution_settings["REDO_DISTRIBUTION"] = {
-        "CREATE_TASKS": [task_factory().slug]
+        "CREATE_TASKS": [caluma_task_factory().slug]
     }
 
     service_with_sent_inquiry = service_factory()
@@ -1036,7 +1141,7 @@ def test_cancel_inquiry(
     be_distribution_settings,
     inquiry_factory_be,
     service_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     is_subservice,
     inquiry_count,
     has_multiple_create_work_items,
@@ -1059,7 +1164,7 @@ def test_cancel_inquiry(
 
     # provoke error
     if has_multiple_create_work_items:
-        work_item_factory(
+        caluma_work_item_factory(
             case=distribution_child_case_be,
             addressed_groups=[str(service.pk)],
             task_id=be_distribution_settings["INQUIRY_CREATE_TASK"],
@@ -1101,7 +1206,7 @@ def test_sync_inquiry_deadline(
         return_value=True,
     )
     be_distribution_settings["SYNC_INQUIRY_DEADLINE_TO_ANSWER_TASKS"] = {
-        f'{be_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]}': {
+        f"{be_distribution_settings['INQUIRY_ANSWER_FILL_TASK']}": {
             "TIME_DELTA": timedelta(days=-5)
         }
     }
@@ -1164,7 +1269,7 @@ def test_set_deadline_for_check_inquiries_work_item(
     be_ech0211_settings,
     inquiry_factory_be,
     service,
-    work_item_factory,
+    caluma_work_item_factory,
     service_factory,
 ):
     inquiry = inquiry_factory_be(
@@ -1182,7 +1287,7 @@ def test_set_deadline_for_check_inquiries_work_item(
             user=caluma_admin_user,
         )
 
-    check_task_work_item = work_item_factory(
+    check_task_work_item = caluma_work_item_factory(
         task_id=be_distribution_settings["INQUIRY_CHECK_TASK"],
         case=inquiry.case,
         status=WorkItem.STATUS_READY,
@@ -1196,6 +1301,147 @@ def test_set_deadline_for_check_inquiries_work_item(
 
     check_task_work_item.refresh_from_db()
 
-    assert (
-        check_task_work_item.deadline is not None
-    ), "completing an inquiry should set a deadline on check items which do not have a deadline yet"
+    assert check_task_work_item.deadline is not None, (
+        "completing an inquiry should set a deadline on check items which do not have a deadline yet"
+    )
+
+
+@pytest.mark.freeze_time("2025-01-24")
+@pytest.mark.parametrize(
+    "is_afb,has_deadline,did_update_deadline",
+    [
+        (False, False, False),
+        (True, True, False),
+        (True, False, True),
+    ],
+)
+def test_set_cantonal_exam_deadline(
+    db,
+    caluma_admin_user,
+    did_update_deadline,
+    disable_additional_demand_settings,
+    disable_ech0211_settings,
+    has_deadline,
+    inquiry_factory_gr,
+    is_afb,
+    service_factory,
+    settings,
+    caluma_work_item_factory,
+):
+    settings.APPLICATION_NAME = "kt_ag"
+
+    service = service_factory(slug="afb" if is_afb else "abc")
+    inquiry = inquiry_factory_gr(service)
+    cantonal_exam = caluma_work_item_factory(
+        task__slug="cantonal-exam",
+        case=inquiry.case.family,
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[str(service.pk)],
+    )
+
+    if has_deadline:
+        cantonal_exam.deadline = now()
+        cantonal_exam.save()
+
+    resume_work_item(inquiry, caluma_admin_user)
+
+    cantonal_exam.refresh_from_db()
+
+    if did_update_deadline:
+        assert cantonal_exam.deadline.date().isoformat() == "2025-01-29"
+    elif not has_deadline:
+        assert cantonal_exam.deadline is None
+    else:
+        assert cantonal_exam.deadline == now()
+
+
+@pytest.mark.freeze_time("2025-01-24")
+@pytest.mark.parametrize(
+    "is_afb,has_sibling_inquiries,expected_status",
+    [
+        (False, False, WorkItem.STATUS_CANCELED),
+        (False, True, WorkItem.STATUS_CANCELED),
+        (True, False, WorkItem.STATUS_CANCELED),
+        (True, True, WorkItem.STATUS_READY),
+    ],
+)
+def test_set_document_supplement_deadline(
+    db,
+    caluma_admin_user,
+    disable_additional_demand_settings,
+    disable_ech0211_settings,
+    expected_status,
+    has_sibling_inquiries,
+    inquiry_factory_ag,
+    is_afb,
+    service_factory,
+    settings,
+):
+    settings.APPLICATION_NAME = "kt_ag"
+
+    service = Service.objects.get(slug="afb") if is_afb else service_factory()
+    inquiry = inquiry_factory_ag(service)
+
+    if has_sibling_inquiries:
+        inquiry_factory_ag(service, sent=True)
+
+    resume_work_item(inquiry, caluma_admin_user)
+
+    check_work_item = inquiry.child_case.work_items.get(
+        task_id="check-document-supplement"
+    )
+
+    assert check_work_item.status == expected_status
+
+    if expected_status == WorkItem.STATUS_READY:
+        assert check_work_item.deadline.date().isoformat() == "2025-01-29"
+    else:
+        assert check_work_item.deadline is None
+
+
+@pytest.mark.freeze_time("2025-07-14")
+@pytest.mark.parametrize(
+    "is_afb,form_slug,expected_deadline",
+    [
+        (True, "baugesuch", "2026-07-14"),
+        (True, "anfrage", "2025-08-13"),
+        (False, "baugesuch", None),
+    ],
+)
+def test_set_trigger_billing_deadline(
+    db,
+    ag_distribution_settings,
+    caluma_admin_user,
+    disable_additional_demand_settings,
+    disable_ech0211_settings,
+    expected_deadline,
+    form_slug,
+    inquiry_factory_ag,
+    is_afb,
+    service_factory,
+    settings,
+    ag_instance,
+):
+    settings.APPLICATION_NAME = "kt_ag"
+
+    ag_instance.case.document.form_id = form_slug
+    ag_instance.case.document.save()
+
+    service = Service.objects.get(slug="afb") if is_afb else service_factory()
+    inquiry = inquiry_factory_ag(service, sent=True)
+
+    skip_work_item(
+        work_item=inquiry.child_case.work_items.get(
+            task_id=ag_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]
+        ),
+        user=caluma_admin_user,
+    )
+
+    trigger_work_item = inquiry.case.work_items.filter(
+        task_id="trigger-billing"
+    ).first()
+
+    if is_afb:
+        assert trigger_work_item.deadline.date().isoformat() == expected_deadline
+    else:
+        assert trigger_work_item is None

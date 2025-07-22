@@ -1,1 +1,2 @@
 /Dockerfile.ember gitlab-language=dockerfile
+/django/camac/fixtures/generated/*.py gitlab-generated

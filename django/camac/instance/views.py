@@ -1,20 +1,23 @@
 import mimetypes
 from datetime import timedelta
+from logging import getLogger
 
 import django_excel
 from caluma.caluma_form import models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
+from django.core.exceptions import ValidationError as DjangoValidationError
 from django.core.files import File
+from django.core.validators import EmailValidator as DjangoEmailValidator
 from django.db import transaction
-from django.db.models import CharField, F, OuterRef, Q, Subquery, Value
+from django.db.models import CharField, F, OuterRef, Q, QuerySet, Subquery, Value
 from django.db.models.expressions import Func
 from django.db.models.fields import IntegerField
 from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import Cast
-from django.http import HttpResponse
+from django.http import FileResponse, HttpResponse
 from django.utils import timezone
-from django.utils.translation import gettext as _
+from django.utils.translation import get_language, gettext as _
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from generic_permissions.visibilities import VisibilityViewMixin
@@ -33,12 +36,11 @@ from camac.caluma.utils import sync_inquiry_deadline
 from camac.constants import kt_uri as ur_constants
 from camac.core.models import InstanceService, PublicationEntry, WorkflowEntry
 from camac.core.utils import canton_aware
-from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.instance.domain_logic import RejectionLogic, WithdrawalLogic
-from camac.instance.master_data import MasterData
+from camac.instance.master_data import MasterData, MultipleCaseMasterdata
 from camac.instance.models import FormField
-from camac.instance.utils import build_document_prefetch_statements
+from camac.instance.utils import get_changeable_forms
 from camac.notification.utils import send_mail
 from camac.permissions import api as permissions_api
 from camac.permissions.events import Trigger
@@ -50,10 +52,9 @@ from camac.user.permissions import (
     DefaultPermission,
     IsApplication,
     PublicationPermission,
-    ViewedPublicationCountPermissions,
     permission_aware,
 )
-from camac.utils import DocxRenderer
+from camac.utils import DocxRenderer, delay_next_workingday
 
 from ..utils import get_paper_settings
 from . import (
@@ -68,12 +69,15 @@ from . import (
 from .domain_logic import link_instances
 from .milestones.serializers import MilestonesSerializer, UrMilestonesSerializer
 from .placeholders.serializers import (
+    AgDMSPlaceholdersSerializer,
     BeDMSPlaceholdersSerializer,
     DMSPlaceholdersSerializer,
     GrDMSPlaceholdersSerializer,
     SoDMSPlaceholdersSerializer,
     UrDMSPlaceholdersSerializer,
 )
+
+logger = getLogger(__name__)
 
 
 class InstanceStateView(ReadOnlyModelViewSet):
@@ -118,6 +122,13 @@ class InstanceView(
     Instance field is actually model itself.
     """
     instance_editable_permission = "instance"
+
+    @property
+    def allow_external_clients(self):
+        if self.include_in_swagger():
+            return ["generate_pdf"]
+
+        return False
 
     @classmethod
     def include_in_swagger(cls):
@@ -184,12 +195,13 @@ class InstanceView(
                 "report": serializers.CalumaInstanceReportSerializer,
                 "finalize": serializers.CalumaInstanceFinalizeSerializer,
                 "change_responsible_service": serializers.CalumaInstanceChangeResponsibleServiceSerializer,
+                "unsubscribe_responsible_service": serializers.CalumaInstanceUnsubscribeResponsibleServiceSerializer,
                 "set_ebau_number": serializers.CalumaInstanceSetEbauNumberSerializer,
                 "archive": serializers.CalumaInstanceArchiveSerializer,
                 "change_form": serializers.CalumaInstanceChangeFormSerializer,
-                "fix_work_items": serializers.CalumaInstanceFixWorkItemsSerializer,
                 "convert_modification": serializers.CalumaInstanceConvertModificationSerializer,
                 "dms_placeholders": {
+                    "kt_ag": AgDMSPlaceholdersSerializer,
                     "kt_bern": BeDMSPlaceholdersSerializer,
                     "kt_gr": GrDMSPlaceholdersSerializer,
                     "kt_so": SoDMSPlaceholdersSerializer,
@@ -308,10 +320,33 @@ class InstanceView(
             self.has_base_permission(instance) and instance.instance_state.name == "sb2"
         )
 
+    @permission_switching_method
+    def has_object_unsubscribe_responsible_service_permission(self, instance):
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "instance-unsubscribe-responsible-service"
+        )
+
+    @has_object_unsubscribe_responsible_service_permission.register_old
+    def _has_object_unsubscribe_responsible_service_permission(self, instance):
+        return instance.instance_services.filter(
+            active=0, service=self.request.group.service
+        ).exists()
+
+    @permission_switching_method
     def has_object_change_responsible_service_permission(self, instance):
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "instance-change-responsible-service"
+        )
+
+    @has_object_change_responsible_service_permission.register_old
+    @permission_aware
+    def _has_object_change_responsible_service_permission(self, instance):
         return instance.instance_services.filter(
             active=1, service=self.request.group.service
         ).exists()
+
+    def _has_object_change_responsible_service_permission_for_support(self, instance):
+        return True
 
     @permission_aware
     def has_object_set_ebau_number_permission(self, instance):
@@ -339,11 +374,18 @@ class InstanceView(
     def has_object_archive_permission_for_support(self, instance):
         return True
 
-    @permission_aware
+    @permission_switching_method
     def has_object_change_form_permission(self, instance):
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "instance-change-form"
+        )
+
+    @has_object_change_form_permission.register_old
+    @permission_aware
+    def _has_object_change_form_permission(self, instance):
         return False
 
-    def has_object_change_form_permission_for_municipality(self, instance):
+    def _has_object_change_form_permission_for_municipality(self, instance):
         is_responsible_service = (
             instance.responsible_service(filter_type="municipality")
             == self.request.group.service
@@ -353,14 +395,7 @@ class InstanceView(
 
         return is_responsible_service
 
-    def has_object_change_form_permission_for_support(self, instance):
-        return True
-
-    @permission_aware
-    def has_object_fix_work_items_permission(self, instance):
-        return False
-
-    def has_object_fix_work_items_permission_for_support(self, instance):
+    def _has_object_change_form_permission_for_support(self, instance):
         return True
 
     @permission_aware
@@ -388,6 +423,7 @@ class InstanceView(
         return (
             instance.responsible_service(filter_type="municipality")
             == self.request.group.service
+            and not instance.case.meta["is-appeal"]
         )
 
     def has_object_convert_modification_permission_for_support(self, instance):
@@ -472,7 +508,10 @@ class InstanceView(
             deadline_answer = work_item.document.answers.filter(
                 question_id=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
             )
-            deadline_answer.update(date=timezone.now() + timedelta(days=7))
+
+            deadline_answer.update(
+                date=delay_next_workingday(timezone.now() + timedelta(days=7))
+            )
 
             sync_inquiry_deadline(work_item)
 
@@ -688,17 +727,9 @@ class InstanceView(
             user=request.caluma_info.context.user,
         )
 
-        # send notification email when configured
-        notification_template = settings.APPLICATION["NOTIFICATIONS"].get("SUBMIT")
-        if notification_template and instance.group.service.notification:
-            send_mail(
-                notification_template,
-                self.get_serializer_context(),
-                recipient_types=["municipality"],
-                instance={"id": pk, "type": "instances"},
-            )
+        newly_added = self.add_project_personalities_to_applicants(instance)
 
-        self.add_project_personalities_to_applicants(instance)
+        self._notify_municipality_and_applicants(instance, newly_added)
 
         return response.Response(data=serializer.data)
 
@@ -720,43 +751,101 @@ class InstanceView(
         ).values("value")
 
         emails = [
-            field["value"][0].get("email")
+            email
             for field in form_fields_value
-            if field["value"] and field["value"][0].get("email")
+            if field.get("value")
+            for personality in field["value"]
+            if (
+                (personality_email := personality.get("email"))
+                and (email := personality_email.strip())
+            )
         ]
 
         return emails
 
     @canton_aware
     def add_project_personalities_to_applicants(self, instance):
-        return  # pragma: no cover
+        """
+        Create applicants from personalities.
+
+        Returns a list of all newly created applicants. For generic cantons, this doesn't
+        do anything, so the returned list is empty.
+        """
+        return []  # pragma: no cover
 
     def add_project_personalities_to_applicants_sz(self, instance):
+        """
+        Create applicants from personalities (Schwyz).
+
+        This ensures that each project personality is added as an applicant to instance,
+        to ensure that all stated project personalities have access to the instance.
+
+        Returns a list of all newly created applicants.
+        """
+
         involved_emails = self.get_project_personalities_emails(instance)
-        notification_template = settings.APPLICATION["NOTIFICATIONS"]["APPLICANT"].get(
-            "NEW"
-        )
+        newly_added = []
 
         for email in involved_emails:
-            applicant, created = Applicant.objects.get_or_create(
-                instance=instance,
-                user=instance.user,
-                email=email,
-                invitee=User.objects.filter(email=email).first(),
-            )
+            # Skip invalid email addresses:
+            try:
+                DjangoEmailValidator()(email)
+            except DjangoValidationError:
+                continue
 
-            if created:
-                Trigger.applicant_added(
-                    request=self.request, instance=instance, applicant=applicant
+            user = User.objects.filter(email=email).first()
+            applicant = Applicant.objects.filter(
+                instance=instance,
+                **({"invitee": user} if user else {"email": email}),
+            ).first()
+
+            if not applicant:
+                new_applicant = Applicant.objects.create(
+                    instance=instance,
+                    invitee=user,
+                    user=instance.user,
+                    email=email,
                 )
-                if notification_template:
+                Trigger.applicant_added(
+                    request=self.request, instance=instance, applicant=new_applicant
+                )
+                newly_added.append(new_applicant)
+
+        return newly_added
+
+    def _notify_municipality_and_applicants(self, instance, applicants):
+        """Send notifications to the municipality and all newly added applicants."""
+
+        notification_template_municipality = settings.APPLICATION["NOTIFICATIONS"].get(
+            "SUBMIT"
+        )
+        notification_template_applicant = settings.APPLICATION["NOTIFICATIONS"][
+            "APPLICANT"
+        ].get("NEW")
+
+        if notification_template_municipality and instance.group.service.notification:
+            try:
+                send_mail(
+                    notification_template_municipality,
+                    self.get_serializer_context(),
+                    recipient_types=["municipality"],
+                    instance={"id": instance.pk, "type": "instances"},
+                )
+            except Exception as e:  # pragma: no cover
+                logger.exception(e)
+
+        if notification_template_applicant:
+            for applicant in applicants:
+                try:
                     send_mail(
-                        notification_template,
+                        notification_template_applicant,
                         self.get_serializer_context(),
                         recipient_types=["email_list"],
-                        email_list=email,
+                        email_list=applicant.email,
                         instance={"id": instance.pk, "type": "instances"},
                     )
+                except Exception as e:  # pragma: no cover
+                    logger.exception(e)
 
     def _custom_serializer_action(
         self, request, pk=None, status_code=None, perform_save=True
@@ -765,9 +854,13 @@ class InstanceView(
             instance=self.get_object(), data=request.data, partial=True
         )
         serializer.is_valid(raise_exception=True)
-        if perform_save:
-            serializer.save()
 
+        result = None
+        if perform_save:
+            result = serializer.save()
+
+        if isinstance(result, response.Response):
+            return result
         if status_code == status.HTTP_204_NO_CONTENT:
             return response.Response(data=None, status=status_code)
 
@@ -827,6 +920,11 @@ class InstanceView(
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
     @swagger_auto_schema(auto_schema=None)
+    @action(methods=["post"], detail=True, url_path="unsubscribe-responsible-service")
+    def unsubscribe_responsible_service(self, request, pk=None):
+        return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
+
+    @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True, url_path="set-ebau-number")
     def set_ebau_number(self, request, pk=None):
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
@@ -856,20 +954,18 @@ class InstanceView(
     )
     @action(methods=["get"], detail=True, url_path="generate-pdf")
     def generate_pdf(self, request, pk=None):
-        form_slug = self.request.query_params.get("form-slug")
-        document_id = self.request.query_params.get("document-id")
-        template = self.request.query_params.get("template")
-
         instance = self.get_object()
 
         pdf = document_merge_service.DMSHandler().generate_pdf(
-            instance.pk, request, form_slug, document_id, template
+            instance.pk,
+            request,
+            self.request.query_params.get("form-slug"),
+            self.request.query_params.get("document-id"),
+            self.request.query_params.get("template"),
+            self.request.query_params.get("for-additional-demand"),
         )
 
-        response = SendfileHttpResponse(
-            content_type="application/pdf", filename=pdf.name, file_obj=pdf.file
-        )
-        return response
+        return FileResponse(pdf.file, content_type="application/pdf", filename=pdf.name)
 
     @swagger_auto_schema(auto_schema=None)
     @action(methods=["post"], detail=True)
@@ -882,9 +978,21 @@ class InstanceView(
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
     @swagger_auto_schema(auto_schema=None)
-    @action(methods=["post"], detail=True, url_path="fix-work-items")
-    def fix_work_items(self, request, pk=None):
-        return self._custom_serializer_action(request, pk)
+    @action(methods=["get"], detail=True, url_path="changeable-forms")
+    def changeable_forms(self, request, pk=None):
+        instance = self.get_object()
+        forms = get_changeable_forms(instance.case.document.form_id)
+        name_key = f"name__{get_language()}"
+
+        return response.Response(
+            [
+                {"slug": form[0], "name": form[1]}
+                for form in form_models.Form.objects.filter(pk__in=forms)
+                .order_by(name_key)
+                .values_list("pk", name_key)
+            ],
+            status=status.HTTP_200_OK,
+        )
 
     @swagger_auto_schema(auto_schema=None)
     @action(
@@ -960,7 +1068,7 @@ class InstanceView(
         manager = permissions_api.PermissionManager.from_request(request)
 
         if request.method == "POST":
-            municipality = MasterData(instance.case).municipality
+            municipality = MasterData(instance.case).municipality_slug
 
             if not municipality:  # pragma: no cover
                 raise ValidationError(_("Municipality must be set to grant access"))
@@ -968,7 +1076,7 @@ class InstanceView(
             manager.grant(
                 instance=instance,
                 grant_type="SERVICE",
-                service=Service.objects.get(pk=municipality["slug"]),
+                service=Service.objects.get(pk=municipality),
                 access_level="municipality-before-submission",
                 event_name="manual-creation",
                 ends_at=timezone.now() + timedelta(hours=8),
@@ -980,6 +1088,30 @@ class InstanceView(
                 manager.revoke(acl, event_name="manual-revokation")
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(
+        methods=["get"],
+        detail=True,
+        url_path="master-data",
+        renderer_classes=[JSONRenderer],
+    )
+    def master_data(self, request, pk=None):
+        if not settings.MASTER_DATA:  # pragma: no cover
+            raise NotFound()
+
+        instance = self.get_object()
+        fields = request.query_params.get("fields")
+
+        if fields:
+            fields = fields.split(",")
+
+        try:
+            data = MasterData.from_case_id(instance.case_id).to_dict(fields=fields)
+        except AttributeError as e:
+            raise ValidationError(str(e)) from e
+
+        return response.Response(data=data, status=status.HTTP_200_OK)
 
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
@@ -1415,6 +1547,13 @@ class PublicCalumaInstanceView(
 
     instance_field = "instance"
 
+    def get_serializer(self, *args, **kwargs):
+        # The first argument may be a queryset or a list of cases (after
+        # pagination). If so, we build the master data fastloader beforehand.
+        if args and (isinstance(args[0], QuerySet) or isinstance(args[0], list)):
+            self.request._masterdata = MultipleCaseMasterdata(args[0])
+        return super().get_serializer(*args, **kwargs)
+
     @classmethod
     def include_in_swagger(cls):
         return settings.APPLICATION_NAME == "kt_uri"
@@ -1433,16 +1572,9 @@ class PublicCalumaInstanceView(
         return super().get_queryset().none()
 
     def get_queryset_for_public(self):
-        queryset = (
-            super().get_queryset_for_public().annotate(instance_id=F("instance__pk"))
-        )
-
-        if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
-            queryset = queryset.prefetch_related("instance__fields")
-        elif settings.APPLICATION["FORM_BACKEND"] == "caluma":
-            queryset = queryset.prefetch_related(
-                *build_document_prefetch_statements(prefix="document")
-            )
+        queryset = super().get_queryset_for_public()
+        queryset = queryset.annotate(instance_id=F("instance__pk"))
+        queryset = MasterData.prefetch_entities_for_queryset(queryset)
 
         if settings.PUBLICATION.get("BACKEND") == "camac-ng":
             queryset = queryset.annotate(
@@ -1498,9 +1630,6 @@ class PublicCalumaInstanceView(
         queryset = (
             super()
             .get_queryset_for_oereb_api(self.request.group)
-            .prefetch_related(
-                *build_document_prefetch_statements(prefix="document"),
-            )
             .annotate(instance_id=F("instance__pk"))
         )
         return queryset.annotate(
@@ -1516,7 +1645,7 @@ class PublicCalumaInstanceView(
     @action(
         methods=["post"],
         detail=True,
-        permission_classes=[ViewedPublicationCountPermissions],
+        permission_classes=[PublicationPermission],
     )
     def viewed(self, request, pk=None):
         PublicationEntry.objects.select_related("instance__case").filter(

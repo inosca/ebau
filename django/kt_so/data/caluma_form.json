@@ -52,12 +52,12 @@
     "pk": "1e7a177a-77b3-45b6-9693-e4c35fdd27e7",
     "fields": {
       "created_at": "2023-10-05T08:56:02.794Z",
-      "modified_at": "2023-10-05T08:56:25.879Z",
+      "modified_at": "2025-01-10T10:17:59.495Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "family": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "family": "1e7a177a-77b3-45b6-9693-e4c35fdd27e7",
       "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
@@ -353,6 +353,38 @@
   },
   {
     "model": "caluma_form.document",
+    "pk": "7cde43cf-e647-42be-bdc0-9a3b485d4710",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.348Z",
+      "modified_at": "2025-01-10T10:17:59.540Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "form": "parzelle-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.607Z",
+      "modified_at": "2025-01-10T10:14:03.746Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "form": "parzelle-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
     "pk": "7e95d135-4332-4ebb-b5a7-64118a009c76",
     "fields": {
       "created_at": "2023-11-27T09:24:55.146Z",
@@ -516,12 +548,12 @@
     "pk": "cb984b37-46e4-4c3b-986e-b34a875d0e11",
     "fields": {
       "created_at": "2023-07-07T07:33:07.671Z",
-      "modified_at": "2023-07-07T07:33:44.373Z",
+      "modified_at": "2025-01-10T10:14:03.712Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "family": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "family": "cb984b37-46e4-4c3b-986e-b34a875d0e11",
       "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
@@ -661,6 +693,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "03d690f6-ac64-474c-8334-6db4688f1355",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.958Z",
+      "modified_at": "2025-01-10T10:14:03.959Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "weitere-gis-informationen",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "03e99a0c-fa96-4be7-b3a3-71d9a700d357",
     "fields": {
       "created_at": "2023-10-05T08:58:45.092Z",
@@ -746,6 +797,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "08117331-7cf7-476f-8b1f-c2174cc48dec",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.865Z",
+      "modified_at": "2025-01-10T10:14:03.865Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "plz",
+      "value": "4500",
+      "meta": {
+        "gis-value": "4500"
+      },
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "08474e32-14d0-4702-8597-e4ae260fb73c",
     "fields": {
       "created_at": "2024-05-31T10:27:29.709Z",
@@ -768,14 +838,16 @@
     "pk": "09c0d96f-0016-41d2-8896-c5980607bbf6",
     "fields": {
       "created_at": "2023-07-07T07:32:53.626Z",
-      "modified_at": "2023-07-07T07:32:53.626Z",
+      "modified_at": "2025-01-10T10:14:03.813Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "strasse-flurname",
-      "value": "Strasse",
-      "meta": {},
+      "value": "Nelkenweg",
+      "meta": {
+        "gis-value": "Nelkenweg"
+      },
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
@@ -818,6 +890,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "0a4592ed-37c2-4dd4-aed4-07241b469911",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.460Z",
+      "modified_at": "2025-01-10T10:17:59.460Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundbuchkreis",
+      "value": "Solothurn",
+      "meta": {
+        "gis-value": "Solothurn"
+      },
+      "document": "7cde43cf-e647-42be-bdc0-9a3b485d4710",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "0ab17235-69be-46d0-a485-efe143e49614",
     "fields": {
       "created_at": "2023-07-07T07:34:08.326Z",
@@ -855,14 +946,16 @@
     "pk": "0bcc6979-401c-4975-98c3-535cb0a4091c",
     "fields": {
       "created_at": "2023-07-07T07:33:44.341Z",
-      "modified_at": "2023-07-07T07:33:44.341Z",
+      "modified_at": "2025-01-10T10:14:03.722Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "parzellen",
       "value": null,
-      "meta": {},
+      "meta": {
+        "gis-value": ["7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e"]
+      },
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
@@ -915,6 +1008,25 @@
       "value": "Solothurn",
       "meta": {},
       "document": "6d13da21-2e6e-4585-9ded-92e034be2e99",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "0d181618-5190-48c6-92fe-308307629a38",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.920Z",
+      "modified_at": "2025-01-10T10:14:03.920Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gewaesserschutz",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
   },
@@ -1129,14 +1241,16 @@
     "pk": "11813e63-7662-4c22-a82c-39aa16e707b4",
     "fields": {
       "created_at": "2023-07-07T07:32:57.224Z",
-      "modified_at": "2023-07-07T07:32:57.225Z",
+      "modified_at": "2025-01-10T10:14:03.849Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "ort",
       "value": "Solothurn",
-      "meta": {},
+      "meta": {
+        "gis-value": "Solothurn"
+      },
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
@@ -1336,6 +1450,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "17a504c0-8dab-4dc8-abee-c470271797b9",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.631Z",
+      "modified_at": "2025-01-10T10:14:03.631Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lagekoordinaten-nord",
+      "value": 1229341.0010068382,
+      "meta": {
+        "gis-value": 1229341.0010068382
+      },
+      "document": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "17d53c1d-caf5-4661-836a-ce1c26d0207f",
     "fields": {
       "created_at": "2023-10-05T08:57:26.332Z",
@@ -1451,6 +1584,25 @@
       "question": "nutzungszwecke",
       "value": ["nutzungszwecke-andere"],
       "meta": {},
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "1cc2b14b-87af-4fda-b934-a20c8c34a147",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.822Z",
+      "modified_at": "2025-01-10T10:17:59.822Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "naturgefahren-gis",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
@@ -1590,6 +1742,25 @@
       "value": "projektaenderung-nein",
       "meta": {},
       "document": "d266a39b-5377-4668-9b88-db7010a789c0",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "21c2fc83-6086-4965-b75e-0254be3df67e",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.806Z",
+      "modified_at": "2025-01-10T10:17:59.806Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fruchtfolgeflaeche",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
   },
@@ -1790,6 +1961,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "272a47cc-e2f0-4401-b6e1-8a435a62cc63",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.617Z",
+      "modified_at": "2025-01-10T10:14:03.617Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lagekoordinaten-ost",
+      "value": 2607232.3850699738,
+      "meta": {
+        "gis-value": 2607232.3850699738
+      },
+      "document": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "28af8241-7842-448b-8355-cb33c8d8fd79",
     "fields": {
       "created_at": "2024-03-27T15:46:10.978Z",
@@ -1870,6 +2060,25 @@
       "value": "4500",
       "meta": {},
       "document": "504b4147-3372-406d-b283-0e7476c7092d",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "2a43a249-4b1b-4517-9ef9-824e261363d7",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.929Z",
+      "modified_at": "2025-01-10T10:14:03.929Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "denkmalschutz",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
   },
@@ -2120,14 +2329,16 @@
     "pk": "30c036d8-d283-4bcb-9888-93518497d9fa",
     "fields": {
       "created_at": "2023-10-05T08:56:08.136Z",
-      "modified_at": "2023-10-05T08:56:08.136Z",
+      "modified_at": "2025-01-10T10:17:59.927Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "weitere-gis-informationen",
-      "value": "Denkmalschutz Schutzstufe: erhaltenswert, Denkmalschutzobjekt: Häuser Rötiquai 42-52",
-      "meta": {},
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
@@ -2327,6 +2538,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "36699ec5-1697-433f-b7d5-bdb9dd0882c9",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.427Z",
+      "modified_at": "2025-01-10T10:17:59.427Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundstueckart",
+      "value": "Liegenschaft",
+      "meta": {
+        "gis-value": "Liegenschaft"
+      },
+      "document": "7cde43cf-e647-42be-bdc0-9a3b485d4710",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "36b8bbec-d03e-463e-a950-b9405e5ec2b0",
     "fields": {
       "created_at": "2024-05-22T15:15:22.567Z",
@@ -2518,6 +2748,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "3b8f861b-fb14-4771-aa57-b4575b26f2f8",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.644Z",
+      "modified_at": "2025-01-10T10:14:03.644Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "e-grid",
+      "value": "CH281632067028",
+      "meta": {
+        "gis-value": "CH281632067028"
+      },
+      "document": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "3b9a2cda-8888-4dba-88ed-e975b25156df",
     "fields": {
       "created_at": "2024-05-31T10:30:48.263Z",
@@ -2538,14 +2787,16 @@
     "pk": "3bf73d76-a5d3-482f-b6c1-f78b1a18fc23",
     "fields": {
       "created_at": "2023-10-05T08:56:08.107Z",
-      "modified_at": "2023-10-05T08:56:08.108Z",
+      "modified_at": "2025-01-10T10:17:59.899Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "nutzungsplanung-weitere-festlegungen",
       "value": null,
-      "meta": {},
+      "meta": {
+        "gis-value": null
+      },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
@@ -2764,6 +3015,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "43bc47ba-599d-42a7-9f24-951fc2c87c4a",
+    "fields": {
+      "created_at": "2025-01-10T10:14:10.686Z",
+      "modified_at": "2025-01-10T10:14:10.686Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kanton-leitbehoerde",
+      "value": "kanton-leitbehoerde-nein",
+      "meta": {},
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "4430cb50-3a71-4304-89ab-f57d1d0d738d",
     "fields": {
       "created_at": "2023-07-07T07:35:59.576Z",
@@ -2922,14 +3190,16 @@
     "pk": "4aae54ba-2cf8-4bf2-b94c-07db62db6f5b",
     "fields": {
       "created_at": "2023-07-07T07:32:41.471Z",
-      "modified_at": "2023-07-07T07:32:41.471Z",
+      "modified_at": "2025-01-10T10:14:03.774Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "gemeinde",
       "value": "1",
-      "meta": {},
+      "meta": {
+        "gis-value": "1"
+      },
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
@@ -2965,6 +3235,25 @@
       "value": "persoenliche-schutzausruestungen-relevant-nein",
       "meta": {},
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "4c51d438-ef1c-49c2-8a96-8b04bfd06ac4",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.397Z",
+      "modified_at": "2025-01-10T10:17:59.397Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "e-grid",
+      "value": "CH370670803213",
+      "meta": {
+        "gis-value": "CH370670803213"
+      },
+      "document": "7cde43cf-e647-42be-bdc0-9a3b485d4710",
       "date": null
     }
   },
@@ -3085,6 +3374,25 @@
       "question": "gefaehrdung-durch-oberflaechenabfluss",
       "value": "gefaehrdung-durch-oberflaechenabfluss-nein",
       "meta": {},
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "5095037a-b930-4b4a-95f4-103dcc2b92aa",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.883Z",
+      "modified_at": "2025-01-10T10:14:03.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzungsplanung-grundnutzung-kanton",
+      "value": "N111_Wohnzone_2_G",
+      "meta": {
+        "gis-value": "N111_Wohnzone_2_G"
+      },
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
@@ -3505,6 +3813,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "5d450ec9-ac52-49ec-b80d-0d7961eb50e6",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.653Z",
+      "modified_at": "2025-01-10T10:14:03.653Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parzellennummer",
+      "value": "2273",
+      "meta": {
+        "gis-value": "2273"
+      },
+      "document": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "5dd4dcf3-cb59-4cb7-8064-c8db27494d4d",
     "fields": {
       "created_at": "2023-11-27T09:20:52.799Z",
@@ -3900,6 +4227,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "6df832e9-6bd4-4851-a22b-8fa116d82545",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.867Z",
+      "modified_at": "2025-01-10T10:17:59.867Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "denkmalschutz",
+      "value": "Denkmalschutzobjekt: Häuser Rötiquai 42-52, Denkmalschutz Schutzstufe: erhaltenswert",
+      "meta": {
+        "gis-value": "Denkmalschutzobjekt: Häuser Rötiquai 42-52, Denkmalschutz Schutzstufe: erhaltenswert"
+      },
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "6eabfc22-50e6-4c02-8b03-011783d08fa5",
     "fields": {
       "created_at": "2024-05-22T15:15:27.522Z",
@@ -3912,6 +4258,25 @@
       "value": null,
       "meta": {},
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "6ec2498f-5da8-4e00-b9a4-27f76741707d",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.698Z",
+      "modified_at": "2025-01-10T10:14:03.698Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "amtschreiberei",
+      "value": "Amtschreiberei Region Solothurn",
+      "meta": {
+        "gis-value": "Amtschreiberei Region Solothurn"
+      },
+      "document": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
       "date": null
     }
   },
@@ -4123,6 +4488,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "777e8b60-b2f9-4a04-a0a8-c9eae44ecacd",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.788Z",
+      "modified_at": "2025-01-10T10:17:59.788Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzungsplanung-grundnutzung-kanton",
+      "value": "N113_Wohnzone_4_G",
+      "meta": {
+        "gis-value": "N113_Wohnzone_4_G"
+      },
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "7797211b-2f6e-4708-8d83-8e110641ea2c",
     "fields": {
       "created_at": "2023-11-27T09:24:14.943Z",
@@ -4239,6 +4623,25 @@
         "gis-value": "Wohnzone 2 - AZ 0.4"
       },
       "document": "88fb4b7d-10c7-4f36-9be6-dd068e0cc2e2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "7b0ef43d-d454-460f-82a5-71f1efff2ab5",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.853Z",
+      "modified_at": "2025-01-10T10:17:59.853Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gewaesserschutz",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
   },
@@ -4713,6 +5116,44 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "8a5dea59-89c2-458c-8346-f5c07271b079",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.690Z",
+      "modified_at": "2025-01-10T10:14:03.690Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundbuchkreis",
+      "value": "Solothurn",
+      "meta": {
+        "gis-value": "Solothurn"
+      },
+      "document": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "8a9e5892-f06c-4b0f-8373-0b83692028d7",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.412Z",
+      "modified_at": "2025-01-10T10:17:59.412Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parzellennummer",
+      "value": "2800",
+      "meta": {
+        "gis-value": "2800"
+      },
+      "document": "7cde43cf-e647-42be-bdc0-9a3b485d4710",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "8af03c74-b1a4-46a0-b60b-f7d544b5d8e7",
     "fields": {
       "created_at": "2024-05-22T15:18:11.933Z",
@@ -4871,14 +5312,16 @@
     "pk": "92f50d01-6198-4a31-822a-dcc24c9fa6d9",
     "fields": {
       "created_at": "2023-10-05T08:56:10.115Z",
-      "modified_at": "2023-10-05T08:56:10.115Z",
+      "modified_at": "2025-01-10T10:17:59.707Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "ort",
       "value": "Solothurn",
-      "meta": {},
+      "meta": {
+        "gis-value": "Solothurn"
+      },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
@@ -4974,6 +5417,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "978d6570-af82-4875-bf04-2a3f4bf758dd",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.948Z",
+      "modified_at": "2025-01-10T10:14:03.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzungsplanung-weitere-festlegungen",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "98c2c950-aa09-4f0e-9672-92755fd3923f",
     "fields": {
       "created_at": "2024-05-31T10:27:30.018Z",
@@ -4988,6 +5450,44 @@
         "gis-value": null
       },
       "document": "d266a39b-5377-4668-9b88-db7010a789c0",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "98c80c23-106d-4095-88f3-4291eb0fafa4",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.667Z",
+      "modified_at": "2025-01-10T10:14:03.668Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundstueckart",
+      "value": "Liegenschaft",
+      "meta": {
+        "gis-value": "Liegenschaft"
+      },
+      "document": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "9a2384ae-cb9e-4c02-95bb-e5bf0fac8c60",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.968Z",
+      "modified_at": "2025-01-10T10:14:03.968Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bundesinventare",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
   },
@@ -5081,13 +5581,13 @@
     "pk": "9cefff12-03cd-4b33-bb7c-90216819b649",
     "fields": {
       "created_at": "2023-07-07T07:36:17.345Z",
-      "modified_at": "2023-07-07T07:36:20.092Z",
+      "modified_at": "2025-01-10T10:14:27.157Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "gebaeude-bezeichnung",
-      "value": "MFH 1",
+      "value": "Parking Nord",
       "meta": {},
       "document": "994de61c-8e61-4a66-af90-39f01adb9144",
       "date": null
@@ -5098,14 +5598,16 @@
     "pk": "9d4fc429-6bac-413f-93ae-c9d1e5fd0461",
     "fields": {
       "created_at": "2023-10-05T08:56:08.338Z",
-      "modified_at": "2023-10-05T08:56:08.338Z",
+      "modified_at": "2025-01-10T10:17:59.953Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "bundesinventare",
       "value": null,
-      "meta": {},
+      "meta": {
+        "gis-value": null
+      },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
@@ -5134,14 +5636,16 @@
     "pk": "9da7a7cb-5ab5-4735-8d48-0e3d07ce1806",
     "fields": {
       "created_at": "2023-07-07T07:32:54.918Z",
-      "modified_at": "2023-07-07T07:32:54.918Z",
+      "modified_at": "2025-01-10T10:14:03.831Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "strasse-nummer",
-      "value": "13",
-      "meta": {},
+      "value": "4",
+      "meta": {
+        "gis-value": "4"
+      },
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
@@ -5303,16 +5807,35 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "a2c4245f-d12d-4851-ab87-a380fdae37f0",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.872Z",
+      "modified_at": "2025-01-10T10:14:03.872Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzungsplanung-grundnutzung",
+      "value": "Wohnzone 2 - AZ 0.4",
+      "meta": {
+        "gis-value": "Wohnzone 2 - AZ 0.4"
+      },
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "a3a57fca-8072-491c-bb52-91840d558014",
     "fields": {
       "created_at": "2023-07-07T07:36:40.971Z",
-      "modified_at": "2023-07-07T07:36:40.971Z",
+      "modified_at": "2025-01-10T10:14:30.507Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "gebaeudekategorie",
-      "value": "gebaeudekategorie-ausschliessliche-wohnnutzung",
+      "value": "gebaeudekategorie-ohne-wohnnutzung",
       "meta": {},
       "document": "994de61c-8e61-4a66-af90-39f01adb9144",
       "date": null
@@ -5543,6 +6066,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "aab7265f-31a7-49e6-be5f-f54a93d06cab",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.893Z",
+      "modified_at": "2025-01-10T10:14:03.893Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fruchtfolgeflaeche",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "aaf8d052-5a9a-4b6b-ba93-ce369bb1286c",
     "fields": {
       "created_at": "2024-05-22T15:17:14.555Z",
@@ -5751,6 +6293,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "b0331be7-401f-4b60-80ef-83f3f2e91af9",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.912Z",
+      "modified_at": "2025-01-10T10:14:03.912Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "altlasten-gis",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "b0718aa8-5e5c-4ee5-b1e7-4c1f6965423e",
     "fields": {
       "created_at": "2023-09-08T17:01:49.562Z",
@@ -5851,6 +6412,25 @@
       "meta": {},
       "document": "f02b0999-cc76-431b-a76b-70ab34f2bcee",
       "date": "2023-07-14"
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "b293e5be-df5e-4296-acdf-a3440ceb4226",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.442Z",
+      "modified_at": "2025-01-10T10:17:59.442Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "flaeche-m",
+      "value": 465,
+      "meta": {
+        "gis-value": 465
+      },
+      "document": "7cde43cf-e647-42be-bdc0-9a3b485d4710",
+      "date": null
     }
   },
   {
@@ -6097,6 +6677,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "ba2892ac-7fe5-4e8b-8405-06be34a987e5",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.837Z",
+      "modified_at": "2025-01-10T10:17:59.837Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "altlasten-gis",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "baef0f5b-151f-488a-b1ba-256960d1b635",
     "fields": {
       "created_at": "2023-10-05T08:56:53.683Z",
@@ -6271,6 +6870,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "c0f01589-1ce8-4087-9abb-5da41d1c56f8",
+    "fields": {
+      "created_at": "2025-01-10T10:14:42.356Z",
+      "modified_at": "2025-01-10T10:14:42.356Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einfache-hochbaute",
+      "value": "einfache-hochbaute-nein",
+      "meta": {},
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "c0fa257e-05c9-4d30-83a1-868fa4591e77",
     "fields": {
       "created_at": "2024-05-31T10:27:29.743Z",
@@ -6426,6 +7042,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "c8332bfb-91a0-439e-ba60-9ceefacfb837",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.681Z",
+      "modified_at": "2025-01-10T10:14:03.681Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "flaeche-m",
+      "value": 648,
+      "meta": {
+        "gis-value": 648
+      },
+      "document": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "c8a3bcde-24d1-499e-a759-16404515a366",
     "fields": {
       "created_at": "2023-10-05T08:56:59.719Z",
@@ -6454,6 +7089,25 @@
       "question": "nutzungszwecke",
       "value": ["nutzungszwecke-wohnen"],
       "meta": {},
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "c9cda153-c836-464c-be1d-86aa5c37080a",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.799Z",
+      "modified_at": "2025-01-10T10:14:03.799Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gemeindenummer-bfs",
+      "value": 2601,
+      "meta": {
+        "gis-value": 2601
+      },
       "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
@@ -6598,6 +7252,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "cffac255-352d-4c08-b426-99a63d8802d9",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.475Z",
+      "modified_at": "2025-01-10T10:17:59.475Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "amtschreiberei",
+      "value": "Amtschreiberei Region Solothurn",
+      "meta": {
+        "gis-value": "Amtschreiberei Region Solothurn"
+      },
+      "document": "7cde43cf-e647-42be-bdc0-9a3b485d4710",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "d07aaeb6-95fc-4f19-9bc9-376ed70d2676",
     "fields": {
       "created_at": "2023-10-05T08:59:55.571Z",
@@ -6627,6 +7300,25 @@
       "value": "Testerstrasse",
       "meta": {},
       "document": "2b450a93-28b6-4cd8-a0e9-48708a66eca9",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d12c2269-b936-407b-9b11-081584621151",
+    "fields": {
+      "created_at": "2025-01-10T10:15:21.194Z",
+      "modified_at": "2025-01-10T10:17:59.732Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "plz",
+      "value": "4500",
+      "meta": {
+        "gis-value": "4500"
+      },
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
   },
@@ -6678,6 +7370,25 @@
       "value": "anrede-herr",
       "meta": {},
       "document": "6d13da21-2e6e-4585-9ded-92e034be2e99",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "d271b339-6ab2-4046-972d-e679a7f4f1f3",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.901Z",
+      "modified_at": "2025-01-10T10:14:03.901Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "naturgefahren-gis",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
       "date": null
     }
   },
@@ -6768,6 +7479,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "d5ff12a1-2744-4810-ae28-6c2001421a8d",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.364Z",
+      "modified_at": "2025-01-10T10:17:59.364Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lagekoordinaten-ost",
+      "value": 2608100.5164297847,
+      "meta": {
+        "gis-value": 2608100.5164297847
+      },
+      "document": "7cde43cf-e647-42be-bdc0-9a3b485d4710",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "d603e61d-ced6-4821-a808-e39a87d451bb",
     "fields": {
       "created_at": "2023-09-08T17:01:56.268Z",
@@ -6839,14 +7569,16 @@
     "pk": "d942f87d-f3b0-4762-aa65-fa0f90fe99ef",
     "fields": {
       "created_at": "2023-10-05T08:56:16.598Z",
-      "modified_at": "2023-10-05T08:56:16.598Z",
+      "modified_at": "2025-01-10T10:17:59.616Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "gemeindenummer-bfs",
       "value": 2601,
-      "meta": {},
+      "meta": {
+        "gis-value": 2601
+      },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
@@ -6907,14 +7639,16 @@
     "pk": "db8a10c1-9766-4b94-a2cf-c5f7c419ab71",
     "fields": {
       "created_at": "2023-10-05T08:56:23.025Z",
-      "modified_at": "2023-10-05T08:56:23.026Z",
+      "modified_at": "2025-01-10T10:17:59.683Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "strasse-nummer",
       "value": "48, 46",
-      "meta": {},
+      "meta": {
+        "gis-value": "48, 46"
+      },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
@@ -7286,6 +8020,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "e7410630-59ee-4114-bd0d-fc9dc8c8857c",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.381Z",
+      "modified_at": "2025-01-10T10:17:59.381Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lagekoordinaten-nord",
+      "value": 1228352.5020122873,
+      "meta": {
+        "gis-value": 1228352.5020122873
+      },
+      "document": "7cde43cf-e647-42be-bdc0-9a3b485d4710",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "e84e597d-f740-4469-9208-424f97029980",
     "fields": {
       "created_at": "2023-07-07T07:34:25.658Z",
@@ -7456,6 +8209,25 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "ed6463c2-c7a6-4aca-a9a0-ac2a19dbf88e",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.881Z",
+      "modified_at": "2025-01-10T10:17:59.881Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "archaeologie",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "edd854da-4685-401a-8d49-0b18463db251",
     "fields": {
       "created_at": "2024-05-31T10:30:35.777Z",
@@ -7512,14 +8284,16 @@
     "pk": "f2a77220-ca65-4b50-a73e-14ac24274c8b",
     "fields": {
       "created_at": "2023-10-05T08:56:21.809Z",
-      "modified_at": "2023-10-05T08:56:21.809Z",
+      "modified_at": "2025-01-10T10:17:59.581Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "gemeinde",
       "value": "1",
-      "meta": {},
+      "meta": {
+        "gis-value": "1"
+      },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
@@ -7546,14 +8320,16 @@
     "pk": "f4b1b482-9121-40a6-a643-64b2f5cd897b",
     "fields": {
       "created_at": "2023-10-05T08:56:06.475Z",
-      "modified_at": "2023-10-05T08:56:06.475Z",
+      "modified_at": "2025-01-10T10:17:59.761Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "nutzungsplanung-grundnutzung",
       "value": "Wohnzone 4 - AZ 1.0",
-      "meta": {},
+      "meta": {
+        "gis-value": "Wohnzone 4 - AZ 1.0"
+      },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
@@ -7577,17 +8353,38 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "f5400de5-87a3-477a-8fd9-4aa9c2620ffd",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.937Z",
+      "modified_at": "2025-01-10T10:14:03.937Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "archaeologie",
+      "value": null,
+      "meta": {
+        "gis-value": null
+      },
+      "document": "88099d1f-7c40-48fc-8e66-a86c7c3a42f2",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "f56117b6-44ce-4c4c-86a2-eaafeef1a422",
     "fields": {
       "created_at": "2023-10-05T08:56:19.210Z",
-      "modified_at": "2023-10-05T08:56:19.210Z",
+      "modified_at": "2025-01-10T10:17:59.648Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "strasse-flurname",
       "value": "Rötiquai",
-      "meta": {},
+      "meta": {
+        "gis-value": "Rötiquai"
+      },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
@@ -7597,14 +8394,16 @@
     "pk": "f6067e1e-daa0-4f16-af90-6a7f04319013",
     "fields": {
       "created_at": "2023-10-05T08:56:25.842Z",
-      "modified_at": "2023-10-05T08:56:25.843Z",
+      "modified_at": "2025-01-10T10:17:59.509Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "parzellen",
       "value": null,
-      "meta": {},
+      "meta": {
+        "gis-value": ["7cde43cf-e647-42be-bdc0-9a3b485d4710"]
+      },
       "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
       "date": null
     }
@@ -7867,6 +8666,23 @@
     }
   },
   {
+    "model": "caluma_form.answer",
+    "pk": "ffd74100-c2e8-42e0-8560-016cdeca611f",
+    "fields": {
+      "created_at": "2025-01-10T10:15:14.848Z",
+      "modified_at": "2025-01-10T10:15:14.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kanton-leitbehoerde",
+      "value": "kanton-leitbehoerde-nein",
+      "meta": {},
+      "document": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
+      "date": null
+    }
+  },
+  {
     "model": "caluma_form.answerdocument",
     "pk": "08f18cff-f4bb-4557-bd59-af255179d426",
     "fields": {
@@ -7938,36 +8754,6 @@
       "modified_by_group": null,
       "answer": "70eeacb9-2bee-4f6e-812c-a4008ba55ed5",
       "document": "f02b0999-cc76-431b-a76b-70ab34f2bcee",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.answerdocument",
-    "pk": "1bca7e7d-282c-4740-92b9-a2c179b5495c",
-    "fields": {
-      "created_at": "2023-07-07T07:33:44.360Z",
-      "modified_at": "2023-07-07T07:33:44.360Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "answer": "0bcc6979-401c-4975-98c3-535cb0a4091c",
-      "document": "cb984b37-46e4-4c3b-986e-b34a875d0e11",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.answerdocument",
-    "pk": "1e74b8ab-28c2-41e9-a208-8c6cdf0a4fa4",
-    "fields": {
-      "created_at": "2023-10-05T08:56:25.863Z",
-      "modified_at": "2023-10-05T08:56:25.863Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "answer": "f6067e1e-daa0-4f16-af90-6a7f04319013",
-      "document": "1e7a177a-77b3-45b6-9693-e4c35fdd27e7",
       "sort": 1
     }
   },
@@ -8058,6 +8844,36 @@
       "modified_by_group": null,
       "answer": "4b54bccd-4c33-4261-9cbf-a9653f57f65a",
       "document": "61ffdfe2-bd4c-4bb4-aa1b-0c2ee8606596",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "a9ec4db9-0e79-42a1-a745-c988943ad387",
+    "fields": {
+      "created_at": "2025-01-10T10:17:59.530Z",
+      "modified_at": "2025-01-10T10:17:59.530Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "f6067e1e-daa0-4f16-af90-6a7f04319013",
+      "document": "7cde43cf-e647-42be-bdc0-9a3b485d4710",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "ae973e00-7eb4-4d21-8b38-8813ee93c311",
+    "fields": {
+      "created_at": "2025-01-10T10:14:03.740Z",
+      "modified_at": "2025-01-10T10:14:03.740Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "0bcc6979-401c-4975-98c3-535cb0a4091c",
+      "document": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
       "sort": 1
     }
   },

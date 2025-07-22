@@ -17,6 +17,9 @@
   {{#if (this.hasColumn "withdrawn")}}
     <td>{{t (concat "global." (if this.withdrawn "yes" "no"))}}</td>
   {{/if}}
+  {{#if (this.hasColumn "has-representative")}}
+    <td>{{t (concat "global." (if this.hasRepresentative "yes" "no"))}}</td>
+  {{/if}}
   <td>
     <div class="uk-flex uk-flex-middle uk-flex-right">
       <LinkTo
@@ -24,9 +27,15 @@
         @model={{decode-id @legalSubmission.id}}
         class="uk-button uk-button-link"
       >
-        <UkIcon @icon="pencil" />
+        <UkIcon
+          @icon={{if
+            (await (can "edit legal-submission" @workItem))
+            "pencil"
+            "eye"
+          }}
+        />
       </LinkTo>
-      {{#if (can "edit legal-submission" @workItem)}}
+      {{#if (await (can "edit legal-submission" @workItem))}}
         <UkButton
           @color="link"
           @loading={{this.delete.isRunning}}

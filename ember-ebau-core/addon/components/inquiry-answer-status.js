@@ -8,7 +8,10 @@ import { trackedFunction } from "reactiveweb/function";
 import mainConfig from "ember-ebau-core/config/main";
 import caseFormTypeQuery from "ember-ebau-core/gql/queries/case-form-type.graphql";
 
-export const OBLIGATION_FORM_SLUG = "klaerung-baubewilligungspflicht";
+export const OBLIGATION_FORM_SLUGS = [
+  "klaerung-baubewilligungspflicht",
+  "klaerung-baubewilligungspflicht-v2",
+];
 export const OBLIGATION_ANSWERS = [
   "inquiry-answer-status-obligated",
   "inquiry-answer-status-not-obligated",
@@ -38,7 +41,9 @@ export default class InquiryAnswerStatusComponent extends Component {
     }
 
     if (macroCondition(getOwnConfig().application === "be")) {
-      const isObligationForm = this.formType.value === OBLIGATION_FORM_SLUG;
+      const isObligationForm = OBLIGATION_FORM_SLUGS.includes(
+        this.formType.value,
+      );
 
       return this.args.field.options.filter(
         (option) =>
@@ -53,30 +58,89 @@ export default class InquiryAnswerStatusComponent extends Component {
         ) === mainConfig.serviceGroups?.authorityBaB;
       const isUso = this.calumaOptions.ebauModules.baseRole === "uso";
 
-      const option_type = isAuthorityBaB ? "bab" : isUso ? "uso" : "default";
+      const optionType = isAuthorityBaB ? "bab" : isUso ? "uso" : "default";
 
-      const inquiry_answer_status_options = {
-        bab: [
-          "inquiry-answer-status-approved",
-          "inquiry-answer-status-rejected",
-          "inquiry-answer-status-written-off",
-          "inquiry-answer-status-negative",
-          "inquiry-answer-status-not-involved",
-        ],
-        uso: [
-          "inquiry-answer-status-following",
-          "inquiry-answer-status-renounced",
-        ],
-        default: [
-          "inquiry-answer-status-positive",
-          "inquiry-answer-status-negative",
-          "inquiry-answer-status-claim",
-          "inquiry-answer-status-not-involved",
-        ],
+      const formType = (this.formType.value ?? "").startsWith(
+        "vorlaeufige-beurteilung",
+      )
+        ? "vorlaeufige-beurteilung"
+        : "any";
+
+      const inquiryAnswerStatusOptions = {
+        bab: {
+          "vorlaeufige-beurteilung": [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-not-involved",
+          ],
+          any: [
+            "inquiry-answer-status-approved",
+            "inquiry-answer-status-rejected",
+            "inquiry-answer-status-written-off",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-not-involved",
+          ],
+        },
+        uso: {
+          "vorlaeufige-beurteilung": [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-not-involved",
+          ],
+          any: [
+            "inquiry-answer-status-following",
+            "inquiry-answer-status-renounced",
+          ],
+        },
+        default: {
+          "vorlaeufige-beurteilung": [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-not-involved",
+          ],
+          any: [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-claim",
+            "inquiry-answer-status-not-involved",
+          ],
+        },
       };
 
+      return this.args.field.options.filter((option) =>
+        inquiryAnswerStatusOptions[optionType][formType].includes(option.slug),
+      );
+    } else if (macroCondition(getOwnConfig().application === "ag")) {
+      const isAfB =
+        parseInt(
+          this.store
+            .peekRecord("service", this.calumaOptions.currentGroupId)
+            ?.get("serviceGroup.id"),
+        ) === mainConfig.serviceGroups?.afb;
+
+      const inquiryAnswerStatusOptions = isAfB
+        ? [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-positive-partially",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-negative-deconstruction",
+            "inquiry-answer-status-statement",
+            "inquiry-answer-status-claim",
+            "inquiry-answer-status-not-involved",
+          ]
+        : [
+            "inquiry-answer-status-positive",
+            "inquiry-answer-status-positive-sanctions",
+            "inquiry-answer-status-positive-partially",
+            "inquiry-answer-status-negative",
+            "inquiry-answer-status-negative-deconstruction",
+            "inquiry-answer-status-claim",
+            "inquiry-answer-status-not-involved",
+          ];
+
       return this.args.field.options.filter((option) => {
-        return inquiry_answer_status_options[option_type].includes(option.slug);
+        return inquiryAnswerStatusOptions.includes(option.slug);
       });
     }
 

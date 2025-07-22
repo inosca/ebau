@@ -1,21 +1,108 @@
+import re
 from dataclasses import dataclass, field
+from logging import getLogger
 from operator import attrgetter
+from typing import List, Optional, TypeVar
+from uuid import UUID
 
-from caluma.caluma_form import models as form_models
+from caluma.caluma_core.models import HistoricalRecords
+from caluma.caluma_form.models import Document
+from caluma.caluma_form.structure import FastLoader
 from caluma.caluma_form.validators import DocumentValidator
+from caluma.caluma_workflow.models import Case, WorkItem
 from dateutil.parser import ParserError, parse as dateutil_parse
 from django.conf import settings
+from django.db.models import Prefetch, QuerySet
 from django.utils.translation import get_language
 
-from camac.core.models import MultilingualModel
+from camac.core.models import MultilingualModel, ServiceContent
+from camac.user.models import Service
 from camac.utils import get_dict_item
+
+log = getLogger(__name__)
+
+T = TypeVar("T", bound="MasterData")
 
 
 @dataclass
 class MasterData(object):
-    case: object
-    visible_questions: dict = field(default_factory=dict)
+    """Helper class to access common information on a case (municipality, dossier number, etc.).
+
+    Master data should be used to access common information of a case in the
+    codebase to avoid duplicated code. The properties of this class can be
+    configured per canton in the respective settings modules:
+    `camac/settings/modules/master_data.py`.
+
+    To get an instance of master data, in most cases it makes sense to use the
+    factory method `.from_case_id` which will prefetch most of the related data
+    needed for populating the data. It can also be instantiated via regular
+    constructor (`MasterData(my_case)`). However, this only makes sense if you
+    are sure that you only need a single property of master data and performance
+    doesn't matter that much (so only actions, no list or detail views).
+
+    If you use master data in a list view, make sure to prefetch your queryset
+    using `.prefetch_entities_for_queryset` and use the constructor directly in
+    combination with the `MultipleCaseMasterdata` class. An example for this is
+    the `camac.instance.views.PublicCalumaInstanceView`.
+    """
+
+    case: Case
     validation_context: dict = field(default_factory=dict)
+    _fastloader: Optional[FastLoader] = field(default=None)
+
+    @classmethod
+    def from_case_id(
+        cls, case_id: UUID, validation_context=None, _fastloader=None
+    ) -> T:
+        """Return a MasterData instance for the given case ID.
+
+        If you already have a fastloader or related validation context, you can
+        pass them here for reuse.
+        """
+        validation_context = validation_context or {}
+
+        # ensure typing to avoid double-build if caller mistyped the case ID
+        case_id = str(case_id)
+
+        rq_cache = cls._get_request_cache()
+
+        if not rq_cache:
+            return cls._build_masterdata(case_id, validation_context, _fastloader)
+
+        if case_id not in rq_cache:
+            rq_cache[case_id] = cls._build_masterdata(
+                case_id, validation_context, _fastloader
+            )
+        return rq_cache[case_id]
+
+    @classmethod
+    def _get_request_cache(cls) -> dict | None:
+        """Return request-scoped cache dictionary for our use.
+
+        Might return None if not in a request scope (for example on
+        commandline management commands)
+        """
+        try:
+            request = HistoricalRecords.context.request
+            if not hasattr(request, "_cached_master_data"):
+                setattr(request, "_cached_master_data", {})
+            return request._cached_master_data
+
+        except AttributeError:
+            return None
+
+    @classmethod
+    def _build_masterdata(
+        cls, case_id: UUID, validation_context=None, _fastloader=None
+    ) -> T:
+        """
+        Build MasterData object from given case ID.
+
+        You should use the public `from_case_id()` method instead - this is
+        internal only.
+        """
+        queryset = MasterData.prefetch_entities_for_queryset(Case.objects)
+        return cls(queryset.get(pk=case_id), validation_context, _fastloader)
 
     def __getattr__(self, lookup_key):
         config = get_dict_item(
@@ -23,8 +110,10 @@ class MasterData(object):
         )
 
         if not config:
+            available_keys = ", ".join(settings.MASTER_DATA["CONFIG"].keys())
             raise AttributeError(
-                f"Key '{lookup_key}' is not configured in master data config. Available keys are: {', '.join(settings.MASTER_DATA['CONFIG'].keys())}"
+                f"Key '{lookup_key}' is not configured in master data config. "
+                f"Available keys are: {available_keys}"
             )
 
         resolver, *args = config
@@ -44,7 +133,7 @@ class MasterData(object):
         return fn(lookup, **kwargs)
 
     def _parse_value(
-        self, value, default=None, value_parser=None, answer=None, **kwargs
+        self, value, default=None, value_parser=None, answer=None, field=None, **kwargs
     ):
         if not value_parser or not value:
             return value if value else default
@@ -56,26 +145,45 @@ class MasterData(object):
         else:
             parser_name = value_parser
 
-        parser = getattr(self, f"{parser_name}_parser", None)
+        if callable(parser_name):
+            parser = parser_name
+        else:
+            parser = getattr(self, f"{parser_name}_parser", None)
 
         if not parser:
             raise AttributeError(
                 f"Parser '{parser_name}' is not defined in master data class"
             )
 
-        return parser(value, default=default, answer=answer, **options, **kwargs)
+        return parser(
+            value, default=default, field=field, answer=answer, **options, **kwargs
+        )
 
-    def _get_cell_value(self, row, lookup_config):
+    def _build_cell_value(self, row, lookup_config):
         options = {}
 
         if lookup_config == "pk":
-            return str(row.pk)
+            return str(row._document.pk)
         elif isinstance(lookup_config, tuple):
             lookup, options = lookup_config
         else:
             lookup = lookup_config
 
-        return self.answer_resolver(lookup, document=row, **options)
+        if lookup == "default":
+            return options.get("default")
+
+        try:
+            return self.struc_field_resolver(lookup, row, **options)
+        except Exception:  # pragma: todo cover
+            return self._parse_value(None, **options)
+
+    def struc_field_resolver(self, lookup, fieldset, **options):
+        field = fieldset.get_field(lookup)
+        if not field:
+            log.warning("Field %s does not exist in %s", lookup, fieldset.get_path())
+            return None
+
+        return self._parse_value(field.get_value(), field=field, **options)
 
     def _get_ng_cell_value(self, row, lookup_config):
         options = {}
@@ -89,26 +197,15 @@ class MasterData(object):
 
         return self._parse_value(row.get(lookup), **options)
 
-    def _answer_is_visible(self, answer):
-        visible_questions = self.visible_questions.get(answer.document.pk)
+    def _get_structure(self, document):
+        if document.pk not in self.validation_context:
+            self.validation_context[document.pk] = self._build_structure(document)
+        return self.validation_context[document.pk]
 
-        if visible_questions is None:
-            document = answer.document
-
-            if document.pk != document.family_id:
-                document = document.family
-
-            if not self.validation_context.get(document.pk, None):
-                self.validation_context[document.pk] = (
-                    DocumentValidator()._validation_context(document)
-                )
-
-            visible_questions = DocumentValidator().visible_questions(
-                answer.document, self.validation_context[document.pk]
-            )
-            self.visible_questions[answer.document_id] = visible_questions
-
-        return answer.question_id in visible_questions
+    def _build_structure(self, document):
+        return DocumentValidator().get_validation_context(
+            document, _fastloader=self._fastloader
+        )
 
     def static_resolver(self, value):
         """Resolve static value for a master data key.
@@ -127,6 +224,25 @@ class MasterData(object):
 
     def form_name_resolver(self):
         return self.case.document.form.name.translate()
+
+    def is_form_resolver(self, forms):
+        if not isinstance(forms, list):
+            forms = [forms]
+
+        return self.case.document.form_id in forms
+
+    def _get_document(self, document_from_work_item=None):
+        # TODO: Fallback to case docu if not found? Or return None instead?
+        if document_from_work_item:
+            work_item = next(
+                filter(
+                    lambda work_item: work_item.task_id == document_from_work_item,
+                    self.case.work_items.all(),
+                ),
+                None,
+            )
+            return work_item.document if work_item else None
+        return self.case.document
 
     def answer_resolver(
         self,
@@ -196,30 +312,30 @@ class MasterData(object):
         if not isinstance(lookup, list):
             lookup = [lookup]
 
-        if not document and document_from_work_item:
-            work_item = next(
-                filter(
-                    lambda work_item: work_item.task_id == document_from_work_item,
-                    self.case.work_items.all(),
-                ),
-                None,
-            )
-            document = work_item.document if work_item else None
-        elif not document:
-            document = self.case.document
+        document = document or self._get_document(document_from_work_item)
 
-        answer = next(
+        if not document:
+            # Requested document likely is from a workitem that may not have
+            # started yet, and that's ok
+            return None
+
+        struc = self._get_structure(document)
+        field = next(
             filter(
-                lambda answer: answer.question_id in lookup
-                and self._answer_is_visible(answer),
-                document.answers.all() if document else [],
+                lambda f: f is not None and f.is_visible(),
+                (struc.get_field(slug) for slug in lookup),
             ),
             None,
         )
 
+        # Field may be None if the question is hidden for example. Just
+        # fallback to None instead
+        answer = field.answer if field else None
+
         return self._parse_value(
             getattr(answer, value_key, None) if answer else None,
             answer=answer,
+            field=field,
             **kwargs,
         )
 
@@ -280,24 +396,29 @@ class MasterData(object):
             }
         }
         """
-        answer_documents = self.answer_resolver(
-            lookup,
-            "answerdocument_set",
-            default=form_models.Document.objects.none(),
-            **kwargs,
-        )
+
+        document = self._get_document(kwargs.get("document_from_work_item"))
+        if not document:
+            return []
+
+        struc = self._get_structure(document)
+        table_field = struc.get_field(lookup)
+
+        if not table_field:
+            log.warning(
+                "Table %s not found in document with form %s", lookup, document.form_id
+            )
+            return []
+        if table_field.is_empty():
+            # Hidden or empty - don't return anything
+            return []
 
         return [
             {
-                key: self._get_cell_value(answer_document.document, lookup_config)
+                key: self._build_cell_value(row, lookup_config)
                 for key, lookup_config in column_mapping.items()
             }
-            for answer_document in reversed(
-                sorted(
-                    answer_documents.all(),
-                    key=lambda answer_document: answer_document.sort,
-                )
-            )
+            for row in table_field.children()
         ]
 
     def baukontrolle_resolver(self, lookup, column_mapping={}, **kwargs):
@@ -584,6 +705,11 @@ class MasterData(object):
 
         return mapping.get(value, default)
 
+    def human_readable_date_parser(self, value, default, **kwargs):
+        from camac.instance.placeholders.utils import human_readable_date
+
+        return human_readable_date(value) if value else default
+
     def list_mapping_parser(self, value, default, mapping={}, **kwargs):
         return [
             {
@@ -623,29 +749,197 @@ class MasterData(object):
 
         return {"slug": value, "label": option.label.get(get_language())}
 
-    def option_parser(self, value, default, answer=None, prop=None, **kwargs):
+    def option_parser(
+        self, value, default, answer=None, prop=None, field=None, **kwargs
+    ):
         if isinstance(value, list):
             return [
-                self.option_parser(v, default, answer=answer, prop=prop) for v in value
+                self.option_parser(v, default, answer=answer, prop=prop, **kwargs)
+                for v in value
             ]
 
         option = next(
-            filter(lambda option: option.pk == value, answer.question.options.all()),
+            filter(
+                lambda option: option.pk == value,
+                self._field_or_question_options(answer=answer, field=field),
+            ),
             None,
         )
         return self._return_option(option, value, prop, default)
 
-    def dynamic_option_parser(self, value, default, answer=None, prop=None, **kwargs):
+    def _field_or_question_options(self, answer, field):
+        if field:
+            options = field.get_options()
+        else:
+            options = answer.question.options.all()
+        return options
+
+    def dynamic_option_parser(
+        self, value, default, answer=None, prop=None, field=None, **kwargs
+    ):
         if isinstance(value, list):  # pragma: no cover
             return [
-                self.dynamic_option_parser(v, default, answer=answer) for v in value
+                self.dynamic_option_parser(
+                    v, default, answer=answer, prop=prop, field=field, **kwargs
+                )
+                for v in value
             ]
 
+        dyn_options = (
+            field.get_dynamic_options().values()
+            if field
+            else answer.document.dynamicoption_set.all()
+        )
+
         dynamic_option = next(
-            filter(
-                lambda dynamic_option: dynamic_option.slug == value,
-                answer.document.dynamicoption_set.all(),
-            ),
+            filter(lambda dynamic_option: dynamic_option.slug == value, dyn_options),
             None,
         )
         return self._return_option(dynamic_option, value, prop, default)
+
+    def to_dict(self, fields: Optional[List[str]] = None) -> dict:
+        if not fields:
+            fields = settings.MASTER_DATA["CONFIG"].keys()
+
+        return {key: getattr(self, key) for key in fields}
+
+    @staticmethod
+    def get_question_slug(property_name: str) -> str | List[str] | None:
+        config = get_dict_item(
+            settings.MASTER_DATA, f"CONFIG.{property_name}", default=None
+        )
+
+        if not config:
+            return None
+
+        if config[0] not in ["answer", "table", "ng_answer", "ng_table"]:
+            return None
+
+        return config[1]
+
+    @staticmethod
+    def prefetch_entities_for_queryset(queryset: QuerySet[Case]) -> QuerySet[Case]:
+        """Prefetch and select related data used in master data for a case.
+
+        This analyzes the master data config and adds the needed (depending on
+        which resolvers are used) `prefetch_related` and `select_related`
+        statements to the passed queryset to reduce queries triggered by master
+        data.
+        """
+
+        prefetch_related = set()
+        select_related = set()
+
+        if not settings.MASTER_DATA:
+            return queryset
+
+        config = settings.MASTER_DATA["CONFIG"].values()
+        all_resolvers = set([prop[0] for prop in config])
+        uses_work_items = any(
+            isinstance(property_config[2], dict)
+            and "document_from_work_item" in property_config[2]
+            for property_config in config
+            if len(property_config) > 2
+        )
+
+        if "form_name" in all_resolvers:
+            select_related.add("document__form")
+        if "table" in all_resolvers or "answer" in all_resolvers:
+            # Most of the prefetching is done by the fastloader. However, this
+            # is still needed for the `get_validation_context` method of the
+            # `DocumentValidator` in order to not create a query explosion.
+            select_related.update(
+                [
+                    "document",
+                    "document__family",
+                    "document__form",
+                    "document__work_item",
+                    "family",
+                    "family__document",
+                ]
+            )
+        if "baukontrolle" in all_resolvers:
+            prefetch_related.add("work_items")
+        if "ng_answer" in all_resolvers or "ng_table" in all_resolvers:
+            prefetch_related.add("instance__fields")
+        if "php_answer" in all_resolvers:
+            prefetch_related.add("instance__answers")
+        if (
+            "first_workflow_entry" in all_resolvers
+            or "last_workflow_entry" in all_resolvers
+        ):
+            prefetch_related.add("instance__workflowentry_set")
+        if "instance_property" in all_resolvers:
+            select_related.update(["instance", "instance__form"])
+        if uses_work_items:
+            if "work_items" in prefetch_related:
+                prefetch_related.remove("work_items")
+
+            # Prefetch all work items of the case including data of the related
+            # document to reduce queries in the `get_validation_context` method
+            # of the `DocumentValidator`
+            prefetch_related.add(
+                Prefetch(
+                    "work_items",
+                    queryset=WorkItem.objects.select_related(
+                        "document",
+                        "document__family",
+                        "document__form",
+                    ),
+                )
+            )
+
+        return queryset.select_related(*select_related).prefetch_related(
+            *prefetch_related
+        )
+
+    def municipality_service_content_resolver(self, lookup) -> Optional[str]:
+        """Find the municipality service content.
+
+        Resolve the municipality specific text for a form.
+
+        Example configuration for a instance_service_content value:
+
+        MASTER_DATA = {
+            "demo": {
+                "CONFIG": {
+                    "municipality_service_content": ("municipality_service_content", "municipality_slug")
+                }
+            }
+        }
+        """
+        municipality_slug = getattr(self, lookup, None)
+        if not municipality_slug:
+            return None
+
+        municipality = Service.objects.filter(pk=municipality_slug).first()
+        service_content = (
+            ServiceContent.objects.filter(
+                service=municipality,
+                forms__slug__in=[self.case.document.form.slug],
+            ).first()
+            if municipality
+            else None
+        )
+
+        return (
+            self._markdown_links_to_plain_text(str(service_content.content))
+            if service_content
+            else None
+        )
+
+    def _markdown_links_to_plain_text(self, value: str) -> str:
+        """Convert markdown links to plain text."""
+        return re.sub(r"\[[^\]]+\]\(([^\)]+)\)", r"\1", value)
+
+
+class MultipleCaseMasterdata:
+    def __init__(self, case_queryset):
+        self.case_queryset = case_queryset
+        documents = Document.objects.filter(case__in=case_queryset)
+        self.fastloader = FastLoader.for_queryset(documents)
+        self._cases = {str(case.pk): case for case in case_queryset}
+
+    def for_case(self, case_id):
+        case = self._cases[str(case_id)]
+        return MasterData(case, _fastloader=self.fastloader)

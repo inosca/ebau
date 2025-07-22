@@ -3,6 +3,13 @@ import os.path
 
 import pytest
 import xmlschema
+from alexandria.core.factories import (
+    CategoryFactory,
+    DocumentFactory,
+    FileFactory,
+    MarkFactory,
+)
+from alexandria.core.models import Document
 from caluma.caluma_workflow.api import (
     cancel_work_item,
     complete_work_item,
@@ -29,6 +36,7 @@ def test_base_delivery(
     ech_instance_be,
     multilang,
     master_data_is_visible_mock,
+    fake_request,
 ):
     configured_base_delivery_formatter = formatters.BaseDeliveryFormatter()
 
@@ -37,7 +45,7 @@ def test_base_delivery(
         subject=form,
         message_type=ECH_BASE_DELIVERY,
         eventBaseDelivery=configured_base_delivery_formatter.format_base_delivery(
-            ech_instance_be
+            ech_instance_be, fake_request
         ),
     )
 
@@ -75,9 +83,10 @@ def test_get_documents(
     ech_snapshot,
     settings,
     application_settings,
+    fake_request,
 ):
     application_settings["DOCUMENT_BACKEND"] = "camac-ng"
-    settings.INTERNAL_BASE_URL = "http://ebau.local"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
     context = {}
     if with_display_name:
         context = {"displayName": "baz"}
@@ -94,9 +103,86 @@ def test_get_documents(
             mime_type="application/pdf",
         )
 
-    xml = formatters.get_documents(Attachment.objects.filter(uuid__in=uuids))
+    xml = formatters.get_documents(
+        Attachment.objects.filter(uuid__in=uuids), fake_request
+    )
 
     assert xml
+
+    for doc in xml:
+        try:
+            ech_snapshot(doc.toxml(element_name="doc"))
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
+
+
+def test_get_alexandria_documents(
+    db,
+    ech_snapshot,
+    settings,
+    application_settings,
+    group,
+    instance,
+    fake_request,
+    mocker,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[instance.pk],
+    )
+
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
+
+    void = MarkFactory(pk="void")
+    decision = MarkFactory(pk="decision")
+
+    visible_category = CategoryFactory(
+        metainfo={"access": {group.role.name: {"visibility": "all"}}}
+    )
+    hidden_category = CategoryFactory()
+
+    d1 = DocumentFactory(
+        pk="7604864d-fada-4431-b63b-fc9f4915233d",
+        category=visible_category,
+        metainfo={"camac-instance-id": instance.pk},
+    )
+    d1.marks.add(void)
+    FileFactory(document=d1)
+
+    d2 = DocumentFactory(
+        pk="23daf554-c2f5-4aa2-b5f2-734a96ed84d8",
+        category=visible_category,
+        metainfo={"camac-instance-id": instance.pk},
+    )
+    FileFactory(document=d2)
+
+    d2.marks.add(decision)
+    d3 = DocumentFactory(
+        pk="394f53af-24bc-4324-986e-c3901c310263",
+        category=visible_category,
+        metainfo={"camac-instance-id": instance.pk},
+    )
+    FileFactory(document=d3)
+
+    # Document that should not be visible
+    d4 = DocumentFactory(
+        pk="c1e547d5-4d98-479f-87fb-d3fb382d0f1c",
+        category=hidden_category,
+        metainfo={"camac-instance-id": instance.pk},
+    )
+    FileFactory(document=d4)
+
+    xml = formatters.get_documents(
+        Document.objects.filter(pk__in=[d1.pk, d2.pk, d3.pk, d4.pk]), fake_request
+    )
+
+    assert xml
+    assert len(xml) == 3
 
     for doc in xml:
         try:

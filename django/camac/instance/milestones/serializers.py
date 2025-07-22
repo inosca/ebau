@@ -1,12 +1,10 @@
 from caluma.caluma_workflow.models import Case, WorkItem
-from dateutil import relativedelta
 from django.conf import settings
 from django.db.models import Q
 from django.utils.translation import gettext_noop as _
 from rest_framework import serializers
 
 from camac.caluma.api import CalumaApi
-from camac.core.models import PublicationEntry
 from camac.document.models import Attachment, AttachmentDownloadHistory
 
 from ..master_data import MasterData
@@ -60,7 +58,7 @@ def _get_date_of_downloaded_decision_document(instance):
             return downloaded_attachments.date_time
 
 
-def _check_feedback_answer(instance, slug):
+def _check_decision_answer(instance, answer_slug, question_slug):
     decision_workitem = list(
         filter(
             lambda work_item: work_item.task_id == "decision", instance._all_work_items
@@ -69,11 +67,11 @@ def _check_feedback_answer(instance, slug):
     if decision_workitem:
         feedback_answer = (
             decision_workitem[0]
-            .document.answers.filter(question_id="decision-task-feedback-type")
+            .document.answers.filter(question_id=question_slug)
             .first()
         )
         if feedback_answer:
-            if feedback_answer.value == slug:
+            if feedback_answer.value == answer_slug:
                 return True
     return False
 
@@ -149,12 +147,9 @@ class UrMilestonesSerializer(MilestonesSerializer):
                     fields.MethodField(
                         slug="instance-submitted", label=_("instance submitted")
                     ),
-                    fields.MethodField(
-                        slug="paper-submission", label=_("Paper submission")
-                    ),
                     fields.WorkItemsField(
                         slug="additional-demand",
-                        label=_("Additional demand"),
+                        label=_("Additional demand municipality"),
                         task="send-additional-demand",
                         status=WorkItem.STATUS_COMPLETED,
                         field="created_at",
@@ -168,17 +163,8 @@ class UrMilestonesSerializer(MilestonesSerializer):
                     fields.MethodField(
                         slug="instance-complete", label=_("Instance complete")
                     ),
-                    fields.WorkItemsField(
-                        slug="review-building-commission",
-                        label=_("Review building commission"),
-                        task="review-building-commission",
-                        status=WorkItem.STATUS_COMPLETED,
-                        field="closed_at",
-                        order_by="-closed_at",
-                        limit=1,
-                    ),
                     fields.MethodField(
-                        slug="publication-date", label=_("Puclication date")
+                        slug="publication-date", label=_("Publication date")
                     ),
                     fields.AnswerField(
                         slug="einsprache",
@@ -187,14 +173,7 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         family_form_id="instance-management",
                     ),
                     fields.WorkItemsField(
-                        task="fill-inquiry",
-                        label=_("Forwarding to KOOR"),
-                        order_by="created_at",
-                        limit=1,
-                        filter=lambda instance: _is_addressed_to_a_coordination_service(),
-                    ),
-                    fields.WorkItemsField(
-                        slug="start-circulation",
+                        slug="start-circulation-new",
                         label=_("Start circulation"),
                         task="init-distribution",
                         filter=lambda instance: _is_addressed_to_the_responsible_service(
@@ -203,13 +182,12 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         status=WorkItem.STATUS_COMPLETED,
                         field="closed_at",
                     ),
-                    fields.CamacWorkflowEntryField(
-                        slug="submission-to-koor",
-                        name="Weiterleitung an Koord",
-                        label=_("submission to koor (migrated)"),
-                    ),
-                    fields.MethodField(
-                        slug="start-circulation", label=_("Start circulation")
+                    fields.WorkItemsField(
+                        task="fill-inquiry",
+                        label=_("Forwarding to KOOR"),
+                        order_by="created_at",
+                        limit=1,
+                        filter=lambda instance: _is_addressed_to_a_coordination_service(),
                     ),
                     fields.WorkItemsField(
                         slug="distribution-completed",
@@ -229,39 +207,48 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         slug="building-decision",
                         label=_("Building decision"),
                     ),
-                    fields.CamacWorkflowEntryField(
-                        slug="building-decision-migrated",
-                        name="Bau- und Einspracheentscheid",
-                        label=_("Building decision (migrated)"),
-                    ),
-                    fields.WorkItemsField(
-                        slug="notice-to-geometer",
-                        label=_("notice to geometer"),
-                        task="geometer",
-                        field="created_at",
+                    fields.MethodField(
+                        slug="receipt-confirmation-of-preliminary-decision",
+                        label=_("Receipt confirmation of preliminary decision"),
                     ),
                     fields.MethodField(
                         slug="receipt-confirmation-of-decision-documents",
                         label=_("Receipt confirmation of decision documents"),
                     ),
-                    fields.MethodField(
-                        slug="receipt-confirmation-of-preliminary-decision",
-                        label=_("Receipt confirmation of preliminary decision"),
+                    fields.AnswerField(
+                        slug="baubewilligung-gueltig-bis",
+                        label=_("Building permit valid until"),
+                        document="instance-management",
                     ),
                     fields.WorkItemsField(
-                        slug="notice-to-gebaeudeschaetzung",
-                        label=_("notice to gebaeudeschaetzung"),
-                        task="gebaeudeschaetzung",
-                        field="created_at",
+                        slug="review-building-commission",
+                        label=_("Review building commission (migrated)"),
+                        task="review-building-commission",
+                        status=WorkItem.STATUS_COMPLETED,
+                        field="closed_at",
+                        order_by="-closed_at",
+                        limit=1,
                     ),
                     fields.MethodField(
-                        slug="building-permit-valid-until",
-                        label=_("Building permit valid until"),
+                        slug="paper-submission", label=_("Paper submission")
                     ),
                     fields.CamacWorkflowEntryField(
                         slug="objection-deadline",
                         name="Einsprachefrist",
                         label=_("Objection deadline (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="submission-to-koor",
+                        name="Weiterleitung an Koord",
+                        label=_("submission to koor (migrated)"),
+                    ),
+                    fields.MethodField(
+                        slug="start-circulation", label=_("Start circulation migrated")
+                    ),
+                    fields.CamacWorkflowEntryField(
+                        slug="building-decision-migrated",
+                        name="Bau- und Einspracheentscheid",
+                        label=_("Building decision (migrated)"),
                     ),
                     fields.CamacWorkflowEntryField(
                         slug="dispatch-statement-preliminary-decision-by-post",
@@ -283,14 +270,23 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         label=_("Dispatch of decision documents by post (migrated)"),
                     ),
                     fields.CamacWorkflowEntryField(
+                        slug="dispatch-decision-documents-by-email",
+                        name="Versand Entscheiddokumente per Mail",
+                        label=_("Dispatch of decision documents by e-mail (migrated)"),
+                    ),
+                    fields.CamacWorkflowEntryField(
                         slug="dispatch-decision-documents-by-portal",
                         name="Versand Entscheiddokumente per Portal",
                         label=_("Dispatch of decision documents by portal (migrated)"),
                     ),
-                    fields.CamacWorkflowEntryField(
-                        slug="dispatch-decision-documents-by-email",
-                        name="Versand Entscheiddokumente per Mail",
-                        label=_("Dispatch of decision documents by e-mail (migrated)"),
+                ],
+            ),
+            fields.MilestoneSectionField(
+                slug="reports-to-third-parties-regular-process",
+                label=_("reports to third parties regular process"),
+                fields=[
+                    fields.MethodField(
+                        slug="notice-to-geometer", label=_("notice to geometer")
                     ),
                     fields.CamacWorkflowEntryField(
                         slug="notification-building-permit-to-surveyor",
@@ -298,6 +294,47 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         label=_(
                             "Notification of building permit to surveyor (migrated)"
                         ),
+                    ),
+                ],
+            ),
+            fields.MilestoneSectionField(
+                slug="reports-to-third-parties-construction-monitoring",
+                label=_("reports to third parties construction monitoring"),
+                fields=[
+                    fields.AnswerField(
+                        slug="meldung-gebaeudeabbruch-an-geometer",
+                        label=_("demolition notice to geometer"),
+                        document="instance-management",
+                    ),
+                    fields.WorkItemsField(
+                        slug="bauverwaltung-meldung-bau-beendet-an-geometer",
+                        label=_("Notice construction finished to geometer"),
+                        task="construction-step-schlussabnahme-gebaeude-melden",
+                        field="closed_at",
+                    ),
+                    fields.WorkItemsField(
+                        slug="notice-to-gebaeudeschaetzung",
+                        label=_("notice to gebaeudeschaetzung"),
+                        task="gebaeudeschaetzung",
+                        field="created_at",
+                    ),
+                    fields.WorkItemsField(
+                        slug="notice-to-liegenschaftsschaetzung",
+                        label=_("notice to liegenschaftsschaetzung"),
+                        task="liegenschaftsschaetzung",
+                        field="created_at",
+                    ),
+                    fields.WorkItemsField(
+                        slug="meldung-bereit-zur-kanalisationsabnahme-an-abwasser-uri",
+                        label=_("notice kanalisationsabnahme to abwasser uri"),
+                        task="construction-step-kanalisationsabnahme-melden",
+                        field="closed_at",
+                    ),
+                    fields.WorkItemsField(
+                        slug="meldung-bereit-zur-schnurgeruestabnahme-an-geometer",
+                        label=_("notice schnurgeruestabnahme to geometer"),
+                        task="construction-step-schnurgeruestabnahme-melden",
+                        field="closed_at",
                     ),
                     fields.CamacWorkflowEntryField(
                         slug="start-of-construction",
@@ -335,120 +372,48 @@ class UrMilestonesSerializer(MilestonesSerializer):
     )
 
     def get_instance_complete(self, instance):
-        # In Uri "Dossier vollständig" means that all required information is available
-        # to continue with the instance.
-
-        complete_check_work_item = next(
-            (
-                wi
-                for wi in instance._all_work_items
-                if wi.task_id == "complete-check"
-                and wi.status == WorkItem.STATUS_COMPLETED
-            ),
-            None,
-        )
-
-        if complete_check_work_item:
-            if not complete_check_work_item.document.answers.exists():
-                # for migrated dossiers in Uri there is no "complete-check"
-                return None  # pragma: no cover
-
-            complete_check_answer = complete_check_work_item.document.answers.get(
-                question_id="complete-check-vollstaendigkeitspruefung"
-            ).value
-
-            if (
-                complete_check_answer
-                == "complete-check-vollstaendigkeitspruefung-complete"
-            ):
-                # Dossier is "vollständig"
-                return complete_check_work_item.closed_at
-
-            if complete_check_answer in [
-                "complete-check-vollstaendigkeitspruefung-incomplete",
-                "complete-check-vollstaendigkeitspruefung-incomplete-wait",
-            ]:
-                # Dossier was incomplete during the check and additional-demands were required
-                open_additional_demand_work_items = [
-                    wi
-                    for wi in instance._all_work_items
-                    if (
-                        wi.task_id
-                        in [
-                            "send-additional-demand",
-                            "fill-additional-demand",
-                            "check-additional-demand",
-                        ]
-                        and wi.status == WorkItem.STATUS_READY
-                    )
-                ]
-
-                if len(open_additional_demand_work_items):
-                    # There are open additional-demands
-                    return None
-                else:
-                    completed_check_additional_demand_work_items_closed_at = [
-                        wi.closed_at
-                        for wi in instance._all_work_items
-                        if (
-                            wi.task_id == "check-additional-demand"
-                            and wi.status == WorkItem.STATUS_COMPLETED
-                        )
-                    ]
-                    if completed_check_additional_demand_work_items_closed_at:
-                        return max(
-                            completed_check_additional_demand_work_items_closed_at
-                        )
-
-        return None  # pragma: no cover
-
-    def get_building_permit_valid_until(self, instance):
-        decision_work_item = next(
-            (
-                wi
-                for wi in instance._work_items
-                if wi.task_id == "decision" and wi.status == WorkItem.STATUS_COMPLETED
-            ),
-            None,
-        )
-
-        if (
-            decision_work_item
-            and decision_work_item.closed_at is not None
-            and self.get_building_decision(instance)
-        ):
-            return decision_work_item.closed_at + relativedelta.relativedelta(years=1)
-
-        return []  # pragma: no cover
+        return instance.completed_date()
 
     def get_receipt_confirmation_of_decision_documents(self, instance):
-        if _check_feedback_answer(
-            instance, "decision-task-feedback-type-bau-und-einspracheentscheid"
+        if _check_decision_answer(
+            instance,
+            "decision-task-feedback-type-bau-und-einspracheentscheid",
+            "decision-task-feedback-type",
         ):
             return _get_date_of_downloaded_decision_document(instance)
 
     def get_receipt_confirmation_of_preliminary_decision(self, instance):
-        if _check_feedback_answer(
-            instance, "decision-task-feedback-type-stellungnahme-vorentscheid"
+        if _check_decision_answer(
+            instance,
+            "decision-task-feedback-type-stellungnahme-vorentscheid",
+            "decision-task-feedback-type",
         ):
             return _get_date_of_downloaded_decision_document(instance)
 
     def get_publication_date(self, instance):
-        # There is only one publication possible in Kt. Uri so we can safely use first
-        if publication := PublicationEntry.objects.filter(
-            instance_id=instance.pk
-        ).first():
-            return publication.publication_date
+        return instance.publication_date()
 
     def get_statement_preliminary_decision(self, instance):
-        if _check_feedback_answer(
-            instance, "decision-task-feedback-type-stellungnahme-vorentscheid"
+        if _check_decision_answer(
+            instance,
+            "decision-task-feedback-type-stellungnahme-vorentscheid",
+            "decision-task-feedback-type",
         ):
             return _get_decision_work_item_closed_at(instance)
 
     def get_building_decision(self, instance):
-        if _check_feedback_answer(
-            instance, "decision-task-feedback-type-bau-und-einspracheentscheid"
+        if _check_decision_answer(
+            instance,
+            "decision-task-feedback-type-bau-und-einspracheentscheid",
+            "decision-task-feedback-type",
+        ):
+            return _get_decision_work_item_closed_at(instance)
+
+    def get_notice_to_geometer(self, instance):
+        if _check_decision_answer(
+            instance,
+            "decision-task-nachfuehrungsgeometer-ja",
+            "decision-task-nachfuehrungsgeometer",
         ):
             return _get_decision_work_item_closed_at(instance)
 

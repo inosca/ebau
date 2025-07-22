@@ -1,7 +1,8 @@
 from datetime import datetime, timedelta
 
-import pytz
 from caluma.caluma_core.events import on
+from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import skip_work_item, start_case
 from caluma.caluma_workflow.events import (
     post_cancel_case,
@@ -14,10 +15,16 @@ from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext as _
 
-from camac.caluma.utils import filter_by_task_base, filter_by_workflow_base
+from camac.caluma.utils import (
+    date_to_deadline,
+    filter_by_task_base,
+    filter_by_workflow_base,
+)
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import construction_monitoring_started
 from camac.notification.utils import send_mail_without_request
+from camac.permissions import events as permissions_events
+from camac.permissions.events import Trigger
 from camac.user.models import User
 
 from .general import get_instance
@@ -102,12 +109,27 @@ def can_perform_construction_monitoring(instance):
     return form_family and form_family.name in allow_forms
 
 
+def is_tax_administration_involved(work_item: WorkItem):
+    """Check if on instance completion the tax administration was involved."""
+    return (
+        work_item
+        and work_item.document.answers.filter(
+            question_id="steuerverwaltung-informieren",
+            value__contains=[
+                "steuerverwaltung-informieren-steuerverwaltung-informieren"
+            ],
+        ).exists()
+    )
+
+
 CONSTRUCTION_STEP_TRANSLATIONS = {
     "construction-step-plan-construction-stage": _("Baubegleitung planen"),
     "construction-step-baufreigabe": _("Baufreigabe"),
+    "construction-step-gebaeudeabbruch": _("Gebäudeabbruch"),
     "construction-step-baubeginn": _("Baubeginn"),
     "construction-step-schnurgeruestabnahme": _("Schnurgeruestabnahme"),
     "construction-step-kanalisationsabnahme": _("Kanalisationsabnahme"),
+    "construction-step-einmessung": _("Einmessung im offenen Graben"),
     "construction-step-rohbauabnahme": _("Rohbauabnahme"),
     "construction-step-zwischenkontrolle": _("Zwischenkontrolle"),
     "construction-step-schlussabnahme-gebaeude": _("Schlussabnahme Gebaeude"),
@@ -256,11 +278,7 @@ def set_complete_construction_monitoring_deadline(case):
 
     deadline = None
     if not has_running_construction_stages:
-        deadline = pytz.utc.localize(
-            datetime.combine(
-                datetime.now() + timedelta(seconds=864000), datetime.min.time()
-            )
-        )
+        deadline = date_to_deadline(datetime.now().date() + timedelta(days=10))
 
     complete_construction_monitoring.deadline = deadline
     complete_construction_monitoring.save()
@@ -319,15 +337,7 @@ def post_complete_instance(
                 camac_user,
             )
 
-    if (
-        work_item
-        and work_item.document.answers.filter(
-            question_id="steuerverwaltung-informieren",
-            value__contains=[
-                "steuerverwaltung-informieren-steuerverwaltung-informieren"
-            ],
-        ).exists()
-    ):
+    if is_tax_administration_involved(work_item):
         notifications.append(
             {
                 "template_slug": "notify-complete-instance",
@@ -344,6 +354,8 @@ def post_complete_instance(
             instance={"id": instance.pk, "type": "instances"},
             work_item={"id": work_item.pk, "type": "work-items"},
         )
+
+    permissions_events.Trigger.instance_completed(None, instance)
 
 
 @on(post_create_work_item, raise_exception=True)
@@ -372,11 +384,7 @@ def post_create_construction_control(sender, work_item, user, context, **kwargs)
             date_string = date_answer.strftime("%d.%m.%Y")
 
             work_item.name = f"{work_item.name} (Kontrolle vom: {date_string})"
-            work_item.deadline = pytz.utc.localize(
-                datetime.combine(
-                    date_answer + timedelta(seconds=864000), datetime.min.time()
-                )
-            )
+            work_item.deadline = date_to_deadline(date_answer + timedelta(days=10))
             work_item.save(update_fields=["name", "deadline"])
 
 
@@ -397,3 +405,40 @@ def post_complete_construction_control(sender, work_item, user, context, **kwarg
             settings.CONSTRUCTION_MONITORING["AFTER_INSTANCE_STATE"],
             camac_user,
         )
+
+
+@on(post_create_work_item, raise_exception=True)
+@filter_by_task(["CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"])
+@transaction.atomic
+def post_create_plan_construction_stage_ur(sender, work_item, user, context, **kwargs):
+    if settings.APPLICATION_NAME == "kt_uri":
+        instance = get_instance(work_item)
+        gwr_relevancy_work_item = instance.case.family.work_items.filter(
+            task_id="check-gwr-relevancy", status="completed"
+        ).first()
+
+        if not gwr_relevancy_work_item:  # pragma: no cover
+            return
+
+        if gwr_relevancy_answer := gwr_relevancy_work_item.document.answers.filter(
+            question_id="fuer-gwr-relevant"
+        ).first():
+            gwr_relevant = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
+
+        if gwr_relevant:
+            save_answer(
+                document=work_item.document,
+                question=Question.objects.filter(pk="construction-steps").first(),
+                user=user,
+                value=[
+                    "construction-step-baubeginn",
+                    "construction-step-schlussabnahme-gebaeude",
+                ],
+            )
+
+
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
+def post_create_geometer_work_item(sender, work_item, user, context, **kwargs):
+    if work_item.task.address_groups and "geometer" in work_item.task.address_groups:
+        Trigger.geometer_work_item_created(None, work_item)

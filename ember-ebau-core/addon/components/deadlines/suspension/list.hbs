@@ -1,0 +1,74 @@
+<h2>{{t "deadlines.title.suspensions"}}</h2>
+
+{{#if this.isLoading}}
+  <div class="uk-text-center uk-padding">
+    <UkSpinner @ratio={{2}} />
+  </div>
+{{else}}
+  <table
+    class="uk-table uk-table-hover uk-table-striped uk-table-middle"
+    data-test-suspension-list
+  >
+    <thead>
+      <tr>
+        <th>{{t "deadlines.suspension.property.startDate"}}</th>
+        <th>{{t "deadlines.suspension.property.endDate"}}</th>
+        <th>{{t "deadlines.suspension.property.reason"}}</th>
+        <th>{{t "deadlines.suspension.property.author"}}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.suspensions as |suspension|}}
+        <tr data-test-suspension-list-item>
+          <td>{{format-date suspension.startDate}}</td>
+          <td>{{format-date suspension.endDate}}</td>
+          <td>{{suspension.reasonFormatted}}</td>
+          <td>{{suspension.authorFormatted}}</td>
+          <td class="uk-text-center">
+            {{#if
+              (await
+                (can "edit suspension" suspension instance=@deadline.instance)
+              )
+            }}
+              <IconButton
+                @icon="pencil"
+                @onClick={{fn this.editSuspension suspension}}
+                @disabled={{this.showModal}}
+                title={{t "deadlines.action.suspension.edit"}}
+                data-test-edit-suspension-button
+              />
+            {{/if}}
+          </td>
+        </tr>
+      {{else}}
+        <td colspan="5" class="uk-text-center">
+          {{t "deadlines.suspension.list.empty"}}
+        </td>
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{#if (await (can "create suspension" instance=@deadline.instance))}}
+    <div class="uk-text-center">
+      <IconButton
+        @icon="plus"
+        @onClick={{this.createSuspension}}
+        @disabled={{this.showModal}}
+        title={{t "deadlines.action.suspension.create"}}
+        data-test-create-suspension-button
+      />
+    </div>
+  {{/if}}
+
+  {{#if this.showModal}}
+    <Deadlines::Suspension::FormModal
+      @visible={{this.showModal}}
+      @onHide={{fn (mut this.showModal) false}}
+      @onDelete={{this.onDelete}}
+      @afterSave={{this.reload}}
+      @deadline={{@deadline}}
+      @suspension={{this.suspensionToEdit}}
+    />
+  {{/if}}
+{{/if}}

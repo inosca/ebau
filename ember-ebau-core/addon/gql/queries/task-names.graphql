@@ -1,0 +1,10 @@
+query TaskNames($tasks: [String]) {
+  allTasks(filter: [{ slugs: $tasks }]) {
+    edges {
+      node {
+        slug
+        name
+      }
+    }
+  }
+}

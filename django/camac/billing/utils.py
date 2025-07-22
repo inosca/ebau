@@ -2,7 +2,13 @@ from collections import OrderedDict
 from decimal import Decimal
 from typing import List, TypedDict, Union
 
-from camac.billing.models import BillingV2Entry
+from django.conf import settings
+from django.db.models import Q
+
+from camac.billing.models import BillingV2Entry, Invoice
+from camac.instance.models import Instance
+from camac.settings.modules.billing_schema import ProductNumberConfig
+from camac.user.models import Group, Service
 
 
 class OrganizationTotals(TypedDict):
@@ -10,10 +16,7 @@ class OrganizationTotals(TypedDict):
     total: str
 
 
-class BillingTotals(TypedDict):
-    BillingV2Entry.CANTONAL: OrganizationTotals
-    BillingV2Entry.MUNICIPAL: OrganizationTotals
-    all: OrganizationTotals
+BillingTotals = dict[str, OrganizationTotals]
 
 
 def round_decimal(num: Decimal) -> Decimal:
@@ -38,19 +41,29 @@ def calculate_final_rate(
 
     final_rate = None
 
-    if calculation == BillingV2Entry.CALCULATION_FLAT:
+    if calculation == BillingV2Entry.CalculationModes.CALCULATION_FLAT:
         final_rate = total_cost
-    elif calculation == BillingV2Entry.CALCULATION_PERCENTAGE:
-        final_rate = total_cost * percentage / Decimal(100)
-    elif calculation == BillingV2Entry.CALCULATION_HOURLY:
-        final_rate = hours * hourly_rate
+    elif calculation == BillingV2Entry.CalculationModes.CALCULATION_PERCENTAGE:
+        final_rate = (
+            total_cost * percentage / Decimal(100)
+            if total_cost is not None and percentage is not None
+            else None
+        )
+    elif calculation == BillingV2Entry.CalculationModes.CALCULATION_HOURLY:
+        final_rate = (
+            hours * hourly_rate
+            if hours is not None and hourly_rate is not None
+            else None
+        )
+    elif calculation == BillingV2Entry.CalculationModes.CALCULATION_AG_PROCESSING_FEE:
+        final_rate = calculate_ag_processing_fee(total_cost)
 
     # Don't ignore final_rate when value is 0
     return round_decimal(final_rate) if final_rate is not None else None
 
 
 def add_taxes_to_final_rate(
-    final_rate: Decimal, tax_mode: str, tax_rate: Decimal
+    final_rate: Decimal | None, tax_mode: str, tax_rate: Decimal
 ) -> Union[Decimal, None]:
     """Add taxes to final rate.
 
@@ -62,7 +75,7 @@ def add_taxes_to_final_rate(
     if final_rate is None:
         return None
 
-    if tax_mode != BillingV2Entry.TAX_MODE_EXCLUSIVE:
+    if tax_mode != BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE:
         return final_rate
 
     return round_decimal(final_rate + final_rate * tax_rate / Decimal(100))
@@ -77,7 +90,7 @@ def get_totals(entries: List[OrderedDict]) -> BillingTotals:
 
     totals = {}
 
-    for key, _ in BillingV2Entry.ORGANIZATION_CHOICES:
+    for key, _ in BillingV2Entry.Organizations.choices:
         totals[key] = get_totals_for_organization(entries, key)
 
     totals["all"] = get_totals_for_organization(entries)
@@ -127,3 +140,136 @@ def get_totals_for_organization(
             )
         ),
     }
+
+
+def calculate_ag_processing_fee(construction_costs: int | float | None) -> Decimal:
+    total = Decimal(0)
+    remaining_construction_costs = Decimal(construction_costs or 0)
+
+    for tax_rate, max_tax in [
+        # First 2 millions are taxed with 3‰
+        (Decimal(0.003), Decimal(2_000_000)),
+        # Next 3 millions are taxed with 2.5‰
+        (Decimal(0.0025), Decimal(3_000_000)),
+        # Rest is taxed with 1.5‰
+        (Decimal(0.0015), Decimal("Infinity")),
+    ]:
+        taxed_amount = max(Decimal(0), min(remaining_construction_costs, max_tax))
+        total += taxed_amount * tax_rate
+        remaining_construction_costs -= taxed_amount
+
+    # The maximum total fee is 60'000, the minimum is 400
+    return min(max(total, Decimal(400)), Decimal(60_000))
+
+
+def stringify_price(price: float) -> str:
+    return str(price).replace(".", ",")
+
+
+def get_invoice_text_sz(instance: Instance) -> str:
+    newline: str = settings.BILLING.wilken.newline_character
+
+    construction_leads = instance.fields.filter(name="bauherrschaft-override").first()
+    if not construction_leads:
+        construction_leads = instance.fields.filter(
+            Q(name__startswith="bauherrschaft-v") | Q(name="bauherrschaft")
+        ).first()
+
+    description = instance.fields.filter(name="bezeichnung-override").first()
+    if not description:
+        description = instance.fields.filter(name="bezeichnung").first()
+
+    location = instance.fields.filter(name="standort-ort").first()
+    street = instance.fields.filter(name="ortsbezeichnung-des-vorhabens").first()
+
+    invoice_text = ""
+    if construction_leads:
+        if len(construction_leads.value) > 1:
+            for construction_lead in construction_leads.value:
+                invoice_text += (
+                    f"{construction_lead['vorname']} {construction_lead['name']} "
+                    f"{construction_lead['strasse']} {construction_lead['plz']} "
+                    f"{construction_lead['ort']}{newline}"
+                )
+        else:
+            construction_lead = construction_leads.value[0]
+            invoice_text += (
+                f"{construction_lead['vorname']} {construction_lead['name']}{newline}"
+            )
+            invoice_text += construction_lead["strasse"] + newline
+            invoice_text += (
+                f"{construction_lead['plz']} {construction_lead['ort']}{newline}"
+            )
+        invoice_text += newline
+
+    if description:
+        invoice_text += description.value
+
+    if location and street:
+        invoice_text += 2 * newline
+        invoice_text += f"{street.value}, {location.value}"
+
+    return invoice_text
+
+
+def get_customer_number_sz(instance: Instance) -> str:
+    return settings.BILLING.wilken.customer_numbers[instance.location.name]
+
+
+def validate_product_number_conditions(
+    product_number_config: ProductNumberConfig,
+    service: Service,
+    has_previous_invoice: bool,
+) -> bool:
+    """Validate if the conditions configured for a product number are met."""
+
+    # All config options we need to check for validity with their default values
+    config = {
+        "number": product_number_config.number,
+        "only_for_services": product_number_config.only_for_services,
+        "only_for_service_groups": product_number_config.only_for_service_groups,
+        "not_for_services": product_number_config.not_for_services,
+        "only_subsequent_charge": product_number_config.only_subsequent_charge,
+    }
+
+    def test_condition(key, value):
+        match (key, value):
+            case ("only_subsequent_charge", cond):
+                return has_previous_invoice == cond
+            case ("only_for_services", services) if services:
+                if not service.slug:
+                    return False
+                return service.slug in services
+            case ("only_for_service_groups", service_groups) if service_groups:
+                if not service.service_group.slug:
+                    return False
+                return service.service_group.slug in service_groups
+            case ("not_for_services", services) if services:
+                if not service.slug:
+                    return True
+                return service.slug not in services
+            # In case any of the properties don't match up with the datatype
+            # we excpect, we just ignore them instead of failing.
+            case _:
+                return True
+
+    return all([test_condition(key, value) for key, value in config.items()])
+
+
+def validate_product_number(group: Group, instance: str) -> list[ProductNumberConfig]:
+    config: list[ProductNumberConfig] = settings.BILLING.product_numbers
+
+    if not config:
+        return []
+
+    has_previous_invoice = Invoice.objects.filter(instance=instance).exists()
+
+    return [
+        product_number_config
+        for product_number_config in config
+        if validate_product_number_conditions(
+            product_number_config,
+            group.service,
+            has_previous_invoice,
+        )
+    ]

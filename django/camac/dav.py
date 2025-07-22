@@ -4,6 +4,7 @@ from logging import getLogger
 from pathlib import Path
 from shutil import copy2
 
+from alexandria.dav import ManageDjangoConnectionsMiddleware
 from django.conf import settings
 from django.db import transaction
 from django.utils import timezone
@@ -12,6 +13,7 @@ from manabi.auth import ManabiAuthenticator
 from manabi.filesystem import CallbackHookConfig, ManabiFileResource, ManabiProvider
 from manabi.lock import ManabiDbLockStorage
 from manabi.log import HeaderLogger, verbose_logging
+from wsgidav.dav_error import HTTP_BAD_REQUEST, DAVError
 from wsgidav.dir_browser import WsgiDavDirBrowser
 from wsgidav.error_printer import ErrorPrinter
 from wsgidav.mw.debug_filter import WsgiDavDebugFilter
@@ -22,15 +24,27 @@ log = getLogger(__name__)
 
 class LoggedManabiFileResource(ManabiFileResource):
     def begin_write(self, *, content_type=None):
+        from camac.document.models import Attachment
+        from camac.user.models import User
+
         if settings.LOG_FILE_WRITE_SIZES:
-            _, attachment_id = self._token.payload
+            user_id, attachment_id = self._token.payload
+            user = User.objects.get(id=user_id)
+            attachment = Attachment.objects.get(attachment_id=attachment_id)
+
             log.info(
                 f"-------------------- START DAV WRITE ATTACHMENT_ID {attachment_id} --------------------"
             )
             log.info(
                 f"begin_write -- ATTACHMENT_ID {attachment_id}"
                 f"\n\tcontent_length={self.environ['CONTENT_LENGTH']} (file size from the request)"
+                f"\n\tattachment_size={attachment.size} (before writing)"
+                f"\n\tuser={user.username}"
+                f"\n\tattachment_group={attachment.group.pk if attachment.group else '-'}"
+                f"\n\tattachment_instance={attachment.instance.pk}"
             )
+        if int(self.environ["CONTENT_LENGTH"]) == 0:  # pragma: no cover
+            raise DAVError(HTTP_BAD_REQUEST)
         return super().begin_write(content_type=content_type)
 
 
@@ -73,6 +87,7 @@ def get_dav():
                 ),
             },
             "middleware_stack": [
+                ManageDjangoConnectionsMiddleware,
                 HeaderLogger,
                 WsgiDavDebugFilter,
                 ErrorPrinter,
@@ -88,6 +103,7 @@ def get_dav():
             "hotfixes": {
                 "re_encode_path_info": False,
             },
+            "suppress_version_info": True,
         }
     )
 

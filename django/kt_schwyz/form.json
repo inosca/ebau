@@ -395,6 +395,78 @@
       "fachthemen.bauabfaelle",
       "gesuchsunterlagen"
     ],
+    "baugesuch-reklamegesuch-v10": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-baugesuch-reklamegesuch",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v5",
+      "grundinformationen.baustellenabwasser",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "personalien.vertreter-mit-vollmacht-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
+    "baugesuch-reklamegesuch-v11": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-baugesuch-reklamegesuch-v2",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v5",
+      "grundinformationen.baustellenabwasser",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "personalien.vertreter-mit-vollmacht-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
     "projektanderung-v3": [
       "projektanderung",
       "grundinformationen",
@@ -509,6 +581,40 @@
       "grundinformationen.lokalisierung",
       "grundinformationen.kategorisierung-v2",
       "grundinformationen.allgemeine-informationen-zum-vorhaben-v4",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.energie-v2",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
+    "projektanderung-v11": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v3",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v5",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.energie-v2",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
+    "projektanderung-v12": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v4",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v5",
       "grundinformationen.ausnahmebewilligungen",
       "grundinformationen.gwr-v2",
       "personalien",
@@ -723,6 +829,74 @@
       "grundinformationen.lokalisierung",
       "grundinformationen.kategorisierung-v2",
       "grundinformationen.allgemeine-informationen-zum-vorhaben-v4",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
+    "vorentscheid-gemass-ss84-pbg-v10": [
+      "vorentscheid",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v3",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-vorentscheid",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
+    "vorentscheid-gemass-ss84-pbg-v11": [
+      "vorentscheid",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v4",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-vorentscheid",
       "grundinformationen.gwr-v2",
       "personalien",
       "personalien.grundeigentumerschaft-v2",
@@ -1096,6 +1270,38 @@
       "gesuchsunterlagen",
       "meta"
     ],
+    "technische-bewilligung-v5": [
+      "technische-bewilligung-v2",
+      "baustellenentwasserung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen-technische-bewilligung",
+      "meta"
+    ],
     "konzession-fur-wasserentnahme": [
       "konzession-fur-wasserentnahme",
       "grundinformationen",
@@ -1374,6 +1580,37 @@
       "gesuchsunterlagen",
       "meta"
     ],
+    "projektgenehmigungsgesuch-gemass-ss15-strag-v6": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.geometer-projektgenehmigungsgesuch",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v2",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "gesuchsunterlagen",
+      "meta"
+    ],
     "geschaeftskontrolle": ["geschaeftskontrolle"],
     "migriertes-dossier": [
       "personalien",
@@ -1495,6 +1732,206 @@
         "terrain-abgrabung"
       ]
     },
+    "grundinformationen.kategorisierung-v3": {
+      "title": "Kategorisierung",
+      "parent": "grundinformationen",
+      "questions": [
+        "kategorie-des-vorhabens",
+        "art-der-nutzung",
+        "vorhaben-mit-baute",
+        "vorhaben-mit-baute-bisherige-nutzung",
+        "vorhaben-mit-baute-geplante-nutzung",
+        "vorhaben-mit-anlage",
+        "vorhaben-mit-anlage-bisherige-nutzung",
+        "vorhaben-mit-anlage-geplante-nutzung",
+        "art-der-anlage",
+        "art-der-anlage-andere",
+        "art-der-befestigten-flache",
+        "art-der-befestigten-flache-andere",
+        "zweck-der-leitungen",
+        "zweck-der-leitungen-andere",
+        "art-der-warmepumpe",
+        "tangiert-vorhaben-strasse",
+        "pfahlfundation-vorgesehen",
+        "untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant",
+        "baugrubenumschliessung-vorgesehen",
+        "temporare-grundwasserabsenkung-notig",
+        "anlagen-mit-erheblichen-schadstoffemissionen",
+        "anlagen-mit-erheblichen-schadstoffemissionen-welche",
+        "anlagen-mit-erheblichen-strahlungsemissionen",
+        "anlagen-mit-erheblichen-strahlungsemissionen-welche",
+        "anlagen-mit-erheblichen-larmemissionen",
+        "larmbelastetes-gebiet",
+        "aussenbeleuchtung",
+        "wassergefahrdende-stoffe",
+        "brandschutztechnisch-gefahrliche-stoffe",
+        "bodenbelastungen",
+        "boden-5000m2",
+        "ordendliche-mindestabstande",
+        "auswirkungen-auf-arbeitnehmer",
+        "lebensmittel-umgehen",
+        "trinkwasser-abgeben",
+        "offentlich-duschanlage-oder-bad",
+        "gewerbliche-nutzflachen",
+        "gewerbliche-nutzflachen-grosse",
+        "hohe-der-anlage",
+        "terrain-aufschuettung",
+        "terrain-abgrabung"
+      ]
+    },
+    "grundinformationen.kategorisierung-v4": {
+      "title": "Kategorisierung",
+      "parent": "grundinformationen",
+      "questions": [
+        "kategorie-des-vorhabens",
+        "art-der-nutzung",
+        "vorhaben-mit-baute",
+        "vorhaben-mit-baute-bisherige-nutzung",
+        "vorhaben-mit-baute-geplante-nutzung",
+        "vorhaben-mit-anlage",
+        "vorhaben-mit-anlage-bisherige-nutzung",
+        "vorhaben-mit-anlage-geplante-nutzung",
+        "art-der-anlage",
+        "art-der-anlage-andere",
+        "art-der-befestigten-flache",
+        "art-der-befestigten-flache-andere",
+        "zweck-der-leitungen",
+        "zweck-der-leitungen-andere",
+        "art-der-warmepumpe",
+        "tangiert-vorhaben-strasse",
+        "pfahlfundation-vorgesehen",
+        "untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant",
+        "baugrubenumschliessung-vorgesehen",
+        "temporare-grundwasserabsenkung-notig",
+        "anlagen-mit-erheblichen-schadstoffemissionen",
+        "anlagen-mit-erheblichen-schadstoffemissionen-welche",
+        "anlagen-mit-erheblichen-strahlungsemissionen",
+        "anlagen-mit-erheblichen-strahlungsemissionen-welche",
+        "anlagen-mit-erheblichen-larmemissionen",
+        "larmbelastetes-gebiet",
+        "fruchtfolgeflache-kompensationspflichtig",
+        "fruchtfolgeflache-nicht-kompensationspflichtig-begrundung",
+        "fruchtfolgeflache-kompensationsflache",
+        "fruchtfolgeflache-kompensationsflache-projekt",
+        "aussenbeleuchtung",
+        "wassergefahrdende-stoffe",
+        "brandschutztechnisch-gefahrliche-stoffe",
+        "bodenbelastungen",
+        "boden-5000m2",
+        "ordendliche-mindestabstande",
+        "auswirkungen-auf-arbeitnehmer",
+        "lebensmittel-umgehen",
+        "trinkwasser-abgeben",
+        "offentlich-duschanlage-oder-bad",
+        "gewerbliche-nutzflachen",
+        "gewerbliche-nutzflachen-grosse",
+        "hohe-der-anlage",
+        "terrain-aufschuettung",
+        "terrain-abgrabung"
+      ]
+    },
+    "grundinformationen.kategorisierung-baugesuch-reklamegesuch": {
+      "title": "Kategorisierung",
+      "parent": "grundinformationen",
+      "questions": [
+        "kategorie-des-vorhabens",
+        "art-der-nutzung",
+        "vorhaben-mit-baute",
+        "vorhaben-mit-baute-bisherige-nutzung",
+        "vorhaben-mit-baute-geplante-nutzung",
+        "vorhaben-mit-anlage",
+        "vorhaben-mit-anlage-bisherige-nutzung",
+        "vorhaben-mit-anlage-geplante-nutzung",
+        "art-der-anlage",
+        "art-der-anlage-andere",
+        "art-der-befestigten-flache",
+        "art-der-befestigten-flache-andere",
+        "zweck-der-leitungen",
+        "zweck-der-leitungen-andere",
+        "art-der-warmepumpe",
+        "tangiert-vorhaben-strasse",
+        "pfahlfundation-vorgesehen",
+        "untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant",
+        "baugrubenumschliessung-vorgesehen",
+        "temporare-grundwasserabsenkung-notig",
+        "anlagen-mit-erheblichen-schadstoffemissionen",
+        "anlagen-mit-erheblichen-schadstoffemissionen-welche",
+        "anlagen-mit-erheblichen-strahlungsemissionen",
+        "anlagen-mit-erheblichen-strahlungsemissionen-welche",
+        "anlagen-mit-erheblichen-larmemissionen",
+        "larmbelastetes-gebiet",
+        "aussenbeleuchtung",
+        "wassergefahrdende-stoffe",
+        "brandschutztechnisch-gefahrliche-stoffe",
+        "bodenbelastungen",
+        "boden-5000m2",
+        "ordendliche-mindestabstande",
+        "auswirkungen-auf-arbeitnehmer",
+        "neue-gewassereinleitung-vorgesehen",
+        "lebensmittel-umgehen",
+        "trinkwasser-abgeben",
+        "offentlich-duschanlage-oder-bad",
+        "gewerbliche-nutzflachen",
+        "gewerbliche-nutzflachen-grosse",
+        "hohe-der-anlage",
+        "terrain-aufschuettung",
+        "terrain-abgrabung",
+        "baustellenabwasser"
+      ]
+    },
+    "grundinformationen.kategorisierung-baugesuch-reklamegesuch-v2": {
+      "title": "Kategorisierung",
+      "parent": "grundinformationen",
+      "questions": [
+        "kategorie-des-vorhabens",
+        "art-der-nutzung",
+        "vorhaben-mit-baute",
+        "vorhaben-mit-baute-bisherige-nutzung",
+        "vorhaben-mit-baute-geplante-nutzung",
+        "vorhaben-mit-anlage",
+        "vorhaben-mit-anlage-bisherige-nutzung",
+        "vorhaben-mit-anlage-geplante-nutzung",
+        "art-der-anlage",
+        "art-der-anlage-andere",
+        "art-der-befestigten-flache",
+        "art-der-befestigten-flache-andere",
+        "zweck-der-leitungen",
+        "zweck-der-leitungen-andere",
+        "art-der-warmepumpe",
+        "tangiert-vorhaben-strasse",
+        "pfahlfundation-vorgesehen",
+        "untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant",
+        "baugrubenumschliessung-vorgesehen",
+        "temporare-grundwasserabsenkung-notig",
+        "anlagen-mit-erheblichen-schadstoffemissionen",
+        "anlagen-mit-erheblichen-schadstoffemissionen-welche",
+        "anlagen-mit-erheblichen-strahlungsemissionen",
+        "anlagen-mit-erheblichen-strahlungsemissionen-welche",
+        "anlagen-mit-erheblichen-larmemissionen",
+        "larmbelastetes-gebiet",
+        "fruchtfolgeflache-kompensationspflichtig",
+        "fruchtfolgeflache-nicht-kompensationspflichtig-begrundung",
+        "fruchtfolgeflache-kompensationsflache",
+        "fruchtfolgeflache-kompensationsflache-projekt",
+        "aussenbeleuchtung",
+        "wassergefahrdende-stoffe",
+        "brandschutztechnisch-gefahrliche-stoffe",
+        "bodenbelastungen",
+        "boden-5000m2",
+        "ordendliche-mindestabstande",
+        "auswirkungen-auf-arbeitnehmer",
+        "neue-gewassereinleitung-vorgesehen",
+        "lebensmittel-umgehen",
+        "trinkwasser-abgeben",
+        "offentlich-duschanlage-oder-bad",
+        "gewerbliche-nutzflachen",
+        "gewerbliche-nutzflachen-grosse",
+        "hohe-der-anlage",
+        "terrain-aufschuettung",
+        "terrain-abgrabung",
+        "baustellenabwasser"
+      ]
+    },
     "grundinformationen.kategorisierung-vorabklarung": {
       "title": "Kategorisierung",
       "parent": "grundinformationen",
@@ -1588,6 +2025,51 @@
         "gebaudevolumen-sia-416"
       ]
     },
+    "grundinformationen.allgemeine-informationen-zum-vorhaben-v5": {
+      "title": "Allgemeine Informationen zum Vorhaben",
+      "parent": "grundinformationen",
+      "questions": [
+        "geometer-v5",
+        "plankote",
+        "fixpunkt",
+        "fixpunkt-nummer",
+        "fixpunkt-hoehe",
+        "fixpunkt-e-koordinate",
+        "fixpunkt-n-koordinate",
+        "baugespann-errichtet",
+        "baugespann-errichtet-wann",
+        "kein-baugespann-begrundung",
+        "baukosten",
+        "gebaudevolumen-sia-116",
+        "gebaudevolumen-sia-416"
+      ]
+    },
+    "grundinformationen.allgemeine-informationen-zum-vorhaben-vorentscheid": {
+      "title": "Allgemeine Informationen zum Vorhaben",
+      "parent": "grundinformationen",
+      "questions": [
+        "plankote",
+        "fixpunkt",
+        "fixpunkt-nummer",
+        "fixpunkt-hoehe",
+        "fixpunkt-e-koordinate",
+        "fixpunkt-n-koordinate",
+        "baugespann-errichtet",
+        "baugespann-errichtet-wann",
+        "kein-baugespann-begrundung",
+        "baukosten",
+        "gebaudevolumen-sia-116",
+        "gebaudevolumen-sia-416"
+      ]
+    },
+    "grundinformationen.baustellenabwasser": {
+      "title": "Baustellenabwasser",
+      "parent": "grundinformationen",
+      "questions": [
+        "baustellenabwasser-info-ab-3M",
+        "baustellenabwasser-info-unter-3M"
+      ]
+    },
     "grundinformationen.ausnahmebewilligungen": {
       "title": "Ausnahmebewilligungen",
       "parent": "grundinformationen",
@@ -1597,6 +2079,11 @@
       "title": "Lokalisierung",
       "parent": "grundinformationen",
       "questions": ["bezeichnung", "projektnummer", "parzellen", "punkte"]
+    },
+    "grundinformationen.geometer-projektgenehmigungsgesuch": {
+      "title": "Geometer",
+      "parent": "grundinformationen",
+      "questions": ["geometer-v5"]
     },
     "personalien": {
       "title": "Personalien",
@@ -1983,6 +2470,79 @@
         "dokument-weitere-gesuchsunterlagen",
         "info-vorhaben-mit-baute",
         "info-pfahlfundation-vorgesehen",
+        "info-untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant",
+        "info-baugrubenumschliessung-vorgesehen",
+        "info-anlagen-mit-erheblichen-larmemissionen",
+        "info-bodenbelastungen",
+        "info-200m3-bauabfalle",
+        "info-schadstoffe-bauobjekt",
+        "info-landwirtschaft-formular-tierbestand",
+        "info-landwirtschaft-grundriss-stall",
+        "info-nlbuaab",
+        "info-nlbuaab-anlage",
+        "info-nlbuaab-nutzflache-berechnungsschema",
+        "info-nlbuaab-nutzflache-fotos",
+        "info-art-der-warmepumpe",
+        "info-larmbelastetes-gebiet",
+        "info-umweltschutz-abfallbehandlungsanlage",
+        "info-boden-5000m2",
+        "info-aussenbeleuchtung",
+        "info-wald-forstlich",
+        "info-wald-auswirkungen",
+        "info-wald-auswirkungen-roden",
+        "info-energie-dachaufstellung",
+        "info-energie",
+        "info-arbeitssicherheit-sicherheitsdatenblatter",
+        "info-zivilschutz-elementarschaden",
+        "info-zivilschutz-aufhebung",
+        "info-brandschutz-gefahrengut",
+        "info-liegenschaftsentwasserung",
+        "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja",
+        "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-nein",
+        "info-liegenschaftsentwasserung-ausserhalb-bauzone",
+        "info-gewasserschutz",
+        "info-grundwasser-warmeentnahme-art-sonden",
+        "info-grundwasser-warmeentnahme-art-pfahle",
+        "info-grundwasser-warmeentnahme-art-kollektoren",
+        "info-sondierbohrung",
+        "info-grundwasser-sondierbohrung-zweck",
+        "info-belastete-standorte",
+        "info-invasive-neophyten",
+        "info-reklamen-fassade",
+        "info-reklamen-frei",
+        "info-natur-landschaftschutz",
+        "info-av-art-wald",
+        "info-av-art-anlass",
+        "info-av-art-verkehr",
+        "info-bm-solaranlage",
+        "info-projektanderung",
+        "info-plangenehmigung",
+        "info-projektgenehmigung",
+        "info-technische-bewilligung",
+        "info-vorabklarung",
+        "info-vorentscheid",
+        "info-oberflaechenabfluss",
+        "info-terrain",
+        "info-kw-1-1-grundwasser",
+        "info-kw-1-2-bach-fluss",
+        "info-kw-1-3-see",
+        "info-kw-1-4-quelle"
+      ]
+    },
+    "gesuchsunterlagen-technische-bewilligung": {
+      "title": "Gesuchsunterlagen",
+      "parent": null,
+      "questions": [
+        "dokument-grundstucksangaben",
+        "dokument-gutachten-nachweise-begrundungen",
+        "dokument-projektplane-projektbeschrieb",
+        "dokument-weitere-gesuchsunterlagen",
+        "dokument-baustelleninstallationsplan",
+        "dokument-plan-einleitstelle-leitungskatasterplan-versickerungsfläche",
+        "dokument-beschreibung-entwässerungskonzept",
+        "info-vorhaben-mit-baute",
+        "info-pfahlfundation-vorgesehen",
+        "info-untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant",
         "info-baugrubenumschliessung-vorgesehen",
         "info-anlagen-mit-erheblichen-larmemissionen",
         "info-bodenbelastungen",
@@ -2380,6 +2940,16 @@
       "parent": null,
       "questions": ["tb-gesuchsnr", "tb-datum", "tb-zweck", "tb-zweck-andere"]
     },
+    "technische-bewilligung-v2": {
+      "title": "Technische Bewilligung",
+      "parent": null,
+      "questions": [
+        "tb-gesuchsnr",
+        "tb-datum",
+        "tb-zweck-v2",
+        "tb-zweck-andere"
+      ]
+    },
     "vorentscheid": {
       "title": "Vorentscheid",
       "parent": null,
@@ -2409,6 +2979,128 @@
         "freies-textfeld-1",
         "freies-textfeld-2",
         "link"
+      ]
+    },
+    "baustellenentwasserung": {
+      "title": "Baustellenentwässerung",
+      "parent": null,
+      "questions": [
+        "baustellenentwasserung-info",
+        "baustellenentwasserung-w1",
+        "baustellenentwasserung-w1-rezirkuliert",
+        "baustellenentwasserung-w1-abwasser-gestapelt-entsorgt",
+        "baustellenentwasserung-w1-schmutz-mischwasserkanalisation",
+        "baustellenentwasserung-w1-schmutz-mischwasserkanalisation-info",
+        "baustellenentwasserung-w1-schmutz-mischwasserkanalisation-begrundung",
+        "baustellenentwasserung-w1-versickert",
+        "baustellenentwasserung-w1-versickert-begrundung",
+        "baustellenentwasserung-w1-grundwasserschutzzone",
+        "baustellenentwasserung-w1-grundwasserschutzzone-info-1",
+        "baustellenentwasserung-w1-grundwasserschutzzone-info-2",
+        "baustellenentwasserung-w1-gewasser-regenwasserkanalisation",
+        "baustellenentwasserung-w1-gewasser-regenwasserkanalisation-info",
+        "baustellenentwasserung-w1-entwasserung-keine-bewilligung",
+        "baustellenentwasserung-w2",
+        "baustellenentwasserung-w2-rezirkuliert",
+        "baustellenentwasserung-w2-abwasser-gestapelt-entsorgt",
+        "baustellenentwasserung-w2-schmutz-mischwasserkanalisation",
+        "baustellenentwasserung-w2-schmutz-mischwasserkanalisation-info",
+        "baustellenentwasserung-w2-schmutz-mischwasserkanalisation-begrundung",
+        "baustellenentwasserung-w2-versickert",
+        "baustellenentwasserung-w2-grundwasserschutzzone",
+        "baustellenentwasserung-w2-grundwasserschutzzone-info-1",
+        "baustellenentwasserung-w2-grundwasserschutzzone-info-2",
+        "baustellenentwasserung-w2-entwasserung-keine-bewilligung",
+        "baustellenentwasserung-w3",
+        "baustellenentwasserung-w3-abwasser-gestapelt-entsorgt",
+        "baustellenentwasserung-w3-schmutz-mischwasserkanalisation",
+        "baustellenentwasserung-w3-schmutz-mischwasserkanalisation-info",
+        "baustellenentwasserung-w3-schmutz-mischwasserkanalisation-begrundung",
+        "baustellenentwasserung-w3-versickert",
+        "baustellenentwasserung-w3-versickert-begrundung",
+        "baustellenentwasserung-w3-grundwasserschutzzone",
+        "baustellenentwasserung-w3-grundwasserschutzzone-info-1",
+        "baustellenentwasserung-w3-grundwasserschutzzone-info-2",
+        "baustellenentwasserung-w3-gewasser-regenwasserkanalisation",
+        "baustellenentwasserung-w3-gewasser-regenwasserkanalisation-info",
+        "baustellenentwasserung-w3-entwasserung-keine-bewilligung",
+        "baustellenentwasserung-w4",
+        "baustellenentwasserung-w4-rezirkuliert",
+        "baustellenentwasserung-w4-abwasser-gestapelt-entsorgt",
+        "baustellenentwasserung-w4-schmutz-mischwasserkanalisation",
+        "baustellenentwasserung-w4-schmutz-mischwasserkanalisation-info",
+        "baustellenentwasserung-w4-schmutz-mischwasserkanalisation-begrundung",
+        "baustellenentwasserung-w4-versickert",
+        "baustellenentwasserung-w4-versickert-begrundung",
+        "baustellenentwasserung-w4-grundwasserschutzzone",
+        "baustellenentwasserung-w4-grundwasserschutzzone-info-1",
+        "baustellenentwasserung-w4-grundwasserschutzzone-info-2",
+        "baustellenentwasserung-w4-gewasser-regenwasserkanalisation",
+        "baustellenentwasserung-w4-gewasser-regenwasserkanalisation-info",
+        "baustellenentwasserung-w4-entwasserung-keine-bewilligung",
+        "baustellenentwasserung-w5",
+        "baustellenentwasserung-w5-rezirkuliert",
+        "baustellenentwasserung-w5-abwasser-gestapelt-entsorgt",
+        "baustellenentwasserung-w5-schmutz-mischwasserkanalisation",
+        "baustellenentwasserung-w5-schmutz-mischwasserkanalisation-info",
+        "baustellenentwasserung-w5-versickert",
+        "baustellenentwasserung-w5-grundwasserschutzzone",
+        "baustellenentwasserung-w5-grundwasserschutzzone-info-1",
+        "baustellenentwasserung-w5-grundwasserschutzzone-info-2",
+        "baustellenentwasserung-w5-versickert-begrundung",
+        "baustellenentwasserung-w5-gewasser-meteorwasserkanalisation",
+        "baustellenentwasserung-w5-gewasser-meteorwasserkanalisation-info",
+        "baustellenentwasserung-w5-entwasserung-keine-bewilligung",
+        "baustellenentwasserung-w6",
+        "baustellenentwasserung-w6-gewasser-regenwasserkanalisation",
+        "baustellenentwasserung-w6-gewasser-regenwasserkanalisation-info",
+        "baustellenentwasserung-w6-gewasser-regenwasserkanalisation-begrundung",
+        "baustellenentwasserung-w6-versickert",
+        "baustellenentwasserung-w6-versickert-begrundung",
+        "baustellenentwasserung-w6-grundwasserschutzzone",
+        "baustellenentwasserung-w6-grundwasserschutzzone-info-1",
+        "baustellenentwasserung-w6-grundwasserschutzzone-info-2",
+        "baustellenentwasserung-w6-schmutz-mischwasserkanalisation",
+        "baustellenentwasserung-w6-schmutz-mischwasserkanalisation-info",
+        "baustellenentwasserung-w6-entwasserung-keine-bewilligung",
+        "baustellenentwasserung-w7",
+        "baustellenentwasserung-w7-gewasser-regenwasserkanalisation",
+        "baustellenentwasserung-w7-gewasser-regenwasserkanalisation-info",
+        "baustellenentwasserung-w7-gewasser-regenwasserkanalisation-begrundung",
+        "baustellenentwasserung-w7-versickert",
+        "baustellenentwasserung-w7-versickert-begrundung",
+        "baustellenentwasserung-w7-grundwasserschutzzone",
+        "baustellenentwasserung-w7-grundwasserschutzzone-info-1",
+        "baustellenentwasserung-w7-grundwasserschutzzone-info-2",
+        "baustellenentwasserung-w7-schmutz-mischwasserkanalisation",
+        "baustellenentwasserung-w7-schmutz-mischwasserkanalisation-info",
+        "baustellenentwasserung-w7-entwasserung-keine-bewilligung",
+        "baustellenentwasserung-w8",
+        "baustellenentwasserung-w8-gewasser-meteorwasserkanalisation",
+        "baustellenentwasserung-w8-gewasser-meteorwasserkanalisation-info",
+        "baustellenentwasserung-w8-gewasser-meteorwasserkanalisation-begrundung",
+        "baustellenentwasserung-w8-versickert",
+        "baustellenentwasserung-w8-versickert-begrundung",
+        "baustellenentwasserung-w8-grundwasserschutzzone",
+        "baustellenentwasserung-w8-grundwasserschutzzone-info-1",
+        "baustellenentwasserung-w8-grundwasserschutzzone-info-2",
+        "baustellenentwasserung-w8-schmutz-mischwasserkanalisation",
+        "baustellenentwasserung-w8-schmutz-mischwasserkanalisation-info",
+        "baustellenentwasserung-w8-entwasserung-keine-bewilligung",
+        "baustellenentwasserung-w9",
+        "baustellenentwasserung-w9-abwasser-gestapelt-entsorgt",
+        "baustellenentwasserung-w9-schmutz-mischwasserkanalisation",
+        "baustellenentwasserung-w9-schmutz-mischwasserkanalisation-info",
+        "baustellenentwasserung-w9-entwasserung-keine-bewilligung",
+        "baustellenentwasserung-w10",
+        "baustellenentwasserung-w10-info",
+        "baustellenentwasserung-keine-bewilligung-info",
+        "baustellenentwasserung-keine-bewilligung-rezirkulation-entsorgt-info",
+        "baustellenentwasserung-bewilligung-notwendig-info",
+        "baustellenentwasserung-beginn-wasserhaltung",
+        "baustellenentwasserung-beginn-ende-wasserhaltung",
+        "baustellenentwasserung-wassergefahrdende-flussigkeiten-gelagert",
+        "baustellenentwasserung-wassergefahrdende-flussigkeiten-gelagert-info"
       ]
     }
   },
@@ -3317,6 +4009,15 @@
         "options": ["Ja", "Nein"]
       }
     },
+    "untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant": {
+      "label": "Sind Untergrundarbeiten geplant, bei denen Aushub mit umwelt- oder gesundheitsgefährdenden Stoffen anfällt?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
     "baugrubenumschliessung-vorgesehen": {
       "label": "Ist eine Baugrubenumschliessung vorgesehen?",
       "hint": "Falls entweder die Platzverhältnisse oder die Boden- und Wasserverhältnisse keine geböschte Baugrube zulassen, sind die Wände der Baugrube speziell abzustützen. Dies wird mit einer Baugrubenumschliessung gewährleistet. Zwei Beispiele für Baugrubenumschliessungen sind Spundwände und Bohrpfahlwände.",
@@ -3453,6 +4154,16 @@
       "hint": "Diese Angabe dient dazu, Ihr Vorhaben bezüglich Umsetzung baulicher Massnahmen oder Einsatz von Persönlicher Schutzausrüstung (PSA) zu prüfen.",
       "type": "radio",
       "required": true,
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "neue-gewassereinleitung-vorgesehen": {
+      "label": "Ist gemäss Entwässerungskonzept eine neue Gewässereinleitung vorgesehen?",
+      "hint": "Falls im Rahmen des geplanten Vorhabens eine neue Einleitstelle in ein Oberflächengewässer vorgesehen ist, ist die Frage mit «Ja» zu beantworten. Erfolgt der Neuanschluss an ein bestehendes Leitungssystem bzw. an eine bestehende Einleitstelle, ist die Frage mit «Nein» zu beantworten.",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value && ( 'Neubau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value) || ( 'Anlage(n)' in 'kategorie-des-vorhabens'|value && ( 'Neubau' in 'vorhaben-mit-anlage'|value && ( 'Befestigte Fläche' in 'art-der-anlage'|value || ( 'Ver- / Entsorgungsleitung' in 'art-der-anlage'|value && 'Abwasserentsorgung' in 'zweck-der-leitungen'|value ) ) || 'Erweiterung' in 'vorhaben-mit-anlage'|value && ( 'Befestigte Fläche' in 'art-der-anlage'|value || ( 'Ver- / Entsorgungsleitung' in 'art-der-anlage'|value && 'Abwasserentsorgung' in 'zweck-der-leitungen'|value ) ) || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value && ( 'Befestigte Fläche' in 'art-der-anlage'|value || ( 'Ver- / Entsorgungsleitung' in 'art-der-anlage'|value && 'Abwasserentsorgung' in 'zweck-der-leitungen'|value ) ) ))",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -3601,6 +4312,21 @@
           "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Goldau, Küssnacht, Brunnen)",
           "geometrie plus ag (Einsiedeln, Freienbach)",
           "GEO Netz AG (Lachen, Schwyz)",
+          "Wild Ingenieure AG (Küssnacht)"
+        ]
+      }
+    },
+    "geometer-v5": {
+      "label": "Bitte wählen Sie zur Nachführung der amtlichen Vermessung eine Nachführungsstelle/einen Geometer aus.",
+      "hint": "Die Kosten für die Nachführung der amtlichen Vermessung infolge Umsetzung eines Bauvorhabens trägt die Bauherrschaft. Deshalb kann die Bauherrschaft bestimmen, welches Geometerbüro die besagten Arbeiten ausführen soll.",
+      "type": "radio",
+      "required": true,
+      "active-expression": "form != 'projektgenehmigungsgesuch-gemass-ss15-strag' || 'meta'|value|json['formType'] in ['municipality', 'district']",
+      "config": {
+        "options": [
+          "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Oberarth, Immensee, Brunnen)",
+          "geometrie plus ag (Einsiedeln, Freienbach)",
+          "GEO Netz AG (Lachen, Seewen)",
           "Wild Ingenieure AG (Küssnacht)"
         ]
       }
@@ -7024,7 +7750,7 @@
       "hint": "Dieser Hinweis erfolgt, damit Sie schon vor Einreichen des Gesuchs auf diese Anforderungen aufmerksam gemacht worden sind. Ohne vorgängige Berücksichtigung dieser Anforderungen ist davon auszugehen, dass für Ihr Vorhaben eine Projektanpassung erforderlich sein wird.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.a049.fischgewaesser_bestehend' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischgewaesser_pot' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischregionen' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.a049.fischgewaesser_bestehend' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischgewaesser_pot' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049a.fischerei.fischgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischregionen' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049a.fischerei.fischregionen' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Erledigt"]
       }
@@ -7088,6 +7814,30 @@
       "type": "document",
       "required": false,
       "active-expression": "state != 'new'",
+      "config": {}
+    },
+    "dokument-baustelleninstallationsplan": {
+      "label": "Baustelleninstallationsplan",
+      "hint": "",
+      "type": "document",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
+      "config": {}
+    },
+    "dokument-plan-einleitstelle-leitungskatasterplan-versickerungsfläche": {
+      "label": "Plan inkl. Einleitstelle (SW, RW) inkl. Leitungskatasterplan und /oder Versickerungsfläche ",
+      "hint": "",
+      "type": "document",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
+      "config": {}
+    },
+    "dokument-beschreibung-entwässerungskonzept": {
+      "label": "Beschreibung Entwässerungskonzept",
+      "hint": "",
+      "type": "document",
+      "required": false,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
       "config": {}
     },
     "av-art": {
@@ -8749,6 +9499,20 @@
         ]
       }
     },
+    "tb-zweck-v2": {
+      "label": "Für was wird um eine technische Bewilligung ersucht?",
+      "hint": "Geben Sie bitte an, um welche technische Bewilligung Sie mit vorliegendem Gesuch ersuchen. Zwingende Voraussetzung ist, dass diese technische Bewilligung als Vorbehalt im Stammbaugesuch aufgeführt ist.",
+      "type": "checkbox",
+      "required": true,
+      "config": {
+        "options": [
+          "Technische Bewilligung Brandschutz",
+          "Technische Bewilligung Zivilschutz",
+          "Technische Bewilligung Baustellenentwässerung",
+          "Andere"
+        ]
+      }
+    },
     "tb-zweck-andere": {
       "label": "Welche?",
       "hint": "Falls Sie um eine technische Bewilligung ersuchen wollen, die nicht zur Auswahl steht, umschreiben Sie diese bitte in knappen Worten.",
@@ -9273,6 +10037,15 @@
         "options": ["Vorhanden"]
       }
     },
+    "info-untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant": {
+      "label": "Die kantonale Fachstelle benötigt für die Beurteilung weitere Angaben (Aushub- und Entsorgungskonzept nach Art. 16 VVEA, aus welchem Art, Menge und Umgang mit belastetem Material hervorgehen). Weiterführende Informationen finden Sie in der Arbeitshilfe &laquo;<a href=\"https://www.bafu.admin.ch/dam/bafu/de/dokumente/altlasten/uv-umwelt-vollzug/bauvorhaben_und_belastetestandorte.pdf.download.pdf/bauvorhaben_und_belastetestandorte.pdf\" target=\"_blank\">Bauvorhaben und belastete Standorte</a>&raquo;.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'untergrundarbeiten-mit-umwelt-oder-gesundheitsgefahrdendem-aushub-geplant'|value == 'Ja'",
+      "config": {
+        "options": ["Vorhanden"]
+      }
+    },
     "info-baugrubenumschliessung-vorgesehen": {
       "label": "Den Gesuchsunterlagen ist ein Beschrieb der Baugrubensicherung und –entwässerung mit Nennung des Bauverfahrens (Spundwand, Rühlwand, Bohrpfahlwand, Schlitzwand, o.a.) beizulegen.",
       "type": "checkbox",
@@ -9605,7 +10378,7 @@
       }
     },
     "info-belastete-standorte": {
-      "label": "Ihr Bauvorhaben wird durch einen belasteten Standort tangiert. Es sind die Altlastenuntersuchungen (z. B. historische, technische Untersuchung) einzureichen (vgl. Ablaufschema „<a href=\"/assets/documents/20201029_Ablaufschema_Bauen_auf_belasteten_Standorten.pdf\" title=\"Herunterladen\" target=\"_blank\">Bauen auf belasteten Standorten</a>“).",
+      "label": "Ihr Bauvorhaben betrifft einen belasteten Standort. Die zuständige kantonale Fachstelle benötigt für die Beurteilung zusätzliche Unterlagen (Altlastenuntersuchungen, eine baubedingte Gefährdungsabschätzung und/oder ein Aushub- und Entsorgungskonzept nach Art. 16 VVEA). Weitere Informationen zu den benötigten Unterlagen entnehmen Sie dem Ablaufschema &laquo;<a href=\"/assets/documents/20201029_Ablaufschema_Bauen_auf_belasteten_Standorten.pdf\" title=\"Herunterladen\" target=\"_blank\">Bauen auf belasteten Standorten</a>&raquo;.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a020a.kataster_belasteter_standorte' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_01' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020a.kataster_belasteter_standorte_pnt_02' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.polygon' in 'layer'|value|mapby('name') || 'ms:ch.sz.a020b.kataster_belasteter_standorte.punkt' in 'layer'|value|mapby('name')",
@@ -9852,6 +10625,1099 @@
       "label": "Link",
       "type": "text",
       "required": false,
+      "config": {}
+    },
+    "baustellenabwasser": {
+      "label": "Fällt im Rahmen Ihres Vorhabens Baustellenabwasser an?",
+      "hint": "Das Ableiten von Baustellenabwasser (in die Kanalisation und Oberflächengewässer) sowie dessen Versickerung sind bewilligungspflichtig. Für Bauvorhaben mit Baukosten ab 3 Millionen Franken ist eine technische Bewilligung zur Baustellenentwässerung erforderlich. Das Gesuch hierfür ist via eBau *(Technische Bewilligung Baustellenentwässerung)* zu stellen. Die technische Bewilligung setzt eine rechtskräftige Baubewilligung voraus, in der die Prüfung und Genehmigung technischer Details vorbehalten ist.\n\nFür Bauvorhaben mit Baukosten unter 3 Millionen Franken werden die Anforderungen und Vorgaben zur Baustellenentwässerung durch eine *Allgemeinverfügung* festgelegt.",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenabwasser-info-ab-3M": {
+      "label": "Für Bauvorhaben mit Baukosten ab 3 Millionen Franken ist eine technische Bewilligung zur Baustellenentwässerung erforderlich. Das Gesuch hierfür ist via eBau (<a href='/gesuche/new' target='_blank'>Technische Bewilligung Baustellenentwässerung</a>) zu stellen.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenabwasser'|value == 'Ja' && 'baukosten'|value >= 3000000",
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
+      }
+    },
+    "baustellenabwasser-info-unter-3M": {
+      "label": "Für Bauvorhaben mit Baukosten unter 3 Millionen Franken werden die Anforderungen und Vorgaben zur Baustellenentwässerung durch eine <a href='#' target='_blank'>Allgemeinverfügung</a> festgelegt.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenabwasser'|value == 'Ja' && 'baukosten'|value < 3000000",
+      "config": {
+        "options": [
+          "Ich habe die Allgemeinverfügung gelesen und verstanden. Die Abwasservorbehandlung wird entsprechend umgesetzt."
+        ]
+      }
+    },
+    "baustellenentwasserung-info": {
+      "label": "<h4>Allgemeiner Hinweis</h4>Anfallendes Baustellenabwasser kann nach einer geeigneten Vorbehandlung in die Kanalisation, ein Oberflächengewässer abgeleitet und/oder oberirdisch versickert werden.\n\nAlternativ kann eine Abwasserstapelung auf der Baustelle vorgenommen werden mit späterem Abtransport durch ein zugelassenes Entsorgungsunternehmen. (Bei der Abwasserstapelung ist keine Bewilligung erforderlich). Als weitere Alternative bietet sich in gewissen Fällen eine Rezirkulation (z. B. Waschwasser).",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'Technische Bewilligung Baustellenentwässerung' in 'tb-zweck-v2'|value",
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
+      }
+    },
+    "baustellenentwasserung-w1": {
+      "label": "Fällt Waschabwasser von Arbeitsgeräten, Schalungsgeräten, Betonmischern (Betonkübel, Bretter, Platten etc.) oder von der Betonherstellung vor Ort an?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w1-rezirkuliert": {
+      "label": "Wird das anfallende Abwasser Rezirkuliert (mit oder ohne Aufbereitung)?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w1-abwasser-gestapelt-entsorgt": {
+      "label": "Wird das anfallende Abwasser gestapelt und entsorgt?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-rezirkuliert'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w1-schmutz-mischwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in die Schmutz- oder Mischwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-abwasser-gestapelt-entsorgt'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w1-schmutz-mischwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens:\nAbsetzbecken + Neutralisation.\nAutomatische pH-Wert Regulierung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-schmutz-mischwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w1-schmutz-mischwasserkanalisation-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w1-versickert": {
+      "label": "Wir das anfallende Abwasser versickert?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w1-grundwasserschutzzone": {
+      "label": "Frage nach der Grundwasserschutzzone?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-versickert'|value == 'Ja'",
+      "config": {
+        "options": ["Au / üB", "S1, S2, S3"]
+      }
+    },
+    "baustellenentwasserung-w1-grundwasserschutzzone-info-1": {
+      "label": "Die Versickerung muss über eine humusierte Bodenschicht erfolgen. Abwasservorbehandlung mindestens: Absetzbecken + Neutralisation",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-grundwasserschutzzone'|value == 'Au / üB'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w1-grundwasserschutzzone-info-2": {
+      "label": "Eine Versickerung ist in der Grundwasserschutzzone S1 / S2 / S3 ist nicht zulässig.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-grundwasserschutzzone'|value == 'S1, S2, S3'",
+      "config": {
+        "options": [
+          "Ich habe die Anforderungen gelesen und verstanden. Andere Möglichkeit prüfen."
+        ]
+      }
+    },
+    "baustellenentwasserung-w1-versickert-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-versickert'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w1-gewasser-regenwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in ein Gewässer oder in eine Regenwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-versickert'|value == 'Nein' || ('baustellenentwasserung-w1-versickert'|value == 'Ja' && 'baustellenentwasserung-w1-grundwasserschutzzone'|value == 'S1, S2, S3')",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w1-gewasser-regenwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens: Absetzbecken + Neutralisation.\n- Automatische pH-Wert Regulierung mit Pumpensteuerung\n- Automatische Trübungsmessung mit Pumpensteuerung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-gewasser-regenwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w1-entwasserung-keine-bewilligung": {
+      "label": "Für die Entwässerung kann keine Bewilligung erteilt werden. Es stehen keine weiteren Auswahlmöglichkeiten (Ableitungs-Entsorgungswege) zur Verfügung. Bitte korrigieren Sie Ihre Eingabe. ",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'baustellenentwasserung-w1-gewasser-regenwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w2": {
+      "label": "Fällt Waschabwasser von Fahrzeugen, Baumaschinen, Radwäschen oder Radwaschanlagen an?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w2-rezirkuliert": {
+      "label": "Wird das anfallende Abwasser Rezirkuliert (mit oder ohne Aufbereitung)?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w2'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w2-abwasser-gestapelt-entsorgt": {
+      "label": "Wird das anfallende Abwasser gestapelt und entsorgt?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w2-rezirkuliert'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w2-schmutz-mischwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in die Schmutz- oder Mischwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w2-abwasser-gestapelt-entsorgt'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w2-schmutz-mischwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens:\nAbsetzbecken + Neutralisation.\nAutomatische pH-Wert Regulierung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w2-schmutz-mischwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w2-schmutz-mischwasserkanalisation-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w2-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w2-versickert": {
+      "label": "Wir das anfallende Abwasser versickert?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w2-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w2-grundwasserschutzzone": {
+      "label": "Frage nach der Grundwasserschutzzone?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w2-versickert'|value == 'Ja'",
+      "config": {
+        "options": ["Au / üB", "S1, S2, S3"]
+      }
+    },
+    "baustellenentwasserung-w2-grundwasserschutzzone-info-1": {
+      "label": "Die Versickerung muss über eine humusierte Bodenschicht erfolgen. Abwasservorbehandlung mindestens: Absetzbecken + Neutralisation",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w2-grundwasserschutzzone'|value == 'Au / üB'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w2-grundwasserschutzzone-info-2": {
+      "label": "Eine Versickerung ist in der Grundwasserschutzzone S1 / S2 / S3 ist nicht zulässig.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w2-grundwasserschutzzone'|value == 'S1, S2, S3'",
+      "config": {
+        "options": [
+          "Ich habe die Anforderungen gelesen und verstanden. Andere Möglichkeit prüfen."
+        ]
+      }
+    },
+    "baustellenentwasserung-w2-entwasserung-keine-bewilligung": {
+      "label": "Für die Entwässerung kann keine Bewilligung erteilt werden. Es stehen keine weiteren Auswahlmöglichkeiten (Ableitungs-Entsorgungswege) zur Verfügung. Bitte korrigieren Sie Ihre Eingabe. ",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'baustellenentwasserung-w2-versickert'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w3": {
+      "label": "Fällt Baugruben- oder Niederschlagsabwasser an (neutral und/oder alkalisch)?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w3-abwasser-gestapelt-entsorgt": {
+      "label": "Wird das anfallende Abwasser gestapelt und entsorgt?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w3'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w3-schmutz-mischwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in die Schmutz- oder Mischwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w3-abwasser-gestapelt-entsorgt'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w3-schmutz-mischwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens:\nAbsetzbecken + Neutralisation.\nAutomatische pH-Wert Regulierung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w3-schmutz-mischwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w3-schmutz-mischwasserkanalisation-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w3-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w3-versickert": {
+      "label": "Wir das anfallende Abwasser versickert?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w3-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w3-grundwasserschutzzone": {
+      "label": "Frage nach der Grundwasserschutzzone?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w3-versickert'|value == 'Ja'",
+      "config": {
+        "options": ["Au / üB", "S1, S2, S3"]
+      }
+    },
+    "baustellenentwasserung-w3-grundwasserschutzzone-info-1": {
+      "label": "Die Versickerung muss über eine humusierte Bodenschicht erfolgen. Abwasservorbehandlung mindestens: Absetzbecken + Neutralisation",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w3-grundwasserschutzzone'|value == 'Au / üB'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w3-grundwasserschutzzone-info-2": {
+      "label": "Eine Versickerung ist in der Grundwasserschutzzone S1 / S2 / S3 ist nicht zulässig.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w3-grundwasserschutzzone'|value == 'S1, S2, S3'",
+      "config": {
+        "options": [
+          "Ich habe die Anforderungen gelesen und verstanden. Andere Möglichkeit prüfen."
+        ]
+      }
+    },
+    "baustellenentwasserung-w3-versickert-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w3-versickert'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w3-gewasser-regenwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in ein Gewässer oder in eine Regenwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w3-versickert'|value == 'Nein' || ('baustellenentwasserung-w3-versickert'|value == 'Ja' && 'baustellenentwasserung-w3-grundwasserschutzzone'|value == 'S1, S2, S3')",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w3-gewasser-regenwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens: Absetzbecken + Neutralisation.\n- Automatische pH-Wert Regulierung mit Pumpensteuerung\n- Automatische Trübungsmessung mit Pumpensteuerung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w3-gewasser-regenwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w3-entwasserung-keine-bewilligung": {
+      "label": "Für die Entwässerung kann keine Bewilligung erteilt werden. Es stehen keine weiteren Auswahlmöglichkeiten (Ableitungs-Entsorgungswege) zur Verfügung. Bitte korrigieren Sie Ihre Eingabe. ",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'baustellenentwasserung-w3-gewasser-regenwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w4": {
+      "label": "Fällt Bohr- oder Fräsabwasser neutral an?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w4-rezirkuliert": {
+      "label": "Wird das anfallende Abwasser Rezirkuliert (mit oder ohne Aufbereitung)?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w4-abwasser-gestapelt-entsorgt": {
+      "label": "Wird das anfallende Abwasser gestapelt und entsorgt?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4-rezirkuliert'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w4-schmutz-mischwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in die Schmutz- oder Mischwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4-abwasser-gestapelt-entsorgt'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w4-schmutz-mischwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens:\nAbsetzbecken + Neutralisation.\nAutomatische pH-Wert Regulierung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4-schmutz-mischwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w4-schmutz-mischwasserkanalisation-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w4-versickert": {
+      "label": "Wir das anfallende Abwasser versickert?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w4-grundwasserschutzzone": {
+      "label": "Frage nach der Grundwasserschutzzone?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4-versickert'|value == 'Ja'",
+      "config": {
+        "options": ["Au / üB", "S1, S2, S3"]
+      }
+    },
+    "baustellenentwasserung-w4-grundwasserschutzzone-info-1": {
+      "label": "Die Versickerung muss über eine humusierte Bodenschicht erfolgen. Abwasservorbehandlung mindestens: Absetzbecken + Neutralisation",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4-grundwasserschutzzone'|value == 'Au / üB'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w4-grundwasserschutzzone-info-2": {
+      "label": "Eine Versickerung ist in der Grundwasserschutzzone S1 / S2 / S3 ist nicht zulässig.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4-grundwasserschutzzone'|value == 'S1, S2, S3'",
+      "config": {
+        "options": [
+          "Ich habe die Anforderungen gelesen und verstanden. Andere Möglichkeit prüfen."
+        ]
+      }
+    },
+    "baustellenentwasserung-w4-versickert-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4-versickert'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w4-gewasser-regenwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in ein Gewässer oder in eine Regenwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4-versickert'|value == 'Nein' || ('baustellenentwasserung-w4-versickert'|value == 'Ja' && 'baustellenentwasserung-w4-grundwasserschutzzone'|value == 'S1, S2, S3')",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w4-gewasser-regenwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens: Absetzbecken + Neutralisation.\n- Automatische pH-Wert Regulierung mit Pumpensteuerung\n- Automatische Trübungsmessung mit Pumpensteuerung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w4-gewasser-regenwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w4-entwasserung-keine-bewilligung": {
+      "label": "Für die Entwässerung kann keine Bewilligung erteilt werden. Es stehen keine weiteren Auswahlmöglichkeiten (Ableitungs-Entsorgungswege) zur Verfügung. Bitte korrigieren Sie Ihre Eingabe. ",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'baustellenentwasserung-w4-gewasser-regenwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w5": {
+      "label": "Fällt Abwasser aus Erdsondenbohrungen an?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w5-rezirkuliert": {
+      "label": "Wird das anfallende Abwasser Rezirkuliert (mit oder ohne Aufbereitung)?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w5'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w5-abwasser-gestapelt-entsorgt": {
+      "label": "Wird das anfallende Abwasser gestapelt und entsorgt?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w5-rezirkuliert'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w5-schmutz-mischwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in die Schmutz- oder Mischwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w5-abwasser-gestapelt-entsorgt'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w5-schmutz-mischwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens:\n\nBohrwasservorbehandlungsanlage (Trennung Bohrgut und Abwasser).\n\n- Feststoffgehaltbestimmung (GUS) mit Imhofftrichter bis ≤ 5ml/l Ableitung zulässig",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w5-schmutz-mischwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w5-versickert": {
+      "label": "Wir das anfallende Abwasser versickert?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w5-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w5-grundwasserschutzzone": {
+      "label": "Frage nach der Grundwasserschutzzone?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w5-versickert'|value == 'Ja'",
+      "config": {
+        "options": ["Au / üB", "S1, S2, S3"]
+      }
+    },
+    "baustellenentwasserung-w5-grundwasserschutzzone-info-1": {
+      "label": "Die Versickerung muss über eine humusierte Bodenschicht erfolgen. Abwasservorbehandlung mindestens: Bohrwasservorbehandlungsanlage (Trennung Bohrgut und Abwasser).",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w5-grundwasserschutzzone'|value == 'Au / üB'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w5-grundwasserschutzzone-info-2": {
+      "label": "Eine Versickerung ist in der Grundwasserschutzzone S1 / S2 / S3 ist nicht zulässig.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w5-grundwasserschutzzone'|value == 'S1, S2, S3'",
+      "config": {
+        "options": [
+          "Ich habe die Anforderungen gelesen und verstanden. Andere Möglichkeit prüfen."
+        ]
+      }
+    },
+    "baustellenentwasserung-w5-versickert-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w5-versickert'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w5-gewasser-meteorwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in ein Gewässer oder in eine Meteorwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w5-versickert'|value == 'Nein' || ('baustellenentwasserung-w5-versickert'|value == 'Ja' && 'baustellenentwasserung-w5-grundwasserschutzzone'|value == 'S1, S2, S3')",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w5-gewasser-meteorwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens:\n\nBohrwasservorbehandlungsanlage (Trennung Bohrgut und Abwasser).\n\n- Automatische Trübungsmessung mit Pumpensteuerung\n\nBei der Ableitung in ein Gewässer oder in die Regenwasserkanalisation ist zur Beurteilung der Qualität des Ablaufwassers ein Fachunternehmen hinzuzuziehen.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w5-gewasser-meteorwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w5-entwasserung-keine-bewilligung": {
+      "label": "Für die Entwässerung kann keine Bewilligung erteilt werden. Es stehen keine weiteren Auswahlmöglichkeiten (Ableitungs-Entsorgungswege) zur Verfügung. Bitte korrigieren Sie Ihre Eingabe. ",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'baustellenentwasserung-w5-gewasser-meteorwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w6": {
+      "label": "Fällt neutrales Grundwasser aus Wasserhaltungen (Wellpoint, Filterbrunnen) an?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w6-gewasser-regenwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in ein Gewässer oder in eine Regenwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w6'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w6-gewasser-regenwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens: Absetzbecken (Kontrollbecken)\n\n- Automatische pH-Wert Überwachung mit Pumpensteuerung\n- Automatische Trübungsmessung mit Pumpensteuerung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w6-gewasser-regenwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w6-gewasser-regenwasserkanalisation-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w6-gewasser-regenwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w6-versickert": {
+      "label": "Wir das anfallende Abwasser versickert?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w6-gewasser-regenwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w6-versickert-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w6-versickert'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w6-grundwasserschutzzone": {
+      "label": "Frage nach der Grundwasserschutzzone?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w6-versickert'|value == 'Ja'",
+      "config": {
+        "options": ["Au / üB", "S1, S2, S3"]
+      }
+    },
+    "baustellenentwasserung-w6-grundwasserschutzzone-info-1": {
+      "label": "Die Versickerung muss über eine humusierte Bodenschicht erfolgen. Abwasservorbehandlung mindestens: Absetzbecken + Neutralisation",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w6-grundwasserschutzzone'|value == 'Au / üB'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w6-grundwasserschutzzone-info-2": {
+      "label": "Eine Versickerung ist in der Grundwasserschutzzone S1 / S2 / S3 ist nicht zulässig.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w6-grundwasserschutzzone'|value == 'S1, S2, S3'",
+      "config": {
+        "options": [
+          "Ich habe die Anforderungen gelesen und verstanden. Andere Möglichkeit prüfen."
+        ]
+      }
+    },
+    "baustellenentwasserung-w6-schmutz-mischwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in die Schmutz- oder Mischwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w6-versickert'|value == 'Nein' || ('baustellenentwasserung-w6-versickert'|value == 'Ja' && 'baustellenentwasserung-w6-grundwasserschutzzone'|value == 'S1, S2, S3')",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w6-schmutz-mischwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens:\nAbsetzbecken + Neutralisation.\nAutomatische pH-Wert Regulierung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w6-schmutz-mischwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w6-entwasserung-keine-bewilligung": {
+      "label": "Für die Entwässerung kann keine Bewilligung erteilt werden. Es stehen keine weiteren Auswahlmöglichkeiten (Ableitungs-Entsorgungswege) zur Verfügung. Bitte korrigieren Sie Ihre Eingabe. ",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'baustellenentwasserung-w6-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w7": {
+      "label": "Fällt alkalisches Grundwasser aus Wasserhaltungen (Wellpoint, Filterbrunnen) an?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w7-gewasser-regenwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in ein Gewässer oder in eine Regenwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w7'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w7-gewasser-regenwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens: Absetzbecken + Neutralisation.\n\n- Automatische pH-Wert Überwachung mit Pumpensteuerung\n- Automatische Trübungsmessung mit Pumpensteuerung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w7-gewasser-regenwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w7-gewasser-regenwasserkanalisation-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w7-gewasser-regenwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w7-versickert": {
+      "label": "Wir das anfallende Abwasser versickert?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w7-gewasser-regenwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w7-versickert-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w7-versickert'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w7-grundwasserschutzzone": {
+      "label": "Frage nach der Grundwasserschutzzone?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w7-versickert'|value == 'Ja'",
+      "config": {
+        "options": ["Au / üB", "S1, S2, S3"]
+      }
+    },
+    "baustellenentwasserung-w7-grundwasserschutzzone-info-1": {
+      "label": "Die Versickerung muss über eine humusierte Bodenschicht erfolgen. Abwasservorbehandlung mindestens: Absetzbecken + Neutralisation",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w7-grundwasserschutzzone'|value == 'Au / üB'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w7-grundwasserschutzzone-info-2": {
+      "label": "Eine Versickerung ist in der Grundwasserschutzzone S1 / S2 / S3 ist nicht zulässig.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w7-grundwasserschutzzone'|value == 'S1, S2, S3'",
+      "config": {
+        "options": [
+          "Ich habe die Anforderungen gelesen und verstanden. Andere Möglichkeit prüfen."
+        ]
+      }
+    },
+    "baustellenentwasserung-w7-schmutz-mischwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in die Schmutz- oder Mischwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w7-versickert'|value == 'Nein' || ('baustellenentwasserung-w7-versickert'|value == 'Ja' && 'baustellenentwasserung-w7-grundwasserschutzzone'|value == 'S1, S2, S3')",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w7-schmutz-mischwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens:\nAbsetzbecken + Neutralisation.\nAutomatische pH-Wert Regulierung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w7-schmutz-mischwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w7-entwasserung-keine-bewilligung": {
+      "label": "Für die Entwässerung kann keine Bewilligung erteilt werden. Es stehen keine weiteren Auswahlmöglichkeiten (Ableitungs-Entsorgungswege) zur Verfügung. Bitte korrigieren Sie Ihre Eingabe. ",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'baustellenentwasserung-w7-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w8": {
+      "label": "Fällt Hang- oder Quellwasser an?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w8-gewasser-meteorwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in ein Gewässer oder in eine Meteorwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w8'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w8-gewasser-meteorwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens: Absetzbecken (Kontrollbecken).\n\n- Automatische pH-Wert Überwachung mit Pumpensteuerung\n- Automatische Trübungsmessung mit Pumpensteuerung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w8-gewasser-meteorwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w8-gewasser-meteorwasserkanalisation-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w8-gewasser-meteorwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w8-versickert": {
+      "label": "Wir das anfallende Abwasser versickert?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w8-gewasser-meteorwasserkanalisation'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w8-versickert-begrundung": {
+      "label": "Begründung",
+      "type": "text",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w8-versickert'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w8-grundwasserschutzzone": {
+      "label": "Frage nach der Grundwasserschutzzone?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w8-versickert'|value == 'Ja'",
+      "config": {
+        "options": ["Au / üB", "S1, S2, S3"]
+      }
+    },
+    "baustellenentwasserung-w8-grundwasserschutzzone-info-1": {
+      "label": "Die Versickerung muss über eine humusierte Bodenschicht erfolgen. Abwasservorbehandlung mindestens: Absetzbecken + Neutralisation",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w8-grundwasserschutzzone'|value == 'Au / üB'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w8-grundwasserschutzzone-info-2": {
+      "label": "Eine Versickerung ist in der Grundwasserschutzzone S1 / S2 / S3 ist nicht zulässig.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w8-grundwasserschutzzone'|value == 'S1, S2, S3'",
+      "config": {
+        "options": [
+          "Ich habe die Anforderungen gelesen und verstanden. Andere Möglichkeit prüfen."
+        ]
+      }
+    },
+    "baustellenentwasserung-w8-schmutz-mischwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in die Schmutz- oder Mischwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w8-versickert'|value == 'Nein' || ('baustellenentwasserung-w8-versickert'|value == 'Ja' && 'baustellenentwasserung-w8-grundwasserschutzzone'|value == 'S1, S2, S3')",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w8-schmutz-mischwasserkanalisation-info": {
+      "label": "Behandlung vor Einleitung mindestens:\nAbsetzbecken (Kontrollbecken).\nAutomatische pH-Wert Regulierung",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w8-schmutz-mischwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Ich habe die Anforderungen gelesen und verstanden."]
+      }
+    },
+    "baustellenentwasserung-w8-entwasserung-keine-bewilligung": {
+      "label": "Für die Entwässerung kann keine Bewilligung erteilt werden. Es stehen keine weiteren Auswahlmöglichkeiten (Ableitungs-Entsorgungswege) zur Verfügung. Bitte korrigieren Sie Ihre Eingabe. ",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'baustellenentwasserung-w8-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w9": {
+      "label": "Fällt häusliches Abwasser (Dusche, WC, Lavabo) an?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w9-abwasser-gestapelt-entsorgt": {
+      "label": "Wird das anfallende Abwasser gestapelt und entsorgt? (z.B. ToiToi)",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w9'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w9-schmutz-mischwasserkanalisation": {
+      "label": "Wird das anfallende Abwasser in die Schmutz- oder Mischwasserkanalisation eingeleitet?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w9-abwasser-gestapelt-entsorgt'|value == 'Nein'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w9-schmutz-mischwasserkanalisation-info": {
+      "label": "Für die Ableitung von häuslichem Abwasser ist keine «Technische Bewilligung Baustellenentwässerung» erforderlich. Häusliches Schmutzabwasser (Gemeindezuständigkeit) darf ohne «technische Bewilligung Baustellenentwässerung» der öffentlichen Schmutzabwasserkanalisation zugeführt oder fachgerecht entsorgt werden.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w9-schmutz-mischwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
+      }
+    },
+    "baustellenentwasserung-w9-entwasserung-keine-bewilligung": {
+      "label": "Für die Entwässerung kann keine Bewilligung erteilt werden. Es stehen keine weiteren Auswahlmöglichkeiten (Ableitungs-Entsorgungswege) zur Verfügung. Bitte korrigieren Sie Ihre Eingabe. ",
+      "type": "radio",
+      "required": false,
+      "active-expression": "'baustellenentwasserung-w9-schmutz-mischwasserkanalisation'|value == 'Nein'",
+      "config": {}
+    },
+    "baustellenentwasserung-w10": {
+      "label": "Fällt Abwasser von Pumpversuchen zur Grundwassernutzung an?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-w10-info": {
+      "label": "Die Anforderungen und Vorgaben für die Ableitung oder Versickerung von Abwasser aus Pumpversuchen zur Grundwasserwärmenutzung werden durch eine Allgemeinverfügung geregelt.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w10'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Ich habe die Allgemeinverfügung gelesen und verstanden. Die Abwasservorbehandlung wird gemäss den Vorgaben der Allgemeinverfügung umgesetzt."
+        ]
+      }
+    },
+    "baustellenentwasserung-keine-bewilligung-info": {
+      "label": "Gemäss Ihren Angaben ist keine «technische Bewilligung Baustellenentwässerung» erforderlich. Gemäss Ihren Angaben fällt kein Abwasser an.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1'|value == 'Nein' && 'baustellenentwasserung-w2'|value == 'Nein' && 'baustellenentwasserung-w3'|value == 'Nein' && 'baustellenentwasserung-w4'|value == 'Nein' && 'baustellenentwasserung-w5'|value == 'Nein' && 'baustellenentwasserung-w6'|value == 'Nein' && 'baustellenentwasserung-w7'|value == 'Nein' && 'baustellenentwasserung-w8'|value == 'Nein' && 'baustellenentwasserung-w9'|value == 'Nein' && 'baustellenentwasserung-w10'|value == 'Nein'",
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
+      }
+    },
+    "baustellenentwasserung-keine-bewilligung-rezirkulation-entsorgt-info": {
+      "label": "Gemäss Ihren Angaben ist keine «technische Bewilligung Baustellenentwässerung» erforderlich. Es wird kein Baustellenabwasser abgeleitet oder versickert. Die Stapelung und fachgerechte Entsorgung von Baustellenabwasser und dessen Rezirkulation (ohne Ableitung und/oder Versickerung) bedürfen keiner «technischen Bewilligung Baustellentwässerung». Häusliches Schmutzabwasser (Gemeindezuständigkeit) darf ohne «technische Bewilligung Baustellenentwässerung» der öffentlichen Schmutzabwasserkanalisation zugeführt oder fachgerecht entsorgt werden.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-rezirkuliert'|value == 'Ja' ||  'baustellenentwasserung-w1-abwasser-gestapelt-entsorgt'|value == 'Ja' || 'baustellenentwasserung-w2-rezirkuliert'|value == 'Ja' ||  'baustellenentwasserung-w2-abwasser-gestapelt-entsorgt'|value == 'Ja'   || 'baustellenentwasserung-w3-abwasser-gestapelt-entsorgt'|value == 'Ja'   || 'baustellenentwasserung-w4-rezirkuliert'|value == 'Ja' ||  'baustellenentwasserung-w4-abwasser-gestapelt-entsorgt'|value == 'Ja' || 'baustellenentwasserung-w4-rezirkuliert'|value == 'Ja' ||  'baustellenentwasserung-w4-abwasser-gestapelt-entsorgt'|value == 'Ja' || 'baustellenentwasserung-w5-rezirkuliert'|value == 'Ja' ||  'baustellenentwasserung-w5-abwasser-gestapelt-entsorgt'|value == 'Ja' || 'baustellenentwasserung-w9-abwasser-gestapelt-entsorgt'|value == 'Ja' && 'baustellenentwasserung-w10'|value == 'Nein' && ('baustellenentwasserung-w1-schmutz-mischwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w1-versickert'|value != 'Ja' && 'baustellenentwasserung-w1-gewasser-regenwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w2-schmutz-mischwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w2-versickert'|value != 'Ja' && 'baustellenentwasserung-w3-schmutz-mischwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w3-versickert'|value != 'Ja' && 'baustellenentwasserung-w3-gewasser-regenwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w4-schmutz-mischwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w4-versickert'|value != 'Ja' && 'baustellenentwasserung-w4-gewasser-regenwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w5-abwasser-gestapelt-entsorgt'|value != 'Ja' && 'baustellenentwasserung-w5-schmutz-mischwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w5-versickert'|value != 'Ja' && 'baustellenentwasserung-w5-gewasser-meteorwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w6-gewasser-regenwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w6-versickert'|value != 'Ja' && 'baustellenentwasserung-w6-schmutz-mischwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w7-gewasser-regenwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w7-versickert'|value != 'Ja' && 'baustellenentwasserung-w7-schmutz-mischwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w8-gewasser-meteorwasserkanalisation'|value != 'Ja' && 'baustellenentwasserung-w8-versickert'|value != 'Ja' && 'baustellenentwasserung-w8-schmutz-mischwasserkanalisation'|value != 'Ja')",
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
+      }
+    },
+    "baustellenentwasserung-bewilligung-notwendig-info": {
+      "label": "Gemäss Ihren Angaben ist eine «technische Bewilligung Baustellenentwässerung» erforderlich. Es fällt Baustellenabwasser an, welches in die Kanalisation oder in ein Oberflächengewässer abgeleitet und/oder versickert werden soll.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-w1-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w1-versickert'|value == 'Ja' || 'baustellenentwasserung-w1-gewasser-regenwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w2-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w2-versickert'|value == 'Ja' || 'baustellenentwasserung-w3-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w3-versickert'|value == 'Ja' || 'baustellenentwasserung-w3-gewasser-regenwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w4-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w4-versickert'|value == 'Ja' || 'baustellenentwasserung-w4-gewasser-regenwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w5-abwasser-gestapelt-entsorgt'|value == 'Ja' || 'baustellenentwasserung-w5-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w5-versickert'|value == 'Ja' || 'baustellenentwasserung-w5-gewasser-meteorwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w6-gewasser-regenwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w6-versickert'|value == 'Ja' || 'baustellenentwasserung-w6-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w7-gewasser-regenwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w7-versickert'|value == 'Ja' || 'baustellenentwasserung-w7-schmutz-mischwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w8-gewasser-meteorwasserkanalisation'|value == 'Ja' || 'baustellenentwasserung-w8-versickert'|value == 'Ja' || 'baustellenentwasserung-w8-schmutz-mischwasserkanalisation'|value == 'Ja'",
+      "config": {
+        "options": ["Zur Kenntnis genommen"]
+      }
+    },
+    "baustellenentwasserung-beginn-wasserhaltung": {
+      "label": "Geplanter Beginn der Wasserhaltung",
+      "hint": "",
+      "type": "date",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
+      "config": {}
+    },
+    "baustellenentwasserung-beginn-ende-wasserhaltung": {
+      "label": "Geplantes Ende der Wasserhaltung",
+      "hint": "",
+      "type": "date",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
+      "config": {}
+    },
+    "baustellenentwasserung-wassergefahrdende-flussigkeiten-gelagert": {
+      "label": "Werden wassergefährdende Flüssigkeiten gelagert?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-bewilligung-notwendig-info'|value == 'Zur Kenntnis genommen'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baustellenentwasserung-wassergefahrdende-flussigkeiten-gelagert-info": {
+      "label": "Wassergefährdende Stoffe (Öl, Benzin usw.) müssen auf der Baustelle in geeigneten Gebinden z.B. in doppelwandigen Tanks und nur in den benötigten Mengen gelagert werden. Diese müssen auf einem dichten Boden mit Randabschluss oder in einer Auffangwanne gelagert werden. Der Schutz vor unbefugtem Zugriff muss gewährleistet sein.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'baustellenentwasserung-wassergefahrdende-flussigkeiten-gelagert'|value == 'Ja'",
+      "config": {
+        "options": ["Zur Kenntnis genommen, gelesen und verstanden."]
+      }
+    },
+    "fruchtfolgeflache-kompensationspflichtig": {
+      "label": "Ihr Vorhaben liegt in einer Fruchtfolgefläche. Ist Ihr Vorhaben kompensationspflichtig?",
+      "hint": "Arbeitshilfe &laquo;<a href=\"https://www.sz.ch/behoerden/verwaltung/volkswirtschaftsdepartement/amt-fuer-raumentwicklung/projekte-und-grundlagen.html/8756-8758-8802-10373-11039-12551#js-cms-accordion-header--4-0\" target=\"_blank\">Umgang mit Fruchtfolgeflächen</a>&raquo;, Auszug aus Seite 10:\n\nIm Kanton Schwyz sind folgende Vorgaben und Flächen von der Kompensationspflicht befreit:\n* Vorhaben, welche die FFF um bis zu 1000&thinsp;m&sup2; beanspruchen.\n* Zonenkonforme bodenabhängig produzierende landwirtschaftliche Vorhaben (unter Hinweis auf Art. 16a Ab 1 RPG).\n* Flächen, welche eindeutig nicht FFF-Qualität aufweisen (Strassen, befestigte Flächen, Gebäude, Gewässer und dazugehörende Böschungen mit einer Neigung &ge;&thinsp;18%).",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'ms:ch.sz.a093.fruchtfolgeflaechen' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "fruchtfolgeflache-nicht-kompensationspflichtig-begrundung": {
+      "label": "Falls Ihr Vorhaben nicht kompensationspflichtig ist, ist dies zu begründen",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'fruchtfolgeflache-kompensationspflichtig'|value == 'Nein'",
+      "config": {
+        "options": [
+          "Vorhaben, welche die FFF um bis zu 1000m² beanspruchen.",
+          "Zonenkonforme bodenabhängig produzierende landwirtschaftliche Vorhaben (unter Hinweis auf Art. 16a Abs 1 RPG).",
+          "Flächen, welche eindeutig nicht FFF-Qualität aufweisen (Strassen, befestigte Flächen, Gebäude, Gewässer und dazugehörende Böschungen mit einer Neigung ≥18%)."
+        ]
+      }
+    },
+    "fruchtfolgeflache-kompensationsflache": {
+      "label": "Ist ein Bodenaufwertungsprojekt, eine neu kartierte Fläche mit einer vertraglichen Absicherung, oder eine Beteiligung an einem Kompensationsprojekt vorhanden?",
+      "hint": "Arbeitshilfe &laquo;<a href=\"https://www.sz.ch/behoerden/verwaltung/volkswirtschaftsdepartement/amt-fuer-raumentwicklung/projekte-und-grundlagen.html/8756-8758-8802-10373-11039-12551#js-cms-accordion-header--4-0\" target=\"_blank\">Umgang mit Fruchtfolgeflächen</a>&raquo;\n\n * **Bodenaufwertungsprojekt**: Für das Bodenaufwertungsprojekt muss ein separates Gesuch vorhanden sein. Dieses muss parallel zum Hauptgesuch eingereicht werden.\n * **Neu kartierte Fläche**: Folgende Unterlagen sind mit dem Gesuch einzureichen:\n     - Nachweis der FFF-Qualität des Bodens\n     - Situationsplan\n     - Vertragliche Sicherstellung der Fläche\n * **Beteiligung Grossprojekt**: Folgende Unterlagen sind mit dem Gesuch einzureichen:\n     - Vertragliche Sicherstellung der Fläche",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'fruchtfolgeflache-kompensationspflichtig'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Bodenaufwertungsprojekt",
+          "Neu kartierte Fläche (vertraglich abgesichert)",
+          "Eine Beteiligung an einem Kompensationsgrossprojekt"
+        ]
+      }
+    },
+    "fruchtfolgeflache-kompensationsflache-projekt": {
+      "label": "Projektnummer (eBau-Nr.) des <a href=\"https://www.sz.ch/behoerden/verwaltung/volkswirtschaftsdepartement/amt-fuer-raumentwicklung/projekte-und-grundlagen.html/8756-8758-8802-10373-11039-12551#js-cms-accordion-header--4-0\" target=\"_blank\">Bodenaufwertungsprojekts</a>",
+      "type": "text",
+      "required": true,
+      "active-expression": "'fruchtfolgeflache-kompensationsflache'|value == 'Bodenaufwertungsprojekt'",
       "config": {}
     }
   }

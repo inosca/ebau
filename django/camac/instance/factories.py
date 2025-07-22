@@ -43,6 +43,15 @@ class InstanceStateFactory(DjangoModelFactory):
         model = models.InstanceState
 
 
+class InstanceStateTFactory(DjangoModelFactory):
+    name = Faker("name")
+    instance_state = SubFactory(InstanceStateFactory)
+    language = "de"
+
+    class Meta:
+        model = models.InstanceStateT
+
+
 class InstanceGroupFactory(DjangoModelFactory):
     class Meta:
         model = models.InstanceGroup

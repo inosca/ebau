@@ -41,6 +41,8 @@ DECISION = {
                 "POSITIVE": "decision-decision-assessment-positive",
                 "POSITIVE_WITH_RESERVATION": "decision-decision-assessment-positive-with-reservation",
                 "NEGATIVE": "decision-decision-assessment-negative",
+                # Building permit and preliminary clarification
+                "OTHER": "decision-decision-assessment-other",
             },
             "APPROVAL_TYPE": {
                 "CONSTRUCTION_TEE_WITH_RESTORATION": "decision-approval-type-construction-tee-with-restoration",
@@ -51,6 +53,7 @@ DECISION = {
                 "UNKNOWN": "decision-approval-type-unknown",
             },
         },
+        "POSITIVE_DECISIONS": ["APPROVED"],
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "sb1",
         "TASKS_AFTER_BUILDING_PERMIT_DECISION": [
             "sb1",
@@ -80,6 +83,7 @@ DECISION = {
                 "OHNE_WIEDERHERSTELLUNG": "entscheid-bauabschlag-ohne-wiederherstellung",
             },
         },
+        "POSITIVE_DECISIONS": ["APPROVED", "PARTIALLY_APPROVED"],
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
         "INSTANCE_STATE_AFTER_NEGATIVE_DECISION": "decided",
     },
@@ -88,17 +92,46 @@ DECISION = {
         "ANSWERS": {
             "DECISION": {
                 "APPROVED": "decision-decision-approved",
+                "APPROVED_WITH_RESERVATION": "decision-decision-approved-with-reservation",
                 "REJECTED": "decision-decision-rejected",
                 "WRITTEN_OFF": "decision-decision-written-off",
                 "POSITIVE": "decision-decision-positive",
                 "NEGATIVE": "decision-decision-negative",
                 "POSITIVE_WITH_RESERVATION": "decision-decision-positive-with-reservation",
-                "RETREAT": "decision-decision-reatread",
+                "WITHDRAWAL": "decision-decision-retreat",
                 "OTHER": "decision-decision-other",
             },
         },
+        "POSITIVE_DECISIONS": [
+            "APPROVED",
+            "APPROVED_WITH_RESERVATION",
+            "POSITIVE",
+            "POSITIVE_WITH_RESERVATION",
+        ],
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "construction-acceptance",
-        "TASKS_AFTER_BUILDING_PERMIT_DECISION": ["construction-acceptance"],
+    },
+    "kt_ag": {
+        "ENABLED": True,
+        "QUESTIONS": {
+            "DECISION": "entscheid-entscheid",
+            "DATE": "entscheid-datum",
+            "DEMOLITION": "entscheid-entscheidtyp-abweisung",
+        },
+        "ANSWERS": {
+            "DECISION": {
+                "APPROVED": "entscheid-entscheid-baubewilligung-erteilt",
+                "REJECTED": "entscheid-entscheid-abweisung",
+                "PARTIALLY_APPROVED": "entscheid-entscheid-teilbaubewilligung",
+                "WITHDRAWAL": "entscheid-entscheid-rueckzug",
+            },
+            "DEMOLITION": {
+                "WITH": "entscheid-entscheidtyp-abweisung-mit-rueckbau",
+                "WITHOUT": "entscheid-entscheidtyp-abweisung-ohne-rueckbau",
+            },
+        },
+        "POSITIVE_DECISIONS": ["APPROVED", "PARTIALLY_APPROVED"],
+        "INSTANCE_STATE_AFTER_NEGATIVE_DECISION": "to-finish",
+        "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
     },
     "test": {
         "ENABLED": True,
@@ -143,7 +176,9 @@ DECISION["kt_gr"]["ECH_JUDGEMENT_MAP"] = {
         DECISION["kt_gr"]["ANSWERS"]["DECISION"][
             "POSITIVE_WITH_RESERVATION"
         ]: ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
-        DECISION["kt_gr"]["ANSWERS"]["DECISION"]["RETREAT"]: ECH_JUDGEMENT_WRITTEN_OFF,
+        DECISION["kt_gr"]["ANSWERS"]["DECISION"][
+            "WITHDRAWAL"
+        ]: ECH_JUDGEMENT_WRITTEN_OFF,
         DECISION["kt_gr"]["ANSWERS"]["DECISION"]["OTHER"]: ECH_JUDGEMENT_WRITTEN_OFF,
         DECISION["kt_gr"]["ANSWERS"]["DECISION"]["NEGATIVE"]: ECH_JUDGEMENT_DECLINED,
     },
@@ -161,5 +196,28 @@ DECISION["kt_so"]["ECH_JUDGEMENT_MAP"] = {
         ]: ECH_JUDGEMENT_WRITTEN_OFF,
         DECISION["kt_so"]["ANSWERS"]["DECISION"]["POSITIVE"]: ECH_JUDGEMENT_APPROVED,
         DECISION["kt_so"]["ANSWERS"]["DECISION"]["NEGATIVE"]: ECH_JUDGEMENT_DECLINED,
+    },
+}
+
+DECISION["kt_ag"]["ECH_JUDGEMENT_MAP"] = {
+    "building-permit": {
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"]["APPROVED"]: ECH_JUDGEMENT_APPROVED,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"]["REJECTED"]: ECH_JUDGEMENT_DECLINED,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"][
+            "PARTIALLY_APPROVED"
+        ]: ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"][
+            "WITHDRAWAL"
+        ]: ECH_JUDGEMENT_WRITTEN_OFF,
+    },
+    "preliminary-clarification": {
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"]["APPROVED"]: ECH_JUDGEMENT_APPROVED,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"]["REJECTED"]: ECH_JUDGEMENT_DECLINED,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"][
+            "PARTIALLY_APPROVED"
+        ]: ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"][
+            "WITHDRAWAL"
+        ]: ECH_JUDGEMENT_WRITTEN_OFF,
     },
 }

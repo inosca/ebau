@@ -1,3 +1,5 @@
+from collections import namedtuple
+from contextlib import nullcontext as no_exception
 from datetime import datetime, timedelta
 
 import pytest
@@ -9,6 +11,7 @@ from camac.permissions import api
 from camac.permissions.conditions import Always
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
+from camac.permissions.views import InstanceACLViewset
 from camac.utils import get_dict_item
 
 
@@ -122,14 +125,47 @@ def test_list_acl_view_for_applicant(
     assert hidden_access_level.slug not in ids
 
 
+@pytest.mark.parametrize("role__name", ["TrustedService", "Coordination"])
+def test_list_acl_view_for_ur(
+    db,
+    access_level_factory,
+    admin_client,
+    instance,
+    service,
+):
+    visible_access_level = access_level_factory(slug="read")
+
+    api.grant(
+        instance,
+        grant_type=api.GRANT_CHOICES.SERVICE.value,
+        access_level=visible_access_level,
+        service=service,
+    )
+
+    response = admin_client.get(
+        reverse("instance-acls-list"), {"instance": instance.pk}
+    )
+
+    result = response.json()["data"]
+    assert len(result) == 1
+
+    ids = [i["relationships"]["access-level"]["data"]["id"] for i in result]
+    assert visible_access_level.slug in ids
+
+
 @pytest.mark.parametrize("set_end_time", [True, False])
 @pytest.mark.parametrize("set_start_time", [True, False])
 @pytest.mark.parametrize(
-    "role__name, responsible_for_instance, expect_success",
+    "role__name, responsible_for_instance, access_level_slug,expect_success",
     [
-        ("Municipality", True, True),
-        ("Support", True, False),
-        ("Municipality", False, False),
+        # municipality in "own" instance can assign
+        ("Municipality", True, "geometer", True),
+        # BE only allows geometer to be assigned
+        ("Municipality", True, "other", False),
+        # support cannot assign
+        ("Support", True, "geometer", False),
+        # unrelated instance, cannot assign
+        ("Municipality", False, "geometer", False),
     ],
 )
 def test_create_acl(
@@ -137,15 +173,20 @@ def test_create_acl(
     instance,
     admin_client,
     permissions_settings,
-    access_level,
+    access_level_factory,
     service,
     group_factory,
     expect_success,
     responsible_for_instance,
+    access_level_slug,
     set_start_time,
     set_end_time,
+    application_settings,
 ):
     url = reverse("instance-acls-list")
+
+    application_settings["SHORT_NAME"] = "be"
+    access_level = access_level_factory(slug=access_level_slug)
 
     tz = timezone.get_current_timezone()
     if set_start_time:
@@ -213,20 +254,74 @@ def test_create_acl(
 
 
 @pytest.mark.parametrize(
-    "role__name, end_time, is_responsible_service, expect_success",
+    "role__name,access_level_slug",
+    [
+        ("TrustedService", "read"),
+        ("Coordination", "read"),
+    ],
+)
+def test_create_acl_ur(
+    db,
+    instance,
+    admin_client,
+    permissions_settings,
+    access_level_factory,
+    service,
+    access_level_slug,
+    settings,
+    application_settings,
+    use_instance_service,
+):
+    url = reverse("instance-acls-list")
+
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["SHORT_NAME"] = "ur"
+    access_level = access_level_factory(slug=access_level_slug)
+
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [("foo", "*"), ("bar", "*")]
+    }
+
+    post_data = {
+        "data": {
+            "attributes": {
+                "grant-type": "SERVICE",
+            },
+            "relationships": {
+                "instance": {"data": {"id": instance.pk, "type": "instances"}},
+                "service": {"data": {"id": service.pk, "type": "public-services"}},
+                "access-level": {
+                    "data": {"id": access_level.pk, "type": "access-levels"}
+                },
+            },
+            "type": "instance-acls",
+        },
+    }
+
+    result = admin_client.post(url, post_data)
+
+    result_data = result.json()
+
+    assert result.status_code == status.HTTP_201_CREATED, result_data
+
+
+@pytest.mark.parametrize(
+    "role__name, end_time, is_responsible_service, access_level_slug, expect_success",
     [
         # responsible service can revoke
-        ("Municipality", None, True, True),
+        ("Municipality", None, True, "geometer", True),
+        # cannot revoke, BE config only allows dealing with "geometer"
+        ("Municipality", None, True, "other", False),
         # non-responsible service cannot revoke
-        ("Municipality", None, False, False),
+        ("Municipality", None, False, "geometer", False),
         # non-municipality user cannot revoke
-        ("Support", None, True, False),
+        ("Support", None, True, "geometer", False),
         # just expired acl cannot be revoked again
-        ("Municipality", timezone.now(), True, False),
+        ("Municipality", timezone.now(), True, "geometer", False),
         # shortening = ok
-        ("Municipality", timezone.now() + timedelta(days=5), True, True),
+        ("Municipality", timezone.now() + timedelta(days=5), True, "geometer", True),
         # extending expired acl = not ok
-        ("Municipality", timezone.now() - timedelta(days=5), True, False),
+        ("Municipality", timezone.now() - timedelta(days=5), True, "geometer", False),
     ],
 )
 def test_revoke_acl(
@@ -234,14 +329,20 @@ def test_revoke_acl(
     instance,
     admin_client,
     permissions_settings,
-    access_level,
+    access_level_factory,
     service,
     group_factory,
     end_time,
     is_responsible_service,
+    access_level_slug,
     expect_success,
     use_instance_service,
+    application_settings,
 ):
+    # we use "be" here as they have a config that actually forbids
+    # granting/revoking of some access levels
+    application_settings["SHORT_NAME"] = "be"
+    access_level = access_level_factory(slug=access_level_slug)
     the_acl = InstanceACL.objects.create(
         instance=instance,
         grant_type=api.GRANT_CHOICES.USER.value,
@@ -253,7 +354,7 @@ def test_revoke_acl(
 
     if is_responsible_service:
         instance.instance_services.create(
-            service=admin_client.user.get_default_group().service
+            service=admin_client.user.get_default_group().service, active=1
         )
     else:
         # The instance's responsible group (and therefore it's responsible
@@ -399,23 +500,35 @@ def test_get_access_levels(
 
 
 @pytest.mark.parametrize(
-    "do_filter,grant,permission_mode, role__name, expect_results",
+    "canton, do_filter,grant,permission_mode, role__name, expect_results",
     [
         # Permission mode is FULL: User can only see access levels that are
         # explicitly allowed to be assigned *on the given instance*
-        (True, "geometer", "FULL", "Municipality", 1),
-        (True, None, "FULL", "Municipality", 0),
-        (False, None, "FULL", "Municipality", "ALL"),
-        (False, "geometer", "FULL", "Municipality", "ALL"),
-        (True, "any", "FULL", "Municipality", "ALL"),
-        (False, "any", "FULL", "Municipality", "ALL"),
+        ("be", True, "geometer", "FULL", "Municipality", 1),
+        ("be", True, None, "FULL", "Municipality", 0),
+        ("be", False, None, "FULL", "Municipality", "ALL"),
+        ("be", False, "geometer", "FULL", "Municipality", "ALL"),
+        ("be", True, "any", "FULL", "Municipality", "ALL"),
+        ("be", False, "any", "FULL", "Municipality", "ALL"),
         # Permission mode is OFF: Old mode, can't filter except by role
-        (True, "geometer", "OFF", "Municipality", "ALL"),
-        (True, "geometer", "OFF", "Geometer", 0),
-        (False, "geometer", "OFF", "Municipality", "ALL"),
+        (
+            "be",
+            True,
+            "geometer",
+            "OFF",
+            "Municipality",
+            2,  # BE muni: only geometer and read
+        ),
+        ("be", True, "geometer", "OFF", "Geometer", 0),
+        ("be", False, "geometer", "OFF", "Municipality", "ALL"),
         # AccessLevelViewset.get_queryset() is @permission_aware, therefore
         # non-municipality users never see anything here (for now)
-        (False, "geometer", "OFF", "Geometer", 0),
+        ("be", False, "geometer", "OFF", "Geometer", 0),
+        ("so", True, "geometer", "OFF", "Municipality", "ALL_EXCEPT_ONE"),
+        ("sz", True, "read", "OFF", "Municipality", 1),
+        ("ur", True, "read", "OFF", "Municipality", 1),
+        ("ur", True, "read", "OFF", "TrustedService", 1),
+        ("ur", True, "read", "OFF", "Coordination", 1),
     ],
 )
 def test_assignable_filter(
@@ -423,13 +536,16 @@ def test_assignable_filter(
     be_instance,
     admin_client,
     instance_acl_factory,
+    application_settings,
     be_permissions_settings,
     be_access_levels,
+    access_level_factory,
     # params
     permission_mode,
     do_filter,
     grant,
     expect_results,
+    canton,
 ):
     """
     Test the asssignable_in_instance filter on the access levels.
@@ -437,8 +553,17 @@ def test_assignable_filter(
     The filter is supposed to only return the access levels that the current
     user can assign to someone on the given instance.
     """
-    if expect_results == "ALL":
-        expect_results = AccessLevel.objects.all().count()
+
+    # We use BE instance and config, but wanna (simply) test the SO case as well
+    access_level_factory(slug="municipality-before-submission")
+
+    application_settings["SHORT_NAME"] = canton
+
+    lookup_result_count = {
+        "ALL": AccessLevel.objects.all().count(),
+        "ALL_EXCEPT_ONE": AccessLevel.objects.all().count() - 1,
+    }
+    expect_results = lookup_result_count.get(expect_results, expect_results)
 
     # Drop any configured "grant" permisisons, so we can test the exact
     # behaviour
@@ -749,3 +874,37 @@ def test_list_with_permissions(
     result = admin_client.get(url, {"instance": instance.pk} if query_instance else {})
 
     assert len(result.json()["data"]) == expected_count
+
+
+@pytest.mark.parametrize("role__name,", ["TrustedService", "Coordination"])
+def test_enforce_change_permission_ur(
+    db,
+    settings,
+    admin_user,
+    application_settings,
+    ur_instance,
+    mocker,
+    access_level_factory,
+    instance_acl_factory,
+    permissions_settings,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+    application_settings["SHORT_NAME"] = "ur"
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
+    mocker.patch(
+        "camac.constants.kt_uri.ROLE_TRUSTED_SERVICE", ur_instance.group.role.pk
+    )
+    instance_acl_factory(
+        user=admin_user,
+        access_level=access_level_factory(slug="read"),
+        instance=ur_instance,
+    )
+
+    Request = namedtuple("request", ["group"])
+    request = Request(group=ur_instance.group)
+    view = InstanceACLViewset()
+    view.request = request
+
+    with no_exception():
+        view.enforce_change_permission(ur_instance, "read")

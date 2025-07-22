@@ -9,7 +9,6 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 from rest_framework.reverse import reverse
 
-from camac.core.views import SendfileHttpResponse
 from camac.utils import build_url
 
 from ...instance.serializers import CalumaInstanceSerializer
@@ -60,11 +59,16 @@ def test_api_get_views(
 
 @pytest.mark.parametrize("role__name", ["Support"])
 def test_imported_instance_be_get_name(
-    db, be_instance, form_factory, document_factory, question_factory, admin_client
+    db,
+    be_instance,
+    form_factory,
+    caluma_document_factory,
+    caluma_question_factory,
+    admin_client,
 ):
     # for coverage CalumaInstanceSerializer.get_name()
-    question = question_factory(pk="geschaeftstyp-import")
-    be_instance.case.document = document_factory(form_id="migriertes-dossier")
+    question = caluma_question_factory(pk="geschaeftstyp-import")
+    be_instance.case.document = caluma_document_factory(form_id="migriertes-dossier")
     be_instance.case.document.answers.create(question=question, value="geschaeftstyp")
 
     serializer = CalumaInstanceSerializer()
@@ -393,14 +397,14 @@ def test_state_transitions(
     action,
     status_before,
     expected_response_code,
+    django_q_sync_mode,
     status_after,
-    case_factory,
+    caluma_case_factory,
     host,
     mailoutbox,
 ):
     setup_dossier_writer(config)
     settings.INTERNAL_BASE_URL = f"https://{host}.example.com"
-    # settings.Q_CLUSTER["sync"] = True  # doesn't work, unfortunately
 
     dossier_import = dossier_import_factory(
         status=status_before,
@@ -409,8 +413,8 @@ def test_state_transitions(
     )
 
     if action == "undo":
-        case_factory.create_batch(2, meta={"import-id": str(dossier_import.pk)})
-        case_factory()  # unrelated case
+        caluma_case_factory.create_batch(2, meta={"import-id": str(dossier_import.pk)})
+        caluma_case_factory()  # unrelated case
 
     resp = admin_client.post(
         reverse(f"dossier-import-{action}", args=(dossier_import.pk,))
@@ -437,7 +441,7 @@ def test_transmitting_logic(
     location_required,
     dossier_import_settings,
 ):
-    dossier_import_settings["PROD_URL"] = "http://ebau.local"
+    dossier_import_settings["PROD_URL"] = "http://ebau.localhost"
     dossier_import_settings["LOCATION_REQUIRED"] = location_required
     dossier_import_settings["PROD_AUTH_URL"] = settings.KEYCLOAK_OIDC_TOKEN_URL
 
@@ -500,7 +504,7 @@ def test_failing_transmission(
     "storage_backend,expected_response",
     [
         ("storages.backends.s3.S3Storage", FileResponse),
-        ("django.core.files.storage.FileSystemStorage", SendfileHttpResponse),
+        ("django.core.files.storage.FileSystemStorage", FileResponse),
     ],
 )
 def test_download_import(
@@ -514,8 +518,9 @@ def test_download_import(
 ):
     settings.STORAGES["default"]["BACKEND"] = storage_backend
 
+    file = archive_file("import-example.zip")
     dossier_import = dossier_import_factory(
-        source_file=archive_file("import-example.zip"),
+        source_file=file,
         group=admin_client.user.groups.first(),
     )
     resp = admin_client.get(
@@ -523,6 +528,9 @@ def test_download_import(
     )
     assert resp.status_code == status.HTTP_200_OK
     assert isinstance(resp, expected_response)
+
+    file.seek(0)
+    assert resp.getvalue() == file.read()
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
@@ -547,13 +555,13 @@ def test_delete_import(
     admin_client,
     archive_file,
     dossier_import,
-    case_factory,
+    caluma_case_factory,
     instance_with_case,
     has_case,
     expected_status,
 ):
     if has_case:
-        case_factory(meta={"import-id": str(dossier_import.pk)})
+        caluma_case_factory(meta={"import-id": str(dossier_import.pk)})
     resp = admin_client.delete(
         reverse("dossier-import-detail", args=(str(dossier_import.pk),))
     )

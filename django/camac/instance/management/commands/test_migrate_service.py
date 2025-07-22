@@ -12,7 +12,7 @@ def test_migrate_service(
     disable,
     service_factory,
     instance_service_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     user_factory,
     group_factory,
 ):
@@ -20,10 +20,10 @@ def test_migrate_service(
     source_2 = service_factory()
     service = instance_service.service
     target = service_factory()
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         addressed_groups=[source_2.pk], assigned_users=[user_factory().username]
     )
-    controlling_work_item = work_item_factory(controlling_groups=[source_2.pk])
+    controlling_work_item = caluma_work_item_factory(controlling_groups=[source_2.pk])
 
     args = [
         "--source",

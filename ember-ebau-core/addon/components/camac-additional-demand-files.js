@@ -89,68 +89,59 @@ export default class CamacAdditionalDemandFilesComponent extends Component {
       this.store.peekRecord("attachment-section", this.section) ||
       (await this.store.findRecord("attachment-section", this.section));
 
-    // Create a new attachment record which is not yet saved to the backend and
-    // add it to the file queue.
-    this.queue.push(
-      this.store.createRecord("attachment", {
-        instance: this.store.peekRecord(
-          "instance",
-          this.ebauModules.instanceId,
-        ),
-        name: file.name,
-        size: file.size,
-        attachmentSections: [section],
-        question: bucket,
-        context: { claimId: this.claimId },
-        date: new Date(),
+    const attachment = this.store.createRecord("attachment", {
+      instance: this.store.peekRecord("instance", this.ebauModules.instanceId),
+      name: file.name,
+      size: file.size,
+      attachmentSections: [section],
+      question: bucket,
+      context: { claimId: this.claimId },
+      date: new Date(),
 
-        // not relevant for the model
-        blob: file,
-      }),
-    );
-
-    await this.uploadAttachments.perform();
+      // not relevant for the model
+      blob: file,
+    });
+    await this.uploadAttachments.perform({ attachment });
   });
 
   remove = task(async ({ attachment }) => {
     await attachment.destroyRecord();
   });
 
-  uploadAttachments = task(async () => {
-    try {
-      await Promise.all(
-        this.queue.map(async (attachment) => {
-          const formData = new FormData();
+  uploadAttachments = task(
+    { maxConcurrency: 1, enqueue: true },
+    async ({ attachment }) => {
+      try {
+        const formData = new FormData();
 
-          formData.append("instance", attachment.belongsTo("instance").id());
-          formData.append(
-            "attachment_sections",
-            attachment.hasMany("attachmentSections").ids(),
-          );
-          formData.append("question", attachment.question);
-          formData.append("path", attachment.blob, attachment.name);
-          formData.append("context", JSON.stringify(attachment.context));
+        formData.append("instance", attachment.belongsTo("instance").id());
+        formData.append(
+          "attachment_sections",
+          attachment.hasMany("attachmentSections").ids(),
+        );
+        formData.append("question", attachment.question);
+        formData.append("path", attachment.blob, attachment.name);
+        formData.append("context", JSON.stringify(attachment.context));
 
-          const response = await this.fetch.fetch("/api/v1/attachments", {
-            method: "POST",
-            body: formData,
-            headers: { "content-type": undefined },
-          });
+        const response = await this.fetch.fetch("/api/v1/attachments", {
+          method: "POST",
+          body: formData,
+          headers: { "content-type": undefined },
+        });
 
-          if (!response.ok) throw new Error();
+        if (!response.ok) throw new Error();
 
-          // remove client-only attachment
-          await attachment.destroyRecord();
-          // push newly created attachment to client store
-          this.store.pushPayload(await response.json());
-        }),
-      );
+        // remove client-only attachment
+        await attachment.destroyRecord();
+        // push newly created attachment to client store
+        this.store.pushPayload(await response.json());
 
-      this.queue = [];
-
-      this.notification.success(this.intl.t("documents.uploadSuccess"));
-    } catch {
-      this.notification.danger(this.intl.t("documents.uploadError"));
-    }
-  });
+        if (!this.uploadAttachments.isQueued) {
+          this.notification.success(this.intl.t("documents.uploadSuccess"));
+        }
+      } catch {
+        this.notification.danger(this.intl.t("documents.uploadError"));
+      }
+    },
+  );
 }

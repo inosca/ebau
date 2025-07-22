@@ -1,7 +1,8 @@
-from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.db.models import Q
 
+from camac.caluma.models import Inquiry
 from camac.constants import kt_uri as uri_constants
 from camac.instance.models import Instance
 
@@ -10,6 +11,21 @@ from camac.instance.models import Instance
 #    --> (camac-ng)/php/public/public-shared/js/src/apidocuments-permissions.js
 # And don't forget to register it at the bottom of the file (dasherized class
 # name here must be mapped to JS permission class)
+
+
+class SameServiceQSMixin:
+    """Mixin to provide filter API for same-service-only document visibility.
+
+    Implement the `build_q()` method such that only attachments are visible
+    that belong to the same service as the current user.
+
+    This is generally also referred to as the "Internal" mode
+    """
+
+    @classmethod
+    def build_q(cls, group, attachment_prefix):
+        # Internal - user's service must match
+        return Q(**{f"{attachment_prefix}service": group.service})
 
 
 class Permission:
@@ -24,6 +40,10 @@ class Permission:
     def can_destroy(cls, attachment, group) -> bool:
         return cls.destroy
 
+    @classmethod
+    def build_q(cls, group, attachment_prefix):
+        return Q()
+
 
 class ReadPermission(Permission):
     """Read permission."""
@@ -31,7 +51,7 @@ class ReadPermission(Permission):
     pass
 
 
-class ReadInternalPermission(Permission):
+class ReadInternalPermission(SameServiceQSMixin, Permission):
     """Read permission on attachments owned by the current service."""
 
     pass
@@ -64,7 +84,7 @@ class AdminServicePermission(AdminPermission):
         )
 
 
-class AdminInternalPermission(AdminServicePermission):
+class AdminInternalPermission(SameServiceQSMixin, AdminServicePermission):
     """Read, write and delete permission on attachments owned by the current service."""
 
     @classmethod
@@ -80,10 +100,13 @@ class AdminBeforeDecisionPermission(AdminPermission):
     """Read and write permission, but delete only before the decision."""
 
     @classmethod
+    def _get_states(cls):
+        return settings.APPLICATION.get("ATTACHMENT_AFTER_DECISION_STATES", [])
+
+    @classmethod
     def is_before_decision(cls, attachment, group) -> bool:
         return not attachment or (
-            attachment.instance.instance_state.name
-            not in settings.APPLICATION.get("ATTACHMENT_AFTER_DECISION_STATES", [])
+            attachment.instance.instance_state.name not in cls._get_states()
         )
 
     @classmethod
@@ -164,12 +187,12 @@ class AdminServiceRunningInquiryPermission(AdminServicePermission):
 
     @classmethod
     def has_running_inquiry(cls, instance, group) -> bool:
-        return WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            addressed_groups__contains=[str(group.service_id)],
-            case__family__instance=instance,
-            status=WorkItem.STATUS_READY,
-        ).exists()
+        return (
+            Inquiry.objects.for_instance(instance)
+            .addressed_to(group.service_id)
+            .only_pending()
+            .exists()
+        )
 
     @classmethod
     def can_destroy(cls, attachment, group) -> bool:
@@ -389,6 +412,9 @@ PERMISSIONS = {
                 12000006,
                 12000007,
                 12000008,
+                12000009,
+                12000010,
+                12000011,
             ],
         },
         "organization_readonly": {ReadPermission: [12000000]},
@@ -416,6 +442,81 @@ PERMISSIONS = {
     },
     "test": {"applicant": {AdminPermission: [250, 251]}},
 }
+
+
+def _allow_always(*_):
+    return True
+
+
+def _has_documents_write_permission(level_slug, manager, instance):
+    if not instance:
+        return False
+
+    return manager.has_all(instance, "documents-write")
+
+
+PERMISSIONS_BY_ACCESSLEVEL = {
+    "kt_bern": {
+        "read": {
+            ReadPermission: (_allow_always, [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14]),
+            ReadInternalPermission: (_allow_always, [4]),
+        },
+        "geometer": {
+            ReadPermission: (_allow_always, [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14]),
+            ReadInternalPermission: (_allow_always, [4]),
+            AdminInternalPermission: (_has_documents_write_permission, [4]),
+            ReadWriteDuringSB1: (_has_documents_write_permission, [10]),
+        },
+    },
+    "kt_schwyz": {
+        "read": {
+            # TODO proper definition of permissions
+            # All sections excluding internal sections (2, 7) and
+            # section for applicant (9)
+            ReadPermission: (_allow_always, [1, 4, 5, 6, 8, 10, 11]),
+        },
+    },
+    "kt_uri": {
+        "read": {
+            # TODO proper definition of permissions
+            # Same sections included as for service excluding
+            # internal section
+            ReadPermission: (
+                _allow_always,
+                [
+                    12000000,
+                    12000002,
+                    12000003,
+                    12000004,
+                ],
+            ),
+        }
+    },
+}
+
+
+def get_accesslevel_permissions(
+    level_slug, manager, instance=None
+) -> dict[type[Permission], list[int]]:
+    """Return a dict that maps permission types to a list of applicable sections.
+
+    If no config is defined for the given access level, an empty dict is returned.
+    A callback condition needs to be configured for every permission config, which
+    determines whether the permission currently applies for the defined sections.
+    """
+    app_name = settings.APPLICATION_NAME
+
+    canton_config = PERMISSIONS_BY_ACCESSLEVEL.get(app_name, {})
+    level_config = canton_config.get(level_slug, {})
+
+    filtered_level_config = {
+        perm: section_ids
+        for perm, (callback, section_ids) in level_config.items()
+        if callback(level_slug, manager, instance)
+    }
+
+    return filtered_level_config
+
 
 # Loosen filters allow additional visibility. They are used as an "OR"
 # to the other filters, and as such can be used to allow additional
@@ -457,11 +558,16 @@ def special_permissions_uri(group):
         return {
             uri_constants.MUNICIPALITY_SERVICE_ATTACHMENT_SECTION_ID: AdminServicePermission,
             uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission,
+            uri_constants.ARE_ATTACHMENT_SECTION_ID: AdminServicePermission,
         }
     elif group.group_id == uri_constants.KOOR_BD_GROUP_ID:
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
     elif group.group_id == uri_constants.KOOR_AFU_GROUP_ID:
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
+    elif group.group_id in uri_constants.DOCUMENTS_ARE_GROUPS:
+        return {uri_constants.ARE_ATTACHMENT_SECTION_ID: AdminServicePermission}
+    elif group.group_id in uri_constants.DOCUMENTS_AFU_GROUPS:
+        return {uri_constants.AFU_ATTACHMENT_SECTION_ID: AdminServicePermission}
     return {}
 
 
@@ -542,3 +648,52 @@ def section_permissions(group, instance=None):
             app_permissions[section] = special_permission
 
     return app_permissions
+
+
+class SectionPermissions:
+    def __init__(self, manager):
+        self.manager = manager
+
+    def get_permissions(self, section, group, instance=None) -> list[type[Permission]]:
+        """Return a list of permission classes relevant for the given section.
+
+        If we are in single-instance mode (instance parameter is given) AND
+        the user has access levels on the instance, the traditional role-based
+        permissions are ignored and only accesslevel-based permissions are used.
+        """
+        access_levels = self.manager.current_access_levels(instance) if instance else []
+
+        if not access_levels:
+            section_perm = section_permissions(group, instance).get(section.pk)
+            return [section_perm] if section_perm else []
+
+        # Else: Enforce access-level permissions, ignore role-based permissions
+        perms = [
+            get_accesslevel_permissions(level, self.manager, instance)
+            for level in access_levels
+        ]
+        # perms: list of permisssion => list-of-section-ids
+
+        relevant_permissions = []
+        for perm_config in perms:
+            for perm, section_ids in perm_config.items():
+                if section.pk in section_ids:
+                    relevant_permissions.append(perm)
+
+        return relevant_permissions
+
+    def can_destroy(self, section, attachment, group):
+        permission_classes = self.get_permissions(section, group, attachment.instance)
+        return any(
+            permission_class.can_destroy(attachment, group)
+            for permission_class in permission_classes
+            if permission_class
+        )
+
+    def can_write(self, section, attachment, group, instance=None):
+        permission_classes = self.get_permissions(section, group, instance)
+        return any(
+            permission_class.can_write(attachment, group, instance)
+            for permission_class in permission_classes
+            if permission_class
+        )

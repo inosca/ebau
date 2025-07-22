@@ -8,6 +8,7 @@ import { module, test } from "qunit";
 import { fake, replace } from "sinon";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
+import config from "ember-ebau-core/config/main";
 
 module("Integration | Component | communication/new-topic", function (hooks) {
   setupRenderingTest(hooks);
@@ -269,5 +270,42 @@ module("Integration | Component | communication/new-topic", function (hooks) {
     await click("[data-test-discard]");
     assert.strictEqual(this._transitionToFake.callCount, 1);
     assert.strictEqual(this._transitionToFake.lastCall.args[0], "index");
+  });
+
+  test("it shows and expands the 'All Recipients' option when feature flag is enabled", async function (assert) {
+    const originalFlag = config.showAllOptionInReciepentList;
+    config.showAllOptionInReciepentList = true;
+
+    const services = this.server.createList("service", 2);
+    this.instance = this.server.create("instance");
+    this.instance.update({ involvedServices: services });
+
+    await render(
+      hbs`<Communication::NewTopic @instanceId={{this.instance.id}} />`,
+    );
+
+    await click("[data-test-involved-entities]");
+
+    const allLabel = t("communications.new.allRecipients");
+
+    // Options count should be services length + 1 for "All Recipients"
+    assert
+      .dom(".ember-power-select-option")
+      .exists({ count: services.length + 1 });
+
+    // First option should be "All Recipients"
+    assert.dom(".ember-power-select-option:nth-child(1)").hasText(allLabel);
+
+    await selectChoose("[data-test-involved-entities]", allLabel);
+
+    // After selection, each service name should appear
+    services.forEach((service) => {
+      assert.dom("[data-test-involved-entities]").includesText(service.name);
+    });
+
+    // The placeholder "All Recipients" label itself should no longer be in the selected list
+    assert.dom("[data-test-involved-entities]").doesNotContainText(allLabel);
+
+    config.showAllOptionInReciepentList = originalFlag;
   });
 });

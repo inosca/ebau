@@ -1,0 +1,5 @@
+service-permissions:
+  sub-services-add-warning: |-
+    <b>Nota:</b> si noti che solo le proprie organizzazioni comunali possono essere impostate come servizi di rango inferiore. 
+    Uffici cantonali e servizi esterni che interessano in generale tutti i comuni sono registrati e gestiti 
+    da eBau Support (<a href="mailto:support.ebau@gr.ch">support.ebau@gr.ch</a>).

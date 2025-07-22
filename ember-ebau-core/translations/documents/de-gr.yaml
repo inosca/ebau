@@ -1,0 +1,29 @@
+documents:
+  buckets:
+    descriptions:
+      prefix: |+
+        ## Zusätzliche Informationen
+        Die Unterlagen sind als png, jpeg, gif, dwg oder pdf-Dokumente
+        hochzuladen. Der Dateiname soll kurz und aussagekräftig sein. Lassen Sie
+        Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne
+        Dokumentablage benötigen, bitte weg.
+
+  confirm: "Bitte laden Sie {count, plural, =1 {den folgenden Pflichtinhalt} other { die folgenden # Pflichtinhalte}} hoch. Beachten Sie dabei, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist (konsultieren Sie das kommunale Baugesetz). Ein unvollständiges Gesuch wird zurückgewiesen."
+  no-special-forms: "PDF Formulare der Kantonalen Fachstellen, müssen Sie nicht mehr ausfüllen und hier hochladen. Die Fragestellungen werden mit der Triage bereits beantwortet. Es gibt Ausnahmen, welche hier vermerkt werden oder durch die Gemeinde Nachgefordert werden."
+  uploadPlansIndividually: Laden Sie Ihre Projektpläne (Situationsplan, Grundriss, Schnitt, Ansichten, etc.) als einzelne Dokumente im PDF-Format hoch. Diese müssen bemasst und massstäblich sein. Ergänzende Nachweise, Fotodokus etc. dürfen mehrseitig sein.
+  duplicateFileUploadGuide: "<p>Bitte laden Sie Ihre Projektpläne – wie Situationsplan, Grundriss, Schnitt, Ansichten usw. – jeweils als einzelne Dateien im PDF-Format hoch. Diese Pläne müssen bemasst und massstabsgetreu sein. Ergänzende Nachweise (z. B. Fotodokumentationen) dürfen mehrseitig sein.</p><p>Achten Sie darauf, dass jede Datei eine eindeutige und nachvollziehbare Bezeichnung trägt.</p>"
+  categories:
+    beilagen-zum-gesuch-grundstuecksangaben:
+      hint: |+
+        <ul class="uk-text-danger">
+          <li>bitte laden Sie die Projektpläne als einzelne Dokumente hoch</li>
+          <li>Situationsplan, Grundriss, Schnitte, Ansichten, etc.</li>
+        </ul>
+
+    beilagen-zum-gesuch-brandschutz:
+      title: "Brandschutzdokumente (Feuerpolizei)"
+      hint: |+
+        <ul class="uk-text-danger">
+          <li>bitte laden Sie die Projektpläne als einzelne Dokumente hoch</li>
+          <li>zusätzliche für den Brandschutz relevante Planunterlagen und Dokumente</li>
+        </ul>

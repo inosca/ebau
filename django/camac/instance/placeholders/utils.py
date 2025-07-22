@@ -1,10 +1,11 @@
+import json
 from datetime import date, datetime
 from typing import List, Union
 
 from babel.dates import format_date
 from caluma.caluma_form.models import Document
 from django.conf import settings
-from django.utils.translation import get_language, gettext_lazy as _
+from django.utils.translation import get_language, gettext as _
 
 from camac.caluma.utils import find_answer
 from camac.utils import clean_join
@@ -116,6 +117,37 @@ def get_person_last_name(person: dict, use_representative: bool = False) -> str:
 
 def enrich_personal_data(personal_data):
     return [clean_and_add_full_name(entry) for entry in personal_data]
+
+
+def format_gis_center_coordinates(value):
+    if not value:
+        return None
+
+    try:
+        json_data = json.loads(value)
+    except json.JSONDecodeError:
+        return None
+
+    if center := get_gis_center_coordinate(json_data):
+        return f"{format_coordinate(center['x'])} / {format_coordinate(center['y'])}"
+
+    return None
+
+
+def get_gis_center_coordinate(json_data):
+    center = json_data.get("center", None)
+
+    if center and center.get("x") and center.get("y"):
+        return center
+
+    # fallback to the first marker if no center is defined
+    markers = json_data.get("markers", [])
+
+    return markers[0] if markers else None
+
+
+def format_coordinate(number):
+    return f"{round(number):,}".replace(",", "'")
 
 
 def clean_and_add_full_name(entry):

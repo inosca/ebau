@@ -1,40 +1,64 @@
-import { service } from "@ember/service";
-import Model, { attr, belongsTo } from "@ember-data/model";
+import { isEmpty } from "@ember/utils";
+import { attr, belongsTo } from "@ember-data/model";
 
-export default class BillingV2EntryModel extends Model {
-  @service intl;
+import BillingV2CommonEntryModel from "./billing-v2-common-entry";
 
-  @attr text;
-  @attr legalBasis;
-  @attr costCenter;
+export default class BillingV2EntryModel extends BillingV2CommonEntryModel {
   @attr dateAdded;
+  @attr releasedForClearing;
   @attr dateCharged;
-  @attr taxMode;
-  @attr calculation;
-  @attr taxRate;
-  @attr hours;
-  @attr hourlyRate;
-  @attr percentage;
-  @attr totalCost;
   @attr finalRate;
-  @attr organization;
-  @attr billingType;
+  @attr productNumberName;
 
   @belongsTo("group", { inverse: null, async: true }) group;
   @belongsTo("user", { inverse: null, async: true }) user;
   @belongsTo("instance", { inverse: null, async: true }) instance;
 
-  get amount() {
-    const taxMode = this.intl.t(`billing.tax-modes.${this.taxMode}`, {
-      taxRate: parseFloat(this.taxRate),
-    });
+  applyTemplate(template) {
+    if (!template) {
+      return;
+    }
 
-    return this.intl.t(`billing.calculations.${this.calculation}`, {
-      totalCost: parseFloat(this.totalCost),
-      percentage: parseFloat(this.percentage),
-      hours: parseFloat(this.hours),
-      hourlyRate: parseFloat(this.hourlyRate),
-      taxMode,
-    });
+    const fieldsToApply = [
+      "billingType",
+      "calculation",
+      "costCenter",
+      "finalRate",
+      "hourlyRate",
+      "hours",
+      "legalBasis",
+      "organization",
+      "percentage",
+      "taxMode",
+      "taxRate",
+      "text",
+      "totalCost",
+      "remark",
+    ];
+
+    const defaults = {
+      billingType: "by_authority",
+      calculation: "flat",
+      taxMode: "exempt",
+      taxRate: 0,
+      organization: null,
+      costCenter: undefined,
+      hourlyRate: undefined,
+      hours: undefined,
+      legalBasis: undefined,
+      percentage: undefined,
+      text: undefined,
+      totalCost: undefined,
+    };
+
+    for (const field of fieldsToApply) {
+      // skip template fields that are not set (here we do allow 0 as a value).
+      // reset form values using the defaults if the template field is not set
+      if (isEmpty(template[field]) && !Object.keys(defaults).includes(field)) {
+        continue;
+      }
+
+      this[field] = template[field] || defaults[field];
+    }
   }
 }

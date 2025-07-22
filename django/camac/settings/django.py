@@ -12,8 +12,9 @@ from django.utils.translation import gettext_lazy as _
 
 from camac.constants import kt_bern as be_constants
 from camac.constants.kt_uri import KOOR_SERVICE_IDS as URI_KOOR_SERVICE_IDS
+from camac.settings.ebau_schema import ModuleApplicationConfig, ModuleConfig
 from camac.settings.env import ROOT_DIR, env
-from camac.utils import build_url
+from camac.utils import build_url, should_notify_on_manual_workitems
 
 # We need to import the caluma settings after we merge os.environ with our
 # local .env file otherwise caluma tries to get it's settings from it's own env
@@ -21,6 +22,11 @@ from camac.utils import build_url
 
 from caluma.settings.caluma import *  # noqa isort:skip
 from alexandria.settings.alexandria import *  # noqa isort:skip
+
+
+# Keep Tika from creating it's own log. We're configuring it's logger
+# in our LOGGING config block below.
+os.environ["TIKA_LOG_FILE"] = ""
 
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
@@ -76,6 +82,7 @@ INSTALLED_APPS = [
     "caluma.caluma_workflow.apps.DefaultConfig",
     "caluma.caluma_data_source.apps.DefaultConfig",
     "caluma.caluma_analytics.apps.DefaultConfig",
+    "camac.caluma.apps.CalumaConfig",
     # GWR module
     "generic_permissions.apps.GenericPermissionsConfig",
     "ebau_gwr.linker.apps.LinkerConfig",
@@ -84,6 +91,7 @@ INSTALLED_APPS = [
     "localized_fields",
     "psqlextra",
     "simple_history",
+    "django_celery_beat",
     # Camac and it's dependencies
     "drf_yasg",
     "camac.core.apps.DefaultConfig",
@@ -106,6 +114,8 @@ INSTALLED_APPS = [
     "camac.permissions.apps.PermissionsConfig",
     "camac.gis.apps.GisConfig",
     "camac.billing.apps.BillingConfig",
+    "camac.eeba_integration.apps.EebaIntegrationConfig",
+    "camac.gever.apps.GEVERConfig",
     "sorl.thumbnail",
     "django_clamd",
     "django_q",
@@ -122,7 +132,11 @@ INSTALLED_APPS = [
     "manabi_migrations",
     "adminsortable2",
     "django_json_widget",
-    "hurricane",
+    "camac.fixtures.apps.FixturesConfig",
+    "camac.sanctions.apps.SanctionsConfig",
+    "camac.work_items.apps.WorkItemsConfig",
+    "camac.rulesets.apps.RulesetsConfig",
+    "camac.deadlines.apps.DeadlinesConfig",
 ]
 
 if DEBUG:  # pragma: no cover
@@ -248,6 +262,7 @@ APPLICATIONS = {
             "GENERATE_IDENTIFIER": False,
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
+            "CALUMA_WORKFLOW_NOTIFICATIONS": {},
         },
         "STORE_PDF": {"SECTION": 1},
         "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
@@ -264,14 +279,13 @@ APPLICATIONS = {
             "lisag",
             "koor_np_users",
             "koor_bg_users",
-            "koor_bd_users",
-            "koor_sd_users",
-            "koor_afe_users",
             "koor_afj_users",
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
-            "invited_to_schlussabnhame_projekt",
+            "geometer_uri",
+            "abm_zs_uri",
+            "invited_to_schlussabnahme_projekt",
             # GR
             "aib",
             "gvg",
@@ -358,6 +372,7 @@ APPLICATIONS = {
             "geometer-v2",
             "geometer-v3",
             "geometer-v4",
+            "geometer-v5",
         },
         # Important: All versions of the geometer form-field option need to be included!
         # geometer form-field option: service ids
@@ -377,31 +392,17 @@ APPLICATIONS = {
                 # No service found
             ],
             "geometrie plus ag (Freienbach, Einsiedeln)": [
-                144,  # geometrie plus ag (Gde_Bez Ingenieur)
                 154,  # geometrie plus ag (Geometer)
             ],
             "Wild Ingenieure AG (Küssnacht)": [
                 150,  # Wild Ingenieure AG (Geometer)
-                151,  # Wild Ingenieure AG (Gde_Bez Ingenieur)
             ],
             # geometer-v2 (only removal)
             # geometer-v3
             "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Goldau, Küssnacht, Brunnen)": [
-                148,  # Geoinfra Goldau (Geometer)
-                149,  # Geoinfra Goldau (Gde_Bez Ingenieur)
-                299,  # Geoinfra Küssnacht (Geometer)
-                300,  # Geoinfra Küssnacht (Gde_Bez Ingenieur)
-                301,  # Geoinfra Brunnen (Geometer)
-                302,  # Geoinfra Brunnen (Gde_Bez Ingenieur)
-                303,  # Geoinfra Siebnen (Geometer)
-                304,  # Geoinfra Einsiedeln (Geometer)
-                305,  # Geoinfra Pfäffikon (Geometer)
-                306,  # Geoinfra Pfäffikon (Gde_Bez Ingenieur)
-                333,  # Geoinfra Siebnen (Gde_Bez Ingenieur)
-                334,  # Geoinfra Siebnen (Gde Umwelt)
+                359,  # Geometer (Geoinfra)
             ],
             "geometrie plus ag (Freienbach)": [
-                144,  # geometrie plus ag (Gde_Bez Ingenieur)
                 154,  # geometrie plus ag (Geometer)
             ],
             "GEO Netz AG (Lachen, Schwyz)": [
@@ -409,11 +410,17 @@ APPLICATIONS = {
             ],
             # geometer-v4
             "geometrie plus ag (Einsiedeln, Freienbach)": [
-                144,  # geometrie plus ag (Gde_Bez Ingenieur),
                 154,  # geometrie plus ag (Geometer)
             ],
+            # geometer-v5
+            "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Oberarth, Immensee, Brunnen)": [
+                359,  # Geometer (Geoinfra)
+            ],
+            "GEO Netz AG (Lachen, Seewen)": [
+                313,  # GEO Netz AG (Geometer)
+            ],
         },
-        "TAX_ADMINISTRATION": 196,  # Kantonale Steuerverwaltung
+        "TAX_ADMINISTRATION": "tax-administration",  # Liegenschaftenschätzung Steuerverwaltung
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",
             "APPLICANT": {
@@ -549,6 +556,15 @@ APPLICATIONS = {
             "PUBLICATION_TASK_SLUG": "publication",
             "CREATE_IN_PROCESS": True,
             "CALUMA_WORKFLOW_NOTIFICATIONS": {
+                "make-decision": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "complete-make-decision",
+                            "recipient_types": ["localized_geometer"],
+                        },
+                    }
+                ],
                 "construction-step-baufreigabe-beantragen": [
                     {
                         "event": "created",
@@ -757,6 +773,8 @@ APPLICATIONS = {
             "vorentscheid-gemass-ss84-pbg-v7",
             "vorentscheid-gemass-ss84-pbg-v8",
             "vorentscheid-gemass-ss84-pbg-v9",
+            "vorentscheid-gemass-ss84-pbg-v10",
+            "vorentscheid-gemass-ss84-pbg-v11",
             "baugesuch-reklamegesuch-v2",
             "baugesuch-reklamegesuch-v3",
             "baugesuch-reklamegesuch-v4",
@@ -765,6 +783,8 @@ APPLICATIONS = {
             "baugesuch-reklamegesuch-v7",
             "baugesuch-reklamegesuch-v8",
             "baugesuch-reklamegesuch-v9",
+            "baugesuch-reklamegesuch-v10",
+            "baugesuch-reklamegesuch-v11",
             "projektanderung-v2",
             "projektanderung-v3",
             "projektanderung-v4",
@@ -774,10 +794,13 @@ APPLICATIONS = {
             "projektanderung-v8",
             "projektanderung-v9",
             "projektanderung-v10",
+            "projektanderung-v11",
+            "projektanderung-v12",
             "technische-bewilligung",
             "technische-bewilligung-v2",
             "technische-bewilligung-v3",
             "technische-bewilligung-v4",
+            "technische-bewilligung-v5",
             "baumeldung-fur-geringfugiges-vorhaben-v2",
             "baumeldung-fur-geringfugiges-vorhaben-v3",
             "baumeldung-fur-geringfugiges-vorhaben-v4",
@@ -789,6 +812,7 @@ APPLICATIONS = {
             "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
             "projektgenehmigungsgesuch-gemass-ss15-strag-v4",
             "projektgenehmigungsgesuch-gemass-ss15-strag-v5",
+            "projektgenehmigungsgesuch-gemass-ss15-strag-v6",
         ],
         "STORE_PDF": {"SECTION": 1},
         "FORM_FIELD_HISTORY_ENTRY": [
@@ -817,6 +841,7 @@ APPLICATIONS = {
     },
     "kt_bern": {
         "SHORT_NAME": "be",
+        "AVAILABLE_LANGUAGES": ["de", "fr"],
         "INTERNAL_FRONTEND": "camac",
         "TAGGED_RELEASES": True,
         "USE_CAMAC_ADMIN": True,
@@ -986,16 +1011,28 @@ APPLICATIONS = {
                     ],
                 },
             ],
+            "DECISION_OTHER": [
+                {
+                    "template_slug": "other-decision-applicant",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "other-decision-applicant-not-registered",
+                    "recipient_types": ["unregistered_applicant"],
+                },
+                {
+                    "template_slug": "other-decision-authority",
+                    "recipient_types": [
+                        "leitbehoerde",
+                        "involved_in_distribution",
+                        "inactive_municipality",
+                    ],
+                },
+            ],
             "COMPLETE_MANUAL_WORK_ITEM": [
                 {
                     "template_slug": "complete-manual-work-item",
                     "recipient_types": ["work_item_controlling"],
-                }
-            ],
-            "CREATE_MANUAL_WORK_ITEM": [
-                {
-                    "template_slug": "create-manual-work-item",
-                    "recipient_types": ["work_item_addressed"],
                 }
             ],
             "PERMISSION_ACL_GRANTED": [
@@ -1005,6 +1042,7 @@ APPLICATIONS = {
                 }
             ],
         },
+        "DECISION_DOCUMENT_MIMETYPES": ["image/png", "image/jpeg", "application/pdf"],
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "OIDC_SYNC_USER_ATTRIBUTES": [
@@ -1071,11 +1109,26 @@ APPLICATIONS = {
                         },
                     }
                 ],
+                "create-manual-workitems": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "create-manual-work-item",
+                            "recipient_types": ["work_item_addressed"],
+                        },
+                        "condition": lambda work_item: should_notify_on_manual_workitems(
+                            work_item
+                        ),
+                    }
+                ],
             },
             "INTERNAL_FORMS": [
                 "baupolizeiliches-verfahren",
+                "baupolizeiliches-verfahren-v2",
                 "zutrittsermaechtigung",
+                "zutrittsermaechtigung-v2",
                 "klaerung-baubewilligungspflicht",
+                "klaerung-baubewilligungspflicht-v2",
             ],
             "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
             "COPY_PERSONAL": [
@@ -1120,7 +1173,7 @@ APPLICATIONS = {
                         "information-of-neighbors",
                         "create-information-of-neighbors",
                     ],
-                    "complete": ["nfd"],
+                    "complete": ["nfd", "gever"],
                 },
                 "complete": {
                     "skip": ["check-sb1", "check-sb2"],
@@ -1208,6 +1261,7 @@ APPLICATIONS = {
             ],
         ),
         "USE_INSTANCE_SERVICE": True,
+        "USE_CONSTRUCTION_CONTROL": True,
         "ACTIVE_SERVICES": {
             "MUNICIPALITY": {
                 "FILTERS": {
@@ -1267,10 +1321,11 @@ APPLICATIONS = {
     },
     "kt_uri": {
         "SHORT_NAME": "ur",
+        "AVAILABLE_LANGUAGES": ["de"],
         "INTERNAL_FRONTEND": "camac",
         "USE_CAMAC_ADMIN": True,
         "ENABLE_PUBLIC_CALUMA": True,
-        "LOG_NOTIFICATIONS": False,
+        "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "FORM_BACKEND": "caluma",
         "PUBLICATION_DURATION": timedelta(days=20),
@@ -1288,14 +1343,15 @@ APPLICATIONS = {
             "lisag",
             "koor_np_users",
             "koor_bg_users",
-            "koor_bd_users",
-            "koor_sd_users",
-            "koor_afe_users",
             "koor_afj_users",
             "responsible_koor",
             "abwasser_uri",
             "schnurgeruestabnahme_uri",
-            "invited_to_schlussabnhame_projekt",
+            "geometer_uri",
+            "abm_zs_uri",
+            "invited_to_schlussabnahme_projekt",
+            "fgs_uri",
+            "liegenschaftsschaetzung_uri",
         ],
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
@@ -1324,7 +1380,7 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "send-additional-demand",
+                            "template_slug": "2-1-nachforderung-eingegangen",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1333,7 +1389,7 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "fill-additional-demand",
+                            "template_slug": "2-2-nachforderung-beantwortet",
                             "recipient_types": ["work_item_controlling"],
                         },
                     },
@@ -1342,7 +1398,7 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "zirkulation-gestartet-gesuchsteller",
+                            "template_slug": "4-zirkulation-gestartet-gesuchsteller",
                             "recipient_types": ["applicant"],
                         },
                     },
@@ -1351,7 +1407,7 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "zirkulation-abgeschlossen",
+                            "template_slug": "4-3-zirkulation-abgeschlossen",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1360,7 +1416,7 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "eroeffnung-stellungnahme-vorentscheid",
+                            "template_slug": "5-eroeffnung-stellungnahme-vorentscheid",
                             "recipient_types": [
                                 "applicant",
                             ],
@@ -1369,7 +1425,7 @@ APPLICATIONS = {
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "eroeffnung-stellungnahme-vorentscheid-intern",
+                            "template_slug": "5-11-eroeffnung-stellungnahme-vorentscheid-intern",
                             "recipient_types": [
                                 "involved_in_distribution",
                             ],
@@ -1380,20 +1436,9 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "neue-aufgabe-intern",
+                            "template_slug": "5-1-av-projektiert-pruefen",
                             "recipient_types": [
-                                "work_item_addressed",
-                            ],
-                        },
-                    }
-                ],
-                "review-building-commission": [
-                    {
-                        "event": "created",
-                        "notification": {
-                            "template_slug": "neue-aufgabe-intern",
-                            "recipient_types": [
-                                "work_item_addressed",
+                                "geometer_uri",
                             ],
                         },
                     }
@@ -1402,7 +1447,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-2-baubeginn-melden",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1411,8 +1456,53 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-baufreigabe-beantragen",
                             "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-baufreigabe": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-1-baufreigabe-entscheiden",
+                            "recipient_types": ["work_item_addressed"],
+                        },
+                    }
+                ],
+                "construction-step-gebaeudeabbruch-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-21-gebaeudeabbruch",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-av-status-demolition": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-22-meldung-gebaeudeabbruch-av-pruefen",
+                            "recipient_types": ["municipality_users", "geometer_uri"],
+                        },
+                    }
+                ],
+                "construction-step-gwr-state-demolition": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-221-gwr-status-nachfuehren-gebaeudeabbruch",
+                            "recipient_types": ["municipality_users"],
+                        },
+                    }
+                ],
+                "construction-step-gwr-state-construction-start": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-222-gwr-status-nachfuehren-baubeginn",
+                            "recipient_types": ["municipality_users"],
                         },
                     }
                 ],
@@ -1420,7 +1510,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task-internal",
+                            "template_slug": "6-31-kanalisation-kontrollieren",
                             "recipient_types": ["abwasser_uri"],
                         },
                     }
@@ -1429,7 +1519,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-3-kanalisationsabnahme-melden",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1438,8 +1528,17 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-5-rohbauabnahme-melden",
                             "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-rohbau-kontrollieren": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-51-rohbaukontrolle-durchfuehren",
+                            "recipient_types": ["work_item_addressed"],
                         },
                     }
                 ],
@@ -1447,7 +1546,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-7-schlussabnahme-melden",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1456,16 +1555,30 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-71-schlussabnahme-projekt-melden",
+                            "recipient_types": ["work_item_addressed"],
+                        },
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "7-1-av-definitiv-durchfuehren",
+                            "recipient_types": ["geometer_uri"],
+                        },
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "7-11-av-definitiv-nachfuehren",
                             "recipient_types": ["applicant"],
                         },
-                    }
+                    },
                 ],
                 "construction-step-schnurgeruestabnahme-melden": [
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-4-schnurgeruestabnahme-melden",
                             "recipient_types": ["applicant"],
                         },
                     }
@@ -1474,7 +1587,7 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task-internal",
+                            "template_slug": "6-41-schnurgeruestabnahme-planen",
                             "recipient_types": ["schnurgeruestabnahme_uri"],
                         },
                     }
@@ -1483,8 +1596,17 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task-internal",
+                            "template_slug": "6-42-schnurgeruest-kontrollieren",
                             "recipient_types": ["schnurgeruestabnahme_uri"],
+                        },
+                    },
+                ],
+                "zs-ersatzbeitrag-pruefen": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-411-schnurgeruestabnahme-erfolgt",
+                            "recipient_types": ["abm_zs_uri"],
                         },
                     }
                 ],
@@ -1492,41 +1614,69 @@ APPLICATIONS = {
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "construction-monitoring-new-task",
+                            "template_slug": "6-6-zwischenkontrolle-melden",
                             "recipient_types": ["applicant"],
                         },
                     }
+                ],
+                "construction-step-zwischenkontrolle": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-61-zwischenkontrolle-durchfuehren",
+                            "recipient_types": ["work_item_addressed"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-projekt": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "7-bau-beendet",
+                            "recipient_types": [
+                                "liegenschaftsschaetzung_uri",
+                                "geometer_uri",
+                            ],
+                        },
+                    },
                 ],
                 "construction-step-schlussabnahme-projekt-planen": [
                     {
                         "event": "completed",
                         "notification": {
-                            "template_slug": "einladung-abnahme",
-                            "recipient_types": ["invited_to_schlussabnhame_projekt"],
+                            "template_slug": "7-2-einladung-endabnahme",
+                            "recipient_types": ["invited_to_schlussabnahme_projekt"],
                         },
                     }
                 ],
-                "geometer-final-measurement": [
+                "liegenschaftsschaetzung": [
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "neue-aufgabe-intern",
+                            "template_slug": "7-bau-beendet",
                             "recipient_types": [
-                                "work_item_addressed",
+                                "liegenschaftsschaetzung_uri",
                             ],
                         },
-                    }
-                ],
-                "gebaeudeschaetzung": [
+                    },
                     {
                         "event": "created",
                         "notification": {
-                            "template_slug": "neue-aufgabe-intern",
+                            "template_slug": "7-bau-beendet",
                             "recipient_types": [
-                                "work_item_addressed",
+                                "fgs_uri",
                             ],
                         },
-                    }
+                    },
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "7-bau-beendet",
+                            "recipient_types": [
+                                "geometer_uri",
+                            ],
+                        },
+                    },
                 ],
             },
             "SIMPLE_WORKFLOW": {
@@ -1545,29 +1695,29 @@ APPLICATIONS = {
             },
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "BAB_MUNICIPALITY_MAPPING": {
-                # location_id: "Service name"
-                6: "ARE BaB Kreis 1",  # Erstfeld
-                16: "ARE BaB Kreis 1",  # Silenen
-                9: "ARE BaB Kreis 1",  # Gurtnellen
-                20: "ARE BaB Kreis 1",  # Wassen
-                8: "ARE BaB Kreis 1",  # Göschenen
-                2: "ARE BaB Kreis 1",  # Andermatt
-                10: "ARE BaB Kreis 1",  # Hospental
-                12: "ARE BaB Kreis 1",  # Realp
-                17: "ARE BaB Kreis 2",  # Sisikon
-                7: "ARE BaB Kreis 2",  # Flüelen
-                1: "ARE BaB Kreis 2",  # Altdorf
-                18: "ARE BaB Kreis 2",  # Spiringen
-                19: "ARE BaB Kreis 2",  # Unterschächen
-                13: "ARE BaB Kreis 3",  # Schattdorf
-                14: "ARE BaB Kreis 3",  # Seedorf
-                4: "ARE BaB Kreis 3",  # Seedorf (Ortsteil Bauen)
-                11: "ARE BaB Kreis 3",  # Isenhal
-                15: "ARE BaB Kreis 3",  # Seelisberg
-                5: "ARE BaB Kreis 3",  # Bürglen
-                3: "ARE BaB Kreis 3",  # Attinghausen
-                21: "ARE BaB Kreis 1",  # Diverse Gemeinden
-                22: "ARE BaB Kreis 1",  # Alle Gemeinden
+                # location_id: "Service slug"
+                6: "bab-kreis-1",  # Erstfeld
+                16: "bab-kreis-1",  # Silenen
+                9: "bab-kreis-1",  # Gurtnellen
+                20: "bab-kreis-1",  # Wassen
+                8: "bab-kreis-1",  # Göschenen
+                2: "bab-kreis-1",  # Andermatt
+                10: "bab-kreis-1",  # Hospental
+                12: "bab-kreis-1",  # Realp
+                17: "bab-kreis-2",  # Sisikon
+                7: "bab-kreis-2",  # Flüelen
+                1: "bab-kreis-2",  # Altdorf
+                18: "bab-kreis-2",  # Spiringen
+                19: "bab-kreis-2",  # Unterschächen
+                13: "bab-kreis-3",  # Schattdorf
+                14: "bab-kreis-3",  # Seedorf
+                4: "bab-kreis-3",  # Seedorf (Ortsteil Bauen)
+                11: "bab-kreis-3",  # Isenhal
+                15: "bab-kreis-3",  # Seelisberg
+                5: "bab-kreis-3",  # Bürglen
+                3: "bab-kreis-3",  # Attinghausen
+                21: "bab-kreis-1",  # Diverse Gemeinden
+                22: "bab-kreis-1",  # Alle Gemeinden
             },
         },
         "STORE_PDF": {
@@ -1641,67 +1791,33 @@ APPLICATIONS = {
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
+                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
                     "recipient_types": ["applicant"],
                 },
                 {
-                    "template_slug": "dossier-eingereicht-gemeinde",
+                    "template_slug": "3-dossier-eingereicht-gemeinde",
                     "recipient_types": ["municipality_users"],
                 },
             ],
-            "SUBMIT_KOOR_SD": [
+            "SUBMIT_KOOR": [
                 {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
-                    "recipient_types": ["applicant"],
-                },
-                {
-                    "template_slug": "dossier-eingereicht-koor-sd",
-                    "recipient_types": ["koor_sd_users"],
-                },
-            ],
-            "SUBMIT_KOOR_BD": [
-                {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
-                    "recipient_types": ["applicant"],
-                },
-                {
-                    "template_slug": "dossier-eingereicht-koor-bd",
-                    "recipient_types": ["koor_bd_users"],
-                },
-            ],
-            "SUBMIT_KOOR_AFE": [
-                {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
-                    "recipient_types": ["applicant"],
-                },
-                {
-                    "template_slug": "dossier-eingereicht-koor-afe",
-                    "recipient_types": ["koor_afe_users"],
-                },
-            ],
-            "SUBMIT_KOOR_NP": [
-                {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
-                    "recipient_types": ["applicant"],
-                },
-                {
-                    "template_slug": "dossier-eingereicht-koor-np",
-                    "recipient_types": ["koor_np_users"],
-                },
-            ],
-            "SUBMIT_KOOR_AFJ": [
-                {
-                    "template_slug": "dossier-eingereicht-gesuchsteller",
-                    "recipient_types": ["applicant"],
-                },
-                {
-                    "template_slug": "dossier-eingereicht-koor-afj",
-                    "recipient_types": ["koor_afj_users"],
+                    "template_slug": "2-dossier-eingereicht-gesuchsteller",
+                    "recipient_types": ["municipality"],
                 },
             ],
             "APPLICANT": {
-                "NEW": "01-gesuchsbearbeitungs-einladung-neu",
-                "EXISTING": "02-gesuchsbearbeitungs-einladung-bestehend",
+                "NEW": "1-gesuchsbearbeitungs-einladung-neu",
+                "EXISTING": "1-1-gesuchsbearbeitungs-einladung-bestehend",
+            },
+            "COMPLETE_MANUAL_WORK_ITEM": [
+                {
+                    "template_slug": "4-21-aufgabe-abgeschlossen",
+                    "recipient_types": ["work_item_controlling"],
+                }
+            ],
+            "COPY_AFJ": {
+                "template_slug": "3-dossier-eingereicht-gemeinde",
+                "recipient_types": ["koor_afj_users"],
             },
         },
         "HAS_EBAU_NUMBER": False,
@@ -1890,11 +2006,13 @@ APPLICATIONS = {
     },
     "kt_gr": {
         "SHORT_NAME": "gr",
+        "AVAILABLE_LANGUAGES": ["de", "it"],
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": False,
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
+        "LINK_INSTANCES_ON_COPY": True,
         "STORE_PDF": {
             "SECTION": {
                 "MAIN": {
@@ -1913,6 +2031,7 @@ APPLICATIONS = {
             "subservice": "service",
             "support": "support",
             "uso": "uso",
+            "geometer": "geometer",
         },
         "ADMIN_GROUP": 1,
         "IS_MULTILINGUAL": True,
@@ -1956,7 +2075,15 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main"],
+            "FORM_PERMISSIONS": [
+                "main",
+                "einsprachen",
+                "address-assignment-make-suggestion",
+            ],
+            "FORM_PERMISSIONS_MAPPING": {
+                "form-einsprachen-write": "legal-submissions-write",
+                "form-address-assignment-make-suggestion-write": "address-assignment-write",
+            },
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
@@ -1975,27 +2102,26 @@ APPLICATIONS = {
                     ],
                 },
                 "fill-publication": {"complete": ["publication"]},
-                "construction-acceptance": {"cancel": ["create-manual-workitems"]},
+                "construction-acceptance": {
+                    "cancel": ["create-manual-workitems"]
+                },  # added for next prod release
             },
             "SIMPLE_WORKFLOW": {
                 "formal-exam": {
                     "next_instance_state": "init-distribution",
                     "history_text": _("Preliminary exam performed"),
-                    "ech_event": "camac.ech0211.signals.exam_completed",
                 },
                 "init-distribution": {
                     "next_instance_state": "circulation",
                     "history_text": _("Circulation started"),
+                    "ech_event": "camac.ech0211.signals.circulation_started",
                 },
                 "complete-distribution": {
                     "next_instance_state": "decision",
+                    "ech_event": "camac.ech0211.signals.circulation_ended",
                 },
                 "send-additional-demand": {
                     "history_text": _("Additional demand sent"),
-                    "notification": {
-                        "template_slug": "send-additional-demand",
-                        "recipient_types": ["applicant", "additional_demand_inviter"],
-                    },
                 },
                 "fill-additional-demand": {
                     "history_text": _("Additional demand was answered"),
@@ -2003,12 +2129,32 @@ APPLICATIONS = {
                         "template_slug": "fill-additional-demand",
                         "recipient_types": ["work_item_controlling"],
                     },
+                    "ech_event": "camac.ech0211.signals.file_subsequently",
                 },
                 "construction-acceptance": {
                     "next_instance_state": "finished",
                     "history_text": _("Construction monitoring performed"),
                     # for notification see events/construction-acceptance.py
+                    "ech_event": "camac.ech0211.signals.finished",
                 },
+            },
+            "CALUMA_WORKFLOW_NOTIFICATIONS": {
+                "send-additional-demand": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "send-additional-demand-public",
+                            "recipient_types": ["applicant"],
+                        },
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "send-additional-demand-internal",
+                            "recipient_types": ["additional_demand_inviter"],
+                        },
+                    },
+                ],
             },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,
@@ -2022,6 +2168,8 @@ APPLICATIONS = {
                     "decision": "inProcedure",
                     "finished": "done",
                     "rejected": "rejected",
+                    "withdrawal": "withdrawn",
+                    "withdrawn": "withdrawn",
                 },
                 "DEFAULT": "inProcedure",
             },
@@ -2050,6 +2198,16 @@ APPLICATIONS = {
                 },
                 {
                     "template_slug": "empfang-anfragebaugesuch-behorden",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
+            "SUBMIT_PRELIMINARY_CLARIFICATION": [
+                {
+                    "template_slug": "empfang-anfragevorabklarung-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "empfang-anfragevorabklarung-behorden",
                     "recipient_types": ["leitbehoerde"],
                 },
             ],
@@ -2095,9 +2253,13 @@ APPLICATIONS = {
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "DOCUMENT_BACKEND": "alexandria",
+        # If the calculated deadline falls on a weekend or public holiday,
+        # it will be postponed to the next working day.
+        "DEADLINE_POSTPONE_NEXT_WORKINGDAY": True,
     },
     "kt_so": {
         "SHORT_NAME": "so",
+        "AVAILABLE_LANGUAGES": ["de"],
         "INTERNAL_FRONTEND": "ebau",
         "TAGGED_RELEASES": True,
         "USE_CAMAC_ADMIN": False,
@@ -2158,7 +2320,10 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main"],
+            "FORM_PERMISSIONS": ["main", "einsprachen"],
+            "FORM_PERMISSIONS_MAPPING": {
+                "form-einsprachen-write": "legal-submissions-write",
+            },
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,
@@ -2244,6 +2409,20 @@ APPLICATIONS = {
                 },
                 "DEFAULT": "inProcedure",
             },
+            "CALUMA_WORKFLOW_NOTIFICATIONS": {
+                "create-manual-workitems": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "create-manual-work-item",
+                            "recipient_types": ["work_item_addressed"],
+                        },
+                        "condition": lambda work_item: should_notify_on_manual_workitems(
+                            work_item
+                        ),
+                    }
+                ],
+            },
         },
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "USE_INSTANCE_SERVICE": True,
@@ -2322,16 +2501,259 @@ APPLICATIONS = {
             },
         },
     },
+    "kt_ag": {
+        "SHORT_NAME": "ag",
+        "AVAILABLE_LANGUAGES": ["de"],
+        "INTERNAL_FRONTEND": "ebau",
+        "USE_CAMAC_ADMIN": False,
+        "TAGGED_RELEASES": True,
+        "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
+        "LOG_NOTIFICATIONS": True,
+        "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
+        "LINK_INSTANCES_ON_COPY": True,
+        # "STORE_PDF": {
+        #     "SECTION": {
+        #         "MAIN": {
+        #             "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+        #             "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+        #         }
+        #     },
+        # },
+        # Mapping between camac role and instance permission.
+        "ROLE_PERMISSIONS": {
+            "applicant": "applicant",
+            "municipality-lead": "municipality",
+            "municipality-admin": "municipality",
+            "municipality-clerk": "municipality",
+            "municipality-read": "municipality",
+            "service-lead": "service",
+            "service-admin": "service",
+            "trusted-service-lead": "service",
+            "trusted-service-admin": "service",
+            "trusted-service-clerk": "service",
+            "trusted-service-read": "service",
+            "subservice": "service",
+            "support": "support",
+        },
+        "ADMIN_GROUP": 1,
+        "IS_MULTILINGUAL": True,
+        "FORM_BACKEND": "caluma",
+        "THUMBNAIL_SIZE": "x300",
+        "PAPER": {
+            "ALLOWED_ROLES": {
+                "DEFAULT": [
+                    3,  # municipality-lead
+                    7,  # municipality-clerk
+                    12,  # trusted-service-lead
+                    13,  # trusted-service-clerk
+                ]
+            },
+            "ALLOWED_SERVICE_GROUPS": {
+                "DEFAULT": [
+                    2,  # municipality
+                    5,  # authority-pgv
+                    1,  # service-cantonal
+                    4,  # service-afb
+                    6,  # municipality-light
+                ]
+            },
+        },
+        "GROUP_RENAME_ON_SERVICE_RENAME": True,
+        "SERVICE_UPDATE_ALLOWED_ROLES": [
+            "municipality-admin",
+            "service-admin",
+            "trusted-service-admin",
+        ],  # if unset, all are allowed
+        # please also update django/Makefile command when changing apps here
+        "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
+        "NOTIFICATIONS_EXCLUDED_TASKS": [],
+        "OIDC_SYNC_USER_ATTRIBUTES": [
+            "language",
+            "email",
+            "username",
+            "name",
+            "surname",
+        ],
+        "PORTAL_GROUP": 3,
+        "CALUMA": {
+            "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
+            "SUBMIT_TASKS": ["submit"],
+            "FORM_PERMISSIONS": ["main", "kantonale-pruefung", "einwendungen"],
+            "FORM_PERMISSIONS_MAPPING": {
+                "form-einwendungen-write": "legal-submissions-write",
+            },
+            "HAS_PROJECT_CHANGE": True,
+            "CREATE_IN_PROCESS": False,
+            "GENERATE_IDENTIFIER": True,
+            "USE_LOCATION": False,
+            "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
+            "PRE_COMPLETE": {
+                "decision": {
+                    "skip": [
+                        "publication",
+                        "fill-publication",
+                        "information-of-neighbors",
+                        "fill-information-of-neighbors",
+                        "objections",
+                    ],
+                    "cancel": [
+                        "init-additional-demand",
+                        "additional-demand",
+                        "create-publication",
+                        "create-information-of-neighbors",
+                    ],
+                },
+                # Cancel manual work items after complete instance and skip AfB
+                # specific work items
+                "complete-instance": {
+                    "cancel": ["create-manual-workitems"],
+                    "skip": ["check-pa", "cantonal-exam"],
+                },
+                "fill-publication": {"complete": ["publication"]},
+                "fill-information-of-neighbors": {
+                    "complete": ["information-of-neighbors"]
+                },
+                "fill-inquiry": {"complete": ["check-document-supplement"]},
+            },
+            "SIMPLE_WORKFLOW": {
+                "formal-exam": {
+                    "next_instance_state": "init-distribution",
+                    "history_text": _("Preliminary exam performed"),
+                },
+                "init-distribution": {
+                    "next_instance_state": "circulation",
+                    "history_text": _("Circulation started"),
+                    "ech_event": "camac.ech0211.signals.circulation_started",
+                },
+                "complete-distribution": {
+                    "next_instance_state": "decision",
+                    "ech_event": "camac.ech0211.signals.circulation_ended",
+                },
+                "send-additional-demand": {
+                    "history_text": _("Additional demand sent"),
+                    "notification": {
+                        "template_slug": "send-additional-demand",
+                        "recipient_types": ["applicant", "additional_demand_inviter"],
+                    },
+                },
+                "fill-additional-demand": {
+                    "history_text": _("Additional demand was answered"),
+                    "notification": {
+                        "template_slug": "fill-additional-demand",
+                        "recipient_types": ["work_item_controlling"],
+                    },
+                    "ech_event": "camac.ech0211.signals.file_subsequently",
+                },
+                "complete-construction-monitoring": {
+                    "next_instance_state": "to-finish",
+                },
+                "complete-instance": {
+                    "next_instance_state": "finished",
+                    "history_text": _("Procedure completed"),
+                    "ech_event": "camac.ech0211.signals.finished",
+                },
+            },
+            "PUBLIC_STATUS": {
+                "USE_SLUGS": True,
+                "MAP": {
+                    "new": "creation",
+                    "subm": "submitted",
+                    "init-distribution": "inProcedure",
+                    "correction": "inProcedure",
+                    "circulation": "inProcedure",
+                    "construction-monitoring": "constructionMonitoring",
+                    "to-finish": "decided",
+                    "decided": "decided",
+                    "decision": "inProcedure",
+                    "finished": "done",
+                    "rejected": "rejected",
+                    "withdrawal": "withdrawn",
+                    "withdrawn": "withdrawn",
+                },
+                "DEFAULT": "inProcedure",
+            },
+        },
+        "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
+        "USE_INSTANCE_SERVICE": True,
+        "ACTIVE_SERVICES": {
+            "MUNICIPALITY": {
+                "FILTERS": {
+                    "service__service_group__name__in": [
+                        "municipality",
+                        "municipality-light",
+                        "authority-pgv",
+                        "service-afb",
+                    ]
+                },
+                "DEFAULT": True,
+            },
+        },
+        "SIDE_EFFECTS": {
+            "document_downloaded": "camac.document.side_effects.create_workflow_entry",
+        },
+        "CUSTOM_NOTIFICATION_TYPES": [],
+        "NOTIFICATIONS": {
+            "SUBMIT": [
+                {
+                    "template_slug": "empfang-anfragebaugesuch-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "empfang-anfragebaugesuch-behorden",
+                    "recipient_types": ["leitbehoerde"],
+                },
+            ],
+            "APPLICANT": {
+                "NEW": "gesuchsbearbeitungs-einladung-neu",
+                "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
+            },
+            "DECISION": [
+                {
+                    "template_slug": "entscheid-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "entscheid-behoerden",
+                    "recipient_types": ["involved_in_distribution"],
+                },
+            ],
+            "NON_BUILDING_PERMIT_DECISION": [
+                {
+                    "template_slug": "beurteilung-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+                {
+                    "template_slug": "decision-completed-bauanzeige-vorlaeufige-beurteilung",
+                    "recipient_types": ["involved_in_distribution"],
+                },
+            ],
+            "CONSTRUCTION_ACCEPTANCE": [
+                {
+                    "template_slug": "bauabnahme-gesuchsteller",
+                    "recipient_types": ["applicant"],
+                },
+            ],
+            "CHANGE_RESPONSIBLE_USER": {"template_slug": "zustaedigkeit-wechsel"},
+            "PERMISSION_ACL_GRANTED": [
+                {
+                    "template_slug": "invited-via-permission-acl",
+                    "recipient_types": ["acl_authorized"],
+                }
+            ],
+        },
+        "SUBSERVICE_ROLES": ["subservice"],
+        "DOCUMENT_BACKEND": "alexandria",
+    },
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 
 PUBLIC_BASE_URL = build_url(
-    env.str("DJANGO_PUBLIC_BASE_URL", default=default("http://ebau-portal.local"))
+    env.str("DJANGO_PUBLIC_BASE_URL", default=default("http://ebau-portal.localhost"))
 )
 
 INTERNAL_BASE_URL = build_url(
-    env.str("DJANGO_INTERNAL_BASE_URL", default=default("http://ebau.local"))
+    env.str("DJANGO_INTERNAL_BASE_URL", default=default("http://ebau.localhost"))
 )
 
 PUBLIC_INSTANCE_URL_TEMPLATE = env.str(
@@ -2369,6 +2791,7 @@ LOGGING = {
     "loggers": {
         "django": {"handlers": ["console", "mail_admins"], "level": "INFO"},
         "camac": {"handlers": ["console", "mail_admins"], "level": "INFO"},
+        "tika": {"handlers": ["console", "mail_admins"], "level": "INFO"},
     },
 }
 
@@ -2441,7 +2864,7 @@ if (
         ),
         "endpoint_url": env.str(
             "EBAU_S3_ENDPOINT_URL",
-            default=default("http://ember-ebau.local", require_if(is_s3_storage)),
+            default=default("http://ember-ebau.localhost", require_if(is_s3_storage)),
         ),
         "bucket_name": env.str("EBAU_STORAGE_BUCKET_NAME", default="ebau-media"),
     }
@@ -2504,6 +2927,13 @@ DATABASES = {
         "HOST": env.str("DATABASE_HOST", default="localhost"),
         "PORT": env.str("DATABASE_PORT", default=""),
         "OPTIONS": env.dict("DATABASE_OPTIONS", default=database_options),
+        # https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-CONN_HEALTH_CHECKS
+        "CONN_HEALTH_CHECKS": env.bool("DATABASE_CONN_HEALTH_CHECKS", default=True),
+        # https://docs.djangoproject.com/en/4.2/ref/settings/#conn-max-age
+        # The lifetime of a database connection, as an integer of seconds.
+        # Use 0 to close database connections at the end of each request — Django’s
+        # historical behavior — and None for unlimited persistent database connections.
+        "CONN_MAX_AGE": env.int("DATABASE_CONN_MAX_AGE", default=0),
     }
 }
 
@@ -2524,6 +2954,22 @@ CACHES = {
             default="django.core.cache.backends.memcached.PyMemcacheCache",
         ),
         "LOCATION": env.str("DJANGO_CACHE_LOCATION", default="127.0.0.1:11211"),
+        "OPTIONS": env.dict(
+            "DJANGO_CACHE_OPTIONS",
+            default={
+                # Wait max 100ms for a connection to the cache
+                "connect_timeout": 0.1,
+                # Wait max 100ms for a response by the cache
+                "timeout": 0.1,
+                # Sets TCP_NODELAY to improve performance
+                "no_delay": True,
+                # Treat cache exceptions as cache misses (only in production)
+                "ignore_exc": default(False, True),
+                # For further description of the configured options and more
+                # available options, see the pymemcached documentation:
+                # https://pymemcache.readthedocs.io/en/latest/apidoc/pymemcache.client.base.html
+            },
+        ),
     }
 }
 
@@ -2585,6 +3031,7 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
+        "camac.user.permissions.IsAllowedClientToken",
         "camac.user.permissions.IsGroupMember",
         "camac.user.permissions.ViewPermissions",
         "camac.token_exchange.permissions.RequireLoT",
@@ -2624,13 +3071,22 @@ CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
 
 # Keycloak service
 
+# TODO in our frontends, this is called KEYCLOAK_HOST. Consider renaming it
 KEYCLOAK_URL = build_url(
-    env.str("KEYCLOAK_URL", default="http://ebau-keycloak.local/auth/"),
+    env.str("KEYCLOAK_URL", default="http://ebau-keycloak.localhost/auth/"),
     trailing=True,
 )
 KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
+# possibility to change the OIDC scopes, only used for django admin auth
+KEYCLOAK_SCOPES = env.str("KEYCLOAK_SCOPES", default="openid email")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
 KEYCLOAK_PORTAL_CLIENT = env.str("KEYCLOAK_PORTAL_CLIENT", default="portal")
+
+
+# Client used by PHP to do privileged actions
+KEYCLOAK_CAMAC_ADMIN_CLIENT = env.str(
+    "KEYCLOAK_CAMAC_ADMIN_CLIENT", default="camac-admin"
+)
 
 KEYCLOAK_OIDC_TOKEN_URL = build_url(
     KEYCLOAK_URL, f"/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
@@ -2652,13 +3108,14 @@ TOKEN_EXCHANGE_CLIENT = env.str("TOKEN_EXCHANGE_CLIENT", default="token-exchange
 TOKEN_EXCHANGE_CLIENT_SECRET = env.str(
     "TOKEN_EXCHANGE_CLIENT_SECRET",
     default=default(
-        "76e3ScwJqsP0EMsYHKmEyBjlE1bNeOU1", require_if(ENABLE_TOKEN_EXCHANGE)
+        "jgN5b7a2wLe3rKpwGXogTZY1kl1bn34K", require_if(ENABLE_TOKEN_EXCHANGE)
     ),
 )
 TOKEN_EXCHANGE_USERNAME_PREFIX = "egov:"
 TOKEN_EXCHANGE_MAX_VALIDITY_PERIOD = env.int(
     "TOKEN_EXCHANGE_MAX_VALIDITY_PERIOD", default=default(None, 60)
 )
+TOKEN_EXCHANGE_SCOPE = env.str("TOKEN_EXCHANGE_SCOPE", default="token-exchange")
 
 # External JWT token config
 TOKEN_EXCHANGE_JWE_SECRET = env.str(
@@ -2674,7 +3131,7 @@ TOKEN_EXCHANGE_JWT_SECRET = env.str(
 )
 TOKEN_EXCHANGE_JWT_ISSUER = env.str(
     "TOKEN_EXCHANGE_JWT_ISSUER",
-    default=default("http://egov.local", require_if(ENABLE_TOKEN_EXCHANGE)),
+    default=default("http://egov.localhost", require_if(ENABLE_TOKEN_EXCHANGE)),
 )
 TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY = env.str(
     "TOKEN_EXCHANGE_JWT_IDENTIFIER_PROPERTY", default="profileId"
@@ -2816,6 +3273,13 @@ SO_GIS_VERIFY_SSL = env.bool("SO_GIS_VERIFY_SSL", default=True)
 ADMIN_GIS_BASE_URL = env.str("ADMIN_GIS_BASE_URL", default="https://api3.geo.admin.ch")
 ADMIN_GIS_VERIFY_SSL = env.bool("ADMIN_GIS_VERIFY_SSL", default=True)
 
+
+# GIS API (KT. AG)
+AG_GIS_BASE_URL = env.str(
+    "AG_GIS_BASE_URL",
+    default="https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer",
+)
+
 DOCUMENT_MERGE_SERVICE_URL = build_url(
     env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")
 )
@@ -2825,19 +3289,25 @@ ECH_EXCLUDED_FORMS = [
     "verlaengerung-geltungsdauer",
     "migriertes-dossier",
     "baupolizeiliches-verfahren",
+    "baupolizeiliches-verfahren-v2",
     "hecken-feldgehoelze-baeume",
     "hecken-feldgehoelze-baeume-v2",
     "klaerung-baubewilligungspflicht",
+    "klaerung-baubewilligungspflicht-v2",
     "zutrittsermaechtigung",
+    "zutrittsermaechtigung-v2",
     "solaranlagen-meldung",
     "solaranlagen-meldung-v2",
     "heat-generator",
     "heat-generator-v2",
+    "heat-generator-v3",
     "reklamegesuch",
+    "benuetzung-oeffentlichem-terrain-meldung",
 ]
 ECH_THROTTLING_RATE = env.str("DJANGO_ECH_THROTTLING_RATE", default="1/min")
 
 # Swagger settings
+SWAGGER_USE_COMPAT_RENDERERS = False
 SWAGGER_SETTINGS = {
     "USE_SESSION_AUTH": False,
     "DEEP_LINKING": True,
@@ -2972,6 +3442,7 @@ OIDC_DEFAULT_BASE_URL = build_url(
 OIDC_OP_AUTHORIZATION_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/auth")
 OIDC_OP_TOKEN_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/token")
 OIDC_OP_USER_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/userinfo")
+OIDC_RP_SCOPES = KEYCLOAK_SCOPES
 OIDC_RP_SIGN_ALGO = env.str("DJANGO_OIDC_RP_SIGN_ALGO", default="RS256")
 OIDC_OP_JWKS_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/certs")
 OIDC_OP_INTROSPECT_ENDPOINT = build_url(OIDC_DEFAULT_BASE_URL, "/token/introspect")
@@ -2989,19 +3460,37 @@ STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [
 
 
 def load_module_settings(module_name, application_name=APPLICATION_NAME):
-    module = getattr(
+    module: ModuleConfig | dict = getattr(
         import_module(f"camac.settings.modules.{module_name.lower()}"),
         module_name.upper(),
     )
-    app_config = module.get(application_name, {})
+    is_pydantic = isinstance(module, ModuleConfig)
+    if is_pydantic:
+        app_config: ModuleApplicationConfig = getattr(module, application_name)
 
-    return (
-        always_merger.merge(copy.deepcopy(module["default"]), app_config)
-        if app_config.get("ENABLED")
-        else {}
-    )
+        # For some reason, this is not covered according to pytest
+        # even tough this is part of the startup.
+        if getattr(app_config, "enabled", False):  # pragma: no cover
+            return always_merger.merge(
+                copy.deepcopy(module.default),
+                app_config,
+            )
+
+        return module.default
+    else:
+        app_config = module.get(application_name, {})
+
+        return (
+            always_merger.merge(
+                copy.deepcopy(module["default"]),
+                app_config,
+            )
+            if app_config.get("ENABLED")
+            else {}
+        )
 
 
+BILLING = load_module_settings("billing")
 APPEAL = load_module_settings("appeal")
 DISTRIBUTION = load_module_settings("distribution")
 PARASHIFT = load_module_settings("parashift")
@@ -3024,6 +3513,13 @@ DOSSIER_IMPORT = load_module_settings("dossier_import")
 BAB = load_module_settings("bab")
 PROJECT_MODIFICATION = load_module_settings("project_modification")
 USER = load_module_settings("user")
+ADDRESS_ASSIGNMENT = load_module_settings("address_assignment")
+SERVICE = load_module_settings("service")
+CHANGE_FORM = load_module_settings("change_form")
+GEVER = load_module_settings("gever")
+RULESETS = load_module_settings("rulesets")
+EEBA_INTEGRATION = load_module_settings("eeba_integration")
+DEADLINES = load_module_settings("deadlines")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
@@ -3040,14 +3536,20 @@ GENERIC_PERMISSIONS_PERMISSION_CLASSES = [
 GENERIC_PERMISSIONS_VALIDATION_CLASSES = [
     "camac.alexandria.extensions.validations.CustomValidation"
 ]
+GENERIC_PERMISSIONS_BYPASS_VISIBILITIES = {
+    "alexandria_core.Category": ["children", "parent"],
+    "alexandria_core.Document": ["marks", "files", "category"],
+    "alexandria_core.File": ["original", "renderings", "document"],
+}
 
 # Celery
 REDIS_HOST = env.str("REDIS_HOST", default="redis")
 REDIS_PORT = env.int("REDIS_PORT", default=6379)
+REDIS_USER = env.str("REDIS_USER", default="default")
 REDIS_PASSWORD = env.str("REDIS_PASSWORD", default="redis")
 CELERY_BROKER_URL = env.str(
     "CELERY_BROKER_URL",
-    default=f"redis://default:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/0",  # gitleaks:allow
+    default=f"redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/0",  # gitleaks:allow
 )
 CELERY_TASK_ACKS_LATE = env.bool(
     "CELERY_TASK_ACKS_LATE",
@@ -3056,3 +3558,29 @@ CELERY_TASK_ACKS_LATE = env.bool(
 CELERY_TASK_SOFT_TIME_LIMIT = env.int("CELERY_TASK_SOFT_TIME_LIMIT", default=60)
 # if unspecified, celery starts one worker process per CPU.
 CELERY_WORKER_CONCURRENCY = env.int("CELERY_WORKER_CONCURRENCY", default=None)
+
+# Factories from external apps
+EXTERNAL_FACTORY_MODULES = [
+    # Path to the factory module, alias for that module used in the generated file, factory class prefix
+    ("alexandria.core.factories", "alexandria_factories", "Alexandria"),
+    ("caluma.caluma_form.factories", "form_factories", "Caluma"),
+    ("caluma.caluma_workflow.factories", "workflow_factories", "Caluma"),
+]
+
+# Client permission settings used to determine allowed clients in
+# `camac/user/permissions.py::IsAllowedClientToken`
+KEYCLOAK_ADDITIONAL_ALLOWED_CLIENTS = env.list(
+    "KEYCLOAK_ADDITIONAL_ALLOWED_CLIENTS", default=[]
+)
+KEYCLOAK_ALLOWED_CLIENTS = [
+    KEYCLOAK_CLIENT,
+    KEYCLOAK_PORTAL_CLIENT,
+    KEYCLOAK_CAMAC_ADMIN_CLIENT,
+    DOSSIER_IMPORT_CLIENT_ID,
+    *KEYCLOAK_ADDITIONAL_ALLOWED_CLIENTS,
+]
+
+# TODO: Remove this as soon as Kt. BE runs on images
+DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES = env.list(
+    "DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES", default=[]
+)

@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from decimal import Decimal
+from typing import Any, cast
 
 import pytest
 from django.urls import reverse
@@ -14,19 +15,21 @@ from camac.billing.utils import (
 )
 from camac.billing.views import BillingV2EntryViewset
 from camac.instance.models import Instance
+from camac.settings.modules.billing_schema import BillingConfig, ProductNumberConfig
 
 
-def test_calculate_final_rate():
+def test_calculate_final_rate() -> None:
     flat = calculate_final_rate(
-        calculation=BillingV2Entry.CALCULATION_FLAT, total_cost=Decimal(100)
+        calculation=BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+        total_cost=Decimal(100),
     )
     percentage = calculate_final_rate(
-        calculation=BillingV2Entry.CALCULATION_PERCENTAGE,
+        calculation=BillingV2Entry.CalculationModes.CALCULATION_PERCENTAGE,
         total_cost=Decimal(1000),
         percentage=Decimal(10),
     )
     hourly = calculate_final_rate(
-        calculation=BillingV2Entry.CALCULATION_HOURLY,
+        calculation=BillingV2Entry.CalculationModes.CALCULATION_HOURLY,
         hours=Decimal(10),
         hourly_rate=Decimal(10),
     )
@@ -38,28 +41,58 @@ def test_calculate_final_rate():
     assert empty is None
 
 
-def test_add_taxes_to_final_rate():
+@pytest.mark.parametrize(
+    "construction_costs,expected_final_rate",
+    [
+        # Minimum of 400
+        (0, 400),
+        # 133'335 - 2'000'000
+        (1_000_000, 3_000),
+        # 2'000'000 - 5'000'000
+        (4_000_000, 11_000),
+        # 5'000'000+
+        (9_000_000, 19_500),
+        # Maximum of 60'000
+        (40_000_000, 60_000),
+    ],
+)
+def test_calculate_final_rate_ag_processing_fee(
+    db, construction_costs, expected_final_rate
+):
+    assert (
+        calculate_final_rate(
+            total_cost=construction_costs,
+            calculation=BillingV2Entry.CalculationModes.CALCULATION_AG_PROCESSING_FEE,
+        )
+        == expected_final_rate
+    )
+
+
+def test_add_taxes_to_final_rate() -> None:
     final_rate = Decimal(100)
     tax_rate = Decimal(7.7)
 
-    exclusive = add_taxes_to_final_rate(
-        final_rate=final_rate,
-        tax_mode=BillingV2Entry.TAX_MODE_EXCLUSIVE,
-        tax_rate=tax_rate,
+    exclusive = cast(
+        Decimal,
+        add_taxes_to_final_rate(
+            final_rate=final_rate,
+            tax_mode=BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
+            tax_rate=tax_rate,
+        ),
     )
     inclusive = add_taxes_to_final_rate(
         final_rate=final_rate,
-        tax_mode=BillingV2Entry.TAX_MODE_INCLUSIVE,
+        tax_mode=BillingV2Entry.TaxModes.TAX_MODE_INCLUSIVE,
         tax_rate=tax_rate,
     )
     exempt = add_taxes_to_final_rate(
         final_rate=final_rate,
-        tax_mode=BillingV2Entry.TAX_MODE_EXEMPT,
+        tax_mode=BillingV2Entry.TaxModes.TAX_MODE_EXEMPT,
         tax_rate=tax_rate,
     )
     empty = add_taxes_to_final_rate(
         final_rate=None,
-        tax_mode=BillingV2Entry.TAX_MODE_EXCLUSIVE,
+        tax_mode=BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
         tax_rate=tax_rate,
     )
 
@@ -69,26 +102,26 @@ def test_add_taxes_to_final_rate():
     assert empty is None
 
 
-def test_get_totals():
-    entries = [
+def test_get_totals() -> None:
+    entries: list[dict[str, Any]] = [
         {
             "final_rate": "210.05",
-            "organization": BillingV2Entry.MUNICIPAL,
+            "organization": BillingV2Entry.Organizations.MUNICIPAL,
             "date_charged": None,
         },
         {
             "final_rate": "999.75",
-            "organization": BillingV2Entry.MUNICIPAL,
+            "organization": BillingV2Entry.Organizations.MUNICIPAL,
             "date_charged": "2023-11-04",
         },
         {
             "final_rate": "12.50",
-            "organization": BillingV2Entry.CANTONAL,
+            "organization": BillingV2Entry.Organizations.CANTONAL,
             "date_charged": None,
         },
         {
             "final_rate": "120.90",
-            "organization": BillingV2Entry.CANTONAL,
+            "organization": BillingV2Entry.Organizations.CANTONAL,
             "date_charged": "2023-11-04",
         },
         {
@@ -129,7 +162,7 @@ def test_billing_entry_list(
     role,
     expected_status,
     expected_count,
-):
+) -> None:
     billing_v2_entry_factory.create_batch(5, instance=instance)
     billing_v2_entry_factory.create_batch(5)
 
@@ -146,7 +179,7 @@ def test_billing_entry_list(
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
-def test_billing_entry_create(db, admin_client, instance):
+def test_billing_entry_create(db, admin_client, instance) -> None:
     url = reverse("billing-v2-entry-list")
     response = admin_client.post(
         url,
@@ -154,9 +187,9 @@ def test_billing_entry_create(db, admin_client, instance):
             "data": {
                 "type": "billing-v2-entries",
                 "attributes": {
-                    "calculation": BillingV2Entry.CALCULATION_FLAT,
+                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
                     "total-cost": 1050,
-                    "tax-mode": BillingV2Entry.TAX_MODE_EXCLUSIVE,
+                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
                     "tax-rate": 7.7,
                     "text": "Test",
                 },
@@ -197,7 +230,7 @@ def test_billing_entry_visibilities(
     method,
     expected_count,
     has_access,
-):
+) -> None:
     is_public = role.name == "Public"
     mocker.patch(
         "camac.user.permissions.get_group", return_value=None if is_public else group
@@ -218,14 +251,20 @@ def test_billing_entry_visibilities(
 
 @pytest.mark.freeze_time("2023-11-06")
 @pytest.mark.parametrize("role__name", [("Municipality")])
-def test_billing_entry_charge(db, admin_client, billing_v2_entry):
-    url = reverse("billing-v2-entry-charge", args=[billing_v2_entry.pk])
+def test_billing_entry_release_for_clearing(
+    db, admin_client, billing_v2_entry, sz_billing_settings, group
+) -> None:
+    service_group = group.service.service_group
+    service_group.slug = sz_billing_settings.cantonal_service_group_slugs[0]
+    service_group.save()
+
+    url = reverse("billing-v2-entry-release-for-clearing", args=[billing_v2_entry.pk])
     response = admin_client.patch(url)
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
 
     billing_v2_entry.refresh_from_db()
-    assert billing_v2_entry.date_charged == timezone.now().date()
+    assert billing_v2_entry.released_for_clearing == timezone.now().date()
 
 
 @pytest.mark.freeze_time("2023-11-06")
@@ -245,7 +284,7 @@ def test_billing_entry_delete(
     is_other_group,
     expect_forbidden,
     group_factory,
-):
+) -> None:
     if is_charged:
         billing_v2_entry.date_charged = timezone.now().date()
 
@@ -264,3 +303,231 @@ def test_billing_entry_delete(
         BillingV2Entry.objects.filter(pk=billing_v2_entry.pk).exists()
         == expect_forbidden
     )
+
+
+@pytest.mark.parametrize("role__name", [("Municipality")])
+def test_billing_entry_create_with_ag_processing_fee(
+    db, admin_client, ag_instance, master_data_is_visible_mock, utils
+):
+    utils.add_answer(ag_instance.case.document, "baukosten", 25_000_000)
+
+    response = admin_client.post(
+        reverse("billing-v2-entry-list"),
+        data={
+            "data": {
+                "type": "billing-v2-entries",
+                "attributes": {
+                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_AG_PROCESSING_FEE,
+                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXEMPT,
+                    "tax-rate": 0,
+                    "text": "Test",
+                },
+                "relationships": {
+                    "instance": {"data": {"id": ag_instance.pk, "type": "instances"}}
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_201_CREATED
+    assert response.json()["data"]["attributes"]["final-rate"] == "43500.00"
+
+
+@pytest.mark.parametrize(
+    "product_number_config,product_number,response_http_code",
+    [
+        (
+            [
+                ProductNumberConfig(
+                    number=1,
+                    name="test",
+                )
+            ],
+            1,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            [
+                ProductNumberConfig(
+                    number=1,
+                    name="test",
+                )
+            ],
+            None,
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            [
+                ProductNumberConfig(
+                    number=1,
+                    name="test",
+                )
+            ],
+            "3290",
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            [
+                ProductNumberConfig(
+                    number=1, name="test", only_for_services=["nonexistent"]
+                )
+            ],
+            None,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            None,
+            None,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            None,
+            2,
+            status.HTTP_201_CREATED,
+        ),
+    ],
+)
+def test_billing_entry_create_with_product_number(
+    db,
+    admin_client,
+    sz_instance,
+    sz_billing_settings: BillingConfig,
+    product_number_config: list[ProductNumberConfig],
+    product_number: str | int | None,
+    response_http_code: int,
+):
+    sz_billing_settings.product_numbers = product_number_config
+
+    data = {
+        "data": {
+            "type": "billing-v2-entries",
+            "attributes": {
+                "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+                "total-cost": 1050,
+                "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
+                "tax-rate": 7.7,
+                "text": "Test",
+            },
+            "relationships": {
+                "instance": {"data": {"id": sz_instance.pk, "type": "instances"}}
+            },
+        }
+    }
+    if product_number:
+        data["data"]["attributes"]["product-number"] = product_number
+
+    response = admin_client.post(reverse("billing-v2-entry-list"), data=data)
+
+    assert response.status_code == response_http_code
+
+
+def test_product_numbers(
+    db,
+    admin_client,
+    sz_instance,
+    sz_billing_settings,
+    service_factory,
+    invoice_factory,
+):
+    service = service_factory(slug="test")
+    group = admin_client.user.groups.first()
+    group.service = service
+    group.save()
+    sz_billing_settings.product_numbers = [
+        ProductNumberConfig(
+            number=1,
+            name="",
+        ),
+        ProductNumberConfig(
+            number=2,
+            name="test2",
+            not_for_services=["test"],
+        ),
+        ProductNumberConfig(
+            number=3,
+            name="test3",
+            only_for_services=["test"],
+        ),
+        ProductNumberConfig(
+            number=4,
+            name="test4",
+            only_subsequent_charge=True,
+        ),
+        ProductNumberConfig(
+            number=5,
+            name="test5",
+            only_for_service_groups=["test_sg"],
+        ),
+    ]
+    url = reverse("product-numbers")
+    response = admin_client.get(
+        url,
+        {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json()["data"] == [
+        {"number": 1, "name": ""},
+        {
+            "number": 3,
+            "name": "test3",
+        },
+    ]
+
+    invoice = invoice_factory(instance=sz_instance)
+
+    response = admin_client.get(
+        url,
+        {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
+    )
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json()["data"] == [
+        {
+            "number": 4,
+            "name": "test4",
+        }
+    ]
+
+    response = admin_client.get(
+        url,
+    )
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+    invoice.delete()
+    service.slug = None
+    service.save()
+    service.service_group.slug = "test_sg"
+    service.service_group.save()
+
+    response = admin_client.get(
+        url,
+        {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
+    )
+    assert response.json()["data"] == [
+        {"number": 1, "name": ""},
+        {
+            "number": 2,
+            "name": "test2",
+        },
+        {
+            "number": 5,
+            "name": "test5",
+        },
+    ]
+
+
+def test_product_numbers_empty(
+    db,
+    admin_client,
+    sz_instance,
+    sz_billing_settings,
+):
+    sz_billing_settings.product_numbers = []
+    url = reverse("product-numbers")
+    response = admin_client.get(
+        url,
+        {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json()["data"] == []

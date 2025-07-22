@@ -1,0 +1,109 @@
+<h2>{{t "deadlines.title.deadlines"}}</h2>
+
+<div class="uk-width-1-1" data-test-deadline-detail>
+  {{#if this.isLoading}}
+    <div class="uk-text-center uk-padding">
+      <UkSpinner @ratio={{2}} />
+    </div>
+  {{else if @deadline}}
+    <div
+      class="uk-grid-small uk-grid"
+      id="deadlines-detail-grid"
+      uk-grid
+      data-test-deadline-detail-grid
+    >
+      <div class="uk-width-1-2 uk-width-1-4@m uk-first-column">
+        <strong>{{t "deadlines.deadline.detail.startDate"}}</strong>
+      </div>
+      <div class="uk-width-1-2 uk-width-3-4@m">
+        {{#if @deadline.startDate}}
+          {{format-date @deadline.startDate format="date"}}
+        {{else}}
+          -
+        {{/if}}
+        {{#if (await (can "edit deadline" @deadline instance=@instance))}}
+          <IconButton
+            @icon="pencil"
+            @onClick={{this.editDeadline}}
+            @disabled={{this.showModal}}
+            @loading={{this.showModal}}
+            title={{t "deadlines.action.deadline.edit"}}
+            data-test-edit-deadline-date-button
+          />
+        {{/if}}
+      </div>
+      <div class="uk-width-1-2 uk-width-1-4@m uk-first-column">
+        <strong>{{t "deadlines.deadline.detail.totalDaysOfSuspension"}}</strong>
+      </div>
+      <div class="uk-width-1-2 uk-width-3-4@m">
+        {{t
+          "deadlines.deadline.processDurationText"
+          count=(or @deadline.totalDaysOfSuspension 0)
+        }}
+      </div>
+      <div class="uk-width-1-2 uk-width-1-4@m uk-first-column">
+        <strong>{{t "cases.tableHeaders.processDuration"}}</strong>
+      </div>
+      <div class="uk-width-1-2 uk-width-3-4@m">
+        {{t
+          "deadlines.deadline.processDurationText"
+          count=(or @deadline.processDeadlineDays 0)
+        }}
+      </div>
+      {{#if @deadline.deadlineType}}
+        <div class="uk-width-1-2 uk-width-1-4@m">
+          <strong>{{t "deadlines.deadline.property.type"}}</strong>
+        </div>
+        <div class="uk-width-1-2 uk-width-3-4@m" data-test-deadline-type>
+          {{@deadline.deadlineType.name}}
+          {{#if (await (can "edit deadline" @deadline instance=@instance))}}
+            <IconButton
+              @icon="pencil"
+              @onClick={{this.editDeadline}}
+              @disabled={{this.showModal}}
+              @loading={{this.showModal}}
+              title={{t "deadlines.action.deadline.edit"}}
+              data-test-edit-deadline-button
+            />
+          {{/if}}
+        </div>
+      {{/if}}
+      <div class="uk-width-1-2 uk-width-1-4@m uk-first-column">
+        <strong>{{t "deadlines.deadline.detail.processDeadlineDate"}}</strong>
+      </div>
+      <div class="uk-width-1-2 uk-width-3-4@m">
+        {{#if @deadline.instance.isSuspended}}
+          <s>
+            {{if
+              @deadline.processDeadlineDate
+              (format-date @deadline.processDeadlineDate format="date")
+              (t "deadlines.deadline.noEndDate")
+            }}
+          </s>
+          <span class="uk-margin-small-left">
+            {{t "deadlines.deadline.instanceSuspended"}}
+          </span>
+        {{else}}
+          {{if
+            @deadline.processDeadlineDate
+            (format-date @deadline.processDeadlineDate format="date")
+            (t "deadlines.deadline.noEndDate")
+          }}
+        {{/if}}
+      </div>
+    </div>
+
+    {{#if this.showModal}}
+      <Deadlines::Deadline::FormModal
+        @visible={{this.showModal}}
+        @onHide={{fn (mut this.showModal) false}}
+        @instanceId={{@instance.id}}
+        @deadline={{@deadline}}
+        @deadlineTypes={{this.deadlineTypes}}
+        @afterSave={{this.reload}}
+      />
+    {{/if}}
+  {{else}}
+    {{t "deadlines.deadline.detail.noResult"}}
+  {{/if}}
+</div>

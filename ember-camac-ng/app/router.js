@@ -3,17 +3,25 @@ import { service } from "@ember/service";
 import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand";
 import registerBilling from "ember-ebau-core/modules/billing";
 import registerBillingGlobal from "ember-ebau-core/modules/billing-global";
+import registerChangeResponsibleService from "ember-ebau-core/modules/change-responsible-service";
 import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerConstructionMonitoring from "ember-ebau-core/modules/construction-monitoring";
+import registerCorrections from "ember-ebau-core/modules/corrections";
+import registerDeadlines from "ember-ebau-core/modules/deadlines";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerDossierImport from "ember-ebau-core/modules/dossier-import";
+import registerGwrTasks from "ember-ebau-core/modules/gwr-tasks";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerPublication from "ember-ebau-core/modules/publication";
 import registerRejection from "ember-ebau-core/modules/rejection";
 import registerResponsible from "ember-ebau-core/modules/responsible";
+import registerSanctionTemplates from "ember-ebau-core/modules/sanction-templates";
+import registerSanctions from "ember-ebau-core/modules/sanctions";
 import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
+import registerSnippetsAdmin from "ember-ebau-core/modules/snippets-admin";
+import registerStaticContent from "ember-ebau-core/modules/static-content";
 import registerStatistics from "ember-ebau-core/modules/statistics";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
 
@@ -73,7 +81,6 @@ Router.map(function () {
   this.route("assign-ebau-number", {
     path: "instances/:instance_id/assign-ebau-number",
   });
-  this.route("support", { path: "instances/:instance_id/support" });
 
   this.mount("@projectcaluma/ember-distribution", {
     as: "distribution",
@@ -91,6 +98,7 @@ Router.map(function () {
   registerStatistics(this);
   registerPublication(this);
   registerAdditionalDemand(this);
+  registerGwrTasks(this);
   registerResponsible(this);
   registerBilling(this);
   registerBillingGlobal(this);
@@ -98,4 +106,11 @@ Router.map(function () {
   registerPermissions(this);
   registerConstructionMonitoring(this);
   registerDossierImport(this);
+  registerSnippetsAdmin(this);
+  registerSanctions(this);
+  registerSanctionTemplates(this);
+  registerDeadlines(this);
+  registerStaticContent(this);
+  registerCorrections(this);
+  registerChangeResponsibleService(this);
 });

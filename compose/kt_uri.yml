@@ -32,6 +32,8 @@ services:
         - acr.run/camac-ng/camac-ng/ember-camac-ng:master
       args:
         - APPLICATION=${APPLICATION}
+        - ENABLE_WATERMARK=${ENABLE_WATERMARK:-false}
+        - WATERMARK=${WATERMARK:-local}
         - WORKSPACE=ember-camac-ng
       target: prod
 
@@ -40,6 +42,8 @@ services:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:master
+      args:
+        - APPLICATION=${APPLICATION}
     depends_on:
       - db
       - keycloak
@@ -82,6 +86,8 @@ services:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
       args:
         - APPLICATION=${APPLICATION}
+        - ENABLE_WATERMARK=${ENABLE_WATERMARK:-false}
+        - WATERMARK=${WATERMARK:-local}
         - WORKSPACE=ember-caluma-portal
       target: prod
 

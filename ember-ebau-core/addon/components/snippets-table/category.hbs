@@ -1,0 +1,128 @@
+<h2 class="uk-margin-remove-top uk-flex uk-flex-middle">
+  {{#if this.isEditing}}
+    <Input
+      @type="text"
+      @value={{this.name}}
+      name="purpose"
+      class="uk-input uk-width-auto"
+      aria-label={{t "snippets.category"}}
+      required
+    />
+    <UkButton
+      @color="link"
+      @title={{t "global.save"}}
+      @onClick={{perform this.save}}
+      class="uk-margin-small-left"
+      data-test-save-category
+    >
+      <UkIcon @icon="check" />
+    </UkButton>
+    <UkButton
+      @color="link"
+      @title={{t "global.cancel"}}
+      @onClick={{this.toggleEditing}}
+      class="uk-margin-small-left"
+    >
+      <UkIcon @icon="close" />
+    </UkButton>
+  {{else}}
+    <a
+      class="uk-link-reset uk-margin-right"
+      href=""
+      {{on "click" this.toggleExpanded}}
+      data-test-toggle-expanded
+    >
+      {{this.name}}
+      <UkIcon @icon={{if this.isExpanded "chevron-down" "chevron-right"}} />
+    </a>
+    {{#if @editable}}
+      <UkButton
+        @color="link"
+        @title={{t "snippets.delete-category"}}
+        @onClick={{perform this.deleteCategory}}
+        class="uk-margin-small-left"
+        data-test-delete-category={{this.name}}
+      >
+        <UkIcon @icon="trash" />
+      </UkButton>
+      <UkButton
+        @color="link"
+        @title={{t "snippets.edit-category"}}
+        @onClick={{this.toggleEditing}}
+        class="uk-margin-small-left"
+        data-test-edit-category={{this.name}}
+      >
+        <UkIcon @icon="pencil" />
+      </UkButton>
+    {{/if}}
+  {{/if}}
+</h2>
+
+{{#if this.isExpanded}}
+  <table
+    class="uk-table uk-table-striped"
+    data-test-snippets-table={{this.name}}
+  >
+    <thead>
+      <tr>
+        <th>{{t "snippets.title"}}</th>
+        <th>{{t "snippets.text"}}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each @snippets as |snippet|}}
+        <tr>
+          <td class="uk-width-1-4">{{snippet.subject}}</td>
+          <td class="uk-width-2-3 uk-text-truncate" title={{snippet.body}}>
+            {{snippet.body}}
+          </td>
+          <td class="uk-text-right">
+            {{#if @editable}}
+              <UkButton
+                @color="link"
+                @title={{t "global.delete"}}
+                @onClick={{perform this.deleteSnippet snippet}}
+                data-test-delete-snippet={{snippet.id}}
+              >
+                <UkIcon @icon="trash" />
+              </UkButton>
+              <LinkTo
+                @route={{module-route "snippets-admin" "edit"}}
+                @model={{snippet.id}}
+                class="uk-button uk-button-link"
+                title={{t "global.edit"}}
+                data-test-edit-snippet={{snippet.id}}
+              >
+                <UkIcon @icon="pencil" />
+              </LinkTo>
+            {{else}}
+              <UkButton
+                @color="link"
+                @title={{t "snippets.copy"}}
+                @onClick={{fn this.copySnippet snippet}}
+                data-test-copy-snippet={{snippet.id}}
+              >
+                <UkIcon @icon="copy" />
+              </UkButton>
+            {{/if}}
+          </td>
+        </tr>
+      {{/each}}
+      {{#if @editable}}
+        <tr>
+          <td colspan="3" class="uk-text-center">
+            <LinkTo
+              @route={{module-route "snippets-admin" "new"}}
+              @query={{hash category=this.name}}
+              class="uk-button uk-button-link"
+              data-test-add-snippet={{this.name}}
+            >
+              <UkIcon @icon="plus" />
+            </LinkTo>
+          </td>
+        </tr>
+      {{/if}}
+    </tbody>
+  </table>
+{{/if}}

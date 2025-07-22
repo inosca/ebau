@@ -59,7 +59,7 @@ class ECHFileSerializer(Serializer):
     def create(self, validated_data):
         content = validated_data["content"]
 
-        document, _ = create_alexandria_document_file(
+        return create_alexandria_document_file(
             user=self.context["request"].user.pk,
             group=self.context["request"].group.service_id,
             category=validated_data["category"],
@@ -72,5 +72,3 @@ class ECHFileSerializer(Serializer):
                 "metainfo": {"camac-instance-id": str(validated_data["instance"].pk)},
             },
         )
-
-        return document

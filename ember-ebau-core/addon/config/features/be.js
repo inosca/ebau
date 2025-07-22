@@ -1,6 +1,6 @@
 export default {
   publication: {
-    form: true,
+    showMainForm: true,
     endDate: false,
     related: true,
     disableAuthentication: false,
@@ -8,7 +8,7 @@ export default {
   billing: {
     charge: false,
     organization: false,
-    reducedTaxRate: false,
+    reducedTaxRate: true,
     orderTaxByRate: false,
     displayService: false,
     billingType: false,
@@ -20,12 +20,10 @@ export default {
     snippets: true,
     revert: true,
   },
-  communication: {
-    snippets: true,
-  },
   cases: {
     createPaper: true,
     exportExcel: true,
+    downloadFormAsPdf: true,
   },
   servicePermissions: {
     hasConstructionControl: true,
@@ -33,11 +31,31 @@ export default {
   gis: {
     v3: true,
   },
-  communications: true,
+  communications: {
+    enabled: true,
+    snippets: true,
+  },
   portal: {
     stateInfoButton: true,
   },
   dashboard: {
     useLegacy: true,
+  },
+  submitComponent: {
+    requiredPermissions: ["instance-submit"],
+    buttonHintEnabled: (session) => session.isSupport,
+    export: {
+      enabled: (instance) => !instance.isPaper,
+      templateName: () => `form`,
+      errorMessage: "dms.downloadError",
+    },
+  },
+  corrections: {
+    archiveInstance: true,
+    changeDossierNumber: true,
+    changeForm: true,
+    convertModification: true,
+    correctForm: true,
+    withdrawInstance: false,
   },
 };

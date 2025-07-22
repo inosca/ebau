@@ -4,9 +4,9 @@ import xml.etree.ElementTree as ET
 
 import requests
 from django.conf import settings
-from lxml import etree
 
 from camac.gis.clients.base import GISBaseClient
+from camac.patches import safe_lxml_fromstring
 from camac.utils import build_url
 
 
@@ -68,7 +68,7 @@ class GrGisClient(GISBaseClient):
         geometry_type = query["geometry"]
         form = self.params.get("form")
         response = self.session.get(
-            f"{base_url}{self.get_geometry_query_param(markers,geometry_type)}"
+            f"{base_url}{self.get_geometry_query_param(markers, geometry_type)}"
         )
 
         try:
@@ -124,7 +124,7 @@ class GrGisClient(GISBaseClient):
     def get_xml(self, response_content, identifier):
         """Convert response text to xml object."""
         try:
-            root = etree.fromstring(response_content)
+            root = safe_lxml_fromstring(response_content)
             xml = (
                 root.find("wps:ProcessOutputs", root.nsmap)
                 .find(f"./wps:Output[ows:Identifier = '{identifier}']", root.nsmap)
@@ -139,7 +139,7 @@ class GrGisClient(GISBaseClient):
     def find_layers(self, response_content, layers_initial):
         """Find specific layers."""
         try:
-            root = etree.fromstring(response_content)
+            root = safe_lxml_fromstring(response_content)
             return [
                 layer[0].text
                 for layer in list(root.find("wps:ProcessOutputs", root.nsmap))
@@ -309,7 +309,25 @@ class GrGisClient(GISBaseClient):
         return previous_value
 
     def map_grundwasserschutzzone(self, values, intermediate_result, question):
-        strict_levels = sorted([v.lower() for v in list(set(values))])
+        values = [
+            value.replace("_", "-") for value in values
+        ]  # GIS returns 's_kantonaleart' which is not confirm with our option slugs that are mapped below
+        known_grundwasserschutzzonen = (
+            "s1",
+            "s2",
+            "s3",
+            "sh",
+            "sm",
+            "s-kantonaleart",
+            "nicht-betroffen",
+        )
+        strict_levels = sorted(
+            [
+                v.lower()
+                for v in list(set(values))
+                if str.lower(v) in known_grundwasserschutzzonen
+            ]
+        )
         return strict_levels[0] if strict_levels else "nicht-betroffen"
 
     def map_archaeologiezone(

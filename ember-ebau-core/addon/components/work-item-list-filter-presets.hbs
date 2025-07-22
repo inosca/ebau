@@ -1,0 +1,26 @@
+{{#if this.presets.records}}
+  {{#each this.categories as |category|}}
+    {{#let (get this.groupedPresets category) as |presets|}}
+      {{#if presets}}
+        <WorkItemListFilterPresets::PresetsCategory
+          @label={{t
+            (concat "workItems.presets." category)
+            serviceName=this.ebauModules.serviceName
+            serviceGroupName=this.ebauModules.serviceGroupName
+          }}
+          @presets={{presets}}
+          @selected={{@selected}}
+        />
+      {{/if}}
+    {{/let}}
+  {{/each}}
+  <LinkTo
+    @route="work-items"
+    @query={{this.filterDefaults}}
+    class="uk-text-small uk-margin-small-top"
+    data-test-presets-reset
+  >
+    <UkIcon @icon="close" @ratio="0.8" />
+    {{t "workItems.presets.reset"}}
+  </LinkTo>
+{{/if}}

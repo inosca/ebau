@@ -1,8 +1,14 @@
 export function getAnswer(document, slugOrSlugs) {
   const slugs = Array.isArray(slugOrSlugs) ? slugOrSlugs : [slugOrSlugs];
-  return document.answers.edges.find((edge) =>
-    slugs.includes(edge.node.question.slug),
-  );
+
+  // find answers in the given list of slugs, respecting the order of the slugs
+  return slugs
+    .map((slug) => {
+      return document.answers.edges.find(
+        (edge) => edge.node.question.slug === slug,
+      );
+    })
+    .filter(Boolean)?.[0];
 }
 
 export function getAnswerDisplayValue(document, slugOrSlugs, useLabel = true) {

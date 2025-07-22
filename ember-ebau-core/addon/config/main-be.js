@@ -6,6 +6,7 @@ export default {
   showInstanceIdAfterSubmission: true,
   documentBackend: "camac",
   showIdInInternalArea: false,
+  showAllOptionInReciepentList: true,
   gwr: {
     cantonAbbreviation: "BE",
     importModels: ["project"],
@@ -26,13 +27,8 @@ export default {
     finishedInternal: 120003,
     rejected: 10000,
     circulation: 20004,
+    correction: 20007,
   },
-  interchangeableForms: [
-    ["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
-    ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
-    ["baugesuch-v3", "baugesuch-generell-v3", "baugesuch-mit-uvp-v3"],
-    ["baugesuch-v5", "baugesuch-generell-v5", "baugesuch-mit-uvp-v5"],
-  ],
   useLocation: false,
   answerSlugs: {
     objectStreet: "strasse-flurname",
@@ -77,18 +73,39 @@ export default {
       ],
     },
   },
+  dmsSharedTemplates: {
+    allowedServiceGroups: [
+      "district", // Leitbehörde RSTA (Regierungsstatthalteramt)
+    ],
+    adminServicesForServiceGroup: {
+      // Leitbehörde RSTA (Regierungsstatthalteramt) : Regierungsstatthalteramt Seeland
+      district: ["rsta-seeland"],
+    },
+  },
+  correction: {
+    instanceState: "correction",
+    allowedInstanceStates: [
+      "circulationInit",
+      "circulation",
+      "in-progress",
+      "in-progress-internal",
+    ],
+  },
   intentSlugs: ["beschreibung-bauvorhaben"],
   freetextSlugs: ["freies-textfeld-1", "freies-textfeld-2"],
   publication: {
     neighbors: {
       task: "information-of-neighbors",
-      startQuestion: "information-of-neighbors-start-date",
-      endQuestion: "information-of-neighbors-end-date",
+      dateRanges: [
+        [
+          "information-of-neighbors-start-date",
+          "information-of-neighbors-end-date",
+        ],
+      ],
     },
     public: {
       task: "fill-publication",
-      startQuestion: "publikation-startdatum",
-      endQuestion: "publikation-ablaufdatum",
+      dateRanges: [["publikation-startdatum", "publikation-ablaufdatum"]],
     },
   },
   decision: {
@@ -203,4 +220,23 @@ export default {
     "rejected",
     "archived",
   ],
+  changeResponsibleService: {
+    serviceGroupsForType: {
+      // This should match the "ACTIVE_SERVICE" configuration in the django
+      // settings
+      municipality: ["municipality", "district", "lead-service"],
+      "construction-control": ["construction-control"],
+    },
+    forbiddenInstanceStates: {
+      municipality: [
+        "sb1",
+        "sb2",
+        "conclusion",
+        "evaluated",
+        "finished",
+        "finishedInternal",
+      ],
+      "construction-control": [],
+    },
+  },
 };

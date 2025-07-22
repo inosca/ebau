@@ -1,0 +1,114 @@
+interactions:
+- request:
+    body: grant_type=client_credentials
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic dHJhZG9zOjEyMw==
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '29'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/sts/dij/identity/connect/token
+  response:
+    body:
+      string: '{"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYwOTMzMDIsImlhdCI6MTc0NjA5MzMwMiwiZXhwIjoxNzQ2MDk2OTAyLCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjA5MzMwMiwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjU0MDkxOUU2NUZGNTk5ODRENTE3NkU3NzkyOURGNzdCIn0.PLuaS1ht9iFPLMgCXFVtu7u9htWD7XlUa1pZoM0uSVL_sMqrtgwyxIQZGiVYfckZKHOx8y5DaJN8eA0d7_W7SgfC73anb2LJF_wROfUwRkRYR_CPUmiDIY_JM6Ce5mBzlEtk38u6ch9mueeASWhV7cmd7lKTF94YzEOQL-dYdD6IrYQNmE31iqSj0wxAkdNBT-iceGS-wM-ey5EL67Zbm0D6h1aVDJYZ62kO7aMtM5yCe_e6aMjuERYCyUJFpj6zGDDpAQulnFoRtYNMaCOkzIsj-mrS0CHNslw35cr69qVhclDE-RNLihAlZaLN1lAFr_CyGvUYixpOyc2Zqjs_aQ","expires_in":3600,"token_type":"Bearer","scope":"metatool"}'
+    headers:
+      Cache-Control:
+      - no-store, no-cache, max-age=0
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 01 May 2025 09:55:02 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '"FULLTEXT[*]"'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjE2NzREQjU0RDY3QURFODE0QjVGRDU5RTcyQjY3MzU0IiwieDV0IjoiY0RXejZYWU9yQUdrMzZ0VWhQcVNkRE1KdnRvIiwidHlwIjoiSldUIn0.eyJpc3MiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkiLCJuYmYiOjE3NDYwOTMzMDIsImlhdCI6MTc0NjA5MzMwMiwiZXhwIjoxNzQ2MDk2OTAyLCJhdWQiOiJodHRwczovL3RyYWRvc2ludDAwMS50ZXN0LmNtaWFnLmNoL3N0cy9kaWovaWRlbnRpdHkvcmVzb3VyY2VzIiwic2NvcGUiOlsibWV0YXRvb2wiXSwiYW1yIjpbImNtaV9idWlsdGluIl0sImNsaWVudF9pZCI6InRyYWRvcyIsInN1YiI6ImRpaiRkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsImF1dGhfdGltZSI6MTc0NjA5MzMwMiwiaWRwIjoibWV0YXRvb2wiLCJ1c2VyX2lkIjoidHJhZG9zLXN2YyIsIm5hbWUiOiJ0cmFkb3Mtc3ZjIiwibmFtZWlkZW50aWZpZXIiOiJkYmM0NzA0N2UwNmU0ZTA1ODU0NTg1YjUwNzBiMzg1MSIsInVzZXJfZ3VpZCI6ImRiYzQ3MDQ3ZTA2ZTRlMDU4NTQ1ODViNTA3MGIzODUxIiwiZnVsbG5hbWUiOiJ0cmFkb3Mtc3ZjIiwiYXBpX3NlcnZlciI6ImRpaiIsInRlbmFudCI6InRyYWRvcyIsImp0aSI6IjU0MDkxOUU2NUZGNTk5ODRENTE3NkU3NzkyOURGNzdCIn0.PLuaS1ht9iFPLMgCXFVtu7u9htWD7XlUa1pZoM0uSVL_sMqrtgwyxIQZGiVYfckZKHOx8y5DaJN8eA0d7_W7SgfC73anb2LJF_wROfUwRkRYR_CPUmiDIY_JM6Ce5mBzlEtk38u6ch9mueeASWhV7cmd7lKTF94YzEOQL-dYdD6IrYQNmE31iqSj0wxAkdNBT-iceGS-wM-ey5EL67Zbm0D6h1aVDJYZ62kO7aMtM5yCe_e6aMjuERYCyUJFpj6zGDDpAQulnFoRtYNMaCOkzIsj-mrS0CHNslw35cr69qVhclDE-RNLihAlZaLN1lAFr_CyGvUYixpOyc2Zqjs_aQ
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '13'
+      User-Agent:
+      - python-requests/2.32.3
+      content-type:
+      - application/json
+    method: POST
+    uri: https://tradosint001.test.cmiag.ch/api/dij/groups/ebau/CustomErledigungsart/Search
+  response:
+    body:
+      string: "[{\"guid\":\"018d4c40-edf2-4e00-ae43-be395db55f35\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Voranfrage
+        mit Vorbehalt positiv (Projekt muss angepasst werden)\",\"inaktiv\":false},{\"guid\":\"0289dc0c-cbcc-40ef-9d2a-e0a74111894d\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Positiv
+        (Koordination BGBB / Schiessanlagen / Voranfragen L\xE4rm nach LSV Art. 31)\",\"inaktiv\":false},{\"guid\":\"1ab6729c-5b31-416e-b8bc-74752ce1bd96\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        18a RPG positiv\",\"inaktiv\":false},{\"guid\":\"1d2504de-521f-4e9f-8264-f05095a2161c\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24e RPG negativ\",\"inaktiv\":false},{\"guid\":\"28e75a9f-55f4-4284-a283-5193cbdbb398\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24d2 RPG negativ\",\"inaktiv\":false},{\"guid\":\"2e77c8d8-859b-4c71-9ed7-be2a65c4b74e\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Voranfrage
+        positiv\",\"inaktiv\":false},{\"guid\":\"36f729aa-bbfa-48e2-9186-33d44318bebe\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24a RPG negativ\",\"inaktiv\":false},{\"guid\":\"3fd3f312-84f7-437b-a6f0-f8bef73209b4\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24c RPG positiv\",\"inaktiv\":false},{\"guid\":\"437ed84e-1177-40c5-911c-02d59209e51e\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        39 RPV negativ\",\"inaktiv\":false},{\"guid\":\"4d84540b-9c2d-43ea-9ae3-3ca10cb0cbb7\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        16/22 RPG negativ\",\"inaktiv\":false},{\"guid\":\"63e4a449-abad-40ad-b537-4dbad7a971a9\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        18a RPG negativ\",\"inaktiv\":false},{\"guid\":\"63fdf140-944e-43d0-a405-cbc327b41010\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        16/22 RPG positiv\",\"inaktiv\":false},{\"guid\":\"6da885a1-3ad6-493f-ba9a-86c5c60910b5\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Fachbericht
+        (Beratung durch OLK / Koordination Mobilfunkanlagen)\",\"inaktiv\":false},{\"guid\":\"7265f9aa-ca32-4243-94f1-d1dc8b61d52b\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"R\xFCckweisung
+        recht. Geh\xF6r\",\"inaktiv\":false},{\"guid\":\"796b4763-9ac2-48a3-b368-81edbfa7b83b\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24c RPG negativ\",\"inaktiv\":false},{\"guid\":\"8a13a6e3-ec2f-4686-b665-f4a0e82e3f98\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24d1 RPG negativ\",\"inaktiv\":false},{\"guid\":\"8cc2e329-d3f5-4f8b-a49f-01b6fd39765b\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        37a RPG positiv\",\"inaktiv\":false},{\"guid\":\"8cfd8b85-c10a-4ad3-89c5-c343e427290b\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24e RPG positiv\",\"inaktiv\":false},{\"guid\":\"8ffe6475-4abd-4655-9de4-3d2508dbf65d\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24a RPG positiv\",\"inaktiv\":false},{\"guid\":\"a16ac3d6-1e3e-4c35-96df-c283435b8b8e\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24 RPG positiv\",\"inaktiv\":false},{\"guid\":\"a1b795c0-1101-4268-a226-68207920eca4\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24a RPG positiv\",\"inaktiv\":false},{\"guid\":\"ac6f8456-ff76-4f11-ac4d-afff8d2f99cc\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24b RPG positiv\",\"inaktiv\":false},{\"guid\":\"c7158953-cec9-4c78-a1ed-6943aeb7e91d\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24 RPG negativ\",\"inaktiv\":false},{\"guid\":\"cc660f73-b48f-4591-978c-09d493c6374e\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24d2 RPG positiv\",\"inaktiv\":false},{\"guid\":\"d174748d-d7f5-4aef-842f-277e46163e51\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Zur\xFCckgezogen\",\"inaktiv\":false},{\"guid\":\"e86f346e-7278-41e5-aa02-945ae9efd595\",\"version\":1,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Augenschein
+        (Stellungnahme OLK / Schiessanlagen / L\xE4rm mil. Anlagen)\",\"inaktiv\":false},{\"guid\":\"f1496579-ff46-4480-9b1e-5a6c43069122\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        24d1 RPG positiv\",\"inaktiv\":false},{\"guid\":\"f7c151c8-501d-4521-a3ce-de929e26e52e\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Voranfrage
+        negativ\",\"inaktiv\":false},{\"guid\":\"fb1bd8ce-e6d3-4cb0-8bee-5e95af2879ac\",\"version\":0,\"typeName\":\"Erledigungsart\",\"bezeichnung\":\"Art.
+        39 RPV positiv\",\"inaktiv\":false}]"
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 01 May 2025 09:55:06 GMT
+      Server:
+      - Microsoft-IIS/10.0
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains, preload
+      Transfer-Encoding:
+      - chunked
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+version: 1

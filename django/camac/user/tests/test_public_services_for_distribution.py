@@ -124,23 +124,82 @@ def test_ur_municipality_coordination_suggestions(
     data = response.json()["data"]
 
     if role.name == "Sekretariat der Gemeindebaubehörde":
-        assert any(
-            item["attributes"]["name"] == "ARE KOOR BG" for item in data
-        ), "ARE KOOR BG should be visible for municipalities"
-        assert any(
-            item["attributes"]["name"] == "ARE KOOR NP" for item in data
-        ), "ARE KOOR NP should be visible for municipalities"
-        assert not any(
-            item["attributes"]["name"] == "ARE KOOR BD" for item in data
-        ), "ARE KOOR BD should not be visible for municipalities"
+        assert any(item["attributes"]["name"] == "ARE KOOR BG" for item in data), (
+            "ARE KOOR BG should be visible for municipalities"
+        )
+        assert any(item["attributes"]["name"] == "ARE KOOR NP" for item in data), (
+            "ARE KOOR NP should be visible for municipalities"
+        )
+        assert not any(item["attributes"]["name"] == "ARE KOOR BD" for item in data), (
+            "ARE KOOR BD should not be visible for municipalities"
+        )
 
     if role.name == "Koordinationsstelle Baudirektion BD":
-        assert any(
-            item["attributes"]["name"] == "ARE KOOR BG" for item in data
-        ), "ARE KOOR BG should always be visible for KOORS"
-        assert any(
-            item["attributes"]["name"] == "ARE KOOR NP" for item in data
-        ), "ARE KOOR NP should always be visible for KOORS"
-        assert any(
-            item["attributes"]["name"] == "ARE KOOR BD" for item in data
-        ), "ARE KOOR BD should always be visible for KOORS"
+        assert any(item["attributes"]["name"] == "ARE KOOR BG" for item in data), (
+            "ARE KOOR BG should always be visible for KOORS"
+        )
+        assert any(item["attributes"]["name"] == "ARE KOOR NP" for item in data), (
+            "ARE KOOR NP should always be visible for KOORS"
+        )
+        assert any(item["attributes"]["name"] == "ARE KOOR BD" for item in data), (
+            "ARE KOOR BD should always be visible for KOORS"
+        )
+
+
+@pytest.mark.parametrize(
+    "service_group__name,is_authority,expected_services",
+    [
+        ("service", False, {"subservice-1", "service-1"}),
+        ("municipality", True, {"subservice-1", "service-2", "service-3"}),
+        ("municipality", False, {"subservice-1"}),
+    ],
+)
+def test_distribution_services(
+    admin_client,
+    service_factory,
+    service,
+    instance,
+    distribution_settings,
+    mocker,
+    is_authority,
+    expected_services,
+):
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service if is_authority else service_factory(),
+    )
+
+    distribution_settings["AVAILABLE_SERVICES_FOR_INQUIRY"] = {
+        "service": [{"include": [("service_groups", ["service"])]}],
+        "authority": [
+            {"include": [("service_groups", ["external"]), ("services", ["service-3"])]}
+        ],
+    }
+
+    for slug, service_group_name, service_parent in [
+        ("service-1", "service", None),
+        ("service-2", "external", None),
+        ("service-3", "some-other", None),
+        ("subservice-1", "service", service),
+        ("subservice-2", "service", service_factory()),
+    ]:
+        service_factory(
+            slug=slug,
+            name=slug,
+            service_group__name=service_group_name,
+            service_parent=service_parent,
+        )
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        {
+            "available_in_distribution_for_instance": instance.pk,
+            "exclude_own_service": True,
+        },
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert (
+        set([i["attributes"]["name"] for i in response.json()["data"]])
+        == expected_services
+    )

@@ -8,13 +8,17 @@
       "name": "Ad",
       "surname": "min",
       "email": "admin@example.com",
-      "phone": null,
+      "phone": "",
       "disabled": 0,
       "language": "de",
-      "last_login": "2023-12-06T13:24:21.883Z",
-      "address": null,
-      "city": null,
-      "zip": null
+      "last_login": "2025-04-28T11:59:46.032Z",
+      "address": "",
+      "city": "",
+      "zip": "",
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
     }
   },
   {
@@ -32,7 +36,11 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
     }
   },
   {
@@ -50,7 +58,11 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
     }
   },
   {
@@ -68,7 +80,11 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
     }
   },
   {
@@ -86,7 +102,11 @@
       "last_login": null,
       "address": "Giessereiweg 5 Adresszusatz",
       "city": "Bern",
-      "zip": "3013"
+      "zip": "3013",
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
     }
   },
   {
@@ -104,7 +124,11 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
     }
   },
   {
@@ -122,7 +146,11 @@
       "last_login": null,
       "address": "",
       "city": "",
-      "zip": ""
+      "zip": "",
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
     }
   },
   {
@@ -140,7 +168,11 @@
       "last_login": null,
       "address": null,
       "city": null,
-      "zip": null
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
     }
   },
   {
@@ -1507,10 +1539,10 @@
     "model": "user.group",
     "pk": 322,
     "fields": {
-      "role": 1081,
+      "role": 4,
       "service": 366,
       "disabled": 0,
-      "name": "Qualinova",
+      "name": "Aniterra (vormals Qualinova)",
       "phone": null,
       "zip": null,
       "city": null,
@@ -5005,6 +5037,7 @@
     "model": "user.service",
     "pk": 1,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "ARE KOOR BG",
@@ -5020,6 +5053,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5027,6 +5061,7 @@
     "model": "user.service",
     "pk": 2,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "AFJ",
@@ -5042,6 +5077,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5049,6 +5085,7 @@
     "model": "user.service",
     "pk": 3,
     "fields": {
+      "slug": null,
       "service_group": 64,
       "service_parent": null,
       "name": "AfAM",
@@ -5064,6 +5101,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5071,6 +5109,7 @@
     "model": "user.service",
     "pk": 21,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "AfU",
@@ -5086,6 +5125,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5093,6 +5133,7 @@
     "model": "user.service",
     "pk": 41,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "BD DS",
@@ -5108,6 +5149,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5115,6 +5157,7 @@
     "model": "user.service",
     "pk": 61,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "ABM ZS",
@@ -5130,6 +5173,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5137,6 +5181,7 @@
     "model": "user.service",
     "pk": 81,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "ABM BS",
@@ -5152,6 +5197,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5159,6 +5205,7 @@
     "model": "user.service",
     "pk": 82,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Procap",
@@ -5174,6 +5221,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5181,6 +5229,7 @@
     "model": "user.service",
     "pk": 83,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "AWU",
@@ -5196,6 +5245,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5203,6 +5253,7 @@
     "model": "user.service",
     "pk": 84,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "LABT (Trinkwasserinspektorat, ausser Betrieb Umstrukturierung LAB)",
@@ -5218,6 +5269,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5225,6 +5277,7 @@
     "model": "user.service",
     "pk": 85,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "LABL (Lebensmittelinspektorat)",
@@ -5240,6 +5293,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5247,6 +5301,7 @@
     "model": "user.service",
     "pk": 86,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "LABV (Veterinärdienst der Urkantone)",
@@ -5262,6 +5317,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5269,6 +5325,7 @@
     "model": "user.service",
     "pk": 87,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "ARE KOOR NP",
@@ -5284,6 +5341,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5291,6 +5349,7 @@
     "model": "user.service",
     "pk": 88,
     "fields": {
+      "slug": "bab-kreis-1",
       "service_group": 61,
       "service_parent": null,
       "name": "ARE BaB Kreis 1",
@@ -5306,6 +5365,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5313,6 +5373,7 @@
     "model": "user.service",
     "pk": 89,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "TRA",
@@ -5328,6 +5389,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5335,6 +5397,7 @@
     "model": "user.service",
     "pk": 90,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE NP",
@@ -5350,6 +5413,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5357,6 +5421,7 @@
     "model": "user.service",
     "pk": 91,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE ARCH",
@@ -5372,6 +5437,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5379,6 +5445,7 @@
     "model": "user.service",
     "pk": 92,
     "fields": {
+      "slug": null,
       "service_group": 66,
       "service_parent": null,
       "name": "Amt für Steuern",
@@ -5394,6 +5461,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5401,6 +5469,7 @@
     "model": "user.service",
     "pk": 93,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "AfKP",
@@ -5416,6 +5485,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5423,6 +5493,7 @@
     "model": "user.service",
     "pk": 94,
     "fields": {
+      "slug": null,
       "service_group": 65,
       "service_parent": null,
       "name": "AfKS",
@@ -5438,6 +5509,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5445,6 +5517,7 @@
     "model": "user.service",
     "pk": 95,
     "fields": {
+      "slug": null,
       "service_group": 64,
       "service_parent": null,
       "name": "AfWoeV",
@@ -5460,6 +5533,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5467,6 +5541,7 @@
     "model": "user.service",
     "pk": 96,
     "fields": {
+      "slug": null,
       "service_group": 64,
       "service_parent": null,
       "name": "ALA",
@@ -5482,6 +5557,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5489,6 +5565,7 @@
     "model": "user.service",
     "pk": 97,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Alpiq",
@@ -5504,6 +5581,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5511,6 +5589,7 @@
     "model": "user.service",
     "pk": 98,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE NL",
@@ -5526,6 +5605,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5533,6 +5613,7 @@
     "model": "user.service",
     "pk": 99,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE SU",
@@ -5548,6 +5629,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5555,6 +5637,7 @@
     "model": "user.service",
     "pk": 100,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE WBF",
@@ -5570,6 +5653,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5577,6 +5661,7 @@
     "model": "user.service",
     "pk": 101,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "ASSV",
@@ -5592,6 +5677,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5599,6 +5685,7 @@
     "model": "user.service",
     "pk": 102,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "Test",
@@ -5614,6 +5701,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5621,6 +5709,7 @@
     "model": "user.service",
     "pk": 103,
     "fields": {
+      "slug": null,
       "service_group": 71,
       "service_parent": null,
       "name": "SBB AG (Pendenz von Koordinationstelle)",
@@ -5636,6 +5725,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5643,6 +5733,7 @@
     "model": "user.service",
     "pk": 104,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "BeDi",
@@ -5658,6 +5749,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5665,6 +5757,7 @@
     "model": "user.service",
     "pk": 105,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ReDi",
@@ -5680,6 +5773,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5687,6 +5781,7 @@
     "model": "user.service",
     "pk": 106,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "JD DS",
@@ -5702,6 +5797,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5709,6 +5805,7 @@
     "model": "user.service",
     "pk": 107,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE BG",
@@ -5724,6 +5821,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5731,6 +5829,7 @@
     "model": "user.service",
     "pk": 108,
     "fields": {
+      "slug": null,
       "service_group": 74,
       "service_parent": null,
       "name": "LSSV (Landschaftsschutzverband Vierwaldstättersee)",
@@ -5746,6 +5845,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5753,6 +5853,7 @@
     "model": "user.service",
     "pk": 121,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "TEST KOORNP",
@@ -5768,6 +5869,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5775,6 +5877,7 @@
     "model": "user.service",
     "pk": 141,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "BAV",
@@ -5790,6 +5893,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5797,6 +5901,7 @@
     "model": "user.service",
     "pk": 161,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "ZAKU",
@@ -5812,6 +5917,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5819,6 +5925,7 @@
     "model": "user.service",
     "pk": 181,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "AGO (Geometer)",
@@ -5834,6 +5941,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5841,6 +5949,7 @@
     "model": "user.service",
     "pk": 201,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Lisag",
@@ -5856,6 +5965,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5863,6 +5973,7 @@
     "model": "user.service",
     "pk": 221,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "ZUBI",
@@ -5878,6 +5989,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5885,6 +5997,7 @@
     "model": "user.service",
     "pk": 241,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE DMP",
@@ -5900,6 +6013,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5907,6 +6021,7 @@
     "model": "user.service",
     "pk": 261,
     "fields": {
+      "slug": "bab-kreis-2",
       "service_group": 61,
       "service_parent": null,
       "name": "ARE BaB Kreis 2",
@@ -5922,6 +6037,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5929,6 +6045,7 @@
     "model": "user.service",
     "pk": 262,
     "fields": {
+      "slug": "bab-kreis-3",
       "service_group": 61,
       "service_parent": null,
       "name": "ARE BaB Kreis 3",
@@ -5944,6 +6061,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5951,6 +6069,7 @@
     "model": "user.service",
     "pk": 281,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Andermatt Pendenzen",
@@ -5966,6 +6085,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5973,6 +6093,7 @@
     "model": "user.service",
     "pk": 301,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Altdorf Pendenzen",
@@ -5988,6 +6109,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -5995,6 +6117,7 @@
     "model": "user.service",
     "pk": 302,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR BD",
@@ -6010,6 +6133,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6017,6 +6141,7 @@
     "model": "user.service",
     "pk": 303,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfT Abteilung Infrastruktur",
@@ -6032,6 +6157,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6039,6 +6165,7 @@
     "model": "user.service",
     "pk": 304,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfT Abteilung Projekte",
@@ -6054,6 +6181,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6061,6 +6189,7 @@
     "model": "user.service",
     "pk": 305,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "BK",
@@ -6076,6 +6205,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6083,6 +6213,7 @@
     "model": "user.service",
     "pk": 306,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfE",
@@ -6098,6 +6229,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6105,6 +6237,7 @@
     "model": "user.service",
     "pk": 307,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfBN",
@@ -6120,6 +6253,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6127,6 +6261,7 @@
     "model": "user.service",
     "pk": 308,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfH",
@@ -6142,6 +6277,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6149,6 +6285,7 @@
     "model": "user.service",
     "pk": 309,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "ASTRA",
@@ -6164,6 +6301,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6171,6 +6309,7 @@
     "model": "user.service",
     "pk": 310,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "BVP",
@@ -6186,6 +6325,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6193,6 +6333,7 @@
     "model": "user.service",
     "pk": 321,
     "fields": {
+      "slug": null,
       "service_group": 64,
       "service_parent": null,
       "name": "BGBB",
@@ -6208,6 +6349,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6215,6 +6357,7 @@
     "model": "user.service",
     "pk": 322,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Attinghausen Pendenzen",
@@ -6230,6 +6373,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6237,6 +6381,7 @@
     "model": "user.service",
     "pk": 323,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Seedorf (Ortsteil Bauen) Pendenzen",
@@ -6252,6 +6397,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6259,6 +6405,7 @@
     "model": "user.service",
     "pk": 324,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Bürglen Pendenzen",
@@ -6274,6 +6421,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6281,6 +6429,7 @@
     "model": "user.service",
     "pk": 325,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Erstfeld Pendenzen",
@@ -6296,6 +6445,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6303,6 +6453,7 @@
     "model": "user.service",
     "pk": 326,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Flüelen Pendenzen",
@@ -6318,6 +6469,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6325,6 +6477,7 @@
     "model": "user.service",
     "pk": 327,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Göschenen Pendenzen",
@@ -6340,6 +6493,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6347,6 +6501,7 @@
     "model": "user.service",
     "pk": 328,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Gurtnellen Pendenzen",
@@ -6362,6 +6517,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6369,6 +6525,7 @@
     "model": "user.service",
     "pk": 329,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Hospental Pendenzen",
@@ -6384,6 +6541,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6391,6 +6549,7 @@
     "model": "user.service",
     "pk": 330,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Isenthal Pendenzen",
@@ -6406,6 +6565,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6413,6 +6573,7 @@
     "model": "user.service",
     "pk": 331,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Realp Pendenzen",
@@ -6428,6 +6589,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6435,6 +6597,7 @@
     "model": "user.service",
     "pk": 332,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Schattdorf Pendenzen",
@@ -6450,6 +6613,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6457,6 +6621,7 @@
     "model": "user.service",
     "pk": 333,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Seedorf Pendenzen",
@@ -6472,6 +6637,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6479,6 +6645,7 @@
     "model": "user.service",
     "pk": 334,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Seelisberg Pendenzen",
@@ -6494,6 +6661,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6501,6 +6669,7 @@
     "model": "user.service",
     "pk": 335,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Silenen Pendenzen",
@@ -6516,6 +6685,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6523,6 +6693,7 @@
     "model": "user.service",
     "pk": 336,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Sisikon Pendenzen",
@@ -6538,6 +6709,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6545,6 +6717,7 @@
     "model": "user.service",
     "pk": 337,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Spiringen Pendenzen",
@@ -6560,6 +6733,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6567,6 +6741,7 @@
     "model": "user.service",
     "pk": 338,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Unterschächen Pendenzen",
@@ -6582,6 +6757,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6589,6 +6765,7 @@
     "model": "user.service",
     "pk": 339,
     "fields": {
+      "slug": null,
       "service_group": 41,
       "service_parent": null,
       "name": "Gemeinderat Wassen Pendenzen",
@@ -6604,6 +6781,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6611,6 +6789,7 @@
     "model": "user.service",
     "pk": 340,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "ENHK (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstelle)",
@@ -6626,6 +6805,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6633,6 +6813,7 @@
     "model": "user.service",
     "pk": 341,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "NHSK (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstelle)",
@@ -6648,6 +6829,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6655,6 +6837,7 @@
     "model": "user.service",
     "pk": 342,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Altdorf",
@@ -6670,6 +6853,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6677,6 +6861,7 @@
     "model": "user.service",
     "pk": 343,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Urner Oberland",
@@ -6692,6 +6877,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6699,6 +6885,7 @@
     "model": "user.service",
     "pk": 344,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Andermatt",
@@ -6714,6 +6901,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6721,6 +6909,7 @@
     "model": "user.service",
     "pk": 345,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Miktglieder BK Attinghausen",
@@ -6736,6 +6925,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6743,6 +6933,7 @@
     "model": "user.service",
     "pk": 346,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Altdorf",
@@ -6758,6 +6949,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6765,6 +6957,7 @@
     "model": "user.service",
     "pk": 347,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Andermatt",
@@ -6780,6 +6973,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6787,6 +6981,7 @@
     "model": "user.service",
     "pk": 348,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Attinghausen",
@@ -6802,6 +6997,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6809,6 +7005,7 @@
     "model": "user.service",
     "pk": 349,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Bauen",
@@ -6824,6 +7021,7 @@
       "disabled": 1,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6831,6 +7029,7 @@
     "model": "user.service",
     "pk": 350,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Bürglen",
@@ -6846,6 +7045,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6853,6 +7053,7 @@
     "model": "user.service",
     "pk": 351,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Erstfeld",
@@ -6868,6 +7069,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6875,6 +7077,7 @@
     "model": "user.service",
     "pk": 352,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Flüelen",
@@ -6890,6 +7093,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6897,6 +7101,7 @@
     "model": "user.service",
     "pk": 353,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Urner Oberland",
@@ -6912,6 +7117,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6919,6 +7125,7 @@
     "model": "user.service",
     "pk": 354,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Hospental",
@@ -6934,6 +7141,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6941,6 +7149,7 @@
     "model": "user.service",
     "pk": 355,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Isenthal",
@@ -6956,6 +7165,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6963,6 +7173,7 @@
     "model": "user.service",
     "pk": 356,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Realp",
@@ -6978,6 +7189,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -6985,6 +7197,7 @@
     "model": "user.service",
     "pk": 357,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Schattdorf",
@@ -7000,6 +7213,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7007,6 +7221,7 @@
     "model": "user.service",
     "pk": 358,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Seedorf",
@@ -7022,6 +7237,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7029,6 +7245,7 @@
     "model": "user.service",
     "pk": 359,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Seelisberg",
@@ -7044,6 +7261,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7051,6 +7269,7 @@
     "model": "user.service",
     "pk": 360,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Silenen",
@@ -7066,6 +7285,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7073,6 +7293,7 @@
     "model": "user.service",
     "pk": 361,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Sisikon",
@@ -7088,6 +7309,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7095,6 +7317,7 @@
     "model": "user.service",
     "pk": 362,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Spiringen",
@@ -7110,6 +7333,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7117,6 +7341,7 @@
     "model": "user.service",
     "pk": 363,
     "fields": {
+      "slug": null,
       "service_group": 68,
       "service_parent": null,
       "name": "GBB Unterschächen",
@@ -7132,6 +7357,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7139,6 +7365,7 @@
     "model": "user.service",
     "pk": 364,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Erstfeld",
@@ -7154,6 +7381,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7161,6 +7389,7 @@
     "model": "user.service",
     "pk": 365,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Schattdorf",
@@ -7176,6 +7405,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7183,10 +7413,11 @@
     "model": "user.service",
     "pk": 366,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "name": "Qualinova (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
-      "description": "Qualinova",
+      "name": "Aniterra",
+      "description": "Aniterra (vormals Qualinova)",
       "sort": 2,
       "phone": null,
       "zip": null,
@@ -7198,6 +7429,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7205,6 +7437,7 @@
     "model": "user.service",
     "pk": 367,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Bauen",
@@ -7220,6 +7453,7 @@
       "disabled": 1,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7227,6 +7461,7 @@
     "model": "user.service",
     "pk": 368,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Bürglen",
@@ -7242,6 +7477,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7249,6 +7485,7 @@
     "model": "user.service",
     "pk": 369,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Flüelen",
@@ -7264,6 +7501,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7271,6 +7509,7 @@
     "model": "user.service",
     "pk": 370,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Seedorf",
@@ -7286,6 +7525,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7293,6 +7533,7 @@
     "model": "user.service",
     "pk": 371,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Seelisberg",
@@ -7308,6 +7549,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7315,6 +7557,7 @@
     "model": "user.service",
     "pk": 372,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Silenen",
@@ -7330,6 +7573,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7337,6 +7581,7 @@
     "model": "user.service",
     "pk": 380,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Sisikon",
@@ -7352,6 +7597,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7359,6 +7605,7 @@
     "model": "user.service",
     "pk": 381,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Realp",
@@ -7374,6 +7621,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7381,6 +7629,7 @@
     "model": "user.service",
     "pk": 382,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Hospental",
@@ -7396,6 +7645,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7403,6 +7653,7 @@
     "model": "user.service",
     "pk": 383,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Isenthal",
@@ -7418,6 +7669,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7425,6 +7677,7 @@
     "model": "user.service",
     "pk": 384,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Spiringen",
@@ -7440,6 +7693,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7447,6 +7701,7 @@
     "model": "user.service",
     "pk": 385,
     "fields": {
+      "slug": null,
       "service_group": 67,
       "service_parent": null,
       "name": "Mitglieder BK Unterschächen",
@@ -7462,6 +7717,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7469,6 +7725,7 @@
     "model": "user.service",
     "pk": 400,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "FGS",
@@ -7484,6 +7741,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7491,6 +7749,7 @@
     "model": "user.service",
     "pk": 420,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "AfdG",
@@ -7506,6 +7765,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7513,6 +7773,7 @@
     "model": "user.service",
     "pk": 440,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "ABM",
@@ -7528,6 +7789,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7535,6 +7797,7 @@
     "model": "user.service",
     "pk": 460,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE",
@@ -7550,6 +7813,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7557,6 +7821,7 @@
     "model": "user.service",
     "pk": 461,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "BAFU (Service noch nicht in Betrieb)",
@@ -7572,6 +7837,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7579,6 +7845,7 @@
     "model": "user.service",
     "pk": 462,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "ARE Bern (Service noch nicht in Betrieb)",
@@ -7594,6 +7861,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7601,6 +7869,7 @@
     "model": "user.service",
     "pk": 481,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Brandschutz TRA Andermatt",
@@ -7616,6 +7885,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7623,6 +7893,7 @@
     "model": "user.service",
     "pk": 501,
     "fields": {
+      "slug": null,
       "service_group": 65,
       "service_parent": null,
       "name": "BKD DS",
@@ -7638,6 +7909,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7645,6 +7917,7 @@
     "model": "user.service",
     "pk": 502,
     "fields": {
+      "slug": null,
       "service_group": 66,
       "service_parent": null,
       "name": "Fachstelle Statistik",
@@ -7660,6 +7933,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7667,6 +7941,7 @@
     "model": "user.service",
     "pk": 503,
     "fields": {
+      "slug": null,
       "service_group": 66,
       "service_parent": null,
       "name": "FD DS",
@@ -7682,6 +7957,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7689,6 +7965,7 @@
     "model": "user.service",
     "pk": 504,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "Amt für Soziales",
@@ -7704,6 +7981,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7711,6 +7989,7 @@
     "model": "user.service",
     "pk": 521,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "GSUD DS",
@@ -7726,6 +8005,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7733,6 +8013,7 @@
     "model": "user.service",
     "pk": 522,
     "fields": {
+      "slug": null,
       "service_group": 63,
       "service_parent": null,
       "name": "SID DS",
@@ -7748,6 +8029,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7755,6 +8037,7 @@
     "model": "user.service",
     "pk": 523,
     "fields": {
+      "slug": null,
       "service_group": 64,
       "service_parent": null,
       "name": "VD DS",
@@ -7770,6 +8053,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7777,6 +8061,7 @@
     "model": "user.service",
     "pk": 524,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR AfU",
@@ -7792,6 +8077,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7799,6 +8085,7 @@
     "model": "user.service",
     "pk": 525,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR ALA",
@@ -7814,6 +8101,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7821,6 +8109,7 @@
     "model": "user.service",
     "pk": 545,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR AfE",
@@ -7836,6 +8125,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7843,6 +8133,7 @@
     "model": "user.service",
     "pk": 546,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR AFJ",
@@ -7858,6 +8149,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7865,6 +8157,7 @@
     "model": "user.service",
     "pk": 547,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "LABB (Badewasserinspektorat)",
@@ -7880,6 +8173,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7887,6 +8181,7 @@
     "model": "user.service",
     "pk": 548,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Korporation Uri (Service noch nicht in Betrieb)",
@@ -7902,6 +8197,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7909,6 +8205,7 @@
     "model": "user.service",
     "pk": 549,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Korporation Ursern (Service noch nicht in Betrieb)",
@@ -7924,6 +8221,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7931,6 +8229,7 @@
     "model": "user.service",
     "pk": 567,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "AfU GS",
@@ -7946,6 +8245,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7953,6 +8253,7 @@
     "model": "user.service",
     "pk": 568,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "AfU IS",
@@ -7968,6 +8269,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7975,6 +8277,7 @@
     "model": "user.service",
     "pk": 587,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfBN Baupolizei",
@@ -7990,6 +8293,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -7997,6 +8301,7 @@
     "model": "user.service",
     "pk": 588,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "AfU GS Wärmenutzung",
@@ -8012,6 +8317,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8019,6 +8325,7 @@
     "model": "user.service",
     "pk": 589,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Monitron (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
@@ -8034,6 +8341,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8041,6 +8349,7 @@
     "model": "user.service",
     "pk": 590,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR SD",
@@ -8056,6 +8365,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8063,6 +8373,7 @@
     "model": "user.service",
     "pk": 591,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "VBS Schiesswesen",
@@ -8078,6 +8389,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8085,6 +8397,7 @@
     "model": "user.service",
     "pk": 592,
     "fields": {
+      "slug": null,
       "service_group": 71,
       "service_parent": null,
       "name": "Swissgrid (Pendenz von Koordinationstelle)",
@@ -8100,6 +8413,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8107,6 +8421,7 @@
     "model": "user.service",
     "pk": 593,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Gemeindewerke Erstfeld",
@@ -8122,6 +8437,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8129,6 +8445,7 @@
     "model": "user.service",
     "pk": 594,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": "AfT",
@@ -8144,6 +8461,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8151,6 +8469,7 @@
     "model": "user.service",
     "pk": 595,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Wasserkommission Altdorf",
@@ -8166,6 +8485,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8173,6 +8493,7 @@
     "model": "user.service",
     "pk": 596,
     "fields": {
+      "slug": null,
       "service_group": 71,
       "service_parent": null,
       "name": "MGB (Pendenz von Koordinationstelle)",
@@ -8188,6 +8509,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8195,6 +8517,7 @@
     "model": "user.service",
     "pk": 597,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Bauabteilung Altdorf Ortsplanung",
@@ -8210,6 +8533,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8217,6 +8541,7 @@
     "model": "user.service",
     "pk": 598,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Bauabteilung Altdorf Tiefbau",
@@ -8232,6 +8557,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8239,6 +8565,7 @@
     "model": "user.service",
     "pk": 599,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Feuerwehr Altdorf",
@@ -8254,6 +8581,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8261,6 +8589,7 @@
     "model": "user.service",
     "pk": 600,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Bauabteilung Altdorf Liegenschaften",
@@ -8276,6 +8605,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8283,6 +8613,7 @@
     "model": "user.service",
     "pk": 601,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "Armasuisse Immobilien",
@@ -8298,6 +8629,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8305,6 +8637,7 @@
     "model": "user.service",
     "pk": 602,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "BAZL",
@@ -8320,6 +8653,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8327,6 +8661,7 @@
     "model": "user.service",
     "pk": 603,
     "fields": {
+      "slug": null,
       "service_group": 74,
       "service_parent": null,
       "name": "VCS Uri",
@@ -8342,6 +8677,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8349,6 +8685,7 @@
     "model": "user.service",
     "pk": 604,
     "fields": {
+      "slug": null,
       "service_group": 72,
       "service_parent": null,
       "name": "Swissgrid (Pendenz von Gemeinde)",
@@ -8364,6 +8701,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8371,6 +8709,7 @@
     "model": "user.service",
     "pk": 605,
     "fields": {
+      "slug": null,
       "service_group": 72,
       "service_parent": null,
       "name": "MGB (Pendenz von Gemeinde)",
@@ -8386,6 +8725,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8393,6 +8733,7 @@
     "model": "user.service",
     "pk": 626,
     "fields": {
+      "slug": null,
       "service_group": 72,
       "service_parent": null,
       "name": "SBB AG (Pendenz von Gemeinde)",
@@ -8408,6 +8749,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8415,6 +8757,7 @@
     "model": "user.service",
     "pk": 627,
     "fields": {
+      "slug": null,
       "service_group": 74,
       "service_parent": null,
       "name": "WWF Uri",
@@ -8430,6 +8773,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8437,6 +8781,7 @@
     "model": "user.service",
     "pk": 628,
     "fields": {
+      "slug": null,
       "service_group": 74,
       "service_parent": null,
       "name": "Pro Natura Uri",
@@ -8452,6 +8797,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8459,6 +8805,7 @@
     "model": "user.service",
     "pk": 629,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Wasserversorgungskommission Spiringen",
@@ -8474,6 +8821,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8481,6 +8829,7 @@
     "model": "user.service",
     "pk": 630,
     "fields": {
+      "slug": null,
       "service_group": 62,
       "service_parent": null,
       "name": "Amt für Gesundheit",
@@ -8496,6 +8845,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8503,6 +8853,7 @@
     "model": "user.service",
     "pk": 631,
     "fields": {
+      "slug": null,
       "service_group": 69,
       "service_parent": null,
       "name": "Wasserversorgungskommission Urnerboden",
@@ -8518,6 +8869,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8525,6 +8877,7 @@
     "model": "user.service",
     "pk": 632,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Inventar Historische Verkehrswege IVS (Dossierzuweisung via Fachstelle)",
@@ -8540,6 +8893,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8547,6 +8901,7 @@
     "model": "user.service",
     "pk": 633,
     "fields": {
+      "slug": null,
       "service_group": 70,
       "service_parent": null,
       "name": "Armasuisse Wissenschaft und Technologie",
@@ -8562,6 +8917,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8569,6 +8925,7 @@
     "model": "user.service",
     "pk": 634,
     "fields": {
+      "slug": null,
       "service_group": 61,
       "service_parent": null,
       "name": "ARE Fachstelle Agglomerationsprogramm",
@@ -8584,6 +8941,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8591,6 +8949,7 @@
     "model": "user.service",
     "pk": 635,
     "fields": {
+      "slug": null,
       "service_group": 21,
       "service_parent": null,
       "name": "Fachstelle IKSS (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
@@ -8606,6 +8965,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -8613,6 +8973,7 @@
     "model": "user.service",
     "pk": 636,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": "KOOR AfG",
@@ -8628,6 +8989,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   }

@@ -51,7 +51,7 @@ export default class BeDashboardComponent extends Component {
       });
 
       this.edit = false;
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("dashboard.save-error"));
     }
   }
@@ -67,7 +67,7 @@ export default class BeDashboardComponent extends Component {
       this.documentId = response.allDocuments.edges[0].node.id;
       this.content =
         response.allDocuments.edges[0].node.answers.edges[0]?.node.value ?? "";
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("dashboard.load-error"));
     }
   }

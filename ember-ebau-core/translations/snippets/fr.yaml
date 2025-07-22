@@ -1,0 +1,36 @@
+snippets:
+  category: Catégorie
+  delete-category: Supprimer la catégorie
+  edit: Modifier un module de texte
+  edit-category: Modifier la catégorie
+  new-category: Créer une nouvelle catégorie
+  new: Création d'un nouveau module de texte
+  snippets: Modules de texte
+  text: Texte
+  title: Titre
+  copy: Copier le module de texte dans le clipboard
+  empty: Pas de catégories de modules de texte disponibles
+  empty-search: Pas de modules de texte disponibles
+
+  confirm:
+    delete: Voulez-vous vraiment supprimer le module de texte <span class="uk-text-bold">"{name}"</span> ?
+    delete-category: |-
+      <p>
+        Voulez-vous vraiment supprimer la catégorie <span class="uk-text-bold">"{name}"</span> ?
+      </p>
+      <p>
+        Avec cette action, la catégorie et tous les modules de texte qu'elle contient sont supprimés !
+      </p>
+
+  success:
+    copy: Le module de texte "{nom}"" a été copié dans le clipboard
+    delete: Le module de texte a été supprimé
+    delete-category: La catégorie a été supprimée
+    save: Le module de texte a été enregistré
+    save-category: La catégorie a été enregistrée
+
+  error:
+    delete: Le module de texte n'a pas pu être supprimé
+    delete-category: La catégorie n'a pas pu être supprimée
+    save: Le module de texte n'a pas pu être enregistré
+    save-category: La catégorie n'a pas pu être enregistrée

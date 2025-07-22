@@ -90,6 +90,15 @@
     }
   },
   {
+    "model": "user.role",
+    "pk": 20002,
+    "fields": {
+      "role_parent": null,
+      "name": "geometer",
+      "group_prefix": null
+    }
+  },
+  {
     "model": "user.rolet",
     "pk": 1,
     "fields": {
@@ -290,9 +299,30 @@
     }
   },
   {
+    "model": "user.rolet",
+    "pk": 20042,
+    "fields": {
+      "role": 20002,
+      "language": "de",
+      "name": "Geometer",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20043,
+    "fields": {
+      "role": 20002,
+      "language": "it",
+      "name": "Geometra",
+      "group_prefix": null
+    }
+  },
+  {
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
+      "slug": "service",
       "name": "service",
       "sort": null
     }
@@ -301,6 +331,7 @@
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
+      "slug": "municipality",
       "name": "municipality",
       "sort": null
     }
@@ -309,6 +340,7 @@
     "model": "user.servicegroup",
     "pk": 3,
     "fields": {
+      "slug": "authority-bab",
       "name": "authority-bab",
       "sort": null
     }
@@ -317,7 +349,17 @@
     "model": "user.servicegroup",
     "pk": 4,
     "fields": {
+      "slug": "uso",
       "name": "uso",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 5,
+    "fields": {
+      "slug": "geometer",
+      "name": "geometer",
       "sort": null
     }
   },
@@ -391,6 +433,24 @@
       "service_group": 4,
       "language": "it",
       "name": "Organizzazione ambientalista"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20008,
+    "fields": {
+      "service_group": 5,
+      "language": "de",
+      "name": "Geometer"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20009,
+    "fields": {
+      "service_group": 5,
+      "language": "it",
+      "name": "Geometra"
     }
   }
 ]

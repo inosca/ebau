@@ -1,34 +1,51 @@
+import { isEmpty } from "@ember/utils";
+
 import mainConfig from "ember-ebau-core/config/main";
 import {
   getAnswer,
   getAnswerDisplayValue,
 } from "ember-ebau-core/utils/get-answer";
 
-const { answerSlugs } = mainConfig;
+export function getNames(document, questionSlug) {
+  const tableAnswer = getAnswer(document, questionSlug);
+  const people = tableAnswer?.node.value ?? tableAnswer?.node.tableValue ?? [];
 
-export function getApplicants(document) {
-  const applicants =
-    getAnswer(document, answerSlugs.personalDataApplicant)?.node.value ?? [];
-
-  const applicantNames = applicants.map((row) => {
+  const applicantNames = people.map((row) => {
     const firstName = getAnswerDisplayValue(
       row,
-      answerSlugs.firstNameApplicant,
+      mainConfig.answerSlugs.firstNameApplicant,
     );
-    const lastName = getAnswerDisplayValue(row, answerSlugs.lastNameApplicant);
-    const juristicName = getAnswerDisplayValue(
+    const lastName = getAnswerDisplayValue(
       row,
-      answerSlugs.juristicNameApplicant,
+      mainConfig.answerSlugs.lastNameApplicant,
     );
+    const fullName = [firstName, lastName]
+      .filter(Boolean)
+      .map((name) => name.trim())
+      .join(" ");
 
-    return (
-      juristicName?.trim() ??
-      [firstName, lastName]
-        .filter(Boolean)
-        .map((name) => name.trim())
-        .join(" ")
-    );
+    const juristicName =
+      getAnswerDisplayValue(
+        row,
+        mainConfig.answerSlugs.juristicNameApplicant,
+      )?.trim() ?? null;
+    const isJuristic =
+      getAnswerDisplayValue(
+        row,
+        mainConfig.answerSlugs.isJuristicApplicant,
+        false,
+      ) === mainConfig.answerSlugs.isJuristicApplicantYes;
+
+    if (isJuristic) {
+      return isEmpty(juristicName) ? fullName : juristicName;
+    }
+
+    return fullName;
   });
 
   return applicantNames.filter(Boolean).join(", ");
+}
+
+export function getApplicants(document) {
+  return getNames(document, mainConfig.answerSlugs.personalDataApplicant);
 }

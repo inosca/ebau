@@ -1,12 +1,18 @@
 from caluma.caluma_form.models import Document
 from caluma.caluma_user.models import OIDCUser
-from caluma.caluma_workflow.api import resume_case, suspend_case
+from caluma.caluma_workflow.api import (
+    cancel_case,
+    complete_work_item,
+    resume_case,
+    suspend_case,
+)
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
 from django.utils.translation import gettext as _
 from rest_framework.exceptions import ValidationError
 
+from camac.caluma.models import Inquiry
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import rejected, rejection_reverted
 from camac.instance.models import Instance
@@ -36,11 +42,11 @@ class RejectionLogic:
 
     @classmethod
     def validate_for_rejection(cls, instance: Instance) -> None:
-        if WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status__in=[WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED],
-            case__family__instance=instance,
-        ).exists():
+        if (
+            Inquiry.objects.for_instance(instance)
+            .for_status(WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED)
+            .exists()
+        ):
             raise ValidationError(
                 _("Instance can't be rejected while there is an open circulation")
             )
@@ -90,8 +96,23 @@ class RejectionLogic:
         # write text
         cls.save_rejection_feedback(instance, rejection_feedback)
 
-        # suspend case
-        suspend_case(instance.case, caluma_user)
+        if work_item_config := settings.REJECTION.get("WORK_ITEM"):
+            work_item = instance.case.work_items.filter(
+                task_id=work_item_config["TASK"],
+                status=WorkItem.STATUS_READY,
+            ).first()
+
+            if work_item:
+                complete_work_item(work_item, caluma_user)
+
+        # If the rejection can be reverted, the case must be suspended so that
+        # it could be resumed after a possible revert. However, if the revert is
+        # disabled, the case must be immediately canceled in order to not
+        # confuse users with suspended work items.
+        if settings.REJECTION["ALLOW_REVERT"]:
+            suspend_case(instance.case, caluma_user)
+        else:
+            cancel_case(instance.case, caluma_user)
 
         # set instance state
         instance.set_instance_state(settings.REJECTION["INSTANCE_STATE"], camac_user)

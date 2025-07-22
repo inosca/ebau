@@ -4,7 +4,7 @@ from camac.instance import domain_logic, utils as instance_utils
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api
 from camac.permissions.events import EmptyEventHandler
-from camac.user.models import ServiceRelation
+from camac.user.models import Service, ServiceRelation
 
 from .common import (
     ApplicantsEventHandlerMixin,
@@ -16,7 +16,7 @@ from .common import (
 )
 
 
-class GeometerPermissionEventHandlerBE(
+class PermissionEventHandlerBE(
     # EmptyEventHandler needs to be last!
     EmptyEventHandler,
 ):
@@ -36,6 +36,37 @@ class GeometerPermissionEventHandlerBE(
             return
 
         self._grant_geometer_if_needed(decision, instance)
+
+    def instance_submitted(self, instance: Instance):
+        if instance.case.document.form.slug not in [
+            "heat-generator",
+            "heat-generator-v2",
+            "heat-generator-v3",
+        ]:  # pragma: no cover
+            return
+
+        answer = (
+            instance.case.document.answers.filter(
+                question_id="heat-generator-combustion-database-v2"
+            )
+            .values_list("value", flat=True)
+            .first()
+        )
+
+        if answer and "heat-generator-combustion-database-v2-ja" in answer:
+            heat_generator_combustion_service = Service.objects.filter(
+                slug="feuerungskontrolle-weu"
+            ).first()
+
+            if not heat_generator_combustion_service:  # pragma: no cover
+                return
+
+            self.manager.grant(
+                instance,
+                grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+                access_level="read",
+                service=heat_generator_combustion_service,
+            )
 
     def _grant_geometer_if_needed(self, decision, instance):
         # Provide ACL on instance to geometer belonging to municipality
@@ -60,6 +91,7 @@ class GeometerPermissionEventHandlerBE(
                 grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
                 access_level="geometer",
                 service=geometer_service,
+                event_name="grant-geometer-access",
             )
 
     def _grant_construction_control(self, instance):
@@ -74,14 +106,14 @@ class GeometerPermissionEventHandlerBE(
         )
 
 
-class PermissionEventHandlerBE(
+class GeneralPermissionEventHandlerBE(
     ApplicantsEventHandlerMixin,
     InstanceSubmissionHandlerMixin,
     ChangeResponsibleServiceHandlerMixin,
     DistributionHandlerMixin,
     InstanceCreationHandlerMixin,
     InstanceCopyHandlerMixin,
-    GeometerPermissionEventHandlerBE,
+    PermissionEventHandlerBE,
     # EmptyEventHandler needs to be last!
     EmptyEventHandler,
 ):

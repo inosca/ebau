@@ -1,0 +1,38 @@
+deadlines:
+  title:
+    suspensions: "Sistierungen"
+    deadlines: "Verfahren"
+  action:
+    deadline:
+      edit: "Verfahren bearbeiten"
+    suspension:
+      create: "Neue Sistierung"
+      edit: "Sistierung bearbeiten"
+  deadline:
+    instanceSuspended: "Dossier ist aktuell sistiert."
+    property:
+      startDate: "Start Frist"
+      type: "Typ"
+    saveSuccess: "Verfahren erfolgreich gespeichert"
+    saveError: "Fehler beim Speichern des Verfahrens"
+    processDurationText: "{count} {count, plural, one {Tag} other {Tage}}"
+    noEndDate: "noch keine Frist"
+    detail:
+      noResult: "Keine Ergebnisse gefunden"
+      startDate: "Start Frist"
+      totalDaysOfSuspension: "Sistierte Tage seit Start"
+      endDate: "Effektive Frist"
+      processDuration: "Durchlaufzeit"
+      processDeadlineDate: "Verfahrensende"
+  suspension:
+    property:
+      startDate: "Sistierung von"
+      endDate: "Sistierung bis"
+      reason: "Grund"
+      author: "Autor"
+    saveSuccess: "Sistierung erfolgreich gespeichert"
+    saveError: "Fehler beim Speichern der Sistierung"
+    confirmDelete: "Wollen Sie die Sistierung wirklich löschen?"
+    deleteSuccess: "Sistierung erfolgreich gelöscht"
+    list:
+      empty: "Es sind keine Sistierungen vorhanden."

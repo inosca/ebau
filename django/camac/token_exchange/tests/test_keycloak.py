@@ -5,7 +5,7 @@ from camac.token_exchange.keycloak import KeycloakClient
 
 
 @pytest.mark.vcr()
-def test_keycloak_client(snapshot):
+def test_keycloak_client(snapshot, settings):
     client = KeycloakClient()
 
     username = "egov:123"
@@ -33,4 +33,8 @@ def test_keycloak_client(snapshot):
     decoded_token = jwt.decode(
         token["access_token"], options={"verify_signature": False}
     )
+
     assert decoded_token == snapshot
+    assert "lot" in decoded_token.keys()
+    assert decoded_token["azp"] == settings.KEYCLOAK_PORTAL_CLIENT
+    assert settings.TOKEN_EXCHANGE_SCOPE in decoded_token["scope"]

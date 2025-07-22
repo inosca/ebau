@@ -8,6 +8,7 @@ from django_filters.rest_framework import (
 )
 from rest_framework.exceptions import ValidationError
 
+from camac.core.utils import canton_aware
 from camac.permissions.switcher import permission_switching_method
 from camac.user.permissions import permission_aware
 
@@ -35,15 +36,46 @@ class AccessLevelFilterset(FilterSet):
     @filter_assignable_in_instance.register_old
     @permission_aware
     def filter_assignable_in_instance_rbac(self, qs, name, value):
-        return qs.none()
+        return qs.none()  # pragma: no cover
 
+    def filter_assignable_in_instance_rbac_for_trusted_service(self, qs, name, value):
+        # Uri currently only allows "read" to be assigned by a municipality, trusted service or coordination
+        qs = qs.filter(pk="read")
+        return qs
+
+    def filter_assignable_in_instance_rbac_for_coordination(self, qs, name, value):
+        # Uri currently only allows "read" to be assigned by a municipality, trusted service or coordination
+        qs = qs.filter(pk="read")
+        return qs
+
+    @canton_aware
     def filter_assignable_in_instance_rbac_for_municipality(self, qs, name, value):
+        # By default, nobody gets to see anything - we want to allow
+        # assignability very specifically
+        return qs.none()  # pragma: no cover
+
+    def filter_assignable_in_instance_rbac_for_municipality_be(self, qs, name, value):
+        # Bern currently only allows geometer and read access level to be assigned by
+        # municipality
+        qs = qs.filter(pk__in=["geometer", "read"])
+        return qs
+
+    def filter_assignable_in_instance_rbac_for_municipality_so(self, qs, name, value):
         # Permission for municipality before submission is never assignable
         # through the UI. TODO: Remove this in favor of a "permissions-grant-xy"
         # permission for the municipality as soon as Kt. SO has migrated the
         # municipality permissions.
         qs = qs.exclude(pk="municipality-before-submission")
+        return qs
 
+    def filter_assignable_in_instance_rbac_for_municipality_sz(self, qs, name, value):
+        # Schwyz currently only allows "read" to be assigned by a municipality
+        qs = qs.filter(pk="read")
+        return qs
+
+    def filter_assignable_in_instance_rbac_for_municipality_ur(self, qs, name, value):
+        # Uri currently only allows "read" to be assigned by a municipality, trusted service or coordination
+        qs = qs.filter(pk="read")
         return qs
 
 

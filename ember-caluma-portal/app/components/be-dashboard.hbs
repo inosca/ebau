@@ -31,7 +31,11 @@
     {{/if}}
 
     {{#if this.content}}
-      <MarkdownToHtml class="markdown-content" @markdown={{this.content}} />
+      <MarkdownToHtml
+        class="markdown-content"
+        @markdown={{this.content}}
+        @extensions="DOMPurify"
+      />
     {{/if}}
   </div>
 {{/if}}

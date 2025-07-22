@@ -128,6 +128,20 @@ module("Integration | Component | decision/submit-button", function (hooks) {
             },
           },
         };
+      } else if (operationName === "WorkItemStatus") {
+        return {
+          data: {
+            allWorkItems: {
+              edges: [
+                {
+                  node: {
+                    status: "READY",
+                  },
+                },
+              ],
+            },
+          },
+        };
       }
     });
   });

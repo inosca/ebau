@@ -7,10 +7,11 @@ nav:
   appeal: "Beschwerdeverfahren"
   bab: "BaB"
   modification: "Projektänderung"
+  suspended: "Sistiert"
   masterData:
-    label: "Stammdaten"
-    hide: "Stammdaten verstecken"
-    show: "Stammdaten anzeigen"
+    label: "Erweiterte Stammdaten"
+    hide: "Erweiterte Stammdaten verstecken"
+    show: "Erweiterte Stammdaten anzeigen"
 
 global:
   title: "eBau"
@@ -36,3 +37,17 @@ global:
   close: "Schliessen"
   noGroups: "<strong>Achtung:</strong> Sie haben noch keine Berechtigungen."
   noGroupsHelp: "Bitte melden Sie sich bei den Administrator/innen Ihrer Organisation, diese können Ihnen die entsprechenden Berechtigungen erteilen."
+
+case:
+  new:
+    button:
+      label: "Neues Dossier"
+    title: "Neues Dossier erfassen"
+    sections:
+      paper-instances: "Papierdossiers"
+      internal-dossiers: "Interne Dossiers"
+    categories:
+      building-permit:
+        title: "Baubewilligungsverfahren"
+      special-procedure:
+        title: "Weitere Verfahren"

@@ -640,6 +640,86 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 66,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v10",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 68,
+    "fields": {
+      "form_state": 1,
+      "name": "technische-bewilligung-v5",
+      "description": "Gesuch um technische Bewilligung",
+      "family": 6
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 69,
+    "fields": {
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v6",
+      "description": "Projektgenehmigungsgesuch gemäss § 16 StraG",
+      "family": 9
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 70,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v10",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 71,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v11",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 72,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v11",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 73,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v11",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 74,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v12",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {

@@ -7,11 +7,21 @@ the corresponding test modules.
 
 import io
 import json
-import os
+import logging
+from mimetypes import guess_extension
 
 import pytest
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.urls import reverse
 from rest_framework import status
+
+from camac.communications.serializers import validate_mime_type
+from camac.document.tests.data import django_file
+
+MS_OFFICE_MIME_TYPES = [
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+]
 
 
 @pytest.mark.parametrize(
@@ -96,6 +106,7 @@ def test_create_message(
     communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
         "template_slug"
     ] = notification_template.slug
+    communications_settings["ALLOWED_MIME_TYPES"] = ["text/plain"]
 
     attachments = []
     if with_file_attachments:
@@ -196,9 +207,8 @@ def test_attachment_download(
 
     assert resp.status_code == expect_status
     if expect_status == status.HTTP_200_OK:
-        assert os.path.exists(resp.headers["X-Sendfile"])
-        with open(resp.headers["X-Sendfile"], "rb") as fh_download:
-            assert fh_download.read() == expected_file_content
+        assert resp.status_code == status.HTTP_200_OK
+        assert resp.getvalue() == expected_file_content
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -288,3 +298,79 @@ def test_notification_email(
         recipient_emails = [email.recipients()[0] for email in mailoutbox]
         assert other_service.email not in recipient_emails
         assert notification_template.subject in mailoutbox[0].subject
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("error_type", ["extension", "content", "unallowed"])
+def test_mime_type_validation(
+    db,
+    admin_client,
+    topic_with_admin_involved,
+    tmpdir,
+    communications_settings,
+    mocker,
+    error_type,
+):
+    mocker.patch("camac.notification.utils.send_mail")
+
+    communications_settings["ALLOWED_MIME_TYPES"] = ["text/plain"]
+    file = django_file("no-thumbnail.txt")
+
+    if error_type == "unallowed":
+        communications_settings["ALLOWED_MIME_TYPES"] = ["application/pdf"]
+    elif error_type == "extension":
+        file.name = "test.pdf"
+    elif error_type == "content":
+        file = django_file("test-thumbnail.jpg")
+
+    response = admin_client.post(
+        reverse("communications-message-list"),
+        data={
+            "body": "hello world",
+            "topic": json.dumps(
+                {
+                    "id": str(topic_with_admin_involved.pk),
+                    "type": "communications-topics",
+                }
+            ),
+            "attachments": [file],
+        },
+        format="multipart",
+    )
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.parametrize("content_type", MS_OFFICE_MIME_TYPES)
+def test_ignore_mime_type_validation_for_ms_office(
+    caplog,
+    content_type,
+    mocker,
+    settings,
+):
+    settings.DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES = MS_OFFICE_MIME_TYPES
+
+    raw_file = django_file("no-thumbnail.txt")
+    filename = f"testfile{guess_extension(content_type)}"
+
+    file = InMemoryUploadedFile(
+        file=raw_file,
+        name=filename,
+        content_type=content_type,
+        size=raw_file.size,
+        charset="utf8",
+        field_name="irrelevant",
+    )
+
+    mocker.patch(
+        "camac.communications.serializers.magic.from_buffer",
+        return_value="application/octet-stream",
+    )
+
+    with caplog.at_level(logging.DEBUG, "camac.communications.serializers"):
+        validate_mime_type(file)
+
+    assert (
+        f"Content-Type {content_type} of file {filename} does not match the "
+        "detected file content application/octet-stream but is ignored because "
+        "it's configured in `DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES`."
+    ) in caplog.messages

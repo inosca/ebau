@@ -1,8 +1,10 @@
 import { service } from "@ember/service";
+import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 import { task, dropTask } from "ember-concurrency";
+import { query } from "ember-data-resources";
 import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
@@ -18,16 +20,12 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   @service alexandriaDocuments;
 
   @tracked uploadedAttachmentIds = [];
+  @tracked duplicateFileNames = [];
+  @tracked showDuplicateModal = false;
 
-  categories = trackedFunction(this, async () => {
-    await Promise.resolve();
-
-    return await this.store.query("category", {
-      filter: {
-        slugs: String(this.categorySlugs),
-      },
-    });
-  });
+  categories = query(this, "category", () => ({
+    slugs: String(this.categorySlugs),
+  }));
 
   get categorySlugs() {
     return this.field.question.raw.meta["alexandria-categories"];
@@ -95,6 +93,15 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     }, {});
   }
 
+  get formattedDuplicateFilenames() {
+    return htmlSafe(
+      this.duplicateFileNames
+        .sort()
+        .map((name) => `<li>${name}</li>`)
+        .join(""),
+    );
+  }
+
   get allAttachments() {
     const fetchedAttachmentIds = this.fetchAttachments.value?.map(
       (attachment) => attachment.id,
@@ -124,7 +131,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   }
 
   attachments = trackedFunction(this, async () => {
-    return (this.categories.value ?? []).reduce((obj, category) => {
+    return (this.categories.records ?? []).reduce((obj, category) => {
       return {
         ...obj,
         [category.get("id")]: this.allAttachments.filter(
@@ -150,7 +157,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
 
     return await this.store.query("document", {
       filter: {
-        category: this.category,
+        categories: this.category,
         metainfo: JSON.stringify(metainfoFilter),
       },
       include: "category,files,marks",
@@ -158,21 +165,44 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     });
   });
 
-  @task
-  *upload({ file, bucket }) {
+  upload = task(async ({ files, bucket }) => {
     this.alexandriaConfig.documentId = this.documentId;
 
-    const documentModel = yield this.alexandriaDocuments.upload(
+    const newFilenames = files.map((f) => f.name);
+    const existingFilenames = (
+      await Promise.all(
+        this.allAttachments.map(async (attachment) =>
+          (await attachment.files)
+            .filter((file) => file.variant === "original")
+            .map((file) => file.name),
+        ),
+      )
+    ).flat();
+
+    this.duplicateFileNames = newFilenames.filter((name) =>
+      existingFilenames.includes(name),
+    );
+
+    // if there are duplicate filenames, cancel and show a modal
+    this.showDuplicateModal = this.duplicateFileNames.length > 0;
+    if (this.showDuplicateModal) {
+      return;
+    }
+
+    // continue with the file upload(s).
+    const documentModels = await this.alexandriaDocuments.upload(
       bucket,
-      [file],
+      files,
       this.args.context,
     );
 
-    this.uploadedAttachmentIds = [
-      ...this.uploadedAttachmentIds,
-      documentModel[0].id,
-    ];
-  }
+    for (const documentModel of documentModels) {
+      this.uploadedAttachmentIds = [
+        ...this.uploadedAttachmentIds,
+        documentModel.id,
+      ];
+    }
+  });
 
   @dropTask
   *delete({ attachment }) {
@@ -180,7 +210,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       yield attachment.destroyRecord();
 
       this.notification.success(this.intl.t("documents.deleteSuccess"));
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("documents.deleteError"));
     }
   }

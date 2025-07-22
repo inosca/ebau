@@ -1,0 +1,28 @@
+{{#if this.ebauModules.serviceId}}
+  <div class="uk-background-muted uk-padding-small uk-margin">
+    <p class="uk-text-large uk-text-bold">{{this.service.record.name}}</p>
+    <p class="uk-text-break">
+      {{t "static-content.my-service-support.text" htmlSafe=true}}
+      {{#if this.users.records}}
+        <ul>
+          {{#each this.users.records as |user|}}
+            <li>
+              <a href="mailto:{{user.email}}">
+                {{user.fullName}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+        {{#if this.hasMore}}
+          <a href="#" {{on "click" this.toggle}}>
+            {{t "static-content.my-service-support.showAll"}}
+          </a>
+        {{else if this.hasLess}}
+          <a href="#" {{on "click" this.toggle}}>
+            {{t "static-content.my-service-support.showLess"}}
+          </a>
+        {{/if}}
+      {{/if}}
+    </p>
+  </div>
+{{/if}}

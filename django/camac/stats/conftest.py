@@ -74,7 +74,7 @@ def nfd_tabelle_form():
 
 
 @pytest.fixture
-def nfd_tabelle_table_answer(work_item_factory):
+def nfd_tabelle_table_answer(caluma_work_item_factory):
     def wrapper(be_instance):
         nfd_form = Form.objects.get(slug="nfd")
         nfd_document = DocumentFactory(form=nfd_form)
@@ -83,7 +83,7 @@ def nfd_tabelle_table_answer(work_item_factory):
         )
         FormQuestionFactory(form=nfd_form, question=question_table)
 
-        work_item_factory(
+        caluma_work_item_factory(
             case=be_instance.case,
             task_id="nfd",
             document=nfd_document,
@@ -137,8 +137,10 @@ def rejected_application_factory(
                 ),
             }
         )
-        rejected_application.case.document.source = parent_application.case.document
-        rejected_application.case.document.save()
+        rejected_application.case.save()
+
+        parent_application.case.document.source = rejected_application.case.document
+        parent_application.case.document.save()
         return rejected_application
 
     return wrapper

@@ -1,12 +1,22 @@
 PUBLICATION = {
     "default": {
         "BACKEND": "caluma",
-        "RANGE_QUESTIONS": [("publikation-startdatum", "publikation-ablaufdatum")],
-        "FILL_TASKS": ["fill-publication"],
+        "RANGE_QUESTIONS": {
+            "PUBLIC": [],
+            "NEIGHBORS": [],
+        },
+        "FILL_TASKS": {
+            "PUBLIC": "fill-publication",
+            "NEIGHBORS": "fill-information-of-neighbors",
+        },
+        "SHOW_MAIN_FORM": False,
+        "NEIGHBORS_TABLE_QUESTION": None,
+        "QUESTIONS": {"MUNICIPALITY_END_DATE": "ende-publikationsorgan-gemeinde"},
     },
     "test": {
         "ENABLED": True,
         "BACKEND": "camac-ng",
+        "SHOW_MAIN_FORM": True,
     },
     "demo": {
         "ENABLED": True,
@@ -14,7 +24,17 @@ PUBLICATION = {
     },
     "kt_bern": {
         "ENABLED": True,
-        "FILL_TASKS": ["fill-publication", "information-of-neighbors"],
+        "FILL_TASKS": {"NEIGHBORS": "information-of-neighbors"},
+        "RANGE_QUESTIONS": {
+            "PUBLIC": [("publikation-startdatum", "publikation-ablaufdatum")],
+            "NEIGHBORS": [
+                (
+                    "information-of-neighbors-start-date",
+                    "information-of-neighbors-end-date",
+                )
+            ],
+        },
+        "NEIGHBORS_TABLE_QUESTION": "information-of-neighbors-neighbors",
         "SCRUBBED_ANSWERS": [
             "e-mail-energie",
             "e-mail-gastgewerbe",
@@ -40,20 +60,23 @@ PUBLICATION = {
             "telefon-oder-mobile-vorabklaerungen",
             "telefon-oder-mobile-waermepumpen",
         ],
+        "SHOW_MAIN_FORM": True,
     },
     "kt_gr": {
         "ENABLED": True,
         "USE_CALCULATED_DATES": True,
-        "RANGE_QUESTIONS": [
-            (
-                "beginn-publikationsorgan-gemeinde",
-                "ende-publikationsorgan-gemeinde",
-            ),
-            (
-                "beginn-publikation-kantonsamtsblatt",
-                "ende-publikation-kantonsamtsblatt",
-            ),
-        ],
+        "RANGE_QUESTIONS": {
+            "PUBLIC": [
+                (
+                    "beginn-publikationsorgan-gemeinde",
+                    "ende-publikationsorgan-gemeinde",
+                ),
+                (
+                    "beginn-publikation-kantonsamtsblatt",
+                    "ende-publikation-kantonsamtsblatt",
+                ),
+            ]
+        },
         "PUBLISH_QUESTION": "oeffentliche-auflage",
         "PUBLISH_ANSWER": ["oeffentliche-auflage-ja"],
         "SCRUBBED_ANSWERS": [
@@ -63,12 +86,14 @@ PUBLICATION = {
         "AFTER_FORMAL_EXAM_PUBLICATION_TASKS": [
             "fill-publication",
             "publication",
-            "distribution",
         ],
+        "SHOW_MAIN_FORM": True,
     },
     "kt_so": {
         "ENABLED": True,
-        "RANGE_QUESTIONS": [("publikation-start", "publikation-ende")],
+        "RANGE_QUESTIONS": {
+            "PUBLIC": [("publikation-start", "publikation-ende")],
+        },
         "SCRUBBED_ANSWERS": [
             "e-mail",
             "vertretung-e-mail",
@@ -76,6 +101,7 @@ PUBLICATION = {
             "vertretung-telefon",
             "telefon-oder-mobil",
         ],
+        "SHOW_MAIN_FORM": True,
     },
     "kt_schwyz": {
         "ENABLED": True,
@@ -84,5 +110,31 @@ PUBLICATION = {
     "kt_uri": {
         "ENABLED": True,
         "BACKEND": "camac-ng",
+    },
+    "kt_ag": {
+        "ENABLED": True,
+        "RANGE_QUESTIONS": {
+            "PUBLIC": [
+                (
+                    "beginn-publikationsorgan-gemeinde",
+                    "ende-publikationsorgan-gemeinde",
+                ),
+                (
+                    "beginn-publikation-kantonsamtsblatt",
+                    "ende-publikation-kantonsamtsblatt",
+                ),
+            ],
+            "NEIGHBORS": [
+                ("nachbarschaftsorientierung-beginn", "nachbarschaftsorientierung-ende")
+            ],
+        },
+        "NEIGHBORS_TABLE_QUESTION": "nachbarschaftsorientierung-auswaertige-anstoesser",
+        "PUBLISH_QUESTION": "oeffentliche-auflage",
+        "PUBLISH_ANSWER": ["oeffentliche-auflage-ja"],
+        "SCRUBBED_ANSWERS": [
+            "e-mail-gesuchstellerin",
+            "telefon-oder-mobile-gesuchstellerin",
+        ],
+        "SHOW_MAIN_FORM": True,
     },
 }

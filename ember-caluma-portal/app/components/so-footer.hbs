@@ -14,18 +14,32 @@
   <div>
     <ul class="so-footer__nav">
       <li>
-        <LinkTo @route="static-content" @model="portal-faq">
+        <LinkTo
+          @route={{if
+            this.session.enforcePublicAccess
+            "public-instances.static-content"
+            "static-content"
+          }}
+          @model={{if
+            this.session.enforcePublicAccess
+            "portal-faq-public"
+            "portal-faq"
+          }}
+        >
           {{t "nav.faq"}}
         </LinkTo>
       </li>
       <li>
-        <a
-          href="https://formulare-a.so.ch/bjdds_inter/start.do?event=view&generalid=Kontakt_eBauso&wfjs_enabled=true"
-          target="_blank"
-          rel="noopener noreferrer"
+        <LinkTo
+          @route={{if
+            this.session.enforcePublicAccess
+            "public-instances.static-content"
+            "static-content"
+          }}
+          @model="portal-contact"
         >
           {{t "so-footer.contact"}}
-        </a>
+        </LinkTo>
       </li>
     </ul>
   </div>

@@ -1,17 +1,22 @@
+import uuid
+from typing import Tuple
+
 from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
-from caluma.caluma_form.models import Document
+from caluma.caluma_form.models import Answer, Document
 from caluma.caluma_workflow.models import Case
 from django.conf import settings
 from django.core.cache import cache
 from django.utils.translation import gettext as _, gettext_noop, override
 
+from camac.caluma.models import Inquiry
 from camac.caluma.utils import find_answer
 from camac.core.models import Authority
 from camac.document.models import Attachment
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import get_person_name
+from camac.sanctions.models import Sanction
 from camac.user.models import Location, Service
 
 from .countries import COUNTRIES
@@ -55,6 +60,25 @@ def get_additional_option(slug="-1", text=gettext_noop("Others")):
     return [slug, label]
 
 
+def on_copy_from_reference_document(
+    old_answer: Answer, new_answer: Answer, old_value: Tuple[str, str]
+) -> Tuple[str | None, str | None]:
+    old_slug, old_label = old_value
+    if not old_slug:
+        return (None, None)
+
+    try:
+        uuid_value = uuid.UUID(old_slug)
+    except ValueError:
+        return (None, None)
+
+    reference_doc = (
+        Document.objects.filter(source_id=uuid_value).order_by("-created_at").first()
+    )
+
+    return (str(reference_doc.pk), old_label) if reference_doc else (None, None)
+
+
 class Municipalities(BaseDataSource):
     info = "List of municipalities from Camac"
 
@@ -81,7 +105,7 @@ class Municipalities(BaseDataSource):
             Service.objects.select_related("service_group")
             .filter(
                 service_parent__isnull=True,
-                service_group__name="municipality",
+                service_group__name__in=["municipality", "municipality-light"],
                 **filters,
             )
             .prefetch_related("trans")
@@ -253,7 +277,7 @@ class Countries(BaseDataSource):
 
     @data_source_cache(timeout=3600)
     def get_data(self, user, question, context):
-        return COUNTRIES
+        return list(COUNTRIES.keys())
 
 
 class Authorities(BaseDataSource):
@@ -290,7 +314,15 @@ class Landowners(BaseDataSource):
         if not context:  # pragma: no cover
             return []
 
-        case = Case.objects.get(instance__pk=context.get("instanceId"))
+        instance_id = context.get("instanceId")
+        if not instance_id:  # pragma: no cover
+            return []
+
+        cache_key = f"data_source_{type(self).__name__}_{instance_id}"
+        return cache.get_or_set(cache_key, lambda: self._get_data(instance_id), 5)
+
+    def _get_data(self, instance_id):
+        case = Case.objects.get(instance__pk=instance_id)
         master_data = MasterData(case)
 
         people = master_data.landowners
@@ -299,6 +331,11 @@ class Landowners(BaseDataSource):
             people = master_data.applicants + people
 
         return [(person["row_id"], get_person_name(person)) for person in people]
+
+    def on_copy(
+        self, old_answer: Answer, new_answer: Answer, old_value: Tuple[str, str]
+    ) -> Tuple[str | None, str | None]:
+        return on_copy_from_reference_document(old_answer, new_answer, old_value)
 
 
 class PreliminaryClarificationTargets(BaseDataSource):
@@ -355,6 +392,11 @@ class Buildings(BaseDataSource):
             else None
         )
 
+    def on_copy(
+        self, old_answer: Answer, new_answer: Answer, old_value: Tuple[str, str]
+    ) -> Tuple[str | None, str | None]:
+        return on_copy_from_reference_document(old_answer, new_answer, old_value)
+
 
 class ServicesForFinalReport(BaseDataSource):
     info = "Services which asked to be invited to the 'Schlussabnahme' (final report) during the distribution phase"
@@ -364,15 +406,10 @@ class ServicesForFinalReport(BaseDataSource):
             return []
 
         instance = Instance.objects.get(pk=context.get("instanceId"))
-        distribution_case = instance.case.work_items.get(
-            task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"]
-        ).child_case
 
         pks_of_services_to_be_invited = []
 
-        for inquiry in distribution_case.work_items.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"]
-        ):
+        for inquiry in Inquiry.objects.for_instance(instance):
             if invite_answer := inquiry.child_case.document.answers.filter(
                 question_id="inquiry-answer-invite-service"
             ).first():
@@ -389,3 +426,48 @@ class ServicesForFinalReport(BaseDataSource):
             if len(pks_of_services_to_be_invited) > 0
             else None
         )
+
+
+class Sanctions(BaseDataSource):
+    info = (
+        "Selection of uncontrolled sanctions for a given step in the current instance"
+    )
+
+    def get_data(self, user, question, context):
+        if not context:  # pragma: no cover
+            return []
+
+        generic_sanction = (
+            None,
+            _("All sanctions that could be fulfilled until now have been fullfilled"),
+        )
+
+        step = question.meta.get("sanction_step")
+        if not step:
+            return [generic_sanction]
+
+        sanctions = list(
+            Sanction.objects.for_instance_id(context.get("instanceId"))
+            .pending()
+            .for_step(step)
+            .values_list("pk", "name")
+        )
+        if not sanctions:
+            return [generic_sanction]
+
+        return sanctions
+
+
+class GEVERErledigungsart(BaseDataSource):
+    info = "Erledigungsart for BE-GEVER"
+
+    @data_source_cache(timeout=3600)
+    def get_data(self, user, question, context):
+        from camac.gever.client import GEVERClient
+
+        client = GEVERClient()
+        erledigungsart_all = sorted(
+            client.erledigungsart.all(), key=lambda rec: rec.bezeichnung
+        )
+
+        return [(str(ea.guid), ea.bezeichnung) for ea in erledigungsart_all]

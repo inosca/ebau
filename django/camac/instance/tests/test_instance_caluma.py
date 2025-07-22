@@ -3,7 +3,10 @@ from datetime import date, datetime
 from pathlib import Path
 
 import pytest
-from alexandria.core.factories import CategoryFactory, MarkFactory
+from alexandria.core.factories import (
+    CategoryFactory,
+    MarkFactory,
+)
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
@@ -26,6 +29,7 @@ from camac.constants import (
     kt_uri as uri_constants,
 )
 from camac.core.models import Chapter, Question, QuestionType
+from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
@@ -417,11 +421,9 @@ def test_copy_without_permission(
     admin_client,
     instance_state,
     caluma_workflow_config_be,
-    instance_factory,
+    instance,
     group_factory,
 ):
-    instance = instance_factory(group=group_factory())
-
     data = {
         "data": {
             "type": "instances",
@@ -600,6 +602,7 @@ def test_instance_submit_ur(
     role_factory,
     group_factory,
     ur_instance,
+    ur_master_data_case,
     instance_state_factory,
     instance_service_factory,
     service,
@@ -656,16 +659,15 @@ def test_instance_submit_ur(
         active=1, instance=ur_instance, service=ur_instance.group.service
     )
 
-    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
-
     location = location_factory(
         communal_federal_number=(
             "1222" if special_case.get("special_location") else "1224"
         )
     )
 
-    ur_instance.case.document.answers.create(
-        value=str(location.communal_federal_number), question_id="municipality"
+    ur_instance.case.document.answers.update_or_create(
+        question_id="municipality",
+        defaults=dict(value=str(location.communal_federal_number)),
     )
     if special_case.get("special_location"):
         authority_location = authority_location_factory(
@@ -791,12 +793,27 @@ def test_instance_submit_cantonal_territory_usage_ur(
     disable_ech0211_settings,
     ur_master_data_case,
 ):
+    # TODO: This test is horribly put together and barely sets up the conditions right
+    # to test it's thing. We need to refactor this and do it "properly"
     settings.APPLICATION_NAME = "kt_uri"
-    application_settings["CALUMA"]["USE_LOCATION"] = True
-    application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
-    application_settings["USE_INSTANCE_SERVICE"] = False
 
     caluma_form_factories.FormFactory(slug="personalien")
+    caluma_form_factories.FormQuestionFactory(
+        form_id="cantonal-territory-usage", question_id="applicant"
+    )
+    fq_veranstaltung = caluma_form_factories.FormQuestionFactory(
+        form_id="cantonal-territory-usage", question_id="veranstaltung-art"
+    )
+    fq_veranstaltung.question.type = "choice"
+    for opt in ["umzug", "sportanlass"]:
+        caluma_form_factories.QuestionOptionFactory(
+            question=fq_veranstaltung.question,
+            option__label=f"veranstaltung-art-{opt}",
+            option__slug=f"veranstaltung-art-{opt}",
+        )
+
+    fq_veranstaltung.question.save()
+
     ur_instance.case.document.form_id = "cantonal-territory-usage"
     ur_instance.case.document.save()
 
@@ -804,6 +821,7 @@ def test_instance_submit_cantonal_territory_usage_ur(
     mocker.patch(f"camac.constants.kt_uri.{submit_to}_SERVICE_ID", koor_service.pk)
     koor_group = group_factory(service=koor_service)
     mocker.patch(f"camac.constants.kt_uri.{submit_to}_GROUP_ID", koor_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_group.pk])
     koor_email = koor_group.service.email
 
     veranstaltung = "umzug" if submit_to == "KOOR_BD" else "sportanlass"
@@ -813,16 +831,10 @@ def test_instance_submit_cantonal_territory_usage_ur(
     )
 
     application_settings["NOTIFICATIONS"] = {
-        "SUBMIT_KOOR_SD": [
+        "SUBMIT_KOOR": [
             {
                 "template_slug": notification_template.slug,
-                "recipient_types": ["koor_sd_users"],
-            },
-        ],
-        "SUBMIT_KOOR_BD": [
-            {
-                "template_slug": notification_template.slug,
-                "recipient_types": ["koor_bd_users"],
+                "recipient_types": ["municipality"],
             },
         ],
     }
@@ -851,6 +863,73 @@ def test_instance_submit_cantonal_territory_usage_ur(
 
 
 @pytest.mark.parametrize("service_group__name", ["coordination"])
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+def test_instance_submit_mitbericht_bund_ur(
+    mocker,
+    admin_client,
+    settings,
+    ur_instance,
+    notification_template,
+    application_settings,
+    mock_generate_and_store_pdf,
+    location_factory,
+    group_factory,
+    instance_state_factory,
+    service_factory,
+    authority_location_factory,
+    caluma_workflow_config_ur,
+    disable_ech0211_settings,
+    ur_master_data_case,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+
+    caluma_form_factories.FormFactory(slug="personalien")
+    ur_instance.case.document.form_id = "mitbericht-bund"
+    ur_instance.case.document.save()
+
+    koor_service = service_factory(email="koor-bg@example.com")
+    mocker.patch("camac.constants.kt_uri.KOOR_BG_SERVICE_ID", koor_service.pk)
+    koor_group = group_factory(service=koor_service)
+    mocker.patch("camac.constants.kt_uri.KOOR_BG_GROUP_ID", koor_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_group.pk])
+    koor_email = koor_group.service.email
+
+    ur_instance.group = koor_group
+    ur_instance.save()
+
+    application_settings["NOTIFICATIONS"] = {
+        "SUBMIT_KOOR": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["municipality"],
+            },
+        ],
+    }
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+
+    location = location_factory(communal_federal_number="1")
+
+    authority_location_factory(location=location)
+
+    instance_state_factory(name="ext")
+    instance_state_factory(name="subm")
+
+    response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
+
+    ur_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(mail.outbox) == 1
+    assert koor_email in mail.outbox[0].recipients()
+
+    assert ur_instance.location_id == location.pk
+    assert ur_instance.group == koor_group
+
+
+@pytest.mark.parametrize("service_group__name", ["coordination"])
 @pytest.mark.parametrize(
     "form_slug", ["konzession-waermeentnahme", "bohrbewilligung-waermeentnahme"]
 )
@@ -870,7 +949,7 @@ def test_instance_submit_heat_extraction_ur(
     group_factory,
     role_factory,
     instance_factory,
-    question_factory,
+    caluma_question_factory,
     instance_state_factory,
     service_factory,
     authority_location_factory,
@@ -879,9 +958,6 @@ def test_instance_submit_heat_extraction_ur(
     disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    application_settings["CALUMA"]["USE_LOCATION"] = True
-    application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
-    application_settings["USE_INSTANCE_SERVICE"] = False
 
     ur_instance.case.document.form_id = form_slug
     ur_instance.case.document.save()
@@ -892,13 +968,14 @@ def test_instance_submit_heat_extraction_ur(
     mocker.patch("camac.constants.kt_uri.KOOR_AFE_SERVICE_ID", koor_service.pk)
     koor_group = group_factory(service=koor_service)
     mocker.patch("camac.constants.kt_uri.KOOR_AFE_GROUP_ID", koor_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_group.pk])
     koor_email = koor_group.service.email
 
     application_settings["NOTIFICATIONS"] = {
-        "SUBMIT_KOOR_AFE": [
+        "SUBMIT_KOOR": [
             {
                 "template_slug": notification_template.slug,
-                "recipient_types": ["koor_afe_users"],
+                "recipient_types": ["municipality"],
             },
         ],
     }
@@ -916,7 +993,7 @@ def test_instance_submit_heat_extraction_ur(
     if form_slug == "konzession-waermeentnahme":
         source_instance = instance_factory()
 
-        instance_id_question = question_factory(
+        instance_id_question = caluma_question_factory(
             slug="dossier-id-der-bohrbewilligung",
             type=caluma_form_models.Question.TYPE_INTEGER,
         )
@@ -945,9 +1022,9 @@ def test_instance_submit_heat_extraction_ur(
 
     if form_slug == "konzession-waermeentnahme":
         source_instance.refresh_from_db()
-        assert (
-            ur_instance.instance_group == source_instance.instance_group
-        ), 'for "konzessionsgesuche" the "konzessionsdossier" should be linked with the "bohrbewilligungsdossier"'
+        assert ur_instance.instance_group == source_instance.instance_group, (
+            'for "konzessionsgesuche" the "konzessionsdossier" should be linked with the "bohrbewilligungsdossier"'
+        )
 
 
 @pytest.mark.parametrize("service_group__name", ["applicant"])
@@ -972,9 +1049,6 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     disable_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_uri"
-    application_settings["CALUMA"]["USE_LOCATION"] = True
-    application_settings["CALUMA"]["GENERATE_IDENTIFIER"] = False
-    application_settings["USE_INSTANCE_SERVICE"] = False
 
     ur_instance.case.document.form_id = "pgv-gemeindestrasse"
     ur_instance.case.document.save()
@@ -983,13 +1057,14 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     mocker.patch("camac.constants.kt_uri.KOOR_BD_SERVICE_ID", koor_service.pk)
     koor_group = group_factory(service=koor_service)
     mocker.patch("camac.constants.kt_uri.KOOR_BD_GROUP_ID", koor_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_group.pk])
     koor_email = koor_group.service.email
 
     application_settings["NOTIFICATIONS"] = {
-        "SUBMIT_KOOR_BD": [
+        "SUBMIT_KOOR": [
             {
                 "template_slug": notification_template.slug,
-                "recipient_types": ["koor_bd_users"],
+                "recipient_types": ["municipality"],
             },
         ],
     }
@@ -1157,9 +1232,9 @@ def test_set_instance_service_ur_bgbb(
 
     assert ur_instance.responsible_service() is None
     serializer._set_instance_service(ur_instance.case, ur_instance)
-    assert (
-        ur_instance.responsible_service() == koor_afg_group.service
-    ), "should assign the KOOR AFG as the responsible service"
+    assert ur_instance.responsible_service() == koor_afg_group.service, (
+        "should assign the KOOR AFG as the responsible service"
+    )
 
 
 @pytest.mark.parametrize("form_slug", ["oereb", "oereb-verfahren-gemeinde"])
@@ -1188,6 +1263,11 @@ def test_oereb_instance_copy_for_koor_afj(
     disable_ech0211_settings,
     ur_master_data_case,
 ):
+    application_settings["NOTIFICATIONS"]["COPY_AFJ"] = {
+        "template_slug": notification_template.slug,
+        "recipient_types": ["municipality_users"],
+    }
+
     settings.APPLICATION_NAME = "kt_uri"  # can't use set_application_ur here because we already use ur_master_data_case (the two factories conflict with each other)
 
     ur_instance.form = form_factory(name="camac-form")
@@ -1205,6 +1285,7 @@ def test_oereb_instance_copy_for_koor_afj(
     mocker.patch("camac.constants.kt_uri.KOOR_AFJ_SERVICE_ID", koor_afj_service.pk)
     koor_afj_group = group_factory(service=koor_afj_service)
     mocker.patch("camac.constants.kt_uri.KOOR_AFJ_GROUP_ID", koor_afj_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_afj_group.pk])
 
     koor_np_service = service_factory(email="KOOR_NP@example.com", name="KOOR NP")
     mocker.patch("camac.constants.kt_uri.KOOR_NP_SERVICE_ID", koor_np_service.pk)
@@ -1290,7 +1371,7 @@ def test_oereb_instance_copy_for_koor_afj(
     ur_instance.refresh_from_db()
 
     if form_slug == "oereb":
-        assert len(mail.outbox) == 4
+        assert len(mail.outbox) == 2
         assert email in list(itertools.chain(*[m.recipients() for m in mail.outbox]))
 
     assert ur_instance.instance_state.name == "subm"
@@ -1499,10 +1580,10 @@ def test_instance_report(
     be_decision_settings,
     be_ech0211_settings,
     service_factory,
-    question_factory,
+    caluma_question_factory,
     instance_acl_factory,
     access_level_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     permissions_settings,
     geometer_is_unnecessary,
     expected_emails,
@@ -1532,11 +1613,10 @@ def test_instance_report(
             instance=be_instance,
             access_level=access_level_factory(slug="geometer"),
             service=geometer_service,
-            metainfo={"disable-notification-on-creation": True},
         )
         permissions_settings["geometer"] = [("foo", ["*"])]
 
-        geometer_work_item = work_item_factory(
+        geometer_work_item = caluma_work_item_factory(
             task_id="geometer",
             status="completed",
             case=be_instance.case,
@@ -1549,7 +1629,7 @@ def test_instance_report(
             )
 
         save_answer(
-            question=question_factory(
+            question=caluma_question_factory(
                 slug="geometer-beurteilung-notwendigkeit-vermessung"
             ),
             document=geometer_work_item.document,
@@ -1626,22 +1706,33 @@ def test_instance_finalize(
     mock_generate_and_store_pdf,
     caluma_admin_user,
     create_awa_workitem,
-    form_question_factory,
+    caluma_form_question_factory,
     decision_factory,
     settings,
     be_decision_settings,
     be_ech0211_settings,
     service_factory,
-    question_factory,
+    caluma_question_factory,
     instance_acl_factory,
     access_level_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     permissions_settings,
     geometer_is_unnecessary,
     expected_emails,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
+        "create-manual-workitems"
+    ] = [
+        {
+            "event": "created",
+            "notification": {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["work_item_addressed"],
+            },
+        }
+    ]
     instance_state_factory(name="coordination")
     instance_state_factory(name="sb1")
     instance_state_factory(name="conclusion")
@@ -1677,11 +1768,10 @@ def test_instance_finalize(
             instance=be_instance,
             access_level=access_level_factory(slug="geometer"),
             service=geometer_service,
-            metainfo={"disable-notification-on-creation": True},
         )
         permissions_settings["geometer"] = [("foo", ["*"])]
 
-        geometer_work_item = work_item_factory(
+        geometer_work_item = caluma_work_item_factory(
             task_id="geometer",
             status="completed",
             case=be_instance.case,
@@ -1694,7 +1784,7 @@ def test_instance_finalize(
             )
 
         save_answer(
-            question=question_factory(
+            question=caluma_question_factory(
                 slug="geometer-beurteilung-notwendigkeit-vermessung"
             ),
             document=geometer_work_item.document,
@@ -1726,7 +1816,7 @@ def test_instance_finalize(
         table_form = caluma_form_models.Form.objects.create(
             slug="lagerung-von-stoffen-tabelle-v2"
         )
-        form_question_factory(
+        caluma_form_question_factory(
             form=be_instance.case.document.form,
             question=caluma_form_models.Question.objects.create(
                 slug="lagerung-von-stoffen-v2",
@@ -1786,7 +1876,7 @@ def test_generate_and_store_pdf(
     service,
     group,
     attachment_section_factory,
-    document_factory,
+    caluma_document_factory,
     mocker,
     form_slug,
     paper,
@@ -1814,7 +1904,9 @@ def test_generate_and_store_pdf(
         "camac.instance.document_merge_service.DMSClient"
     ).return_value
     client.merge.return_value = b"some binary data"
-    mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
+    mocker.patch(
+        "camac.instance.document_merge_service.DMSVisitor.build_form_structure"
+    )
     context = mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer.context"
     )
@@ -1870,7 +1962,9 @@ def test_generate_and_store_pdf_in_alexandria(
         "camac.instance.document_merge_service.DMSClient"
     ).return_value
     client.merge.return_value = b"some binary data"
-    mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
+    mocker.patch(
+        "camac.instance.document_merge_service.DMSVisitor.build_form_structure"
+    )
     context = mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer.context"
     )
@@ -1880,6 +1974,7 @@ def test_generate_and_store_pdf_in_alexandria(
     serializer = CalumaInstanceSubmitSerializer()
 
     dms_settings["ADD_HEADER_DATA"] = False
+    dms_settings["ADD_ADDRESS_DATA"] = True
     dms_settings["FORM"] = {
         "main-form": {"template": "some-template"},
     }
@@ -2005,8 +2100,8 @@ def test_oereb_legal_state_filter_ur(
     admin_client,
     ur_instance,
     instance_with_case,
-    question_factory,
-    answer_factory,
+    caluma_question_factory,
+    caluma_answer_factory,
     instance_factory,
     filter,
     expected,
@@ -2015,21 +2110,21 @@ def test_oereb_legal_state_filter_ur(
     instance_2 = instance_with_case(instance_factory(user=admin_user))
     instance_3 = instance_with_case(instance_factory(user=admin_user))
 
-    question = question_factory(
+    question = caluma_question_factory(
         slug="typ-des-verfahrens",
         type=caluma_form_models.Question.TYPE_CHOICE,
     )
-    answer_factory(
+    caluma_answer_factory(
         document=instance_1.case.document,
         question=question,
         value="typ-des-verfahrens-anpassung",
     )
-    answer_factory(
+    caluma_answer_factory(
         document=instance_2.case.document,
         question=question,
         value="typ-des-verfahrens-festsetzung",
     )
-    answer_factory(
+    caluma_answer_factory(
         document=instance_3.case.document,
         question=question,
         value="typ-des-verfahrens-anpassung",
@@ -2138,7 +2233,7 @@ def test_generate_pdf_action(
     group,
     be_instance,
     caluma_form,
-    document_factory,
+    caluma_document_factory,
     form_factory,
     form_slug,
     expected_status,
@@ -2153,7 +2248,9 @@ def test_generate_pdf_action(
         "camac.instance.document_merge_service.DMSClient"
     ).return_value
     client.merge.return_value = content
-    mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
+    mocker.patch(
+        "camac.instance.document_merge_service.DMSVisitor.build_form_structure"
+    )
     context = mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer.context"
     )
@@ -2177,7 +2274,7 @@ def test_generate_pdf_action(
     data = {"form-slug": form_slug} if form_slug else {}
 
     if has_document_id:
-        document_id = document_factory(form__slug="mp-form").pk
+        document_id = caluma_document_factory(form__slug="mp-form").pk
         data = {"document-id": document_id}
 
     response = admin_client.get(url, data)
@@ -2186,9 +2283,8 @@ def test_generate_pdf_action(
 
     if expected_status == status.HTTP_200_OK:
         assert response.status_code == status.HTTP_200_OK
-        assert "X-Sendfile" in response
-        with open(response["X-Sendfile"]) as fh:
-            assert fh.read() == content.decode("utf-8")
+        assert response["Content-Type"] == "application/pdf"
+        assert response.getvalue() == content
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -2315,6 +2411,7 @@ def test_rejection(
     rejection_settings,
     caluma_admin_user,
     disable_ech0211_settings,
+    utils,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
 
@@ -2330,9 +2427,9 @@ def test_rejection(
         {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}},
     )
 
-    assert (
-        create_response.status_code == status.HTTP_201_CREATED
-    ), create_response.content
+    assert create_response.status_code == status.HTTP_201_CREATED, (
+        create_response.content
+    )
 
     source_instance_id = int(create_response.json()["data"]["id"])
     source_instance = Instance.objects.get(pk=source_instance_id)
@@ -2359,10 +2456,11 @@ def test_rejection(
     new_instance = Instance.objects.get(pk=new_instance_id)
 
     assert new_instance.instance_state == new_state
+    assert new_instance.copy_source == source_instance
 
     case = new_instance.case
 
-    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
+    utils.add_municipality(case.document, "gemeinde", service)
 
     submit_response = admin_client.post(
         reverse("instance-submit", args=[new_instance.pk])
@@ -2390,9 +2488,10 @@ def test_be_copy_responsible_user_on_submit(
     application_settings,
     submit_date_question,
     rejection_settings,
-    work_item_factory,
+    caluma_work_item_factory,
     user_factory,
     disable_ech0211_settings,
+    utils,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
     application_settings["COPY_RESPONSIBLE_PERSON_ON_SUBMIT"] = True
@@ -2407,9 +2506,9 @@ def test_be_copy_responsible_user_on_submit(
         {"data": {"type": "instances", "attributes": {"caluma-form": "main-form"}}},
     )
 
-    assert (
-        create_response.status_code == status.HTTP_201_CREATED
-    ), create_response.content
+    assert create_response.status_code == status.HTTP_201_CREATED, (
+        create_response.content
+    )
 
     source_instance_id = int(create_response.json()["data"]["id"])
     source_instance = Instance.objects.get(pk=source_instance_id)
@@ -2422,7 +2521,7 @@ def test_be_copy_responsible_user_on_submit(
     )
 
     # Create Work Item
-    work_item_factory(case=source_instance.case, addressed_groups=[service.pk])
+    caluma_work_item_factory(case=source_instance.case, addressed_groups=[service.pk])
 
     # Assign state
     source_instance.instance_state = rejected_state
@@ -2446,9 +2545,10 @@ def test_be_copy_responsible_user_on_submit(
     new_instance = Instance.objects.get(pk=new_instance_id)
 
     assert new_instance.instance_state == new_state
+    assert new_instance.copy_source == source_instance
 
     case = new_instance.case
-    case.document.answers.create(value=str(service.pk), question_id="gemeinde")
+    utils.add_municipality(case.document, "gemeinde", service)
 
     submit_response = admin_client.post(
         reverse("instance-submit", args=[new_instance.pk])
@@ -2512,7 +2612,6 @@ def test_instance_name(
         instance,
         "migrated" if is_migrated else "building-permit",
         "migriertes-dossier" if is_migrated else "main-form",
-        {"instance": instance.pk},
     )
 
     if is_appeal:
@@ -2632,6 +2731,7 @@ def test_create_instance_caluma_modification(
     caluma_workflow_config_be,
     caluma_form,
     expected_status,
+    caluma_form_question_factory,
     project_modification_settings,
 ):
     instance_state_factory(name="new")
@@ -2641,6 +2741,10 @@ def test_create_instance_caluma_modification(
         caluma_form_models.Form.objects.create(slug="baugesuch"),
         caluma_form_models.Form.objects.create(slug="verlaerungerung-geltungsdauer"),
     )
+    caluma_form_question_factory(
+        form_id="verlaerungerung-geltungsdauer", question_id="is-paper"
+    )
+    caluma_form_question_factory(form_id="baugesuch", question_id="is-paper")
 
     project_modification_settings["ALLOW_FORMS"] = ["main-form"]
     project_modification_settings["DISALLOW_STATES"] = ["new"]
@@ -2730,9 +2834,9 @@ def test_create_instance_from_modification(
     )
 
     assert response.status_code == status.HTTP_201_CREATED
-    assert CalumaApi().is_modification(
-        Instance.objects.get(pk=response.json()["data"]["id"])
-    )
+    new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
+    assert CalumaApi().is_modification(new_instance)
+    assert new_instance.copy_source == be_instance
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -2847,7 +2951,7 @@ def test_filter_inquiry_answer(
     instance_with_case,
     service,
     distribution_settings,
-    answer_factory,
+    caluma_answer_factory,
 ):
     for inquiry_answer in [
         "inquiry-answer-status-claim",
@@ -2859,7 +2963,7 @@ def test_filter_inquiry_answer(
 
         inquiry = active_inquiry_factory(for_instance=instance)
 
-        answer_factory(
+        caluma_answer_factory(
             document=inquiry.child_case.document,
             question_id=distribution_settings["QUESTIONS"]["STATUS"],
             value=inquiry_answer,
@@ -2946,6 +3050,7 @@ def test_instance_submit_so(
     so_instance,
 ):
     settings.APPLICATION_NAME = "kt_so"
+    application_settings["SHORT_NAME"] = "so"
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
     application_settings["NOTIFICATIONS"] = {"SUBMIT": [], "SUBMIT_OTHERS": []}
@@ -2956,6 +3061,13 @@ def test_instance_submit_so(
 
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
+    )
+    # Remove KOOR_GROUP_IDS as if the instance.group is by randomness
+    # on of the ids in the list, _send_notifications behaves differently
+    # and fails because of unconfigured settings.
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_GROUP_IDS",
+        return_value=[],
     )
 
     so_instance.case.document.form_id = form_slug
@@ -2997,6 +3109,7 @@ def test_instance_submit_so_bab(
     utils,
 ):
     settings.APPLICATION_NAME = "kt_so"
+    application_settings["SHORT_NAME"] = "so"
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
     application_settings["NOTIFICATIONS"] = {"SUBMIT": [], "SUBMIT_OTHERS": []}
@@ -3006,6 +3119,13 @@ def test_instance_submit_so_bab(
     instance_state_factory(name="subm")
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
+    )
+    # Remove KOOR_GROUP_IDS as if the instance.group is by randomness
+    # on of the ids in the list, _send_notifications behaves differently
+    # and fails because of unconfigured settings.
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_GROUP_IDS",
+        return_value=[],
     )
 
     utils.add_answer(so_instance.case.document, bab_question, f"{bab_question}-ja")
@@ -3026,7 +3146,7 @@ def test_instance_submit_so_canton(
     admin_client,
     application_settings,
     disable_ech0211_settings,
-    dynamic_option_factory,
+    caluma_dynamic_option_factory,
     instance_state_factory,
     master_data_is_visible_mock,
     mock_generate_and_store_pdf,
@@ -3047,13 +3167,21 @@ def test_instance_submit_so_canton(
     municipality_service = service_factory(service_group__name="municipality")
     canton_service = service_factory(service_group__name="canton")
     service_factory(service_group__name="service-bab")
+    service_factory(service_group__name="canton", service_parent=canton_service)
 
     instance_state_factory(name="subm")
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
     )
+    # Remove KOOR_GROUP_IDS as if the instance.group is by randomness
+    # on of the ids in the list, _send_notifications behaves differently
+    # and fails because of unconfigured settings.
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_GROUP_IDS",
+        return_value=[],
+    )
 
-    dynamic_option_factory(
+    caluma_dynamic_option_factory(
         question_id="gemeinde",
         document=so_instance.case.document,
         slug=str(municipality_service.pk),
@@ -3168,6 +3296,9 @@ def test_copy_rejected_instance(
     )
 
     assert response.status_code == expected_status
+    if response.status_code == status.HTTP_201_CREATED:
+        new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
+        assert new_instance.copy_source == so_instance
 
 
 @pytest.mark.parametrize(
@@ -3236,9 +3367,9 @@ def test_send_notifications(
     db,
     application_settings,
     instance,
-    case_factory,
-    answer_factory,
-    document_factory,
+    caluma_case_factory,
+    caluma_answer_factory,
+    caluma_document_factory,
     notification_template,
     mocker,
     allow_notification,
@@ -3246,6 +3377,13 @@ def test_send_notifications(
     send_notification_mock = mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification",
         return_value=None,
+    )
+    # Remove KOOR_GROUP_IDS as if the instance.group is by randomness
+    # on of the ids in the list, _send_notifications behaves differently
+    # and fails because of unconfigured settings.
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_GROUP_IDS",
+        return_value=[],
     )
     config_1 = [
         {"template_slug": notification_template.slug, "recipient_types": ["test_a"]}
@@ -3257,12 +3395,13 @@ def test_send_notifications(
         config_1
     )
     application_settings["NOTIFICATIONS"]["SUBMIT_HEAT_GENERATOR"] = config_2
-    case_factory(
-        instance=instance, document=document_factory(form__slug="heat-generator-v2")
+    caluma_case_factory(
+        instance=instance,
+        document=caluma_document_factory(form__slug="heat-generator-v3"),
     )
 
     if allow_notification:
-        answer_factory(
+        caluma_answer_factory(
             question__slug="heat-generator-combustion-database-v2",
             value="heat-generator-combustion-database-v2-ja",
             document=instance.case.document,
@@ -3275,3 +3414,165 @@ def test_send_notifications(
     if allow_notification:
         calls = [call(**config_1[0])] + calls
     send_notification_mock.assert_has_calls(calls)
+
+
+@pytest.mark.parametrize(
+    "instance_state__name,instance__user",
+    [("new", lf("admin_user"))],
+)
+@pytest.mark.parametrize(
+    "service_group__name,form_slug,expected_instance_state,expected_work_items",
+    [
+        (
+            "municipality",
+            "internes-dossier",
+            "to-finish",
+            {"create-manual-workitems", "formal-exam", "init-additional-demand"},
+        ),
+        (
+            "service-afb",
+            "anfrage-intern",
+            "subm",
+            {"create-manual-workitems", "cantonal-exam", "distribution"},
+        ),
+        (
+            "municipality",
+            "anfrage-intern",
+            "subm",
+            {"create-manual-workitems", "formal-exam", "cantonal-exam"},
+        ),
+        (
+            "municipality-light",
+            "anfrage-intern",
+            "subm",
+            {"create-manual-workitems", "distribution"},
+        ),
+    ],
+)
+def test_instance_submit_ag_internal(
+    db,
+    admin_client,
+    ag_instance,
+    ag_master_data_settings,
+    disable_ech0211_settings,
+    expected_instance_state,
+    expected_work_items,
+    form_slug,
+    service_factory,
+    instance_service_factory,
+    instance_state_factory,
+    master_data_is_visible_mock,
+    mock_generate_and_store_pdf,
+    mocker,
+    service,
+    set_application_ag,
+    utils,
+):
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
+    )
+
+    instance_state_factory(name="subm")
+    instance_state_factory(name="init-distribution")
+    instance_state_factory(name="to-finish")
+
+    if service.service_group.name == "service-afb":
+        service.slug = "afb"
+        service.save()
+    else:
+        service_factory(slug="afb", service_group__name="service-afb")
+
+    instance_service_factory(instance=ag_instance, service=service)
+
+    utils.add_municipality(ag_instance.case.document, "gemeinde", service)
+    ag_instance.case.document.form_id = form_slug
+    ag_instance.case.document.save()
+
+    response = admin_client.post(reverse("instance-submit", args=[ag_instance.pk]))
+
+    ag_instance.refresh_from_db()
+
+    work_items = ag_instance.case.work_items.filter(
+        status=caluma_workflow_models.WorkItem.STATUS_READY
+    ).values_list("task_id", flat=True)
+    assert response.status_code == status.HTTP_200_OK
+    assert ag_instance.instance_state.name == expected_instance_state
+    assert set(work_items) == expected_work_items
+
+
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,instance__user",
+    [("Applicant", "new", lf("admin_user"))],
+)
+def test_instance_submit_ag_pgv(
+    admin_client,
+    application_settings,
+    disable_ech0211_settings,
+    caluma_dynamic_option_factory,
+    instance_state_factory,
+    master_data_is_visible_mock,
+    mock_generate_and_store_pdf,
+    mocker,
+    service_factory,
+    set_application_ag,
+    settings,
+    ag_instance,
+    ag_master_data_settings,
+    utils,
+):
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
+    )
+    # Remove KOOR_GROUP_IDS as if the instance.group is by randomness
+    # on of the ids in the list, _send_notifications behaves differently
+    # and fails because of unconfigured settings.
+    mocker.patch(
+        "camac.constants.kt_uri.KOOR_GROUP_IDS",
+        return_value=[],
+    )
+
+    # Create needed services
+    municipality_service = service_factory(service_group__name="municipality")
+    pgv_service = service_factory(service_group__name="authority-pgv")
+    afb_service = service_factory(slug="afb")
+
+    # Create needed instance states
+    instance_state_factory(name="subm")
+    instance_state_factory(name="init-distribution")
+
+    # Set municipality in form
+    utils.add_answer(
+        ag_instance.case.document, "gemeinde", str(municipality_service.pk)
+    )
+    caluma_dynamic_option_factory(
+        question_id="gemeinde",
+        document=ag_instance.case.document,
+        slug=str(municipality_service.pk),
+        label={"de": municipality_service.name},
+    )
+
+    # Set PGV as form
+    ag_instance.case.document.form_id = "plangenehmigungsverfahren-bund"
+    ag_instance.case.document.save()
+
+    response = admin_client.post(reverse("instance-submit", args=[ag_instance.pk]))
+
+    ag_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+    assert ag_instance.responsible_service() == pgv_service
+    assert ag_instance.instance_state.name == "init-distribution"
+
+    cantonal_exam = ag_instance.case.work_items.get(task_id="cantonal-exam")
+    assert cantonal_exam.status == caluma_workflow_models.WorkItem.STATUS_READY
+    assert cantonal_exam.addressed_groups == [str(afb_service.pk)]
+
+
+def test_validate_instance_for_trusted_service(db, instance, mocker):
+    mocker.patch(
+        "camac.instance.mixins.InstanceEditableMixin._validate_instance_editablity"
+    )
+    InstanceEditableMixin().validate_instance_for_trusted_service(instance)
+    InstanceEditableMixin()._validate_instance_editablity.assert_called_once_with(
+        instance
+    )

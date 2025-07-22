@@ -1,11 +1,11 @@
 @import "toggle";
 
-$navbar-hover-color: #990000;
+$navbar-hover-color: #900;
 $navbar-border-color: $navbar-hover-color;
 
 .so-navbar {
   &__header {
-    padding: 17px 20px 20px 20px;
+    padding: 17px 20px 20px;
     position: relative;
   }
 
@@ -40,7 +40,7 @@ $navbar-border-color: $navbar-hover-color;
 
           > a {
             display: flex;
-            color: #ffffff;
+            color: #fff;
             padding: 0 15px;
             min-width: 28px;
             align-items: center;
@@ -87,7 +87,7 @@ $navbar-border-color: $navbar-hover-color;
         height: 0;
         margin-left: 2px;
         vertical-align: middle;
-        border-top: 4px solid #ffffff;
+        border-top: 4px solid #fff;
         border-right: 4px solid transparent;
         border-left: 4px solid transparent;
       }
@@ -116,7 +116,7 @@ $navbar-border-color: $navbar-hover-color;
         > a {
           display: flex;
           padding: 16px 14px;
-          color: #ffffff;
+          color: #fff;
           width: 100%;
           line-height: 1.4;
 

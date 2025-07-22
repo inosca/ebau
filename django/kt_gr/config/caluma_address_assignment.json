@@ -1,0 +1,385 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "address-assignment-confirm-suggestion",
+    "fields": {
+      "created_at": "2025-01-07T10:48:11.337Z",
+      "modified_at": "2025-01-07T10:48:11.337Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"address-assignment-confirm-suggestion\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "address-assignment-make-suggestion",
+    "fields": {
+      "created_at": "2025-01-07T10:47:55.808Z",
+      "modified_at": "2025-01-07T10:47:55.808Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"address-assignment-make-suggestion\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "address-assignment-confirm-suggestion.address-assignment-complete",
+    "fields": {
+      "created_at": "2025-01-08T12:32:05.309Z",
+      "modified_at": "2025-01-08T12:32:05.309Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "address-assignment-confirm-suggestion",
+      "question": "address-assignment-complete",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "address-assignment-confirm-suggestion.address-assignment-remark",
+    "fields": {
+      "created_at": "2025-01-08T12:32:34.047Z",
+      "modified_at": "2025-01-08T12:32:34.047Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "address-assignment-confirm-suggestion",
+      "question": "address-assignment-remark",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "address-assignment-confirm-suggestion.address-assignment-valid",
+    "fields": {
+      "created_at": "2025-01-08T12:32:13.498Z",
+      "modified_at": "2025-01-08T12:32:13.498Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "address-assignment-confirm-suggestion",
+      "question": "address-assignment-valid",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "address-assignment-make-suggestion.address-assignment-complete",
+    "fields": {
+      "created_at": "2025-01-08T12:21:48.379Z",
+      "modified_at": "2025-01-08T12:21:48.379Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "address-assignment-make-suggestion",
+      "question": "address-assignment-complete",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "address-assignment-make-suggestion.address-assignment-remark",
+    "fields": {
+      "created_at": "2025-01-08T15:02:13.433Z",
+      "modified_at": "2025-01-08T15:02:13.433Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "address-assignment-make-suggestion",
+      "question": "address-assignment-remark",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "address-assignment-make-suggestion.address-assignment-street",
+    "fields": {
+      "created_at": "2025-01-07T12:03:42.940Z",
+      "modified_at": "2025-01-07T12:03:42.940Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "address-assignment-make-suggestion",
+      "question": "address-assignment-street",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "address-assignment-valid-invalid",
+    "fields": {
+      "created_at": "2025-01-08T12:33:07.681Z",
+      "modified_at": "2025-06-03T06:54:20.707Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "address-assignment-valid-valid",
+    "fields": {
+      "created_at": "2025-01-08T12:33:07.683Z",
+      "modified_at": "2025-06-03T06:54:20.707Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"S\\u00ec\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "address-assignment-complete",
+    "fields": {
+      "created_at": "2025-01-08T12:08:08.854Z",
+      "modified_at": "2025-06-06T13:24:32.787Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": \"Concludi\"}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "address-assignment-remark",
+    "fields": {
+      "created_at": "2025-01-08T12:32:33.932Z",
+      "modified_at": "2025-06-06T13:24:21.113Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkung\", \"fr\": null, \"it\": \"Osservazione\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "address-assignment-street",
+    "fields": {
+      "created_at": "2025-01-07T12:03:42.813Z",
+      "modified_at": "2025-06-06T13:25:35.081Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse/Flurname, Nr.\", \"fr\": null, \"it\": \"Via/toponimo, n.\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "address-assignment-valid",
+    "fields": {
+      "created_at": "2025-01-08T12:08:59.733Z",
+      "modified_at": "2025-06-06T13:44:00.154Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist die vorgeschlagene Adresse g\\u00fcltig?\", \"fr\": null, \"it\": \"L'indirizzo proposto \\u00e8 valido?\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "address-assignment-valid.address-assignment-valid-invalid",
+    "fields": {
+      "created_at": "2025-06-06T13:44:00.157Z",
+      "modified_at": "2025-06-06T13:44:00.157Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "address-assignment-valid",
+      "option": "address-assignment-valid-invalid",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "address-assignment-valid.address-assignment-valid-valid",
+    "fields": {
+      "created_at": "2025-06-06T13:44:00.159Z",
+      "modified_at": "2025-06-06T13:44:00.159Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "address-assignment-valid",
+      "option": "address-assignment-valid-valid",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "address-assignment-confirm-suggestion",
+    "fields": {
+      "created_at": "2020-08-10T14:28:15.491Z",
+      "modified_at": "2025-06-06T09:09:49.043Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Addressierung pr\\u00fcfen\", \"fr\": \"\", \"it\": \"Verificare l'indirizzo\"}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.address-assignment",
+          "models": ["INSTANCE_ID"]
+        },
+        "is-manually-completable": true
+      },
+      "address_groups": "['gebaudeversicherung']|groups",
+      "control_groups": "['municpality']|groups",
+      "is_archived": false,
+      "form": "address-assignment-confirm-suggestion",
+      "lead_time": 8640000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "address-assignment-make-suggestion",
+    "fields": {
+      "created_at": "2020-08-10T14:28:15.491Z",
+      "modified_at": "2025-06-02T14:34:54.668Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Addressierung vorschlagen\", \"fr\": \"\", \"it\": \"Suggerire un indirizzo\"}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.address-assignment",
+          "models": ["INSTANCE_ID"]
+        },
+        "is-manually-completable": true
+      },
+      "address_groups": "['geometer']|groups",
+      "control_groups": "['municpality']|groups",
+      "is_archived": false,
+      "form": "address-assignment-make-suggestion",
+      "lead_time": 8640000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  }
+]

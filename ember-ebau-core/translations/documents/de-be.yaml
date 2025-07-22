@@ -1,4 +1,3 @@
 documents:
-  buckets:
-    dokument-projektplane-projektbeschrieb-hint: "Bitte laden Sie die Projektpläne als separate Dokumente hoch"
-    
+  confirm-reduced: "Hiermit bestätige ich, dass ich mindestens einen der benötigten Pflichtinhalte hochgeladen habe:"
+  confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe. Bitte beachten Sie, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist."

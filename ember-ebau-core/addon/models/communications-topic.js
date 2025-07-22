@@ -1,5 +1,7 @@
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+
 export default class CommunicationTopicModel extends Model {
   @attr subject;
   @attr hasUnread;
@@ -12,4 +14,18 @@ export default class CommunicationTopicModel extends Model {
   @belongsTo("instance", { inverse: null, async: true }) instance;
   @belongsTo("user", { inverse: null, async: true }) initiatedBy;
   @hasMany("user", { inverse: null, async: true }) responsibleServiceUsers;
+
+  get instanceIdentifier() {
+    if (hasFeature("communications.hideInstanceId")) {
+      return this.dossierNumber;
+    }
+
+    const instanceId = this.belongsTo("instance").id();
+
+    if (this.dossierNumber) {
+      return `${this.dossierNumber} (${instanceId})`;
+    }
+
+    return instanceId;
+  }
 }

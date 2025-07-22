@@ -2,16 +2,17 @@ repos:
 -   repo: local
     hooks:
     - id: ruff-check-and-fix
-      stages: [commit]
+      stages: [pre-commit]
       name: fix style and imports
       language: system
       entry: ruff check --fix
       types: [python]
       pass_filenames: true
     - id: ruff-format
-      stages: [commit]
+      stages: [pre-commit]
       name: format code
       language: system
       entry: ruff format
+      args: ["--config", "django/pyproject.toml", "--force-exclude"]
       types: [python]
       pass_filenames: true

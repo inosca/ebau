@@ -12,6 +12,8 @@ cases:
     coordinationShort: "Kurzname Koordinationsstelle"
     createdAt: "Erstellt am"
     deadlineColor: ""
+    deadlineEndDate: "Fristende"
+    processDuration: "Durchlaufzeit"
     decisionDate: "Entscheiddatum"
     dossierCreated: "Dossier angenommen / erfasst"
     dossierNumber: "Dossier-Nr"
@@ -103,6 +105,8 @@ cases:
     paper-placeholder: ""
     paper: "Papier"
     parcel-placeholder: ""
+    parcel_property_number-placeholder: ""
+    parcel_egrid-placeholder: ""
     parcel: "Parzellen- / Baurechtsnummer"
     pendingSanctionsControlInstance-placeholder: ""
     pendingSanctionsControlInstance: "Auflagen zur Kontrolle"
@@ -141,6 +145,9 @@ cases:
     modalTitle: "Alle Dossiers auf Parzelle"
     noLinkedInstances: "Es wurden noch keine Dossiers verknüpft."
     noInstancesOnSamePlot: "Es wurden keine Dossiers auf dieser Parzelle gefunden."
+    linkedInstancesText: "{count} {count, plural, one {verknüpftes Dossier} other {verknüpfte Dossiers}}"
+    instancesOnSamePlotText: "{count} {count, plural, one {Dossier auf der gleichen Parzelle} other {Dossiers auf der gleichen Parzelle}}"
+    fetchAmountOfInstancesOnSamePlotError: "Bei der Abfrage der Dossiers auf der gleichen Parzelle ist etwas schief gelaufen"
 
   new:
     title: "Neues Gesuch erstellen"
@@ -184,3 +191,16 @@ cases:
   appeal:
     only: "Nur Beschwerdeverfahren"
     none: "Keine Beschwerdeverfahren"
+
+  submit:
+    success: "Das Gesuch wurde erfolgreich eingereicht."
+    failed-camac: "Fehler beim Schreiben auf Schnittstelle."
+    failed-message: "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. {reasons}"
+    hint-text: "<strong>Hinweis:</strong> Als Systembetrieb können keine Gesuche eingereicht werden."
+    internal:
+      label: "Erfassung abschliessen"
+      success: "Das Gesuch wurde erfolgreich angelegt."
+
+  copy:
+    title: "Link in Zwischenablage kopieren"
+    success: "Der Link wurde in die Zwischenablage kopiert"

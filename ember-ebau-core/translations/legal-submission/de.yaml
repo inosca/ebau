@@ -11,6 +11,7 @@ legal-submission:
   legal-claimants: "Rechtsbegehrende"
   status: "Status"
   withdrawn: "Zurückgezogen?"
+  has-representative: "Vertretung?"
 
   loading-error: "Fehler beim Laden der Rechtsbegehren"
   create-error: "Fehler beim Erstellen des Rechtsbegehren"
@@ -18,3 +19,5 @@ legal-submission:
   delete-confirm: "Wollen Sie das Rechtsbegehren wirklich löschen?"
   delete-success: "Das Rechtsbegehren wurde erfolgreich gelöscht."
   delete-error: "Fehler beim Löschen des Rechtsbegehren"
+
+  hint: ""

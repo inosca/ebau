@@ -1036,6 +1036,88 @@ def test_scope_service_and_subservice(
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("role__name", ["applicant"])
+@pytest.mark.parametrize(
+    "method,created_by,status_code",
+    [
+        ("patch", "applicant-admin", HTTP_200_OK),
+        ("delete", "applicant-admin", HTTP_204_NO_CONTENT),
+        ("patch", "applicant-read", HTTP_403_FORBIDDEN),
+        ("delete", "applicant-read", HTTP_403_FORBIDDEN),
+        ("patch", "service", HTTP_403_FORBIDDEN),
+        ("delete", "service", HTTP_403_FORBIDDEN),
+    ],
+)
+def test_scope_applicant(
+    db,
+    admin_client,
+    created_by,
+    instance,
+    method,
+    mocker,
+    user_factory,
+    applicant_factory,
+    status_code,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[instance.pk],
+    )
+
+    alexandria_category = CategoryFactory(
+        metainfo={
+            "access": {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "update",
+                            "fields": ["title"],
+                            "scope": "Applicant",
+                        },
+                        {
+                            "permission": "delete",
+                            "scope": "Applicant",
+                        },
+                    ],
+                },
+            }
+        }
+    )
+
+    users = {
+        "applicant-admin": instance.involved_applicants.first().invitee,
+        "applicant-read": applicant_factory(
+            instance=instance, role="READ_ONLY"
+        ).invitee,
+        "service": user_factory(),
+    }
+
+    document = DocumentFactory(
+        title="Foo",
+        category=alexandria_category,
+        metainfo={"camac-instance-id": instance.pk},
+        created_by_user=str(users[created_by].pk),
+        modified_by_user=str(users[created_by].pk),
+    )
+
+    data = {
+        "data": {
+            "type": "documents",
+            "id": document.pk,
+            "attributes": {
+                "title": "Important",
+            },
+        },
+    }
+
+    url = reverse("document-detail", args=[document.pk])
+
+    response = getattr(admin_client, method)(url, data)
+
+    assert response.status_code == status_code
+
+
 @pytest.mark.parametrize("role__name", ["service"])
 @pytest.mark.parametrize(
     "work_item_status,status_code",
@@ -1051,7 +1133,7 @@ def test_condition_ready_work_item(
     gr_instance,
     mocker,
     status_code,
-    work_item_factory,
+    caluma_work_item_factory,
     work_item_status,
 ):
     mocker.patch(
@@ -1060,7 +1142,7 @@ def test_condition_ready_work_item(
     )
 
     if work_item_status:
-        work_item_factory(
+        caluma_work_item_factory(
             task__pk="some-work-item", case=gr_instance.case, status=work_item_status
         )
 
@@ -1113,7 +1195,7 @@ def test_condition_ready_work_item_additional_demand(
     method,
     mocker,
     status_code,
-    work_item_factory,
+    caluma_work_item_factory,
     work_item_status,
 ):
     mocker.patch(
@@ -1121,7 +1203,7 @@ def test_condition_ready_work_item_additional_demand(
         return_value=[gr_instance.pk],
     )
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task=Task.objects.get(slug="fill-additional-demand"),
         case=gr_instance.case,
         status=work_item_status,
@@ -1160,6 +1242,72 @@ def test_condition_ready_work_item_additional_demand(
     if method == "delete":
         document = DocumentFactory(title="Foo", category=category, metainfo=metainfo)
 
+        response = admin_client.delete(reverse("document-detail", args=[document.pk]))
+    elif method == "post":
+        data = document_post_data(category.pk, gr_instance.pk, metainfo)
+
+        response = getattr(admin_client, method)(
+            reverse("document-list"), data, format="multipart"
+        )
+
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["applicant"])
+@pytest.mark.parametrize(
+    "method,document_marks,marks_condition,status_code",
+    [
+        ("post", [], "decision", HTTP_201_CREATED),
+        ("post", [], "", HTTP_201_CREATED),
+        ("delete", [], "decision", HTTP_403_FORBIDDEN),
+        ("delete", ["other"], "decision", HTTP_403_FORBIDDEN),
+        ("delete", ["other"], "", HTTP_403_FORBIDDEN),
+        ("delete", ["decision"], "decision", HTTP_204_NO_CONTENT),
+        ("delete", ["decision"], ["decision"], HTTP_204_NO_CONTENT),
+        ("delete", ["other", "decision"], ["decision"], HTTP_204_NO_CONTENT),
+    ],
+)
+def test_condition_access_has_any_mark(
+    db,
+    admin_client,
+    gr_instance,
+    mocker,
+    status_code,
+    document_marks,
+    marks_condition,
+    method,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[gr_instance.pk],
+    )
+
+    category = CategoryFactory(
+        metainfo={
+            "access": {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {"permission": "create", "scope": "All"},
+                        {
+                            "permission": "delete",
+                            "scope": "All",
+                            "condition": {
+                                "HasAnyMark": marks_condition,
+                            },
+                        },
+                    ],
+                },
+            }
+        }
+    )
+
+    metainfo = {"camac-instance-id": gr_instance.pk}
+    document = DocumentFactory(title="Foo", category=category, metainfo=metainfo)
+    for mark_slug in document_marks:
+        document.marks.add(MarkFactory(slug=mark_slug))
+
+    if method == "delete":
         response = admin_client.delete(reverse("document-detail", args=[document.pk]))
     elif method == "post":
         data = document_post_data(category.pk, gr_instance.pk, metainfo)
@@ -1712,6 +1860,115 @@ def test_move_document(
     }
 
     response = admin_client.patch(reverse("document-detail", args=[document.pk]), data)
+
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["municipality"])
+@pytest.mark.parametrize(
+    "document_created_by_group,source_category_visibility,target_category_visibility,"
+    "source_category_permissions,target_category_permissions,status_code",
+    [
+        (
+            "admin",
+            "all",
+            "all",
+            [{"permission": "create"}],
+            [{"permission": "create"}],
+            HTTP_201_CREATED,
+        ),
+        ("admin", "all", "all", [{"permission": "create"}], [], HTTP_403_FORBIDDEN),
+        (
+            "other",
+            "service",
+            "service",
+            [{"scope": "Service", "permission": "create"}],
+            [{"scope": "Service", "permission": "create"}],
+            HTTP_403_FORBIDDEN,
+        ),
+        (
+            "other",
+            "all",
+            "service",
+            [{"scope": "All", "permission": "create"}],
+            [{"scope": "Service", "permission": "create"}],
+            HTTP_201_CREATED,
+        ),
+    ],
+)
+def test_copy_document(
+    db,
+    admin_client,
+    service_factory,
+    caluma_admin_user,
+    instance,
+    mocker,
+    document_created_by_group,
+    source_category_visibility,
+    target_category_visibility,
+    source_category_permissions,
+    status_code,
+    target_category_permissions,
+):
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[instance.pk],
+    )
+
+    CategoryFactory(
+        slug="source-category",
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": source_category_visibility,
+                    "permissions": source_category_permissions,
+                },
+            }
+        },
+    )
+
+    CategoryFactory(
+        slug="target-category",
+        metainfo={
+            "access": {
+                "municipality": {
+                    "visibility": target_category_visibility,
+                    "permissions": target_category_permissions,
+                },
+            }
+        },
+    )
+
+    created_by_group = (
+        caluma_admin_user.group
+        if document_created_by_group == "admin"
+        else document_created_by_group
+    )
+
+    document = DocumentFactory(
+        category_id="source-category",
+        metainfo={"camac-instance-id": instance.pk},
+        created_by_group=created_by_group,
+        modified_by_group=created_by_group,
+    )
+
+    data = {
+        "data": {
+            "type": "documents",
+            "id": document.pk,
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": "target-category",
+                        "type": "categories",
+                    },
+                }
+            },
+        },
+    }
+
+    url = reverse("document-detail", args=[document.pk]) + "/copy"
+    response = admin_client.post(url, data)
 
     assert response.status_code == status_code
 

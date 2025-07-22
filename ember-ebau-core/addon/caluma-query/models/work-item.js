@@ -48,6 +48,14 @@ export default class CustomWorkItemModel extends WorkItemModel {
     this.assignedUsers = [user.username];
   }
 
+  get isCaseSuspendedForMyService() {
+    const caseMeta = this.case?.meta ?? {};
+
+    return (caseMeta["suspended-services"] ?? [])
+      .map(parseInt)
+      .includes(parseInt(this.ebauModules.serviceId));
+  }
+
   get addressedService() {
     if (!this.addressedGroups.length) return null;
 
@@ -72,7 +80,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
   get createdByUser() {
     return this.store
       .peekAll("public-user")
-      .find((user) => user.username === this.raw.closedByUser);
+      .find((user) => user.username === this.raw.createdByUser);
   }
 
   get createdByGroup() {
@@ -211,7 +219,11 @@ export default class CustomWorkItemModel extends WorkItemModel {
       TASK_SLUG: this.task.slug,
     };
 
-    const distributionWorkItem = [this.raw, this.raw.case.parentWorkItem]
+    const distributionWorkItem = [
+      this.raw,
+      this.raw.case.parentWorkItem,
+      this.raw.case.parentWorkItem?.case.parentWorkItem,
+    ]
       .filter(Boolean)
       .find((workItem) => workItem.task.slug === "distribution");
 
@@ -254,16 +266,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get directLink() {
-    if (this.abilities.cannot("edit work-item", this)) return null;
-
-    return this._getDirectLinkFor(this.raw.task.slug) || this.editLink;
+    return this._getDirectLinkFor(this.raw.task.slug) ?? this.editLink;
   }
 
   get editLink() {
-    if (!this.abilities.can("edit work-item", this)) {
-      return false;
-    }
-
     if (this.ebauModules.isLegacyApp) {
       const url = this._getDirectLinkFor("edit");
       const hash = this.router.urlFor(
@@ -281,6 +287,8 @@ export default class CustomWorkItemModel extends WorkItemModel {
     };
   }
 
+  // TODO: Consider moving this logic to the backend, so that we don't have
+  // to always fetch parent work items.
   _getLinkPlaceholders() {
     const inquiryWorkItem = [this.raw, this.raw.case.parentWorkItem]
       .filter(Boolean)
@@ -313,6 +321,25 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   _getDirectLinkFor(configKey) {
+    if (this.isCompleted && this.ebauModules.isLegacyApp) {
+      return Object.entries(this._getLinkPlaceholders()).reduce(
+        (url, [key, value]) => url.replace(`{{${key}}}`, value),
+        `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?work-items`,
+      );
+    }
+
+    if (this.ebauModules.isLegacyApp && this.isControlledByCurrentService) {
+      const query = this.ebauModules.directLinkConfig[configKey];
+      return Object.entries(this._getLinkPlaceholders()).reduce(
+        (url, [key, value]) => url.replace(`{{${key}}}`, value),
+        `/index/redirect-to-instance-resource/instance-id/${this.instanceId}?${query}`,
+      );
+    }
+
+    if (!this.abilities.can("edit work-item", this)) {
+      return null;
+    }
+
     // Only the addressed group should have a direct link if the work item is
     // not a manual work item
     if (
@@ -362,7 +389,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       });
 
       return true;
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("workItems.saveError"));
     }
   }
@@ -391,7 +418,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
       });
 
       return true;
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("workItems.saveError"));
     }
   }

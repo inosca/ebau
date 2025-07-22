@@ -3,7 +3,7 @@ services:
     ports:
       - "11211:11211"
     networks:
-      - ebau.local
+      - ebau.localhost
 
   proxy:
     volumes:
@@ -11,12 +11,12 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.local:
+      ebau.localhost:
         aliases:
-          - ember-ebau.local
-          - ebau-portal.local
-          - ebau-rest-portal.local
-          - ebau-keycloak.local
+          - ember-ebau.localhost
+          - ebau-portal.localhost
+          - ebau-rest-portal.localhost
+          - ebau-keycloak.localhost
 
   db:
     # Workaround, same name of image as cache_from
@@ -31,7 +31,7 @@ services:
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
     networks:
-      - ebau.local
+      - ebau.localhost
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -47,17 +47,17 @@ services:
     environment:
       - ENV=development
       - APPLICATION_ENV=development
-      - KEYCLOAK_URL=http://ebau-keycloak.local/auth/
+      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
       - DATABASE_PASSWORD=camac
       - DATABASE_USER=camac
       - DJANGO_EMAIL_HOST=mailpit
       - DJANGO_EMAIL_PORT=1025
       - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       - PYTHONDONTWRITEBYTECODE=1
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
     networks:
-      - ebau.local
+      - ebau.localhost
     tty: true
     stdin_open: true
     command: devserver
@@ -67,12 +67,12 @@ services:
     environment:
       - BE_GIS_URL=https://map2-test.apps.be.ch
     networks:
-      - ebau.local
+      - ebau.localhost
 
   ember-ebau:
     image: acr.run/camac-ng/camac-ng/ember-ebau:master
     networks:
-      - ebau.local
+      - ebau.localhost
 
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
@@ -82,25 +82,25 @@ services:
       - KC_DB_PASSWORD=camac
       - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
       - KC_DB_USERNAME=camac
-      - KC_HOSTNAME=ebau-keycloak.local
+      - KC_HOSTNAME=ebau-keycloak.localhost
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=camac
     networks:
-      - ebau.local
+      - ebau.localhost
 
   mailpit:
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       - MP_WEBROOT=mailpit
 
   document-merge-service:
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       - ENV=dev
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - OIDC_GROUPS_API=http://ebau.local/api/v1/me?include=service,service.service_parent
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
+      - OIDC_GROUPS_API=http://ebau.localhost/api/v1/me?include=service,service.service_parent
     # There appears to be bug where libreoffice can only be started as the root
     # user. The workaround of fixing owner and permissions of ~/.config did not
     # work in our case.
@@ -124,22 +124,22 @@ services:
     environment:
       - DATABASE_PASSWORD=camac
       - ALLOWED_HOSTS=*
-      - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-      - MINIO_STORAGE_ENDPOINT=ember-ebau.local
+      - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
+      - MINIO_STORAGE_ENDPOINT=ember-ebau.localhost
       - MINIO_STORAGE_SECRET_KEY=minio123
     networks:
-      - ebau.local
+      - ebau.localhost
 
   minio:
     environment:
       - MINIO_SECRET_KEY=minio123
     networks:
-      - ebau.local
+      - ebau.localhost
 
   mc:
     networks:
-      - ebau.local
+      - ebau.localhost
 
 
 networks:
-  ebau.local:
+  ebau.localhost:

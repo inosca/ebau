@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import graphqlHandler from "@projectcaluma/ember-testing/mirage-graphql";
 import { discoverEmberDataModels } from "ember-cli-mirage";
 import { DateTime } from "luxon";
-import { createServer } from "miragejs";
+import { createServer, Response } from "miragejs";
 
 import mainConfig from "ember-ebau-core/config/main";
 import applyTestQueryParamsFilter from "ember-ebau-core/utils/apply-test-query-params-filter";
@@ -27,9 +27,31 @@ export default function makeServer(config) {
       this.resource("public-users");
       this.resource("public-services");
       this.resource("public-groups");
-      this.resource("notification-templates", { only: ["index", "show"] });
+      this.resource("notification-templates");
+      this.resource("responsible-user-rule");
+      this.resource("application-type", { only: ["index", "show"] });
+      this.delete(
+        "notification-templates/delete_by_purpose",
+        function ({ notificationTemplates }, { queryParams: { purpose } }) {
+          notificationTemplates.where({ purpose }).destroy();
+
+          return new Response(204);
+        },
+      );
+      this.get(
+        "notification-templates/update_purposes",
+        function ({ notificationTemplates }, { queryParams }) {
+          notificationTemplates
+            .where({ purpose: queryParams.current })
+            .update({ purpose: queryParams.new });
+
+          return new Response(204);
+        },
+      );
 
       this.resource("billing-v2-entries");
+      this.resource("billing-v2-entry-templates", { only: ["index"] });
+
       this.post(
         "billing-v2-entries",
         function ({ billingV2Entries }) {
@@ -62,15 +84,36 @@ export default function makeServer(config) {
 
         return json;
       });
+      this.post(
+        "billing-v2-entries/charge-bulk",
+        ({ billingV2Entries }, request) => {
+          const entryIds = JSON.parse(request.requestBody).entry_ids;
+          const newDateCharged = DateTime.now().toISO();
+
+          billingV2Entries.find(entryIds).update({
+            dateCharged: newDateCharged,
+          });
+        },
+        204,
+      );
       this.patch(
-        "billing-v2-entries/:id/charge",
+        "billing-v2-entries/:id/release-for-clearing",
         ({ billingV2Entries }, request) => {
           const entry = billingV2Entries.find(request.params.id);
-          entry.update({ dateCharged: DateTime.now().toISO() });
+          entry.update({ releasedForClearing: DateTime.now().toISO() });
           return;
         },
         204,
       );
+      this.get("product-numbers", {
+        data: [
+          { number: 100000, name: "Product number 100000" },
+          { number: 150000, name: "Product number 150000" },
+          { number: 900000, name: "Product number 900000" },
+          { number: 300000, name: "Product number 300000" },
+          { number: 310000, name: "Product number 310000" },
+        ],
+      });
 
       this.resource("communications-topics");
       this.resource("communications-messages");
@@ -135,6 +178,12 @@ export default function makeServer(config) {
         );
         return filtered;
       });
+
+      this.resource("work-item-list-filter-preset");
+
+      this.resource("deadline-types", { only: ["index"] });
+      this.resource("suspensions");
+      this.resource("instance-deadlines");
 
       this.namespace = ""; // reset namespace
 

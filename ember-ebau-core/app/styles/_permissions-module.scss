@@ -1,4 +1,4 @@
-@use 'sass:color';
+@use "sass:color";
 
 .permissions-module-modal-dialog {
   width: fit-content;
@@ -17,7 +17,7 @@
   }
 }
 
-.permissions-module-create-acl-modal-dialog{
+.permissions-module-create-acl-modal-dialog {
   .uk-form-stacked .uk-form-label {
     margin-top: 10px;
   }

@@ -151,7 +151,6 @@ def test_user_keycloak_apply(
     gr_user_settings,
     admin_client,
     admin_user,
-    mocker,
     gr_instance,
     settings,
     requests_mock,
@@ -173,18 +172,6 @@ def test_user_keycloak_apply(
             }
         },
     )
-    mocker.patch(
-        "camac.user.authentication.JSONWebTokenKeycloakAuthentication.get_jwt_value",
-        lambda self, token: type("token", (bytes,), {"decode": lambda: None}),
-    )
-    token_value = {
-        "sub": admin_user.username,
-        "email": admin_user.email,
-        "family_name": admin_user.surname,
-        "given_name": admin_user.name,
-    }
-    userinfo = mocker.patch("keycloak.KeycloakOpenID.userinfo")
-    userinfo.return_value = token_value
 
     response = admin_client.post(
         reverse("keycloak-apply"),
@@ -194,23 +181,101 @@ def test_user_keycloak_apply(
 
     assert response.status_code == expected_status
     if response.status_code == status.HTTP_201_CREATED:
-        assert set(response.json()["questions"]) == {
-            "e-mail-gesuchstellerin",
-            "vorname-gesuchstellerin",
-            "name-gesuchstellerin",
-        }
-
+        assert set(response.json()["questions"]) == set(
+            settings.USER.question_user_attributes_mapping.keys()
+        )
         answers = gr_instance.case.document.answers.all()
 
         assert (
-            answers.get(question_id="e-mail-gesuchstellerin").value
-            == token_value["email"]
+            answers.get(question_id="e-mail-gesuchstellerin").value == admin_user.email
         )
         assert (
             answers.get(question_id="vorname-gesuchstellerin").value
-            == token_value["given_name"]
+            == admin_user.surname
         )
-        assert (
-            answers.get(question_id="name-gesuchstellerin").value
-            == token_value["family_name"]
-        )
+        assert answers.get(question_id="name-gesuchstellerin").value == admin_user.name
+
+
+def test_me_patch(admin_client, admin_user, user_settings, application_settings):
+    user_settings.allowed_write_attributes = [
+        "title",
+        "position",
+        "phone",
+        "mobile",
+        "surname",
+    ]
+    application_settings["OIDC_SYNC_USER_ATTRIBUTES"] = ["surname"]
+
+    response = admin_client.patch(
+        reverse("me"),
+        data={
+            "data": {
+                "id": admin_user.pk,
+                "type": "users",
+                "attributes": {
+                    "title": "Master of Science",
+                    "position": "Project manager",
+                    "phone": "+41 32 999 99 99",
+                    "mobile": "+41 79 999 99 99",
+                    # In writable properties but also in OIDC sync properties,
+                    # should not be updated
+                    "surname": "Doe",
+                    # Not in writable properties, should not be updated
+                    "name": "John",
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    admin_user.refresh_from_db()
+
+    assert admin_user.title == "Master of Science"
+    assert admin_user.position == "Project manager"
+    assert admin_user.phone == "+41 32 999 99 99"
+    assert admin_user.mobile == "+41 79 999 99 99"
+
+    # Properties that are not allowed for updates are being ignored
+    assert admin_user.surname != "Doe"
+    assert admin_user.name != "John"
+
+
+@pytest.mark.parametrize("role__name", [("Municipality")])
+def test_user_admin_for_service_filter(
+    db, user_group_factory, admin_client, service, service_factory, admin_user
+):
+    other_service = service_factory()
+
+    # Make sure we can see the users of `other_service`
+    user_group_factory(group__service=other_service, user=admin_user)
+
+    # Create users in groups that should not be visible
+    for svc, role in [
+        (service, "municipality-lead"),
+        (service, "service-lead"),
+        (other_service, "municipality-admin"),
+        (other_service, "service-admin"),
+    ]:
+        user_group_factory(group__service=svc, group__role__name=role)
+
+    admins = [
+        user_group_factory(group__service=service, group__role__name=role)
+        for role in [
+            "construction-control-admin",
+            "geometer-admin",
+            "municipality-admin",
+            "service-admin",
+        ]
+    ]
+
+    response = admin_client.get(
+        reverse("user-list"), data={"admin_for_service": service.pk}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    result = response.json()["data"]
+    assert len(result) == len(admins)
+
+    assert set(int(r["id"]) for r in result) == set([a.user.pk for a in admins])

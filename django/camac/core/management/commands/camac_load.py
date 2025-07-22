@@ -16,8 +16,7 @@ class Command(BaseCommand):
         parser.add_argument(
             "--user",
             default=None,
-            help="Username to set the namespace to. "
-            "See settings.SEQUENCE_NAMESPACES",
+            help="Username to set the namespace to. See settings.SEQUENCE_NAMESPACES",
             required=False,
         )
         parser.add_argument(

@@ -28,6 +28,12 @@ export default Factory.extend({
     status: "scheduled",
   }),
 
+  scheduledCancelled: trait({
+    startTime: () => faker.date.future(),
+    endTime: (instance) => instance.endTime ?? faker.date.recent(),
+    status: "scheduled",
+  }),
+
   active: trait({
     endTime: null,
     revokedAt: null,
@@ -36,10 +42,14 @@ export default Factory.extend({
   }),
 
   afterCreate: (instanceAcl, server) => {
-    const existingAccessLevels = server.schema.accessLevels.all()?.models;
-    const accessLevel = existingAccessLevels.length
-      ? faker.helpers.arrayElement(existingAccessLevels)
-      : server.create("access-level");
+    let accessLevel = instanceAcl.accessLevel;
+
+    if (!accessLevel) {
+      const existingAccessLevels = server.schema.accessLevels.all()?.models;
+      accessLevel = existingAccessLevels.length
+        ? faker.helpers.arrayElement(existingAccessLevels)
+        : server.create("access-level");
+    }
 
     instanceAcl.update({
       accessLevel,

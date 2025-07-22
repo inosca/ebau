@@ -28,6 +28,7 @@ export default class InstancesNewController extends Controller {
 
   @tracked selectedForm = null;
   @tracked convertFrom = null;
+  @tracked showInfoPopup = false;
 
   get columns() {
     return Object.keys(this.forms.value ?? {}).sort(
@@ -41,7 +42,7 @@ export default class InstancesNewController extends Controller {
       query: getEbauNumberQuery,
       variables: { instanceId: parseInt(this.convertFrom) },
     }),
-    "allCases.edges.firstObject.node.meta.ebau-number",
+    "allCases.edges.0.node.meta.ebau-number",
   );
 
   forms = trackedFunction(this, async () => {
@@ -108,6 +109,8 @@ export default class InstancesNewController extends Controller {
     });
 
     const { data } = yield response.json();
+
+    this.showInfoPopup = false;
 
     yield this.router.transitionTo(
       "instances.edit.form",

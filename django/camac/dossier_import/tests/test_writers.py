@@ -107,9 +107,9 @@ def test_responsible_user_writer(
     writer.write(be_instance, value)
 
     if expected_message:
-        assert any(
-            expected_message in err.detail for err in dossier._meta.errors
-        ), dossier._meta.errors
+        assert any(expected_message in err.detail for err in dossier._meta.errors), (
+            dossier._meta.errors
+        )
     else:
         assert dossier._meta.errors == []
         assert dossier._meta.warnings == []

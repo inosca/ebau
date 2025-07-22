@@ -13,12 +13,12 @@ def get_task_trans(count, lang, controlling=False):
     if controlling:
         translations = {
             "de": {"singular": "Controlling-Aufgabe", "plural": "Controlling-Aufgaben"},
-            "fr": {"singular": "tâche", "plural": "tâches"},
+            "fr": {"singular": "tâche de contrôle", "plural": "tâches de contrôle"},
         }
     else:
         translations = {
             "de": {"singular": "Aufgabe", "plural": "Aufgaben"},
-            "fr": {"singular": "tâche de contrôle", "plural": "tâches de contrôle"},
+            "fr": {"singular": "tâche", "plural": "tâches"},
         }
 
     return translations[lang]["singular" if count == 1 else "plural"]

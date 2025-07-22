@@ -64,7 +64,7 @@ def is_created_by_service(work_item: WorkItem, service_id: int) -> bool:
 
 
 def is_addressed_to_applicant(work_item: WorkItem) -> bool:  # pragma: todo cover
-    if settings.APPLICATION_NAME in ["kt_schwyz", "kt_uri", "kt_so"]:
+    if settings.APPLICATION_NAME in ["kt_schwyz", "kt_uri", "kt_so", "kt_ag", "kt_gr"]:
         return "applicant" in work_item.addressed_groups
     return len(work_item.addressed_groups) == 0
 
@@ -512,6 +512,15 @@ class CustomPermission(BasePermission):
                 else f"form-{permission_key}-{required_permission}"
             )
 
+            # "FORM_PERMISSIONS_MAPPING" (in django.py) is used to map certain caluma form names
+            # via the "form-XYZ-write" to a name that makes sense in the permissions module
+            # such as "legal-submissions-write"
+            permission_name = (
+                settings.APPLICATION["CALUMA"]
+                .get("FORM_PERMISSIONS_MAPPING", {})
+                .get(permission_name, permission_name)
+            )
+
             return PermissionManager.from_request(self.request).has_all(
                 case.family.instance, permission_name
             )
@@ -594,6 +603,9 @@ class CustomPermission(BasePermission):
         return self.has_caluma_form_edit_permission_for_municipality(document, info)
 
     def has_caluma_form_edit_permission_for_uso(self, document, info):
+        return self.has_caluma_form_edit_permission_for_municipality(document, info)
+
+    def has_caluma_form_edit_permission_for_geometer(self, document, info):
         return self.has_caluma_form_edit_permission_for_municipality(document, info)
 
     def has_caluma_form_edit_permission_for_support(self, document, info):

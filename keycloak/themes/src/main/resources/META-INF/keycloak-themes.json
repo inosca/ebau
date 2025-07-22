@@ -1,7 +1,7 @@
 {
   "themes": [
     {
-      "name": "ebau-be",
+      "name": "ebau-be-0.4.0",
       "types": ["login"]
     },
     {

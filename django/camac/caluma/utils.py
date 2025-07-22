@@ -1,10 +1,14 @@
+import logging
 from copy import copy
 from datetime import date, datetime, timedelta
 from typing import Optional
 
 import pytz
 from caluma.caluma_core.events import filter_events
+from caluma.caluma_core.exceptions import ConfigurationError
+from caluma.caluma_form import api as form_api
 from caluma.caluma_form.models import Answer, Document, Question
+from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_user.models import AnonymousUser, OIDCUser
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
@@ -30,6 +34,8 @@ from camac.lookups import Any
 from camac.user.models import Group, Service, User
 from camac.user.utils import get_group
 
+logger = logging.getLogger(__name__)
+
 
 def extend_user(user, camac_request):
     """Patch the caluma user to contain the needed data.
@@ -47,6 +53,43 @@ def extend_user(user, camac_request):
         user.group = camac_request.group.service_id
 
     return user
+
+
+def get_answer(question: str, document):
+    """
+    Retrieve the value of the Answer model instance.
+
+    Return the answer value if found, otherwise None.
+    """
+    answer = Answer.objects.filter(question_id=question, document=document).first()
+    return answer.value if answer else None
+
+
+def save_answer(document, question_slug, answer_value):
+    """
+    Save an answer for a question.
+
+    This function performs side effects such as retrieving the question and saving the answer.
+    It assumes that permission has already been verified.
+
+    Return the updated Answer instance on success, or None if any step fails.
+    """
+    try:
+        question = Question.objects.get(pk=question_slug)
+    except Question.DoesNotExist:  # pragma: no cover
+        logger.error("Question with slug '%s' does not exist", question_slug)
+        return None
+
+    try:
+        updated_answer = form_api.save_answer(
+            question=question, document=document, value=answer_value
+        )
+        return updated_answer
+    except (ConfigurationError, CustomValidationError) as e:  # pragma: no cover
+        logger.error(
+            "Failed to save answer for question '%s': %s", question_slug, str(e)
+        )
+        return None
 
 
 def find_answer(document: Document, question: str, **kwargs) -> str:
@@ -68,7 +111,6 @@ def find_answer(document: Document, question: str, **kwargs) -> str:
 
     if not answer:
         return ""
-
     return get_answer_display_value(answer, **kwargs)
 
 
@@ -109,18 +151,16 @@ def sync_inquiry_deadline(
     if not settings.DISTRIBUTION:  # pragma: no cover
         return inquiry
 
-    assert (
-        inquiry.task_id == settings.DISTRIBUTION["INQUIRY_TASK"]
-    ), f"Passed work item must be of task {settings.DISTRIBUTION['INQUIRY_TASK']}"
+    assert inquiry.task_id == settings.DISTRIBUTION["INQUIRY_TASK"], (
+        f"Passed work item must be of task {settings.DISTRIBUTION['INQUIRY_TASK']}"
+    )
 
     if not deadline:
         deadline = inquiry.document.answers.get(
             question_id=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
         ).date
 
-    inquiry.deadline = pytz.utc.localize(
-        datetime.combine(deadline, datetime.min.time())
-    )
+    inquiry.deadline = date_to_deadline(deadline)
     inquiry.save(update_fields=["deadline"])
 
     sync_to_answer_tasks = settings.DISTRIBUTION.get(
@@ -132,14 +172,9 @@ def sync_inquiry_deadline(
             task_id__in=sync_to_answer_tasks.keys(),
         )
         for work_item in inquiry_answer_work_items:
-            work_item.deadline = pytz.utc.localize(
-                datetime.combine(
-                    deadline
-                    + sync_to_answer_tasks[work_item.task_id].get(
-                        "TIME_DELTA", timedelta()
-                    ),
-                    datetime.min.time(),
-                )
+            work_item.deadline = date_to_deadline(
+                deadline
+                + sync_to_answer_tasks[work_item.task_id].get("TIME_DELTA", timedelta())
             )
             work_item.save(update_fields=["deadline"])
 
@@ -210,6 +245,40 @@ def visible_inquiries_expression(group: Group) -> Expression:
             # Inquiries of services which have the same parent service as the current service
             | Q(service_parent_id=service.service_parent_id)
         )
+    elif settings.APPLICATION_NAME == "kt_ag":
+        # Per default, only inquiries where the current service is involved
+        # (controlling or addressed) are visible
+        additional_inquiries_filter = Value(False)
+
+        # Cantonal services (including the AfB) can see inquiries from other
+        # cantonal services and external services
+        cantonal_visibility = Q(
+            service_parent__isnull=True,
+            service_group__name__in=[
+                "service-cantonal",
+                "service-external",
+                "service-afb",
+            ],
+        )
+
+        if service.service_group.name == "service-afb":
+            # The AfB can additionally see inquiries from subservices of
+            # cantonal services
+            # TODO: This requirements needs to be confirmed by the customer. It
+            # may be, that the AfB should also be allowed to see inquiries from
+            # subservices of external services
+            cantonal_visibility |= Q(
+                service_parent__isnull=False,
+                service_parent__service_group__name="service-cantonal",
+            )
+
+        if service.service_parent is None and service.service_group.name in [
+            "service-cantonal",
+            "service-afb",
+        ]:
+            additional_inquiries_filter = work_item_by_addressed_service_condition(
+                cantonal_visibility
+            )
 
     direct_inquiries_when = Value(False)
     if settings.DISTRIBUTION["QUESTIONS"].get("DIRECT"):
@@ -289,3 +358,7 @@ def filter_by_task_base(settings_keys, get_settings):
     return filter_events(
         lambda work_item: work_item.task_id in get_settings(settings_keys)
     )
+
+
+def date_to_deadline(date: date) -> datetime:
+    return pytz.utc.localize(datetime.combine(date, datetime.min.time()))

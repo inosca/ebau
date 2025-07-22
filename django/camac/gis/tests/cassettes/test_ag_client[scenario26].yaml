@@ -1,0 +1,961 @@
+interactions:
+- request:
+    body: geometry=2642902%2C1240176%2C2642904%2C1240178&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1167'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:47:11 GMT
+      ETag:
+      - '"ffe8dc00"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:48:10 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5102fa170d622f414966460460be73d70da83bac9a6e45d81e3dbd3e418017cef751e07f7795b1d98d132eb9be7088c2490647e74de77b295447b92894a00ae9672;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5108b3bc79cbfb7a0fad718154372f965ca83bac9a6e45d81e3dbd3e418017cef757501f5b7db5e345e2426cec6d610a28b177e2ffe3d7ad88fd4ea116ed02c08f7;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642883%2C1240157%2C2642923%2C1240197&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5108b3bc79cbfb7a0fad718154372f965ca83bac9a6e45d81e3dbd3e418017cef757501f5b7db5e345e2426cec6d610a28b177e2ffe3d7ad88fd4ea116ed02c08f7;
+        TS014419e9=0100bce5102fa170d622f414966460460be73d70da83bac9a6e45d81e3dbd3e418017cef751e07f7795b1d98d132eb9be7088c2490647e74de77b295447b92894a00ae9672;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"597\",\"attributes\":{\"OBJECTID\":\"59949867\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600597\",\"NUMMER\":\"597\",\"EGRID\":\"CH769145067309\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"14619\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14618.997343\",\"SHAPE.STLength()\":\"567.203096\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1214'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:47:12 GMT
+      ETag:
+      - '"d20bdcb"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:48:11 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5102fa170d622f414966460460be73d70da83bac9a6e45d81e3dbd3e418017cef751e07f7795b1d98d132eb9be7088c2490647e74de77b295447b92894a00ae9672;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5108b3bc79cbfb7a0fad718154372f965ca83bac9a6e45d81e3dbd3e418017cef757501f5b7db5e345e2426cec6d610a28b177e2ffe3d7ad88fd4ea116ed02c08f7;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642902%2C1240176%2C2642904%2C1240178&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1167'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:48:29 GMT
+      ETag:
+      - '"ffe8dc00"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:49:29 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5105a8c1b17cebba460bf0fec3c5d4072e1a1ee57280e28f8385bfbb76b61ad45c8d68e661bb32e6904b6f8f47a07da8602b70615e4ae6f1c10036828c419cd5e0c;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5104a7a785b0d1abf801da8c403986c1788a1ee57280e28f8385bfbb76b61ad45c801b0e41a546674ffd862b594cb1b271c6f41de05943f08c323db96d814aaf25e;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642883%2C1240157%2C2642923%2C1240197&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5104a7a785b0d1abf801da8c403986c1788a1ee57280e28f8385bfbb76b61ad45c801b0e41a546674ffd862b594cb1b271c6f41de05943f08c323db96d814aaf25e;
+        TS014419e9=0100bce5105a8c1b17cebba460bf0fec3c5d4072e1a1ee57280e28f8385bfbb76b61ad45c8d68e661bb32e6904b6f8f47a07da8602b70615e4ae6f1c10036828c419cd5e0c;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"597\",\"attributes\":{\"OBJECTID\":\"59949867\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600597\",\"NUMMER\":\"597\",\"EGRID\":\"CH769145067309\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"14619\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14618.997343\",\"SHAPE.STLength()\":\"567.203096\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1214'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Tue, 21 Jan 2025 14:48:30 GMT
+      ETag:
+      - '"d20bdcb"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Tue, 21 Jan 2025 14:49:30 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce5105a8c1b17cebba460bf0fec3c5d4072e1a1ee57280e28f8385bfbb76b61ad45c8d68e661bb32e6904b6f8f47a07da8602b70615e4ae6f1c10036828c419cd5e0c;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5104a7a785b0d1abf801da8c403986c1788a1ee57280e28f8385bfbb76b61ad45c801b0e41a546674ffd862b594cb1b271c6f41de05943f08c323db96d814aaf25e;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642902%2C1240176%2C2642904%2C1240178&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1167'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 07:40:40 GMT
+      ETag:
+      - '"ffe8dc00"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 07:41:39 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510e4c778b02d0128a031e9c9fbb5451405ddcf381c78e523bf696cea83075f514ae44272742d61eeddad29ec0cecf98d60b7f0d5be31b7cb6bc9f89f2dfe50123a;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5105addfbb3ed5361e4baf8c904414d8dabddcf381c78e523bf696cea83075f514ad886a96102bf7c41e372c2ef5b6655482e2572023fa3cdaddc955ddc9d4b73a3;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642883%2C1240157%2C2642923%2C1240197&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5105addfbb3ed5361e4baf8c904414d8dabddcf381c78e523bf696cea83075f514ad886a96102bf7c41e372c2ef5b6655482e2572023fa3cdaddc955ddc9d4b73a3;
+        TS014419e9=0100bce510e4c778b02d0128a031e9c9fbb5451405ddcf381c78e523bf696cea83075f514ae44272742d61eeddad29ec0cecf98d60b7f0d5be31b7cb6bc9f89f2dfe50123a;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"597\",\"attributes\":{\"OBJECTID\":\"59949867\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600597\",\"NUMMER\":\"597\",\"EGRID\":\"CH769145067309\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"14619\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14618.997343\",\"SHAPE.STLength()\":\"567.203096\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1214'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 07:40:41 GMT
+      ETag:
+      - '"d20bdcb"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 07:41:40 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510e4c778b02d0128a031e9c9fbb5451405ddcf381c78e523bf696cea83075f514ae44272742d61eeddad29ec0cecf98d60b7f0d5be31b7cb6bc9f89f2dfe50123a;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5105addfbb3ed5361e4baf8c904414d8dabddcf381c78e523bf696cea83075f514ad886a96102bf7c41e372c2ef5b6655482e2572023fa3cdaddc955ddc9d4b73a3;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642902%2C1240176%2C2642904%2C1240178&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1167'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:53 GMT
+      ETag:
+      - '"ffe8dc00"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:52 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510a84652bb8448d8823478ff718e40f8e4b3ddc971617c9da1a5bbfd17411fccad615c2afd3eadf803c9467d3774eefb7fe16d32363304327de8a6ac1fdfbed919;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5108797ad154245bc6c8de5884109cc5e25b3ddc971617c9da1a5bbfd17411fccad51e14eb4c94192a9aad73896936532dc7a5a69479e8db0be89a7458417f038e5;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642883%2C1240157%2C2642923%2C1240197&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce5108797ad154245bc6c8de5884109cc5e25b3ddc971617c9da1a5bbfd17411fccad51e14eb4c94192a9aad73896936532dc7a5a69479e8db0be89a7458417f038e5;
+        TS014419e9=0100bce510a84652bb8448d8823478ff718e40f8e4b3ddc971617c9da1a5bbfd17411fccad615c2afd3eadf803c9467d3774eefb7fe16d32363304327de8a6ac1fdfbed919;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"597\",\"attributes\":{\"OBJECTID\":\"59949867\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600597\",\"NUMMER\":\"597\",\"EGRID\":\"CH769145067309\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"14619\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14618.997343\",\"SHAPE.STLength()\":\"567.203096\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1214'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 08:49:54 GMT
+      ETag:
+      - '"d20bdcb"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 08:50:53 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510a84652bb8448d8823478ff718e40f8e4b3ddc971617c9da1a5bbfd17411fccad615c2afd3eadf803c9467d3774eefb7fe16d32363304327de8a6ac1fdfbed919;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce5108797ad154245bc6c8de5884109cc5e25b3ddc971617c9da1a5bbfd17411fccad51e14eb4c94192a9aad73896936532dc7a5a69479e8db0be89a7458417f038e5;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642902%2C1240176%2C2642904%2C1240178&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1167'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:54 GMT
+      ETag:
+      - '"ffe8dc00"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:54 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510fb0d4b71c95de88326b4a6809d224cf3eed110d7b75993241b224eb7b6152d24a6ca64a45653adc8d488df131a7ead74e7bc7906a5d16b0c1325de0829740eb9;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510f084719f7be1021add4298b092210442eed110d7b75993241b224eb7b6152d2447f23cee1e71c73b0ecf7d493dcfa5dc56d976177c9f763d7c1b4ad6768ab69c;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642883%2C1240157%2C2642923%2C1240197&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510f084719f7be1021add4298b092210442eed110d7b75993241b224eb7b6152d2447f23cee1e71c73b0ecf7d493dcfa5dc56d976177c9f763d7c1b4ad6768ab69c;
+        TS014419e9=0100bce510fb0d4b71c95de88326b4a6809d224cf3eed110d7b75993241b224eb7b6152d24a6ca64a45653adc8d488df131a7ead74e7bc7906a5d16b0c1325de0829740eb9;
+        XWAF=1791920065.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"597\",\"attributes\":{\"OBJECTID\":\"59949867\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600597\",\"NUMMER\":\"597\",\"EGRID\":\"CH769145067309\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"14619\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14618.997343\",\"SHAPE.STLength()\":\"567.203096\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1214'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:28:55 GMT
+      ETag:
+      - '"d20bdcb"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:29:54 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510fb0d4b71c95de88326b4a6809d224cf3eed110d7b75993241b224eb7b6152d24a6ca64a45653adc8d488df131a7ead74e7bc7906a5d16b0c1325de0829740eb9;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510f084719f7be1021add4298b092210442eed110d7b75993241b224eb7b6152d2447f23cee1e71c73b0ecf7d493dcfa5dc56d976177c9f763d7c1b4ad6768ab69c;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642902%2C1240176%2C2642904%2C1240178&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1167'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:52:20 GMT
+      ETag:
+      - '"ffe8dc00"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:53:20 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51010fe03dc175fbcb2c762a85a7326d538bf604ad4183d8711dd913d4e8e5c476c5b5dfc374a73478ead9563560befe8689632659e3e8279e33ee542740a11d562;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ca8597a4cae3b9d32027673518ad9bcabf604ad4183d8711dd913d4e8e5c476ce6cf225adc2d3cd7a90988f320b182afe64e06de6d8d5e749acdf4bd7d2a29df;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642883%2C1240157%2C2642923%2C1240197&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce510ca8597a4cae3b9d32027673518ad9bcabf604ad4183d8711dd913d4e8e5c476ce6cf225adc2d3cd7a90988f320b182afe64e06de6d8d5e749acdf4bd7d2a29df;
+        TS014419e9=0100bce51010fe03dc175fbcb2c762a85a7326d538bf604ad4183d8711dd913d4e8e5c476c5b5dfc374a73478ead9563560befe8689632659e3e8279e33ee542740a11d562;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"597\",\"attributes\":{\"OBJECTID\":\"59949867\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600597\",\"NUMMER\":\"597\",\"EGRID\":\"CH769145067309\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"14619\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14618.997343\",\"SHAPE.STLength()\":\"567.203096\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1214'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 09:52:21 GMT
+      ETag:
+      - '"d20bdcb"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 09:53:20 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce51010fe03dc175fbcb2c762a85a7326d538bf604ad4183d8711dd913d4e8e5c476c5b5dfc374a73478ead9563560befe8689632659e3e8279e33ee542740a11d562;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce510ca8597a4cae3b9d32027673518ad9bcabf604ad4183d8711dd913d4e8e5c476ce6cf225adc2d3cd7a90988f320b182afe64e06de6d8d5e749acdf4bd7d2a29df;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642902%2C1240176%2C2642904%2C1240178&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1167'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 11:00:31 GMT
+      ETag:
+      - '"ffe8dc00"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:01:30 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510d7412b44337564ea1c9a1398dd412ed82951a2ebcf3fc340bcb7f65bd165eca6532c63ac4f459ebb516b5f9f0794bdb23599bd1a6e3575acdcab3fab0511358d;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51084e2592dabbfcb88fd9f360958aff4602951a2ebcf3fc340bcb7f65bd165eca67f69f123fe8e5c65ba4d660c97747482606de4272cfa39815f2aeb6cb0e8d500;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2642883%2C1240157%2C2642923%2C1240197&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; TS01975bae=0100bce51084e2592dabbfcb88fd9f360958aff4602951a2ebcf3fc340bcb7f65bd165eca67f69f123fe8e5c65ba4d660c97747482606de4272cfa39815f2aeb6cb0e8d500;
+        TS014419e9=0100bce510d7412b44337564ea1c9a1398dd412ed82951a2ebcf3fc340bcb7f65bd165eca6532c63ac4f459ebb516b5f9f0794bdb23599bd1a6e3575acdcab3fab0511358d;
+        XWAF=1775142849.47873.0000
+      User-Agent:
+      - python-requests/2.32.3
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Uerkheim\",\"attributes\":{\"OBJECTID\":\"39\",\"GDENR\":\"4286\",\"GEMEINDE\":\"Uerkheim\",\"GEMEINDEZ\":\"Uerkheim\",\"GEMEINDEU\":\"Uerkheim\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7092755.628934\",\"SHAPE.STLength()\":\"13342.667668\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"597\",\"attributes\":{\"OBJECTID\":\"59949867\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600597\",\"NUMMER\":\"597\",\"EGRID\":\"CH769145067309\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"14619\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14618.997343\",\"SHAPE.STLength()\":\"567.203096\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"587\",\"attributes\":{\"OBJECTID\":\"59949312\",\"FILEID\":\"122\",\"GDENR\":\"4286\",\"GDENRPARZ\":\"428600587\",\"NUMMER\":\"587\",\"EGRID\":\"CH669145067244\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"47066\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"47065.553536\",\"SHAPE.STLength()\":\"1218.356564\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37096\",\"attributes\":{\"OBJECTID\":\"37096\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"GeschNr\":\"BVUARE.86.410\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"2060\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"829492.136672\",\"SHAPE.STLength()\":\"15126.871474\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID_1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"418252121.725739\",\"SHAPE.STLength()\":\"942348.004738\"}},{\"layerId\":134,\"layerName\":\"Gefahrenhinweiskarte:
+        Prozess permanente Rutschungen\",\"displayFieldName\":\"quelle\",\"value\":\"3\",\"attributes\":{\"OBJECTID\":\"971\",\"quelle\":\"3\",\"Klasse\":\"permanenter
+        Rutsch\",\"PERMARU_ID\":\"971\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8265.436153\",\"SHAPE.STLength()\":\"604.171206\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"154766\",\"attributes\":{\"OBJECTID\":\"154766\",\"GDENR\":\"Uerkheim
+        4286\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"1994-000531\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.86.410\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2060\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2060.html\",\"OEREBexport\":\"ja\",\"OEREBexport_ES\":\"nein\",\"OEREBexport_GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1899402.566248\",\"Shape.STLength()\":\"20077.277561\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1214'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 22 Jan 2025 11:00:32 GMT
+      ETag:
+      - '"d20bdcb"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="wHTy1P0sKwtYMcMhA2WNy9xVE9RNTUGZ5dGP4eL4RKNLyXb5UA9YkA=="; Version=1;
+        Max-Age=60; Expires=Wed, 22 Jan 2025 11:01:31 GMT; Path=/geoportal/rest; HttpOnly
+      - XWAF=1775142849.47873.0000; path=/; Httponly; Secure
+      - 'TS014419e9=0100bce510d7412b44337564ea1c9a1398dd412ed82951a2ebcf3fc340bcb7f65bd165eca6532c63ac4f459ebb516b5f9f0794bdb23599bd1a6e3575acdcab3fab0511358d;
+        Path=/; Domain=.www.ag.ch; '
+      - TS01975bae=0100bce51084e2592dabbfcb88fd9f360958aff4602951a2ebcf3fc340bcb7f65bd165eca67f69f123fe8e5c65ba4d660c97747482606de4272cfa39815f2aeb6cb0e8d500;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+version: 1

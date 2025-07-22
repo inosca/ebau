@@ -10,7 +10,10 @@ from camac.gis.models import GISDataSource
 
 @pytest.fixture
 def gr_data_sources(
-    question_factory, question_option_factory, option_factory, mock_municipalities
+    caluma_question_factory,
+    caluma_question_option_factory,
+    caluma_option_factory,
+    mock_municipalities,
 ):
     gis_questions = [
         ("gemeinde", Question.TYPE_DYNAMIC_CHOICE),
@@ -48,24 +51,24 @@ def gr_data_sources(
         (
             "grundwasserschutzzone",
             Question.TYPE_CHOICE,
-            ["s1", "s2", "s3", "sh", "sm", "nicht-betroffen"],
+            ["s1", "s2", "s3", "sh", "sm", "s-kantonaleart", "nicht-betroffen"],
         ),
         (
             "lageranlagen-grundwasserschutzzone",
             Question.TYPE_CHOICE,
-            ["s1", "s2", "s3", "sh", "sm", "nicht-betroffen"],
+            ["s1", "s2", "s3", "sh", "sm", "s-kantonaleart", "nicht-betroffen"],
         ),
     ]
 
     for config in gis_questions:
         slug = config[0]
         type = config[1]
-        q = question_factory(slug=slug, type=type, label=slug)
+        q = caluma_question_factory(slug=slug, type=type, label=slug)
         if len(config) == 3:
             for i, option in enumerate(reversed(config[2])):
-                question_option_factory(
+                caluma_question_option_factory(
                     question=q,
-                    option=option_factory(slug=f"{slug}-{option}", label=option),
+                    option=caluma_option_factory(slug=f"{slug}-{option}", label=option),
                     sort=i,
                 )
 
@@ -76,7 +79,7 @@ def gr_data_sources(
 
 
 @pytest.fixture
-def gr_config(gis_data_source_factory, question_factory):
+def gr_config(gis_data_source_factory, caluma_question_factory):
     gis_data_source_factory(
         client=GISDataSource.CLIENT_PARAM,
         config=[{"hidden": True, "question": "gis-map", "parameterName": "query"}],

@@ -19,7 +19,7 @@
       </li>
     {{/if}}
 
-    {{#each this.additionalDemand.demands as |demand|}}
+    {{#each this.validAdditionalDemands as |demand|}}
       <AdditionalDemand::List::Item @demand={{demand}} />
     {{else}}
       <li class="uk-text-center">

@@ -93,12 +93,12 @@ class Command(BaseCommand):
         sub_forms = Question.objects.filter(sub_form__isnull=False).values_list(
             "sub_form_id", flat=True
         )
-        excluded_forms = [
-            "dashboard"
-        ]  # this is being used without workflow or other forms
+        # this is being used without workflow or other forms
+        excluded_forms = ["dashboard"]
 
         forms = (
             Form.objects.exclude(pk__in=[*row_forms, *sub_forms, *excluded_forms])
+            .exclude(**{"meta__is-main-form": True})
             .annotate(
                 workflow_count=Count("workflows__pk"), task_count=Count("tasks__pk")
             )

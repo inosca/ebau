@@ -24,6 +24,9 @@ export default class BillingGlobalTableComponent extends BillingTable {
         ...(this.args.filters.to
           ? { dateAddedBefore: this.args.filters.to }
           : {}),
+        ...(this.args.filters.service
+          ? { service: this.args.filters.service }
+          : {}),
       };
       Object.keys(filters).forEach((key) => {
         params.append(`filter[${key}]`, filters[key]);

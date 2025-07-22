@@ -27,7 +27,7 @@ from camac.permissions.switcher import PERMISSION_MODE
                 "name": "Name change",
                 "description": "Creator changes",
                 "assignedUsers": ["3"],
-                "deadline": "2022-11-16T00:00:00Z",
+                "deadline": "2022-11-16T00:00:00+00:00",
                 "meta": json.dumps({"foo": "bar"}),
             },
             False,
@@ -45,7 +45,7 @@ from camac.permissions.switcher import PERMISSION_MODE
             {
                 "assignedUsers": ["3"],
                 # Millisecond change of deadline (same full second)
-                "deadline": "2022-11-10T00:00:00.15Z",
+                "deadline": "2022-11-10T00:00:00.150000+00:00",
             },
             False,
         ),
@@ -57,7 +57,7 @@ from camac.permissions.switcher import PERMISSION_MODE
             "controller",
             {
                 "description": "Controller changes",
-                "deadline": "2022-11-15T00:00:00Z",
+                "deadline": "2022-11-15T00:00:00+00:00",
                 "meta": json.dumps({"foo": "bar"}),
             },
             False,
@@ -72,13 +72,13 @@ def test_save_work_item_permission(
     input,
     has_error,
     snapshot,
-    work_item_factory,
+    caluma_work_item_factory,
     service,
     be_instance,
     application_settings,
     construction_monitoring_settings,
 ):
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=be_instance.case,
         name="Foo",
         description="Foo work item",
@@ -237,7 +237,7 @@ def test_distribution_permission_for_task(
     service,
     status,
     task,
-    work_item_factory,
+    caluma_work_item_factory,
     disable_ech0211_settings,
 ):
     work_item = active_inquiry_factory(
@@ -266,7 +266,7 @@ def test_distribution_permission_for_task(
 
         workflow_api.complete_work_item(work_item=work_item, user=caluma_admin_user)
     elif task != "INQUIRY_TASK":
-        work_item = work_item_factory(
+        work_item = caluma_work_item_factory(
             case=work_item.case,
             child_case=None,
             addressed_groups=[service.pk],
@@ -395,7 +395,7 @@ def test_distribution_permission_for_answer(
     service_factory,
     caluma_admin_schema_executor,
     caluma_admin_user,
-    work_item_factory,
+    caluma_work_item_factory,
     _distribution_settings,
     mocker,
     mutation,
@@ -506,27 +506,28 @@ def test_distribution_permission_for_answer(
         ("Support", WorkItem.STATUS_COMPLETED, False, True),
         ("Coordination", WorkItem.STATUS_READY, True, True),
         ("uso", WorkItem.STATUS_READY, True, True),
+        ("Geometer", WorkItem.STATUS_READY, True, True),
     ],
 )
 def test_simple_caluma_form_permissions(
     db,
     caluma_admin_schema_executor,
-    form_question_factory,
+    caluma_form_question_factory,
     is_addressed,
     mocker,
     role,
     service,
     status,
     success,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         status=status, addressed_groups=[str(service.pk)] if is_addressed else []
     )
 
-    question = form_question_factory(
+    question = caluma_form_question_factory(
         form=work_item.document.form, question__type=Question.TYPE_TEXT
     ).question
 
@@ -561,26 +562,26 @@ def test_simple_caluma_form_permissions(
 def test_specific_form_permissions(
     db,
     caluma_admin_schema_executor,
-    form_question_factory,
+    caluma_form_question_factory,
     mocker,
     service,
     success,
-    work_item_factory,
+    caluma_work_item_factory,
     instance_factory,
     is_main_form,
-    case_factory,
+    caluma_case_factory,
     application_settings,
     form_permissions,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
 
-    case = case_factory()
+    case = caluma_case_factory()
     instance_factory(case=case)
     if is_main_form:
         document = case.document
         form = "main"
     else:
-        work_item = work_item_factory(case=case)
+        work_item = caluma_work_item_factory(case=case)
         document = work_item.document
         form = document.form_id
 
@@ -593,7 +594,7 @@ def test_specific_form_permissions(
     }
     mocker.patch.object(requests, "get", return_value=response)
 
-    question = form_question_factory(
+    question = caluma_form_question_factory(
         form=document.form, question__type=Question.TYPE_TEXT
     ).question
 
@@ -621,12 +622,12 @@ def test_specific_form_permissions(
 def test_form_permissions_ur(
     db,
     caluma_admin_schema_executor,
-    form_question_factory,
+    caluma_form_question_factory,
     mocker,
     service,
-    work_item_factory,
+    caluma_work_item_factory,
     instance_factory,
-    case_factory,
+    caluma_case_factory,
     application_settings,
     #
     ur_instance,
@@ -636,7 +637,7 @@ def test_form_permissions_ur(
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
     document = ur_instance.case.document
 
-    question = form_question_factory(
+    question = caluma_form_question_factory(
         form=document.form, question__type=Question.TYPE_TEXT
     ).question
 
@@ -662,13 +663,13 @@ def test_form_permissions_ur(
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_coordination_services(
     caluma_admin_schema_executor,
-    work_item_factory,
+    caluma_work_item_factory,
     service,
     be_instance,
     application_settings,
 ):
     application_settings["COORDINATION_SERVICE_IDS"] = [service.pk]
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=be_instance.case,
         addressed_groups=[str(service.pk)],
         deadline=None,
@@ -686,7 +687,10 @@ def test_coordination_services(
     result = caluma_admin_schema_executor(
         mutation,
         variables={
-            "input": {"deadline": "2022-11-16T00:00:00Z", "workItem": str(work_item.pk)}
+            "input": {
+                "deadline": "2022-11-16T00:00:00+00:00",
+                "workItem": str(work_item.pk),
+            }
         },
     )
 
@@ -748,8 +752,18 @@ def test_has_caluma_form_edit_permission_for_municipality():
         mock_function.assert_called_once()
 
 
+def test_has_caluma_form_edit_permission_for_geometer():
+    permission = CustomPermission()
+
+    with patch.object(
+        permission, "has_caluma_form_edit_permission_for_municipality"
+    ) as mock_function:
+        permission.has_caluma_form_edit_permission_for_geometer(None, None)
+        mock_function.assert_called_once()
+
+
 def test_simpe_form_permission_with_child_case_document(
-    db, work_item_factory, service, mocker
+    db, caluma_work_item_factory, service, mocker
 ):
     mocker.patch(
         "camac.caluma.extensions.permissions.get_current_service_id",
@@ -758,7 +772,7 @@ def test_simpe_form_permission_with_child_case_document(
 
     permission = CustomPermission()
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         status=WorkItem.STATUS_READY,
         addressed_groups=[str(service.pk)],
     )
@@ -778,8 +792,8 @@ def test_simpe_form_permission_with_child_case_document(
 def test_form_permissions_new(
     db,
     caluma_admin_schema_executor,
-    case_factory,
-    form_question_factory,
+    caluma_case_factory,
+    caluma_form_question_factory,
     form,
     granted_permissions,
     instance_factory,
@@ -796,11 +810,11 @@ def test_form_permissions_new(
     )
     get_permissions.return_value = granted_permissions
 
-    case = case_factory(document__form__slug=form)
+    case = caluma_case_factory(document__form__slug=form)
     instance_factory(case=case)
     document = case.document
 
-    question = form_question_factory(
+    question = caluma_form_question_factory(
         form=document.form, question__type=Question.TYPE_TEXT
     ).question
 

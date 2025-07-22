@@ -47,6 +47,10 @@ module.exports = function (defaults) {
 
   const app = new EmberApp(defaults, {
     storeConfigInMeta: ENV !== "be",
+    minifyCSS: {
+      // https://github.com/clean-css/clean-css/issues/1280
+      options: { level: { 1: { all: true, tidySelectors: false } } },
+    },
     "ember-simple-auth": {
       useSessionSetupMethod: true,
     },

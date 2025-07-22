@@ -18,41 +18,6 @@ from camac.core.models import PublicationEntry
 from camac.document import permissions
 
 
-@pytest.fixture
-def create_caluma_publication(db, caluma_publication, publication_settings):
-    publication_settings["BACKEND"] = "caluma"
-
-    def wrapper(
-        instance,
-        start=timezone.now() - timedelta(days=1),
-        end=timezone.now() + timedelta(days=12),
-        published=True,
-    ):
-        publication_document = DocumentFactory()
-        AnswerFactory(
-            document=publication_document,
-            question_id=publication_settings["RANGE_QUESTIONS"][0][0],
-            date=start,
-        )
-        AnswerFactory(
-            document=publication_document,
-            question_id=publication_settings["RANGE_QUESTIONS"][0][1],
-            date=end,
-        )
-        WorkItemFactory(
-            task_id="fill-publication",
-            status="completed",
-            document=publication_document,
-            case=instance.case,
-            closed_by_user="admin",
-            meta={"is-published": published},
-        )
-
-        return publication_document
-
-    return wrapper
-
-
 def test_public_caluma_instance_disabled(settings, admin_client):
     # "demo" is not configured in camac.user.permissions.PublicationPermission
     settings.APPLICATION_NAME = "demo"
@@ -102,21 +67,21 @@ def test_public_caluma_instance_enabled_empty_qs(
         ({}, 1, 0, "form-type-building-permit", "test"),
         (
             {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
-            7,
+            12,
             1,
             "form-type-commercial-permit",
             "Reklamegesuch",
         ),
         (
             {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
-            7,
+            12,
             1,
             "form-type-building-permit",
             "test",
         ),
         (
             {"HTTP_X_CAMAC_PUBLIC_ACCESS": True},
-            7,
+            12,
             1,
             "form-type-solar-announcement",
             "Solaranlage",
@@ -134,6 +99,7 @@ def test_public_caluma_instance_ur(
     num_queries,
     num_instances,
     master_data_is_visible_mock,
+    caluma_form_question_factory,
     form_type,
     expected,
     settings,
@@ -169,6 +135,9 @@ def test_public_caluma_instance_ur(
         document=ur_instance.case.document,
         value="test",
     )
+    caluma_form_question_factory(
+        form=ur_instance.case.document.form, question_id="proposal-description"
+    )
 
     DynamicOptionFactory(
         slug="1",
@@ -200,10 +169,10 @@ def test_public_caluma_instance_ur(
 @pytest.mark.parametrize(
     "is_oereb_form,instance_state__name,num_queries,is_visible",
     [
-        (True, "comm", 8, True),
+        (True, "comm", 21, True),
         (False, "comm", 1, False),
-        (True, "new", 2, False),
-        (True, "new_portal", 2, False),
+        (True, "new", 3, False),
+        (True, "new_portal", 3, False),
     ],
 )
 def test_public_caluma_instance_oereb_ur(
@@ -217,11 +186,15 @@ def test_public_caluma_instance_oereb_ur(
     form_factory,
     user_group_factory,
     group_factory,
+    instance_factory,
+    instance_group_factory,
     role,
+    utils,
     is_oereb_form,
     master_data_is_visible_mock,
 ):
     settings.APPLICATION_NAME = "kt_uri"
+    application_settings["SHORT_NAME"] = "ur"
     application_settings["INSTANCE_HIDDEN_STATES"] = settings.APPLICATIONS["kt_uri"][
         "INSTANCE_HIDDEN_STATES"
     ]
@@ -235,6 +208,8 @@ def test_public_caluma_instance_oereb_ur(
     ur_instance.case.meta = {"dossier-number": "1201-20-001"}
     ur_instance.case.save()
     ur_instance.save()
+
+    utils.add_answer(ur_instance.case.document, "form-type", "main-form")
 
     admin_client.user.groups.clear()
 
@@ -251,20 +226,27 @@ def test_public_caluma_instance_oereb_ur(
         question_id="leitbehoerde", value=dynamic_option.slug
     )
 
-    AnswerFactory(
-        question=Question.objects.create(
-            slug="oereb-thema", type=Question.TYPE_MULTIPLE_CHOICE
-        ),
-        document=ur_instance.case.document,
+    utils.add_answer(
+        ur_instance.case.document,
+        "oereb-thema",
         value=["oereb-thema-kpz"],
+        options=["oereb-thema-kpz"],
+        question_type=Question.TYPE_MULTIPLE_CHOICE,
     )
-    AnswerFactory(
-        question=Question.objects.create(
-            slug="typ-des-verfahrens", type=Question.TYPE_MULTIPLE_CHOICE
-        ),
-        document=ur_instance.case.document,
+
+    utils.add_answer(
+        ur_instance.case.document,
+        "typ-des-verfahrens",
         value="typ-des-verfahrens-meldung",
+        options=["typ-des-verfahrens-meldung"],
+        question_type=Question.TYPE_CHOICE,
     )
+
+    instance_group = instance_group_factory()
+    linked_instance_1 = instance_factory(instance_group=instance_group)
+    linked_instance_2 = instance_factory(instance_group=instance_group)
+    ur_instance.instance_group = instance_group
+    ur_instance.save()
 
     url = reverse("public-caluma-instance-list")
 
@@ -282,6 +264,10 @@ def test_public_caluma_instance_oereb_ur(
         assert result[0]["attributes"]["legal-state"] == "typ-des-verfahrens-meldung"
         assert result[0]["attributes"]["dossier-nr"] == "1201-20-001"
         assert result[0]["attributes"]["authority"] == "Leitbehörde Altdorf"
+        assert result[0]["attributes"]["linked-instances"] == [
+            linked_instance_1.pk,
+            linked_instance_2.pk,
+        ]
 
 
 @pytest.mark.parametrize("role__name", ["Applicant"])
@@ -383,7 +369,7 @@ def test_public_caluma_instance_sz(
 
     url = reverse("public-caluma-instance-list")
 
-    with django_assert_num_queries(4):
+    with django_assert_num_queries(12):
         response = admin_client.get(
             url, {"instance": sz_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
         )
@@ -477,6 +463,7 @@ def test_public_caluma_instance_be(
     db,
     admin_client,
     be_instance,
+    be_master_data_case,
     django_assert_num_queries,
     create_caluma_publication,
     master_data_is_visible_mock,
@@ -489,21 +476,9 @@ def test_public_caluma_instance_be(
     be_instance.case.meta["ebau-number"] = "2021-55"
     be_instance.case.save()
 
-    AnswerFactory(
-        question_id="gemeinde",
-        document=be_instance.case.document,
-        value="1",
-    )
-    DynamicOptionFactory(
-        slug="1",
-        label={"de": "Bern", "fr": "Berne"},
-        document=be_instance.case.document,
-        question_id="gemeinde",
-    )
-
     url = reverse("public-caluma-instance-list")
 
-    with django_assert_num_queries(9):
+    with django_assert_num_queries(12):
         response = admin_client.get(
             url, {"instance": be_instance.pk}, HTTP_X_CAMAC_PUBLIC_ACCESS=True
         )
@@ -612,12 +587,10 @@ def test_public_caluma_instance_form_type_filter(
 
 def test_information_of_neighbors_instance_be(
     db,
-    publication_settings,
     client,
     be_instance,
+    create_caluma_publication,
 ):
-    publication_settings["BACKEND"] = "caluma"
-
     be_instance.case.meta["ebau-number"] = "2021-55"
     be_instance.case.save()
 
@@ -633,23 +606,8 @@ def test_information_of_neighbors_instance_be(
         question_id="gemeinde",
     )
 
-    document = DocumentFactory()
-    AnswerFactory(
-        document=document,
-        question__slug="information-of-neighbors-start-date",
-        date=timezone.now().date() - timedelta(days=1),
-    )
-    AnswerFactory(
-        document=document,
-        question__slug="information-of-neighbors-end-date",
-        date=timezone.now().date() + timedelta(days=1),
-    )
-    WorkItemFactory(
-        task_id="information-of-neighbors",
-        status="completed",
-        document=document,
-        case=be_instance.case,
-        meta={"is-published": True},
+    information_of_neighbors = create_caluma_publication(
+        be_instance, publication_type="NEIGHBORS"
     )
 
     url = reverse("public-caluma-instance-list")
@@ -658,7 +616,7 @@ def test_information_of_neighbors_instance_be(
         url,
         {"instance": be_instance.pk},
         HTTP_X_CAMAC_PUBLIC_ACCESS=True,
-        HTTP_X_CAMAC_PUBLIC_ACCESS_KEY=str(document.pk)[:7],
+        HTTP_X_CAMAC_PUBLIC_ACCESS_KEY=str(information_of_neighbors.document.pk)[:7],
     )
 
     assert response.status_code == status.HTTP_200_OK

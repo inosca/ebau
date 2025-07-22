@@ -9,7 +9,20 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-formal-exam']|tasks"
+      "next": "['after-formal-exam', 'objections', 'appeals']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "12fda54b-d820-4261-a1c7-d246f0accc97",
+    "fields": {
+      "created_at": "2023-10-05T15:42:17.880Z",
+      "modified_at": "2023-10-05T15:42:17.880Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"address-assignment-confirm-suggestion\"]|tasks"
     }
   },
   {
@@ -91,6 +104,47 @@
     }
   },
   {
+    "model": "caluma_workflow.flow",
+    "pk": "f6b94cf0-8e72-421e-a61b-32926e49f3bb",
+    "fields": {
+      "created_at": "2023-10-05T15:42:17.880Z",
+      "modified_at": "2023-10-05T15:42:17.880Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"after-address-assignment-confirm-suggestion\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "appeals",
+    "fields": {
+      "created_at": "2025-06-30T11:59:24.385Z",
+      "modified_at": "2025-06-30T11:59:24.385Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Beschwerden erfassen\", \"fr\": null, \"it\": \"Registrare / inserire i reclami\"}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.legal-submissions",
+          "models": ["INSTANCE_ID"]
+        }
+      },
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": "beschwerden",
+      "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
     "model": "caluma_workflow.task",
     "pk": "construction-acceptance",
     "fields": {
@@ -107,7 +161,8 @@
         "directLink": {
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
-        }
+        },
+        "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
@@ -183,7 +238,8 @@
         "directLink": {
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
-        }
+        },
+        "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
@@ -235,13 +291,42 @@
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
         },
-        "is-manually-completable": true
+        "is-manually-completable": true,
+        "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "formal-exam",
       "lead_time": 864000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "objections",
+    "fields": {
+      "created_at": "2024-11-11T11:59:24.385Z",
+      "modified_at": "2024-11-11T11:59:24.385Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Einsprachen erfassen\", \"fr\": null, \"it\": \"Einsprachen erfassen\"}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.legal-submissions",
+          "models": ["INSTANCE_ID"]
+        }
+      },
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": null,
+      "is_archived": false,
+      "form": "einsprachen",
+      "lead_time": null,
       "is_multiple_instance": false,
       "continue_async": false
     }
@@ -289,7 +374,7 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_workflow_form",
       "meta": {},
-      "address_groups": "[]",
+      "address_groups": "[\"applicant\"]",
       "control_groups": null,
       "is_archived": false,
       "form": null,
@@ -327,6 +412,22 @@
       "workflow": "building-permit",
       "task": "create-publication",
       "flow": "3f07b928-da62-44ce-837f-ee4315e4c40f",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "4b44b535-10d1-42cf-88f1-40e4f29aa973",
+    "fields": {
+      "created_at": "2023-11-01T08:03:37.834Z",
+      "modified_at": "2023-11-01T08:03:37.834Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "address-assignment-confirm-suggestion",
+      "flow": "f6b94cf0-8e72-421e-a61b-32926e49f3bb",
       "redoable": null
     }
   },
@@ -391,6 +492,22 @@
       "workflow": "building-permit",
       "task": "formal-exam",
       "flow": "08fa97c7-886c-452a-8989-5e718336cf6e",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "c5e25699-bd07-4040-9d60-79a774042bde",
+    "fields": {
+      "created_at": "2023-11-01T08:03:37.834Z",
+      "modified_at": "2023-11-01T08:03:37.834Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "address-assignment-make-suggestion",
+      "flow": "12fda54b-d820-4261-a1c7-d246f0accc97",
       "redoable": null
     }
   },

@@ -1,0 +1,60 @@
+corrections:
+  not-available: "Diese Funktion ist im aktuellen Zustand nicht verfügbar."
+
+  archive:
+    title: "Dossier archivieren"
+    description: "Hier können Sie das Dossier archivieren (z.B. Testdossiers, duplizierte Dossiers, etc.). Dabei wird das Dossier unwiderruflich in den Status '<strong'>Archiviert'</strong'> versetzt."
+    button: "Archivieren"
+    confirm: "Wollen Sie das Dossier wirklich archivieren?'<br/'><br/'>'<strong'>Achtung:'</strong'> Diese Aktion kann nicht mehr rückgängig gemacht werden!"
+    error: "Fehler beim Archivieren des Dossiers"
+
+  ebau-number:
+    title: "eBau-Nummer ändern"
+    description: "Hier können Sie falsch vergebene eBau-Nummern korrigieren. Wenn Sie das untenstehende Feld leer lassen, wird eine neue eBau-Nummer generiert. Der Dossierstatus wird dabei nicht verändert."
+    form-label: "Formular zum Ändern der eBau-Nummer"
+    label: "eBau-Nummer"
+    confirm: "Wollen Sie die eBau-Nummer wirklich ändern?"
+    error: "Fehler beim Ändern der eBau-Nummer"
+
+  document:
+    title: "Dossier korrigieren"
+    description: "Diese Funktion erlaubt es, kleine Korrekturen am Gesuchsformular vorzunehmen (z.B. Präzisierung des Baubeschriebs)."
+    button: "Dossier korrigieren"
+    description-finish-start: "Sie können die Dossierkorrektur jetzt im Menü"
+    description-finish-link: "Formular"
+    description-finish-end: "vornehmen. Bitte vergessen sie nicht die Korrektur anschliessend abzuschliessen."
+    button-finish: "Korrektur abschliessen"
+
+    confirm: "Bitte beachten Sie, dass die Dossierkorrektur nur für kleine Änderungen gedacht ist (z.B. Korrektur von Kontaktinformationen, Präzisierung Baubeschrieb). Gegebenenfalls sind die Gesuchstellenden über die Änderungen zu informieren.<br><br>Bitte prüfen Sie bei grösserem Änderungsbedarf, ob allenfalls eine Rückweisung angebracht wäre."
+    confirm-finish: "Bitte prüfen Sie bei relevanten Änderungen, ob allenfalls eine neue Eingabequittung angebracht wäre."
+    error: "Fehler beim Korrigieren des Dossiers"
+    invalid: "Dossier ist in einem ungültigen Zustand zum Abschliessen. Gewisse Fragen sind noch nicht korrekt ausgefüllt."
+
+  modification-to-new-dossier:
+    title: "Projektänderung umwandeln"
+    description: "Hier können Sie eine Projektänderung, die fälschlicherweise erfasst wurde in ein neues Dossier umwandeln."
+    convert: "Umwandeln"
+    input-label: "Neuer Baubeschrieb"
+    info-text: "Im unteren Textfeld können Sie den neuen Baubeschrieb (bestehend aus dem Baubeschrieb und der Projektänderung) nach Belieben abändern."
+    conversion-error: "Fehler beim Umwandeln des Dossiers"
+
+  withdraw:
+    title: "Dossier zurückziehen"
+    description: "Diese Funktion erlaubt es, einen Rückzug der Gesuchstellenden bei Papier-Dossiers in eBau nachzuführen."
+    confirm: "Sind Sie sicher, dass Sie das Dossier zurückziehen möchten?"
+    success: "Das Dossier wurde erfolgreich zurückgezogen"
+    error: "Fehler beim Zurückziehen des Dossiers"
+
+  change-form:
+    title: "Dossiertyp ändern"
+    description: "Hier können Sie falsche Dossiertypen korrigieren. Dies ist nur mit den Typen im Dropdown möglich."
+    not-possible: "Der Dossiertyp von diesem Dossier kann nicht geändert werden."
+    form-label: "Formular zum Ändern des Dossiertyps"
+    label: "Dossiertyp"
+    confirm: "Wollen Sie den Dossiertyp wirklich ändern?"
+    error: "Fehler beim Ändern des Dossiertyps"
+    success: "Der Dossiertyp wurde erfolgreich geändert"
+    invalid-form-hint: |-
+      <strong>Achtung:</strong> Das Formular dieses Dossiers ist nun nicht mehr
+      vollständig ausgefüllt. Sie können die fehlenden Daten mithilfe der
+      Funktion "Dossier korrigieren" ergänzen.

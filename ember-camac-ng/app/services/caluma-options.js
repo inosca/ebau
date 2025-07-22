@@ -107,6 +107,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         return { suggestion_for_instance: this.currentInstanceId };
       case "serviceGroup":
         return { service_group_name: filter.value, has_parent: false };
+      case "all":
+        return {
+          available_in_distribution_for_instance: this.currentInstanceId,
+        };
       default:
         console.error("unknown filter type: ", filter.type);
     }
@@ -188,6 +192,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         },
         new: {
           types: {
+            all: {
+              label: "distribution.all",
+              type: "all",
+            },
             suggestions: {
               label: "caluma.distribution.new.suggestions",
               type: "suggestions",
@@ -212,6 +220,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               type: "subservice",
             },
           },
+          defaultTypes: ["all"],
         },
         permissions,
         hooks,
@@ -402,6 +411,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     } else if (macroCondition(getOwnConfig().application === "ur")) {
       // TODO: Enable when ember-caluma is bumped
       const SERVICES_ALLOWED_TO_CREATE_SUB_CIRCULATIONS = {
+        2: "Fachstellen Baudirektion",
         61: "Fachstellen Justizdirektion",
         62: "Fachstellen Gesundheits- Sozial- und Umweltdirektion",
         63: "Fachstellen Sicherheitsdirektion",
@@ -448,6 +458,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           },
         },
         new: {
+          defaultDeadlineLeadTime: 28,
           types: {
             suggestions: {
               label: "caluma.distribution.new.suggestions",
@@ -503,6 +514,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
           checkInquiries: () => true,
         },
         hooks,
+        inquiryReminderNotificationTemplateSlug: "4-11-erinnerung",
       };
 
       if (this.shoebox.isCoordinationRole) {
@@ -519,6 +531,15 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
             "Fachstellen Bildungs- und Kulturdirektion",
             "Fachstellen Finanzdirektion",
           ].join(","),
+        };
+      }
+
+      if (this.shoebox.isMunicipalityLeadRole) {
+        config.new.types.municipalities = {
+          label: "distribution.municipalities",
+          type: "serviceGroup",
+          availableInDistribution: false,
+          value: ["Gemeinderäte", "Sekretariate Gemeindebaubehörden"].join(","),
         };
       }
 

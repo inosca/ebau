@@ -5,6 +5,8 @@ services:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
+      args:
+        APPLICATION: ${APPLICATION}
 
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_TAG:-master}
@@ -16,12 +18,10 @@ services:
       args:
         APPLICATION: ${APPLICATION}
         APP_ENV: ${APP_ENV:-production}
-        PORTAL_URL: $$PORTAL_URL
-        KEYCLOAK_HOST: $$KEYCLOAK_HOST
-        KEYCLOAK_REALM: $$KEYCLOAK_REALM
-        REPLACE_ENV: KEYCLOAK_HOST,KEYCLOAK_REALM,PORTAL_URL
+        PORTAL_URL: $${PORTAL_URL}
+        REPLACE_ENV: PORTAL_URL
         WORKSPACE: ember-camac-ng
-      target: prod
+      target: prod-env
 
   ember-caluma-portal:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
@@ -32,13 +32,13 @@ services:
         - acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_TAG:-master}
       args:
         APPLICATION: ${APPLICATION}
-        KEYCLOAK_HOST: $$KEYCLOAK_HOST
-        KEYCLOAK_REALM: $$KEYCLOAK_REALM
-        INTERNAL_URL: $$INTERNAL_URL
-        BE_GIS_URL: $$BE_GIS_URL
+        KEYCLOAK_HOST: $${KEYCLOAK_HOST}
+        KEYCLOAK_REALM: $${KEYCLOAK_REALM}
+        INTERNAL_URL: $${INTERNAL_URL}
+        BE_GIS_URL: $${BE_GIS_URL}
         REPLACE_ENV: KEYCLOAK_HOST,KEYCLOAK_REALM,INTERNAL_URL,BE_GIS_URL
         WORKSPACE: ember-caluma-portal
-      target: prod
+      target: prod-env
 
 
   document-merge-service:

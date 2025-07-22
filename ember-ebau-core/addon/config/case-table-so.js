@@ -9,6 +9,16 @@ export default {
         "dossierNumber",
         "form",
         "address",
+        "municipality",
+        "submitDate",
+        "instanceState",
+        "intent",
+        "applicants",
+      ],
+      municipality: [
+        "dossierNumber",
+        "form",
+        "address",
         "submitDate",
         "instanceState",
         "intent",
@@ -66,5 +76,9 @@ export default {
     answerSlugs.objectNumber,
     answerSlugs.objectLocation,
   ],
-  parcelSlugs: [answerSlugs.parcelNumber],
+  personalDetailsSlugs: [
+    answerSlugs.juristicNameApplicant,
+    answerSlugs.firstNameApplicant,
+    answerSlugs.lastNameApplicant,
+  ],
 };

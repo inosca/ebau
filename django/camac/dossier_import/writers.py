@@ -3,10 +3,11 @@ import logging
 import re
 import traceback
 import weakref
-from dataclasses import asdict, fields
+from abc import ABC, abstractmethod
+from dataclasses import asdict, fields, is_dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Any, List, Optional
+from typing import Any, Callable, List, Mapping, Optional
 
 import magic
 from alexandria.core.tasks import make_checksum
@@ -44,7 +45,7 @@ from camac.user.models import Group, User
 log = logging.getLogger("dossier_import")
 
 
-class FieldWriter:
+class FieldWriter(ABC):
     target: str
     value: Any = None
     name: Optional[str] = None
@@ -87,6 +88,10 @@ class FieldWriter:
                 )
             )
         return False
+
+    @abstractmethod
+    def write(self, instance, values):  # pragma: no cover
+        ...
 
 
 class CamacNgAnswerWriter(FieldWriter):
@@ -220,7 +225,7 @@ class CalumaAnswerWriter(FieldWriter):
     def __init__(
         self,
         task: str = None,
-        formatter: str = None,
+        formatter: Optional[str | Callable] = None,
         *args,
         **kwargs,
     ):
@@ -228,13 +233,34 @@ class CalumaAnswerWriter(FieldWriter):
         self.formatter = formatter
         super().__init__(*args, **kwargs)
 
-    def write(self, instance, value):
-        if not value:
-            return
+    def _apply_value_format(self, value):
         if self.formatter == "to-string":
-            value = str(value)
+            return str(value)
+        if callable(self.formatter):
+            return self.formatter(value)
+        return value
+
+    def write(self, instance, value):
+        # allow False values for boolean answer mappings, but no other empty value
+        if not value and value is not False:
+            return
+
+        old_value = value
+        value = self._apply_value_format(old_value)
+
+        dossier = self.context.get("dossier")
+
+        if not value:  # pragma: no cover
+            dossier._meta.errors.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                    detail=f"'{self.target}': '{old_value}' could not be formatted.",
+                )
+            )
+            return
+
         try:
-            dossier = self.context.get("dossier")
             if self.task:
                 work_item = instance.case.work_items.filter(task_id=self.task).first()
 
@@ -306,12 +332,12 @@ class CalumaAnswerWriter(FieldWriter):
                         username=self.owner._user.username, group=self.owner._group.pk
                     ),
                 )
-            except ValidationError:  # pragma: no cover
+            except ValidationError as v:  # pragma: no cover
                 dossier._meta.errors.append(
                     Message(
                         level=Severity.WARNING.value,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                        detail=f"Failed to write {value} to {self.target}",
+                        detail=f"Failed to write {value} to {self.target}: {v}",
                     )
                 )
                 return
@@ -383,6 +409,18 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
 
 
 class CalumaListAnswerWriter(FieldWriter):
+    def _iter_fields(self, obj):  # Ist ein Generator
+        if is_dataclass(obj):
+            return ((f.name, getattr(obj, f.name)) for f in fields(obj))
+        elif isinstance(obj, Mapping):
+            return obj.items()
+
+    def _values(self, obj):
+        if is_dataclass(obj):
+            return asdict(obj).values()
+        elif isinstance(obj, Mapping):
+            return obj.values()
+
     def write(self, instance, values):  # noqa: C901
         if not values:
             return
@@ -396,23 +434,30 @@ class CalumaListAnswerWriter(FieldWriter):
                 question__slug=self.target
             ).first():
                 return answer.documents.all().delete()
-        if not any(any(asdict(obj).values()) for obj in values):  # pragma: no cover
+        if not any(any(self._values(obj)) for obj in values):  # pragma: no cover
             return
-        table_question = Question.objects.get(slug=self.target)
+        try:
+            table_question = Question.objects.get(slug=self.target)
+        except (ObjectDoesNotExist, IntegrityError):  # pragma: no cover
+            raise RuntimeError(
+                f"Failed to create table question {self.target} on {instance}"
+            )
+
         row_documents = []
         for obj in values:
-            if not any(asdict(obj).values()):  # pragma: no cover
+            if not any(self._values(obj)):  # pragma: no cover
                 continue
             try:
                 row_document = form_api.save_document(form=table_question.row_form)
                 row_documents.append(row_document)
-                for field in fields(obj):
-                    value = getattr(obj, field.name)
+                for field_name, value in self._iter_fields(obj):
                     if value is None:
                         continue
                     try:
                         question = Question.objects.get(
-                            slug=self.column_mapping[field.name]
+                            slug=self.column_mapping[field_name]
+                            if self.column_mapping
+                            else field_name
                         )
 
                         # Some fields are parsed as integer but are not written
@@ -423,8 +468,8 @@ class CalumaListAnswerWriter(FieldWriter):
                         ]:
                             value = str(value)
 
-                        if self.value_mapping and field.name in self.value_mapping:
-                            value = self.value_mapping[field.name].get(value, value)
+                        if self.value_mapping and field_name in self.value_mapping:
+                            value = self.value_mapping[field_name].get(value, value)
 
                         form_api.save_answer(
                             question=question,
@@ -440,14 +485,14 @@ class CalumaListAnswerWriter(FieldWriter):
                             Message(
                                 level=Severity.WARNING.value,
                                 code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                                detail=f"Failed to write {value} for field {field.name} to {self.target} for dossier {instance}.",
+                                detail=f"Failed to write {value} for field {field_name} to {self.target} for dossier {instance}.",
                             )
                         )
                         continue
 
             except (ObjectDoesNotExist, IntegrityError):  # pragma: no cover
                 raise RuntimeError(
-                    f"Failed to create row_document for table answer {self.target} on {instance}"
+                    f"Failed to create row_document for table answer {self.target} on {instance}: field: {field_name}, value: {value}"
                 )
         form_api.save_answer(
             document=instance.case.document,
@@ -502,6 +547,10 @@ class CaseMetaWriter(FieldWriter):
         formatted_value = value
         if self.formatter == "datetime-to-string":
             formatted_value = datetime.strftime(value, SUBMIT_DATE_FORMAT)
+        if self.formatter == "yyyymmdd":
+            formatted_value = datetime.strftime(
+                datetime.strptime(value, "%Y%m%d"), SUBMIT_DATE_FORMAT
+            )
         instance.case.meta[self.target] = formatted_value
         instance.case.save()
 
@@ -611,7 +660,8 @@ class DossierWriter:
         self._user = user_id and User.objects.get(pk=user_id)
         self._group = Group.objects.get(pk=group_id)
         self._caluma_user = BaseUser(
-            username=self._user.username, group=self._group.service.pk
+            username=self._user.username,
+            group=self._group.service.pk if self._group.service else None,
         )
         self._caluma_user.camac_group = self._group.pk
 
@@ -624,12 +674,12 @@ class DossierWriter:
             writer = getattr(self, field.name, None)
             if writer:
                 writer.owner = weakref.proxy(self)
-                writer.context = {"dossier": dossier}
+                writer.context = {"dossier": dossier, "caluma_user": self._caluma_user}
                 writer.write(instance, getattr(dossier, field.name, None))
 
     @transaction.atomic
     def import_dossier(
-        self, dossier: Dossier, import_session_id: str
+        self, dossier: Dossier, import_session_id: str, skip_existing=False
     ) -> DossierSummary:
         """Handle importing of a single dossier.
 
@@ -665,7 +715,17 @@ class DossierWriter:
         dossier_summary.details += dossier._meta.errors
         instance = None
         created = True
-        if instance := self.existing_dossier(dossier.id):
+        if instance := self.find_existing_instance(dossier, self._caluma_user):
+            if skip_existing:
+                dossier_summary.instance_id = instance.pk
+                dossier_summary.details.append(
+                    Message(
+                        level=Severity.WARNING.value,
+                        code="skipped",
+                        detail="",
+                    )
+                )
+                return dossier_summary
             created = False
             instance.case.meta["updated-with-import"] = import_session_id
             instance.case.save()
@@ -691,7 +751,7 @@ class DossierWriter:
             instance = self.create_instance(dossier)
             dossier_summary.instance_id = str(instance.pk)
             self._post_create_instance(instance, dossier)
-            self.set_dossier_id(instance, dossier.id)
+            self.link_instance_and_dossier(instance, dossier, self._caluma_user)
             dossier_summary.details.append(
                 Message(
                     level=Severity.DEBUG.value,
@@ -746,19 +806,28 @@ class DossierWriter:
         """Return all dossier IDs that already exist."""
         raise DossierWriter.ConfigurationError  # pragma: no cover
 
-    def existing_dossier(self, dossier_id: str) -> Optional[Instance]:
-        """Return the instance identified by dossier_id.
+    def find_existing_instance(
+        self, dossier: Dossier, user: BaseUser
+    ) -> Optional[Instance]:
+        """Return the instance identified linked by the dossier.
 
         Different configs use different methods to identify instances. This
         is just an abstraction that is needed for retrieving instances
         when reimporting dossiers.
+        :param dossier:
+        :param user:
         """
         raise DossierWriter.ConfigurationError  # pragma: no cover
 
-    def set_dossier_id(self, instance: Instance, dossier_id: str):
-        """Make the instance retrievable by dossier_id.
+    def link_instance_and_dossier(
+        self, instance: Instance, dossier: Dossier, user: BaseUser
+    ):
+        """Make the instance retrievable by the dossier.
 
-        The reverse of `self.existing_dossier`
+        The reverse of `self.find_existing_instance`
+        :param instance:
+        :param dossier:
+        :param user:
         """
         raise DossierWriter.ConfigurationError  # pragma: no cover
 
@@ -825,6 +894,25 @@ class DossierWriter:
         category = Category.objects.get(
             pk=settings.DOSSIER_IMPORT["ALEXANDRIA_CATEGORY"]
         )
+
+        if (
+            category.allowed_mime_types is not None
+            and len(category.allowed_mime_types)
+            and mime_type not in category.allowed_mime_types
+        ):
+            messages.append(
+                Message(
+                    level=Severity.WARNING.value,
+                    code=MessageCodes.MIME_TYPE_INVALID.value,
+                    detail=_(
+                        'Unallowed mime type for file "%(filename)s" (%(mime_type)s) - the file was not imported'
+                    )
+                    % dict(filename=filename, mime_type=mime_type),
+                )
+            )
+
+            return messages
+
         if document := AlexandriaDocument.objects.filter(
             title=filename, **{"metainfo__camac-instance-id": str(instance.pk)}
         ).first():
@@ -850,7 +938,7 @@ class DossierWriter:
                 )
             )
             return messages
-        doc, _ = create_document_file(
+        doc, _file = create_document_file(
             user=self._user.pk,
             group=self._group.service.pk,
             category=category,
@@ -994,7 +1082,7 @@ class DossierWriter:
                 ),
             )
 
-            mimimi = magic.Magic(mime=True, uncompress=True)
+            mimimi = magic.Magic(mime=True)
             mime_type = mimimi.from_buffer(content.file.read())
             content.file.seek(0)
 

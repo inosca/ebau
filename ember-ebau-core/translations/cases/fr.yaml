@@ -12,6 +12,8 @@ cases:
     coordinationShort: ""
     createdAt: ""
     deadlineColor: ""
+    deadlineEndDate: ""
+    processDuration: ""
     decisionDate: "Date de décision"
     dossierCreated: ""
     dossierNumber: "N° eBau"
@@ -169,3 +171,16 @@ cases:
   presets:
     pending: "Affaires en cours"
     paper: "Tous les dossiers papier"
+
+  submit:
+    success: "Le dossier a été soumise avec succès."
+    failed-camac: "Erreur d'écriture sur le serveur."
+    failed-message: "Oups, quelque chose s'est mal passé. Veuillez vérifier vos données d'entrée à nouveau. {reasons}"
+    hint-text: '<strong>Remarque :</strong> aucune demande ne peut être soumise en tant que "Systembetrieb".'
+    internal:
+      label: "Terminer la saisie"
+      success: "Le dossier a été créé avec succès."
+
+  copy:
+    title: "Copier le lien dans le presse-papiers"
+    success: "Le lien a été copié dans le presse-papiers"

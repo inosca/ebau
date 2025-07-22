@@ -2,7 +2,7 @@ import { getOwnConfig, isDevelopingApp } from "@embroider/macros";
 
 export default {
   publication: {
-    form: true,
+    showMainForm: true,
     endDate: false,
     related: false,
     disableAuthentication: false,
@@ -15,6 +15,7 @@ export default {
   cases: {
     createPaper: true,
     exportExcel: false,
+    downloadFormAsPdf: true,
   },
   permissions: {
     applicantRoles: true,
@@ -23,9 +24,36 @@ export default {
     useNumberSeparatorWidgetAsDefault: true,
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
-  communications: true,
+  communications: {
+    enabled: true,
+  },
+  deadlines: {
+    enabled: true,
+    useEndDate: true,
+  },
   additionalDemands: true,
   dashboard: {
     useLegacy: true,
+  },
+  workItemList: {
+    useExperimentalLayout: true,
+  },
+  submitComponent: {
+    requiredPermissions: null,
+    export: {
+      enabled: (instance) =>
+        !instance.isPaper &&
+        !instance.calumaForm.startsWith("vorlaeufige-beurteilung"),
+      templateName: (locale) => `eingabequittung-${locale}`,
+      errorMessage: "dms.downloadError",
+    },
+  },
+  corrections: {
+    archiveInstance: false,
+    changeDossierNumber: false,
+    changeForm: false,
+    convertModification: false,
+    correctForm: true,
+    withdrawInstance: true,
   },
 };

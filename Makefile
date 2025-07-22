@@ -123,8 +123,8 @@ ember-dev: ## Set up .env and application.ini for local ember development
 		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/localhost:4200/' -i php/${APPLICATION}/configs/application.ini; \
 		echo "Set ember.development = true in application.ini"; \
 	else \
-		@grep -q INTERNAL_URL .env || echo INTERNAL_URL=http://localhost:4400 >> .env; \
-		@echo "Added local INTERNAL_URL to .env."; \
+		grep -q INTERNAL_URL .env || echo INTERNAL_URL=http://localhost:4400 >> .env; \
+		echo "Added local INTERNAL_URL to .env."; \
 	fi
 	@grep -q PORTAL_URL .env || echo PORTAL_URL=http://localhost:4200 >> .env
 	@echo "Added local PORTAL_URL to .env."
@@ -133,8 +133,8 @@ ember-dev: ## Set up .env and application.ini for local ember development
 ember-dev-reset: ## Set up .env and application.ini for non-local runtime (docker)
 	@if docker compose config|grep -q php; then \
 		sed -re 's/ember\.development.*/ember.development = false/' -i php/${APPLICATION}/configs/application.ini; \
-		sed -re 's/portal\.uri.*/portal.uri = http:\/\/ebau-portal.local/' -i php/${APPLICATION}/configs/application.ini; \
-		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/ebau-portal.local/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/portal\.uri.*/portal.uri = http:\/\/ebau-portal.localhost/' -i php/${APPLICATION}/configs/application.ini; \
+		sed -re 's/baseURLPortal.*/baseURLPortal = http:\/\/ebau-portal.localhost/' -i php/${APPLICATION}/configs/application.ini; \
 		echo "Set ember.development = false in application.ini"; \
 	fi
 	@sed -i '/PORTAL_URL/d' .env
@@ -225,6 +225,10 @@ kt_bern: ## Set APPLICATION to kt_bern
 kt_gr: ## Set APPLICATION to kt_gr
 	$(call set_app,kt_gr)
 
+.PHONY: kt_ag
+kt_ag: ## Set APPLICATION to kt_ag
+	$(call set_app,kt_ag)
+
 .PHONY: demo
 demo: ## Set APPLICATION to demo
 	$(call set_app,demo)
@@ -280,11 +284,24 @@ debug-django: ## start a api container with service ports for debugging
 	@echo "Run './manage.py runserver 0:80' to start the debugging server"
 	@docker compose run --user root --use-aliases --service-ports django bash
 
+.PHONY: debug-django-q
+debug-django-q: ## start a api container with service ports for debugging
+	@docker compose stop django
+	@echo "Run 'DJANGO_Q_ENABLE_SYNC=true ./manage.py runserver 0:80' to start the debugging server"
+	@docker compose run --user root --use-aliases --service-ports django bash
+
 .PHONY: debug-dms
 debug-dms: ## start a dms container with service ports for debugging
 	@docker compose stop document-merge-service
 	@echo "Run 'poetry run python manage.py runserver 0:8000' to start the debugging server"
 	@docker compose run --user root --use-aliases --service-ports document-merge-service bash
+
+.PHONY: debug-webdav
+debug-webdav: ## start a django-webdav container with service ports for debugging
+	@docker compose stop django-webdav
+	@echo "Run 'gunicorn camac.wsgi_dav --workers 1 --worker-class sync --bind :8000 --timeout 900000 --reload' to start the debugging server"
+	@docker compose run --user root --use-aliases --service-ports django-webdav bash
+
 
 .PHONY: load-be-dump
 load-be-dump: SHELL:=/bin/bash
@@ -391,3 +408,7 @@ gr-extract-translations: # Export translation files
 scan-images: ## Scan docker images with trivy
 	@pnpm -C tools -s install
 	@node tools/bin/scan-images.js
+
+.PHONY: generate-fixtures
+generate-fixtures: ## Generate dynamic fixtures for pytest
+	@docker compose exec django python manage.py generate_fixtures

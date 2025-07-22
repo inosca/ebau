@@ -15,6 +15,7 @@ class NotificationTemplateView(ModelViewSet):
     serializer_class = serializers.NotificationTemplateSerializer
     filterset_class = filters.NotificationTemplateFilterSet
     instance_editable_permission = "document"
+    search_fields = ("subject",)
 
     @permission_aware
     def get_queryset(self):

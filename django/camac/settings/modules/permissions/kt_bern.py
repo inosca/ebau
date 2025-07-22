@@ -8,6 +8,72 @@ from camac.permissions.conditions import (
 )
 from camac.permissions.switcher import PERMISSION_MODE
 
+STATES_ALL_INTERNAL = RequireInstanceState(
+    [
+        # building permit
+        "subm",  # eBau-Nummer vergeben
+        "circulation_init",  # Zirkulation initialisieren
+        "circulation",  # In Zirkulation
+        "coordination",  # In Koordination
+        "sb1",  # Selbstdeklaration (SB1)
+        "sb2",  # Abschluss (SB2)
+        "conclusion",  # Zum Abschluss
+        "finished",  # Abgeschlossen
+        "rejected",  # Zurückgewiesen
+        "correction",  # In Korrektur
+        "corrected",  # Korrigiert von Leitbehörde - TODO: still needed?
+        "archived",  # Archiviert
+        # preliminary clarification
+        "evaluated",  # Beurteilung abgeschlossen
+        # special procedures
+        "in_progress",  # In Bearbeitung
+        "in_progress_internal",  # In Bearbeitung (intern)
+        "finished_internal",  # Abgeschlossen (intern)
+    ]
+)
+
+# Internal roles that have access to instances
+ROLES_INTERNAL = HasRole(
+    [
+        "municipality-lead",
+        "municipality-clerk",
+        "municipality-readonly",
+        "service-lead",
+        "service-clerk",
+        "service-readonly",
+        "construction-control-lead",
+        "construction-control-clerk",
+        "construction-control-readonly",
+        "geometer-lead",
+        "geometer-clerk",
+        "geometer-readonly",
+        "subservice",
+        "support",
+    ]
+)
+
+ROLES_INTERNAL_NO_READONLY = ROLES_INTERNAL & ~HasRole(
+    [
+        "municipality-readonly",
+        "service-readonly",
+        "construction-control-readonly",
+        "geometer-readonly",
+    ]
+)
+
+MODULE_FORM = STATES_ALL_INTERNAL & ROLES_INTERNAL
+
+MODULE_DOCUMENTS_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
+MODULE_DOCUMENTS_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
+
+MODULE_HISTORY = STATES_ALL_INTERNAL & ROLES_INTERNAL
+
+MODULE_COMMUNICATIONS_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
+MODULE_COMMUNICATIONS_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
+
+MODULE_HEADER_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
+MODULE_HEADER_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
+
 BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = RequireInstanceState(
     [
         "sb1",
@@ -89,7 +155,7 @@ BE_REJECTION_POSSIBLE_STATES = RequireInstanceState(
 BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES = RequireInstanceState(
     ["sb1", "sb2", "conclusion", "finished", "archived", "finished_internal"]
 )
-BE_CONSTRUCTION_CONTROL_PERMISSIONS = [
+BE_BASE_CONSTRUCTION_CONTROL_PERMISSIONS = [
     ("history-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
     ("documents-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
     ("dms-generate-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
@@ -109,10 +175,31 @@ BE_CONSTRUCTION_CONTROL_PERMISSIONS = [
     ("communications-read", BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES),
 ]
 
+BE_INVOLVED_CONSTRUCTION_CONTROL_PERMISSIONS = (
+    BE_BASE_CONSTRUCTION_CONTROL_PERMISSIONS
+    + [
+        (
+            "instance-unsubscribe-responsible-service",
+            BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES
+            & ~RequireInstanceState(["finished_internal", "archived", "finished"]),
+        ),
+    ]
+)
+BE_ACTIVE_CONSTRUCTION_CONTROL_PERMISSIONS = (
+    BE_BASE_CONSTRUCTION_CONTROL_PERMISSIONS
+    + [
+        (
+            "instance-change-responsible-service",
+            BE_CONSTRUCTION_CONTROL_ACCESSIBLE_STATES
+            & ~RequireInstanceState(["finished_internal", "archived", "finished"]),
+        ),
+    ]
+)
+
 # Support always has access to instance (and (almost?) all IRs on it)
 SUPPORT_CONDITION = Always()
 
-BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS = [
+BE_BASE_AUTHORITY_PERMISSIONS = [
     ("communications-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("geometer-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     ("responsible-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
@@ -146,7 +233,7 @@ BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS = [
     ("related-gwr-projects-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
     ("billing-read", BE_MUNICIPALITY_ACCESSIBLE_STATES),
     (
-        "information-of-neighbors",
+        "information-of-neighbors-read",
         BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED,
     ),
     ("publication-read", BE_MUNICIPALITY_STATES_EXCEPT_MIGRATED),
@@ -194,11 +281,27 @@ BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS = [
     ("appeal-read", IsAppeal()),
 ]
 
-BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS = BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS + [
+BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS = BE_BASE_AUTHORITY_PERMISSIONS + [
+    (
+        "instance-unsubscribe-responsible-service",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES & ~RequireInstanceState(["in_progress"]),
+    )
+]
+
+BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS = BE_BASE_AUTHORITY_PERMISSIONS + [
     (
         "corrections-read",
         BE_MUNICIPALITY_ACCESSIBLE_STATES
         | RequireInstanceState(["corrected", "correction"]),
+    ),
+    (
+        "instance-change-form",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES
+        | RequireInstanceState(["corrected", "correction"]),
+    ),
+    (
+        "instance-change-responsible-service",
+        BE_MUNICIPALITY_ACCESSIBLE_STATES & ~RequireInstanceState(["in_progress"]),
     ),
 ]
 
@@ -211,16 +314,28 @@ BE_PERMISSIONS_SETTINGS = {
     "PERMISSION_MODE": PERMISSION_MODE.OFF,
     "ACCESS_LEVELS": {
         "geometer": [
-            ("form-read", Always()),
-            ("documents-read", Always()),
-            ("work-items-read", GEOMETER_RW),
             ("communications-read", GEOMETER_RW),
+            ("communications-write", GEOMETER_RW),
+            ("documents-read", MODULE_DOCUMENTS_READ),
+            ("documents-write", MODULE_DOCUMENTS_WRITE),
             ("dms-generate-read", GEOMETER_RW),
+            ("form-read", MODULE_FORM),
             ("geometer-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
-            ("responsible-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
-            ("journal-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
             ("history-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+            ("journal-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+            ("responsible-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+            ("tags-read", MODULE_HEADER_READ),
+            ("tags-write", MODULE_HEADER_WRITE),
+            ("work-items-read", GEOMETER_RW),
         ],
+        "read": [
+            ("communications-read", MODULE_COMMUNICATIONS_READ),
+            ("communications-write", MODULE_COMMUNICATIONS_WRITE),
+            ("documents-read", MODULE_DOCUMENTS_READ),
+            ("form-read", MODULE_FORM),
+            ("history-read", MODULE_HISTORY),
+        ],
+        # TODO: The following access levels have not beeen released yet
         "applicant": [
             ("applicant-remove", Always()),
             ("applicant-add", Always()),
@@ -228,12 +343,8 @@ BE_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS,
         "involved-authority": BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS,
-        "read": [
-            ("form-read", Always()),
-            ("documents-read", Always()),
-        ],
-        "construction-control": BE_CONSTRUCTION_CONTROL_PERMISSIONS,
-        "involved-construction-control": BE_CONSTRUCTION_CONTROL_PERMISSIONS,
+        "construction-control": BE_ACTIVE_CONSTRUCTION_CONTROL_PERMISSIONS,
+        "involved-construction-control": BE_INVOLVED_CONSTRUCTION_CONTROL_PERMISSIONS,
         "support": [
             ("support-read", SUPPORT_CONDITION),
             ("form-read", SUPPORT_CONDITION),
@@ -241,6 +352,7 @@ BE_PERMISSIONS_SETTINGS = {
             ("audit-log-read", SUPPORT_CONDITION),
             ("changelog-read", SUPPORT_CONDITION),
             ("history-read", SUPPORT_CONDITION),
+            ("instance-change-form", SUPPORT_CONDITION),
         ],
         "distribution-service": [
             ("work-items-read", BE_SERVICE_STATES_DEFAULT),
@@ -265,7 +377,8 @@ BE_PERMISSIONS_SETTINGS = {
             ("decision-read", POST_DECISION_STATES),
         ],
     },
-    "EVENT_HANDLER": "camac.permissions.config.kt_bern.GeometerPermissionEventHandlerBE",
+    "EVENTS_WITH_NOTIFICATION": ["manual-creation", "grant-geometer-access"],
+    "EVENT_HANDLER": "camac.permissions.config.kt_bern.PermissionEventHandlerBE",
     "ENABLED": True,
     # Map INTERNAL -> CANTON access level names. The INTERNAL ones
     # are directly referenced by the migration tooling and may differ from

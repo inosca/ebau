@@ -3184,6 +3184,142 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "construction-step-baubeginn-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-16T20:53:32.628Z",
+      "modified_at": "2024-01-16T20:53:32.628Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hiermit best\\u00e4tige ich, dass die ben\\u00f6tigten Auflagen zum Baubeginn erledigt sind.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-baufreigabe-beantragen-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-16T20:27:30.302Z",
+      "modified_at": "2024-01-16T20:27:30.302Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hiermit best\\u00e4tige ich, dass die ben\\u00f6tigten Auflagen zur Baufreigabe erledigt sind.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-kanalisationsabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T08:54:52.267Z",
+      "modified_at": "2024-01-17T08:54:52.267Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-rohbauabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:31:05.680Z",
+      "modified_at": "2024-01-17T09:31:05.680Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-gebaeude-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:48:30.167Z",
+      "modified_at": "2024-01-17T09:48:30.167Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schlussabnahme-projekt-melden-bestaetigung-confirm",
+    "fields": {
+      "created_at": "2024-01-17T09:54:24.044Z",
+      "modified_at": "2024-01-17T09:54:24.044Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-schnurgeruestabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:06:40.414Z",
+      "modified_at": "2024-01-17T09:06:40.414Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-zwischenkontrolle-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-30T11:31:33.117Z",
+      "modified_at": "2024-01-30T11:31:33.117Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Alle Auflagen, die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "voranfrage-personalien-anrede-firma",
     "fields": {
       "created_at": "2022-01-26T13:49:02.139Z",
@@ -5576,6 +5712,270 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "construction-step-baubeginn-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-16T20:53:32.672Z",
+      "modified_at": "2024-01-16T20:53:32.672Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubeginn melden Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-baufreigabe-beantragen-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-16T20:27:30.348Z",
+      "modified_at": "2024-01-16T20:27:30.348Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baufreigabe beantragen Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-kanalisationsabnahme-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T08:54:52.331Z",
+      "modified_at": "2024-01-17T08:54:52.331Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kanalisationsabnahme melden Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-rohbauabnahme-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:31:05.738Z",
+      "modified_at": "2024-01-17T09:31:05.738Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-gebaeude-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:48:30.225Z",
+      "modified_at": "2024-01-17T09:48:30.225Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-projekt-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:54:24.102Z",
+      "modified_at": "2024-01-17T09:54:24.102Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schnurgeruestabnahme-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-17T09:06:40.470Z",
+      "modified_at": "2024-01-17T09:06:40.470Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schnurger\\u00fcstabnahme melden Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-zwischenkontrolle-melden-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-30T11:31:33.156Z",
+      "modified_at": "2024-01-30T11:31:33.156Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zwischenkontrolle melden Best\\u00e4tigung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "lv95-x",
     "fields": {
       "created_at": "2023-12-11T17:13:24.199Z",
@@ -7703,6 +8103,126 @@
       "question": "beschwerdeverfahren-weiterzug-durch",
       "option": "beschwerdeverfahren-weiterzug-durch-beschwerdegegner",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-baubeginn-melden-bestaetigung.construction-step-baubeginn-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-16T20:53:32.675Z",
+      "modified_at": "2024-01-16T20:53:32.675Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-baubeginn-melden-bestaetigung",
+      "option": "construction-step-baubeginn-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-baufreigabe-beantragen-bestaetigung.construction-step-baufreigabe-beantragen-bestaetigung",
+    "fields": {
+      "created_at": "2024-01-16T20:27:30.352Z",
+      "modified_at": "2024-01-16T20:27:30.352Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-baufreigabe-beantragen-bestaetigung",
+      "option": "construction-step-baufreigabe-beantragen-bestaetigung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-kanalisationsabnahme-melden-bestaetigung.construction-step-kanalisationsabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T08:54:52.335Z",
+      "modified_at": "2024-01-17T08:54:52.335Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-kanalisationsabnahme-melden-bestaetigung",
+      "option": "construction-step-kanalisationsabnahme-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-rohbauabnahme-melden-bestaetigung.construction-step-rohbauabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:31:05.744Z",
+      "modified_at": "2024-01-17T09:31:05.744Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-rohbauabnahme-melden-bestaetigung",
+      "option": "construction-step-rohbauabnahme-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schlussabnahme-gebaeude-melden-bestaetigung.construction-step-schlussabnahme-gebaeude-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:48:30.232Z",
+      "modified_at": "2024-01-17T09:48:30.232Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schlussabnahme-gebaeude-melden-bestaetigung",
+      "option": "construction-step-schlussabnahme-gebaeude-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schlussabnahme-projekt-melden-bestaetigung.construction-step-schlussabnahme-projekt-melden-bestaetigung-confirm",
+    "fields": {
+      "created_at": "2024-01-17T09:54:24.107Z",
+      "modified_at": "2024-01-17T09:54:24.107Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schlussabnahme-projekt-melden-bestaetigung",
+      "option": "construction-step-schlussabnahme-projekt-melden-bestaetigung-confirm",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-schnurgeruestabnahme-melden-bestaetigung.construction-step-schnurgeruestabnahme-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-17T09:06:40.474Z",
+      "modified_at": "2024-01-17T09:06:40.474Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-schnurgeruestabnahme-melden-bestaetigung",
+      "option": "construction-step-schnurgeruestabnahme-melden-bestaetigung-text",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-zwischenkontrolle-melden-bestaetigung.construction-step-zwischenkontrolle-melden-bestaetigung-text",
+    "fields": {
+      "created_at": "2024-01-30T11:31:33.160Z",
+      "modified_at": "2024-01-30T11:31:33.160Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-zwischenkontrolle-melden-bestaetigung",
+      "option": "construction-step-zwischenkontrolle-melden-bestaetigung-text",
+      "sort": 1
     }
   },
   {

@@ -3,9 +3,6 @@ from django.urls import get_resolver
 from rest_framework import status
 
 from camac.instance.mixins import InstanceQuerysetMixin
-from camac.instance.tests.test_instance_public import (  # noqa: F401
-    create_caluma_publication,
-)
 
 
 @pytest.fixture
@@ -28,7 +25,7 @@ def public_urls(
 
 @pytest.fixture()
 def public_data(
-    create_caluma_publication,  # noqa: F811
+    create_caluma_publication,
     be_instance,
     attachment_factory,
     issue_factory,
@@ -47,6 +44,9 @@ def public_data(
     billing_v2_entry_factory,
     instance_acl_factory,
     keyword_factory,
+    new_sanction_factory,
+    suspension_factory,
+    instance_deadline_factory,
 ):
     attachment = attachment_factory(instance=be_instance, context={"isPublished": True})
     attachment_version_factory(attachment=attachment)
@@ -66,6 +66,9 @@ def public_data(
     billing_v2_entry_factory(instance=be_instance)
     keyword = keyword_factory()
     keyword.instances.set([be_instance])
+    new_sanction_factory(instance=be_instance)
+    deadline = instance_deadline_factory(instance=be_instance)
+    suspension_factory(deadline=deadline)
 
     create_caluma_publication(be_instance)
 
@@ -85,6 +88,7 @@ def test_public_urls(
     allowed_urls = [
         # Public caluma instances
         "/api/v1/public-caluma-instances",
+        "/api/v1/public-caluma-instances/%(pk)s/viewed",
         # Attachments
         "/api/v1/attachments",
         "/api/v1/attachments/%(pk)s",
@@ -108,9 +112,9 @@ def test_public_urls(
         # leak unintentionally. Pull in the corresponding factory in the
         # `public_data` fixture above and instantiate it with a link to
         # `be_instance` so this test can do it's magic.
-        assert (
-            model.objects.exists()
-        ), f"No object found for model {model.__name__} - please create one"
+        assert model.objects.exists(), (
+            f"No object found for model {model.__name__} - please create one"
+        )
 
         url_tpl, args = url_config
         url_tpl = f"/{url_tpl}"
@@ -135,6 +139,6 @@ def test_public_urls(
                 status.HTTP_405_METHOD_NOT_ALLOWED,
             ], f"{url_tpl} is accessible for public users"
         else:
-            assert (
-                response.status_code == status.HTTP_200_OK
-            ), f"{url_tpl} is not accessible for public users"
+            assert response.status_code == status.HTTP_200_OK, (
+                f"{url_tpl} is not accessible for public users"
+            )

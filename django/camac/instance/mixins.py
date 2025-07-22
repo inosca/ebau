@@ -10,6 +10,7 @@ from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
 from camac.attrs import nested_getattr
+from camac.caluma.models import Inquiry
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import Circulation, CommissionAssignment, InstanceService
 from camac.instance.models import Instance
@@ -281,26 +282,31 @@ class InstanceQuerysetMixin(object):
             )
 
             filters = {
-                "task_id": "fill-publication",
+                "task_id": settings.PUBLICATION["FILL_TASKS"]["PUBLIC"],
                 "meta__is-published": True,
                 "status": WorkItem.STATUS_COMPLETED,
             }
-            ranges = settings.PUBLICATION.get("RANGE_QUESTIONS")
-            publish_question = settings.PUBLICATION.get("PUBLISH_QUESTION")
+            ranges = settings.PUBLICATION["RANGE_QUESTIONS"]["PUBLIC"]
+            published_filters = Q()
+
+            if publish_question := settings.PUBLICATION.get("PUBLISH_QUESTION"):
+                published_filters = Exists(
+                    Answer.objects.filter(
+                        document_id=OuterRef("document_id"),
+                        question_id=publish_question,
+                        value=settings.PUBLICATION["PUBLISH_ANSWER"],
+                    )
+                )
 
             if public_access_key:
                 filters.update(
                     {
-                        "task_id": "information-of-neighbors",
+                        "task_id": settings.PUBLICATION["FILL_TASKS"]["NEIGHBORS"],
                         "document__pk__startswith": public_access_key,
                     }
                 )
-                ranges = [
-                    (
-                        "information-of-neighbors-start-date",
-                        "information-of-neighbors-end-date",
-                    )
-                ]
+                ranges = settings.PUBLICATION["RANGE_QUESTIONS"]["NEIGHBORS"]
+                published_filters = Q()
 
             range_filters = Q()
             for start_question, end_question in ranges:
@@ -321,13 +327,11 @@ class InstanceQuerysetMixin(object):
                     )
                 )
 
-            public_cases = WorkItem.objects.filter(**filters).filter(range_filters)
-
-            if publish_question:
-                public_cases = public_cases.filter(
-                    document__answers__question_id=publish_question,
-                    document__answers__value=settings.PUBLICATION.get("PUBLISH_ANSWER"),
-                )
+            public_cases = (
+                WorkItem.objects.filter(**filters)
+                .filter(range_filters)
+                .filter(published_filters)
+            )
 
             public_cases = list(public_cases.values_list("case__family", flat=True))
             return queryset.filter(
@@ -378,15 +382,8 @@ class InstanceQuerysetMixin(object):
             # WARNING: if this logic changes, `hasInquiry` in
             # php/library/Custom/CalumaDistribution.php needs to be updated as
             # well
-            work_items = WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups=[str(group.service.pk)],
-            ).exclude(
-                status__in=[
-                    WorkItem.STATUS_SUSPENDED,
-                    WorkItem.STATUS_CANCELED,
-                ],
-            )
+            work_items = Inquiry.objects.addressed_to(group.service).only_active()
+
             if extra_filters:
                 work_items = work_items.filter(extra_filters)
 
@@ -497,19 +494,45 @@ class InstanceEditableMixin(AttributeMixin):
 
     def has_object_update_permission(self, obj):
         instance = self.get_instance(obj)
-        return self.has_editable_permission(instance)
+        return self.has_editable_permission(
+            instance
+        ) or self.has_editable_permission_from_permission_module(instance)
+
+    def has_editable_permission_from_permission_module(self, instance):
+        """Return True if the required permission is granted by the permissions module.
+
+        In other words, `instance_editable_permission` is used to determine which permission
+        from the permissions module is required, and `True` is returned if that permission is
+        granted.
+        """
+
+        permissions_manager = self.permissions_manager()
+        EDITABLE_PERMISSIONS = {
+            "document": "documents-write",
+            "form": "form-write",
+        }
+
+        editable_permission = self.serializer_getattr("instance_editable_permission")
+        if not editable_permission or editable_permission not in EDITABLE_PERMISSIONS:
+            return False
+
+        return permissions_manager.has_any(
+            instance, EDITABLE_PERMISSIONS[editable_permission]
+        )
 
     def _validate_instance_editablity(
         self, instance, is_editable_callable=lambda: True
     ):
-        if not self.has_editable_permission(instance) or not is_editable_callable():
-            # TODO log user's current group's role
-            raise exceptions.ValidationError(
-                _("Not allowed to add data to instance %(instance)s")
-                % {"instance": instance.pk}
-            )
+        if (
+            self.has_editable_permission(instance) and is_editable_callable()
+        ) or self.has_editable_permission_from_permission_module(instance):
+            return instance
 
-        return instance
+        # TODO log user's current group's role
+        raise exceptions.ValidationError(
+            _("Not allowed to add data to instance %(instance)s")
+            % {"instance": instance.pk}
+        )
 
     @permission_aware
     def validate_instance(self, instance):
@@ -560,6 +583,9 @@ class InstanceEditableMixin(AttributeMixin):
             ),
         )
 
+    def validate_instance_for_trusted_service(self, instance):
+        return self._validate_instance_editablity(instance)
+
     def validate_instance_for_canton(self, instance):
         return self._validate_instance_editablity(instance)
 
@@ -571,10 +597,10 @@ class InstanceEditableMixin(AttributeMixin):
 
     def has_activations(self, instance, service):
         if settings.DISTRIBUTION:
-            return WorkItem.objects.filter(
-                case__family__instance=instance,
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups=[str(service.pk)],
-            ).exclude(status__in=[WorkItem.STATUS_CANCELED, WorkItem.STATUS_SUSPENDED])
+            return (
+                Inquiry.objects.for_instance(instance)
+                .addressed_to(service)
+                .only_active()
+            )
 
         return instance.circulations.filter(activations__service=service).exists()

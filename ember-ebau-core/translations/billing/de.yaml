@@ -20,6 +20,7 @@ billing:
   hours: Stunden
   hourly-rate: Stundensatz (CHF)
   tax-mode: Mehrwertsteuer
+  tax-mode-billing-type-info: Beim Bauen ausserhalb der Bauzone und bei kantonaler Baubehörde ist immer die Option "nicht MwSt. pflichtig" zu wählen.
   percentage: Anteil (%) ...
   of-amount: ... an Gesamtkosten (CHF)
   add: Gebühr hinzufügen
@@ -33,6 +34,15 @@ billing:
   delete-error: Fehler beim Löschen des Gebühreneintrag
   charge-error: Fehler beim Verrechnen des Gebühreneintrag
   paginationInfo: "<strong>{count}</strong> von {total}"
+  apply-construction-costs: Baukosten aus Formular übernehmen
+  apply-construction-costs-empty: Es konnten keine Baukosten im Formular gefunden werden
+  release-for-clearing: Zur Verrechnung freigeben
+  release-for-clearing-error: Die Einträge konnten nicht freigegeben werden. Ein Fehler ist aufgetretten.
+  released-for-clearing: Freigegeben
+  confirm-release-for-clearing: Sobald der Eintrag zur Verrechnung freigegeben wurde wird die Rechnung innerhalb der nächsten 24 Stunden automatisch generiert.
+  product-number: Produktnummer
+  remark: Bemerkung
+  product-number-empty: Wählen Sie eine Produktnummer
 
   organizations:
     cantonal: Kantonal
@@ -42,11 +52,18 @@ billing:
     flat: "{totalCost, number, ::.00} {taxMode}"
     percentage: "{percentage, number, ::.00 % scale/0.01} von {totalCost, number, ::.00} {taxMode}"
     hourly: "{hours, number, ::.00} Std à {hourlyRate, number, ::.00} {taxMode}"
+    ag_processing_fee: |-
+      {totalCost, number, ::.00} CHF Baukosten, davon<br>
+      0-133'334.95 CHF = 400.00 CHF<br>
+      133'335 - 2Mio. = 3‰<br>
+      2-5Mio. = 2.5‰<br>
+      >5Mio = 1.5‰
 
     titles:
       flat: pauschal
       percentage: prozentual
       hourly: nach Aufwand
+      ag_processing_fee: Behandlungsgebühr BG BVUAFB
 
   tax-modes:
     exempt: nicht MWSt-pflichtig
@@ -82,12 +99,36 @@ billing:
         Fachstelle hat ihre Gebührenrechnung direkt an den Gesuchstellenden
         versendet. Inkasso durch Fachstelle.
       </li>
+      <li>
+        <strong>Kantonale Gebührenrechnung für Bauen ausserhalb Bauzone:</strong>
+        Die kantonale Koordinationsstelle Bauen ausserhalb Bauzone (ARP) erstellt die
+        kantonale Gebührenrechnung (mit den Gebühren jeder kant. Fachstelle / Unterfachstelle)
+        und schickt diese zusammen mit dem kantonalen Entscheid an die örtliche
+        Baubehörde (Gemeinde) zur Eröffnung an die / den Gesuchstellende(-n).
+        Das Inkasso erfolgt durch das ARP (Administration).
+      </li>
+      <li>
+        <strong>Kantonale Gebührenrechnung bei kantonaler Baubehörde:</strong>
+        Die kantonale Baubehörde (ARP) erstellt die kantonale Gebührenrechnung (mit den
+        Gebühren jeder kant. Fachstelle / Unterfachstelle) und eröffnet diese zusammen mit
+        dem kantonalen Entscheid an die / den Gesuchstellende(-n). Das Inkasso erfolgt durch
+        das ARP (Administration).
+      </li>
     </ul>
+
   billing-types:
     by_authority: Weiter zu verrechnen
     forwarded: Rechnung zu eröffnen
     direct: Direkt verrechnet
+    construction_outside_zone: Kantonale Gebührenrechnung für Bauen ausserhalb Bauzone
+    cantonal_construction_administration: Kantonale Gebührenrechnung bei kantonaler Baubehörde
 
   filters:
     createdAfter: Erstellung von
     createdBefore: Erstellung bis
+    service: Organisation
+
+  templates:
+    info: Eine Vorlage anwenden
+    select: Vorlage auswählen
+    apply: Vorlage anwenden

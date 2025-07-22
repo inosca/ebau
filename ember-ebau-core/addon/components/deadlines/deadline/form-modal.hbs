@@ -1,0 +1,75 @@
+<UkModal
+  @visible={{@visible}}
+  @onHide={{@onHide}}
+  @dialogClass="deadlines-module-create-deadline-modal-dialog"
+  data-test-modal-create-deadlines-deadline
+  as |modal|
+>
+  <modal.header>
+    <h2 class="uk-modal-title uk-margin-right">{{t
+        "deadlines.action.deadline.edit"
+      }}</h2>
+  </modal.header>
+  <ValidatedForm
+    @model={{changeset this.formData this.validations}}
+    @on-submit={{perform this.saveDeadline}}
+    class="uk-form-stacked"
+    as |f|
+  >
+    <modal.body>
+      <f.input
+        @label={{t "deadlines.deadline.property.startDate"}}
+        @name="startDate"
+        @errorComponent={{component "input-error"}}
+        as |fi|
+      >
+        <div data-test-deadlines-deadline-end-date-input>
+          <Datepicker
+            @value={{fi.value}}
+            @maxDate={{this.today}}
+            @onChange={{fi.update}}
+          />
+        </div>
+      </f.input>
+      <f.input
+        @name="type"
+        @label={{t "deadlines.deadline.property.type"}}
+        @required={{true}}
+        @errorComponent={{component "input-error"}}
+        as |fi|
+      >
+        <PowerSelect
+          @triggerId="type"
+          data-test-deadline-type-input
+          @selected={{fi.value}}
+          @placeholder={{t "deadlines.deadline.property.type"}}
+          @options={{@deadlineTypes}}
+          @onChange={{fi.update}}
+          @allowClear={{true}}
+          @renderInPlace={{true}}
+          @loadingMessage={{t "global.loadingPrompt"}}
+          @searchEnabled={{true}}
+          @search={{perform this.searchDeadlineTypes}}
+          @searchMessage={{t "global.searchPrompt"}}
+          @noMatchesMessage={{t "global.noMatch"}}
+          class="uk-select"
+          as |service|
+        >
+          {{service.name}}
+        </PowerSelect>
+      </f.input>
+    </modal.body>
+    <modal.footer class="uk-text-right">
+      <f.submit
+        @label={{t "global.save"}}
+        @disabled={{f.loading}}
+        data-test-deadlines-deadline-submit
+      />
+      <f.button
+        @label={{t "global.cancel"}}
+        @disabled={{f.loading}}
+        {{on "click" @onHide}}
+      />
+    </modal.footer>
+  </ValidatedForm>
+</UkModal>

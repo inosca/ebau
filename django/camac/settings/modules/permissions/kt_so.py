@@ -6,6 +6,7 @@ from camac.permissions.conditions import (
     IsAppeal,
     IsForm,
     IsPaper,
+    IsServiceGroup,
     RequireInstanceState,
     RequireWorkItem,
 )
@@ -30,6 +31,7 @@ STATES_ALL = RequireInstanceState(
         "rejected",
     ]
 )
+NO_CORRECTION = ~RequireInstanceState(["correction"])
 
 # Role rules
 ROLES_NO_READONLY = ~HasRole(["municipality-read", "service-read"])
@@ -44,20 +46,24 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 # 2. Form rules
 # 3. Role rules
 # 4. Other
-MODULE_ADDITIONAL_DEMANDS = (
+MODULE_ADDITIONAL_DEMANDS = NO_CORRECTION & (
     # We need to check the form here because the work item will exists in
     # preliminary clarification as we allow a distribution. However, only a
     # distribution is allowed but no additional demands.
     RequireWorkItem("init-additional-demand") & ~IsForm(["voranfrage"]) & ~IsAppeal()
 )
-MODULE_APPEAL = RequireWorkItem("appeal") & (
-    ROLES_MUNICIPALITY
-    | (
-        Callback(
-            lambda instance, userinfo: instance.case.meta.get("is-bab", False)
-            and userinfo.service.service_group.name == "service-bab",
-            allow_caching=True,
-            name="is_bab_instance_and_service",
+MODULE_APPEAL = (
+    NO_CORRECTION
+    & RequireWorkItem("appeal")
+    & (
+        ROLES_MUNICIPALITY
+        | (
+            IsServiceGroup(["service-bab"])
+            & Callback(
+                lambda instance: instance.case.meta.get("is-bab", False),
+                allow_caching=True,
+                name="is_bab",
+            )
         )
     )
 )
@@ -72,10 +78,11 @@ MODULE_CONSTRUCTION_MONITORING = (
 MODULE_CORRECTIONS = (
     STATES_ALL | RequireInstanceState(["correction"])
 ) & ROLES_NO_READONLY
-MODULE_DECISION = (RequireWorkItem("decision") & ROLES_MUNICIPALITY) | RequireWorkItem(
-    "decision", "completed"
+MODULE_DECISION = NO_CORRECTION & (
+    (RequireWorkItem("decision") & ROLES_MUNICIPALITY)
+    | RequireWorkItem("decision", "completed")
 )
-MODULE_DISTRIBUTION = RequireWorkItem("distribution")
+MODULE_DISTRIBUTION = NO_CORRECTION & RequireWorkItem("distribution")
 MODULE_DMS_GENERATE = STATES_ALL & ROLES_NO_READONLY
 MODULE_DOCUMENTS = STATES_ALL | (
     RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper()
@@ -85,31 +92,33 @@ MODULE_FORM = (
     | RequireInstanceState(["correction"])
     | (RequireInstanceState(["new"]) & ROLES_MUNICIPALITY & IsPaper())
 )
-MODULE_FORMAL_EXAM = (
-    RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
-) | RequireWorkItem("formal-exam", "completed")
+MODULE_FORMAL_EXAM = NO_CORRECTION & (
+    (RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY)
+    | RequireWorkItem("formal-exam", "completed")
+)
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
-MODULE_LEGAL_SUBMISSIONS = RequireWorkItem("objections")
+MODULE_LEGAL_SUBMISSIONS = NO_CORRECTION & RequireWorkItem("objections")
 MODULE_LINKED_INSTANCES = STATES_ALL
-MODULE_MATERIAL_EXAM = (
-    RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
-) | RequireWorkItem("material-exam", "completed")
-MODULE_MATERIAL_EXAM_BAB = RequireWorkItem("material-exam-bab") & Callback(
-    lambda userinfo: userinfo.service.service_group.name
-    in ["service-bab", "service-cantonal", "canton"],
-    allow_caching=True,
-    name="is_cantonal_service",
+MODULE_MATERIAL_EXAM = NO_CORRECTION & (
+    (RequireWorkItem("material-exam") & ROLES_MUNICIPALITY)
+    | RequireWorkItem("material-exam", "completed")
 )
+MODULE_MATERIAL_EXAM_BAB = (
+    NO_CORRECTION
+    & RequireWorkItem("material-exam-bab")
+    & IsServiceGroup(["service-bab", "service-cantonal", "canton"])
+)
+
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
-MODULE_PUBLICATION = RequireWorkItem("fill-publication")
+MODULE_PUBLICATION = NO_CORRECTION & RequireWorkItem("fill-publication")
 MODULE_REJECTION = RequireWorkItem("reject") & ROLES_NO_READONLY
 MODULE_RELATED_GWR_PROJECTS = (
     (
         STATES_ALL
         & ~RequireInstanceState(["subm", "material-exam", "reject", "rejected"])
     )
-    & IsForm(["baugesuch"])
+    & IsForm(["baugesuch", "migriertes-dossier"])
     & ROLES_MUNICIPALITY
     & ~IsAppeal()
 )
@@ -160,9 +169,10 @@ ACTION_INSTANCE_WITHDRAW = (
     & (HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper()))
     & ~IsAppeal()
 )
-ACTION_INSTANCE_CREATE_MODIFICATION = RequireWorkItem("construction-stage") & (
+ACTION_INSTANCE_CREATE_MODIFICATION = RequireWorkItem("construction-stage", "ready") & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
+ACTION_INSTANCE_DOWNLOAD_AS_PDF = ~RequireInstanceState(["new"])
 
 # Actual config
 SO_PERMISSIONS_SETTINGS = {
@@ -194,6 +204,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
+            ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
             (
@@ -215,6 +226,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
+            ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("journal-read", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
@@ -248,10 +260,12 @@ SO_PERMISSIONS_SETTINGS = {
             ("history-read", MODULE_HISTORY),
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
+            ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
             ("journal-read", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
+            ("legal-submissions-write", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("material-exam-read", MODULE_MATERIAL_EXAM),
             ("material-exam-bab-read", MODULE_MATERIAL_EXAM_BAB),
@@ -272,8 +286,11 @@ SO_PERMISSIONS_SETTINGS = {
         ],
         "read": [
             ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
             ("documents-read", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
+            ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
+            ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "support": [
             ("applicant-add", Always()),
@@ -285,6 +302,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("form-write", Always()),
             ("history-read", Always()),
             ("instance-delete", RequireInstanceState(["new"])),
+            ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("permissions-read-any", Always()),
             ("permissions-read", Always()),
         ],

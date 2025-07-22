@@ -1,11 +1,13 @@
 {{#if this.workItem.value.document.id}}
   <CfContent
     @documentId={{decode-id this.workItem.value.document.id}}
-    @disabled={{cannot "edit task-form" this.workItem.value task=@model}}
+    @disabled={{await
+      (cannot "edit task-form" this.workItem.value task=@model)
+    }}
     @context={{hash
       instanceId=this.ebauModules.instanceId
       task=@model
-      actionButtonOnSuccess=this.redirectToWorkItems
+      actionButtonOnSuccess=this.redirectToCaseWorkItems
     }}
   />
 {{else if this.workItem.isLoading}}

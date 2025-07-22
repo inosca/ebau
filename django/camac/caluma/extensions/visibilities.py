@@ -111,9 +111,12 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         )
 
     def filter_queryset_for_document_for_public(self, node, queryset, info):
-        return queryset.filter(
-            family__case__family__instance__pk__in=self._all_visible_instances(info)
-        )
+        if settings.PUBLICATION["SHOW_MAIN_FORM"]:
+            return queryset.filter(
+                family__case__family__instance__pk__in=self._all_visible_instances(info)
+            )
+
+        return queryset.none()
 
     @permission_aware
     @filter_queryset_for(form_schema.Answer)
@@ -124,10 +127,12 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
         return queryset
 
     def filter_queryset_for_answer_for_public(self, node, queryset, info):
-        # Scrub sensitive data from answer queryset for public users
-        return queryset.exclude(
-            question_id__in=settings.PUBLICATION.get("SCRUBBED_ANSWERS", [])
-        )
+        if settings.PUBLICATION["SHOW_MAIN_FORM"]:
+            # Scrub sensitive data from answer queryset for public users
+            return queryset.exclude(
+                question_id__in=settings.PUBLICATION.get("SCRUBBED_ANSWERS", [])
+            )
+        return queryset.none()
 
     @filter_queryset_for(workflow_schema.Case)
     def filter_queryset_for_case(self, node, queryset, info):
@@ -142,7 +147,23 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
     @permission_aware
     @filter_queryset_for(workflow_schema.WorkItem)
     def filter_queryset_for_work_items(self, node, queryset, info):
-        filters = Q(case__family__instance__pk__in=self._all_visible_instances(info))
+        if getattr(info.operation.name, "value", None) in [
+            "WorkItemListQuery",
+            "WorkItemsForTasks",
+        ]:
+            # performance optimization for the global work item list:
+            # Only show work items with deadline where service is directly affected.
+            # This is more efficient than going through _all_visible_instances
+            # and returns a subset of those work items.
+            service_id = str(self.request.group.service_id)
+            filters = Q(deadline__isnull=False) & (
+                Q(addressed_groups__contains=[service_id])
+                | Q(controlling_groups__contains=[service_id])
+            )
+        else:
+            filters = Q(
+                case__family__instance__pk__in=self._all_visible_instances(info)
+            )
 
         # Limit visible work items based on the task slugs in the GQL query
         # Consider only work items that user is interested in
@@ -223,7 +244,13 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
                 case__family__in=Case.objects.filter(pk=value).values("family")
             )
         elif filter_type == "instance_id" and value:
-            qs = qs.filter(pk=value)
+            # Return both the instance itself and the source instances that it has
+            # been copied from. This ensure that functions that depend on seeing
+            # the source instances still work (such as eBau-Nr. suggestion), even if
+            # the instance_id filter is set.
+            # Whether the instances are actually visible in that moment, is checked
+            # previously.
+            qs = qs.filter(Q(pk=value) | Q(copy_source=value))
 
         if filter_type in ["case_id", "instance_id"] and value:
             qs._single_instance_mode = True
@@ -352,6 +379,12 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             & Q(is_construction_stage=False)
             & Q(is_construction_monitoring_control=False)
         ) | (
+            # Construction-monitoring work-item addressed to current service
+            Q(addressed_groups__contains=[str(group.service_id)])
+        )
+
+    def visible_construction_step_work_items_expression_for_geometer(self, group):
+        return (Q(is_construction_monitoring_control=False)) | (
             # Construction-monitoring work-item addressed to current service
             Q(addressed_groups__contains=[str(group.service_id)])
         )

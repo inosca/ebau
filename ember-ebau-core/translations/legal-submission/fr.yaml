@@ -10,6 +10,7 @@ legal-submission:
   title: "Titre"
   legal-claimants: "Requérants conclusions"
   status: "Statut"
+  has-representative: ""
 
   loading-error: "Erreur lors du chargement des conclusions"
   create-error: "Erreur lors de la création de la conclusion"
@@ -17,3 +18,5 @@ legal-submission:
   delete-confirm: "Voulez-vous vraiment supprimer la conclusion ?"
   delete-success: "La conclusion a été supprimée avec succès."
   delete-error: "Erreur lors de la suppression de la conclusion"
+
+  hint: ""

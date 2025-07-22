@@ -13,11 +13,11 @@ def test_additonal_demand(
     additional_demand_settings,
     instance,
     caluma_admin_user,
-    work_item_factory,
-    workflow_factory,
+    caluma_work_item_factory,
+    caluma_workflow_factory,
 ):
-    workflow = workflow_factory(slug=additional_demand_settings["WORKFLOW"])
-    work_item = work_item_factory(
+    workflow = caluma_workflow_factory(slug=additional_demand_settings["WORKFLOW"])
+    work_item = caluma_work_item_factory(
         task__slug=additional_demand_settings["TASK"], child_case=None
     )
 
@@ -57,14 +57,18 @@ def test_additonal_demand(
 def test_additonal_demand_check_notification(
     db,
     gr_additional_demand_settings,
-    answer_factory,
+    caluma_answer_factory,
     caluma_admin_user,
     decision,
     gr_instance,
     mailoutbox,
     notification_template_factory,
-    work_item_factory,
+    caluma_work_item_factory,
+    mocker,
 ):
+    # disable the file_subsequently signal for this test
+    mocker.patch("camac.ech0211.signals.file_subsequently.send")
+
     accepted_notification = notification_template_factory()
     rejected_notification = notification_template_factory()
 
@@ -87,14 +91,14 @@ def test_additonal_demand_check_notification(
         "REJECTED": "Test rejected",
     }
 
-    answer = answer_factory(
+    answer = caluma_answer_factory(
         question=Question.objects.get(
             slug=gr_additional_demand_settings["QUESTIONS"]["DECISION"]
         ),
         value=gr_additional_demand_settings["ANSWERS"]["DECISION"][decision],
     )
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task=Task.objects.get(slug=gr_additional_demand_settings["CHECK_TASK"]),
         document=answer.document,
         child_case=None,

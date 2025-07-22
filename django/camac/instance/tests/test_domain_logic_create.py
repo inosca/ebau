@@ -1,5 +1,5 @@
 import pytest
-from alexandria.core.factories import DocumentFactory, FileFactory
+from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFactory
 from alexandria.core.models import Document, File
 from rest_framework.exceptions import ValidationError
 
@@ -7,10 +7,23 @@ from camac.instance.domain_logic.create import CreateInstanceLogic
 
 
 @pytest.mark.parametrize(
-    "skip_exported_form_attachment,expected_copies",
+    "application_short_name,is_modification,skip_exported_form_attachment,expected_copies",
     [
-        (False, 2),
-        (True, 1),
+        # default/SO with alexandria attachments
+        ("so", False, False, 3),
+        ("so", True, False, 3),
+        ("so", False, True, 2),
+        ("so", True, True, 2),
+        # BE with camac attachments
+        ("bern", False, False, 3),
+        ("bern", True, False, 3),
+        ("bern", False, True, 2),
+        ("bern", True, True, 2),
+        # GR with alexandria and no copy for modifications
+        ("gr", False, False, 3),
+        ("gr", True, False, 0),
+        ("gr", False, True, 2),
+        ("gr", True, True, 0),
     ],
 )
 def test_copy_attachments(
@@ -19,20 +32,33 @@ def test_copy_attachments(
     application_settings,
     instance_with_case,
     caluma_workflow_config_gr,
+    application_short_name,
+    is_modification,
     skip_exported_form_attachment,
     expected_copies,
 ):
+    application_settings["SHORT_NAME"] = application_short_name
     application_settings["DOCUMENT_BACKEND"] = "alexandria"
 
     source_instance = instance_with_case(instance_factory())
     target_instance = instance_with_case(instance_factory())
+    category = CategoryFactory(slug="beilagen-zum-gesuch")
     docs = [
+        DocumentFactory(
+            title="important-doc",
+            metainfo={
+                "camac-instance-id": str(source_instance.pk),
+                "caluma-document-id": str(source_instance.case.document.pk),
+            },
+            category=category,
+        ),
         DocumentFactory(
             title="some-doc",
             metainfo={
                 "camac-instance-id": str(source_instance.pk),
                 "caluma-document-id": str(source_instance.case.document.pk),
             },
+            category=CategoryFactory(parent=category),
         ),
         DocumentFactory(
             title="baugesuch",
@@ -40,37 +66,49 @@ def test_copy_attachments(
                 "camac-instance-id": str(source_instance.pk),
                 "system-generated": True,
             },
+            category=category,
+        ),
+        DocumentFactory(
+            title="other-doc",
+            metainfo={
+                "camac-instance-id": str(source_instance.pk),
+            },
         ),
     ]
     files = [FileFactory(document=doc) for doc in docs]
 
-    assert Document.objects.count() == 2
-    assert File.objects.filter(variant=File.Variant.ORIGINAL).count() == 2
+    total_docs = len(docs)
+    assert Document.objects.count() == total_docs
+    assert File.objects.filter(variant=File.Variant.ORIGINAL).count() == total_docs
 
     CreateInstanceLogic.copy_attachments(
-        source_instance, target_instance, skip_exported_form_attachment
+        source_instance,
+        target_instance,
+        skip_exported_form_attachment,
+        is_modification,
     )
 
-    assert Document.objects.count() == 2 + expected_copies
+    assert Document.objects.count() == total_docs + expected_copies
     assert (
         File.objects.filter(variant=File.Variant.ORIGINAL).count()
-        == 2 + expected_copies
+        == total_docs + expected_copies
     )
 
-    new_document = (
-        Document.objects.filter(title=docs[0].title).order_by("-created_at").first()
-    )
-    new_file = new_document.get_latest_original()
-    old_file = files[0]
+    if expected_copies > 0:
+        new_document = (
+            Document.objects.filter(title=docs[0].title).order_by("-created_at").first()
+        )
+        new_file = new_document.get_latest_original()
+        old_file = files[0]
 
-    assert new_document.metainfo["camac-instance-id"] == str(target_instance.pk)
-    assert new_document.instance_document.instance_id == target_instance.pk
-    assert new_document.metainfo["caluma-document-id"] == str(
-        target_instance.case.document.pk
-    )
+        assert new_document.metainfo["camac-instance-id"] == str(target_instance.pk)
+        assert new_document.instance_document.instance_id == target_instance.pk
+        assert new_document.metainfo["caluma-document-id"] == str(
+            target_instance.case.document.pk
+        )
 
-    assert new_file.name == old_file.name
-    assert new_file.id != old_file.id
+        assert new_file.name == old_file.name
+        assert new_file.id != old_file.id
 
 
 def test_copy_applicants(
@@ -82,23 +120,39 @@ def test_copy_applicants(
     access_level_factory,
     instance_with_case,
     user,
+    user_factory,
 ):
     access_level_factory(slug="applicant")
     source_instance = instance_with_case(instance_factory())
     target_instance = instance_with_case(instance_factory())
     target_instance.involved_applicants.all().delete()
-    applicant_factory(instance=source_instance, invitee=user)
-
-    assert target_instance.involved_applicants.count() == 0
-    assert target_instance.acls.filter(access_level="applicant").count() == 0
+    applicant_factory(instance=source_instance, invitee=user, role="EDITOR")
+    applicant_factory(
+        instance=source_instance, invitee=user_factory(), role="READ_ONLY"
+    )
+    applicant_factory(
+        instance=source_instance, invitee=None, email="1@test.test", role="READ_ONLY"
+    )
+    applicant_factory(
+        instance=source_instance, invitee=None, email="2@test.test", role="READ_ONLY"
+    )
 
     CreateInstanceLogic.copy_applicants(source_instance, target_instance)
 
+    assert (
+        target_instance.involved_applicants.count()
+        == source_instance.involved_applicants.count()
+    )
     for applicant in source_instance.involved_applicants.all():
-        assert target_instance.involved_applicants.filter(invitee=applicant.invitee)
-        assert target_instance.acls.filter(
-            access_level="applicant", user=applicant.invitee
-        ).exists()
+        if applicant.invitee:
+            copy = target_instance.involved_applicants.filter(invitee=applicant.invitee)
+            assert target_instance.acls.filter(
+                access_level="applicant", user=applicant.invitee
+            ).exists()
+        else:
+            copy = target_instance.involved_applicants.filter(email=applicant.email)
+        assert copy.exists()
+        assert copy.first().role == applicant.role
 
 
 @pytest.mark.parametrize("service__external_identifier", ["2601"])
@@ -117,7 +171,7 @@ def test_copy_applicants(
 def test_instance_generate_identifier_so(
     db,
     so_instance,
-    case_factory,
+    caluma_case_factory,
     service,
     existing_dossier_numbers,
     expected_dossier_number,
@@ -127,7 +181,7 @@ def test_instance_generate_identifier_so(
 
     if existing_dossier_numbers:
         for nr in existing_dossier_numbers:
-            case_factory(meta={"dossier-number": nr})
+            caluma_case_factory(meta={"dossier-number": nr})
 
     assert (
         CreateInstanceLogic.generate_identifier(so_instance) == expected_dossier_number

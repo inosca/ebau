@@ -14,13 +14,15 @@ def test_authenticate_caluma(rf, settings, admin_user, group, mocker):
         "given_name": admin_user.name,
         settings.OIDC_USERNAME_CLAIM: admin_user.username,
     }
-    settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.local"
+    settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.localhost"
     userinfo = mocker.patch(
         "caluma.caluma_user.views.AuthenticationGraphQLView.get_userinfo"
     )
     userinfo.return_value = token_value
 
-    mocker.patch("camac.caluma.utils.jwt_decode")
+    mocker.patch(
+        "camac.caluma.utils.jwt_decode", return_value={"azp": settings.KEYCLOAK_CLIENT}
+    )
 
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token", X_CAMAC_GROUP=group.pk)
 
@@ -52,7 +54,7 @@ def test_unauthorized_caluma(
             "caluma.caluma_user.views.AuthenticationGraphQLView.get_userinfo"
         )
         userinfo.return_value = {settings.OIDC_USERNAME_CLAIM: username}
-        settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.local"
+        settings.OIDC_USERINFO_ENDPOINT = "http://fake-endpoint.localhost"
         mocker.patch("camac.caluma.utils.jwt_decode")
     else:
         headers = {}

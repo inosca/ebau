@@ -18,7 +18,12 @@
 >
   <thead>
     <tr>
-      {{#if (can "charge billing-v2-entries")}}
+      {{#if
+        (or
+          (await (can "charge billing-v2-entries"))
+          (await (can "release-for-clearing billing-v2-entries"))
+        )
+      }}
         <th data-test-charge>
           <input
             type="checkbox"
@@ -31,6 +36,9 @@
         </th>
       {{/if}}
       <th data-test-text>{{t "billing.position"}}</th>
+      {{#if (has-feature "billing.remark")}}
+        <th data-test-text>{{t "billing.remark"}}</th>
+      {{/if}}
       {{#if (has-feature "billing.displayService")}}
         <th data-test-service>{{t "billing.service"}}</th>
       {{else}}
@@ -40,6 +48,11 @@
       <th data-test-amount>{{t "billing.amount"}}</th>
       <th class="uk-text-right" data-test-final-rate>{{t "billing.total"}}</th>
       <th data-test-added>{{t "billing.created-at"}}</th>
+      {{#if (has-feature "billing.releaseForClearing.enabled")}}
+        <th data-test-released-for-clearing>{{t
+            "billing.released-for-clearing"
+          }}</th>
+      {{/if}}
       {{#if (has-feature "billing.charge")}}
         <th data-test-charged>{{t "billing.charged-at"}}</th>
       {{/if}}
@@ -48,6 +61,11 @@
       {{/if}}
       {{#if (has-feature "billing.billingType")}}
         <th data-test-billing-type>{{t "billing.billing-type"}}</th>
+      {{/if}}
+      {{#if (has-feature "billing.productNumber")}}
+        <th data-test-product-number class="uk-table-shrink">{{t
+            "billing.product-number"
+          }}</th>
       {{/if}}
       {{#if (can "edit billing-v2-entries")}}
         <th data-test-delete></th>

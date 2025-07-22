@@ -15,9 +15,11 @@ from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
 from camac.applicants.models import Applicant
+from camac.constants import kt_uri as uri_constants
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
-from camac.instance.models import FormField, HistoryEntryT, InstanceGroup, InstanceState
+from camac.instance.models import FormField, InstanceGroup, InstanceState
+from camac.permissions import api as permissions_api
 from camac.permissions.events import Trigger
 from camac.permissions.models import InstanceACL
 
@@ -33,16 +35,16 @@ from camac.permissions.models import InstanceACL
         (
             "Applicant",
             lf("admin_user"),
-            20,
+            29,
             1,
             {"instance", "form", "document"},
         ),
         # reader should see instances from other users but has no editables
-        ("Reader", lf("user"), 20, 1, set()),
-        ("Canton", lf("user"), 20, 1, {"form", "document"}),
-        ("Municipality", lf("user"), 21, 1, {"form", "document"}),
-        ("Service", lf("user"), 21, 1, {"form", "document"}),
-        ("Public", lf("user"), 2, 0, {}),
+        ("Reader", lf("user"), 29, 1, set()),
+        ("Canton", lf("user"), 26, 1, {"form", "document"}),
+        ("Municipality", lf("user"), 28, 1, {"form", "document"}),
+        ("Service", lf("user"), 28, 1, {"form", "document"}),
+        ("Public", lf("user"), 5, 0, {}),
     ],
 )
 def test_instance_list(
@@ -106,17 +108,17 @@ def test_instance_list_for_uso_gr(
     gr_instance,
     group_factory,
     service_factory,
-    case_factory,
-    work_item_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
     workitem_status,
     role,
     deadline_date,
     expected_count,
     distribution_settings,
 ):
-    gr_instance.case = case_factory(workflow_id="inquiry")
+    gr_instance.case = caluma_case_factory(workflow_id="inquiry")
     gr_instance.case.work_items.add(
-        work_item_factory(
+        caluma_work_item_factory(
             task_id="inquiry",
             addressed_groups=[gr_instance.group.service.pk],
             deadline=deadline_date,
@@ -140,17 +142,19 @@ def test_instance_detail_uso(
     admin_client,
     instance,
     gr_instance,
-    case_factory,
+    caluma_case_factory,
     access_level,
-    work_item_factory,
+    caluma_work_item_factory,
     distribution_settings,
     gr_permissions_settings,
     settings,
 ):
     settings.APPLICATION_NAME = "kt_gr"
-    distribution_case = case_factory(workflow_id="inquiry", family=gr_instance.case)
+    distribution_case = caluma_case_factory(
+        workflow_id="inquiry", family=gr_instance.case
+    )
     deadline_date = "2023-12-02"
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task_id="inquiry",
         addressed_groups=[gr_instance.group.service.pk],
         deadline=make_aware(datetime.strptime(deadline_date, "%Y-%m-%d")),
@@ -209,6 +213,43 @@ def test_instance_detail_uso(
         acl3 = active_acls.first()
         assert acl3.created_by_event == "inquiry-completed"
         assert not acl3.end_time
+
+
+@pytest.mark.freeze_time("2023-12-25")
+@pytest.mark.parametrize("role__name,instance__user", [("uso", lf("admin_user"))])
+@pytest.mark.parametrize("access_level__slug", ["uso"])
+def test_instance_detail_uso_deadline_delay(
+    admin_client,
+    instance,
+    gr_instance,
+    caluma_case_factory,
+    access_level,
+    caluma_work_item_factory,
+    gr_distribution_settings,
+    set_application_gr,
+):
+    distribution_case = caluma_case_factory(
+        workflow_id="inquiry", family=gr_instance.case
+    )
+    deadline_date = "2023-12-26"
+    work_item = caluma_work_item_factory(
+        task_id="inquiry",
+        addressed_groups=[gr_instance.group.service.pk],
+        deadline=make_aware(datetime.strptime(deadline_date, "%Y-%m-%d")),
+    )
+    distribution_case.work_items.add(work_item)
+    AnswerFactory(
+        question_id="inquiry-deadline", document=work_item.document, date=deadline_date
+    )
+
+    url = reverse("instance-detail", args=[instance.pk])
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    work_item.refresh_from_db()
+
+    # 1 extra day counted for new_years_day
+    assert work_item.deadline == now() + timedelta(days=8)
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
@@ -455,18 +496,17 @@ def test_instance_intent_filter(
     "plot,expected_count",
     [
         ("CH9", 2),
-        ("4", 2),
+        ("4", 1),
         ("ch967722307039  ", 1),
-        (" 420", 1),
+        ("420", 0),
+        ("650", 0),
         ("7899", 1),
-        # Works because of key value concatenation
-        ("420 ch967722307039", 1),
-        ("420  ch967722307039", 1),
+        ("420 ch967722307039", 0),
         ("ch9677223070390", 0),
         ("651", 0),
     ],
 )
-def test_instance_plot_filter(
+def test_instance_plot_egrid_filter(
     application_settings,
     admin_client,
     instance,
@@ -490,7 +530,53 @@ def test_instance_plot_filter(
     )
 
     url = reverse("instance-list")
-    response = admin_client.get(url, {"plot_sz": plot})
+    response = admin_client.get(url, {"plot_egrid_sz": plot})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
+@pytest.mark.parametrize(
+    "plot,expected_count",
+    [
+        ("CH9", 0),
+        ("4", 1),
+        ("ch967722307039  ", 0),
+        (" 420", 1),
+        ("7899", 0),
+        ("420 ch967722307039", 0),
+        ("ch967722307039", 0),
+        ("651", 0),
+        ("650", 1),
+    ],
+)
+def test_instance_plot_number_filter(
+    application_settings,
+    admin_client,
+    instance,
+    plot,
+    expected_count,
+    form_field_factory,
+    instance_factory,
+):
+    instance_1 = instance
+    instance_2 = instance_factory(user=instance.user)
+
+    form_field_factory(
+        name="parzellen",
+        value=[{"egrid": "CH967722307039", "number": 420, "municipality": "Schwyz"}],
+        instance=instance_1,
+    )
+    form_field_factory(
+        name="parzellen",
+        value=[{"egrid": "CH912734307899", "number": 650, "municipality": "Schwyz"}],
+        instance=instance_2,
+    )
+
+    url = reverse("instance-list")
+    response = admin_client.get(url, {"plot_number_sz": plot})
 
     assert response.status_code == status.HTTP_200_OK
     data = response.json()["data"]
@@ -541,7 +627,7 @@ def test_keyword_search_filter_sz(
     expected_count,
     sz_distribution_settings,
     active_inquiry_factory,
-    answer_factory,
+    caluma_answer_factory,
     service_group_factory,
     settings,
     application_settings,
@@ -644,7 +730,7 @@ def test_keyword_search_filter_sz(
         status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
     )
 
-    answer_factory(
+    caluma_answer_factory(
         document=inquiry1.child_case.document,
         question_id=caluma_form_models.Question.objects.get(
             pk=sz_distribution_settings.get("QUESTIONS")["ANCILLARY_CLAUSES"]
@@ -652,7 +738,7 @@ def test_keyword_search_filter_sz(
         value="Inquiry answer 1",
     )
 
-    answer_factory(
+    caluma_answer_factory(
         document=inquiry2.child_case.document,
         question_id=caluma_form_models.Question.objects.get(
             pk=sz_distribution_settings.get("QUESTIONS")["REASON"]
@@ -660,7 +746,7 @@ def test_keyword_search_filter_sz(
         value="Inquiry answer 2",
     )
 
-    answer_factory(
+    caluma_answer_factory(
         document=inquiry3.child_case.document,
         question_id=caluma_form_models.Question.objects.get(
             pk=sz_distribution_settings.get("QUESTIONS")["REQUEST"]
@@ -686,27 +772,23 @@ def test_keyword_search_filter_sz(
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
 @pytest.mark.parametrize(
-    "with_cantonal_participation,expected_count", [(True, 1), (False, 2)]
+    "with_cantonal_participation,expected_count", [(True, 1), (False, 0)]
 )
 def test_with_cantonal_participation_filter(
-    admin_user,
     admin_client,
     ur_instance,
-    instance_with_case,
+    ur_distribution_settings,
     with_cantonal_participation,
     expected_count,
-    workflow_entry_factory,
-    instance_factory,
+    caluma_work_item_factory,
 ):
-    instance_with_case(instance_factory(user=ur_instance.user))
-    instance_with_case(instance_factory(user=ur_instance.user))
-
-    workflow_entry_factory(
-        instance=ur_instance,
-        workflow_date=make_aware(datetime(2021, 7, 16, 8, 0, 6)),
-        group=1,
-        workflow_item__pk=16,
-    )
+    if with_cantonal_participation:
+        caluma_work_item_factory(
+            case=ur_instance.case,
+            task_id=ur_distribution_settings["INQUIRY_TASK"],
+            status=caluma_workflow_models.WorkItem.STATUS_READY,
+            addressed_groups=[uri_constants.KOOR_BG_SERVICE_ID],
+        )
 
     url = reverse("instance-list")
     response = admin_client.get(
@@ -1420,6 +1502,9 @@ def test_instance_submit_sz(
     application_settings["SHORT_DOSSIER_NUMBER"] = short_dossier_number
     application_settings["STORE_PDF"]["SECTION"] = attachment_section.pk
 
+    form.family = form
+    form.save()
+
     case = workflow_api.start_case(
         workflow=caluma_workflow_models.Workflow.objects.get(pk="building-permit"),
         form=caluma_form_models.Form.objects.get(pk="baugesuch"),
@@ -1451,10 +1536,24 @@ def test_instance_submit_sz(
     add_field(name="bohrungsdaten", value="Test")
     add_field(name="anlagen-mit-erheblichen-schadstoffemissionen", value="Ja")
     add_field(name="anlagen-mit-erheblichen-schadstoffemissionen-welche", value="Test")
-    add_field(name="grundeigentumerschaft", value=[{"name": "Bund"}])
     add_field(name="gwr", value=[{"name": "Name", "wohnungen": [{"stockwerk": "1OG"}]}])
     add_field(
         name="punkte", value=[[{"lat": 47.02433179952733, "lng": 8.634144559228435}]]
+    )
+    add_field(
+        name="grundeigentumerschaft-v2",
+        value=[
+            {
+                "ort": "Test village",
+                "plz": 1234,
+                "tel": "0123456789",
+                "name": "Doe",
+                "email": "invalid-email",
+                "anrede": "Herr",
+                "strasse": "Unterstrasse 123",
+                "vorname": "John",
+            }
+        ],
     )
     add_field(
         name="bauherrschaft-v3",
@@ -1512,9 +1611,19 @@ def test_instance_submit_sz(
             .get()
             .value[0]["email"]
         )
-
         assert Applicant.objects.filter(
             instance=instance.pk, email=involved_person_email
+        ).exists()
+
+        invalid_person_email = (
+            FormField.objects.filter(
+                name="grundeigentumerschaft-v2", instance=instance.pk
+            )
+            .get()
+            .value[0]["email"]
+        )
+        assert not Applicant.objects.filter(
+            instance=instance.pk, email=invalid_person_email
         ).exists()
 
 
@@ -1550,7 +1659,7 @@ def test_instance_export_list(
     )
     add_field(name="bezeichnung", value="Bezeichnung")
 
-    with django_assert_num_queries(4):
+    with django_assert_num_queries(6):
         response = admin_client.get(
             url,
             data={
@@ -1611,6 +1720,9 @@ def test_instance_export_detail(
 
     url = reverse("instance-export-detail", args=[instance.pk])
 
+    form.family = form
+    form.save()
+
     add_field = functools.partial(form_field_factory, instance=instance)
     add_field(
         name="grundeigentumerschaft",
@@ -1655,7 +1767,7 @@ def test_instance_generate_identifier(
     db,
     instance,
     instance_factory,
-    case_factory,
+    caluma_case_factory,
     application_settings,
     short_dossier_number,
     form_field_factory,
@@ -1698,7 +1810,7 @@ def test_instance_generate_identifier(
     identifier = separator.join(elements)
 
     if use_caluma or caluma_instance_forms:
-        instance.case = case_factory(meta={"dossier-number": identifier})
+        instance.case = caluma_case_factory(meta={"dossier-number": identifier})
         instance.save()
     else:
         instance_factory(identifier=identifier)
@@ -1734,7 +1846,7 @@ def test_instance_generate_identifier_sz(
     db,
     instance,
     instance_factory,
-    case_factory,
+    caluma_case_factory,
     application_settings,
     short_dossier_number,
     form_field_factory,
@@ -1781,7 +1893,7 @@ def test_instance_generate_identifier_sz(
     identifier = separator.join(elements)
 
     if use_caluma or caluma_instance_forms:
-        instance.case = case_factory(meta={"dossier-number": identifier})
+        instance.case = caluma_case_factory(meta={"dossier-number": identifier})
         instance.save()
     else:
         instance_factory(identifier=identifier)
@@ -1812,7 +1924,7 @@ def test_instance_generate_identifier_gr(
     db,
     gr_instance,
     instance,
-    case_factory,
+    caluma_case_factory,
     existing_dossier_numbers,
     expected_dossier_number,
     application_settings,
@@ -1820,7 +1932,7 @@ def test_instance_generate_identifier_gr(
     application_settings["SHORT_NAME"] = "gr"
     if existing_dossier_numbers:
         for nr in existing_dossier_numbers:
-            case_factory(meta={"dossier-number": nr})
+            caluma_case_factory(meta={"dossier-number": nr})
 
     assert (
         domain_logic.CreateInstanceLogic.generate_identifier(instance)
@@ -2106,9 +2218,9 @@ def test_instance_list_commission(db, admin_client, has_assignment, request, ins
 
 @pytest.mark.parametrize("role__name", ["building_commission"])
 def test_instance_list_building_commission(
-    db, admin_client, request, ur_instance, work_item_factory
+    db, admin_client, request, ur_instance, caluma_work_item_factory
 ):
-    work_item_factory(
+    caluma_work_item_factory(
         addressed_groups=[str(admin_client.user.groups.first().service.pk)],
         case=ur_instance.case,
     )
@@ -2160,154 +2272,6 @@ def test_instance_list_organization_readonly(
     assert json["data"][0]["id"] == str(instance.pk)
 
 
-@pytest.mark.parametrize("instance__user", [(lf("admin_user"))])
-@pytest.mark.parametrize(
-    "role__name,current_form_slug,new_form_slug,starting_instance_state,expected_status",
-    [
-        (
-            "Municipality",
-            "baugesuch-reklamegesuch-v2",
-            "projektanderung-v2",
-            "subm",
-            status.HTTP_204_NO_CONTENT,
-        ),
-        (
-            "Municipality",
-            "anlassbewilligungen-verkehrsbewilligungen-v3",
-            "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
-            "subm",
-            status.HTTP_204_NO_CONTENT,
-        ),
-        (
-            "Municipality",
-            "baugesuch-reklamegesuch-v2",
-            "baugesuch-reklamegesuch-v2",
-            "subm",
-            status.HTTP_400_BAD_REQUEST,
-        ),
-        (
-            "Municipality",
-            "konzession-fur-wasserentnahme",
-            "baugesuch-reklamegesuch-v2",
-            "subm",
-            status.HTTP_400_BAD_REQUEST,
-        ),
-        (
-            "Municipality",
-            "baugesuch-reklamegesuch-v2",
-            "konzession-fur-wasserentnahme",
-            "subm",
-            status.HTTP_400_BAD_REQUEST,
-        ),
-        (
-            "Municipality",
-            "baugesuch-reklamegesuch-v2",
-            "projektanderung-v2",
-            "circ",
-            status.HTTP_403_FORBIDDEN,
-        ),
-        (
-            "Applicant",
-            "baugesuch-reklamegesuch-v2",
-            "projektanderung-v2",
-            "subm",
-            status.HTTP_403_FORBIDDEN,
-        ),
-    ],
-)
-def test_instance_change_form(
-    db,
-    mailoutbox,
-    admin_client,
-    admin_user,
-    caluma_admin_user,
-    caluma_workflow_config_sz,
-    caluma_config_sz,
-    application_settings,
-    instance,
-    instance_service,
-    notification_template,
-    form_factory,
-    instance_state_factory,
-    role,
-    current_form_slug,
-    new_form_slug,
-    expected_status,
-    starting_instance_state,
-):
-    notification = {
-        "template_slug": notification_template.slug,
-        "recipient_types": ["applicant"],
-    }
-    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["reject-form"]["notification"] = (
-        notification
-    )
-    application_settings["INTERCHANGEABLE_FORMS"] = [
-        "vorentscheid-gemass-ss84-pbg-v2",
-        "baugesuch-reklamegesuch-v2",
-        "projektanderung-v2",
-        "technische-bewilligung",
-        "technische-bewilligung-v2",
-        "baumeldung-fur-geringfugiges-vorhaben-v2",
-        "baumeldung-fur-geringfugiges-vorhaben-v3",
-        "baumeldung-fur-geringfugiges-vorhaben-v4",
-        "anlassbewilligungen-verkehrsbewilligungen-v2",
-        "anlassbewilligungen-verkehrsbewilligungen-v3",
-        "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
-        "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
-    ]
-
-    caluma_form, _ = caluma_form_models.Form.objects.get_or_create(pk="baugesuch")
-    workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
-
-    case = workflow_api.start_case(
-        workflow=workflow,
-        form=caluma_form,
-        user=caluma_admin_user,
-    )
-    instance.case = case
-    instance.save()
-    work_item = caluma_workflow_models.WorkItem.objects.get(task_id="submit")
-    workflow_api.complete_work_item(
-        work_item=work_item,
-        user=caluma_admin_user,
-    )
-
-    finished_instance_state = instance_state_factory(name="rejected")
-    current_form = form_factory(name=current_form_slug)
-    form_factory(name=new_form_slug)
-
-    instance.instance_state = instance_state_factory(name=starting_instance_state)
-    instance.form = current_form
-    instance.save()
-
-    response = admin_client.post(
-        reverse("instance-change-form", args=[instance.pk]),
-        {
-            "data": {
-                "type": "instance-change-forms",
-                "attributes": {"form": new_form_slug},
-            }
-        },
-    )
-
-    assert response.status_code == expected_status
-
-    if expected_status == status.HTTP_204_NO_CONTENT:
-        instance.refresh_from_db()
-
-        assert instance.form.name == new_form_slug
-        assert len(mailoutbox) == 1
-        assert instance.instance_state == finished_instance_state
-        assert HistoryEntryT.objects.filter(
-            history_entry__instance=instance,
-            language="de",
-        ).exists()
-        assert caluma_workflow_models.WorkItem.objects.filter(
-            task_id="formal-addition"
-        ).exists()
-
-
 def test_linked_instances_ur(db, ur_instance, instance_factory, set_application_ur):
     instance_group = InstanceGroup.objects.create()
     other_instance = instance_factory(instance_group=instance_group)
@@ -2347,11 +2311,11 @@ def test_has_inquiry(
     db,
     gr_instance,
     service_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     gr_distribution_settings,
 ):
     service = service_factory()
-    inquiry = work_item_factory(
+    inquiry = caluma_work_item_factory(
         task=caluma_workflow_models.Task.objects.get(slug="inquiry"),
         case=gr_instance.case,
         addressed_groups=[str(service.pk)],
@@ -2384,55 +2348,66 @@ def test_has_inquiry(
         ("completed", False, 1),
     ],
 )
+@pytest.mark.parametrize("access_level__slug", ["distribution-service"])
 def test_inquiry_state_filter(
     admin_user,
     admin_client,
     caluma_workflow_config_gr,
     instance_with_case,
     instance_factory,
-    work_item_factory,
+    caluma_work_item_factory,
     gr_distribution_settings,
-    document_factory,
+    gr_permissions_settings,
+    caluma_document_factory,
     inquiry_state,
     has_open_work_item,
     expected,
+    access_level,
+    access_level_factory,
 ):
     url = reverse("instance-list")
 
     instance = instance_with_case(instance_factory(user=admin_user))
 
     # unrelated work item (wrong task)
-    work_item_factory(
+    caluma_work_item_factory(
         case=instance.case,
         task_id="foo",
         status=caluma_workflow_models.WorkItem.STATUS_READY,
         addressed_groups=[str(admin_client.user.groups.first().service_id)],
     )
     # unrelated work item (wrong addressed group)
-    work_item_factory(
+    caluma_work_item_factory(
         case=instance.case,
         task_id="inquiry",
         status=caluma_workflow_models.WorkItem.STATUS_READY,
         addressed_groups=["432985034"],
     )
     # unrelated work item (wrong case)
-    work_item_factory(
+    caluma_work_item_factory(
         task_id="inquiry",
         status=caluma_workflow_models.WorkItem.STATUS_READY,
         addressed_groups=[str(admin_client.user.groups.first().service_id)],
     )
     if has_open_work_item:
-        work_item_factory(
+        caluma_work_item_factory(
             case=instance.case,
             task_id="inquiry",
             status=caluma_workflow_models.WorkItem.STATUS_READY,
             addressed_groups=[str(admin_client.user.groups.first().service_id)],
         )
-    work_item_factory(
+
+    caluma_work_item_factory(
         case=instance.case,
         task_id="inquiry",
         status=caluma_workflow_models.WorkItem.STATUS_COMPLETED,
         addressed_groups=[str(admin_client.user.groups.first().service_id)],
+    )
+    permissions_api.grant(
+        instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level="distribution-service",
+        service=admin_client.user.groups.first().service,
     )
 
     response = admin_client.get(url, data={"inquiry_state": inquiry_state})

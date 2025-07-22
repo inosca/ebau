@@ -1,6 +1,7 @@
 import Route from "@ember/routing/route";
 import { service } from "@ember/service";
 import CamacAdditionalDemandFilesComponent from "ember-ebau-core/components/camac-additional-demand-files";
+import CamacSchnurgeruestabnahmeFilesComponent from "ember-ebau-core/components/camac-schnurgeruestabnahme-files";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionInfoGeometerComponent from "ember-ebau-core/components/decision/info-geometer";
@@ -11,6 +12,7 @@ import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-statu
 import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import MilestoneValuesComponent from "ember-ebau-core/components/milestone-values";
+import QrCodeComponent from "ember-ebau-core/components/qr-code";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 import mainConfig from "ember-ebau-core/config/main";
 import UIkit from "uikit";
@@ -20,7 +22,7 @@ import CfCollapsibleTextareaComponent from "camac-ng/components/cf-collapsible-t
 import CfDownloadPdfComponent from "camac-ng/components/cf-download-pdf";
 import CfSnippetsTextComponent from "camac-ng/components/cf-snippets-text";
 import CfSnippetsTextareaComponent from "camac-ng/components/cf-snippets-textarea";
-import QrCodeComponent from "camac-ng/components/qr-code";
+import GeverSyncButtonComponent from "camac-ng/components/gever-sync-button";
 import SuggestEbauNumberComponent from "camac-ng/components/suggest-ebau-number";
 
 export default class ApplicationRoute extends Route {
@@ -55,6 +57,12 @@ export default class ApplicationRoute extends Route {
         cancel: this.intl.t("global.cancel"),
       };
     }
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Gever Sync Button",
+      component: "gever-sync-button",
+      componentClass: GeverSyncButtonComponent,
+    });
 
     this.calumaOptions.registerComponentOverride({
       label: "Karte",
@@ -176,6 +184,12 @@ export default class ApplicationRoute extends Route {
       label: "Nachforderungsdateien Camac (Kt. UR)",
       component: "camac-additional-demand-files",
       componentClass: CamacAdditionalDemandFilesComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Dateien für Schnurgerüstabnahme Camac (Kt. UR)",
+      component: "camac-schnurgeruestabnahme-files",
+      componentClass: CamacSchnurgeruestabnahmeFilesComponent,
     });
   }
 }

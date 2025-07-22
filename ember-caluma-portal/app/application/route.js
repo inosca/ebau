@@ -1,9 +1,13 @@
 import { getOwner } from "@ember/application";
 import Route from "@ember/routing/route";
 import { service } from "@ember/service";
+import AgGisComponent from "ember-ebau-core/components/ag-gis";
+import AGInquiryServiceGroupWarningComponent from "ember-ebau-core/components/ag-inquiry-service-group-warning";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import CamacAdditionalDemandFilesComponent from "ember-ebau-core/components/camac-additional-demand-files";
+import CamacSchnurgeruestabnahmeFilesComponent from "ember-ebau-core/components/camac-schnurgeruestabnahme-files";
+import CfRadioHiddenAnswers from "ember-ebau-core/components/cf-radio-hide-answers";
 import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordinates-placeholder";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
@@ -14,6 +18,7 @@ import DirectInquiryCheckboxComponent from "ember-ebau-core/components/direct-in
 import DirectInquiryInfoComponent from "ember-ebau-core/components/direct-inquiry-info";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
+import EebaConfirmationComponent from "ember-ebau-core/components/eeba-confirmation";
 import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-textarea";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
@@ -21,18 +26,21 @@ import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-de
 import KeycloakProfileApplyButtonComponent from "ember-ebau-core/components/keycloak-profile-apply-button";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
+import PublicationFillEndDateComponent from "ember-ebau-core/components/publication-fill-end-date";
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
+import QrCodeComponent from "ember-ebau-core/components/qr-code";
 import ServiceContentComponent from "ember-ebau-core/components/service-content";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
+import SubmitInstanceComponent from "ember-ebau-core/components/submit-instance";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 import BeClaimsFormComponent from "caluma-portal/components/be-claims-form";
 import BeDisabledInputComponent from "caluma-portal/components/be-disabled-input";
 import BeDocumentsFormComponent from "caluma-portal/components/be-documents-form";
 import BeDownloadPdfComponent from "caluma-portal/components/be-download-pdf";
 import BeGisComponent from "caluma-portal/components/be-gis";
-import BeSubmitInstanceComponent from "caluma-portal/components/be-submit-instance";
-import GRSubmitInstanceComponent from "caluma-portal/components/gr-submit-instance";
+import InfoBelastungswerteComponent from "caluma-portal/components/be-info-belastungswerte";
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
 
 export default class ApplicationRoute extends Route {
@@ -57,11 +65,25 @@ export default class ApplicationRoute extends Route {
       referrer,
     } = transition.to?.queryParams ?? {};
 
-    this.session.language = language ?? this.session.language;
-    this.session.groupId = groupId ?? this.session.groupId;
+    // Only write the values into the session if there is not transition. This
+    // means that the user explicitly clicked a link with those parameters. If
+    // we don't check this, the values will be set a second time after a
+    // successful login as the transition after the login still contains those
+    // query parameters.
+    if (transition.from === null) {
+      this.session.language = language ?? this.session.language;
+      this.session.groupId = groupId ?? this.session.groupId;
 
-    if (referrer) {
-      this.session.set("data.referrer", referrer);
+      if (hasFeature("login.tokenExchange") && referrer === "internal") {
+        this.session.set("data.referrer", referrer);
+
+        if (this.session.isAuthenticated && this.session.isTokenExchange) {
+          // If a referrer is set but we are currently logged in via token
+          // exchange, we must first invalidate the current session to allow a
+          // login via regular OIDC
+          this.session.invalidate();
+        }
+      }
     }
 
     if (language || groupId || referrer) {
@@ -92,20 +114,24 @@ export default class ApplicationRoute extends Route {
       componentClass: UrGisComponent,
     });
     this.calumaOptions.registerComponentOverride({
+      label: "Eeba Bestätigung",
+      component: "eeba-confirmation",
+      componentClass: EebaConfirmationComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
       label: "GIS-Karte (Kt. GR)",
       component: "gr-gis",
       componentClass: GrGisComponent,
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Einreichen Button BE",
-      component: "be-submit-instance",
-      componentClass: BeSubmitInstanceComponent,
-      type: "CheckboxQuestion",
+      label: "GIS-Karte (Kt. AG)",
+      component: "ag-gis",
+      componentClass: AgGisComponent,
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Einreichen Button GR",
-      component: "gr-submit-instance",
-      componentClass: GRSubmitInstanceComponent,
+      label: "Einreichen Button",
+      component: "submit-instance",
+      componentClass: SubmitInstanceComponent,
       type: "CheckboxQuestion",
     });
     this.calumaOptions.registerComponentOverride({
@@ -252,6 +278,37 @@ export default class ApplicationRoute extends Route {
       label: "Infotext direkte Erledigung",
       component: "direct-inquiry-info",
       componentClass: DirectInquiryInfoComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Infotext Belastungswerte",
+      component: "info-belastungswerte",
+      componentClass: InfoBelastungswerteComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "AG: Zirkulation Warnung Organisationstyp",
+      component: "ag-inquiry-service-group-warning",
+      componentClass: AGInquiryServiceGroupWarningComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Publikation Startdatum mit automatischem Ausfüllen des Enddatums",
+      component: "publication-fill-end-date",
+      componentClass: PublicationFillEndDateComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "QR Code",
+      component: "qr-code",
+      componentClass: QrCodeComponent,
+      type: "StaticQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Dateien für Schnurgerüstabnahme Camac (Kt. UR)",
+      component: "camac-schnurgeruestabnahme-files",
+      componentClass: CamacSchnurgeruestabnahmeFilesComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Radio with hidden answers",
+      component: "cf-radio-hide-answers",
+      componentClass: CfRadioHiddenAnswers,
     });
   }
 }

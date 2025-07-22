@@ -1,19 +1,26 @@
 import EmberRouter from "@ember/routing/router";
 import { service } from "@ember/service";
 import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand";
+import registerAddressAssignment from "ember-ebau-core/modules/address-assignment";
 import registerBilling from "ember-ebau-core/modules/billing";
 import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
 import registerConstructionMonitoring from "ember-ebau-core/modules/construction-monitoring";
+import registerCorrections from "ember-ebau-core/modules/corrections";
+import registerDeadlines from "ember-ebau-core/modules/deadlines";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerDossierImport from "ember-ebau-core/modules/dossier-import";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerLinkedInstances from "ember-ebau-core/modules/linked-instances";
 import registerPermissions from "ember-ebau-core/modules/permissions";
+import registerProfile from "ember-ebau-core/modules/profile";
 import registerPublication from "ember-ebau-core/modules/publication";
 import registerRejection from "ember-ebau-core/modules/rejection";
 import registerResponsible from "ember-ebau-core/modules/responsible";
+import registerRulesets from "ember-ebau-core/modules/rulesets";
 import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
+import registerSnippets from "ember-ebau-core/modules/snippets";
+import registerSnippetsAdmin from "ember-ebau-core/modules/snippets-admin";
 import registerStaticContent from "ember-ebau-core/modules/static-content";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
 
@@ -45,6 +52,7 @@ Router.map(function () {
     // this is needed to resolve ambiguity between the global index and protected index routes
     this.route("index", { path: "/", resetNamespace });
     this.route("work-items", { resetNamespace });
+    this.route("new-case", { resetNamespace });
     this.mount("ember-ebau-gwr", { as: "gwr-global", path: "/gwr" });
 
     this.route("cases", { resetNamespace }, function () {
@@ -61,7 +69,6 @@ Router.map(function () {
         this.route("journal");
         this.route("history");
         this.route("dms-generate");
-        this.route("corrections");
         this.route("distribution", function () {
           this.mount("@projectcaluma/ember-distribution", {
             as: "distribution-engine",
@@ -78,8 +85,11 @@ Router.map(function () {
         registerBilling(this);
         registerRejection(this);
         registerPermissions(this);
+        registerDeadlines(this);
         registerConstructionMonitoring(this);
         registerLinkedInstances(this);
+        registerAddressAssignment(this);
+        registerCorrections(this);
       });
       this.route("new");
       this.route("not-found");
@@ -89,6 +99,10 @@ Router.map(function () {
     registerCommunicationsGlobal(this, { resetNamespace });
     registerStaticContent(this, { resetNamespace });
     registerDossierImport(this, { resetNamespace });
+    registerSnippetsAdmin(this, { resetNamespace });
+    registerSnippets(this, { resetNamespace });
+    registerProfile(this, { resetNamespace });
+    registerRulesets(this, { resetNamespace });
     this.route("documents", { resetNamespace }, function () {
       this.mount("ember-alexandria", {
         as: "alexandria",

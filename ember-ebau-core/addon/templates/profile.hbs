@@ -1,0 +1,52 @@
+<h2>{{t "profile.module-title"}}</h2>
+
+<ValidatedForm
+  @model={{changeset this.session.user this.validations}}
+  @on-submit={{this.save.perform}}
+  as |f|
+>
+  <f.input
+    @name="username"
+    @label={{t "profile.username"}}
+    @disabled={{true}}
+  />
+  <f.input @name="email" @label={{t "profile.email"}} @disabled={{true}} />
+  <f.input @name="name" @label={{t "profile.first-name"}} @disabled={{true}} />
+  <f.input
+    @name="surname"
+    @label={{t "profile.last-name"}}
+    @disabled={{true}}
+  />
+  <f.input
+    @errorComponent={{this.errorComponent}}
+    @name="title"
+    @label={{t "profile.title"}}
+  />
+  <f.input
+    @errorComponent={{this.errorComponent}}
+    @name="position"
+    @label={{t "profile.position"}}
+  />
+  <f.input
+    @errorComponent={{this.errorComponent}}
+    @name="phone"
+    @label={{t "profile.phone"}}
+  />
+  <f.input
+    @errorComponent={{this.errorComponent}}
+    @name="mobile"
+    @label={{t "profile.mobile"}}
+  />
+  {{#if (has-feature "profile.showDivision")}}
+    <f.input
+      @errorComponent={{this.errorComponent}}
+      @name="division"
+      @label={{t "profile.division"}}
+    />
+  {{/if}}
+  <f.submit
+    @disabled={{or f.model.isInvalid f.model.isPristine this.save.isRunning}}
+    @loading={{this.save.isRunning}}
+    @label={{t "global.save"}}
+  />
+</ValidatedForm>

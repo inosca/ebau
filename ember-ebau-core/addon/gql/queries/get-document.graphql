@@ -1,0 +1,37 @@
+# import * from '@projectcaluma/ember-form/gql/fragments/field.graphql'
+
+query GetDocument($instanceId: GenericScalar!) {
+  allCases(
+    filter: [{ metaValue: [{ key: "camac-instance-id", value: $instanceId }] }]
+  ) {
+    edges {
+      node {
+        id
+        meta
+        document {
+          id
+          form {
+            id
+            slug
+            name
+            meta
+            questions {
+              edges {
+                node {
+                  ...FieldQuestion
+                }
+              }
+            }
+          }
+          answers {
+            edges {
+              node {
+                ...FieldAnswer
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

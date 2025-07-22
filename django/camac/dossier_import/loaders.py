@@ -22,6 +22,7 @@ from camac.dossier_import.messages import (
     MessageCodes,
     Severity,
 )
+from camac.dossier_import.models import DossierImport
 from camac.dossier_import.utils import get_worksheet_headings_and_rows
 
 
@@ -45,7 +46,15 @@ def safe_join(elements: Iterable, separator=" "):
     return separator.join(map(str, filter(None, elements))).strip()
 
 
-class XlsxFileDossierLoader:
+class DossierLoader:
+    class ConfigurationError(Exception):
+        pass
+
+    def load_dossiers(self, param: DossierImport):
+        raise DossierLoader.ConfigurationError  # pragma: no cover
+
+
+class XlsxFileDossierLoader(DossierLoader):
     """Load dossiers from xlsx in a zip archive with attachment directories.
 
     The expected zip file needs to comply with the following:
@@ -355,7 +364,10 @@ class XlsxFileDossierLoader:
             )
         return out, messages
 
-    def load_dossiers(self, archive: zipfile.ZipFile) -> Generator[Dossier, None, None]:
+    def load_dossiers(
+        self, dossier_import: DossierImport
+    ) -> Generator[Dossier, None, None]:
+        archive: zipfile.ZipFile = dossier_import.get_archive()
         data_file = archive.open("dossiers.xlsx")
 
         try:

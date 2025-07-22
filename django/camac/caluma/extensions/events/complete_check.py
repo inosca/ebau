@@ -1,12 +1,47 @@
 from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
-from caluma.caluma_workflow.events import post_complete_work_item
+from caluma.caluma_workflow.api import complete_work_item
+from caluma.caluma_workflow.events import post_complete_work_item, post_create_work_item
 from django.conf import settings
 from django.db import transaction
 
 from camac.caluma.extensions.events.simple_workflow import send_notification
 from camac.constants import kt_uri as uri_constants
+from camac.instance.models import InstanceState
+
+
+@on(post_create_work_item, raise_exception=True)
+@transaction.atomic
+@filter_events(
+    lambda work_item: work_item.task.slug == "reject"
+    and settings.APPLICATION_NAME == "kt_uri"
+)
+def complete_rejection_work_item(sender, work_item, user, context=None, **kwargs):
+    complete_check_work_item = work_item.case.work_items.filter(
+        task_id="complete-check"
+    ).first()
+    instance = work_item.case.family.instance
+
+    if rejection_feedback_answer := complete_check_work_item.document.answers.get(
+        question_id="rejection-feedback"
+    ):
+        instance.rejection_feedback = rejection_feedback_answer.value
+
+    complete_work_item(work_item=work_item, user=user, context=context)
+    instance.instance_state = InstanceState.objects.get(name="rejected")
+    instance.save()
+
+    send_notification(
+        notification={
+            "template_slug": "2-4-dossier-zurueckgewiesen",
+            "recipient_types": ["applicant"],
+        },
+        context=context,
+        instance_id=instance.pk,
+        user=user,
+        work_item=work_item,
+    )
 
 
 @on(post_complete_work_item, raise_exception=True)
@@ -74,11 +109,11 @@ def send_notification_after_complete_check(
 
         send_notification(
             notification={
-                "template_slug": "dossier-angenommen",
+                "template_slug": "3-1-dossier-angenommen",
                 "recipient_types": ["applicant"],
             },
             context=context,
-            instance=instance,
+            instance_id=instance.pk,
             user=user,
             work_item=work_item,
         )

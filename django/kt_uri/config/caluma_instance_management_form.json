@@ -19,6 +19,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "instance-management.baubegleitungsprozess-form-question",
+    "fields": {
+      "created_at": "2024-11-20T12:10:16.684Z",
+      "modified_at": "2024-11-20T12:10:16.684Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "instance-management",
+      "question": "baubegleitungsprozess-form-question",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "instance-management.ordentliches-bewilligungsverfahren",
     "fields": {
       "created_at": "2023-12-04T12:13:01.157Z",
@@ -29,7 +44,7 @@
       "modified_by_group": null,
       "form": "instance-management",
       "question": "ordentliches-bewilligungsverfahren",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -44,7 +59,38 @@
       "modified_by_group": null,
       "form": "instance-management",
       "question": "rechtsmittelverfahren",
-      "sort": 1
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baubegleitungsprozess-form-question",
+    "fields": {
+      "created_at": "2024-11-20T12:10:16.551Z",
+      "modified_at": "2024-11-20T12:10:16.551Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubegleitungsprozess\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "baubegleitungsprozess",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
     }
   },
   {
@@ -52,18 +98,18 @@
     "pk": "ordentliches-bewilligungsverfahren",
     "fields": {
       "created_at": "2021-11-26T12:17:03.206Z",
-      "modified_at": "2021-11-26T12:17:03.208Z",
+      "modified_at": "2024-11-20T11:54:08.990Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ordentliches Bewilligungsverfahren\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ordentliches Verfahren\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},

@@ -95,6 +95,7 @@ def test_service_update(
                 "name": "new service name",
                 "description": "new service name",
                 "city": "new city name",
+                "department": "new department name",
             },
         }
     }
@@ -116,9 +117,11 @@ def test_service_update(
             service_t.refresh_from_db()
             assert service_t.description == service_t.name == "new service name"
             assert service_t.city == "new city name"
+            assert service_t.department == "new department name"
         else:
             assert service.name == "new service name"
             assert service.city == "new city name"
+            assert service.department == "new department name"
 
 
 @pytest.mark.parametrize(

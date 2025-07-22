@@ -1,7 +1,9 @@
+from copy import copy
 from itertools import chain
 from typing import List
 
 from caluma.caluma_form.models import Document
+from caluma.caluma_workflow.api import resume_work_item
 from caluma.caluma_workflow.dynamic_tasks import BaseDynamicTasks, register_dynamic_task
 from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
@@ -13,13 +15,36 @@ from camac.caluma.extensions.events.construction_monitoring import (
     construction_step_can_continue,
 )
 from camac.caluma.extensions.events.general import get_instance
+from camac.caluma.models import Inquiry
 from camac.core.utils import canton_aware, create_history_entry
 from camac.instance import domain_logic
+from camac.instance.master_data import MasterData
 from camac.instance.utils import (
     geometer_cadastral_survey_is_necessary,
     geometer_cadastral_survey_necessary_answer,
 )
-from camac.user.models import User
+from camac.user.models import Service, User
+
+
+def check_gwr_relevancy(case, user, prev_work_item, context, task_slug):
+    tasks = []
+    gwr_relevant = False
+
+    gwr_relevancy_work_item = case.family.work_items.filter(
+        task_id="check-gwr-relevancy", status="completed"
+    ).first()
+
+    if not gwr_relevancy_work_item:
+        return [task_slug]
+
+    if gwr_relevancy_answer := gwr_relevancy_work_item.document.answers.filter(
+        question_id="fuer-gwr-relevant"
+    ).first():
+        gwr_relevant = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
+
+    if gwr_relevant:
+        tasks.append(task_slug)
+    return tasks
 
 
 class CustomDynamicTasks(BaseDynamicTasks):
@@ -33,7 +58,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         tasks = []
         if case.workflow_id == "building-permit":
-            tasks = settings.DECISION["TASKS_AFTER_BUILDING_PERMIT_DECISION"]
+            tasks = copy(settings.DECISION["TASKS_AFTER_BUILDING_PERMIT_DECISION"])
 
         involve_geometer = (
             prev_work_item.document.answers.filter(question_id="decision-geometer")
@@ -46,7 +71,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return tasks
 
-    @canton_aware
     def resolve_after_decision_so(self, case, user, prev_work_item, context):
         if domain_logic.DecisionLogic.should_continue_after_decision(
             case.instance, prev_work_item
@@ -84,13 +108,51 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return [settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"]]
 
+    def resolve_after_decision_gr(self, case, user, prev_work_item, context):
+        construction_monitoring_task = (
+            settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"]
+            if settings.CONSTRUCTION_MONITORING.get("ENABLED")
+            else "construction-acceptance"
+        )
+
+        if domain_logic.DecisionLogic.should_continue_after_decision(
+            case.instance, prev_work_item
+        ):
+            return [construction_monitoring_task]
+
+        return []
+
     @register_dynamic_task("after-decision-ur")
     def resolve_after_decision_ur(self, case, user, prev_work_item, context):
         tasks = []
 
+        gwr_relevancy_work_item = case.work_items.filter(task_id="check-gwr-relevancy")
         involve_geometer = False
 
-        if geometer_answer := prev_work_item.document.answers.filter(
+        if gwr_relevancy_work_item:
+            if (
+                gwr_relevancy_answer := gwr_relevancy_work_item.first()
+                .document.answers.filter(question_id="fuer-gwr-relevant")
+                .first()
+            ):
+                relevant_for_gwr = gwr_relevancy_answer.value == "fuer-gwr-relevant-ja"
+
+                if relevant_for_gwr:
+                    decision = domain_logic.DecisionLogic.get_decision_answer(
+                        question_id="decision-task-entscheid-beurteilung",
+                        work_item=prev_work_item,
+                    )
+                    if decision in [
+                        "entscheid-beurteilung-nicht-bewilligt",
+                        "decision-task-entscheid-beurteilung-bewilligung-nicht-in-aussicht-gestellt",
+                    ]:
+                        tasks.append("update-gwr-status-refused")
+                    else:
+                        tasks.append("update-gwr-status")
+
+        decision_work_item = case.family.work_items.get(task_id="decision")
+
+        if geometer_answer := decision_work_item.document.answers.filter(
             question_id="decision-task-nachfuehrungsgeometer"
         ).first():
             involve_geometer = (
@@ -99,6 +161,26 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         if involve_geometer:
             tasks.append("geometer")
+        return tasks
+
+    def resolve_after_decision_ag(self, case, user, prev_work_item, context):
+        tasks = []
+
+        if (
+            Inquiry.objects.for_root_case(case)
+            .addressed_to(Service.objects.get(slug="afb"))
+            .only_answered()
+        ):
+            tasks.append("check-pa")
+
+        if domain_logic.DecisionLogic.should_continue_after_decision(
+            case.instance, prev_work_item
+        ):
+            tasks.append(
+                settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"]
+            )
+        else:
+            tasks.append(settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"])
 
         return tasks
 
@@ -140,6 +222,14 @@ class CustomDynamicTasks(BaseDynamicTasks):
         ):
             tasks.append("release-for-bk")
 
+        # GWR relevancy
+        if completeness_answer in [
+            "complete-check-vollstaendigkeitspruefung-complete",
+            "complete-check-vollstaendigkeitspruefung-incomplete",
+            "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+        ] and case.document.form.slug.startswith("building-permit"):
+            tasks.append("check-gwr-relevancy")
+
         return tasks
 
     @register_dynamic_task("after-complete-construction-monitoring-ur")
@@ -173,19 +263,28 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("after-inquiries-completed")
     def resolve_after_inquiries_completed(self, case, user, prev_work_item, context):
+        tasks = []
+
+        has_sibling_inquiries = (
+            Inquiry.objects.for_distribution_case(case)
+            .controlled_by(prev_work_item.controlling_groups)
+            .only_pending()
+            .exists()
+        )
+
         # Further work-items should only be created if there are no
         # further ready sibling inquiries (i.e. within same distribution case)
         # with the same controlling group as the previously completed inquiry.
-        pending_inquiries = case.work_items.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            status=WorkItem.STATUS_READY,
-            controlling_groups=prev_work_item.controlling_groups,
-        )
-
-        if pending_inquiries.exists():
-            return []
-
-        tasks = []
+        #
+        # This behaviour can be disabled by settings the
+        # `ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM` to `True`. If that setting is
+        # enabled, every completion will create a new work item to check the
+        # answered inquiries.
+        if (
+            has_sibling_inquiries
+            and not settings.DISTRIBUTION["ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM"]
+        ):
+            return tasks
 
         # If no check-inquiries work-item exists yet addressed to
         # the controlling group of the previously completed inquiry,
@@ -198,6 +297,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         if not check_inquiries.exists() and not prev_work_item.meta.get("is-direct"):
             tasks.append(settings.DISTRIBUTION["INQUIRY_CHECK_TASK"])
+
+        # Early return as we don't want to create a distribution complete work
+        # item even if `ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM` is enabled.
+        if has_sibling_inquiries:
+            return tasks
 
         # If no check-distribution work-item exists addressed to
         # the lead authority, then it should be created if the
@@ -218,6 +322,16 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return tasks
 
+    @register_dynamic_task("maybe-trigger-billing")
+    def resolve_maybe_trigger_billing(self, case, user, prev_work_item, context):
+        if (
+            str(Service.objects.get(slug="afb").pk)
+            not in prev_work_item.addressed_groups
+        ):
+            return []
+
+        return ["trigger-billing"]
+
     @register_dynamic_task("after-ebau-number")
     def resolve_after_ebau_number(self, case, user, prev_work_item, context):
         tasks = [
@@ -235,7 +349,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
         return tasks
 
     @register_dynamic_task("after-submit")
+    @canton_aware
     def resolve_after_submit(self, case, user, prev_work_item, context):
+        raise NotImplementedError()  # pragma: no cover
+
+    def resolve_after_submit_so(self, case, user, prev_work_item, context):
         tasks = ["create-manual-workitems"]
 
         if case.meta.get("is-appeal"):
@@ -255,17 +373,70 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return tasks
 
+    def resolve_after_submit_ag(self, case, user, prev_work_item, context):
+        tasks = ["create-manual-workitems"]
+
+        pgv_tasks = [
+            "distribution",
+            "publication",
+            "fill-publication",
+            "cantonal-exam",
+            "objections",
+        ]
+
+        authority_service_group = case.instance.responsible_service().service_group.name
+
+        if authority_service_group == "municipality-light":
+            return [*tasks, "distribution"]
+        elif case.document.form_id == "plangenehmigungsverfahren-bund":
+            return [*tasks, *pgv_tasks]
+        elif case.document.form_id == "plangenehmigungsverfahren-gas":
+            return [*tasks, *pgv_tasks, "init-additional-demand"]
+        elif case.document.form_id == "anfrage-intern":
+            if authority_service_group == "municipality":
+                return [*tasks, "formal-exam", "cantonal-exam"]
+            elif authority_service_group == "service-afb":
+                return [*tasks, "distribution", "cantonal-exam"]
+            else:  # pragma: no cover
+                raise ("Did not find valid responsible service for 'Anfrage intern'")
+
+        return [*tasks, "formal-exam", "init-additional-demand"]
+
     @register_dynamic_task("after-check-additional-demand")
     def resolve_after_check_additional_demand(
         self, case, user, prev_work_item, context
     ):
+        tasks = []
+
+        if settings.APPLICATION_NAME == "kt_uri":
+            gwr_relevancy_work_item = WorkItem.objects.filter(
+                task_id="check-gwr-relevancy",
+                case__family=case.family,
+                status=WorkItem.STATUS_SUSPENDED,
+            ).first()
+
+            if gwr_relevancy_work_item:
+                complete_check_work_item = case.family.work_items.get(
+                    task_id="complete-check"
+                )
+                complete_check_document = complete_check_work_item.document
+                completeness_answer = complete_check_document.answers.get(
+                    question_id="complete-check-vollstaendigkeitspruefung"
+                ).value
+
+                if (
+                    completeness_answer
+                    == "complete-check-vollstaendigkeitspruefung-incomplete-wait"
+                ):
+                    resume_work_item(work_item=gwr_relevancy_work_item, user=user)
+
         if prev_work_item.document.answers.filter(
             question_id=settings.ADDITIONAL_DEMAND["QUESTIONS"]["DECISION"],
             value=settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["REJECTED"],
         ).exists():
-            return [settings.ADDITIONAL_DEMAND["FILL_TASK"]]
+            tasks.append(settings.ADDITIONAL_DEMAND["FILL_TASK"])
 
-        return []
+        return tasks
 
     @register_dynamic_task("after-create-inquiry")
     def resolve_after_create_inquiry(self, case, user, prev_work_item, context):
@@ -279,7 +450,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         # avoid duplicates, the dynamic group of the "init-additional-demand"
         # task makes sure to not filter out services that already have such a
         # work item
-        if set(context["addressed_groups"]) - set(
+        if settings.ADDITIONAL_DEMAND and set(context["addressed_groups"]) - set(
             chain(
                 *case.work_items.filter(
                     addressed_groups__overlap=context["addressed_groups"],
@@ -332,7 +503,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         return []
 
-    # After decision in Kt. SZ and UR
+    # After decision in Kt. SZ
     @register_dynamic_task("after-make-decision")
     def resolve_after_make_decision(self, case, user, prev_work_item, context):
         if can_perform_construction_monitoring(case.instance):
@@ -436,11 +607,24 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("after-formal-exam")
     def resolve_after_formal_exam(self, case, user, prev_work_item, context):
+        tasks = [settings.DISTRIBUTION["DISTRIBUTION_TASK"]]
+
         if settings.PUBLICATION.get(
             "AFTER_FORMAL_EXAM_PUBLICATION_TASKS", []
-        ) and case.document.form.slug not in ["bauanzeige", "vorlaeufige-beurteilung"]:
-            return settings.PUBLICATION["AFTER_FORMAL_EXAM_PUBLICATION_TASKS"]
-        return [settings.DISTRIBUTION["DISTRIBUTION_TASK"]]
+        ) and case.document.form.slug not in [
+            "bauanzeige",
+            "bauanzeige-v3",
+            "vorlaeufige-beurteilung",
+            "vorlaeufige-beurteilung-v3",
+            "solaranlage",
+        ]:
+            tasks += settings.PUBLICATION["AFTER_FORMAL_EXAM_PUBLICATION_TASKS"]
+
+        if settings.ADDRESS_ASSIGNMENT:
+            if domain_logic.AddressAssignmentLogic.requires_address_assignment(case):
+                tasks += [settings.ADDRESS_ASSIGNMENT["SUGGESTION_TASK"]]
+
+        return tasks
 
     @register_dynamic_task("after-complete-instance")
     def after_complete_instance(self, case, user, prev_work_item, context):
@@ -462,3 +646,81 @@ class CustomDynamicTasks(BaseDynamicTasks):
             return ["construction-control"]
 
         return []
+
+    @register_dynamic_task("after-schnurgeruestabnahme-kontrollieren")
+    def resolve_after_schnurgeruestabnahme_kontrollieren(
+        self, case, user, prev_work_item, context
+    ):
+        wohnraum_answer = case.family.document.answers.filter(
+            question_id="schutzraumrelevante-massnahmen"
+        ).first()
+        schutzraum_answer = case.family.document.answers.filter(
+            question_id="schutzraum"
+        ).first()
+
+        if (
+            wohnraum_answer
+            and schutzraum_answer
+            and wohnraum_answer.value == "schutzraumrelevante-massnahmen-ja"
+            and schutzraum_answer.value == "schutzraum-antrag"
+        ):
+            return ["zs-ersatzbeitrag-pruefen"]
+        return []
+
+    @register_dynamic_task("after-gebaeudeabbruch-melden")
+    def resolve_after_gebaeudeabbruch_melden(self, case, user, prev_work_item, context):
+        return check_gwr_relevancy(
+            case,
+            user,
+            prev_work_item,
+            context,
+            "construction-step-gwr-state-demolition",
+        )
+
+    @register_dynamic_task("after-baubeginn-melden")
+    def resolve_after_baubeginn_melden(self, case, user, prev_work_item, context):
+        return check_gwr_relevancy(
+            case,
+            user,
+            prev_work_item,
+            context,
+            "construction-step-gwr-state-construction-start",
+        )
+
+    @register_dynamic_task("after-schlussabnahme-gebaeude")
+    def resolve_after_schlussabnahme_gebaeude(
+        self, case, user, prev_work_item, context
+    ):
+        return check_gwr_relevancy(
+            case, user, prev_work_item, context, "construction-step-gwr-state-building"
+        )
+
+    @register_dynamic_task("after-check-gwr-relevancy")
+    def resolve_after_check_gwr_relevancy(self, case, user, prev_work_item, context):
+        return check_gwr_relevancy(
+            case, user, prev_work_item, context, "open-gwr-construction-project"
+        )
+
+    @register_dynamic_task("maybe-publication")
+    def resolve_maybe_publication(self, case, user, prev_work_item, context):
+        tasks = []
+        md = MasterData(case)
+
+        if md.publication_required:
+            tasks.extend(["publication", "fill-publication"])
+
+        if md.information_of_neighbors_required:
+            tasks.extend(["information-of-neighbors", "fill-information-of-neighbors"])
+
+        return tasks
+
+    @register_dynamic_task("after-address-assignment-confirm-suggestion")
+    def resolve_after_address_assignment_confirm_suggestion(
+        self, case, user, prev_work_item, context
+    ):
+        if domain_logic.AddressAssignmentLogic.address_check_was_positive(
+            prev_work_item
+        ):
+            return []
+        else:
+            return [settings.ADDRESS_ASSIGNMENT.get("SUGGESTION_TASK")]

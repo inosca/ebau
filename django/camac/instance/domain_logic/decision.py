@@ -66,13 +66,27 @@ class DecisionLogic:
     def should_continue_after_decision(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
-        return (
-            cls.get_decision_answer(
-                question_id=settings.DECISION["QUESTIONS"]["DECISION"],
-                work_item=work_item,
-            )
-            == settings.DECISION["ANSWERS"]["DECISION"]["APPROVED"]
+        decision = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=work_item,
         )
+
+        return cls.is_positive_decision(decision=decision)
+
+    @classmethod
+    def should_continue_after_decision_gr(
+        cls, instance: Instance, work_item: workflow_models.WorkItem
+    ) -> bool:
+        # for vorlaeufige-beurteilung dossier, we do not continue the workflow.
+        if instance.case.document.form_id.startswith("vorlaeufige-beurteilung"):
+            return []
+
+        decision = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=work_item,
+        )
+
+        return cls.is_positive_decision(decision=decision)
 
     @classmethod
     def should_continue_after_decision_so(
@@ -94,40 +108,70 @@ class DecisionLogic:
             # confirmed and then check the decision of the previous instance to
             # determine whether we continue the workflow or not
             previous_instance = work_item.case.document.source.case.instance
-
-            return decision == settings.APPEAL["ANSWERS"]["DECISION"][
-                "CONFIRMED"
-            ] and cls.is_positive_decision_so(
-                cls.get_decision_answer(
-                    question_id=settings.DECISION["QUESTIONS"]["DECISION"],
-                    instance=previous_instance,
-                ),
-                cls.get_decision_answer(
-                    question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"],
-                    instance=previous_instance,
-                ),
+            previous_decision_answer = cls.get_decision_answer(
+                question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+                instance=previous_instance,
+            )
+            previous_construction_tee_answer = cls.get_decision_answer(
+                question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"],
+                instance=previous_instance,
             )
 
-        return cls.is_positive_decision_so(
-            decision,
-            cls.get_decision_answer(
-                question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"],
-                work_item=work_item,
-            ),
+            return (
+                decision == settings.APPEAL["ANSWERS"]["DECISION"]["CONFIRMED"]
+                and cls.is_positive_decision(previous_decision_answer)
+            ) or cls.is_construction_tee_decision_so(
+                decision=decision,
+                construction_tee=previous_construction_tee_answer,
+            )
+
+        if work_item.case.document.form_id == "reklamegesuch":
+            # Building permits for ads never continue as they do not require a
+            # construction monitoring process
+            return False
+
+        construction_tee_answer = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["BAUABSCHLAG"],
+            work_item=work_item,
+        )
+
+        return cls.is_positive_decision(
+            decision
+        ) or cls.is_construction_tee_decision_so(
+            decision=decision,
+            construction_tee=construction_tee_answer,
         )
 
     @classmethod
-    def is_positive_decision_so(cls, decision, construction_tee):
-        return (
-            decision
-            in [
-                settings.DECISION["ANSWERS"]["DECISION"]["APPROVED"],
-                settings.DECISION["ANSWERS"]["DECISION"]["PARTIALLY_APPROVED"],
-            ]
-        ) or (
+    def should_continue_after_decision_ag(
+        cls, instance: Instance, work_item: workflow_models.WorkItem
+    ) -> bool:
+        if instance.instance_state.name == settings.WITHDRAWAL["INSTANCE_STATE"]:
+            # If the current instance state is withdrawal (Zum Rückzug) we don't
+            # even care what decision is selected, the workflow is finished in
+            # every case.
+            return False
+
+        if instance.responsible_service().service_group.name == "municipality-light":
+            # Instances of DIBA light municipalities are finished after the
+            # decision
+            return False
+
+        decision = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=work_item,
+        )
+        demolition = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DEMOLITION"],
+            work_item=work_item,
+        )
+
+        # Decision needs to be positive (or partially positive) or negative with
+        # a demolition as the demolition itself needs construction monitoring as
+        # well.
+        return cls.is_positive_decision(decision=decision) or (
             decision == settings.DECISION["ANSWERS"]["DECISION"]["REJECTED"]
-            and construction_tee
-            == settings.DECISION["ANSWERS"]["BAUABSCHLAG"]["MIT_WIEDERHERSTELLUNG"]
+            and demolition == settings.DECISION["ANSWERS"]["DEMOLITION"]["WITH"]
         )
 
     @classmethod
@@ -156,7 +200,7 @@ class DecisionLogic:
         )
 
         return (
-            decision == settings.DECISION["ANSWERS"]["DECISION"]["APPROVED"]
+            cls.is_positive_decision(decision=decision)
             and approval_type
             != settings.DECISION["ANSWERS"]["APPROVAL_TYPE"]["BUILDING_PERMIT_FREE"]
         ) or approval_type in [
@@ -167,6 +211,31 @@ class DecisionLogic:
                 "PARTIAL_PERMIT_WITH_PARTIAL_CONSTRUCTION_TEE_AND_PARTIAL_RESTORATION"
             ],
         ]
+
+    @classmethod
+    def is_construction_tee_decision_so(
+        cls, decision: str, construction_tee: Optional[str]
+    ) -> bool:
+        return (
+            decision == settings.DECISION["ANSWERS"]["DECISION"]["REJECTED"]
+            and construction_tee
+            == settings.DECISION["ANSWERS"]["BAUABSCHLAG"]["MIT_WIEDERHERSTELLUNG"]
+        )
+
+    @classmethod
+    def is_positive_decision(
+        cls,
+        decision: str,
+    ) -> bool:
+        """Return True if the decision is in the list of positive decisions."""
+
+        positive_decisions = settings.DECISION.get("POSITIVE_DECISIONS", [])
+        mapped_positive_decisions = [
+            settings.DECISION["ANSWERS"]["DECISION"].get(decision)
+            for decision in positive_decisions
+        ]
+
+        return decision in mapped_positive_decisions
 
     @classmethod
     def copy_municipality_tags(cls, instance, construction_control):
@@ -290,3 +359,55 @@ class DecisionLogic:
             case__family__instance=instance,
         ):
             cancel_work_item(manual_work_item, user)
+
+    @classmethod
+    @canton_aware
+    def get_notification_config(cls, instance, work_item):
+        if instance.case.meta.get("is-appeal") and settings.APPEAL:
+            return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
+        return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
+
+    @classmethod
+    def get_notification_config_be(cls, instance, work_item):
+        if instance.case.meta.get("is-appeal") and settings.APPEAL:
+            return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
+
+        decision_answer = cls.get_decision_answer(
+            question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+            work_item=work_item,
+        )
+
+        if settings.DECISION["ANSWERS"]["DECISION"]["OTHER"] == decision_answer:
+            return settings.APPLICATION["NOTIFICATIONS"].get("DECISION_OTHER", [])
+
+        if instance.case.workflow_id == "preliminary-clarification":
+            return settings.APPLICATION["NOTIFICATIONS"].get(
+                "DECISION_PRELIMINARY_CLARIFICATION", []
+            )
+        return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
+
+    @classmethod
+    def get_notification_config_gr(cls, instance, work_item):
+        # TODO(GR): replace by preliminary clarification workflow
+        if instance.case.document.form.slug in [
+            "bauanzeige",
+            "bauanzeige-v3",
+            "vorlaeufige-beurteilung",
+            "vorlaeufige-beurteilung-v3",
+        ]:
+            return settings.APPLICATION["NOTIFICATIONS"].get(
+                "NON_BUILDING_PERMIT_DECISION", []
+            )
+
+        return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
+
+    @classmethod
+    def get_notification_config_so(cls, instance, work_item):
+        if instance.case.meta.get("is-appeal") and settings.APPEAL:
+            return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
+        elif instance.case.document.form_id != "baugesuch":  # pragma: no cover
+            return settings.APPLICATION["NOTIFICATIONS"].get(
+                "NON_BUILDING_PERMIT_DECISION", []
+            )
+
+        return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])

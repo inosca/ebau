@@ -39,7 +39,7 @@ export default class TaskFormButtonComponent extends Component {
       window.location.replace(
         `/index/redirect-to-instance-resource/instance-id/${this.args.context.instanceId}`,
       );
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("ebauNumber.completeInvalid"));
     }
   }

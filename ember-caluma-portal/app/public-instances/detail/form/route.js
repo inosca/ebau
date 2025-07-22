@@ -6,7 +6,7 @@ export default class PublicInstancesDetailFormRoute extends Route {
   @service router;
 
   redirectTo() {
-    if (!hasFeature("publication.form")) {
+    if (!hasFeature("publication.showMainForm")) {
       return this.router.replaceWith("public-instances.detail.index");
     }
   }

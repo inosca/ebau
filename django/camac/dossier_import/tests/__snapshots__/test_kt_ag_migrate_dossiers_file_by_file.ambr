@@ -1,0 +1,3346 @@
+# serializer version: 1
+# name: test_migrate_single_json_file[EBPA-0219-7779.json]
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "baugespann",
+              "value": "baugespann-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "baukosten-ohne-land-inkl-allfaellige-abbruchkosten-in-chf-migration",
+              "value": 100000.0
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "bauobjekt-kanalisation-migration",
+              "value": "bauobjekt-kanalisation-migration-neu"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "bauzonen-auswahl-migration",
+              "value": "bauzonen-auswahl-migration-ausserhalb-rechtskraeftiger-bauzone"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
+              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "begruendung-fuer-die-unterschreitung-wald-migration",
+              "value": "Brauche Platz"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "bemerkungen-und-hinweise-migration",
+              "value": "Automated Testing"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Happy Pfad Gesuch automated testing"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben-details",
+              "value": "Happy-Pfad - Test"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
+              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "eigenland-total-migration",
+              "value": "43"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "eigenverwendung-migration",
+              "value": "eigenverwendung-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "einleitung-querung-und-oder-wasserentnahme-migration",
+              "value": "einleitung-querung-und-oder-wasserentnahme-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "erdbebenkonformitaetserklaerung-migration",
+              "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "erfassungsgrund",
+              "value": "erfassungsgrund-gesuch-in-papierform"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gewaessername-migration",
+              "value": "Suhre"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gewaesserschutzbereich-auswahl-migration",
+              "value": [
+                  "gewaesserschutzbereich-auswahl-migration-au-a",
+                  "gewaesserschutzbereich-auswahl-migration-uebrige-bereiche"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 123456.0, \"y\": 123456.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
+              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
+              "value": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
+              "value": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "heizung-migration-tabelle-form",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "hochwassergefaehrdung-auswahl-migration",
+              "value": "hochwassergefaehrdung-auswahl-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
+              "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-energienachweis-erforderlich-migration",
+              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-luftfahrthindernis-geplant-migration",
+              "value": "ist-ein-luftfahrthindernis-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-materialabbau-geplant-migration",
+              "value": "ist-ein-materialabbau-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
+              "value": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
+              "value": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten",
+              "value": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
+              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
+              "value": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kantonsstrassen",
+              "value": "kantonsstrassen-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kommunale-randschutzbewilligung-erforderlich-migration",
+              "value": "kommunale-randschutzbewilligung-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "liegenschaft-migration",
+              "value": "liegenschaft-migration-nicht-benoetigt"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
+              "value": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
+              "value": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Abtwil"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "pachtland-total-migration",
+              "value": "34"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parkplaetze-betroffen",
+              "value": "parkplaetze-betroffen-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "schutzraumbaupflicht-ersatzabgabepflicht-migration",
+              "value": "schutzraumbaupflicht-ersatzabgabepflicht-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-altlasten-betroffen-migration",
+              "value": "sind-altlasten-betroffen-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-eingriffe-in-den-boden-geplant-migration",
+              "value": "sind-eingriffe-in-den-boden-geplant-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-erdsonden-geplant-migration",
+              "value": "sind-erdsonden-geplant-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-laermschutzmassnahmen-erforderlich-migration",
+              "value": "sind-laermschutzmassnahmen-erforderlich-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
+              "value": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
+              "value": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
+              "value": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "solaranlage-photovoltaikanalge-geplant",
+              "value": "solaranlage-photovoltaikanalge-geplant-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
+              "value": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "stoerfallverordnung-migration",
+              "value": "stoerfallverordnung-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Hauptstrasse 5"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "tierbestand-in-gve-bestehend-migration",
+              "value": "23"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "tierbestand-in-gve-neu-migration",
+              "value": "2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "total-in-chf-migration",
+              "value": 130000.0
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "value": "Landschaftsschutzzone"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "umgebungsarbeiten-in-chf-migration",
+              "value": 30000.0
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
+              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
+              "value": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "zonenplan",
+              "value": "Landwirtschaftszone"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "zweckbestimmung-migration",
+              "value": [
+                  "zweckbestimmung-migration-landwirtschaftliche-nutzung"
+              ]
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "typ-der-heizung",
+              "value": "typ-der-heizung-waermepumpe"
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "typ-der-waermepumpe-heizung",
+              "value": "typ-der-waermepumpe-heizung-bodenwasser"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "666"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "test.execute@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Anakin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Galaktisches Imperium Bau GmbH"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "56"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Irgendwo"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5607
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Hauptstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Skywalker"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2022-1",
+          "dossier-number-sort": 2022000001,
+          "submit-date": "2022-10-13T00:00:00"
+      },
+      "keywords": [
+          "1665654427762",
+          "EBPA-0219-7779"
+      ],
+      "service": 56,
+      "state": "new",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_single_json_file[EBPA-1010-5310.json]
+  '''
+  {
+      "answers": null,
+      "case-meta": null,
+      "keywords": null,
+      "service": null,
+      "state": null,
+      "work-items": null
+  }
+  '''
+# ---
+# name: test_migrate_single_json_file[EBPA-1720-6526.json]
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "aussenwaende-migration",
+              "value": "Holz"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "baugespann",
+              "value": "baugespann-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "baugespann-erstellt-am",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "bauobjekt-kanalisation-migration",
+              "value": "bauobjekt-kanalisation-migration-nicht-benoetigt"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
+              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "eBau 492 - Ebau 506"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben-details",
+              "value": "zweiter Test für https://jira.ag.ch/browse/EBAU-492\n\n-> Status auch bei eBau Gemeinden?"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "dachbelag-migration",
+              "value": "Holz"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
+              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "eigenverwendung-migration",
+              "value": "eigenverwendung-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "einleitung-querung-und-oder-wasserentnahme-migration",
+              "value": "einleitung-querung-und-oder-wasserentnahme-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "erdbebenkonformitaetserklaerung-migration",
+              "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "erfassungsgrund",
+              "value": "erfassungsgrund-gesuch-in-papierform"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "farbe-der-aussenwaende-migration",
+              "value": "Weiss"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "farbe-des-dachbelags-migration",
+              "value": "Weiss"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gebaeude",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 23423.0, \"y\": 23234234.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
+              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
+              "value": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
+              "value": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "hochwassergefaehrdung-auswahl-migration",
+              "value": "hochwassergefaehrdung-auswahl-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
+              "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-energienachweis-erforderlich-migration",
+              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-luftfahrthindernis-geplant-migration",
+              "value": "ist-ein-luftfahrthindernis-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-materialabbau-geplant-migration",
+              "value": "ist-ein-materialabbau-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
+              "value": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
+              "value": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten",
+              "value": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
+              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
+              "value": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kantonsstrassen",
+              "value": "kantonsstrassen-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kommunale-randschutzbewilligung-erforderlich-migration",
+              "value": "kommunale-randschutzbewilligung-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "liegenschaft-migration",
+              "value": "liegenschaft-migration-nicht-benoetigt"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
+              "value": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
+              "value": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parkplaetze-betroffen",
+              "value": "parkplaetze-betroffen-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "schutzraumbaupflicht-ersatzabgabepflicht-migration",
+              "value": "schutzraumbaupflicht-ersatzabgabepflicht-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-altlasten-betroffen-migration",
+              "value": "sind-altlasten-betroffen-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-eingriffe-in-den-boden-geplant-migration",
+              "value": "sind-eingriffe-in-den-boden-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-erdsonden-geplant-migration",
+              "value": "sind-erdsonden-geplant-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-laermschutzmassnahmen-erforderlich-migration",
+              "value": "sind-laermschutzmassnahmen-erforderlich-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
+              "value": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
+              "value": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
+              "value": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "solaranlage-photovoltaikanalge-geplant",
+              "value": "solaranlage-photovoltaikanalge-geplant-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
+              "value": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "stoerfallverordnung-migration",
+              "value": "stoerfallverordnung-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Teststrasse 2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
+              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
+              "value": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "zweckbestimmung-migration",
+              "value": [
+                  "zweckbestimmung-migration-wohnnutzung"
+              ]
+          },
+          {
+              "document__form_id": "gebaeude-tabelle-allgemein",
+              "question_id": "amtliche-gebaeudenummer",
+              "value": "23423423423"
+          },
+          {
+              "document__form_id": "gebaeude-tabelle-allgemein",
+              "question_id": "egid-nr",
+              "value": "2423423423"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "456456"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "ebautraining+gs3@gmail.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Hans"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Schulungs Architekt AG"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "2"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Testingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 222
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Teststrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Tester"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2024-1",
+          "dossier-number-sort": 2024000001,
+          "submit-date": "2024-02-14T00:00:00"
+      },
+      "keywords": [
+          "2024 - 111",
+          "BVUAFB.24.5",
+          "EBPA-1720-6526"
+      ],
+      "service": 55,
+      "state": "decision",
+      "work-items": [
+          {
+              "status": "canceled",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "init-construction-monitoring"
+          },
+          {
+              "status": "skipped",
+              "task_id": "decision"
+          },
+          {
+              "status": "skipped",
+              "task_id": "distribution"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "skipped",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_single_json_file[EBPA-6929-6843.json]
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "gebaeude-tabelle-allgemein",
+              "question_id": "amtliche-gebaeudenummer",
+              "value": "11"
+          },
+          {
+              "document__form_id": "gebaeude-tabelle-allgemein",
+              "question_id": "egid-nr",
+              "value": "12"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "Entwicklung.noReply@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "Entwicklung.noReply@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "Entwicklung.noReply@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "Entwicklung.noReply@ag.ch"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-ja"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Fässler"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Fässler"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Fässler"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Fässler"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "BH Test 25766"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Ge Test 25766"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Pe Test 25766"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": "Re Test 25766"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "46"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "8"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "8"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "8"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Aarau"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Aarau"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Aarau"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Aarau"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5001
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5001
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5001
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 5001
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Dorfstrasse"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Str"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Str"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Str"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Wendelin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Wendelin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Wendelin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Wendelin"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "anzahl-bestehende-parkplaetze-migration",
+              "value": "11"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "anzahl-neue-parkplaetze-migration",
+              "value": "1"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-abbruch",
+                  "art-des-gesuchs-anfrage",
+                  "art-des-gesuchs-baugesuch",
+                  "art-des-gesuchs-reklame",
+                  "art-des-gesuchs-rodung",
+                  "art-des-gesuchs-umnutzung",
+                  "art-des-gesuchs-umweltvertraeglichkeitspruefung-uvp",
+                  "art-des-gesuchs-vorentscheid"
+              ]
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "baugespann",
+              "value": "baugespann-ja"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "baukosten-ohne-land-inkl-allfaellige-abbruchkosten-in-chf-migration",
+              "value": 13000.0
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "bauobjekt-kanalisation-migration",
+              "value": "bauobjekt-kanalisation-migration-nicht-benoetigt"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "bauzonen-auswahl-migration",
+              "value": "bauzonen-auswahl-migration-uebriges-gebiet"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
+              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "begruendung-bei-nicht-bekannt-migration",
+              "value": "Gebäudeheizung noch nicht bekannt"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Testgesuch Wendelin Fässler WFAS 20181022 25766"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "beschreibung-bauvorhaben-details",
+              "value": "Projektbeschr 25766"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "bezeichnung-andere-bauten-migration",
+              "value": "andere Bauten Nutzungsart"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "branche-migration",
+              "value": "Gew. Nutzung Branche"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "davon-nicht-pflichtparkplaetze-bestehend-migration",
+              "value": "1"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "davon-pflichtparkplaetze-bestehend-migration",
+              "value": "10"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "davon-pflichtparkplaetze-neu-migration",
+              "value": "1"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
+              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "eigenland-total-migration",
+              "value": "12"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "eigenverwendung-migration",
+              "value": "eigenverwendung-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "einleitung-querung-und-oder-wasserentnahme-migration",
+              "value": "einleitung-querung-und-oder-wasserentnahme-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "erdbebenkonformitaetserklaerung-migration",
+              "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-liegt-bei"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "erfassungsgrund",
+              "value": "erfassungsgrund-nacherfassung"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "gebaeude",
+              "value": null
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "gebaeudeheizung-typ-migration",
+              "value": [
+                  "gebaeudeheizung-typ-migration-bestehend",
+                  "gebaeudeheizung-typ-migration-ersatz-kw",
+                  "gebaeudeheizung-typ-migration-keine",
+                  "gebaeudeheizung-typ-migration-neu-kw",
+                  "gebaeudeheizung-typ-migration-noch-nicht-bekannt"
+              ]
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "gemeinde",
+              "value": "68"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
+              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
+              "value": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
+              "value": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "hochwassergefaehrdung-auswahl-migration",
+              "value": "hochwassergefaehrdung-auswahl-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-nicht-betroffen"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
+              "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "ist-ein-energienachweis-erforderlich-migration",
+              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "ist-ein-luftfahrthindernis-geplant-migration",
+              "value": "ist-ein-luftfahrthindernis-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "ist-ein-materialabbau-geplant-migration",
+              "value": "ist-ein-materialabbau-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
+              "value": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
+              "value": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten",
+              "value": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
+              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-nicht-betroffen"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
+              "value": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "kantonsstrassen",
+              "value": "kantonsstrassen-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "kommunale-randschutzbewilligung-erforderlich-migration",
+              "value": "kommunale-randschutzbewilligung-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "kw-der-ersatz-gebaeudeheizung-migration",
+              "value": "Gebäudeheizung Ersat"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "kw-der-neuen-gebaeudeheizung-migration",
+              "value": "Gebäudeheizung neu K"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "liegenschaft-migration",
+              "value": "liegenschaft-migration-nicht-benoetigt"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
+              "value": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "nutzungsart-andere-bauten-migration",
+              "value": "andere Bauten Bezechnung"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "nutzungsart-migration",
+              "value": "nutzungsart-migration-dienstleistung"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
+              "value": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Möhlin"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "pachtland-total-migration",
+              "value": "11"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "parkplaetze-betroffen",
+              "value": "parkplaetze-betroffen-ja"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "schutzraumbaupflicht-ersatzabgabepflicht-migration",
+              "value": "schutzraumbaupflicht-ersatzabgabepflicht-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "sind-altlasten-betroffen-migration",
+              "value": "sind-altlasten-betroffen-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "sind-eingriffe-in-den-boden-geplant-migration",
+              "value": "sind-eingriffe-in-den-boden-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "sind-erdsonden-geplant-migration",
+              "value": "sind-erdsonden-geplant-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "sind-laermschutzmassnahmen-erforderlich-migration",
+              "value": "sind-laermschutzmassnahmen-erforderlich-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
+              "value": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
+              "value": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
+              "value": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "solaranlage-photovoltaikanalge-geplant",
+              "value": "solaranlage-photovoltaikanalge-geplant-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
+              "value": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "stoerfallverordnung-migration",
+              "value": "stoerfallverordnung-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "tierbestand-in-gve-bestehend-migration",
+              "value": "11"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "tierbestand-in-gve-neu-migration",
+              "value": "12"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "total-in-chf-migration",
+              "value": 26000.0
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "umgebungsarbeiten-in-chf-migration",
+              "value": 13000.0
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-nicht-betroffen"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "weitere-gemeinden",
+              "value": [
+                  "55"
+              ]
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
+              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
+              "value": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-nein"
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "wohnungen-migration",
+              "value": null
+          },
+          {
+              "document__form_id": "uvp-migration",
+              "question_id": "zweckbestimmung-migration",
+              "value": [
+                  "zweckbestimmung-migration-andere-bauten",
+                  "zweckbestimmung-migration-gewerbliche-und-industrielle-nutzung",
+                  "zweckbestimmung-migration-landwirtschaftliche-nutzung",
+                  "zweckbestimmung-migration-wohnnutzung"
+              ]
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "anzahl-wohnungen-tabelle",
+              "value": 2
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "anzahl-wohnungen-tabelle",
+              "value": 2
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "anzahl-wohnungen-tabelle",
+              "value": 3
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "wohnhaus-anzahl-zimmer",
+              "value": 2.0
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "wohnhaus-anzahl-zimmer",
+              "value": 3.0
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "zweitwohnungen",
+              "value": 1
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "zweitwohnungen",
+              "value": 1
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2018-1",
+          "dossier-number-sort": 2018000001,
+          "submit-date": "2018-10-22T00:00:00"
+      },
+      "keywords": [
+          "2018WFAS-25766",
+          "EBPA-6929-6843"
+      ],
+      "service": 68,
+      "state": "new",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_single_json_file[EBPA-8318-3681.json]
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "baugespann",
+              "value": "baugespann-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "bauobjekt-kanalisation-migration",
+              "value": "bauobjekt-kanalisation-migration-nicht-benoetigt"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
+              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "Mapping Test"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
+              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "eigenverwendung-migration",
+              "value": "eigenverwendung-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "einleitung-querung-und-oder-wasserentnahme-migration",
+              "value": "einleitung-querung-und-oder-wasserentnahme-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "erdbebenkonformitaetserklaerung-migration",
+              "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "erfassungsgrund",
+              "value": "erfassungsgrund-nacherfassung"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gebaeude",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 1111.0, \"y\": 1111.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
+              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
+              "value": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
+              "value": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "hochwassergefaehrdung-auswahl-migration",
+              "value": "hochwassergefaehrdung-auswahl-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
+              "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-energienachweis-erforderlich-migration",
+              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-luftfahrthindernis-geplant-migration",
+              "value": "ist-ein-luftfahrthindernis-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-materialabbau-geplant-migration",
+              "value": "ist-ein-materialabbau-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
+              "value": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
+              "value": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten",
+              "value": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
+              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
+              "value": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kantonsstrassen",
+              "value": "kantonsstrassen-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kommunale-randschutzbewilligung-erforderlich-migration",
+              "value": "kommunale-randschutzbewilligung-erforderlich-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "liegenschaft-migration",
+              "value": "liegenschaft-migration-nicht-benoetigt"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
+              "value": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
+              "value": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parkplaetze-betroffen",
+              "value": "parkplaetze-betroffen-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "schutzraumbaupflicht-ersatzabgabepflicht-migration",
+              "value": "schutzraumbaupflicht-ersatzabgabepflicht-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-altlasten-betroffen-migration",
+              "value": "sind-altlasten-betroffen-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-eingriffe-in-den-boden-geplant-migration",
+              "value": "sind-eingriffe-in-den-boden-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-erdsonden-geplant-migration",
+              "value": "sind-erdsonden-geplant-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-laermschutzmassnahmen-erforderlich-migration",
+              "value": "sind-laermschutzmassnahmen-erforderlich-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
+              "value": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
+              "value": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
+              "value": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "solaranlage-photovoltaikanalge-geplant",
+              "value": "solaranlage-photovoltaikanalge-geplant-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
+              "value": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "stoerfallverordnung-migration",
+              "value": "stoerfallverordnung-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Aarburg-Mapping-Str. 5"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-nicht-betroffen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-gemeinden",
+              "value": [
+                  "56"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
+              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
+              "value": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-nein"
+          },
+          {
+              "document__form_id": "gebaeude-tabelle-allgemein",
+              "question_id": "amtliche-gebaeudenummer",
+              "value": "8721983477"
+          },
+          {
+              "document__form_id": "gebaeude-tabelle-allgemein",
+              "question_id": "egid-nr",
+              "value": "3324023788"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "56"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "123123"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "73487"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "martin.huber@gmx.de"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "martin.huber@gmx.de"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "martin.huber@gmx.de"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "martin.huber@gmx.de"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Manfred"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Manfred"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Manfred"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Manfred"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "777"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Mappingen"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 7777
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Mappingstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Mapper"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Mapper"
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2025-1",
+          "dossier-number-sort": 2025000001,
+          "submit-date": "2025-01-31T00:00:00"
+      },
+      "keywords": [
+          "2025-120",
+          "EBPA-8318-3681"
+      ],
+      "service": 55,
+      "state": "subm",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---
+# name: test_migrate_single_json_file[EBPA-9651-5967.json]
+  '''
+  {
+      "answers": [
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "anzahl-bestehende-parkplaetze-migration",
+              "value": "1"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "anzahl-neue-parkplaetze-migration",
+              "value": "4"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ausnuetzungsziffer-gemaess-bauprojekt-migration",
+              "value": "9.1"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ausnuetzungsziffer-gemaess-zonenordnung-migration",
+              "value": "10.0"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "aussenwaende-migration",
+              "value": "Beton"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "baugespann",
+              "value": "baugespann-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "baukosten-ohne-land-inkl-allfaellige-abbruchkosten-in-chf-migration",
+              "value": 1700000.0
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "baumassenziffer-gemaess-bauprojekt-migration",
+              "value": "7.3"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "baumassenziffer-gemaess-zonenordnung-migration",
+              "value": "8.2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "bauobjekt-kanalisation-migration",
+              "value": "bauobjekt-kanalisation-migration-nicht-angeschlossen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "bauzonen-auswahl-migration",
+              "value": "bauzonen-auswahl-migration-innerhalb-rechtskraeftiger-bauzone"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
+              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "begruendung-bei-nicht-bekannt-migration",
+              "value": "mal schauen"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "begruendung-fuer-die-unterschreitung-gewaesserabstand",
+              "value": "Ich habe nah am Wasser gebaut"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "begruendung-fuer-die-unterschreitung-kantonsstrasse-migration",
+              "value": "Begründung für die Unterschreitung"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "begruendung-fuer-die-unterschreitung-wald-migration",
+              "value": "Begründung für die Unterschreitung"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "bemerkungen-und-hinweise-migration",
+              "value": "Famous last words"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben",
+              "value": "DIBA Test Gesuch MH"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "beschreibung-bauvorhaben-details",
+              "value": "test"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "bezeichnung-andere-bauten-migration",
+              "value": "Fanclub"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "dachbelag-migration",
+              "value": "Schiefer"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "davon-nicht-pflichtparkplaetze-bestehend-migration",
+              "value": "3"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "davon-nicht-pflichtparkplaetze-neu-migration",
+              "value": "6"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "davon-pflichtparkplaetze-bestehend-migration",
+              "value": "2"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "davon-pflichtparkplaetze-neu-migration",
+              "value": "5"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
+              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "eigenverwendung-migration",
+              "value": "eigenverwendung-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "einleitung-querung-und-oder-wasserentnahme-migration",
+              "value": "einleitung-querung-und-oder-wasserentnahme-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "empfindlichkeits-stufe-gemaess-bau-und-nutzungsordnung-migration",
+              "value": "empfindlichkeits-stufe-gemaess-bau-und-nutzungsordnung-migration-iv"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "erdbebenkonformitaetserklaerung-migration",
+              "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "erfassungsgrund",
+              "value": "erfassungsgrund-online-erfassung"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "farbe-der-aussenwaende-migration",
+              "value": "grün"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "farbe-des-dachbelags-migration",
+              "value": "dunkelgrau"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gebaeudeheizung-typ-migration",
+              "value": [
+                  "gebaeudeheizung-typ-migration-bestehend",
+                  "gebaeudeheizung-typ-migration-ersatz-kw",
+                  "gebaeudeheizung-typ-migration-keine",
+                  "gebaeudeheizung-typ-migration-neu-kw",
+                  "gebaeudeheizung-typ-migration-noch-nicht-bekannt"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "geschossflaechenziffer-gemaess-bauprojekt-migration",
+              "value": "3.7"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "geschossflaechenziffer-gemaess-zonenordnung-migration",
+              "value": "6.4"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gewaessername-migration",
+              "value": "Bodensee"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gewaesserschutzbereich-auswahl-migration",
+              "value": [
+                  "gewaesserschutzbereich-auswahl-migration-au-a",
+                  "gewaesserschutzbereich-auswahl-migration-quellfassungsbereiche",
+                  "gewaesserschutzbereich-auswahl-migration-uebrige-bereiche"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gis-map",
+              "value": "{\"markers\": [{\"x\": 2480000.0, \"y\": 1070000.0}], \"geometry\": \"POINT\"}"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gruenflaechenziffer-gemaess-bauprojekt-migration",
+              "value": "5.5"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "gruenflaechenziffer-gemaess-zonenordnung-migration",
+              "value": "4.6"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
+              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
+              "value": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
+              "value": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "heizung-migration-tabelle-form",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "hochwassergefaehrdung-auswahl-migration",
+              "value": "hochwassergefaehrdung-auswahl-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "is-paper",
+              "value": "is-paper-no"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
+              "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-energienachweis-erforderlich-migration",
+              "value": "ist-ein-energienachweis-erforderlich-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-luftfahrthindernis-geplant-migration",
+              "value": "ist-ein-luftfahrthindernis-geplant-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-ein-materialabbau-geplant-migration",
+              "value": "ist-ein-materialabbau-geplant-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
+              "value": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
+              "value": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten",
+              "value": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
+              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
+              "value": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kantonsstrassen",
+              "value": "kantonsstrassen-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kommunale-randschutzbewilligung-erforderlich-migration",
+              "value": "kommunale-randschutzbewilligung-erforderlich-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kw-der-ersatz-gebaeudeheizung-migration",
+              "value": "1000"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kw-der-neuen-gebaeudeheizung-migration",
+              "value": "2000"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "liegenschaft-migration",
+              "value": "liegenschaft-migration-neu"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
+              "value": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "nutzungsart-andere-bauten-migration",
+              "value": "Fussballstadion"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
+              "value": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ort-grundstueck",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parkplaetze-betroffen",
+              "value": "parkplaetze-betroffen-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "parzelle",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-gesuchstellerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-grundeigentumerin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-projektverfasserin",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "personalien-rechnungsempfaenger",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "projektaenderung",
+              "value": "projektaenderung-nein"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "schutzraumbaupflicht-ersatzabgabepflicht-migration",
+              "value": "schutzraumbaupflicht-ersatzabgabepflicht-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-altlasten-betroffen-migration",
+              "value": "sind-altlasten-betroffen-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-eingriffe-in-den-boden-geplant-migration",
+              "value": "sind-eingriffe-in-den-boden-geplant-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-erdsonden-geplant-migration",
+              "value": "sind-erdsonden-geplant-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-laermschutzmassnahmen-erforderlich-migration",
+              "value": "sind-laermschutzmassnahmen-erforderlich-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
+              "value": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
+              "value": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
+              "value": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "solaranlage-photovoltaikanalge-geplant",
+              "value": "solaranlage-photovoltaikanalge-geplant-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
+              "value": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "sondernutzungsplanung-migration",
+              "value": "Sondernutzungsplanung"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "stoerfallverordnung-migration",
+              "value": "stoerfallverordnung-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "street-and-housenumber",
+              "value": "Dibastr. 4"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "total-in-chf-migration",
+              "value": 1740000.0
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ueberbauungsziffer-gemaess-bauprojekt-migration",
+              "value": "1.9"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ueberbauungsziffer-gemaess-zonenordnung-migration",
+              "value": "2.8"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "ueberlagerte-schutzzonen-und-schutzobjekte",
+              "value": "Überlagerte Zone"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "umgebungsarbeiten-in-chf-migration",
+              "value": 40000.0
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "weitere-personen",
+              "value": [
+                  "weitere-personen-grundeigentumerin",
+                  "weitere-personen-projektverfasserin",
+                  "weitere-personen-rechnungsempfaenger"
+              ]
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
+              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
+              "value": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-ja"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "wohnungen-migration",
+              "value": null
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "zonenplan",
+              "value": "Nuzungszone"
+          },
+          {
+              "document__form_id": "baugesuch-migration",
+              "question_id": "zweckbestimmung-migration",
+              "value": [
+                  "zweckbestimmung-migration-andere-bauten"
+              ]
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "andere-heizungstyp",
+              "value": "was ganz anderes"
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "bestand-planung",
+              "value": "bestand-planung-bestehend"
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "typ-der-heizung",
+              "value": "typ-der-heizung-andere"
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "typ-der-heizung",
+              "value": "typ-der-heizung-elektrisch"
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "typ-der-heizung",
+              "value": "typ-der-heizung-fernheizung"
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "typ-der-heizung",
+              "value": "typ-der-heizung-gas"
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "typ-der-heizung",
+              "value": "typ-der-heizung-holz"
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "typ-der-heizung",
+              "value": "typ-der-heizung-oel"
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "typ-der-heizung",
+              "value": "typ-der-heizung-waermepumpe"
+          },
+          {
+              "document__form_id": "heizungen-migration-tabelle",
+              "question_id": "typ-der-waermepumpe-heizung",
+              "value": "typ-der-waermepumpe-heizung-beides"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "gemeinde",
+              "value": "55"
+          },
+          {
+              "document__form_id": "parzelle-tabelle",
+              "question_id": "parzellennummer",
+              "value": "12345"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "martin.huber@karakun.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "martin.huber@karakun.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "martin.huber@karakun.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "e-mail-gesuchstellerin",
+              "value": "martin.huber@karakun.com"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "juristische-person-gesuchstellerin",
+              "value": "juristische-person-gesuchstellerin-nein"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Huber"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Huber"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Huber"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-gesuchstellerin",
+              "value": "Huber"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "name-juristische-person-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "4"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "4"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "4"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "nummer-gesuchstellerin",
+              "value": "4"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "ort-gesuchstellerin",
+              "value": "Aarburg"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 4663
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 4663
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 4663
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "plz-gesuchstellerin",
+              "value": 4663
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Aarauerstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Aarauerstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Aarauerstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "strasse-gesuchstellerin",
+              "value": "Aarauerstr."
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "telefon-oder-mobile-gesuchstellerin",
+              "value": ""
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Martin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Martin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Martin"
+          },
+          {
+              "document__form_id": "personalien-tabelle",
+              "question_id": "vorname-gesuchstellerin",
+              "value": "Martin"
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "anzahl-wohnungen-tabelle",
+              "value": 1
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "anzahl-wohnungen-tabelle",
+              "value": 2
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "wohnhaus-anzahl-zimmer",
+              "value": 1.0
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "wohnhaus-anzahl-zimmer",
+              "value": 2.0
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "zweitwohnungen",
+              "value": 1
+          },
+          {
+              "document__form_id": "wohnungen-tabelle",
+              "question_id": "zweitwohnungen",
+              "value": 2
+          }
+      ],
+      "case-meta": {
+          "dossier-number": "2025-1",
+          "dossier-number-sort": 2025000001,
+          "submit-date": "2025-04-02T00:00:00"
+      },
+      "keywords": [
+          "2025-381",
+          "EBPA-9651-5967"
+      ],
+      "service": 55,
+      "state": "subm",
+      "work-items": [
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "skipped",
+              "task_id": "submit"
+          }
+      ]
+  }
+  '''
+# ---

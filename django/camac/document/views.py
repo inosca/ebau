@@ -3,11 +3,14 @@ import logging
 import mimetypes
 import os
 import zipfile
+from collections import defaultdict
+from functools import reduce
 
 from django.conf import settings
+from django.core.exceptions import operator
 from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
-from django.http import HttpResponse
+from django.http import FileResponse, HttpResponse
 from django.utils.module_loading import import_string
 from django.utils.translation import gettext as _
 from drf_yasg import openapi
@@ -23,11 +26,11 @@ from sorl.thumbnail import get_thumbnail
 from sorl.thumbnail.engines.convert_engine import EngineError
 
 from camac.communications.models import CommunicationsAttachment
-from camac.core.views import SendfileHttpResponse
 from camac.instance.document_merge_service import DMSHandler
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
+from camac.permissions.api import PermissionManager
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.permissions import (
     DefaultPermission,
@@ -92,56 +95,55 @@ class AttachmentQuerysetMixin:
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
 
-        permission_info = permissions.section_permissions(
-            self.request.group, self.request.query_params.get("instance")
-        )
-        readable_sections = [
-            sec
-            for sec, perm in permission_info.items()
-            if perm
-            not in (
-                permissions.AdminInternalPermission,
-                permissions.ReadInternalPermission,
-                "applicant",
-            )
-        ]
+        group = self.request.group
+        instance = self.request.query_params.get("instance")
+        permission_info = permissions.section_permissions(group, instance)
+        # TODO refactor `permissions.section_permissions()` to return a
+        # dict[Permission, list[integer]] instead - would be easier to deal with
+        # here, but it's used in other places as well so we keep as is for now
 
-        # internal sections must be special-cased to also include the section in
-        # the filter so it cannot be used with the other sections
-        internal_sections = {
-            section_id: permission
-            for (section_id, permission) in permission_info.items()
-            if permission
-            in [permissions.AdminInternalPermission, permissions.ReadInternalPermission]
-        }
-
-        # applicant is a role relative to the instance, so must be specialcased
-        applicant_sections = {
-            section_id: permission
-            for (section_id, permission) in permission_info.items()
-            if permission == "applicant"
-        }
+        permissions_to_sections = defaultdict(list)
+        # TODO: Also extend with user's access levels
+        for section_id, permission in permission_info.items():
+            permissions_to_sections[permission].append(section_id)
 
         af = self._get_attachment_field()
 
-        return queryset.filter(
-            # first: directly readable sections
-            Q(**{f"{af}attachment_sections__in": readable_sections})
-            # second: sections where only documents from my own service are readable
-            | Q(
-                **{
-                    f"{af}attachment_sections__in": internal_sections,
-                    f"{af}service": self.request.group.service,
-                }
+        permission_exprs = [
+            Q(**{f"{af}attachment_sections__in": section_ids})
+            & perm.build_q(self.request.group, af)
+            for perm, section_ids in permissions_to_sections.items()
+        ]
+
+        # Extend permission expressions to use access levels from the
+        # permission module as well.
+        levels = self.permissions_manager().current_access_levels(instance)
+
+        for level in levels:
+            level_perms = permissions.get_accesslevel_permissions(
+                level, self.permissions_manager(), instance
             )
-            # third: documents where i'm invitee
-            | Q(
-                Q(**{f"{af}attachment_sections__in": applicant_sections}),
-                Q(**{f"{af}instance__involved_applicants__invitee": self.request.user})
-                | Q(**{f"{af}instance__user": self.request.user}),
+            level_q = self.permissions_manager().get_q_object(
+                instance_prefix=f"{af}instance", only_level=level
             )
-            | self.get_loosen_filter()
-        ).distinct()
+            level_perm_qs = []
+            for perm, section_ids in level_perms.items():
+                level_perm_qs.append(
+                    # relevant section ids...
+                    Q(**{f"{af}attachment_sections__in": section_ids})
+                    # ... and whatever the permission defines
+                    & perm.build_q(self.request.group, af)
+                )
+            if level_perm_qs:
+                permission_exprs.append(level_q & reduce(operator.or_, level_perm_qs))
+
+        filters = (
+            reduce(operator.or_, permission_exprs) | self.get_loosen_filter()
+            if permission_exprs
+            else self.get_loosen_filter()
+        )
+
+        return queryset.filter(filters).distinct()
 
     def get_loosen_filter(self):
         # loosen_filter can be used to allow more
@@ -202,13 +204,15 @@ class AttachmentView(
     @classmethod
     def include_in_swagger(cls):
         return (
-            bool(settings.ECH0211)
-            and settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
-        )
+            # This endpoint is used by UR for the öreb dossiers
+            bool(settings.ECH0211) or settings.APPLICATION_NAME == "kt_uri"
+        ) and settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
 
     def has_object_destroy_permission(self, attachment):
+        perms = permissions.SectionPermissions(self.permissions_manager())
+
         for section in attachment.attachment_sections.all():
-            if not section.can_destroy(attachment, self.request.group):
+            if not perms.can_destroy(section, attachment, self.request.group):
                 return False
         return True
 
@@ -286,12 +290,10 @@ class AttachmentView(
         attachment_object = self.get_object()
 
         if CommunicationsAttachment.objects.filter(
-            document_attachment=attachment_object
+            document_attachment=attachment_object, file_attachment__in=[None, ""]
         ).exists():
-            # Prevent deletion: The delete wouldn't work either way, but
-            # due to ordering of events, the file would be deleted on-disk
-            # while the document object would still exist, causing a 404
-            # on subsequent download attempts
+            # Prevent deletion: if communication attachment is only linked (not copied)
+            # then we must not delete the document
             raise ValidationError(
                 _(
                     "Cannot delete this document, as it is "
@@ -381,7 +383,8 @@ class AttachmentDownloadView(
     @classmethod
     def include_in_swagger(cls):
         return (
-            bool(settings.ECH0211)
+            # This endpoint is used by UR for the öreb dossiers
+            (bool(settings.ECH0211) or settings.APPLICATION_NAME == "kt_uri")
             and settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng"
         )
 
@@ -402,7 +405,6 @@ class AttachmentDownloadView(
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, **kwargs):
         attachment = self.get_object()
-        download_path = kwargs.get(self.lookup_field)
 
         self._create_history_entry(request, attachment)
 
@@ -411,14 +413,16 @@ class AttachmentDownloadView(
         )
         if side_effect:
             import_string(side_effect)(attachment, request)
-
-        response = SendfileHttpResponse(
-            content_type=self._get_mime_type(attachment),
-            filename=attachment.name,
-            base_path=settings.MEDIA_ROOT,
-            file_path=f"/{download_path}",
+        mime_type = self._get_mime_type(attachment)
+        as_attachment = mime_type not in settings.COMMUNICATIONS.get(
+            "SAFE_FOR_INLINE_DISPOSITION", []
         )
-        return response
+        return FileResponse(
+            attachment.path,
+            filename=attachment.name,
+            as_attachment=as_attachment,
+            content_type=mime_type,
+        )
 
     @swagger_auto_schema(
         tags=["File download service"],
@@ -445,32 +449,31 @@ class AttachmentDownloadView(
             self._create_history_entry(request, attachment)
 
         attachment = filtered_qs.first()
-        download_path = str(attachment.path)
 
-        response = SendfileHttpResponse(
-            content_type=self._get_mime_type(attachment),
-            filename=attachment.name,
-            base_path=settings.MEDIA_ROOT,
-            file_path=f"/{download_path}",
-        )
-        if filtered_qs.count() > 1:
-            file_obj = io.BytesIO()
-
-            with zipfile.ZipFile(file_obj, "w", zipfile.ZIP_DEFLATED) as zipf:
-                for attachment in filtered_qs:
-                    zipf.write(
-                        os.path.join(settings.MEDIA_ROOT, str(attachment.path)),
-                        arcname=attachment.name,
-                    )
-            file_obj.seek(0)
-
-            response = SendfileHttpResponse(
-                content_type="application/zip",
-                filename="attachments.zip",
-                file_obj=file_obj,
+        if filtered_qs.count() == 1:
+            return FileResponse(
+                attachment.path,
+                filename=attachment.name,
+                as_attachment=True,
+                content_type=attachment.mime_type,
             )
 
-        return response
+        file_obj = io.BytesIO()
+
+        with zipfile.ZipFile(file_obj, "w", zipfile.ZIP_DEFLATED) as zipf:
+            for attachment in filtered_qs:
+                zipf.write(
+                    os.path.join(settings.MEDIA_ROOT, str(attachment.path)),
+                    arcname=attachment.name,
+                )
+        file_obj.seek(0)
+
+        return FileResponse(
+            file_obj,
+            content_type="application/zip",
+            filename="attachments.zip",
+            as_attachment=True,
+        )
 
 
 class AttachmentVersionDownloadView(AttachmentDownloadView):
@@ -510,8 +513,11 @@ class AttachmentSectionView(ReadOnlyModelViewSet):
         if getattr(self, "swagger_fake_view", False):
             return models.AttachmentSection.objects.none()
         queryset = super().get_queryset()
+        permissions_manager = PermissionManager.from_request(self.request)
         return queryset.filter_group(
-            self.request.group, self.request.query_params.get("instance")
+            self.request.group,
+            permissions_manager,
+            self.request.query_params.get("instance"),
         )
 
     @swagger_auto_schema(

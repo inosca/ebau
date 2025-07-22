@@ -10,6 +10,8 @@ services:
       context: ../django
       cache_from:
         - acr.run/camac-ng/camac-ng/django:master
+      args:
+        APPLICATION: ${APPLICATION}
     depends_on:
       - cache
       - keycloak
@@ -74,6 +76,9 @@ services:
   keycloak:
     build:
       context: ../keycloak
+      args:
+        VERSION: 26.2
+      target: keycloak-v26
       cache_from:
         - acr.run/camac-ng/camac-ng/keycloak:master
 
@@ -108,6 +113,10 @@ services:
   celery:
     <<: *django
     command: celery
+
+  celery-beat:
+    <<: *django
+    command: celery-beat
 
 volumes:
   pgdata:

@@ -14,7 +14,8 @@
       "location": null,
       "case": "087e3c47-df7c-4c6d-a80c-19ef8c0f116d",
       "instance_group": null,
-      "rejection_feedback": null
+      "rejection_feedback": null,
+      "copy_source": null
     }
   },
   {
@@ -32,7 +33,8 @@
       "location": null,
       "case": "484dcd39-ea8e-4553-828d-50bc1408a3f0",
       "instance_group": null,
-      "rejection_feedback": null
+      "rejection_feedback": null,
+      "copy_source": null
     }
   },
   {
@@ -50,7 +52,8 @@
       "location": null,
       "case": "0bbfa433-1fd9-41dc-a834-6f24bb31458e",
       "instance_group": null,
-      "rejection_feedback": null
+      "rejection_feedback": null,
+      "copy_source": null
     }
   },
   {
@@ -68,7 +71,8 @@
       "location": null,
       "case": "a1edce36-9478-4023-a8d6-bc399404971f",
       "instance_group": null,
-      "rejection_feedback": null
+      "rejection_feedback": null,
+      "copy_source": null
     }
   },
   {
@@ -86,7 +90,8 @@
       "location": null,
       "case": "0848e6ba-deb9-4943-aae6-8be67b549d5b",
       "instance_group": null,
-      "rejection_feedback": null
+      "rejection_feedback": null,
+      "copy_source": null
     }
   },
   {
@@ -104,7 +109,8 @@
       "location": null,
       "case": "3a99a9e2-8f6a-4305-b22e-d9ff1cdbfa1f",
       "instance_group": null,
-      "rejection_feedback": null
+      "rejection_feedback": null,
+      "copy_source": null
     }
   },
   {
@@ -285,7 +291,7 @@
     "pk": 4,
     "fields": {
       "title": "Notifikation gesendet an admin@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.local/instances/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.localhost/instances/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
       "history_entry": 2,
       "language": "de"
     }
@@ -295,7 +301,7 @@
     "pk": 5,
     "fields": {
       "title": "Notification envoyée à admin@example.com (Requérant/e) ([eBau Test]: Erfolgreiche Einreichung)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.local/instances/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.localhost/instances/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
       "history_entry": 2,
       "language": "fr"
     }
@@ -305,7 +311,7 @@
     "pk": 6,
     "fields": {
       "title": "Notifikation gesendet an admin@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.local/instances/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.localhost/instances/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
       "history_entry": 2,
       "language": "it"
     }
@@ -315,7 +321,7 @@
     "pk": 7,
     "fields": {
       "title": "Notifikation gesendet an email@example.ch (Gemeinde) ([eBau Test]: Neu eingegangen)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.localhost/index/redirect-to-instance-resource/instance-id/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
       "history_entry": 3,
       "language": "de"
     }
@@ -325,7 +331,7 @@
     "pk": 8,
     "fields": {
       "title": "Notification envoyée à email@example.ch (Autorité directrice) ([eBau Test]: Neu eingegangen)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.localhost/index/redirect-to-instance-resource/instance-id/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
       "history_entry": 3,
       "language": "fr"
     }
@@ -335,7 +341,7 @@
     "pk": 9,
     "fields": {
       "title": "Notifikation gesendet an email@example.ch (Gemeinde) ([eBau Test]: Neu eingegangen)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.local/index/redirect-to-instance-resource/instance-id/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 1 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.localhost/index/redirect-to-instance-resource/instance-id/1\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
       "history_entry": 3,
       "language": "it"
     }
@@ -375,7 +381,7 @@
     "pk": 13,
     "fields": {
       "title": "Notifikation gesendet an admin@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.local/instances/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.localhost/instances/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
       "history_entry": 5,
       "language": "de"
     }
@@ -385,7 +391,7 @@
     "pk": 14,
     "fields": {
       "title": "Notification envoyée à admin@example.com (Requérant/e) ([eBau Test]: Erfolgreiche Einreichung)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.local/instances/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.localhost/instances/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
       "history_entry": 5,
       "language": "fr"
     }
@@ -395,7 +401,7 @@
     "pk": 15,
     "fields": {
       "title": "Notifikation gesendet an admin@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.local/instances/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn) wurde erfolgreich übermittelt.\n\nhttp://ebau-portal.localhost/instances/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Solothurn",
       "history_entry": 5,
       "language": "it"
     }
@@ -405,7 +411,7 @@
     "pk": 16,
     "fields": {
       "title": "Notifikation gesendet an Gemeinde (keine Empfänger) ([eBau Test]: Neu eingegangen)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.local/cases/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.localhost/cases/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
       "history_entry": 6,
       "language": "de"
     }
@@ -415,7 +421,7 @@
     "pk": 17,
     "fields": {
       "title": "Notification envoyée à Municipalité (aucun destinataire) ([eBau Test]: Neu eingegangen)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.local/cases/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.localhost/cases/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
       "history_entry": 6,
       "language": "fr"
     }
@@ -425,7 +431,7 @@
     "pk": 18,
     "fields": {
       "title": "Notifikation gesendet an Comune (keine Empfänger) ([eBau Test]: Neu eingegangen)",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.local/cases/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2 (Baugesuch, Gemeinde Solothurn).\n\nhttp://ember-ebau.localhost/cases/2\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\neBau",
       "history_entry": 6,
       "language": "it"
     }
@@ -525,7 +531,7 @@
     "pk": 28,
     "fields": {
       "title": "Notifikation gesendet an editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.localhost/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
       "history_entry": 10,
       "language": "de"
     }
@@ -535,7 +541,7 @@
     "pk": 29,
     "fields": {
       "title": "Notification envoyée à editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.localhost/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
       "history_entry": 10,
       "language": "fr"
     }
@@ -545,7 +551,7 @@
     "pk": 30,
     "fields": {
       "title": "Notifica inviata a editor@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.localhost/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
       "history_entry": 10,
       "language": "it"
     }
@@ -555,7 +561,7 @@
     "pk": 31,
     "fields": {
       "title": "Notifikation gesendet an readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.localhost/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
       "history_entry": 11,
       "language": "de"
     }
@@ -565,7 +571,7 @@
     "pk": 32,
     "fields": {
       "title": "Notification envoyée à readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.localhost/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
       "history_entry": 11,
       "language": "fr"
     }
@@ -575,7 +581,7 @@
     "pk": 33,
     "fields": {
       "title": "Notifica inviata a readonly@example.com ([eBau Test]: Einsicht respektive Mitarbeit (Dossier Nr. -))",
-      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.local/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nSie haben Zugriff auf das Dossier-Nr. - erhalten. Damit können Sie dieses einsehen respektive mitbearbeiten:\n\nhttp://ebau-portal.localhost/instances/6\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau",
       "history_entry": 11,
       "language": "it"
     }

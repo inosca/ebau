@@ -16,15 +16,13 @@ export default class BeDocumentsFormComponent extends Component {
 
   @tracked uploadedAttachmentIds = [];
 
+  requiredQuestionTypes = ["MultipleChoiceQuestion", "TextareaQuestion"];
+
   get buckets() {
     return (
       this.args.fieldset.field.question.raw.meta.buckets ??
       attachmentsConfig.buckets
     );
-  }
-
-  get showHint() {
-    return /^baugesuch/.test(this.args.fieldset.document.rootForm.slug);
   }
 
   get showReducedConfirmText() {
@@ -51,12 +49,20 @@ export default class BeDocumentsFormComponent extends Component {
     );
   }
 
+  get allHints() {
+    return this.args.fieldset.fields.filter(
+      (field) =>
+        field.questionType === "StaticQuestion" &&
+        field.question.raw.meta.documentHint,
+    );
+  }
+
   get allRequiredTags() {
     return this.args.fieldset.fields.filter(
       (field) =>
         !field.hidden &&
         !field.optional &&
-        field.questionType === "MultipleChoiceQuestion",
+        this.requiredQuestionTypes.includes(field.questionType),
     );
   }
 
@@ -66,7 +72,8 @@ export default class BeDocumentsFormComponent extends Component {
         field.questionType !== "MultipleChoiceQuestion" &&
         !config.APPLICATION.documents.excludeFromDocuments.includes(
           field.question.slug,
-        ),
+        ) &&
+        !this.allHints.includes(field),
     );
   }
 
@@ -79,6 +86,13 @@ export default class BeDocumentsFormComponent extends Component {
         [category]: [...(tree[category] || []), tag],
       });
     }, {});
+  }
+
+  get allRequiredTagsCount() {
+    const multipleChoiceRequired = this.allRequiredTags.filter(
+      (field) => field.questionType === "MultipleChoiceQuestion",
+    );
+    return multipleChoiceRequired.length;
   }
 
   get allAttachments() {
@@ -163,7 +177,7 @@ export default class BeDocumentsFormComponent extends Component {
       ];
 
       this.notification.success(this.intl.t("documents.uploadSuccess"));
-    } catch (error) {
+    } catch {
       this.notification.danger(errorMessage);
     }
   }
@@ -174,7 +188,7 @@ export default class BeDocumentsFormComponent extends Component {
       yield attachment.destroyRecord();
 
       this.notification.success(this.intl.t("documents.deleteSuccess"));
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("documents.deleteError"));
     }
   }

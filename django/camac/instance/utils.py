@@ -1,12 +1,14 @@
 from collections import namedtuple
-from typing import Union
+from itertools import chain
+from typing import Set, Union
 
 from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.models import AnswerDocument, Option, Question
+from caluma.caluma_form.models import Question
 from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow import models as workflow_models
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
-from django.db.models import Prefetch
+from django.conf import settings
+from django.db.models import Q
 from django.db.models.query import QuerySet
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
@@ -111,76 +113,6 @@ def set_construction_control(instance: Instance) -> Service:
     return construction_control
 
 
-def build_document_prefetch_statements(prefix="", prefetch_options=False):
-    """Build needed prefetch statements to performantly fetch a document.
-
-    This is needed to reduce the query count when almost all the form data
-    is needed for a given document, e.g. when exporting a PDF or listing public
-    instances (master data).
-    """
-
-    question_queryset = Question.objects.select_related(
-        "sub_form", "row_form"
-    ).order_by("-formquestion__sort")
-
-    if prefetch_options:
-        question_queryset = question_queryset.prefetch_related(
-            Prefetch(
-                "options",
-                queryset=Option.objects.order_by("-questionoption__sort"),
-            )
-        )
-
-    if prefix:
-        prefix += "__"
-
-    return [
-        f"{prefix}answers",
-        f"{prefix}dynamicoption_set",
-        Prefetch(
-            f"{prefix}answers__answerdocument_set",
-            queryset=AnswerDocument.objects.select_related(
-                "document__form", "document__family"
-            )
-            .prefetch_related("document__answers", "document__form__questions")
-            .order_by("-sort"),
-        ),
-        Prefetch(
-            # root form -> questions
-            f"{prefix}form__questions",
-            queryset=question_queryset.prefetch_related(
-                Prefetch(
-                    # root form -> row forms -> questions
-                    "row_form__questions",
-                    queryset=question_queryset,
-                ),
-                Prefetch(
-                    # root form -> sub forms -> questions
-                    "sub_form__questions",
-                    queryset=question_queryset.prefetch_related(
-                        Prefetch(
-                            # root form -> sub forms -> row forms -> questions
-                            "row_form__questions",
-                            queryset=question_queryset,
-                        ),
-                        Prefetch(
-                            # root form -> sub forms -> sub forms -> questions
-                            "sub_form__questions",
-                            queryset=question_queryset.prefetch_related(
-                                Prefetch(
-                                    # root form -> sub forms -> sub forms -> row forms -> questions
-                                    "row_form__questions",
-                                    queryset=question_queryset,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ]
-
-
 def copy_instance(
     instance: Instance,
     group: Group,
@@ -219,6 +151,7 @@ def copy_instance(
     serializer.save()
 
     new_instance = serializer.instance
+    new_instance.copy_source = instance
 
     for instance_service in instance.instance_services.exclude(
         service__service_group__name="construction-control"
@@ -306,3 +239,45 @@ def geometer_cadastral_survey_necessary_answer(instance):
         )
 
     return None
+
+
+def get_changeable_forms(current_form: str) -> Set[str]:
+    if not settings.CHANGE_FORM:  # pragma: no cover
+        return set()
+
+    return set(
+        chain(
+            *[
+                form_list
+                for form_list in settings.CHANGE_FORM["INTERCHANGEABLE_FORMS"]
+                if current_form in form_list
+            ]
+        )
+    )
+
+
+def get_localized_geometer(instance: Instance) -> Service | None:
+    service_mapping = settings.APPLICATION.get("LOCALIZED_GEOMETER_SERVICE_MAPPING")
+    if not service_mapping:
+        return None  # pragma: no cover
+
+    geometer_answer = (
+        instance.fields.filter(
+            name__in=settings.APPLICATION.get("GEOMETER_FORM_FIELDS", [])
+        )
+        .values_list("value", flat=True)
+        .first()
+    )
+    if not geometer_answer:
+        return None
+
+    geometer_service_ids = service_mapping.get(geometer_answer, [])
+
+    # TODO: For geometers that have groups that have a subset of locations and a
+    # group without any location, are the groups containing the location to be preferred?
+    return Service.objects.filter(
+        Q(groups__locations__in=[instance.location])
+        | Q(groups__locations__isnull=True),
+        pk__in=geometer_service_ids,
+        disabled=0,
+    ).first()

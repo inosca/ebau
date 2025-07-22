@@ -14,11 +14,14 @@ ADDITIONAL_DEMAND = {
         "SEND_TASK": "send-additional-demand",
         "QUESTIONS": {
             "DECISION": "additional-demand-decision",
+            "DEADLINE": "additional-demand-deadline",
+            "COMMENT": "additional-demand-comment",
         },
         "ANSWERS": {
             "DECISION": {
                 "REJECTED": "additional-demand-decision-reject",
                 "ACCEPTED": "additional-demand-decision-accept",
+                "UNKNOWN": "additional-demand-decision-unknown",
             }
         },
         "HISTORY_ENTRIES": {},
@@ -72,8 +75,24 @@ ADDITIONAL_DEMAND = {
         "ALLOW_SUBSERVICES": True,
         "STATES": {
             "PENDING_ADDITIONAL_DEMANDS": "nfd",
-            "AFTER_ADDITIONAL_DEMANDS": "comm",
         },
+        "NOTIFICATIONS": {
+            "ACCEPTED": [
+                {
+                    "recipient_types": ["applicant"],
+                    "template_slug": "2-3-nachforderung-akzeptiert",
+                }
+            ],
+            "REJECTED": [
+                {
+                    "recipient_types": ["applicant"],
+                    "template_slug": "2-5-nachforderung-abgelehnt",
+                }
+            ],
+        },
+    },
+    "kt_ag": {
+        "ENABLED": True,
         "NOTIFICATIONS": {
             "ACCEPTED": [
                 {

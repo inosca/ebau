@@ -17,7 +17,12 @@ from camac.permissions.switcher import (
     is_permission_mode_fully_enabled,
     permission_switching_method,
 )
-from camac.user.permissions import get_group, get_role_name, permission_aware
+from camac.user.permissions import (
+    IsAllowedClientToken,
+    get_group,
+    get_role_name,
+    permission_aware,
+)
 from camac.utils import get_dict_item
 
 from . import api, filters, mixins, models, permissions, serializers
@@ -108,6 +113,18 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
 
             return qs.filter(access_level_id="municipality-before-submission")
 
+        elif role_name == "trusted_service":
+            # For UR only: All instance ACLs can be seen by coordination and trusted service, which have access to all instances
+            qs = self.get_queryset_for_trusted_service()
+
+            return qs
+
+        elif role_name == "coordination":
+            # For UR only: All instance ACLs can be seen by coordination and trusted service, which have access to all instances
+            qs = self.get_queryset_for_coordination()
+
+            return qs
+
         return models.InstanceACL.objects.none()
 
     @action(methods=["post"], detail=True)
@@ -127,7 +144,7 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
     @_revoke.register_old
     def _revoke_rbac(self, request, pk):
         acl: models.InstanceACL = self.get_object()
-        self.enforce_change_permission(acl.instance)
+        self.enforce_change_permission(acl.instance, acl.access_level_id)
         return self._do_revoke(request, acl)
 
     def _do_revoke(self, request, acl):
@@ -138,7 +155,9 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
         serializer = self.get_serializer(acl)
         return response.Response(serializer.data, status=status.HTTP_200_OK)
 
-    def enforce_change_permission(self, instance: instance_models.Instance):
+    def enforce_change_permission(
+        self, instance: instance_models.Instance, access_level_id
+    ):
         """Enforce change permission for ACLs on this instance.
 
         Checks whether the user is allowed, and raises an exception
@@ -153,6 +172,10 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
         start granting permissions, and needs to be fully rewritten once the
         permissions module becomes the sole "source-of-truth" for access rights
         """
+        # FIXME: Once we fully enable the permission module, this whole
+        # method can go away, and we can rely on the permissions only to
+        # check whether anccess level is assignable or not
+
         # Currently, create/revoke have the same permissions
         request_service_id = self.request.group.service.pk
 
@@ -163,10 +186,30 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
             has_permission = instance.instance_services.filter(
                 **active_service_filters, service_id=request_service_id
             ).exists()
+
+            # As soon as the permission module is fully activated in UR, this will be handled through the permission module
+            if settings.APPLICATION_NAME == "kt_uri":
+                group = get_group(self)
+                role_name = get_role_name(group)
+                has_permission |= role_name in ["trusted_service", "coordination"]
         else:
             has_permission = request_service_id == instance.group.service_id
 
-        if not has_permission:
+        if has_permission:
+            # We have (general) permission, but are we allowed to assign
+            # this specific access level?
+            filt = filters.AccessLevelFilterset(
+                queryset=models.AccessLevel.objects, request=self.request
+            )
+            assignable = filt.filter_assignable_in_instance(
+                models.AccessLevel.objects.all().filter(pk=access_level_id),
+                name="assignable_in_instance",
+                value=instance.pk,
+            )
+            if not assignable.exists():
+                raise ValidationError("This access level cannot be assigned here")
+
+        else:
             # This is primarily already handled via visibility, but this will
             # change and then we'll need this check here as well
             raise ValidationError(
@@ -213,9 +256,15 @@ class AccessLevelViewset(ReadOnlyModelViewSet):
     def get_queryset_for_support(self):
         return super().get_queryset()
 
+    def get_queryset_for_trusted_service(self):
+        return super().get_queryset()
+
+    def get_queryset_for_coordination(self):
+        return super().get_queryset()
+
 
 class PermissionsMetaView(APIView):
-    permission_classes = []
+    permission_classes = [IsAllowedClientToken]
 
     def get(self, request):
         return Response(

@@ -5,14 +5,16 @@ from django.conf import settings
 from django.utils import timezone
 
 from camac.constants import kt_gr as gr_constants
+from camac.instance import domain_logic
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api, models as permissions_models
 from camac.permissions.events import EmptyEventHandler
 from camac.permissions.models import InstanceACL
-from camac.user.models import Group, Service
+from camac.user.models import Group, Service, ServiceRelation
 
 from .common import (
     ApplicantsEventHandlerMixin,
+    ConstructionMonitoringHandlerMixin,
     InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
 )
@@ -40,14 +42,13 @@ def _gr_include_special_service(instance, service_name):
         # has been introduced
         if instance.case.document.form.slug in [
             "bauanzeige",
+            "bauanzeige-v3",
             "vorlaeufige-beurteilung",
+            "vorlaeufige-beurteilung-v3",
         ]:  # pragma: no cover
             return False
         task_id = settings.DECISION["TASK"]
         question_id = "fuer-gvg-freigeben"
-    elif service_name == "aib":
-        task_id = "construction-acceptance"
-        question_id = "fuer-aib-freigeben"
     else:  # pragma: no cover
         raise RuntimeError(
             f"unknown special service {service_name}, expected 'gvg' or 'aib'."
@@ -71,14 +72,11 @@ def gr_include_gvg(instance):
     return _gr_include_special_service(instance, "gvg")
 
 
-def gr_include_aib(instance):
-    return _gr_include_special_service(instance, "aib")
-
-
 class PermissionEventHandlerGR(
     ApplicantsEventHandlerMixin,
     InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
+    ConstructionMonitoringHandlerMixin,
     EmptyEventHandler,
 ):
     def decision_decreed(self, instance: Instance):
@@ -90,16 +88,7 @@ class PermissionEventHandlerGR(
                 service=Service.objects.get(name=gr_constants.GVG_SERVICE_SLUG),
             )
 
-    def construction_acceptance_completed(self, instance: Instance):
-        if gr_include_aib(instance):
-            self.manager.grant(
-                instance,
-                grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
-                access_level=permissions_models.AccessLevel.objects.get(pk="read"),
-                service=Service.objects.get(name=gr_constants.AIB_SERVICE_SLUG),
-            )
-
-    def inquiry_sent(self, instance: Instance, work_item):
+    def inquiry_sent(self, instance: Instance, work_item: WorkItem):
         # USOs have 7 days to open an instance after being invited.
         for addr in work_item.addressed_groups:
             addr_service = Service.objects.get(pk=addr)
@@ -118,7 +107,7 @@ class PermissionEventHandlerGR(
                 ends_at=ends_at,
             )
 
-    def inquiry_completed(self, instance: Instance, work_item):
+    def inquiry_completed(self, instance: Instance, work_item: WorkItem):
         # USOs keep their access if they respond to an inquiry.
         for addr in work_item.addressed_groups:
             service = Service.objects.get(pk=addr)
@@ -159,4 +148,34 @@ class PermissionEventHandlerGR(
                 service=group.service,
                 event_name="dossier-retrieved",
                 ends_at=deadline,
+            )
+
+    def formal_exam_completed(self, instance: Instance, work_item: WorkItem):
+        if domain_logic.AddressAssignmentLogic.requires_address_assignment(
+            work_item.case
+        ):
+            geometer_service = Service.objects.filter(
+                pk__in=ServiceRelation.objects.filter(
+                    receiver=work_item.case.instance.responsible_service(),
+                    function=ServiceRelation.FUNCTION_GEOMETER,
+                ).values_list("provider", flat=True)
+            ).first()
+            gvg_service = Service.objects.get(slug="gvg")
+
+            self.manager.grant(
+                instance,
+                grant_type="SERVICE",
+                access_level="geometer",
+                service=geometer_service,
+                event_name="formal-exam-completed",
+            )
+
+            # The GVG also gets access to the dossier as they will
+            # have to get involved in the address assignment process.
+            self.manager.grant(
+                instance,
+                grant_type="SERVICE",
+                access_level="distribution-service",
+                service=gvg_service,
+                event_name="formal-exam-completed",
             )

@@ -1,7 +1,7 @@
 from functools import reduce
 
 from caluma.caluma_form.models import Answer
-from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.models import Exists, OuterRef, Q, Subquery
@@ -14,7 +14,10 @@ from django_filters.rest_framework import (
     NumberFilter,
 )
 
+from camac.billing.views import BillingV2EntryViewset
+from camac.caluma.api import CalumaApi
 from camac.constants import kt_uri as uri_constants
+from camac.core.utils import canton_aware
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
 from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
@@ -47,6 +50,9 @@ class PublicServiceFilterSet(FilterSet):
     available_in_distribution_for_instance = NumberFilter(
         method="filter_available_in_distribution_for_instance"
     )
+    is_active_service_for_instance = NumberFilter(
+        method="filter_is_active_service_for_instance"
+    )
 
     # ?provider_for=geometer;999111 (service id)
     provider_for = CharFilter(method="filter_provider_for")
@@ -55,6 +61,8 @@ class PublicServiceFilterSet(FilterSet):
     provider_for_instance_municipality = CharFilter(
         method="filter_provider_for_instance_municipality"
     )
+
+    has_billing_entries = BooleanFilter(method="_filter_has_billing_entries")
 
     def _get_public_services_base(self, queryset, name, value):
         if not value:
@@ -129,29 +137,94 @@ class PublicServiceFilterSet(FilterSet):
         return self._get_public_services_base(queryset, name, value)
 
     def filter_available_in_distribution_for_instance(self, queryset, name, value):
-        if not settings.BAB:  # pragma: no cover
+        config = settings.DISTRIBUTION.get("AVAILABLE_SERVICES_FOR_INQUIRY")
+
+        if not config:  # pragma: no cover
             return queryset
 
-        case = Case.objects.get(instance__pk=value)
+        service = self.request.group.service
+        instance = Instance.objects.get(pk=value)
+        config_key = self.get_config_key_for_distribution_filter(service, instance)
+
+        applied_config = config.get(config_key, config.get("default", []))
+
+        filters = {
+            "include": Q(service_parent=service),
+            "exclude": Q(),
+        }
+
+        for config_part in applied_config:
+            conditions = config_part.get("conditions", [])
+
+            if len(conditions) and not all(
+                (
+                    getattr(self, f"_condition_{condition['name']}")(instance)
+                    != condition.get("invert", False)
+                    for condition in conditions
+                )
+            ):
+                continue
+
+            for filter_type in ["include", "exclude"]:
+                for type, values in config_part.get(filter_type, []):
+                    if type == "services":
+                        filters[filter_type] |= Q(
+                            service_parent__isnull=True,
+                            slug__in=values,
+                        )
+                    elif type == "service_groups":
+                        filters[filter_type] |= Q(
+                            service_parent__isnull=True,
+                            service_group__name__in=values,
+                        )
+
+        return queryset.filter(filters["include"]).exclude(filters["exclude"])
+
+    @canton_aware
+    def get_config_key_for_distribution_filter(self, service, instance):
+        if instance.responsible_service() == service:
+            return "authority"
+
+        return service.service_group.name
+
+    def get_config_key_for_distribution_filter_ag(self, service, instance):
+        service_group = service.service_group.name
 
         if (
-            not case.meta.get("is-bab")
-            or self.request.group.service.service_group.name
-            == settings.BAB["SERVICE_GROUP"]
+            instance.responsible_service() == service
+            and service_group != "service-afb"
+            and service_group != "municipality-light"
         ):
-            return queryset
+            return "authority"
 
-        # If the instance is BaB, a fix set of service can only be included in
-        # distribution of the BaB service
-        queryset = queryset.exclude(pk__in=settings.BAB["EXCLUDED_IN_DISTRIBUTION"])
+        return service_group
 
-        if case.meta.get("is-appeal"):
-            return queryset
+    def filter_is_active_service_for_instance(self, queryset, name, value):
+        return queryset.filter(
+            instance_services__active=1,
+            instance_services__instance_id=value,
+        )
 
+    def _condition_is_bab(self, instance):
+        if not settings.BAB:  # pragma: no cover
+            return False
+
+        return instance.case.meta.get("is-bab", False)
+
+    def _condition_is_imported(self, instance):
+        return CalumaApi().is_imported(instance)
+
+    def _condition_is_appeal(self, instance):
+        if not settings.APPEAL:  # pragma: no cover
+            return False
+
+        return instance.case.meta.get("is-appeal", False)
+
+    def _condition_publication_is_done(self, instance):
         publication_work_items = WorkItem.objects.filter(
             **{
-                "case": case,
-                "task_id__in": settings.PUBLICATION["FILL_TASKS"],
+                "case": instance.case,
+                "task_id__in": settings.PUBLICATION["FILL_TASKS"].values(),
                 "meta__is-published": True,
                 "status": WorkItem.STATUS_COMPLETED,
             }
@@ -188,20 +261,19 @@ class PublicServiceFilterSet(FilterSet):
             )
         ).exists()
 
-        # If the instance is BaB, the BaB service can only be included in the
-        # distribution soon as a publication is already done and there is no
-        # other currently running publication.
-        if not has_completed_publication or has_running_publication:
-            queryset = queryset.exclude(
-                service_group__name=settings.BAB["SERVICE_GROUP"]
-            )
-
-        return queryset
+        return not has_running_publication and has_completed_publication
 
     def filter_suggestion_for_instance(self, queryset, name, value):
-        return queryset.filter(
-            pk__in=get_service_suggestions(Instance.objects.get(pk=value))
-        )
+        form_backend = settings.APPLICATION["FORM_BACKEND"]
+        if form_backend == "camac-ng":
+            instance = Instance.objects.select_related("form__family").get(pk=value)
+        else:
+            instance = Instance.objects.get(pk=value)
+        suggested_service_ids_or_slugs = get_service_suggestions(instance)
+
+        if all(isinstance(item, str) for item in list(suggested_service_ids_or_slugs)):
+            return queryset.filter(slug__in=suggested_service_ids_or_slugs)
+        return queryset.filter(pk__in=suggested_service_ids_or_slugs)
 
     def filter_exclude_own_service(self, queryset, name, value):
         if value and self.request.group.service_id:
@@ -235,6 +307,15 @@ class PublicServiceFilterSet(FilterSet):
 
         return queryset.filter(pk__in=Subquery(providers.values("pk")))
 
+    def _filter_has_billing_entries(self, queryset, name, value):
+        if not value:
+            return queryset
+
+        view = BillingV2EntryViewset(request=self.request)
+        qs = view.get_queryset().filter(group__service=OuterRef("pk")).only("pk")
+
+        return queryset.filter(Exists(qs))
+
     class Meta:
         model = models.Service
         fields = (
@@ -254,13 +335,23 @@ class PublicServiceFilterSet(FilterSet):
 class ServiceFilterSet(FilterSet):
     service_id = NumberMultiValueFilter()
     service_group_id = NumberMultiValueFilter()
+    available_in_sanctions = BooleanFilter(method="filter_available_in_sanctions")
+
+    def filter_available_in_sanctions(self, queryset, name, value):
+        return queryset.filter(disabled=False)
 
     class Meta:
         model = models.Service
-        fields = ("service_id", "service_group_id", "service_parent")
+        fields = (
+            "service_id",
+            "service_group_id",
+            "service_parent",
+            "available_in_sanctions",
+        )
 
 
 class PublicUserFilterSet(FilterSet):
+    id = NumberMultiValueFilter()
     username = CharMultiValueFilter()
     service = NumberMultiValueFilter(field_name="groups__service")
     disabled = BooleanFilter()
@@ -279,6 +370,7 @@ class UserFilterSet(FilterSet):
     responsible_for_instances = BooleanFilter(
         method="_filter_responsible_for_instances"
     )
+    admin_for_service = NumberFilter(method="filter_admin_for_service")
 
     def _exclude_primary_role(self, queryset, name, value):
         user_groups = models.UserGroup.objects.filter(
@@ -295,6 +387,17 @@ class UserFilterSet(FilterSet):
             return queryset.filter(pk__in=responsible)
 
         return queryset.exclude(pk__in=responsible)
+
+    def filter_admin_for_service(self, queryset, name, value):
+        return queryset.filter(
+            groups__service_id=value,
+            groups__role__name__in=[
+                "construction-control-admin",
+                "geometer-admin",
+                "municipality-admin",
+                "service-admin",
+            ],
+        )
 
     class Meta:
         model = get_user_model()

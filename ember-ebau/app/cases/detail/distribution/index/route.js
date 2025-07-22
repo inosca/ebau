@@ -17,7 +17,7 @@ export default class CasesDetailDistibutionIndexRoute extends Route {
         fetchPolicy: "network-only",
         variables: { instanceId: instance.id },
       },
-      "allCases.edges.firstObject.node.workItems.edges.firstObject.node.childCase.id",
+      "allCases.edges.0.node.workItems.edges.0.node.childCase.id",
     );
   }
 

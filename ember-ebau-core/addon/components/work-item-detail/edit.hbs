@@ -166,6 +166,21 @@
         <button class="uk-button uk-button-primary" type="submit">
           {{t "global.save"}}
         </button>
+
+        {{#if
+          (and
+            (has-feature "workItems.cancel")
+            (can "cancel work-item" this.workItem)
+          )
+        }}
+          <button
+            class="uk-button uk-button-danger uk-float-right"
+            type="button"
+            {{on "click" (perform this.cancelWorkItem)}}
+          >
+            {{t "workItems.actions.discard"}}
+          </button>
+        {{/if}}
       </div>
     </form>
   {{/if}}

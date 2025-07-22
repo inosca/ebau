@@ -33,6 +33,9 @@ billing:
   delete-error: Errore nel tentativo di eliminare la tassa
   charge-error: Errore nel tentativo di fatturare la tassa
   paginationInfo: "<strong>{count}</strong> su {total}"
+  apply-construction-costs: Adottare i costi di costruzione dal modulo
+  apply-construction-costs-empty: Non è stato possibile reperire i costi di costruzione nel modulo
+  remark: Osservazione
 
   organizations:
     cantonal: Cantonale
@@ -42,11 +45,13 @@ billing:
     flat: "{totalCost, number, ::.00} {taxMode}"
     percentage: "{percentage, number, ::.00 % scale/0.01} su {totalCost, number, ::.00} {taxMode}"
     hourly: "{hours, number, ::.00} h a {hourlyRate, number, ::.00} {taxMode}"
+    ag_processing_fee: ""
 
     titles:
       flat: forfait
       percentage: percentuale
       hourly: in base al dispendio
+      ag_processing_fee: ""
 
   tax-modes:
     exempt: non soggetto a IVA
@@ -89,3 +94,9 @@ billing:
   filters:
     createdAfter:
     createdBefore:
+    service: Organizzazione
+
+  templates:
+    info:
+    select:
+    apply:

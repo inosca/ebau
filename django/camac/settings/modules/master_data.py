@@ -1,3 +1,37 @@
+from camac.caluma.extensions.countries import COUNTRIES
+
+
+def text_to_nature_risk(value, *args, **kwargs):
+    return [{"risk_type": v.strip()} for v in value.split(",")] if value else []
+
+
+AG_PERSONAL_DATA_MAPPING = {
+    "last_name": "name-gesuchstellerin",
+    "first_name": "vorname-gesuchstellerin",
+    "street": "strasse-gesuchstellerin",
+    "street_number": "nummer-gesuchstellerin",
+    "zip": "plz-gesuchstellerin",
+    "town": "ort-gesuchstellerin",
+    "email": "e-mail-gesuchstellerin",
+    "tel": "telefon-oder-mobile-gesuchstellerin",
+    "is_juristic_person": (
+        "juristische-person-gesuchstellerin",
+        {
+            "value_parser": (
+                "value_mapping",
+                {
+                    "mapping": {
+                        "juristische-person-gesuchstellerin-ja": True,
+                        "juristische-person-gesuchstellerin-nein": False,
+                    }
+                },
+            )
+        },
+    ),
+    "juristic_name": "name-juristische-person-gesuchstellerin",
+    "reference_number": "referenznummer",
+}
+
 SO_PERSONAL_DATA_MAPPING = {
     "row_id": "pk",
     "salutation": ("anrede", {"value_parser": "option", "prop": "label"}),
@@ -9,6 +43,10 @@ SO_PERSONAL_DATA_MAPPING = {
     "zip": "plz",
     "town": "ort",
     "country": "land",
+    "country_code": (
+        "land",
+        {"value_parser": ("value_mapping", {"mapping": COUNTRIES})},
+    ),
     "email": "e-mail",
     "tel": "telefon",
     "po_box": "postfach",
@@ -68,6 +106,10 @@ SO_PERSONAL_DATA_MAPPING = {
     "representative_zip": "vertretung-plz",
     "representative_town": "vertretung-ort",
     "representative_country": "vertretung-land",
+    "representative_country_code": (
+        "land",
+        {"value_parser": ("value_mapping", {"mapping": COUNTRIES})},
+    ),
     "representative_email": "vertretung-e-mail",
     "representative_tel": "vertretung-telefon",
     "representative_po_box": "vertretung-postfach",
@@ -307,12 +349,9 @@ MASTER_DATA = {
                 "instance_property",
                 "identifier",
             ),  # eCH0211: 3.1.1.1.1, 3.1.1.1.2
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": ("instance_property", "location"),
             "municipality_name": ("instance_property", "location"),
-            "nature_risk": ("static", None),
+            "municipality_slug": ("instance_property", "location_id"),
+            "nature_risk": ("static", []),
             "proposal": (
                 "ng_answer",
                 ["bezeichnung", "bezeichnung-override"],
@@ -354,7 +393,6 @@ MASTER_DATA = {
                     }
                 },
             ),
-            "parking_lots": ("static", None),
             "buildings": (
                 "ng_table",
                 ["gwr", "gwr-v2"],
@@ -808,10 +846,6 @@ MASTER_DATA = {
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
             "construction_duration": ("answer", "dauer-in-monaten"),
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -902,11 +936,11 @@ MASTER_DATA = {
                     "column_mapping": {
                         "system_type": (
                             "bs-aufzugsanlage-typ-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "new_or_existing": (
                             "bs-aufzugsanlage-zustand-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                     }
                 },
@@ -930,7 +964,7 @@ MASTER_DATA = {
                         "material": "bs-gefaehrlicher-stoff-lagerstoff-v3",
                         "material_group": (
                             "bs-gefaehrlicher-stoff-stoffgruppe-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "amount": "bs-gefaehrlicher-stoff-menge-v3",
                     }
@@ -943,12 +977,12 @@ MASTER_DATA = {
                     "column_mapping": {
                         "system_type": (
                             "bs-lufttechnische-anlagen-typ-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "air_volume": "bs-lufttechnische-anlage-luftvolumenstrom-v3",
                         "new_or_existing": (
                             "bs-lufttechnische-anlage-zustand-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                     }
                 },
@@ -972,15 +1006,18 @@ MASTER_DATA = {
                 "solaranlagen-v3",
                 {
                     "column_mapping": {
-                        "type": ("solaranlage-typ-v3", {"value_parser": "option"}),
+                        "type": (
+                            "solaranlage-typ-v3",
+                            {"value_parser": "option", "prop": "label"},
+                        ),
                         "energy_storage": (
                             "solaranlage-elektrische-energiespeicherung-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "energy_storage_capacity": "solaranlage-energiespeicherkapazitaet-v3",
                         "new_or_existing": (
                             "solaranlage-zustand-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                     }
                 },
@@ -1096,11 +1133,11 @@ MASTER_DATA = {
                     "column_mapping": {
                         "type": (
                             "bs-brandschutzanlage-typ-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "new_or_existing": (
                             "bs-brandschutzanlage-zustand-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                     }
                 },
@@ -1112,17 +1149,17 @@ MASTER_DATA = {
                     "column_mapping": {
                         "type": (
                             "bs-waermetechnische-anlagen-typ-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "power": "bs-waermetechnische-anlage-leistung-v3",
                         "combusitble_storage": (
                             "bs-waermetechnische-anlage-brennstofflagerung-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                         "storage_amount": "bs-waermetechnische-anlage-lagermenge-v3",
                         "new_or_existing": (
                             "bs-waermetechnische-anlage-zustand-v3",
-                            {"value_parser": "option"},
+                            {"value_parser": "option", "prop": "label"},
                         ),
                     }
                 },
@@ -1259,17 +1296,9 @@ MASTER_DATA = {
             ),
             "joined_street_and_number": ("static", False),
             "street": ("answer", "parcel-street"),
-            "street_number": ("answer", "parcel-street-number"),
+            "street_number": ("answer", "street-number"),
             "city": ("answer", "parcel-city"),
             "dossier_number": ("case_meta", "dossier-number"),
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": (
-                "answer",
-                "municipality",
-                {"value_parser": "dynamic_option"},
-            ),
             "municipality_name": (
                 "answer",
                 "municipality",
@@ -1579,6 +1608,64 @@ MASTER_DATA = {
             "land_use": ("answer", "grundnutzung"),
             "overlayed_land_use": ("answer", "ueberlagerte-nutzungen"),
             "protected": ("answer", "schutzobjekte"),
+            "project_authors": (
+                "table",
+                "project-author",
+                {
+                    "column_mapping": {
+                        "last_name": "last-name",
+                        "first_name": "first-name",
+                        "street": "street",
+                        "street_number": "street-number",
+                        "zip": "zip",
+                        "town": "city",
+                        "is_juristic_person": (
+                            "is-juristic-person",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "is-juristic-person-yes": True,
+                                            "is-juristic-person-no": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "juristic-person-name",
+                    }
+                },
+            ),
+            "landowners": (
+                "table",
+                "landowner",
+                {
+                    "column_mapping": {
+                        "last_name": "last-name",
+                        "first_name": "first-name",
+                        "street": "street",
+                        "street_number": "street-number",
+                        "zip": "zip",
+                        "town": "city",
+                        "is_juristic_person": (
+                            "is-juristic-person",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "is-juristic-person-yes": True,
+                                            "is-juristic-person-no": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "juristic-person-name",
+                    }
+                },
+            ),
         },
     },
     "demo": {
@@ -1737,10 +1824,6 @@ MASTER_DATA = {
             "street_number": ("answer", "nr"),
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten-in-chf"),
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -1909,6 +1992,37 @@ MASTER_DATA = {
                     }
                 },
             ),
+            "invoice_recipients": (
+                "table",
+                "personalien-rechnungsempfaenger",
+                {
+                    "column_mapping": {
+                        "last_name": "name-gesuchstellerin",
+                        "first_name": "vorname-gesuchstellerin",
+                        "street": "strasse-gesuchstellerin",
+                        "street_number": "nummer-gesuchstellerin",
+                        "zip": "plz-gesuchstellerin",
+                        "town": "ort-gesuchstellerin",
+                        "email": "e-mail-gesuchstellerin",
+                        "tel": "telefon-oder-mobile-gesuchstellerin",
+                        "is_juristic_person": (
+                            "juristische-person-gesuchstellerin",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "juristische-person-gesuchstellerin-ja": True,
+                                            "juristische-person-gesuchstellerin-nein": False,
+                                        }
+                                    },
+                                )
+                            },
+                        ),
+                        "juristic_name": "name-juristische-person-gesuchstellerin",
+                    }
+                },
+            ),
             "legal_representatives": (
                 "table",
                 "personalien-vertreterin-mit-vollmacht",
@@ -1953,7 +2067,6 @@ MASTER_DATA = {
                 },
             ),
             "profile_approval_date": ("static", None),
-            "parking_lots": ("static", ""),
             "nature_risk": ("static", []),
             "construction_start_date": ("static", None),
             "construction_duration": ("static", ""),
@@ -1964,10 +2077,15 @@ MASTER_DATA = {
             "zip": ("answer", "plz"),
             "city": ("answer", "ort-grundstueck"),
             "construction_costs": ("answer", "baukosten"),
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
+            "deconstruction_material": ("answer", "rueckbaumaterial-volumen"),
+            "removed_topsoil": ("answer", "abgetragener-oberboden-volumen"),
+            "excavation": ("answer", "aushub-volumen"),
+            "road_surface": ("answer", "strasse-belag-volumen"),
+            "track_excavation": ("answer", "gleisaushub-volumen"),
+            "year_of_construction_oldest_affected_object": (
+                "answer",
+                "baujahr-aeltestes-betroffenes-objekt",
+            ),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -1977,6 +2095,15 @@ MASTER_DATA = {
                 "answer",
                 "gemeinde",
                 {"value_parser": "dynamic_option", "prop": "slug"},
+            ),
+            "municipality_service_content": (
+                "municipality_service_content",
+                "municipality_slug",
+            ),
+            "construction_zone": (
+                "answer",
+                "das-bauvorhaben-befindet-sich-in",
+                {"value_parser": "option", "prop": "slug"},
             ),
             "plot_data": (
                 "table",
@@ -2260,6 +2387,7 @@ MASTER_DATA = {
                     },
                 },
             ),
+            "gis_coordinates": ("answer", "gis-map"),
         },
     },
     "kt_so": {
@@ -2290,10 +2418,6 @@ MASTER_DATA = {
             "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "strasse-nummer"),
             "city": ("answer", "ort"),
-            # DEPRECATED: `municipality` returns a string (municipality name)
-            # for Kt. SZ and an object (slug and label) for other cantons.
-            # Use `municipality_name` instead.
-            "municipality": ("answer", "gemeinde", {"value_parser": "dynamic_option"}),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -2620,6 +2744,7 @@ MASTER_DATA = {
                 {
                     "column_mapping": {
                         "name": "gebaeude-bezeichnung",
+                        "egid": "egid",
                         "proposal": (
                             "art-der-arbeiten",
                             {
@@ -2666,7 +2791,10 @@ MASTER_DATA = {
             ),
             "construction_start_date": (
                 "answer",
-                "datum-baubeginn",
+                [
+                    "datum-baubeginn",  # migrated dossiers
+                    "geplanter-baustart",  # regular dossiers
+                ],
                 {"value_key": "date"},
             ),
             "final_approval_date": (
@@ -2716,6 +2844,207 @@ MASTER_DATA = {
                     )
                 },
             ),
+            "bab_date_of_receipt_arp": (
+                "answer",
+                "mp-bab-datum-eingang-arp",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_deadline_at_recording": (
+                "answer",
+                "mp-bab-terminvorgabe-bei-erfassung",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_relevant_deadline": (
+                "answer",
+                "mp-bab-massgebliche-terminvorgabe",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_procedure_status": (
+                "answer",
+                "mp-bab-verfahrensstand",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_processing_status": (
+                "answer",
+                "mp-bab-bearbeitungsstatus",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_suspensions": (
+                "table",
+                "mp-bab-grund-der-sistierung",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "column_mapping": {
+                        "reason": (
+                            "mp-bab-sistierungsgrund",
+                            {"value_parser": "option", "prop": "label"},
+                        ),
+                        "start": (
+                            "mp-bab-sistiert-von",
+                            {
+                                "value_key": "date",
+                                "value_parser": "human_readable_date",
+                            },
+                        ),
+                        "end": (
+                            "mp-bab-sistiert-bis",
+                            {
+                                "value_key": "date",
+                                "value_parser": "human_readable_date",
+                            },
+                        ),
+                    },
+                },
+            ),
+            "bab_approval_authority": (
+                "answer",
+                "mp-bab-bewilligungsbehoerde",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_interest_in_project": (
+                "answer",
+                "mp-bab-interesse-am-vorhaben",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_journal": (
+                "table",
+                "mp-bab-journal-tabelle",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "column_mapping": {
+                        "date": (
+                            "mp-bab-datum-eintrag",
+                            {
+                                "value_key": "date",
+                                "value_parser": "human_readable_date",
+                            },
+                        ),
+                        "type": (
+                            "mp-bab-art-des-eintrages",
+                            {
+                                "value_parser": "option",
+                                "prop": "label",
+                            },
+                        ),
+                        "involved": "mp-bab-beteiligte-anwesende",
+                        "facts": "mp-bab-sachverhalt",
+                    },
+                },
+            ),
+            "bab_municipality_number_cantonal_arp": (
+                "answer",
+                "mp-bab-gemeindenummer-kantonal-arp",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                },
+            ),
+            "bab_construction_zone": (
+                "answer",
+                "mp-bab-bauzone",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_object_protection": (
+                "answer",
+                "mp-bab-objektschutz",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_protected_objects": (
+                "table",
+                "mp-bab-angaben-zur-unterschutzstellung",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "column_mapping": {
+                        "description": "mp-bab-schutzobjekt-bezeichnung",
+                        "decision_number": "mp-bab-beschlussnummer",
+                        "decision_date": (
+                            "mp-bab-datum-beschluss",
+                            {
+                                "value_key": "date",
+                                "value_parser": "human_readable_date",
+                            },
+                        ),
+                        "disposition_date": (
+                            "mp-bab-datum-verfuegung",
+                            {
+                                "value_key": "date",
+                                "value_parser": "human_readable_date",
+                            },
+                        ),
+                        "authority": (
+                            "mp-bab-verfuegende-behoerde",
+                            {"value_parser": "option", "prop": "label"},
+                        ),
+                    },
+                },
+            ),
+            "bab_checklist_bab_so_according_to_rpg": (
+                "answer",
+                "mp-bab-checkliste-bab-so-nach-rpg",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_decision_canton": (
+                "answer",
+                "mp-bab-entscheid-kanton",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "bab_decision_date_canton": (
+                "answer",
+                "mp-bab-datum-des-entscheides-kanton",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_key": "date",
+                },
+            ),
+            "bab_decision_opening_type_canton": (
+                "answer",
+                "mp-bab-eroeffnungsart-des-entscheides-kanton",
+                {
+                    "document_from_work_item": "material-exam-bab",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
             # eCH0211
             "construction_duration": ("answer", "dauer-in-monaten"),
             "legal_representatives": ("static", []),
@@ -2732,7 +3061,29 @@ MASTER_DATA = {
                 },
             ),
             "organization_category": ("static", "ebauso"),
-            "parking_lots": ("static", None),
+            "civil_engineering": (
+                "table",
+                "tiefbauten",
+                {
+                    "column_mapping": {
+                        "is_parking_lot": (
+                            "tiefbau-siedlung-art",
+                            {
+                                "value_parser": (
+                                    "value_mapping",
+                                    {
+                                        "mapping": {
+                                            "tiefbau-siedlung-art-parkplaetze": True,
+                                            "tiefbau-siedlung-art-veloabstellplaetze": True,
+                                        },
+                                    },
+                                ),
+                                "default": False,
+                            },
+                        ),
+                    }
+                },
+            ),
             "proceeding_type": ("static", None),
             "remark": ("answer", "bemerkungen"),
             "usage_type": (
@@ -2741,7 +3092,156 @@ MASTER_DATA = {
                 {"value_parser": "option", "prop": "label"},
             ),
             "usage_zone": ("answer", "nutzungsplanung-grundnutzung"),
-            "zip": ("static", None),
+            "zip": ("answer", "plz"),
+        },
+    },
+    "kt_ag": {
+        "ENABLED": True,
+        "CONFIG": {
+            "organization_category": ("static", "ebauag"),
+            "applicants": (
+                "table",
+                "personalien-gesuchstellerin",
+                {"column_mapping": AG_PERSONAL_DATA_MAPPING},
+            ),
+            "landowners": (
+                "table",
+                "personalien-grundeigentumerin",
+                {"column_mapping": AG_PERSONAL_DATA_MAPPING},
+            ),
+            "project_authors": (
+                "table",
+                "personalien-projektverfasserin",
+                {"column_mapping": AG_PERSONAL_DATA_MAPPING},
+            ),
+            "invoice_recipients": (
+                "table",
+                "personalien-rechnungsempfaenger",
+                {"column_mapping": AG_PERSONAL_DATA_MAPPING},
+            ),
+            "legal_representatives": (
+                "table",
+                "vertreterin-mit-vollmacht",
+                {"column_mapping": AG_PERSONAL_DATA_MAPPING},
+            ),
+            "municipality_name": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "label"},
+            ),
+            "municipality_slug": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "slug"},
+            ),
+            "other_municipality_names": (
+                "answer",
+                "weitere-gemeinden",
+                {"value_parser": "dynamic_option", "prop": "label"},
+            ),
+            "plot_data": (
+                "table",
+                "parzelle",
+                {
+                    "column_mapping": {
+                        "plot_number": "parzellennummer",
+                        "egrid_number": "e-grid-nr",
+                    }
+                },
+            ),
+            "dossier_number": ("case_meta", "dossier-number"),
+            "proposal": ("answer", "beschreibung-bauvorhaben"),
+            "remark": ("answer", "beschreibung-bauvorhaben-details"),
+            "proceeding_type": (
+                "answer",
+                "vorlaeufige-pruefung-verfahrensart",
+                {
+                    "document_from_work_item": "formal-exam",
+                    "value_parser": "option",
+                    "prop": "label",
+                },
+            ),
+            "publication_required": (
+                "answer",
+                "vorlaeufige-pruefung-publikation",
+                {
+                    "document_from_work_item": "formal-exam",
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "vorlaeufige-pruefung-publikation-ja": True,
+                                "vorlaeufige-pruefung-publikation-nein": False,
+                            }
+                        },
+                    ),
+                },
+            ),
+            "information_of_neighbors_required": (
+                "answer",
+                "vorlaeufige-pruefung-auswaertige-anstoesser",
+                {
+                    "document_from_work_item": "formal-exam",
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "vorlaeufige-pruefung-auswaertige-anstoesser-ja": True,
+                                "vorlaeufige-pruefung-auswaertige-anstoesser-nein": False,
+                            }
+                        },
+                    ),
+                },
+            ),
+            "usage_zone": ("answer", "zonenplan"),
+            "joined_street_and_number": ("static", True),
+            "street": ("answer", "street-and-housenumber"),
+            "zip": ("answer", "plz"),
+            "city": ("answer", "ort-grundstueck"),
+            "construction_costs": ("answer", "baukosten"),
+            "submit_date": ("case_meta", "submit-date", {"value_parser": "datetime"}),
+            "is_paper": (
+                "answer",
+                "is-paper",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {"mapping": {"is-paper-yes": True, "is-paper-no": False}},
+                    )
+                },
+            ),
+            "decision_date": (
+                "answer",
+                "entscheid-datum",
+                {
+                    "document_from_work_item": "decision",
+                    "value_key": "date",
+                },
+            ),
+            "application_type": ("form_name",),
+            "is_pgv": (
+                "is_form",
+                ["plangenehmigungsverfahren-gas", "plangenehmigungsverfahren-bund"],
+            ),
+            "profile_approval_date": ("static", None),
+            "nature_risk": (
+                "answer",
+                "plan-der-gefahrenkommission",
+                {"value_parser": text_to_nature_risk},
+            ),
+            "usage_type": (
+                "answer",
+                "zweckbestimmung",
+                {"value_parser": "option", "prop": "label"},
+            ),
+            "construction_start_date": ("static", None),
+            "construction_duration": ("static", ""),
+            "gis_coordinates": ("answer", "gis-map"),
+            "pgv_responsible_authority": (
+                "answer",
+                "zustaendige-behoerde",
+                {"value_parser": "option", "prop": "label"},
+            ),
         },
     },
 }

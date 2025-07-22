@@ -4,6 +4,7 @@ import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { task, timeout } from "ember-concurrency";
+import html2canvas from "html2canvas";
 
 import {
   LatLngToEPSG2056,
@@ -36,6 +37,7 @@ function addLabel(feature) {
 
 export default class GrGisComponent extends Component {
   @service intl;
+  @service store;
 
   @tracked markers = A([]);
   @tracked searchHighlight;
@@ -59,6 +61,7 @@ export default class GrGisComponent extends Component {
     return JSON.stringify({
       markers: this.markers.map((m) => LatLngToEPSG2056(m)),
       geometry: this.geometry,
+      center: getCenter(this.markers, this.geometry),
     });
   }
 
@@ -150,7 +153,8 @@ export default class GrGisComponent extends Component {
   @action
   updateMarkers(e) {
     this.searchHighlight = null;
-    this.markers.pushObject({ lat: e.latlng.lat, lng: e.latlng.lng });
+    // Do not use .push here as it breaks reactivity
+    this.markers = [...this.markers, { lat: e.latlng.lat, lng: e.latlng.lng }];
   }
 
   get geometry() {
@@ -197,5 +201,152 @@ export default class GrGisComponent extends Component {
     const field = this.args.field;
     field.answer.value = null;
     await field.save.perform();
+  }
+
+  @action
+  async onSelection() {
+    const currentZoom = this.map.getZoom();
+    const targetZoom = this.maxZoom - 1;
+
+    // center the map on the selected point(s)
+    await this.centerMap(targetZoom);
+    // zoom to preferred zoom level for the canvas image
+    await this.zoomToLevel(targetZoom, false);
+    // create canvas image and upload/replace in alexandria
+    const canvasImage = await this.createCanvasImage();
+    await this.storeCanvasImage(canvasImage);
+    // zoom back to the previous zoom level
+    await this.zoomToLevel(currentZoom);
+  }
+
+  async centerMap(targetZoom) {
+    let moveTimeout;
+    const centerBounds = new L.LatLngBounds(
+      this.markers.map((m) => [m.lat, m.lng]),
+    );
+
+    // cancel if no valid center is available.
+    if (!this.centerCoordinate || !centerBounds.isValid()) {
+      return;
+    }
+
+    return new Promise((resolve) => {
+      // fallback if the move event is not triggered
+      moveTimeout = setTimeout(() => resolve(), 3000);
+
+      // wait for center animation to complete before resolving
+      this.map.once("moveend", () => {
+        clearTimeout(moveTimeout);
+        resolve();
+      });
+
+      const sw = centerBounds.getSouthWest();
+      const ne = centerBounds.getNorthEast();
+
+      // when only one marker is available (sw==ne), center the map on sw
+      // to prevent invalid bounds error on fit.
+      if (sw.equals(ne)) {
+        this.map.setView(sw, targetZoom);
+      } else {
+        this.map.fitBounds(centerBounds, { padding: [20, 20] });
+      }
+    });
+  }
+
+  async zoomToLevel(targetZoom, animate = true) {
+    let zoomTimeout = false;
+
+    return new Promise((resolve) => {
+      const currentZoom = this.map.getZoom();
+      if (currentZoom === targetZoom) {
+        return resolve(targetZoom);
+      }
+
+      // fallback if the zoomend event is not triggered
+      zoomTimeout = setTimeout(() => {
+        return resolve(targetZoom);
+      }, 3000);
+
+      this.map.once("zoomend", () => {
+        clearTimeout(zoomTimeout);
+        return resolve(targetZoom);
+      });
+
+      return this.map.setZoom(targetZoom, { animate });
+    });
+  }
+
+  async createCanvasImage() {
+    // small delay to prevent the map not being fully loaded/visible
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    const container = this.map._container;
+    const canvas = await html2canvas(container, {
+      ignoreElements: (element) =>
+        element.classList.contains("leaflet-control-container"),
+      logging: false,
+      useCORS: true,
+      x: window.scrollX + container.getBoundingClientRect().left,
+      y: window.scrollY + container.getBoundingClientRect().top,
+    });
+
+    const image = await new Promise((resolve) => canvas.toBlob(resolve));
+
+    return image;
+  }
+
+  async storeCanvasImage(blob) {
+    const instanceId = this.args.context.instanceId;
+    const filename = "Situationsplan.png";
+    const category =
+      this.store.peekRecord("category", "system") ||
+      (await this.store.findRecord("category", "system"));
+    const metaInfo = [
+      { key: "camac-instance-id", value: String(instanceId) },
+      { key: "situationsplan", value: "true" },
+    ];
+
+    // upload new situationsplan document
+    const newDocument = await this.uploadAlexandriaDocument(
+      category,
+      new File([blob], filename, { type: blob.type }),
+      metaInfo.reduce((acc, { key, value }) => {
+        acc[key] = value;
+        return acc;
+      }, {}),
+    );
+
+    // delete existing situationsplan documents, but do not await the response
+    void this.cleanupOldSituationplans(category, metaInfo, newDocument);
+  }
+
+  async uploadAlexandriaDocument(category, file, metainfo) {
+    const documentModel = this.store.createRecord("document", {
+      category,
+      metainfo,
+      content: file,
+    });
+    documentModel.title = file.name;
+    await documentModel.save();
+
+    return documentModel;
+  }
+
+  async cleanupOldSituationplans(category, metaInfo, newDocument) {
+    const documents = await this.store.query("document", {
+      filter: {
+        categories: category.id,
+        metainfo: JSON.stringify(metaInfo),
+      },
+    });
+
+    for (const document of documents) {
+      if (document.id === newDocument.id) {
+        continue;
+      }
+
+      document.deleteRecord();
+      document.save();
+    }
   }
 }

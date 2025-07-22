@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE foo [
+  <!ENTITY xxe SYSTEM "file:///app/kt_bern/static/ech0211/xml/post/test_malicious_xxe.xml">
+  <!ENTITY xxe_pwd SYSTEM "file:///etc/passwd">
+]>
+<ns2:delivery xmlns:ns2="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns9="http://www.ech.ch/xmlns/eCH-0058/5">
+  <ns2:deliveryHeader>
+    <ns9:senderId>not relevant</ns9:senderId>
+    <ns9:messageId>not relevant</ns9:messageId>
+    <ns9:messageType>not relevant</ns9:messageType>
+    <ns9:sendingApplication>
+      <ns9:manufacturer>not relevant</ns9:manufacturer>
+      <ns9:product>not relevant</ns9:product>
+      <ns9:productVersion>1.2.0</ns9:productVersion>
+    </ns9:sendingApplication>
+    <ns9:subject>not relevant</ns9:subject>
+    <ns9:messageDate>2019-11-07T00:00:00.000Z</ns9:messageDate>
+    <ns9:action>1</ns9:action>
+    <ns9:testDeliveryFlag>true</ns9:testDeliveryFlag>
+  </ns2:deliveryHeader>
+  <ns2:eventCloseArchiveDossier>
+    <ns2:eventType>Malicous &xxe_pwd;</ns2:eventType>
+    <ns2:planningPermissionApplicationIdentification>
+      <ns2:localID>
+        <ns3:IdCategory>Category</ns3:IdCategory>
+        <ns3:Id>2019-001</ns3:Id>
+      </ns2:localID>
+      <ns2:otherID>
+        <ns3:IdCategory>Category</ns3:IdCategory>
+        <ns3:Id>2019-001</ns3:Id>
+      </ns2:otherID>
+      <ns2:dossierIdentification>2323</ns2:dossierIdentification>
+    </ns2:planningPermissionApplicationIdentification>
+    <ns2:remark>Malicious content. &xxe;</ns2:remark>
+  </ns2:eventCloseArchiveDossier>
+</ns2:delivery>

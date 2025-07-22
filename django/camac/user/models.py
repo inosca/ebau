@@ -91,6 +91,30 @@ class User(AbstractBaseUser):
         related_name="users",
         through_fields=("user", "group"),
     )
+    title = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        verbose_name=_("Title"),
+    )
+    position = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        verbose_name=_("Position"),
+    )
+    mobile = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name=_("Mobile"),
+    )
+    division = models.CharField(
+        max_length=255,
+        blank=True,
+        null=True,
+        verbose_name=_("Division"),
+    )
 
     @property
     def is_superuser(self):
@@ -478,6 +502,9 @@ class ServiceGroup(core_models.MultilingualModel, models.Model):
     service_group_id = models.AutoField(
         db_column="SERVICE_GROUP_ID", primary_key=True, verbose_name=_("ID")
     )
+    slug = models.SlugField(
+        unique=True, null=True, blank=True, default=None, max_length=100
+    )
     name = models.CharField(
         db_column="NAME", max_length=100, blank=True, null=True, verbose_name=_("Name")
     )
@@ -558,6 +585,7 @@ class Service(core_models.MultilingualModel, models.Model):
     service_id = models.AutoField(
         db_column="SERVICE_ID", primary_key=True, verbose_name=_("ID")
     )
+    slug = models.SlugField(unique=True, null=True, blank=True, default=None)
     service_group = models.ForeignKey(
         ServiceGroup,
         models.PROTECT,
@@ -634,6 +662,12 @@ class Service(core_models.MultilingualModel, models.Model):
     responsibility_construction_control = models.BooleanField(
         default=False, verbose_name=_("Apply responsibility in construction control?")
     )
+    department = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name=_("Department"),
+    )
 
     # An external identifier is a unique identifier which is does not live in
     # our system. This could be a number of things like e.g. the BfS number for
@@ -683,6 +717,12 @@ class ServiceT(models.Model):
     )
     city = models.CharField(
         db_column="CITY", max_length=100, blank=True, null=True, verbose_name=_("City")
+    )
+    department = models.CharField(
+        max_length=100,
+        blank=True,
+        null=True,
+        verbose_name=_("Department"),
     )
 
     class Meta:

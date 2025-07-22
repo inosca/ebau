@@ -3,9 +3,10 @@ from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import complete_work_item
 from caluma.caluma_workflow.events import post_complete_work_item, post_resume_work_item
-from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db import transaction
+
+from camac.caluma.models import Inquiry
 
 from .distribution import filter_by_task
 
@@ -32,17 +33,15 @@ def complete_direct_inquiry(sender, work_item, user, context=None, **kwargs):
     if not work_item.meta.get("is-direct"):
         return
 
-    parent_inquiries = work_item.case.work_items.filter(
-        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-        status=WorkItem.STATUS_READY,
-        addressed_groups=work_item.controlling_groups,
-    )
-
     status_question = Question.objects.get(
         pk=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
     )
 
-    for parent_inquiry in parent_inquiries:
+    for parent_inquiry in (
+        Inquiry.objects.for_distribution_case(work_item.case)
+        .addressed_to(work_item.controlling_groups)
+        .only_pending()
+    ):
         document = parent_inquiry.child_case.document
 
         # Delete any existing answers

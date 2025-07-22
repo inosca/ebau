@@ -17,11 +17,6 @@
   @media (min-width: $breakpoint-large) {
     max-height: 330px;
   }
-
-  &--hidden {
-    max-height: 0;
-    opacity: 0;
-  }
 }
 
 .master-data-divider {
@@ -39,13 +34,7 @@
     transition: border-color $animation-duration ease-out;
   }
 
-  &--hidden {
-    &::before {
-      border-color: transparent;
-    }
-  }
-
-  &__toggle {
+  &__toggle:not([disabled]) {
     text-transform: initial;
     color: $global-primary-background;
     border-bottom: 1px solid $global-primary-background;

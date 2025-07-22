@@ -11,11 +11,13 @@ if (macroCondition(getOwnConfig().application === "be")) {
   config = importSync("ember-ebau-core/config/work-item-list-gr");
 } else if (macroCondition(getOwnConfig().application === "so")) {
   config = importSync("ember-ebau-core/config/work-item-list-so");
+} else if (macroCondition(getOwnConfig().application === "ag")) {
+  config = importSync("ember-ebau-core/config/work-item-list-ag");
 } else if (macroCondition(getOwnConfig().application === "test")) {
   config = importSync("ember-ebau-core/config/work-item-list-test");
 }
 
-const sharedConfig = {
+export const sharedConfig = {
   columns(status) {
     return [
       "task",
@@ -25,6 +27,15 @@ const sharedConfig = {
         ? ["closedAt", "closedBy"]
         : ["deadline", "responsible"]),
     ].filter((value) => value !== null);
+  },
+  filterDefaults: {
+    order: "urgent",
+    responsible: "all",
+    type: "all",
+    role: "active",
+    status: "READY",
+    task: "all",
+    preset: null,
   },
 };
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-24 12:05+0200\n"
+"POT-Creation-Date: 2025-06-27 14:31+0200\n"
 "PO-Revision-Date: 2024-09-12 16:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #: camac/admin.py
 msgid "eBau"
@@ -42,13 +42,146 @@ msgid "Email '%(email)s' has already access to instance %(instance)s"
 msgstr ""
 "L'utilisateur avec l'email '%(email)s' a déjà accès au dossier %(instance)s"
 
+#: camac/billing/admin.py camac/billing/models.py camac/deadlines/admin.py
+#: camac/deadlines/models.py camac/user/models.py camac/work_items/admin.py
+#: camac/work_items/models.py
+msgid "Services"
+msgstr "Organisations"
+
+#: camac/billing/admin.py camac/billing/models.py camac/deadlines/admin.py
+#: camac/deadlines/models.py camac/user/models.py camac/work_items/admin.py
+#: camac/work_items/models.py
+msgid "Service groups"
+msgstr "Types d'organisation"
+
+#: camac/billing/apps.py
+msgid "Billing"
+msgstr ""
+
+#: camac/billing/filters.py
+#, python-brace-format
+msgid ""
+"Too many records in output. Reduce data range using filters to below {max}"
+msgstr ""
+
+#: camac/billing/models.py camac/billing/serializers.py
+msgid "inclusive"
+msgstr "y compris"
+
+#: camac/billing/models.py camac/billing/serializers.py
+msgid "exclusive"
+msgstr "exclusif"
+
+#: camac/billing/models.py camac/billing/serializers.py
+msgid "not subject to VAT"
+msgstr "non soumis à la TVA"
+
+#: camac/billing/models.py
+msgid "VAT type"
+msgstr ""
+
+#: camac/billing/models.py camac/billing/serializers.py camac/user/models.py
+msgid "Position"
+msgstr "Position"
+
+#: camac/billing/models.py
+msgid "flat rate"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "percentage"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "at cost"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Processing fee BG BVUAFB"
+msgstr ""
+
+#: camac/billing/models.py
+#, fuzzy
+#| msgid "Translation"
+msgid "Calculation"
+msgstr "Traduction"
+
+#: camac/billing/models.py
+msgid "VAT rate"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Hours"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Hourly rate"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Quota (%)"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Total cost"
+msgstr ""
+
+#: camac/billing/models.py
+#, fuzzy
+#| msgid "Municipality"
+msgid "Municipal"
+msgstr "Municipalité"
+
+#: camac/billing/models.py
+msgid "Cantonal"
+msgstr ""
+
+#: camac/billing/models.py
+#, fuzzy
+#| msgid "Lead authority"
+msgid "By authority"
+msgstr "Autorité directrice"
+
+#: camac/billing/models.py
+msgid "Forwarded"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Direct"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Cantonal invoice for construction outside of construction zone"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Cantonal invoice to cantonal construction administration"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Remark"
+msgstr "Remarque"
+
+#: camac/billing/models.py camac/core/admin/views.py camac/deadlines/models.py
+#: camac/user/admin/views.py camac/user/models.py camac/work_items/models.py
+msgid "Name"
+msgstr "Nom"
+
+#: camac/billing/models.py
+msgid "Hint"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Billing entry template"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Billing entry templates"
+msgstr ""
+
 #: camac/billing/serializers.py
 msgid "Date added"
 msgstr "Capturé sur"
-
-#: camac/billing/serializers.py
-msgid "Position"
-msgstr "Position"
 
 #: camac/billing/serializers.py camac/user/admin/inlines.py
 #: camac/user/models.py
@@ -94,21 +227,9 @@ msgid "Lead authority"
 msgstr "Autorité directrice"
 
 #: camac/billing/serializers.py
-msgid "inclusive"
-msgstr "y compris"
-
-#: camac/billing/serializers.py
-msgid "exclusive"
-msgstr "exclusif"
-
-#: camac/billing/serializers.py
 #, python-format
 msgid "%(tax_mode)s  %(tax_rate)s%% VAT"
 msgstr "%(tax_mode)s  %(tax_rate)s%% TVA"
-
-#: camac/billing/serializers.py
-msgid "not subject to VAT"
-msgstr "non soumis à la TVA"
 
 #: camac/billing/serializers.py
 #, python-format
@@ -123,6 +244,10 @@ msgstr "%(percentage)s de %(total)s %(tax-suffix)s"
 #: camac/billing/serializers.py
 msgid "No coordinates available"
 msgstr ""
+
+#: camac/billing/views.py
+msgid "All entries to charge must belong to the same instance"
+msgstr "Toutes les entrées à facturer doivent appartenir au même dossier"
 
 #: camac/caluma/extensions/data_sources.py
 #: camac/instance/document_merge_service.py camac/notification/serializers.py
@@ -149,9 +274,21 @@ msgstr "Autres"
 msgid "Local building authority"
 msgstr "Autorité directrice"
 
+#: camac/caluma/extensions/data_sources.py
+msgid "All sanctions that could be fulfilled until now have been fullfilled"
+msgstr ""
+
 #: camac/caluma/extensions/dynamic_tasks.py
 msgid "Construction step completed"
 msgstr ""
+
+#: camac/caluma/extensions/events/address_assignment.py
+#, python-brace-format
+msgid ""
+"Address suggestion accepted and address updated in form from "
+"{old_street_value} to {new_street_value}"
+msgstr ""
+"Suggestion d’adresse acceptée et adresse mise à jour dans le formulaire, de {old_street_value} à {new_street_value}"
 
 #: camac/caluma/extensions/events/audit.py
 msgid "Exam skipped"
@@ -170,6 +307,10 @@ msgid "Baufreigabe"
 msgstr ""
 
 #: camac/caluma/extensions/events/construction_monitoring.py
+msgid "Gebäudeabbruch"
+msgstr ""
+
+#: camac/caluma/extensions/events/construction_monitoring.py
 msgid "Baubeginn"
 msgstr ""
 
@@ -179,6 +320,10 @@ msgstr ""
 
 #: camac/caluma/extensions/events/construction_monitoring.py
 msgid "Kanalisationsabnahme"
+msgstr ""
+
+#: camac/caluma/extensions/events/construction_monitoring.py
+msgid "Einmessung im offenen Graben"
 msgstr ""
 
 #: camac/caluma/extensions/events/construction_monitoring.py
@@ -242,6 +387,32 @@ msgstr "Informer requérants en compensation des charges"
 msgid "Issue statement on appeal"
 msgstr "Prendre position sur le recours"
 
+#: camac/caluma/tests/test_deadlines.py camac/deadlines/models.py
+#: camac/deadlines/tests/test_model_suspensions.py
+msgid "Automatic"
+msgstr ""
+
+#: camac/communications/serializers.py
+msgid "Missing Content-Type header"
+msgstr ""
+
+#: camac/communications/serializers.py
+msgid "Unknown file extension"
+msgstr ""
+
+#: camac/communications/serializers.py
+#, python-format
+msgid ""
+"Content-Type %(content_type)s does not match file extension %(extension)s."
+msgstr ""
+
+#: camac/communications/serializers.py
+#, python-format
+msgid ""
+"Content-Type %(content_type)s does not match detected file content "
+"%(file_content_type)s."
+msgstr ""
+
 #: camac/communications/serializers.py
 #: camac/communications/tests/test_behaviour.py
 #: camac/instance/document_merge_service.py
@@ -252,6 +423,12 @@ msgstr "Requérant/e"
 #: camac/communications/serializers.py
 msgid "Involved entity must be either 'APPLICANT' or a valid service ID"
 msgstr ""
+
+#: camac/communications/serializers.py
+#, fuzzy
+#| msgid "There is already a service with this name"
+msgid "There is no active service for this instance"
+msgstr "Il existe déjà une organisation portant ce nom"
 
 #: camac/communications/serializers.py
 msgid ""
@@ -276,6 +453,11 @@ msgid "Invisible topic, cannot create or update message"
 msgstr ""
 
 #: camac/communications/serializers.py
+#, python-format
+msgid "File type %(mime_type)s is not allowed."
+msgstr ""
+
+#: camac/communications/serializers.py
 msgid "This attachment is already a document module attachment"
 msgstr ""
 
@@ -296,13 +478,13 @@ msgstr ""
 msgid "Hidden?"
 msgstr ""
 
-#: camac/core/admin/inlines.py camac/notification/admin/inlines.py
-#: camac/user/admin/inlines.py
+#: camac/core/admin/inlines.py camac/instance/admin.py
+#: camac/notification/admin/inlines.py camac/user/admin/inlines.py
 msgid "Translation"
 msgstr "Traduction"
 
-#: camac/core/admin/inlines.py camac/notification/admin/inlines.py
-#: camac/user/admin/inlines.py
+#: camac/core/admin/inlines.py camac/instance/admin.py
+#: camac/notification/admin/inlines.py camac/user/admin/inlines.py
 msgid "Translations"
 msgstr "Traductions"
 
@@ -314,12 +496,8 @@ msgstr "Rôle"
 msgid "ACL Roles"
 msgstr "Rôles"
 
-#: camac/core/admin/views.py camac/user/admin/views.py camac/user/models.py
-msgid "Name"
-msgstr "Nom"
-
 #: camac/core/admin/views.py camac/instance/document_merge_service.py
-#: camac/user/models.py
+#: camac/user/models.py camac/work_items/models.py
 msgid "Description"
 msgstr "Description"
 
@@ -357,6 +535,51 @@ msgstr ""
 
 #: camac/core/models.py
 msgid "Service contents"
+msgstr ""
+
+#: camac/deadlines/models.py camac/work_items/models.py
+msgid "Lead time in days"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Is default"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Deadline type"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Deadline types"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Additional demand suspension"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Manual suspension"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Process deadline days"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "The number of days processed since the start date."
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Instance deadline"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Instance deadlines"
+msgstr ""
+
+#: camac/deadlines/serializers.py
+#: camac/deadlines/tests/test_model_suspensions.py
+msgid "End date can not be before start date."
 msgstr ""
 
 #: camac/document/filters.py
@@ -423,6 +646,16 @@ msgid ""
 msgstr ""
 "Type de mime non valable pour la pièce jointe. Les types autorisés pour la "
 "section %(section_name)s sont : %(allowed_mime_types)s"
+
+#: camac/document/serializers.py
+#, python-format
+msgid ""
+"Invalid mime type for marking attachment as decision. Allowed types for "
+"decision attachment are: %(allowed_mime_types)s"
+msgstr ""
+"Le type de fichier actuel ne peut pas être marqué comme document de "
+"décision. Les types autorisés pour la pièce jointe de décision sont: "
+"%(allowed_mime_types)s"
 
 #: camac/document/serializers.py
 msgid ""
@@ -529,8 +762,11 @@ msgid "have an inconsistent workflow state"
 msgstr "ont un état de flux de travail incohérent"
 
 #: camac/dossier_import/messages.py
-#, python-format
-msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
+#, fuzzy, python-format
+#| msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
+msgid ""
+"%(count)i dossiers %(message)s. Affected dossiers:\n"
+"%(entries)s"
 msgstr "%(count)i dossiers %(message)s. Dossiers concernés:%(entries)s"
 
 #: camac/dossier_import/models.py
@@ -580,8 +816,22 @@ msgid "%(count)i dossiers have no document folder."
 msgstr "%(count)i dossiers sans registre de documents."
 
 #: camac/dossier_import/validation.py
-msgid "STATUS will be ignored when updating the dossier"
+#, python-format
+msgid ""
+"The value %(value)s will be ignored because deletion is not supported for "
+"new dossiers."
+msgstr ""
+
+#: camac/dossier_import/validation.py
+#, fuzzy, python-format
+#| msgid "STATUS will be ignored when updating the dossier"
+msgid "The value %(value)s will be ignored when updating the dossier."
 msgstr "STATUS ignoré en misant en jour le dossier"
+
+#: camac/dossier_import/validation.py
+#, python-format
+msgid "%(original)s - did you mean \"%(similar)s\"?"
+msgstr ""
 
 #: camac/dossier_import/validation.py
 #, python-format
@@ -593,13 +843,21 @@ msgstr ""
 "Colonnes obligatoires: %(required)s"
 
 #: camac/dossier_import/validation.py
-#, python-format
+#, fuzzy, python-format
+#| msgid ""
+#| "Found unknown columns: %(extra)s. Those columns will be ignored while "
+#| "importing."
 msgid ""
-"Found unknown columns: %(extra)s. Those columns will be ignored while "
-"importing."
+"Found unknown columns which will be ignored while importing:\n"
+"%(extra)s"
 msgstr ""
 "Colonnes inconnues trouvées : %(extra)s. Ces colonnes seront ignorées lors "
 "de l'importation."
+
+#: camac/dossier_import/validation.py
+#, python-format
+msgid "%(count)d rows with this ID will be ignored."
+msgstr ""
 
 #: camac/dossier_import/views.py
 msgid ""
@@ -660,11 +918,22 @@ msgstr ""
 msgid "Could not assign/update responsible: {detail}"
 msgstr "Impossible d'attribuer/mettre à jour le responsable: {detail}"
 
+#: camac/dossier_import/writers.py
+#, python-format
+msgid ""
+"Unallowed mime type for file \"%(filename)s\" (%(mime_type)s) - the file was "
+"not imported"
+msgstr ""
+
 #: camac/ech0211/send_handlers.py
 #, fuzzy
 #| msgid "Dossier submitted"
 msgid "ECH Dossier submitted"
 msgstr "Dossier envoyé"
+
+#: camac/gever/apps.py
+msgid "GEVER"
+msgstr ""
 
 #: camac/gis/admin.py
 msgid "Disable selected GIS data sources"
@@ -679,6 +948,10 @@ msgstr ""
 msgid "Error %(code)s while fetching data from the geo.admin.ch API"
 msgstr ""
 
+#: camac/gis/clients/ag.py
+msgid "An error occured while fetching data from the AGIS API."
+msgstr ""
+
 #: camac/gis/clients/sogis.py
 #, python-format
 msgid "Error %(code)s while fetching data from the geo.so.ch API"
@@ -690,6 +963,10 @@ msgstr ""
 
 #: camac/gis/models.py
 msgid "GIS Canton GR"
+msgstr ""
+
+#: camac/gis/models.py
+msgid "GIS Canton AG"
 msgstr ""
 
 #: camac/gis/models.py
@@ -795,6 +1072,10 @@ msgid "Draft"
 msgstr "Brouillon"
 
 #: camac/instance/document_merge_service.py
+msgid "Additional demand"
+msgstr ""
+
+#: camac/instance/document_merge_service.py
 #, python-format
 msgid "No template specified for form '%(form_slug)s'."
 msgstr "Aucun modèle n'est spécifié pour le formulaire '%(form_slug)s'."
@@ -804,6 +1085,15 @@ msgstr "Aucun modèle n'est spécifié pour le formulaire '%(form_slug)s'."
 #: camac/user/authentication.py
 msgid "Signature has expired."
 msgstr "La signature a expiré."
+
+#: camac/instance/domain_logic/address_assignment.py
+#, python-brace-format
+msgid ""
+"Address suggestion accepted and address updated in form from {master_data."
+"street} to {new_street_value}"
+msgstr ""
+"La proposition d’adresse a été acceptée et l’adresse a été modifiée de "
+"{master_data.street} à {new_street_value}."
 
 #: camac/instance/domain_logic/rejection.py
 msgid "Instance can't be rejected while there is an open circulation"
@@ -848,6 +1138,14 @@ msgid "Applicants emails"
 msgstr ""
 
 #: camac/instance/export/serializers.py
+msgid "Decision"
+msgstr "Décision"
+
+#: camac/instance/export/serializers.py
+msgid "Building project"
+msgstr "Projet de construction"
+
+#: camac/instance/export/serializers.py
 msgid "Administrative District"
 msgstr "Arrondissement administratif"
 
@@ -860,10 +1158,6 @@ msgid "Arrival RSTA"
 msgstr "Reception préfecture"
 
 #: camac/instance/export/serializers.py
-msgid "Decision"
-msgstr "Décision"
-
-#: camac/instance/export/serializers.py
 msgid "SB1 submission date"
 msgstr "DC1 - date de dépôt"
 
@@ -874,10 +1168,6 @@ msgstr "DC2 - date de dépôt"
 #: camac/instance/export/serializers.py
 msgid "Tags"
 msgstr "Mots-clés"
-
-#: camac/instance/export/serializers.py
-msgid "Building project"
-msgstr "Projet de construction"
 
 #: camac/instance/export/serializers.py
 msgid "Building permit type"
@@ -910,13 +1200,13 @@ msgstr "Pas autorisé à ajouter des données à l'instance %(instance)s"
 
 #: camac/instance/serializers.py
 #, python-format
-msgid "'%(form)s' is not a valid form type"
-msgstr "'%(form)s' est un type de dossier non valable"
+msgid "The current form '%(form)s' can't be changed"
+msgstr "Le type de dossier actuel '%(form)s' ne peut être modifié"
 
 #: camac/instance/serializers.py
 #, python-format
-msgid "The current form '%(form)s' can't be changed"
-msgstr "Le type de dossier actuel '%(form)s' ne peut être modifié"
+msgid "'%(form)s' is not a valid form type"
+msgstr "'%(form)s' est un type de dossier non valable"
 
 #: camac/instance/serializers.py
 #, python-format
@@ -1042,6 +1332,11 @@ msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "Le %(permission)s n'est pas autorisé à modifier les %(question)s."
 
 #: camac/instance/serializers.py
+#, python-format
+msgid "%(given_time)s is not a valid date time"
+msgstr "'%(given_time)s' n'est pas une date et heure valide"
+
+#: camac/instance/serializers.py
 msgid "Appeal received"
 msgstr "Recours reçu"
 
@@ -1050,6 +1345,18 @@ msgid "The Dossier can't be correct because there are running inquiries."
 msgstr ""
 "Le dossier ne peut pas être corrigé, car des prises de position ont déjà été "
 "demandées."
+
+#: camac/instance/tests/test_document_merge_service.py
+#: camac/settings/modules/dms.py
+msgid "Form export"
+msgstr ""
+
+#: camac/instance/tests/test_document_merge_service.py
+#: camac/settings/modules/dms.py
+#, fuzzy
+#| msgid "Signature"
+msgid "Signature page"
+msgstr "Signature"
 
 #: camac/instance/utils.py
 #, python-format
@@ -1162,6 +1469,12 @@ msgid "Involved services"
 msgstr "Services impliqués"
 
 #: camac/notification/serializers.py
+#, fuzzy
+#| msgid "Services with unanswered inquiries"
+msgid "Services which have incomplete inquiries"
+msgstr "Services avec avis sans réponse"
+
+#: camac/notification/serializers.py
 msgid "Services with unanswered inquiries"
 msgstr "Services avec avis sans réponse"
 
@@ -1228,6 +1541,35 @@ msgstr "delete_by_purpose n'a pas été fourni avec le paramètre requis"
 #: camac/objection/serializers.py
 msgid "Objection %(objection) already has a representative"
 msgstr "Objection %(objection) a déjà un représentant"
+
+#: camac/permissions/api.py camac/permissions/tests/test_lowlevel_api.py
+msgid "You do not have the required permission to do this"
+msgstr ""
+
+#: camac/rulesets/serializers.py
+msgid "Municipalities and application types can't both be empty"
+msgstr ""
+
+#: camac/rulesets/serializers.py
+msgid "Municipalities and application types can't both be set"
+msgstr ""
+
+#: camac/rulesets/serializers.py
+msgid "User is not a member of this service"
+msgstr ""
+
+#: camac/rulesets/views.py
+msgid "`order` must include all IDs"
+msgstr ""
+
+#: camac/rulesets/views.py
+msgid "`order` contains inexistent IDs"
+msgstr ""
+
+#: camac/sanctions/serializers.py
+#, python-format
+msgid "Sanction '%(sanction_name)s' has been controlled."
+msgstr ""
 
 #: camac/settings/django.py
 msgid "Circulation started"
@@ -1298,6 +1640,10 @@ msgstr "Sans procédure de circulation"
 #: camac/settings/modules/distribution.py
 msgid "Circulation reopened"
 msgstr "Réouverture de la circulation"
+
+#: camac/settings/modules/dms.py
+msgid "Receipt"
+msgstr ""
 
 #: camac/settings/modules/ech0211.py
 msgid "Inquiry sent"
@@ -1420,6 +1766,14 @@ msgstr ""
 msgid "Enable selected services"
 msgstr ""
 
+#: camac/user/admin/views.py
+msgid "Disable notifications for selected services"
+msgstr ""
+
+#: camac/user/admin/views.py
+msgid "Enable notifications for selected services"
+msgstr ""
+
 #: camac/user/apps.py
 msgid "User management"
 msgstr "Administration des utilisateurs"
@@ -1455,7 +1809,7 @@ msgstr "Erreur lors de la demande d'informations sur l'utilisateur"
 msgid "User is deactivated."
 msgstr "L'utilisateur est désactivé."
 
-#: camac/user/models.py
+#: camac/user/models.py camac/work_items/models.py
 msgid "ID"
 msgstr "ID"
 
@@ -1496,6 +1850,18 @@ msgid "Zip"
 msgstr "Code postal"
 
 #: camac/user/models.py
+msgid "Title"
+msgstr ""
+
+#: camac/user/models.py
+msgid "Mobile"
+msgstr ""
+
+#: camac/user/models.py
+msgid "Division"
+msgstr "Département"
+
+#: camac/user/models.py
 msgid "Role"
 msgstr "Rôle"
 
@@ -1518,10 +1884,6 @@ msgstr "Préfixe de groupe"
 #: camac/user/models.py
 msgid "Roles"
 msgstr "Rôles"
-
-#: camac/user/models.py
-msgid "Service groups"
-msgstr "Types d'organisation"
 
 #: camac/user/models.py
 msgid "Geometer"
@@ -1548,16 +1910,16 @@ msgid "Apply responsibility in construction control?"
 msgstr "Reprendre la compétence dans le contrôle de la construction ?"
 
 #: camac/user/models.py
+msgid "Department"
+msgstr ""
+
+#: camac/user/models.py
 msgid "External identifier"
 msgstr ""
 
 #: camac/user/models.py
 msgid "Services that perform a specific function"
 msgstr "Organisations offrant une fonction spécifique"
-
-#: camac/user/models.py
-msgid "Services"
-msgstr "Organisations"
 
 #: camac/user/serializers.py
 msgid "There is already a service with this name"
@@ -1581,3 +1943,90 @@ msgstr "Il y a plusieurs utilisateurs avec cette adresse e-mail"
 #: camac/user/serializers.py
 msgid "User is already in group"
 msgstr "L'utilisateur est déjà dans ce groupe"
+
+#: camac/work_items/admin.py camac/work_items/models.py
+msgid "Assigned user"
+msgstr ""
+
+#: camac/work_items/apps.py
+msgid "Work items"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "No service"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Current service and responsible user (if exists)"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Current service and current user"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Current service and specific user"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Current service and no user"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "The current date in addition to this value will determine the deadline"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Responsibility rule"
+msgstr ""
+
+#: camac/work_items/models.py
+#, python-format
+msgid ""
+"The assigned user will only be considered if the responsibility rule "
+"\"%(rule)s\" is selected above"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Work item template"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Work item templates"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Standard filter preset category"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Service filter preset category"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Service group filter preset category"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Query params"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Prefilter work item templates"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Prefilter tasks"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Tasks"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Work item list filter preset"
+msgstr ""
+
+#: camac/work_items/models.py
+msgid "Work item list filter presets"
+msgstr ""

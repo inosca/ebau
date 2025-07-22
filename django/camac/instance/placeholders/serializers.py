@@ -3,6 +3,7 @@ import itertools
 import json
 import re
 from collections import OrderedDict
+from typing import Literal
 
 from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
@@ -13,6 +14,8 @@ from rest_framework import serializers
 
 from camac.caluma.api import CalumaApi
 from camac.core.translations import get_translations_canton_aware
+from camac.instance.models import Instance
+from camac.instance.placeholders.utils import format_gis_center_coordinates
 from camac.user.models import Service
 from camac.utils import build_url, clean_join
 
@@ -29,11 +32,37 @@ def sanitize_value(value):
     return value if value is not None else ""
 
 
+def get_koordinaten_by_json_props(
+    instance: Instance, attr: Literal["center", "markers"]
+) -> str:
+    raw_gis_coordinates = instance._master_data.gis_coordinates
+
+    if not raw_gis_coordinates or raw_gis_coordinates == "":  # pragma: no cover
+        return ""
+
+    data = []
+
+    if attr == "markers":
+        coordinates = json.loads(raw_gis_coordinates).get(attr)
+        if not coordinates:  # pragma: no cover
+            return ""
+
+        for coordinate in coordinates:
+            x = f"{round(coordinate['x']):_}".replace("_", "’")
+            y = f"{round(coordinate['y']):_}".replace("_", "’")
+            data.append(f"{x} / {y}")
+
+    if attr == "center":
+        data.append(format_gis_center_coordinates(raw_gis_coordinates))
+
+    return clean_join(*data, separator="; ")
+
+
 class DMSPlaceholdersSerializer(serializers.Serializer):
     def __init__(self, instance, *args, **kwargs):
         super().__init__(instance, *args, **kwargs)
 
-        instance._master_data = MasterData(instance.case)
+        instance._master_data = MasterData.from_case_id(instance.case_id)
 
     def get_aliased_collection(self, collection):
         return OrderedDict(
@@ -49,7 +78,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_aliased_field(self, key, value):
         field = self.fields[key]
-        keys = {key.upper()}
+        keys = set([key.upper()])
 
         for alias_config in field.aliases:
             for alias in get_translations_canton_aware(alias_config).values():
@@ -230,8 +259,8 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("PROPOSAL")],
         description=_("Description of the project"),
     )
-    decision_date = fields.DecisionField(
-        source="decision-date",
+    decision_date = fields.MasterDataField(
+        parser=human_readable_date,
         aliases=[_("DECISION_DATE")],
         description=_("Decision date"),
     )
@@ -247,6 +276,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     form_name = fields.AliasedMethodField(
         aliases=[_("FORM_NAME")],
         description=_("Type of the instance"),
+    )
+    gemeinde_service_content = fields.MasterDataField(
+        "municipality_service_content",
+        aliases=[_("MUNICIPALITY_SERVICE_CONTENT")],
+        description=_("Service content for the municipality"),
     )
     gemeinde_email = fields.MunicipalityField(
         source="email",
@@ -396,7 +430,12 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     leitbehoerde_city = fields.ResponsibleServiceField(
         source="get_trans_attr",
         source_args=["city"],
-        aliases=[_("AUTHORITY_CITY")],
+        aliases=[
+            {
+                "default": _("AUTHORITY_CITY"),
+                "so": _("AUTHORITY_TOWN"),
+            }
+        ],
         description=_("City of the authority"),
     )
     leitbehoerde_email = fields.ResponsibleServiceField(
@@ -524,8 +563,16 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     )
     ort = fields.MasterDataField(
         source="city",
-        aliases=[_("LOCATION")],
-        description=_("The location of the building site"),
+        aliases=[
+            {
+                "default": _("LOCATION"),
+                "so": _("TOWN"),
+            }
+        ],
+        description={
+            "default": _("The location of the building site"),
+            "so": _("The town of the building site"),
+        },
     )
     parzelle = fields.AliasedMethodField(
         aliases=[
@@ -616,6 +663,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("CIRCULATION_FEEDBACK")],
         description=_("Opinions and ancillary clauses of the invited services"),
     )
+    zirkulation_angefordert = fields.InquiriesField(
+        only_own_controlling=True,
+        aliases=[_("CIRCULATION_REQUESTED")],
+        description=_("Inquiries requested by own service only"),
+    )
     eigene_gebuehren_total = fields.BillingEntriesField(
         own=True,
         total=True,
@@ -667,7 +719,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
             *[
                 clean_join(
                     *[
-                        f"{int(plot.get(key)):,}".replace(",", "’")
+                        f"{round(plot.get(key)):,}".replace(",", "’")
                         for key in ["coord_east", "coord_north"]
                         if plot.get(key)
                     ],
@@ -812,6 +864,21 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("SHELTER_REMARKS")],
         description=_("Remarks on the shelters"),
     )
+    zirkulation_rueckmeldungen = fields.InquiriesField(
+        status=WorkItem.STATUS_COMPLETED,
+        props=[
+            ("opinion", "STELLUNGNAHME"),
+            ("ancillary_clauses", "NEBENBESTIMMUNGEN"),
+            ("answer", "ANTWORT"),
+            ("service", "VON"),
+            ("situation", "SACHVERHALT"),
+            ("considerations", "ERWAEGUNGEN"),
+            ("statement", "BEURTEILUNG"),
+            ("comments", "BEMERKUNGEN"),
+        ],
+        aliases=[_("CIRCULATION_FEEDBACK")],
+        description=_("Opinions and ancillary clauses of the invited services"),
+    )
 
     def get_zonenplan(self, instance):
         answer = Answer.objects.filter(
@@ -840,23 +907,7 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         return answer.first().value if answer else ""
 
     def get_koordinaten(self, instance):
-        coordinates = [
-            json.loads(answer.value)["markers"]
-            for answer in Answer.objects.filter(
-                question_id="gis-map", document_id=instance.case.document.pk
-            )
-            if answer.value
-        ]
-
-        if not coordinates:  # pragma: no cover
-            return ""
-
-        data = []
-        for coordinate in coordinates[0]:
-            x = f"{round(coordinate['x']):_}".replace("_", "’")
-            y = f"{round(coordinate['y']):_}".replace("_", "’")
-            data.append(f"{x} / {y}")
-        return clean_join(*data, separator="; ")
+        return get_koordinaten_by_json_props(instance, "center")
 
     def get_gebaeudeversicherungsnummer(self, instance):
         values = Answer.objects.filter(
@@ -942,6 +993,10 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "meine_organisation_webseite",
             "zustaendig_email",
             "zustaendig_phone",
+            "zirkulation_angefordert",
+            "zirkulation_fachstellen",
+            "zirkulation_gemeinden",
+            "fachstellen_kantonal",
         ]
 
 
@@ -1238,6 +1293,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     neighbors = fields.InformationOfNeighborsField(
         type="neighbors",
         aliases=[_("NEIGHBORS")],
+        description=_("Name and address of all the neighbors"),
     )
     objections = fields.LegalSubmissionField(
         type="legal-submission-type-objection",
@@ -1426,6 +1482,18 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         only_first=True,
         aliases=[_("LEGAL_REPRESENTATIVE")],
         description=_("Name of the legal representative"),
+    )
+    zirkulation_rueckmeldungen = fields.InquiriesField(
+        status=WorkItem.STATUS_COMPLETED,
+        props=[
+            ("opinion", "STELLUNGNAHME"),
+            ("ancillary_clauses", "NEBENBESTIMMUNGEN"),
+            ("answer", "ANTWORT"),
+            ("service", "VON"),
+            ("completion_date", "BEANTWORTET"),
+        ],
+        aliases=[_("CIRCULATION_FEEDBACK")],
+        description=_("Opinions and ancillary clauses of the invited services"),
     )
     zirkulation_rsta = fields.InquiriesField(
         service_group="district",
@@ -1681,6 +1749,23 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("PUBLICATION_DATE_OFFICIAL_GAZETTE")],
         description=_("Date of the publication in the official gazette"),
     )
+    publikation = fields.PublicationField(
+        aliases=[_("PUBLICATION")],
+        nested_aliases={
+            "NAME": [_("NAME")],
+            "EMAIL": [_("EMAIL")],
+            "PUBLIKATION_ORGAN": [_("PUBLICATION_ORGAN")],
+            "PUBLIKATION_ORGAN.NAME": [_("NAME")],
+            "PUBLIKATION_ORGAN.EMAIL": [_("EMAIL")],
+            "PUBLIKATION_START": [_("PUBLICATION_START")],
+            "PUBLIKATION_ENDE": [_("PUBLICATION_END")],
+            "PUBLIKATION_ANZEIGER": [_("PUBLICATION_DATE_GAZETTE")],
+            "PUBLIKATION_AMTSBLATT": [_("PUBLICATION_DATE_OFFICIAL_GAZETTE")],
+        },
+        description=_("All Publications"),
+        only_own=False,
+        all_publications=True,
+    )
     einsprachen = fields.LegalSubmissionField(
         aliases=[_("OBJECTIONS")],
         description=_("All objections"),
@@ -1833,11 +1918,6 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("INVOICE_RECIPIENT_NAME_ADDRESS")],
         description=_("Name and address of the first invoice recipient"),
     )
-    bauentscheid_datum = fields.DecisionField(
-        source="entscheid-datum",
-        aliases=[_("DECISION_DATE")],
-        description=_("Decision date"),
-    )
     alle_gesuchsteller_liste = fields.MasterDataPersonObjectField(
         source="applicants",
         aliases=[_("ALL_APPLICANTS_LIST")],
@@ -1858,10 +1938,140 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("ALL_INVOICE_RECIPIENTS_LIST")],
         description=_("All invoice recipients as list"),
     )
+    kantonale_pruefung_datum_eingang_arp = fields.MasterDataField(
+        source="bab_date_of_receipt_arp",
+        parser=human_readable_date,
+        aliases=[_("CANTONAL_EXAM_DATE_OF_RECEIPT_ARP")],
+        description=_("Date of receipt ARP"),
+    )
+    kantonale_pruefung_terminvorgabe_bei_erfassung = fields.MasterDataField(
+        source="bab_deadline_at_recording",
+        parser=human_readable_date,
+        aliases=[_("CANTONAL_EXAM_DEADLINE_AT_RECORDING")],
+        description=_("Deadline at recording"),
+    )
+    kantonale_pruefung_massgebliche_terminvorgabe = fields.MasterDataField(
+        source="bab_relevant_deadline",
+        parser=human_readable_date,
+        aliases=[_("CANTONAL_EXAM_RELEVANT_DEADLINE")],
+        description=_(
+            "Relevant deadline (e.g., after suspensions or various preliminary reviews)"
+        ),
+    )
+    kantonale_pruefung_verfahrensstand = fields.MasterDataField(
+        source="bab_procedure_status",
+        aliases=[_("CANTONAL_EXAM_PROCEDURE_STATUS")],
+        description=_("Procedure status"),
+    )
+    kantonale_pruefung_bearbeitungsstatus = fields.MasterDataField(
+        source="bab_processing_status",
+        aliases=[_("CANTONAL_EXAM_PROCESSING_STATUS")],
+        description=_("Processing status"),
+    )
+    kantonale_pruefung_sistierungen = fields.MasterDataField(
+        source="bab_suspensions",
+        aliases=[_("CANTONAL_EXAM_SUSPENSIONS")],
+        description=_("Cantonal exam suspensions"),
+        nested_aliases={
+            "start": [_("SUSPENDED_FROM")],
+            "end": [_("SUSPENDED_UNTIL")],
+            "reason": [_("SUSPENSION_REASON")],
+        },
+    )
+    kantonale_pruefung_bewilligungsbehoerde = fields.MasterDataField(
+        source="bab_approval_authority",
+        aliases=[_("CANTONAL_EXAM_APPROVAL_AUTHORITY")],
+        description=_("Approval authority"),
+    )
+    kantonale_pruefung_interesse_am_vorhaben = fields.MasterDataField(
+        source="bab_interest_in_project",
+        aliases=[_("CANTONAL_EXAM_INTEREST_IN_PROJECT")],
+        description=_("Interest in the project"),
+        join_by=", ",
+    )
+    kantonale_pruefung_journal = fields.MasterDataField(
+        source="bab_journal",
+        aliases=[_("CANTONAL_EXAM_JOURNAL")],
+        description=_("Cantonal exam journal"),
+        nested_aliases={
+            "date": [_("JOURNAL_ENTRY_DATE")],
+            "type": [_("JOURNAL_ENTRY_TYPE")],
+            "involved": [_("JOURNAL_PARTICIPANTS_PRESENT")],
+            "facts": [_("JOURNAL_FACTS")],
+        },
+    )
+    kantonale_pruefung_gemeindenummer_kantonal_arp = fields.MasterDataField(
+        source="bab_municipality_number_cantonal_arp",
+        aliases=[_("CANTONAL_EXAM_MUNICIPALITY_NUMBER_CANTONAL_ARP")],
+        description=_("Municipality number (cantonal / ARP)"),
+    )
+    kantonale_pruefung_bauzone = fields.MasterDataField(
+        source="bab_construction_zone",
+        aliases=[_("CANTONAL_EXAM_CONSTRUCTION_ZONE")],
+        description=_("Construction zone"),
+    )
+    kantonale_pruefung_objektschutz = fields.MasterDataField(
+        source="bab_object_protection",
+        aliases=[_("CANTONAL_EXAM_OBJECT_PROTECTION")],
+        description=_("Object protection"),
+    )
+    kantonale_pruefung_schutzobjekte = fields.MasterDataField(
+        source="bab_protected_objects",
+        aliases=[_("CANTONAL_EXAM_PROTECTED_OBJECTS")],
+        description=_("Cantonal exam protected objects"),
+        nested_aliases={
+            "description": [_("PROTECTED_OBJECTS_DESIGNATION")],
+            "decision_number": [_("PROTECTED_OBJECTS_DECISION_NUMBER")],
+            "decision_date": [_("PROTECTED_OBJECTS_DECISION_DATE")],
+            "disposition_date": [_("PROTECTED_OBJECTS_ORDER_DATE")],
+            "authority": [_("PROTECTED_OBJECTS_AUTHORITY")],
+        },
+    )
+    kantonale_pruefung_checkliste_bab_so_nach_rpg = fields.MasterDataField(
+        source="bab_checklist_bab_so_according_to_rpg",
+        aliases=[_("CANTONAL_EXAM_CHECKLIST_BAB_SO_ACCORDING_TO_RPG")],
+        description=_("Checklist BaB SO according to RPG"),
+        join_by=", ",
+    )
+    kantonale_pruefung_entscheid_kanton = fields.MasterDataField(
+        source="bab_decision_canton",
+        aliases=[_("CANTONAL_EXAM_DECISION_CANTON")],
+        description=_("Decision (Canton)"),
+    )
+    kantonale_pruefung_datum_entscheid_kanton = fields.MasterDataField(
+        source="bab_decision_date_canton",
+        parser=human_readable_date,
+        aliases=[_("CANTONAL_EXAM_DECISION_DATE_CANTON")],
+        description=_("Decision date (Canton)"),
+    )
+    kantonale_pruefung_datum_eroeffnungsart_entscheid_kanton = fields.MasterDataField(
+        source="bab_decision_opening_type_canton",
+        aliases=[_("CANTONAL_EXAM_DECISION_OPENING_TYPE_CANTON")],
+        description=_("Decision opening type (Canton)"),
+    )
+    zustaendig_titel = fields.ResponsibleUserField(
+        source="title",
+        aliases=[_("RESPONSIBLE_TITLE")],
+        description=_("Title of the responsible employee"),
+    )
+    zustaendig_position = fields.ResponsibleUserField(
+        source="position",
+        aliases=[_("RESPONSIBLE_POSITION")],
+        description=_("Position of the responsible employee"),
+    )
+    zustaendig_mobile = fields.ResponsibleUserField(
+        source="mobile",
+        aliases=[_("RESPONSIBLE_MOBILE")],
+        description=_("Mobile of the responsible employee"),
+    )
+    zustaendig_telefon = fields.ResponsibleUserField(
+        source="phone",
+        aliases=[_("RESPONSIBLE_PHONE")],
+        description=_("Phone of the responsible employee"),
+    )
 
     class Meta:
         exclude = [
-            "decision_date",
             "description_modification",
             "nebenbestimmungen",
             "stellungnahme",
@@ -1869,7 +2079,6 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "language",
             "zirkulation_rueckmeldungen",
             "strasse",
-            "ort",
             # TODO: Remove this if all authentication mechanisms provide a phone
             # number for the user
             "zustaendig_phone",
@@ -1881,6 +2090,37 @@ class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("ZONE")],
         description=_("Zone"),
     )
+    gemeinde = fields.MasterDataField(
+        source="municipality_name",
+        aliases=[_("MUNICIPALITY")],
+        description=_("Name of the municipality selected by the applicant"),
+    )
+    strasse_nummer = fields.MasterDataField(
+        source="street_number",
+        aliases=[_("STREET_NUMBER")],
+        description=_("The street number of the building site"),
+    )
+    dossier_completed_date = fields.AliasedMethodField(
+        aliases=[_("DOSSIER_COMPLETED_DATE")],
+        description=_("Dossier completed date"),
+    )
+    publication_date = fields.AliasedMethodField(
+        aliases=[_("PUBLICATION_DATE")],
+        description=_("Publication date"),
+    )
+    review_building_commission_date = fields.AliasedMethodField(
+        aliases=[_("REVIEW_BUILDING_COMMISSION")],
+        description=_("Review building commission"),
+    )
+
+    def get_publication_date(self, instance):
+        return human_readable_date(instance.publication_date())
+
+    def get_dossier_completed_date(self, instance):
+        return human_readable_date(instance.completed_date())
+
+    def get_review_building_commission_date(self, instance):
+        return human_readable_date(instance.review_building_commission_date())
 
     def get_land_use(self, instance):
         return clean_join(
@@ -1889,3 +2129,178 @@ class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             instance._master_data.protected,
             separator=", ",
         )
+
+    class Meta:
+        exclude = "municipality"
+
+
+class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    alle_vertreter_name_address = fields.MasterDataPersonField(
+        source="legal_representatives",
+        fields="__all__",
+        aliases=[_("ALL_LEGAL_REPRESENTATIVES_NAME_ADDRESS")],
+        description=_("Names and addresses of all legal representatives"),
+    )
+    alle_vertreter = fields.MasterDataPersonField(
+        source="legal_representatives",
+        aliases=[_("ALL_LEGAL_REPRESENTATIVES")],
+        description=_("Names of all legal representatives"),
+    )
+    zirkulation_rueckmeldungen = fields.InquiriesField(
+        status=WorkItem.STATUS_COMPLETED,
+        props=[
+            ("remarks", "BEMERKUNGEN"),
+            ("answer", "ANTWORT"),
+        ],
+        aliases=[_("CIRCULATION_FEEDBACK")],
+        description=_("Feedback of the invited services"),
+    )
+    auswaertige_anstoesser = fields.InformationOfNeighborsField(
+        type="neighbors",
+        aliases=[_("FOREIGN_NEIGHBORS")],
+        description=_("Foreign neighbors"),
+    )
+    information_auswaertige_anstoesser_link = fields.InformationOfNeighborsField(
+        type="link",
+        aliases=[_("INFORMATION_OF_FOREIGN_NEIGHBORS_LINK")],
+        description=_("Link to access the dossier as foreign neighbor"),
+    )
+    information_auswaertige_anstoesser_qr_code = fields.InformationOfNeighborsField(
+        type="qr_code",
+        aliases=[_("INFORMATION_OF_FOREIGN_NEIGHBORS_QR_CODE")],
+        description=_("QR code to access the dossier as foreign neighbor"),
+    )
+    nutzungszone = fields.MasterDataField(
+        source="usage_zone",
+        aliases=[_("USAGE_ZONE")],
+        description=_("Usage zone"),
+    )
+    weitere_betroffene_gemeinden = fields.MasterDataField(
+        source="other_municipality_names",
+        join_by=", ",
+        aliases=[_("FURTHER_AFFECTED_MUNICIPALITIES")],
+        description=_("Further affected municipalities"),
+    )
+    rechnungsempfaenger = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        fallback_source="applicants",
+        only_first=True,
+        aliases=[_("INVOICE_RECIPIENT")],
+        description=_(
+            "Name of the invoice recipient if available, otherwise that of the applicant"
+        ),
+    )
+    rechnungsempfaenger_adresse_1 = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        fallback_source="applicants",
+        only_first=True,
+        fields=["address_1"],
+        aliases=[_("INVOICE_RECIPIENT_ADDRESS_1")],
+        description=_(
+            "Address line 1 of the invoice recipient if available, otherwise that of the applicant"
+        ),
+    )
+    rechnungsempfaenger_adresse_2 = fields.MasterDataPersonField(
+        source="invoice_recipients",
+        fallback_source="applicants",
+        only_first=True,
+        fields=["address_2"],
+        aliases=[_("INVOICE_RECIPIENT_ADDRESS_2")],
+        description=_(
+            "Address line 2 of the invoice recipient if available, otherwise that of the applicant"
+        ),
+    )
+    alle_gesuchsteller_referenznummer = fields.MasterDataPersonField(
+        source="applicants",
+        fallback_source="applicants",
+        fields=["reference_number"],
+        aliases=[_("ALL_APPLICANTS_REFERENCE_NUMBER")],
+        description=_("Reference numbers of all applicants"),
+    )
+    zustaendige_behoerde = fields.MasterDataField(
+        source="pgv_responsible_authority",
+        aliases=[_("RESPONSIBLE_AUTHORITY")],
+        description=_("Responsible authority for PGV dossiers"),
+    )
+    zustaendig_titel = fields.ResponsibleUserField(
+        source="title",
+        aliases=[_("RESPONSIBLE_TITLE")],
+        description=_("Title of the responsible employee"),
+    )
+    zustaendig_position = fields.ResponsibleUserField(
+        source="position",
+        aliases=[_("RESPONSIBLE_POSITION")],
+        description=_("Position of the responsible employee"),
+    )
+    zustaendig_mobile = fields.ResponsibleUserField(
+        source="mobile",
+        aliases=[_("RESPONSIBLE_MOBILE")],
+        description=_("Mobile of the responsible employee"),
+    )
+    meine_organisation_departement = fields.CurrentServiceField(
+        source="get_trans_attr",
+        source_args=["department"],
+        aliases=[_("CURRENT_SERVICE_DEPARTMENT")],
+        description=_("Department of the current service"),
+    )
+    publikation_gemeinde_ende = fields.PublicationField(
+        source="ende-publikationsorgan-gemeinde",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("PUBLICATION_MUNICIPALITY_END")],
+        description=_(
+            "End date of the publication in the publication organ of the municipality"
+        ),
+    )
+    publikation_amtsblatt_ende = fields.PublicationField(
+        source="ende-publikation-kantonsamtsblatt",
+        value_key="date",
+        parser=human_readable_date,
+        aliases=[_("PUBLICATION_GAZETTE_END")],
+        description=_("End date of the publication in the gazette"),
+    )
+    baukosten = fields.MasterDataField(
+        source="construction_costs",
+        aliases=[_("CONSTRUCTION_COSTS")],
+        description=_("Construction costs"),
+    )
+    angemeldet_email = fields.CurrentUserField(
+        source="email",
+        aliases=[_("LOGGED_IN_EMAIL")],
+        description=_("Email address of the currently logged in user"),
+    )
+    angemeldet_mobile = fields.CurrentUserField(
+        source="mobile",
+        aliases=[_("LOGGED_IN_MOBILE")],
+        description=_("Mobile of the currently logged in user"),
+    )
+    angemeldet_name = fields.CurrentUserField(
+        source="full_name",
+        aliases=[_("LOGGED_IN_NAME")],
+        description=_("Name of the currently logged in user"),
+    )
+    angemeldet_position = fields.CurrentUserField(
+        source="position",
+        aliases=[_("LOGGED_IN_POSITION")],
+        description=_("Position of the currently logged in user"),
+    )
+    angemeldet_telefon = fields.CurrentUserField(
+        source="phone",
+        aliases=[_("LOGGED_IN_PHONE")],
+        description=_("Phone of the currently logged in user"),
+    )
+    angemeldet_titel = fields.CurrentUserField(
+        source="title",
+        aliases=[_("LOGGED_IN_TITLE")],
+        description=_("Title of the currently logged in user"),
+    )
+
+    def get_koordinaten(self, instance):
+        return get_koordinaten_by_json_props(instance, "markers")
+
+    class Meta:
+        exclude = [
+            "nebenbestimmungen_mapped",
+            "nebenbestimmungen",
+            "stellungnahme",
+        ]

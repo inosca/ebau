@@ -99,7 +99,7 @@
     "model": "notification.notificationtemplate",
     "pk": 9,
     "fields": {
-      "slug": "send-additional-demand",
+      "slug": "send-additional-demand-public",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -288,6 +288,78 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 25,
+    "fields": {
+      "slug": "zirkulation-abgebrochen",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 26,
+    "fields": {
+      "slug": "rueckzug",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 27,
+    "fields": {
+      "slug": "send-additional-demand-internal",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 28,
+    "fields": {
+      "slug": "bericht-wiedereroffnet",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 29,
+    "fields": {
+      "slug": "empfang-anfragevorabklarung-gesuchsteller",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 30,
+    "fields": {
+      "slug": "empfang-anfragevorabklarung-behorden",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -388,7 +460,7 @@
     "pk": 9,
     "fields": {
       "template": 9,
-      "template_slug": "send-additional-demand",
+      "template_slug": "send-additional-demand-public",
       "language": "de",
       "purpose": "Nachforderung, Neu",
       "subject": "Neue Nachforderung (Dossier-Nr. {{DOSSIER_NR}}) / Nuova richiesta di precisazioni (dossier n. {{DOSSIER_NR}})",
@@ -565,6 +637,18 @@
   },
   {
     "model": "notification.notificationtemplatet",
+    "pk": 27,
+    "fields": {
+      "template": 27,
+      "template_slug": "send-additional-demand-internal",
+      "language": "de",
+      "purpose": "Nachforderung, Neu",
+      "subject": "Neue Nachforderung (Dossier-Nr. {{DOSSIER_NR}}) / Nuova richiesta di precisazioni (dossier n. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es eine neue Nachforderung im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau è arrivata una nuova richiesta di precisazioni relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere."
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
     "pk": 45,
     "fields": {
       "template": 24,
@@ -573,6 +657,66 @@
       "purpose": "Entscheid verfügt Bauanzeige und vorläufige Beurteilung",
       "subject": "Information über Entscheid (Dossier-Nr. {{DOSSIER_NR}}) / Informazione relativa alla decisione (dossier n. {{DOSSIER_NR}})",
       "body": "Guten Tag\r\n\r\nDie Beurteilung ({{DECISION_DE}}) zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde abgeschlossen. Sie finden die Dokumente unter folgendem Link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno\r\n\r\nLa valutazione ({{DECISION_IT}}) relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}) è conclusa. I documenti sono disponibili al seguente link:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_IT}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 46,
+    "fields": {
+      "template": 25,
+      "template_slug": "zirkulation-abgebrochen",
+      "language": "de",
+      "purpose": "Zirkulation abgebrochen / Circolazione annullata",
+      "subject": "Information über vorzeitiger Abbruch der Stellungnahme (Dossier-Nr. {{DOSSIER_NR}}) / Informazione relativa all'annullamento anticipato della presa di posizione (n. dossier {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nDie Gemeinde {{MUNICIPALITY_DE}} hat die Anfrage zur Stellungnahme zum Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) vorzeitig beendet. Weitere Informationen finden Sie unter folgendem Link:\r\n\r\n{{DISTRIBUTION_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse \r\nGemeinde {{MUNICIPALITY_DE}}\r\n\r\n---\r\n\r\nBuongiorno\r\n\r\nIl Comune di {{MUNICIPALITY_IT}} ha annullato anticipatamente la richiesta di prendere\r\nposizione relativa al dossier con il numero {{DOSSIER_NR}} ({{FORM_NAME_IT}}, \r\n{{MUNICIPALITY_IT}}). Ulteriori informazioni sono disponibili al link seguente:\r\n\r\n{{DISTRIBUTION_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\nComune di {{MUNICIPALITY_IT}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 47,
+    "fields": {
+      "template": 26,
+      "template_slug": "rueckzug",
+      "language": "de",
+      "purpose": "Rückzug ausgelöst / Ritiro innescato",
+      "subject": "Rückzug ausgelöst (Dossier-Nummer {{ DOSSIER_NR }}) / Ritiro innescato (dossier n. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nIm eBau wurde das Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} zurückgezogen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nil dossier n. {{ DOSSIER_NR }} è stato ritirato da eBau.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 48,
+    "fields": {
+      "template": 28,
+      "template_slug": "bericht-wiedereroffnet",
+      "language": "de",
+      "purpose": "Hinweis auf das Verfahren / Indicazione relativa alla procedura",
+      "subject": "Hinweis auf das Verfahren (Dossier-Nr. {{DOSSIER_NR}}) / Indicazione relativa alla procedura (Dossier No. {{DOSSIER_NR}})",
+      "body": "Hallo\r\n\r\nIhre Stellungnahme zum Dossier Nr. {{DOSSIER_NR}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}} wurde zurückgesetzt und kann überarbeitet werden.\r\n\r\nBemerkung:\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{CURRENT_SERVICE_DE}}\r\n\r\n---\r\n\r\nCiao,\r\n\r\nLa sua prese di posizione sul dossier n. {{DOSSIER_NR}}, {{FORM_NAME_IT}}, {{MUNICIPALITY_IT}} è stata reseta e può essere rivista.\r\n\r\nCommento:\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{CURRENT_SERVICE_IT}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 49,
+    "fields": {
+      "template": 29,
+      "template_slug": "empfang-anfragevorabklarung-gesuchsteller",
+      "language": "de",
+      "purpose": "Empfang Baugesuch (Gesuchsteller)",
+      "subject": "Erfolgreiche Einreichung / Trasmissione avvenuta con successo",
+      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}})  wurde erfolgreich übermittelt. \r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nil dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}) è stato trasmesso con successo.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\n{{LEITBEHOERDE_NAME_IT}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 250,
+    "fields": {
+      "template": 30,
+      "template_slug": "empfang-anfragevorabklarung-behorden",
+      "language": "de",
+      "purpose": "Empfang Baugesuch (Behörden)",
+      "subject": "Neu eingegangen ({{FORM_NAME_DE}}) / Nuovi moduli pervenuti ({{FORM_NAME_IT}})",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau è arrivato un nuovo dossier con il n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
     }
   }
 ]

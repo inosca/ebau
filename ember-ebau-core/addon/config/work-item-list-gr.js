@@ -1,5 +1,20 @@
 export default {
-  showTaskFilter: false,
+  showTaskFilter: true,
+  availableTasks: {
+    roles: {
+      municipality: [
+        "formal-exam",
+        "publication",
+        "init-distribution",
+        "check-inquiries",
+        "decision",
+        "construction-acceptance",
+      ],
+      service: ["inquiry", "check-inquiries", "check-additional-demand"],
+      subservice: ["inquiry"],
+      uso: ["inquiry"],
+    },
+  },
   columns(status, role) {
     return [
       "task",

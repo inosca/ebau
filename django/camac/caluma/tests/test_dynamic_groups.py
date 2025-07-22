@@ -39,9 +39,9 @@ def test_dynamic_group_distribution_create_inquiry(
     has_context,
     service_factory,
     service,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
-    prev_work_item = work_item_factory(
+    prev_work_item = caluma_work_item_factory(
         case=be_instance.case, addressed_groups=[str(service.pk)]
     )
     context = {}
@@ -51,7 +51,7 @@ def test_dynamic_group_distribution_create_inquiry(
         target_subservice = service_factory(service_parent=service_factory())
         target_existing = service_factory()
 
-        work_item_factory(
+        caluma_work_item_factory(
             task_id=distribution_settings["INQUIRY_CREATE_TASK"],
             case=be_instance.case,
             addressed_groups=[str(target_existing.pk)],
@@ -89,7 +89,7 @@ def test_dynamic_group_distribution_create_inquiry(
 @pytest.mark.parametrize("allow_subservices", [True, False])
 def test_dynamic_create_additional_demand(
     db,
-    work_item_factory,
+    caluma_work_item_factory,
     service_factory,
     distribution_settings,
     additional_demand_settings,
@@ -105,7 +105,7 @@ def test_dynamic_create_additional_demand(
     additional_demand_settings["ALLOW_SUBSERVICES"] = allow_subservices
 
     # create already existing "init-additional-demand" work item
-    work_item_factory(
+    caluma_work_item_factory(
         task_id=additional_demand_settings["CREATE_TASK"],
         case=be_instance.case,
         addressed_groups=[str(target_existing.pk)],
@@ -143,7 +143,7 @@ def test_dynamic_create_additional_demand(
             task=None,
             case=be_instance.case,
             user=caluma_admin_user,
-            prev_work_item=work_item_factory(
+            prev_work_item=caluma_work_item_factory(
                 task_id=application_settings["CALUMA"]["SUBMIT_TASKS"][0],
             ),
             context={},
@@ -161,7 +161,7 @@ def test_dynamic_create_additional_demand(
             task=None,
             case=be_instance.case,
             user=caluma_admin_user,
-            prev_work_item=work_item_factory(
+            prev_work_item=caluma_work_item_factory(
                 task_id=additional_demand_settings["CREATE_TASK"],
                 addressed_groups=[
                     str(target_service.pk),
@@ -184,7 +184,7 @@ def test_dynamic_create_additional_demand(
             task=None,
             case=be_instance.case,
             user=caluma_admin_user,
-            prev_work_item=work_item_factory(
+            prev_work_item=caluma_work_item_factory(
                 task_id=distribution_settings["INQUIRY_CREATE_TASK"]
             ),
             context=context,
@@ -246,6 +246,10 @@ def test_dynamic_group_geometer_be(
     [
         ("geometer-ur", uri_constants.GEOMETER_SERVICE_ID),
         ("gebaeudeschaetzung-ur", uri_constants.FGS_SERVICE_ID),
+        (
+            "liegenschaftsschaetzung-ur",
+            uri_constants.AMT_FUER_STEUERN_LIEGENSCHAFTSSCHAETZUNG_SERVICE_ID,
+        ),
     ],
 )
 def test_dynamic_groups_ur(
@@ -301,23 +305,32 @@ def test_dynamic_group_service_bab(
 
 
 @pytest.mark.parametrize(
-    "location_id,bab_name",
+    "bab_name,service_slug",
     [
-        (1, "ARE BaB Kreis 2"),
-        (2, "ARE BaB Kreis 1"),
-        (3, "ARE BaB Kreis 3"),
+        ("ARE BaB Kreis 1", "bab-kreis-1"),
+        ("ARE BaB Kreis 2", "bab-kreis-2"),
+        ("ARE BaB Kreis 3", "bab-kreis-3"),
     ],
 )
 def test_dynamic_group_service_bab_ur(
-    db, service_factory, ur_instance, location_id, bab_name, location_factory
+    db,
+    service_factory,
+    ur_instance,
+    bab_name,
+    application_settings,
+    service_slug,
+    location_factory,
 ):
-    ur_instance.location_id = location_id
-    ur_instance.save()
-
-    location_factory(pk=location_id)
+    location = location_factory()
+    ur_instance.location_id = location.pk
+    application_settings["CALUMA"]["BAB_MUNICIPALITY_MAPPING"] = {
+        location.pk: service_slug,
+    }
 
     bab_service = service_factory(
-        name=bab_name, service_group__name="Fachstellen Justizdirektion"
+        name=bab_name,
+        slug=service_slug,
+        service_group__name="Fachstellen Justizdirektion",
     )
 
     assert CustomDynamicGroups().resolve("service-bab-ur")(
@@ -341,26 +354,26 @@ def test_dynamic_group_schnurgeruestabnahme_uri(
     db,
     service_factory,
     ur_instance,
-    answer_factory,
-    work_item_factory,
-    document_factory,
+    caluma_answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
     mocker,
     construction_monitoring_settings,
 ):
     service = service_factory()
     ur_instance.responsible_service = mocker.PropertyMock(return_value=service)
 
-    planning_work_item = work_item_factory(
+    planning_work_item = caluma_work_item_factory(
         case=ur_instance.case,
         task_id=construction_monitoring_settings[
             "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
         ],
-        document=document_factory(),
+        document=caluma_document_factory(),
     )
 
     question = Question.objects.get(pk="schnurgeruestabnahme-durch")
 
-    answer_factory(
+    caluma_answer_factory(
         document=planning_work_item.document,
         question=question,
         value="schnurgeruestabnahme-durch-gemeinde",
@@ -374,7 +387,7 @@ def test_dynamic_group_schnurgeruestabnahme_uri(
 
     geometer_service = service_factory(pk=uri_constants.GEOMETER_SERVICE_ID)
 
-    answer_factory(
+    caluma_answer_factory(
         document=planning_work_item.document,
         question=question,
         value="wer-fuehrt-die-schnurgeruestabnahme-durch-geometer",
@@ -416,3 +429,31 @@ def test_dynamic_group_building_commission(
     assert CustomDynamicGroups().resolve("building-commission")(
         None, ur_instance.case, None, None, None
     ) == [str(building_commission.pk)]
+
+
+def test_dynamic_group_abm_zs_uri(
+    db,
+    service_factory,
+    ur_instance,
+):
+    service_factory(pk=uri_constants.ABM_ZS_SERVICE_ID)
+
+    assert CustomDynamicGroups().resolve("abm-zs-uri")(
+        None, ur_instance.case, None, None, None
+    ) == [str(uri_constants.ABM_ZS_SERVICE_ID)]
+
+
+def test_dynamic_group_afb_ag(db, service_factory, instance):
+    service = service_factory(slug="afb")
+
+    assert CustomDynamicGroups().resolve("afb")(
+        None, instance.case, None, None, None
+    ) == [str(service.pk)]
+
+
+def test_dynamic_group_gebaudeversicherung(db, service_factory):
+    service = service_factory(slug="gvg")
+
+    assert CustomDynamicGroups().resolve("gebaudeversicherung")(
+        None, None, None, None, None
+    ) == [str(service.pk)]

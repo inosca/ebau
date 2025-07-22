@@ -7,3 +7,39 @@ static-content:
     case:
       title: "Das gewünschte Dossier wurde nicht gefunden, oder Sie haben keinen Zugriff darauf."
       action: "Zurück zur Dossierliste"
+
+  my-service-support:
+    text: "Bei Fragen zu Berechtigungen in ihrer Organisation wenden Sie sich an folgende Personen:"
+    showAll: "alle anzeigen"
+    showLess: "weniger anzeigen"
+
+  technical-support:
+    text: |
+      <p class="uk-text-large uk-text-bold">Technischer Support</p>
+      <p>
+        Gemeinden, kommunale sowie nichtkantonale Behörden (z. B. Feueraufseher)
+        wenden sich an das KAIO:
+      </p>
+      <p>
+        Email <a href="mailto:servicedesk@be.ch">servicedesk@be.ch</a>
+        <br>
+        Tel <a href="tel:+41 31 633 44 44">+41 31 633 44 44</a>
+      </p>
+      <p>
+        Kantonale Mitarbeitende (ADFS Nutzende mit kantonaler E-Mail ...@be.ch)
+        melden sich direkt über das Service Portal:
+      </p>
+      <p>
+        <a href="https://beitsmsprod.service-now.com/ict?id=ict_sc_category&sys_id=9293774f4f9ec20010cadf601310c7ae&catalog_id=e0d08b13c3330100c8b837659bba8fb4" target="_blank" rel="noopener noreferrer">
+          Service-Katalog - Self-Service-Portal (service-now.com)
+        </a>
+      </p>
+      <p class="uk-text-bold">Support Meldung Wärmeerzeugerersatz</p>
+      <p class="uk-margin-remove-bottom">
+        Für die Beantwortung von Fragen zur Meldung Wärmeerzeugerersatz, ist das
+        Amt für Umwelt und Energie zuständig. Melden Sie sich direkt bei:
+        <br>
+        <a href="mailto:meldeverfahren.heizungsersatz.aue@be.ch">
+          meldeverfahren.heizungsersatz.aue@be.ch
+        </a>
+      </p>

@@ -3,6 +3,7 @@ import { isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { restartableTask, task, timeout } from "ember-concurrency";
 import { DateTime } from "luxon";
+import { trackedFunction } from "reactiveweb/function";
 
 import InstanceAclValidations from "../../validations/instance-acl-form";
 
@@ -25,11 +26,11 @@ export default class CreateAclModalComponent extends Component {
     return this.store.findAll("public-service");
   }
 
-  get availableAccessLevels() {
-    return this.store.query("access-level", {
+  availableAccessLevels = trackedFunction(this, async () => {
+    return await this.store.query("access-level", {
       assignable_in_instance: this.args.instanceId,
     });
-  }
+  });
 
   @restartableTask
   *searchServices(search) {

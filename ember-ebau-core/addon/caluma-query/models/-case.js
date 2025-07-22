@@ -1,6 +1,7 @@
 import { getOwner, setOwner } from "@ember/application";
 import { service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
+import { DateTime } from "luxon";
 import { trackedFunction } from "reactiveweb/function";
 
 import CustomWorkItemModel from "ember-ebau-core/caluma-query/models/work-item";
@@ -23,6 +24,7 @@ const rootQuestions = [
   answerSlugs.municipality,
   answerSlugs.parcel,
   answerSlugs.coordinates,
+  answerSlugs.modificationDescription,
   ...mainConfig.intentSlugs,
 ]
   .filter(Boolean)
@@ -33,6 +35,7 @@ const tableQuestions = [
   answerSlugs.firstNameApplicant,
   answerSlugs.lastNameApplicant,
   answerSlugs.juristicNameApplicant,
+  answerSlugs.isJuristicApplicant,
   answerSlugs.parcelNumber,
 ]
   .filter(Boolean)
@@ -64,17 +67,23 @@ export default class CustomCaseBaseModel extends CaseModel {
   }
 
   get submitDate() {
-    const submitDate = this.raw.meta["submit-date"]?.split("T")[0];
-
-    return submitDate
-      ? this.intl.formatDate(submitDate, {
-          format: "date",
-        })
-      : null;
+    // rawSubmitDate is UTC so by parsing it to DateTime, we make sure we get a date with correct timezone
+    const rawSubmitDate = this.raw.meta["submit-date"];
+    if (rawSubmitDate) {
+      const date = DateTime.fromISO(rawSubmitDate);
+      return this.intl.formatDate(date, {
+        format: "date",
+      });
+    }
+    return null;
   }
 
   get intent() {
     return this.getAnswerDisplayValue(mainConfig.intentSlugs);
+  }
+
+  get modificationDescription() {
+    return this.getAnswerDisplayValue(answerSlugs.modificationDescription);
   }
 
   get instanceState() {
@@ -153,6 +162,20 @@ export default class CustomCaseBaseModel extends CaseModel {
     return this.#responsible.value;
   }
 
+  #deadline = trackedFunction(this, async () => {
+    return (
+      await this.store.query("instance-deadline", {
+        filter: {
+          instance: this.instanceId,
+        },
+      })
+    )[0];
+  });
+
+  get deadline() {
+    return this.#deadline.value;
+  }
+
   getAnswerDisplayValue(slug) {
     return getAnswerDisplayValue(this.raw.document, slug);
   }
@@ -166,6 +189,12 @@ export default class CustomCaseBaseModel extends CaseModel {
       const workItem = new CustomWorkItemModel(edge.node);
       setOwner(workItem, getOwner(this));
       return workItem;
+    });
+  }
+
+  get linkedInstancesText() {
+    return this.intl.t("cases.miscellaneous.linkedInstancesText", {
+      count: this.instance.linkedInstances.length,
     });
   }
 

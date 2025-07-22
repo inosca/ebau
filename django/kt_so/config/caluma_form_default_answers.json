@@ -1,0 +1,19 @@
+[
+  {
+    "model": "caluma_form.answer",
+    "pk": "347c2935-2eba-4a8c-975e-34c2d607434d",
+    "fields": {
+      "created_at": "2024-12-12T10:40:49.695Z",
+      "modified_at": "2024-12-12T10:40:49.695Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "kanton-leitbehoerde",
+      "value": "kanton-leitbehoerde-nein",
+      "meta": {},
+      "document": null,
+      "date": null
+    }
+  }
+]

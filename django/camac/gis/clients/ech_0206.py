@@ -3,10 +3,10 @@ from datetime import datetime, timezone
 
 import requests
 from django.conf import settings
-from lxml import etree
 
 from camac.gis.clients.base import GISBaseClient
 from camac.gis.utils import MergeStrategy
+from camac.patches import safe_lxml_fromstring
 
 BODY_DATA = """
 <?xml version="1.0" encoding="UTF-8"?>
@@ -182,7 +182,7 @@ class Ech0206(GISBaseClient):
 
     def get_building_items(self, response_content):
         try:
-            root = etree.fromstring(response_content)
+            root = safe_lxml_fromstring(response_content)
             return root.find("buildingList", root.nsmap).findall(
                 "buildingItem", root.nsmap
             )

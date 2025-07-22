@@ -1,44 +1,20 @@
 import pytest
 
 from camac.constants import kt_uri as uri_constants
-from camac.core.factories import CamacAnswerFactory
 from camac.instance.serializers import (
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
 
 
-@pytest.mark.parametrize(
-    "application_name,expected_answer",
-    [
-        ("kt_uri", "string from camac answer"),
-        ("kt_be", "string from from instance"),
-    ],
-)
-def test_rejection_feedback(
-    db, instance_factory, settings, application_name, expected_answer, mocker
-):
-    instance = instance_factory(
-        rejection_feedback=(
-            "string from from instance" if application_name == "kt_be" else None
-        )
-    )
-    settings.APPLICATION_NAME = application_name
-
-    if application_name == "kt_uri":
-        camac_answer = CamacAnswerFactory(instance=instance, answer=expected_answer)
-        mocker.patch.object(
-            uri_constants, "REJECTION_FEEDBACK_CHAPTER_ID", camac_answer.chapter.pk
-        )
-        mocker.patch.object(
-            uri_constants, "REJECTION_FEEDBACK_QUESTION_ID", camac_answer.question.pk
-        )
-
+def test_rejection_feedback(db, instance_factory):
+    instance = instance_factory(rejection_feedback="Test")
     serializer = CalumaInstanceSerializer()
 
     assert (
-        serializer.get_rejection_feedback(instance) == expected_answer
-    ), "it returns the camac answer for uri and the instance rejection feedback for the other cantons"
+        serializer.Meta.model.rejection_feedback.field.value_from_object(instance)
+        == instance.rejection_feedback
+    )
 
 
 @pytest.mark.parametrize(
@@ -57,7 +33,7 @@ def test_get_authority(
     db,
     ur_instance,
     form_slug,
-    answer_factory,
+    caluma_answer_factory,
     expected_authority_pk,
     caluma_workflow_config_ur,
     mocker,
@@ -66,7 +42,7 @@ def test_get_authority(
     ur_instance.case.document.save()
     mocker.patch.object(uri_constants, "KOOR_AFG_GROUP_ID", ur_instance.group.pk)
 
-    answer_factory(
+    caluma_answer_factory(
         document=ur_instance.case.document,
         question=ur_instance.case.document.form.questions.get(slug="municipality"),
         value=uri_constants.BFS_NR_DIVERSE_GEMEINDEN,
@@ -74,9 +50,9 @@ def test_get_authority(
 
     serializer = CalumaInstanceSubmitSerializer()
 
-    assert (
-        serializer._get_authority_pk(ur_instance) == expected_authority_pk
-    ), "it sets the correct authority for the dossier type"
+    assert serializer._get_authority_pk(ur_instance) == expected_authority_pk, (
+        "it sets the correct authority for the dossier type"
+    )
 
 
 @pytest.mark.parametrize(
@@ -104,9 +80,10 @@ def test_ur_get_responsible_service(
     utils,
     set_application_ur,
     veranstaltungs_art,
-    form_question_factory,
+    caluma_form_question_factory,
+    rf,
 ):
-    serializer = CalumaInstanceSubmitSerializer()
+    serializer = CalumaInstanceSubmitSerializer(context={"request": rf.request()})
     mock_service = service_factory()
 
     ur_instance.case.document.form_id = form_slug
@@ -116,7 +93,7 @@ def test_ur_get_responsible_service(
     mocker.patch.object(uri_constants, "KOOR_AFG_GROUP_ID", ur_instance.group.pk)
 
     if veranstaltungs_art:
-        form_question_factory(
+        caluma_form_question_factory(
             form=ur_instance.case.document.form,
             question__slug="veranstaltung-art",
         )
@@ -127,3 +104,61 @@ def test_ur_get_responsible_service(
         )
 
     assert serializer._ur_get_responsible_service(ur_instance) == mock_service
+
+
+@pytest.mark.parametrize(
+    "form_slug,expected_notifications",
+    [
+        (
+            "baugesuch",
+            (
+                "empfang-anfragebaugesuch-behorden",
+                "empfang-anfragebaugesuch-gesuchsteller",
+            ),
+        ),
+        (
+            "vorlaeufige-beurteilung",
+            (
+                "empfang-anfragevorabklarung-behorden",
+                "empfang-anfragevorabklarung-gesuchsteller",
+            ),
+        ),
+        (
+            "vorlaeufige-beurteilung-v3",
+            (
+                "empfang-anfragevorabklarung-behorden",
+                "empfang-anfragevorabklarung-gesuchsteller",
+            ),
+        ),
+        (
+            "other",
+            (
+                "empfang-anfragebaugesuch-behorden",
+                "empfang-anfragebaugesuch-gesuchsteller",
+            ),
+        ),
+    ],
+)
+def test_send_notifications_gr(
+    db,
+    instance_factory,
+    caluma_case_factory,
+    form_slug,
+    expected_notifications,
+    set_application_gr,
+    mocker,
+):
+    case = caluma_case_factory(
+        document__form__slug=form_slug,
+        instance=instance_factory(),
+    )
+
+    serializer = CalumaInstanceSubmitSerializer()
+
+    mocked_send = mocker.patch.object(serializer, "_send_notification")
+    serializer._send_notifications(case)
+
+    assert mocked_send.call_count == 2
+    assert set(
+        [call.kwargs["template_slug"] for call in mocked_send.call_args_list]
+    ) == set(expected_notifications)

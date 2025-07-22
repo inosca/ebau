@@ -1,9 +1,10 @@
+import { action } from "@ember/object";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
-import { findRecord, query } from "ember-data-resources";
+import { findRecord, query, findAll } from "ember-data-resources";
 import { DateTime } from "luxon";
 
 import mainConfig from "ember-ebau-core/config/main";
@@ -19,6 +20,9 @@ class NewWorkItem {
   @tracked deadline = DateTime.now().plus({ days: 10 }).toJSDate();
   @tracked notificationCompleted = true;
   @tracked notificationDeadline = true;
+  @tracked meta = {
+    "template-id": "NONE",
+  };
 }
 
 export default class WorkItemDetailNewComponent extends Component {
@@ -27,9 +31,15 @@ export default class WorkItemDetailNewComponent extends Component {
   @service store;
   @service intl;
   @service router;
+  @service ebauModules;
   @service notification;
 
   @tracked workItem = new NewWorkItem();
+  @tracked selectedTemplate = null;
+
+  workItemTemplates = findAll(this, "work-item-template", () => ({
+    include: "assigned_user",
+  }));
 
   get responsibleService() {
     return this.services.find((service) =>
@@ -38,7 +48,7 @@ export default class WorkItemDetailNewComponent extends Component {
   }
 
   set responsibleService(service) {
-    this.workItem.addressedGroups = [String(service.id)];
+    this.workItem.addressedGroups = [service.id.toString()];
 
     if (parseInt(service.id) !== this.args.serviceId) {
       this.workItem.assignedUsers = [];
@@ -97,7 +107,7 @@ export default class WorkItemDetailNewComponent extends Component {
         ? { assignedUsers: this.workItem.assignedUsers }
         : {}),
       ...(!this.selectedOwnService
-        ? { controllingGroups: [String(this.args.serviceId)] }
+        ? { controllingGroups: [this.args.serviceId.toString()] }
         : {}),
     };
 
@@ -114,6 +124,10 @@ export default class WorkItemDetailNewComponent extends Component {
         "allCases.edges",
       ))[0].node.id;
 
+      // Fix until caluma backend runs on python >3.10
+      const deadline = this.workItem.deadline
+        .toISOString()
+        .replace("Z", "+00:00");
       yield this.apollo.mutate({
         mutation: createWorkItem,
         variables: {
@@ -123,11 +137,12 @@ export default class WorkItemDetailNewComponent extends Component {
             name: this.workItem.title,
             description: this.workItem.description,
             addressedGroups: this.workItem.addressedGroups,
-            deadline: this.workItem.deadline,
+            deadline,
             meta: JSON.stringify({
               "notify-completed": this.workItem.notificationCompleted,
               "notify-deadline": this.workItem.notificationDeadline,
               "is-manually-completable": true,
+              ...this.workItem.meta,
             }),
             ...extra,
           },
@@ -143,5 +158,40 @@ export default class WorkItemDetailNewComponent extends Component {
       console.error(error);
       this.notification.danger(this.intl.t("workItems.saveError"));
     }
+  }
+
+  @action
+  applyTemplate() {
+    if (!this.selectedTemplate) {
+      return;
+    }
+
+    const rule = this.selectedTemplate.responsibilityRule;
+    const currentService = rule !== "NONE";
+    const bypassResponsible = rule === "NO_USER";
+
+    let assignedUsers = [];
+
+    if (rule === "CURRENT_USER") {
+      assignedUsers = [this.ebauModules.userName];
+    } else if (rule === "SPECIFIC_USER") {
+      assignedUsers = [
+        this.selectedTemplate.get("assignedUser.username"),
+      ].filter(Boolean);
+    }
+
+    this.workItem.title = this.selectedTemplate.name;
+    this.workItem.description = this.selectedTemplate.description;
+    this.workItem.meta = {
+      "template-id": this.selectedTemplate.id,
+      "bypass-responsible-user": bypassResponsible,
+    };
+    this.workItem.deadline = DateTime.now()
+      .plus({ days: this.selectedTemplate.leadTime ?? 10 })
+      .toJSDate();
+    this.workItem.addressedGroups = currentService
+      ? [this.args.serviceId.toString()]
+      : [];
+    this.workItem.assignedUsers = assignedUsers;
   }
 }

@@ -1,0 +1,73 @@
+<h2>{{@sanction.name}}</h2>
+
+<dl class="uk-description-list">
+  <dt>{{t "sanction.property.description"}}</dt>
+  <dd class="multi-line-text">{{@sanction.description}}</dd>
+
+  <dt>{{t "sanction.property.controlStep"}}</dt>
+  <dd>{{t (concat "sanction.controlStep." @sanction.controlStep)}}</dd>
+
+  <dt>{{t "sanction.property.assignedService"}}</dt>
+  <dd>{{@sanction.assignedService.name}}</dd>
+</dl>
+
+{{#if @controllable}}
+  <ValidatedForm
+    @model={{changeset @sanction this.validations}}
+    @on-submit={{this.annotate.perform}}
+    as |f|
+  >
+    <f.input
+      @errorComponent="input-error"
+      @name="controlNotes"
+      @label={{t "sanction.property.controlNotes"}}
+      @type="textarea"
+      @required={{false}}
+      {{autoresize mode="height"}}
+    />
+
+    <UkFlex @direction="row" @horizontal="between">
+      <span>
+        <f.submit
+          @disabled={{or f.model.isInvalid this.annotate.isRunning}}
+          @loading={{this.annotate.isRunning}}
+          @label={{t "global.save"}}
+        />
+        <UkButton @type="button" {{on "click" (fn this.back f.model)}}>
+          {{t "global.back"}}
+        </UkButton>
+      </span>
+
+      <f.button
+        @disabled={{or f.model.isInvalid this.control.isRunning}}
+        @loading={{this.control.isRunning}}
+        @on-click={{this.control.perform}}
+        @label={{t "sanction.form.control"}}
+      />
+    </UkFlex>
+  </ValidatedForm>
+{{else}}
+  <dl class="uk-description-list">
+    {{#if @sanction.controlled}}
+      <dt>{{t "sanction.property.controlledAt"}}</dt>
+      <dd>{{format-date @sanction.controlledAt format="datetime"}}</dd>
+
+      <dt>{{t "sanction.property.controlledByUser"}}</dt>
+      <dd>
+        {{@sanction.controlledByUser.name}}
+        {{@sanction.controlledByUser.surname}}
+      </dd>
+      <dt>{{t "sanction.property.controlNotes"}}</dt>
+      <dd class="multi-line-text">{{@sanction.controlNotes}}</dd>
+    {{else}}
+      <dt>{{t "sanction.form.notControlledYet"}}</dt>
+    {{/if}}
+  </dl>
+
+  <LinkTo
+    @route={{module-route "sanctions" "index"}}
+    class="uk-button uk-button-default"
+  >
+    {{t "global.back"}}
+  </LinkTo>
+{{/if}}

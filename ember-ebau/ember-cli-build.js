@@ -9,16 +9,20 @@ const ENV_MAP = {
   kt_schwyz: "sz",
   kt_uri: "ur",
   kt_so: "so",
+  kt_ag: "ag",
 };
 
 const ENVS = Object.values(ENV_MAP);
 const ENV = ENV_MAP[process.env.APPLICATION] || ENVS[0];
 const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
-const LOCALES = process.env.LOCALES;
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
-    storeConfigInMeta: ENV !== "so",
+    minifyCSS: {
+      // https://github.com/clean-css/clean-css/issues/1280
+      options: { level: { 1: { all: true, tidySelectors: false } } },
+    },
+    storeConfigInMeta: !["so", "ag"].includes(ENV),
     "localized-model": {
       sanitizeLocale: true,
     },
@@ -33,7 +37,6 @@ module.exports = function (defaults) {
       },
       setOwnConfig: {
         application: ENV,
-        locales: LOCALES?.split(",") ?? null,
       },
     },
     fingerprint: {

@@ -1,8 +1,10 @@
 from dataclasses import dataclass
 from typing import List
 
+from caluma.caluma_core.exceptions import ConfigurationError
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Document, Question
+from caluma.caluma_form.validators import CustomValidationError
 from django.core.cache import cache
 from django.utils.translation import gettext as _
 from rest_framework import serializers
@@ -43,7 +45,7 @@ class GISApplySerializer(serializers.Serializer):
     def _write_answer(self, document, question_slug, value):
         try:
             question = Question.objects.get(pk=question_slug)
-        except Question.DoesNotExist:  # pragma: no cover
+        except Question.DoesNotExist:
             return False
 
         answer_value = value["value"]
@@ -55,17 +57,21 @@ class GISApplySerializer(serializers.Serializer):
         elif question.type == Question.TYPE_MULTIPLE_CHOICE:
             answer_value = [opt["value"] for opt in answer_value]
 
-        save_answer(
-            question=question,
-            document=document,
-            user=self.context["request"].caluma_info.context.user,
-            value=int(answer_value)
-            if question.type == "integer"
-            else float(answer_value)
-            if question.type == "float"
-            else answer_value,
-            meta={"gis-value": answer_value},
-        )
+        try:
+            save_answer(
+                question=question,
+                document=document,
+                user=self.context["request"].caluma_info.context.user,
+                value=int(answer_value)
+                if question.type == "integer"
+                else float(answer_value)
+                if question.type == "float"
+                else answer_value,
+                meta={"gis-value": answer_value},
+            )
+        except (ConfigurationError, CustomValidationError):
+            # Question does not exist in this form, ignore it.
+            return False
 
         return True
 

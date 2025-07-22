@@ -96,7 +96,9 @@
         }),
       }),
     }),
-    'constructionLocalisation': None,
+    'constructionLocalisation': dict({
+      'municipalityName': 'Schübelbach',
+    }),
     'constructionProjectDescription': 'Grosses Haus',
     'officialConstructionProjectFileNo': None,
     'projectAnnouncementDate': None,
@@ -175,7 +177,9 @@
         }),
       }),
     }),
-    'constructionLocalisation': None,
+    'constructionLocalisation': dict({
+      'municipalityName': 'Schübelbach',
+    }),
     'constructionProjectDescription': 'Grosses Haus',
     'officialConstructionProjectFileNo': None,
     'projectAnnouncementDate': None,
@@ -249,15 +253,15 @@
         'country': dict({
           'countryNameShort': 'ch',
         }),
-        'houseNumber': '399',
-        'street': 'Caitlin Flats',
-        'swissZipCode': 8564,
-        'town': 'Port Heatherchester',
+        'houseNumber': '39444',
+        'street': 'Fischer Islands',
+        'swissZipCode': '8769',
+        'town': 'North Jacobfort',
       }),
       'identification': dict({
         'isOrganisation': True,
         'organisationIdentification': dict({
-          'organisationName': 'Stewart, Ellis and Evans',
+          'organisationName': 'Pacheco Group',
         }),
         'personIdentification': None,
       }),

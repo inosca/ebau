@@ -118,15 +118,15 @@ export default class UrGisComponent extends Component {
 
   @queryManager apollo;
   @tracked latlng = CENTER;
-  @tracked zoom = 2;
+  @tracked zoom = 12;
   @tracked _search = "";
   @tracked parcels = [];
   @tracked point = "";
 
-  @tracked crs = L.CRS.EPSG2056;
+  @tracked crs = L.CRS.EPSG3857;
 
-  minZoom = 1;
-  maxZoom = 10;
+  minZoom = 12;
+  maxZoom = 20;
   layers = LAYERS.join(",");
 
   _map = null;
@@ -155,7 +155,7 @@ export default class UrGisComponent extends Component {
         ]);
         this.point = latlng;
         this.latlng = latlng;
-        this.zoom = 10;
+        this.zoom = 20;
         yield this.getFeatures.perform(this.point);
       }
     } catch (error) {
@@ -284,7 +284,7 @@ export default class UrGisComponent extends Component {
         }
 
         if (archFeature && archFeature.properties.name) {
-          features.push("Archäologisches Fundwartungsgebiet");
+          features.push("Archäologisches Funderwartungsgebiet");
         }
 
         const schutzobjekte = listeSchutzobjekte.filter(Boolean).join(", ");
@@ -348,7 +348,7 @@ export default class UrGisComponent extends Component {
         parcel.parcelInfo = parcelInfo;
         parcel.nutzungInfo = nutzungInfo;
 
-        this.parcels.pushObject(parcel);
+        this.parcels.push(parcel);
       }
     } catch (error) {
       console.error(error);
@@ -499,7 +499,7 @@ export default class UrGisComponent extends Component {
         data.features[0].geometry.coordinates[0][0].map(EPSG3857toLatLng),
       );
       this.latlng = coordinates;
-      this.zoom = 10;
+      this.zoom = 20;
     } catch (error) {
       console.error(error);
       this.notification.danger(this.intl.t("gis.technicalError"));

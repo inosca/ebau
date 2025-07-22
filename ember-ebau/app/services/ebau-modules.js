@@ -1,3 +1,4 @@
+import { getOwner } from "@ember/application";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import EbauModulesService from "ember-ebau-core/services/ebau-modules";
@@ -8,6 +9,7 @@ export default class CustomEbauModulesService extends EbauModulesService {
 
   // This is set set by the case detail route
   @tracked instanceId = null;
+  @tracked onAdditionalDemandComplete = () => {};
 
   get userId() {
     return this.session.user?.id;
@@ -29,6 +31,18 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return "service";
   }
 
+  get serviceSlug() {
+    return this.session.service?.slug;
+  }
+
+  get serviceName() {
+    return this.session.service?.name;
+  }
+
+  get serviceGroupName() {
+    return this.session.serviceGroup?.name;
+  }
+
   get isReadOnlyRole() {
     return this.session.isReadOnlyRole;
   }
@@ -43,6 +57,16 @@ export default class CustomEbauModulesService extends EbauModulesService {
 
   get isMunicipalityLeadRole() {
     return this.session.isMunicipalityLeadRole;
+  }
+
+  get isTrustedServiceRole() {
+    // TODO: Implement when Kt. UR is switched to ember-ebau
+    return false;
+  }
+
+  get isCoordinationRole() {
+    // TODO: Implement when Kt. UR is switched to ember-ebau
+    return false;
   }
 
   get baseRole() {
@@ -61,13 +85,21 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.session.language;
   }
 
-  redirectToWorkItems() {
-    this.router.transitionTo("cases.detail.index", this.instanceId);
-    this.router.refresh();
+  redirectToCaseWorkItems() {
+    this.router
+      .transitionTo("cases.detail.work-items", this.instanceId)
+      .then(() => {
+        this.router.refresh();
+
+        // Refresh the cases query on the detail controller to make sure the
+        // data on the case (e.g dossier number) is up-to-date
+        getOwner(this).lookup("controller:cases.detail").cases.refresh();
+      });
   }
 
   redirectToInstance(instanceId) {
-    this.router.transitionTo("cases.detail.index", instanceId);
-    this.router.refresh();
+    this.router
+      .transitionTo("cases.detail.index", instanceId)
+      .then(() => this.router.refresh());
   }
 }

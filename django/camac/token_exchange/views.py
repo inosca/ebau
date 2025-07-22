@@ -47,14 +47,13 @@ class TokenExchangeView(APIView):
             cache.set(cache_key, True, jwt_data["exp"] - timezone.now().timestamp())
         except HTTPError as e:
             try:
-                result = e.response.json()
-                message = result.get("errorMessage", json.dumps(result))
+                message = f"Keycloak response: {json.dumps(e.response.json())}"
             except JSONDecodeError:  # pragma: no cover
                 message = e.response.text
-            logger.error(message)
+            logger.exception(message)
             raise exceptions.AuthenticationFailed("Token could not be exchanged")
         except JWException as e:
-            logger.error(e)
+            logger.exception(e)
             raise exceptions.AuthenticationFailed("Invalid token")
 
         return response.Response(

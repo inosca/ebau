@@ -8,7 +8,6 @@ from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFact
 from caluma.caluma_form.models import DynamicOption, Question
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
-from django.core.cache import cache
 from django.core.management import call_command
 from django.utils.timezone import make_aware
 from django.utils.translation import gettext as _
@@ -43,15 +42,24 @@ def caluma_form_fixture(db):
         "config/caluma_solar_plants_form_v2.json",
         "config/caluma_heat_generator_form.json",
         "config/caluma_heat_generator_form_v2.json",
+        "config/caluma_heat_generator_form_v3.json",
         "config/caluma_hecken_feldgehoelze_baeume_form.json",
         "config/caluma_hecken_feldgehoelze_baeume_form_v2.json",
         "config/caluma_reklamegesuch_form.json",
+        "config/caluma_benuetzung_oeffentlichem_terrain_form.json",
+        "config/caluma_zutrittsermaechtigung_form.json",
+        "config/caluma_zutrittsermaechtigung_form_v2.json",
+        "config/caluma_klaerung_baubewilligungspflicht_form.json",
+        "config/caluma_klaerung_baubewilligungspflicht_form_v2.json",
+        "config/caluma_baupolizeiliches_verfahren_form.json",
+        "config/caluma_baupolizeiliches_verfahren_form_v2.json",
         "config/caluma_decision_form.json",
         "config/caluma_distribution.json",
         "config/caluma_workflow.json",
         "config/caluma_legal_submission_form.json",
         "config/caluma_appeal_form.json",
         "config/caluma_geometer_form.json",
+        # load test data as well
         "data/caluma_form.json",
         "data/caluma_workflow.json",
         "data/user.json",
@@ -68,24 +76,29 @@ def ch_locale():
     locale.setlocale(locale.LC_ALL, "")
 
 
+@pytest.mark.order(1)  # Slow tests should run first
 @pytest.mark.freeze_time("2023-01-06 16:10")
 def test_document_merge_service_snapshot(
     db,
+    transactional_db,
     application_settings,
     caluma_form_fixture,
     django_assert_num_queries,
     be_dms_settings,
     service,
     snapshot,
+    clear_cache,
     be_master_data_settings,
 ):
-    cache.clear()
-
     for kwargs, expected_queries in [
-        ({"instance_id": 1}, 21),
-        ({"instance_id": 3, "form_slug": "sb1"}, 27),
-        ({"instance_id": 3, "form_slug": "sb2"}, 27),
-        ({"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"}, 25),
+        ({"instance_id": 1}, 37),
+        ({"instance_id": 3, "form_slug": "sb1"}, 39),
+        ({"instance_id": 3, "form_slug": "sb2"}, 41),
+        (
+            # mp-form
+            {"instance_id": 3, "document_id": "da618b68-b4a8-414f-9d5e-50e0fda43cde"},
+            35,
+        ),
     ]:
         with django_assert_num_queries(expected_queries):
             handler = DMSHandler()
@@ -96,19 +109,7 @@ def test_document_merge_service_snapshot(
             )
 
             visitor = DMSVisitor(root_document, instance, BaseUser())
-            snapshot.assert_match(visitor.visit(root_document))
-
-
-def test_document_merge_service_is_valid(db, caluma_form_fixture, be_dms_settings):
-    cache.clear()
-
-    instance, root_document = DMSHandler().get_instance_and_document(instance_id=1)
-
-    assert DMSVisitor(root_document, instance, BaseUser()).is_valid()
-
-    root_document.answers.all().delete()
-
-    assert not DMSVisitor(root_document, instance, BaseUser()).is_valid()
+            snapshot.assert_match(visitor.build_form_structure())
 
 
 def test_document_merge_service_client(db, requests_mock):
@@ -171,10 +172,12 @@ def test_document_merge_service_cover_sheet_with_header_values(
         [
             {
                 "parzellennummer": "123",
+                "lagekoordinaten-ost": None,
+                "lagekoordinaten-nord": None,
             },
             {
                 # This should be excluded since no parcel number is given
-                "egrid": "CH908035124647",
+                "e-grid-nr": "CH908035124647",
             },
         ],
     )
@@ -189,8 +192,18 @@ def test_document_merge_service_cover_sheet_with_header_values(
                 "name-gesuchstellerin": "Bar",
                 "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-ja",
                 "name-juristische-person-gesuchstellerin": "Test AG",
+                "strasse-gesuchstellerin": "",
+                "nummer-gesuchstellerin": None,
+                "plz-gesuchstellerin": None,
+                "ort-gesuchstellerin": None,
             }
         ],
+    )
+    utils.add_table_answer(
+        be_instance.case.document, "personalien-grundeigentumerin", []
+    )
+    utils.add_table_answer(
+        be_instance.case.document, "personalien-projektverfasserin", []
     )
 
     # Prepare plot address
@@ -252,7 +265,17 @@ def test_document_merge_service_cover_sheet_without_header_values(
     snapshot,
     application_settings,
     be_master_data_settings,
+    utils,
 ):
+    # Prepare applicant answer
+    utils.add_table_answer(be_instance.case.document, "personalien-gesuchstellerin", [])
+    utils.add_table_answer(
+        be_instance.case.document, "personalien-grundeigentumerin", []
+    )
+    utils.add_table_answer(
+        be_instance.case.document, "personalien-projektverfasserin", []
+    )
+
     be_instance.case.meta = {
         "camac-instance-id": be_instance.pk,
         "submit-date": "2021-01-01",
@@ -328,7 +351,7 @@ def test_eingabebestaetigung_gr(
             },
             {
                 # This should be excluded since no parcel number is given
-                "egrid": "CH908035124647",
+                "e-grid-nr": "CH908035124647",
             },
         ],
     )
@@ -398,6 +421,17 @@ def test_eingabebestaetigung_gr(
         gr_instance.case.document, "beschreibung-bauvorhaben", "Bau Einfamilienhaus"
     )
 
+    # Prepare situationsplan image
+    alexandria_situationsplan_category = CategoryFactory(pk="system")
+    FileFactory(
+        document=DocumentFactory(
+            title="Situationsplan.png",
+            category=alexandria_situationsplan_category,
+            metainfo={"camac-instance-id": gr_instance.pk, "situationsplan": "true"},
+        ),
+        checksum=f"sha256:{faker.Faker().sha256()}",
+    )
+
     # Municipality
     utils.add_answer(gr_instance.case.document, "gemeinde", "1")
     DynamicOption.objects.create(
@@ -417,6 +451,10 @@ def test_eingabebestaetigung_gr(
             gr_instance, gr_instance.case.document, BaseUser(), group.service
         )
     )
+
+    files = DMSHandler().get_files(gr_instance)
+    assert files[0][1][0] == "municipality_logo"
+    assert files[1][1][0] == "situationsplan"
 
 
 def test_document_merge_service_unauthorized(db, requests_mock):
@@ -443,7 +481,7 @@ def test_number_separator(
     db,
     ch_locale,
     dms_settings,
-    form_question_factory,
+    caluma_form_question_factory,
     so_instance,
     use_number_separator,
     utils,
@@ -451,12 +489,12 @@ def test_number_separator(
     dms_settings["FORM"] = {"baugesuch": {"forms": ["main-form"]}}
     dms_settings["USE_NUMBER_SEPARATOR"] = use_number_separator
 
-    form_question_factory(
+    caluma_form_question_factory(
         form_id="main-form",
         question__slug="integer",
         question__type=Question.TYPE_INTEGER,
     )
-    form_question_factory(
+    caluma_form_question_factory(
         form_id="main-form",
         question__slug="float",
         question__type=Question.TYPE_FLOAT,
@@ -467,10 +505,7 @@ def test_number_separator(
 
     visitor = DMSVisitor(so_instance.case.document, so_instance, BaseUser())
 
-    data = {
-        item["slug"]: item.get("value")
-        for item in visitor.visit(so_instance.case.document)
-    }
+    data = {item["slug"]: item.get("value") for item in visitor.build_form_structure()}
 
     if use_number_separator:
         assert data["integer"] == "57’000’000"
@@ -478,3 +513,144 @@ def test_number_separator(
     else:
         assert data["integer"] == 57000000
         assert data["float"] == 1304.12
+
+
+@pytest.mark.parametrize(
+    "instance_id,form_name,template,for_additional_demand,expected",
+    [
+        (1, "Baugesuch", "form", None, "1-baugesuch-formularexport.pdf"),
+        (2, "Baugesuch", "test", None, "2-baugesuch.pdf"),
+        (3, "Baugesuch", "signatures", None, "3-baugesuch-unterschriftenblatt.pdf"),
+        (
+            4,
+            "Baugesuch",
+            "signatures",
+            "some-uuid",
+            "4-baugesuch-unterschriftenblatt-nachforderung.pdf",
+        ),
+    ],
+)
+def test_filename(
+    instance_id,
+    form_name,
+    template,
+    for_additional_demand,
+    expected,
+    dms_settings,
+):
+    dms_settings["FILENAME_ADDITION_MAPPING"] = {
+        "form": _("Form export"),
+        "signatures": _("Signature page"),
+    }
+    handler = DMSHandler()
+
+    assert (
+        handler.get_filename(instance_id, form_name, template, for_additional_demand)
+        == expected
+    )
+
+
+@pytest.mark.parametrize("for_additional_demand", [True, False])
+def test_documents_for_additional_demand(
+    db,
+    application_settings,
+    settings,
+    so_dms_settings,
+    so_instance,
+    for_additional_demand,
+):
+    settings.APPLICATION_NAME = "kt_so"
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+
+    alexandria_category = CategoryFactory()
+
+    so_dms_settings["FORM"]["baugesuch"]["forms"].append("main-form")
+    so_dms_settings["ALEXANDRIA_DOCUMENT_CATEGORIES"] = [alexandria_category.pk]
+
+    additional_demand_uuid = faker.Faker().uuid4()
+
+    # File in applicant category
+    applicant_file = FileFactory(
+        document=DocumentFactory(
+            title="Lageplan.pdf",
+            category=alexandria_category,
+            metainfo={"camac-instance-id": so_instance.pk},
+        ),
+        checksum=f"sha256:{faker.Faker().sha256()}",
+    )
+
+    # File not in applicant category but linked to additional demand
+    additional_demand_file = FileFactory(
+        document=DocumentFactory(
+            title="Lageplan (aus Nachforderung).pdf",
+            metainfo={
+                "camac-instance-id": so_instance.pk,
+                "caluma-document-id": additional_demand_uuid,
+            },
+        ),
+        checksum=f"sha256:{faker.Faker().sha256()}",
+    )
+
+    result = DMSHandler().prepare_documents(
+        so_instance,
+        for_additional_demand=(
+            additional_demand_uuid if for_additional_demand else None
+        ),
+    )
+
+    filenames = [doc["filename"] for doc in result]
+    checksums = [doc["checksum"] for doc in result]
+
+    assert len(result) == 1
+
+    if for_additional_demand:
+        assert additional_demand_file.document.title in filenames
+        assert additional_demand_file.checksum in checksums
+    else:
+        assert applicant_file.document.title in filenames
+        assert applicant_file.checksum in checksums
+
+
+def test_print_meta_attributes(
+    db,
+    ch_locale,
+    dms_settings,
+    caluma_form_question_factory,
+    caluma_form_factory,
+    so_instance,
+    utils,
+    snapshot,
+):
+    dms_settings["FORM"] = {"baugesuch": {"forms": ["print-form"]}}
+
+    so_instance.case.document.form = caluma_form_factory(slug="print-form")
+
+    caluma_form_question_factory(
+        form_id="print-form",
+        question__slug="float",
+        question__type=Question.TYPE_FLOAT,
+        sort=0,
+    )
+    caluma_form_question_factory(
+        form_id="print-form",
+        question__slug="integer",
+        question__type=Question.TYPE_INTEGER,
+        sort=1,
+    )
+
+    caluma_form_question_factory(
+        form_id="print-form",
+        question__slug="integer-print",
+        question__type=Question.TYPE_INTEGER,
+        question__meta={"printLabel": {"de": "print-label"}},
+        sort=2,
+    )
+
+    utils.add_answer(so_instance.case.document, "integer", 57000000)
+    utils.add_answer(so_instance.case.document, "float", 1304.12)
+    utils.add_answer(so_instance.case.document, "integer-print", 12)
+
+    visitor = DMSVisitor(so_instance.case.document, so_instance, BaseUser())
+
+    data = visitor.build_form_structure()
+    snapshot.assert_match(data)

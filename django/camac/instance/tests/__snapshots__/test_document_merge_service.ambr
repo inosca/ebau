@@ -33,6 +33,7 @@
     'dossierNr': '2021-99',
     'formType': None,
     'generatedAt': 'Generiert am 07.09.2022 um 14:01',
+    'gisCoordinatesCenter': None,
     'inputDateHeader': FakeDatetime(2021, 1, 1, 0, 0),
     'inputDateHeaderLabel': 'Eingangsdatum',
     'landownerHeaderLabel': 'Grundeigentümer/in',
@@ -44,13 +45,14 @@
     'municipality': 'Testhausen',
     'municipalityHeader': 'Testhausen',
     'municipalityHeaderLabel': 'Gemeinde',
+    'municipalityServiceContent': None,
     'paperInputDateHeader': FakeDatetime(2021, 1, 2, 0, 0),
     'plotsHeader': '123',
     'plotsHeaderLabel': 'Parzelle(n)',
     'projectAuthorHeaderLabel': 'Projektverfasser/in',
     'projectAuthors': list([
     ]),
-    'responsibleHeader': 'testuser',
+    'responsibleHeader': 'testuser Gardner',
     'responsibleHeaderLabel': 'Zuständig',
     'signatureMetadata': 'Ort und Datum',
     'signatureSectionTitle': 'Unterschriften',
@@ -80,6 +82,7 @@
     'dossierNr': None,
     'formType': None,
     'generatedAt': 'Generiert am 06.09.2022 um 15:37',
+    'gisCoordinatesCenter': None,
     'inputDateHeader': FakeDatetime(2021, 1, 1, 0, 0),
     'inputDateHeaderLabel': 'Eingangsdatum',
     'landownerHeaderLabel': 'Grundeigentümer/in',
@@ -91,6 +94,7 @@
     'municipality': None,
     'municipalityHeader': None,
     'municipalityHeaderLabel': 'Gemeinde',
+    'municipalityServiceContent': None,
     'paperInputDateHeader': None,
     'plotsHeader': '',
     'plotsHeaderLabel': 'Parzelle(n)',
@@ -141,6 +145,7 @@
     'dossierNr': None,
     'formType': None,
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
+    'gisCoordinatesCenter': None,
     'inputDateHeader': None,
     'inputDateHeaderLabel': 'Eingangsdatum',
     'landownerHeaderLabel': 'Grundeigentümer/in',
@@ -148,10 +153,11 @@
     ]),
     'modificationHeader': None,
     'modificationHeaderLabel': 'Projektänderung',
-    'modifiedAt': 'Zuletzt bearbeitet am 05.08.2021 um 11:05',
+    'modifiedAt': 'Zuletzt bearbeitet am 16.01.2025 um 16:23',
     'municipality': 'Burgdorf',
     'municipalityHeader': 'Burgdorf',
     'municipalityHeaderLabel': 'Gemeinde',
+    'municipalityServiceContent': None,
     'paperInputDateHeader': None,
     'plotsHeader': '1',
     'plotsHeaderLabel': 'Parzelle(n)',
@@ -484,18 +490,19 @@
               'label': 'Baukosten total, inkl. Erschliessung, ohne Landerwerb in CHF',
               'slug': 'baukosten-total-chf',
               'type': 'IntegerQuestion',
-              'value': None,
+              'value': 1000000,
             }),
             dict({
               'label': 'Gebäudevolumen GV nach SN 504 416 in m³',
               'slug': 'gebaeudevolumen',
               'type': 'FloatQuestion',
-              'value': None,
+              'value': 1000.0,
             }),
             dict({
               'label': 'Baukosten total, inkl. Erschliessung, ohne Landerwerb pro m³ in CHF',
               'slug': 'baukosten-total-pro-m3',
               'type': 'CalculatedFloatQuestion',
+              'value': 1000.0,
             }),
             dict({
               'label': 'Geplanter Baustart',
@@ -1244,7 +1251,7 @@
                   'label': 'Nein',
                 }),
               ]),
-              'label': 'Gebiet mit bekannten oder vermuteten archäologischen Objekten',
+              'label': 'Gebiet mit archäologischer Fundstelle oder archäologischem Schutzgebiet',
               'slug': 'gebiet-mit-archaeologischen-objekten',
               'type': 'ChoiceQuestion',
             }),
@@ -1776,6 +1783,7 @@
     'dossierNr': '2021-1',
     'formType': 'Selbstdeklaration Baukontrolle 1',
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
+    'gisCoordinatesCenter': None,
     'inputDateHeader': FakeDatetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc()),
     'inputDateHeaderLabel': 'Eingangsdatum',
     'landownerHeaderLabel': 'Grundeigentümer/in',
@@ -1787,6 +1795,7 @@
     'municipality': 'Burgdorf',
     'municipalityHeader': 'Burgdorf',
     'municipalityHeaderLabel': 'Gemeinde',
+    'municipalityServiceContent': None,
     'paperInputDateHeader': None,
     'plotsHeader': '3',
     'plotsHeaderLabel': 'Parzelle(n)',
@@ -1830,12 +1839,6 @@
                 'slug': 'juristische-person-gesuchstellerin',
                 'type': 'TextQuestion',
                 'value': 'Nein',
-              }),
-              dict({
-                'label': 'Name juristische Person',
-                'slug': 'name-juristische-person-gesuchstellerin',
-                'type': 'TextQuestion',
-                'value': None,
               }),
               dict({
                 'label': 'Name',
@@ -2035,7 +2038,6 @@
             dict({
               'familyName': 'Muster',
               'givenName': 'Max',
-              'juristicName': None,
             }),
             dict({
               'familyName': 'Egger',
@@ -2086,6 +2088,7 @@
     'dossierNr': '2021-1',
     'formType': 'Selbstdeklaration Baukontrolle 2',
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
+    'gisCoordinatesCenter': None,
     'inputDateHeader': FakeDatetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc()),
     'inputDateHeaderLabel': 'Eingangsdatum',
     'landownerHeaderLabel': 'Grundeigentümer/in',
@@ -2097,6 +2100,7 @@
     'municipality': 'Burgdorf',
     'municipalityHeader': 'Burgdorf',
     'municipalityHeaderLabel': 'Gemeinde',
+    'municipalityServiceContent': None,
     'paperInputDateHeader': None,
     'plotsHeader': '3',
     'plotsHeaderLabel': 'Parzelle(n)',
@@ -2202,12 +2206,6 @@
                 'slug': 'juristische-person-gesuchstellerin',
                 'type': 'TextQuestion',
                 'value': 'Nein',
-              }),
-              dict({
-                'label': 'Name juristische Person',
-                'slug': 'name-juristische-person-gesuchstellerin',
-                'type': 'TextQuestion',
-                'value': None,
               }),
               dict({
                 'label': 'Name',
@@ -2409,7 +2407,6 @@
             dict({
               'familyName': 'Muster',
               'givenName': 'Max',
-              'juristicName': None,
             }),
           ]),
           'type': 'SignatureQuestion',
@@ -2455,6 +2452,7 @@
     'dossierNr': '2021-1',
     'formType': 'Materielle Prüfung',
     'generatedAt': 'Generiert am 06.01.2023 um 17:10',
+    'gisCoordinatesCenter': None,
     'inputDateHeader': FakeDatetime(2021, 3, 31, 13, 17, 8, tzinfo=tzutc()),
     'inputDateHeaderLabel': 'Eingangsdatum',
     'landownerHeaderLabel': 'Grundeigentümer/in',
@@ -2466,6 +2464,7 @@
     'municipality': 'Burgdorf',
     'municipalityHeader': 'Burgdorf',
     'municipalityHeaderLabel': 'Gemeinde',
+    'municipalityServiceContent': None,
     'paperInputDateHeader': None,
     'plotsHeader': '3',
     'plotsHeaderLabel': 'Parzelle(n)',
@@ -2603,9 +2602,10 @@
       }),
     ]),
     'dossierNr': None,
-    'draft': '',
+    'draft': 'Entwurf',
     'formType': None,
     'generatedAt': 'Generiert am 07.09.2022 um 14:01',
+    'gisCoordinatesCenter': None,
     'inputDateHeader': FakeDatetime(2021, 1, 1, 0, 0),
     'inputDateHeaderLabel': 'Eingangsdatum',
     'landownerHeaderLabel': 'Grundeigentümer/in',
@@ -2633,6 +2633,7 @@
     'municipality': 'Testhausen',
     'municipalityHeader': 'Testhausen',
     'municipalityHeaderLabel': 'Gemeinde',
+    'municipalityServiceContent': None,
     'paperInputDateHeader': FakeDatetime(2021, 1, 2, 0, 0),
     'plotsHeader': '123',
     'plotsHeaderLabel': 'Parzelle(n)',
@@ -2659,7 +2660,241 @@
     'responsibleHeaderLabel': 'Zuständig',
     'sections': list([
       dict({
+        'columns': list([
+          'Dr. Ingeborg Schuchhardt B.Sc.',
+          'Nada Butte',
+        ]),
+        'label': 'Susi Trommler',
+        'rows': list([
+          list([
+            dict({
+              'label': 'Dr. Ingeborg Schuchhardt B.Sc.',
+              'slug': 'e-grid-nr',
+              'type': 'TextQuestion',
+              'value': None,
+            }),
+            dict({
+              'label': 'Nada Butte',
+              'slug': 'parzellennummer',
+              'type': 'TextQuestion',
+              'value': '123',
+            }),
+          ]),
+          list([
+            dict({
+              'label': 'Dr. Ingeborg Schuchhardt B.Sc.',
+              'slug': 'e-grid-nr',
+              'type': 'TextQuestion',
+              'value': 'CH908035124647',
+            }),
+            dict({
+              'label': 'Nada Butte',
+              'slug': 'parzellennummer',
+              'type': 'TextQuestion',
+              'value': None,
+            }),
+          ]),
+        ]),
+        'slug': 'parzelle',
+        'type': 'TableQuestion',
+      }),
+      dict({
+        'columns': list([
+          '',
+          '',
+          'Prof. Fatima Schäfer',
+          'Enrico Schleich-Liebelt',
+        ]),
+        'label': 'Heinz Dieter Hörle',
+        'rows': list([
+          list([
+            dict({
+              'label': '',
+              'slug': 'vorname-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'Foo',
+            }),
+            dict({
+              'label': '',
+              'slug': 'name-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'Bar',
+            }),
+            dict({
+              'label': 'Prof. Fatima Schäfer',
+              'slug': 'juristische-person-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'juristische-person-gesuchstellerin-ja',
+            }),
+            dict({
+              'label': 'Enrico Schleich-Liebelt',
+              'slug': 'name-juristische-person-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'Test AG',
+            }),
+          ]),
+        ]),
+        'slug': 'personalien-gesuchstellerin',
+        'type': 'TableQuestion',
+      }),
+      dict({
+        'columns': list([
+          '',
+          '',
+          'Prof. Fatima Schäfer',
+          'Enrico Schleich-Liebelt',
+        ]),
+        'label': 'Helmuth Naser',
+        'rows': list([
+          list([
+            dict({
+              'label': '',
+              'slug': 'vorname-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'Grund',
+            }),
+            dict({
+              'label': '',
+              'slug': 'name-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'Eigentümerin',
+            }),
+            dict({
+              'label': 'Prof. Fatima Schäfer',
+              'slug': 'juristische-person-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'juristische-person-gesuchstellerin-ja',
+            }),
+            dict({
+              'label': 'Enrico Schleich-Liebelt',
+              'slug': 'name-juristische-person-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'Eigentümer AG',
+            }),
+          ]),
+        ]),
+        'slug': 'personalien-grundeigentumerin',
+        'type': 'TableQuestion',
+      }),
+      dict({
+        'columns': list([
+          '',
+          '',
+          'Prof. Fatima Schäfer',
+          'Enrico Schleich-Liebelt',
+        ]),
+        'label': 'Zoran Ehlert-Kruschwitz',
+        'rows': list([
+          list([
+            dict({
+              'label': '',
+              'slug': 'vorname-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'Projekt',
+            }),
+            dict({
+              'label': '',
+              'slug': 'name-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'Verfasserin',
+            }),
+            dict({
+              'label': 'Prof. Fatima Schäfer',
+              'slug': 'juristische-person-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'juristische-person-gesuchstellerin-ja',
+            }),
+            dict({
+              'label': 'Enrico Schleich-Liebelt',
+              'slug': 'name-juristische-person-gesuchstellerin',
+              'type': 'TextQuestion',
+              'value': 'Projektverfasserin AG',
+            }),
+          ]),
+        ]),
+        'slug': 'personalien-projektverfasserin',
+        'type': 'TableQuestion',
+      }),
+      dict({
+        'label': 'Christa Roskoth',
+        'slug': 'beschreibung-projektaenderung',
+        'type': 'TextQuestion',
+        'value': 'Projekt Änderung',
+      }),
+      dict({
+        'label': 'Dr. Anthony Wagenknecht B.A.',
+        'slug': 'street-and-housenumber',
+        'type': 'TextQuestion',
+        'value': 'Bahnhofstrasse 2',
+      }),
+      dict({
+        'label': 'Bernt Baum',
+        'slug': 'ort-grundstueck',
+        'type': 'TextQuestion',
+        'value': 'Testhausen',
+      }),
+      dict({
+        'label': 'Stephen Wende',
+        'slug': 'beschreibung-bauvorhaben',
+        'type': 'TextQuestion',
+        'value': 'Bau Einfamilienhaus',
+      }),
+      dict({
+        'label': '',
+        'slug': 'gemeinde',
+        'type': 'TextQuestion',
+        'value': 'Testhausen',
+      }),
+      dict({
+        'choices': list([
+          dict({
+            'checked': True,
+            'label': 'Ja',
+          }),
+          dict({
+            'checked': False,
+            'label': 'Nein',
+          }),
+        ]),
+        'label': '',
+        'slug': 'projektaenderung',
+        'type': 'ChoiceQuestion',
+      }),
+      dict({
         'children': list([
+          dict({
+            'label': 'Heinz Dieter Hörle',
+            'people': list([
+              dict({
+                'familyName': 'Bar',
+                'givenName': 'Foo',
+                'juristicName': 'Test AG',
+              }),
+            ]),
+            'type': 'SignatureQuestion',
+          }),
+          dict({
+            'label': 'Helmuth Naser',
+            'people': list([
+              dict({
+                'familyName': 'Eigentümerin',
+                'givenName': 'Grund',
+                'juristicName': 'Eigentümer AG',
+              }),
+            ]),
+            'type': 'SignatureQuestion',
+          }),
+          dict({
+            'label': 'Zoran Ehlert-Kruschwitz',
+            'people': list([
+              dict({
+                'familyName': 'Verfasserin',
+                'givenName': 'Projekt',
+                'juristicName': 'Projektverfasserin AG',
+              }),
+            ]),
+            'type': 'SignatureQuestion',
+          }),
         ]),
         'label': 'Unterschriften',
         'slug': '8-unterschriften',
@@ -2673,4 +2908,33 @@
     'tagHeaderLabel': 'Stichworte',
     'uploadedAt': 'Hochgeladen am 07.09.2022 um 14:01',
   })
+# ---
+# name: test_print_meta_attributes
+  list([
+    dict({
+      'label': 'print-label',
+      'slug': 'integer-print',
+      'type': 'IntegerQuestion',
+      'value': 12,
+    }),
+    dict({
+      'label': 'Heidelore Sager-Thanel',
+      'slug': 'integer',
+      'type': 'IntegerQuestion',
+      'value': 57000000,
+    }),
+    dict({
+      'label': 'Hellmut Benthin-Stahr',
+      'slug': 'float',
+      'type': 'FloatQuestion',
+      'value': 1304.12,
+    }),
+    dict({
+      'children': list([
+      ]),
+      'label': 'Unterschriften',
+      'slug': '8-unterschriften',
+      'type': 'FormQuestion',
+    }),
+  ])
 # ---

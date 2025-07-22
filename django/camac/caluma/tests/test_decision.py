@@ -57,9 +57,9 @@ def test_complete_decision(
     caluma_admin_user,
     mailoutbox,
     notification_template,
-    work_item_factory,
-    document_factory,
-    question_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_question_factory,
     instance_state_factory,
     decision,
     decision_settings,
@@ -78,13 +78,13 @@ def test_complete_decision(
     gr_instance.case.workflow = Workflow.objects.get(pk="building-permit")
     gr_instance.case.save()
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=gr_instance.case,
         task_id=decision_settings["TASK"],
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form_id="decision"),
+        document=caluma_document_factory(form_id="decision"),
     )
-    decision_question = question_factory(
+    decision_question = caluma_question_factory(
         slug=decision_settings["QUESTIONS"]["DECISION"],
         label="Entscheid",
         type=Question.TYPE_TEXT,
@@ -156,6 +156,20 @@ def test_complete_decision(
             "finished_internal",
             "Beurteilung abgeschlossen",
         ),
+        (
+            "building-permit",
+            "OTHER",
+            "BUILDING_PERMIT",
+            "finished",
+            "Bauentscheid verfügt",
+        ),
+        (
+            "preliminary-clarification",
+            "OTHER",
+            "BUILDING_PERMIT",
+            "evaluated",
+            "Beurteilung abgeschlossen",
+        ),
     ],
 )
 def test_complete_decision_be(
@@ -165,7 +179,7 @@ def test_complete_decision_be(
     application_settings,
     mailoutbox,
     notification_template,
-    work_item_factory,
+    caluma_work_item_factory,
     instance_state_factory,
     workflow,
     decision,
@@ -195,6 +209,12 @@ def test_complete_decision_be(
                 "recipient_types": ["applicant"],
             }
         ],
+        "DECISION_OTHER": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["applicant"],
+            }
+        ],
     }
 
     instance_state_factory(name=expected_instance_state)
@@ -208,7 +228,7 @@ def test_complete_decision_be(
     )
 
     if workflow == "internal":
-        ebau_number_work_item = work_item_factory(case=be_instance.case)
+        ebau_number_work_item = caluma_work_item_factory(case=be_instance.case)
         application_settings["CALUMA"]["EBAU_NUMBER_TASK"] = (
             ebau_number_work_item.task_id
         )
@@ -338,77 +358,111 @@ def test_complete_decision_appeal(
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,decision,bauabschlag,expected",
+    "form_slug,instance_state__name,decision,bauabschlag,expected",
     [
-        ("decision", "APPROVED", None, True),
-        ("decision", "PARTIALLY_APPROVED", "MIT_WIEDERHERSTELLUNG", True),
-        ("decision", "PARTIALLY_APPROVED", "OHNE_WIEDERHERSTELLUNG", True),
-        ("decision", "REJECTED", "MIT_WIEDERHERSTELLUNG", True),
-        ("decision", "REJECTED", "OHNE_WIEDERHERSTELLUNG", False),
-        ("decision", "WITHDRAWAL", None, False),
+        ("baugesuch", "decision", "APPROVED", None, True),
+        ("baugesuch", "decision", "PARTIALLY_APPROVED", "MIT_WIEDERHERSTELLUNG", True),
+        ("baugesuch", "decision", "PARTIALLY_APPROVED", "OHNE_WIEDERHERSTELLUNG", True),
+        ("baugesuch", "decision", "REJECTED", "MIT_WIEDERHERSTELLUNG", True),
+        ("baugesuch", "decision", "REJECTED", "OHNE_WIEDERHERSTELLUNG", False),
+        ("baugesuch", "decision", "WITHDRAWAL", None, False),
         # If instance state is withdrawn, never continue
-        ("withdrawal", "WITHDRAWAL", None, False),
-        ("withdrawal", "APPROVED", None, False),
+        ("baugesuch", "withdrawal", "WITHDRAWAL", None, False),
+        ("baugesuch", "withdrawal", "APPROVED", None, False),
+        # Building permits for ads never continue
+        ("reklamegesuch", "decision", "APPROVED", None, False),
     ],
 )
 def test_should_continue_after_decision_so(
     db,
-    document_factory,
-    question_factory,
+    caluma_document_factory,
+    caluma_question_factory,
     so_decision_settings,
-    task_factory,
-    work_item_factory,
+    caluma_task_factory,
+    caluma_work_item_factory,
     decision,
     bauabschlag,
     expected,
     instance,
+    form_slug,
+    set_application_so,
 ):
-    work_item = work_item_factory(
-        task=task_factory(slug=so_decision_settings["TASK"]),
+    work_item = caluma_work_item_factory(
+        task=caluma_task_factory(slug=so_decision_settings["TASK"]),
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form=FormFactory(slug="decision")),
+        document=caluma_document_factory(form=FormFactory(slug="decision")),
     )
 
+    work_item.case.document.form = FormFactory(slug=form_slug)
+    work_item.case.document.save()
+
     work_item.document.answers.create(
-        question=question_factory(slug=so_decision_settings["QUESTIONS"]["DECISION"]),
+        question=caluma_question_factory(
+            slug=so_decision_settings["QUESTIONS"]["DECISION"]
+        ),
         value=so_decision_settings["ANSWERS"]["DECISION"][decision],
     )
 
     if bauabschlag:
         work_item.document.answers.create(
-            question=question_factory(
+            question=caluma_question_factory(
                 slug=so_decision_settings["QUESTIONS"]["BAUABSCHLAG"]
             ),
             value=so_decision_settings["ANSWERS"]["BAUABSCHLAG"][bauabschlag],
         )
 
-    DecisionLogic.should_continue_after_decision_so(instance, work_item) == expected
+    assert DecisionLogic.should_continue_after_decision(instance, work_item) == expected
+
+
+@pytest.mark.parametrize(
+    "decision,expected",
+    [
+        # negative states
+        ("REJECTED", False),
+        ("WRITTEN_OFF", False),
+        ("NEGATIVE", False),
+        ("WITHDRAWAL", False),
+        ("OTHER", False),
+        # positive states
+        ("APPROVED", True),
+        ("POSITIVE", True),
+        ("POSITIVE_WITH_RESERVATION", True),
+    ],
+)
+def test_is_positive_decision_gr(
+    db, gr_decision_settings, decision, expected, set_application_gr
+):
+    decision = gr_decision_settings["ANSWERS"]["DECISION"][decision]
+
+    assert DecisionLogic.is_positive_decision(decision=decision) == expected
 
 
 @pytest.mark.parametrize("instance_state__name", ["withdrawal"])
 def test_complete_decision_withdrawn(
     db,
     caluma_admin_user,
-    document_factory,
+    caluma_document_factory,
     instance_state_factory,
-    question_factory,
+    caluma_question_factory,
     so_decision_settings,
     so_instance,
     withdrawal_settings,
-    work_item_factory,
+    caluma_work_item_factory,
     disable_ech0211_settings,
 ):
     instance_state_factory(name=withdrawal_settings["INSTANCE_STATE_CONFIRMED"])
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=so_instance.case,
         task_id=so_decision_settings["TASK"],
         status=WorkItem.STATUS_COMPLETED,
-        document=document_factory(form=FormFactory(slug="decision")),
+        document=caluma_document_factory(form=FormFactory(slug="decision")),
     )
 
     work_item.document.answers.create(
-        question=question_factory(slug=so_decision_settings["QUESTIONS"]["DECISION"]),
+        question=caluma_question_factory(
+            slug=so_decision_settings["QUESTIONS"]["DECISION"]
+        ),
         value=so_decision_settings["ANSWERS"]["DECISION"]["WITHDRAWAL"],
     )
 
@@ -430,6 +484,89 @@ def test_complete_decision_withdrawn(
         .get_trans_attr("title")
         == "Rückzug bestätigt"
     )
+
+
+@pytest.mark.parametrize(
+    "service_group__name,expected_status,expected_work_items,complete_afterwards",
+    [
+        (
+            "municipality",
+            "decided",
+            {"init-construction-monitoring"},
+            ["init-construction-monitoring", "complete-instance"],
+        ),
+        (
+            "municipality-light",
+            "to-finish",
+            {"complete-instance"},
+            ["complete-instance"],
+        ),
+    ],
+)
+def test_complete_decision_ag(
+    db,
+    ag_construction_monitoring_settings,
+    ag_decision_settings,
+    ag_instance,
+    caluma_admin_user,
+    complete_afterwards,
+    decision_factory_ag,
+    disable_ech0211_settings,
+    expected_status,
+    expected_work_items,
+    instance_state_factory,
+    mocker,
+    service,
+    service_factory,
+    set_application_ag,
+):
+    service_factory(slug="afb")
+
+    instance_state_factory(name="decided")
+    instance_state_factory(name="to-finish")
+    instance_state_factory(name="finished")
+
+    mocker.patch("camac.notification.utils.send_mail")
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service", return_value=service
+    )
+
+    # In order to not test the whole workflow, we cancel the submit work item
+    # and create a decision work item for the test.
+    cancel_work_item(
+        ag_instance.case.work_items.filter(task_id="submit").first(),
+        caluma_admin_user,
+    )
+
+    decision_work_item = decision_factory_ag(
+        ag_instance,
+        ag_decision_settings["ANSWERS"]["DECISION"]["APPROVED"],
+    )
+
+    complete_work_item(decision_work_item, caluma_admin_user)
+
+    ag_instance.refresh_from_db()
+    assert ag_instance.instance_state.name == expected_status
+    assert (
+        set(
+            ag_instance.case.work_items.filter(
+                status=WorkItem.STATUS_READY
+            ).values_list("task_id", flat=True)
+        )
+        == expected_work_items
+    )
+
+    for task_id in complete_afterwards:
+        complete_work_item(
+            ag_instance.case.work_items.get(task_id=task_id),
+            caluma_admin_user,
+            context={"skip": True},  # To allow skipping of construction monitoring
+        )
+
+    ag_instance.refresh_from_db()
+    assert not ag_instance.case.work_items.filter(status=WorkItem.STATUS_READY).exists()
+    assert ag_instance.instance_state.name == "finished"
+    assert ag_instance.case.status == Case.STATUS_COMPLETED
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -472,7 +609,7 @@ def test_complete_decision_appeal_so(
     so_construction_monitoring_settings,
     so_decision_settings,
     so_instance,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SHORT_NAME"] = "so"
@@ -485,7 +622,9 @@ def test_complete_decision_appeal_so(
     instance_state_factory(name="init-distribution")
 
     # Prepare "normal" instance that got an appeal after the decision
-    work_item_factory(task_id=so_decision_settings["TASK"], case=so_instance.case)
+    caluma_work_item_factory(
+        task_id=so_decision_settings["TASK"], case=so_instance.case
+    )
     decision_factory_so(
         so_instance, so_decision_settings["ANSWERS"]["DECISION"][previous_decision]
     )
@@ -555,7 +694,7 @@ def test_complete_decision_simplified_workflow_so(
     settings,
     so_decision_settings,
     so_instance,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SHORT_NAME"] = "so"
@@ -571,7 +710,7 @@ def test_complete_decision_simplified_workflow_so(
         so_instance.case.work_items.filter(task_id="submit").first(),
         caluma_admin_user,
     )
-    decision_work_item = work_item_factory(
+    decision_work_item = caluma_work_item_factory(
         task_id=so_decision_settings["TASK"],
         case=so_instance.case,
         child_case=None,
@@ -610,7 +749,7 @@ def test_complete_decision_simplified_workflow_so(
     ],
 )
 def test_decision_work_item_name(
-    work_item_factory,
+    caluma_work_item_factory,
     caluma_admin_user,
     is_appeal,
     form_slug,
@@ -625,7 +764,7 @@ def test_decision_work_item_name(
     Form.objects.filter(pk="meldung").update(name={"de": "Meldung (Anzeige)"})
     Form.objects.filter(pk="meldung-pv").update(name={"de": "Meldung PV-Anlage"})
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         task_id=so_decision_settings["TASK"], case=so_instance.case
     )
 
@@ -646,3 +785,289 @@ def test_decision_work_item_name(
     work_item.refresh_from_db()
 
     assert work_item.name.translate() == expected_work_item_name
+
+
+@pytest.mark.parametrize(
+    "service_group__name,instance_state__name,decision,demolition,expected",
+    [
+        ("municipality", "decision", "APPROVED", None, True),
+        ("municipality", "decision", "PARTIALLY_APPROVED", None, True),
+        ("municipality", "decision", "REJECTED", "WITH", True),
+        ("municipality", "decision", "REJECTED", "WITHOUT", False),
+        ("municipality", "decision", "WITHDRAWAL", None, False),
+        # If instance state is withdrawn, never continue
+        ("baugesuch", "withdrawal", "WITHDRAWAL", None, False),
+        ("baugesuch", "withdrawal", "APPROVED", None, False),
+        # Municipality light instances never continue
+        ("municipality-light", "decision", "APPROVED", None, False),
+        ("municipality-light", "decision", "PARTIALLY_APPROVED", None, False),
+        ("municipality-light", "decision", "REJECTED", "WITH", False),
+    ],
+)
+def test_should_continue_after_decision_ag(
+    db,
+    ag_decision_settings,
+    ag_instance,
+    decision_factory_ag,
+    decision,
+    demolition,
+    expected,
+    mocker,
+    service,
+    set_application_ag,
+):
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service", return_value=service
+    )
+
+    decision_work_item = decision_factory_ag(
+        ag_instance,
+        decision=ag_decision_settings["ANSWERS"]["DECISION"][decision],
+        demolition=ag_decision_settings["ANSWERS"]["DEMOLITION"].get(demolition),
+    )
+
+    assert (
+        DecisionLogic.should_continue_after_decision(ag_instance, decision_work_item)
+        == expected
+    )
+
+
+@pytest.mark.parametrize(
+    "is_preliminary_clarification,is_other_decision,is_appeal,expected_notification_slug",
+    [
+        (True, True, False, "decision-other"),
+        (True, False, False, "decision-preliminary-clarification"),
+        (False, False, False, "decision"),
+        (False, False, True, "decision-appeal"),
+        (False, True, False, "decision-other"),
+    ],
+)
+def test_get_notification_config_be(
+    db,
+    be_instance,
+    settings,
+    application_settings,
+    be_decision_settings,
+    is_preliminary_clarification,
+    is_other_decision,
+    is_appeal,
+    expected_notification_slug,
+    caluma_work_item_factory,
+    utils,
+    master_data_settings,
+):
+    settings.APPLICATION_NAME = "kt_be"
+    application_settings["SHORT_NAME"] = "be"
+    application_settings["NOTIFICATIONS"] = {
+        "DECISION": [
+            {
+                "template_slug": "decision",
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "DECISION_OTHER": [
+            {
+                "template_slug": "decision-other",
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "DECISION_PRELIMINARY_CLARIFICATION": [
+            {
+                "template_slug": "decision-preliminary-clarification",
+                "recipient_types": ["applicant"],
+            }
+        ],
+    }
+
+    decision = caluma_work_item_factory(task_id="decision", case=be_instance.case)
+
+    if is_other_decision:
+        utils.add_answer(
+            decision.document,
+            "decision-decision-assessment",
+            "decision-decision-assessment-other",
+        )
+
+    if is_preliminary_clarification:
+        be_instance.case.workflow_id = "preliminary-clarification"
+        be_instance.case.save()
+
+    elif is_appeal:
+        settings.APPEAL = {
+            "NOTIFICATIONS": {
+                "APPEAL_DECISION": [
+                    {
+                        "template_slug": "decision-appeal",
+                        "recipient_types": ["applicant"],
+                    }
+                ]
+            }
+        }
+        be_instance.case.meta["is-appeal"] = True
+
+    assert (
+        DecisionLogic.get_notification_config(be_instance, decision)[0]["template_slug"]
+        == expected_notification_slug
+    )
+
+
+@pytest.mark.parametrize(
+    "non_building_permit_decision,expected_notification_slug",
+    [
+        (True, "decision-non-building-permit"),
+        (False, "decision"),
+    ],
+)
+def test_get_notification_config_gr(
+    db,
+    gr_instance,
+    settings,
+    application_settings,
+    gr_decision_settings,
+    non_building_permit_decision,
+    expected_notification_slug,
+    caluma_work_item_factory,
+):
+    settings.APPLICATION_NAME = "kt_gr"
+    application_settings["SHORT_NAME"] = "gr"
+    application_settings["NOTIFICATIONS"] = {
+        "DECISION": [
+            {
+                "template_slug": "decision",
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "NON_BUILDING_PERMIT_DECISION": [
+            {
+                "template_slug": "decision-non-building-permit",
+                "recipient_types": ["applicant"],
+            }
+        ],
+    }
+    decision = caluma_work_item_factory(task_id="decision", case=gr_instance.case)
+
+    if non_building_permit_decision:
+        gr_instance.case.document.form.slug = "bauanzeige"
+        gr_instance.case.document.form.save()
+
+    assert (
+        DecisionLogic.get_notification_config(gr_instance, decision)[0]["template_slug"]
+        == expected_notification_slug
+    )
+
+
+@pytest.mark.parametrize(
+    "is_appeal,non_building_permit_decision,expected_notification_slug",
+    [
+        (False, True, "decision-non-building-permit"),
+        (True, False, "decision-appeal"),
+        (False, False, "decision"),
+    ],
+)
+def test_get_notification_config_so(
+    db,
+    so_instance,
+    settings,
+    application_settings,
+    so_decision_settings,
+    is_appeal,
+    non_building_permit_decision,
+    expected_notification_slug,
+    caluma_case_factory,
+    caluma_document_factory,
+    caluma_work_item_factory,
+):
+    if non_building_permit_decision:
+        so_instance.case.document.form.slug = "not-baugesuch"
+        so_instance.case.document.form.save()
+    else:
+        caluma_case_factory(
+            instance=so_instance,
+            document=caluma_document_factory(form__slug="baugesuch"),
+        )
+        so_instance.case.document.save()
+
+    settings.APPLICATION_NAME = "kt_so"
+    application_settings["SHORT_NAME"] = "so"
+    application_settings["NOTIFICATIONS"] = {
+        "DECISION": [
+            {
+                "template_slug": "decision",
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "NON_BUILDING_PERMIT_DECISION": [
+            {
+                "template_slug": "decision-non-building-permit",
+                "recipient_types": ["applicant"],
+            }
+        ],
+    }
+    decision = caluma_work_item_factory(task_id="decision", case=so_instance.case)
+
+    if is_appeal:
+        settings.APPEAL = {
+            "NOTIFICATIONS": {
+                "APPEAL_DECISION": [
+                    {
+                        "template_slug": "decision-appeal",
+                        "recipient_types": ["applicant"],
+                    }
+                ]
+            }
+        }
+        so_instance.case.meta["is-appeal"] = True
+
+    assert (
+        DecisionLogic.get_notification_config(so_instance, decision)[0]["template_slug"]
+        == expected_notification_slug
+    )
+
+
+@pytest.mark.parametrize(
+    "is_appeal,expected_notification_slug",
+    [(False, "decision"), (True, "decision-appeal")],
+)
+def test_get_notification_config_ur(
+    db,
+    ur_instance,
+    is_appeal,
+    expected_notification_slug,
+    settings,
+    application_settings,
+    caluma_work_item_factory,
+    caluma_document_factory,
+):
+    settings.APPLICATION_NAME = "kt_ur"
+    application_settings["SHORT_NAME"] = "ur"
+    application_settings["NOTIFICATIONS"] = {
+        "DECISION": [
+            {
+                "template_slug": "decision",
+                "recipient_types": ["applicant"],
+            }
+        ],
+        "APPEAL_DECISION": [
+            {
+                "template_slug": "decision-appeal",
+                "recipient_types": ["applicant"],
+            }
+        ],
+    }
+    settings.APPEAL["NOTIFICATIONS"] = {
+        "APPEAL_DECISION": [
+            {
+                "template_slug": "decision-appeal",
+                "recipient_types": ["applicant"],
+            }
+        ]
+    }
+    decision = caluma_work_item_factory(task_id="decision", case=ur_instance.case)
+
+    if is_appeal:
+        ur_instance.case.meta["is-appeal"] = True
+
+    assert (
+        DecisionLogic.get_notification_config(ur_instance, decision)[0]["template_slug"]
+        == expected_notification_slug
+    )

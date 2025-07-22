@@ -69,12 +69,21 @@ VIEWS = [
          SELECT
                 CASE "BILLING_ENTRY"."AMOUNT_TYPE"
                     WHEN 0 THEN "BILLING_ENTRY"."AMOUNT"
-                    WHEN 1 THEN ("BILLING_ENTRY"."AMOUNT" * ((( SELECT "BILLING_CONFIG"."VALUE"
-                       FROM "BILLING_CONFIG"
-                      WHERE (("BILLING_CONFIG"."NAME")::text = 'hourly_rate'::text)))::integer)::double precision)
-                    WHEN 2 THEN (("BILLING_ENTRY"."AMOUNT" * ((( SELECT "BILLING_CONFIG"."VALUE"
-                       FROM "BILLING_CONFIG"
-                      WHERE (("BILLING_CONFIG"."NAME")::text = 'hourly_rate'::text)))::integer)::double precision) / (2)::double precision)
+                    WHEN 1 THEN (
+                        "BILLING_ENTRY"."AMOUNT" *
+                        CASE
+                            WHEN "BILLING_ENTRY"."CREATED" < '2024-09-01' THEN 100
+                            ELSE 110
+                        END
+                    )::double precision
+                    WHEN 2 THEN (
+                        ("BILLING_ENTRY"."AMOUNT" *
+                        CASE
+                            WHEN "BILLING_ENTRY"."CREATED" < '2024-09-01' THEN 100
+                            ELSE 110
+                        END)::double precision
+                        / 2::double precision
+                    )
                     ELSE NULL::double precision
                 END AS "ACTUAL_AMOUNT",
             "BILLING_ENTRY"."BILLING_ENTRY_ID"

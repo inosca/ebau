@@ -1,0 +1,81 @@
+{{#if this.instance.isLoading}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio="2" />
+  </div>
+{{else}}
+  <table class="uk-table uk-table-small uk-table-justify">
+    <tbody>
+      <tr>
+        <th class="uk-table-shrink">
+          {{t "change-responsible-service.active"}}
+        </th>
+        <td class="uk-padding-remove-bottom">
+          {{this.activeService.name}}
+        </td>
+      </tr>
+      <tr>
+        <th class="uk-table-shrink">
+          {{t "change-responsible-service.involved"}}
+        </th>
+        <td>
+          {{join ", " (map-by "name" this.involvedServices.value)}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="uk-margin">
+    {{#if
+      (await
+        (can
+          "change responsible service of instance"
+          this.instance.record
+          activeService=this.activeService
+          type=this.model
+        )
+      )
+    }}
+      <PowerSelect
+        @searchEnabled={{true}}
+        @searchField="name"
+        @allowClear={{true}}
+        @renderInPlace={{true}}
+        @options={{this.selectableServices.records}}
+        @disabled={{this.change.isRunning}}
+        @selected={{this.selectedService}}
+        @onChange={{fn (mut this.selectedService)}}
+        @placeholder={{t "change-responsible-service.choose"}}
+        class="uk-select"
+        as |option|
+      >
+        {{option.name}}
+      </PowerSelect>
+      <UkButton
+        @onClick={{this.change.perform}}
+        @disabled={{or this.change.isRunning (not this.selectedService)}}
+        @loading={{this.change.isRunning}}
+        @color="primary"
+        class="uk-margin"
+      >
+        {{t "change-responsible-service.change"}}
+      </UkButton>
+    {{/if}}
+    {{#if
+      (await
+        (can
+          "unsubscribe responsible service of instance"
+          this.instance.record
+          involvedServices=this.involvedServices.value
+        )
+      )
+    }}
+      <UkButton
+        @onClick={{this.unsubscribe.perform}}
+        @disabled={{this.unsubscribe.isRunning}}
+        @loading={{this.unsubscribe.isRunning}}
+        @color="default"
+      >
+        {{t "change-responsible-service.unsubscribe"}}
+      </UkButton>
+    {{/if}}
+  </div>
+{{/if}}

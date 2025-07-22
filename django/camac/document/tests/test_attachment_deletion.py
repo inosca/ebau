@@ -124,7 +124,7 @@ from .data import django_file
             lfc("service_factory"),
             "running",
             permissions.AdminInternalBusinessControlPermission,
-            status.HTTP_403_FORBIDDEN,
+            status.HTTP_404_NOT_FOUND,
         ),
         (
             "internal",
@@ -159,14 +159,14 @@ def test_attachment_delete(
     mocker,
     acl_mode,
     case_status,
-    case_factory,
+    caluma_case_factory,
     application_settings,
 ):
     application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
     application_settings["ATTACHMENT_DELETEABLE_STATES"] = ["new"]
 
     if case_status:
-        attachment_attachment_sections.attachment.instance.case = case_factory(
+        attachment_attachment_sections.attachment.instance.case = caluma_case_factory(
             status=case_status
         )
         attachment_attachment_sections.attachment.instance.save()
@@ -205,10 +205,10 @@ def test_attachment_delete(
     ],
 )
 @pytest.mark.parametrize(
-    "communications_attachment__document_attachment, expect_success, expect_file_on_disk",
+    "communications_attachment__document_attachment, file_attachment_is_null, expect_success, expect_file_on_disk",
     [
-        (lf("attachment"), False, True),
-        (None, True, False),
+        (lf("attachment"), True, False, True),
+        (None, False, True, False),
     ],
 )
 def test_delete_with_comms_attachment(
@@ -218,11 +218,16 @@ def test_delete_with_comms_attachment(
     communications_attachment,
     attachment_section,
     expect_success,
+    file_attachment_is_null,
     expect_file_on_disk,
     application_settings,
 ):
     application_settings["ATTACHMENT_INTERNAL_STATES"] = ["internal"]
     application_settings["ATTACHMENT_DELETEABLE_STATES"] = ["new"]
+
+    if file_attachment_is_null:
+        communications_attachment.file_attachment.delete()
+        communications_attachment.save()
 
     # fix permissions - they don't matter here, we're testing another aspect
     mocker.patch(

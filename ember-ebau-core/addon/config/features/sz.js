@@ -8,6 +8,11 @@ export default {
     billingType: false,
     legalBasis: false,
     costCenter: false,
+    releaseForClearing: {
+      enabled: true,
+      allowedForServiceGroups: ["baugesuchszentrale", "fachstellen"],
+    },
+    productNumber: true,
   },
   cases: {
     createPaper: false,
@@ -17,4 +22,9 @@ export default {
     snippets: true,
   },
   constructionMonitoring: true,
+  communications: {
+    enabled: true,
+    hideInstanceId: true,
+    snippets: true,
+  },
 };

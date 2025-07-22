@@ -7,7 +7,28 @@
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}">
                 <ul class="${properties.kcFormSocialAccountListClass!}">
                     <#if realm.password>
-                        <form id="kc-form-login" class="uk-form-horizontal uk-width-xlarge uk-margin-auto" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+                        <div id="kc-welcome-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-small-right">
+                            <h1>${msg("loginWelcomeHeader")}</h1>
+                            ${msg("loginWelcomeText")?no_esc}
+
+                            <h2>Anleitungen</h2>
+                            <#if client.clientId == "camac">
+                                <p>
+                                    Für Behörden:
+                                    <br /><a href="${url.resourcesPath}/pdf/Anleitung_Behördenportal_eBau_v3.0-1.pdf">"Anleitung Behördenportal"</a>
+                                    <br /><a href="${url.resourcesPath}/pdf/Anleitung_GWR-Modul_v1.0.pdf">"Anleitung zum GWR-Modul"</a>
+                                    <br /><a href="${url.resourcesPath}/pdf/Registrierung_Behördenportal_eBau_v3.0.pdf">"Anleitung Registrierung auf Behördenportal eBau"</a>
+                                    <br /><a href="${url.resourcesPath}/pdf/Anleitung_eBau_Vorlagenerstellung_220706-1.pdf">"Anleitung zur Erstellung von Dokumentenvorlagen"</a>
+                                </p>
+                            <#else>
+                                <p>
+                                    Für Gesuchsteller, Planer und interessierte Dritte:
+                                    <br /><a href="${url.resourcesPath}/pdf/Registrierung_Bürgerportal_eBau_v1.0-1.pdf">"Anleitung Registrierung auf Bürgerportal eBau"</a>
+                                    <br /><a href="${url.resourcesPath}/pdf/Anleitungen_für_Baugesuche_im_Grundwasserschutz_und_Erdwärmenutzung.pdf">"Anleitungen für Baugesuche im Grundwasserschutz und Erdwärmenutzung"</a>
+                                </p>
+                            </#if>
+                        </div>
+                        <form id="kc-form-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                             <h1>Anmeldung</h1>
                             <div class="${properties.kcFormGroupClass!}">
                                 <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
@@ -55,6 +76,7 @@
                                 </div>
                             </div>
                             <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+                            ${msg("loginLoginHelpText")?no_esc}
                         </form>
                     </#if>
                 </ul>

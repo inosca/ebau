@@ -1,0 +1,9 @@
+# serializer version: 1
+# name: test_validate_extra_columns
+  '''
+  Die folgenden Spalten wurden nicht erkannt und werden beim Import ignoriert:
+  PUBLICATIONDATE - meinten Sie "PUBLICATION-DATE"?
+  SOMEOTHERCOLUMN
+  SUBIMT-DATE - meinten Sie "SUBMIT-DATE"?.
+  '''
+# ---

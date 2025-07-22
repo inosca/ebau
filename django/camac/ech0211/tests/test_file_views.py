@@ -1,6 +1,8 @@
+import urllib.parse
+
 import pytest
 from alexandria.core.factories import CategoryFactory, FileFactory
-from alexandria.core.models import File
+from alexandria.core.models import Document, File
 from django.urls import reverse
 from rest_framework import status
 
@@ -90,11 +92,13 @@ def test_download(
         assert response.status_code == expected_status
 
         if response.status_code == status.HTTP_200_OK:
+            encoded_filename = urllib.parse.quote(file.name)
             assert (
                 response.headers["content-disposition"]
-                == f'attachment; filename="{file.name}"'
+                == f"attachment; filename*=UTF-8''{encoded_filename}"
             )
             assert response.headers["content-type"] == file.mime_type
+            assert response.getvalue() == file.content.file.read()
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -194,7 +198,15 @@ def test_upload(
         assert response.status_code == expected_status
 
         if response.status_code == status.HTTP_201_CREATED:
-            document = category.documents.first()
+            result = response.json()
+            assert result["document-uuid"]
+            assert result["file-uuid"]
+
+            file = File.objects.get(pk=result["file-uuid"])
+            document = Document.objects.get(pk=result["document-uuid"])
+
+            assert document.category == category
+            assert document.files.contains(file)
 
             # make sure file was scanned by clamav
             clamav.assert_called()
@@ -202,3 +214,112 @@ def test_upload(
             assert document.title == "multiple-pages.pdf"
             assert document.files.filter(variant=File.Variant.ORIGINAL).count() == 1
             assert document.files.filter(variant=File.Variant.THUMBNAIL).count() == 1
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_delete_disabled_document_backend(
+    admin_client,
+    category_setup,
+    gr_ech0211_settings,
+    application_settings,
+    instance,
+    reload_ech0211_urls,
+):
+    application_settings["DOCUMENT_BACKEND"] = "camac-ng"
+
+    file = FileFactory(
+        document__metainfo={"camac-instance-id": str(instance.pk)},
+        document__category=category_setup[1],
+    )
+
+    response = admin_client.delete(
+        reverse("ech-file-detail", args=[file.pk]),
+    )
+
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_delete_disabled_api_level(
+    admin_client,
+    category_setup,
+    gr_ech0211_settings,
+    application_settings,
+    instance,
+    reload_ech0211_urls,
+):
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+    gr_ech0211_settings["API_LEVEL"] = "basic"
+
+    file = FileFactory(
+        document__metainfo={"camac-instance-id": str(instance.pk)},
+        document__category=category_setup[1],
+    )
+
+    response = admin_client.delete(
+        reverse("ech-file-detail", args=[file.pk]),
+    )
+
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("has_remaining_files", [False, True])
+@pytest.mark.parametrize(
+    "has_attachment,expected_status",
+    [
+        (False, status.HTTP_204_NO_CONTENT),
+        (True, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_delete(
+    admin_client,
+    category_setup,
+    communications_attachment_factory,
+    has_remaining_files,
+    has_attachment,
+    expected_status,
+    instance,
+    application_settings,
+    gr_ech0211_settings,
+    reload_ech0211_urls,
+):
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+
+    file = FileFactory(
+        document__metainfo={"camac-instance-id": str(instance.pk)},
+        document__category=category_setup[1],
+    )
+    communications_attachment = (
+        communications_attachment_factory(alexandria_file=file)
+        if has_attachment
+        else None
+    )
+    extra_file = (
+        FileFactory(
+            document=file.document,
+            variant=File.Variant.ORIGINAL,
+        )
+        if has_remaining_files
+        else None
+    )
+
+    document = file.document
+    response = admin_client.delete(reverse("ech-file-detail", args=[file.pk]))
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_204_NO_CONTENT:
+        if has_remaining_files:
+            assert not File.objects.filter(pk=file.pk).exists()
+            assert File.objects.filter(pk=extra_file.pk).exists(), (
+                "Document and extra file should still exist"
+            )
+            assert Document.objects.filter(pk=document.pk).exists()
+        else:
+            assert not File.objects.filter(pk=file.pk).exists()
+            assert not Document.objects.filter(pk=document.pk).exists(), (
+                "Document should be deleted as well"
+            )
+
+    if communications_attachment:
+        communications_attachment.delete()

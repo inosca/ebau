@@ -27,8 +27,12 @@ workItems:
 
   saveSuccess: "Aufgabe erfolgreich gespeichert"
   finishSuccess: "Aufgabe erfolgreich abgeschlossen"
+  cancelSuccess: "Aufgabe erfolgreich verworfen"
   fetchError: "Fehler beim Laden der Aufgaben"
   saveError: "Fehler beim Speichern der Aufgabe"
+  cancelError: "Fehler beim Verwerfen der Aufgabe"
+
+  cancelConfirm: "Möchten Sie die Aufgabe wirklich verwerfen?"
 
   editFormLabel: "Formular zum Bearbeiten einer Aufgabe"
   completeFormLabel: "Formular zum Abschliessen einer Aufgabe"
@@ -36,6 +40,7 @@ workItems:
   actions:
     title: "Aktionen"
     highlight: "Markierung"
+    highlightNFD: "Markierung Nachforderung"
 
     markAsRead: "Als gelesen markieren"
     markAsUnread: "Als ungelesen markieren"
@@ -43,6 +48,7 @@ workItems:
     edit: "Aufgabe bearbeiten"
     read: "Aufgabe ansehen"
     finish: "Aufgabe abschliessen"
+    discard: "Aufgabe verfwerfen"
 
   filters:
     responsible: "Verantwortlich"
@@ -50,7 +56,9 @@ workItems:
     type: "Typ"
     role: "Rolle"
     order: "Sortierung"
-    task: "Aufgabe"
+    task:
+      title: "Aufgabe"
+      generic: '{taskName} <span class="uk-text-primary">({count})</span>'
 
     all: "Alle"
     own: "Eigene"
@@ -62,3 +70,14 @@ workItems:
     control: "Controlling"
     urgent: "Dringend"
     new: "Neu"
+
+  templates:
+    info: "Eine Vorlage anwenden"
+    select: "Vorlage auswählen"
+    apply: "Vorlage anwenden"
+
+  presets:
+    standard: "Standardfilter"
+    service: "Filter {serviceName}"
+    serviceGroup: "Filter {serviceGroupName}"
+    reset: "Filter zurücksetzen"

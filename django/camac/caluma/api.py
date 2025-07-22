@@ -10,6 +10,7 @@ from caluma.caluma_workflow import (
 from django.conf import settings
 from django.db.models import Q
 
+from camac.caluma.models import Inquiry
 from camac.instance.models import Instance
 from camac.user.models import Service
 
@@ -121,18 +122,36 @@ class CalumaApi:
 
         return document
 
-    def update_or_create_answer(self, document, question_slug, value, user):
+    def update_or_create_answer(
+        self, document, question_slug, value, user, skip_on_error=False
+    ):
+        """Create or update a Caluma answer.
+
+        Answer will be creaated in the given document.
+
+        Note that the question *must* be in the corresponding form of the
+        document.
+
+        Passing `skip_on_error=True` will silently ignore errors
+        in the validation step and won't save the answer as a consequence.
+        This allows you to keep the calling code generic. Use with caution.
+        """
         question = caluma_form_models.Question.objects.get(slug=question_slug)
 
-        AnswerValidator().validate(
-            question=question, document=document, user=user, value=value
-        )
+        try:
+            AnswerValidator().validate(
+                question=question, document=document, user=user, value=value
+            )
 
-        return caluma_form_models.Answer.objects.update_or_create(
-            document=document,
-            question_id=question_slug,
-            defaults={"value": value},
-        )
+            return caluma_form_models.Answer.objects.update_or_create(
+                document=document,
+                question_id=question_slug,
+                defaults={"value": value},
+            )
+        except Exception:
+            if skip_on_error:
+                return None
+            raise  # pragma: no cover
 
     def is_paper(self, instance):
         return instance.case.document.answers.filter(
@@ -153,6 +172,13 @@ class CalumaApi:
     def is_imported(self, instance):
         """Return true if instance was imported using dossier import."""
         return instance.case.document.form_id == "migriertes-dossier"
+
+    def is_submitted(self, instance):
+        """Return true if instance got submitted by the applicant."""
+        return (
+            instance.case.work_items.filter(task_id="submit").first().status
+            == caluma_workflow_models.WorkItem.STATUS_COMPLETED
+        )
 
     def is_ech_submitted(self, instance):
         return instance.case.meta.get("ech0211-submitted", False)
@@ -310,11 +336,12 @@ class CalumaApi:
             # If the current service has "create-inquiry" or "redo-inquiry" work
             # items but doesn't have a pending inquiry, we need to cancel those
             # so they can't create or reopen any inquiries
-            if not distribution.child_case.work_items.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups__contains=[from_group_id],
-                status=caluma_workflow_models.WorkItem.STATUS_READY,
-            ).exists():
+            if (
+                not Inquiry.objects.for_instance(instance)
+                .addressed_to(from_group_id)
+                .only_pending()
+                .exists()
+            ):
                 for work_item in distribution.child_case.work_items.filter(
                     task_id__in=[
                         settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],

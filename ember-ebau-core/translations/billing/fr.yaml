@@ -38,6 +38,9 @@ billing:
   delete-error: Erreur lors de la suppression de l'entrée des frais
   charge-error: Erreur lors de la facturation de l'entrée des frais
   paginationInfo: "<strong>{count}</strong> de {total}"
+  apply-construction-costs: Reprendre les coûts de construction du formulaire
+  apply-construction-costs-empty: Aucun coût de construction n'a pu être trouvé dans le formulaire
+  remark: Remarque
 
   organizations:
     cantonal: Cantonal
@@ -47,11 +50,13 @@ billing:
     flat: "{totalCost, number, ::.00} {taxMode}"
     percentage: "{percentage, number, ::.00 % scale/0.01} de {totalCost, number, ::.00} {taxMode}"
     hourly: "{hours, number, ::.00} heures à {hourlyRate, number, ::.00} {taxMode}"
+    ag_processing_fee: ""
 
     titles:
       flat: forfait (montant)
       percentage: pourcentage (des coûts totaux)
       hourly: selon le temps employé (heures * taux horaire)
+      ag_processing_fee: ""
 
   tax-modes:
     exempt: non soumis à la TVA
@@ -79,3 +84,9 @@ billing:
   filters:
     createdAfter: Date de réception (par)
     createdBefore: Date de réception (jusque)
+    service: Organisation
+
+  templates:
+    info: Appliquer un modèle
+    select: Sélectionner un modèle
+    apply: Appliquer le modèle

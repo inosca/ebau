@@ -5,9 +5,6 @@ import { dropTask } from "ember-concurrency";
 export default class DocumentValidityButtonComponent extends Component {
   @service session;
 
-  validateOnEnter = false;
-  showLoadingHint = false;
-  showButtonHint = false;
   type = "button";
 
   get invalidFields() {
@@ -16,9 +13,15 @@ export default class DocumentValidityButtonComponent extends Component {
     );
   }
 
+  get buttonLabel() {
+    return this.args.buttonLabel ?? this.args.field.question.raw.label;
+  }
+
   @dropTask
   *validate(validateFn) {
     yield validateFn();
-    yield this.afterValidate?.perform();
+    if (this.args?.afterValidate) {
+      yield this.args?.afterValidate?.perform();
+    }
   }
 }

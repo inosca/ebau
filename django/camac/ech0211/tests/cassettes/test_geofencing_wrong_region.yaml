@@ -1,0 +1,45 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.3
+    method: GET
+    uri: http://www.geoplugin.net/json.gp?ip=85.214.132.117
+  response:
+    body:
+      string: "{\n  \"geoplugin_request\":\"85.214.132.117\",\n  \"geoplugin_status\":206,\n
+        \ \"geoplugin_delay\":\"1ms\",\n  \"geoplugin_credit\":\"Some of the returned
+        data includes GeoLite2 data created by MaxMind, available from <a href='https:\\/\\/www.maxmind.com'>https:\\/\\/www.maxmind.com<\\/a>.\",\n
+        \ \"geoplugin_city\":\"\",\n  \"geoplugin_region\":\"\",\n  \"geoplugin_regionCode\":\"\",\n
+        \ \"geoplugin_regionName\":\"\",\n  \"geoplugin_areaCode\":\"\",\n  \"geoplugin_dmaCode\":\"\",\n
+        \ \"geoplugin_countryCode\":\"DE\",\n  \"geoplugin_countryName\":\"Germany\",\n
+        \ \"geoplugin_inEU\":1,\n  \"geoplugin_euVATrate\":19,\n  \"geoplugin_continentCode\":\"EU\",\n
+        \ \"geoplugin_continentName\":\"Europe\",\n  \"geoplugin_latitude\":\"51.2993\",\n
+        \ \"geoplugin_longitude\":\"9.491\",\n  \"geoplugin_locationAccuracyRadius\":\"50\",\n
+        \ \"geoplugin_timezone\":\"Europe\\/Berlin\",\n  \"geoplugin_currencyCode\":\"EUR\",\n
+        \ \"geoplugin_currencySymbol\":\"\u20AC\",\n  \"geoplugin_currencySymbol_UTF8\":\"\u20AC\",\n
+        \ \"geoplugin_currencyConverter\":0.9183\n}"
+    headers:
+      access-control-allow-origin:
+      - '*'
+      cache-control:
+      - public, max-age=300
+      content-length:
+      - '923'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 15 Oct 2024 15:02:22 GMT
+      server:
+      - Apache
+    status:
+      code: 200
+      message: OK
+version: 1

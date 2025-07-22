@@ -1,4 +1,5 @@
 from typing import List, Tuple
+from urllib.parse import urlparse
 
 import requests
 from alexandria.core import models as alexandria_models
@@ -20,6 +21,7 @@ from camac.alexandria.extensions.permissions.extension import (
     CustomPermission as CustomAlexandriaPermission,
 )
 from camac.caluma.api import CalumaApi
+from camac.caluma.models import Inquiry
 from camac.constants.kt_bern import ATTACHMENT_SECTION_ALLE_BETEILIGTEN
 from camac.core.utils import canton_aware
 from camac.document.models import Attachment, AttachmentSection
@@ -29,7 +31,7 @@ from camac.instance.serializers import (
     CalumaInstanceChangeResponsibleServiceSerializer,
     CalumaInstanceSubmitSerializer,
 )
-from camac.permissions import events as permissions_events
+from camac.permissions import api as permissions_api, events as permissions_events
 from camac.user.models import Service
 
 from .constants import ECH0211_NAMESPACES, ECH_JUDGEMENT_DECLINED
@@ -78,43 +80,50 @@ class AlexandriaDocumentMixin:
         xmlDocuments,
         category: alexandria_models.Category,
         skip_linking=False,
+        caluma_document_id=None,
     ) -> List[alexandria_models.Document]:
         created_documents = []
         for doc in xmlDocuments:
             document = None
-            titles = {}
-            for title in doc.titles.title:
-                titles[title.lang or "de"] = title.value()
+            # use first title as document title
+            title = doc.titles.title[0].value()
+            description = doc.comments.comment[0].value() if doc.comments else None
             for file in doc.files.file:
                 file_response = requests.get(file.pathFileName)
-                file_name = file.pathFileName.split("/")[-1]
+                file_name = urlparse(file.pathFileName).path.split("/")[-1]
                 file_obj = ContentFile(file_response.content, name=file_name)
                 if not document:
                     document, __ = create_alexandria_document_file(
-                        user=self.user,
-                        group=self.group,
+                        user=str(self.user.pk),
+                        group=str(self.group.service.pk),
                         category=category,
-                        document_title=titles,
+                        document_title=title,
                         file_name=file_name,
                         file_content=file_obj,
                         mime_type=file.mimeType,
                         file_size=len(file_response.content),
                         additional_document_attributes={
+                            "description": description,
                             "metainfo": {
                                 "ech-uuid": doc.uuid,
-                            }
+                            },
                         },
                     )
                 else:
                     create_alexandria_file(
-                        user=self.user,
-                        group=self.group,
+                        user=str(self.user.pk),
+                        group=str(self.group.service.pk),
                         document=document,
                         name=file_name,
                         content=file_obj,
                         mime_type=file.mimeType,
                         size=len(file_response.content),
                     )
+
+            if caluma_document_id:
+                document.metainfo["caluma-document-id"] = caluma_document_id
+                document.save()
+
             created_documents.append(document)
 
         if not skip_linking:
@@ -141,11 +150,17 @@ class AlexandriaDocumentMixin:
             InstanceAlexandriaDocument.objects.create(
                 instance=self.instance, document=document
             )
+            document.metainfo["camac-instance-id"] = self.instance.pk
+            document.save()
 
-    def convert_xml_to_alexandria_documents(self, xmlDocuments, category_slug: str):
+    def convert_xml_to_alexandria_documents(
+        self, xmlDocuments, category_slug: str, caluma_document_id=None
+    ):
         category = alexandria_models.Category.objects.get(slug=category_slug)
         self.check_alexandria_category_permission(category)
-        return self.create_alexandria_documents(xmlDocuments, category)
+        return self.create_alexandria_documents(
+            xmlDocuments, category, caluma_document_id=caluma_document_id
+        )
 
 
 class BaseSendHandler:
@@ -188,6 +203,8 @@ class BaseSendHandler:
 
         if work_item and fn:
             fn(work_item=work_item, user=self.caluma_user, context=context)
+
+        return work_item
 
     def has_permission(self):
         return self.instance.responsible_service() == self.group.service, None
@@ -400,12 +417,9 @@ class AccompanyingReportSendHandler(BaseSendHandler):
 
     def _get_inquiry(self):
         return (
-            WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                case__family__instance=self.instance,
-                addressed_groups__contains=[str(self.group.service_id)],
-                status=WorkItem.STATUS_READY,
-            )
+            Inquiry.objects.for_instance(self.instance)
+            .addressed_to(self.group.service_id)
+            .only_pending()
             .order_by("-created_at")
             .first()
         )
@@ -434,11 +448,44 @@ class AccompanyingReportSendHandler(BaseSendHandler):
                 value=value,
             )
 
-        attachments = Attachment.objects.filter(
-            uuid__in=[d.uuid for d in self.data.eventAccompanyingReport.document]
-        )
+        if extensions := settings.ECH0211["ACCOMPANYING_REPORT"].get(
+            "EXTENSION_MAPPING"
+        ):
+            elements = self.data.eventAccompanyingReport.extension.wildcardElements()
 
-        if not attachments.exists():
+            for slug, mapping in extensions.items():
+                el = next((el for el in elements if el.tagName == mapping["tag"]))
+                question = Question.objects.get(pk=slug)
+
+                text_value = el.firstChild.value.strip()
+
+                value = text_value
+                # map values for choice questions
+                if text_value == "true" and mapping.get("true_value", None) is not None:
+                    value = (
+                        [mapping["true_value"]]
+                        if question.type == Question.TYPE_MULTIPLE_CHOICE
+                        else mapping["true_value"]
+                    )
+                elif text_value == "false":
+                    value = [] if question.type == Question.TYPE_MULTIPLE_CHOICE else ""
+
+                save_answer(
+                    document=self.inquiry.child_case.document,
+                    question=question,
+                    value=value,
+                )
+
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+            documents = alexandria_models.Document.objects.filter(
+                id__in=[d.uuid for d in self.data.eventAccompanyingReport.document]
+            )
+        else:
+            documents = Attachment.objects.filter(
+                uuid__in=[d.uuid for d in self.data.eventAccompanyingReport.document]
+            )
+
+        if not documents.exists():
             raise SendHandlerException("Unknown document!")
 
         workflow_api.complete_work_item(
@@ -447,24 +494,31 @@ class AccompanyingReportSendHandler(BaseSendHandler):
                 status=WorkItem.STATUS_READY,
             ).first(),
             user=self.caluma_user,
-            context={"inquiry": self.inquiry, "attachments": attachments},
+            context={"inquiry": self.inquiry, "documents": documents},
         )
 
 
 class CloseArchiveDossierSendHandler(BaseSendHandler):
     def has_permission(self):
         if (
-            self.instance.responsible_service(filter_type="construction_control")
+            settings.APPLICATION.get("USE_CONSTRUCTION_CONTROL", False)
+            and self.instance.responsible_service(filter_type="construction_control")
             != self.group.service
         ):
             return False, None
-        if self.instance.instance_state.name in ["sb1", "sb2", "conclusion"]:
+        if self.instance.instance_state.name in [
+            "sb1",
+            "sb2",
+            "conclusion",
+            "construction-acceptance",
+        ]:
             return True, None
         return (
             False,
             (
                 '"CloseDossier" is only allowed for instances in the states '
-                '"Selbstdeklaration (SB1)", "Abschluss (SB2)" and "Zum Abschluss".'
+                '"Selbstdeklaration (SB1)", "Abschluss (SB2)", "Zum Abschluss", and '
+                '"Bauabnahme".'
             ),
         )
 
@@ -477,30 +531,46 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
         self.complete_work_item("complete")
 
 
-class TaskSendHandler(BaseSendHandler):
+class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
+    def _is_event_type_claim(self) -> bool:
+        return self.data.eventRequest.eventType == "claim"
+
+    def has_permission(self):
+        return (
+            self.has_permission_claim()
+            if self._is_event_type_claim()
+            else self.has_permission_task()
+        )
+
+    def apply(self):
+        return (
+            self._apply_claim() if self._is_event_type_claim() else self._apply_task()
+        )
+
+    def _get_create_inquiry(self):
+        return self._get_work_item(
+            settings.DISTRIBUTION["INQUIRY_CREATE_TASK"],
+        )
+
+    def _get_additional_demand(self, additional_demand_init):
+        return self._get_work_item(
+            settings.ADDITIONAL_DEMAND["TASK"],
+            **{
+                "previous_work_item": additional_demand_init,
+            },
+        )
+
     def get_instance_id(self):
         return self.data.eventRequest.planningPermissionApplicationIdentification.dossierIdentification
 
-    def has_permission(self):
-        if not super().has_permission()[0]:  # pragma: no cover
-            return False, None
-        if not self.instance.instance_state.name == "circulation":
-            return (
-                False,
-                'You can only send a "Task" for instances in the state "In Zirkulation".',
-            )
-
-        return True, None
-
-    def _get_create_inquiry(self):
-        task_id = settings.DISTRIBUTION["INQUIRY_CREATE_TASK"]
-
+    def _get_work_item(self, task_id, **kwargs):
         try:
             return WorkItem.objects.get(
                 task_id=task_id,
                 case__family__instance=self.instance,
                 addressed_groups__contains=[str(self.group.service.pk)],
                 status=WorkItem.STATUS_READY,
+                **kwargs,
             )
         except WorkItem.DoesNotExist:
             raise SendHandlerException(f"No '{task_id}' work item found!")
@@ -518,24 +588,143 @@ class TaskSendHandler(BaseSendHandler):
 
     def _get_inquiry(self, service):
         return (
-            WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                case__family__instance=self.instance,
-                addressed_groups__contains=[str(service.pk)],
-                controlling_groups__contains=[str(self.group.service.pk)],
-                status=WorkItem.STATUS_SUSPENDED,
-            )
+            Inquiry.objects.for_instance(self.instance)
+            .addressed_to(service)
+            .controlled_by(self.group.service)
+            .only_drafts()
             .order_by("created_at")
             .first()
         )
 
-    def apply(self):
+    def has_permission_task(self):
+        base_permission = super().has_permission()
+        if not base_permission or not base_permission[0]:  # pragma: no cover
+            return False, None
+
+        if (
+            settings.APPLICATION_NAME == "kt_bern"
+            and not self.instance.instance_state.name == "circulation"
+        ):
+            return (
+                False,
+                'You can only send a "Task" for instances in the state "In Zirkulation".',
+            )
+
+        return True, None
+
+    def has_permission_claim(self):
+        # we don't call super().has_permission() for claims, because we don't want
+        # to require only the responsible service to send a claim
+        if not settings.ECH0211.get("CLAIM", {}).get("ENABLED", False):
+            return (
+                False,
+                "Claim is not enabled for this application.",
+            )
+
+        if not permissions_api.PermissionManager.from_request(self.request).has_all(
+            self.instance, "additional-demands-write"
+        ):
+            return (
+                False,
+                "You don't have permission to send a claim.",
+            )
+
+        return True, None
+
+    def _apply_claim(self):
+        # complete init workitem to create the additional demand
+        additional_demand_init = self.complete_work_item(
+            settings.ADDITIONAL_DEMAND["CREATE_TASK"],
+            {
+                "addressed_groups__contains": [str(self.group.service.pk)],
+            },
+        )
+
+        # fetch the additional demand work item
+        additional_demand = self._get_additional_demand(additional_demand_init)
+
+        # fetch and fill the additional demand send work item,
+        # and fill the deadline and comment
+        additional_demand_send = additional_demand.child_case.work_items.get(
+            task_id=settings.ADDITIONAL_DEMAND["SEND_TASK"],
+            status=WorkItem.STATUS_READY,
+        )
+        save_answer(
+            document=additional_demand_send.document,
+            question=Question.objects.get(
+                pk=settings.ADDITIONAL_DEMAND["QUESTIONS"]["DEADLINE"]
+            ),
+            value=self.data.eventRequest.directive.deadline.date(),
+        )
+        save_answer(
+            document=additional_demand_send.document,
+            question=Question.objects.get(
+                pk=settings.ADDITIONAL_DEMAND["QUESTIONS"]["COMMENT"]
+            ),
+            value="\n".join(
+                [
+                    c.value.value()
+                    for c in self.data.eventRequest.directive.comments.orderedContent()
+                ]
+            ),
+        )
+
+        # store alexandria documents and link to additional demand document
+        self.convert_xml_to_alexandria_documents(
+            self.data.eventRequest.directive.documents.document,
+            category_slug=settings.ECH0211["CLAIM"]["ALEXANDRIA_CATEGORY"],
+            caluma_document_id=str(additional_demand_send.document.pk),
+        )
+
+        # complete the additional demand send work item after filling out the form
+        # and linking the documents
+        self.complete_work_item(
+            settings.ADDITIONAL_DEMAND["SEND_TASK"],
+            {
+                "pk": additional_demand_send.pk,
+            },
+        )
+
+        # store meta information for all work items for later processing
+        # during the applicant fill task
+        update_work_items = set(
+            [
+                additional_demand_init,
+                additional_demand,
+                *additional_demand.child_case.work_items.all(),
+            ]
+        )
+        for work_item in update_work_items:
+            work_item.meta["ech-init-workitem"] = str(additional_demand_init.pk)
+            work_item.save(update_fields=["meta"])
+
+        return self.instance
+
+    def _apply_task(self):
         service = self._get_service()
 
         if service == self.group.service:
             raise SendHandlerException(
                 "Services can't create inquiries for themselves!"
             )
+
+        if settings.ECH0211.get("TASK_SEND"):
+            for setting_key, fun in (
+                ("SKIP_WORK_ITEMS", workflow_api.skip_work_item),
+                ("COMPLETE_WORK_ITEMS", workflow_api.complete_work_item),
+            ):
+                for task in settings.ECH0211["TASK_SEND"].get(setting_key):
+                    if work_item := WorkItem.objects.filter(
+                        task_id=task,
+                        case__family__instance=self.instance,
+                        addressed_groups__contains=[str(self.group.service.pk)],
+                        status=WorkItem.STATUS_READY,
+                    ).first():
+                        fun(
+                            work_item=work_item,
+                            user=self.caluma_user,
+                            context={"addressed_groups": [str(self.group.service.pk)]},
+                        )
 
         workflow_api.complete_work_item(
             work_item=self._get_create_inquiry(),
@@ -552,6 +741,18 @@ class TaskSendHandler(BaseSendHandler):
                     pk=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
                 ),
                 value=self.data.eventRequest.directive.deadline.date(),
+            )
+            save_answer(
+                document=inquiry.document,
+                question=Question.objects.get(
+                    pk=settings.DISTRIBUTION["QUESTIONS"]["REMARK"]
+                ),
+                value="\n".join(
+                    [
+                        c.value.value()
+                        for c in self.data.eventRequest.directive.comments.orderedContent()
+                    ]
+                ),
             )
         # Fallback for messages with missing `directive`, this will use the
         # default deadline
@@ -577,7 +778,10 @@ class KindOfProceedingsSendHandler(
         if not super().has_permission():  # pragma: no cover
             return False, None
 
-        if self.instance.instance_state.name != "circulation_init":
+        if (
+            settings.APPLICATION_NAME == "kt_bern"
+            and self.instance.instance_state.name != "circulation_init"
+        ):
             return (
                 False,
                 'You can only send a "KindOfProceedings" for instances in the state "Zirkulation initialisieren".',
@@ -614,8 +818,13 @@ class SubmitPlanningPermissionApplicationSendHandler(
         return super()._get_instance(queryset)
 
     def has_permission(self) -> Tuple[bool, str]:
+        submit_planning_enabled = settings.ECH0211.get(
+            "SUBMIT_PLANNING_PERMISSION_APPLICATION", {}
+        ).get("ENABLED", False)
+
         if (
-            self.group.role.name
+            submit_planning_enabled
+            and self.group.role.name
             in settings.ECH0211["SUBMIT_PLANNING_PERMISSION_APPLICATION"][
                 "ALLOWED_ROLES"
             ]
@@ -632,7 +841,18 @@ class SubmitPlanningPermissionApplicationSendHandler(
 
     def _save_xml_to_caluma(self, xml_tree, path: str, document, question_config: dict):
         xml_element = xml_tree.xpath(path, namespaces=ECH0211_NAMESPACES)
-        value = xml_element[0].text if xml_element else question_config["default"]
+
+        value = question_config.get("default")
+        if xml_element:
+            value = xml_element[0].text
+            if "default" in question_config:
+                value = type(question_config["default"])(value)
+            if "static_value" in question_config:
+                value = question_config["static_value"]
+
+        if value is None:
+            return
+
         CalumaApi().update_or_create_answer(
             document, question_config["question_slug"], value, self.caluma_user
         )

@@ -18,6 +18,8 @@ services:
   django: &django
     build:
       context: ../django
+      args:
+        APPLICATION: ${APPLICATION}
     depends_on:
       - cache
       - clamav
@@ -36,7 +38,7 @@ services:
       - VISIBILITY_CLASSES=camac.caluma.extensions.visibilities.CustomVisibilitySZ
       - PERMISSION_CLASSES=camac.caluma.extensions.permissions.CustomPermission
       - VALIDATION_CLASSES=camac.caluma.extensions.validations.CustomValidation
-      - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services
+      - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Sanctions
       - DYNAMIC_GROUPS_CLASSES=camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       - DYNAMIC_TASKS_CLASSES=camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       - FORMAT_VALIDATOR_CLASSES=camac.caluma.extensions.format_validators.IntegerListFormatValidator

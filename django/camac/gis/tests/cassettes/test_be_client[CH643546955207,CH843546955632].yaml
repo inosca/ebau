@@ -18,12 +18,12 @@ interactions:
         xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
         xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-        timeStamp=\"2024-10-03T12:57:32Z\" numberMatched=\"1\" numberReturned=\"1\"
+        timeStamp=\"2025-06-16T15:29:45Z\" numberMatched=\"1\" numberReturned=\"1\"
         xsi:schemaLocation=\"http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
         http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
         https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType\"><wfs:member><of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541
-        gml:id=\"DIPANU_DIPANUF_VW_13541.11018539\"><of_planningcadastre01_de_ms_wfs:Object-Id>11018539</of_planningcadastre01_de_ms_wfs:Object-Id><of_planningcadastre01_de_ms_wfs:NBIDENT>BE0200000366</of_planningcadastre01_de_ms_wfs:NBIDENT><of_planningcadastre01_de_ms_wfs:BFSNR>943</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:GEMNAME>Uebeschi</of_planningcadastre01_de_ms_wfs:GEMNAME><of_planningcadastre01_de_ms_wfs:GBKR>0</of_planningcadastre01_de_ms_wfs:GBKR><of_planningcadastre01_de_ms_wfs:EGRID>CH643546955207</of_planningcadastre01_de_ms_wfs:EGRID><of_planningcadastre01_de_ms_wfs:GSTNR>42</of_planningcadastre01_de_ms_wfs:GSTNR><of_planningcadastre01_de_ms_wfs:GSTART>0</of_planningcadastre01_de_ms_wfs:GSTART><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE>Liegenschaft</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR>Bien-fonds</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GSTBEZ>42</of_planningcadastre01_de_ms_wfs:GSTBEZ><of_planningcadastre01_de_ms_wfs:GBFLAE>194900</of_planningcadastre01_de_ms_wfs:GBFLAE><of_planningcadastre01_de_ms_wfs:TECHFLAE>194899.84500000</of_planningcadastre01_de_ms_wfs:TECHFLAE><of_planningcadastre01_de_ms_wfs:QV>1</of_planningcadastre01_de_ms_wfs:QV><of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE>AV93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE><of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR>MO93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GZSTAT>0</of_planningcadastre01_de_ms_wfs:GZSTAT><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE>Keine
+        gml:id=\"DIPANU_DIPANUF_VW_13541.28329841\"><of_planningcadastre01_de_ms_wfs:OBJECTID>28329841</of_planningcadastre01_de_ms_wfs:OBJECTID><of_planningcadastre01_de_ms_wfs:NBIDENT>BE0200000366</of_planningcadastre01_de_ms_wfs:NBIDENT><of_planningcadastre01_de_ms_wfs:BFSNR>943</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:GEMNAME>Uebeschi</of_planningcadastre01_de_ms_wfs:GEMNAME><of_planningcadastre01_de_ms_wfs:GBKR>0</of_planningcadastre01_de_ms_wfs:GBKR><of_planningcadastre01_de_ms_wfs:EGRID>CH643546955207</of_planningcadastre01_de_ms_wfs:EGRID><of_planningcadastre01_de_ms_wfs:GSTNR>42</of_planningcadastre01_de_ms_wfs:GSTNR><of_planningcadastre01_de_ms_wfs:GSTART>0</of_planningcadastre01_de_ms_wfs:GSTART><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE>Liegenschaft</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR>Bien-fonds</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GSTBEZ>42</of_planningcadastre01_de_ms_wfs:GSTBEZ><of_planningcadastre01_de_ms_wfs:GBFLAE>194900</of_planningcadastre01_de_ms_wfs:GBFLAE><of_planningcadastre01_de_ms_wfs:TECHFLAE>194899.84500000</of_planningcadastre01_de_ms_wfs:TECHFLAE><of_planningcadastre01_de_ms_wfs:QV>1</of_planningcadastre01_de_ms_wfs:QV><of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE>AV93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE><of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR>MO93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GZSTAT>0</of_planningcadastre01_de_ms_wfs:GZSTAT><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE>Keine
         Land- oder Baulandumlegung in Bearbeitung</of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_FR>Pas
         d'am\xE9lioration fonci\xE8re ou de remaniement parcellaire de terrain \xE0
         b\xE2tir en traitement</of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_FR><of_planningcadastre01_de_ms_wfs:PROJSTAT>0</of_planningcadastre01_de_ms_wfs:PROJSTAT><of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_DE>g\xFCltig</of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_DE><of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_FR>valable</of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_FR><of_planningcadastre01_de_ms_wfs:MITGEOM>1</of_planningcadastre01_de_ms_wfs:MITGEOM><of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_DE>Fl\xE4chengeometrie
@@ -31,8 +31,8 @@ interactions:
         de la surface disponible</of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_FR><of_planningcadastre01_de_ms_wfs:SPRACHE>1</of_planningcadastre01_de_ms_wfs:SPRACHE><of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_DE>Deutsch</of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_DE><of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_FR>allemand</of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_FR><of_planningcadastre01_de_ms_wfs:UNVERBI>0</of_planningcadastre01_de_ms_wfs:UNVERBI><of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_DE>Fl\xE4che
         verbindlich</of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_DE><of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_FR>Surface
         avec force obligatoire</of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_FR><of_planningcadastre01_de_ms_wfs:LETZTEAEND>30.03.2015</of_planningcadastre01_de_ms_wfs:LETZTEAEND><of_planningcadastre01_de_ms_wfs:GENGBKRI>9430</of_planningcadastre01_de_ms_wfs:GENGBKRI><of_planningcadastre01_de_ms_wfs:GENGBKRN>Uebeschi</of_planningcadastre01_de_ms_wfs:GENGBKRN><of_planningcadastre01_de_ms_wfs:SHAPE><gml:MultiSurface
-        gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl\" srsName=\"urn:ogc:def:crs:EPSG::2056\"><gml:surfaceMember><gml:Polygon
-        gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+        gml:id=\"DIPANU_DIPANUF_VW_13541.28329841.pl\" srsName=\"urn:ogc:def:crs:EPSG::2056\"><gml:surfaceMember><gml:Polygon
+        gml:id=\"DIPANU_DIPANUF_VW_13541.28329841.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
         1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
         2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
         1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -86,11 +86,11 @@ interactions:
       Connection:
       - Keep-Alive
       Content-Length:
-      - '9145'
+      - '9143'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:32 GMT
+      - Mon, 16 Jun 2025 15:29:45 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -112,9 +112,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 117523ed-7508-421e-b2d5-ed5d7945c791
+      - f95e8142-1e65-4038-b87a-ddea268ecff7
       referrer:
-      - 117523ed-7508-421e-b2d5-ed5d7945c791
+      - f95e8142-1e65-4038-b87a-ddea268ecff7
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -136,7 +136,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329841.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -220,7 +220,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:33 GMT
+      - Mon, 16 Jun 2025 15:29:45 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -242,9 +242,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - f7459151-39d6-41ce-98f3-34bc636edeb5
+      - 67761deb-9888-4552-860a-5a933897298f
       referrer:
-      - f7459151-39d6-41ce-98f3-34bc636edeb5
+      - 67761deb-9888-4552-860a-5a933897298f
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -277,12 +277,12 @@ interactions:
         xmlns:wfs=\"http://www.opengis.net/wfs/2.0\" xmlns:gml=\"http://www.opengis.net/gml/3.2\"
         xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
         xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-        timeStamp=\"2024-10-03T12:57:33Z\" numberMatched=\"1\" numberReturned=\"1\"
+        timeStamp=\"2025-06-16T15:29:46Z\" numberMatched=\"1\" numberReturned=\"1\"
         xsi:schemaLocation=\"http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
         http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
         https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType\"><wfs:member><of_planningcadastre01_de_ms_wfs:DIPANU_DIPANUF_VW_13541
-        gml:id=\"DIPANU_DIPANUF_VW_13541.11018576\"><of_planningcadastre01_de_ms_wfs:Object-Id>11018576</of_planningcadastre01_de_ms_wfs:Object-Id><of_planningcadastre01_de_ms_wfs:NBIDENT>BE0200000366</of_planningcadastre01_de_ms_wfs:NBIDENT><of_planningcadastre01_de_ms_wfs:BFSNR>943</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:GEMNAME>Uebeschi</of_planningcadastre01_de_ms_wfs:GEMNAME><of_planningcadastre01_de_ms_wfs:GBKR>0</of_planningcadastre01_de_ms_wfs:GBKR><of_planningcadastre01_de_ms_wfs:EGRID>CH843546955632</of_planningcadastre01_de_ms_wfs:EGRID><of_planningcadastre01_de_ms_wfs:GSTNR>74</of_planningcadastre01_de_ms_wfs:GSTNR><of_planningcadastre01_de_ms_wfs:GSTART>0</of_planningcadastre01_de_ms_wfs:GSTART><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE>Liegenschaft</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR>Bien-fonds</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GSTBEZ>74</of_planningcadastre01_de_ms_wfs:GSTBEZ><of_planningcadastre01_de_ms_wfs:GBFLAE>7669</of_planningcadastre01_de_ms_wfs:GBFLAE><of_planningcadastre01_de_ms_wfs:TECHFLAE>7669.46100000</of_planningcadastre01_de_ms_wfs:TECHFLAE><of_planningcadastre01_de_ms_wfs:QV>1</of_planningcadastre01_de_ms_wfs:QV><of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE>AV93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE><of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR>MO93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GZSTAT>0</of_planningcadastre01_de_ms_wfs:GZSTAT><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE>Keine
+        gml:id=\"DIPANU_DIPANUF_VW_13541.28329937\"><of_planningcadastre01_de_ms_wfs:OBJECTID>28329937</of_planningcadastre01_de_ms_wfs:OBJECTID><of_planningcadastre01_de_ms_wfs:NBIDENT>BE0200000366</of_planningcadastre01_de_ms_wfs:NBIDENT><of_planningcadastre01_de_ms_wfs:BFSNR>943</of_planningcadastre01_de_ms_wfs:BFSNR><of_planningcadastre01_de_ms_wfs:GEMNAME>Uebeschi</of_planningcadastre01_de_ms_wfs:GEMNAME><of_planningcadastre01_de_ms_wfs:GBKR>0</of_planningcadastre01_de_ms_wfs:GBKR><of_planningcadastre01_de_ms_wfs:EGRID>CH843546955632</of_planningcadastre01_de_ms_wfs:EGRID><of_planningcadastre01_de_ms_wfs:GSTNR>74</of_planningcadastre01_de_ms_wfs:GSTNR><of_planningcadastre01_de_ms_wfs:GSTART>0</of_planningcadastre01_de_ms_wfs:GSTART><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE>Liegenschaft</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR>Bien-fonds</of_planningcadastre01_de_ms_wfs:GSTARTT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GSTBEZ>74</of_planningcadastre01_de_ms_wfs:GSTBEZ><of_planningcadastre01_de_ms_wfs:GBFLAE>7669</of_planningcadastre01_de_ms_wfs:GBFLAE><of_planningcadastre01_de_ms_wfs:TECHFLAE>7669.46100000</of_planningcadastre01_de_ms_wfs:TECHFLAE><of_planningcadastre01_de_ms_wfs:QV>1</of_planningcadastre01_de_ms_wfs:QV><of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE>AV93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_DE><of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR>MO93</of_planningcadastre01_de_ms_wfs:QVT_BEZ_FR><of_planningcadastre01_de_ms_wfs:GZSTAT>0</of_planningcadastre01_de_ms_wfs:GZSTAT><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE>Keine
         Land- oder Baulandumlegung in Bearbeitung</of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_DE><of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_FR>Pas
         d'am\xE9lioration fonci\xE8re ou de remaniement parcellaire de terrain \xE0
         b\xE2tir en traitement</of_planningcadastre01_de_ms_wfs:GZSTATT_BEZ_FR><of_planningcadastre01_de_ms_wfs:PROJSTAT>0</of_planningcadastre01_de_ms_wfs:PROJSTAT><of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_DE>g\xFCltig</of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_DE><of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_FR>valable</of_planningcadastre01_de_ms_wfs:PROJSTAT_BEZ_FR><of_planningcadastre01_de_ms_wfs:MITGEOM>1</of_planningcadastre01_de_ms_wfs:MITGEOM><of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_DE>Fl\xE4chengeometrie
@@ -290,8 +290,8 @@ interactions:
         de la surface disponible</of_planningcadastre01_de_ms_wfs:MITGEOMT_BEZ_FR><of_planningcadastre01_de_ms_wfs:SPRACHE>1</of_planningcadastre01_de_ms_wfs:SPRACHE><of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_DE>Deutsch</of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_DE><of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_FR>allemand</of_planningcadastre01_de_ms_wfs:SPRACHET_BEZ_FR><of_planningcadastre01_de_ms_wfs:UNVERBI>0</of_planningcadastre01_de_ms_wfs:UNVERBI><of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_DE>Fl\xE4che
         verbindlich</of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_DE><of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_FR>Surface
         avec force obligatoire</of_planningcadastre01_de_ms_wfs:UNVERBIT_BEZ_FR><of_planningcadastre01_de_ms_wfs:LETZTEAEND>07.01.2009</of_planningcadastre01_de_ms_wfs:LETZTEAEND><of_planningcadastre01_de_ms_wfs:GENGBKRI>9430</of_planningcadastre01_de_ms_wfs:GENGBKRI><of_planningcadastre01_de_ms_wfs:GENGBKRN>Uebeschi</of_planningcadastre01_de_ms_wfs:GENGBKRN><of_planningcadastre01_de_ms_wfs:SHAPE><gml:MultiSurface
-        gml:id=\"DIPANU_DIPANUF_VW_13541.11018576.pl\" srsName=\"urn:ogc:def:crs:EPSG::2056\"><gml:surfaceMember><gml:Polygon
-        gml:id=\"DIPANU_DIPANUF_VW_13541.11018576.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
+        gml:id=\"DIPANU_DIPANUF_VW_13541.28329937.pl\" srsName=\"urn:ogc:def:crs:EPSG::2056\"><gml:surfaceMember><gml:Polygon
+        gml:id=\"DIPANU_DIPANUF_VW_13541.28329937.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
         1176175.19100000 2608973.57800000 1176194.23500000 2608979.59500000 1176202.54900000
         2608983.94600000 1176211.19600000 2608986.68000000 1176219.12100000 2608990.06700000
         1176242.08400000 2608992.62100000 1176250.67700000 2608998.26600000 1176260.12600000
@@ -303,11 +303,11 @@ interactions:
       Connection:
       - Keep-Alive
       Content-Length:
-      - '5636'
+      - '5634'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:34 GMT
+      - Mon, 16 Jun 2025 15:29:46 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -329,9 +329,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 8bc9a572-1d3b-4fed-83ce-a36af36a9a01
+      - e0bd97cd-792b-4314-996c-4f06878c1021
       referrer:
-      - 8bc9a572-1d3b-4fed-83ce-a36af36a9a01
+      - e0bd97cd-792b-4314-996c-4f06878c1021
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -353,7 +353,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018576.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329937.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
       1176175.19100000 2608973.57800000 1176194.23500000 2608979.59500000 1176202.54900000
       2608983.94600000 1176211.19600000 2608986.68000000 1176219.12100000 2608990.06700000
       1176242.08400000 2608992.62100000 1176250.67700000 2608998.26600000 1176260.12600000
@@ -395,7 +395,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:34 GMT
+      - Mon, 16 Jun 2025 15:29:46 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -417,9 +417,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 7a5cedb0-cc9c-41d3-bcde-e8dff7c2b372
+      - 98fad3fe-3e82-4723-bb33-e297a441bac8
       referrer:
-      - 7a5cedb0-cc9c-41d3-bcde-e8dff7c2b372
+      - 98fad3fe-3e82-4723-bb33-e297a441bac8
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -441,7 +441,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329841.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -516,7 +516,7 @@ interactions:
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation04_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=1.0.0%26request=DescribeFeatureType\"><gml:boundedBy><gml:Box
         srsName=\"EPSG:2056\"><gml:coordinates>0.00000000,0.00000000 0.00000000,0.00000000</gml:coordinates>
         \ </gml:Box></gml:boundedBy><gml:featureMember><of_geoscientificinformation04_de_ms_wfs:NATGEFKA_SYGEFGEB_VW_28731
-        fid=\"NATGEFKA_SYGEFGEB_VW_28731.4871\"><of_geoscientificinformation04_de_ms_wfs:Object-Id>4871</of_geoscientificinformation04_de_ms_wfs:Object-Id><of_geoscientificinformation04_de_ms_wfs:BEURT_VST>1</of_geoscientificinformation04_de_ms_wfs:BEURT_VST><of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_DE>Vollst\xE4ndig</of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_DE><of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_FR>Complet</of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_FR><of_geoscientificinformation04_de_ms_wfs:MAX_GEFSTU>0</of_geoscientificinformation04_de_ms_wfs:MAX_GEFSTU><of_geoscientificinformation04_de_ms_wfs:GEFSTUFT_GEFSTUF_DE>Nicht
+        fid=\"NATGEFKA_SYGEFGEB_VW_28731.2613\"><of_geoscientificinformation04_de_ms_wfs:OBJECTID>2613</of_geoscientificinformation04_de_ms_wfs:OBJECTID><of_geoscientificinformation04_de_ms_wfs:BEURT_VST>1</of_geoscientificinformation04_de_ms_wfs:BEURT_VST><of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_DE>Vollst\xE4ndig</of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_DE><of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_FR>Complet</of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_FR><of_geoscientificinformation04_de_ms_wfs:MAX_GEFSTU>0</of_geoscientificinformation04_de_ms_wfs:MAX_GEFSTU><of_geoscientificinformation04_de_ms_wfs:GEFSTUFT_GEFSTUF_DE>Nicht
         gef\xE4hrdet</of_geoscientificinformation04_de_ms_wfs:GEFSTUFT_GEFSTUF_DE><of_geoscientificinformation04_de_ms_wfs:GEFSTUFT_GEFSTUF_FR>Non
         expos\xE9</of_geoscientificinformation04_de_ms_wfs:GEFSTUFT_GEFSTUF_FR><of_geoscientificinformation04_de_ms_wfs:SHAPE><gml:MultiPolygon
         srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2609166.74270000,1176394.95040000
@@ -528,11 +528,11 @@ interactions:
       Connection:
       - Keep-Alive
       Content-Length:
-      - '2971'
+      - '2969'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:35 GMT
+      - Mon, 16 Jun 2025 15:29:47 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -554,9 +554,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 386da919-2181-431d-85c3-38bdb80b1e6a
+      - b69b0768-5f5c-4404-a67a-28922a881c5c
       referrer:
-      - 386da919-2181-431d-85c3-38bdb80b1e6a
+      - b69b0768-5f5c-4404-a67a-28922a881c5c
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -578,7 +578,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018576.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329937.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
       1176175.19100000 2608973.57800000 1176194.23500000 2608979.59500000 1176202.54900000
       2608983.94600000 1176211.19600000 2608986.68000000 1176219.12100000 2608990.06700000
       1176242.08400000 2608992.62100000 1176250.67700000 2608998.26600000 1176260.12600000
@@ -611,7 +611,7 @@ interactions:
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_geoscientificinformation04_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=1.0.0%26request=DescribeFeatureType\"><gml:boundedBy><gml:Box
         srsName=\"EPSG:2056\"><gml:coordinates>0.00000000,0.00000000 0.00000000,0.00000000</gml:coordinates>
         \ </gml:Box></gml:boundedBy><gml:featureMember><of_geoscientificinformation04_de_ms_wfs:NATGEFKA_SYGEFGEB_VW_28731
-        fid=\"NATGEFKA_SYGEFGEB_VW_28731.4871\"><of_geoscientificinformation04_de_ms_wfs:Object-Id>4871</of_geoscientificinformation04_de_ms_wfs:Object-Id><of_geoscientificinformation04_de_ms_wfs:BEURT_VST>1</of_geoscientificinformation04_de_ms_wfs:BEURT_VST><of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_DE>Vollst\xE4ndig</of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_DE><of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_FR>Complet</of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_FR><of_geoscientificinformation04_de_ms_wfs:MAX_GEFSTU>0</of_geoscientificinformation04_de_ms_wfs:MAX_GEFSTU><of_geoscientificinformation04_de_ms_wfs:GEFSTUFT_GEFSTUF_DE>Nicht
+        fid=\"NATGEFKA_SYGEFGEB_VW_28731.2613\"><of_geoscientificinformation04_de_ms_wfs:OBJECTID>2613</of_geoscientificinformation04_de_ms_wfs:OBJECTID><of_geoscientificinformation04_de_ms_wfs:BEURT_VST>1</of_geoscientificinformation04_de_ms_wfs:BEURT_VST><of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_DE>Vollst\xE4ndig</of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_DE><of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_FR>Complet</of_geoscientificinformation04_de_ms_wfs:VOLLST_VOLLST_FR><of_geoscientificinformation04_de_ms_wfs:MAX_GEFSTU>0</of_geoscientificinformation04_de_ms_wfs:MAX_GEFSTU><of_geoscientificinformation04_de_ms_wfs:GEFSTUFT_GEFSTUF_DE>Nicht
         gef\xE4hrdet</of_geoscientificinformation04_de_ms_wfs:GEFSTUFT_GEFSTUF_DE><of_geoscientificinformation04_de_ms_wfs:GEFSTUFT_GEFSTUF_FR>Non
         expos\xE9</of_geoscientificinformation04_de_ms_wfs:GEFSTUFT_GEFSTUF_FR><of_geoscientificinformation04_de_ms_wfs:SHAPE><gml:MultiPolygon
         srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2609166.74270000,1176394.95040000
@@ -623,11 +623,11 @@ interactions:
       Connection:
       - Keep-Alive
       Content-Length:
-      - '2971'
+      - '2969'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:36 GMT
+      - Mon, 16 Jun 2025 15:29:47 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -649,9 +649,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 63a97696-5554-46f8-b133-955ade3a3437
+      - 9985597e-3cef-4ee4-b6ac-e6ff346d9fac
       referrer:
-      - 63a97696-5554-46f8-b133-955ade3a3437
+      - 9985597e-3cef-4ee4-b6ac-e6ff346d9fac
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -673,7 +673,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329841.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -748,12 +748,12 @@ interactions:
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_environment01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=1.0.0%26request=DescribeFeatureType\"><gml:boundedBy><gml:Box
         srsName=\"EPSG:2056\"><gml:coordinates>0.00000000,0.00000000 0.00000000,0.00000000</gml:coordinates>
         \ </gml:Box></gml:boundedBy><gml:featureMember><of_environment01_de_ms_wfs:NSG_NSGP_VW_13597
-        fid=\"NSG_NSGP_VW_13597.116\"><of_environment01_de_ms_wfs:Object-Id>116</of_environment01_de_ms_wfs:Object-Id><of_environment01_de_ms_wfs:BEDEUTUNG>N</of_environment01_de_ms_wfs:BEDEUTUNG><of_environment01_de_ms_wfs:BEMERKUNG>Revision
-        von 1980 </of_environment01_de_ms_wfs:BEMERKUNG><of_environment01_de_ms_wfs:BESCHL_ART>RRB</of_environment01_de_ms_wfs:BESCHL_ART><of_environment01_de_ms_wfs:BESCHL_DAT>2005-12-14T00:00:00</of_environment01_de_ms_wfs:BESCHL_DAT><of_environment01_de_ms_wfs:BESCHL_NR>3817</of_environment01_de_ms_wfs:BESCHL_NR><of_environment01_de_ms_wfs:NSG_NAME>Amsoldinger-
-        und \xDCbeschisee</of_environment01_de_ms_wfs:NSG_NAME><of_environment01_de_ms_wfs:NSG_NR>120</of_environment01_de_ms_wfs:NSG_NR><of_environment01_de_ms_wfs:PLAN_DATUM>2005-01-13T00:00:00</of_environment01_de_ms_wfs:PLAN_DATUM><of_environment01_de_ms_wfs:PLAN_MAS>1:5000</of_environment01_de_ms_wfs:PLAN_MAS><of_environment01_de_ms_wfs:SCHUTZ>Erhaltung
+        fid=\"NSG_NSGP_VW_13597.116\"><of_environment01_de_ms_wfs:OBJECTID>116</of_environment01_de_ms_wfs:OBJECTID><of_environment01_de_ms_wfs:NSG_NAME>Amsoldinger-
+        und \xDCbeschisee</of_environment01_de_ms_wfs:NSG_NAME><of_environment01_de_ms_wfs:NSG_NR>120</of_environment01_de_ms_wfs:NSG_NR><of_environment01_de_ms_wfs:URL_BESCHL>https://oerebfiles.apps.be.ch/9986/5912/120_Sb_Amsoldingen-Uebeschisee_2005.PDF</of_environment01_de_ms_wfs:URL_BESCHL><of_environment01_de_ms_wfs:URL_PLAN>https://oerebfiles.apps.be.ch/9986/plan/120_Schutzplan_Amsoldingen_Uebeschi_59x42.pdf</of_environment01_de_ms_wfs:URL_PLAN><of_environment01_de_ms_wfs:BESCHL_DAT>2005-12-14T00:00:00</of_environment01_de_ms_wfs:BESCHL_DAT><of_environment01_de_ms_wfs:BESCHL_NR>3817</of_environment01_de_ms_wfs:BESCHL_NR><of_environment01_de_ms_wfs:BESCHL_ART>RRB</of_environment01_de_ms_wfs:BESCHL_ART><of_environment01_de_ms_wfs:BEDEUTUNG>N</of_environment01_de_ms_wfs:BEDEUTUNG><of_environment01_de_ms_wfs:BEMERKUNG>Revision
+        von 1980 </of_environment01_de_ms_wfs:BEMERKUNG><of_environment01_de_ms_wfs:PLAN_DATUM>2005-01-13T00:00:00</of_environment01_de_ms_wfs:PLAN_DATUM><of_environment01_de_ms_wfs:PLAN_MAS>1:5000</of_environment01_de_ms_wfs:PLAN_MAS><of_environment01_de_ms_wfs:SCHUTZ>Erhaltung
         der Seen mit Inseln und Verlandungszonen; Erhaltung der Flachmoore von nat.
         und reg. Bedeutung sowie der Umfelder; Erhaltung der Ufergeh\xF6lze und Sicherung
-        und F\xF6rderung der Vorkommen seltener Tier- und Pflanzenarten</of_environment01_de_ms_wfs:SCHUTZ><of_environment01_de_ms_wfs:URL_BESCHL>https://oerebfiles.apps.be.ch/9986/5612/120_Sb_Amsoldingen-Uebeschisee_2005.PDF</of_environment01_de_ms_wfs:URL_BESCHL><of_environment01_de_ms_wfs:URL_PLAN>https://oerebfiles.apps.be.ch/9986/plan/120_Schutzplan_Amsoldingen_Uebeschi_59x42.pdf</of_environment01_de_ms_wfs:URL_PLAN><of_environment01_de_ms_wfs:SHAPE><gml:MultiPolygon
+        und F\xF6rderung der Vorkommen seltener Tier- und Pflanzenarten</of_environment01_de_ms_wfs:SCHUTZ><of_environment01_de_ms_wfs:SHAPE><gml:MultiPolygon
         srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2609487.21910000,1176217.86740000
         2609526.61960000,1176171.75940000 2609550.80980000,1176197.60820000 2609564.02280000,1176186.07460000
         2609638.63500000,1176118.92240000 2609694.34580000,1176088.57960000 2609738.11840000,1176055.25220000
@@ -805,11 +805,11 @@ interactions:
       Connection:
       - Keep-Alive
       Content-Length:
-      - '7646'
+      - '7644'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:36 GMT
+      - Mon, 16 Jun 2025 15:29:49 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -831,9 +831,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 2d6c3721-d1a2-473a-91b6-44d165898ac7
+      - 5fd50411-feeb-42e4-b184-42a62b3afcf3
       referrer:
-      - 2d6c3721-d1a2-473a-91b6-44d165898ac7
+      - 5fd50411-feeb-42e4-b184-42a62b3afcf3
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -855,7 +855,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018576.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329937.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
       1176175.19100000 2608973.57800000 1176194.23500000 2608979.59500000 1176202.54900000
       2608983.94600000 1176211.19600000 2608986.68000000 1176219.12100000 2608990.06700000
       1176242.08400000 2608992.62100000 1176250.67700000 2608998.26600000 1176260.12600000
@@ -897,7 +897,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:36 GMT
+      - Mon, 16 Jun 2025 15:29:49 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -919,9 +919,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - a8b725ca-14d9-4f49-8f19-2c8cdaf8dac1
+      - 2b985b83-0d0b-4168-a64c-2b7b6a5df5a9
       referrer:
-      - a8b725ca-14d9-4f49-8f19-2c8cdaf8dac1
+      - 2b985b83-0d0b-4168-a64c-2b7b6a5df5a9
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -943,7 +943,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329841.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -1018,30 +1018,7 @@ interactions:
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_environment02_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=1.0.0%26request=DescribeFeatureType\"><gml:boundedBy><gml:Box
         srsName=\"EPSG:2056\"><gml:coordinates>0.00000000,0.00000000 0.00000000,0.00000000</gml:coordinates>
         \ </gml:Box></gml:boundedBy><gml:featureMember><of_environment02_de_ms_wfs:BALISKBS_KBS_VW_1764
-        fid=\"BALISKBS_KBS_VW_1764.1653\"><of_environment02_de_ms_wfs:Object-Id>1653</of_environment02_de_ms_wfs:Object-Id><of_environment02_de_ms_wfs:STA_NR>09430002</of_environment02_de_ms_wfs:STA_NR><of_environment02_de_ms_wfs:STA_NAME>Gibel
-        \ </of_environment02_de_ms_wfs:STA_NAME><of_environment02_de_ms_wfs:GEMEINDEN>Uebeschi</of_environment02_de_ms_wfs:GEMEINDEN><of_environment02_de_ms_wfs:ART_NR>1</of_environment02_de_ms_wfs:ART_NR><of_environment02_de_ms_wfs:ART_ART_DE>Ablagerungsstandort</of_environment02_de_ms_wfs:ART_ART_DE><of_environment02_de_ms_wfs:ART_ART_FR>Site
-        de stockage d\xE9finitif</of_environment02_de_ms_wfs:ART_ART_FR><of_environment02_de_ms_wfs:STATUSMGDM>StatusAltlV1</of_environment02_de_ms_wfs:STATUSMGDM><of_environment02_de_ms_wfs:STATMGDM_STATUS_DE>Belastet,
-        keine sch\xE4dlichen oder l\xE4stigen Einwirkungen zu erwarten</of_environment02_de_ms_wfs:STATMGDM_STATUS_DE><of_environment02_de_ms_wfs:STATMGDM_STATUS_FR>Pollu\xE9,
-        pas d'atteinte nuisible ou incommodante \xE0 attendre</of_environment02_de_ms_wfs:STATMGDM_STATUS_FR><of_environment02_de_ms_wfs:PRIORI_NR>3</of_environment02_de_ms_wfs:PRIORI_NR><of_environment02_de_ms_wfs:PRIORI_PRIORI_DE>bei
-        Bauvorhaben</of_environment02_de_ms_wfs:PRIORI_PRIORI_DE><of_environment02_de_ms_wfs:PRIORI_PRIORI_FR>Investigations
-        en cas de projet de construction</of_environment02_de_ms_wfs:PRIORI_PRIORI_FR><of_environment02_de_ms_wfs:UNTERSUCHT>0</of_environment02_de_ms_wfs:UNTERSUCHT><of_environment02_de_ms_wfs:UNT_BEZEICH_DE>Nein</of_environment02_de_ms_wfs:UNT_BEZEICH_DE><of_environment02_de_ms_wfs:UNT_BEZEICH_FR>Non</of_environment02_de_ms_wfs:UNT_BEZEICH_FR><of_environment02_de_ms_wfs:STATUS>0</of_environment02_de_ms_wfs:STATUS><of_environment02_de_ms_wfs:STATUS_STATUS_DE>Status
-        \xDCberwachung / Sanierung nicht definiert</of_environment02_de_ms_wfs:STATUS_STATUS_DE><of_environment02_de_ms_wfs:STATUS_STATUS_FR>statut
-        surveillance / assainissement non d\xE9fini</of_environment02_de_ms_wfs:STATUS_STATUS_FR><of_environment02_de_ms_wfs:BEW32USG>0</of_environment02_de_ms_wfs:BEW32USG><of_environment02_de_ms_wfs:BEWT_BEZEICH_DE>F\xFCr
-        die Ver\xE4usserung oder Teilung des Grundst\xFCcks gem\xE4ss Art. 32dbis
-        Abs. 3 des Umweltschutzgesetzes des Bundes (USG) ist keine separate Bewilligung
-        erforderlich. Es gilt die Allgemeinverf\xFCgung vom 15. Mai 2023.</of_environment02_de_ms_wfs:BEWT_BEZEICH_DE><of_environment02_de_ms_wfs:BEWT_BEZEICH_FR>La
-        cession ou le partage de l'immeuble selon l'art. 32dbis al. 3 de la loi f\xE9d\xE9rale
-        sur la protection de l'environnement (LPE) n'exige pas d'autorisation individuelle
-        et particuli\xE8re. La d\xE9cision de port\xE9e g\xE9n\xE9rale du 15 mai 2023
-        est valable. </of_environment02_de_ms_wfs:BEWT_BEZEICH_FR><of_environment02_de_ms_wfs:ZEIT_START>1983</of_environment02_de_ms_wfs:ZEIT_START><of_environment02_de_ms_wfs:ZEIT_ENDE>1984</of_environment02_de_ms_wfs:ZEIT_ENDE><of_environment02_de_ms_wfs:STOFFE_DE>Aushubmaterial,
-        Bauschutt</of_environment02_de_ms_wfs:STOFFE_DE><of_environment02_de_ms_wfs:STOFFE_FR>mat\xE9riaux
-        d'excavation, d\xE9chets de chantier</of_environment02_de_ms_wfs:STOFFE_FR><of_environment02_de_ms_wfs:KOORD_E>2609086</of_environment02_de_ms_wfs:KOORD_E><of_environment02_de_ms_wfs:KOORD_N>1175882</of_environment02_de_ms_wfs:KOORD_N><of_environment02_de_ms_wfs:FLAECHE>1648.00000000</of_environment02_de_ms_wfs:FLAECHE><of_environment02_de_ms_wfs:VOLUMEN>3296.00000000</of_environment02_de_ms_wfs:VOLUMEN><of_environment02_de_ms_wfs:INFO>1</of_environment02_de_ms_wfs:INFO><of_environment02_de_ms_wfs:INFO_BEZEICH_DE>Amt
-        f\xFCr Wasser und Abfall (AWA) Tel: 031 633 38 11</of_environment02_de_ms_wfs:INFO_BEZEICH_DE><of_environment02_de_ms_wfs:INFO_BEZEICH_FR>Office
-        des eaux et des d\xE9chets (OED) T\xE9l: 031 633 38 11</of_environment02_de_ms_wfs:INFO_BEZEICH_FR><of_environment02_de_ms_wfs:BEDEUT>A</of_environment02_de_ms_wfs:BEDEUT><of_environment02_de_ms_wfs:INBETRIEB>0</of_environment02_de_ms_wfs:INBETRIEB><of_environment02_de_ms_wfs:HGDE_NR>943</of_environment02_de_ms_wfs:HGDE_NR><of_environment02_de_ms_wfs:HGDE_NAME>Uebeschi</of_environment02_de_ms_wfs:HGDE_NAME><of_environment02_de_ms_wfs:NACHSORGE>0</of_environment02_de_ms_wfs:NACHSORGE><of_environment02_de_ms_wfs:UNTERSUCHM>UntMassn1</of_environment02_de_ms_wfs:UNTERSUCHM><of_environment02_de_ms_wfs:EINTRAGKBS>08.12.2005</of_environment02_de_ms_wfs:EINTRAGKBS><of_environment02_de_ms_wfs:LETZTE_ANP>08.12.2005</of_environment02_de_ms_wfs:LETZTE_ANP><of_environment02_de_ms_wfs:INFOKBS>18.10.2004</of_environment02_de_ms_wfs:INFOKBS><of_environment02_de_ms_wfs:SHAPE><gml:MultiPolygon
-        srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2609079.59000000,1175844.50700000
-        2609059.02700000,1175852.92900000 2609107.46600000,1175918.78800000 2609111.96600000,1175915.64700000
-        2609100.02800000,1175855.08500000 2609079.59000000,1175844.50700000</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon></of_environment02_de_ms_wfs:SHAPE><of_environment02_de_ms_wfs:SHAPE.AREA>1647.76044150</of_environment02_de_ms_wfs:SHAPE.AREA><of_environment02_de_ms_wfs:SHAPE.LEN>194.20340213</of_environment02_de_ms_wfs:SHAPE.LEN></of_environment02_de_ms_wfs:BALISKBS_KBS_VW_1764></gml:featureMember><gml:featureMember><of_environment02_de_ms_wfs:BALISKBS_KBS_VW_1764
-        fid=\"BALISKBS_KBS_VW_1764.2937\"><of_environment02_de_ms_wfs:Object-Id>2937</of_environment02_de_ms_wfs:Object-Id><of_environment02_de_ms_wfs:STA_NR>09430001</of_environment02_de_ms_wfs:STA_NR><of_environment02_de_ms_wfs:STA_NAME>Grisisalw\xE4ldli
+        fid=\"BALISKBS_KBS_VW_1764.1915\"><of_environment02_de_ms_wfs:Object-Id>1915</of_environment02_de_ms_wfs:Object-Id><of_environment02_de_ms_wfs:STA_NR>09430001</of_environment02_de_ms_wfs:STA_NR><of_environment02_de_ms_wfs:STA_NAME>Grisisalw\xE4ldli
         \ </of_environment02_de_ms_wfs:STA_NAME><of_environment02_de_ms_wfs:GEMEINDEN>Uebeschi</of_environment02_de_ms_wfs:GEMEINDEN><of_environment02_de_ms_wfs:ART_NR>1</of_environment02_de_ms_wfs:ART_NR><of_environment02_de_ms_wfs:ART_ART_DE>Ablagerungsstandort</of_environment02_de_ms_wfs:ART_ART_DE><of_environment02_de_ms_wfs:ART_ART_FR>Site
         de stockage d\xE9finitif</of_environment02_de_ms_wfs:ART_ART_FR><of_environment02_de_ms_wfs:STATUSMGDM>StatusAltlV1</of_environment02_de_ms_wfs:STATUSMGDM><of_environment02_de_ms_wfs:STATMGDM_STATUS_DE>Belastet,
         keine sch\xE4dlichen oder l\xE4stigen Einwirkungen zu erwarten</of_environment02_de_ms_wfs:STATMGDM_STATUS_DE><of_environment02_de_ms_wfs:STATMGDM_STATUS_FR>Pollu\xE9,
@@ -1065,7 +1042,30 @@ interactions:
         2609287.97300000,1176246.34000000 2609279.91100000,1176252.79300000 2609276.47300000,1176267.32400000
         2609281.16100000,1176270.96500000 2609291.03600000,1176270.35600000 2609314.03600000,1176274.40200000
         2609338.91100000,1176270.96500000 2609342.34900000,1176267.32400000 2609327.97300000,1176248.15200000
-        2609310.03600000,1176243.51200000</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon></of_environment02_de_ms_wfs:SHAPE><of_environment02_de_ms_wfs:SHAPE.AREA>1482.94105100</of_environment02_de_ms_wfs:SHAPE.AREA><of_environment02_de_ms_wfs:SHAPE.LEN>159.29458350</of_environment02_de_ms_wfs:SHAPE.LEN></of_environment02_de_ms_wfs:BALISKBS_KBS_VW_1764></gml:featureMember></wfs:FeatureCollection>"
+        2609310.03600000,1176243.51200000</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon></of_environment02_de_ms_wfs:SHAPE><of_environment02_de_ms_wfs:SHAPE.AREA>1482.94105100</of_environment02_de_ms_wfs:SHAPE.AREA><of_environment02_de_ms_wfs:SHAPE.LEN>159.29458350</of_environment02_de_ms_wfs:SHAPE.LEN></of_environment02_de_ms_wfs:BALISKBS_KBS_VW_1764></gml:featureMember><gml:featureMember><of_environment02_de_ms_wfs:BALISKBS_KBS_VW_1764
+        fid=\"BALISKBS_KBS_VW_1764.1924\"><of_environment02_de_ms_wfs:Object-Id>1924</of_environment02_de_ms_wfs:Object-Id><of_environment02_de_ms_wfs:STA_NR>09430002</of_environment02_de_ms_wfs:STA_NR><of_environment02_de_ms_wfs:STA_NAME>Gibel
+        \ </of_environment02_de_ms_wfs:STA_NAME><of_environment02_de_ms_wfs:GEMEINDEN>Uebeschi</of_environment02_de_ms_wfs:GEMEINDEN><of_environment02_de_ms_wfs:ART_NR>1</of_environment02_de_ms_wfs:ART_NR><of_environment02_de_ms_wfs:ART_ART_DE>Ablagerungsstandort</of_environment02_de_ms_wfs:ART_ART_DE><of_environment02_de_ms_wfs:ART_ART_FR>Site
+        de stockage d\xE9finitif</of_environment02_de_ms_wfs:ART_ART_FR><of_environment02_de_ms_wfs:STATUSMGDM>StatusAltlV1</of_environment02_de_ms_wfs:STATUSMGDM><of_environment02_de_ms_wfs:STATMGDM_STATUS_DE>Belastet,
+        keine sch\xE4dlichen oder l\xE4stigen Einwirkungen zu erwarten</of_environment02_de_ms_wfs:STATMGDM_STATUS_DE><of_environment02_de_ms_wfs:STATMGDM_STATUS_FR>Pollu\xE9,
+        pas d'atteinte nuisible ou incommodante \xE0 attendre</of_environment02_de_ms_wfs:STATMGDM_STATUS_FR><of_environment02_de_ms_wfs:PRIORI_NR>3</of_environment02_de_ms_wfs:PRIORI_NR><of_environment02_de_ms_wfs:PRIORI_PRIORI_DE>bei
+        Bauvorhaben</of_environment02_de_ms_wfs:PRIORI_PRIORI_DE><of_environment02_de_ms_wfs:PRIORI_PRIORI_FR>Investigations
+        en cas de projet de construction</of_environment02_de_ms_wfs:PRIORI_PRIORI_FR><of_environment02_de_ms_wfs:UNTERSUCHT>0</of_environment02_de_ms_wfs:UNTERSUCHT><of_environment02_de_ms_wfs:UNT_BEZEICH_DE>Nein</of_environment02_de_ms_wfs:UNT_BEZEICH_DE><of_environment02_de_ms_wfs:UNT_BEZEICH_FR>Non</of_environment02_de_ms_wfs:UNT_BEZEICH_FR><of_environment02_de_ms_wfs:STATUS>0</of_environment02_de_ms_wfs:STATUS><of_environment02_de_ms_wfs:STATUS_STATUS_DE>Status
+        \xDCberwachung / Sanierung nicht definiert</of_environment02_de_ms_wfs:STATUS_STATUS_DE><of_environment02_de_ms_wfs:STATUS_STATUS_FR>statut
+        surveillance / assainissement non d\xE9fini</of_environment02_de_ms_wfs:STATUS_STATUS_FR><of_environment02_de_ms_wfs:BEW32USG>0</of_environment02_de_ms_wfs:BEW32USG><of_environment02_de_ms_wfs:BEWT_BEZEICH_DE>F\xFCr
+        die Ver\xE4usserung oder Teilung des Grundst\xFCcks gem\xE4ss Art. 32dbis
+        Abs. 3 des Umweltschutzgesetzes des Bundes (USG) ist keine separate Bewilligung
+        erforderlich. Es gilt die Allgemeinverf\xFCgung vom 15. Mai 2023.</of_environment02_de_ms_wfs:BEWT_BEZEICH_DE><of_environment02_de_ms_wfs:BEWT_BEZEICH_FR>La
+        cession ou le partage de l'immeuble selon l'art. 32dbis al. 3 de la loi f\xE9d\xE9rale
+        sur la protection de l'environnement (LPE) n'exige pas d'autorisation individuelle
+        et particuli\xE8re. La d\xE9cision de port\xE9e g\xE9n\xE9rale du 15 mai 2023
+        est valable. </of_environment02_de_ms_wfs:BEWT_BEZEICH_FR><of_environment02_de_ms_wfs:ZEIT_START>1983</of_environment02_de_ms_wfs:ZEIT_START><of_environment02_de_ms_wfs:ZEIT_ENDE>1984</of_environment02_de_ms_wfs:ZEIT_ENDE><of_environment02_de_ms_wfs:STOFFE_DE>Aushubmaterial,
+        Bauschutt</of_environment02_de_ms_wfs:STOFFE_DE><of_environment02_de_ms_wfs:STOFFE_FR>mat\xE9riaux
+        d'excavation, d\xE9chets de chantier</of_environment02_de_ms_wfs:STOFFE_FR><of_environment02_de_ms_wfs:KOORD_E>2609086</of_environment02_de_ms_wfs:KOORD_E><of_environment02_de_ms_wfs:KOORD_N>1175882</of_environment02_de_ms_wfs:KOORD_N><of_environment02_de_ms_wfs:FLAECHE>1648.00000000</of_environment02_de_ms_wfs:FLAECHE><of_environment02_de_ms_wfs:VOLUMEN>3296.00000000</of_environment02_de_ms_wfs:VOLUMEN><of_environment02_de_ms_wfs:INFO>1</of_environment02_de_ms_wfs:INFO><of_environment02_de_ms_wfs:INFO_BEZEICH_DE>Amt
+        f\xFCr Wasser und Abfall (AWA) Tel: 031 633 38 11</of_environment02_de_ms_wfs:INFO_BEZEICH_DE><of_environment02_de_ms_wfs:INFO_BEZEICH_FR>Office
+        des eaux et des d\xE9chets (OED) T\xE9l: 031 633 38 11</of_environment02_de_ms_wfs:INFO_BEZEICH_FR><of_environment02_de_ms_wfs:BEDEUT>A</of_environment02_de_ms_wfs:BEDEUT><of_environment02_de_ms_wfs:INBETRIEB>0</of_environment02_de_ms_wfs:INBETRIEB><of_environment02_de_ms_wfs:HGDE_NR>943</of_environment02_de_ms_wfs:HGDE_NR><of_environment02_de_ms_wfs:HGDE_NAME>Uebeschi</of_environment02_de_ms_wfs:HGDE_NAME><of_environment02_de_ms_wfs:NACHSORGE>0</of_environment02_de_ms_wfs:NACHSORGE><of_environment02_de_ms_wfs:UNTERSUCHM>UntMassn1</of_environment02_de_ms_wfs:UNTERSUCHM><of_environment02_de_ms_wfs:EINTRAGKBS>08.12.2005</of_environment02_de_ms_wfs:EINTRAGKBS><of_environment02_de_ms_wfs:LETZTE_ANP>08.12.2005</of_environment02_de_ms_wfs:LETZTE_ANP><of_environment02_de_ms_wfs:INFOKBS>18.10.2004</of_environment02_de_ms_wfs:INFOKBS><of_environment02_de_ms_wfs:SHAPE><gml:MultiPolygon
+        srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2609079.59000000,1175844.50700000
+        2609059.02700000,1175852.92900000 2609107.46600000,1175918.78800000 2609111.96600000,1175915.64700000
+        2609100.02800000,1175855.08500000 2609079.59000000,1175844.50700000</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon></of_environment02_de_ms_wfs:SHAPE><of_environment02_de_ms_wfs:SHAPE.AREA>1647.76044150</of_environment02_de_ms_wfs:SHAPE.AREA><of_environment02_de_ms_wfs:SHAPE.LEN>194.20340213</of_environment02_de_ms_wfs:SHAPE.LEN></of_environment02_de_ms_wfs:BALISKBS_KBS_VW_1764></gml:featureMember></wfs:FeatureCollection>"
     headers:
       Cache-Control:
       - no-cache
@@ -1076,7 +1076,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:37 GMT
+      - Mon, 16 Jun 2025 15:29:49 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -1098,9 +1098,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 9e17daed-61b9-438b-b0c7-84c7e0ada6e2
+      - 0c453797-faba-4af1-8d9c-1dbd2688e17f
       referrer:
-      - 9e17daed-61b9-438b-b0c7-84c7e0ada6e2
+      - 0c453797-faba-4af1-8d9c-1dbd2688e17f
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -1122,7 +1122,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018576.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329937.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
       1176175.19100000 2608973.57800000 1176194.23500000 2608979.59500000 1176202.54900000
       2608983.94600000 1176211.19600000 2608986.68000000 1176219.12100000 2608990.06700000
       1176242.08400000 2608992.62100000 1176250.67700000 2608998.26600000 1176260.12600000
@@ -1164,7 +1164,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:37 GMT
+      - Mon, 16 Jun 2025 15:29:50 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -1186,9 +1186,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - e0ce2c61-8059-4db6-b32a-04f7b453d2a9
+      - 01ad4a64-3a88-40e1-ae26-76be0bd35b27
       referrer:
-      - e0ce2c61-8059-4db6-b32a-04f7b453d2a9
+      - 01ad4a64-3a88-40e1-ae26-76be0bd35b27
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -1210,7 +1210,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329841.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -1285,9 +1285,9 @@ interactions:
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_inlandwaters01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=1.0.0%26request=DescribeFeatureType\"><gml:boundedBy><gml:Box
         srsName=\"EPSG:2056\"><gml:coordinates>0.00000000,0.00000000 0.00000000,0.00000000</gml:coordinates>
         \ </gml:Box></gml:boundedBy><gml:featureMember><of_inlandwaters01_de_ms_wfs:GSK25_GSK_VW_3275
-        fid=\"GSK25_GSK_VW_3275.54\"><of_inlandwaters01_de_ms_wfs:Object-Id>54</of_inlandwaters01_de_ms_wfs:Object-Id><of_inlandwaters01_de_ms_wfs:GSZ_NR>0</of_inlandwaters01_de_ms_wfs:GSZ_NR><of_inlandwaters01_de_ms_wfs:TYP>UB</of_inlandwaters01_de_ms_wfs:TYP><of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_DE>\xFCbriger
+        fid=\"GSK25_GSK_VW_3275.82\"><of_inlandwaters01_de_ms_wfs:OBJECTID>82</of_inlandwaters01_de_ms_wfs:OBJECTID><of_inlandwaters01_de_ms_wfs:GSZ_NR>0</of_inlandwaters01_de_ms_wfs:GSZ_NR><of_inlandwaters01_de_ms_wfs:TYP>UB</of_inlandwaters01_de_ms_wfs:TYP><of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_DE>\xFCbriger
         Bereich \xFCB</of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_DE><of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_FR>autre
-        secteur \xFCB</of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_FR><of_inlandwaters01_de_ms_wfs:REGLEM_DOC>https://oerebfiles.apps.be.ch/1131/5418/Reglement.pdf</of_inlandwaters01_de_ms_wfs:REGLEM_DOC><of_inlandwaters01_de_ms_wfs:SHAPE><gml:MultiPolygon
+        secteur \xFCB</of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_FR><of_inlandwaters01_de_ms_wfs:SHAPE><gml:MultiPolygon
         srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2606350.61700000,1192922.70900000
         2606393.74300000,1192877.36300000 2606425.05500000,1192847.95600000 2606440.58500000,1192833.04600000
         2606450.05500000,1192823.95500000 2606489.05600000,1192791.95300000 2606548.86200000,1192743.80100000
@@ -2187,9 +2187,9 @@ interactions:
         2606752.04500000,1190157.95500000 2606746.40200000,1190180.14900000 2606737.04500000,1190216.95400000
         2606712.04500000,1190243.95500000 2606702.04500000,1190254.95500000 2606681.04500000,1190263.95600000
         2606637.04500000,1190280.95800000</gml:coordinates></gml:LinearRing></gml:innerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon></of_inlandwaters01_de_ms_wfs:SHAPE><of_inlandwaters01_de_ms_wfs:SHAPE.AREA>61803593.78617750</of_inlandwaters01_de_ms_wfs:SHAPE.AREA><of_inlandwaters01_de_ms_wfs:SHAPE.LEN>91808.29259948</of_inlandwaters01_de_ms_wfs:SHAPE.LEN></of_inlandwaters01_de_ms_wfs:GSK25_GSK_VW_3275></gml:featureMember><gml:featureMember><of_inlandwaters01_de_ms_wfs:GSK25_GSK_VW_3275
-        fid=\"GSK25_GSK_VW_3275.115\"><of_inlandwaters01_de_ms_wfs:Object-Id>115</of_inlandwaters01_de_ms_wfs:Object-Id><of_inlandwaters01_de_ms_wfs:GSZ_NR>0</of_inlandwaters01_de_ms_wfs:GSZ_NR><of_inlandwaters01_de_ms_wfs:TYP>Ao</of_inlandwaters01_de_ms_wfs:TYP><of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_DE>Gew\xE4sserschutzbereich
+        fid=\"GSK25_GSK_VW_3275.119\"><of_inlandwaters01_de_ms_wfs:OBJECTID>119</of_inlandwaters01_de_ms_wfs:OBJECTID><of_inlandwaters01_de_ms_wfs:TYP>Ao</of_inlandwaters01_de_ms_wfs:TYP><of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_DE>Gew\xE4sserschutzbereich
         Ao</of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_DE><of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_FR>Secteur
-        de protection Ao</of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_FR><of_inlandwaters01_de_ms_wfs:REGLEM_DOC>https://oerebfiles.apps.be.ch/1131/5418/Reglement.pdf</of_inlandwaters01_de_ms_wfs:REGLEM_DOC><of_inlandwaters01_de_ms_wfs:SHAPE><gml:MultiPolygon
+        de protection Ao</of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_FR><of_inlandwaters01_de_ms_wfs:SHAPE><gml:MultiPolygon
         srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2609687.78800000,1176177.04200000
         2609702.91300000,1176165.85500000 2609710.16300000,1176165.99500000 2609766.22500000,1176096.60400000
         2609794.28700000,1176063.25900000 2609816.91200000,1176035.83700000 2609848.91200000,1175999.83600000
@@ -2258,11 +2258,11 @@ interactions:
       Connection:
       - Keep-Alive
       Content-Length:
-      - '102646'
+      - '102300'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:38 GMT
+      - Mon, 16 Jun 2025 15:29:50 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -2284,9 +2284,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - c46603b0-4176-450e-8614-6c532cd37578
+      - e6542475-bb91-4257-ab17-ff666519936e
       referrer:
-      - c46603b0-4176-450e-8614-6c532cd37578
+      - e6542475-bb91-4257-ab17-ff666519936e
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -2308,7 +2308,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018576.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329937.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
       1176175.19100000 2608973.57800000 1176194.23500000 2608979.59500000 1176202.54900000
       2608983.94600000 1176211.19600000 2608986.68000000 1176219.12100000 2608990.06700000
       1176242.08400000 2608992.62100000 1176250.67700000 2608998.26600000 1176260.12600000
@@ -2341,9 +2341,9 @@ interactions:
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_inlandwaters01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=1.0.0%26request=DescribeFeatureType\"><gml:boundedBy><gml:Box
         srsName=\"EPSG:2056\"><gml:coordinates>0.00000000,0.00000000 0.00000000,0.00000000</gml:coordinates>
         \ </gml:Box></gml:boundedBy><gml:featureMember><of_inlandwaters01_de_ms_wfs:GSK25_GSK_VW_3275
-        fid=\"GSK25_GSK_VW_3275.54\"><of_inlandwaters01_de_ms_wfs:Object-Id>54</of_inlandwaters01_de_ms_wfs:Object-Id><of_inlandwaters01_de_ms_wfs:GSZ_NR>0</of_inlandwaters01_de_ms_wfs:GSZ_NR><of_inlandwaters01_de_ms_wfs:TYP>UB</of_inlandwaters01_de_ms_wfs:TYP><of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_DE>\xFCbriger
+        fid=\"GSK25_GSK_VW_3275.82\"><of_inlandwaters01_de_ms_wfs:OBJECTID>82</of_inlandwaters01_de_ms_wfs:OBJECTID><of_inlandwaters01_de_ms_wfs:GSZ_NR>0</of_inlandwaters01_de_ms_wfs:GSZ_NR><of_inlandwaters01_de_ms_wfs:TYP>UB</of_inlandwaters01_de_ms_wfs:TYP><of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_DE>\xFCbriger
         Bereich \xFCB</of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_DE><of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_FR>autre
-        secteur \xFCB</of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_FR><of_inlandwaters01_de_ms_wfs:REGLEM_DOC>https://oerebfiles.apps.be.ch/1131/5418/Reglement.pdf</of_inlandwaters01_de_ms_wfs:REGLEM_DOC><of_inlandwaters01_de_ms_wfs:SHAPE><gml:MultiPolygon
+        secteur \xFCB</of_inlandwaters01_de_ms_wfs:GSKT_BEZEICH_FR><of_inlandwaters01_de_ms_wfs:SHAPE><gml:MultiPolygon
         srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2606350.61700000,1192922.70900000
         2606393.74300000,1192877.36300000 2606425.05500000,1192847.95600000 2606440.58500000,1192833.04600000
         2606450.05500000,1192823.95500000 2606489.05600000,1192791.95300000 2606548.86200000,1192743.80100000
@@ -3249,11 +3249,11 @@ interactions:
       Connection:
       - Keep-Alive
       Content-Length:
-      - '95179'
+      - '95043'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:39 GMT
+      - Mon, 16 Jun 2025 15:29:51 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -3275,9 +3275,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - cbaddbc7-a8e6-4702-b504-9c2c2e742ffc
+      - bb598944-883a-46c7-9de4-51cbc1b739fb
       referrer:
-      - cbaddbc7-a8e6-4702-b504-9c2c2e742ffc
+      - bb598944-883a-46c7-9de4-51cbc1b739fb
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -3299,7 +3299,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329841.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -3374,18 +3374,18 @@ interactions:
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_structure01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=1.0.0%26request=DescribeFeatureType\"><gml:boundedBy><gml:Box
         srsName=\"EPSG:2056\"><gml:coordinates>0.00000000,0.00000000 0.00000000,0.00000000</gml:coordinates>
         \ </gml:Box></gml:boundedBy><gml:featureMember><of_structure01_de_ms_wfs:BAUINV_BAUINVGB_VW_13644
-        fid=\"BAUINV_BAUINVGB_VW_13644.5283\"><of_structure01_de_ms_wfs:Object-Id>5283</of_structure01_de_ms_wfs:Object-Id><of_structure01_de_ms_wfs:EINSTUFUNG>2</of_structure01_de_ms_wfs:EINSTUFUNG><of_structure01_de_ms_wfs:BAUINVT_BEZ_DE>erhalteswertes
-        Objekt</of_structure01_de_ms_wfs:BAUINVT_BEZ_DE><of_structure01_de_ms_wfs:BAUINVT_BEZ_FR>digne
-        de conservation</of_structure01_de_ms_wfs:BAUINVT_BEZ_FR><of_structure01_de_ms_wfs:STRNAME>Giebel</of_structure01_de_ms_wfs:STRNAME><of_structure01_de_ms_wfs:GEBNR>44</of_structure01_de_ms_wfs:GEBNR><of_structure01_de_ms_wfs:PLZ>3635</of_structure01_de_ms_wfs:PLZ><of_structure01_de_ms_wfs:ORT>Uebeschi</of_structure01_de_ms_wfs:ORT><of_structure01_de_ms_wfs:GEMNAME>Uebeschi</of_structure01_de_ms_wfs:GEMNAME><of_structure01_de_ms_wfs:URL>https://denkmalpflege.apps.be.ch/de/collection/item/34527/</of_structure01_de_ms_wfs:URL><of_structure01_de_ms_wfs:K_OBJEKT>Nein</of_structure01_de_ms_wfs:K_OBJEKT><of_structure01_de_ms_wfs:BE_EDID>0</of_structure01_de_ms_wfs:BE_EDID><of_structure01_de_ms_wfs:BE_GID>4032</of_structure01_de_ms_wfs:BE_GID><of_structure01_de_ms_wfs:GWR_EDID>0</of_structure01_de_ms_wfs:GWR_EDID><of_structure01_de_ms_wfs:GWR_EGID>502036444</of_structure01_de_ms_wfs:GWR_EGID><of_structure01_de_ms_wfs:BFSNR>943</of_structure01_de_ms_wfs:BFSNR><of_structure01_de_ms_wfs:VERFDAT>19920824</of_structure01_de_ms_wfs:VERFDAT><of_structure01_de_ms_wfs:SHAPE><gml:MultiPolygon
+        fid=\"BAUINV_BAUINVGB_VW_13644.5131\"><of_structure01_de_ms_wfs:OBJECTID>5131</of_structure01_de_ms_wfs:OBJECTID><of_structure01_de_ms_wfs:EINSTUFUNG>2</of_structure01_de_ms_wfs:EINSTUFUNG><of_structure01_de_ms_wfs:BAUINVT_BEZ_DE>Erhaltenswertes
+        Objekt</of_structure01_de_ms_wfs:BAUINVT_BEZ_DE><of_structure01_de_ms_wfs:BAUINVT_BEZ_FR>Digne
+        de conservation</of_structure01_de_ms_wfs:BAUINVT_BEZ_FR><of_structure01_de_ms_wfs:STRNAME>Giebel</of_structure01_de_ms_wfs:STRNAME><of_structure01_de_ms_wfs:GEBNR>44</of_structure01_de_ms_wfs:GEBNR><of_structure01_de_ms_wfs:PLZ>3635</of_structure01_de_ms_wfs:PLZ><of_structure01_de_ms_wfs:ORT>Uebeschi</of_structure01_de_ms_wfs:ORT><of_structure01_de_ms_wfs:GEMNAME>Uebeschi</of_structure01_de_ms_wfs:GEMNAME><of_structure01_de_ms_wfs:BI_ID>BI-39589</of_structure01_de_ms_wfs:BI_ID><of_structure01_de_ms_wfs:DOKLINK_DE>https://denkmalpflege.apps.be.ch/de/collection/item/34527/</of_structure01_de_ms_wfs:DOKLINK_DE><of_structure01_de_ms_wfs:DOKLINK_FR>https://denkmalpflege.apps.be.ch/fr/collection/item/34527/</of_structure01_de_ms_wfs:DOKLINK_FR><of_structure01_de_ms_wfs:K_OBJEKT>0</of_structure01_de_ms_wfs:K_OBJEKT><of_structure01_de_ms_wfs:KOBJEKTT_BEZ_DE>Nein</of_structure01_de_ms_wfs:KOBJEKTT_BEZ_DE><of_structure01_de_ms_wfs:KOBJEKTT_BEZ_FR>Non</of_structure01_de_ms_wfs:KOBJEKTT_BEZ_FR><of_structure01_de_ms_wfs:VERFDAT>1992-08-24T00:00:00</of_structure01_de_ms_wfs:VERFDAT><of_structure01_de_ms_wfs:BE_GID>4032</of_structure01_de_ms_wfs:BE_GID><of_structure01_de_ms_wfs:BE_EDID>0</of_structure01_de_ms_wfs:BE_EDID><of_structure01_de_ms_wfs:GWR_EGID>502036444</of_structure01_de_ms_wfs:GWR_EGID><of_structure01_de_ms_wfs:GWR_EDID>0</of_structure01_de_ms_wfs:GWR_EDID><of_structure01_de_ms_wfs:BFSNR>943</of_structure01_de_ms_wfs:BFSNR><of_structure01_de_ms_wfs:SHAPE><gml:MultiPolygon
         srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2609159.87000000,1176011.27500000
         2609153.96900000,1176017.04100000 2609162.48800000,1176025.76000000 2609155.50700000,1176032.58100000
         2609158.23500000,1176035.37400000 2609158.45000000,1176035.16400000 2609167.46100000,1176044.39000000
         2609163.70100000,1176048.06300000 2609176.77000000,1176061.44200000 2609180.57300000,1176057.77100000
         2609191.72500000,1176069.32300000 2609205.75500000,1176055.46900000 2609169.79100000,1176018.62400000
         2609168.38900000,1176019.99400000 2609159.87000000,1176011.27500000</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></gml:polygonMember></gml:MultiPolygon></of_structure01_de_ms_wfs:SHAPE><of_structure01_de_ms_wfs:SHAPE.AREA>1213.75171950</of_structure01_de_ms_wfs:SHAPE.AREA><of_structure01_de_ms_wfs:SHAPE.LEN>177.95812427</of_structure01_de_ms_wfs:SHAPE.LEN></of_structure01_de_ms_wfs:BAUINV_BAUINVGB_VW_13644></gml:featureMember><gml:featureMember><of_structure01_de_ms_wfs:BAUINV_BAUINVGB_VW_13644
-        fid=\"BAUINV_BAUINVGB_VW_13644.5346\"><of_structure01_de_ms_wfs:Object-Id>5346</of_structure01_de_ms_wfs:Object-Id><of_structure01_de_ms_wfs:EINSTUFUNG>1</of_structure01_de_ms_wfs:EINSTUFUNG><of_structure01_de_ms_wfs:BAUINVT_BEZ_DE>sch\xFCtzenswertes
-        Objekt</of_structure01_de_ms_wfs:BAUINVT_BEZ_DE><of_structure01_de_ms_wfs:BAUINVT_BEZ_FR>digne
-        de protection</of_structure01_de_ms_wfs:BAUINVT_BEZ_FR><of_structure01_de_ms_wfs:STRNAME>Giebel</of_structure01_de_ms_wfs:STRNAME><of_structure01_de_ms_wfs:GEBNR>47</of_structure01_de_ms_wfs:GEBNR><of_structure01_de_ms_wfs:PLZ>3635</of_structure01_de_ms_wfs:PLZ><of_structure01_de_ms_wfs:ORT>Uebeschi</of_structure01_de_ms_wfs:ORT><of_structure01_de_ms_wfs:GEMNAME>Uebeschi</of_structure01_de_ms_wfs:GEMNAME><of_structure01_de_ms_wfs:URL>https://denkmalpflege.apps.be.ch/de/collection/item/32145/</of_structure01_de_ms_wfs:URL><of_structure01_de_ms_wfs:K_OBJEKT>Ja</of_structure01_de_ms_wfs:K_OBJEKT><of_structure01_de_ms_wfs:BE_EDID>0</of_structure01_de_ms_wfs:BE_EDID><of_structure01_de_ms_wfs:BE_GID>4033</of_structure01_de_ms_wfs:BE_GID><of_structure01_de_ms_wfs:GWR_EDID>0</of_structure01_de_ms_wfs:GWR_EDID><of_structure01_de_ms_wfs:GWR_EGID>1438280</of_structure01_de_ms_wfs:GWR_EGID><of_structure01_de_ms_wfs:BFSNR>943</of_structure01_de_ms_wfs:BFSNR><of_structure01_de_ms_wfs:VERFDAT>19920824</of_structure01_de_ms_wfs:VERFDAT><of_structure01_de_ms_wfs:SHAPE><gml:MultiPolygon
+        fid=\"BAUINV_BAUINVGB_VW_13644.5219\"><of_structure01_de_ms_wfs:OBJECTID>5219</of_structure01_de_ms_wfs:OBJECTID><of_structure01_de_ms_wfs:EINSTUFUNG>1</of_structure01_de_ms_wfs:EINSTUFUNG><of_structure01_de_ms_wfs:BAUINVT_BEZ_DE>Sch\xFCtzenswertes
+        Objekt</of_structure01_de_ms_wfs:BAUINVT_BEZ_DE><of_structure01_de_ms_wfs:BAUINVT_BEZ_FR>Digne
+        de protection</of_structure01_de_ms_wfs:BAUINVT_BEZ_FR><of_structure01_de_ms_wfs:STRNAME>Giebel</of_structure01_de_ms_wfs:STRNAME><of_structure01_de_ms_wfs:GEBNR>47</of_structure01_de_ms_wfs:GEBNR><of_structure01_de_ms_wfs:PLZ>3635</of_structure01_de_ms_wfs:PLZ><of_structure01_de_ms_wfs:ORT>Uebeschi</of_structure01_de_ms_wfs:ORT><of_structure01_de_ms_wfs:GEMNAME>Uebeschi</of_structure01_de_ms_wfs:GEMNAME><of_structure01_de_ms_wfs:BI_ID>BI-39588</of_structure01_de_ms_wfs:BI_ID><of_structure01_de_ms_wfs:DOKLINK_DE>https://denkmalpflege.apps.be.ch/de/collection/item/32145/</of_structure01_de_ms_wfs:DOKLINK_DE><of_structure01_de_ms_wfs:DOKLINK_FR>https://denkmalpflege.apps.be.ch/fr/collection/item/32145/</of_structure01_de_ms_wfs:DOKLINK_FR><of_structure01_de_ms_wfs:K_OBJEKT>1</of_structure01_de_ms_wfs:K_OBJEKT><of_structure01_de_ms_wfs:KOBJEKTT_BEZ_DE>Ja</of_structure01_de_ms_wfs:KOBJEKTT_BEZ_DE><of_structure01_de_ms_wfs:KOBJEKTT_BEZ_FR>Oui</of_structure01_de_ms_wfs:KOBJEKTT_BEZ_FR><of_structure01_de_ms_wfs:VERFDAT>1992-08-24T00:00:00</of_structure01_de_ms_wfs:VERFDAT><of_structure01_de_ms_wfs:BE_GID>4033</of_structure01_de_ms_wfs:BE_GID><of_structure01_de_ms_wfs:BE_EDID>0</of_structure01_de_ms_wfs:BE_EDID><of_structure01_de_ms_wfs:GWR_EGID>1438280</of_structure01_de_ms_wfs:GWR_EGID><of_structure01_de_ms_wfs:GWR_EDID>0</of_structure01_de_ms_wfs:GWR_EDID><of_structure01_de_ms_wfs:BFSNR>943</of_structure01_de_ms_wfs:BFSNR><of_structure01_de_ms_wfs:SHAPE><gml:MultiPolygon
         srsName=\"EPSG:2056\"><gml:polygonMember><gml:Polygon><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>2609067.24600000,1175979.50500000
         2609062.54500000,1175982.65000000 2609062.19200000,1175982.12300000 2609058.70400000,1175984.45700000
         2609054.06000000,1175977.51400000 2609050.80200000,1175979.69300000 2609050.30500000,1175980.02200000
@@ -3399,11 +3399,11 @@ interactions:
       Connection:
       - Keep-Alive
       Content-Length:
-      - '6158'
+      - '6965'
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:39 GMT
+      - Mon, 16 Jun 2025 15:29:51 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -3425,9 +3425,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - b07c3e9a-3f8e-4ec2-a92f-92d1d793b2e2
+      - 41d79fd8-eb52-441e-9cdf-df9f1a4d6970
       referrer:
-      - b07c3e9a-3f8e-4ec2-a92f-92d1d793b2e2
+      - 41d79fd8-eb52-441e-9cdf-df9f1a4d6970
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -3449,7 +3449,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018576.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329937.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
       1176175.19100000 2608973.57800000 1176194.23500000 2608979.59500000 1176202.54900000
       2608983.94600000 1176211.19600000 2608986.68000000 1176219.12100000 2608990.06700000
       1176242.08400000 2608992.62100000 1176250.67700000 2608998.26600000 1176260.12600000
@@ -3491,7 +3491,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:39 GMT
+      - Mon, 16 Jun 2025 15:29:51 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -3513,9 +3513,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - c5b3dd6d-bff2-47e4-a600-5153ea8e7654
+      - 645cfaf9-edd2-4691-8a8d-cb36585a3c10
       referrer:
-      - c5b3dd6d-bff2-47e4-a600-5153ea8e7654
+      - 645cfaf9-edd2-4691-8a8d-cb36585a3c10
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -3537,7 +3537,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329841.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -3592,7 +3592,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329841.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -3647,7 +3647,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018539.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329841.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2609722.37700000
       1176042.15200000 2609667.97400000 1176088.27700000 2609612.78000000 1176112.82200000
       2609582.92900000 1176114.39900000 2609547.31000000 1176080.28100000 2609542.67800000
       1176044.10400000 2609457.86100000 1175972.31300000 2609364.28000000 1176039.57200000
@@ -3731,7 +3731,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:40 GMT
+      - Mon, 16 Jun 2025 15:29:52 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -3753,9 +3753,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 051bf752-1d5f-48d0-867f-81f7f7d0b3b5
+      - 01081dcc-00bd-4e02-a0f2-94e4bf8323f9
       referrer:
-      - 051bf752-1d5f-48d0-867f-81f7f7d0b3b5
+      - 01081dcc-00bd-4e02-a0f2-94e4bf8323f9
       response_buffer_size:
       - '8192'
       response_character_encoding:
@@ -3777,7 +3777,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018576.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329937.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
       1176175.19100000 2608973.57800000 1176194.23500000 2608979.59500000 1176202.54900000
       2608983.94600000 1176211.19600000 2608986.68000000 1176219.12100000 2608990.06700000
       1176242.08400000 2608992.62100000 1176250.67700000 2608998.26600000 1176260.12600000
@@ -3790,7 +3790,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018576.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329937.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
       1176175.19100000 2608973.57800000 1176194.23500000 2608979.59500000 1176202.54900000
       2608983.94600000 1176211.19600000 2608986.68000000 1176219.12100000 2608990.06700000
       1176242.08400000 2608992.62100000 1176250.67700000 2608998.26600000 1176260.12600000
@@ -3803,7 +3803,7 @@ interactions:
       xmlns:xs=\"http://www.w3.org/2001/XMLSchema\" xmlns:wfs=\"http://www.opengis.net/wfs/2.0\"
       xmlns:of_planningcadastre01_de_ms_wfs=\"https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer\"
       xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"
-      gml:id=\"DIPANU_DIPANUF_VW_13541.11018576.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
+      gml:id=\"DIPANU_DIPANUF_VW_13541.28329937.pl.0\"><gml:exterior><gml:LinearRing><gml:posList>2608957.31000000
       1176175.19100000 2608973.57800000 1176194.23500000 2608979.59500000 1176202.54900000
       2608983.94600000 1176211.19600000 2608986.68000000 1176219.12100000 2608990.06700000
       1176242.08400000 2608992.62100000 1176250.67700000 2608998.26600000 1176260.12600000
@@ -3845,7 +3845,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:57:40 GMT
+      - Mon, 16 Jun 2025 15:29:52 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -3867,9 +3867,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 9a17358d-045b-4cf8-b582-15f6054c9d9e
+      - 18b51991-f5a2-4494-b68b-38fcf119afe4
       referrer:
-      - 9a17358d-045b-4cf8-b582-15f6054c9d9e
+      - 18b51991-f5a2-4494-b68b-38fcf119afe4
       response_buffer_size:
       - '8192'
       response_character_encoding:

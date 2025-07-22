@@ -3,8 +3,8 @@
     "model": "api.template",
     "pk": "bab-begleitformular-kantonale-pruefung",
     "fields": {
-      "description": "BaB - Begleitformular kantonale Prüfung",
-      "template": "bab-begleitformular-kantonale-pruefung.docx",
+      "description": "Übergabeformular zur kantonalen Prüfung gemäss § 38bis Abs. 1 PBG von Baugesuchen mit einem Standort ausserhalb der Bauzone",
+      "template": "bab-uebergabeformular-baugesuch.docx",
       "engine": "docx-template",
       "created_at": null,
       "created_by_user": null,
@@ -182,6 +182,22 @@
       "description": "Vorprüfung Baugesuche",
       "template": "vorpruefung-baugesuche.xlsx",
       "engine": "xlsx-template",
+      "created_at": null,
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "gesuchsformular-oeffentliche-planauflage",
+    "fields": {
+      "description": "Gesuchsformular - Öffentliche Planauflage",
+      "template": "gesuchsformular-oeffentliche-planauflage.docx",
+      "engine": "docx-template",
       "created_at": null,
       "created_by_user": null,
       "created_by_group": null,

@@ -1,13 +1,18 @@
+import StaticContentController from "ember-ebau-core/controllers/static-content";
 import { registerModule } from "ember-ebau-core/modules";
 import StaticContentRoute from "ember-ebau-core/routes/static-content";
 import StaticContentTemplate from "ember-ebau-core/templates/static-content";
 
-export default function register(router, options = {}) {
+export default function register(
+  router,
+  options = {},
+  moduleName = "static-content",
+) {
   router.route("static-content", { ...options, path: "/static-content/:type" });
 
-  registerModule("static-content", router.parent, options.resetNamespace, {
+  registerModule(moduleName, router.parent, options.resetNamespace, {
     routes: { "static-content": StaticContentRoute },
-    controllers: {},
+    controllers: { "static-content": StaticContentController },
     templates: { "static-content": StaticContentTemplate },
   });
 }

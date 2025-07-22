@@ -160,8 +160,27 @@ export default class InstanceAbility extends Ability {
   }
 
   get canDownloadReceipt() {
+    if (
+      config.APPLICATION.name === "so" &&
+      this.model?.calumaForm === "voranfrage"
+    ) {
+      return false;
+    }
+
     return (
       mainConfig.showDownloadReceiptAction &&
+      this.instanceStateId !== config.APPLICATION.instanceStates.new
+    );
+  }
+
+  async canDownloadFormAsPdf() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(this.model?.id, [
+        "instance-download-form-as-pdf",
+      ]);
+    }
+    return (
+      hasFeature("cases.downloadFormAsPdf") &&
       this.instanceStateId !== config.APPLICATION.instanceStates.new
     );
   }
@@ -193,7 +212,7 @@ export default class InstanceAbility extends Ability {
     }
 
     return (
-      hasFeature("communications") &&
+      hasFeature("communications.enabled") &&
       !this.session.isInternal &&
       this.instanceStateId !== config.APPLICATION.instanceStates.new
     );
@@ -224,7 +243,9 @@ export default class InstanceAbility extends Ability {
         this.model,
         mainConfig.constructionMonitoring?.instanceStates ?? [],
       ) &&
-      (!this.session.isInternal || this.model.isPaper)
+      (!this.session.isInternal ||
+        this.model.isPaper ||
+        (this.session.isSupport && config.APPLICATION.name === "ur"))
     );
   }
 

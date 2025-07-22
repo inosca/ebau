@@ -4,6 +4,7 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BEILAGEN_GESUCH,
     ATTACHMENT_SECTION_BEILAGEN_SB1,
     ATTACHMENT_SECTION_BEILAGEN_SB2,
+    ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
     ECH_ACCOMPANYING_REPORT,
     ECH_BASE_DELIVERY,
     ECH_CHANGE_RESPONSIBILITY,
@@ -100,49 +101,13 @@ ECH0211 = {
                     "spec": "5.1",
                     "example": ("task_stellungnahme", "xml/get/task_stellungnahme.xml"),
                 },
-                ECH_TASK_SB1_SUBMITTED: {
-                    "type": "Task",
-                    "desc": "SB1 eingereicht",
-                    "spec": "4.1",
-                    "example": (
-                        "task_sb1_eingereicht",
-                        "xml/get/task_sb1_eingereicht.xml",
-                    ),
-                },
-                ECH_TASK_SB2_SUBMITTED: {
-                    "type": "Task",
-                    "desc": "SB2 eingereicht",
-                    "spec": "4.1",
-                    "example": (
-                        "task_sb2_eingereicht",
-                        "xml/get/task_sb2_eingereicht.xml",
-                    ),
-                },
-                ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN: {
-                    "type": "StatusNotification",
-                    "desc": "eBau-Nummer vergeben melden",
-                    "spec": "3.1",
-                    "example": (
-                        "status_notification_ebau_nr_vergeben",
-                        "xml/get/status_notification_ebau_nr_vergeben.xml",
-                    ),
-                },
                 ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET: {
                     "type": "StatusNotification",
                     "desc": "Zirkulation gestartet melden",
                     "spec": "3.2",
                     "example": (
-                        "status_notification_start_zirkulation",
-                        "xml/get/status_notification_start_zirkulation.xml",
-                    ),
-                },
-                ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND: {
-                    "type": "StatusNotification",
-                    "desc": "Selbstdeklaration 1 ausstehend melden",
-                    "spec": "4.1",
-                    "example": (
-                        "status_notification_sebstdeklaration_1_ausstehend",
-                        "xml/get/status_notification_sebstdeklaration_1_ausstehend.xml",
+                        "status_notification",
+                        "xml/get/status_notification.xml",
                     ),
                 },
                 ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN: {
@@ -150,8 +115,8 @@ ECH0211 = {
                     "desc": "Abgeschlossen melden",
                     "spec": "4.2",
                     "example": (
-                        "status_notification_abgeschlossen",
-                        "xml/get/status_notification_abgeschlossen.xml",
+                        "status_notification",
+                        "xml/get/status_notification.xml",
                     ),
                 },
                 ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN: {
@@ -159,8 +124,8 @@ ECH0211 = {
                     "desc": "Zurückgewiesen melden",
                     "spec": "3.1",
                     "example": (
-                        "status_notification_zurueckgewiesen",
-                        "xml/get/status_notification_zurueckgewiesen.xml",
+                        "status_notification",
+                        "xml/get/status_notification.xml",
                     ),
                 },
                 ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
@@ -168,27 +133,36 @@ ECH0211 = {
                     "desc": "In Koordination melden",
                     "spec": "3.1",
                     "example": (
-                        "status_notification_in_koordination",
-                        "xml/get/status_notification_in_koordination.xml",
+                        "status_notification",
+                        "xml/get/status_notification.xml",
                     ),
                 },
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {
                     "type": "StatusNotification",
                     "desc": "Entschieden melden",
                     "spec": "",
-                    "example": None,
+                    "example": (
+                        "status_notification",
+                        "xml/get/status_notification.xml",
+                    ),
                 },
                 ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG: {
                     "type": "StatusNotification",
                     "desc": "Baubegleitung gestartet melden",
                     "spec": "",
-                    "example": None,
+                    "example": (
+                        "status_notification",
+                        "xml/get/status_notification.xml",
+                    ),
                 },
                 ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN: {
                     "type": "StatusNotification",
                     "desc": "Prüfung abgeschlossen melden",
                     "spec": "",
-                    "example": None,
+                    "example": (
+                        "status_notification",
+                        "xml/get/status_notification.xml",
+                    ),
                 },
             },
             "POST_TABLE_DATA": {
@@ -219,20 +193,20 @@ ECH0211 = {
                         "xml/post/change_responsibility.xml",
                     ),
                 },
-                "5200110": {
-                    "type": "KindOfProceedings",
-                    "desc": "Verfahrensprogramm erstellen",
-                    "spec": "3.2",
-                    "example": (
-                        "kind_of_proceedings",
-                        "xml/post/kind_of_proceedings.xml",
-                    ),
-                },
                 "5200111": {
                     "type": "Task",
                     "desc": "Stellungnahme anfordern",
                     "spec": "3.2",
                     "example": ("task", "xml/post/task.xml"),
+                },
+                "5200115": {
+                    "type": "Claim",
+                    "desc": "Nachforderung an Gesuchsteller stellen",
+                    "spec": "5.2",
+                    "example": (
+                        "claim",
+                        "xml/post/claim.xml",
+                    ),
                 },
                 "5100013": {
                     "type": "CloseDossier",
@@ -251,7 +225,7 @@ ECH0211 = {
                 },
             },
             "POST_SUBMIT": {
-                "5200113": {
+                "5200114": {
                     "type": "Submit",
                     "desc": "Dossier einreichen",
                     "spec": "-",
@@ -261,6 +235,11 @@ ECH0211 = {
                     ),
                 },
             },
+        },
+        "ALEXANDRIA_MARKS_STATUS_MAP": {
+            # order is precedence
+            "void": "invalidated",
+            "decision": "approved",
         },
     },
     "test": {
@@ -320,6 +299,9 @@ ECH0211 = {
                 "attachment_section": ATTACHMENT_SECTION_BEILAGEN_SB2,
             },
         },
+        "ACCOMPANYING_REPORT": {
+            "attachment_section": ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
+        },
         "REDIRECTS": {
             r"instance/<int:instance_id>/": "/page/index/instance-resource-id/20074/instance-id/%(instance_id)i",
             r"ebau-number/<int:instance_id>/": "/taskform/taskform/index/instance-resource-id/12000002/instance-id/%(instance_id)i",
@@ -340,9 +322,57 @@ ECH0211 = {
         },
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
+                ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN: {
+                    "type": "StatusNotification",
+                    "desc": "eBau-Nummer vergeben melden",
+                    "spec": "3.1",
+                    "example": (
+                        "status_notification_ebau_nr_vergeben",
+                        "xml/get/status_notification_ebau_nr_vergeben.xml",
+                    ),
+                },
+                ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND: {
+                    "type": "StatusNotification",
+                    "desc": "Selbstdeklaration 1 ausstehend melden",
+                    "spec": "4.1",
+                    "example": (
+                        "status_notification_sebstdeklaration_1_ausstehend",
+                        "xml/get/status_notification_sebstdeklaration_1_ausstehend.xml",
+                    ),
+                },
+                ECH_TASK_SB1_SUBMITTED: {
+                    "type": "Task",
+                    "desc": "SB1 eingereicht",
+                    "spec": "4.1",
+                    "example": (
+                        "task_sb1_eingereicht",
+                        "xml/get/task_sb1_eingereicht.xml",
+                    ),
+                },
+                ECH_TASK_SB2_SUBMITTED: {
+                    "type": "Task",
+                    "desc": "SB2 eingereicht",
+                    "spec": "4.1",
+                    "example": (
+                        "task_sb2_eingereicht",
+                        "xml/get/task_sb2_eingereicht.xml",
+                    ),
+                },
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
                 ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG: {"disabled": True},
                 ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN: {"disabled": True},
+            },
+            "POST_TABLE_DATA": {
+                "5200115": {"disabled": True},  # Claim
+                "5200110": {
+                    "type": "KindOfProceedings",
+                    "desc": "Verfahrensprogramm erstellen",
+                    "spec": "3.2",
+                    "example": (
+                        "kind_of_proceedings",
+                        "xml/post/kind_of_proceedings.xml",
+                    ),
+                },
             },
         },
     },
@@ -387,17 +417,39 @@ ECH0211 = {
                 "category": "beilagen-zum-gesuch",
             },
         },
+        "ACCOMPANYING_REPORT": {
+            "category": "beteiligte-behörden",
+            "EXTENSION_MAPPING": {
+                "inquiry-answer-situation": {
+                    "tag": "situation",
+                },
+                "inquiry-answer-considerations": {
+                    "tag": "considerations",
+                },
+                "stellungnahme-bemerkungen": {
+                    "tag": "comments",
+                },
+                "stellungnahme-in-dokumentanablage": {
+                    "tag": "documentsAvailable",
+                    "true_value": "stellungnahme-in-dokumentanablage-ja",
+                },
+            },
+        },
         "REDIRECTS": {
             r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
             r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",
             r"dossier-check/<int:instance_id>/": "/cases/%(instance_id)i/task-form/formal-exam",
         },
-        "ALLOWED_CATEGORIES": ["beteiligte-behörden", "intern"],
+        "ALLOWED_CATEGORIES": ["beteiligte-behörden", "intern", "beilagen-zum-gesuch"],
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["decision", "circulation"],
             "ONLY_DECLINE": ["distribution-init"],
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
+        },
+        "TASK_SEND": {
+            "SKIP_WORK_ITEMS": ["formal-exam"],
+            "COMPLETE_WORK_ITEMS": ["init-distribution"],
         },
         "JUDGEMENT_MAPPING": {
             "inquiry-answer-status-approved": 1,
@@ -426,7 +478,6 @@ ECH0211 = {
                         "question_slug": "vorhaben",
                         "default": ["vorhaben-andere"],
                     },
-                    # "planningPermissionApplication.constructionProjectInformation.constructionProject.description": "beschreibung-bauvorhaben",
                     "ech0211:planningPermissionApplication/ech0211:description": {
                         "question_slug": "beschreibung-bauvorhaben",
                     },
@@ -448,15 +499,22 @@ ECH0211 = {
                     "ech0211:relationshipToPerson[ech0211:role='applicant']": (
                         "personalien-tabelle",
                         {
-                            "use-default": {
+                            "ech0211:person/ech0129:identification/ech0129:personIdentification": {
                                 "question_slug": "juristische-person-gesuchstellerin",
-                                "default": "juristische-person-gesuchstellerin-nein",
+                                "static_value": "juristische-person-gesuchstellerin-nein",
+                            },
+                            "ech0211:person/ech0129:identification/ech0129:organisationIdentification": {
+                                "question_slug": "juristische-person-gesuchstellerin",
+                                "static_value": "juristische-person-gesuchstellerin-ja",
                             },
                             "ech0211:person/ech0129:identification/ech0129:personIdentification/ech0044:officialName": {
                                 "question_slug": "name-gesuchstellerin",
                             },
                             "ech0211:person/ech0129:identification/ech0129:personIdentification/ech0044:firstName": {
                                 "question_slug": "vorname-gesuchstellerin",
+                            },
+                            "ech0211:person/ech0129:identification/ech0129:organisationIdentification/ech0097:organisationName": {
+                                "question_slug": "name-juristische-person-gesuchstellerin",
                             },
                             "ech0211:person/ech0129:address/ech0010:town": {
                                 "question_slug": "ort-gesuchstellerin",
@@ -484,11 +542,30 @@ ECH0211 = {
                 },
             },
         },
+        "CLAIM": {
+            "ENABLED": True,
+            "ALEXANDRIA_CATEGORY": "nachforderung",
+        },
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
-                ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True}
+                ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
+                    "desc": "Entscheid ausstehend melden",
+                },
+                ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
+                ECH_FILE_SUBSEQUENTLY: {
+                    "desc": "Nachforderung beantworten",
+                },
+                ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
+                    "desc": "Rückzug des Baugesuchs melden (⏳ noch in Entwicklung)",
+                },
+                ECH_CLAIM: {"desc": "Nachforderungen durch Fachstelle"},
+                ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
+            },
+            "POST_TABLE_DATA": {
+                "5100011": {"disabled": True},  # Change responsibility
             },
         },
+        "GEOFENCE": {"ENABLE": True, "REGIONS": ["CH"]},
     },
     "kt_so": {
         "ENABLED": True,
@@ -521,10 +598,6 @@ ECH0211 = {
                 "new_state": "decided",
                 "type": ECH_STATUS_NOTIFICATION_ENTSCHIEDEN,
             },
-            {
-                "new_state": "withdrawn",
-                "type": ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
-            },
         ],
         "TASK_MAP": {
             "circulation": {
@@ -533,6 +606,7 @@ ECH0211 = {
                 "category": "beilagen-zum-gesuch",
             },
         },
+        "ACCOMPANYING_REPORT": {"category": "beteiligte-behoerden"},
         "REDIRECTS": {
             r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
             r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",
@@ -544,7 +618,7 @@ ECH0211 = {
             "intern-mit-unterfachstellen",
         ],
         "NOTICE_RULING": {
-            "ALLOWED_STATES": ["decision", "circulation"],
+            "ALLOWED_STATES": ["decision", "distribution"],
             "ONLY_DECLINE": ["distribution-init"],
             "ALEXANDRIA_CATEGORY": "beteiligte-behoerden",
             "ALEXANDRIA_MARK": "decision",
@@ -565,10 +639,106 @@ ECH0211 = {
                     "desc": "Zirkulation abgeschlossen melden",
                 },
                 ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
-                ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN: {"disabled": True},
-                ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND: {"disabled": True},
-                ECH_TASK_SB1_SUBMITTED: {"disabled": True},
-                ECH_TASK_SB2_SUBMITTED: {"disabled": True},
+            },
+            "POST_TABLE_DATA": {
+                "5200115": {"disabled": True},  # Claim
+                "5100011": {"disabled": True},  # Change responsibility
+            },
+        },
+    },
+    "kt_ag": {
+        "ENABLED": True,
+        "STATUS_NOTIFICATION_TYPES": [
+            {
+                "new_state": "init-distribution",
+                "type": ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
+            },
+            {
+                "new_state": "circulation",
+                "type": ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
+            },
+            {
+                # cancel rejection must result in start circulation status notification
+                "prev_state": "rejected",
+                "type": ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
+            },
+            {
+                "new_state": "construction-monitoring",
+                "type": ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG,
+            },
+            {
+                "new_state": "finished",
+                "type": ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN,
+            },
+            {
+                "new_state": "rejected",
+                "type": ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN,
+            },
+            {
+                "new_state": "decision",
+                "type": ECH_STATUS_NOTIFICATION_IN_KOORDINATION,
+            },
+            {
+                "new_state": ["to-finish", "decided"],
+                "type": ECH_STATUS_NOTIFICATION_ENTSCHIEDEN,
+            },
+        ],
+        "TASK_MAP": {
+            "circulation": {
+                "message_type": ECH_TASK_STELLUNGNAHME,
+                "comment": _("Inquiry sent"),
+                "category": "beilagen-zum-gesuch",
+            },
+        },
+        "ACCOMPANYING_REPORT": {"category": "beteiligte-behörden"},
+        "REDIRECTS": {
+            r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
+            r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",
+            r"dossier-check/<int:instance_id>/": "/cases/%(instance_id)i/task-form/formal-exam",
+        },
+        "ALLOWED_CATEGORIES": ["beteiligte-behörden", "intern", "beilagen-zum-gesuch"],
+        "NOTICE_RULING": {
+            "ALLOWED_STATES": ["decision", "circulation"],
+            "ONLY_DECLINE": ["distribution-init"],
+            "ALEXANDRIA_CATEGORY": "alle-beteiligten",
+            "ALEXANDRIA_MARK": "decision",
+        },
+        "TASK_SEND": {
+            "SKIP_WORK_ITEMS": ["formal-exam"],
+            "COMPLETE_WORK_ITEMS": ["init-distribution"],
+        },
+        "JUDGEMENT_MAPPING": {
+            "inquiry-answer-status-approved": 1,
+            "inquiry-answer-status-positive": 1,
+            "inquiry-answer-status-not-involved": 3,
+            "inquiry-answer-status-renounced": 3,
+            "inquiry-answer-status-claim": 4,
+            "inquiry-answer-status-rejected": 4,
+            "inquiry-answer-status-negative": 4,
+            "inquiry-answer-status-written-off": None,
+            "inquiry-answer-status-not-following": None,
+        },
+        "KIND_OF_PROCEEDINGS": {
+            "ALEXANDRIA_CATEGORY": "alle-beteiligten",
+        },
+        "CLAIM": {
+            "ENABLED": True,
+            "ALEXANDRIA_CATEGORY": "unterlagenergaenzung",
+        },
+        "DOCS": {
+            "GET_TABLE_DATA_FULL": {
+                ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
+                    "desc": "Zirkulation abgeschlossen melden",
+                },
+                ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
+                ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
+                ECH_FILE_SUBSEQUENTLY: {
+                    "desc": "Nachforderung beantworten",
+                },
+                ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
+                    "desc": "Rückzug des Baugesuchs melden",
+                },
+                ECH_CLAIM: {"desc": "Nachforderungen durch Fachstelle"},
             },
             "POST_TABLE_DATA": {
                 "5100011": {"disabled": True},  # Change responsibility

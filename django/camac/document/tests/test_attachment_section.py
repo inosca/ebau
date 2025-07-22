@@ -6,6 +6,7 @@ from rest_framework import status
 
 from camac.document import permissions
 from camac.document.tests.data import django_file
+from camac.permissions.api import PermissionManager
 
 
 @pytest.mark.parametrize("role__name", [("Applicant")])
@@ -42,7 +43,7 @@ def test_attachment_section_list(
     json = response.json()
     assert len(json["data"]) == 1
     assert json["data"][0]["id"] == str(attachment_section_role.pk)
-    assert json["data"][0]["meta"]["permission-name"] == "admin"
+    assert json["data"][0]["meta"]["permission-names"] == ["admin"]
 
 
 @pytest.mark.parametrize("role__name", [("Applicant")])
@@ -127,6 +128,7 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
                 123: permissions.AdminServicePermission,
                 12000007: permissions.AdminServicePermission,
                 12000003: permissions.AdminServicePermission,
+                12000010: permissions.AdminServicePermission,
             },
         ),
         (
@@ -140,6 +142,22 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
             "KOOR_BG",
             12000003,
             {12000003: permissions.AdminServicePermission},
+        ),
+        (
+            "trusted_service",
+            "ARE",
+            12000010,
+            {
+                12000010: permissions.AdminServicePermission,
+            },
+        ),
+        (
+            "trusted_service",
+            "AFU",
+            12000011,
+            {
+                12000011: permissions.AdminServicePermission,
+            },
         ),
     ],
 )
@@ -161,6 +179,10 @@ def test_attachment_section_special_permissions_ur(
 
     if group_key:
         mocker.patch(f"camac.constants.kt_uri.{group_key}_GROUP_ID", group.pk)
+        if group_key == "ARE":
+            mocker.patch("camac.constants.kt_uri.DOCUMENTS_ARE_GROUPS", [group.pk])
+        if group_key == "AFU":
+            mocker.patch("camac.constants.kt_uri.DOCUMENTS_AFU_GROUPS", [group.pk])
 
     mocker.patch(
         "camac.document.permissions.PERMISSIONS",
@@ -244,7 +266,179 @@ def test_attachment_section_permissions_kt_bern(
     url = reverse("attachmentsection-detail", args=[attachment_section.pk])
     response = admin_client.get(url, {"instance": instance.pk})
 
-    assert response.json()["data"]["meta"]["permission-name"] == expected_permission
+    assert response.json()["data"]["meta"]["permission-names"] == [expected_permission]
+
+
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+def test_attachment_section_permissions_with_accesslevel(
+    db,
+    mocker,
+    admin_client,
+    instance,
+    instance_service_factory,
+    group,
+    access_level_factory,
+    attachment_section,
+    instance_acl_factory,
+    use_instance_service,
+):
+    instance_service_factory(instance=instance, service=group.service)
+    al1 = access_level_factory(slug="read")
+    al2 = access_level_factory(slug="lead-authority")
+
+    instance_acl_factory(
+        instance=instance,
+        service=admin_client.user.get_default_group().service,
+        access_level=al1,
+    )
+    instance_acl_factory(
+        instance=instance,
+        service=admin_client.user.get_default_group().service,
+        access_level=al2,
+    )
+
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "test": {
+                "municipality-lead": {
+                    permissions.AdminPermission: (
+                        permissions._allow_always,
+                        [attachment_section.pk],
+                    )
+                },
+                "service-lead": {
+                    permissions.ReadPermission: (
+                        permissions._allow_always,
+                        [attachment_section.pk],
+                    )
+                },
+            }
+        },
+    )
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS_BY_ACCESSLEVEL",
+        {
+            "test": {
+                al1.slug: {
+                    permissions.AdminPermission: (
+                        permissions._allow_always,
+                        [attachment_section.pk],
+                    )
+                },
+                al2.slug: {
+                    permissions.ReadPermission: (
+                        permissions._allow_always,
+                        [attachment_section.pk],
+                    )
+                },
+            }
+        },
+    )
+
+    url = reverse("attachmentsection-detail", args=[attachment_section.pk])
+    response = admin_client.get(url, {"instance": instance.pk})
+
+    assert sorted(response.json()["data"]["meta"]["permission-names"]) == [
+        "admin",
+        "read",
+    ]
+
+
+@pytest.mark.parametrize(
+    "return_value_callback_fn, single_instance_mode, expected_permissions",
+    [
+        (True, True, [permissions.ReadPermission]),
+        (True, False, [permissions.ReadPermission]),
+        (False, True, []),
+    ],
+)
+def test_get_accesslevel_permissions(
+    db,
+    group,
+    instance,
+    application_settings,
+    mocker,
+    attachment_section,
+    return_value_callback_fn,
+    single_instance_mode,
+    expected_permissions,
+):
+    def callback_fn(level, manager, instance):
+        return return_value_callback_fn
+
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS_BY_ACCESSLEVEL",
+        {
+            "test": {
+                "test": {
+                    permissions.ReadPermission: (callback_fn, [attachment_section.pk]),
+                },
+            }
+        },
+    )
+
+    perms = permissions.get_accesslevel_permissions(
+        "test",
+        PermissionManager.for_anonymous(),
+        instance if single_instance_mode else None,
+    )
+
+    assert list(perms.keys()) == expected_permissions
+    assert all(sections == [attachment_section.pk] for sections in perms.values())
+
+
+@pytest.mark.parametrize(
+    "single_instance_mode, expected_result", [(True, True), (False, True)]
+)
+def test_allow_always_callback(
+    db,
+    group,
+    instance,
+    access_level,
+    single_instance_mode,
+    expected_result,
+):
+    result = permissions._allow_always(
+        access_level,
+        PermissionManager.for_anonymous(),
+        instance if single_instance_mode else None,
+    )
+
+    assert result == expected_result
+
+
+@pytest.mark.parametrize(
+    "single_instance_mode, has_permission, expected_result",
+    [
+        (True, True, True),
+        (False, True, False),
+        (True, False, False),
+        (False, False, False),
+    ],
+)
+def test_has_documents_write_permission_callback(
+    db,
+    group,
+    instance,
+    access_level,
+    mocker,
+    single_instance_mode,
+    has_permission,
+    expected_result,
+):
+    mocker.patch(
+        "camac.permissions.api.PermissionManager.has_all",
+        return_value=has_permission,
+    )
+
+    result = permissions._has_documents_write_permission(
+        access_level,
+        PermissionManager.for_anonymous(),
+        instance if single_instance_mode else None,
+    )
+
+    assert result == expected_result
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
@@ -331,7 +525,7 @@ def test_attachment_modification_by_activation_involvement(
 
     # ensure that deletion of the attachment fails
     del_resp = admin_client.delete(
-        f'{reverse("attachment-detail", args=[create_res.json()["data"]["id"]])}?instance={be_instance.pk}'
+        f"{reverse('attachment-detail', args=[create_res.json()['data']['id']])}?instance={be_instance.pk}"
     )
     assert del_resp.status_code == status.HTTP_403_FORBIDDEN
 

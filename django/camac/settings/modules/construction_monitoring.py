@@ -1,5 +1,7 @@
 """WARNING: Any key that is either "TASK or ends with "_TASK" will be picked up by the visibilty filter for work items (see django/camac/extensions/visibilities.py)."""
 
+from camac.settings.env import env
+
 CONSTRUCTION_MONITORING = {
     "default": {
         "INIT_CONSTRUCTION_MONITORING_TASK": "init-construction-monitoring",
@@ -35,13 +37,21 @@ CONSTRUCTION_MONITORING = {
                     "recipient_types": ["involved_in_construction_step"],
                 }
             ],
-            "construction-stage": [
+            "construction-step-schlussabnahme-gebaeude": [
                 {
-                    "template_slug": "complete-construction-step-schlussabnahme",
+                    "template_slug": "complete-construction-step-schlussabnahme-gebaeude",
                     "recipient_types": [
                         "involved_in_construction_step",
-                        # TODO: "localized_geometer"
-                        # Always send notification regardless of involvement (?)
+                        "localized_geometer",
+                    ],
+                },
+            ],
+            "construction-step-schlussabnahme-projekt": [
+                {
+                    "template_slug": "complete-construction-step-schlussabnahme-projekt",
+                    "recipient_types": [
+                        "involved_in_construction_step",
+                        "localized_geometer",
                     ],
                 },
             ],
@@ -50,8 +60,7 @@ CONSTRUCTION_MONITORING = {
                     "template_slug": "notify-complete-instance",
                     "recipient_types": [
                         "involved_in_construction_step",
-                        # TODO: "localized_geometer"
-                        # Always send notification regardless of involvement (?)
+                        "localized_geometer",
                     ],
                 },
             ],
@@ -81,7 +90,7 @@ CONSTRUCTION_MONITORING = {
                     "require_involvement": True,
                 },
             ],
-            "construction-stage": [
+            "construction-step-schlussabnahme-gebaeude": [
                 # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
                 {
                     "service_id": 10,
@@ -93,14 +102,37 @@ CONSTRUCTION_MONITORING = {
                     "require_involvement": True,
                 },
                 # Amt für Arbeit
-                {"service_id": 4, "require_involvement": True},
+                {
+                    "service_id": 4,
+                    "require_involvement": True,
+                },
                 # Laboratorium der Urkantone
                 {
                     "service_id": 22,
                     "require_involvement": True,
                 },
-                # TODO: Amt für Finanzen (Gebäudeschatzer)?
-                # Always send notification regardless of involvement
+            ],
+            "construction-step-schlussabnahme-projekt": [
+                # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
+                {
+                    "service_id": 10,
+                    "require_involvement": True,
+                },
+                # Amt für Militär, Feuer- und Zivilschutz (Schutzbauten)
+                {
+                    "service_id": 79,
+                    "require_involvement": True,
+                },
+                # Amt für Arbeit
+                {
+                    "service_id": 4,
+                    "require_involvement": True,
+                },
+                # Laboratorium der Urkantone
+                {
+                    "service_id": 22,
+                    "require_involvement": True,
+                },
             ],
             "complete-instance": [
                 # Amt für Militär, Feuer- und Zivilschutz (Brandschutz)
@@ -123,21 +155,62 @@ CONSTRUCTION_MONITORING = {
                     "service_id": 22,
                     "require_involvement": True,
                 },
-                # TODO: Amt für Finanzen (Gebäudeschatzer)?
-                # Always send notification regardless of involvement
             ],
         },
     },
     "kt_uri": {
         "ENABLED": True,
         "CONSTRUCTION_CONTROL_TASK": "construction-control",
+        "CONSTRUCTION_STEP_AV_STATUS_TASK": "construction-step-av-status-demolition",
         "PREVIOUS_INSTANCE_STATE": "done",
         "AFTER_INSTANCE_STATE": "arch",
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "control",
         "NOTIFICATIONS": {},
         "NOTIFICATION_RECIPIENTS": {},
     },
+    "kt_gr": {
+        "ENABLED": env.bool("CONSTRUCTION_MONITORING_ENABLED", default=False),
+        "PREVIOUS_INSTANCE_STATE": "decision",
+        "CONSTRUCTION_MONITORING_INSTANCE_STATE": "construction-acceptance",
+        "NOTIFICATIONS": {},
+        "NOTIFICATION_RECIPIENTS": {},
+    },
     "kt_so": {
+        "ENABLED": True,
+        "PREVIOUS_INSTANCE_STATE": "decided",
+        "CONSTRUCTION_MONITORING_INSTANCE_STATE": "construction-monitoring",
+        "NOTIFICATIONS": {
+            "construction-step-baufreigabe": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-kanalisation-kontrollieren": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schnurgeruestabnahme-planen": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schnurgeruest-kontrollieren": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-rohbau-kontrollieren": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-zwischenkontrolle": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schlussabnahme-gebaeude": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schlussabnahme-projekt-planen": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schlussabnahme-projekt": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+        },
+        "NOTIFICATION_RECIPIENTS": {},
+    },
+    "kt_ag": {
         "ENABLED": True,
         "PREVIOUS_INSTANCE_STATE": "decided",
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "construction-monitoring",

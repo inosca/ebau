@@ -2,8 +2,7 @@ from logging import getLogger
 
 from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_form.jexl import QuestionJexl
-from caluma.caluma_form.structure import FieldSet
+from caluma.caluma_form.validators import DocumentValidator
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.events import (
     post_complete_work_item,
@@ -20,6 +19,7 @@ from django.db import transaction
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
+from camac.permissions import events as permissions_events
 from camac.responsible.models import ResponsibleService
 
 log = getLogger()
@@ -67,27 +67,18 @@ def copy_tank_installation(sender, work_item, **kwargs):
     for config in get_caluma_setting("COPY_TANK_INSTALLATION", []):
         if work_item.task_id == config["TASK"]:
             source_document = config["DOCUMENT"](work_item)
-            structure = FieldSet(
-                source_document,
-                source_document.form,
-            )
-            qj = QuestionJexl(
-                {
-                    "document": source_document,
-                    "form": source_document.form,
-                    "structure": structure,
-                }
-            )
+            structure = DocumentValidator().get_validation_context(source_document)
+
             table_field = structure.get_field("lagerung-von-stoffen-v2")
-            if not table_field:
+            if not table_field or table_field.is_empty():
                 return
 
             for row in table_field.children():
                 field = row.get_field("bewilligungspflichtig-v2")
-                hidden = qj.is_hidden(field)
+                hidden = field.is_hidden()
                 if work_item.task_id == config["TASK"] and hidden:
                     new_row = CalumaApi().copy_document(
-                        row.document.pk, family=target_document.family
+                        row._document.pk, family=target_document.family
                     )
                     target_table, _ = target_document.answers.get_or_create(
                         question_id=config["TARGET"]
@@ -147,7 +138,11 @@ def set_assigned_user(sender, work_item, user, **kwargs):
         None,
     )
 
-    if len(work_item.assigned_users) or not addressed_group:
+    if (
+        len(work_item.assigned_users)
+        or not addressed_group
+        or work_item.meta.get("bypass-responsible-user")
+    ):
         return
 
     responsible = list(
@@ -169,39 +164,6 @@ def notify_completed_work_item(sender, work_item, user, **kwargs):
 
     for notification_config in settings.APPLICATION["NOTIFICATIONS"].get(
         "COMPLETE_MANUAL_WORK_ITEM", []
-    ):
-        send_mail_without_request(
-            notification_config["template_slug"],
-            user.username,
-            user.camac_group,
-            instance={
-                "id": work_item.case.family.instance.pk,
-                "type": "instances",
-            },
-            work_item={"id": work_item.pk, "type": "work-items"},
-            recipient_types=notification_config["recipient_types"],
-        )
-
-
-@on(post_create_work_item, raise_exception=True)
-def notify_created_work_item(sender, work_item, user, **kwargs):
-    if not work_item.task_id == settings.APPLICATION["CALUMA"].get(
-        "MANUAL_WORK_ITEM_TASK"
-    ):
-        return
-
-    # After the submission of the form and the decision a
-    # "create-manual-workitems" will be created to allow the responsible
-    # service to create a manual work item. For those work items there must not
-    # be sent a notification.
-    # We can identify such work items by checking if there is a previous work
-    # item which would mean that it was created from the workflow and not
-    # manually with the `createWorkItem` mutation.
-    if work_item.previous_work_item:
-        return
-
-    for notification_config in settings.APPLICATION["NOTIFICATIONS"].get(
-        "CREATE_MANUAL_WORK_ITEM", []
     ):
         send_mail_without_request(
             notification_config["template_slug"],
@@ -242,7 +204,7 @@ def handle_pre_complete_work_item(sender, work_item, user, **kwargs):
 @on(post_complete_work_item, raise_exception=True)
 @transaction.atomic
 def set_is_published(sender, work_item, user, **kwargs):
-    if work_item.task_id not in settings.PUBLICATION.get("FILL_TASKS", []):
+    if work_item.task_id not in settings.PUBLICATION.get("FILL_TASKS", {}).values():
         return
 
     work_item.meta["is-published"] = True
@@ -304,3 +266,12 @@ def post_decision_ur(sender, work_item, user, context, **kwargs):
     )
     for review_work_item in review_work_items:
         workflow_api.skip_work_item(review_work_item, user, context)
+
+
+@on(post_complete_work_item, raise_exception=True)
+@transaction.atomic
+@filter_events(lambda work_item: work_item.task.slug == "make-decision")
+def post_decision_sz(sender, work_item, user, context, **kwargs):
+    """Trigger permission updates after decision has been made."""
+    if settings.APPLICATION_NAME == "kt_schwyz":
+        permissions_events.Trigger.decision_decreed(None, work_item.case.instance)

@@ -1,3 +1,4 @@
+import uuid
 from collections import namedtuple
 
 import pytest
@@ -13,11 +14,13 @@ from ..extensions.data_sources import (
     Authorities,
     Buildings,
     Countries,
+    GEVERErledigungsart,
     Landowners,
     Locations,
     Mitberichtsverfahren,
     Municipalities,
     PreliminaryClarificationTargets,
+    Sanctions,
     Services,
     ServicesForFinalReport,
 )
@@ -90,7 +93,7 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
         ),
         (
             Countries,
-            COUNTRIES,
+            list(COUNTRIES.keys()),
             False,
         ),
     ],
@@ -288,6 +291,97 @@ def test_landowners_so(
     assert names == snapshot
 
 
+def test_landowners_dynamic_on_copy(
+    db,
+    caluma_document_factory,
+    caluma_question_factory,
+    caluma_dynamic_option_factory,
+    utils,
+    settings,
+):
+    settings.DATA_SOURCE_CLASSES = ["camac.caluma.extensions.data_sources.Landowners"]
+
+    # test default fallback values
+    data_source = Landowners()
+    assert (None, None) == data_source.on_copy(None, None, (None, None))
+    assert (None, None) == data_source.on_copy(None, None, ("invalid-uuid", None))
+
+    main_document = caluma_document_factory()
+    test_document_a = caluma_document_factory()
+    test_document_b = caluma_document_factory()
+    test_document_c = caluma_document_factory()
+
+    dynamic_choice_question = caluma_question_factory(
+        slug="dynamic-reference-test",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_MULTIPLE_CHOICE,
+    )
+    dynamic_choice_question.data_source = "Landowners"
+    dynamic_choice_question.save()
+
+    dynamic_answer = utils.add_answer(
+        document=main_document,
+        question=dynamic_choice_question,
+        value=[
+            str(test_document_a.pk),
+            str(test_document_b.pk),
+            str(test_document_c.pk),
+        ],
+        label="MFH 1, MFH 2",
+    )
+    dynamic_option1 = caluma_dynamic_option_factory(
+        document=main_document,
+        question=dynamic_choice_question,
+        slug=str(test_document_a.pk),
+        label="MFH 1",
+    )
+    dynamic_option2 = caluma_dynamic_option_factory(
+        document=main_document,
+        question=dynamic_choice_question,
+        slug=str(test_document_b.pk),
+        label="MFH 2",
+    )
+    caluma_dynamic_option_factory(
+        document=main_document,
+        question=dynamic_choice_question,
+        slug=str(test_document_c.pk),
+        label="MFH 3",
+    )
+
+    # example docs for a/b to test moving a reference while copying an answer
+    # c will be discarded
+    referenced_document1 = caluma_document_factory()
+    referenced_document1.source = test_document_a
+    referenced_document1.save()
+    referenced_document2 = caluma_document_factory()
+    referenced_document2.source = test_document_b
+    referenced_document2.save()
+
+    # copy the document with answers
+    new_document = main_document.copy()
+    new_answer = caluma_form_models.Answer.objects.get(
+        question=dynamic_choice_question, document=new_document
+    )
+    new_dynamic_options = caluma_form_models.DynamicOption.objects.filter(
+        question=dynamic_choice_question, document=new_document
+    )
+
+    # c is discarded, only a and b are copied
+    assert new_dynamic_options.count() == 2
+
+    # check that the new anser and dynamic option are linked to the referenced document
+    assert str(dynamic_answer.pk) != str(new_answer.pk)
+    assert str(dynamic_option1.pk) != str(new_dynamic_options.first().pk)
+    assert str(dynamic_option2.pk) != str(new_dynamic_options.last().pk)
+    assert new_answer.value == [
+        str(referenced_document1.pk),
+        str(referenced_document2.pk),
+    ]
+    assert set([option.slug for option in new_dynamic_options]) == {
+        str(referenced_document1.pk),
+        str(referenced_document2.pk),
+    }
+
+
 def test_municipalities_so(db, service_factory, service_t_factory):
     service = service_factory(service_group__name="municipality")
     service_t_factory(service=service, name="Gemeinde Solothurn")
@@ -328,8 +422,8 @@ def test_preliminary_clarfication_targets(db, caluma_admin_user, service_factory
     assert data[4][1]["de"] == "Procap"
 
 
-def test_buildings(db, caluma_admin_user, question_factory, so_instance, utils):
-    question = question_factory(
+def test_buildings(db, caluma_admin_user, caluma_question_factory, so_instance, utils):
+    question = caluma_question_factory(
         slug="gebaeude",
         type=caluma_form_models.Question.TYPE_TABLE,
     )
@@ -356,24 +450,83 @@ def test_buildings(db, caluma_admin_user, question_factory, so_instance, utils):
     assert names == {"MFH 1", "MFH 2", "EFH 1"}
 
 
+def test_buildings_dynamic_on_copy(
+    db,
+    caluma_document_factory,
+    caluma_question_factory,
+    caluma_dynamic_option_factory,
+    utils,
+    settings,
+):
+    settings.DATA_SOURCE_CLASSES = ["camac.caluma.extensions.data_sources.Buildings"]
+
+    # test default fallback values
+    data_source = Buildings()
+    assert (None, None) == data_source.on_copy(None, None, (None, None))
+    assert (None, None) == data_source.on_copy(None, None, ("invalid-uuid", None))
+
+    main_document = caluma_document_factory()
+    test_document = caluma_document_factory()
+    dynamic_choice_question = caluma_question_factory(
+        slug="dynamic-reference-test",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
+    )
+    dynamic_choice_question.data_source = "Buildings"
+    dynamic_choice_question.save()
+
+    dynamic_answer = utils.add_answer(
+        document=main_document,
+        question=dynamic_choice_question,
+        value=str(test_document.pk),
+        label="MFH 1",
+    )
+    dynamic_option = caluma_dynamic_option_factory(
+        document=main_document,
+        question=dynamic_choice_question,
+        slug=str(test_document.pk),
+        label="MFH 1",
+    )
+
+    # example doc to test moving a reference while copying an answer
+    referenced_document = caluma_document_factory()
+    referenced_document.source = test_document
+    referenced_document.save()
+
+    # copy the document with answers
+    new_document = main_document.copy()
+    new_answer = caluma_form_models.Answer.objects.get(
+        question=dynamic_choice_question, document=new_document
+    )
+    new_dynamic_option = caluma_form_models.DynamicOption.objects.get(
+        question=dynamic_choice_question, document=new_document
+    )
+
+    # check that the new anser and dynamic option are linked to the referenced document
+    assert str(dynamic_answer.pk) != str(new_answer.pk)
+    assert str(dynamic_option.pk) != str(new_dynamic_option.pk)
+    assert new_answer.value == str(referenced_document.pk)
+    assert new_dynamic_option.slug == str(referenced_document.pk)
+
+
 def test_services_for_final_report(
     db,
     caluma_admin_user,
-    question_factory,
+    caluma_question_factory,
     utils,
     ur_instance,
-    work_item_factory,
+    caluma_work_item_factory,
     service_factory,
     ur_distribution_settings,
 ):
     services_that_wants_to_be_invited = service_factory()
 
-    distribution = work_item_factory(
+    distribution = caluma_work_item_factory(
         task_id="distribution",
         case=ur_instance.case,
+        child_case__family=ur_instance.case,
     )
 
-    inquiry_1 = work_item_factory(
+    inquiry_1 = caluma_work_item_factory(
         task_id="inquiry",
         case=distribution.child_case,
         addressed_groups=[str(services_that_wants_to_be_invited.pk)],
@@ -387,7 +540,7 @@ def test_services_for_final_report(
 
     data = ServicesForFinalReport().get_data(
         caluma_admin_user,
-        question_factory(),
+        caluma_question_factory(),
         {"instanceId": ur_instance.pk},
     )
 
@@ -395,3 +548,73 @@ def test_services_for_final_report(
 
     assert len(data) == 1
     assert service_names == {services_that_wants_to_be_invited.name}
+
+
+@pytest.mark.parametrize(
+    "sanction_steps, question_step, expected_count",
+    [
+        # Test 'regular' sanction steps, with some already controlled:
+        ([("b", True), ("b", False), ("b", False), ("e", False)], "b", 2),
+        ([("b", True), ("b", False), ("b", False), ("e", False)], "r", 0),
+        ([("b", True), ("b", False), ("b", False), ("e", False)], "e", 1),
+        ([("b", True), ("b", False), ("b", False), ("e", False)], None, 0),
+        # Variable sanctions should not show up anywhere:
+        ([("v", False)], "b", 0),
+        ([("v", False)], "r", 0),
+        ([("v", False)], "e", 0),
+        ([("v", False)], None, 0),
+    ],
+)
+def test_sanctions(
+    db,
+    instance_factory,
+    caluma_question_factory,
+    new_sanction_factory,
+    sanction_steps,
+    question_step,
+    expected_count,
+):
+    instance = instance_factory()
+    step_map = {
+        "b": "baufreigabe",
+        "r": "realisierung",
+        "e": "endabnahme",
+        "v": "variabel",
+    }
+
+    for sanction_step in sanction_steps:
+        new_sanction_factory(
+            instance=instance,
+            control_step=step_map[sanction_step[0]],
+            controlled=sanction_step[1],
+        )
+
+    question = caluma_question_factory(
+        **(
+            {"meta": {"sanction_step": step_map[question_step]}}
+            if question_step
+            else {}
+        ),
+    )
+    context = {"instanceId": instance.pk}
+
+    data = Sanctions().get_data(instance.user, question, context)
+    if expected_count == 0:
+        assert len(data) == 1 and data[0][0] is None
+    else:
+        assert len(data) == expected_count
+
+
+@pytest.mark.vcr(match_on=["method", "path", "query"])
+@pytest.mark.django_db(reset_sequences=True)
+def test_gever_erledigungsart_datasource(be_gever_settings):
+    ds = GEVERErledigungsart()
+
+    # No need to make up parameters, the data source doesn't actually
+    # use them, so in this case, it's fine
+    res = ds.get_data(None, None, None)
+
+    assert len(res)
+    for id, label in res:
+        assert uuid.UUID(id)
+        assert label

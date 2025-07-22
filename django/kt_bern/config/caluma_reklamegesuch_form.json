@@ -4,7 +4,7 @@
     "pk": "reklamegesuch",
     "fields": {
       "created_at": "2024-07-18T15:56:26.121Z",
-      "modified_at": "2024-09-10T13:06:53.583Z",
+      "modified_at": "2025-04-14T11:35:11.390Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -492,7 +492,7 @@
     "pk": "reklamegesuch-dokumente",
     "fields": {
       "created_at": "2024-07-19T09:58:14.738Z",
-      "modified_at": "2024-07-19T09:58:33.378Z",
+      "modified_at": "2025-03-04T08:06:49.363Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -503,12 +503,13 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "widgetOverride": "be-documents-form"
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "'is-paper'|answer == 'is-paper-yes'? 13 : 1"
       },
       "data_source": null,
       "row_form": null,

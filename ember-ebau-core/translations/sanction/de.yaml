@@ -1,0 +1,75 @@
+sanction:
+  title:
+    sanctions: "Auflagen"
+    controlledSanctions: "Kontrollierte Auflagen"
+    create: "Auflage erstellen"
+    edit: "Auflage bearbeiten"
+    fromtemplate: "Standard-Auflage erfassen"
+  filter:
+    all: "Alle ({count})"
+    baufreigabe: "Baufreigabe ({count})"
+    realisierung: "Realisierung ({count})"
+    endabnahme: "Endabnahme ({count})"
+    variabel: "Sonstige ({count})"
+  property:
+    createdByService: "Erfasst von"
+    name: "Name"
+    description: "Beschreibung"
+    assignedService: "Kontrollinstanz"
+    controlStep: "Kontrollzeitpunkt"
+    controlledAt: "Kontrolle erfolgt am"
+    controlledByUser: "Kontrolliert durch"
+    controlNotes: "Kontrollnotizen"
+  form:
+    control: "Als kontrolliert markieren"
+    notControlledYet: "Kontrolle noch nicht erfolgt"
+  action:
+    create: "Neue Auflage erfassen"
+    createFromTemplate: "Standard-Auflagen erfassen"
+    submit:
+      templates: "Auflagen hinzufügen"
+    edit: "Auflage bearbeiten"
+    delete: "Auflage löschen"
+  confirm:
+    control: "Auflage \"{name}\" als kontrolliert markieren? Dieser Schritt kann nicht rückgängig gemacht werden."
+    delete: "Auflage \"{name}\" wirklich löschen?"
+  notification:
+    success:
+      control: "Auflage wurde erfolgreich kontrolliert"
+      createfromtemplate: "Auflagen wurden erfolgreich gespeichert"
+      save: "Auflage wurde erfolgreich gespeichert"
+      delete: "Auflage wurde erfolgreich gelöscht"
+    error:
+      control: "Auflage konnte nicht kontrolliert werden"
+      createfromtemplate: "Ein oder mehrere der Auflagen konnten nicht erstellt werden"
+      delete: "Auflage konnte nicht gelöscht werden"
+      save: "Auflage konnte nicht gespeichert werden"
+  controlStep:
+    all: "Alle"
+    baufreigabe: "Baufreigabe"
+    realisierung: "Realisierung"
+    endabnahme: "Endabnahme"
+    variabel: "Sonstige"
+  list:
+    empty: "Keine Auflagen vorhanden"
+    hintTemplateCreation: "Keine Standard-Auflagen vorhanden. Standard-Auflagen können im globalen Auflagen-Menü erstellt werden."
+sanctiontemplate:
+  title:
+    sanctionTemplates: "Standard-Auflagen"
+    create: "Standard-Auflage erstellen"
+    edit: "Standard-Auflage bearbeiten"
+  action:
+    create: "Neue Standard-Auflage erstellen"
+    edit: "Standard-Auflage bearbeiten"
+    delete: "Standard-Auflage löschen"
+  confirm:
+    delete: "Standard-Auflage \"{name}\" wirklich löschen?"
+  notification:
+    success:
+      save: "Standard-Auflage wurde erfolgreich gespeichert"
+      delete: "Standard-Auflage wurde erfolgreich gelöscht"
+    error:
+      save: "Standard-Auflage konnte nicht gespeichert werden"
+      delete: "Standard-Auflage konnte nicht gelöscht werden"
+  list:
+    empty: "Keine Standard-Auflagen vorhanden"

@@ -100,7 +100,13 @@ filterwarnings = [
     # Deprecated usage of pkg_resources (from setuptools) in docxtpl
     "ignore:pkg_resources is deprecated as an API:DeprecationWarning",
     # Deprecated usage of pkg_resources.declare_namespace (from setuptools) in tika
-    "ignore:Deprecated call to `pkg_resources.declare_namespace:DeprecationWarning"
+    "ignore:Deprecated call to `pkg_resources.declare_namespace:DeprecationWarning",
+    # deprecation warning for holidays package for upcoming v1 release
+    "ignore::DeprecationWarning:holidays.deprecations.v1_incompatibility",
+    # https://github.com/lidatong/dataclasses-json/pull/351
+    "ignore:The 'default' argument to fields is deprecated. Use 'dump_default' instead.",
+    "ignore:`Field` should not be instantiated.:marshmallow.warnings.ChangedInMarshmallow4Warning",
+    "ignore:jsonschema.RefResolver is deprecated.*",
 ]
 
 [tool.coverage.run]
@@ -121,6 +127,7 @@ exclude_lines = [
     "def __unicode__",
     "def __repr__",
 ]
+exclude_also = ["\\A(?s:.*# pragma: exclude file.*)\\Z"]
 omit = [
     "*/postgresql_dbdefaults/*",
     "*/migrations/*",
@@ -134,11 +141,14 @@ omit = [
     "setup.py",
     "form_json_helper.py",
     "camac/settings/modules/*.py",
-    "camac/wsgi.py",
+    "camac/wsgi*.py",
     "camac/core/management/commands/makemessages.py",
+    "camac/fixtures/management/commands/generate_fixtures.py",
+    "camac/fixtures/generated/*.py",
     # TODO: write tests for the following"
     "camac/core/dataimport.py",
     "camac/core/management/commands/snapdb.py",
+    "camac/core/management/commands/migrate.py",
     "camac/core/management/commands/clean_caluma_config.py",
     "camac/core/management/commands/cleanup_sz_thumbnail_tempfiles.py",
     "camac/core/management/commands/sz_reorg_geometer.py",
@@ -150,6 +160,7 @@ omit = [
     "camac/instance/management/commands/create_rsta_migrated_instance.py",
     "camac/instance/management/commands/fix_broken_be_instances.py",
     "camac/instance/management/commands/fix_decision_documents.py",
+    "camac/instance/management/commands/fix_gr_workitems_no_addressedgroups.py",
     "camac/instance/management/commands/migrate_activations.py",
     "camac/core/management/commands/repair_sz_workflow.py",
     # Permission module temporary commands. These are used during the transition
@@ -165,6 +176,7 @@ omit = [
     # Utility for code inspection
     "camac/tools/whichtest.py",
     # One off commands
+    "camac/core/management/commands/fix_incorrectly_created_geometer_workitems.py",
     "camac/dossier_import/management/commands/fix_identifiers_schuebelbach.py",
     "camac/dossier_import/management/commands/fix_addresses_schuebelbach.py",
     "camac/instance/management/commands/fix_work_items.py",
@@ -215,6 +227,7 @@ omit = [
     "camac/circulation/management/commands/migrate_activation_answers_ur.py",
     "camac/core/management/commands/migrate_oereb_question_values.py",
     "camac/core/management/commands/migrate_oereb_form_splitting.py",
+    "camac/deadlines/management/commands/migrate_deadlines.py",
     "camac/user/management/commands/migrate_user_group.py",
     "camac/user/management/commands/import_services.py",
     "camac/user/management/commands/set_service_sort_number.py",
@@ -227,15 +240,29 @@ omit = [
     "camac/core/management/commands/migrate_alexandria_tag_to_mark.py",
     "camac/alexandria/management/commands/fix_alexandria_instance_document_links.py",
     "camac/alexandria/management/commands/fix_alexandria_created_by.py",
+    "camac/alexandria/management/commands/generate_alexandria_documents.py",
     "camac/core/management/commands/create_unique_dossier_identifier_index.py",
     "camac/core/management/commands/fix_missing_default_group.py",
     "camac/core/management/commands/migrate_bab_form_ur.py",
+    "camac/core/management/commands/fix_ur_bab_assignment.py",
     "camac/core/management/commands/migrate_file_encryption.py",
     "camac/core/management/commands/translate_camac_it.py",
     "camac/core/management/commands/translate_extract.py",
     "camac/core/management/commands/translate_services_it_gr.py",
     "camac/core/management/commands/translate_service_city_it.py",
     "camac/core/management/commands/migrate_instance_services_ur.py",
+    "camac/core/management/commands/change_instance_service_ur.py",
+    "camac/core/management/commands/kt_uri_statistic.py",
+    "camac/core/management/commands/correction_of_koor_dossiers_ur.py",
+    "camac/core/management/commands/clean_dangling_objects.py",
+    "camac/permissions//management/commands/grant_read_permissions_to_tax_administration_if_involved.py",
+    "camac/permissions//management/commands/grant_read_permissions_to_geometer_if_selected.py",
+    "camac/core/management/commands/migrate_rejection_feedback_ur.py",
+    "camac/core/management/commands/migrate_gwr_relevancy_tasks.py",
+    "camac/core/management/commands/fix_sz_cancelled_archiving.py",
+    "camac/core/management/commands/migrate_oereb_answer_ur.py",
+    "camac/core/management/commands/migrate_oereb_attachment_context_key_ur.py",
+    "camac/billing/management/commands/reset_invoices.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
@@ -260,5 +287,7 @@ omit = [
     "camac/instance/management/commands/migrate_dossier_numbers_so.py",
     # Token exchange development command
     "camac/token_exchange/management/commands/generate_dev_tokens.py",
+    "camac/gever/urls.py",
+    "camac/gever/views.py",
 ]
 show_missing = true

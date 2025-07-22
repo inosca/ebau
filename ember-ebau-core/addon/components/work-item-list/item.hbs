@@ -1,7 +1,13 @@
-<tr class={{if (and @highlight @workItem.notViewed) "uk-text-bold"}}>
+<tr
+  class="{{if (and @highlight @workItem.notViewed) 'uk-text-bold'}}
+    {{this.rowClasses}}"
+>
   {{#if @highlight}}
     {{#if (has-feature "workItemList.useExperimentalLayout")}}
       <td class="uk-padding-remove-right {{this.highlightClasses}}"></td>
+      {{#if (has-feature "workItemList.useColorForNFD")}}
+        <td class="uk-padding-remove-right {{this.highlightClassesNFD}}"></td>
+      {{/if}}
     {{else}}
       <td
         class="uk-table-middle uk-padding-remove-right

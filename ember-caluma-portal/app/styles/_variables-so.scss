@@ -10,15 +10,15 @@ $base-strong-font-weight: 700;
 $base-heading-font-weight: 700;
 
 // Base colors
-$global-primary-background: rgb(204, 0, 0);
-$global-secondary-background: rgb(0, 0, 0);
+$global-primary-background: rgb(204 0 0);
+$global-secondary-background: rgb(0 0 0);
 $global-danger-background: $global-primary-background;
-$global-muted-background: rgb(245, 245, 245);
+$global-muted-background: rgb(245 245 245);
 
 // Font colors
 $global-color: $global-secondary-background;
 $global-emphasis-color: $global-secondary-background;
-$global-muted-color: rgb(138, 138, 138);
+$global-muted-color: rgb(138 138 138);
 $global-link-color: $global-primary-background;
 $global-link-hover-color: $global-primary-background;
 $alert-danger-color: $global-secondary-background;

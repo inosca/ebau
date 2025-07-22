@@ -1,0 +1,22 @@
+documents:
+  uploadPlansIndividually: Carichi i Suoi piani di progetto (piani di situazione, piante, sezioni, viste etc.) come documento singolo in formato PDF. Questi devono essere dimensionati e in scala. Ulteriori attestazioni, foto documentazioni etc. possono avere più pagine.
+  duplicateFileUploadGuide: "<p>Si prega di caricare i piani di progetto (piani di situazione, piante, sezioni, viste etc.) come file singoli in formato PDF. Questi devono essere dimensionati e in scala. Le prove supplementari (ad esempio, la documentazione fotografica) possono essere di diverse pagine.</p><p>Si prega di assicurarsi che ogni file sia etichettato in modo chiaro e comprensibile.</p>"
+  categories:
+    beilagen-zum-gesuch-gutachten-nachweise-begruendungen:
+      title: |+
+        Perizie, prove, motivazioni<br>&nbsp;<br>
+
+    beilagen-zum-gesuch-grundstuecksangaben:
+      hint: |+
+        <ul class="uk-text-danger">
+          <li>la preghiamo di caricare i piani di progetto come singoli documenti</li>
+          <li>Piani di situazione, piante, sezioni, viste, ecc.</li>
+        </ul>
+
+    beilagen-zum-gesuch-brandschutz:
+      title: "Protezione antincendio (polizia del fuoco)"
+      hint: |+
+        <ul class="uk-text-danger">
+          <li>la preghiamo di caricare i piani di progetto come singoli documenti</li>
+          <li>ulteriori piani e documenti rilevanti per la protezione antincendio</li>
+        </ul>

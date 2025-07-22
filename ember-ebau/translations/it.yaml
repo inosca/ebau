@@ -7,10 +7,11 @@ nav:
   appeal: "Procedura di ricorso"
   bab: "BaB"
   modification: "Modifica del progetto"
+  suspended: "Sospeso"
   masterData:
-    label: "Dati di base"
-    hide: "Nascondi i dati di base"
-    show: "Visualizza i dati di base"
+    label: "Dati anagrafici estesi"
+    hide: "Nascondi i dati anagrafici estesi"
+    show: "Mostra i dati anagrafici estesi"
 
 global:
   title: "eBau"

@@ -1,3 +1,7 @@
+import mainConfig from "ember-ebau-core/config/main";
+
+const { answerSlugs } = mainConfig;
+
 export default {
   columns: {
     caluma: {
@@ -66,6 +70,7 @@ export default {
         "instanceState",
         "paper",
         "freetext",
+        "appeal",
       ],
       "construction-control": [
         "form",
@@ -85,6 +90,7 @@ export default {
         "decision",
         "paper",
         "freetext",
+        "appeal",
       ],
       municipality: [
         "form",
@@ -104,6 +110,7 @@ export default {
         "decision",
         "paper",
         "freetext",
+        "appeal",
       ],
       geometer: [
         "form",
@@ -120,6 +127,7 @@ export default {
         "decisionDateBefore",
         "modification",
         "instanceState",
+        "appeal",
       ],
       default: [
         "form",
@@ -134,6 +142,7 @@ export default {
         "modification",
         "instanceState",
         "freetext",
+        "appeal",
       ],
     },
   },
@@ -180,6 +189,24 @@ export default {
     "ort-grundstueck",
     "standort-migriert",
   ],
-  parcelSlugs: ["parzellennummer"],
   useLegacyTags: true,
+  personalDetailsSlugs: [
+    // Personalien - Gesuchsteller/in
+    answerSlugs.juristicNameApplicant,
+    answerSlugs.firstNameApplicant,
+    answerSlugs.lastNameApplicant,
+    // Personalien - Vertreter/in mit Vollmacht
+    "name-juristische-person-vertreterin",
+    "name-vertreterin",
+    "vorname-vertreterin",
+    // Personalien - Gebäudeeigentümer/in
+    "name-juristische-person-grundeigentuemerin",
+    "name-grundeigentuemerin",
+    "vorname-grundeigentuemerin",
+    // Personalien - Projektverfasser/in
+    "name-juristische-person-projektverfasserin",
+    "name-projektverfasserin",
+    "vorname-projektverfasserin",
+  ],
+  specialIdLookup: "EXACT",
 };

@@ -1,0 +1,38 @@
+[
+  {
+    "model": "django_celery_beat.intervalschedule",
+    "pk": 1,
+    "fields": {
+      "every": 1,
+      "period": "days"
+    }
+  },
+  {
+    "model": "django_celery_beat.periodictask",
+    "pk": 1,
+    "fields": {
+      "name": "Update deadlines",
+      "task": "camac.deadlines.tasks.update_deadlines",
+      "interval": 1,
+      "crontab": null,
+      "solar": null,
+      "clocked": null,
+      "args": "[]",
+      "kwargs": "{}",
+      "queue": null,
+      "exchange": null,
+      "routing_key": null,
+      "headers": "{}",
+      "priority": null,
+      "expires": null,
+      "expire_seconds": null,
+      "one_off": false,
+      "start_time": "2025-06-10T22:00:00Z",
+      "enabled": true,
+      "last_run_at": null,
+      "total_run_count": 0,
+      "date_changed": "2025-06-11T07:50:23.994Z",
+      "description": ""
+    }
+  }
+]

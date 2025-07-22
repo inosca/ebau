@@ -19,27 +19,23 @@
     </PowerSelect>
   </div>
 </div>
-{{#if (and this.instances.isRunning (not this.instances.value))}}
-  <div class="uk-text-center uk-padding">
-    <UkSpinner @ratio={{2}} />
-  </div>
-{{else if this.instances.value.length}}
-  <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
-    <thead>
-      <tr>
-        <th class="uk-text-nowrap">{{t "instances.special-id"}}</th>
-        <th class="uk-text-nowrap">{{t "instances.municipality"}}</th>
-        <th class="uk-text-nowrap">{{t "publicInstances.applicant"}}</th>
-        <th class="uk-text-nowrap">{{t "instances.description"}}</th>
-        <th class="uk-text-nowrap">{{t "instances.address"}}</th>
-        <th class="uk-text-nowrap">{{t "instances.parcel"}}</th>
-        {{#if (has-feature "publication.endDate")}}
-          <th class="uk-text-nowrap">{{t "instances.objectionPeriod"}}</th>
-        {{/if}}
-      </tr>
-    </thead>
-    <tbody>
-      {{#each this.instances.value as |publicInstance|}}
+<table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
+  <thead>
+    <tr>
+      <th class="uk-text-nowrap">{{t "instances.special-id"}}</th>
+      <th class="uk-text-nowrap">{{t "instances.municipality"}}</th>
+      <th class="uk-text-nowrap">{{t "publicInstances.applicant"}}</th>
+      <th class="uk-text-nowrap">{{t "instances.description"}}</th>
+      <th class="uk-text-nowrap">{{t "instances.address"}}</th>
+      <th class="uk-text-nowrap">{{t "instances.parcel"}}</th>
+      {{#if (has-feature "publication.endDate")}}
+        <th class="uk-text-nowrap">{{t "instances.objectionPeriod"}}</th>
+      {{/if}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#unless this.instances.isResetting}}
+      {{#each this.instances.records as |publicInstance|}}
         <tr>
           <td>
             <LinkTo
@@ -62,30 +58,35 @@
               }}</td>
           {{/if}}
         </tr>
-      {{/each}}
-      {{#if this.hasNextPage}}
-        <tr>
-          <td
-            colspan="6"
-            class="uk-text-center"
-            {{in-viewport onEnter=this.fetchMore viewportSpy=true}}
-          >
-            <UkSpinner />
+      {{else}}
+        <tr class="border-bottom-remove">
+          <td colspan="6" class="uk-background-default">
+            <UkFlex @horizontal="center" @vertical="middle" @direction="column">
+              <div class="uk-text-center uk-width-large">
+                <object
+                  data="/assets/images/stamp-document.svg"
+                  class="uk-width-medium"
+                >
+                  {{t "publicInstances.empty-title"}}
+                </object>
+                <p class="uk-margin-remove-top uk-text-large">
+                  {{t "publicInstances.empty-title"}}
+                </p>
+                <p>{{t "publicInstances.emptyText"}}</p>
+              </div>
+            </UkFlex>
           </td>
         </tr>
-      {{/if}}
-    </tbody>
-  </table>
-{{else}}
-  <UkFlex @horizontal="center" @vertical="middle" @direction="column">
-    <div class="uk-text-center uk-width-large">
-      <object data="/assets/images/stamp-document.svg" class="uk-width-medium">
-        {{t "publicInstances.empty-title"}}
-      </object>
-      <p class="uk-margin-remove-top uk-text-large">
-        {{t "publicInstances.empty-title"}}
-      </p>
-      <p>{{t "publicInstances.emptyText"}}</p>
-    </div>
-  </UkFlex>
-{{/if}}
+      {{/each}}
+    {{/unless}}
+    {{#if this.instances.isLoading}}
+      <tr>
+        <td colspan="6" class="uk-text-center">
+          <UkSpinner @ratio="0.7" />
+        </td>
+      </tr>
+    {{else if this.instances.hasMore}}
+      <tr {{in-viewport onEnter=this.fetchMore viewportSpy=true}}></tr>
+    {{/if}}
+  </tbody>
+</table>

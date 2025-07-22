@@ -1,5 +1,7 @@
 from logging import getLogger
 
+from caluma.caluma_workflow.models import WorkItem
+
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api
@@ -27,7 +29,6 @@ class ApplicantsEventHandlerMixin:
                 access_level=APPLICANT_ACCESS_LEVEL,
                 user=applicant.invitee,
                 event_name="applicant_added",
-                metainfo={"disable-notification-on-creation": True},
             )
         except AccessLevel.DoesNotExist:
             log.warning(f"Access level '{APPLICANT_ACCESS_LEVEL}' is not configured")
@@ -125,6 +126,25 @@ class ChangeResponsibleServiceHandlerMixin:
             event_name="changed-responsible-service",
         )
 
+    def unsubscribed_responsible_service(self, instance: Instance, service: Service):
+        acl = (
+            InstanceACL.currently_active()
+            .filter(
+                service=service,
+                access_level__in=["lead-authority", "construction-control"],
+                instance=instance,
+            )
+            .first()
+        )
+
+        if acl:
+            self.manager.revoke(acl, event_name="unsubscribed-responsible-service")
+        else:  # pragma: no cover
+            log.warning(
+                f"Old lead authority service {service.pk} on instance "
+                f"{instance.pk} had no lead-authority ACL!"
+            )
+
 
 class DistributionHandlerMixin:
     def inquiry_sent(self, instance: Instance, work_item):
@@ -181,3 +201,17 @@ class InstanceCopyHandlerMixin:
             acl.pk = None
             acl.instance = instance
             acl.save()
+
+
+class ConstructionMonitoringHandlerMixin:
+    def geometer_work_item_created(self, work_item: WorkItem):
+        if "geometer" in work_item.task.address_groups:
+            for addr in work_item.addressed_groups:
+                addr_service = Service.objects.get(pk=addr)
+                self.manager.grant(
+                    work_item.case.family.instance,
+                    grant_type="SERVICE",
+                    access_level="geometer",
+                    service=addr_service,
+                    event_name="received-work-item",
+                )

@@ -1,10 +1,12 @@
 import logging
+import urllib.parse
 
 from alexandria.core.models import File
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import transaction
-from django.http import HttpResponse
+from django.http import FileResponse, HttpResponse
+from django.utils.decorators import decorator_from_middleware
 from drf_yasg import openapi
 from drf_yasg.inspectors import SwaggerAutoSchema
 from drf_yasg.utils import swagger_auto_schema
@@ -12,9 +14,14 @@ from generic_permissions.visibilities import VisibilityViewMixin
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 from rest_framework import status
 from rest_framework.authentication import get_authorization_header
-from rest_framework.exceptions import NotFound, ParseError
+from rest_framework.exceptions import NotFound, ParseError, PermissionDenied
 from rest_framework.generics import get_object_or_404
-from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
+from rest_framework.mixins import (
+    CreateModelMixin,
+    DestroyModelMixin,
+    ListModelMixin,
+    RetrieveModelMixin,
+)
 from rest_framework.parsers import JSONParser, MultiPartParser
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
@@ -22,8 +29,8 @@ from rest_framework.serializers import Serializer
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_xml.renderers import XMLRenderer
 
+from camac.communications.models import CommunicationsAttachment
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
-from camac.core.views import SendfileHttpResponse
 from camac.ech0211.models import Message
 from camac.ech0211.throttling import ECHMessageThrottle
 from camac.instance.models import Instance
@@ -34,6 +41,7 @@ from camac.swagger.utils import (
 )
 
 from . import event_handlers, formatters
+from .middleware import GeofenceMiddleware
 from .mixins import ECHInstanceQuerysetMixin
 from .parsers import ECHXMLParser
 from .send_handlers import SendHandlerException, get_send_handler
@@ -62,8 +70,12 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
     queryset = Message.objects
     serializer_class = Serializer
     renderer_classes = (XMLRenderer,)
-
     throttle_classes = [ECHMessageThrottle]
+    allow_external_clients = True
+
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     @classmethod
     def include_in_swagger(cls):
@@ -112,6 +124,11 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
     renderer_classes = (XMLRenderer,)
     instance_field = None
     queryset = Instance.objects
+    allow_external_clients = True
+
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     @classmethod
     def include_in_swagger(cls):
@@ -139,7 +156,7 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
                 subject=subject,
                 message_type=ECH_BASE_DELIVERY,
                 eventBaseDelivery=base_delivery_formatter.format_base_delivery(
-                    instance
+                    instance, request
                 ),
             ).toxml()
         except (
@@ -160,6 +177,11 @@ class ApplicationsView(ECHInstanceQuerysetMixin, ListModelMixin, GenericViewSet)
     queryset = Instance.objects
     instance_field = None
     filter_backends = []
+    allow_external_clients = True
+
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     @classmethod
     def include_in_swagger(cls):
@@ -185,6 +207,11 @@ class EventView(ECHInstanceQuerysetMixin, GenericViewSet):
     queryset = Instance.objects
     parser_classes = (JSONParser,)
     serializer_class = Serializer
+    allow_external_clients = True
+
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def has_create_permission(self):
         return self.request.group.role.name == "support"
@@ -217,10 +244,15 @@ class SendView(ECHInstanceQuerysetMixin, GenericViewSet):
     renderer_classes = (XMLRenderer,)
     parser_classes = (ECHXMLParser,)
     serializer_class = Serializer
+    allow_external_clients = True
 
     @classmethod
     def include_in_swagger(cls):
         return settings.ECH0211.get("API_LEVEL") == "full"
+
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     @swagger_auto_schema(
         tags=["eCH-0211"],
@@ -272,16 +304,22 @@ class ECHFileView(
     VisibilityViewMixin,
     RetrieveModelMixin,
     CreateModelMixin,
+    DestroyModelMixin,
     GenericViewSet,
 ):
     queryset = File.objects
     serializer_class = ECHFileSerializer
     parser_classes = [MultiPartParser]
     renderer_classes = [JSONRenderer]
+    allow_external_clients = True
 
     @classmethod
     def include_in_swagger(cls):
         return settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria"
+
+    @decorator_from_middleware(GeofenceMiddleware)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):  # pragma: no cover
@@ -309,12 +347,24 @@ class ECHFileView(
             raise NotFound()
 
         file = self.get_object()
-
-        return SendfileHttpResponse(
+        response = FileResponse(
+            file.content,
             content_type=file.mime_type,
             filename=file.name,
-            file_obj=file.content,
+            as_attachment=True,
         )
+
+        filename = file.name
+        quoted_filename = urllib.parse.quote(filename)
+
+        # django dynamically uses different content disposition headers depending on the filename (see: https://github.com/django/django/blob/main/django/utils/http.py#L361).
+        # However, this causes issues for some GEVER software companies because they can't handle the inconsistent Content-Disposition header.
+        # Also see the MDN docs: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Disposition#as_a_response_header_for_the_main_body
+        response["Content-Disposition"] = (
+            f"attachment; filename*=UTF-8''{quoted_filename}"
+        )
+
+        return response
 
     @swagger_auto_schema(
         tags=["eCH-0211 files"],
@@ -350,6 +400,46 @@ class ECHFileView(
 
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        document, file = serializer.save()
 
-        return Response(status=status.HTTP_201_CREATED)
+        return Response(
+            data={
+                "document-uuid": document.pk,
+                "file-uuid": file.pk,
+            },
+            status=status.HTTP_201_CREATED,
+        )
+
+    @swagger_auto_schema(
+        tags=["eCH-0211 files"],
+        manual_parameters=[
+            group_param,
+        ],
+        operation_summary="Delete a file",
+        operation_description=get_operation_description(),
+        auto_schema=conditional_factory(
+            SwaggerAutoSchema, lambda: settings.ECH0211.get("API_LEVEL") == "full"
+        ),
+    )
+    def destroy(self, request, *args, **kwargs):
+        if (
+            settings.ECH0211.get("API_LEVEL") != "full"
+            or settings.APPLICATION["DOCUMENT_BACKEND"] != "alexandria"
+        ):
+            raise NotFound()
+
+        file = self.get_object()
+
+        # do not allow deletion of files that are linked to a communication attachment
+        if CommunicationsAttachment.objects.filter(alexandria_file=file).exists():
+            raise PermissionDenied()
+
+        # execute the file deletion
+        document = file.document
+        response = super().destroy(request, *args, **kwargs)
+
+        # also delete the document if it has no remaining files
+        if document.files.count() == 0:
+            document.delete()
+
+        return response

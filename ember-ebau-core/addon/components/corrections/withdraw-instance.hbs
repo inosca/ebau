@@ -1,0 +1,15 @@
+<p class="uk-text-large">{{t "corrections.withdraw.title"}}</p>
+<p>{{t "corrections.withdraw.description" htmlSafe=true}}</p>
+<UkButton
+  @color="primary"
+  @label={{t "corrections.withdraw.title"}}
+  @onClick={{this.withdrawInstance.perform}}
+  @loading={{this.withdrawInstance.isRunning}}
+  @disabled={{or
+    this.withdrawInstance.isRunning
+    (await (cannot "withdraw instance" @instance))
+  }}
+/>
+{{#if (await (cannot "withdraw instance" @instance))}}
+  <p class="uk-text-muted">{{t "corrections.not-available"}}</p>
+{{/if}}

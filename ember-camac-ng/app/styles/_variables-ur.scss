@@ -1,13 +1,13 @@
 // Base colors
-$global-primary-background: rgb(255, 212, 1);
-$global-secondary-background: rgb(44, 52, 67);
-$global-success-background: rgb(0, 153, 0);
-$global-muted-background: rgb(245, 245, 245);
+$global-primary-background: rgb(255 212 1);
+$global-secondary-background: rgb(44 52 67);
+$global-success-background: rgb(0 153 0);
+$global-muted-background: rgb(245 245 245);
 
 // Font colors
-$global-color: rgb(50, 50, 50);
-$global-emphasis-color: rgb(50, 50, 50);
-$global-muted-color: rgb(100, 100, 100);
+$global-color: rgb(50 50 50);
+$global-emphasis-color: rgb(50 50 50);
+$global-muted-color: rgb(100 100 100);
 $global-link-color: $global-primary-background;
 $global-link-hover-color: $global-primary-background;
 $global-font-family: "Open Sans";
@@ -16,7 +16,6 @@ $global-font-family: "Open Sans";
 $text-large-font-size: 18px;
 $global-small-font-size: 12px;
 $global-large-font-size: 1.2rem;
-
 $base-h2-font-size-m: 2em;
 $base-h2-font-size: 2em;
 $base-h3-font-size-m: 1.7em;
@@ -28,7 +27,6 @@ $form-focus-border: $global-secondary-background;
 
 // Misc
 $modal-z-index: 1;
-
 $button-disabled-background: $global-muted-background;
 
 // Activation
@@ -36,9 +34,7 @@ $activation-warning-nfd: blue;
 $activation-warning-due-shortly: #f48707;
 $activation-warning-expired: red;
 $activation-warning-completed: green;
-
 $ember-power-select-placeholder-color: $global-muted-color;
-
-$button-primary-color: rgb(0, 0, 0);
-$base-link-color: rgb(0, 0, 0);
-$base-link-hover-color: rgb(0, 0, 0);
+$button-primary-color: rgb(0 0 0);
+$base-link-color: rgb(0 0 0);
+$base-link-hover-color: rgb(0 0 0);

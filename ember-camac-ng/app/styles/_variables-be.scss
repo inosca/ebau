@@ -1,18 +1,20 @@
+@use "sass:color";
+
 // Base colors
-$global-primary-background: rgb(234, 22, 31);
-$global-secondary-background: rgb(30, 30, 30);
+$global-primary-background: rgb(234 22 31);
+$global-secondary-background: rgb(30 30 30);
 $global-danger-background: $global-primary-background;
-$global-success-background: rgb(0, 153, 0);
-$global-muted-background: rgb(245, 245, 245);
+$global-success-background: rgb(0 153 0);
+$global-muted-background: rgb(245 245 245);
 $global-border: #e5e5e5;
 
 // Font
-$global-font-family: Arial, Helvetica, sans-serif;
+$global-font-family: arial, helvetica, sans-serif;
 
 // Font colors
 $global-color: #161616;
 $global-emphasis-color: #161616;
-$global-muted-color: rgb(100, 100, 100);
+$global-muted-color: rgb(100 100 100);
 $global-link-color: #13226e;
 $global-link-hover-color: #0026e0;
 $alert-danger-color: $global-secondary-background;
@@ -29,7 +31,7 @@ $base-h3-font-size: 1.1em;
 
 // Form
 $form-focus-border: $global-secondary-background;
-$form-placeholder-color: lighten($global-muted-color, 30%);
+$form-placeholder-color: color.adjust($global-muted-color, $lightness: 30%);
 
 // Misc
 $modal-z-index: 1;

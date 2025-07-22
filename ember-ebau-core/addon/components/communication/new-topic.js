@@ -5,6 +5,8 @@ import { tracked } from "@glimmer/tracking";
 import { task } from "ember-concurrency";
 import { trackedFunction } from "reactiveweb/function";
 
+import config from "ember-ebau-core/config/main";
+
 export default class CommunicationNewTopicComponent extends Component {
   @service store;
   @service router;
@@ -44,6 +46,15 @@ export default class CommunicationNewTopicComponent extends Component {
         name: this.intl.t("communications.new.applicant"),
       });
     }
+    // If "show all option" feature is enabled, prepend it to the selectable services
+    if (config.showAllOptionInReciepentList) {
+      const allOption = {
+        id: "ALL_RECIPIENTS",
+        name: this.intl.t("communications.new.allRecipients"),
+      };
+      return [allOption, ...services];
+    }
+
     return services;
   }
 
@@ -104,13 +115,44 @@ export default class CommunicationNewTopicComponent extends Component {
       );
     } catch (error) {
       console.error(error);
-      this.notification.danger(this.intl.t("communications.new.saveError"));
+      let errorCode = error?.message;
+
+      if (error.response) {
+        const data = await error.response.json();
+        errorCode = data.errors?.[0].code;
+      }
+
+      if (errorCode === "infected") {
+        this.notification.danger(
+          this.intl.t("communications.new.uploadErrorVirus"),
+        );
+      } else {
+        this.notification.danger(this.intl.t("communications.new.saveError"));
+      }
     }
   });
 
   @action
-  setInvolvedEntities(services) {
-    this.topic.involvedEntities = services;
+  setInvolvedEntities(selection) {
+    // If "show all option" feature is enabled, expand recipients list and disallow duplicates
+    if (config.showAllOptionInReciepentList) {
+      let items = selection;
+
+      // Expand "ALL_RECIPIENTS" to the full list and filter out the "ALL_RECIPIENTS" marker
+      if (selection.some((s) => s.id === "ALL_RECIPIENTS")) {
+        items = this.selectableServices.filter(
+          (s) => s.id !== "ALL_RECIPIENTS",
+        );
+      }
+
+      // Don't allow duplicates
+      this.topic.involvedEntities = Array.from(
+        new Map(items.map((item) => [item.id, item])).values(),
+      );
+    } else {
+      // Otherwise just take exactly what is selected
+      this.topic.involvedEntities = selection;
+    }
   }
 
   @action

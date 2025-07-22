@@ -151,9 +151,7 @@
       "grant_type": "USER",
       "created_at": "2024-09-23T11:46:59.996Z",
       "revoked_at": null,
-      "metainfo": {
-        "disable-notification-on-creation": true
-      }
+      "metainfo": {}
     }
   },
   {

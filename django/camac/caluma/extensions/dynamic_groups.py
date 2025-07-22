@@ -132,6 +132,12 @@ class CustomDynamicGroups(BaseDynamicGroups):
         )
         return [str(geometer.pk) for geometer in geometers]
 
+    @register_dynamic_group("gebaudeversicherung")
+    def resolve_gebaudeversicherung(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        return [str(Service.objects.get(slug="gvg").pk)]
+
     @register_dynamic_group("geometer-ur")
     def resolve_geometer_ur(self, task, case, user, prev_work_item, context, **kwargs):
         return [
@@ -146,12 +152,28 @@ class CustomDynamicGroups(BaseDynamicGroups):
             str(Service.objects.get(pk=uri_constants.FGS_SERVICE_ID).pk)
         ]  # FGS Fachstelle für Gebäudeschätzung
 
+    @register_dynamic_group("liegenschaftsschaetzung-ur")
+    def resolve_liegenschaftsschaetzung_ur(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        return [
+            str(
+                Service.objects.get(
+                    pk=uri_constants.AMT_FUER_STEUERN_LIEGENSCHAFTSSCHAETZUNG_SERVICE_ID
+                ).pk
+            )
+        ]
+
     @register_dynamic_group("service-bab")
     def resolve_service_bab(self, task, case, user, prev_work_item, context, **kwargs):
         if not settings.BAB:  # pragma: no cover
             return []
 
-        service = Service.objects.get(service_group__name=settings.BAB["SERVICE_GROUP"])
+        # In case they mistakingly configure multiple BaB groups or have multiple BaB sub services
+        service = Service.objects.filter(
+            service_group__name=settings.BAB["SERVICE_GROUP"],
+            service_parent__isnull=True,
+        ).first()
         authority = case.instance.responsible_service()
 
         if authority.service_group.name == "canton":
@@ -166,7 +188,7 @@ class CustomDynamicGroups(BaseDynamicGroups):
         return [
             str(service.pk)
             for service in Service.objects.filter(
-                name=settings.APPLICATION["CALUMA"]["BAB_MUNICIPALITY_MAPPING"][
+                slug=settings.APPLICATION["CALUMA"]["BAB_MUNICIPALITY_MAPPING"][
                     case.instance.location_id
                 ]
             )
@@ -212,3 +234,17 @@ class CustomDynamicGroups(BaseDynamicGroups):
             return self.resolve_municipality(
                 task, case, user, prev_work_item, context, **kwargs
             )
+
+    @register_dynamic_group("abm-zs-uri")
+    def resolve_abm_zs_uri(self, task, case, user, prev_work_item, context, **kwargs):
+        return [str(Service.objects.get(pk=uri_constants.ABM_ZS_SERVICE_ID).pk)]
+
+    @register_dynamic_group("afb")
+    def resolve_afb_ag(self, task, case, user, prev_work_item, context, **kwargs):
+        return [str(Service.objects.get(slug="afb").pk)]
+
+    @register_dynamic_group("gever")
+    def resolve_gever(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):  # pragma: no cover
+        return [str(Service.objects.get(slug="agr-bauen").pk)]

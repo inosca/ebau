@@ -4,8 +4,8 @@ from django.core.management import call_command
 
 
 @pytest.mark.skip
-def test_migrate_issues(db, issue, task_factory, case_factory):
-    task_factory(slug="create-manual-workitems")
-    case_factory(meta={"camac-instance-id": issue.instance.pk})
+def test_migrate_issues(db, issue, caluma_task_factory, caluma_case_factory):
+    caluma_task_factory(slug="create-manual-workitems")
+    caluma_case_factory(meta={"camac-instance-id": issue.instance.pk})
     call_command("migrate_issues")
     assert len(WorkItem.objects.all()) == 1

@@ -16,6 +16,21 @@ REJECTION = {
             "REVERTED": [],
         },
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "ALLOWED_INSTANCE_STATES": [
+            "subm",
+        ],
+        "INSTANCE_STATE_REJECTION_COMPLETE": None,
+        "NOTIFICATIONS": {
+            "REJECTED": [
+                {
+                    "recipient_types": ["applicant"],
+                    "template_slug": "rueckweisung",
+                }
+            ]
+        },
+    },
     "kt_bern": {
         "ENABLED": True,
         "ALLOWED_INSTANCE_STATES": ["circulation", "circulation_init"],
@@ -91,6 +106,28 @@ REJECTION = {
             ]
         },
     },
+    "kt_uri": {
+        "ENABLED": True,
+        "ALLOWED_INSTANCE_STATES": [
+            "subm",
+            "comm",
+            "ext",
+            "circ",
+            "redac",
+            "control",
+        ],
+        "INSTANCE_STATE_REJECTION_COMPLETE": "rejected",
+    },
+    # "kt_ag": {
+    #     "NOTIFICATIONS": {
+    #         "REJECTED": [
+    #             {
+    #                 "recipient_types": ["applicant"],
+    #                 "template_slug": "rueckweisung",
+    #             }
+    #         ]
+    #     },
+    # },
     "test": {
         "ENABLED": True,
         "ALLOWED_INSTANCE_STATES": ["circulation_init"],

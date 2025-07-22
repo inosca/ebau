@@ -34,6 +34,7 @@ from django_filters.rest_framework import (
 )
 from rest_framework.filters import BaseFilterBackend, OrderingFilter
 
+from camac.caluma.models import Inquiry
 from camac.caluma.utils import visible_inquiries_expression
 from camac.constants import kt_uri as uri_constants
 from camac.filters import (
@@ -42,6 +43,7 @@ from camac.filters import (
     NumberMultiValueFilter,
 )
 from camac.instance.export.filters import StringAggSubquery
+from camac.instance.master_data import MasterData
 
 from ..core import models as core_models
 from ..responsible import models as responsible_models
@@ -524,31 +526,26 @@ class InquiryStateFilter(CharFilter):
             return qs
 
         if value == "pending":
-            inquiries = WorkItem.objects.filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups__contains=[str(self.parent.request.group.service_id)],
-                status=WorkItem.STATUS_READY,
-            )
+            inquiries = Inquiry.objects.addressed_to(
+                self.parent.request.group.service_id
+            ).only_pending()
 
         elif value == "completed":
             # instances are considered completed if they have at least one completed
             # or skipped inquiry, and no ready inquiry in the same case.
-            inquiries = WorkItem.objects.annotate(
-                has_open_sibling_inquiry=Exists(
-                    WorkItem.objects.filter(
-                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                        status=WorkItem.STATUS_READY,
-                        addressed_groups__contains=[
-                            str(self.parent.request.group.service_id)
-                        ],
-                        case=OuterRef("case"),
+            inquiries = (
+                Inquiry.objects.annotate(
+                    has_open_sibling_inquiry=Exists(
+                        Inquiry.objects.for_distribution_case(OuterRef("case"))
+                        .addressed_to(self.parent.request.group.service_id)
+                        .only_pending()
                     )
                 )
-            ).filter(
-                task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                addressed_groups__contains=[str(self.parent.request.group.service_id)],
-                status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
-                has_open_sibling_inquiry=False,
+                .addressed_to(self.parent.request.group.service_id)
+                .for_status(WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED)
+                .filter(
+                    has_open_sibling_inquiry=False,
+                )
             )
 
         return qs.filter(
@@ -561,15 +558,10 @@ class InquiryDateFilter(DateFilter):
         if value in EMPTY_VALUES:
             return qs
 
-        inquiries = WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            addressed_groups__contains=[str(self.parent.request.group.service_id)],
-            status__in=[
-                WorkItem.STATUS_READY,
-                WorkItem.STATUS_COMPLETED,
-                WorkItem.STATUS_SKIPPED,
-            ],
-            **{self.lookup_expr: value},
+        inquiries = (
+            Inquiry.objects.addressed_to(self.parent.request.group.service_id)
+            .only_active()
+            .filter(**{self.lookup_expr: value})
         )
 
         if self.lookup_expr.startswith("closed_at"):
@@ -663,8 +655,11 @@ class InstanceFilterSet(FilterSet):
     )
     keyword_search = InstanceKeywordSearchFilter()
     intent_sz = CharFilter(method="filter_intent_sz")
-    plot_sz = FormFieldListValueFilter(
-        form_field_names=["parzellen"], keys=["number", "egrid"]
+    plot_egrid_sz = FormFieldListValueFilter(
+        form_field_names=["parzellen"], keys=["egrid"]
+    )
+    plot_number_sz = FormFieldListValueFilter(
+        form_field_names=["parzellen"], keys=["number"]
     )
     builder_sz = FormFieldListValueFilter(
         form_field_names=[
@@ -755,30 +750,22 @@ class InstanceFilterSet(FilterSet):
         return queryset.filter(**_filter)
 
     def filter_with_cantonal_participation(self, queryset, name, value):
-        _filter = {
-            "workflowentry__workflow_item_id": uri_constants.WORKFLOW_ITEM_FORWARD_TO_KOOR
-        }
-
-        if value:
-            return queryset.filter(**_filter)
-        return queryset.exclude(**_filter)
+        return queryset.filter(
+            Exists(
+                Inquiry.objects.for_root_case(OuterRef("case"))
+                .addressed_to(uri_constants.KOOR_SERVICE_IDS)
+                .only_active()
+            )
+        )
 
     def filter_circulation_service(self, queryset, name, value):
         if settings.DISTRIBUTION:
             pks = [str(pk) for pk in value] if isinstance(value, list) else [str(value)]
             return queryset.filter(
                 Exists(
-                    WorkItem.objects.filter(
-                        Q(case__family=OuterRef("case"))
-                        & Q(task__pk=settings.DISTRIBUTION["INQUIRY_TASK"])
-                        & Q(
-                            status__in=[
-                                WorkItem.STATUS_READY,
-                                WorkItem.STATUS_COMPLETED,
-                            ]
-                        )
-                        & Q(addressed_groups__overlap=pks)
-                    )
+                    Inquiry.objects.for_root_case(OuterRef("case"))
+                    .addressed_to(pks)
+                    .only_active()
                 )
             )
 
@@ -826,7 +813,8 @@ class InstanceFilterSet(FilterSet):
             "responsible_service_user",
             "address_sz",
             "intent_sz",
-            "plot_sz",
+            "plot_egrid_sz",
+            "plot_number_sz",
             "builder_sz",
             "landowner_sz",
             "applicant_sz",
@@ -1004,7 +992,7 @@ class PublicCalumaInstanceFilterSet(FilterSet):
     exclude_instance = NumberFilter(field_name="instance__pk", exclude=True)
 
     def filter_municipality(self, queryset, name, value):
-        municipality_question = settings.MASTER_DATA["CONFIG"]["municipality"][1]
+        municipality_question = MasterData.get_question_slug("municipality_slug")
 
         return queryset.filter(
             document__answers__question_id=municipality_question,

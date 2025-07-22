@@ -1,12 +1,6 @@
-from pathlib import Path
-from uuid import uuid4
-
 import requests
-from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import Exists, F, OuterRef, Q
-from django.http import HttpResponse
-from django.utils.encoding import escape_uri_path, smart_bytes
 from django.utils.module_loading import import_string
 from pyproj import CRS, Transformer
 from rest_framework.decorators import action
@@ -15,9 +9,14 @@ from rest_framework_json_api import django_filters, filters as json_api_filters
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.caluma.api import CalumaApi
+from camac.caluma.models import Inquiry
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import FormField, Instance
-from camac.user.permissions import permission_aware
+from camac.user.permissions import (
+    DefaultPermission,
+    PublicationPermission,
+    permission_aware,
+)
 
 from . import filters, models, serializers
 
@@ -114,13 +113,9 @@ class PublicationEntryView(ModelViewSet):
         if settings.DISTRIBUTION:
             return models.PublicationEntry.objects.filter(
                 Exists(
-                    WorkItem.objects.filter(
-                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                        case__family__instance=OuterRef("instance"),
-                        addressed_groups=[self.request.group.service_id],
-                    ).exclude(
-                        status__in=[WorkItem.STATUS_SUSPENDED, WorkItem.STATUS_CANCELED]
-                    )
+                    Inquiry.objects.for_instance(OuterRef("instance"))
+                    .addressed_to(self.request.group.service_id)
+                    .only_active()
                 )
             )
 
@@ -136,13 +131,9 @@ class PublicationEntryView(ModelViewSet):
             return models.PublicationEntry.objects.filter(
                 Q(instance__group__service_id=self.request.group.service_id)
                 | Exists(
-                    WorkItem.objects.filter(
-                        task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-                        case__family__instance=OuterRef("instance"),
-                        addressed_groups=[self.request.group.service_id],
-                    ).exclude(
-                        status__in=[WorkItem.STATUS_SUSPENDED, WorkItem.STATUS_CANCELED]
-                    )
+                    Inquiry.objects.for_instance(OuterRef("instance"))
+                    .addressed_to(self.request.group.service_id)
+                    .only_active()
                 )
             )
 
@@ -358,69 +349,6 @@ class PublicationEntryView(ModelViewSet):
         return Response([], 204)
 
 
-class SendfileHttpResponse(HttpResponse):
-    """
-    Special HttpResponse for x-sendfile with nginx.
-
-    Wraps the django.http.HttpResponse and augments it with the necessary
-    headers for x-sendfile with nginx.
-    Accepts either `file_path` to a static file (probably from a `FileField`)
-    or `file_obj` which represents a temporary download (to be stored with a random
-    filename).
-
-    :param content_type: Same as in the parent class
-    :param filename: Content-Disposition header filename
-    :param location: Base path which will be mapped with the nginx location
-    :param base_path: Path to where nginx looks for files for given location
-    :param file_path: Path to file inside `base_path`
-    :param file_obj: File-like object for temporary downloads
-    """
-
-    def __init__(
-        self,
-        content_type: str,
-        filename: str,
-        base_path: str = None,
-        file_path: str = None,
-        file_obj: bytes = None,
-    ):
-        super().__init__(content_type=content_type)
-
-        filename = Path(filename)
-
-        if (base_path or file_path) and file_obj:
-            raise ValueError(
-                "Takes either `base_path` and `file_path` or a `file_obj` but not both."
-            )
-        if bool(base_path) != bool(file_path):
-            raise ValueError("Both `base_path` and `file_path` are needed.")
-
-        if base_path and file_path:
-            base_path = Path(base_path)
-            file_path = Path(file_path)
-            abs_path = base_path / file_path.relative_to("/")
-
-        if file_obj:
-            base_path = Path(settings.TEMPFILE_DOWNLOAD_PATH)
-            file_path = (
-                Path(settings.TEMPFILE_DOWNLOAD_URL)
-                / f"{filename.stem}-{str(uuid4())[:7]}{filename.suffix}"
-            )
-
-            abs_path = base_path / file_path.relative_to("/")
-
-            if not abs_path.parent.exists():  # pragma: no cover
-                abs_path.parent.mkdir(parents=True)
-
-            abs_path.open("wb").write(file_obj.read())
-
-        self["Content-Disposition"] = 'attachment; filename="%s"' % escape_uri_path(
-            str(filename)
-        )
-        self["X-Accel-Redirect"] = "%s" % escape_uri_path(str(file_path))
-        self["X-Sendfile"] = smart_bytes(str(abs_path))
-
-
 class AuthorityView(ReadOnlyModelViewSet):
     """Only used in Kt. UR for 'Leitbehörde'."""
 
@@ -466,6 +394,7 @@ class InstanceResourceView(ReadOnlyModelViewSet):
 
 
 class StaticContentView(ModelViewSet):
+    permission_classes = [DefaultPermission | PublicationPermission]
     filterset_class = filters.StaticContentFilterSet
     queryset = models.StaticContent.objects.all()
     serializer_class = serializers.StaticContentSerializer

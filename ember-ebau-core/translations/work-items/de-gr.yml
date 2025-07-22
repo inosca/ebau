@@ -1,0 +1,5 @@
+workItems:
+  filters:
+    task:
+      # Override because GR does not want the count at all
+      generic: "{taskName}"

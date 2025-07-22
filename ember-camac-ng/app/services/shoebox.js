@@ -1,5 +1,7 @@
 import { getOwner } from "@ember/application";
 import Service from "@ember/service";
+import { findRecord } from "ember-data-resources";
+import config from "ember-ebau-core/config/main";
 
 export default class ShoeboxService extends Service {
   get content() {
@@ -9,7 +11,7 @@ export default class ShoeboxService extends Service {
 
     try {
       return JSON.parse(shoebox.innerHTML);
-    } catch (error) {
+    } catch {
       return {};
     }
   }
@@ -65,5 +67,22 @@ export default class ShoeboxService extends Service {
 
   get isCoordinationRole() {
     return ["coordination", "coordination-lead"].includes(this.role);
+  }
+
+  get isTrustedServiceRole() {
+    return this.content.roleId === config.trustedServiceRole;
+  }
+
+  service = findRecord(this, "service", () => [
+    this.content.serviceId,
+    { include: "service_group" },
+  ]);
+
+  get serviceSlug() {
+    return this.service.record?.slug;
+  }
+
+  get serviceGroupSlug() {
+    return this.service.record?.serviceGroup.get("slug");
   }
 }

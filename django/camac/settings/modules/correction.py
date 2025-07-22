@@ -23,5 +23,23 @@ CORRECTION = {
             "distribution",
         ],
     },
+    "kt_ag": {
+        "ENABLED": True,
+        "ALLOWED_INSTANCE_STATES": [
+            "subm",
+            # TODO verify
+            # "init-distribution",
+            # "circulation",
+        ],
+    },
+    "kt_bern": {
+        "ENABLED": True,
+        "ALLOWED_INSTANCE_STATES": [
+            "circulation_init",
+            "in_progress",
+            "in_progress_internal",
+            "circulation",
+        ],
+    },
     "test": {"ENABLED": True},
 }

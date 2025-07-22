@@ -50,14 +50,6 @@ export default class LegalSubmissionTableComponent extends Component {
     );
   }
 
-  get colspan() {
-    const colspan = Object.keys(mainConfig.legalSubmission.columns).length;
-
-    return this.abilities.can("edit legal-submission", this.workItem.value)
-      ? colspan + 1
-      : colspan;
-  }
-
   filterOptions = trackedFunction(this, async () => {
     return await this.apollo.watchQuery({ query: filterOptionsQuery });
   });
@@ -73,7 +65,7 @@ export default class LegalSubmissionTableComponent extends Component {
       });
 
       return response.allWorkItems.edges[0].node;
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("legal-submission.loading-error"));
     }
   });
@@ -95,13 +87,16 @@ export default class LegalSubmissionTableComponent extends Component {
         fetchPolicy: "network-only",
         variables: {
           orderQuestion: mainConfig.legalSubmission.orderQuestion,
-          questions: Object.values(mainConfig.legalSubmission.columns),
+          questions: [
+            ...new Set(Object.values(mainConfig.legalSubmission.columns)),
+          ],
           personQuestions: [
             mainConfig.answerSlugs.firstNameApplicant,
             mainConfig.answerSlugs.lastNameApplicant,
             mainConfig.answerSlugs.juristicNameApplicant,
             mainConfig.answerSlugs.isJuristicApplicant,
-          ],
+            mainConfig.answerSlugs.hasRepresentativeApplicant,
+          ].filter(Boolean),
           filter: [
             { rootDocument: this.rootDocumentId },
             { form: mainConfig.legalSubmission.tableForm },
@@ -133,9 +128,18 @@ export default class LegalSubmissionTableComponent extends Component {
       });
 
       return response.allDocuments.edges.map((edge) => edge.node);
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("legal-submission.loading-error"));
     }
+  });
+
+  colspan = trackedFunction(this, async () => {
+    const colspan = Object.keys(mainConfig.legalSubmission.columns).length;
+    const canEdit = await this.abilities.can(
+      "edit legal-submission",
+      this.workItem.value,
+    );
+    return canEdit ? colspan + 1 : colspan;
   });
 
   @dropTask
@@ -169,7 +173,7 @@ export default class LegalSubmissionTableComponent extends Component {
         this.ebauModules.resolveModuleRoute("legal-submission", "edit"),
         documentId,
       );
-    } catch (error) {
+    } catch {
       this.notification.danger(this.intl.t("legal-submission.create-error"));
     }
   }

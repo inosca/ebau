@@ -105,6 +105,8 @@ class ResourceFactory(DjangoModelFactory):
     hidden = 0
     sort = 7
     available_resource = SubFactory(AvailableResourceFactory)
+    template = Faker("file_name", extension="phtml")
+    class_field = Faker("word")
 
     class Meta:
         model = models.Resource
@@ -348,3 +350,18 @@ class ServiceContentFactory(DjangoModelFactory):
 
     class Meta:
         model = models.ServiceContent
+
+
+class RRoleAclFactory(DjangoModelFactory):
+    resource = SubFactory(ResourceFactory)
+    role = SubFactory(RoleFactory)
+
+    class Meta:
+        model = models.RRoleAcl
+
+
+class REmberListFactory(DjangoModelFactory):
+    instance_states = Faker("word")
+
+    class Meta:
+        model = models.REmberList

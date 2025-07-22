@@ -78,8 +78,8 @@ def test_instance_permissions_be(
     instance_state,
     use_caluma_form,
     snapshot,
-    work_item_factory,
-    document_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
     application_settings,
     permissions_settings,
     access_level,
@@ -94,17 +94,17 @@ def test_instance_permissions_be(
         "INSTANCE_PERMISSIONS"
     ]
     # SB1 additional setup
-    work_item_factory(
+    caluma_work_item_factory(
         case=be_instance.case,
         task_id="sb1",
         status=caluma_workflow_models.WorkItem.STATUS_READY,
-        document=document_factory(form_id="sb1"),
+        document=caluma_document_factory(form_id="sb1"),
     )
-    work_item_factory(
+    caluma_work_item_factory(
         case=be_instance.case,
         task_id="sb1",
         status=caluma_workflow_models.WorkItem.STATUS_READY,
-        document=document_factory(form_id="sb1-v2"),
+        document=caluma_document_factory(form_id="sb1-v2"),
     )
     permissions_settings["ACCESS_LEVELS"] = {
         access_level.pk: [("foo", Always()), ("bar", Always())],
@@ -362,8 +362,8 @@ def test_instance_paper_permissions(
     group_factory,
     service_factory,
     user_group_factory,
-    work_item_factory,
-    document_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
     application_settings,
     instance_service_factory,
 ):
@@ -395,11 +395,11 @@ def test_instance_paper_permissions(
     }
     # SB1 additional setup
     if instance_state.name == "sb1":
-        work_item_factory(
+        caluma_work_item_factory(
             case=be_instance.case,
             task_id="sb1",
             status=caluma_workflow_models.WorkItem.STATUS_READY,
-            document=document_factory(form_id=form_slug),
+            document=caluma_document_factory(form_id=form_slug),
         )
 
     response = admin_client.get(

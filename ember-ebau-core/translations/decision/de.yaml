@@ -19,6 +19,9 @@ decision:
       Status <b>"{status}"</b> versetzt. Das momentane Dossier wird
       abgeschlossen.
 
+  additional-demand:
+    unknown: "Die Nachforderung ist erfolgreich gespeichert."
+
   appeal-confirm: |-
     Wollen Sie das Beschwerdeverfahren wirklich starten? Dieses Dossier wird
     unwiderruflich in den Status <b>"Abgeschlossen"</b> versetzt. Es wird ein

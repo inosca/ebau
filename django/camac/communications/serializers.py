@@ -1,5 +1,8 @@
 import json
+from logging import getLogger
+from mimetypes import add_type, guess_type
 
+import magic
 from alexandria.core import models as alexandria_models
 from alexandria.core.api import create_document_file as create_alexandria_document_file
 from django.conf import settings
@@ -24,6 +27,64 @@ from camac.user.relations import CurrentUserResourceRelatedField
 from camac.user.serializers import UserSerializer
 
 from . import events, models
+
+log = getLogger(__name__)
+
+
+def validate_mime_type(file):
+    content_type_header = file.content_type
+    add_type("text/xml", ".xtf")
+    extension_type, _ = guess_type(file.name)
+
+    if not content_type_header:  # pragma: no cover
+        raise ValidationError(gettext("Missing Content-Type header"))
+    if not extension_type:  # pragma: no cover
+        raise ValidationError(gettext("Unknown file extension"))
+
+    if content_type_header == "application/octet-stream":  # pragma: no cover
+        content_type_header = extension_type
+    if content_type_header != extension_type:  # pragma: no cover
+        raise ValidationError(
+            gettext(
+                "Content-Type %(content_type)s does not match file extension %(extension)s."
+                % {
+                    "content_type": content_type_header,
+                    "extension": extension_type,
+                }
+            )
+        )
+
+    file.seek(0)
+    file_content_type = magic.from_buffer(file.read(), mime=True)
+    file.seek(0)
+
+    # This is needed because Kt. BE doesn't run on images and has an old version
+    # of libmagic1 (5.30 instead of 5.44) that does not detect any MS office
+    # files that were rendered with the DMS. This is not a problem anywhere else
+    # because newer versions of libmagic1 properly detect those.
+    #
+    # TODO: Remove this as soon as Kt. BE runs on images
+    if (
+        file_content_type != content_type_header
+        and content_type_header in settings.DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES
+    ):
+        log.debug(
+            f"Content-Type {content_type_header} of file {file.name} does not "
+            f"match the detected file content {file_content_type} but is "
+            "ignored because it's configured in `DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES`."
+        )
+        file_content_type = content_type_header
+
+    if file_content_type != content_type_header:
+        raise ValidationError(
+            gettext(
+                "Content-Type %(content_type)s does not match detected file content %(file_content_type)s."
+                % {
+                    "content_type": content_type_header,
+                    "file_content_type": file_content_type,
+                }
+            )
+        )
 
 
 class EntityNameMixin:
@@ -354,11 +415,25 @@ class MessageSerializer(serializers.ModelSerializer):
             gettext("Invisible topic, cannot create or update message")
         )
 
+    def _validate_allowed_mime_types(self, file):
+        content_type_header = file.content_type
+
+        if content_type_header not in settings.COMMUNICATIONS["ALLOWED_MIME_TYPES"]:
+            raise ValidationError(
+                gettext(
+                    "File type %(mime_type)s is not allowed."
+                    % {"mime_type": content_type_header}
+                )
+            )
+
     def validate_attachments(self, value):
         for attachment in value:
             # only need to check "inline" uploaded files, not linked ones
             if attachment.file_attachment:
                 validate_file_infection(attachment.file_attachment)
+                validate_mime_type(attachment.file_attachment.file)
+                self._validate_allowed_mime_types(attachment.file_attachment.file)
+
         return value
 
     included_serializers = {
@@ -475,7 +550,7 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
                 raise PermissionDenied()
 
             document, file = create_alexandria_document_file(
-                user=self.context["request"].user.pk,
+                user=instance.message.created_by_user.pk,
                 group=self.context["request"].group.service_id,
                 category=validated_data["category"],
                 document_title=instance.filename,
@@ -496,7 +571,6 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
             file.save()
             instance.alexandria_file = file
 
-        instance.file_attachment = None
         instance.save()
         return instance
 

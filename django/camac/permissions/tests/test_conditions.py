@@ -3,7 +3,12 @@ from caluma.caluma_workflow.models import WorkItem
 
 from camac.applicants.models import ROLE_CHOICES
 from camac.permissions.api import ACLUserInfo
-from camac.permissions.conditions import HasApplicantRole, IsPaper, RequireWorkItem
+from camac.permissions.conditions import (
+    HasApplicantRole,
+    IsPaper,
+    IsServiceGroup,
+    RequireWorkItem,
+)
 
 
 @pytest.fixture
@@ -29,17 +34,58 @@ def test_condition_is_paper(db, is_paper, so_instance, userinfo, utils):
     ],
 )
 def test_condition_require_work_item(
-    db, expected_result, has_work_item, so_instance, status, userinfo, work_item_factory
+    db,
+    expected_result,
+    has_work_item,
+    so_instance,
+    status,
+    userinfo,
+    caluma_work_item_factory,
 ):
     task_id = "test-work-item"
 
     if has_work_item:
-        work_item_factory(
+        caluma_work_item_factory(
             case=so_instance.case, task_id=task_id, status=WorkItem.STATUS_READY
         )
 
     assert (
         RequireWorkItem(task_id, status).apply(userinfo, so_instance) == expected_result
+    )
+
+
+def test_condition_require_work_item_addressed_to_current_service(
+    db,
+    so_instance,
+    userinfo,
+    caluma_work_item_factory,
+):
+    caluma_work_item_factory(
+        case=so_instance.case,
+        task_id="addressed-work-item",
+        addressed_groups=[str(userinfo.service.pk)],
+    )
+    caluma_work_item_factory(
+        case=so_instance.case,
+        task_id="not-addressed-work-item",
+        addressed_groups=["some-other-service-pk"],
+    )
+
+    assert (
+        RequireWorkItem("addressed-work-item", addressed_to_current_service=True).apply(
+            userinfo, so_instance
+        )
+        is True
+    )
+    assert RequireWorkItem("addressed-work-item").apply(userinfo, so_instance) is True
+    assert (
+        RequireWorkItem(
+            "not-addressed-work-item", addressed_to_current_service=True
+        ).apply(userinfo, so_instance)
+        is False
+    )
+    assert (
+        RequireWorkItem("not-addressed-work-item").apply(userinfo, so_instance) is True
     )
 
 
@@ -73,3 +119,19 @@ def test_has_applicant_role(
     applicant_factory(instance=so_instance, invitee=user, role=applicant_role)
 
     assert HasApplicantRole(roles).apply(userinfo, so_instance) == expected_result
+
+
+@pytest.mark.parametrize(
+    "has_service,service_group__name,expected_result",
+    [
+        (True, "foo", True),
+        (True, "bar", True),
+        (True, "baz", False),
+        (False, "foo", False),
+    ],
+)
+def test_is_service_group(db, expected_result, has_service, userinfo):
+    if not has_service:
+        userinfo.service = None
+
+    assert IsServiceGroup(["foo", "bar"]).apply(userinfo, None) == expected_result

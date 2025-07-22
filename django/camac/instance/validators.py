@@ -1,3 +1,4 @@
+import json
 import sys
 from functools import partial
 
@@ -55,15 +56,19 @@ class FormDataValidator(object):
             **attachments,
         }
         self.jexl = JEXL()
-        self.jexl.add_transform("value", self.get_field_value)
+        self.jexl.add_transform("value", self._get_field_value)
         self.jexl.add_transform("mapby", lambda arr, key: [obj[key] for obj in arr])
+        self.jexl.add_transform("json", self._parse_json)
         self.jexl.add_binary_operator(
             "in", 20, lambda value, arr: value in arr if arr else False
         )
         self.active_question_cache = {}
 
-    def get_field_value(self, name):
+    def _get_field_value(self, name):
         return self.fields.get(name) if self._check_questions_active([name]) else None
+
+    def _parse_json(self, jsonstr):
+        return json.loads(jsonstr)
 
     def _validate_question_radio(self, question, question_def, value, module=None):
         if value not in question_def["config"]["options"]:
@@ -178,7 +183,7 @@ class FormDataValidator(object):
         active = False
         try:
             active = self._check_questions_active(dep_questions) and self.jexl.evaluate(
-                expression, {"form": self.instance.form.name}
+                expression, {"form": self.instance.form.family.name}
             )
         except TypeError:
             # A TypeError is raised if a question is not filled. It then tries

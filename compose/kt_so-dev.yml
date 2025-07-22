@@ -3,14 +3,16 @@ services:
     image: memcached:1.6-alpine
     user: memcache:memcache
     networks:
-      - ebau.local
+      - ebau.localhost
 
   proxy:
     image: nginxinc/nginx-unprivileged:1.27-alpine
     user: nginx:nginx
     volumes:
-      - ../proxy/kt_so.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../proxy/kt_so.conf:/etc/nginx/conf.d/default.conf.in:ro
       - ../proxy/egov.html:/usr/share/nginx/html/index.html:ro
+      - ../proxy/csp_headers.inc:/etc/nginx/conf.d/csp_headers.inc:ro
+      - ../proxy/docker-entrypoint.d/90-nameserver.sh:/docker-entrypoint.d/90-nameserver.sh:ro
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
     depends_on:
@@ -24,11 +26,11 @@ services:
     ports:
       - "80:80"
     networks:
-      ebau.local:
+      ebau.localhost:
         aliases:
-          - ember-ebau.local
-          - ebau-portal.local
-          - ebau-keycloak.local
+          - ember-ebau.localhost
+          - ebau-portal.localhost
+          - ebau-keycloak.localhost
 
   db:
     image: postgres:15-bullseye
@@ -41,7 +43,7 @@ services:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pg15data:/var/lib/postgresql/data
     networks:
-      - ebau.local
+      - ebau.localhost
 
   django: &django
     user: ${UID}
@@ -75,11 +77,10 @@ services:
       DJANGO_DEFAULT_FILE_STORAGE: storages.backends.s3.S3Storage
       DJANGO_EMAIL_HOST: mailpit
       DJANGO_EMAIL_PORT: 1025
-      DJANGO_INTERNAL_BASE_URL: http://ember-ebau.local
+      DJANGO_INTERNAL_BASE_URL: http://ember-ebau.localhost
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
       DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
       DJANGO_Q_ENABLE_SYNC: ${DJANGO_Q_ENABLE_SYNC:-false}
-      DJANGO_EXCLUDED_IN_DISTRIBUTION: 113,108,112,114
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
       ENABLE_HISTORICAL_API: true
       ENABLE_TOKEN_EXCHANGE: ${ENABLE_TOKEN_EXCHANGE:-false}
@@ -89,8 +90,8 @@ services:
       OAUTHLIB_INSECURE_TRANSPORT: 1
       PYTHONDONTWRITEBYTECODE: 1
       # OIDC
-      KEYCLOAK_URL: http://ebau-keycloak.local/auth/
-      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      KEYCLOAK_URL: http://ebau-keycloak.localhost/auth/
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       # GWR
       GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       GWR_HOUSING_STAT_BASE_URI: https://www-r.housing-stat.ch/regbl/api/ech0216/2
@@ -114,7 +115,7 @@ services:
       CELERY_WORKER_CONCURRENCY: 1
       PYTHONUNBUFFERED: 1
     networks:
-      - ebau.local
+      - ebau.localhost
     tty: true
     stdin_open: true
     command: devserver
@@ -142,31 +143,43 @@ services:
       - "6900-7000:6900-7000"
     command: celerydev
 
+  celery-beat:
+    <<: *django
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
+      args:
+        REQUIREMENTS: requirements-dev.txt
+    ports: []
+    command: celery-beat-dev
+
   ember-caluma-portal:
     user: nginx:nginx
     environment:
-      KEYCLOAK_HOST: http://ebau-keycloak.local
+      KEYCLOAK_HOST: http://ebau-keycloak.localhost
       SO_GIS_URL: https://geo-i.so.ch
-      INTERNAL_URL: http://ember-ebau.local
-      EGOV_PORTAL_URL: ${EGOV_PORTAL_URL:-http://egov.local}
+      INTERNAL_URL: http://ember-ebau.localhost
+      EGOV_PORTAL_URL: ${EGOV_PORTAL_URL:-http://egov.localhost}
       EGOV_PRESTATION_PATH: ${EGOV_PRESTATION_PATH:-/prestation/1}
+      EGOV_PUBLIC_PRESTATION_PATH: ${EGOV_PUBLIC_PRESTATION_PATH:-/prestation/5}
       ENABLE_TOKEN_EXCHANGE: ${ENABLE_TOKEN_EXCHANGE:-false}
       ENABLE_WATERMARK: true
       WATERMARK: local
     networks:
-      - ebau.local
+      - ebau.localhost
 
   ember-ebau:
     user: nginx:nginx
     environment:
-      KEYCLOAK_HOST: http://ebau-keycloak.local
-      PORTAL_URL: http://ebau-portal.local
+      KEYCLOAK_HOST: http://ebau-keycloak.localhost
+      PORTAL_URL: http://ebau-portal.localhost
       SO_GIS_URL: https://geo-i.so.ch
       ENABLE_WATERMARK: true
       WATERMARK: local
       ALEXANDRIA_MANABI_ALLOWED_MIMETYPES: application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
     networks:
-      - ebau.local
+      - ebau.localhost
 
   keycloak:
     user: keycloak:keycloak
@@ -179,12 +192,12 @@ services:
       KC_DB_PASSWORD: camac
       KC_DB_URL: jdbc:postgresql://db:5432/${APPLICATION}?currentSchema=keycloak
       KC_DB_USERNAME: camac
-      KC_HOSTNAME: ebau-keycloak.local
+      KC_HOSTNAME: ebau-keycloak.localhost
       KC_FEATURES: token-exchange,admin-fine-grained-authz
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
     networks:
-      - ebau.local
+      - ebau.localhost
     command:
       [
         "start",
@@ -197,7 +210,7 @@ services:
     image: axllent/mailpit
     user: ${UID}
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       MP_WEBROOT: mailpit
 
@@ -208,7 +221,7 @@ services:
       - db
       - minio
     networks:
-      - ebau.local
+      - ebau.localhost
     cap_add:
       - CAP_SYS_ADMIN
     security_opt:
@@ -228,7 +241,7 @@ services:
       EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
       FILE_STORAGE: storages.backends.s3.S3Storage
       ISOLATE_UNOCONV: true
-      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       URL_PREFIX: document-merge-service/
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
@@ -248,9 +261,9 @@ services:
     environment:
       MINIO_ROOT_USER: minio
       MINIO_ROOT_PASSWORD: minio123
-      MINIO_BROWSER_REDIRECT_URL: http://ember-ebau.local/minio/ui
+      MINIO_BROWSER_REDIRECT_URL: http://ember-ebau.localhost/minio/ui
     networks:
-      - ebau.local
+      - ebau.localhost
     command: server data --console-address ":9090"
 
   mc:
@@ -266,7 +279,7 @@ services:
       - ../document-merge-service/${APPLICATION}/templatefiles:/tmp/dms-media
     entrypoint: /entrypoint.sh
     networks:
-      - ebau.local
+      - ebau.localhost
 
   # Fix permissions on named volumes
   volume-permission-companion:
@@ -278,24 +291,26 @@ services:
       - djangotmpmedia:/data/djangotmpmedia
       - minio_data:/data/minio_data
     command: /bin/sh -c "chown ${UID} -R /data;"
+    networks:
+      - ebau.localhost
 
   tika:
     image: apache/tika:2.9.2.1-full
     user: ${UID}
     networks:
-      - ebau.local
+      - ebau.localhost
 
   redis:
     image: redis:7.4
     volumes:
       - redis_data:/redis/data
     networks:
-      - ebau.local
+      - ebau.localhost
     environment:
       - REDIS_PASSWORD=redis
 
 networks:
-  ebau.local:
+  ebau.localhost:
 
 volumes:
   pg15data:

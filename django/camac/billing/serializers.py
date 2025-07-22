@@ -4,31 +4,74 @@ from django.conf import settings
 from django.utils.translation import gettext as _
 from rest_framework_json_api import serializers
 
-from camac.billing.models import BillingV2Entry
+from camac.billing.models import BillingV2Entry, BillingV2EntryTemplate
 from camac.billing.utils import (
     add_taxes_to_final_rate,
     calculate_final_rate,
     get_totals,
+    validate_product_number,
 )
+from camac.instance.master_data import MasterData
+from camac.settings.modules.billing_schema import ProductNumberConfig
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
     GroupResourceRelatedField,
 )
 from camac.user.serializers import CurrentGroupDefault
+from camac.user.utils import get_group
 
 
-class BillingV2EntrySerializer(serializers.ModelSerializer):
+class BillingV2CommonEntrySerializer(serializers.ModelSerializer):
+    tax_rate = serializers.ChoiceField(choices=[0, 2.5, 2.6, 7.7, 8.1])
+
+
+class BillingV2EntryTemplateSerializer(BillingV2CommonEntrySerializer):
+    class Meta:
+        model = BillingV2EntryTemplate
+        exclude = ("services", "service_groups")
+        read_only_fields = ("final_rate", "service")
+
+
+class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
     user = CurrentUserResourceRelatedField()
     group = GroupResourceRelatedField(default=CurrentGroupDefault())
-    tax_rate = serializers.ChoiceField(choices=[0, 2.5, 2.6, 7.7, 8.1])
 
     included_serializers = {
         "user": "camac.user.serializers.UserSerializer",
         "group": "camac.user.serializers.GroupSerializer",
     }
 
-    def validate(self, data):
-        validated_data = super().validate(data)
+    product_number_name = serializers.SerializerMethodField()
+
+    def get_product_number_name(self, model):
+        config = settings.BILLING.product_numbers
+        if not config:
+            return ""
+
+        product_number = [
+            product_number.name
+            for product_number in config
+            if str(product_number.number) == str(model.product_number)
+        ]
+
+        return product_number[0] if len(product_number) else ""
+
+    def validate(self, attrs):
+        validated_data = super().validate(attrs)
+
+        if (
+            validated_data["calculation"]
+            == BillingV2Entry.CalculationModes.CALCULATION_AG_PROCESSING_FEE
+        ):
+            construction_costs = (
+                MasterData(validated_data["instance"].case).construction_costs
+                if settings.MASTER_DATA
+                else None
+            )
+
+            validated_data["total_cost"] = (
+                construction_costs if construction_costs is not None else 0
+            )
 
         validated_data["final_rate"] = add_taxes_to_final_rate(
             calculate_final_rate(
@@ -42,7 +85,47 @@ class BillingV2EntrySerializer(serializers.ModelSerializer):
             tax_rate=Decimal(validated_data["tax_rate"]),
         )
 
+        # We want to also validate the product_number
+        # if its empty in case the service is required to
+        # set one.
+        if (
+            not validated_data.get("product_number")
+            and settings.BILLING.product_numbers
+        ):
+            self.validate_product_number(None)
+
         return validated_data
+
+    def validate_product_number(self, product_number):
+        request = self.context["request"]
+        config: list[ProductNumberConfig] = settings.BILLING.product_numbers
+
+        if not config:
+            return None
+
+        group = get_group(request)
+        instance = self.initial_data.get("instance", {}).get("id")
+
+        valid_product_numbers = [
+            product_number_config.number
+            for product_number_config in validate_product_number(group, instance)
+        ]
+
+        # If there are no valid product numbers for the
+        # current service, allow the field to be empty.
+        if not product_number:
+            if len(valid_product_numbers):
+                raise serializers.ValidationError(
+                    "You have not supplied a value for the field product_number."
+                )
+            return product_number
+
+        if str(product_number) in [str(pn) for pn in valid_product_numbers]:
+            return product_number
+        else:
+            raise serializers.ValidationError(
+                "You have supplied an invalid value for the field product_number."
+            )
 
     def get_root_meta(self, resource, many):
         """Calculate totals for the returned data.
@@ -63,29 +146,11 @@ class BillingV2EntrySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = BillingV2Entry
-        fields = (
-            "calculation",
-            "date_added",
-            "date_charged",
-            "final_rate",
-            "group",
-            "hourly_rate",
-            "hours",
-            "instance",
-            "organization",
-            "percentage",
-            "tax_mode",
-            "tax_rate",
-            "text",
-            "total_cost",
-            "user",
-            "billing_type",
-            "cost_center",
-            "legal_basis",
-        )
+        fields = "__all__"
         read_only_fields = (
             "date_added",
             "date_charged",
+            "released_for_clearing",
             "final_rate",
             "group",
             "user",
@@ -119,7 +184,7 @@ class BillingV2EntryExportSerializer(BillingV2EntrySerializer):
     def get_calculation_of_final_rate(self, model):
         _tax_mode = (
             _("inclusive")
-            if model.tax_mode == BillingV2Entry.TAX_MODE_INCLUSIVE
+            if model.tax_mode == BillingV2Entry.TaxModes.TAX_MODE_INCLUSIVE
             else _("exclusive")
         )
         tax = (
@@ -128,18 +193,22 @@ class BillingV2EntryExportSerializer(BillingV2EntrySerializer):
                 "tax_mode": _tax_mode,
                 "tax_rate": model.tax_rate.quantize(Decimal("0.1")),
             }
-            if model.tax_mode != BillingV2Entry.TAX_MODE_EXEMPT
+            if model.tax_mode != BillingV2Entry.TaxModes.TAX_MODE_EXEMPT
             else _("not subject to VAT")
         )
 
-        if model.calculation == BillingV2Entry.CALCULATION_HOURLY:  # hourly
+        if (
+            model.calculation == BillingV2Entry.CalculationModes.CALCULATION_HOURLY
+        ):  # hourly
             return _("%(hours)s hours at %(hourly_rate)s %(tax)s") % {
                 "hours": model.hours,
                 "hourly_rate": model.hourly_rate,
                 "tax": tax,
             }
 
-        if model.calculation == BillingV2Entry.CALCULATION_PERCENTAGE:  # percentage
+        if (
+            model.calculation == BillingV2Entry.CalculationModes.CALCULATION_PERCENTAGE
+        ):  # percentage
             return _("%(percentage)s of %(total)s %(tax-suffix)s") % {
                 "percentage": model.percentage,
                 "total": model.total_cost,
@@ -150,7 +219,8 @@ class BillingV2EntryExportSerializer(BillingV2EntrySerializer):
         return f"{model.final_rate} {tax}"
 
     def get_lead_authority(self, model):
-        service = model.instance.responsible_service()
+        service = model.instance.responsible_service(filter_type="municipality")
+
         city = service.get_trans_attr("city")
         return ", ".join(
             str(attr)
@@ -199,3 +269,11 @@ class BillingV2EntryExportSerializer(BillingV2EntrySerializer):
             "coordinates",
             "lead_authority",
         )
+
+
+class BillingV2BulkEntryIdsSerializer(serializers.Serializer):
+    entry_ids = serializers.ListField(
+        child=serializers.IntegerField(),
+        allow_empty=False,
+        help_text="List of entry IDs to charge",
+    )

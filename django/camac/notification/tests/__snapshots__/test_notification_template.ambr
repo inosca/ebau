@@ -5,7 +5,7 @@
   Sie dient nur zu Testzwecken und kann ignoriert werden.
   
   
-          BASE_URL: http://ebau.local
+          BASE_URL: http://ebau.localhost
           EBAU_NUMBER: 2019-01
           FORM_NAME_DE: Baugesuch
           FORM_NAME_FR: Demande de permis de construire
@@ -14,8 +14,8 @@
           INSTANCE_ID: 1
           LEITBEHOERDE_NAME_DE: Leitbehörde Bern
           LEITBEHOERDE_NAME_FR: Municipalité Berne
-          INTERNAL_DOSSIER_LINK: http://ebau.local/index/redirect-to-instance-resource/instance-id/1
-          PUBLIC_DOSSIER_LINK: http://ebau-portal.local/instances/1
+          INTERNAL_DOSSIER_LINK: http://ebau.localhost/index/redirect-to-instance-resource/instance-id/1
+          PUBLIC_DOSSIER_LINK: http://ebau-portal.localhost/instances/1
           DISTRIBUTION_STATUS_DE: 
           DISTRIBUTION_STATUS_FR: 
           INQUIRY_ANSWER_DE: 
@@ -40,7 +40,7 @@
   Sie dient nur zu Testzwecken und kann ignoriert werden.
   
   
-          BASE_URL: http://ebau.local
+          BASE_URL: http://ebau.localhost
           EBAU_NUMBER: 2019-01
           FORM_NAME_DE: Baugesuch
           FORM_NAME_FR: Demande de permis de construire
@@ -49,8 +49,8 @@
           INSTANCE_ID: 1
           LEITBEHOERDE_NAME_DE: Leitbehörde Bern
           LEITBEHOERDE_NAME_FR: Municipalité Berne
-          INTERNAL_DOSSIER_LINK: http://ebau.local/index/redirect-to-instance-resource/instance-id/1
-          PUBLIC_DOSSIER_LINK: http://ebau-portal.local/instances/1
+          INTERNAL_DOSSIER_LINK: http://ebau.localhost/index/redirect-to-instance-resource/instance-id/1
+          PUBLIC_DOSSIER_LINK: http://ebau-portal.localhost/instances/1
           DISTRIBUTION_STATUS_DE: 
           DISTRIBUTION_STATUS_FR: 
           INQUIRY_ANSWER_DE: 
@@ -75,7 +75,7 @@
   Sie dient nur zu Testzwecken und kann ignoriert werden.
   
   
-          BASE_URL: http://ebau.local
+          BASE_URL: http://ebau.localhost
           EBAU_NUMBER: 2019-01
           FORM_NAME_DE: Baugesuch
           FORM_NAME_FR: Demande de permis de construire
@@ -84,14 +84,14 @@
           INSTANCE_ID: 1
           LEITBEHOERDE_NAME_DE: Leitbehörde Bern
           LEITBEHOERDE_NAME_FR: Municipalité Berne
-          INTERNAL_DOSSIER_LINK: http://ebau.local/index/redirect-to-instance-resource/instance-id/1
-          PUBLIC_DOSSIER_LINK: http://ebau-portal.local/instances/1
+          INTERNAL_DOSSIER_LINK: http://ebau.localhost/index/redirect-to-instance-resource/instance-id/1
+          PUBLIC_DOSSIER_LINK: http://ebau-portal.localhost/instances/1
           DISTRIBUTION_STATUS_DE: 1 von 2 Stellungnahmen stehen noch aus.
           DISTRIBUTION_STATUS_FR: 1 de 2 prises de position sont toujours en attente.
           INQUIRY_ANSWER_DE: Nicht betroffen / nicht zuständig
           INQUIRY_ANSWER_FR: Non concerné/e / non compétent/e
           INQUIRY_REMARK: Bemerkung Anfrage
-          INQUIRY_LINK: http://ebau.local/index/redirect-to-instance-resource/instance-id/1/?instance-resource-name=distribution&ember-hash=/distribution/DISTRIBUTION_UUID/from/1/to/1/INQUIRY_UUID/answer
+          INQUIRY_LINK: http://ebau.localhost/index/redirect-to-instance-resource/instance-id/1/?instance-resource-name=distribution&ember-hash=/distribution/DISTRIBUTION_UUID/from/1/to/1/INQUIRY_UUID/answer
           CURRENT_SERVICE: Leitbehörde Bern
           CURRENT_SERVICE_DE: Leitbehörde Bern
           CURRENT_SERVICE_FR: Municipalité Berne
@@ -110,7 +110,7 @@
   Sie dient nur zu Testzwecken und kann ignoriert werden.
   
   
-          BASE_URL: http://ebau.local
+          BASE_URL: http://ebau.localhost
           EBAU_NUMBER: 2019-01
           FORM_NAME_DE: Baugesuch
           FORM_NAME_FR: Demande de permis de construire
@@ -119,14 +119,14 @@
           INSTANCE_ID: 1
           LEITBEHOERDE_NAME_DE: Leitbehörde Bern
           LEITBEHOERDE_NAME_FR: Municipalité Berne
-          INTERNAL_DOSSIER_LINK: http://ebau.local/index/redirect-to-instance-resource/instance-id/1
-          PUBLIC_DOSSIER_LINK: http://ebau-portal.local/instances/1
+          INTERNAL_DOSSIER_LINK: http://ebau.localhost/index/redirect-to-instance-resource/instance-id/1
+          PUBLIC_DOSSIER_LINK: http://ebau-portal.localhost/instances/1
           DISTRIBUTION_STATUS_DE: Alle 2 Stellungnahmen sind nun eingegangen.
           DISTRIBUTION_STATUS_FR: Tous les 2 prises de position ont été reçues.
           INQUIRY_ANSWER_DE: Nicht betroffen / nicht zuständig
           INQUIRY_ANSWER_FR: Non concerné/e / non compétent/e
           INQUIRY_REMARK: Bemerkung Anfrage
-          INQUIRY_LINK: http://ebau.local/index/redirect-to-instance-resource/instance-id/1/?instance-resource-name=distribution&ember-hash=/distribution/DISTRIBUTION_UUID/from/1/to/1/INQUIRY_UUID/answer
+          INQUIRY_LINK: http://ebau.localhost/index/redirect-to-instance-resource/instance-id/1/?instance-resource-name=distribution&ember-hash=/distribution/DISTRIBUTION_UUID/from/1/to/1/INQUIRY_UUID/answer
           CURRENT_SERVICE: Leitbehörde Bern
           CURRENT_SERVICE_DE: Leitbehörde Bern
           CURRENT_SERVICE_FR: Municipalité Berne

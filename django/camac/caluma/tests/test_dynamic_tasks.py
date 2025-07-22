@@ -10,6 +10,8 @@ from camac.caluma.tests.test_distribution_workflow import (  # noqa: F401
     distribution_child_case_be,
     inquiry_factory_be,
 )
+from camac.conftest import yes_no
+from camac.instance import domain_logic
 
 
 @pytest.mark.parametrize(
@@ -179,6 +181,92 @@ def test_dynamic_task_after_decision(
 
 
 @pytest.mark.parametrize(
+    "construction_monitoring_enabled,positive_decision,form_id,expected_tasks",
+    [
+        (True, True, "baugesuch-v3", ["init-construction-monitoring"]),
+        (True, True, "vorlaeufige-beurteilung-v3", []),
+        (True, False, "baugesuch-v3", []),
+        (True, False, "vorlaeufige-beurteilung-v3", []),
+        (False, True, "baugesuch-v3", ["construction-acceptance"]),
+        (False, True, "vorlaeufige-beurteilung-v3", []),
+        (False, False, "baugesuch-v3", []),
+        (False, False, "vorlaeufige-beurteilung-v3", []),
+    ],
+)
+def test_after_decision_gr(
+    mocker,
+    db,
+    set_application_gr,
+    gr_construction_monitoring_settings,
+    gr_instance,
+    # parametrize
+    construction_monitoring_enabled,
+    positive_decision,
+    form_id,
+    expected_tasks,
+    application_settings,
+):
+    application_settings["SHORT_NAME"] = "gr"
+    gr_construction_monitoring_settings["ENABLED"] = construction_monitoring_enabled
+
+    mocker.patch.object(
+        domain_logic.DecisionLogic,
+        "is_positive_decision",
+        return_value=positive_decision,
+    )
+    gr_instance.case.document.form_id = form_id
+
+    custom_dynamic_task = CustomDynamicTasks()
+    assert (
+        custom_dynamic_task.resolve_after_decision_gr(
+            gr_instance.case, None, None, None
+        )
+        == expected_tasks
+    )
+
+
+@pytest.mark.parametrize(
+    "afb_involved,should_continue,expected_tasks",
+    [
+        (True, True, {"check-pa", "init-construction-monitoring"}),
+        (True, False, {"check-pa", "complete-instance"}),
+        (False, True, {"init-construction-monitoring"}),
+        (False, False, {"complete-instance"}),
+    ],
+)
+def test_after_decision_ag(
+    db,
+    active_inquiry_factory,
+    afb_involved,
+    ag_construction_monitoring_settings,
+    ag_instance,
+    expected_tasks,
+    mocker,
+    service_factory,
+    should_continue,
+):
+    afb = service_factory(slug="afb")
+
+    mocker.patch(
+        "camac.instance.domain_logic.decision.DecisionLogic.should_continue_after_decision",
+        return_value=should_continue,
+    )
+
+    if afb_involved:
+        active_inquiry_factory(ag_instance, afb, status=WorkItem.STATUS_COMPLETED)
+
+    assert (
+        set(
+            CustomDynamicTasks().resolve_after_decision_ag(
+                ag_instance.case, None, None, None
+            )
+        )
+        == expected_tasks
+    )
+
+
+@pytest.mark.parametrize("always_create_inquiry_check_work_item", [True, False])
+@pytest.mark.parametrize(
     "is_lead_authority",
     [False, True],
 )
@@ -186,13 +274,18 @@ def test_dynamic_task_after_inquiries_completed(
     db,
     caluma_admin_user,
     distribution_child_case_be,  # noqa: F811
-    be_distribution_settings,  # noqa: F811
+    be_distribution_settings,
     inquiry_factory_be,  # noqa: F811
     service,
     service_factory,
     is_lead_authority,
     be_ech0211_settings,
+    always_create_inquiry_check_work_item,
 ):
+    be_distribution_settings["ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM"] = (
+        always_create_inquiry_check_work_item
+    )
+
     invited_service = service_factory()
     if is_lead_authority:
         inquiry1 = inquiry_factory_be(sent=True)
@@ -230,7 +323,10 @@ def test_dynamic_task_after_inquiries_completed(
 
     # No check-distribution or check-inquiries work-item should be created
     # since there are pending controlling inquiries left.
-    assert check_inquiries_work_items.count() == 0
+    if always_create_inquiry_check_work_item:
+        assert check_inquiries_work_items.count() == 1
+    else:
+        assert check_inquiries_work_items.count() == 0
     assert check_distribution_work_items.count() == 0
 
     answer_inquiry(inquiry2)
@@ -289,9 +385,9 @@ def test_dynamic_task_after_ebau_number(
     caluma_admin_user,
     expected_tasks,
     is_appeal,
-    case_factory,
+    caluma_case_factory,
 ):
-    case = case_factory(meta={"is-appeal": True} if is_appeal else {})
+    case = caluma_case_factory(meta={"is-appeal": True} if is_appeal else {})
 
     tasks = set(
         CustomDynamicTasks().resolve_after_ebau_number(
@@ -360,10 +456,12 @@ def test_dynamic_task_after_submit(
     expected_tasks,
     is_appeal,
     is_bab,
-    case_factory,
+    application_settings,
     form_slug,
     so_instance,
 ):
+    application_settings["SHORT_NAME"] = "so"
+
     meta = {}
 
     if is_appeal:
@@ -396,17 +494,17 @@ def test_dynamic_task_after_submit(
 def test_dynamic_task_after_check_additional_demand(
     db,
     additional_demand_settings,
-    answer_factory,
+    caluma_answer_factory,
     decision,
     expected_tasks,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
-    answer = answer_factory(
+    answer = caluma_answer_factory(
         question__slug=additional_demand_settings["QUESTIONS"]["DECISION"],
         value=additional_demand_settings["ANSWERS"]["DECISION"][decision],
     )
 
-    work_item = work_item_factory(document=answer.document)
+    work_item = caluma_work_item_factory(document=answer.document)
 
     tasks = set(
         CustomDynamicTasks().resolve_after_check_additional_demand(
@@ -415,6 +513,50 @@ def test_dynamic_task_after_check_additional_demand(
     )
 
     assert tasks == expected_tasks
+
+
+@pytest.mark.parametrize(
+    "decision_slug,work_item_status",
+    [
+        ("foobar", WorkItem.STATUS_SUSPENDED),
+        (
+            "complete-check-vollstaendigkeitspruefung-incomplete-wait",
+            WorkItem.STATUS_READY,
+        ),
+    ],
+)
+def test_dynamic_task_resume_check_gwr_relevancy_work_item(
+    db,
+    additional_demand_settings,
+    decision_slug,
+    work_item_status,
+    caluma_answer_factory,
+    ur_instance,
+    set_application_ur,
+    caluma_work_item_factory,
+):
+    answer = caluma_answer_factory(
+        question__slug="complete-check-vollstaendigkeitspruefung",
+        value=decision_slug,
+    )
+
+    complete_check_work_item = caluma_work_item_factory(
+        document=answer.document, case=ur_instance.case, task_id="complete-check"
+    )
+
+    check_gwr_relevancy_work_item = caluma_work_item_factory(
+        document=ur_instance.case.document,
+        case=ur_instance.case,
+        task_id="check-gwr-relevancy",
+        status=WorkItem.STATUS_SUSPENDED,
+    )
+    CustomDynamicTasks().resolve_after_check_additional_demand(
+        ur_instance.case, None, complete_check_work_item, None
+    )
+
+    check_gwr_relevancy_work_item.refresh_from_db()
+
+    assert check_gwr_relevancy_work_item.status == work_item_status
 
 
 @pytest.mark.parametrize(
@@ -430,14 +572,14 @@ def test_dynamic_task_after_create_inquiry(
     db,
     additional_demand_settings,
     distribution_settings,
-    work_item_factory,
+    caluma_work_item_factory,
     gr_instance,
     passed_addressed_groups,
     groups_with_existing,
     create_additional_demand,
 ):
     for group in groups_with_existing:
-        work_item_factory(
+        caluma_work_item_factory(
             case=gr_instance.case,
             addressed_groups=[group],
             task_id=additional_demand_settings["CREATE_TASK"],
@@ -479,19 +621,19 @@ def test_dynamic_task_after_create_inquiry(
 )
 def test_dynamic_task_after_exam(
     db,
-    answer_factory,
+    caluma_answer_factory,
     expected_tasks,
     has_rejection_answer,
     root_form,
     so_instance,
     so_rejection_settings,
     task_id,
-    work_item_factory,
+    caluma_work_item_factory,
 ):
-    work_item = work_item_factory(task_id=task_id, case=so_instance.case)
+    work_item = caluma_work_item_factory(task_id=task_id, case=so_instance.case)
 
     if has_rejection_answer:
-        answer_factory(
+        caluma_answer_factory(
             document=work_item.document,
             question__slug=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][0],
             value=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][1],
@@ -515,17 +657,17 @@ def test_dynamic_task_after_exam(
 )
 def test_dynamic_task_after_check_sb2(
     db,
-    answer_factory,
+    caluma_answer_factory,
     expected_tasks,
     perform_cadastral_survey,
     be_instance,
-    work_item_factory,
+    caluma_work_item_factory,
     caluma_admin_user,
 ):
-    geometer_work_item = work_item_factory(
+    geometer_work_item = caluma_work_item_factory(
         task_id="geometer", case=be_instance.case, child_case=None
     )
-    answer_factory(
+    caluma_answer_factory(
         document=geometer_work_item.document,
         question__slug="geometer-beurteilung-notwendigkeit-vermessung",
         value=(
@@ -536,7 +678,7 @@ def test_dynamic_task_after_check_sb2(
     )
 
     complete_work_item(geometer_work_item, user=caluma_admin_user)
-    work_item = work_item_factory(task_id="check-sb2", case=be_instance.case)
+    work_item = caluma_work_item_factory(task_id="check-sb2", case=be_instance.case)
 
     assert (
         CustomDynamicTasks().resolve_after_check_sb2(
@@ -547,7 +689,62 @@ def test_dynamic_task_after_check_sb2(
 
 
 @pytest.mark.parametrize(
-    "answer1,expected_tasks",
+    "decision_answer,gwr_answer,expected_tasks",
+    [
+        (
+            "entscheid-beurteilung-bewilligt",
+            "fuer-gwr-relevant-ja",
+            ["update-gwr-status"],
+        ),
+        ("entscheid-beurteilung-bewilligt", "fuer-gwr-relevant-nein", []),
+        (
+            "entscheid-beurteilung-nicht-bewilligt",
+            "fuer-gwr-relevant-ja",
+            ["update-gwr-status-refused"],
+        ),
+        ("entscheid-beurteilung-nicht-bewilligt", "fuer-gwr-relevant-nein", []),
+    ],
+)
+def test_dynamic_task_gwr_relevancy_after_decision_ur(
+    db,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_question_factory,
+    caluma_answer_factory,
+    ur_instance,
+    caluma_admin_user,
+    expected_tasks,
+    decision_answer,
+    gwr_answer,
+):
+    work_item = caluma_work_item_factory(
+        case=ur_instance.case, task_id="decision", document=caluma_document_factory()
+    )
+    caluma_answer_factory(
+        document=work_item.document,
+        question=caluma_question_factory(slug="decision-task-entscheid-beurteilung"),
+        value=decision_answer,
+    )
+
+    gwr_relevancy_work_item = caluma_work_item_factory(
+        case=ur_instance.case,
+        task_id="check-gwr-relevancy",
+    )
+    caluma_answer_factory(
+        document=gwr_relevancy_work_item.document,
+        question=caluma_question_factory(slug="fuer-gwr-relevant"),
+        value=gwr_answer,
+    )
+
+    result = CustomDynamicTasks().resolve_after_decision_ur(
+        ur_instance.case, caluma_admin_user, work_item, None
+    )
+
+    assert result == expected_tasks
+
+
+@pytest.mark.parametrize(
+    "answer,expected_tasks",
     [
         (
             "decision-task-nachfuehrungsgeometer-ja",
@@ -559,36 +756,31 @@ def test_dynamic_task_after_check_sb2(
         ),
     ],
 )
-def test_dynamic_task_after_decision_ur(
+def test_dynamic_task_geometer_after_decision_ur(
     db,
-    work_item_factory,
-    document_factory,
-    question_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     ur_instance,
     caluma_admin_user,
-    #
     expected_tasks,
-    answer1,
+    answer,
 ):
-    work_item = work_item_factory(
-        case=ur_instance.case,
-        task_id="decision",
-    )
-    work_item.document = document_factory()
-    work_item.save()
-
-    answer_factory(
-        document=work_item.document,
-        question=question_factory(slug="decision-task-nachfuehrungsgeometer"),
-        value=answer1,
+    work_item = caluma_work_item_factory(
+        case=ur_instance.case, task_id="decision", document=caluma_document_factory()
     )
 
-    result = CustomDynamicTasks().resolve_after_decision_ur(
-        ur_instance.case, caluma_admin_user, work_item, None
-    )
+    if answer == "decision-task-nachfuehrungsgeometer-ja":
+        caluma_answer_factory(
+            document=work_item.document,
+            question__slug="decision-task-nachfuehrungsgeometer",
+            value=answer,
+        )
 
-    assert result == expected_tasks
+        result = CustomDynamicTasks().resolve_after_decision_ur(
+            ur_instance.case, caluma_admin_user, work_item, None
+        )
+        assert result == expected_tasks
 
 
 @pytest.mark.parametrize(
@@ -608,33 +800,33 @@ def test_dynamic_task_after_decision_ur(
 )
 def test_after_complete_construction_monitoring_ur(
     db,
-    case_factory,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     #
     involve_geometer,
     involve_gebaeudeschaetzung,
     expected_tasks,
 ):
-    decision_work_item = work_item_factory(
+    decision_work_item = caluma_work_item_factory(
         task__slug="decision",
-        document=document_factory(),
-        case=case_factory(),
+        document=caluma_document_factory(),
+        case=caluma_case_factory(),
     )
-    answer_factory(
+    caluma_answer_factory(
         question__slug="decision-task-nachfuehrungsgeometer",
         value=involve_geometer,
         document=decision_work_item.document,
     )
-    answer_factory(
+    caluma_answer_factory(
         document=decision_work_item.document,
         question__slug="decision-task-gebaudeschaetzung",
         value=involve_gebaeudeschaetzung,
     )
 
     result = CustomDynamicTasks().resolve_after_complete_construction_monitoring_ur(
-        decision_work_item.case, None, work_item_factory(), None
+        decision_work_item.case, None, caluma_work_item_factory(), None
     )
 
     for task in expected_tasks:
@@ -676,26 +868,30 @@ def test_after_complete_construction_monitoring_ur(
 )
 def test_dynamic_task_after_complete_check_ur(
     db,
-    work_item_factory,
-    document_factory,
-    question_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_question_factory,
+    caluma_answer_factory,
     caluma_admin_user,
     complete_check_answer,
     main_form_slug,
     should_generate_additional_demand_task,
-    case_factory,
+    caluma_case_factory,
     should_generate_bk_task,
     should_generate_reject_task,
 ):
-    caluma_case = case_factory(document__form__slug=main_form_slug)
-    work_item = work_item_factory(
-        case=caluma_case, task__slug="complete-check", document=document_factory()
+    caluma_case = caluma_case_factory(document__form__slug=main_form_slug)
+    work_item = caluma_work_item_factory(
+        case=caluma_case,
+        task__slug="complete-check",
+        document=caluma_document_factory(),
     )
 
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
-        question=question_factory(slug="complete-check-vollstaendigkeitspruefung"),
+        question=caluma_question_factory(
+            slug="complete-check-vollstaendigkeitspruefung"
+        ),
         value=complete_check_answer,
     )
 
@@ -831,26 +1027,38 @@ def test_dynamic_task_after_construction_step(
     "form_slug,expected_tasks",
     [
         ("bauanzeige", ["distribution"]),
+        ("solaranlage", ["distribution"]),
         ("vorlaeufige-beurteilung", ["distribution"]),
-        ("baugesuch", ["distribution", "fill-publication", "publication"]),
+        (
+            "baugesuch",
+            ["distribution", "fill-publication", "publication"],
+        ),
     ],
 )
 def test_dynamic_task_after_formal_exam(
     db,
-    work_item_factory,
+    caluma_work_item_factory,
     gr_instance,
     gr_publication_settings,
     gr_distribution_settings,
+    gr_address_assignment_settings,
     caluma_admin_user,
     form_slug,
     expected_tasks,
+    mocker,
 ):
     gr_instance.case.document.form.slug = form_slug
     gr_instance.case.document.form.save()
 
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=gr_instance.case,
         task_id="formal-exam",
+    )
+
+    address_assignment_logic_mock = mocker.patch.object(
+        domain_logic.AddressAssignmentLogic,
+        "requires_address_assignment",
+        return_value=True,
     )
 
     result = CustomDynamicTasks().resolve_after_formal_exam(
@@ -860,7 +1068,9 @@ def test_dynamic_task_after_formal_exam(
     if len(result) > 1:
         result.sort()
 
-    assert result == expected_tasks
+    address_assignment_logic_mock.assert_called_with(gr_instance.case)
+
+    assert all([task in result for task in expected_tasks])
 
 
 @pytest.mark.parametrize(
@@ -876,15 +1086,15 @@ def test_dynamic_task_after_formal_exam(
 def test_after_complete_instance(
     db,
     caluma_admin_user,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     #
     expected_value,
     answer,
 ):
-    work_item = work_item_factory(document=document_factory())
-    answer_factory(
+    work_item = caluma_work_item_factory(document=caluma_document_factory())
+    caluma_answer_factory(
         document=work_item.document, question__slug="complete-instance-ac", value=answer
     )
     result = CustomDynamicTasks().after_complete_instance(
@@ -906,15 +1116,15 @@ def test_after_complete_instance(
 def test_construction_control(
     db,
     caluma_admin_user,
-    work_item_factory,
-    document_factory,
-    answer_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
     #
     expected_value,
     answer,
 ):
-    work_item = work_item_factory(document=document_factory())
-    answer_factory(
+    work_item = caluma_work_item_factory(document=caluma_document_factory())
+    caluma_answer_factory(
         document=work_item.document,
         question__slug="construction-control-control",
         value=answer,
@@ -923,3 +1133,348 @@ def test_construction_control(
         None, caluma_admin_user, work_item, None
     )
     assert result == expected_value
+
+
+@pytest.mark.parametrize(
+    "expected_value,massnahmen_answer,schutzraum_answer",
+    [
+        (
+            ["zs-ersatzbeitrag-pruefen"],
+            "schutzraumrelevante-massnahmen-ja",
+            "schutzraum-antrag",
+        ),
+        ([], "schutzraumrelevante-massnahmen-ja", "wrong_answer"),
+        ([], "wrong_answer", "schutzraum-antrag"),
+        ([], "some-other-answer", "yet-another-one"),
+    ],
+)
+def test_after_schnurgeruestabnahme_kontrollieren_uri(
+    db,
+    caluma_admin_user,
+    ur_instance,
+    notification_template,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+    expected_value,
+    massnahmen_answer,
+    schutzraum_answer,
+):
+    notification_template.slug = "6-411-schnurgeruestabnahme-erfolgt"
+    notification_template.save()
+
+    work_item = caluma_work_item_factory(document=caluma_document_factory())
+    caluma_answer_factory(
+        document=ur_instance.case.document,
+        question__slug="schutzraumrelevante-massnahmen",
+        value=massnahmen_answer,
+    )
+    caluma_answer_factory(
+        document=ur_instance.case.document,
+        question__slug="schutzraum",
+        value=schutzraum_answer,
+    )
+    result = CustomDynamicTasks().resolve_after_schnurgeruestabnahme_kontrollieren(
+        ur_instance.case, caluma_admin_user, work_item, None
+    )
+    assert result == expected_value
+
+
+@pytest.mark.parametrize(
+    "work_item_exists,gwr_answer,expected_value",
+    [
+        (True, "fuer-gwr-relevant-ja", ["construction-step-gwr-state-demolition"]),
+        (True, "fuer-gwr-relevant-nein", []),
+        (False, "not-necessary", ["construction-step-gwr-state-demolition"]),
+    ],
+)
+def test_after_gebaeudeabbruch_melden(
+    db,
+    caluma_admin_user,
+    work_item_exists,
+    gwr_answer,
+    expected_value,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+    instance_factory,
+    caluma_case_factory,
+    caluma_task_factory,
+):
+    instance = instance_factory(case=caluma_case_factory())
+
+    if work_item_exists:
+        work_item = caluma_work_item_factory(
+            case=instance.case,
+            task=caluma_task_factory(slug="check-gwr-relevancy"),
+            document=caluma_document_factory(),
+            status="completed",
+        )
+        caluma_answer_factory(
+            document=work_item.document,
+            question__slug="fuer-gwr-relevant",
+            value=gwr_answer,
+        )
+
+    result = CustomDynamicTasks().resolve_after_gebaeudeabbruch_melden(
+        instance.case, caluma_admin_user, work_item if work_item_exists else None, None
+    )
+    assert result == expected_value
+
+
+@pytest.mark.parametrize(
+    "work_item_exists,gwr_answer,expected_value",
+    [
+        (
+            True,
+            "fuer-gwr-relevant-ja",
+            ["construction-step-gwr-state-construction-start"],
+        ),
+        (True, "fuer-gwr-relevant-nein", []),
+        (False, "not-necessary", ["construction-step-gwr-state-construction-start"]),
+    ],
+)
+def test_after_baubeginn_melden(
+    db,
+    caluma_admin_user,
+    work_item_exists,
+    gwr_answer,
+    expected_value,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+    instance_factory,
+    caluma_case_factory,
+    caluma_task_factory,
+):
+    instance = instance_factory(case=caluma_case_factory())
+
+    if work_item_exists:
+        work_item = caluma_work_item_factory(
+            case=instance.case,
+            task=caluma_task_factory(slug="check-gwr-relevancy"),
+            document=caluma_document_factory(),
+            status="completed",
+        )
+        caluma_answer_factory(
+            document=work_item.document,
+            question__slug="fuer-gwr-relevant",
+            value=gwr_answer,
+        )
+
+    result = CustomDynamicTasks().resolve_after_baubeginn_melden(
+        instance.case, caluma_admin_user, work_item if work_item_exists else None, None
+    )
+    assert result == expected_value
+
+
+@pytest.mark.parametrize(
+    "work_item_exists,gwr_answer,expected_value",
+    [
+        (True, "fuer-gwr-relevant-ja", ["construction-step-gwr-state-building"]),
+        (True, "fuer-gwr-relevant-nein", []),
+        (False, "not-necessary", ["construction-step-gwr-state-building"]),
+    ],
+)
+def test_after_schlussabnahme_gebaeude(
+    db,
+    caluma_admin_user,
+    work_item_exists,
+    gwr_answer,
+    expected_value,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+    instance_factory,
+    caluma_case_factory,
+    caluma_task_factory,
+):
+    instance = instance_factory(case=caluma_case_factory())
+
+    if work_item_exists:
+        work_item = caluma_work_item_factory(
+            case=instance.case,
+            task=caluma_task_factory(slug="check-gwr-relevancy"),
+            document=caluma_document_factory(),
+            status="completed",
+        )
+        caluma_answer_factory(
+            document=work_item.document,
+            question__slug="fuer-gwr-relevant",
+            value=gwr_answer,
+        )
+
+    result = CustomDynamicTasks().resolve_after_schlussabnahme_gebaeude(
+        instance.case, caluma_admin_user, work_item if work_item_exists else None, None
+    )
+    assert result == expected_value
+
+
+@pytest.mark.parametrize(
+    "work_item_exists,gwr_answer,expected_value",
+    [
+        (True, "fuer-gwr-relevant-ja", ["open-gwr-construction-project"]),
+        (True, "fuer-gwr-relevant-nein", []),
+        (False, "not-necessary", ["open-gwr-construction-project"]),
+    ],
+)
+def test_after_check_gwr_relevancy(
+    db,
+    caluma_admin_user,
+    work_item_exists,
+    gwr_answer,
+    expected_value,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+    instance_factory,
+    caluma_case_factory,
+    caluma_task_factory,
+):
+    instance = instance_factory(case=caluma_case_factory())
+
+    if work_item_exists:
+        work_item = caluma_work_item_factory(
+            case=instance.case,
+            task=caluma_task_factory(slug="check-gwr-relevancy"),
+            document=caluma_document_factory(),
+            status="completed",
+        )
+        caluma_answer_factory(
+            document=work_item.document,
+            question__slug="fuer-gwr-relevant",
+            value=gwr_answer,
+        )
+
+    result = CustomDynamicTasks().resolve_after_check_gwr_relevancy(
+        instance.case, caluma_admin_user, work_item if work_item_exists else None, None
+    )
+    assert result == expected_value
+
+
+@pytest.mark.parametrize(
+    "publication_required,information_of_neighbors_required,expected_tasks",
+    [
+        (False, False, []),
+        (True, False, ["publication", "fill-publication"]),
+        (False, True, ["information-of-neighbors", "fill-information-of-neighbors"]),
+        (
+            True,
+            True,
+            [
+                "publication",
+                "fill-publication",
+                "information-of-neighbors",
+                "fill-information-of-neighbors",
+            ],
+        ),
+    ],
+)
+def test_dynamic_task_maybe_publication(
+    db,
+    ag_instance,
+    ag_master_data_settings,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    expected_tasks,
+    information_of_neighbors_required,
+    master_data_is_visible_mock,
+    publication_required,
+    utils,
+):
+    formal_exam = caluma_work_item_factory(
+        case=ag_instance.case,
+        task_id="formal-exam",
+    )
+
+    utils.add_answer(
+        formal_exam.document,
+        "vorlaeufige-pruefung-publikation",
+        f"vorlaeufige-pruefung-publikation-{yes_no(publication_required, 'de')}",
+    )
+    utils.add_answer(
+        formal_exam.document,
+        "vorlaeufige-pruefung-auswaertige-anstoesser",
+        f"vorlaeufige-pruefung-auswaertige-anstoesser-{yes_no(information_of_neighbors_required, 'de')}",
+    )
+
+    tasks = CustomDynamicTasks().resolve_maybe_publication(
+        ag_instance.case, caluma_admin_user, formal_exam, None
+    )
+
+    assert set(tasks) == set(expected_tasks)
+
+
+@pytest.mark.parametrize(
+    "form_slug,expected_tasks",
+    [
+        (
+            "main-form",
+            {
+                "create-manual-workitems",
+                "formal-exam",
+                "init-additional-demand",
+            },
+        ),
+        (
+            "plangenehmigungsverfahren-bund",
+            {
+                "create-manual-workitems",
+                "distribution",
+                "publication",
+                "fill-publication",
+                "cantonal-exam",
+                "objections",
+            },
+        ),
+        (
+            "plangenehmigungsverfahren-gas",
+            {
+                "create-manual-workitems",
+                "distribution",
+                "publication",
+                "fill-publication",
+                "cantonal-exam",
+                "objections",
+                "init-additional-demand",
+            },
+        ),
+    ],
+)
+def test_dynamic_task_after_submit_ag(
+    db, ag_instance, application_settings, caluma_admin_user, expected_tasks, form_slug
+):
+    application_settings["SHORT_NAME"] = "ag"
+
+    ag_instance.case.document.form_id = form_slug
+    ag_instance.case.document.save()
+
+    tasks = set(
+        CustomDynamicTasks().resolve_after_submit(
+            ag_instance.case, caluma_admin_user, None, None
+        )
+    )
+
+    assert tasks == expected_tasks
+
+
+@pytest.mark.parametrize("was_positive", [True, False])
+def test_after_address_assignment_confirm_suggestion(
+    db, mocker, was_positive, gr_address_assignment_settings
+):
+    address_assignment_logic_mock = mocker.patch.object(
+        domain_logic.AddressAssignmentLogic,
+        "address_check_was_positive",
+        return_value=was_positive,
+    )
+
+    result = CustomDynamicTasks().resolve_after_address_assignment_confirm_suggestion(
+        None, None, None, None
+    )
+
+    address_assignment_logic_mock.assert_called_once()
+
+    if was_positive:
+        assert result == []
+    else:
+        assert result == [gr_address_assignment_settings.get("SUGGESTION_TASK")]

@@ -62,7 +62,11 @@ def generate_workflow_dump_config(regex, include_task_regex=False):
     return filters
 
 
-COMMON_QUESTION_SLUGS_BE = ["8-freigabequittung", "dokumente-platzhalter"]
+COMMON_QUESTION_SLUGS_BE = [
+    "8-freigabequittung",
+    "dokumente-platzhalter",
+    "dokumente-vorabklaerung-form",
+]
 
 COMMON_FORM_SLUGS_BE = [
     "personalien",
@@ -74,6 +78,7 @@ COMMON_FORM_SLUGS_BE = [
     "gebaudeeigentumerin",
     "vertreterin-mit-vollmacht",
     "8-freigabequittung",
+    "dokumente-vorabklaerung",
 ]
 
 DISTRIBUTION_DUMP_CONFIG = {
@@ -83,10 +88,24 @@ DISTRIBUTION_DUMP_CONFIG = {
     },
 }
 
+GEVER_DUMP_CONFIG = {
+    "caluma_gever": {
+        **generate_form_dump_config(r"(gever)"),
+        **generate_workflow_dump_config(r"(gever)"),
+    },
+}
+
 ADDITIONAL_DEMAND_DUMP_CONFIG = {
     "caluma_additional_demand": {
         **generate_form_dump_config(r"additional-demand"),
         **generate_workflow_dump_config(r"additional-demand"),
+    }
+}
+
+ADDRESS_ASSIGNMENT_CONFIG = {
+    "caluma_address_assignment": {
+        **generate_form_dump_config(r"address-assignment"),
+        **generate_workflow_dump_config(r"address-assignment"),
     }
 }
 
@@ -98,6 +117,13 @@ CONSTRUCTION_MONITORING_DUMP_CONFIG = {
     },
     "caluma_construction_monitoring_workflow": {
         **generate_workflow_dump_config(CONSTRUCTION_MONITORING_REGEX, True),
+    },
+}
+
+CELERY_DUMP_CONFIG = {
+    "celery": {
+        "django_celery_beat.PeriodicTask": ~Q(task="celery.backend_cleanup"),
+        "django_celery_beat.IntervalSchedule": Q(),
     },
 }
 
@@ -341,6 +367,9 @@ DUMP = {
                 "alexandria_core",
                 "gis",
                 "permissions",
+                "billing",
+                "gever",
+                "work_items",
             ],
             # List of models that are included in "APPS" but should not be
             # dumped into the data dump files
@@ -385,6 +414,10 @@ DUMP = {
                     regex=r"(-)?sb1",
                     version=2,
                 ),
+                "caluma_heat_generator_form_v3": generate_form_dump_config(
+                    regex=r"^heat-generator",
+                    version=3,
+                ),
                 "caluma_heat_generator_form_v2": generate_form_dump_config(
                     regex=r"^heat-generator",
                     version=2,
@@ -394,7 +427,19 @@ DUMP = {
                     version=2,
                 ),
                 "caluma_hecken_feldgehoelze_baeume_form_v2": generate_form_dump_config(
-                    regex=r"^hecken(-)?",
+                    regex=r"^(hecken-feldgehoelze-baeume|baeume-hecken|dokumente-hecken-feldgehoelze-baeume)",
+                    version=2,
+                ),
+                "caluma_baupolizeiliches_verfahren_form_v2": generate_form_dump_config(
+                    regex=r"^baupolizeiliches-verfahren(-)?",
+                    version=2,
+                ),
+                "caluma_zutrittsermaechtigung_form_v2": generate_form_dump_config(
+                    regex=r"^zutrittsermaechtigung(-)?",
+                    version=2,
+                ),
+                "caluma_klaerung_baubewilligungspflicht_form_v2": generate_form_dump_config(
+                    regex=r"^klaerung-baubewilligungspflicht(-)?",
                     version=2,
                 ),
                 "caluma_form_v2": generate_form_dump_config(version=2),
@@ -415,7 +460,16 @@ DUMP = {
                     regex=r"^solaranlagen(-)?"
                 ),
                 "caluma_hecken_feldgehoelze_baeume_form": generate_form_dump_config(
-                    regex=r"^hecken(-)?"
+                    regex=r"^(hecken-feldgehoelze-baeume|baeume-hecken|dokumente-hecken-feldgehoelze-baeume)"
+                ),
+                "caluma_baupolizeiliches_verfahren_form": generate_form_dump_config(
+                    regex=r"^baupolizeiliches-verfahren(-)?"
+                ),
+                "caluma_zutrittsermaechtigung_form": generate_form_dump_config(
+                    regex=r"^zutrittsermaechtigung(-)?"
+                ),
+                "caluma_klaerung_baubewilligungspflicht_form": generate_form_dump_config(
+                    regex=r"^klaerung-baubewilligungspflicht(-)?"
                 ),
                 "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
                 "caluma_audit_form": generate_form_dump_config(
@@ -434,6 +488,9 @@ DUMP = {
                 "caluma_reklamegesuch_form": generate_form_dump_config(
                     regex=r"^reklamegesuch"
                 ),
+                "caluma_benuetzung_oeffentlichem_terrain_form": generate_form_dump_config(
+                    regex=r"^(benuetzung-oeffentlichem-terrain-meldung|benuetzung-oeffentlichem-terrain-bestaetigung|benuetzung-oeffentlichem-terrain-dokumente|benuetzung-oeffentlichem-terrain-form)",
+                ),
                 "caluma_legal_submission_form": generate_form_dump_config(
                     r"^legal-submission"
                 ),
@@ -441,6 +498,7 @@ DUMP = {
                 "caluma_geometer_form": generate_form_dump_config(r"^geometer"),
                 # Distribution
                 **DISTRIBUTION_DUMP_CONFIG,
+                **GEVER_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
@@ -564,12 +622,20 @@ DUMP = {
                     ),
                 },
                 "caluma_decision_form": generate_form_dump_config(regex=r"^decision$"),
+                "caluma_appeal_form": generate_form_dump_config(
+                    regex=r"^beschwerde(n)?"
+                ),
+                "caluma_objection_form": generate_form_dump_config(
+                    regex=r"^einsprache(n)?"
+                ),
                 "caluma_formal_exam_form": generate_form_dump_config(
                     regex=r"^formal-exam$"
                 ),
                 "caluma_material_exam_form": generate_form_dump_config(
                     regex=r"^material-exam$"
                 ),
+                "caluma_form_v2": generate_form_dump_config(version=2),
+                "caluma_form_v3": generate_form_dump_config(version=3),
                 "dashboard_document": {
                     "caluma_form.Document": Q(form="dashboard"),
                 },
@@ -585,6 +651,9 @@ DUMP = {
                 "publication": {
                     **generate_form_dump_config(regex=r"^publikation?$"),
                 },
+                **CONSTRUCTION_MONITORING_DUMP_CONFIG,
+                **CELERY_DUMP_CONFIG,
+                **ADDRESS_ASSIGNMENT_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
@@ -627,17 +696,88 @@ DUMP = {
                 ),
                 "caluma_appeal_form": generate_form_dump_config(regex=r"^beschwerde"),
                 "static_content": {
-                    "core.StaticContent": Q(pk__in=["portal-faq", "portal-news"]),
+                    "core.StaticContent": Q(pk__in=["portal-faq", "portal-faq-public"]),
+                },
+                "caluma_form_default_answers": {
+                    "caluma_form.Answer": Q(document__isnull=True),
                 },
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
+                **CELERY_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
                 "user.GroupT",
                 "user.Service",
                 "user.ServiceT",
+            ],
+        },
+    },
+    "kt_ag": {
+        "ENABLED": True,
+        "CONFIG": {
+            "GROUPS": {
+                "email_notifications": {
+                    "notification.NotificationTemplate": Q(type="email"),
+                    "notification.NotificationTemplateT": Q(template__type="email"),
+                },
+                # required by several form-questions
+                "caluma_form_common": {
+                    "caluma_form.Form": Q(pk__in=COMMON_FORM_SLUGS_BE),
+                    "caluma_form.FormQuestion": Q(form__pk__in=COMMON_FORM_SLUGS_BE),
+                    "caluma_form.Question": Q(forms__pk__in=COMMON_FORM_SLUGS_BE)
+                    | Q(pk__in=COMMON_QUESTION_SLUGS_BE),
+                    "caluma_form.QuestionOption": Q(
+                        question__forms__pk__in=COMMON_FORM_SLUGS_BE
+                    )
+                    | Q(question_id__in=COMMON_QUESTION_SLUGS_BE),
+                    "caluma_form.Option": Q(
+                        questions__forms__pk__in=COMMON_FORM_SLUGS_BE
+                    )
+                    | Q(questions__pk__in=COMMON_QUESTION_SLUGS_BE),
+                    "caluma_form.Answer": Q(
+                        document__isnull=True,
+                    ),
+                },
+                "caluma_audit_form": generate_form_dump_config(
+                    regex=r"^vorlaeufige-pruefung"
+                ),
+                "caluma_cantonal_exam_form": generate_form_dump_config(
+                    regex=r"^kantonale-pruefung"
+                ),
+                "caluma_decision_form": generate_form_dump_config(regex=r"^entscheid"),
+                **DISTRIBUTION_DUMP_CONFIG,
+                **ADDITIONAL_DEMAND_DUMP_CONFIG,
+                **CONSTRUCTION_MONITORING_DUMP_CONFIG,
+                # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
+                "user_core_groups": {
+                    "user.Group": Q(role__name__in=["admin", "applicant", "support"]),
+                    "user.GroupT": Q(
+                        group__role__name__in=["admin", "applicant", "support"]
+                    ),
+                },
+                "billing_templates": {
+                    "billing.BillingV2EntryTemplate": Q(services__isnull=True)
+                },
+                "caluma_publication_form": generate_form_dump_config(
+                    regex=r"^publikation$"
+                ),
+                "caluma_information_of_neighbors_form": generate_form_dump_config(
+                    regex=r"^nachbarschaftsorientierung$"
+                ),
+                "caluma_objection_form": generate_form_dump_config(
+                    regex=r"^einwendung(en)?"
+                ),
+                **CELERY_DUMP_CONFIG,
+            },
+            "EXCLUDED_MODELS": [
+                "user.Group",
+                "user.GroupT",
+                "user.Service",
+                "user.ServiceT",
+                "notification.NotificationTemplate",
+                "notification.NotificationTemplateT",
             ],
         },
     },

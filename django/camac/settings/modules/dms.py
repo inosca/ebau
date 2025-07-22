@@ -1,5 +1,8 @@
+from django.utils.translation import gettext_lazy as _
+
 DMS = {
     "default": {
+        "ADD_ADDRESS_DATA": False,
         "ADD_HEADER_DATA": True,
         "USE_NUMBER_SEPARATOR": False,
     },
@@ -101,8 +104,11 @@ DMS = {
                     "hecken-feldgehoelze-baeume",
                     "hecken-feldgehoelze-baeume-v2",
                     "baupolizeiliches-verfahren",
+                    "baupolizeiliches-verfahren-v2",
                     "zutrittsermaechtigung",
+                    "zutrittsermaechtigung-v2",
                     "klaerung-baubewilligungspflicht",
+                    "klaerung-baubewilligungspflicht-v2",
                     "verlaengerung-geltungsdauer",
                 ],
                 "template": "form",
@@ -113,6 +119,11 @@ DMS = {
                     "einreichen-button",
                     "karte",
                     "dokumente-platzhalter",
+                    "lu-kaltwasser-calculation-v5",
+                    "bw-kaltwasser-calculation-v5",
+                    "lu-warmwasser-calculation-v5",
+                    "bw-warmwasser-calculation-v5",
+                    "spezialinstallation-calculation-v5",
                 ],
             },
             "vorabklaerung": {
@@ -129,7 +140,9 @@ DMS = {
                     "solaranlagen-meldung-v2",
                     "heat-generator",
                     "heat-generator-v2",
+                    "heat-generator-v3",
                     "reklamegesuch",
+                    "benuetzung-oeffentlichem-terrain-meldung",
                 ],
                 "template": "form",
                 "personalien": "personalien",
@@ -139,6 +152,11 @@ DMS = {
                     "einreichen-button",
                     "karte",
                     "dokumente-platzhalter",
+                    "lu-kaltwasser-calculation-v5",
+                    "bw-kaltwasser-calculation-v5",
+                    "lu-warmwasser-calculation-v5",
+                    "bw-warmwasser-calculation-v5",
+                    "spezialinstallation-calculation-v5",
                 ],
             },
             "migriertes-dossier": {
@@ -155,6 +173,7 @@ DMS = {
                 "personalien": "personalien-sb1-sb2",
                 "exclude_slugs": [
                     "is-paper",
+                    "bewilligungspflichtig-v2",
                     "einreichen-button-sb1",
                     "einreichen-button-sb2",
                     "dokumente-sb1",
@@ -179,6 +198,10 @@ DMS = {
     "kt_gr": {
         "ENABLED": True,
         "USE_NUMBER_SEPARATOR": True,
+        "NUMBER_SEPARATOR_EXCEPTIONS": [
+            "plz-parzelle",
+            "plz-gesuchstellerin",
+        ],
         "FORM": {
             "_base": {
                 "people_sources": [
@@ -209,6 +232,8 @@ DMS = {
             "baugesuch": {
                 "forms": [
                     "baugesuch",
+                    "baugesuch-v2",
+                    "baugesuch-v3",
                 ],
                 "template": "form",
                 "personalien": "personalien",
@@ -224,6 +249,7 @@ DMS = {
             "bauanzeige": {
                 "forms": [
                     "bauanzeige",
+                    "bauanzeige-v3",
                 ],
                 "template": "form",
                 "personalien": "personalien",
@@ -240,6 +266,7 @@ DMS = {
             "vorlaeufige-beurteilung": {
                 "forms": [
                     "vorlaeufige-beurteilung",
+                    "vorlaeufige-beurteilung-v3",
                 ],
                 "template": "form",
                 "personalien": "personalien",
@@ -276,9 +303,15 @@ DMS = {
             "beilagen-zum-gesuch-brandschutz",
             "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
         ],
+        "FILENAME_ADDITION_MAPPING": {
+            "eingabequittung-de": _("Receipt"),
+            "eingabequittung-it": _("Receipt"),
+            "form": _("Form export"),
+        },
     },
     "kt_so": {
         "ENABLED": True,
+        "ADD_ADDRESS_DATA": True,
         "USE_NUMBER_SEPARATOR": True,
         "FORM": {
             "_base": {
@@ -301,6 +334,7 @@ DMS = {
                     "voranfrage",
                     "meldung",
                     "meldung-pv",
+                    "reklamegesuch",
                 ],
                 "template": "form",
                 "personalien": "personalien",
@@ -312,6 +346,7 @@ DMS = {
                     # Questions
                     "is-paper",
                     "projektaenderung",
+                    "nutzungsplanung-grundnutzung-kanton",
                 ],
             },
         },
@@ -321,6 +356,9 @@ DMS = {
             "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
             "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
         ],
+        "FILENAME_ADDITION_MAPPING": {
+            "signatures": _("Signature page"),
+        },
     },
     "kt_uri": {
         "ENABLED": True,
@@ -357,7 +395,8 @@ DMS = {
                 "personalien": "personalien",
                 "exclude_slugs": [
                     "is-paper",
-                    "einreichen",
+                    "einreichen",  # Baugesuch and all other
+                    "gesuch-einreichen",  # Konzessionsgesuch
                     "gis-karte",
                     "form-type",
                     "allgemeine-informationen-baugesuch",
@@ -374,5 +413,75 @@ DMS = {
             },
         },
         "ADD_HEADER_DATA": False,
+    },
+    "kt_ag": {
+        "ENABLED": True,
+        "USE_NUMBER_SEPARATOR": True,
+        "NUMBER_SEPARATOR_EXCEPTIONS": [
+            "plz-parzelle",
+            "plz-gesuchstellerin",
+        ],
+        "FORM": {
+            "_base": {
+                "people_sources": [
+                    "personalien-gesuchstellerin",
+                    "personalien-vertreterin-mit-vollmacht",
+                    "personalien-grundeigentumerin",
+                    "personalien-gebaudeeigentumerin",
+                    "personalien-projektverfasserin",
+                ],
+                "people_names": {
+                    "name-gesuchstellerin": "familyName",
+                    "vorname-gesuchstellerin": "givenName",
+                    "name-juristische-person-gesuchstellerin": "juristicName",
+                    "name-vertreterin": "familyName",
+                    "vorname-vertreterin": "givenName",
+                    "name-juristische-person-vertreterin": "juristicName",
+                    "name-grundeigentuemerin": "familyName",
+                    "vorname-grundeigentuemerin": "givenName",
+                    "name-juristische-person-grundeigentuemerin": "juristicName",
+                    "name-gebaeudeeigentuemerin": "familyName",
+                    "vorname-gebaeudeeigentuemerin": "givenName",
+                    "name-juristische-person-gebaeudeeigentuemerin": "juristicName",
+                    "name-projektverfasserin": "familyName",
+                    "vorname-projektverfasserin": "givenName",
+                    "name-juristische-person-projektverfasserin": "juristicName",
+                },
+            },
+            "baugesuch": {
+                "forms": [
+                    "anfrage",
+                    "anfrage-intern",
+                    "baugesuch",
+                    "baugesuch-migration",
+                    "baugesuch-mit-uvp",
+                    "internes-dossier",
+                    "plangenehmigungsverfahren-bund",
+                    "plangenehmigungsverfahren-gas",
+                    "reklame",
+                    "vorentscheid",
+                ],
+                "template": "form",
+                "personalien": "personalien",
+                "exclude_slugs": [
+                    "is-paper",
+                    "einreichen-button",
+                    "dokumente",
+                    "einreichen",
+                    "bestaetigung",
+                    "gis-map",
+                    "eingabequittung",
+                ],
+            },
+        },
+        "ALEXANDRIA_DOCUMENT_CATEGORIES": [
+            "beilagen-zum-gesuch-grundstuecksangaben",
+            "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+            "beilagen-zum-gesuch-brandschutz",
+            "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+        ],
+        "FILENAME_ADDITION_MAPPING": {
+            "eingabequittung-de": _("Receipt"),
+        },
     },
 }

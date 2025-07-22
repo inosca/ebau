@@ -1,0 +1,191 @@
+#!/bin/bash
+source ./config.sh
+
+echo "---------------------------"
+echo "eCH0211 - POST submit"
+echo "---------------------------"
+
+location_town="Chur"
+location_zipcode="7000"
+location_canton="GR"
+
+for i in "${!ech0211_credentials[@]}"
+do
+xml_payload=$(cat <<EOF
+<?xml version="1.0"?>
+<ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:ns7="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:ns8="http://www.ech.ch/xmlns/eCH-0044/4"  xmlns:ns9="http://www.ech.ch/xmlns/eCH-0097/2">
+  <ns1:deliveryHeader>
+    <ns2:senderId>gemdat://test-123</ns2:senderId>
+    <ns2:messageId>ignored</ns2:messageId>
+    <ns2:messageType>ignored</ns2:messageType>
+    <ns2:sendingApplication>
+      <ns2:manufacturer>GemDat Informatik AG</ns2:manufacturer>
+      <ns2:product>eBaugesucheZH</ns2:product>
+      <ns2:productVersion>1.2.0</ns2:productVersion>
+    </ns2:sendingApplication>
+    <ns2:subject>Bauprojekttitel</ns2:subject>
+    <ns2:messageDate>2019-11-13T00:00:00.000Z</ns2:messageDate>
+    <ns2:action>1</ns2:action>
+    <ns2:testDeliveryFlag>true</ns2:testDeliveryFlag>
+  </ns1:deliveryHeader>
+  <ns1:eventSubmitPlanningPermissionApplication>
+    <ns1:eventType>submit</ns1:eventType>
+    <ns1:planningPermissionApplication>
+      <ns1:planningPermissionApplicationIdentification><!-- wird ignoriert -->
+        <ns1:localID>
+          <ns3:IdCategory>Category</ns3:IdCategory>
+          <ns3:Id>2019-1</ns3:Id>
+        </ns1:localID>
+        <ns1:otherID>
+          <ns3:IdCategory>Category</ns3:IdCategory>
+          <ns3:Id>2019-1</ns3:Id>
+        </ns1:otherID>
+        <ns1:dossierIdentification>123</ns1:dossierIdentification>
+      </ns1:planningPermissionApplicationIdentification>
+      <ns1:description>Testbeschreibung</ns1:description> <!-- required: Titel Vorhaben-->
+      <ns1:applicationType>Baugesuch</ns1:applicationType> <!-- required: Name vom Formular -->
+      <ns1:remark>Testbemerkung</ns1:remark>
+      <ns1:intendedPurpose>Wohnen, Industrie, Gewerbe, Dienstleistung, Verkauf, Lager, Landwirtschaft, Gastgewerbe, Andere</ns1:intendedPurpose>
+      <ns1:parkingLotsYesNo>true</ns1:parkingLotsYesNo>
+      <ns1:natureRisk>
+        <ns1:riskDesignation>Fliesslawine</ns1:riskDesignation>
+        <ns1:riskExists>true</ns1:riskExists>
+      </ns1:natureRisk>
+      <ns1:constructionCost>232323.0</ns1:constructionCost>
+      <ns1:namedMetaData>
+        <ns3:metaDataName>status</ns3:metaDataName>
+        <ns3:metaDataValue>Neu</ns3:metaDataValue>
+      </ns1:namedMetaData>
+      <ns1:locationAddress>
+        <ns4:street>Teststrasse</ns4:street>
+        <ns4:houseNumber>23</ns4:houseNumber>
+        <ns4:town>${location_town}</ns4:town> <!-- required -->
+        <ns4:swissZipCode>${location_zipcode}</ns4:swissZipCode> <!-- required -->
+        <ns4:country>
+          <ns4:countryNameShort>CH</ns4:countryNameShort>
+        </ns4:country>
+      </ns1:locationAddress>
+      <ns1:realestateInformation>
+        <ns1:realestate>
+          <ns3:realestateIdentification>
+            <ns3:EGRID>23</ns3:EGRID>
+            <ns3:number>1586</ns3:number> <!-- required -->
+          </ns3:realestateIdentification>
+          <ns3:realestateType>8</ns3:realestateType>
+          <ns3:coordinates>
+            <ns3:LV95>
+              <ns3:east>2480034.0</ns3:east>
+              <ns3:north>1070500.0</ns3:north>
+              <ns3:originOfCoordinates>904</ns3:originOfCoordinates>
+            </ns3:LV95>
+          </ns3:coordinates>
+        </ns1:realestate>
+        <ns1:municipality>
+          <ns5:municipalityName>${location_town}</ns5:municipalityName>
+          <ns5:cantonAbbreviation>${location_canton}</ns5:cantonAbbreviation>
+        </ns1:municipality>
+        <ns1:buildingInformation>
+          <ns1:building>
+            <ns3:EGID>23</ns3:EGID>
+            <ns3:numberOfFloors>21</ns3:numberOfFloors>
+            <ns3:buildingCategory>1040</ns3:buildingCategory>
+            <ns3:civilDefenseShelter>false</ns3:civilDefenseShelter>
+          </ns1:building>
+        </ns1:buildingInformation>
+        <ns1:owner>
+          <ns1:ownerAdress>
+            <ns4:person>
+              <ns4:firstName>Testvorname</ns4:firstName>
+              <ns4:lastName>Testname</ns4:lastName>
+            </ns4:person>
+            <ns4:addressInformation>
+              <ns4:street>Teststrasse</ns4:street>
+              <ns4:houseNumber>23</ns4:houseNumber>
+              <ns4:town>${location_town}</ns4:town>
+              <ns4:swissZipCode>${location_zipcode}</ns4:swissZipCode>
+              <ns4:country>
+                <ns4:countryNameShort>CH</ns4:countryNameShort>
+              </ns4:country>
+            </ns4:addressInformation>
+          </ns1:ownerAdress>
+        </ns1:owner>
+      </ns1:realestateInformation>
+      <ns1:zone>
+        <ns1:zoneDesignation>Testnutzungszone</ns1:zoneDesignation>
+      </ns1:zone>
+      <ns1:constructionProjectInformation>
+        <ns1:constructionProject>
+          <ns3:projectStartDate>2019-09-15</ns3:projectStartDate>
+          <ns3:totalCostsOfProject>232323</ns3:totalCostsOfProject>
+          <ns3:status>6701</ns3:status>
+          <ns3:description>Testbeschreibung&#13;&#10;Neue Zeile&#13;&#10;multiline</ns3:description> <!-- wird ignoriert -->
+          <ns3:durationOfConstructionPhase>23</ns3:durationOfConstructionPhase>
+        </ns1:constructionProject>
+        <ns1:municipality>
+          <ns5:municipalityName>${location_town}</ns5:municipalityName>
+          <ns5:cantonAbbreviation>${location_canton}</ns5:cantonAbbreviation>
+        </ns1:municipality>
+      </ns1:constructionProjectInformation>
+      <ns1:document>
+        <ns6:uuid>00000000-0000-0000-0000-000000000000</ns6:uuid> <!-- required -->
+        <ns6:titles>
+          <ns7:title>dummy</ns7:title>
+        </ns6:titles>
+        <ns6:status>signed</ns6:status>
+        <ns6:files>
+          <ns6:file>
+            <ns6:pathFileName>https://www.ech.ch/sites/default/files/imce/eCH-Dossier/eCH-Dossier_PDF_Publikationen/Hauptdokument/STAN_d_REP_2022-06-02_eCH-0211_V3.0.0_Baugesuch_0.pdf</ns6:pathFileName> <!-- required -->
+            <ns6:mimeType>application/pdf</ns6:mimeType> <!-- required -->
+          </ns6:file>
+        </ns6:files>
+      </ns1:document>
+    </ns1:planningPermissionApplication>
+    <ns1:relationshipToPerson>
+      <ns1:role>applicant</ns1:role> <!-- required -->
+      <ns1:person>
+        <ns3:identification>
+          <ns3:personIdentification>
+            <ns8:officialName>Muster</ns8:officialName> <!-- required -->
+            <ns8:firstName>Max</ns8:firstName> <!-- required -->
+          </ns3:personIdentification>
+        </ns3:identification>
+        <ns3:address>
+          <ns4:street>Burgstrasse</ns4:street>
+          <ns4:houseNumber>122</ns4:houseNumber>
+          <ns4:town>Testgemeinde</ns4:town>
+          <ns4:swissZipCode>3008</ns4:swissZipCode>
+          <ns4:country>
+            <ns4:countryNameShort>Schweiz</ns4:countryNameShort>
+          </ns4:country>
+        </ns3:address>
+      </ns1:person>
+    </ns1:relationshipToPerson>
+    <ns1:relationshipToPerson>
+      <ns1:role>applicant</ns1:role> <!-- required -->
+      <ns1:person>
+        <ns3:identification>
+            <ns3:organisationIdentification>
+              <ns9:localOrganisationId>
+                <ns9:organisationIdCategory>CHE</ns9:organisationIdCategory>
+                <ns9:organisationId>18</ns9:organisationId>
+              </ns9:localOrganisationId>
+              <ns9:organisationName>BAUAG</ns9:organisationName>
+            </ns3:organisationIdentification>
+          </ns3:identification>
+      </ns1:person>
+    </ns1:relationshipToPerson>
+  </ns1:eventSubmitPlanningPermissionApplication>
+</ns1:delivery>
+EOF
+)
+	ech0211_login "$i" "${ech0211_credentials[$i]}"
+	echo " > perform request[submit] for client_id: $i"
+	echo -e "\n---------------------------"
+	curl -X POST "${ech0211_endpoint}/ech/v1/send/" \
+  -H "Authorization: Bearer $token" \
+  -H 'accept: application/xml' \
+  -H "x-camac-group: ${camac_group_id}" \
+  -H 'Content-Type: application/xml' \
+  -d "$xml_payload"
+	echo -e "\n---------------------------"
+done

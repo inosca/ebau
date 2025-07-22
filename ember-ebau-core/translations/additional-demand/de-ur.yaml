@@ -1,2 +1,11 @@
 additional-demand:
   paper: "Bei intern erfassten Dossiers (so genannten Papierdossier), müssen Nachforderungen beim Gesuchsteller noch auf dem konventionellen Weg  (E-Mail, Tel. Post) gemacht werden.<br><br>Bitte die Nachforderung und allfällige Antworten im Journal erfassen (z.B. Beim Gesuchsteller per E-Mail einen Entwässerungsplan nachgefordert am 25.09.24)"
+  request-info: |-
+    <h3>Ablauf einer Nachforderung im URec</h3>
+    Beim Versand einer Nachforderung erhält der Gesuchsteller bzw. der Erfasser des Dossiers eine Nachricht. Bei der Ansicht Aufgabenliste wird links ein blauer Punkt angezeigt. Dieser weist darauf hin, dass bei diesem Dossier eine Nachforderung offen ist. Im Menü Nachforderung können Sie die entsprechenden Informationen einsehen.
+    <br>
+    <br>
+    Der Gesuchsteller kann die Nachforderung im URec Portal direkt beantworten und bei Bedarf auch Dokumente im Nachforderungstool hochladen. Die Dokumente werden im Menü "Dokumente" im Ordner "Dokumente Gesuchsteller" abgelegt.
+    <br>
+    <br>
+    Wenn die Nachforderung durch den Gesuchsteller beantwortet wird, erhält die Stelle, welche die Nachforderung ausgelöst hat, eine entsprechende Mitteilung "Nachforderung prüfen". Gleichzeitig wird die Aufgabe im Filter "Nachforderung prüfen" angezeigt. Die Nachforderung kann nun entweder abgeschlossen werden "Nachforderung vollständig" oder, falls weitere Angaben notwendig sind, kann der Schritt wiederholt werden.

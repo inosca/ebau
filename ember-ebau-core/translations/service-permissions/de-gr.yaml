@@ -1,0 +1,5 @@
+service-permissions:
+  sub-services-add-warning: |-
+    <b>Hinweis:</b> Beachten Sie, dass nur gemeindeeigene Organisationen als Unterfachstelle eröffnet werden dürfen. 
+    Kantonale Fachstellen und externe Fachstellen welche generell alle Gemeinden betreffen, 
+    werden durch den eBau Support (<a href="mailto:support.ebau@gr.ch">support.ebau@gr.ch</a>) erfasst und bewirtschaftet.

@@ -6,8 +6,6 @@ export default class FurtherPeopleComponent extends Component {
   @service shoebox;
 
   get formInstanceResourceId() {
-    return mainConfig.instanceResourceRedirects.form[
-      this.shoebox.content.roleId
-    ];
+    return mainConfig.instanceResourceRedirects.form;
   }
 }

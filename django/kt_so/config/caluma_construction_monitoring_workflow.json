@@ -317,7 +317,8 @@
         "directLink": {
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
-        }
+        },
+        "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
       "control_groups": null,

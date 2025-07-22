@@ -2,6 +2,7 @@ const config = {
   name: "so",
   languages: ["de"],
   fallbackLanguage: "de",
+  prodUrl: "ebau.so.ch",
   allowApplicantManualWorkItem: false,
   documentBackend: "alexandria",
   showIdInInternalArea: false,
@@ -62,8 +63,7 @@ const config = {
   publication: {
     public: {
       task: "fill-publication",
-      startQuestion: "publikation-start",
-      endQuestion: "publikation-ende",
+      dateRanges: [["publikation-start", "publikation-ende"]],
     },
   },
   decision: {
@@ -157,6 +157,7 @@ const config = {
   constructionMonitoring: {
     instanceStates: ["construction-monitoring", "finished"],
   },
+  showDownloadReceiptAction: true,
 };
 
 config.intentSlugs = [config.answerSlugs.description];

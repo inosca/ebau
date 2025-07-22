@@ -3,14 +3,6 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.instance.tests.test_master_data import (
-    gr_master_data_case,  # noqa
-    so_master_data_case,  # noqa
-    sz_master_data_case_gwr,  # noqa
-    sz_master_data_case_gwr_v2,  # noqa
-    ur_master_data_case_gwr,  # noqa
-)
-
 
 @pytest.mark.parametrize(
     "canton_name,master_data_case",

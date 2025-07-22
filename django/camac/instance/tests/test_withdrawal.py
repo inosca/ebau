@@ -8,10 +8,11 @@ from django.urls import reverse
 from rest_framework import status
 
 from camac.core.models import HistoryActionConfig
+from camac.ech0211.models import Message
 
 
 @pytest.fixture
-def publications(so_instance, so_publication_settings, utils, work_item_factory):
+def publications(so_instance, so_publication_settings, create_caluma_publication):
     work_items = []
 
     for start, end in [
@@ -19,25 +20,14 @@ def publications(so_instance, so_publication_settings, utils, work_item_factory)
         (date(2024, 4, 10), date(2024, 4, 20)),  # active
         (date(2024, 4, 20), date(2024, 4, 30)),  # future
     ]:
-        work_item = work_item_factory(
-            task_id=so_publication_settings["FILL_TASKS"][0],
-            status=WorkItem.STATUS_COMPLETED,
-            case=so_instance.case,
-            meta={"is-published": True},
+        work_items.append(
+            create_caluma_publication(
+                so_instance,
+                start,
+                end,
+                module_settings=so_publication_settings,
+            )
         )
-
-        utils.add_answer(
-            work_item.document,
-            so_publication_settings["RANGE_QUESTIONS"][0][0],
-            start,
-        )
-        utils.add_answer(
-            work_item.document,
-            so_publication_settings["RANGE_QUESTIONS"][0][1],
-            end,
-        )
-
-        work_items.append(work_item)
 
     return work_items
 
@@ -66,7 +56,7 @@ def test_withdraw_instance(
     notification_template,
     so_distribution_settings,
     set_application_so,
-    form_question_factory,
+    caluma_form_question_factory,
     skipped_work_items,
     mailoutbox,
     has_publications,
@@ -86,7 +76,7 @@ def test_withdraw_instance(
     # to decision
     instance_state_factory(name=so_decision_settings["INSTANCE_STATE"])
 
-    form_question_factory(
+    caluma_form_question_factory(
         form_id="entscheid",
         question__slug=so_decision_settings["QUESTIONS"]["DECISION"],
         question__type=Question.TYPE_TEXT,
@@ -140,6 +130,10 @@ def test_withdraw_instance(
         == "Dossier zurückgezogen"
     )
 
+    # check that two eCH messages were sent:
+    # status notification (decision) and withdrawal
+    assert Message.objects.count() == 2
+
     assert len(mailoutbox) == 1
     assert notification_template.subject in mailoutbox[0].subject
 
@@ -148,6 +142,6 @@ def test_withdraw_instance(
         active_publication.refresh_from_db()
         future_publication.refresh_from_db()
 
-        assert past_publication.meta["is-published"]
-        assert not active_publication.meta["is-published"]
-        assert not future_publication.meta["is-published"]
+        assert past_publication.meta["is-published"] is True
+        assert active_publication.meta["is-published"] is False
+        assert future_publication.meta["is-published"] is False

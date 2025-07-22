@@ -115,6 +115,24 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 120012,
+    "fields": {
+      "name": "withdrawn",
+      "sort": 8,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120013,
+    "fields": {
+      "name": "withdrawal",
+      "sort": 9,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -272,6 +290,46 @@
       "language": "it",
       "name": "Respinta",
       "description": ""
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120049,
+    "fields": {
+      "instance_state": 120012,
+      "language": "de",
+      "name": "Zurückgezogen",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120050,
+    "fields": {
+      "instance_state": 120013,
+      "language": "de",
+      "name": "Zum Rückzug",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120051,
+    "fields": {
+      "instance_state": 120012,
+      "language": "it",
+      "name": "Ritirato",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120052,
+    "fields": {
+      "instance_state": 120013,
+      "language": "it",
+      "name": "Per ritirarsi",
+      "description": null
     }
   }
 ]

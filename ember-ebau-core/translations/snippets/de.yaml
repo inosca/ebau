@@ -1,0 +1,36 @@
+snippets:
+  category: Kategorie
+  delete-category: Kategorie löschen
+  edit: Textbaustein bearbeiten
+  edit-category: Kategorie bearbeiten
+  new-category: Neue Kategorie erstellen
+  new: Neuen Textbaustein erstellen
+  snippets: Textbausteine
+  text: Text
+  title: Titel
+  copy: Textbaustein in die Zwischenablage kopieren
+  empty: Keine Textbausteinkategorien vorhanden
+  empty-search: Keine Textbausteine vorhanden
+
+  confirm:
+    delete: Wollen Sie den Textbaustein <span class="uk-text-bold">"{name}"</span> wirklich löschen?
+    delete-category: |-
+      <p>
+        Wollen Sie die Kategorie <span class="uk-text-bold">"{name}"</span> wirklich löschen?
+      </p>
+      <p>
+        Mit dieser Aktion wird die Kategorie und alle Textbausteine welche enthalten sind gelöscht!
+      </p>
+
+  success:
+    copy: Der Textbaustein "{name}" wurde in die Zwischenablage kopiert
+    delete: Der Textbaustein wurde gelöscht
+    delete-category: Die Kategorie wurde gelöscht
+    save: Der Textbaustein wurde gespeichert
+    save-category: Die Kategorie wurde gespeichert
+
+  error:
+    delete: Der Textbaustein konnte nicht gelöscht werden
+    delete-category: Die Kategorie konnte nicht gelöscht werden
+    save: Der Textbaustein konnte nicht gespeichert werden
+    save-category: Die Kategorie konnte nicht gespeichert werden

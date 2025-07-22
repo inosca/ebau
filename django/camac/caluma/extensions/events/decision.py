@@ -10,6 +10,7 @@ from django.utils.translation import gettext as _, gettext_noop
 
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
+from camac.gever import events as gever_events
 from camac.instance import domain_logic
 from camac.notification.utils import send_mail_without_request
 from camac.permissions import events as permissions_events
@@ -20,34 +21,10 @@ from camac.user.models import User
 from .general import get_caluma_setting, get_instance
 
 
-def get_notification_config(instance):
-    if instance.case.workflow_id == "preliminary-clarification":
-        return settings.APPLICATION["NOTIFICATIONS"].get(
-            "DECISION_PRELIMINARY_CLARIFICATION", []
-        )
-    elif instance.case.meta.get("is-appeal") and settings.APPEAL:
-        return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
-    # TODO(GR): replace by preliminary clarification workflow
-    elif (
-        settings.APPLICATION_NAME == "kt_gr"
-        and instance.case.document.form.slug
-        in [
-            "bauanzeige",
-            "vorlaeufige-beurteilung",
-        ]
-    ) or (
-        settings.APPLICATION_NAME == "kt_so"
-        and instance.case.document.form_id != "baugesuch"
-    ):  # pragma: no cover
-        return settings.APPLICATION["NOTIFICATIONS"].get(
-            "NON_BUILDING_PERMIT_DECISION", []
-        )
-
-    return settings.APPLICATION["NOTIFICATIONS"].get("DECISION", [])
-
-
-def send_notifications(instance, context, user):
-    notification_config = get_notification_config(instance)
+def send_notifications(instance, context, user, work_item):
+    notification_config = domain_logic.DecisionLogic.get_notification_config(
+        instance, work_item
+    )
 
     if not gr_include_gvg(instance):
         notification_config = [
@@ -124,6 +101,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         instance.set_instance_state("finished", camac_user)
 
     permissions_events.Trigger.decision_decreed(None, instance)
+    gever_events.decision_decreed(instance)
 
     # trigger ech message for status change
     ruling.send(
@@ -132,7 +110,7 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         user_pk=camac_user.pk,
         group_pk=user.camac_group,
     )
-    send_notifications(instance, context, user)
+    send_notifications(instance, context, user, work_item)
 
     history_text = gettext_noop("Evaluation completed")
     if (

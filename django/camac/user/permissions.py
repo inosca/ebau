@@ -2,6 +2,7 @@ from functools import wraps
 
 from django.conf import settings
 from rest_framework import permissions
+from rest_framework.exceptions import PermissionDenied
 
 from camac.request import get_request
 from camac.token_exchange.permissions import RequireLoT
@@ -14,6 +15,23 @@ def get_group(obj):
 def is_public_access(request):
     header = request.META.get("HTTP_X_CAMAC_PUBLIC_ACCESS")
     return header in ["true", True]
+
+
+def is_allowed_client(request):
+    if not hasattr(request, "auth") or request.auth is None:  # pragma: no cover
+        return False
+
+    azp = request.auth.get("azp")
+
+    return azp in settings.KEYCLOAK_ALLOWED_CLIENTS
+
+
+def _get_view_action(view):
+    action = getattr(view, "action", None)
+    if action == "partial_update":
+        action = "update"
+
+    return action
 
 
 def permission_aware(func):
@@ -98,11 +116,10 @@ class IsGroupMember(permissions.BasePermission):
     have an automatically assigned group and won't be affected by this.
     """
 
+    code = "missing_group"
+
     def has_permission(self, request, view):
         return bool(request.group)
-
-    def has_object_permission(self, request, view, obj):
-        return self.has_permission(request, view)
 
 
 class ViewPermissions(permissions.BasePermission):
@@ -121,7 +138,7 @@ class ViewPermissions(permissions.BasePermission):
     """
 
     def has_permission(self, request, view):
-        action = self._get_action(view)
+        action = _get_view_action(view)
         if action:
             method = "has_{action}_permission".format(action=action)
             if hasattr(view, method):
@@ -130,7 +147,7 @@ class ViewPermissions(permissions.BasePermission):
         return True
 
     def has_object_permission(self, request, view, obj):
-        action = self._get_action(view)
+        action = _get_view_action(view)
         if action:
             method = "has_object_{action}_permission".format(action=action)
             if hasattr(view, method):
@@ -138,19 +155,9 @@ class ViewPermissions(permissions.BasePermission):
 
         return True
 
-    def _get_action(self, view):
-        action = getattr(view, "action", None)
-        if action == "partial_update":
-            action = "update"
-
-        return action
-
 
 class ReadOnly(permissions.BasePermission):
     def has_permission(self, request, view):
-        return request.method in permissions.SAFE_METHODS
-
-    def has_object_permission(self, request, view, obj):
         return request.method in permissions.SAFE_METHODS
 
 
@@ -158,13 +165,56 @@ class IsPublicAccess(permissions.BasePermission):
     def has_permission(self, request, view):
         return is_public_access(request)
 
-    def has_object_permission(self, request, view, obj):
-        return is_public_access(request)
+
+class IsAllowedClientToken(permissions.BasePermission):
+    """Verify that the token is authorized by a known client.
+
+    This permission verifies that the `azp` (authorized party) of the passed
+    token is a known client that is used by eBau (e.g. "portal" and "camac").
+
+    There are exceptions where endpoints should allow external clients like the
+    eCH-0211 API. To allow external clients on an endpoint, add
+    `allow_external_client = True` on the respective view. To only allow certain
+    actions on an endpoint, you can also define a list, e.g.
+    `allow_external_clients = ["retreive", "list"]`.
+
+    This permission should be used on every single endpoint of the application
+    that requires authentication! To make sure of that, the snapshot
+    `django/camac/tests/__snapshots__/test_external_client_access.ambr` contains
+    a list of all endpoints that allow external clients per canton.
+    """
+
+    code = "unallowed_azp"
+
+    def allow_external_clients(self, view):
+        allow = getattr(view, "allow_external_clients", None)
+
+        # Some endpoints implement an `include_in_swagger` method to define
+        # whether the endpoint appears in the swagger docs or not. Since all
+        # endpoints that are documented in the swagger should also be accessible
+        # by external clients, we use that method as fallback to reduce
+        # redundancy.
+        if allow is None and hasattr(view, "include_in_swagger"):
+            allow = view.include_in_swagger()
+
+        # If `allow_external_clients` is a list of allowed actions, we check
+        # whether it current action is contained
+        if isinstance(allow, list):
+            return _get_view_action(view) in allow
+
+        return bool(allow)
+
+    def has_permission(self, request, view):
+        return self.allow_external_clients(view) or is_allowed_client(request)
 
 
 DefaultPermission = (
     # identical to DEFAULT_PERMISSION_CLASSES
-    permissions.IsAuthenticated & IsGroupMember & ViewPermissions & RequireLoT
+    permissions.IsAuthenticated
+    & IsAllowedClientToken
+    & IsGroupMember
+    & ViewPermissions
+    & RequireLoT
 )
 
 
@@ -173,8 +223,23 @@ def IsApplication(*applications):
         def has_permission(self, request, view):
             return settings.APPLICATION_NAME in applications
 
-        def has_object_permission(self, request, view, obj):
-            return settings.APPLICATION_NAME in applications
+    return DynamicPermission
+
+
+def HasSharedSecret(**kwargs):
+    class DynamicPermission(permissions.BasePermission):
+        def has_permission(self, request, view):
+            shared_secret_header = kwargs.get("shared_secret_header")
+            shared_secret_settings_key = kwargs.get("settings_key")
+
+            shared_secret = request.headers.get(shared_secret_header)
+            expected_secret = settings.EEBA_INTEGRATION.get(shared_secret_settings_key)
+
+            if shared_secret != expected_secret:
+                raise PermissionDenied(
+                    f"Invalid or missing {shared_secret_header} header."
+                )
+            return True
 
     return DynamicPermission
 
@@ -184,18 +249,16 @@ def IsView(*views):
         def has_permission(self, request, view):
             return view.__class__.__name__ in views
 
-        def has_object_permission(self, request, view, obj):
-            return view.__class__.__name__ in views
-
     return DynamicPermission
 
 
-PublicationBE = IsApplication("kt_bern") & permissions.IsAuthenticated & ReadOnly
-PublicationSZ = IsApplication("kt_schwyz") & permissions.IsAuthenticated & ReadOnly
-PublicationGR = IsApplication("kt_gr") & permissions.IsAuthenticated & ReadOnly
-PublicationSO = (
-    IsApplication("kt_so") & permissions.IsAuthenticated & ReadOnly & RequireLoT
-)
+AuthenticatedPublication = permissions.IsAuthenticated & IsAllowedClientToken & ReadOnly
+
+PublicationBE = IsApplication("kt_bern") & AuthenticatedPublication
+PublicationSZ = IsApplication("kt_schwyz") & AuthenticatedPublication
+PublicationGR = IsApplication("kt_gr") & AuthenticatedPublication
+PublicationSO = IsApplication("kt_so") & AuthenticatedPublication & RequireLoT
+PublicationAG = IsApplication("kt_ag") & AuthenticatedPublication
 PublicationUR = IsApplication("kt_uri") & ReadOnly
 PublicationTest = IsApplication("test") & ReadOnly
 
@@ -210,6 +273,7 @@ PublicationPermission = IsPublicAccess & (
             | PublicationGR
             | PublicationUR
             | PublicationSO
+            | PublicationAG
             | PublicationTest
         )
     )
@@ -221,16 +285,48 @@ PublicationPermission = IsPublicAccess & (
     | (
         # Alexandria
         IsView("PatchedDocumentViewSet", "PatchedFileViewSet", "PatchedMarkViewSet")
-        & (PublicationGR | PublicationSO | PublicationTest)
+        & (PublicationGR | PublicationSO | PublicationAG | PublicationTest)
     )
     | (
         # Form fields
         IsView("FormConfigDownloadView", "FormFieldView")
         & (PublicationSZ | PublicationTest)
     )
+    | (
+        # Static content
+        IsView("StaticContentView") & (PublicationSO | PublicationTest)
+    )
+    | (
+        # Publication access count
+        IsView("PublicCalumaInstanceView")
+        # Same as PublicationSZ but without `ReadOnly`
+        & (
+            IsApplication("kt_schwyz")
+            & permissions.IsAuthenticated
+            & IsAllowedClientToken
+        )
+    )
 )
 
-ViewedPublicationCountPermissions = IsPublicAccess & (
-    IsView("PublicCalumaInstanceView")
-    & (IsApplication("kt_schwyz") & permissions.IsAuthenticated)
+HasEebaPermission = (
+    IsApplication("kt_gr")
+    & permissions.IsAuthenticated
+    & ReadOnly
+    & HasSharedSecret(
+        settings_key="EEBA_SHARED_SECRET", shared_secret_header="X-EBAU-EEBA-SECRET"
+    )
 )
+
+
+class IsWilkenClientToken(permissions.BasePermission):
+    """Verify that the token is authorized by the configured wilken client."""
+
+    code = "unallowed_azp"
+
+    def has_permission(self, request, view):
+        try:
+            return (
+                request.auth.get("azp", "") == settings.BILLING.wilken.keycloak_client
+            )
+        except AttributeError:
+            return False

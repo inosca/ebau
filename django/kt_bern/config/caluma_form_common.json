@@ -4,10 +4,10 @@
     "pk": "8-freigabequittung",
     "fields": {
       "created_at": "2019-05-08T12:42:01.656Z",
-      "modified_at": "2019-05-08T12:42:01.656Z",
+      "modified_at": "2025-05-15T13:13:22.113Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "name": "{\"de\": \"8. Einreichen\", \"fr\": \"8. Envoyer\", \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -29,6 +29,24 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Allgemeine Angaben\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dokumente-vorabklaerung",
+    "fields": {
+      "created_at": "2019-10-08T12:22:59.032Z",
+      "modified_at": "2019-10-09T08:11:27.333Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente (Vorabkl\\u00e4rung)\", \"fr\": \"Documents (Demandes pr\\u00e9alables)\", \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -173,7 +191,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "ausnahmegesuche",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -193,17 +211,32 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "8-freigabequittung.formulardownload-pdf",
+    "pk": "8-freigabequittung.entwurf-herunterladen-pdf",
     "fields": {
-      "created_at": "2019-09-25T10:19:38.974Z",
-      "modified_at": "2019-09-25T10:19:38.974Z",
-      "created_by_user": null,
+      "created_at": "2025-05-15T11:55:52.747Z",
+      "modified_at": "2025-05-15T11:55:52.747Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "8-freigabequittung",
-      "question": "formulardownload-pdf",
-      "sort": 2
+      "question": "entwurf-herunterladen-pdf",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "8-freigabequittung.entwurf-text",
+    "fields": {
+      "created_at": "2025-05-15T11:53:47.494Z",
+      "modified_at": "2025-05-15T11:53:47.494Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "8-freigabequittung",
+      "question": "entwurf-text",
+      "sort": 4
     }
   },
   {
@@ -218,7 +251,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "freigabequittung-bemerkungen",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -233,7 +266,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "freigabequittung-text",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -248,7 +281,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "hinweis-klaerung-baubewilligungspflicht",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -263,7 +296,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "hinweis-zutrittsermaechtigung",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -444,6 +477,21 @@
       "form": "allgemeine-angaben-kurz",
       "question": "strasse-flurname",
       "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-vorabklaerung.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2019-10-08T12:23:20.905Z",
+      "modified_at": "2019-10-08T12:23:20.905Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-vorabklaerung",
+      "question": "dokumente-platzhalter",
+      "sort": 1
     }
   },
   {
@@ -943,6 +991,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "personalien.juristische-person-infotext",
+    "fields": {
+      "created_at": "2025-01-23T09:28:47.792Z",
+      "modified_at": "2025-01-23T09:28:47.792Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "juristische-person-infotext",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "personalien.personalien-gebaudeeigentumerin",
     "fields": {
       "created_at": "2019-09-25T10:19:38.904Z",
@@ -968,7 +1031,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-gesuchstellerin",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -2070,7 +2133,7 @@
       "label": "{\"de\": \"Ausnahmegesuche\", \"fr\": \"Demande de d\\u00e9rogation\", \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "form in ['solaranlagen-meldung', 'heat-generator', 'solaranlagen-meldung-v2', 'heat-generator-v2']",
+      "is_hidden": "form in ['solaranlagen-meldung', 'heat-generator', 'solaranlagen-meldung-v2', 'heat-generator-v2', 'heat-generator-v3']",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
@@ -2225,6 +2288,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dokumente-vorabklaerung-form",
+    "fields": {
+      "created_at": "2019-10-08T12:24:56.453Z",
+      "modified_at": "2019-10-09T08:15:06.232Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "'is-paper'|answer == 'is-paper-yes'? 13 : 1"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-vorabklaerung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "e-grid-nr",
     "fields": {
       "created_at": "2019-03-28T14:13:11.177Z",
@@ -2279,7 +2376,7 @@
       "meta": {
         "action": "submit",
         "hideLabel": true,
-        "widgetOverride": "be-submit-instance"
+        "widgetOverride": "submit-instance"
       },
       "data_source": null,
       "row_form": null,
@@ -2463,27 +2560,58 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "formulardownload-pdf",
+    "pk": "entwurf-herunterladen-pdf",
     "fields": {
-      "created_at": "2019-06-12T08:11:33.972Z",
-      "modified_at": "2019-06-12T08:11:33.972Z",
+      "created_at": "2025-05-15T11:55:52.626Z",
+      "modified_at": "2025-05-16T11:54:42.333Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "modified_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Formulardownload (PDF)\", \"fr\": \"t\\u00e9l\\u00e9charger le formulaire (pdf)\", \"it\": null}",
+      "label": "{\"de\": \"Entwurf herunterladen (PDF)\", \"fr\": \"T\\u00e9l\\u00e9charger le formulaire (PDF)\", \"it\": null}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "widgetOverride": "be-download-pdf"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entwurf-text",
+    "fields": {
+      "created_at": "2025-05-15T11:53:47.369Z",
+      "modified_at": "2025-05-16T11:55:13.414Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"entwurf-text\", \"fr\": \"entwurf-text\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<hr>\\n<div class=\\\"uk-margin-remove-bottom uk-alert border-highlight\\\">Sie k\\u00f6nnen bereits vor dem Einreichen einen Entwurf des Gesuchsformulars als PDF herunterladen. Das finale Gesuchsformular zur Einsendung an die zust\\u00e4ndige Gemeinde erhalten sie nach dem Einreichen des Gesuchs.</div>\", \"fr\": \"<hr>\\n<div class=\\\"uk-margin-remove-bottom uk-alert border-highlight\\\">Vous pouvez t\\u00e9l\\u00e9charger un brouillon du formulaire de demande au format PDF avant de le soumettre. Vous recevrez le formulaire de demande d\\u00e9finitif \\u00e0 remettre \\u00e0 la commune comp\\u00e9tente apr\\u00e8s avoir soumis la demande via eBau.\\n</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -2541,7 +2669,7 @@
       "label": "{\"de\": \"freigabequittung-text\", \"fr\": \"Declaration de validation\", \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "'is-paper'|answer == 'is-paper-yes' || 'vorabklaerung' in form || form in ['solaranlagen-meldung', 'heat-generator', 'solaranlagen-meldung-v2', 'heat-generator-v2']",
+      "is_hidden": "'is-paper'|answer == 'is-paper-yes' || 'vorabklaerung' in form || form in ['solaranlagen-meldung', 'heat-generator', 'solaranlagen-meldung-v2', 'heat-generator-v2', 'heat-generator-v3']",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -2637,7 +2765,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"GWR-EGID\", \"fr\": \"N\\u00b0 RegBL-EGID\", \"it\": null}",
       "type": "integer",
-      "is_required": "form == 'heat-generator'",
+      "is_required": "form in ['heat-generator', 'heat-generator-v2', 'heat-generator-v3']",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -2664,15 +2792,15 @@
     "pk": "hinweis-klaerung-baubewilligungspflicht",
     "fields": {
       "created_at": "2020-12-17T13:15:29.220Z",
-      "modified_at": "2020-12-17T13:19:43.182Z",
+      "modified_at": "2025-02-12T04:01:42.168Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis Kl\\u00e4rung Baubewilligungspflicht\", \"fr\": \"Hinweis Kl\\u00e4rung Baubewilligungspflicht\", \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "'klaerung-baubewilligungspflicht' != form",
+      "is_hidden": "!('klaerung-baubewilligungspflicht' in form)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -2867,6 +2995,37 @@
       "info_text": "{\"de\": \"Die nat\\u00fcrliche Person ist eine Privatperson. Die juristische Person ist eine Personenvereinigung oder eine Sachgesamtheit, der die Rechtsordnung das Recht der Pers\\u00f6nlichkeit ausdr\\u00fccklich einr\\u00e4umt. Juristische Personen mit Rechtspers\\u00f6nlichkeit sind Dazu geh\\u00f6ren: Verein, Stiftung, Aktiengesellschaft, Kommandit-AG,  Gesellschaft mit beschr\\u00e4nkter Haftung, Genossenschaft, Anstalten des \\u00f6ffentlichen Rechts (z.B. die Post) , K\\u00f6rperschaften des \\u00f6ffentlichen Rechts (z.B. SBB). Gemeinden sind \\u00f6ffentlichrechtliche K\\u00f6rperschaften mit eigener Rechtspers\\u00f6nlichkeit (Art. 2 Abs. 2 Gemeindegesetz). \\u00d6ffentlichrechtliche K\\u00f6rperschaften sind juristische Personen im Sinn von Art. 59 ZGB.\", \"fr\": \"La personne physique est une personne priv\\u00e9e. La personne morale est une association de personnes ou un ensemble de biens auquel l'ordre juridique conf\\u00e8re express\\u00e9ment le droit de la personnalit\\u00e9. Les personnes morales dot\\u00e9es de la personnalit\\u00e9 juridique sont notamment : Association, fondation, soci\\u00e9t\\u00e9 anonyme, soci\\u00e9t\\u00e9 en commandite par actions, soci\\u00e9t\\u00e9 anonyme \\u00e0 responsabilit\\u00e9 limit\\u00e9e, coop\\u00e9rative, \\u00e9tablissements de droit public (p. ex. la Poste) , collectivit\\u00e9s de droit public (p. ex. les CFF). Les communes sont des collectivit\\u00e9s de droit public dot\\u00e9es de la personnalit\\u00e9 juridique (art. 2, al. 2 de la loi sur les communes). Les collectivit\\u00e9s de droit public sont des personnes morales au sens de l'art. 59 CC.\", \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "juristische-person-infotext",
+    "fields": {
+      "created_at": "2025-01-23T09:28:47.644Z",
+      "modified_at": "2025-02-19T14:13:40.680Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Juristische Person Infotext\", \"fr\": \"Juristische Person Infotext\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!('baugesuch' in form && 'juristische-person-gesuchstellerin-ja' in 'personalien-gesuchstellerin'|answer|mapby('juristische-person-gesuchstellerin'))",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">\\n<p>Die verantwortliche Person f\\u00fcr die Selbstdeklaration Baukontrolle muss eine nat\\u00fcrliche Person sein. Bitte geben Sie f\\u00fcr die Selbstdeklaration Baukontrolle keine juristische Person an.</p>\\n<p>Sollten Sie f\\u00fcr den Gesuchsteller/in nur eine juristische Person angegeben haben, tragen Sie in der Tabelle \\u201cVerantwortliche Person Selbstdeklaration Baukontrolle\\u201d eine nat\\u00fcrliche Person ein.</p>\\n</div>\", \"fr\": \"<div class=\\\"uk-alert\\\"><p>La personne responsable de la d\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions doit \\u00eatre une personne physique. Merci de ne pas indiquer de personne morale pour la d\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions.</p>\\n\\n<p>Au cas o\\u00f9 vous n'auriez indiqu\\u00e9 qu'une personne morale pour la personne requ\\u00e9rante, veuillez inscrire une personne physique dans le tableau \\u00ab Personne responsable d\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions \\u00bb.</p></div>\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -4428,19 +4587,19 @@
     "pk": "sachverhalt",
     "fields": {
       "created_at": "2020-10-12T11:28:23.687Z",
-      "modified_at": "2020-12-18T12:46:29.540Z",
+      "modified_at": "2025-02-12T04:52:41.520Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Sachverhalt\", \"fr\": \"Situation\", \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "!(form in ['baupolizeiliches-verfahren', 'klaerung-baubewilligungspflicht'])",
+      "is_hidden": "!(form in ['baupolizeiliches-verfahren','baupolizeiliches-verfahren-v2', 'klaerung-baubewilligungspflicht', 'klaerung-baubewilligungspflicht-v2'])",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -4898,7 +5057,7 @@
     "pk": "verantwortliche-person-sb-identisch",
     "fields": {
       "created_at": "2021-06-28T08:41:16.005Z",
-      "modified_at": "2021-06-28T08:44:31.952Z",
+      "modified_at": "2025-02-26T12:55:37.362Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -4906,11 +5065,11 @@
       "label": "{\"de\": \"Ist die verantwortliche Person f\\u00fcr die Selbstdeklaration Baukontrolle identisch mit dem/r Gesuchsteller/in?\", \"fr\": \"La personne responsable de la d\\u00e9claration spontan\\u00e9e en mati\\u00e8re de contr\\u00f4le des constructions est-elle identique \\u00e0 la personne requ\\u00e9rante ?\", \"it\": null}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'verlaengerung-geltungsdauer' in form)",
-      "is_hidden": "'vorabklaerung' in form || form in ['solaranlagen-meldung', 'heat-generator', 'solaranlagen-meldung-v2', 'heat-generator-v2']",
+      "is_hidden": "'vorabklaerung' in form || form in ['solaranlagen-meldung', 'heat-generator', 'solaranlagen-meldung-v2', 'heat-generator-v2', 'heat-generator-v3', 'reklamegesuch', 'benuetzung-oeffentlichem-terrain-meldung']",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -5396,8 +5555,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verantwortliche-person-sb-identisch.verantwortliche-person-sb-identisch-ja",
     "fields": {
-      "created_at": "2021-06-28T08:44:31.963Z",
-      "modified_at": "2021-06-28T08:44:31.963Z",
+      "created_at": "2025-02-26T12:55:37.367Z",
+      "modified_at": "2025-02-26T12:55:37.367Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -5411,8 +5570,8 @@
     "model": "caluma_form.questionoption",
     "pk": "verantwortliche-person-sb-identisch.verantwortliche-person-sb-identisch-nein",
     "fields": {
-      "created_at": "2021-06-28T08:44:31.959Z",
-      "modified_at": "2021-06-28T08:44:31.959Z",
+      "created_at": "2025-02-26T12:55:37.365Z",
+      "modified_at": "2025-02-26T12:55:37.365Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",

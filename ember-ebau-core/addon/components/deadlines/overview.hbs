@@ -1,0 +1,14 @@
+<div data-test-deadlines-overview>
+  {{#if (and this.deadline (await (can "read suspension")))}}
+    <Deadlines::Suspension::List
+      @deadline={{this.deadline}}
+      @afterSave={{this.reload}}
+    />
+  {{/if}}
+  {{#if (await (can "read deadline"))}}
+    <Deadlines::Deadline::Detail
+      @instance={{@instance}}
+      @deadline={{this.deadline}}
+    />
+  {{/if}}
+</div>

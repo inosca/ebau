@@ -1,3 +1,9 @@
+from datetime import date, timedelta
+
+import pytest
+from caluma.caluma_workflow.api import (
+    complete_work_item,
+)
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.extensions.events import additional_demand
@@ -5,14 +11,14 @@ from camac.caluma.extensions.events import additional_demand
 
 def test_creating_an_additional_demand_sets_the_correct_instance_state(
     db,
-    work_item_factory,
-    workflow_factory,
+    caluma_work_item_factory,
+    caluma_workflow_factory,
     caluma_admin_user,
     ur_additional_demand_settings,
     ur_instance,
     instance_state_factory,
 ):
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=ur_instance.case, task_id=ur_additional_demand_settings["TASK"]
     )
     instance_state_factory(
@@ -32,29 +38,29 @@ def test_creating_an_additional_demand_sets_the_correct_instance_state(
 
 def test_post_complete_check_additional_demand_ur(
     db,
-    work_item_factory,
-    workflow_factory,
+    caluma_work_item_factory,
+    caluma_workflow_factory,
     caluma_admin_user,
     ur_additional_demand_settings,
     ur_instance,
     instance_state_factory,
     admin_user,
-    answer_factory,
+    caluma_answer_factory,
     set_application_ur,
     ur_distribution_settings,
 ):
     ur_additional_demand_settings["NOTIFICATIONS"] = {}
-    work_item = work_item_factory(
+    work_item = caluma_work_item_factory(
         case=ur_instance.case,
         task_id=ur_additional_demand_settings["CHECK_TASK"],
         status=WorkItem.STATUS_COMPLETED,
     )
-    distribution_init_work_item = work_item_factory(
+    distribution_init_work_item = caluma_work_item_factory(
         case=ur_instance.case,
         task_id=ur_distribution_settings["DISTRIBUTION_INIT_TASK"],
         status=WorkItem.STATUS_SUSPENDED,
     )
-    answer_factory(
+    caluma_answer_factory(
         document=work_item.document,
         question_id=ur_additional_demand_settings["QUESTIONS"]["DECISION"],
         value=ur_additional_demand_settings["ANSWERS"]["DECISION"]["ACCEPTED"],
@@ -62,22 +68,194 @@ def test_post_complete_check_additional_demand_ur(
     instance_state_factory(
         name=ur_additional_demand_settings["STATES"]["PENDING_ADDITIONAL_DEMANDS"]
     )
-    instance_state_factory(
-        name=ur_additional_demand_settings["STATES"]["AFTER_ADDITIONAL_DEMANDS"]
-    )
-    ur_instance.set_instance_state(
-        instance_state_factory().name,
-        admin_user,
-    )
     additional_demand.post_complete_check_additional_demand(
         sender=None, work_item=work_item, user=caluma_admin_user
     )
 
     ur_instance.refresh_from_db()
 
-    assert (
-        ur_instance.instance_state.name
-        == ur_additional_demand_settings["STATES"]["AFTER_ADDITIONAL_DEMANDS"]
-    )
+    assert ur_instance.instance_state.name == ur_instance.previous_instance_state.name
     distribution_init_work_item.refresh_from_db()
     assert distribution_init_work_item.status == WorkItem.STATUS_READY
+
+
+@pytest.mark.parametrize("has_pending_additional_demands", [True, False])
+def test_post_cancel_additional_demand_ur(
+    db,
+    ur_instance,
+    set_application_ur,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    instance_state_factory,
+    ur_additional_demand_settings,
+    has_pending_additional_demands,
+):
+    ur_instance.instance_state.name = "nfd"
+    ur_instance.instance_state.save()
+
+    work_item = caluma_work_item_factory(
+        case=ur_instance.case,
+        task_id=ur_additional_demand_settings["TASK"],
+        status=WorkItem.STATUS_COMPLETED,
+    )
+    if has_pending_additional_demands:
+        work_item = caluma_work_item_factory(
+            case=ur_instance.case,
+            task_id=ur_additional_demand_settings["TASK"],
+            status=WorkItem.STATUS_READY,
+        )
+
+    additional_demand.post_cancel_additional_demand(
+        sender=None, work_item=work_item, user=caluma_admin_user
+    )
+
+    ur_instance.refresh_from_db()
+
+    if has_pending_additional_demands:
+        assert ur_instance.instance_state.name == "nfd"
+    else:
+        assert (
+            ur_instance.instance_state.name == ur_instance.previous_instance_state.name
+        )
+
+
+@pytest.mark.parametrize("ech_enabled", [True, False])
+def test_post_complete_fill_additional_demand_file_subsequently(
+    db,
+    set_application_gr,
+    caluma_work_item_factory,
+    caluma_admin_user,
+    gr_additional_demand_settings,
+    gr_ech0211_settings,
+    gr_instance,
+    mocker,
+    ech_enabled,
+):
+    gr_ech0211_settings["API_LEVEL"] = "full" if ech_enabled else "none"
+    ech_signal_mock = mocker.patch("camac.ech0211.signals.file_subsequently.send")
+    work_item = caluma_work_item_factory(
+        case=gr_instance.case, task_id=gr_additional_demand_settings["FILL_TASK"]
+    )
+    additional_demand.post_complete_fill_additional_demand_file_subsequently(
+        sender=None, work_item=work_item, user=caluma_admin_user
+    )
+    if ech_enabled:
+        ech_signal_mock.assert_called_once()
+    else:
+        ech_signal_mock.assert_not_called()
+
+
+@pytest.mark.parametrize(
+    "test_case",
+    [
+        "decision_unknown_not_set",
+        "ech_not_enabled",
+        "ech_claim_not_enabled",
+        "no_ech_meta",
+        "ok",
+    ],
+)
+def test_post_create_check_additional_demand(
+    db,
+    set_application_gr,
+    caluma_work_item_factory,
+    caluma_admin_user,
+    gr_additional_demand_settings,
+    gr_ech0211_settings,
+    gr_instance,
+    mocker,
+    utils,
+    test_case,
+):
+    # mock the follow up signal file_subsequently for this test,
+    # as this instance does not have all required answers to produce a valid xml
+    mocker.patch("camac.ech0211.signals.file_subsequently.send")
+
+    # disable notification sending for this test
+    mocker.patch("camac.notification.utils.send_mail")
+
+    # unset UNKNOWN decision setting for decision_unknown_not_set
+    gr_additional_demand_settings["ANSWERS"]["DECISION"]["UNKNOWN"] = (
+        None
+        if test_case == "decision_unknown_not_set"
+        else "additional-demand-decision-unknown"
+    )
+
+    # disable eCH0211 settings for ech_not_enabled
+    gr_ech0211_settings["API_LEVEL"] = (
+        "none" if test_case == "ech_not_enabled" else "full"
+    )
+
+    # disable claim settings for ech_claim_not_enabled
+    gr_ech0211_settings["CLAIM"]["ENABLED"] = (
+        False if test_case == "ech_claim_not_enabled" else True
+    )
+
+    work_item_init = caluma_work_item_factory(
+        case=gr_instance.case,
+        task_id=gr_additional_demand_settings["CREATE_TASK"],
+    )
+
+    # set the eCH0211 meta data on work items if not no_ech_meta
+    meta = (
+        {"ech-init-workitem": str(work_item_init.pk)}
+        if test_case != "no_ech_meta"
+        else {}
+    )
+    if test_case != "no_ech_meta":
+        work_item_init.meta["ech-init-workitem"] = str(work_item_init.pk)
+        work_item_init.save()
+
+    # prepare the check task work item
+    work_item_check = caluma_work_item_factory(
+        case=gr_instance.case,
+        task_id=gr_additional_demand_settings["CHECK_TASK"],
+        child_case=None,
+        meta=meta,
+        status=WorkItem.STATUS_READY,
+    )
+
+    # check exception raised for decision_unknown_not_set
+    if test_case == "decision_unknown_not_set":
+        with pytest.raises(Exception):
+            additional_demand.post_create_check_additional_demand(
+                sender=None, work_item=work_item_check, user=caluma_admin_user
+            )
+        return
+
+    # prepare the fill task work item and add required answers
+    work_item_fill = caluma_work_item_factory(
+        case=gr_instance.case,
+        task_id=gr_additional_demand_settings["FILL_TASK"],
+        status=WorkItem.STATUS_READY,
+        meta=meta,
+        child_case=None,
+    )
+    utils.add_answer(
+        work_item_fill.document,
+        gr_additional_demand_settings["QUESTIONS"]["COMMENT"],
+        "test comment",
+    )
+    utils.add_answer(
+        work_item_fill.document,
+        gr_additional_demand_settings["QUESTIONS"]["DEADLINE"],
+        date.today() + timedelta(days=30),
+    )
+
+    complete_work_item(
+        work_item=work_item_fill,
+        user=caluma_admin_user,
+    )
+    assert work_item_fill.status == WorkItem.STATUS_COMPLETED
+
+    # trigger the event manually
+    additional_demand.post_create_check_additional_demand(
+        sender=None, work_item=work_item_check, user=caluma_admin_user
+    )
+
+    # only when all conditions have been fulfilled, work item should be
+    # immediately completed
+    if test_case == "ok":
+        assert work_item_check.status == WorkItem.STATUS_COMPLETED
+    else:
+        assert work_item_check.status == WorkItem.STATUS_READY

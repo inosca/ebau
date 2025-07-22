@@ -8,12 +8,15 @@ import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { saveAs } from "file-saver";
-import { DateTime } from "luxon";
 
 import caseTableConfig from "ember-ebau-core/config/case-table";
 import mainConfig from "ember-ebau-core/config/main";
 import caseInstanceIdsQuery from "ember-ebau-core/gql/queries/case-instance-ids.graphql";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import {
+  getCalumaFilters,
+  getCamacFilters,
+} from "ember-ebau-core/utils/case-filters";
 
 export default class CaseTableComponent extends Component {
   @service store;
@@ -101,259 +104,10 @@ export default class CaseTableComponent extends Component {
 
   get gqlFilter() {
     const filter = this.args.filter;
-    const availableFilterSet = {
-      instanceId: {
-        metaValue: [
-          {
-            key: "camac-instance-id",
-            value: filter.instanceId,
-          },
-        ],
-      },
-      dossierNumber: {
-        metaValue: [
-          {
-            key: "dossier-number",
-            lookup: "ICONTAINS",
-            value: filter.dossierNumber,
-          },
-        ],
-      },
-      submitDateBefore: {
-        metaValue: [
-          {
-            key: "submit-date",
-            lookup: "LTE",
-            value: DateTime.fromISO(filter.submitDateBefore)
-              .endOf("day")
-              .toISO(),
-          },
-        ],
-      },
-      submitDateAfter: {
-        metaValue: [
-          {
-            key: "submit-date",
-            lookup: "GTE",
-            value: DateTime.fromISO(filter.submitDateAfter)
-              .startOf("day")
-              .toISO(),
-          },
-        ],
-      },
-      caseCreatedDateBefore: {
-        createdBefore: DateTime.fromISO(filter.caseCreatedDateBefore)
-          .endOf("day")
-          .toISO(),
-      },
-
-      caseCreatedDateAfter: {
-        createdAfter: DateTime.fromISO(filter.caseCreatedDateAfter)
-          .startOf("day")
-          .toISO(),
-      },
-      intent: {
-        searchAnswers: [
-          {
-            questions: mainConfig.intentSlugs,
-            lookup: "CONTAINS",
-            value: filter.intent,
-          },
-        ],
-      },
-      address: {
-        searchAnswers: [
-          {
-            questions: caseTableConfig.addressSlugs,
-            lookup: "CONTAINS",
-            value: filter.address,
-          },
-        ],
-      },
-      parcel: {
-        searchAnswers: [
-          {
-            questions: caseTableConfig.parcelSlugs,
-            lookup: "CONTAINS",
-            value: filter.parcel,
-          },
-        ],
-      },
-      ...(macroCondition(getOwnConfig().application === "ur")
-        ? {
-            buildingPermitType: {
-              hasAnswer: [
-                {
-                  question: "form-type",
-                  lookup: "IN",
-                  value: filter.buildingPermitType,
-                },
-              ],
-            },
-            applicant: {
-              searchAnswers: [
-                {
-                  questions: [
-                    "first-name",
-                    "last-name",
-                    "juristic-person-name",
-                  ],
-                  lookup: "CONTAINS",
-                  value: filter.applicant,
-                },
-              ],
-            },
-          }
-        : macroCondition(getOwnConfig().application === "gr")
-          ? {
-              personalDetails: {
-                searchAnswers: [
-                  {
-                    questions: [
-                      "name-juristische-person-gesuchstellerin",
-                      "name-gesuchstellerin",
-                      "vorname-gesuchstellerin",
-                    ],
-                    value: filter.personalDetails,
-                  },
-                ],
-              },
-              municipality: {
-                hasAnswer: [
-                  {
-                    question: "gemeinde",
-                    value: filter.municipality,
-                    lookup: "EXACT",
-                  },
-                ],
-              },
-              form: {
-                documentForms: filter.form?.split(","),
-              },
-            }
-          : macroCondition(getOwnConfig().application === "sz")
-            ? {
-                caseStatus: {
-                  status: filter.caseStatus,
-                },
-                caseDocumentFormName: {
-                  documentForm: filter.form,
-                },
-                submitDateBefore: undefined,
-                submitDateAfter: undefined,
-                address: undefined,
-                parcel: undefined,
-                ...(this.args.casesBackend === "camac-ng"
-                  ? { intent: undefined }
-                  : {}),
-              }
-            : macroCondition(getOwnConfig().application === "be")
-              ? {
-                  dossierNumber: {
-                    metaValue: [
-                      {
-                        key: "ebau-number",
-                        value: filter.dossierNumber,
-                      },
-                    ],
-                  },
-                  form: {
-                    documentForms: filter.form?.split(","),
-                  },
-                  municipality: {
-                    hasAnswer: [
-                      {
-                        question: "gemeinde",
-                        value: filter.municipality,
-                        lookup: "EXACT",
-                      },
-                    ],
-                  },
-                  freetext: {
-                    searchAnswers: [
-                      {
-                        questions: mainConfig.freetextSlugs,
-                        lookup: "CONTAINS",
-                        value: filter.freetext,
-                      },
-                    ],
-                  },
-                  personalDetails: {
-                    searchAnswers: [
-                      {
-                        questions: [
-                          // Personalien - Gesuchsteller/in
-                          "name-gesuchstellerin",
-                          "vorname-gesuchstellerin",
-                          "name-juristische-person-gesuchstellerin",
-                          // Personalien - Vertreter/in mit Vollmacht
-                          "name-juristische-person-vertreterin",
-                          "name-vertreterin",
-                          "vorname-vertreterin",
-                          // Personalien - Gebäudeeigentümer/in
-                          "name-juristische-person-grundeigentuemerin",
-                          "name-grundeigentuemerin",
-                          "vorname-grundeigentuemerin",
-                          // Personalien - Projektverfasser/in
-                          "name-juristische-person-projektverfasserin",
-                          "name-projektverfasserin",
-                          "vorname-projektverfasserin",
-                        ],
-                        value: filter.personalDetails,
-                      },
-                    ],
-                  },
-                }
-              : macroCondition(getOwnConfig().application === "so")
-                ? {
-                    personalDetails: {
-                      searchAnswers: [
-                        {
-                          questions: [
-                            "juristische-person-name",
-                            "nachname",
-                            "vorname",
-                          ],
-                          value: filter.personalDetails,
-                        },
-                      ],
-                    },
-                    form: {
-                      documentForms: filter.form?.split(","),
-                    },
-                    // Override parcel filter in order to provice an exact match
-                    // instead of contains matching.
-                    parcel: {
-                      hasAnswer: [
-                        {
-                          question: caseTableConfig.parcelSlugs[0],
-                          lookup: "EXACT",
-                          value: filter.parcel,
-                        },
-                      ],
-                    },
-                    municipality: {
-                      hasAnswer: [
-                        {
-                          question: "gemeinde",
-                          value: filter.municipality,
-                          lookup: "EXACT",
-                        },
-                      ],
-                    },
-                    appeal: {
-                      metaValue: [
-                        {
-                          key: "is-appeal",
-                          lookup: "EXACT",
-                          value: true,
-                        },
-                      ],
-                      invert: filter.appeal !== "1",
-                    },
-                  }
-                : {}),
-    };
+    const availableFilterSet = getCalumaFilters(
+      this.args.filter,
+      this.args.casesBackend,
+    );
 
     const searchFilters = Object.entries(filter)
       .filter(
@@ -365,6 +119,7 @@ export default class CaseTableComponent extends Component {
     const excludeWorkflow = this.args.excludeWorkflow;
     return [
       { excludeChildCases: true },
+      { metaHasKey: "camac-instance-id" },
       ...searchFilters,
       ...(workflow ? [{ workflow }] : []),
       ...(excludeWorkflow ? [{ workflow: excludeWorkflow, invert: true }] : []),
@@ -372,87 +127,7 @@ export default class CaseTableComponent extends Component {
   }
 
   get camacFilter() {
-    const filters = {
-      instance_state:
-        this.args.filter.instanceState || this.args.instanceStates || "",
-      service: this.args.filter.service || this.args.filter.serviceSZ,
-      responsible_service_user: this.args.filter.responsibleServiceUser,
-      responsible_service: this.args.filter.responsibleMunicipality,
-      ...(macroCondition(getOwnConfig().application === "sz")
-        ? {
-            address_sz: this.args.filter.address,
-            plot_sz: this.args.filter.parcel,
-            builder_sz: this.args.filter.builder,
-            landowner_sz: this.args.filter.landowner,
-            applicant_sz: this.args.filter.applicant,
-            submit_date_after_sz: this.args.filter.submitDateAfter,
-            submit_date_before_sz: this.args.filter.submitDateBefore,
-            form_name_versioned: this.args.filter.type,
-            objection_received: this.args.filter.objectionReceived,
-            construction_zone_location_sz:
-              this.args.filter.constructionZoneLocation,
-            identifier: this.args.filter.instanceIdentifier || "",
-            ...(this.args.casesBackend === "camac-ng"
-              ? { intent_sz: this.args.filter.intent }
-              : {}),
-            keyword_search: this.args.filter.keywordSearch,
-            location: this.args.filter.municipality,
-            caluma_keyword_search: this.args.filter.calumaKeywordSearch,
-          }
-        : macroCondition(getOwnConfig().application === "ur")
-          ? {
-              circulation_state: this.args.hasActivation
-                ? caseTableConfig.activeCirculationStates
-                : null,
-              has_pending_billing_entry: this.args.hasPendingBillingEntry,
-              has_pending_sanction: this.args.hasPendingSanction,
-              pending_sanctions_control_instance:
-                this.args.filter.pendingSanctionsControlInstance,
-              with_cantonal_participation:
-                this.args.filter.withCantonalParticipation,
-              is_paper: this.args.filter.paper,
-              oereb_legal_state: this.args.filter.legalStateOereb,
-              location: this.args.filter.municipality,
-            }
-          : macroCondition(getOwnConfig().application === "be")
-            ? {
-                tags: this.args.filter.keywords,
-                is_paper: this.args.filter.paper,
-                is_modification: this.args.filter.modification,
-                inquiry_state: this.args.filter.inquiryState,
-                decision_date_before: this.args.filter.decisionDateBefore,
-                decision_date_after: this.args.filter.decisionDateAfter,
-                decision: this.args.filter.decision,
-                inquiry_created_before: this.args.filter.inquiryCreatedBefore,
-                inquiry_created_after: this.args.filter.inquiryCreatedAfter,
-                inquiry_completed_before:
-                  this.args.filter.inquiryCompletedBefore,
-                inquiry_completed_after: this.args.filter.inquiryCompletedAfter,
-                inquiry_answer: this.args.filter.inquiryAnswer,
-              }
-            : macroCondition(getOwnConfig().application === "gr")
-              ? {
-                  keywords: this.args.filter.keywords,
-                  decision: this.args.filter.decision,
-                  inquiry_created_before: this.args.filter.inquiryCreatedBefore,
-                  inquiry_created_after: this.args.filter.inquiryCreatedAfter,
-                  inquiry_completed_before:
-                    this.args.filter.inquiryCompletedBefore,
-                  inquiry_completed_after:
-                    this.args.filter.inquiryCompletedAfter,
-                  is_paper: this.args.filter.paper,
-                  inquiry_state: this.args.filter.inquiryState,
-                  inquiry_answer: this.args.filter.inquiryAnswer,
-                }
-              : macroCondition(getOwnConfig().application === "so")
-                ? {
-                    keywords: this.args.filter.keywords,
-                    is_paper: this.args.filter.paper,
-                    decision: this.args.filter.decision,
-                  }
-                : {}),
-    };
-
+    const filters = getCamacFilters(this.args);
     return {
       "x-camac-filters": Object.entries(filters)
         .filter(([, value]) => ![null, undefined, ""].includes(value))
@@ -544,16 +219,20 @@ export default class CaseTableComponent extends Component {
   async redirectToCase(caseRecord) {
     const instanceId = caseRecord.instanceId;
 
-    let redirectToPortal =
-      caseRecord.instance.isPaper &&
+    const isNewCase =
       parseInt(caseRecord.instance.get("instanceState.id")) ===
-        parseInt(mainConfig.instanceStates?.new);
+      parseInt(mainConfig.instanceStates?.new);
 
+    let redirectToPortal = caseRecord.instance.isPaper && isNewCase;
     if (hasFeature("permissions.municipalityBeforeSubmission")) {
       redirectToPortal ||= await this.permissions.hasAny(
         instanceId,
         "redirect-to-portal",
       );
+    }
+
+    if (hasFeature("internalCaseCreation")) {
+      redirectToPortal = false;
     }
 
     let url = `/index/redirect-to-instance-resource/instance-id/${instanceId}/`;

@@ -14,13 +14,13 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 0 überfällige Aufgaben
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
@@ -46,7 +46,7 @@
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
@@ -56,11 +56,11 @@
         
         Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
         
-        - 0 tâches de contrôle en retard
-        - 1 tâche de contrôle non lue
         - 0 tâches en retard
+        - 1 tâche non lue
+        - 0 tâches de contrôle en retard
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
@@ -78,20 +78,20 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 0 überfällige Aufgaben
         - 1 ungelesene Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -101,13 +101,13 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 0 überfällige Aufgaben
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
@@ -123,13 +123,13 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 0 überfällige Aufgaben
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
@@ -147,33 +147,33 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 0 überfällige Aufgaben
         - 1 ungelesene Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
-        - 0 tâches de contrôle en retard
-        - 1 tâche de contrôle non lue
+        - 0 tâches en retard
+        - 1 tâche non lue
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -189,7 +189,7 @@
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
@@ -199,11 +199,11 @@
         
         Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
         
-        - 0 tâches de contrôle en retard
-        - 1 tâche de contrôle non lue
         - 0 tâches en retard
+        - 1 tâche non lue
+        - 0 tâches de contrôle en retard
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
@@ -225,7 +225,7 @@
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
@@ -235,11 +235,11 @@
         
         Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
         
-        - 0 tâches de contrôle en retard
-        - 1 tâche de contrôle non lue
         - 0 tâches en retard
+        - 1 tâche non lue
+        - 0 tâches de contrôle en retard
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
@@ -257,20 +257,20 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 0 ungelesene Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -280,13 +280,13 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 0 ungelesene Aufgaben
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
@@ -304,33 +304,33 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 0 ungelesene Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
-        - 1 tâche de contrôle en retard
-        - 0 tâches de contrôle non lues
+        - 1 tâche en retard
+        - 0 tâches non lues
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -346,7 +346,7 @@
         - 0 ungelesene Aufgaben
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
@@ -356,11 +356,11 @@
         
         Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
         
-        - 1 tâche de contrôle en retard
-        - 0 tâches de contrôle non lues
-        - 0 tâches en retard
+        - 1 tâche en retard
+        - 0 tâches non lues
+        - 0 tâches de contrôle en retard
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
@@ -378,20 +378,20 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 0 ungelesene Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -403,33 +403,33 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 0 ungelesene Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
-        - 1 tâche de contrôle en retard
-        - 0 tâches de contrôle non lues
+        - 1 tâche en retard
+        - 0 tâches non lues
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -441,20 +441,20 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -464,13 +464,13 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
@@ -486,13 +486,13 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
@@ -510,33 +510,33 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
-        - 1 tâche de contrôle en retard
-        - 1 tâche de contrôle non lue
+        - 1 tâche en retard
+        - 1 tâche non lue
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -552,7 +552,7 @@
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
@@ -562,11 +562,11 @@
         
         Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
         
-        - 1 tâche de contrôle en retard
-        - 1 tâche de contrôle non lue
-        - 0 tâches en retard
+        - 1 tâche en retard
+        - 1 tâche non lue
+        - 0 tâches de contrôle en retard
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
@@ -588,7 +588,7 @@
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
@@ -598,11 +598,11 @@
         
         Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
         
-        - 1 tâche de contrôle en retard
-        - 1 tâche de contrôle non lue
-        - 0 tâches en retard
+        - 1 tâche en retard
+        - 1 tâche non lue
+        - 0 tâches de contrôle en retard
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
@@ -620,20 +620,20 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -643,13 +643,13 @@
       '''
         Guten Tag
         
-        Ihre Organisation (Jeffrey Zhang) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
+        Ihre Organisation (Joyce Oconnor) hat folgende Aufgaben in eBau, welche Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
@@ -671,7 +671,7 @@
         - 0 ungelesene Aufgaben
         - 1 überfällige Controlling-Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
@@ -689,33 +689,33 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
-        - 1 tâche de contrôle en retard
-        - 1 tâche de contrôle non lue
+        - 1 tâche en retard
+        - 1 tâche non lue
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -731,7 +731,7 @@
         - 1 ungelesene Aufgabe
         - 0 überfällige Controlling-Aufgaben
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
@@ -741,11 +741,11 @@
         
         Votre organisation (Derek Wagner) a les tâches suivantes dans eBau qui requièrent une attention particulière :
         
-        - 1 tâche de contrôle en retard
-        - 1 tâche de contrôle non lue
-        - 0 tâches en retard
+        - 1 tâche en retard
+        - 1 tâche non lue
+        - 0 tâches de contrôle en retard
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
@@ -767,7 +767,7 @@
         - 0 ungelesene Aufgaben
         - 1 überfällige Controlling-Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
@@ -777,11 +777,11 @@
         
         Votre organisation (Brandi Vargas) a les tâches suivantes dans eBau qui requièrent une attention particulière :
         
-        - 0 tâches de contrôle en retard
-        - 0 tâches de contrôle non lues
-        - 1 tâche en retard
+        - 0 tâches en retard
+        - 0 tâches non lues
+        - 1 tâche de contrôle en retard
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
@@ -799,20 +799,20 @@
     tuple(
       'Erinnerung an Aufgaben',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -828,7 +828,7 @@
         - 0 ungelesene Aufgaben
         - 1 überfällige Controlling-Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
   
@@ -846,33 +846,33 @@
     tuple(
       'Erinnerung an Aufgaben / Rappel des tâches',
       '''
-        Guten Tag Rebecca Gonzalez
+        Guten Tag Heather Murphy
         
         Sie haben folgende Aufgaben in eBau, welche Ihre Aufmerksamkeit benötigen:
         
         - 1 überfällige Aufgabe
         - 1 ungelesene Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
         *** version française ***
         
-        Bonjour Rebecca Gonzalez,
+        Bonjour Heather Murphy,
         
         Vous avez les tâches suivantes dans eBau qui requièrent votre attention :
         
-        - 1 tâche de contrôle en retard
-        - 1 tâche de contrôle non lue
+        - 1 tâche en retard
+        - 1 tâche non lue
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   
       ''',
       list([
-        'fmalone@example.org',
+        'jackellis@example.com',
       ]),
       list([
       ]),
@@ -888,7 +888,7 @@
         - 0 ungelesene Aufgaben
         - 1 überfällige Controlling-Aufgabe
         
-        http://ebau.local
+        http://ebau.localhost
         
         Diese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.
         
@@ -898,11 +898,11 @@
         
         Votre organisation (Brandi Vargas) a les tâches suivantes dans eBau qui requièrent une attention particulière :
         
-        - 0 tâches de contrôle en retard
-        - 0 tâches de contrôle non lues
-        - 1 tâche en retard
+        - 0 tâches en retard
+        - 0 tâches non lues
+        - 1 tâche de contrôle en retard
         
-        http://ebau.local
+        http://ebau.localhost
         
         Ce message a été généré automatiquement, veuillez ne pas y répondre.
   

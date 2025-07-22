@@ -61,5 +61,23 @@ PARASHIFT = {
             "API_KEY": env.str("PARASHIFT_API_KEY_1204", default="ey..."),
             "CAMAC_GROUP_ID": 144,
         },
+        # Altdorf
+        "1201": {
+            "TENANT_ID": env.int("PARASHIFT_TENANT_ID_1201", default=0000),
+            "API_KEY": env.str("PARASHIFT_API_KEY_1201", default="ey..."),
+            "CAMAC_GROUP_ID": 22,
+        },
+        # Schattdorf
+        "1213": {
+            "TENANT_ID": env.int("PARASHIFT_TENANT_ID_1213", default=0000),
+            "API_KEY": env.str("PARASHIFT_API_KEY_1213", default="ey..."),
+            "CAMAC_GROUP_ID": 150,
+        },
+        # Spiringen
+        "1218": {
+            "TENANT_ID": env.int("PARASHIFT_TENANT_ID_1218", default=0000),
+            "API_KEY": env.str("PARASHIFT_API_KEY_1218", default="ey..."),
+            "CAMAC_GROUP_ID": 155,
+        },
     },
 }

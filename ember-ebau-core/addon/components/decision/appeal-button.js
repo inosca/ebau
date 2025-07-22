@@ -69,7 +69,7 @@ export default class DecisionAppealButtonComponent extends Component {
       const newInstanceId = result.data.id;
 
       this.ebauModules.redirectToInstance(newInstanceId);
-    } catch (e) {
+    } catch {
       this.notification.danger(this.intl.t("decision.appeal-error"));
     }
   }

@@ -1,4 +1,5 @@
 distribution:
+  all: "Alle"
   districts: "RSTAs"
   municipalities: "Gemeinden"
   services: "Amts- / Fachstellen"

@@ -1,7 +1,35 @@
 import re
-from typing import Any, List, Tuple
+from typing import Any, List, Tuple, Union
 
 import pyexcel_xlsx
+from caluma.caluma_workflow.models import WorkItem
+from rapidfuzz import fuzz
+
+
+def get_similar_value(
+    original_value: str,
+    expected_values: List[str],
+    similarity_score_threshold: int = 85,
+) -> Union[str, None]:
+    """Check if there's a similar expected value."""
+    similarity_scores = reversed(
+        sorted(
+            (
+                (expected_value, fuzz.ratio(original_value, expected_value))
+                for expected_value in expected_values
+            ),
+            key=lambda i: i[1],
+        )
+    )
+
+    return next(
+        (
+            expected_value
+            for expected_value, score in similarity_scores
+            if score >= similarity_score_threshold
+        ),
+        None,
+    )
 
 
 def clean_heading(value: str) -> str:
@@ -22,8 +50,20 @@ def get_worksheet_headings_and_rows(file) -> Tuple[List[str], List[dict]]:
 
     headings = [clean_heading(heading) for heading in worksheet[0]]
     rows = [
-        dict(zip(headings, [clean_value(cell) for cell in row]))
+        {
+            key: str(value) if key == "ID" else value
+            for key, value in dict(
+                zip(headings, [clean_value(cell) for cell in row])
+            ).items()
+        }
         for row in worksheet[1:]
     ]
 
     return headings, rows
+
+
+def mark_work_items_as_imported(work_items: list[WorkItem]) -> None:
+    """Mark all WorkItem's received as imported via `meta["imported"] = True`."""
+    for work_item in work_items:
+        work_item.meta = {**work_item.meta, "imported": True}
+        work_item.save()

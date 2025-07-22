@@ -21,11 +21,50 @@ from django.utils.translation import get_language
 from rest_framework.exceptions import ValidationError
 from rest_framework.filters import BaseFilterBackend
 
+from camac.caluma.models import Inquiry
 from camac.core.models import InstanceService, WorkflowEntry
 from camac.instance.models import FormField, InstanceStateT
 from camac.lookups import Any
 from camac.responsible.models import ResponsibleService
 from camac.user.models import Service, ServiceT
+
+
+def caluma_answer(slug, ref="case__document_id"):
+    return (
+        Answer.objects.filter(question_id=slug, document_id=OuterRef(ref))
+        .annotate(
+            string_value=NullIf(
+                Trim(
+                    Replace(
+                        Cast("value", output_field=CharField()),
+                        Value('"'),
+                        Value(""),
+                    )
+                ),
+                Value(""),
+            )
+        )
+        .values("string_value")[:1]
+    )
+
+
+def camac_ng_answer(name):
+    return (
+        FormField.objects.filter(instance_id=OuterRef("pk"), name=name)
+        .annotate(
+            string_value=NullIf(
+                Trim(
+                    Replace(
+                        Cast("value", output_field=CharField()),
+                        Value('"'),
+                        Value(""),
+                    )
+                ),
+                Value(""),
+            )
+        )
+        .values("string_value")[:1]
+    )
 
 
 class StringAggSubquery(Subquery):
@@ -38,6 +77,98 @@ class ConcatWS(Func):
 
 
 class InstanceExportFilterBackend(BaseFilterBackend):
+    def annotate_municipality(self):
+        return (
+            DynamicOption.objects.filter(
+                question_id="gemeinde", document_id=OuterRef("case__document_id")
+            )
+            .order_by("-created_at")
+            .values(f"label__{get_language()}")[:1]
+        )
+
+    def annotate_instance_state(self):
+        return InstanceStateT.objects.filter(
+            instance_state_id=OuterRef("instance_state_id"), language=get_language()
+        ).values("name")[:1]
+
+    def annotate_building_project(self):
+        return caluma_answer("beschreibung-bauvorhaben")
+
+    def annotate_parcels(self):
+        return StringAggSubquery(
+            Answer.objects.filter(
+                question_id="parzellennummer",
+                document__family=OuterRef("case__document_id"),
+                value__isnull=False,
+            )
+            .annotate(
+                # Return NULL if the answer is empty so this function returns
+                # the same on empty answers as on no answer at all.
+                string_value=NullIf(
+                    Trim(
+                        Replace(
+                            Cast("value", output_field=CharField()),
+                            Value('"'),
+                            Value(""),
+                        )
+                    ),
+                    Value(""),
+                ),
+            )
+            .values("string_value"),
+            column_name="string_value",
+            delimiter=", ",
+        )
+
+    def annotate_applicants(self):
+        return StringAggSubquery(
+            AnswerDocument.objects.filter(
+                answer__question_id="personalien-gesuchstellerin",
+                answer__document_id=OuterRef("case__document_id"),
+            )
+            .annotate(
+                is_juristic=Exists(
+                    Answer.objects.filter(
+                        question_id="juristische-person-gesuchstellerin",
+                        document_id=OuterRef("document_id"),
+                        value="juristische-person-gesuchstellerin-ja",
+                    )
+                ),
+                name=Case(
+                    When(
+                        is_juristic=True,
+                        then=caluma_answer(
+                            "name-juristische-person-gesuchstellerin", "document_id"
+                        ),
+                    ),
+                    default=Trim(
+                        Concat(
+                            caluma_answer("vorname-gesuchstellerin", "document_id"),
+                            Value(" "),
+                            caluma_answer("name-gesuchstellerin", "document_id"),
+                        )
+                    ),
+                ),
+            )
+            .values("name"),
+            column_name="name",
+            delimiter=", ",
+        )
+
+    def annotate_applicants_emails(self):
+        return StringAggSubquery(
+            AnswerDocument.objects.filter(
+                answer__question_id="personalien-gesuchstellerin",
+                answer__document_id=OuterRef("case__document_id"),
+            )
+            .annotate(
+                email=caluma_answer("e-mail-gesuchstellerin", "document_id"),
+            )
+            .values("email"),
+            column_name="email",
+            delimiter=", ",
+        )
+
     def filter_instances(self, request, queryset):
         instance_ids = list(
             filter(None, request.query_params.get("instance_id", "").split(","))
@@ -56,32 +187,21 @@ class InstanceExportFilterBackend(BaseFilterBackend):
         current_service = request.group.service_id
         language = get_language()
 
-        inquiries = WorkItem.objects.filter(
-            task_id=settings.DISTRIBUTION["INQUIRY_TASK"],
-            case__family__instance=OuterRef("pk"),
-        ).exclude(
-            status=[
-                WorkItem.STATUS_CANCELED,
-                WorkItem.STATUS_SUSPENDED,
-            ]
-        )
-
-        own_inquiries = inquiries.filter(
-            addressed_groups__contains=[str(current_service)]
-        )
+        inquiries = Inquiry.objects.for_instance(OuterRef("pk")).only_active()
+        own_inquiries = inquiries.addressed_to(current_service)
 
         inquiry_in_date = own_inquiries.order_by("child_case__created_at").values(
             "child_case__created_at__date"
         )[:1]
 
         inquiry_out_date = (
-            own_inquiries.filter(status=WorkItem.STATUS_COMPLETED)
+            own_inquiries.only_answered()
             .order_by("-closed_at")
             .values("closed_at__date")[:1]
         )
 
         inquiry_answer = (
-            own_inquiries.filter(status=WorkItem.STATUS_COMPLETED)
+            own_inquiries.only_answered()
             .order_by("-closed_at")
             .annotate(
                 label=Answer.objects.filter(
@@ -155,9 +275,6 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
     def filter_queryset(self, request, queryset, view):
         queryset = super().filter_queryset(request, queryset, view)
 
-        current_service = request.group.service_id
-        language = get_language()
-
         in_rsta_date = InstanceService.objects.filter(
             active=1,
             service__service_group__name="district",
@@ -184,51 +301,25 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
             closed_at__isnull=False,
         ).values("closed_at__date")[:1]
 
-        municipality = (
-            DynamicOption.objects.filter(
-                question_id="gemeinde", document_id=OuterRef("case__document_id")
-            )
-            .order_by("-created_at")
-            .values(f"label__{language}")[:1]
-        )
-
-        def answer(slug, ref="case__document_id"):
-            return (
-                Answer.objects.filter(question_id=slug, document_id=OuterRef(ref))
-                .annotate(
-                    string_value=NullIf(
-                        Trim(
-                            Replace(
-                                Cast("value", output_field=CharField()),
-                                Value('"'),
-                                Value(""),
-                            )
-                        ),
-                        Value(""),
-                    )
-                )
-                .values("string_value")[:1]
-            )
-
         # We need to put a `NullIf` function around the street and city in order
         # to filter them out properly if empty. This is needed because
         # `CONCAT_WS` always returns a string, even if all concatenated values
         # are empty.
         address = Coalesce(
-            answer("standort-migriert"),
+            caluma_answer("standort-migriert"),
             ConcatWS(
                 NullIf(
                     ConcatWS(
-                        answer("strasse-flurname"),
-                        answer("nr"),
+                        caluma_answer("strasse-flurname"),
+                        caluma_answer("nr"),
                         delimiter=" ",
                     ),
                     Value(""),
                 ),
                 NullIf(
                     ConcatWS(
-                        answer("plz-grundstueck-v3"),
-                        answer("ort-grundstueck"),
+                        caluma_answer("plz-grundstueck-v3"),
+                        caluma_answer("ort-grundstueck"),
                         delimiter=" ",
                     ),
                     Value(""),
@@ -237,92 +328,14 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
             ),
         )
 
-        parcels = StringAggSubquery(
-            Answer.objects.filter(
-                question_id="parzellennummer",
-                document__family=OuterRef("case__document_id"),
-                value__isnull=False,
-            )
-            .annotate(
-                # Return NULL if the answer is empty so this function returns
-                # the same on empty answers as on no answer at all.
-                string_value=NullIf(
-                    Trim(
-                        Replace(
-                            Cast("value", output_field=CharField()),
-                            Value('"'),
-                            Value(""),
-                        )
-                    ),
-                    Value(""),
-                ),
-            )
-            .values("string_value"),
-            column_name="string_value",
-            delimiter=", ",
-        )
-
-        building_project = answer("beschreibung-bauvorhaben")
-
-        applicants = StringAggSubquery(
-            AnswerDocument.objects.filter(
-                answer__question_id="personalien-gesuchstellerin",
-                answer__document_id=OuterRef("case__document_id"),
-            )
-            .annotate(
-                is_juristic=Exists(
-                    Answer.objects.filter(
-                        question_id="juristische-person-gesuchstellerin",
-                        document_id=OuterRef("document_id"),
-                        value="juristische-person-gesuchstellerin-ja",
-                    )
-                ),
-                name=Case(
-                    When(
-                        is_juristic=True,
-                        then=answer(
-                            "name-juristische-person-gesuchstellerin", "document_id"
-                        ),
-                    ),
-                    default=Trim(
-                        Concat(
-                            answer("vorname-gesuchstellerin", "document_id"),
-                            Value(" "),
-                            answer("name-gesuchstellerin", "document_id"),
-                        )
-                    ),
-                ),
-            )
-            .values("name"),
-            column_name="name",
-            delimiter=", ",
-        )
-
-        applicants_emails = StringAggSubquery(
-            AnswerDocument.objects.filter(
-                answer__question_id="personalien-gesuchstellerin",
-                answer__document_id=OuterRef("case__document_id"),
-            )
-            .annotate(
-                email=answer("e-mail-gesuchstellerin", "document_id"),
-            )
-            .values("email"),
-            column_name="email",
-            delimiter=", ",
-        )
-
         tag_names = StringAgg(
             Trim("tags__name"),
-            filter=Q(tags__service_id=current_service),
+            filter=Q(tags__service_id=request.group.service_id),
             ordering=Trim("tags__name"),
             distinct=True,
             delimiter=", ",
             default="",
         )
-
-        instance_state_name = InstanceStateT.objects.filter(
-            instance_state_id=OuterRef("instance_state_id"), language=language
-        ).values("name")[:1]
 
         return (
             queryset.annotate(
@@ -330,14 +343,14 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
                 decision_date=decision_date,
                 sb1_date=sb1_date,
                 sb2_date=sb2_date,
-                municipality=municipality,
+                municipality=self.annotate_municipality(),
                 address=address,
-                parcels=parcels,
+                parcels=self.annotate_parcels(),
                 tag_names=tag_names,
-                instance_state_name=instance_state_name,
-                applicants=applicants,
-                applicants_emails=applicants_emails,
-                building_project=building_project,
+                instance_state_name=self.annotate_instance_state(),
+                applicants=self.annotate_applicants(),
+                applicants_emails=self.annotate_applicants_emails(),
+                building_project=self.annotate_building_project(),
             )
             .select_related("case", "case__document", "case__document__form")
             .only(
@@ -357,32 +370,17 @@ class InstanceExportFilterBackendSZ(InstanceExportFilterBackend):
             super().filter_queryset(request, queryset, view).order_by("-identifier")
         )
 
-        def answer(name):
-            return (
-                FormField.objects.filter(instance_id=OuterRef("pk"), name=name)
-                .annotate(
-                    string_value=NullIf(
-                        Trim(
-                            Replace(
-                                Cast("value", output_field=CharField()),
-                                Value('"'),
-                                Value(""),
-                            )
-                        ),
-                        Value(""),
-                    )
-                )
-                .values("string_value")[:1]
-            )
-
-        intent = Coalesce(answer("bezeichnung-override"), answer("bezeichnung"))
+        intent = Coalesce(
+            camac_ng_answer("bezeichnung-override"),
+            camac_ng_answer("bezeichnung"),
+        )
 
         # `CONCAT_WS` always returns a string, even if all concatenated values
         # are empty.
         address = ConcatWS(
-            answer("ortsbezeichnung-des-vorhabens"),
-            answer("standort-spezialbezeichnung"),
-            answer("standort-ort"),
+            camac_ng_answer("ortsbezeichnung-des-vorhabens"),
+            camac_ng_answer("standort-spezialbezeichnung"),
+            camac_ng_answer("standort-ort"),
             delimiter=", ",
         )
 
@@ -426,3 +424,52 @@ class InstanceExportFilterBackendSZ(InstanceExportFilterBackend):
             decision_date_communal=decision_date_communal,
             decision_date_cantonal=decision_date_cantonal,
         ).select_related("form", "instance_state", "location")
+
+
+class InstanceExportFilterBackendAG(InstanceExportFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        queryset = super().filter_queryset(request, queryset, view)
+
+        decision_date = Answer.objects.filter(
+            question_id="entscheid-datum",
+            document__work_item__status=WorkItem.STATUS_COMPLETED,
+            document__work_item__case__instance=OuterRef("pk"),
+        ).values("date")[:1]
+
+        # We need to put a `NullIf` function around the street and city in order
+        # to filter them out properly if empty. This is needed because
+        # `CONCAT_WS` always returns a string, even if all concatenated values
+        # are empty.
+        address = ConcatWS(
+            NullIf(
+                caluma_answer("street-and-housenumber"),
+                Value(""),
+            ),
+            NullIf(
+                caluma_answer("ort-grundstueck"),
+                Value(""),
+            ),
+            delimiter=", ",
+        )
+
+        return (
+            queryset.annotate(
+                decision_date=decision_date,
+                address=address,
+                parcels=self.annotate_parcels(),
+                building_project=self.annotate_building_project(),
+                applicants=self.annotate_applicants(),
+                applicants_emails=self.annotate_applicants_emails(),
+                municipality=self.annotate_municipality(),
+                instance_state_name=self.annotate_instance_state(),
+            )
+            .select_related("case", "case__document", "case__document__form")
+            .only(
+                "case__family",
+                "case__meta",
+                "case__document__family",
+                "case__document__form",
+                "case__document__form__name",
+                "instance_state",
+            )
+        )

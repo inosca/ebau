@@ -1,0 +1,60 @@
+{{#if (or this.workItem.isLoading this.legalAppeals.isLoading)}}
+  <div class="uk-text-center">
+    <UkSpinner @ratio={{2}} />
+  </div>
+{{else}}
+  <table class="uk-table uk-table-striped uk-table-middle">
+    <thead>
+      <tr>
+        {{#if (this.hasColumn "date")}}
+          <th class="uk-text-nowrap">{{t "legal-appeal.receipt-date"}}</th>
+        {{/if}}
+        {{#if (this.hasColumn "title")}}
+          <th class="uk-width-small">{{t "legal-appeal.title"}}</th>
+        {{/if}}
+        {{#if (this.hasColumn "legal-claimants")}}
+          <th>{{t "legal-appeal.legal-claimants"}}</th>
+        {{/if}}
+        {{#if (this.hasColumn "withdrawn")}}
+          <th>{{t "legal-appeal.withdrawn"}}</th>
+        {{/if}}
+        {{#if (this.hasColumn "has-representative")}}
+          <th>{{t "legal-appeal.has-representative"}}</th>
+        {{/if}}
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.legalAppeals.value as |row|}}
+        <LegalAppealTable::Row
+          @legalAppeal={{row}}
+          @workItem={{this.workItem.value}}
+          @onDelete={{this.legalAppeals.retry}}
+        />
+      {{else}}
+        <tr>
+          <td colspan={{this.colspan.value}} class="uk-text-center">{{t
+              "global.empty"
+            }}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+    {{#if (await (can "edit legal-appeal" this.workItem.value))}}
+      <tfoot>
+        <tr>
+          <td colspan={{this.colspan.value}} class="uk-text-center">
+            <UkButton
+              @color="link"
+              @loading={{this.create.isRunning}}
+              @disabled={{this.create.isRunning}}
+              @onClick={{perform this.create}}
+              title={{t "legal-appeal.new"}}
+            >
+              <UkIcon @icon="plus" />
+            </UkButton>
+          </td>
+        </tr>
+      </tfoot>
+    {{/if}}
+  </table>
+{{/if}}

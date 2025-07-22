@@ -10,8 +10,21 @@ from django.core.management import call_command
 from camac.core.models import Resource
 
 
+@pytest.mark.order(1)  # Slow tests should run first
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
-def test_dump_and_load(db, application, request, resource_factory, settings, tmp_path):
+def test_dump_and_load(
+    db,
+    transactional_db,
+    application,
+    request,
+    resource_factory,
+    settings,
+    tmp_path,
+    mocker,
+):
+    # test data might contain files - we don't want thumbnails to be
+    # created here
+    mocker.patch("alexandria.core.tasks.create_thumbnail.delay")
     short_name = settings.APPLICATIONS[application]["SHORT_NAME"]
     request.getfixturevalue(f"{short_name}_dump_settings")
 
@@ -45,8 +58,15 @@ def test_dump_and_load(db, application, request, resource_factory, settings, tmp
             filename = filepath.split("/")[-1]
             test_filepath = outdir / filename
 
+            # Uncomment this if you want to update the dumps for all cantons.
+            # This can be useful if you added a new property on a model and
+            # don't want to start up all the cantons separately.
+
+            # with open(test_filepath, "r") as test_dumped, open(filepath, "w") as dumped:
+            #     dumped.write(test_dumped.read())
+
             with open(test_filepath, "r") as test_dumped, open(filepath, "r") as dumped:
                 #  verify that dump is still the same
-                assert json.load(test_dumped) == json.load(
-                    dumped
-                ), f"Dumped file '{filename}' does not match '{filepath}'"
+                assert json.load(test_dumped) == json.load(dumped), (
+                    f"Dumped file '{filename}' does not match '{filepath}'"
+                )

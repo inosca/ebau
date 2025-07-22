@@ -5,6 +5,11 @@
         <th>
           <span hidden>{{t "workItems.actions.highlight"}}</span>
         </th>
+        {{#if (has-feature "workItemList.useColorForNFD")}}
+          <th>
+            <span hidden>{{t "workItems.actions.highlightNFD"}}</span>
+          </th>
+        {{/if}}
       {{/if}}
       {{#each @columns as |column|}}
         {{#if (has-feature "workItemList.useExperimentalLayout")}}
@@ -28,6 +33,7 @@
         @highlight={{this.highlight}}
         @useLinkTo={{@useLinkTo}}
         @baseRoute={{@baseRoute}}
+        @onComplete={{@onComplete}}
       />
     {{else}}
       <tr>

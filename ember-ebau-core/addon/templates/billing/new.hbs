@@ -1,4 +1,53 @@
-<form class="uk-form-horizontal" {{on "submit" (perform this.save)}}>
+{{#if this.entryTemplates.records.length}}
+  <form class="uk-form-stacked" aria-label={{t "billing.templates.select"}}>
+    <label class="uk-form-label" for="entry-template">
+      {{t "billing.templates.info"}}
+    </label>
+    <div class="uk-grid-small" uk-grid>
+      <div class="uk-width-expand uk-form-controls">
+        <PowerSelect
+          @searchEnabled={{true}}
+          @searchField="name"
+          @allowClear={{true}}
+          @options={{this.entryTemplates.records}}
+          @selected={{this.selectedTemplate}}
+          @placeholder={{t "billing.templates.select"}}
+          @onChange={{fn (mut this.selectedTemplate)}}
+          class="uk-select"
+          data-test-templates
+          as |template|
+        >
+          {{template.name}}
+        </PowerSelect>
+      </div>
+
+      <div>
+        <UkButton
+          name="apply-template"
+          {{on "click" this.applyTemplate}}
+          @type="button"
+          @label="{{t 'billing.templates.apply'}}"
+          data-test-apply-template
+        />
+      </div>
+    </div>
+  </form>
+
+  <div class="uk-margin-top uk-margin-bottom master-data-divider" />
+{{/if}}
+
+{{#if this.selectedTemplate.hint}}
+  <div
+    class="uk-alert uk-alert-warning multi-line-text"
+    data-test-template-hint
+  >{{this.selectedTemplate.hint}}</div>
+{{/if}}
+
+<form
+  id="add-charge-entry-form"
+  class="uk-form-horizontal"
+  {{on "submit" (perform this.save)}}
+>
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold" for="text">
       {{t "billing.position"}}
@@ -15,6 +64,23 @@
       />
     </div>
   </div>
+
+  {{#if (has-feature "billing.remark")}}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="remark">
+        {{t "billing.remark"}}
+      </label>
+      <div class="uk-form-controls">
+        <Textarea
+          @value={{this.newEntry.remark}}
+          id="remark"
+          name="remark"
+          class="uk-input"
+          {{autoresize mode="height"}}
+        />
+      </div>
+    </div>
+  {{/if}}
 
   {{#if (has-feature "billing.legalBasis")}}
     <div class="uk-margin">
@@ -50,6 +116,35 @@
     </div>
   {{/if}}
 
+  {{#if
+    (and (has-feature "billing.productNumber") this.productNumbers.value.length)
+  }}
+    <div class="uk-margin">
+      <label class="uk-form-label uk-text-bold" for="product-number">
+        {{t "billing.product-number"}}
+        <span class="uk-text-danger">*</span>
+      </label>
+      <div class="uk-form-controls">
+        <select
+          class="uk-select"
+          name="product-number"
+          id="product-number"
+          required
+          {{on "change" this.update}}
+        >
+          <option selected disabled value="">
+            {{t "billing.product-number-empty"}}
+          </option>
+          {{#each this.productNumbers.value as |productNumber|}}
+            <option value={{productNumber.number}}>
+              {{productNumber.name}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+  {{/if}}
+
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold" for="calculation">
       {{t "billing.calculation"}}
@@ -64,7 +159,10 @@
         {{on "change" this.update}}
       >
         {{#each this.calculations as |calculation|}}
-          <option value={{calculation}}>
+          <option
+            value={{calculation}}
+            selected={{eq this.newEntry.calculation calculation}}
+          >
             {{t (concat "billing.calculations.titles." calculation)}}
           </option>
         {{/each}}
@@ -143,15 +241,32 @@
         <span class="uk-text-danger">*</span>
       </label>
       <div class="uk-form-controls">
-        <Input
-          @type="number"
-          @value={{this.newEntry.totalCost}}
-          id="total-cost"
-          name="total-cost"
-          class="uk-input"
-          step="0.01"
-          required
-        />
+        <div class="uk-inline uk-width-1">
+          {{#if
+            (and
+              (has-feature "billing.applyConstructionCosts")
+              (eq this.newEntry.calculation "percentage")
+            )
+          }}
+            <a
+              href=""
+              class="uk-form-icon uk-form-icon-flip"
+              uk-icon="pull"
+              data-test-apply-construction-costs
+              {{uk-tooltip (t "billing.apply-construction-costs")}}
+              {{on "click" this.applyConstructionCosts.perform}}
+            ><span hidden>{{t "billing.apply-construction-costs"}}</span></a>
+          {{/if}}
+          <Input
+            @type="number"
+            @value={{this.newEntry.totalCost}}
+            id="total-cost"
+            name="total-cost"
+            class="uk-input"
+            step="0.01"
+            required
+          />
+        </div>
       </div>
     </div>
   {{/if}}
@@ -161,7 +276,7 @@
       {{t "billing.tax-mode"}}
       <span class="uk-text-danger">*</span>
     </label>
-    <div class="uk-form-controls">
+    <div class="uk-form-controls uk-flex">
       <select
         class="uk-select"
         name="tax-mode"
@@ -170,9 +285,18 @@
         {{on "change" this.update}}
       >
         {{#each this.taxModeOptions as |taxMode|}}
-          <option value={{taxMode.value}}>{{taxMode.label}}</option>
+          <option
+            value={{taxMode.value}}
+            selected={{eq
+              (concat this.newEntry.taxMode ":" this.newEntry.taxRate)
+              taxMode.value
+            }}
+          >{{taxMode.label}}</option>
         {{/each}}
       </select>
+      {{#if (has-feature "billing.billingType")}}
+        <CfField::Info @text={{t "billing.tax-mode-billing-type-info"}} />
+      {{/if}}
     </div>
   </div>
 
@@ -188,13 +312,18 @@
           id="organization"
           {{on "change" this.update}}
         >
-          <option value=""></option>
-          <option value="cantonal">{{t
-              "billing.organizations.cantonal"
-            }}</option>
-          <option value="municipal">{{t
-              "billing.organizations.municipal"
-            }}</option>
+          <option
+            value=""
+            selected="{{eq this.newEntry.organization null}}"
+          ></option>
+          <option
+            value="cantonal"
+            selected="{{eq this.newEntry.organization 'cantonal'}}"
+          >{{t "billing.organizations.cantonal"}}</option>
+          <option
+            value="municipal"
+            selected="{{eq this.newEntry.organization 'municipal'}}"
+          >{{t "billing.organizations.municipal"}}</option>
         </select>
       </div>
     </div>
@@ -214,10 +343,11 @@
           required
           {{on "change" this.update}}
         >
-          {{#each (array "by_authority" "forwarded" "direct") as |type|}}
-            <option value={{type}}>{{t
-                (concat "billing.billing-types." type)
-              }}</option>
+          {{#each this.billingTypes as |type|}}
+            <option
+              value={{type}}
+              selected={{eq this.newEntry.billingType type}}
+            >{{t (concat "billing.billing-types." type)}}</option>
           {{/each}}
         </select>
         <CfField::Info @text={{t "billing.billing-type-info"}} />

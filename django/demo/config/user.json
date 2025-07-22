@@ -403,6 +403,7 @@
     "model": "user.service",
     "pk": 2,
     "fields": {
+      "slug": null,
       "service_group": 2,
       "service_parent": null,
       "name": null,
@@ -418,6 +419,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -425,6 +427,7 @@
     "model": "user.service",
     "pk": 20032,
     "fields": {
+      "slug": null,
       "service_group": 1,
       "service_parent": null,
       "name": null,
@@ -440,6 +443,7 @@
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
+      "department": null,
       "external_identifier": null
     }
   },
@@ -447,6 +451,7 @@
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
+      "slug": null,
       "name": "service",
       "sort": null
     }
@@ -455,6 +460,7 @@
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
+      "slug": null,
       "name": "municipality",
       "sort": null
     }
@@ -485,7 +491,8 @@
       "language": "de",
       "name": "Leitbehörde Burgdorf",
       "description": "Leitbehörde Burgdorf",
-      "city": "Burgdorf"
+      "city": "Burgdorf",
+      "department": null
     }
   },
   {
@@ -496,7 +503,8 @@
       "language": "de",
       "name": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
       "description": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
+      "city": "Bern",
+      "department": null
     }
   },
   {
@@ -507,7 +515,8 @@
       "language": "fr",
       "name": "Autorité directrice Burgdorf",
       "description": "Leitbehörde Burgdorf",
-      "city": "Burgdorf"
+      "city": "Burgdorf",
+      "department": null
     }
   },
   {
@@ -518,7 +527,8 @@
       "language": "fr",
       "name": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
       "description": "Amt für Gemeinden und Raumordnung - Abteilung Bauen",
-      "city": "Bern"
+      "city": "Bern",
+      "department": null
     }
   }
 ]
