@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+:root {
+  --black: black;
+  --red: $global-primary-background;
+}
+
+html.login-pf {
+  background: white;
+  font-family: "Roboto", sans-serif !important;
+}
+
+.login-pf body {
+  background: white;
+  font-family: "Roboto", sans-serif !important;
+}
+
+.login-pf-page-header {
+  margin-bottom: 15px !important;
+}
+
+#kc-header-wrapper {
+  font-family: "Montserrat", "Arial", "Helvetica", sans-serif;
+  font-size: 29px;
+  color: #006666;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+.card-pf {
+  border-radius: 10px;
+  border-top: none;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  /* Firefox 3.5 - 3.6 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.login-pf-header h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.alert-error {
+  color: #a63c3a !important;
+}
+
+.alert-warning {
+  color: #cf943f !important;
+}
+
+.alert-success {
+  color: #9ac400 !important;
+}
+
+.login-with-mail-confirmation {
+  margin-bottom: 1em;
+}
+
+.pf-c-button {
+  --pf-c-button--m-primary--BackgroundColor: #006666;
+  --pf-c-button--m-primary--hover--BackgroundColor: #008080;
+  --pf-c-button--m-primary--focus--BackgroundColor: #008080;
+}
+
+.pf-c-button.pf-m-primary {
+  --pf-c-button--m-primary--BackgroundColor: #006666;
+  --pf-c-button--m-primary--hover--BackgroundColor: #008080;
+  --pf-c-button--m-primary--focus--BackgroundColor: #008080;
+  --pf-c-button--m-primary--Color: white;
+  color: white !important;
+}
+
+.select-auth-box-headline {
+  font-size: 1rem;
+}
+
+.select-auth-box-desc {
+  font-size: 0.8rem;
+}
+
+.select-auth-box-parent {
+  margin-left: -50px;
+  margin-right: -50px;
+}
+
+.select-auth-box-parent:first-child {
+  border-top: none;
+}
+
+/*# sourceMappingURL=template-styles.css.map */
