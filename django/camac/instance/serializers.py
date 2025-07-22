@@ -23,6 +23,7 @@ from generic_permissions.visibilities import (
 from rest_framework import exceptions, response, status
 from rest_framework_json_api import relations, serializers
 
+from camac import request_cache
 from camac.caluma.api import CalumaApi
 from camac.caluma.models import Inquiry
 from camac.constants import kt_uri as uri_constants
@@ -1253,14 +1254,14 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def get_master_data(self, case):
-        request = self.context["request"]
-        if not hasattr(request, "_master_data_cache"):
-            request._master_data_cache = {}
+        master_data_cache = request_cache.get_or_set(
+            self.context["request"], "_master_data_cache", {}
+        )
 
-        if case.pk not in request._master_data_cache:
-            request._master_data_cache[case.pk] = MasterData(case)
+        if case.pk not in master_data_cache:
+            master_data_cache[case.pk] = MasterData(case)
 
-        return request._master_data_cache[case.pk]
+        return master_data_cache[case.pk]
 
     def _create_history_entry(self, text):
         create_history_entry(self.instance, self.context["request"].user, text)
@@ -2700,16 +2701,15 @@ class PublicCalumaInstanceSerializer(serializers.Serializer):
 
     def get_master_data(self, case):
         request = self.context["request"]
-        if not hasattr(request, "_master_data_cache"):
-            request._master_data_cache = {}
+        master_data_cache = request_cache.get_or_set(request, "_master_data_cache", {})
 
-        if case.pk not in request._master_data_cache:
+        if case.pk not in master_data_cache:
             if multi_masterdata := getattr(request, "_masterdata", None):
-                request._master_data_cache[case.pk] = multi_masterdata.for_case(case)
+                master_data_cache[case.pk] = multi_masterdata.for_case(case)
             else:  # pragma: no cover
-                request._master_data_cache[case.pk] = MasterData(case)
+                master_data_cache[case.pk] = MasterData(case)
 
-        return request._master_data_cache[case.pk]
+        return master_data_cache[case.pk]
 
     def get_municipality(self, case):
         return self.get_master_data(case).municipality_name
