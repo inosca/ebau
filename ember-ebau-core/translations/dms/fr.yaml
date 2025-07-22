@@ -9,7 +9,7 @@ dms:
   inheritedUncategorized: "Modèles supérieurs (non catégorisé)"
   shared: "partagé"
   sharedTemplates: "Modèles partagés"
-  sharedTemplatesInfo: "Ces modèles sont disponibles pour les organisations de type {serviceGroup}."
+  sharedTemplatesInfo: "Ces modèles sont disponibles pour les organisations du type {serviceGroup}."
   sharedUncategorized: "Modèles partagés (non catégorisé)"
   merge-and-save: "Déposer le document"
   merge: "Créer un document"
