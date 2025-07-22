@@ -19,11 +19,11 @@ const UNUSED_ENVS = ENVS.filter((e) => e !== ENV).join("|");
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    storeConfigInMeta: !["ag", "be", "so"].includes(ENV),
     minifyCSS: {
       // https://github.com/clean-css/clean-css/issues/1280
       options: { level: { 1: { all: true, tidySelectors: false } } },
     },
-    storeConfigInMeta: !["so", "ag"].includes(ENV),
     "@embroider/macros": {
       setOwnConfig: {
         application: ENV,
