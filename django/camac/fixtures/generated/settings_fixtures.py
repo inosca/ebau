@@ -691,6 +691,18 @@ def gr_deadlines_settings(settings, request):
 
 
 @pytest.fixture
+def ag_deadlines_settings(settings, request):
+    """Module-specific settings for deadlines (canton AG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="deadlines",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def decision_settings(settings, request):
     """Module-specific settings for decision (default)."""
     return generate_module_settings(
