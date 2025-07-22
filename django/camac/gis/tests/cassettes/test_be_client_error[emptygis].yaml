@@ -18,7 +18,7 @@ interactions:
         xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2"
         xmlns:of_planningcadastre01_de_ms_wfs="https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer"
         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        timeStamp="2024-10-03T12:58:02Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
+        timeStamp="2025-06-16T15:30:16Z" numberMatched="0" numberReturned="0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0
         http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2
         http://schemas.opengis.net/gml/3.2.1/gml.xsd https://a4pu-www-wageo3.infra.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer
         https://www.geoservice2-test.apps.be.ch/geoservice3/services/a42geo/of_planningcadastre01_de_ms_wfs/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType"></wfs:FeatureCollection>
@@ -32,7 +32,7 @@ interactions:
       Content-Type:
       - application/xml;charset=UTF-8
       Date:
-      - Thu, 03 Oct 2024 12:58:02 GMT
+      - Mon, 16 Jun 2025 15:30:16 GMT
       Expires:
       - '-1'
       Keep-Alive:
@@ -54,9 +54,9 @@ interactions:
       host:
       - x3012app994.infra.be.ch:6443
       referer:
-      - 308446a8-744e-4bd2-983c-3d8f2b4347bb
+      - b1a2332a-3636-4531-9564-9ee4b0923731
       referrer:
-      - 308446a8-744e-4bd2-983c-3d8f2b4347bb
+      - b1a2332a-3636-4531-9564-9ee4b0923731
       response_buffer_size:
       - '8192'
       response_character_encoding:
