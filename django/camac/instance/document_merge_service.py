@@ -199,7 +199,7 @@ class DMSHandler:
                 "addressRecipient": municipality.get_trans_attr("name"),
                 "addressStreet": municipality.address,
                 "addressCityZip": clean_join(
-                    municipality.get_trans_attr("city"), municipality.zip
+                    municipality.zip, municipality.get_trans_attr("city")
                 ),
             }
             data.update(address_data)
