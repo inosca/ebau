@@ -66,7 +66,7 @@ case "$1" in
   gunicorn_k8s )
     # K8s mode: All setup (loadconfig, migrate) must be done explicitly
     # in an init task or similar
-    exec gunicorn --workers "${DJANGO_GUNICORN_WORKERS:-10}" --access-logfile - --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" --bind :"${DJANGO_SERVER_PORT:-80}" camac.wsgi_gunicorn
+    exec gunicorn --workers "${DJANGO_GUNICORN_WORKERS:-10}" --timeout "${DJANGO_GUNICORN_TIMEOUT:-90}" --access-logfile - --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" --bind :"${DJANGO_SERVER_PORT:-80}" camac.wsgi_gunicorn
     ;;
   qcluster )
     exec python manage.py qcluster --pythonpath /app/$APPLICATION

@@ -3416,6 +3416,7 @@ Q_CLUSTER = {
     "retry": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60 * 2,
     "ack_failures": True,  # discards failed tasks after timeout
     "orm": "default",
+    "poll": 1,
     "sync": env.bool("DJANGO_Q_ENABLE_SYNC", False),
 }
 

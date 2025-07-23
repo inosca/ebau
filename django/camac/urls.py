@@ -6,9 +6,10 @@ from django.urls import re_path
 from camac.caluma.views import CamacAuthenticatedGraphQLView
 from camac.swagger.views import get_swagger_view
 
+from .utils import healthz, readiness
+
 # TODO: Ensure that only the necessary routes are registered dependening on
 # settings.APPLICATION_NAME
-
 
 schema_view = get_swagger_view()
 
@@ -61,6 +62,8 @@ urlpatterns = [
     re_path(r"^django/admin/", admin.site.urls),
     re_path(r"^django/i18n/", include("django.conf.urls.i18n")),
     re_path(r"^django/oidc/", include("mozilla_django_oidc.urls")),
+    re_path(r"^healthz/", healthz, name="healthz"),
+    re_path(r"^readiness/", readiness, name="readiness"),
 ]
 
 if settings.ECH0211:  # pragma: no cover
