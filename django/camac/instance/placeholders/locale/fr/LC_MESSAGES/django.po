@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-20 13:58+0200\n"
+"POT-Creation-Date: 2025-07-23 10:10+0200\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -580,12 +580,16 @@ msgid "Type of the instance"
 msgstr "Type du dossier"
 
 #: camac/instance/placeholders/serializers.py
-msgid "MUNICIPALITY_EMAIL"
-msgstr "COMMUNE_EMAIL"
-
-#: camac/instance/placeholders/serializers.py
 msgid "MUNICIPALITY_SERVICE_CONTENT"
 msgstr "CONTENU_SERVICE_COMMUNE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Service content for the municipality"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "MUNICIPALITY_EMAIL"
+msgstr "COMMUNE_EMAIL"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Email address of the municipality"
@@ -1650,7 +1654,9 @@ msgstr "VOISINS_TOUS"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Name and address of all the neighbors"
-msgstr "Tous les voisins qui ont été répertoriés lors de la communication aux voisins et voisines"
+msgstr ""
+"Tous les voisins qui ont été répertoriés lors de la communication aux "
+"voisins et voisines"
 
 #: camac/instance/placeholders/serializers.py
 msgid "All legal submissions of the type \"objection\""
