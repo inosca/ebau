@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-27 14:31+0200\n"
+"POT-Creation-Date: 2025-07-23 10:11+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -293,7 +293,8 @@ msgid ""
 "Address suggestion accepted and address updated in form from "
 "{old_street_value} to {new_street_value}"
 msgstr ""
-"Suggerimento di indirizzo accettato e indirizzo aggiornato nel modulo da {old_street_value} a {new_street_value}"
+"Suggerimento di indirizzo accettato e indirizzo aggiornato nel modulo da "
+"{old_street_value} a {new_street_value}"
 
 #: camac/caluma/extensions/events/audit.py
 msgid "Exam skipped"
@@ -823,11 +824,12 @@ msgid "%(count)i dossiers have no document folder."
 msgstr "%(count)i Dossier senza cartella di documenti."
 
 #: camac/dossier_import/validation.py
-#, python-format
-msgid ""
-"The value %(value)s will be ignored because deletion is not supported for "
-"new dossiers."
+msgid "Existing value will be deleted"
 msgstr ""
+
+#: camac/dossier_import/validation.py
+msgid "Deletion not allowed"
+msgstr "Non è possibile cancellare"
 
 #: camac/dossier_import/validation.py
 #, fuzzy, python-format
@@ -933,6 +935,41 @@ msgstr ""
 #: camac/ech0211/send_handlers.py
 msgid "ECH Dossier submitted"
 msgstr "Dossier ECH inoltrato"
+
+#: camac/eeba_integration/client.py
+#, python-format
+msgid "Unknown action: %s"
+msgstr ""
+
+#: camac/eeba_integration/client.py
+#, python-format
+msgid "UUID is required for action: %s"
+msgstr ""
+
+#: camac/eeba_integration/client.py
+#, python-format
+msgid "Unsupported HTTP method: %s"
+msgstr ""
+
+#: camac/eeba_integration/client.py
+msgid "Failed to create resource: No integration_id returned."
+msgstr ""
+
+#: camac/eeba_integration/client.py
+msgid "Empty response received from client."
+msgstr ""
+
+#: camac/eeba_integration/client.py
+msgid "Response missing 'status' field."
+msgstr ""
+
+#: camac/eeba_integration/client.py
+msgid "Polling timed out."
+msgstr ""
+
+#: camac/eeba_integration/views.py
+msgid "You do not have permission to edit this instance."
+msgstr ""
 
 #: camac/gever/apps.py
 msgid "GEVER"

@@ -3,7 +3,6 @@ from functools import wraps
 
 import requests
 from django.http import response as http_response
-from django.utils.translation import gettext as _
 from rest_framework import status
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
@@ -39,19 +38,19 @@ def handle_eeba_client_exceptions(function):
         except (EebaHandlerServerException, EebaHandlerBadRequestException):
             raise  # pragma: no cover
         except ValueError as e:
-            logger.exception(_("Bad request error in %s: %s"), operation_name, e)
+            logger.exception(("Bad request error in %s: %s"), operation_name, e)
             raise EebaHandlerBadRequestException(
-                _("Bad request in %s: %s") % (operation_name, e)
+                ("Bad request in %s: %s") % (operation_name, e)
             ) from e
         except (requests.exceptions.RequestException, TimeoutError) as e:
-            logger.exception(_("Server error in %s: %s"), operation_name, e)
+            logger.exception(("Server error in %s: %s"), operation_name, e)
             raise EebaHandlerServerException(
-                _("Server error in %s: %s") % (operation_name, e)
+                ("Server error in %s: %s") % (operation_name, e)
             ) from e
         except Exception as e:  # pragma: no cover
-            logger.exception(_("Unexpected error in %s: %s"), operation_name, e)
+            logger.exception(("Unexpected error in %s: %s"), operation_name, e)
             raise EebaHandlerServerException(
-                _("An unexpected error occurred in %s.") % operation_name
+                ("An unexpected error occurred in %s.") % operation_name
             ) from e
 
     return wrapper
