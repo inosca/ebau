@@ -8,6 +8,10 @@ from urllib.parse import parse_qsl
 import holidays
 import requests
 from django.conf import settings
+from django.db import connections
+from django.db.utils import OperationalError
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from docxtpl import DocxTemplate
 from rest_framework import exceptions
 
@@ -115,6 +119,22 @@ def headers(info):  # pragma: todo cover
         headers["cookie"] = f"permission_mode={mode}"  # pragma: no cover
 
     return headers
+
+
+@csrf_exempt
+def healthz(request):
+    """Return simple JSON response for health checks."""
+    return JsonResponse({"status": "ok"})
+
+
+@csrf_exempt
+def readiness(request):
+    """Check DB connection for simple readiness check."""
+    try:
+        connections["default"].cursor()
+        return JsonResponse({"status": "ready"})
+    except OperationalError:
+        return JsonResponse({"status": "db not ready"}, status=503)
 
 
 def get_paper_settings(key=None):

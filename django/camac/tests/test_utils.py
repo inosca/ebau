@@ -2,6 +2,8 @@ from contextlib import nullcontext as no_exception
 from datetime import date
 
 import pytest
+from django.db.utils import OperationalError
+from django.urls import reverse
 from django_q.tasks import async_task, result
 
 from camac.settings.ebau_schema import ModuleApplicationConfig
@@ -209,3 +211,50 @@ def test_is_module_enabled():
 
     assert is_module_enabled(conf_enabled, True)
     assert not is_module_enabled(conf_not_enabled, True)
+
+
+@pytest.mark.django_db
+def test_healthz(client):
+    url = reverse("healthz")
+    response = client.get(url)
+    expected_json = {"status": "ok"}
+
+    assert response.status_code == 200
+    assert response["Content-Type"] == "application/json"
+    assert response.json() == expected_json
+
+
+@pytest.mark.django_db
+def test_readiness_endpoint_db_ready(client):
+    """Test that the readiness endpoint returns 200 OK when the database is connected."""
+    url = reverse("readiness")
+    response = client.get(url)
+    expected_json = {"status": "ready"}
+
+    assert response.status_code == 200
+    assert response["Content-Type"] == "application/json"
+    assert response.json() == expected_json
+
+
+@pytest.mark.django_db
+def test_readiness_endpoint_db_not_ready(client, mocker):
+    """
+    Test that the readiness endpoint returns 503 when the database connection fails.
+
+    We'll mock the database cursor to raise an OperationalError.
+    """
+
+    from django.db import connections
+
+    mocker.patch.object(
+        connections["default"],
+        "cursor",
+        side_effect=OperationalError("Simulated DB connection error"),
+    )
+    url = reverse("readiness")
+    response = client.get(url)
+
+    assert response.status_code == 503
+
+    expected_json = {"status": "db not ready"}
+    assert response.json() == expected_json
