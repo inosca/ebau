@@ -38,13 +38,14 @@ export default class CommunicationMessageModel extends Model {
     });
 
     if (mainConfig.documentBackend === "alexandria") {
-      const files = this.store
-        .peekAll("file")
-        .slice()
-        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      this.documentAttachmentsToSave = this.documentAttachmentsToSave.map(
-        (attachment) =>
-          files.find((file) => file.document.id === attachment)?.id,
+      this.documentAttachmentsToSave = await Promise.all(
+        this.documentAttachmentsToSave.map(async (attachment) => {
+          const document = await this.store
+            .peekAll("document")
+            .find((d) => d.id === attachment);
+
+          return (await document.latestFile.value).id;
+        }),
       );
     }
 

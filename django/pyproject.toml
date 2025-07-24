@@ -184,6 +184,7 @@ omit = [
     "camac/instance/management/commands/fix_ech_sb1.py",
     "camac/core/management/commands/fix_applicants.py",
     "camac/data_migration/*",
+    "camac/communications/management/commands/migrate_message_attachment_links.py",
     "camac/core/management/commands/migrate_rsta.py",
     "camac/core/management/commands/migrate_rejected.py",
     "camac/core/management/commands/migrate_publication.py",
