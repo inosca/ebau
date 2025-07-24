@@ -3536,6 +3536,7 @@ GEVER = load_module_settings("gever")
 RULESETS = load_module_settings("rulesets")
 EEBA_INTEGRATION = load_module_settings("eeba_integration")
 DEADLINES = load_module_settings("deadlines")
+WORK_ITEM_LIST = load_module_settings("work_item_list")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

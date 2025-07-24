@@ -1,19 +1,10 @@
 // copied from ember-caluma-portal
 
 import Service, { service } from "@ember/service";
-import { isEmpty } from "@ember/utils";
+import cleanObject from "ember-ebau-core/utils/clean-object";
 import fetch from "fetch";
 
 const CONTENT_TYPE = "application/vnd.api+json";
-
-const cleanObject = (obj) => {
-  return Object.entries(obj).reduce((clean, [key, value]) => {
-    return {
-      ...clean,
-      ...(isEmpty(value) ? {} : { [key]: value }),
-    };
-  }, {});
-};
 
 export default class FetchService extends Service {
   @service session;

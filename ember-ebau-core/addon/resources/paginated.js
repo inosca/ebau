@@ -44,7 +44,7 @@ export class PaginatedQuery extends Resource {
   }
 
   get pagination() {
-    return this.meta.pagination;
+    return this.meta?.pagination;
   }
 
   constructor(owner) {

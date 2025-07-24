@@ -1,5 +1,6 @@
 import EmberRouter from "@ember/routing/router";
 import { service } from "@ember/service";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand";
 import registerAddressAssignment from "ember-ebau-core/modules/address-assignment";
 import registerBilling from "ember-ebau-core/modules/billing";
@@ -23,6 +24,7 @@ import registerSnippets from "ember-ebau-core/modules/snippets";
 import registerSnippetsAdmin from "ember-ebau-core/modules/snippets-admin";
 import registerStaticContent from "ember-ebau-core/modules/static-content";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
+import registerWorkItemsGlobal from "ember-ebau-core/modules/work-items-global";
 
 import config from "ebau/config/environment";
 
@@ -51,7 +53,11 @@ Router.map(function () {
   this.route("protected", { path: "/" }, function () {
     // this is needed to resolve ambiguity between the global index and protected index routes
     this.route("index", { path: "/", resetNamespace });
-    this.route("work-items", { resetNamespace });
+    if (hasFeature("workItems.v2")) {
+      registerWorkItemsGlobal(this, { resetNamespace });
+    } else {
+      this.route("work-items", { resetNamespace });
+    }
     this.route("new-case", { resetNamespace });
     this.mount("ember-ebau-gwr", { as: "gwr-global", path: "/gwr" });
 

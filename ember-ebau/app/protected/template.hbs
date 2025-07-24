@@ -3,11 +3,7 @@
 {{#if this.hasSidebar}}
   {{outlet}}
 {{else}}
-  <div
-    class="uk-container
-      {{if this.expandWidth 'uk-container-large'}}
-      main-content"
-  >
+  <div class={{this.containerClasses}}>
     {{outlet}}
   </div>
 {{/if}}

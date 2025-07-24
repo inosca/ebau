@@ -2308,3 +2308,39 @@ def test_withdrawal_settings(settings, request):
         canton="test",
         disable=False,
     )
+
+
+@pytest.fixture
+def work_item_list_settings(settings, request):
+    """Module-specific settings for work item list (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="work_item_list",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_work_item_list_settings(settings, request):
+    """Disable the work item list module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="work_item_list",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def ag_work_item_list_settings(settings, request):
+    """Module-specific settings for work item list (canton AG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="work_item_list",
+        canton="kt_ag",
+        disable=False,
+    )

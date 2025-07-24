@@ -1,0 +1,84 @@
+<div class="uk-flex">
+  <div class="uk-width-expand">
+    <Filters as |Filter|>
+      <Filter.Select
+        @name="responsible"
+        @searchEnabled={{true}}
+        @searchField="label"
+        @label={{t "workItems.filters.responsible"}}
+        @options={{this.allResponsibles.value}}
+        @selected={{this.responsible}}
+        @onChange={{this.setFilter}}
+        class="uk-width-1-5"
+      />
+      <Filter.RadioButtons
+        @name="type"
+        @label={{t "workItems.filters.type"}}
+        @selected={{this.type}}
+        @options={{array
+          (hash value="all" label=(t "workItems.filters.all"))
+          (hash value="unread" label=(t "workItems.filters.unread"))
+        }}
+        @onChange={{this.setFilter}}
+      />
+
+      <Filter.RadioButtons
+        @name="status"
+        @label={{t "workItems.filters.status"}}
+        @selected={{this.status}}
+        @options={{array
+          (hash value="READY" label=(t "workItems.filters.open"))
+          (hash value="COMPLETED" label=(t "workItems.filters.closed"))
+          (hash value="SUSPENDED" label=(t "workItems.filters.suspended"))
+        }}
+        @onChange={{this.setFilter}}
+      />
+      <Filter.RadioButtons
+        @name="role"
+        @label={{t "workItems.filters.role"}}
+        @selected={{this.role}}
+        @options={{array
+          (hash value="active" label=(t "workItems.filters.active"))
+          (hash value="control" label=(t "workItems.filters.control"))
+        }}
+        @onChange={{this.setFilter}}
+      />
+      <Filter.RadioButtons
+        @name="order"
+        @label={{t "workItems.filters.order"}}
+        @selected={{this.order}}
+        @options={{array
+          (hash value="urgent" label=(t "workItems.filters.urgent"))
+          (hash value="new" label=(t "workItems.filters.new"))
+        }}
+        @onChange={{this.setFilter}}
+      />
+      <Filter.Select
+        @name="task"
+        @searchEnabled={{true}}
+        @searchField="label"
+        @label={{t "workItems.filters.task.title"}}
+        @options={{this.availableTasks}}
+        @selected={{this.task}}
+        @onChange={{this.setFilter}}
+        class="uk-width-1-3"
+      />
+    </Filters>
+
+    <WorkItemListV2
+      @highlight={{this.highlight}}
+      @workItems={{this.workItems}}
+      @columns={{this.columns}}
+      @fetchMore={{this.fetchMore}}
+      @refreshIfFilter={{this.refreshIfFilter}}
+    />
+  </div>
+
+  {{#if this.workItemListConfig.showFilterPresets}}
+    <div
+      class="uk-width-1-5 uk-flex-none uk-margin-medium-left uk-margin-small-top"
+    >
+      <WorkItemListFilterPresets @selected={{this.preset}} />
+    </div>
+  {{/if}}
+</div>
