@@ -12,13 +12,13 @@ APPLICATION_ENV=$(shell docker compose exec django bash -c 'echo $$APPLICATION_E
 APPLICATION_NAME=$(shell docker compose exec django bash -c 'echo $$APPLICATION')
 
 define set_app
-	sed 's/^\(APPLICATION=\).*$//\1$(1)/' -i .env django/.env
-	sed 's/^\(COMPOSE_FILE=\).*$//\1compose\/$(1).yml:compose\/$(1)-dev.yml/' -i .env django/.env
+	sed 's/^\(APPLICATION=\).*$//\1$(1)/' -i .env
+	sed 's/^\(COMPOSE_FILE=\).*$//\1compose\/$(1).yml:compose\/$(1)-dev.yml/' -i .env
 endef
 
 define set_profile
-	sed 's/^\(COMPOSE_PROFILES=\).*$//\1$(1)/' -i .env django/.env
-	sed 's/^\(DJANGO_CLAMD_ENABLED=\).*$//\1$(2)/' -i .env django/.env
+	sed 's/^\(COMPOSE_PROFILES=\).*$//\1$(1)/' -i .env
+	sed 's/^\(DJANGO_CLAMD_ENABLED=\).*$//\1$(2)/' -i django/.env
 endef
 
 
