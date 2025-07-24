@@ -210,7 +210,9 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         ):
             return
 
-        pending_applicants = Applicant.objects.filter(email=user.email, invitee=None)
+        pending_applicants = Applicant.objects.filter(
+            Q(invitee=None) & Q(Q(email=user.email) | Q(username=user.username))
+        )
 
         # Remove pending applicants that already have a connection to that user.
         # If we don't remove those, they will be updated in the next statement

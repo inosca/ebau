@@ -8,6 +8,7 @@
       "invitee": 1,
       "created": "2025-01-14T12:14:57.044Z",
       "email": "admin@example.com",
+      "username": "",
       "role": "ADMIN"
     }
   },
@@ -20,6 +21,7 @@
       "invitee": 1,
       "created": "2025-01-14T12:21:56.586Z",
       "email": "admin@example.com",
+      "username": "",
       "role": "ADMIN"
     }
   }

@@ -243,16 +243,24 @@ def test_authenticate_applicants(
     rf, admin_user, mocker, applicant_factory, instance_factory, clear_cache, settings
 ):
     new_email = "test@test.ch"
+    new_username = "N12345678"
+
+    admin_user.username = new_username
+    admin_user.save()
 
     instance1 = instance_factory()
     instance2 = instance_factory()
+    instance3 = instance_factory()
 
     existing_applicant = applicant_factory(instance=instance1, invitee=admin_user)
     pending_obsolete_applicant = applicant_factory(
         instance=instance1, email=new_email, invitee=None
     )
-    pending_applicant = applicant_factory(
+    pending_email_applicant = applicant_factory(
         instance=instance2, email=new_email, invitee=None
+    )
+    pending_username_applicant = applicant_factory(
+        instance=instance3, username=new_username, invitee=None
     )
 
     token_value = {
@@ -273,12 +281,16 @@ def test_authenticate_applicants(
 
     JSONWebTokenKeycloakAuthentication().authenticate(request)
 
-    assert Applicant.objects.filter(pk=existing_applicant.pk).exists()
-    assert Applicant.objects.filter(
-        pk=pending_applicant.pk, invitee=admin_user
-    ).exists()
+    existing_applicant.refresh_from_db()
+    pending_email_applicant.refresh_from_db()
+    pending_username_applicant.refresh_from_db()
 
-    assert not Applicant.objects.filter(pk=pending_obsolete_applicant.pk).exists()
+    assert existing_applicant.invitee == admin_user
+    assert pending_email_applicant.invitee == admin_user
+    assert pending_username_applicant.invitee == admin_user
+
+    with pytest.raises(Applicant.DoesNotExist):
+        pending_obsolete_applicant.refresh_from_db()
 
 
 @pytest.mark.parametrize(

@@ -28,7 +28,8 @@ class Applicant(models.Model):
         null=True,
     )
     created = models.DateTimeField(db_column="CREATED", auto_now=True)
-    email = models.EmailField(db_collation="case_insensitive")
+    email = models.EmailField(db_collation="case_insensitive", blank=True)
+    username = models.CharField(db_collation="case_insensitive", blank=True)
     role = models.CharField(
         max_length=50,
         choices=ROLE_CHOICES.choices,

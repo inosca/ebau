@@ -8,6 +8,7 @@
       "invitee": 2,
       "created": "2020-03-06T11:10:26.112Z",
       "email": "email@example.ch",
+      "username": "",
       "role": "ADMIN"
     }
   },
@@ -20,6 +21,7 @@
       "invitee": 2,
       "created": "2020-03-06T11:13:35.909Z",
       "email": "email@example.ch",
+      "username": "",
       "role": "ADMIN"
     }
   },
@@ -32,6 +34,7 @@
       "invitee": 2,
       "created": "2021-03-31T12:32:53.893Z",
       "email": "email@example.ch",
+      "username": "",
       "role": "ADMIN"
     }
   }

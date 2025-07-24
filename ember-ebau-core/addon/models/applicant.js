@@ -4,12 +4,15 @@ import Model, { attr, belongsTo } from "@ember-data/model";
 export default class Applicant extends Model {
   @service intl;
 
-  @attr("date") created;
+  @attr created;
+  @attr email;
+  @attr username;
+  @attr role;
+
   @belongsTo("instance", { inverse: "involvedApplicants", async: true })
   instance;
   @belongsTo("user", { inverse: null, async: true }) user;
   @belongsTo("user", { inverse: null, async: true }) invitee;
-  @attr role;
 
   get roleName() {
     switch (this.role) {
@@ -23,7 +26,4 @@ export default class Applicant extends Model {
         return "-";
     }
   }
-
-  // write-only
-  @attr("string") email;
 }

@@ -8,6 +8,7 @@
       "invitee": 1,
       "created": "2023-10-27T08:54:10.511Z",
       "email": "admin@example.com",
+      "username": "",
       "role": "ADMIN"
     }
   },
@@ -20,6 +21,7 @@
       "invitee": 2,
       "created": "2024-08-16T08:42:29.419Z",
       "email": "editor@example.com",
+      "username": "",
       "role": "EDITOR"
     }
   },
@@ -32,6 +34,7 @@
       "invitee": 3,
       "created": "2024-08-16T08:42:44.830Z",
       "email": "readonly@example.com",
+      "username": "",
       "role": "READ_ONLY"
     }
   },
@@ -44,6 +47,7 @@
       "invitee": 1,
       "created": "2024-09-23T11:46:59.993Z",
       "email": "admin@example.com",
+      "username": "",
       "role": "ADMIN"
     }
   }
