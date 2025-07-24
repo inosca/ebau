@@ -1,4 +1,4 @@
-import { macroCondition, getOwnConfig } from "@embroider/macros";
+import { getOwnConfig, macroCondition } from "@embroider/macros";
 
 export default {
   address: { type: "input" },
@@ -178,6 +178,13 @@ export default {
   appeal: {
     type: "select",
     options: "appealOptions",
+    valueField: "value",
+    labelField: "label",
+    showWithoutOptions: true,
+  },
+  suspended: {
+    type: "select",
+    options: "suspensionOptions",
     valueField: "value",
     labelField: "label",
     showWithoutOptions: true,

@@ -18,7 +18,8 @@ from camac.applicants.models import Applicant
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
-from camac.instance.models import FormField, InstanceGroup, InstanceState
+from camac.instance.filters import CaseSuspendedFilter
+from camac.instance.models import FormField, Instance, InstanceGroup, InstanceState
 from camac.permissions import api as permissions_api
 from camac.permissions.events import Trigger
 from camac.permissions.models import InstanceACL
@@ -2435,3 +2436,135 @@ def test_responsible_building_commission(
     mocker.patch.object(ur_instance, "municipality", municipality)
 
     assert ur_instance.responsible_building_commission == building_commission
+
+
+@pytest.mark.parametrize(
+    "suspended_for,search,expected",
+    [
+        ("none", None, 1),
+        ("none", "0", 1),
+        ("none", "1", 0),
+        ("self", None, 1),
+        ("self", "0", 0),
+        ("self", "1", 1),
+        ("other", None, 1),
+        ("other", "0", 1),
+        ("other", "1", 0),
+    ],
+)
+def test_case_suspended_filter_gr(
+    db,
+    service_factory,
+    group_factory,
+    gr_instance,
+    suspended_for,
+    search,
+    expected,
+    rf,
+    mocker,
+    set_application_gr,
+):
+    service = service_factory()
+    group = group_factory(service=service)
+    other_service_1 = service_factory()
+    other_service_2 = service_factory()
+
+    if suspended_for == "none":
+        gr_instance.case.meta = {}
+    elif suspended_for == "self":
+        gr_instance.case.meta = {"suspended-services": [str(service.pk)]}
+    else:
+        gr_instance.case.meta = {
+            "suspended-services": [str(other_service_1.pk), str(other_service_2.pk)]
+        }
+    gr_instance.case.save()
+
+    request = rf.request()
+    request.group = group
+
+    suspended_filter = CaseSuspendedFilter()
+    parent_mock = mocker.MagicMock()
+    parent_mock.request = request
+    suspended_filter.parent = parent_mock
+
+    queryset = suspended_filter.filter(queryset=Instance.objects.all(), value=search)
+
+    cases_result = queryset.all()
+    assert len(cases_result) == expected
+
+
+@pytest.mark.parametrize(
+    "service_group_name,suspended_for,search,expected",
+    [
+        # filter logic for municipality, or parent service
+        ("municipality", "none", "0", 1),
+        ("municipality", "none", "1", 0),
+        ("municipality", "self", "0", 0),
+        ("municipality", "self", "1", 1),
+        ("municipality", "other", "0", 1),
+        ("municipality", "other", "1", 0),
+        ("municipality", "parent", "0", 0),
+        ("municipality", "parent", "1", 1),
+        # service cantonal ignores self and other suspensions
+        ("service-cantonal", "none", "0", 1),
+        ("service-cantonal", "none", "1", 0),
+        ("service-cantonal", "self", "0", 1),
+        ("service-cantonal", "self", "1", 0),
+        ("service-cantonal", "other", "0", 1),
+        ("service-cantonal", "other", "1", 0),
+        # service cantonal does filter for afb suspension
+        ("service-cantonal", "afb", "0", 0),
+        ("service-cantonal", "afb", "1", 1),
+        # other services can filter for parent service suspensions
+        ("service", "parent", "0", 0),
+        ("service", "parent", "1", 1),
+    ],
+)
+def test_case_suspended_filter_ag(
+    db,
+    service_factory,
+    group_factory,
+    ag_instance,
+    service_group_name,
+    suspended_for,
+    search,
+    expected,
+    rf,
+    mocker,
+    set_application_ag,
+):
+    service = service_factory(service_group__slug=service_group_name)
+    group = group_factory(service=service)
+    other_service_1 = service_factory()
+    other_service_2 = service_factory()
+    service_afb = service_factory(service_group__slug="service-afb", slug="afb")
+
+    if suspended_for == "none":
+        ag_instance.case.meta = {}
+    elif suspended_for == "self":
+        ag_instance.case.meta = {"suspended-services": [str(service.pk)]}
+    elif suspended_for == "afb":
+        ag_instance.case.meta = {"suspended-services": [str(service_afb.pk)]}
+    elif suspended_for == "parent":
+        service_parent = service_factory()
+        service.service_parent = service_parent
+        service.save()
+        ag_instance.case.meta = {"suspended-services": [str(service_parent.pk)]}
+    else:
+        ag_instance.case.meta = {
+            "suspended-services": [str(other_service_1.pk), str(other_service_2.pk)]
+        }
+    ag_instance.case.save()
+
+    request = rf.request()
+    request.group = group
+
+    suspended_filter = CaseSuspendedFilter()
+    parent_mock = mocker.MagicMock()
+    parent_mock.request = request
+    suspended_filter.parent = parent_mock
+
+    queryset = suspended_filter.filter(queryset=Instance.objects, value=search)
+
+    cases_result = queryset.all()
+    assert len(cases_result) == expected

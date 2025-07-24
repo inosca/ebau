@@ -37,6 +37,7 @@ from rest_framework.filters import BaseFilterBackend, OrderingFilter
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import visible_inquiries_expression
 from camac.constants import kt_uri as uri_constants
+from camac.core.utils import canton_aware
 from camac.filters import (
     CharMultiValueFilter,
     JSONFieldMultiValueFilter,
@@ -44,6 +45,7 @@ from camac.filters import (
 )
 from camac.instance.export.filters import StringAggSubquery
 from camac.instance.master_data import MasterData
+from camac.user.models import Service
 
 from ..core import models as core_models
 from ..responsible import models as responsible_models
@@ -622,6 +624,47 @@ class CalumaYesNoFilter(BooleanFilter):
         )
 
 
+class CaseSuspendedFilter(CharFilter):
+    @canton_aware
+    def get_service(self):
+        """By default the service can filter only for its own service."""
+        service = self.parent.request.group.service
+
+        return service
+
+    def get_service_ag(self):
+        """For AG, some services are allowed to filter for another service.
+
+        The AfB will filter for their own service.
+        Cantonal services will filter for the AfB service.
+        Other services will filter for their own service or the parent service
+        if there is a parent service.
+        """
+
+        service = self.parent.request.group.service
+        service_group = service.service_group.slug if service.service_group else None
+
+        if service_group == "service-cantonal":
+            return Service.objects.get(slug="afb")
+
+        return service.service_parent if service.service_parent else service
+
+    def filter(self, queryset, value):
+        if value in EMPTY_VALUES:
+            return queryset
+
+        service_id = str(self.get_service().pk)
+        if value == "0":
+            return queryset.filter(
+                Q(**{"case__meta__suspended-services__isnull": True})
+                | ~Q(**{"case__meta__suspended-services__contains": service_id})
+            )
+        else:
+            return queryset.filter(
+                Q(**{"case__meta__suspended-services__contains": service_id})
+            )
+
+
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
     identifier = CharFilter(field_name="identifier", lookup_expr="icontains")
@@ -833,6 +876,7 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
     is_modification = CalumaYesNoFilter(
         question="projektaenderung", yes="ja", no="nein"
     )
+    is_suspended = CaseSuspendedFilter()
 
     sanction_creator = NumberFilter(field_name="sanctions__service")
     sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
@@ -843,6 +887,7 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
             "is_paper",
             "is_modification",
             "caluma_keyword_search",
+            "is_suspended",
         )
 
 

@@ -121,6 +121,8 @@ cases:
     type-placeholder: ""
     type: ""
     withCantonalParticipation: ""
+    suspended: ""
+    suspended-placeholder: ""
 
   miscellaneous:
     linkInstance: ""
@@ -147,6 +149,10 @@ cases:
   paper:
     only: "Seulement les dossiers papier"
     none: "Pas de dossiers papier"
+
+  suspended:
+    only: ""
+    none: ""
 
   modification:
     only: "Seulement les modifications de projet"
