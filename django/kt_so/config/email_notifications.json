@@ -332,7 +332,7 @@
       "language": "de",
       "purpose": "Empfang Baugesuch (Gemeinde)",
       "subject": "Neu eingegangen (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nummer {{ DOSSIER_NR }}.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}).\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
