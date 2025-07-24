@@ -367,13 +367,23 @@
         <h3 class="instance-overview__action-title">
           {{t "instances.withdrawInstance"}}
         </h3>
-        <UkButton
-          @onClick={{perform this.withdrawInstance}}
-          @disabled={{this.withdrawInstance.isRunning}}
-          @loading={{this.withdrawInstance.isRunning}}
-        >
-          {{t "instances.withdrawInstance"}}
-        </UkButton>
+        {{#if this.editController.case.meta.withdrawal-requested}}
+          <p class="uk-alert-primary" uk-alert>
+            {{t "instances.withdrawalRequestedText"}}
+          </p>
+        {{else}}
+          <UkButton
+            @onClick={{perform this.withdrawInstance}}
+            @disabled={{this.withdrawInstance.isRunning}}
+            @loading={{this.withdrawInstance.isRunning}}
+          >
+            {{#if (has-feature "withdrawal.light")}}
+              {{t "instances.withdrawalRequest"}}
+            {{else}}
+              {{t "instances.withdrawInstance"}}
+            {{/if}}
+          </UkButton>
+        {{/if}}
       {{/if}}
 
       {{#if

@@ -3,6 +3,7 @@ import { service } from "@ember/service";
 import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { dropTask, task } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import { confirm } from "ember-uikit";
 
 import config from "caluma-portal/config/environment";
@@ -179,12 +180,21 @@ export default class InstancesEditIndexController extends Controller {
         method: "POST",
       });
 
-      this.notification.success(
-        this.intl.t("instances.withdrawInstanceSuccess"),
-      );
+      if (hasFeature("withdrawal.light")) {
+        this.notification.success(
+          this.intl.t("instances.withdrawalRequestedSuccess"),
+        );
 
-      yield this.router.transitionTo("instances");
-    } catch {
+        this.editController.refreshCase();
+      } else {
+        this.notification.success(
+          this.intl.t("instances.withdrawInstanceSuccess"),
+        );
+
+        yield this.router.transitionTo("instances");
+      }
+    } catch (e) {
+      console.error(e);
       this.notification.danger(this.intl.t("instances.withdrawInstanceError"));
     }
   }

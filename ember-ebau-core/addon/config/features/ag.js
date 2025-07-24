@@ -58,4 +58,7 @@ export default {
     cancel: true,
     v2: true,
   },
+  withdrawal: {
+    light: true,
+  },
 };

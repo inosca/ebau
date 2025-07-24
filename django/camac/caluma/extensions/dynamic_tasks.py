@@ -376,6 +376,10 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_submit_ag(self, case, user, prev_work_item, context):
         tasks = ["create-manual-workitems"]
 
+        # Withdrawal request is possible for non paper instances
+        if case.instance.involved_applicants.exists():
+            tasks.append("withdrawal-request")
+
         pgv_tasks = [
             "distribution",
             "publication",

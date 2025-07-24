@@ -255,7 +255,7 @@
     "model": "notification.notificationtemplate",
     "pk": 23,
     "fields": {
-      "slug": "rueckzug",
+      "slug": "rueckzug-gesuchsteller",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -266,6 +266,18 @@
   {
     "model": "notification.notificationtemplate",
     "pk": 24,
+    "fields": {
+      "slug": "rueckzug-behoerden",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 25,
     "fields": {
       "slug": "baubegleitung",
       "purpose": null,
@@ -544,11 +556,11 @@
     "pk": 23,
     "fields": {
       "template": 23,
-      "template_slug": "rueckzug",
+      "template_slug": "rueckzug-gesuchsteller",
       "language": "de",
-      "purpose": "Rückzug ausgelöst",
-      "subject": "Rückzug ausgelöst (Dossier-Nummer {{ DOSSIER_NR }})",
-      "body": "Guten Tag\n\nIn DIBA wurde das Dossier Nr. {{ DOSSIER_NR }} zurückgezogen.\n\n{{ INTERNAL_DOSSIER_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nDIBA"
+      "purpose": "Rückzug beantragt (Gesuchsteller)",
+      "subject": "Rückzug beantragt (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nSie haben den Rückzug des Dossier Nr. {{ DOSSIER_NR }} beantragt. Die Gemeinde prüft den Rückzug und kontaktiert Sie bezüglich des weiteren Vorgehens.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\nDIBA"
     }
   },
   {
@@ -556,10 +568,22 @@
     "pk": 24,
     "fields": {
       "template": 24,
+      "template_slug": "rueckzug-behoerden",
+      "language": "de",
+      "purpose": "Rückzug beantragt (Leitbehörde)",
+      "subject": "Rückzug beantragt (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nIn DIBA wurde für das Dossier Nr. {{ DOSSIER_NR }} ein Rückzug beantragt.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\nDIBA"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 25,
+    "fields": {
+      "template": 25,
       "template_slug": "baubegleitung",
       "language": "de",
       "purpose": "Baubegleitung (Gesuchsteller)",
-      "subject": "Information zur Baubegleitung (Dossier-Nummer {{ DOSSIER_NR }})",
+      "subject": "Information zur Baubegleitung (Dossier-Nr. {{ DOSSIER_NR }})",
       "body": "Guten Tag\r\n\r\nZu Ihrem Baugesuch mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ MUNICIPALITY_DE }}) ist in eBau eine Information zur Baubegleitung durch die Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen.\r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/construction-monitoring\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },

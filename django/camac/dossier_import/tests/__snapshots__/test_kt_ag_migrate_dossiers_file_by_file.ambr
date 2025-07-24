@@ -1478,6 +1478,10 @@
               "task_id": "init-additional-demand"
           },
           {
+              "status": "canceled",
+              "task_id": "withdrawal-request"
+          },
+          {
               "status": "ready",
               "task_id": "cantonal-exam"
           },
@@ -3134,6 +3138,10 @@
           {
               "status": "ready",
               "task_id": "objections"
+          },
+          {
+              "status": "ready",
+              "task_id": "withdrawal-request"
           },
           {
               "status": "skipped",
@@ -5444,6 +5452,10 @@
           {
               "status": "ready",
               "task_id": "objections"
+          },
+          {
+              "status": "ready",
+              "task_id": "withdrawal-request"
           },
           {
               "status": "skipped",

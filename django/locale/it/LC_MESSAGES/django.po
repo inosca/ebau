@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 10:11+0200\n"
+"POT-Creation-Date: 2025-07-24 19:37+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1162,6 +1162,10 @@ msgstr ""
 "Il dossier non può essere respinto fino a quando vi sono richieste di "
 "precisazioni pendenti."
 
+#: camac/instance/domain_logic/withdrawal.py
+msgid "Withdrawal not possible."
+msgstr "Ritiro non possibile."
+
 #: camac/instance/export/serializers.py
 msgid "Arrival Department"
 msgstr "Ricezione servizio"
@@ -1724,6 +1728,10 @@ msgstr "Dossier ritirato"
 #: camac/settings/modules/withdrawal.py
 msgid "Withdrawal confirmed"
 msgstr "Ritiro confermato"
+
+#: camac/settings/modules/withdrawal.py
+msgid "Withdrawal requested"
+msgstr "Richiesta di ritiro del dossier"
 
 #: camac/templates/admin/base.html
 msgid "Back to CAMAC admin"
