@@ -87,10 +87,13 @@ def start():
         application,
         app_config["compose"],
         profile,
+    )
+    django_env = config["django_env"].format(
         profile_config["clamd_enabled"],
     )
+
     write_env(env, _base)
-    write_env(env, _django)
+    write_env(django_env, _django)
     print("If you only want to start without building select [n]")
     if not run_cmd(config.get("build_cmd")):
         run_cmd(config.get("up_cmd"))

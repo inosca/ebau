@@ -39,7 +39,8 @@
       "clamd_enabled": false
     }
   },
-  "env": "UID={}\nAPPLICATION={}\nCOMPOSE_FILE={}\nCOMPOSE_PROFILES={}\nDJANGO_CLAMD_ENABLED={}\n",
+  "env": "UID={}\nAPPLICATION={}\nCOMPOSE_FILE={}\nCOMPOSE_PROFILES={}\nCOMPOSE_BAKE=False\n",
+  "django_env": "DJANGO_CLAMD_ENABLED={}\n",
   "build_cmd": "docker compose up -d --build",
   "up_cmd": "docker compose up -d"
 }
