@@ -8,6 +8,7 @@
       "invitee": 1,
       "created": "2023-07-07T07:31:31.547Z",
       "email": "admin@example.com",
+      "username": "",
       "role": "ADMIN"
     }
   },
@@ -20,6 +21,7 @@
       "invitee": 1,
       "created": "2023-10-05T08:55:20.619Z",
       "email": "admin@example.com",
+      "username": "",
       "role": "ADMIN"
     }
   },
@@ -32,6 +34,7 @@
       "invitee": 1,
       "created": "2023-11-27T09:20:09.650Z",
       "email": "admin@example.com",
+      "username": "",
       "role": "ADMIN"
     }
   },
@@ -44,6 +47,7 @@
       "invitee": 1,
       "created": "2024-05-31T10:25:34.596Z",
       "email": "admin@example.com",
+      "username": "",
       "role": "ADMIN"
     }
   },
@@ -56,6 +60,7 @@
       "invitee": 1,
       "created": "2024-05-31T10:26:28.697Z",
       "email": "admin@example.com",
+      "username": "",
       "role": "ADMIN"
     }
   },
@@ -68,6 +73,7 @@
       "invitee": 3,
       "created": "2024-08-07T15:00:02.586Z",
       "email": "editor@example.com",
+      "username": "",
       "role": "EDITOR"
     }
   },
@@ -80,6 +86,7 @@
       "invitee": 4,
       "created": "2024-08-07T15:00:09.675Z",
       "email": "readonly@example.com",
+      "username": "",
       "role": "READ_ONLY"
     }
   },
@@ -92,6 +99,7 @@
       "invitee": 3,
       "created": "2024-08-07T15:01:06.981Z",
       "email": "editor@example.com",
+      "username": "",
       "role": "EDITOR"
     }
   },
@@ -104,6 +112,7 @@
       "invitee": 3,
       "created": "2024-08-07T15:01:15.177Z",
       "email": "editor@example.com",
+      "username": "",
       "role": "EDITOR"
     }
   },
@@ -116,6 +125,7 @@
       "invitee": 3,
       "created": "2024-08-07T15:01:22.220Z",
       "email": "editor@example.com",
+      "username": "",
       "role": "EDITOR"
     }
   },
@@ -128,6 +138,7 @@
       "invitee": 3,
       "created": "2024-08-07T15:01:28.896Z",
       "email": "editor@example.com",
+      "username": "",
       "role": "EDITOR"
     }
   },
@@ -140,6 +151,7 @@
       "invitee": 4,
       "created": "2024-08-07T15:01:36.046Z",
       "email": "readonly@example.com",
+      "username": "",
       "role": "READ_ONLY"
     }
   },
@@ -152,6 +164,7 @@
       "invitee": 4,
       "created": "2024-08-07T15:01:41.283Z",
       "email": "readonly@example.com",
+      "username": "",
       "role": "READ_ONLY"
     }
   },
@@ -164,6 +177,7 @@
       "invitee": 4,
       "created": "2024-08-07T15:01:48.076Z",
       "email": "readonly@example.com",
+      "username": "",
       "role": "READ_ONLY"
     }
   },
@@ -176,6 +190,7 @@
       "invitee": 4,
       "created": "2024-08-07T15:01:56.650Z",
       "email": "readonly@example.com",
+      "username": "",
       "role": "READ_ONLY"
     }
   },
@@ -188,6 +203,7 @@
       "invitee": 1,
       "created": "2024-09-06T08:13:00.963Z",
       "email": "admin@example.com",
+      "username": "",
       "role": "ADMIN"
     }
   },
@@ -200,6 +216,7 @@
       "invitee": 3,
       "created": "2024-09-06T08:25:38.159Z",
       "email": "editor@example.com",
+      "username": "",
       "role": "EDITOR"
     }
   },
@@ -212,6 +229,7 @@
       "invitee": 4,
       "created": "2024-09-06T08:25:45.794Z",
       "email": "readonly@example.com",
+      "username": "",
       "role": "READ_ONLY"
     }
   }

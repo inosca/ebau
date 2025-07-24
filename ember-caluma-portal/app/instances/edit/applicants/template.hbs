@@ -33,7 +33,7 @@
               {{applicant.invitee.fullName}}
               <span class="uk-text-meta">({{applicant.invitee.email}})</span>
             {{else}}
-              {{applicant.email}}
+              {{or applicant.email applicant.username}}
               <span class="uk-text-meta">({{t
                   "instances.applicants.unregistered"
                 }})</span>

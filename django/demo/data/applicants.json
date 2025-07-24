@@ -8,6 +8,7 @@
       "invitee": 1,
       "created": "2022-10-06T13:46:56.845Z",
       "email": "email@example.ch",
+      "username": "",
       "role": "ADMIN"
     }
   }
