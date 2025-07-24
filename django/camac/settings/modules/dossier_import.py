@@ -100,10 +100,13 @@ DOSSIER_IMPORT = {
         "ENABLED": True,
         "USER": "Migration",
         "GROUP": "Support",
-        "WRITER_CLASS": "camac.dossier_import.config.kt_ag.dossier_writer.KtAargauDossierWriter",
-        "LOADER_CLASS": "camac.dossier_import.config.kt_ag.dossier_loader.KtAargauDossierLoader",
+        "WRITER_CLASS": "camac.dossier_import.config.kt_ag.dossier_import.dossier_writer.KtAargauDossierWriter",
+        "LOADER_CLASS": "camac.dossier_import.config.kt_ag.dossier_import.dossier_loader.KtAargauDossierLoader",
         "CALUMA_FORM": "baugesuch-migration",
         "FORM_ID": 1,
+        "MIGRATION_REPORTS_DIR": env.str(
+            "MIGRATION_REPORTS_DIR", "/app/kt_ag/migration_reports"
+        ),
         "SAP_ACCESS": {
             "enabled": False,
             "json_target_dir": "kt_ag_json",
@@ -116,6 +119,27 @@ DOSSIER_IMPORT = {
             "soap_server": "unknown",
             "soap_user": "unknown",
             "soap_password": "unknown",
+        },
+        "DOCS_MIGRATION_ENABLED": True,
+        "EBAU_DOCUMENT_CLIENT": {
+            "connection": {
+                "base_url": env.str(
+                    "EBAU_DOCUMENT_CLIENT_BASE_URL", "EBAU_DOCUMENT_CLIENT_BASE_URL"
+                ),
+                "username": env.str("EBAU_DOCUMENT_CLIENT_USERNAME", "testuser"),
+                "password": env.str("EBAU_DOCUMENT_CLIENT_PASSWORD", "testpass"),
+            },
+            "check_replication_interval_seconds": env.int(
+                "CHECK_REPLICATION_INTERVAL_SECONDS", 60
+            ),
+        },
+        "S3": {
+            "url": env.str("ALEXANDRIA_S3_ENDPOINT_URL", "http://minio:9000"),
+            "access_key": env.str("ALEXANDRIA_S3_ACCESS_KEY", "minio"),
+            "secret_key": env.str("ALEXANDRIA_S3_SECRET_KEY", "minio123"),
+            "source_bucket": env.str(
+                "EBAU_S3_MIGRATION_BUCKET_NAME", "migration-media"
+            ),
         },
     },
 }

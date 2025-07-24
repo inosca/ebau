@@ -1,6 +1,8 @@
 from dataclasses import asdict
 
-from camac.dossier_import.config.kt_ag.dossier_loader import KtAargauDossierLoader
+from camac.dossier_import.config.kt_ag.dossier_import.dossier_loader import (
+    KtAargauDossierLoader,
+)
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.tests.test_utils import to_sorted_json
 
