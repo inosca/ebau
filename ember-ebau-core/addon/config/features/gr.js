@@ -56,4 +56,7 @@ export default {
     correctForm: true,
     withdrawInstance: true,
   },
+  workItems: {
+    v2: true,
+  },
 };
