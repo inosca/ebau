@@ -18,7 +18,7 @@ TEST_IMPORT_FILE_PATH = str(
     Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/"
 )
 
-JSON_INPUT_DIR = Path(__file__).parent / "tests/data/kt_ag_json"
+JSON_INPUT_DIR: Path = Path(__file__).parent / "tests/data/kt_ag_json"
 
 
 @pytest.fixture
@@ -315,6 +315,7 @@ def setup_dossier_import_ag(
     common_fixtures_paths = [
         # list of fixtures common to all configs. e. g.:
         settings.ROOT_DIR(f"{config}/config/instance.json"),
+        settings.ROOT_DIR(f"{config}/config/alexandria_core.json"),
     ]
 
     settings.APPLICATION_NAME = config
@@ -325,5 +326,10 @@ def setup_dossier_import_ag(
     if len(fixture_paths):
         call_command("loaddata", *fixture_paths)
 
-    settings.MEDIA_ROOT = JSON_INPUT_DIR
+    # settings.MEDIA_ROOT = JSON_INPUT_DIR
     settings.DOSSIER_IMPORT["SAP_ACCESS"]["json_target_dir"] = JSON_INPUT_DIR
+    settings.DOSSIER_IMPORT["MIGRATION_REPORTS_DIR"] = JSON_INPUT_DIR / ".." / "tmp"
+    settings.DOSSIER_IMPORT["DOCS_MIGRATION_ENABLED"] = False
+    settings.DOSSIER_IMPORT["EBAU_DOCUMENT_CLIENT"][
+        "check_replication_interval_seconds"
+    ] = 1

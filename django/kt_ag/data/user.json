@@ -9778,6 +9778,30 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 81,
+    "fields": {
+      "slug": null,
+      "service_group": 2,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 81,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": "4273"
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -10733,6 +10757,18 @@
       "language": "de",
       "name": "Leitbehörde PGV",
       "description": "Leitbehörde PGV",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 81,
+    "fields": {
+      "service": 81,
+      "language": "de",
+      "name": "Gemeinde Bottenwil",
+      "description": "Gemeinde Bottenwil",
       "city": null,
       "department": null
     }

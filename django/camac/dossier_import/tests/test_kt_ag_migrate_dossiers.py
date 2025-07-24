@@ -118,13 +118,11 @@ def test_migrate_from_wrong_zip(db, setup_dossier_import_ag, snapshot):
             stdout=out,
             stderr=err,
         )
-    except ValueError:
-        pass  # expected
-
-    assert (
-        f"Cannot find 'municipalities_counts.json' toplevel in extracted {basepath}. Aborting."
-        in err.getvalue()
-    )
+    except ValueError as e:
+        assert (
+            f"Cannot find 'municipalities_counts.json' toplevel in extracted {basepath}. Aborting."
+            in str(e)
+        )
 
     for input_file in get_test_files():
         _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
@@ -137,13 +135,14 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
     dossier_id_keyword = Keyword.objects.filter(name=dossier_id)
 
     id_keyword = dossier_id_keyword.first()
-    instance_state = instance_service = keywords = case_meta = work_items = answers = (
-        None
-    )
+    user_name = group_name = instance_state = instance_service = keywords = None
+    case_meta = work_items = answers = None
 
     if id_keyword is not None:
         instance: Instance = id_keyword.instances.first()
 
+        user_name = instance.user.name
+        group_name = instance.user.groups.first().name
         instance_state = instance.instance_state.name
         instance_service = instance.responsible_service().service_id
 
@@ -163,6 +162,8 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
 
     result = to_sorted_json(
         {
+            "user": user_name,
+            "group": group_name,
             "state": instance_state,
             "service": instance_service,
             "keywords": keywords,
