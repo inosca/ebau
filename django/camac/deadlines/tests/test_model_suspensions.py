@@ -236,12 +236,15 @@ def test_suspension_list_gr(
 
 
 @pytest.mark.parametrize(
-    "access_level__slug,role__name,service_group__name,expected_count",
+    "access_level__slug,role__name,service_group__name,create_for_service,expected_count",
     [
-        ("lead-authority", "municipality-lead", "municipality", 2),
-        ("distribution-service", "service-lead", "service", 0),
-        ("distribution-service", "service-lead", ARE_SERVICE_GROUP, 0),
-        ("distribution-service", "service-lead", "service-afb", 2),
+        ("lead-authority", "municipality-lead", "municipality", "self", 2),
+        ("distribution-service", "service-lead", "service", "self", 0),
+        ("distribution-service", "service-lead", ARE_SERVICE_GROUP, "self", 0),
+        ("distribution-service", "service-lead", "service-afb", "self", 2),
+        ("distribution-service", "service-lead", "service-cantonal", "self", 0),
+        ("distribution-service", "service-lead", "service-cantonal", "afb", 2),
+        ("distribution-service", "service-lead", "service", "parent", 0),
     ],
 )
 def test_suspension_list_ag(
@@ -262,6 +265,7 @@ def test_suspension_list_ag(
     ag_deadlines_settings,
     set_application_ag,
     disable_deadline_progression,
+    create_for_service,
     mocker,
 ):
     """Test the suspension list visibility for AG."""
@@ -279,26 +283,37 @@ def test_suspension_list_ag(
         "camac.instance.models.Instance.has_inquiry",
         return_value=role.name != "municipality-lead",
     )
+    service_afb = service_factory(slug="afb", service_group__name="service-afb")
+    other_service = service_factory()
+
+    # check for who the deadline/suspensions are created
+    if create_for_service == "afb":
+        deadline_service = service_afb
+    elif create_for_service == "parent":
+        deadline_service = service_factory()
+        service.service_parent = deadline_service
+        service.save()
+    else:
+        deadline_service = service
 
     # for other instance
     deadline_other_instance = instance_deadline_factory(
-        instance=instance_factory(case=caluma_case_factory()), service=service
+        instance=instance_factory(case=caluma_case_factory()), service=deadline_service
     )
     suspension_factory.create_batch(2, deadline=deadline_other_instance)
 
     # for other service
-    other_service = service_factory()
     deadline_other_service = instance_deadline_factory(
         instance=ag_instance, service=other_service
     )
     suspension_factory.create_batch(2, deadline=deadline_other_service)
 
     # for current service/instance
-    deadline_current = instance_deadline_factory(instance=ag_instance, service=service)
-    instance_suspensions = suspension_factory.create_batch(2, deadline=deadline_current)
+    deadline = instance_deadline_factory(instance=ag_instance, service=deadline_service)
+    instance_suspensions = suspension_factory.create_batch(2, deadline=deadline)
 
     url = reverse("suspensions-list")
-    response = admin_client.get(url, {"filter[deadline]": deadline_current.pk})
+    response = admin_client.get(url, {"filter[deadline]": deadline.pk})
 
     assert response.status_code == status.HTTP_200_OK
     assert len(response.data) == expected_count
