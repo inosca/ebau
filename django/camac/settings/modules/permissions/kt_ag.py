@@ -224,7 +224,9 @@ AG_PERMISSIONS_SETTINGS = {
             ("work-items-read", MODULE_WORK_ITEMS),
             (
                 "deadlines-suspensions-read",
-                MODULE_DEADLINES_SUSPENSION,
+                MODULE_DEADLINES_SUSPENSION
+                | IsServiceGroup(["service-cantonal"])
+                | HasRole(["subservice"]),
             ),
             (
                 "deadlines-suspensions-write",

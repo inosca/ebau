@@ -15,7 +15,14 @@ class DeadlinePermissionMixin:
         return ["municipality", ARE_SERVICE_GROUP]
 
     def allowed_service_groups_ag(self):
-        """In AG, deadlines are also enabled for AfB."""
+        """
+        In AG, deadlines are also enabled for AfB.
+
+        Service-cantonal will also see the suspensions, but they query for the
+        AfB service directly.
+        Subservices will query for their parent service, and they will query
+        for their parent service directly.
+        """
         return ["municipality", "service-afb"]
 
     def has_deadline_access(self, service: Service) -> bool:
