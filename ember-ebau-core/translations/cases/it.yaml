@@ -128,6 +128,8 @@ cases:
     type-placeholder: ""
     type: "Tipo di domanda"
     withCantonalParticipation: "Con partecipazione del Cantone"
+    suspended: "Dossier sospesi"
+    suspended-placeholder: ""
 
   miscellaneous:
     linkInstance: "Collega dossier"
@@ -159,6 +161,10 @@ cases:
   paper:
     only: "Solo dossier cartacei"
     none: "Nessun dossier cartaceo"
+
+  suspended:
+    only: "Solo dossier sospesi"
+    none: "Nessun dossier sospeso"
 
   modification:
     only: "Solo modifiche di progetto"

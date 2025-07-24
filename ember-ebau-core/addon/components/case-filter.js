@@ -277,6 +277,19 @@ export default class CaseFilterComponent extends Component {
     ];
   }
 
+  get suspensionOptions() {
+    return [
+      {
+        value: "1",
+        label: this.intl.t("cases.suspended.only"),
+      },
+      {
+        value: "0",
+        label: this.intl.t("cases.suspended.none"),
+      },
+    ];
+  }
+
   legalStateOerebOptions = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: oerebLegalStateAnswersQuery },
@@ -332,7 +345,8 @@ export default class CaseFilterComponent extends Component {
 
     const activeFilters = Array.isArray(activeFiltersConfig)
       ? activeFiltersConfig
-      : (activeFiltersConfig[this.ebauModules.baseRole] ??
+      : (activeFiltersConfig[this.ebauModules.serviceGroupSlug] ??
+        activeFiltersConfig[this.ebauModules.baseRole] ??
         activeFiltersConfig.default ??
         []);
 

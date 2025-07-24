@@ -132,6 +132,8 @@ cases:
     type-placeholder: ""
     type: "Gesuchstyp"
     withCantonalParticipation: "Mit kantonaler Beteiligung"
+    suspended: "Sistierte Dossiers"
+    suspended-placeholder: ""
 
   miscellaneous:
     linkInstance: "Dossier verknüpfen"
@@ -163,6 +165,10 @@ cases:
   paper:
     only: "Nur Papierdossiers"
     none: "Keine Papierdossiers"
+
+  suspended:
+    only: "Nur Sistierte Dossiers"
+    none: "Keine Sistierten Dossiers"
 
   modification:
     only: "Nur Projektänderungen"

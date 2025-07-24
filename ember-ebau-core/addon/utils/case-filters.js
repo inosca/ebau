@@ -196,6 +196,7 @@ export function getCamacFilters({
     inquiry_completed_after: filter.inquiryCompletedAfter,
     inquiry_state: filter.inquiryState,
     inquiry_answer: filter.inquiryAnswer,
+    is_suspended: filter.suspended,
     ...(macroCondition(getOwnConfig().application === "ur")
       ? {
           location: filter.municipality,
