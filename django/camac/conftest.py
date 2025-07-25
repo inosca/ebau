@@ -1396,7 +1396,7 @@ def so_master_data_case(
     utils,
 ):
     so_instance.case.meta = {
-        "dossier-number": "2024-1",
+        "dossier-number": "2601-2024-1",
         "submit-date": "2024-02-22T13:17:08+0000",
         "is-bab": True,
     }

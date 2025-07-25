@@ -1,5 +1,8 @@
 from camac.settings.ebau_schema import ModuleConfig
-from camac.settings.modules.work_item_list_schema import WorkItemListConfig
+from camac.settings.modules.work_item_list_schema import (
+    AnnotationsConfig,
+    WorkItemListConfig,
+)
 
 WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
     default=WorkItemListConfig(),
@@ -29,5 +32,12 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                 "trigger-billing",
             ],
         },
+    ),
+    kt_so=WorkItemListConfig(
+        enabled=True,
+        annotations=AnnotationsConfig(
+            description="umschreibung-bauprojekt",
+            applicants=None,
+        ),
     ),
 )

@@ -1,5 +1,6 @@
 import { action } from "@ember/object";
 import { service } from "@ember/service";
+import { htmlSafe } from "@ember/template";
 import Model, { attr, belongsTo } from "@ember-data/model";
 
 export default class WorkItemListRowModel extends Model {
@@ -42,7 +43,9 @@ export default class WorkItemListRowModel extends Model {
   }
 
   get instance() {
-    return `${this.instanceName} (${this.specialId})`;
+    return htmlSafe(
+      `${this.instanceName} <span class="uk-text-nowrap">(${this.specialId})</span>`,
+    );
   }
 
   get closedBy() {

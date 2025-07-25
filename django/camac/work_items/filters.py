@@ -30,6 +30,7 @@ class WorkItemListRowFilterSet(FilterSet):
     role = filters.CharFilter(method="filter_role")
     task = filters.CharFilter(method="filter_task")
     unread = filters.BooleanFilter(field_name="meta__not-viewed")
+    exclude_imported = filters.BooleanFilter(method="filter_exclude_imported")
 
     def filter_preset(self, queryset, name, value):
         """Filter work item list rows by preset.
@@ -78,6 +79,15 @@ class WorkItemListRowFilterSet(FilterSet):
 
     def filter_task(self, queryset, name, value):
         return queryset.filter(Q(task_id=value) | Q(**{"meta__template-id": value}))
+
+    def filter_exclude_imported(self, queryset, name, value):
+        if value:
+            queryset = queryset.exclude(
+                meta__imported__isnull=False,
+                meta__imported=True,
+            )
+
+        return queryset
 
     class Meta:
         model = models.WorkItemListRow

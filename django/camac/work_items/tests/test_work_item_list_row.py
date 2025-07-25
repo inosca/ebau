@@ -29,22 +29,18 @@ def normalize_response(response):
 
 
 @pytest.fixture
-def work_item_list_row_factory(
-    db,
-    ag_instance,
-    caluma_work_item_factory,
-    distribution_settings,
-    service_factory,
-    user_factory,
-    work_item_list_settings,
-    ag_master_data_case,
-):
-    def wrapper(addressed=None, controlling=None, assigned=None, **kwargs):
+def work_item_list_row_factory(db, caluma_work_item_factory, service_factory, request):
+    def wrapper(canton="ag", addressed=None, controlling=None, assigned=None, **kwargs):
+        master_data_case = request.getfixturevalue(f"{canton.lower()}_master_data_case")
+
+        request.getfixturevalue(f"{canton.lower()}_distribution_settings")
+        request.getfixturevalue(f"{canton.lower()}_work_item_list_settings")
+
         addressed = addressed if addressed else service_factory()
         controlling = controlling if controlling else service_factory()
 
         return caluma_work_item_factory(
-            case=ag_instance.case,
+            case=master_data_case,
             pk=fake.uuid4(),
             deadline=date_to_deadline(date.fromisoformat(fake.date())),
             child_case=None,
@@ -85,37 +81,72 @@ def setup_work_item_list(
     work_item_list_filter_preset.work_item_templates.add(template)
     work_item_list_filter_preset.save()
 
-    work_item_list_row_factory(name="not-visible")
-    work_item_list_row_factory(
-        addressed=service,
-        meta={"not-viewed": False, "template-id": str(template.pk)},
-        name="from-template-and-read",
-    )
-    work_item_list_row_factory(name="controlling", controlling=service, task_id=task)
-    work_item_list_row_factory(name="assigned", addressed=service, assigned=user)
-    work_item_list_row_factory(
-        name="completed",
-        addressed=service,
-        status=WorkItem.STATUS_COMPLETED,
-        closed_by_user=user_factory().username,
-        closed_at=now(),
-    )
+    def wrapper(canton="ag"):
+        work_item_list_row_factory(
+            canton=canton,
+            name="not-visible",
+        )
+        work_item_list_row_factory(
+            canton=canton,
+            addressed=service,
+            meta={
+                "not-viewed": False,
+                "template-id": str(template.pk),
+                "imported": True,
+            },
+            name="from-template-and-read",
+        )
+        work_item_list_row_factory(
+            canton=canton,
+            name="controlling",
+            controlling=service,
+            task_id=task,
+        )
+        work_item_list_row_factory(
+            canton=canton,
+            name="assigned",
+            addressed=service,
+            assigned=user,
+        )
+        work_item_list_row_factory(
+            canton=canton,
+            name="completed",
+            addressed=service,
+            status=WorkItem.STATUS_COMPLETED,
+            closed_by_user=user_factory().username,
+            closed_at=now(),
+        )
 
-    return task, template, work_item_list_filter_preset
+        return task, template, work_item_list_filter_preset
+
+    return wrapper
 
 
-def test_work_item_list_row_list_no_pagination(
-    admin_client, distribution_settings, setup_work_item_list
-):
+def test_work_item_list_row_list_no_pagination(admin_client, setup_work_item_list):
+    setup_work_item_list()
     response = admin_client.get(reverse("work-item-list-row-list"))
     assert response.status_code == status.HTTP_400_BAD_REQUEST
 
 
 @pytest.mark.freeze_time("2025-07-17 14:33")
+@pytest.mark.parametrize(
+    "canton,query_count",
+    [
+        pytest.param("ag", 7, id="AG"),
+        pytest.param("so", 6, id="SO"),
+    ],
+)
 def test_work_item_list_row_list(
-    admin_client, django_assert_num_queries, setup_work_item_list, snapshot
+    admin_client,
+    canton,
+    django_assert_num_queries,
+    query_count,
+    setup_work_item_list,
+    snapshot,
 ):
-    with django_assert_num_queries(7):
+    setup_work_item_list(canton)
+
+    with django_assert_num_queries(query_count):
         response = admin_client.get(
             reverse("work-item-list-row-list"), {"page[number]": 1, "page[size]": 20}
         )
@@ -127,6 +158,16 @@ def test_work_item_list_row_list(
 @pytest.mark.parametrize(
     "filters,expected",
     [
+        (
+            {},
+            {
+                "from-template-and-read",
+                "controlling",
+                "assigned",
+                "completed",
+                "controlling",
+            },
+        ),
         ({"unread": True}, {"controlling", "assigned", "completed"}),
         ({"unread": False}, {"from-template-and-read"}),
         ({"role": "active"}, {"from-template-and-read", "assigned", "completed"}),
@@ -136,12 +177,26 @@ def test_work_item_list_row_list(
         ({"task": "template"}, {"from-template-and-read"}),
         ({"preset": "placeholder"}, {"from-template-and-read", "controlling"}),
         ({"preset": "placeholder", "task": "task"}, {"controlling"}),
+        (
+            {"exclude_imported": True},
+            {"controlling", "assigned", "completed", "controlling"},
+        ),
+        (
+            {"exclude_imported": False},
+            {
+                "from-template-and-read",
+                "controlling",
+                "assigned",
+                "completed",
+                "controlling",
+            },
+        ),
     ],
 )
 def test_work_item_list_row_list_filters(
     admin_client, expected, filters, setup_work_item_list, user
 ):
-    task, template, preset = setup_work_item_list
+    task, template, preset = setup_work_item_list()
 
     if "responsible" in filters:
         filters["responsible"] = user.username
@@ -179,6 +234,7 @@ def test_work_item_list_row_toggle_read(
     work_item_list_row_factory,
 ):
     work_item = work_item_list_row_factory(
+        canton="ag",
         addressed=service if is_addressed else None,
         controlling=None if is_addressed else service,
         status=WorkItem.STATUS_READY if is_ready else WorkItem.STATUS_COMPLETED,
@@ -223,6 +279,7 @@ def test_work_item_list_row_assign_to_me(
     work_item_list_row_factory,
 ):
     work_item = work_item_list_row_factory(
+        canton="ag",
         addressed=service if is_addressed else None,
         controlling=None if is_addressed else service,
         assigned=None if is_not_assigned else admin_user,
@@ -261,6 +318,7 @@ def test_work_item_list_row_quick_complete(
     work_item_list_row_factory,
 ):
     work_item = work_item_list_row_factory(
+        canton="ag",
         addressed=service if is_addressed else None,
         controlling=None if is_addressed else service,
         status=WorkItem.STATUS_READY if is_ready else WorkItem.STATUS_COMPLETED,

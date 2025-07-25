@@ -269,7 +269,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
             .values(f"label__{get_language()}")[:1]
         )
 
-    def _annotate_applicants(self) -> StringAggSubquery:
+    def _annotate_applicants(self) -> StringAggSubquery | Value:
         """Annotate a comma separated list of applicant names.
 
         This will sanitize and compile all applicants from the main form of a
@@ -278,6 +278,9 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         """
 
         applicants_config: PersonConfig = settings.WORK_ITEM_LIST.annotations.applicants
+
+        if applicants_config is None:
+            return Value(None, output_field=models.CharField())
 
         return StringAggSubquery(
             AnswerDocument.objects.filter(
