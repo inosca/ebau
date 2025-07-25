@@ -2220,7 +2220,7 @@ def ag_master_data_case(
     document = ag_instance.case.document
 
     utils.add_answer(document, "is-paper", "is-paper-no")
-    utils.add_answer(document, "beschreibung-bauvorhaben", "Überbauung Westfeld")
+    utils.add_answer(document, "beschreibung-bauvorhaben", 'Überbauung "Westfeld"')
     utils.add_answer(document, "beschreibung-bauvorhaben-details", "Testdossier 1")
     utils.add_answer(document, "zonenplan", "Wohnzone 2")
     utils.add_answer(document, "street-and-housenumber", "Teststrasse 12")

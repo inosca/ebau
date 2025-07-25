@@ -31,7 +31,7 @@
   					</ns1:otherID>
   					<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   				</ns1:planningPermissionApplicationIdentification>
-  				<ns1:description>Überbauung Westfeld</ns1:description>
+  				<ns1:description>Überbauung &quot;Westfeld&quot;</ns1:description>
   				<ns1:applicationType>Einfache Vorabklärung</ns1:applicationType>
   				<ns1:remark>Testdossier 1</ns1:remark>
   				<ns1:proceedingType>Ordentliches Verfahren</ns1:proceedingType>
@@ -97,7 +97,7 @@
   					<ns1:constructionProject>
   						<ns3:totalCostsOfProject>12000000</ns3:totalCostsOfProject>
   						<ns3:status>6701</ns3:status>
-  						<ns3:description>Überbauung Westfeld</ns3:description>
+  						<ns3:description>Überbauung &quot;Westfeld&quot;</ns3:description>
   						<ns3:durationOfConstructionPhase>999</ns3:durationOfConstructionPhase>
   					</ns1:constructionProject>
   					<ns1:municipality>
