@@ -291,5 +291,6 @@ omit = [
     "camac/token_exchange/management/commands/generate_dev_tokens.py",
     "camac/gever/urls.py",
     "camac/gever/views.py",
+    "camac/gis_export/management/commands/agis_export.py",
 ]
 show_missing = true
