@@ -1,6 +1,6 @@
 static-content:
-  edit: ""
-  content: ""
+  edit: "Modifier"
+  content: "Contenu"
   saveError: ""
   loadError: ""
   not-found:
