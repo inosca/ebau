@@ -723,11 +723,35 @@
           "EBPA-0219-7779"
       ],
       "service": 56,
-      "state": "new",
+      "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
               "status": "ready",
+              "task_id": "cantonal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "distribution"
+          },
+          {
+              "status": "ready",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "skipped",
               "task_id": "submit"
           }
       ]
@@ -1322,10 +1346,6 @@
       "user": "Migration",
       "work-items": [
           {
-              "status": "canceled",
-              "task_id": "init-additional-demand"
-          },
-          {
               "status": "ready",
               "task_id": "cantonal-exam"
           },
@@ -1335,11 +1355,15 @@
           },
           {
               "status": "ready",
-              "task_id": "init-construction-monitoring"
+              "task_id": "decision"
           },
           {
-              "status": "skipped",
-              "task_id": "decision"
+              "status": "ready",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
           },
           {
               "status": "skipped",
@@ -1348,10 +1372,6 @@
           {
               "status": "skipped",
               "task_id": "formal-exam"
-          },
-          {
-              "status": "skipped",
-              "task_id": "objections"
           },
           {
               "status": "skipped",
@@ -1899,20 +1919,32 @@
           "EBPA-3304-0441"
       ],
       "service": 81,
-      "state": "subm",
+      "state": "circulation",
       "user": "Migration",
       "work-items": [
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
           {
               "status": "ready",
               "task_id": "create-manual-workitems"
           },
           {
               "status": "ready",
-              "task_id": "formal-exam"
+              "task_id": "distribution"
           },
           {
               "status": "ready",
               "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
           },
           {
               "status": "skipped",
@@ -2595,20 +2627,32 @@
           "dibaext-2025-1"
       ],
       "service": 81,
-      "state": "subm",
+      "state": "circulation",
       "user": "Migration",
       "work-items": [
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
           {
               "status": "ready",
               "task_id": "create-manual-workitems"
           },
           {
               "status": "ready",
-              "task_id": "formal-exam"
+              "task_id": "distribution"
           },
           {
               "status": "ready",
               "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
           },
           {
               "status": "skipped",
@@ -3181,20 +3225,32 @@
           "EBPA-8318-3681"
       ],
       "service": 55,
-      "state": "subm",
+      "state": "circulation",
       "user": "Migration",
       "work-items": [
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
           {
               "status": "ready",
               "task_id": "create-manual-workitems"
           },
           {
               "status": "ready",
-              "task_id": "formal-exam"
+              "task_id": "distribution"
           },
           {
               "status": "ready",
               "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
           },
           {
               "status": "skipped",
@@ -4018,20 +4074,32 @@
           "EBPA-9651-5967"
       ],
       "service": 55,
-      "state": "subm",
+      "state": "circulation",
       "user": "Migration",
       "work-items": [
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
           {
               "status": "ready",
               "task_id": "create-manual-workitems"
           },
           {
               "status": "ready",
-              "task_id": "formal-exam"
+              "task_id": "distribution"
           },
           {
               "status": "ready",
               "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
           },
           {
               "status": "skipped",
@@ -4615,10 +4683,6 @@
       "user": "Migration",
       "work-items": [
           {
-              "status": "canceled",
-              "task_id": "init-additional-demand"
-          },
-          {
               "status": "ready",
               "task_id": "cantonal-exam"
           },
@@ -4628,11 +4692,15 @@
           },
           {
               "status": "ready",
-              "task_id": "init-construction-monitoring"
+              "task_id": "decision"
           },
           {
-              "status": "skipped",
-              "task_id": "decision"
+              "status": "ready",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
           },
           {
               "status": "skipped",
@@ -4641,10 +4709,6 @@
           {
               "status": "skipped",
               "task_id": "formal-exam"
-          },
-          {
-              "status": "skipped",
-              "task_id": "objections"
           },
           {
               "status": "skipped",
@@ -5192,20 +5256,32 @@
           "EBPA-3304-0441"
       ],
       "service": 81,
-      "state": "subm",
+      "state": "circulation",
       "user": "Migration",
       "work-items": [
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
           {
               "status": "ready",
               "task_id": "create-manual-workitems"
           },
           {
               "status": "ready",
-              "task_id": "formal-exam"
+              "task_id": "distribution"
           },
           {
               "status": "ready",
               "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
           },
           {
               "status": "skipped",
@@ -5888,20 +5964,32 @@
           "dibaext-2025-1"
       ],
       "service": 81,
-      "state": "subm",
+      "state": "circulation",
       "user": "Migration",
       "work-items": [
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
           {
               "status": "ready",
               "task_id": "create-manual-workitems"
           },
           {
               "status": "ready",
-              "task_id": "formal-exam"
+              "task_id": "distribution"
           },
           {
               "status": "ready",
               "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
           },
           {
               "status": "skipped",
@@ -6474,20 +6562,32 @@
           "EBPA-8318-3681"
       ],
       "service": 55,
-      "state": "subm",
+      "state": "circulation",
       "user": "Migration",
       "work-items": [
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
           {
               "status": "ready",
               "task_id": "create-manual-workitems"
           },
           {
               "status": "ready",
-              "task_id": "formal-exam"
+              "task_id": "distribution"
           },
           {
               "status": "ready",
               "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
           },
           {
               "status": "skipped",
@@ -7311,20 +7411,32 @@
           "EBPA-9651-5967"
       ],
       "service": 55,
-      "state": "subm",
+      "state": "circulation",
       "user": "Migration",
       "work-items": [
+          {
+              "status": "ready",
+              "task_id": "cantonal-exam"
+          },
           {
               "status": "ready",
               "task_id": "create-manual-workitems"
           },
           {
               "status": "ready",
-              "task_id": "formal-exam"
+              "task_id": "distribution"
           },
           {
               "status": "ready",
               "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
           },
           {
               "status": "skipped",
@@ -7946,11 +8058,35 @@
           "EBPA-0219-7779"
       ],
       "service": 56,
-      "state": "new",
+      "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
               "status": "ready",
+              "task_id": "cantonal-exam"
+          },
+          {
+              "status": "ready",
+              "task_id": "create-manual-workitems"
+          },
+          {
+              "status": "ready",
+              "task_id": "distribution"
+          },
+          {
+              "status": "ready",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "status": "ready",
+              "task_id": "objections"
+          },
+          {
+              "status": "skipped",
+              "task_id": "formal-exam"
+          },
+          {
+              "status": "skipped",
               "task_id": "submit"
           }
       ]
