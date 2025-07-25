@@ -215,7 +215,7 @@ def test_caluma_export_sz(
 
     form_field_factory(
         name="bezeichnung",
-        value="Test intent",
+        value='Test "intent"',
         instance=sz_instance,
     )
 

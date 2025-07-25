@@ -112,7 +112,7 @@
         'zip': 9895,
       }),
     ]),
-    'proposal': 'Überbauung Westfeld',
+    'proposal': 'Überbauung "Westfeld"',
     'publication_required': True,
     'remark': 'Testdossier 1',
     'street': 'Teststrasse 12',

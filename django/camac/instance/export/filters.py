@@ -10,6 +10,7 @@ from django.db.models import (
     F,
     OuterRef,
     Q,
+    QuerySet,
     Subquery,
     Value,
     When,
@@ -29,40 +30,38 @@ from camac.responsible.models import ResponsibleService
 from camac.user.models import Service, ServiceT
 
 
-def caluma_answer(slug, ref="case__document_id"):
+class JsonbText(Func):
+    """DB function to cast a JSONB field containing a string to a char field."""
+
+    template = "%(expressions)s #>> '{}'"
+    output_field = CharField()
+
+
+def caluma_answer(slug: str, ref: str = "case__document_id") -> QuerySet:
+    """Annotate the answer to a caluma question on a given document as a string.
+
+    This only works for answers to questions of the following types:
+    - Text
+    - Textarea
+    - Choice
+    - Dynamic choice (depending on what the data source uses as slug)
+    """
+
     return (
         Answer.objects.filter(question_id=slug, document_id=OuterRef(ref))
-        .annotate(
-            string_value=NullIf(
-                Trim(
-                    Replace(
-                        Cast("value", output_field=CharField()),
-                        Value('"'),
-                        Value(""),
-                    )
-                ),
-                Value(""),
-            )
-        )
+        .annotate(string_value=NullIf(Trim(JsonbText(F("value"))), Value("")))
         .values("string_value")[:1]
     )
 
 
-def camac_ng_answer(name):
+def camac_ng_answer(name: str) -> QuerySet:
+    """Annotate the answer to a camac-ng form field on an instance as a string.
+
+    This only works for form fields that save a string into the JSONB field.
+    """
     return (
         FormField.objects.filter(instance_id=OuterRef("pk"), name=name)
-        .annotate(
-            string_value=NullIf(
-                Trim(
-                    Replace(
-                        Cast("value", output_field=CharField()),
-                        Value('"'),
-                        Value(""),
-                    )
-                ),
-                Value(""),
-            )
-        )
+        .annotate(string_value=NullIf(Trim(JsonbText(F("value"))), Value("")))
         .values("string_value")[:1]
     )
 
