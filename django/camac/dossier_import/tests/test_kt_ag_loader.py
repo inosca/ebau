@@ -50,7 +50,6 @@ def test_missing_fields():
     result: Dossier = KtAargauDossierLoader.map_data({})
     assert result
     assert result.id is None
-    assert result._meta.target_state is None
     assert len(result.applicant) == 0
     assert len(result.landowner) == 0
     assert len(result.project_author) == 0
@@ -100,7 +99,8 @@ def test_all_mappings(snapshot):
             "CITY_ID": "4001",
             "ERFGRND": "Nacherfassung",
             "VERFTYP": "Ordentlich",
-            "TXT30": "Verfügung erstellt",
+            "GEMEINDE_STATUS": "Verfügung erstellt",
+            "KANTONS_STATUS": "Neues Gesuch",
             "PROFIL_KNZ": "1",
             "PROFIL_DAT": "20240213",
             "PRGUID": "",
@@ -385,6 +385,36 @@ def test_all_mappings(snapshot):
             "BKTOTAL": 1740000,
             # Weitere Angaben - Bemerkungen
             "BKGUID_TXT": "Famous last words",
+            "VERFSTAND": [
+                {
+                    "MANDT": "600",
+                    "PROCESS_ID": "ZEBP",
+                    "EXTERN_ID": "EBPA-0219-7779",
+                    "VGUID": "005056ABB4351EDD92DB92C8A93BF8A2",
+                    "VORIGIN": "S",
+                    "ACTION": "Gesuch an Kanton senden",
+                    "STEP": "Gesuch an Kanton gesendet",
+                    "TSTAMPL": 20221013095122.074,
+                    "WHOTXT": "Testautomatisierung EBP",
+                    "KOMMENTAR": "Gesuch EBPA-0219-7779 wurde an den Kanton gesendet.",
+                    "VFSTD_ID": "1500",
+                    "DOC_ID": "0000000000000000000000000",
+                },
+                {
+                    "MANDT": "600",
+                    "PROCESS_ID": "ZEBP",
+                    "EXTERN_ID": "EBPA-0219-7779",
+                    "VGUID": "005056ABB4351EDD949070992C1CD8A2",
+                    "VORIGIN": "S",
+                    "ACTION": "Dokumente an Kanton senden",
+                    "STEP": "Dokumente an Kanton gesendet",
+                    "TSTAMPL": 20221020142900.65,
+                    "WHOTXT": "EB2_AFB_02",
+                    "KOMMENTAR": "Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.",
+                    "VFSTD_ID": "1510",
+                    "DOC_ID": "0000000000000000000000000",
+                },
+            ],
         }
     )
 
