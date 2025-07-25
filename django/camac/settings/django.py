@@ -2806,6 +2806,13 @@ REQUEST_LOGGING_HTTP_4XX_LOG_LEVEL = env.str(
     "DJANGO_REQUEST_LOGGING_HTTP_4XX_LOG_LEVELS",
     default=default(logging.ERROR, logging.INFO),
 )
+DEFAULT_EXCEPTION_REPORTER_FILTER = env.str(
+    "DJANGO_DEFAULT_EXCEPTION_REPORTER_FILTER",
+    default=default(
+        "django.views.debug.SafeExceptionReporterFilter",
+        "camac.logging.CensoredExceptionReporterFilter",
+    ),
+)
 
 # Managing files
 
