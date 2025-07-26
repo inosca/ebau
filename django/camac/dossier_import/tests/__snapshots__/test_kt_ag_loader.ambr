@@ -140,14 +140,19 @@
       "description": "Dies ist eine detaillierte Beschreibung",
       "dossier_file_path": null,
       "dossier_number": null,
-      "dossier_type": [
-          {
-              "value": "Baugesuch"
-          },
-          {
-              "value": "Umweltverträglichkeitsprüfung (UVP)"
-          }
-      ],
+      "dossier_types": {
+          "abbruchgesuch": false,
+          "anfrage": false,
+          "baugesuch": true,
+          "diverses": null,
+          "pgv": null,
+          "reklamegesuch": false,
+          "rodung": false,
+          "umnutzung": false,
+          "uvp": true,
+          "vorabklaerung": null,
+          "vorentscheid": false
+      },
       "environmental_contaminated_site_affected": true,
       "environmental_energy_certificate_required": true,
       "environmental_geothermal_probes_planned": true,
@@ -622,7 +627,19 @@
       "description": null,
       "dossier_file_path": null,
       "dossier_number": null,
-      "dossier_type": [],
+      "dossier_types": {
+          "abbruchgesuch": null,
+          "anfrage": null,
+          "baugesuch": null,
+          "diverses": null,
+          "pgv": null,
+          "reklamegesuch": null,
+          "rodung": null,
+          "umnutzung": null,
+          "uvp": null,
+          "vorabklaerung": null,
+          "vorentscheid": null
+      },
       "environmental_contaminated_site_affected": null,
       "environmental_energy_certificate_required": null,
       "environmental_geothermal_probes_planned": false,
@@ -823,7 +840,19 @@
       "description": null,
       "dossier_file_path": null,
       "dossier_number": null,
-      "dossier_type": [],
+      "dossier_types": {
+          "abbruchgesuch": null,
+          "anfrage": null,
+          "baugesuch": null,
+          "diverses": null,
+          "pgv": null,
+          "reklamegesuch": null,
+          "rodung": null,
+          "umnutzung": null,
+          "uvp": null,
+          "vorabklaerung": null,
+          "vorentscheid": null
+      },
       "environmental_contaminated_site_affected": null,
       "environmental_energy_certificate_required": null,
       "environmental_geothermal_probes_planned": null,
@@ -1016,7 +1045,19 @@
       "description": null,
       "dossier_file_path": null,
       "dossier_number": null,
-      "dossier_type": [],
+      "dossier_types": {
+          "abbruchgesuch": null,
+          "anfrage": null,
+          "baugesuch": null,
+          "diverses": null,
+          "pgv": null,
+          "reklamegesuch": null,
+          "rodung": null,
+          "umnutzung": null,
+          "uvp": null,
+          "vorabklaerung": null,
+          "vorentscheid": null
+      },
       "environmental_contaminated_site_affected": null,
       "environmental_energy_certificate_required": null,
       "environmental_geothermal_probes_planned": null,
