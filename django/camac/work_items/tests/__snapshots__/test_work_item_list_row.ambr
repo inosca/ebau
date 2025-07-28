@@ -1,0 +1,212 @@
+# serializer version: 1
+# name: test_work_item_list_row_list
+  dict({
+    'data': list([
+      dict({
+        'attributes': dict({
+          'applicants': 'Cox, Carter and Tucker',
+          'closed-at': '2025-07-17T16:33:00+02:00',
+          'deadline': '1987-06-20T02:00:00+02:00',
+          'description': 'Überbauung "Westfeld"',
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              'd39c69e1-47fa-479c-ae0f-49a74c4c4b2d',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': False,
+          'municipality': 'Aarburg',
+          'special-id': '2025-1',
+          'status': 'completed',
+          'task': 'completed',
+          'unread': True,
+        }),
+        'id': 'd39c69e1-47fa-479c-ae0f-49a74c4c4b2d',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': 'Cox, Carter and Tucker',
+          'closed-at': None,
+          'deadline': '1994-07-02T02:00:00+02:00',
+          'description': 'Überbauung "Westfeld"',
+          'direct-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              'recent-who-data',
+            ]),
+            'route': 'foo.bar.baz',
+          }),
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              '4b52bb20-a533-402b-8946-04470ce8f054',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': False,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': True,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'municipality': 'Aarburg',
+          'special-id': '2025-1',
+          'status': 'ready',
+          'task': 'controlling',
+          'unread': True,
+        }),
+        'id': '4b52bb20-a533-402b-8946-04470ce8f054',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': 'Cox, Carter and Tucker',
+          'closed-at': None,
+          'deadline': '2007-09-07T02:00:00+02:00',
+          'description': 'Überbauung "Westfeld"',
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              'a6f8cdc1-6312-4282-b824-85f26285a504',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'municipality': 'Aarburg',
+          'special-id': '2025-1',
+          'status': 'ready',
+          'task': 'assigned',
+          'unread': True,
+        }),
+        'id': 'a6f8cdc1-6312-4282-b824-85f26285a504',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': 'Cox, Carter and Tucker',
+          'closed-at': None,
+          'deadline': '2025-06-26T02:00:00+02:00',
+          'description': 'Überbauung "Westfeld"',
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              '2016a803-49b5-4481-ae4f-fc8a67fc15d5',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'municipality': 'Aarburg',
+          'special-id': '2025-1',
+          'status': 'ready',
+          'task': 'from-template-and-read',
+          'unread': False,
+        }),
+        'id': '2016a803-49b5-4481-ae4f-fc8a67fc15d5',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+    ]),
+    'links': dict({
+      'first': 'http://testserver/api/v1/work-item-list-rows?page%5Bnumber%5D=1&page%5Bsize%5D=20',
+      'last': 'http://testserver/api/v1/work-item-list-rows?page%5Bnumber%5D=1&page%5Bsize%5D=20',
+      'next': None,
+      'prev': None,
+    }),
+    'meta': dict({
+      'pagination': dict({
+        'count': 4,
+        'page': 1,
+        'pages': 1,
+      }),
+    }),
+  })
+# ---

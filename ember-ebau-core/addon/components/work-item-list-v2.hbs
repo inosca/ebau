@@ -1,0 +1,70 @@
+<table class="uk-table uk-table-striped" ...attributes>
+  <thead>
+    <tr>
+      {{#if @highlight}}
+        <th>
+          <span hidden>{{t "workItems.actions.highlight"}}</span>
+        </th>
+      {{/if}}
+      {{#each @columns as |column|}}
+        <th>{{t (concat "workItems." column)}}</th>
+      {{/each}}
+      <th>
+        <span hidden>{{t "workItems.actions.title"}}</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#if @workItems.isResetting}}
+      <tr>
+        <td colspan={{this.colspan}} class="uk-text-center">
+          <UkSpinner />
+        </td>
+      </tr>
+    {{else}}
+      {{#each @workItems.records as |row|}}
+        <WorkItemListV2::Item
+          @row={{row}}
+          @highlight={{@highlight}}
+          @columns={{@columns}}
+          @refreshIfFilter={{@refreshIfFilter}}
+        />
+      {{else}}
+        <tr>
+          <td colspan={{this.colspan}} class="uk-text-center">
+            {{t "global.empty"}}
+          </td>
+        </tr>
+      {{/each}}
+
+      {{#if @workItems.hasMore}}
+        <tr>
+          <td colspan={{this.colspan}} class="uk-text-center">
+            {{#if @workItems.isLoading}}
+              <UkSpinner @ratio="0.5" />
+            {{else}}
+              <button
+                type="button"
+                class="uk-button uk-button-link"
+                {{on "click" @fetchMore}}
+              >
+                {{t "global.loadMore"}}
+              </button>
+            {{/if}}
+          </td>
+        </tr>
+      {{/if}}
+    {{/if}}
+  </tbody>
+</table>
+
+{{#if @workItems.records}}
+  <div class="uk-text-right uk-margin" ...attributes>
+    {{t
+      "global.paginationInfo"
+      htmlSafe=true
+      count=(or @workItems.records.length 0)
+      total=(or @workItems.pagination.count 0)
+    }}
+  </div>
+{{/if}}

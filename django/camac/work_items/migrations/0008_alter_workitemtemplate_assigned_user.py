@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='workitemtemplate',
             name='assigned_user',
-            field=models.ForeignKey(blank=True, help_text='The assigned user will only be considered if the responsibility rule "Current service and specific user" is selected above', null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Assigned user'),
+            field=models.ForeignKey(blank=True, help_text='Der zuständige Benutzer wird nur beachtet, wenn die Zuständigkeitsregel "Eigene Organisation und bestimmter Benutzer" oberhalb ausgewählt wurde', null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Assigned user'),
         ),
     ]

@@ -2,7 +2,12 @@ from caluma.caluma_workflow.models import Task
 from rest_framework_json_api import serializers
 
 from camac import request_cache
-from camac.work_items.models import WorkItemListFilterPreset, WorkItemTemplate
+from camac.work_items.models import (
+    WorkItemListFilterPreset,
+    WorkItemListRow,
+    WorkItemTemplate,
+)
+from camac.work_items.relations import CalumaServiceRelatedField, CalumaUserRelatedField
 
 
 class WorkItemTemplateSerializer(serializers.ModelSerializer):
@@ -71,3 +76,79 @@ class WorkItemListFilterPresetSerializer(serializers.ModelSerializer):
             "excluded_work_item_templates",
             "sort",
         ]
+
+
+class WorkItemListRowSerializer(serializers.ModelSerializer):
+    applicants = serializers.CharField()
+    description = serializers.CharField(source="instance_description")
+    instance_id = serializers.IntegerField()
+    instance_name = serializers.CharField()
+    is_addressed_to_current_service = serializers.SerializerMethodField()
+    is_assigned_to_current_user = serializers.SerializerMethodField()
+    is_controlled_by_current_service = serializers.SerializerMethodField()
+    is_created_by_current_service = serializers.SerializerMethodField()
+    is_manually_completable = serializers.BooleanField()
+    is_ready = serializers.BooleanField()
+    municipality = serializers.CharField()
+    special_id = serializers.CharField()
+    task = serializers.CharField(source="name")
+    unread = serializers.BooleanField()
+
+    addressed_service = CalumaServiceRelatedField()
+    assigned_user = CalumaUserRelatedField()
+    closed_by_user = CalumaUserRelatedField()
+
+    def get_is_addressed_to_current_service(self, obj):
+        return obj.addressed_service == self.context["request"].group.service_id
+
+    def get_is_assigned_to_current_user(self, obj):
+        return obj.assigned_user == self.context["request"].user.username
+
+    def get_is_controlled_by_current_service(self, obj):
+        return obj.controlling_service == self.context["request"].group.service_id
+
+    def get_is_created_by_current_service(self, obj):
+        return obj.created_by_group == self.context["request"].group.service_id
+
+    included_serializers = {
+        "addressed_service": "camac.user.serializers.PublicServiceSerializer",
+        "assigned_user": "camac.user.serializers.PublicUserSerializer",
+        "closed_by_user": "camac.user.serializers.PublicUserSerializer",
+    }
+
+    class Meta:
+        model = WorkItemListRow
+        fields = [
+            "addressed_service",
+            "applicants",
+            "assigned_user",
+            "closed_at",
+            "closed_by_user",
+            "deadline",
+            "description",
+            "direct_link",
+            "edit_link",
+            "instance_id",
+            "instance_name",
+            "is_addressed_to_current_service",
+            "is_assigned_to_current_user",
+            "is_controlled_by_current_service",
+            "is_created_by_current_service",
+            "is_manually_completable",
+            "is_ready",
+            "municipality",
+            "special_id",
+            "status",
+            "task",
+            "unread",
+        ]
+
+
+class WorkItemListTaskOptionSerializer(serializers.Serializer):
+    id = serializers.CharField()
+    label = serializers.CharField()
+    count = serializers.IntegerField()
+
+    class Meta:
+        resource_name = "work-item-list-task-options"
+        fields = ["id", "label", "count"]

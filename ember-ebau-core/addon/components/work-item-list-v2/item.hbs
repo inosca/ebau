@@ -1,0 +1,83 @@
+<tr class={{if (and @highlight @row.unread) "uk-text-bold"}}>
+  {{#if @highlight}}
+    <td class="uk-padding-remove-right {{this.highlightClasses}}"></td>
+  {{/if}}
+  {{#each @columns as |column|}}
+    <td class={{if (eq column "task") "uk-width-1-4"}}>
+      {{#if (eq column "task")}}
+        <LinkTo @route={{@row.link.route}} @models={{@row.link.models}}>
+          {{@row.task}}
+        </LinkTo>
+      {{else if (eq column "description")}}
+        <span
+          {{uk-tooltip
+            (if (gt @row.description.length 250) @row.description "")
+          }}
+        >
+          {{truncate-text @row.description 250}}
+        </span>
+      {{else if (eq column "deadline")}}
+        <span {{uk-tooltip (format-date @row.deadline format="datetime")}}>
+          {{date-from-now @row.deadline}}
+        </span>
+      {{else if (eq column "closedAt")}}
+        {{format-date @row.closedAt format="datetime"}}
+      {{else}}
+        {{get @row column}}
+      {{/if}}
+    </td>
+  {{/each}}
+  <td class="uk-text-right">
+    <button type="button" class="uk-button uk-button-link uk-flex-inline">
+      <UkIcon @icon="more-vertical" @ratio="0.8" />
+    </button>
+    <div uk-dropdown mode="click" pos="bottom-right">
+      <ul class="uk-nav uk-dropdown-nav uk-text-normal">
+        {{#if
+          (or
+            (can "read work-item-list-row" @row)
+            (can "edit work-item-list-row" @row)
+          )
+        }}
+          <li>
+            <LinkTo
+              @route={{@row.editLink.route}}
+              @models={{@row.editLink.models}}
+            >
+              {{#if (can "edit work-item-list-row" @row)}}
+                {{t "workItems.actions.edit"}}
+              {{else}}
+                {{t "workItems.actions.read"}}
+              {{/if}}
+            </LinkTo>
+          </li>
+        {{/if}}
+        {{#if (can "toggle read work-item-list-row" @row)}}
+          <li>
+            <a href="" {{on "click" this.toggleRead}}>
+              {{#if @row.unread}}
+                {{t "workItems.actions.markAsRead"}}
+              {{else}}
+                {{t "workItems.actions.markAsUnread"}}
+              {{/if}}
+            </a>
+          </li>
+        {{/if}}
+        {{#if (can "assign to me work-item-list-row" @row)}}
+          <li>
+            <a href="" {{on "click" this.assignToMe}}>
+              {{t "workItems.actions.assignToMe"}}
+            </a>
+          </li>
+        {{/if}}
+        {{#if (can "complete work-item-list-row" @row)}}
+          <li>
+            <a href="" {{on "click" this.quickComplete}}>
+              {{t "workItems.actions.finish"}}
+            </a>
+          </li>
+        {{/if}}
+      </ul>
+    </div>
+  </td>
+</tr>

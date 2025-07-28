@@ -1,0 +1,55 @@
+# serializer version: 1
+# name: test_work_item_list_task_option_list[Municipality-municipality]
+  dict({
+    'data': list([
+      dict({
+        'attributes': dict({
+          'count': 3,
+          'label': 'global-template',
+        }),
+        'id': '00e82e18-67ed-4557-bb27-ac8aded15124',
+        'type': 'work-item-list-task-options',
+      }),
+      dict({
+        'attributes': dict({
+          'count': 3,
+          'label': 'Prof. Raissa Tröst B.Sc.',
+        }),
+        'id': 'service-group-task',
+        'type': 'work-item-list-task-options',
+      }),
+      dict({
+        'attributes': dict({
+          'count': 2,
+          'label': 'service-group-template',
+        }),
+        'id': 'a9c83b55-062d-4c15-8e33-32768dd600ef',
+        'type': 'work-item-list-task-options',
+      }),
+      dict({
+        'attributes': dict({
+          'count': 1,
+          'label': 'service-template',
+        }),
+        'id': 'f1826e6e-9850-4e62-a53f-9f1fc000c135',
+        'type': 'work-item-list-task-options',
+      }),
+      dict({
+        'attributes': dict({
+          'count': 1,
+          'label': 'Wieland Heydrich B.Eng.',
+        }),
+        'id': 'default-task',
+        'type': 'work-item-list-task-options',
+      }),
+      dict({
+        'attributes': dict({
+          'count': 2,
+          'label': 'Zdenka Klingelhöfer',
+        }),
+        'id': 'role-task',
+        'type': 'work-item-list-task-options',
+      }),
+    ]),
+  })
+# ---

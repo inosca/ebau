@@ -48,7 +48,11 @@ class Command(BaseCommand):
                 model_identifier = f"{app_label}.{model.__name__}"
                 excluded_pks = []
 
-                if model_identifier in excluded_models or not model._meta.managed:
+                if (
+                    model_identifier in excluded_models
+                    or not model._meta.managed
+                    or model._meta.proxy
+                ):
                     continue
 
                 for _, model_filters in settings.DUMP["CONFIG"]["GROUPS"].items():

@@ -56,5 +56,6 @@ export default {
   },
   workItems: {
     cancel: true,
+    v2: true,
   },
 };
