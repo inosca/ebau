@@ -2418,6 +2418,7 @@ MASTER_DATA = {
             "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "strasse-nummer"),
             "city": ("answer", "ort"),
+            "bfs_number": ("answer", "gemeindenummer-bfs"),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -2454,9 +2455,17 @@ MASTER_DATA = {
                 },
             ),
             "land_use_planning_land_use": ("answer", "nutzungsplanung-grundnutzung"),
+            "land_use_additional_determinations": (
+                "answer",
+                "nutzungsplanung-weitere-festlegungen",
+            ),
             "land_use_planning_land_use_canton": (
                 "answer",
                 "nutzungsplanung-grundnutzung-kanton",
+            ),
+            "national_inventory": (
+                "answer",
+                "bundesinventare",
             ),
             "decision_date": (
                 "answer",
