@@ -1,10 +1,27 @@
 from dataclasses import asdict
+from datetime import datetime
+
+import pytest
+import pytz
+from django.utils.timezone import make_aware
 
 from camac.dossier_import.config.kt_ag.dossier_import.dossier_loader import (
     KtAargauDossierLoader,
+    datetime_from_float,
 )
 from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.tests.test_utils import to_sorted_json
+
+
+def test_datetime_from_float():
+    assert datetime_from_float(20250415082103.53) == make_aware(
+        datetime(2025, 4, 15, 8, 21, 3)
+    )
+    assert datetime_from_float(20250415082103) == make_aware(
+        datetime(2025, 4, 15, 8, 21, 3)
+    )
+    assert datetime_from_float(0) is None
+    assert datetime_from_float(None) is None
 
 
 def test_simple_mapping(snapshot):
@@ -86,6 +103,7 @@ def test_mapping_for_multiple_locations(snapshot):
     snapshot.assert_match(to_sorted_json(asdict(result)))
 
 
+@pytest.mark.timezone(pytz.FixedOffset(120))
 def test_all_mappings(snapshot):
     result: Dossier = KtAargauDossierLoader.map_data(
         {
@@ -414,6 +432,18 @@ def test_all_mappings(snapshot):
                     "VFSTD_ID": "1510",
                     "DOC_ID": "0000000000000000000000000",
                 },
+            ],
+            "KOMMENTARE": [
+                {
+                    "MANDT": "600",
+                    "GESUCH_ID": "EBPA-4406-5058",
+                    "GUID": "005056ABB4351FD092F1938B54F778C1",
+                    "SACHB": "EB2_AFB_01",
+                    "KOMMENTAR": "Kommentar aus eBau AG",
+                    "CREATED_AT": 20250617150613,
+                    "SACHB_FIRSTNAME": "Markus Test",
+                    "SACHB_LASTNAME": "Krause Test",
+                }
             ],
         }
     )

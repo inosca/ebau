@@ -606,6 +606,40 @@
           "submit-date": "2022-10-13T00:00:00"
       },
       "group": "support",
+      "journal": [
+          {
+              "creation_date": "2022-10-13T07:51:22Z",
+              "modification_date": "2022-10-13T07:51:22Z",
+              "service_id": 56,
+              "text": "Verfahrensstand\n                Aktion: 'Gesuch an Kanton senden'\n                Schritt: 'Gesuch an Kanton gesendet'\n                Wer: 'Testautomatisierung EBP'\n                Kommentar: 'Gesuch EBPA-0219-7779 wurde an den Kanton gesendet.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2022-10-20T12:29:00Z",
+              "modification_date": "2022-10-20T12:29:00Z",
+              "service_id": 56,
+              "text": "Verfahrensstand\n                Aktion: 'Dokumente an Kanton senden'\n                Schritt: 'Dokumente an Kanton gesendet'\n                Wer: 'EB2_AFB_02'\n                Kommentar: 'Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2023-03-15T09:09:32Z",
+              "modification_date": "2023-03-15T09:09:32Z",
+              "service_id": 56,
+              "text": "Verfahrensstand\n                Aktion: 'Dokumente an Kanton senden'\n                Schritt: 'Dokumente an Kanton gesendet'\n                Wer: 'Kantons Admin eBau extended'\n                Kommentar: 'Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 56,
+              "text": "Letzter Kantonsstatus: 'Neues Gesuch'",
+              "user_id": 2,
+              "visibility": "own_organization"
+          }
+      ],
       "keywords": [
           "1665654427762",
           "EBPA-0219-7779"
@@ -652,6 +686,7 @@
       "answers": null,
       "case-meta": null,
       "group": null,
+      "journal": null,
       "keywords": null,
       "service": null,
       "state": null,
@@ -1224,6 +1259,96 @@
           "submit-date": "2024-02-14T00:00:00"
       },
       "group": "support",
+      "journal": [
+          {
+              "creation_date": "2024-02-14T08:02:49Z",
+              "modification_date": "2024-02-14T08:02:49Z",
+              "service_id": 55,
+              "text": "Verfahrensstand\n                Aktion: 'Gesuch an Kanton senden'\n                Schritt: 'Gesuch an Kanton gesendet'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: 'Gesuch EBPA-1720-6526 wurde an den Kanton gesendet.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2024-04-22T04:04:17Z",
+              "modification_date": "2024-04-22T04:04:17Z",
+              "service_id": 55,
+              "text": "Verfahrensstand\n                Aktion: 'Verfahrenstyp Wechsel'\n                Schritt: 'Verfahrenstyp Wechsel'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: 'Aktuelles Verfahren mit Typ Ordentlich wurde abgebrochen'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2024-04-22T04:05:06Z",
+              "modification_date": "2024-04-22T04:05:06Z",
+              "service_id": 55,
+              "text": "Verfahrensstand\n                Aktion: 'Vorprüfung abgeschlossen (ohne Unterlagenergänzung)'\n                Schritt: 'Vorprüfung durchführen'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: ''\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2024-04-22T04:05:24Z",
+              "modification_date": "2024-04-22T04:05:24Z",
+              "service_id": 55,
+              "text": "Verfahrensstand\n                Aktion: 'Materielle Prüfung abgeschlossen'\n                Schritt: 'Materielle Prüfung durchführen'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: ''\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2024-06-05T06:36:36Z",
+              "modification_date": "2024-06-05T06:36:36Z",
+              "service_id": 55,
+              "text": "Verfahrensstand\n                Aktion: 'Stellungnahmen eingefordert'\n                Schritt: 'Stellungnahmen einfordern'\n                Wer: 'Bettina Dober'\n                Kommentar: 'Stellungnahme eBau Training FS ebau.training+fs@gmail.com'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2024-06-05T06:37:27Z",
+              "modification_date": "2024-06-05T06:37:27Z",
+              "service_id": 55,
+              "text": "Verfahrensstand\n                Aktion: 'Dokumente zur Einsicht freigegeben'\n                Schritt: 'Dokumente zur Einsicht freigeben'\n                Wer: 'Bettina Dober'\n                Kommentar: 'Siehe Dokumente'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2024-06-24T10:30:02Z",
+              "modification_date": "2024-06-24T10:30:02Z",
+              "service_id": 55,
+              "text": "Verfahrensstand\n                Aktion: 'Stellungnahmen eingefordert'\n                Schritt: 'Stellungnahmen einfordern'\n                Wer: 'EBP EBP_TEST1'\n                Kommentar: 'Stellungnahme eBau extFachstelle Viktor Sch. ebau.extended+extFS@gmail.com'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2024-11-12T06:59:10Z",
+              "modification_date": "2024-11-12T06:59:10Z",
+              "service_id": 55,
+              "text": "Verfahrensstand\n                Aktion: 'Verfügung erstellt'\n                Schritt: 'Entscheid erfassen'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: 'Bewilligung'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2024-11-12T07:00:17Z",
+              "modification_date": "2024-11-12T07:00:17Z",
+              "service_id": 55,
+              "text": "Verfahrensstand\n                Aktion: 'Schreibrechte geändert'\n                Schritt: 'Gesuchsübertragung'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: 'Das Gesuch wurde von \"Kein Gesuchsinhaber\" auf ZZ9999 Training GS5 eBau übertragen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-01-15T11:46:09Z",
+              "modification_date": "2025-01-15T11:46:09Z",
+              "service_id": 55,
+              "text": "Verfahrensstand\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 55,
+              "text": "Letzter Kantonsstatus: 'Neues Gesuch'",
+              "user_id": 2,
+              "visibility": "own_organization"
+          }
+      ],
       "keywords": [
           "2024 - 111",
           "BVUAFB.24.5",
@@ -1805,6 +1930,32 @@
           "submit-date": "2024-04-15T00:00:00"
       },
       "group": "support",
+      "journal": [
+          {
+              "creation_date": "2024-04-23T05:22:32Z",
+              "modification_date": "2024-04-23T05:22:32Z",
+              "service_id": 81,
+              "text": "Verfahrensstand\n                Aktion: 'Gesuch an Kanton senden'\n                Schritt: 'Gesuch an Kanton gesendet'\n                Wer: 'Tetiana Boguslavets'\n                Kommentar: 'Gesuch EBPA-3304-0441 wurde an den Kanton gesendet.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2024-04-23T05:40:25Z",
+              "modification_date": "2024-04-23T05:40:25Z",
+              "service_id": 81,
+              "text": "Verfahrensstand\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Jasmin Leuthard'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2024-07-30T06:43:30Z",
+              "modification_date": "2024-07-30T06:43:30Z",
+              "service_id": 81,
+              "text": "Verfahrensstand\n                Aktion: 'Dokumente an Kanton senden'\n                Schritt: 'Dokumente an Kanton gesendet'\n                Wer: 'Ana Blazevic'\n                Kommentar: 'Dokumente vom Gesuch EBPA-3304-0441 wurden an den Kanton gesendet.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          }
+      ],
       "keywords": [
           "2024-07",
           "BVUAFB.24.899",
@@ -2513,6 +2664,72 @@
           "submit-date": "2025-01-02T00:00:00"
       },
       "group": "support",
+      "journal": [
+          {
+              "creation_date": "2025-06-12T12:32:22Z",
+              "modification_date": "2025-06-12T12:32:22Z",
+              "service_id": 81,
+              "text": "Verfahrensstand\n                Aktion: 'Gesuch an Kanton senden'\n                Schritt: 'Gesuch an Kanton gesendet'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Gesuch EBPA-4406-5058 wurde an den Kanton gesendet.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-06-17T12:20:37Z",
+              "modification_date": "2025-06-17T12:20:37Z",
+              "service_id": 81,
+              "text": "Verfahrensstand\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-06-17T12:21:44Z",
+              "modification_date": "2025-06-17T12:21:44Z",
+              "service_id": 81,
+              "text": "Verfahrensstand\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-06-17T12:33:23Z",
+              "modification_date": "2025-06-17T12:33:23Z",
+              "service_id": 81,
+              "text": "Verfahrensstand\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-06-17T12:46:02Z",
+              "modification_date": "2025-06-17T12:46:02Z",
+              "service_id": 81,
+              "text": "Verfahrensstand\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-06-17T13:06:13Z",
+              "modification_date": "2025-06-17T13:06:13Z",
+              "service_id": 81,
+              "text": "Kommentar\n                Sachbearbeiter: 'Markus Test Krause Test (EB2_AFB_01)'\n                Kommentar: 'Kommentar aus eBau AG'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-06-17T13:27:15Z",
+              "modification_date": "2025-06-17T13:27:15Z",
+              "service_id": 81,
+              "text": "Verfahrensstand\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 81,
+              "text": "Letzter Kantonsstatus: 'Neues Gesuch'",
+              "user_id": 2,
+              "visibility": "own_organization"
+          }
+      ],
       "keywords": [
           "BVUAFB.25.3",
           "EBPA-4406-5058",
@@ -3236,6 +3453,24 @@
           "submit-date": "2018-10-22T00:00:00"
       },
       "group": "support",
+      "journal": [
+          {
+              "creation_date": "2021-02-01T11:58:37Z",
+              "modification_date": "2021-02-01T11:58:37Z",
+              "service_id": 68,
+              "text": "Verfahrensstand\n                Aktion: 'Profilkontrolle'\n                Schritt: 'Profilierung kontrollieren'\n                Wer: 'EBP Monitoring WFAS'\n                Kommentar: 'Kontrolldatum: 02.02.2021'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2021-02-01T11:59:23Z",
+              "modification_date": "2021-02-01T11:59:23Z",
+              "service_id": 68,
+              "text": "Verfahrensstand\n                Aktion: 'Verfügung erstellt'\n                Schritt: 'Entscheid erfassen'\n                Wer: 'EBP Monitoring WFAS'\n                Kommentar: 'Bewilligung'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          }
+      ],
       "keywords": [
           "2018WFAS-25766",
           "EBPA-6929-6843"
@@ -3820,6 +4055,7 @@
           "submit-date": "2025-01-31T00:00:00"
       },
       "group": "support",
+      "journal": [],
       "keywords": [
           "2025-120",
           "EBPA-8318-3681"
@@ -4669,6 +4905,7 @@
           "submit-date": "2025-04-02T00:00:00"
       },
       "group": "support",
+      "journal": [],
       "keywords": [
           "2025-381",
           "EBPA-9651-5967"

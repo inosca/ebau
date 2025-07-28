@@ -1,6 +1,7 @@
 import json
 
 import pytest
+from django.core.serializers.json import DjangoJSONEncoder
 
 from camac.dossier_import.loaders import XlsxFileDossierLoader
 from camac.dossier_import.utils import get_similar_value
@@ -55,7 +56,7 @@ def normalize_structure(data):
         elif all(isinstance(item, dict) for item in data):
             return sorted(
                 [normalize_structure(item) for item in data],
-                key=lambda d: json.dumps(d, sort_keys=True),
+                key=lambda d: json.dumps(d, sort_keys=True, cls=DjangoJSONEncoder),
             )
         else:
             return sorted(
@@ -68,4 +69,10 @@ def normalize_structure(data):
 def to_sorted_json(data):
     """Converts the normalized structure into reproducible, sorted JSON."""  # noqa: D401
     normalized_data = normalize_structure(data)
-    return json.dumps(normalized_data, indent=4, sort_keys=True, ensure_ascii=False)
+    return json.dumps(
+        normalized_data,
+        indent=4,
+        sort_keys=True,
+        ensure_ascii=False,
+        cls=DjangoJSONEncoder,
+    )
