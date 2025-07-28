@@ -33,11 +33,7 @@ services:
       - ebau.localhost
 
   db:
-    image: acr.run/camac-ng/camac-ng/db:master
-    build:
-      context: ../db
-      cache_from:
-        - acr.run/camac-ng/camac-ng/db:master
+    image: postgres:16-bookworm
     ports:
       - "5432:5432"
     environment:
@@ -45,7 +41,7 @@ services:
       - POSTGRES_USER=camac
       - POSTGRES_DATABASE=${APPLICATION}
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pg16data:/var/lib/postgresql/data
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
     networks:
       - ebau.localhost
@@ -157,4 +153,4 @@ networks:
   ebau.localhost:
 
 volumes:
-  pgdata:
+  pg16data:
