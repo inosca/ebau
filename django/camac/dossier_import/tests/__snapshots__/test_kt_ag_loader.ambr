@@ -313,6 +313,207 @@
       "submit_date": "20210629",
       "usage": null,
       "usage_zone": "Nuzungszone",
+      "workflow_docs": [
+          {
+              "date": "2024-06-05T10:36:27+02:00",
+              "dms_id": "0000000000000010001922835",
+              "dms_version": "00",
+              "doc_type": "Stellungnahme einfordern",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF88E2D652AD0EF8B3"
+          },
+          {
+              "date": "2024-06-05T10:36:27+02:00",
+              "dms_id": "0000000000000010001925809",
+              "dms_version": "01",
+              "doc_type": "Stellungnahme einfordern",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF88E2D652AD0EF8B3"
+          },
+          {
+              "date": "2024-06-05T10:37:26+02:00",
+              "dms_id": "0000000000000010001922835",
+              "dms_version": "00",
+              "doc_type": "Rückbau akzeptieren",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
+          },
+          {
+              "date": "2024-06-05T10:37:26+02:00",
+              "dms_id": "0000000000000010001922836",
+              "dms_version": "00",
+              "doc_type": "Rückbau akzeptieren",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
+          },
+          {
+              "date": "2024-06-05T10:37:26+02:00",
+              "dms_id": "0000000000000010001925808",
+              "dms_version": "00",
+              "doc_type": "Rückbau akzeptieren",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
+          },
+          {
+              "date": "2024-06-05T10:37:26+02:00",
+              "dms_id": "0000000000000010001925809",
+              "dms_version": "00",
+              "doc_type": "Rückbau akzeptieren",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
+          },
+          {
+              "date": "2024-06-05T10:37:26+02:00",
+              "dms_id": "0000000000000010001925809",
+              "dms_version": "01",
+              "doc_type": "Rückbau akzeptieren",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
+          },
+          {
+              "date": "2024-06-05T10:37:26+02:00",
+              "dms_id": "0000000000000010001925810",
+              "dms_version": "00",
+              "doc_type": "Rückbau akzeptieren",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
+          },
+          {
+              "date": "2024-06-05T10:37:26+02:00",
+              "dms_id": "0000000000000010001925811",
+              "dms_version": "00",
+              "doc_type": "Rückbau akzeptieren",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
+          },
+          {
+              "date": "2024-06-05T10:37:26+02:00",
+              "dms_id": "0000000000000010001925814",
+              "dms_version": "00",
+              "doc_type": "Rückbau akzeptieren",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
+          },
+          {
+              "date": "2024-06-24T14:29:54+02:00",
+              "dms_id": "0000000000000010001925809",
+              "dms_version": "01",
+              "doc_type": "Stellungnahme einfordern",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF8CC4AEB16F86B8B4"
+          },
+          {
+              "date": "2024-06-24T14:29:54+02:00",
+              "dms_id": "0000000000000010001925811",
+              "dms_version": "00",
+              "doc_type": "Stellungnahme einfordern",
+              "recipient_id": "",
+              "remark": "",
+              "workflow_id": "005056ABB4351EDF8CC4AEB16F86B8B4"
+          }
+      ],
+      "workflow_recipients": [
+          {
+              "active": false,
+              "date": "2024-06-05T00:00:00+02:00",
+              "docs": null,
+              "id": "005056ABB4351EDF88E2D652AD0F18B3",
+              "manually_added": false,
+              "reason": "",
+              "remark": "",
+              "request": "",
+              "status": "Offen",
+              "user_email": "ebau.training+fs@gmail.com",
+              "user_id": "N433697952",
+              "user_name": "eBau Training FS",
+              "workflow_id": "005056ABB4351EDF88E2D652AD0EF8B3"
+          },
+          {
+              "active": false,
+              "date": "2024-06-24T00:00:00+02:00",
+              "docs": null,
+              "id": "005056ABB4351EDF8CC4AEB16F86D8B4",
+              "manually_added": false,
+              "reason": "",
+              "remark": "",
+              "request": "",
+              "status": "Offen",
+              "user_email": "ebau.extended+extFS@gmail.com",
+              "user_id": "N858614511",
+              "user_name": "eBau extFachstelle Viktor Sch.",
+              "workflow_id": "005056ABB4351EDF88E2D652AD0EF8B3"
+          },
+          {
+              "active": true,
+              "date": "2024-06-05T10:37:26+02:00",
+              "docs": null,
+              "id": "005056ABB4351EDF88E2DA476D3F38B3",
+              "manually_added": false,
+              "reason": "",
+              "remark": "",
+              "request": "",
+              "status": "",
+              "user_email": "ebau.training+fs@gmail.com",
+              "user_id": "",
+              "user_name": "eBau Training FS",
+              "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
+          },
+          {
+              "active": true,
+              "date": "2024-06-24T14:29:54+02:00",
+              "docs": null,
+              "id": "005056ABB4351EDF8CC4AEB16F86D8B4",
+              "manually_added": false,
+              "reason": "",
+              "remark": "",
+              "request": "",
+              "status": "Offen",
+              "user_email": "ebau.extended+extFS@gmail.com",
+              "user_id": "N858614511",
+              "user_name": "eBau extFachstelle Viktor Sch.",
+              "workflow_id": "005056ABB4351EDF8CC4AEB16F86B8B4"
+          }
+      ],
+      "workflows": [
+          {
+              "active": true,
+              "date": "2024-06-05T00:00:00+02:00",
+              "docs": null,
+              "id": "005056ABB4351EDF88E2D652AD0EF8B3",
+              "recipients": null,
+              "status": "offen",
+              "workflow_type": "Stellungnahme Gesuch"
+          },
+          {
+              "active": true,
+              "date": "2024-06-05T00:00:00+02:00",
+              "docs": null,
+              "id": "005056ABB4351EDF88E2DA476D3F18B3",
+              "recipients": null,
+              "status": "",
+              "workflow_type": "Einsicht"
+          },
+          {
+              "active": true,
+              "date": "2024-06-24T00:00:00+02:00",
+              "docs": null,
+              "id": "005056ABB4351EDF8CC4AEB16F86B8B4",
+              "recipients": null,
+              "status": "offen",
+              "workflow_type": "Stellungnahme Gesuch"
+          }
+      ],
       "zone_flood_hazard": true,
       "zone_seismic_compliance": "nicht erforderlich",
       "zone_sensitivity_level": "4",
@@ -486,6 +687,9 @@
       "submit_date": null,
       "usage": null,
       "usage_zone": null,
+      "workflow_docs": [],
+      "workflow_recipients": [],
+      "workflows": [],
       "zone_flood_hazard": null,
       "zone_seismic_compliance": null,
       "zone_sensitivity_level": null,
@@ -685,6 +889,9 @@
       "submit_date": null,
       "usage": null,
       "usage_zone": null,
+      "workflow_docs": [],
+      "workflow_recipients": [],
+      "workflows": [],
       "zone_flood_hazard": null,
       "zone_seismic_compliance": null,
       "zone_sensitivity_level": null,
@@ -868,6 +1075,9 @@
       "submit_date": "20210629",
       "usage": null,
       "usage_zone": null,
+      "workflow_docs": [],
+      "workflow_recipients": [],
+      "workflows": [],
       "zone_flood_hazard": null,
       "zone_seismic_compliance": null,
       "zone_sensitivity_level": null,
