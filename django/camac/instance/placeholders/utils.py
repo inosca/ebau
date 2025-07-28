@@ -175,7 +175,7 @@ def human_readable_date(value: Union[datetime, date, None]) -> str:
     return format_date(value, "long", locale=get_language())
 
 
-def datetime_timestamp(value: Union[datetime, None]) -> str:
+def datetime_timestamp(value: Union[date, datetime, None]) -> str:
     """Format datetime to a timestamp.
 
     >>> datetime_timestamp(date(2021, 10, 4))
@@ -185,7 +185,10 @@ def datetime_timestamp(value: Union[datetime, None]) -> str:
     if not value:
         return ""
 
-    return value.astimezone(tz=timezone.get_default_timezone()).isoformat()
+    if isinstance(value, datetime):
+        return value.astimezone(tz=timezone.get_default_timezone()).isoformat()
+
+    return value.isoformat()
 
 
 def row_to_person(document: Document) -> dict:

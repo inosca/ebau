@@ -7752,6 +7752,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON_TIMESTAMP': dict({
+      'aliases': list([
+        dict({
+          'de': 'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON_TIMESTAMP',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum des Entscheides (Kanton)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON': dict({
       'aliases': list([
         dict({
@@ -7813,6 +7825,11 @@
         'date': list([
           dict({
             'de': 'DATUM_EINTRAG',
+          }),
+        ]),
+        'date_timestamp': list([
+          dict({
+            'de': 'DATUM_EINTRAG_TIMESTAMP',
           }),
         ]),
         'facts': list([
@@ -7908,6 +7925,11 @@
             'de': 'SISTIERT_BIS',
           }),
         ]),
+        'end_timestamp': list([
+          dict({
+            'de': 'SISTIERT_BIS_TIMESTAMP',
+          }),
+        ]),
         'reason': list([
           dict({
             'de': 'SISTIERUNGSGRUND',
@@ -7916,6 +7938,11 @@
         'start': list([
           dict({
             'de': 'SISTIERT_VON',
+          }),
+        ]),
+        'start_timestamp': list([
+          dict({
+            'de': 'SISTIERT_VON_TIMESTAMP',
           }),
         ]),
       }),
@@ -8540,6 +8567,38 @@
         'de': 'Das heutige Datum',
       }),
       'nested_aliases': dict({
+      }),
+    }),
+    'ZIRKULATION_ALLE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZIRKULATION_ALLE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'All inquiries',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'BEANTWORTET',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'ERSTELLT',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'FRIST',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
       }),
     }),
     'ZIRKULATION_ANGEFORDERT': dict({
@@ -9966,6 +10025,7 @@
     'KANTONALE_PRUEFUNG_CHECKLISTE_BAB_SO_NACH_RPG',
     'KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP',
     'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON',
+    'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON_TIMESTAMP',
     'KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON',
     'KANTONALE_PRUEFUNG_ENTSCHEID_KANTON',
     'KANTONALE_PRUEFUNG_GEMEINDENUMMER_KANTONAL_ARP',
@@ -9975,6 +10035,7 @@
     'KANTONALE_PRUEFUNG_JOURNAL[].ART_DES_EINTRAGES',
     'KANTONALE_PRUEFUNG_JOURNAL[].BETEILIGTE_ANWESENDE',
     'KANTONALE_PRUEFUNG_JOURNAL[].DATUM_EINTRAG',
+    'KANTONALE_PRUEFUNG_JOURNAL[].DATUM_EINTRAG_TIMESTAMP',
     'KANTONALE_PRUEFUNG_JOURNAL[].SACHVERHALT',
     'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE',
     'KANTONALE_PRUEFUNG_OBJEKTSCHUTZ',
@@ -9988,7 +10049,9 @@
     'KANTONALE_PRUEFUNG_SISTIERUNGEN',
     'KANTONALE_PRUEFUNG_SISTIERUNGEN[]',
     'KANTONALE_PRUEFUNG_SISTIERUNGEN[].SISTIERT_BIS',
+    'KANTONALE_PRUEFUNG_SISTIERUNGEN[].SISTIERT_BIS_TIMESTAMP',
     'KANTONALE_PRUEFUNG_SISTIERUNGEN[].SISTIERT_VON',
+    'KANTONALE_PRUEFUNG_SISTIERUNGEN[].SISTIERT_VON_TIMESTAMP',
     'KANTONALE_PRUEFUNG_SISTIERUNGEN[].SISTIERUNGSGRUND',
     'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG',
     'KANTONALE_PRUEFUNG_VERFAHRENSSTAND',
@@ -11670,11 +11733,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': 'Ablehnend',
         'BEANTWORTET': '21.02.1986',
+        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:39.255326+01:00',
         'BEMERKUNGEN': 'Bemerkungen',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': 'Einsprachen',
         'ERSTELLT': '18.01.2024',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.261817+01:00',
         'FRIST': '12.08.2022',
         'HINWEISE_AN_GESUCHSTELLERIN': 'Hinweis Gesuchsteller/in',
         'HINWEISE_AN_LEITBEHOERDE': 'Hinweis LB',
@@ -11688,11 +11753,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': '',
         'BEANTWORTET': '',
+        'BEANTWORTET_TIMESTAMP': '',
         'BEMERKUNGEN': '',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': '',
         'ERSTELLT': '18.01.2024',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.667447+01:00',
         'FRIST': '08.04.2014',
         'HINWEISE_AN_GESUCHSTELLERIN': '',
         'HINWEISE_AN_LEITBEHOERDE': '',
@@ -11803,6 +11870,7 @@
     'KANTONALE_PRUEFUNG_CHECKLISTE_BAB_SO_NACH_RPG': 'A1 - standortgebunden, A2 - Weilerzone',
     'KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP': '13. Februar 2025',
     'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON': '8. Juli 2025',
+    'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON_TIMESTAMP': '2025-07-08',
     'KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON': 'E-Mail',
     'KANTONALE_PRUEFUNG_ENTSCHEID_KANTON': 'Ablehnung',
     'KANTONALE_PRUEFUNG_GEMEINDENUMMER_KANTONAL_ARP': '1234',
@@ -11812,8 +11880,10 @@
         'ART_DES_EINTRAGES': 'Info',
         'BETEILIGTE_ANWESENDE': 'Beteiligte Anwesende',
         'DATUM_EINTRAG': '7. Mai 2024',
+        'DATUM_EINTRAG_TIMESTAMP': '2024-05-07',
         'SACHVERHALT': 'Sachverhalt',
         'date': '7. Mai 2024',
+        'date_timestamp': '2024-05-07',
         'facts': 'Sachverhalt',
         'involved': 'Beteiligte Anwesende',
         'type': 'Info',
@@ -11838,11 +11908,15 @@
     'KANTONALE_PRUEFUNG_SISTIERUNGEN': list([
       dict({
         'SISTIERT_BIS': '10. Januar 2020',
+        'SISTIERT_BIS_TIMESTAMP': '2020-01-10',
         'SISTIERT_VON': '1. Januar 2020',
+        'SISTIERT_VON_TIMESTAMP': '2020-01-01',
         'SISTIERUNGSGRUND': 'rechtliches Gehör',
         'end': '10. Januar 2020',
+        'end_timestamp': '2020-01-10',
         'reason': 'rechtliches Gehör',
         'start': '1. Januar 2020',
+        'start_timestamp': '2020-01-01',
       }),
     ]),
     'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG': '2. Januar 2023',
@@ -11931,11 +12005,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': 'Ablehnend',
         'BEANTWORTET': '21.02.1986',
+        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:39.255326+01:00',
         'BEMERKUNGEN': 'Bemerkungen',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': 'Einsprachen',
         'ERSTELLT': '18.01.2024',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.261817+01:00',
         'FRIST': '12.08.2022',
         'HINWEISE_AN_GESUCHSTELLERIN': 'Hinweis Gesuchsteller/in',
         'HINWEISE_AN_LEITBEHOERDE': 'Hinweis LB',
@@ -11949,11 +12025,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': '',
         'BEANTWORTET': '',
+        'BEANTWORTET_TIMESTAMP': '',
         'BEMERKUNGEN': '',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': '',
         'ERSTELLT': '18.01.2024',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.667447+01:00',
         'FRIST': '08.04.2014',
         'HINWEISE_AN_GESUCHSTELLERIN': '',
         'HINWEISE_AN_LEITBEHOERDE': '',
@@ -11969,11 +12047,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': 'Ablehnend',
         'BEANTWORTET': '21.02.1986',
+        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:39.255326+01:00',
         'BEMERKUNGEN': 'Bemerkungen',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': 'Einsprachen',
         'ERSTELLT': '18.01.2024',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.261817+01:00',
         'FRIST': '12.08.2022',
         'HINWEISE_AN_GESUCHSTELLERIN': 'Hinweis Gesuchsteller/in',
         'HINWEISE_AN_LEITBEHOERDE': 'Hinweis LB',
@@ -11987,11 +12067,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': '',
         'BEANTWORTET': '',
+        'BEANTWORTET_TIMESTAMP': '',
         'BEMERKUNGEN': '',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': '',
         'ERSTELLT': '18.01.2024',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.667447+01:00',
         'FRIST': '08.04.2014',
         'HINWEISE_AN_GESUCHSTELLERIN': '',
         'HINWEISE_AN_LEITBEHOERDE': '',
@@ -12007,11 +12089,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': 'Ablehnend',
         'BEANTWORTET': '21.02.1986',
+        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:39.255326+01:00',
         'BEMERKUNGEN': 'Bemerkungen',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': 'Einsprachen',
         'ERSTELLT': '18.01.2024',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.261817+01:00',
         'FRIST': '12.08.2022',
         'HINWEISE_AN_GESUCHSTELLERIN': 'Hinweis Gesuchsteller/in',
         'HINWEISE_AN_LEITBEHOERDE': 'Hinweis LB',
@@ -12025,11 +12109,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': '',
         'BEANTWORTET': '',
+        'BEANTWORTET_TIMESTAMP': '',
         'BEMERKUNGEN': '',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': '',
         'ERSTELLT': '18.01.2024',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.667447+01:00',
         'FRIST': '08.04.2014',
         'HINWEISE_AN_GESUCHSTELLERIN': '',
         'HINWEISE_AN_LEITBEHOERDE': '',
