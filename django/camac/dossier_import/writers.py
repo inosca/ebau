@@ -251,13 +251,7 @@ class CalumaAnswerWriter(FieldWriter):
         dossier = self.context.get("dossier")
 
         if not value:  # pragma: no cover
-            dossier._meta.errors.append(
-                Message(
-                    level=Severity.WARNING.value,
-                    code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                    detail=f"'{self.target}': '{old_value}' could not be formatted.",
-                )
-            )
+            log.warning(f"'{self.target}': '{old_value}' could not be formatted.")
             return
 
         try:

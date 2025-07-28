@@ -730,6 +730,30 @@ def test_all_mappings(snapshot):
                     "ANTRAG": "",
                 },
             ],
+            "ENTSCHEID": [
+                {
+                    "MANDT": "600",
+                    "GUID": "005056ABB4351EDFA8997FEF899E78BA",
+                    "EXTERN_ID": "EBPA-1720-6526",
+                    "ART_ID": "Bewilligung",
+                    "ART_TEXT": "Bewilligung",
+                    "VERFUGUNGSDAT": "20241112",
+                    "RECHTSKRAFTDAT": "20241128",
+                    "RECHTMITTELDAT": "00000000",
+                    "BEMERKUNG": "",
+                },
+                {
+                    "MANDT": "600",
+                    "GUID": "005056ABB4351FD099DD6AE766D518C2",
+                    "EXTERN_ID": "EBPA-1720-6526",
+                    "ART_ID": "Bewilligung",
+                    "ART_TEXT": "Bewilligung",
+                    "VERFUGUNGSDAT": "20250722",
+                    "RECHTSKRAFTDAT": "20250728",
+                    "RECHTMITTELDAT": "00000000",
+                    "BEMERKUNG": "Nur der Schuppen",
+                },
+            ],
         }
     )
 

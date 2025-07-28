@@ -102,6 +102,22 @@
       "custom_1": null,
       "custom_2": null,
       "decision_date": null,
+      "decisions": [
+          {
+              "decision_date": "2024-11-12T00:00:00+01:00",
+              "legal_binding_date": "2024-11-28T00:00:00+01:00",
+              "legal_remedy_taken_date": null,
+              "remark": "",
+              "type": "Bewilligung"
+          },
+          {
+              "decision_date": "2025-07-22T00:00:00+02:00",
+              "legal_binding_date": "2025-07-28T00:00:00+02:00",
+              "legal_remedy_taken_date": null,
+              "remark": "Nur der Schuppen",
+              "type": "Bewilligung"
+          }
+      ],
       "description": "Dies ist eine detaillierte Beschreibung",
       "dossier_file_path": null,
       "dossier_number": null,
@@ -581,6 +597,7 @@
       "custom_1": null,
       "custom_2": null,
       "decision_date": null,
+      "decisions": [],
       "description": null,
       "dossier_file_path": null,
       "dossier_number": null,
@@ -779,6 +796,7 @@
       "custom_1": null,
       "custom_2": null,
       "decision_date": null,
+      "decisions": [],
       "description": null,
       "dossier_file_path": null,
       "dossier_number": null,
@@ -969,6 +987,7 @@
       "custom_1": null,
       "custom_2": null,
       "decision_date": null,
+      "decisions": [],
       "description": null,
       "dossier_file_path": null,
       "dossier_number": null,
