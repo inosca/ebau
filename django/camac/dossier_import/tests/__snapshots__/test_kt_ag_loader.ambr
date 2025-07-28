@@ -76,6 +76,14 @@
       "cantonal_id": "BVUAFB.21.104",
       "cantonal_status": "Neues Gesuch",
       "city": "Aarau",
+      "comments": [
+          {
+              "text": "Kommentar aus eBau AG",
+              "timestamp": "2025-06-17T15:06:13+02:00",
+              "userid": "EB2_AFB_01",
+              "username": "Markus Test Krause Test"
+          }
+      ],
       "commercial_and_industrial_sector": "Telekommunikation",
       "commercial_and_industrial_type_of_use": "Gewerbe",
       "commercial_and_industrial_use": true,
@@ -208,14 +216,14 @@
               "action": "Dokumente an Kanton senden",
               "comment": "Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.",
               "step": "Dokumente an Kanton gesendet",
-              "timestamp": 20221020142900.65,
+              "timestamp": "2022-10-20T14:29:00+02:00",
               "username": "EB2_AFB_02"
           },
           {
               "action": "Gesuch an Kanton senden",
               "comment": "Gesuch EBPA-0219-7779 wurde an den Kanton gesendet.",
               "step": "Gesuch an Kanton gesendet",
-              "timestamp": 20221013095122.074,
+              "timestamp": "2022-10-13T09:51:22+02:00",
               "username": "Testautomatisierung EBP"
           }
       ],
@@ -358,6 +366,7 @@
       "cantonal_id": null,
       "cantonal_status": null,
       "city": null,
+      "comments": [],
       "commercial_and_industrial_sector": null,
       "commercial_and_industrial_type_of_use": null,
       "commercial_and_industrial_use": null,
@@ -543,6 +552,7 @@
       "cantonal_id": null,
       "cantonal_status": null,
       "city": "Möhlin",
+      "comments": [],
       "commercial_and_industrial_sector": null,
       "commercial_and_industrial_type_of_use": null,
       "commercial_and_industrial_use": null,
@@ -733,6 +743,7 @@
       "cantonal_id": "BVUAFB.21.104",
       "cantonal_status": null,
       "city": "Möhlin",
+      "comments": [],
       "commercial_and_industrial_sector": null,
       "commercial_and_industrial_type_of_use": null,
       "commercial_and_industrial_use": null,

@@ -4,12 +4,13 @@ from io import StringIO
 from typing import Any, Dict, List
 
 import pytest
+import pytz
 from caluma.caluma_form.models import Answer
 from django.core.management import call_command
 
 from camac.dossier_import.conftest import JSON_INPUT_DIR, TEST_IMPORT_FILE_PATH
 from camac.dossier_import.tests.test_utils import to_sorted_json
-from camac.instance.models import Instance
+from camac.instance.models import Instance, JournalEntry
 from camac.tags.models import Keyword
 
 
@@ -21,6 +22,8 @@ def get_test_files():
 
 
 @pytest.mark.skip(reason="not productive execution that is tested")
+@pytest.mark.freeze_time("2025-07-28 12:00:00")
+@pytest.mark.timezone(pytz.FixedOffset(120))
 def test_migrate_json_file_again(
     db, setup_dossier_import_ag, snapshot
 ):  # pragma: no cover
@@ -45,6 +48,8 @@ def _migrate_from_file_and_assert(input_file, snapshot):  # pragma: no cover
 
 
 @pytest.mark.skip(reason="not productive execution that is tested")
+@pytest.mark.freeze_time("2025-07-28 12:00:00")
+@pytest.mark.timezone(pytz.FixedOffset(120))
 def test_migrate_and_update_all(
     db, setup_dossier_import_ag, snapshot
 ):  # pragma: no cover
@@ -80,7 +85,9 @@ def test_migrate_and_update_all(
 
 
 @pytest.mark.order(1)  # Slow tests should run first
-def test_migrate_from_zip(db, setup_dossier_import_ag, snapshot):
+@pytest.mark.freeze_time("2025-07-28 12:00:00")
+@pytest.mark.timezone(pytz.FixedOffset(120))
+def test_migrate_from_zip_and_update(db, setup_dossier_import_ag, snapshot):
     out = StringIO()
     err = StringIO()
     basepath = f"{TEST_IMPORT_FILE_PATH}/kt_ag_json_zip"
@@ -90,6 +97,16 @@ def test_migrate_from_zip(db, setup_dossier_import_ag, snapshot):
         stdout=out,
         stderr=err,
     )
+    for input_file in get_test_files():
+        _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
+
+    call_command(
+        "kt_ag_migrate_dossiers",
+        [f"--source-path={basepath}"],
+        stdout=out,
+        stderr=err,
+    )
+
     for input_file in get_test_files():
         _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
 
@@ -107,6 +124,8 @@ def test_migrate_from_zip(db, setup_dossier_import_ag, snapshot):
         shutil.rmtree(basepath)
 
 
+@pytest.mark.freeze_time("2025-07-28 12:00:00")
+@pytest.mark.timezone(pytz.FixedOffset(120))
 def test_migrate_from_wrong_zip(db, setup_dossier_import_ag, snapshot):
     out = StringIO()
     err = StringIO()
@@ -136,7 +155,7 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
 
     id_keyword = dossier_id_keyword.first()
     user_name = group_name = instance_state = instance_service = keywords = None
-    case_meta = work_items = answers = None
+    case_meta = work_items = answers = journal = None
 
     if id_keyword is not None:
         instance: Instance = id_keyword.instances.first()
@@ -159,6 +178,18 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
                 "question_id", "value", "document__form_id"
             )
         )
+        journal = list(
+            JournalEntry.objects.filter(instance=instance)
+            .order_by("creation_date")
+            .values(
+                "creation_date",
+                "modification_date",
+                "service_id",
+                "text",
+                "user_id",
+                "visibility",
+            )
+        )
 
     result = to_sorted_json(
         {
@@ -170,6 +201,7 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
             "case-meta": case_meta,
             "work-items": work_items,
             "answers": answers,
+            "journal": journal,
         }
     )
 
