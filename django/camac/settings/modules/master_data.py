@@ -2903,11 +2903,25 @@ MASTER_DATA = {
                                 "value_parser": "human_readable_date",
                             },
                         ),
+                        "start_timestamp": (
+                            "mp-bab-sistiert-von",
+                            {
+                                "value_key": "date",
+                                "value_parser": "datetime_timestamp",
+                            },
+                        ),
                         "end": (
                             "mp-bab-sistiert-bis",
                             {
                                 "value_key": "date",
                                 "value_parser": "human_readable_date",
+                            },
+                        ),
+                        "end_timestamp": (
+                            "mp-bab-sistiert-bis",
+                            {
+                                "value_key": "date",
+                                "value_parser": "datetime_timestamp",
                             },
                         ),
                     },

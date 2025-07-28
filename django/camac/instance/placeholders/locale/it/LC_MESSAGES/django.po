@@ -2466,7 +2466,15 @@ msgid "SUSPENDED_FROM"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
+msgid "SUSPENDED_FROM_TIMESTAMP"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
 msgid "SUSPENDED_UNTIL"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "SUSPENDED_UNTIL_TIMESTAMP"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2600,6 +2608,10 @@ msgstr ""
 #| msgid "Decision date"
 msgid "Decision date (Canton)"
 msgstr "Data della decisione edilizia"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_EXAM_DECISION_DATE_CANTON_TIMESTAMP"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "CANTONAL_EXAM_DECISION_OPENING_TYPE_CANTON"

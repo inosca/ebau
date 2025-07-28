@@ -21,11 +21,7 @@ from camac.utils import build_url, clean_join
 
 from ..master_data import MasterData
 from . import fields
-from .utils import (
-    get_option_label,
-    get_yes_no,
-    human_readable_date,
-)
+from .utils import datetime_timestamp, get_option_label, get_yes_no, human_readable_date
 
 
 def sanitize_value(value):
@@ -2009,7 +2005,9 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         description=_("Cantonal exam suspensions"),
         nested_aliases={
             "start": [_("SUSPENDED_FROM")],
+            "start_timestamp": [_("SUSPENDED_FROM_TIMESTAMP")],
             "end": [_("SUSPENDED_UNTIL")],
+            "end_timestamp": [_("SUSPENDED_UNTIL_TIMESTAMP")],
             "reason": [_("SUSPENSION_REASON")],
         },
     )
@@ -2078,6 +2076,12 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="bab_decision_date_canton",
         parser=human_readable_date,
         aliases=[_("CANTONAL_EXAM_DECISION_DATE_CANTON")],
+        description=_("Decision date (Canton)"),
+    )
+    kantonale_pruefung_datum_entscheid_kanton_timestamp = fields.MasterDataField(
+        source="bab_decision_date_canton",
+        parser=datetime_timestamp,
+        aliases=[_("CANTONAL_EXAM_DECISION_DATE_CANTON_TIMESTAMP")],
         description=_("Decision date (Canton)"),
     )
     kantonale_pruefung_datum_eroeffnungsart_entscheid_kanton = fields.MasterDataField(

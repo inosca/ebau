@@ -2326,8 +2326,16 @@ msgid "SUSPENDED_FROM"
 msgstr "SISTIERT_VON"
 
 #: camac/instance/placeholders/serializers.py
+msgid "SUSPENDED_FROM_TIMESTAMP"
+msgstr "SISTIERT_VON_TIMESTAMP"
+
+#: camac/instance/placeholders/serializers.py
 msgid "SUSPENDED_UNTIL"
 msgstr "SISTIERT_BIS"
+
+#: camac/instance/placeholders/serializers.py
+msgid "SUSPENDED_UNTIL_TIMESTAMP"
+msgstr "SISTIERT_BIS_TIMESTAMP"
 
 #: camac/instance/placeholders/serializers.py
 msgid "SUSPENSION_REASON"
@@ -2452,6 +2460,10 @@ msgstr "KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON"
 #: camac/instance/placeholders/serializers.py
 msgid "Decision date (Canton)"
 msgstr "Datum des Entscheides (Kanton)"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_EXAM_DECISION_DATE_CANTON_TIMESTAMP"
+msgstr "KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON_TIMESTAMP"
 
 #: camac/instance/placeholders/serializers.py
 msgid "CANTONAL_EXAM_DECISION_OPENING_TYPE_CANTON"
