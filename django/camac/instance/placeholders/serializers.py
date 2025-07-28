@@ -1824,6 +1824,31 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("LOGGED_IN_NAME")],
         description=_("Name of the currently logged in user"),
     )
+    angemeldet_titel = fields.CurrentUserField(
+        source="title",
+        aliases=[_("LOGGED_IN_TITLE")],
+        description=_("Title of the currently logged in user"),
+    )
+    angemeldet_position = fields.CurrentUserField(
+        source="position",
+        aliases=[_("LOGGED_IN_POSITION")],
+        description=_("Position of the currently logged in user"),
+    )
+    angemeldet_telefon = fields.CurrentUserField(
+        source="phone",
+        aliases=[_("LOGGED_IN_PHONE")],
+        description=_("Phone of the currently logged in user"),
+    )
+    angemeldet_mobile = fields.CurrentUserField(
+        source="mobile",
+        aliases=[_("LOGGED_IN_MOBILE")],
+        description=_("Mobile of the currently logged in user"),
+    )
+    angemeldet_abteilung = fields.CurrentUserField(
+        source="division",
+        aliases=[_("LOGGED_IN_DIVISION")],
+        description=_("Division of the currently logged in user"),
+    )
     alle_gesuchsteller_vertreter = fields.MasterDataPersonField(
         source="applicants",
         use_representative=True,

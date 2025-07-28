@@ -6718,6 +6718,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'ANGEMELDET_ABTEILUNG': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_ABTEILUNG',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Abteilung des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ANGEMELDET_EMAIL': dict({
       'aliases': list([
         dict({
@@ -6730,6 +6742,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'ANGEMELDET_MOBILE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_MOBILE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Mobilenummer des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ANGEMELDET_NAME': dict({
       'aliases': list([
         dict({
@@ -6738,6 +6762,42 @@
       ]),
       'description': dict({
         'de': 'Name des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_POSITION': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_POSITION',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Position des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_TELEFON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_TITEL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_TITEL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Titel des/r momentan angemeldeten Benutzer/in',
       }),
       'nested_aliases': dict({
       }),
@@ -9754,8 +9814,13 @@
     'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VERTRETER_VORNAME',
     'ALLE_RECHNUNGSEMPFAENGER_LISTE[].VORNAME',
     'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE',
+    'ANGEMELDET_ABTEILUNG',
     'ANGEMELDET_EMAIL',
+    'ANGEMELDET_MOBILE',
     'ANGEMELDET_NAME',
+    'ANGEMELDET_POSITION',
+    'ANGEMELDET_TELEFON',
+    'ANGEMELDET_TITEL',
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID_DATUM',
     'BESCHREIBUNG_BAUVORHABEN',
@@ -11246,8 +11311,13 @@
       }),
     ]),
     'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Lisa Walker, John Corners 4560, 2014 Cindyville, Williamson, Smith and Snyder, Danielle Burch, Renee Ridge 455, 7931 Abigailshire',
+    'ANGEMELDET_ABTEILUNG': '',
     'ANGEMELDET_EMAIL': 'admin@example.com',
+    'ANGEMELDET_MOBILE': '',
     'ANGEMELDET_NAME': 'Admin User',
+    'ANGEMELDET_POSITION': '',
+    'ANGEMELDET_TELEFON': '',
+    'ANGEMELDET_TITEL': '',
     'BASE_URL': 'http://ember-ebau.localhost',
     'BAUEINGABE_DATUM': '',
     'BAUENTSCHEID_DATUM': '18. April 2024',
