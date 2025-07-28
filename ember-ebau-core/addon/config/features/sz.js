@@ -45,4 +45,7 @@ export default {
   changeGeometer: {
     enabled: false,
   },
+  workItems: {
+    v2: true,
+  },
 };

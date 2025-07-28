@@ -1,5 +1,6 @@
 import EmberRouter from "@ember/routing/router";
 import { service } from "@ember/service";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand";
 import registerBilling from "ember-ebau-core/modules/billing";
 import registerBillingGlobal from "ember-ebau-core/modules/billing-global";
@@ -25,6 +26,7 @@ import registerSnippetsAdmin from "ember-ebau-core/modules/snippets-admin";
 import registerStaticContent from "ember-ebau-core/modules/static-content";
 import registerStatistics from "ember-ebau-core/modules/statistics";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
+import registerWorkItemsGlobal from "ember-ebau-core/modules/work-items-global";
 
 import config from "camac-ng/config/environment";
 
@@ -49,18 +51,21 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route("history", { path: "/instances/:instance_id/history" });
   this.route("journal", { path: "/instances/:instance_id/journal" });
-  this.route("work-items", function () {
-    this.route(
-      "instance",
-      {
-        path: "instances/:instance_id/work-items",
-      },
-      function () {
-        this.route("edit", { path: "/:work_item_id" });
-        this.route("new");
-      },
-    );
-  });
+  if (hasFeature("workItems.v2")) {
+    registerWorkItemsGlobal(this);
+  } else {
+    this.route("work-items");
+  }
+  this.route(
+    "work-items-instance",
+    {
+      path: "work-items/instances/:instance_id/work-items",
+    },
+    function () {
+      this.route("edit", { path: "/:work_item_id" });
+      this.route("new");
+    },
+  );
   this.route("form", { path: "/instances/:id/form" });
 
   this.mount("@projectcaluma/ember-form-builder", {

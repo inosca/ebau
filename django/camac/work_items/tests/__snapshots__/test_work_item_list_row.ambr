@@ -4,7 +4,7 @@
     'data': list([
       dict({
         'attributes': dict({
-          'applicants': 'Tate Inc',
+          'applicants': 'Fuentes, Glass and Johnson',
           'closed-at': None,
           'deadline': '2025-01-01T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
@@ -12,7 +12,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '80fe47bf-9ed6-415c-af91-9c210b81977b',
+              '723179aa-fe46-454f-bc3b-dae9bc3e3eef',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -32,7 +32,7 @@
           'task': 'from-template-and-read',
           'unread': False,
         }),
-        'id': '80fe47bf-9ed6-415c-af91-9c210b81977b',
+        'id': '723179aa-fe46-454f-bc3b-dae9bc3e3eef',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -51,14 +51,14 @@
       }),
       dict({
         'attributes': dict({
-          'applicants': 'Tate Inc',
+          'applicants': 'Fuentes, Glass and Johnson',
           'closed-at': None,
           'deadline': '2025-01-02T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
           'direct-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'owner-car-kitchen',
+              'song-light',
               'no-placeholder',
             ]),
             'route': 'foo.bar.baz',
@@ -66,7 +66,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'bb8ccb4e-15ae-4037-bad7-f7b310280c23',
+              '3c7745f7-76ea-4185-962a-50102ee59450',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -86,7 +86,7 @@
           'task': 'from-task',
           'unread': True,
         }),
-        'id': 'bb8ccb4e-15ae-4037-bad7-f7b310280c23',
+        'id': '3c7745f7-76ea-4185-962a-50102ee59450',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -105,7 +105,7 @@
       }),
       dict({
         'attributes': dict({
-          'applicants': 'Tate Inc',
+          'applicants': 'Fuentes, Glass and Johnson',
           'closed-at': None,
           'deadline': '2025-01-03T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
@@ -113,7 +113,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'b06f8e43-9fd1-4d2c-bb5c-366adc3f7a4a',
+              '8a2cfb9b-76e0-43da-81a5-ec11a952bc5c',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -133,7 +133,7 @@
           'task': 'assigned',
           'unread': True,
         }),
-        'id': 'b06f8e43-9fd1-4d2c-bb5c-366adc3f7a4a',
+        'id': '8a2cfb9b-76e0-43da-81a5-ec11a952bc5c',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -163,12 +163,12 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'e435b1ab-c539-4184-bdbf-2fa67d3f48bb',
+              'e808cdb2-f84c-4c7c-b13d-6aa96784d3a9',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Jasmin Hein',
+          'instance-name': 'Eileen Hiller',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -183,7 +183,7 @@
           'task': 'target-deadline-date',
           'unread': True,
         }),
-        'id': 'e435b1ab-c539-4184-bdbf-2fa67d3f48bb',
+        'id': 'e808cdb2-f84c-4c7c-b13d-6aa96784d3a9',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -205,7 +205,7 @@
       }),
       dict({
         'attributes': dict({
-          'applicants': 'Tate Inc',
+          'applicants': 'Fuentes, Glass and Johnson',
           'closed-at': '2025-07-17T16:33:00+02:00',
           'deadline': '2025-01-07T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
@@ -213,7 +213,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '0974bea4-741d-4655-b018-45564c735fce',
+              '3249e0ea-78c4-42d6-b7ec-b8aa0b1948fa',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -233,7 +233,7 @@
           'task': 'completed',
           'unread': True,
         }),
-        'id': '0974bea4-741d-4655-b018-45564c735fce',
+        'id': '3249e0ea-78c4-42d6-b7ec-b8aa0b1948fa',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -282,7 +282,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '7369d1b4-dc31-466b-8eb5-adb387939c30',
+              'e35db376-db42-4d7f-995a-bf7045dc1c16',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -302,7 +302,7 @@
           'task': 'from-template-and-read',
           'unread': False,
         }),
-        'id': '7369d1b4-dc31-466b-8eb5-adb387939c30',
+        'id': 'e35db376-db42-4d7f-995a-bf7045dc1c16',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -328,7 +328,7 @@
           'direct-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'owner-car-kitchen',
+              'song-light',
               'no-placeholder',
             ]),
             'route': 'foo.bar.baz',
@@ -336,7 +336,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'a98d35fc-c5a6-4cfd-8262-caf205d14da5',
+              'b8b89cab-d4d7-4ec0-b1f8-cf2beaba8fbe',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -356,7 +356,7 @@
           'task': 'from-task',
           'unread': True,
         }),
-        'id': 'a98d35fc-c5a6-4cfd-8262-caf205d14da5',
+        'id': 'b8b89cab-d4d7-4ec0-b1f8-cf2beaba8fbe',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -383,7 +383,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '898139ce-ac32-4af1-b5e6-87f940795987',
+              '5e2d8298-a09e-4602-9b96-56307933a4bc',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -403,7 +403,7 @@
           'task': 'assigned',
           'unread': True,
         }),
-        'id': '898139ce-ac32-4af1-b5e6-87f940795987',
+        'id': '5e2d8298-a09e-4602-9b96-56307933a4bc',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -433,12 +433,12 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'f3e7a4b4-da52-4fd6-a7ac-606543938447',
+              '380cb73f-c9e3-43d2-9c3b-40f16695c415',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Edeltraut Hartmann MBA.',
+          'instance-name': 'Nelly Tschentscher B.Eng.',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -453,7 +453,7 @@
           'task': 'target-deadline-date',
           'unread': True,
         }),
-        'id': 'f3e7a4b4-da52-4fd6-a7ac-606543938447',
+        'id': '380cb73f-c9e3-43d2-9c3b-40f16695c415',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -483,7 +483,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '149d3df0-25dd-4860-8097-723c40f5b623',
+              '5f3a83f2-3df3-4edf-a987-0c942f8e75e0',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -503,7 +503,7 @@
           'task': 'completed',
           'unread': True,
         }),
-        'id': '149d3df0-25dd-4860-8097-723c40f5b623',
+        'id': '5f3a83f2-3df3-4edf-a987-0c942f8e75e0',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -552,7 +552,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'd829f577-5954-4ccc-8f95-c204ecbc1cba',
+              '1a4e9ce6-029a-470c-b2bb-914dda618756',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -572,7 +572,7 @@
           'task': 'from-template-and-read',
           'unread': False,
         }),
-        'id': 'd829f577-5954-4ccc-8f95-c204ecbc1cba',
+        'id': '1a4e9ce6-029a-470c-b2bb-914dda618756',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -598,7 +598,7 @@
           'direct-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'owner-car-kitchen',
+              'song-light',
               'no-placeholder',
             ]),
             'route': 'foo.bar.baz',
@@ -606,7 +606,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'c6b48b0a-708e-4cc8-aa88-84f896676c35',
+              '8315a6cb-6c23-40ee-bf33-bc788d757fb7',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -626,7 +626,7 @@
           'task': 'from-task',
           'unread': True,
         }),
-        'id': 'c6b48b0a-708e-4cc8-aa88-84f896676c35',
+        'id': '8315a6cb-6c23-40ee-bf33-bc788d757fb7',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -653,7 +653,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'e45e179c-d728-4806-8551-164aa2601c51',
+              '106ffd3f-6d48-48eb-bd8f-ab3de9f55f12',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -673,7 +673,7 @@
           'task': 'assigned',
           'unread': True,
         }),
-        'id': 'e45e179c-d728-4806-8551-164aa2601c51',
+        'id': '106ffd3f-6d48-48eb-bd8f-ab3de9f55f12',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -703,12 +703,12 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '7f048dbe-7e96-4e6a-b1fe-73163163a369',
+              '88bafa6b-cc32-4952-9010-7a66e69a16fd',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Mareike Flantz',
+          'instance-name': 'Diethard Jacobi Jäckel B.Eng.',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -723,7 +723,7 @@
           'task': 'target-deadline-date',
           'unread': True,
         }),
-        'id': '7f048dbe-7e96-4e6a-b1fe-73163163a369',
+        'id': '88bafa6b-cc32-4952-9010-7a66e69a16fd',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -753,7 +753,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'ea591a73-c3e3-4640-8fa3-fccb1da90a3c',
+              '19f93e39-733c-413e-8acd-a8614df6e5eb',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -773,7 +773,240 @@
           'task': 'completed',
           'unread': True,
         }),
-        'id': 'ea591a73-c3e3-4640-8fa3-fccb1da90a3c',
+        'id': '19f93e39-733c-413e-8acd-a8614df6e5eb',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+    ]),
+    'links': dict({
+      'first': 'http://testserver/api/v1/work-item-list-rows?page%5Bnumber%5D=1&page%5Bsize%5D=20&role=active',
+      'last': 'http://testserver/api/v1/work-item-list-rows?page%5Bnumber%5D=1&page%5Bsize%5D=20&role=active',
+      'next': None,
+      'prev': None,
+    }),
+    'meta': dict({
+      'pagination': dict({
+        'count': 5,
+        'page': 1,
+        'pages': 1,
+      }),
+    }),
+  })
+# ---
+# name: test_work_item_list_row_list[sz]
+  dict({
+    'data': list([
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-01T01:00:00+01:00',
+          'description': 'Grosses Haus',
+          'direct-link': None,
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/1134e1b7-1eb9-4c61-844e-9a372d94446a',
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Joseph Fisher',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': None,
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'from-template-and-read',
+          'unread': False,
+        }),
+        'id': '1134e1b7-1eb9-4c61-844e-9a372d94446a',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-02T01:00:00+01:00',
+          'description': 'Grosses Haus',
+          'direct-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=foobar&ember-hash=/foobar/song-light',
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/5f09ecd4-a91b-434c-bbc9-6d9b97155e5b',
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Joseph Fisher',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': None,
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'from-task',
+          'unread': True,
+        }),
+        'id': '5f09ecd4-a91b-434c-bbc9-6d9b97155e5b',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-03T01:00:00+01:00',
+          'description': 'Grosses Haus',
+          'direct-link': None,
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/b4f7ab09-3ac3-47de-801e-f6d1090527b3',
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Joseph Fisher',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': None,
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'assigned',
+          'unread': True,
+        }),
+        'id': 'b4f7ab09-3ac3-47de-801e-f6d1090527b3',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-06T01:00:00+01:00',
+          'description': None,
+          'direct-link': None,
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/81443b81-3227-4c12-95c1-9eabb5ea4908',
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Jane Yu',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': None,
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'target-deadline-date',
+          'unread': True,
+        }),
+        'id': '81443b81-3227-4c12-95c1-9eabb5ea4908',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': '2025-07-17T16:33:00+02:00',
+          'deadline': '2025-01-07T01:00:00+01:00',
+          'description': 'Grosses Haus',
+          'direct-link': None,
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/add8d762-57eb-4788-863d-9104ae1d97df',
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Joseph Fisher',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': False,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': None,
+          'status': 'completed',
+          'target-deadline-date': None,
+          'task': 'completed',
+          'unread': True,
+        }),
+        'id': 'add8d762-57eb-4788-863d-9104ae1d97df',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({

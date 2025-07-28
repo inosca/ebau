@@ -8,6 +8,10 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.shoebox.content.userId;
   }
 
+  get userName() {
+    return this.shoebox.content.username;
+  }
+
   get groupId() {
     return this.shoebox.content.groupId;
   }

@@ -2,11 +2,11 @@ import { module, test } from "qunit";
 
 import { setupTest } from "camac-ng/tests/helpers";
 
-module("Unit | Route | work-items.index", function (hooks) {
+module("Unit | Route | work-items-instance.edit", function (hooks) {
   setupTest(hooks);
 
   test("it exists", function (assert) {
-    const route = this.owner.lookup("route:work-items.index");
+    const route = this.owner.lookup("route:work-items-instance.edit");
     assert.ok(route);
   });
 });

@@ -5,9 +5,13 @@
   {{#each @columns as |column|}}
     <td class={{if (eq column "task") "uk-width-1-4"}}>
       {{#if (eq column "task")}}
-        <LinkTo @route={{@row.link.route}} @models={{@row.link.models}}>
-          {{@row.task}}
-        </LinkTo>
+        {{#if (is-legacy-app)}}
+          <a href={{@row.link}}>{{@row.task}}</a>
+        {{else}}
+          <LinkTo @route={{@row.link.route}} @models={{@row.link.models}}>
+            {{@row.task}}
+          </LinkTo>
+        {{/if}}
       {{else if (eq column "description")}}
         <span
           {{uk-tooltip
@@ -44,16 +48,16 @@
           )
         }}
           <li>
-            <LinkTo
-              @route={{@row.editLink.route}}
-              @models={{@row.editLink.models}}
-            >
-              {{#if (can "edit work-item-list-row" @row)}}
-                {{t "workItems.actions.edit"}}
-              {{else}}
-                {{t "workItems.actions.read"}}
-              {{/if}}
-            </LinkTo>
+            {{#if (is-legacy-app)}}
+              <a href={{@row.editLink}}>{{this.editLinkText}}</a>
+            {{else}}
+              <LinkTo
+                @route={{@row.editLink.route}}
+                @models={{@row.editLink.models}}
+              >
+                {{this.editLinkText}}
+              </LinkTo>
+            {{/if}}
           </li>
         {{/if}}
         {{#if (can "toggle read work-item-list-row" @row)}}

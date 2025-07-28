@@ -1,3 +1,5 @@
+from django.db.models import F
+
 from camac.settings.ebau_schema import ModuleConfig
 from camac.settings.modules.work_item_list_schema import (
     AnnotationsConfig,
@@ -56,5 +58,30 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
             "subservice": ["inquiry"],
             "uso": ["inquiry"],
         },
+    ),
+    kt_schwyz=WorkItemListConfig(
+        enabled=True,
+        available_tasks_include_count=True,
+        available_tasks_for_role={
+            "municipality": [
+                "complete-check",
+                "init-distribution",
+                "make-decision",
+                "init-construction-monitoring",
+                "complete-instance",
+            ],
+            "service": [
+                "fill-inquiry",
+                "inquiry",
+                "check-inquiry",
+                "alter-inquiry",
+                "check-inquiries",
+            ],
+        },
+        annotations=AnnotationsConfig(
+            special_id=F("case__family__instance__identifier"),
+            municipality=None,
+            applicants=None,
+        ),
     ),
 )

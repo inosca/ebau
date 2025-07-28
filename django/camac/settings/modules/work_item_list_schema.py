@@ -42,7 +42,7 @@ class AnnotationsConfig(EBauConfig):
         description="Annotation for the special ID",
         default=F("case__family__meta__dossier-number"),
     )
-    municipality: str = Field(
+    municipality: str | None = Field(
         description="Question slug for the municipality", default="gemeinde"
     )
     description: str = Field(
