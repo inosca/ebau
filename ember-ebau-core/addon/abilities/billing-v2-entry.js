@@ -1,4 +1,5 @@
 import { service } from "@ember/service";
+import { macroCondition, isTesting } from "@embroider/macros";
 import { Ability } from "ember-can";
 
 import {
@@ -35,6 +36,10 @@ export default class BillingV2EntryAbility extends Ability {
       this.ebauModules.serviceId,
       { include: "service_group" },
     );
+    if (macroCondition(isTesting())) {
+      // This is purely to make mirage happy
+      await service.serviceGroup;
+    }
     const isCantonal = (
       hasFeature("billing.releaseForClearing.allowedForServiceGroups") ?? []
     ).includes(service.serviceGroup.get("slug"));
