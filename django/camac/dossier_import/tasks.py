@@ -10,27 +10,11 @@ MAX_RETRIES = 8 * 60  # retry for max. 8 hours if retry_interval is 1 minute
 
 if settings.APPLICATION_NAME == "kt_ag":  # pragma: no cover
     from camac.dossier_import.config.kt_ag.documents.docs_exporter import (
-        DocsExporter,
         DocsExportResultCheck,
     )
     from camac.dossier_import.config.kt_ag.documents.docs_importer import (
         DocsImporter,
     )
-
-    @shared_task
-    def export_docs_from_sap_to_s3_task(
-        municipality: str,
-        municipality_id: int,
-        dossier_ids: List[str],
-        segment_name: str,
-        start_time: str,
-    ):
-        log.info(
-            f"starting export_docs_from_sap_to_s3_task for {municipality}, {municipality_id} and dossier_ids: {dossier_ids}"
-        )
-        DocsExporter(
-            municipality, municipality_id, dossier_ids, segment_name, start_time
-        ).do_export()
 
     @shared_task(bind=True)
     def wait_for_docs_from_sap_to_s3_task(
@@ -53,6 +37,13 @@ if settings.APPLICATION_NAME == "kt_ag":  # pragma: no cover
                 ],
                 max_retries=MAX_RETRIES,
             )
+            return
+
+        from camac.dossier_import.config.kt_ag.task_dispatcher import (
+            publish_export_done,
+        )
+
+        publish_export_done(municipality)
 
     @shared_task
     def import_s3_docs_task(
