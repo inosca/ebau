@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 10:10+0200\n"
+"POT-Creation-Date: 2025-07-28 14:33+0200\n"
 "PO-Revision-Date: 2025-05-26 15:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2199,6 +2199,46 @@ msgid "Name of the currently logged in user"
 msgstr "Nome dell'utente che ha effettuato il login"
 
 #: camac/instance/placeholders/serializers.py
+msgid "LOGGED_IN_TITLE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Title of the currently logged in user"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "LOGGED_IN_POSITION"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Position of the currently logged in user"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "LOGGED_IN_PHONE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Phone of the currently logged in user"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "LOGGED_IN_MOBILE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Mobile of the currently logged in user"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "LOGGED_IN_DIVISION"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Division of the currently logged in user"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
 msgid "ALL_APPLICANT_REPRESENTATIVES"
 msgstr "TUTTI_RAPPRESENTANTI_RICHIEDENTI"
 
@@ -2704,38 +2744,6 @@ msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "End date of the publication in the gazette"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "LOGGED_IN_MOBILE"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "Mobile of the currently logged in user"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "LOGGED_IN_POSITION"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "Position of the currently logged in user"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "LOGGED_IN_PHONE"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "Phone of the currently logged in user"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "LOGGED_IN_TITLE"
-msgstr ""
-
-#: camac/instance/placeholders/serializers.py
-msgid "Title of the currently logged in user"
 msgstr ""
 
 #: camac/instance/placeholders/utils.py
