@@ -598,6 +598,16 @@
               "document__form_id": "personalien-tabelle",
               "question_id": "vorname-gesuchstellerin",
               "value": "Skywalker"
+          },
+          {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-profilierung",
+              "value": "vorlaeufige-pruefung-profilierung-ja"
+          },
+          {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-verfahrensart",
+              "value": "verfahrensart-ordentliches-verfahren"
           }
       ],
       "case-meta": {
@@ -611,7 +621,7 @@
               "creation_date": "2022-10-13T07:51:22Z",
               "modification_date": "2022-10-13T07:51:22Z",
               "service_id": 56,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Gesuch an Kanton senden'\n                Schritt: 'Gesuch an Kanton gesendet'\n                Wer: 'Testautomatisierung EBP'\n                Kommentar: 'Gesuch EBPA-0219-7779 wurde an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Gesuch an Kanton senden'\nSchritt: 'Gesuch an Kanton gesendet'\nWer: 'Testautomatisierung EBP'\nKommentar: 'Gesuch EBPA-0219-7779 wurde an den Kanton gesendet.'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -619,7 +629,7 @@
               "creation_date": "2022-10-20T12:29:00Z",
               "modification_date": "2022-10-20T12:29:00Z",
               "service_id": 56,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Dokumente an Kanton senden'\n                Schritt: 'Dokumente an Kanton gesendet'\n                Wer: 'EB2_AFB_02'\n                Kommentar: 'Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Dokumente an Kanton senden'\nSchritt: 'Dokumente an Kanton gesendet'\nWer: 'EB2_AFB_02'\nKommentar: 'Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -627,7 +637,7 @@
               "creation_date": "2023-03-15T09:09:32Z",
               "modification_date": "2023-03-15T09:09:32Z",
               "service_id": 56,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Dokumente an Kanton senden'\n                Schritt: 'Dokumente an Kanton gesendet'\n                Wer: 'Kantons Admin eBau extended'\n                Kommentar: 'Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Dokumente an Kanton senden'\nSchritt: 'Dokumente an Kanton gesendet'\nWer: 'Kantons Admin eBau extended'\nKommentar: 'Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -635,7 +645,7 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 56,
-              "text": "STATUS\n                    Letzter Kantonsstatus: 'Neues Gesuch'",
+              "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -1033,6 +1043,21 @@
               ]
           },
           {
+              "document__form_id": "entscheid",
+              "question_id": "entscheid-bemerkungen",
+              "value": "Nur der Schuppen\n\nRechtskraftdatum: 28.07.2025\n"
+          },
+          {
+              "document__form_id": "entscheid",
+              "question_id": "entscheid-datum",
+              "value": null
+          },
+          {
+              "document__form_id": "entscheid",
+              "question_id": "entscheid-entscheid",
+              "value": "entscheid-entscheid-baubewilligung-erteilt"
+          },
+          {
               "document__form_id": "gebaeude-tabelle-allgemein",
               "question_id": "amtliche-gebaeudenummer",
               "value": "23423423423"
@@ -1251,6 +1276,21 @@
               "document__form_id": "personalien-tabelle",
               "question_id": "vorname-gesuchstellerin",
               "value": "Tester"
+          },
+          {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-profilierung",
+              "value": "vorlaeufige-pruefung-profilierung-ja"
+          },
+          {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-profilierungsdatum",
+              "value": null
+          },
+          {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-verfahrensart",
+              "value": "verfahrensart-vereinfachtes-verfahren"
           }
       ],
       "case-meta": {
@@ -1264,7 +1304,7 @@
               "creation_date": "2024-02-14T08:02:49Z",
               "modification_date": "2024-02-14T08:02:49Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Gesuch an Kanton senden'\n                Schritt: 'Gesuch an Kanton gesendet'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: 'Gesuch EBPA-1720-6526 wurde an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Gesuch an Kanton senden'\nSchritt: 'Gesuch an Kanton gesendet'\nWer: 'EBP EBP_TEST3'\nKommentar: 'Gesuch EBPA-1720-6526 wurde an den Kanton gesendet.'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1272,7 +1312,7 @@
               "creation_date": "2024-04-22T04:04:17Z",
               "modification_date": "2024-04-22T04:04:17Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Verfahrenstyp Wechsel'\n                Schritt: 'Verfahrenstyp Wechsel'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: 'Aktuelles Verfahren mit Typ Ordentlich wurde abgebrochen'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Verfahrenstyp Wechsel'\nSchritt: 'Verfahrenstyp Wechsel'\nWer: 'EBP EBP_TEST3'\nKommentar: 'Aktuelles Verfahren mit Typ Ordentlich wurde abgebrochen'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1280,7 +1320,7 @@
               "creation_date": "2024-04-22T04:05:06Z",
               "modification_date": "2024-04-22T04:05:06Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Vorprüfung abgeschlossen (ohne Unterlagenergänzung)'\n                Schritt: 'Vorprüfung durchführen'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: ''\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Vorprüfung abgeschlossen (ohne Unterlagenergänzung)'\nSchritt: 'Vorprüfung durchführen'\nWer: 'EBP EBP_TEST3'\nKommentar: ''\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1288,7 +1328,7 @@
               "creation_date": "2024-04-22T04:05:24Z",
               "modification_date": "2024-04-22T04:05:24Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Materielle Prüfung abgeschlossen'\n                Schritt: 'Materielle Prüfung durchführen'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: ''\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Materielle Prüfung abgeschlossen'\nSchritt: 'Materielle Prüfung durchführen'\nWer: 'EBP EBP_TEST3'\nKommentar: ''\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1312,7 +1352,7 @@
               "creation_date": "2024-06-05T06:36:36Z",
               "modification_date": "2024-06-05T06:36:36Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Stellungnahmen eingefordert'\n                Schritt: 'Stellungnahmen einfordern'\n                Wer: 'Bettina Dober'\n                Kommentar: 'Stellungnahme eBau Training FS ebau.training+fs@gmail.com'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Stellungnahmen eingefordert'\nSchritt: 'Stellungnahmen einfordern'\nWer: 'Bettina Dober'\nKommentar: 'Stellungnahme eBau Training FS ebau.training+fs@gmail.com'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1320,7 +1360,7 @@
               "creation_date": "2024-06-05T06:37:27Z",
               "modification_date": "2024-06-05T06:37:27Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Dokumente zur Einsicht freigegeben'\n                Schritt: 'Dokumente zur Einsicht freigeben'\n                Wer: 'Bettina Dober'\n                Kommentar: 'Siehe Dokumente'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Dokumente zur Einsicht freigegeben'\nSchritt: 'Dokumente zur Einsicht freigeben'\nWer: 'Bettina Dober'\nKommentar: 'Siehe Dokumente'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1336,7 +1376,15 @@
               "creation_date": "2024-06-24T10:30:02Z",
               "modification_date": "2024-06-24T10:30:02Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Stellungnahmen eingefordert'\n                Schritt: 'Stellungnahmen einfordern'\n                Wer: 'EBP EBP_TEST1'\n                Kommentar: 'Stellungnahme eBau extFachstelle Viktor Sch. ebau.extended+extFS@gmail.com'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Stellungnahmen eingefordert'\nSchritt: 'Stellungnahmen einfordern'\nWer: 'EBP EBP_TEST1'\nKommentar: 'Stellungnahme eBau extFachstelle Viktor Sch. ebau.extended+extFS@gmail.com'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2024-11-11T23:00:00Z",
+              "modification_date": "2024-11-11T23:00:00Z",
+              "service_id": 55,
+              "text": "ENTSCHEID\nEntscheidung: Bewilligung\nVerfügungsdatum: 12.11.2024\nRechtskraftdatum: 28.11.2024\nBemerkung: \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1344,7 +1392,7 @@
               "creation_date": "2024-11-12T06:59:10Z",
               "modification_date": "2024-11-12T06:59:10Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Verfügung erstellt'\n                Schritt: 'Entscheid erfassen'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: 'Bewilligung'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'EBP EBP_TEST3'\nKommentar: 'Bewilligung'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1352,7 +1400,7 @@
               "creation_date": "2024-11-12T07:00:17Z",
               "modification_date": "2024-11-12T07:00:17Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Schreibrechte geändert'\n                Schritt: 'Gesuchsübertragung'\n                Wer: 'EBP EBP_TEST3'\n                Kommentar: 'Das Gesuch wurde von \"Kein Gesuchsinhaber\" auf ZZ9999 Training GS5 eBau übertragen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Schreibrechte geändert'\nSchritt: 'Gesuchsübertragung'\nWer: 'EBP EBP_TEST3'\nKommentar: 'Das Gesuch wurde von \"Kein Gesuchsinhaber\" auf ZZ9999 Training GS5 eBau übertragen.'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1360,7 +1408,15 @@
               "creation_date": "2025-01-15T11:46:09Z",
               "modification_date": "2025-01-15T11:46:09Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-21T22:00:00Z",
+              "modification_date": "2025-07-21T22:00:00Z",
+              "service_id": 55,
+              "text": "ENTSCHEID\nEntscheidung: Bewilligung\nVerfügungsdatum: 22.07.2025\nRechtskraftdatum: 28.07.2025\nBemerkung: Nur der Schuppen\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1368,7 +1424,7 @@
               "creation_date": "2025-07-22T09:02:26Z",
               "modification_date": "2025-07-22T09:02:26Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Verfügung erstellt'\n                Schritt: 'Entscheid erfassen'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Bewilligung'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'Markus Test Krause Test'\nKommentar: 'Bewilligung'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1376,7 +1432,7 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 55,
-              "text": "STATUS\n                    Letzter Kantonsstatus: 'Neues Gesuch'",
+              "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -1421,605 +1477,6 @@
           {
               "status": "skipped",
               "task_id": "objections"
-          },
-          {
-              "status": "skipped",
-              "task_id": "submit"
-          }
-      ]
-  }
-  '''
-# ---
-# name: test_migrate_single_json_file[EBPA-3304-0441.json]
-  '''
-  {
-      "answers": [
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "art-des-gesuchs",
-              "value": [
-                  "art-des-gesuchs-baugesuch"
-              ]
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "baugespann",
-              "value": "baugespann-ja"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "baukosten-ohne-land-inkl-allfaellige-abbruchkosten-in-chf-migration",
-              "value": 50000.0
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "bauobjekt-kanalisation-migration",
-              "value": "bauobjekt-kanalisation-migration-nicht-benoetigt"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "bauzonen-auswahl-migration",
-              "value": "bauzonen-auswahl-migration-innerhalb-rechtskraeftiger-bauzone"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
-              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "beschreibung-bauvorhaben",
-              "value": "Späneabsauganlage im Aussenbereich"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
-              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "eigenverwendung-migration",
-              "value": "eigenverwendung-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "einleitung-querung-und-oder-wasserentnahme-migration",
-              "value": "einleitung-querung-und-oder-wasserentnahme-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "erdbebenkonformitaetserklaerung-migration",
-              "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "erfassungsgrund",
-              "value": "erfassungsgrund-gesuch-in-papierform"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "gemeinde",
-              "value": "81"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "gis-map",
-              "value": "{\"markers\": [{\"x\": 2643174.0, \"y\": 1237620.0}], \"geometry\": \"POINT\"}"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
-              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration",
-              "value": "handelt-es-sich-um-eine-besitzstandsgeschuetzte-liegenschaft-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration",
-              "value": "handelt-es-sich-um-einen-landwirtschaftlichen-betrieb-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "hochwassergefaehrdung-auswahl-migration",
-              "value": "hochwassergefaehrdung-auswahl-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "in-oeffentliches-gewaesser",
-              "value": "in-oeffentliches-gewaesser-nicht-betroffen"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "is-paper",
-              "value": "is-paper-no"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
-              "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-ja"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-ein-energienachweis-erforderlich-migration",
-              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-ein-luftfahrthindernis-geplant-migration",
-              "value": "ist-ein-luftfahrthindernis-geplant-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-ein-materialabbau-geplant-migration",
-              "value": "ist-ein-materialabbau-geplant-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
-              "value": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration",
-              "value": "ist-eine-neue-erschliessung-an-die-kantonsstrasse-geplant-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten",
-              "value": "ist-mit-dem-vorhaben-der-gewaesserabstand-unterschritten-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
-              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "kanalisation",
-              "value": "kanalisation-nicht-betroffen"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
-              "value": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-ja"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "kantonsstrassen",
-              "value": "kantonsstrassen-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "kommunale-randschutzbewilligung-erforderlich-migration",
-              "value": "kommunale-randschutzbewilligung-erforderlich-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "liegenschaft-migration",
-              "value": "liegenschaft-migration-nicht-benoetigt"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration",
-              "value": "liegt-das-bauvorhaben-in-einem-hochwassergefaehrdeten-gebiet-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration",
-              "value": "oben-nicht-genanntes-bauvorhaben-ausserhalb-der-bauzone-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ort-grundstueck",
-              "value": "Bottenwil"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "parkplaetze-betroffen",
-              "value": "parkplaetze-betroffen-ja"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "parzelle",
-              "value": null
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "personalien-gesuchstellerin",
-              "value": null
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "personalien-grundeigentumerin",
-              "value": null
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "personalien-projektverfasserin",
-              "value": null
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "personalien-rechnungsempfaenger",
-              "value": null
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "projektaenderung",
-              "value": "projektaenderung-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "schutzraumbaupflicht-ersatzabgabepflicht-migration",
-              "value": "schutzraumbaupflicht-ersatzabgabepflicht-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "sind-altlasten-betroffen-migration",
-              "value": "sind-altlasten-betroffen-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "sind-eingriffe-in-den-boden-geplant-migration",
-              "value": "sind-eingriffe-in-den-boden-geplant-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "sind-erdsonden-geplant-migration",
-              "value": "sind-erdsonden-geplant-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "sind-laermschutzmassnahmen-erforderlich-migration",
-              "value": "sind-laermschutzmassnahmen-erforderlich-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration",
-              "value": "sind-reklamen-im-einflussbereich-der-kantonsstrasse-geplant-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
-              "value": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration",
-              "value": "sind-terrainveraenderungen-ausserhalb-der-bauzone-geplant-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "solaranlage-photovoltaikanalge-geplant",
-              "value": "solaranlage-photovoltaikanalge-geplant-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration",
-              "value": "soll-eine-oeffentliche-kanalisation-gebaut-oder-geaendert-werden-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "stoerfallverordnung-migration",
-              "value": "stoerfallverordnung-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "street-and-housenumber",
-              "value": "Hauptstrasse 296"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "total-in-chf-migration",
-              "value": 50000.0
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "versickerung",
-              "value": "versickerung-nicht-betroffen"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "weitere-personen",
-              "value": [
-                  "weitere-personen-grundeigentumerin",
-                  "weitere-personen-projektverfasserin",
-                  "weitere-personen-rechnungsempfaenger"
-              ]
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
-              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration",
-              "value": "wird-der-mindestabstand-zur-kantonsstrasse-ueberschritten-migration-nein"
-          },
-          {
-              "document__form_id": "baugesuch-migration",
-              "question_id": "zonenplan",
-              "value": "Arbeitszone I"
-          },
-          {
-              "document__form_id": "parzelle-tabelle",
-              "question_id": "gemeinde",
-              "value": "81"
-          },
-          {
-              "document__form_id": "parzelle-tabelle",
-              "question_id": "parzellennummer",
-              "value": "249"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "e-mail-gesuchstellerin",
-              "value": "123@ag.ch"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "e-mail-gesuchstellerin",
-              "value": "architektur@mitac.ch"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "e-mail-gesuchstellerin",
-              "value": "kevin.fretz@schreinerei-fretz.ch"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "e-mail-gesuchstellerin",
-              "value": "kevin.fretz@schreinerei-fretz.ch"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "juristische-person-gesuchstellerin",
-              "value": "juristische-person-gesuchstellerin-nein"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "juristische-person-gesuchstellerin",
-              "value": "juristische-person-gesuchstellerin-nein"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "juristische-person-gesuchstellerin",
-              "value": "juristische-person-gesuchstellerin-nein"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "juristische-person-gesuchstellerin",
-              "value": "juristische-person-gesuchstellerin-nein"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-gesuchstellerin",
-              "value": "Fretz"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-gesuchstellerin",
-              "value": "Mitas Architektur AG"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-gesuchstellerin",
-              "value": "Schreinerei Fretz AG"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-gesuchstellerin",
-              "value": "Schreinerei Fretz AG"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "nummer-gesuchstellerin",
-              "value": "18"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "nummer-gesuchstellerin",
-              "value": "296"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "nummer-gesuchstellerin",
-              "value": "296"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "nummer-gesuchstellerin",
-              "value": "30"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "ort-gesuchstellerin",
-              "value": "Bottenwil"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "ort-gesuchstellerin",
-              "value": "Bottenwil"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "ort-gesuchstellerin",
-              "value": "Lenzburg"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "ort-gesuchstellerin",
-              "value": "Uerkheim"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "plz-gesuchstellerin",
-              "value": 4813
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "plz-gesuchstellerin",
-              "value": 4814
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "plz-gesuchstellerin",
-              "value": 4814
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "plz-gesuchstellerin",
-              "value": 5600
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "strasse-gesuchstellerin",
-              "value": "Bahnhofstrasse"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "strasse-gesuchstellerin",
-              "value": "Hauptstrasse"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "strasse-gesuchstellerin",
-              "value": "Hauptstrasse"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "strasse-gesuchstellerin",
-              "value": "Neudorfstrasse"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "telefon-oder-mobile-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "telefon-oder-mobile-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "telefon-oder-mobile-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "telefon-oder-mobile-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "vorname-gesuchstellerin",
-              "value": "Max"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "vorname-gesuchstellerin",
-              "value": "_"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "vorname-gesuchstellerin",
-              "value": "_"
-          },
-          {
-              "document__form_id": "personalien-tabelle",
-              "question_id": "vorname-gesuchstellerin",
-              "value": "_"
-          }
-      ],
-      "case-meta": {
-          "dossier-number": "2024-1",
-          "dossier-number-sort": 2024000001,
-          "submit-date": "2024-04-15T00:00:00"
-      },
-      "group": "support",
-      "journal": [
-          {
-              "creation_date": "2024-04-23T05:22:32Z",
-              "modification_date": "2024-04-23T05:22:32Z",
-              "service_id": 81,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Gesuch an Kanton senden'\n                Schritt: 'Gesuch an Kanton gesendet'\n                Wer: 'Tetiana Boguslavets'\n                Kommentar: 'Gesuch EBPA-3304-0441 wurde an den Kanton gesendet.'\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2024-04-23T05:40:25Z",
-              "modification_date": "2024-04-23T05:40:25Z",
-              "service_id": 81,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Jasmin Leuthard'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2024-07-30T06:43:30Z",
-              "modification_date": "2024-07-30T06:43:30Z",
-              "service_id": 81,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Dokumente an Kanton senden'\n                Schritt: 'Dokumente an Kanton gesendet'\n                Wer: 'Ana Blazevic'\n                Kommentar: 'Dokumente vom Gesuch EBPA-3304-0441 wurden an den Kanton gesendet.'\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          }
-      ],
-      "keywords": [
-          "2024-07",
-          "BVUAFB.24.899",
-          "EBPA-3304-0441"
-      ],
-      "service": 81,
-      "state": "circulation",
-      "user": "Migration",
-      "work-items": [
-          {
-              "status": "ready",
-              "task_id": "cantonal-exam"
-          },
-          {
-              "status": "ready",
-              "task_id": "create-manual-workitems"
-          },
-          {
-              "status": "ready",
-              "task_id": "distribution"
-          },
-          {
-              "status": "ready",
-              "task_id": "init-additional-demand"
-          },
-          {
-              "status": "ready",
-              "task_id": "objections"
-          },
-          {
-              "status": "skipped",
-              "task_id": "formal-exam"
           },
           {
               "status": "skipped",
@@ -2675,6 +2132,16 @@
               "value": "Huber"
           },
           {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-profilierung",
+              "value": "vorlaeufige-pruefung-profilierung-ja"
+          },
+          {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-verfahrensart",
+              "value": "verfahrensart-ordentliches-verfahren"
+          },
+          {
               "document__form_id": "wohnungen-tabelle",
               "question_id": "anzahl-wohnungen-tabelle",
               "value": 1
@@ -2701,7 +2168,7 @@
               "creation_date": "2025-06-12T12:32:22Z",
               "modification_date": "2025-06-12T12:32:22Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Gesuch an Kanton senden'\n                Schritt: 'Gesuch an Kanton gesendet'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Gesuch EBPA-4406-5058 wurde an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Gesuch an Kanton senden'\nSchritt: 'Gesuch an Kanton gesendet'\nWer: 'Markus Test Krause Test'\nKommentar: 'Gesuch EBPA-4406-5058 wurde an den Kanton gesendet.'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2709,7 +2176,7 @@
               "creation_date": "2025-06-17T12:20:37Z",
               "modification_date": "2025-06-17T12:20:37Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2717,7 +2184,7 @@
               "creation_date": "2025-06-17T12:21:44Z",
               "modification_date": "2025-06-17T12:21:44Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2725,7 +2192,7 @@
               "creation_date": "2025-06-17T12:33:23Z",
               "modification_date": "2025-06-17T12:33:23Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2733,7 +2200,7 @@
               "creation_date": "2025-06-17T12:46:02Z",
               "modification_date": "2025-06-17T12:46:02Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2741,7 +2208,7 @@
               "creation_date": "2025-06-17T13:06:13Z",
               "modification_date": "2025-06-17T13:06:13Z",
               "service_id": 81,
-              "text": "KOMMENTAR\n                Sachbearbeiter: 'Markus Test Krause Test (EB2_AFB_01)'\n                Kommentar: 'Kommentar aus eBau AG'\n",
+              "text": "KOMMENTAR\nSachbearbeiter: 'Markus Test Krause Test (EB2_AFB_01)'\nKommentar: 'Kommentar aus eBau AG'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2749,7 +2216,7 @@
               "creation_date": "2025-06-17T13:27:15Z",
               "modification_date": "2025-06-17T13:27:15Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Datenänderung von Kanton'\n                Schritt: 'Datenänderung von Kanton'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2757,7 +2224,7 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 81,
-              "text": "STATUS\n                    Letzter Kantonsstatus: 'Neues Gesuch'",
+              "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -3444,6 +2911,21 @@
               ]
           },
           {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-kontrolle-profilierung",
+              "value": null
+          },
+          {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-profilierung",
+              "value": "vorlaeufige-pruefung-profilierung-ja"
+          },
+          {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-verfahrensart",
+              "value": "verfahrensart-ordentliches-verfahren"
+          },
+          {
               "document__form_id": "wohnungen-tabelle",
               "question_id": "anzahl-wohnungen-tabelle",
               "value": 2
@@ -3487,10 +2969,18 @@
       "group": "support",
       "journal": [
           {
+              "creation_date": "2021-01-31T23:00:00Z",
+              "modification_date": "2021-01-31T23:00:00Z",
+              "service_id": 68,
+              "text": "ENTSCHEID\nEntscheidung: Bewilligung\nVerfügungsdatum: 01.02.2021\nRechtskraftdatum: 01.02.2021\nRechtsmittel ergriffen am: 01.02.2021\nBemerkung: Entscheid Bemerkung\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
               "creation_date": "2021-02-01T11:58:37Z",
               "modification_date": "2021-02-01T11:58:37Z",
               "service_id": 68,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Profilkontrolle'\n                Schritt: 'Profilierung kontrollieren'\n                Wer: 'EBP Monitoring WFAS'\n                Kommentar: 'Kontrolldatum: 02.02.2021'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Profilkontrolle'\nSchritt: 'Profilierung kontrollieren'\nWer: 'EBP Monitoring WFAS'\nKommentar: 'Kontrolldatum: 02.02.2021'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3498,7 +2988,7 @@
               "creation_date": "2021-02-01T11:59:23Z",
               "modification_date": "2021-02-01T11:59:23Z",
               "service_id": 68,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Verfügung erstellt'\n                Schritt: 'Entscheid erfassen'\n                Wer: 'EBP Monitoring WFAS'\n                Kommentar: 'Bewilligung'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'EBP Monitoring WFAS'\nKommentar: 'Bewilligung'\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -4079,6 +3569,16 @@
               "document__form_id": "personalien-tabelle",
               "question_id": "vorname-gesuchstellerin",
               "value": "Mapper"
+          },
+          {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-profilierung",
+              "value": "vorlaeufige-pruefung-profilierung-nein"
+          },
+          {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-verfahrensart",
+              "value": "verfahrensart-ordentliches-verfahren"
           }
       ],
       "case-meta": {
@@ -4901,6 +4401,16 @@
               "value": "Martin"
           },
           {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-profilierung",
+              "value": "vorlaeufige-pruefung-profilierung-nein"
+          },
+          {
+              "document__form_id": "vorlaeufige-pruefung",
+              "question_id": "vorlaeufige-pruefung-verfahrensart",
+              "value": "verfahrensart-ordentliches-verfahren"
+          },
+          {
               "document__form_id": "wohnungen-tabelle",
               "question_id": "anzahl-wohnungen-tabelle",
               "value": 1
@@ -4958,7 +4468,7 @@
               "creation_date": "2025-07-18T22:00:00Z",
               "modification_date": "2025-07-18T22:00:00Z",
               "service_id": 55,
-              "text": "STELLUNGNAHME GESUCH          \nStatus:                       Zugriff: aktiv                \n\nEmpfänger:                    \n• eBau Training FS (N433697952 ebau.training+fs@gmail.com)\n   Status: Offen              Aktiv: ✓                      Manuell hinzugefügt: -        Datum: 19.07.2025 00:00       \n• Martin Huber ( martin.huber@karakun.com)\n   Status: Offen              Aktiv: ✓                      Manuell hinzugefügt: -        Datum: 19.07.2025 00:00       \n",
+              "text": "STELLUNGNAHME GESUCH          \nStatus:                       Zugriff: aktiv                \n\nEmpfänger:                    \n• eBau Training FS (N433697952 ebau.training+fs@gmail.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 19.07.2025 00:00       \n• Martin Huber ( martin.huber@karakun.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 19.07.2025 00:00       \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -4966,7 +4476,7 @@
               "creation_date": "2025-07-19T06:31:48Z",
               "modification_date": "2025-07-19T06:31:48Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Stellungnahmen eingefordert'\n                Schritt: 'Stellungnahmen einfordern'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Stellungnahme eBau Training FS ebau.training+fs@gmail.com, Martin Huber martin.huber@karakun.com'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Stellungnahmen eingefordert'\nSchritt: 'Stellungnahmen einfordern'\nWer: 'Markus Test Krause Test'\nKommentar: 'Stellungnahme eBau Training FS ebau.training+fs@gmail.com, Martin Huber martin.huber@karakun.com'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -4974,7 +4484,7 @@
               "creation_date": "2025-07-20T22:00:00Z",
               "modification_date": "2025-07-20T22:00:00Z",
               "service_id": 55,
-              "text": "STELLUNGNAHME GESUCH          \nStatus:                       Zugriff: aktiv                \n\nEmpfänger:                    \n• Martin Huber ( martin.huber@karakun.com)\n   Status: Offen              Aktiv: ✓                      Manuell hinzugefügt: -        Datum: 21.07.2025 00:00       \n",
+              "text": "STELLUNGNAHME GESUCH          \nStatus:                       Zugriff: aktiv                \n\nEmpfänger:                    \n• Martin Huber ( martin.huber@karakun.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 21.07.2025 00:00       \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -4982,7 +4492,7 @@
               "creation_date": "2025-07-21T12:39:59Z",
               "modification_date": "2025-07-21T12:39:59Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\n                Aktion: 'Stellungnahmen eingefordert'\n                Schritt: 'Stellungnahmen einfordern'\n                Wer: 'Markus Test Krause Test'\n                Kommentar: 'Stellungnahme Martin Huber martin.huber@karakun.com'\n",
+              "text": "VERFAHRENSSTAND\nAktion: 'Stellungnahmen eingefordert'\nSchritt: 'Stellungnahmen einfordern'\nWer: 'Markus Test Krause Test'\nKommentar: 'Stellungnahme Martin Huber martin.huber@karakun.com'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },

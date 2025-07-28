@@ -7,6 +7,7 @@ import pytest
 import pytz
 from caluma.caluma_form.models import Answer
 from django.core.management import call_command
+from django.db.models.query_utils import Q
 
 from camac.dossier_import.conftest import JSON_INPUT_DIR, TEST_IMPORT_FILE_PATH
 from camac.dossier_import.tests.test_utils import to_sorted_json
@@ -174,9 +175,10 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
         )
         work_items = list(instance.case.work_items.all().values("status", "task_id"))
         answers = list(
-            Answer.objects.filter(document__family_id=instance.case.document_id).values(
-                "question_id", "value", "document__form_id"
-            )
+            Answer.objects.filter(
+                Q(document__family=instance.case.document)
+                | Q(document__family__work_item__case__family=instance.case)
+            ).values("question_id", "value", "document__form_id")
         )
         journal = list(
             JournalEntry.objects.filter(instance=instance)
