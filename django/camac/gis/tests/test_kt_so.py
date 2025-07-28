@@ -98,7 +98,13 @@ TEST_SCENARIOS = [
 
 
 @pytest.fixture
-def so_data_sources(caluma_question_factory, settings, mock_municipalities):
+def so_data_sources(
+    caluma_question_factory,
+    caluma_question_option_factory,
+    caluma_option_factory,
+    settings,
+    mock_municipalities,
+):
     call_command("loaddata", settings.ROOT_DIR("kt_so/config/gis.json"))
 
     gis_questions = [
@@ -113,7 +119,8 @@ def so_data_sources(caluma_question_factory, settings, mock_municipalities):
         ("e-grid", Question.TYPE_TEXT),
         ("lagekoordinaten-ost", Question.TYPE_FLOAT),
         ("lagekoordinaten-nord", Question.TYPE_FLOAT),
-        ("flaeche-m", Question.TYPE_INTEGER),
+        ("gis-daten-uebernommen", Question.TYPE_CHOICE),
+        ("flaeche-m", Question.TYPE_TEXT),
         ("nutzungsplanung-grundnutzung", Question.TYPE_TEXTAREA),
         ("nutzungsplanung-grundnutzung-kanton", Question.TYPE_TEXTAREA),
         ("nutzungsplanung-weitere-festlegungen", Question.TYPE_TEXTAREA),
@@ -131,6 +138,11 @@ def so_data_sources(caluma_question_factory, settings, mock_municipalities):
         caluma_question_factory(slug=slug, type=type)
 
     Question.objects.filter(slug="gemeinde").update(data_source="Municipalities")
+    caluma_question_option_factory(
+        pk="gis-daten-uebernommen.gis-daten-uebernommen-ja",
+        question=Question.objects.get(pk="gis-daten-uebernommen"),
+        option=caluma_option_factory(pk="gis-daten-uebernommen-ja"),
+    )
     mock_municipalities(["Solothurn"])
 
     return GISDataSource.objects.all()
@@ -153,7 +165,9 @@ def test_sogis_client(
     vcr_config,
 ):
     x, y = scenario["coords"]
-    response = admin_client.get(reverse("gis-data"), data={"x": x, "y": y})
+    response = admin_client.get(
+        reverse("gis-data"), data={"x": x, "y": y, "applied": "ja"}
+    )
 
     assert response.status_code == status.HTTP_200_OK
 

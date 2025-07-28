@@ -1,4 +1,19 @@
+from dataclasses import dataclass
+
 from django.db.models.expressions import Q
+
+
+@dataclass
+class DumpConfig:
+    filters: dict[str, Q]
+    dependency: str
+
+    def __iter__(self):
+        for filter in self.filters:
+            yield filter
+
+    def __getitem__(self, key):
+        return self.filters[key]
 
 
 def add_dump_form_config_conditions(existing_filter: dict, conditions: dict):
@@ -678,6 +693,10 @@ DUMP = {
                         group__role__name__in=["admin", "applicant", "support"]
                     ),
                 },
+                "caluma_form_v2": DumpConfig(
+                    filters=generate_form_dump_config(version=2),
+                    dependency="caluma_form_default_answers",
+                ),
                 "caluma_bab_exam_form": generate_form_dump_config(
                     regex=r"^(materielle-pruefung-bab|mp-bab)"
                 ),

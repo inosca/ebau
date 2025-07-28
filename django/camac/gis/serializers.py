@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List
+from typing import Any, List
 
 from caluma.caluma_core.exceptions import ConfigurationError
 from caluma.caluma_form.api import save_answer
@@ -12,6 +12,16 @@ from rest_framework.exceptions import PermissionDenied, ValidationError
 
 from camac.caluma.extensions.permissions import CustomPermission
 from camac.instance.models import Instance
+
+
+def convert_answer_value(question_type: str, value: Any) -> int | float | Any:
+    match question_type:
+        case "integer":
+            return int(value)
+        case "float":
+            return float(value)
+        case _:
+            return value
 
 
 @dataclass
@@ -58,16 +68,13 @@ class GISApplySerializer(serializers.Serializer):
             answer_value = [opt["value"] for opt in answer_value]
 
         try:
+            value = convert_answer_value(question.type, answer_value)
             save_answer(
                 question=question,
                 document=document,
                 user=self.context["request"].caluma_info.context.user,
-                value=int(answer_value)
-                if question.type == "integer"
-                else float(answer_value)
-                if question.type == "float"
-                else answer_value,
-                meta={"gis-value": answer_value},
+                value=value,
+                meta={"gis-value": value},
             )
         except (ConfigurationError, CustomValidationError):
             # Question does not exist in this form, ignore it.

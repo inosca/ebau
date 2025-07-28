@@ -247,6 +247,7 @@ omit = [
     "camac/core/management/commands/migrate_bab_form_ur.py",
     "camac/core/management/commands/fix_ur_bab_assignment.py",
     "camac/core/management/commands/migrate_file_encryption.py",
+    "camac/core/management/commands/migrate_question_flaeche-m_integer_to_text.py",
     "camac/core/management/commands/translate_camac_it.py",
     "camac/core/management/commands/translate_extract.py",
     "camac/core/management/commands/translate_services_it_gr.py",

@@ -214,6 +214,16 @@ CALUMA_FORM_TYPES_SLUGS = [
     "benuetzung-oeffentlichem-terrain-meldung",
 ]
 
+CALUMA_FORM_TYPES_SLUGS_SO = [
+    "baugesuch-v2",
+    "erdwaermesonden-v2",
+    "migriertes-dossier-v2",
+    "voranfrage-v2",
+    "meldung-v2",
+    "meldung-pv-v2",
+    "reklamegesuch-v2",
+]
+
 
 @dataclass
 class FakeRequest:
@@ -702,7 +712,7 @@ def caluma_workflow_config_so(
     caluma_forms_so,
     caluma_config_so,
 ):
-    for slug in CALUMA_FORM_TYPES_SLUGS:
+    for slug in CALUMA_FORM_TYPES_SLUGS_SO:
         caluma_form_models.Form.objects.create(slug=slug)
 
     call_command(
