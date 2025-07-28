@@ -26,6 +26,7 @@ export default function makeServer(config) {
       this.resource("users");
       this.resource("public-users");
       this.resource("public-services");
+      this.resource("public-service-groups");
       this.resource("public-groups");
       this.resource("notification-templates");
       this.resource("responsible-user-rule");
