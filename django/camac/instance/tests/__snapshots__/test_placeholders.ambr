@@ -6802,6 +6802,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'BAFU_BUNDESINVENTARE': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAFU_BUNDESINVENTARE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Bundesinventare',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'BASE_URL': dict({
       'aliases': list([
         dict({
@@ -6834,6 +6846,18 @@
       ]),
       'description': dict({
         'de': 'Beschreibung des Bauvorhabens',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BFS_NUMMER': dict({
+      'aliases': list([
+        dict({
+          'de': 'BFS_NUMMER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'BFS Nummer der Gemeinde',
       }),
       'nested_aliases': dict({
       }),
@@ -8282,6 +8306,18 @@
       ]),
       'description': dict({
         'de': 'Nutzungsplanung (Grundnutzung) (Kanton)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'NUTZUNGSPLANUNG_WEITERE_FESTLEGUNGEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'NUTZUNGSPLANUNG_WEITERE_FESTLEGUNGEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Nutzungsplanung, weitere Festlegungen',
       }),
       'nested_aliases': dict({
       }),
@@ -9880,9 +9916,11 @@
     'ANGEMELDET_POSITION',
     'ANGEMELDET_TELEFON',
     'ANGEMELDET_TITEL',
+    'BAFU_BUNDESINVENTARE',
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID_DATUM',
     'BESCHREIBUNG_BAUVORHABEN',
+    'BFS_NUMMER',
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
     'EBAU_URL',
@@ -10080,6 +10118,7 @@
     'NEBENBESTIMMUNGEN_MAPPED[].TEXT',
     'NUTZUNGSPLANUNG_GRUNDNUTZUNG',
     'NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON',
+    'NUTZUNGSPLANUNG_WEITERE_FESTLEGUNGEN',
     'ORTSCHAFT',
     'PROJEKTVERFASSER',
     'PROJEKTVERFASSER_ADRESSE_1',
@@ -11381,10 +11420,12 @@
     'ANGEMELDET_POSITION': '',
     'ANGEMELDET_TELEFON': '',
     'ANGEMELDET_TITEL': '',
+    'BAFU_BUNDESINVENTARE': '',
     'BASE_URL': 'http://ember-ebau.localhost',
     'BAUEINGABE_DATUM': '',
     'BAUENTSCHEID_DATUM': '18. April 2024',
     'BESCHREIBUNG_BAUVORHABEN': '',
+    'BFS_NUMMER': '',
     'DECISION_DATE': '18. April 2024',
     'DOSSIER_NUMBER': '',
     'DOSSIER_NUMMER': '',
@@ -11455,30 +11496,6 @@
     ]),
     'EINGEREICHTE_UNTERLAGEN': list([
       dict({
-        'BESCHREIBUNG': 'Run change street record. Boy player suddenly space according despite view officer.',
-        'CATEGORY': 'beilagen-zum-gesuch',
-        'CREATED_AT': '18.01.2024 14:37',
-        'CREATED_BY': 'Admin User',
-        'DESCRIPTION': 'Run change street record. Boy player suddenly space according despite view officer.',
-        'ERSTELLT_AM': '18.01.2024 14:37',
-        'ERSTELLT_VON': 'Admin User',
-        'GEAENDERT_AM': '18.01.2024 14:37',
-        'GEAENDERT_VON': 'Admin User',
-        'KATEGORIE': 'beilagen-zum-gesuch',
-        'MARKIERUNGEN': list([
-        ]),
-        'MARKS': list([
-        ]),
-        'MODIFIED_AT': '18.01.2024 14:37',
-        'MODIFIED_BY': 'Admin User',
-        'NAME': 'Ausnahmebewilligung',
-        'ORIGINAL_NAME': 'father.png',
-        'STICHWORTE': list([
-        ]),
-        'TAGS': list([
-        ]),
-      }),
-      dict({
         'BESCHREIBUNG': '''
           Tree executive dream carry economy. Family surface late drive.
           Condition nor like set response hand drug. Those identify sure billion force only physical leave.
@@ -11503,6 +11520,30 @@
         'MODIFIED_BY': 'Admin User',
         'NAME': 'Situationsplan',
         'ORIGINAL_NAME': 'reduce.png',
+        'STICHWORTE': list([
+        ]),
+        'TAGS': list([
+        ]),
+      }),
+      dict({
+        'BESCHREIBUNG': 'Run change street record. Boy player suddenly space according despite view officer.',
+        'CATEGORY': 'beilagen-zum-gesuch',
+        'CREATED_AT': '18.01.2024 14:37',
+        'CREATED_BY': 'Admin User',
+        'DESCRIPTION': 'Run change street record. Boy player suddenly space according despite view officer.',
+        'ERSTELLT_AM': '18.01.2024 14:37',
+        'ERSTELLT_VON': 'Admin User',
+        'GEAENDERT_AM': '18.01.2024 14:37',
+        'GEAENDERT_VON': 'Admin User',
+        'KATEGORIE': 'beilagen-zum-gesuch',
+        'MARKIERUNGEN': list([
+        ]),
+        'MARKS': list([
+        ]),
+        'MODIFIED_AT': '18.01.2024 14:37',
+        'MODIFIED_BY': 'Admin User',
+        'NAME': 'Ausnahmebewilligung',
+        'ORIGINAL_NAME': 'father.png',
         'STICHWORTE': list([
         ]),
         'TAGS': list([
@@ -11733,13 +11774,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': 'Ablehnend',
         'BEANTWORTET': '21.02.1986',
-        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:39.255326+01:00',
+        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:32.386710+01:00',
         'BEMERKUNGEN': 'Bemerkungen',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': 'Einsprachen',
         'ERSTELLT': '18.01.2024',
-        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.261817+01:00',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:00+01:00',
         'FRIST': '12.08.2022',
         'HINWEISE_AN_GESUCHSTELLERIN': 'Hinweis Gesuchsteller/in',
         'HINWEISE_AN_LEITBEHOERDE': 'Hinweis LB',
@@ -11759,7 +11800,7 @@
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': '',
         'ERSTELLT': '18.01.2024',
-        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.667447+01:00',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:00+01:00',
         'FRIST': '08.04.2014',
         'HINWEISE_AN_GESUCHSTELLERIN': '',
         'HINWEISE_AN_LEITBEHOERDE': '',
@@ -11952,6 +11993,7 @@
     ]),
     'NUTZUNGSPLANUNG_GRUNDNUTZUNG': 'Wohnzone 3 - AZ 0.6',
     'NUTZUNGSPLANUNG_GRUNDNUTZUNG_KANTON': 'N112_Wohnzone_3_G',
+    'NUTZUNGSPLANUNG_WEITERE_FESTLEGUNGEN': '',
     'ORT': 'Rüttenen',
     'ORTSCHAFT': 'Rüttenen',
     'PARZELLE': '',
@@ -12005,13 +12047,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': 'Ablehnend',
         'BEANTWORTET': '21.02.1986',
-        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:39.255326+01:00',
+        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:32.386710+01:00',
         'BEMERKUNGEN': 'Bemerkungen',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': 'Einsprachen',
         'ERSTELLT': '18.01.2024',
-        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.261817+01:00',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:00+01:00',
         'FRIST': '12.08.2022',
         'HINWEISE_AN_GESUCHSTELLERIN': 'Hinweis Gesuchsteller/in',
         'HINWEISE_AN_LEITBEHOERDE': 'Hinweis LB',
@@ -12031,7 +12073,7 @@
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': '',
         'ERSTELLT': '18.01.2024',
-        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.667447+01:00',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:00+01:00',
         'FRIST': '08.04.2014',
         'HINWEISE_AN_GESUCHSTELLERIN': '',
         'HINWEISE_AN_LEITBEHOERDE': '',
@@ -12047,13 +12089,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': 'Ablehnend',
         'BEANTWORTET': '21.02.1986',
-        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:39.255326+01:00',
+        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:32.386710+01:00',
         'BEMERKUNGEN': 'Bemerkungen',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': 'Einsprachen',
         'ERSTELLT': '18.01.2024',
-        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.261817+01:00',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:00+01:00',
         'FRIST': '12.08.2022',
         'HINWEISE_AN_GESUCHSTELLERIN': 'Hinweis Gesuchsteller/in',
         'HINWEISE_AN_LEITBEHOERDE': 'Hinweis LB',
@@ -12073,7 +12115,7 @@
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': '',
         'ERSTELLT': '18.01.2024',
-        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.667447+01:00',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:00+01:00',
         'FRIST': '08.04.2014',
         'HINWEISE_AN_GESUCHSTELLERIN': '',
         'HINWEISE_AN_LEITBEHOERDE': '',
@@ -12089,13 +12131,13 @@
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': 'Ablehnend',
         'BEANTWORTET': '21.02.1986',
-        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:39.255326+01:00',
+        'BEANTWORTET_TIMESTAMP': '1986-02-21T05:36:32.386710+01:00',
         'BEMERKUNGEN': 'Bemerkungen',
         'DATUM_ENDE': '17.04.1976',
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': 'Einsprachen',
         'ERSTELLT': '18.01.2024',
-        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.261817+01:00',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:00+01:00',
         'FRIST': '12.08.2022',
         'HINWEISE_AN_GESUCHSTELLERIN': 'Hinweis Gesuchsteller/in',
         'HINWEISE_AN_LEITBEHOERDE': 'Hinweis LB',
@@ -12115,7 +12157,7 @@
         'DATUM_START': '18.01.2024',
         'EINSPRACHEN': '',
         'ERSTELLT': '18.01.2024',
-        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:24.667447+01:00',
+        'ERSTELLT_TIMESTAMP': '2024-01-18T14:37:00+01:00',
         'FRIST': '08.04.2014',
         'HINWEISE_AN_GESUCHSTELLERIN': '',
         'HINWEISE_AN_LEITBEHOERDE': '',

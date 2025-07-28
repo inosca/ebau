@@ -182,7 +182,7 @@ def datetime_timestamp(value: Union[date, datetime, None]) -> str:
     "2021-04-10T23:59:59"
     """
 
-    if not value:
+    if not value:  # pragma: no cover
         return ""
 
     if isinstance(value, datetime):

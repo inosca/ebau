@@ -304,7 +304,7 @@ def test_dms_placeholders_gr(
     snapshot.assert_match(response.json())
 
 
-@pytest.mark.freeze_time("2024-01-18 13:37", tick=True)
+@pytest.mark.freeze_time("2024-01-18 13:37")
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.django_db(
     transaction=True, reset_sequences=True

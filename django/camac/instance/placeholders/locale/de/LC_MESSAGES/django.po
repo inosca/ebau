@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 14:33+0200\n"
+"POT-Creation-Date: 2025-07-28 16:18+0200\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2001,6 +2001,30 @@ msgstr "QS_VERANTWORTLICHER"
 #: camac/instance/placeholders/serializers.py
 msgid "Name of the person responsible for QS"
 msgstr "Angaben des QS Verantwortlichen"
+
+#: camac/instance/placeholders/serializers.py
+msgid "BFS_NUMBER"
+msgstr "BFS_NUMMER"
+
+#: camac/instance/placeholders/serializers.py
+msgid "BFS number of the municipality"
+msgstr "BFS Nummer der Gemeinde"
+
+#: camac/instance/placeholders/serializers.py
+msgid "LAND_USE_ADDITIONAL_DETERMINATIONS"
+msgstr "NUTZUNGSPLANUNG_WEITERE_FESTLEGUNGEN"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Land use planning, further specifications"
+msgstr "Nutzungsplanung, weitere Festlegungen"
+
+#: camac/instance/placeholders/serializers.py
+msgid "NATIONAL_INVENTORY"
+msgstr "BAFU_BUNDESINVENTARE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "National invetory"
+msgstr "Bundesinventare"
 
 #: camac/instance/placeholders/serializers.py
 msgid "All inquiries"

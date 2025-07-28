@@ -1708,6 +1708,21 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
 
 class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    bfs_nummer = fields.MasterDataField(
+        source="bfs_number",
+        aliases=[_("BFS_NUMBER")],
+        description=_("BFS number of the municipality"),
+    )
+    nutzungsplanung_weitere_festlegungen = fields.MasterDataField(
+        source="land_use_additional_determinations",
+        aliases=[_("LAND_USE_ADDITIONAL_DETERMINATIONS")],
+        description=_("Land use planning, further specifications"),
+    )
+    bafu_bundesinventare = fields.MasterDataField(
+        source="national_inventory",
+        aliases=[_("NATIONAL_INVENTORY")],
+        description=_("National invetory"),
+    )
     zirkulation_alle = fields.InquiriesField(
         service_group=[
             "municipality",
