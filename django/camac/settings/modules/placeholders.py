@@ -104,6 +104,7 @@ PLACEHOLDERS = {
             "MEHRWERTSTEUER",
             "ART",
             "VERRECHNUNG",
+            "ORGANISATION",
         ],
     },
     "kt_bern": {"ENABLED": True},

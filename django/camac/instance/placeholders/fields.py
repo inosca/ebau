@@ -185,19 +185,20 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
             return {}
 
         nested_aliases = {
-            "POSITION": [_("POSITION")],
-            "BETRAG": [_("AMOUNT")],
-            "RECHTSGRUNDLAGE": [_("LEGAL_BASIS")],
-            "KOSTENSTELLE": [_("COST_CENTER")],
-            "STUNDEN": [_("HOURS")],
-            "STUNDENSATZ": [_("HOURLY_RATE")],
-            "ANTEIL_PROZENT": [_("PERCENTAGE")],
-            "GESAMTKOSTEN": [_("TOTAL_COST")],
-            "BERECHNUNG": [_("CALCULATION")],
-            "MEHRWERTSTEUER": [_("VAT")],
-            "ART": [_("ORGANISATION")],
-            "VERRECHNUNG": [_("BILLING_TYPE")],
-            "BEMERKUNG": [_("REMARK")],
+            "POSITION": [_("BILLING_ENTRY_POSITION")],
+            "BETRAG": [_("BILLING_ENTRY_AMOUNT")],
+            "RECHTSGRUNDLAGE": [_("BILLING_ENTRY_LEGAL_BASIS")],
+            "KOSTENSTELLE": [_("BILLING_ENTRY_COST_CENTER")],
+            "STUNDEN": [_("BILLING_ENTRY_HOURS")],
+            "STUNDENSATZ": [_("BILLING_ENTRY_HOURLY_RATE")],
+            "ANTEIL_PROZENT": [_("BILLING_ENTRY_PERCENTAGE")],
+            "GESAMTKOSTEN": [_("BILLING_ENTRY_TOTAL_COST")],
+            "BERECHNUNG": [_("BILLING_ENTRY_CALCULATION")],
+            "MEHRWERTSTEUER": [_("BILLING_ENTRY_VAT")],
+            "ART": [_("BILLING_ENTRY_ORGANISATION")],
+            "VERRECHNUNG": [_("BILLING_ENTRY_BILLING_TYPE")],
+            "BEMERKUNG": [_("BILLING_ENTRY_REMARK")],
+            "ORGANISATION": [_("BILLING_ENTRY_SERVICE")],
         }
 
         return {
@@ -254,17 +255,25 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                     BillingV2Entry.CalculationModes.choices, entry.calculation
                 )
             case "MEHRWERTSTEUER":
-                return self.get_choice_label(BillingV2Entry.TaxModes, entry.tax_mode)
+                return self.get_choice_label(
+                    BillingV2Entry.TaxModes.choices, entry.tax_mode
+                )
             case "ART":
                 return self.get_choice_label(
-                    BillingV2Entry.Organizations, entry.organization
+                    BillingV2Entry.Organizations.choices, entry.organization
                 )
             case "VERRECHNUNG":
                 return self.get_choice_label(
-                    BillingV2Entry.BillingTypes, entry.billing_type
+                    BillingV2Entry.BillingTypes.choices, entry.billing_type
                 )
             case "BEMERKUNG":
                 return entry.remark
+            case "ORGANISATION":
+                return (
+                    entry.group.service.get_name()
+                    if entry.group.service
+                    else entry.group.get_name()
+                )
             case _:  # pragma: no cover
                 return None
 

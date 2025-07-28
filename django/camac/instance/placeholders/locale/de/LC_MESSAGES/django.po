@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 16:18+0200\n"
+"POT-Creation-Date: 2025-07-28 16:57+0200\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -35,57 +35,60 @@ msgid "GBB"
 msgstr "GBB"
 
 #: camac/instance/placeholders/fields.py
-msgid "POSITION"
-msgstr "POSITION"
+msgid "BILLING_ENTRY_POSITION"
+msgstr "GEBUEHREN_POSITION"
 
 #: camac/instance/placeholders/fields.py
-#: camac/instance/placeholders/serializers.py
-msgid "AMOUNT"
-msgstr "BETRAG"
+msgid "BILLING_ENTRY_AMOUNT"
+msgstr "GEBUEHREN_BETRAG"
 
 #: camac/instance/placeholders/fields.py
-msgid "LEGAL_BASIS"
-msgstr "RECHTSGRUNDLAGE"
+msgid "BILLING_ENTRY_LEGAL_BASIS"
+msgstr "GEBUEHREN_RECHTSGRUNDLAGE"
 
 #: camac/instance/placeholders/fields.py
-msgid "COST_CENTER"
-msgstr "KOSTENSTELLE"
+msgid "BILLING_ENTRY_COST_CENTER"
+msgstr "GEBUEHREN_KOSTENSTELLE"
 
 #: camac/instance/placeholders/fields.py
-msgid "HOURS"
-msgstr "STUNDEN"
+msgid "BILLING_ENTRY_HOURS"
+msgstr "GEBUEHREN_STUNDEN"
 
 #: camac/instance/placeholders/fields.py
-msgid "HOURLY_RATE"
-msgstr "STUNDENSATZ"
+msgid "BILLING_ENTRY_HOURLY_RATE"
+msgstr "GEBUEHREN_STUNDESATZ"
 
 #: camac/instance/placeholders/fields.py
-msgid "PERCENTAGE"
-msgstr "ANTEIL_PROZENT"
+msgid "BILLING_ENTRY_PERCENTAGE"
+msgstr "GEBUEHREN_ANTEIL_PROZENT"
 
 #: camac/instance/placeholders/fields.py
-msgid "TOTAL_COST"
-msgstr "GESAMTKOSTEN"
+msgid "BILLING_ENTRY_TOTAL_COST"
+msgstr "GEBUEHREN_GESAMKOSTEN"
 
 #: camac/instance/placeholders/fields.py
-msgid "CALCULATION"
-msgstr "BERECHNUNG"
+msgid "BILLING_ENTRY_CALCULATION"
+msgstr "GEBUEHREN_BERECHNUNG"
 
 #: camac/instance/placeholders/fields.py
-msgid "VAT"
-msgstr "MEHRWERTSTEUER"
+msgid "BILLING_ENTRY_VAT"
+msgstr "GEBUEHREN_MEHRWERTSTEUER"
 
 #: camac/instance/placeholders/fields.py
-msgid "ORGANISATION"
-msgstr "ART"
+msgid "BILLING_ENTRY_ORGANISATION"
+msgstr "GEBUEHREN_ART"
 
 #: camac/instance/placeholders/fields.py
-msgid "BILLING_TYPE"
-msgstr "VERRECHNUNG"
+msgid "BILLING_ENTRY_BILLING_TYPE"
+msgstr "GEBUEHREN_VERRECHNUNG"
 
 #: camac/instance/placeholders/fields.py
-msgid "REMARK"
-msgstr "BEMERKUNG"
+msgid "BILLING_ENTRY_REMARK"
+msgstr "GEBUEHREN_BEMERKUNG"
+
+#: camac/instance/placeholders/fields.py
+msgid "BILLING_ENTRY_SERVICE"
+msgstr "GEBUEHREN_ORGANISATION"
 
 #: camac/instance/placeholders/fields.py
 msgid "ANSWER"
@@ -1853,6 +1856,10 @@ msgstr "MATERIAL"
 #: camac/instance/placeholders/serializers.py
 msgid "MATERIAL_GROUP"
 msgstr "STOFFGRUPPE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "AMOUNT"
+msgstr "BETRAG"
 
 #: camac/instance/placeholders/serializers.py
 msgid "VENTILATION_SYSTEMS"
