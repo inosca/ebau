@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 14:33+0200\n"
+"POT-Creation-Date: 2025-07-28 16:57+0200\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -35,57 +35,60 @@ msgid "GBB"
 msgstr "GBB"
 
 #: camac/instance/placeholders/fields.py
-msgid "POSITION"
-msgstr "POSITION"
+msgid "BILLING_ENTRY_POSITION"
+msgstr "GEBUEHREN_POSITION"
 
 #: camac/instance/placeholders/fields.py
-#: camac/instance/placeholders/serializers.py
-msgid "AMOUNT"
-msgstr "BETRAG"
+msgid "BILLING_ENTRY_AMOUNT"
+msgstr "GEBUEHREN_BETRAG"
 
 #: camac/instance/placeholders/fields.py
-msgid "LEGAL_BASIS"
-msgstr "RECHTSGRUNDLAGE"
+msgid "BILLING_ENTRY_LEGAL_BASIS"
+msgstr "GEBUEHREN_RECHTSGRUNDLAGE"
 
 #: camac/instance/placeholders/fields.py
-msgid "COST_CENTER"
-msgstr "KOSTENSTELLE"
+msgid "BILLING_ENTRY_COST_CENTER"
+msgstr "GEBUEHREN_KOSTENSTELLE"
 
 #: camac/instance/placeholders/fields.py
-msgid "HOURS"
-msgstr "STUNDEN"
+msgid "BILLING_ENTRY_HOURS"
+msgstr "GEBUEHREN_STUNDEN"
 
 #: camac/instance/placeholders/fields.py
-msgid "HOURLY_RATE"
-msgstr "STUNDENSATZ"
+msgid "BILLING_ENTRY_HOURLY_RATE"
+msgstr "GEBUEHREN_STUNDESATZ"
 
 #: camac/instance/placeholders/fields.py
-msgid "PERCENTAGE"
-msgstr "ANTEIL_PROZENT"
+msgid "BILLING_ENTRY_PERCENTAGE"
+msgstr "GEBUEHREN_ANTEIL_PROZENT"
 
 #: camac/instance/placeholders/fields.py
-msgid "TOTAL_COST"
-msgstr "GESAMTKOSTEN"
+msgid "BILLING_ENTRY_TOTAL_COST"
+msgstr "GEBUEHREN_GESAMKOSTEN"
 
 #: camac/instance/placeholders/fields.py
-msgid "CALCULATION"
-msgstr "BERECHNUNG"
+msgid "BILLING_ENTRY_CALCULATION"
+msgstr "GEBUEHREN_BERECHNUNG"
 
 #: camac/instance/placeholders/fields.py
-msgid "VAT"
-msgstr "MEHRWERTSTEUER"
+msgid "BILLING_ENTRY_VAT"
+msgstr "GEBUEHREN_MEHRWERTSTEUER"
 
 #: camac/instance/placeholders/fields.py
-msgid "ORGANISATION"
-msgstr "ART"
+msgid "BILLING_ENTRY_ORGANISATION"
+msgstr "GEBUEHREN_ART"
 
 #: camac/instance/placeholders/fields.py
-msgid "BILLING_TYPE"
-msgstr "VERRECHNUNG"
+msgid "BILLING_ENTRY_BILLING_TYPE"
+msgstr "GEBUEHREN_VERRECHNUNG"
 
 #: camac/instance/placeholders/fields.py
-msgid "REMARK"
-msgstr "BEMERKUNG"
+msgid "BILLING_ENTRY_REMARK"
+msgstr "GEBUEHREN_BEMERKUNG"
+
+#: camac/instance/placeholders/fields.py
+msgid "BILLING_ENTRY_SERVICE"
+msgstr "GEBUEHREN_ORGANISATION"
 
 #: camac/instance/placeholders/fields.py
 msgid "ANSWER"
@@ -96,8 +99,16 @@ msgid "ANSWERED"
 msgstr "BEANTWORTET"
 
 #: camac/instance/placeholders/fields.py
+msgid "ANSWERED_TIMESTAMP"
+msgstr "BEANTWORTET_TIMESTAMP"
+
+#: camac/instance/placeholders/fields.py
 msgid "CREATED"
 msgstr "ERSTELLT"
+
+#: camac/instance/placeholders/fields.py
+msgid "CREATED_TIMESTAMP"
+msgstr "ERSTELLT_TIMESTAMP"
 
 #: camac/instance/placeholders/fields.py
 msgid "SERVICE"
@@ -1847,6 +1858,10 @@ msgid "MATERIAL_GROUP"
 msgstr "STOFFGRUPPE"
 
 #: camac/instance/placeholders/serializers.py
+msgid "AMOUNT"
+msgstr "BETRAG"
+
+#: camac/instance/placeholders/serializers.py
 msgid "VENTILATION_SYSTEMS"
 msgstr "LUEFTUNGSANLAGEN"
 
@@ -1993,6 +2008,34 @@ msgstr "QS_VERANTWORTLICHER"
 #: camac/instance/placeholders/serializers.py
 msgid "Name of the person responsible for QS"
 msgstr "Angaben des QS Verantwortlichen"
+
+#: camac/instance/placeholders/serializers.py
+msgid "BFS_NUMBER"
+msgstr "BFS_NUMMER"
+
+#: camac/instance/placeholders/serializers.py
+msgid "BFS number of the municipality"
+msgstr "BFS Nummer der Gemeinde"
+
+#: camac/instance/placeholders/serializers.py
+msgid "LAND_USE_ADDITIONAL_DETERMINATIONS"
+msgstr "NUTZUNGSPLANUNG_WEITERE_FESTLEGUNGEN"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Land use planning, further specifications"
+msgstr "Nutzungsplanung, weitere Festlegungen"
+
+#: camac/instance/placeholders/serializers.py
+msgid "NATIONAL_INVENTORY"
+msgstr "BAFU_BUNDESINVENTARE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "National invetory"
+msgstr "Bundesinventare"
+
+#: camac/instance/placeholders/serializers.py
+msgid "All inquiries"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "PUBLICATION_DATE_GAZETTE"
@@ -2314,8 +2357,16 @@ msgid "SUSPENDED_FROM"
 msgstr "SISTIERT_VON"
 
 #: camac/instance/placeholders/serializers.py
+msgid "SUSPENDED_FROM_TIMESTAMP"
+msgstr "SISTIERT_VON_TIMESTAMP"
+
+#: camac/instance/placeholders/serializers.py
 msgid "SUSPENDED_UNTIL"
 msgstr "SISTIERT_BIS"
+
+#: camac/instance/placeholders/serializers.py
+msgid "SUSPENDED_UNTIL_TIMESTAMP"
+msgstr "SISTIERT_BIS_TIMESTAMP"
 
 #: camac/instance/placeholders/serializers.py
 msgid "SUSPENSION_REASON"
@@ -2348,6 +2399,10 @@ msgstr "Kantonale Prüfung Journal"
 #: camac/instance/placeholders/serializers.py
 msgid "JOURNAL_ENTRY_DATE"
 msgstr "DATUM_EINTRAG"
+
+#: camac/instance/placeholders/serializers.py
+msgid "JOURNAL_ENTRY_DATE_TIMESTAMP"
+msgstr "DATUM_EINTRAG_TIMESTAMP"
 
 #: camac/instance/placeholders/serializers.py
 msgid "JOURNAL_ENTRY_TYPE"
@@ -2436,6 +2491,10 @@ msgstr "KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON"
 #: camac/instance/placeholders/serializers.py
 msgid "Decision date (Canton)"
 msgstr "Datum des Entscheides (Kanton)"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_EXAM_DECISION_DATE_CANTON_TIMESTAMP"
+msgstr "KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON_TIMESTAMP"
 
 #: camac/instance/placeholders/serializers.py
 msgid "CANTONAL_EXAM_DECISION_OPENING_TYPE_CANTON"

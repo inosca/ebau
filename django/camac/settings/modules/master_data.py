@@ -2418,6 +2418,7 @@ MASTER_DATA = {
             "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "strasse-nummer"),
             "city": ("answer", "ort"),
+            "bfs_number": ("answer", "gemeindenummer-bfs"),
             "municipality_name": (
                 "answer",
                 "gemeinde",
@@ -2454,9 +2455,17 @@ MASTER_DATA = {
                 },
             ),
             "land_use_planning_land_use": ("answer", "nutzungsplanung-grundnutzung"),
+            "land_use_additional_determinations": (
+                "answer",
+                "nutzungsplanung-weitere-festlegungen",
+            ),
             "land_use_planning_land_use_canton": (
                 "answer",
                 "nutzungsplanung-grundnutzung-kanton",
+            ),
+            "national_inventory": (
+                "answer",
+                "bundesinventare",
             ),
             "decision_date": (
                 "answer",
@@ -2903,11 +2912,25 @@ MASTER_DATA = {
                                 "value_parser": "human_readable_date",
                             },
                         ),
+                        "start_timestamp": (
+                            "mp-bab-sistiert-von",
+                            {
+                                "value_key": "date",
+                                "value_parser": "datetime_timestamp",
+                            },
+                        ),
                         "end": (
                             "mp-bab-sistiert-bis",
                             {
                                 "value_key": "date",
                                 "value_parser": "human_readable_date",
+                            },
+                        ),
+                        "end_timestamp": (
+                            "mp-bab-sistiert-bis",
+                            {
+                                "value_key": "date",
+                                "value_parser": "datetime_timestamp",
                             },
                         ),
                     },
@@ -2942,6 +2965,13 @@ MASTER_DATA = {
                             {
                                 "value_key": "date",
                                 "value_parser": "human_readable_date",
+                            },
+                        ),
+                        "date_timestamp": (
+                            "mp-bab-datum-eintrag",
+                            {
+                                "value_key": "date",
+                                "value_parser": "datetime_timestamp",
                             },
                         ),
                         "type": (

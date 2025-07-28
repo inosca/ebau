@@ -653,6 +653,7 @@
     'bab_journal': list([
       dict({
         'date': '7. Mai 2024',
+        'date_timestamp': '2024-05-07',
         'facts': 'Sachverhalt',
         'involved': 'Beteiligte Anwesende',
         'type': 'Info',
@@ -675,10 +676,13 @@
     'bab_suspensions': list([
       dict({
         'end': '10. Januar 2020',
+        'end_timestamp': '2020-01-10',
         'reason': 'rechtliches Gehör',
         'start': '1. Januar 2020',
+        'start_timestamp': '2020-01-01',
       }),
     ]),
+    'bfs_number': None,
     'buildings': list([
       dict({
         'building_category': 1060,
@@ -807,6 +811,7 @@
     'is_bab_temporary': False,
     'is_paper': False,
     'joined_street_and_number': False,
+    'land_use_additional_determinations': None,
     'land_use_planning_land_use': 'Wohnzone 3 - AZ 0.6',
     'land_use_planning_land_use_canton': 'N112_Wohnzone_3_G',
     'landowners': list([
@@ -848,6 +853,7 @@
     ]),
     'municipality_name': 'Solothurn',
     'municipality_slug': '1',
+    'national_inventory': None,
     'nature_risk': list([
       dict({
         'risk_type': 'Murgang',

@@ -710,6 +710,11 @@ class MasterData(object):
 
         return human_readable_date(value) if value else default
 
+    def datetime_timestamp_parser(self, value, default, **kwargs):
+        from camac.instance.placeholders.utils import datetime_timestamp
+
+        return datetime_timestamp(value) if value else default
+
     def list_mapping_parser(self, value, default, mapping={}, **kwargs):
         return [
             {

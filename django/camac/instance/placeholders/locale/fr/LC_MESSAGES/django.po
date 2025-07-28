@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 14:33+0200\n"
+"POT-Creation-Date: 2025-07-28 16:57+0200\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -35,63 +35,60 @@ msgid "GBB"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-msgid "POSITION"
-msgstr "POSITION"
-
-#: camac/instance/placeholders/fields.py
-#: camac/instance/placeholders/serializers.py
-msgid "AMOUNT"
-msgstr "FORFAIT"
-
-#: camac/instance/placeholders/fields.py
-#, fuzzy
-#| msgid "LEGAL_CLAIMANTS"
-msgid "LEGAL_BASIS"
-msgstr "REQUERANTS_CONCLUSIONS"
-
-#: camac/instance/placeholders/fields.py
-msgid "COST_CENTER"
+msgid "BILLING_ENTRY_POSITION"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-msgid "HOURS"
+msgid "BILLING_ENTRY_AMOUNT"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-msgid "HOURLY_RATE"
+msgid "BILLING_ENTRY_LEGAL_BASIS"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-msgid "PERCENTAGE"
+msgid "BILLING_ENTRY_COST_CENTER"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-msgid "TOTAL_COST"
+msgid "BILLING_ENTRY_HOURS"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-msgid "CALCULATION"
-msgstr "CALCULATION"
-
-#: camac/instance/placeholders/fields.py
-msgid "VAT"
+msgid "BILLING_ENTRY_HOURLY_RATE"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-#, fuzzy
-#| msgid "OBJECTIONS"
-msgid "ORGANISATION"
-msgstr "OPPOSITIONS"
+msgid "BILLING_ENTRY_PERCENTAGE"
+msgstr ""
 
 #: camac/instance/placeholders/fields.py
-#, fuzzy
-#| msgid "BILLING_ENTRIES"
-msgid "BILLING_TYPE"
-msgstr "EMOLUMENTS"
+msgid "BILLING_ENTRY_TOTAL_COST"
+msgstr ""
 
 #: camac/instance/placeholders/fields.py
-msgid "REMARK"
-msgstr "REMARQUE"
+msgid "BILLING_ENTRY_CALCULATION"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "BILLING_ENTRY_VAT"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "BILLING_ENTRY_ORGANISATION"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "BILLING_ENTRY_BILLING_TYPE"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "BILLING_ENTRY_REMARK"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "BILLING_ENTRY_SERVICE"
+msgstr ""
 
 #: camac/instance/placeholders/fields.py
 msgid "ANSWER"
@@ -102,8 +99,16 @@ msgid "ANSWERED"
 msgstr "REPONDU"
 
 #: camac/instance/placeholders/fields.py
+msgid "ANSWERED_TIMESTAMP"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
 msgid "CREATED"
 msgstr "CREE"
+
+#: camac/instance/placeholders/fields.py
+msgid "CREATED_TIMESTAMP"
+msgstr ""
 
 #: camac/instance/placeholders/fields.py
 msgid "SERVICE"
@@ -1971,6 +1976,10 @@ msgid "MATERIAL_GROUP"
 msgstr "GROUPE_DE_MATIERES"
 
 #: camac/instance/placeholders/serializers.py
+msgid "AMOUNT"
+msgstr "FORFAIT"
+
+#: camac/instance/placeholders/serializers.py
 msgid "VENTILATION_SYSTEMS"
 msgstr "SYSTEMES_DE_VENTILATION"
 
@@ -2117,6 +2126,34 @@ msgstr "QS_RESPONSIBLE"
 #: camac/instance/placeholders/serializers.py
 msgid "Name of the person responsible for QS"
 msgstr "Nom de la personne responsable du QS"
+
+#: camac/instance/placeholders/serializers.py
+msgid "BFS_NUMBER"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "BFS number of the municipality"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "LAND_USE_ADDITIONAL_DETERMINATIONS"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Land use planning, further specifications"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "NATIONAL_INVENTORY"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "National invetory"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "All inquiries"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 #, fuzzy
@@ -2516,7 +2553,15 @@ msgid "SUSPENDED_FROM"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
+msgid "SUSPENDED_FROM_TIMESTAMP"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
 msgid "SUSPENDED_UNTIL"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "SUSPENDED_UNTIL_TIMESTAMP"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2549,6 +2594,10 @@ msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "JOURNAL_ENTRY_DATE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "JOURNAL_ENTRY_DATE_TIMESTAMP"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
@@ -2646,6 +2695,10 @@ msgstr ""
 #| msgid "Decision date"
 msgid "Decision date (Canton)"
 msgstr "Date de la décision relative à la demande de permis de construire"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CANTONAL_EXAM_DECISION_DATE_CANTON_TIMESTAMP"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "CANTONAL_EXAM_DECISION_OPENING_TYPE_CANTON"
