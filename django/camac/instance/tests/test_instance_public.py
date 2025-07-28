@@ -264,7 +264,7 @@ def test_public_caluma_instance_oereb_ur(
         assert result[0]["attributes"]["legal-state"] == "typ-des-verfahrens-meldung"
         assert result[0]["attributes"]["dossier-nr"] == "1201-20-001"
         assert result[0]["attributes"]["authority"] == "Leitbehörde Altdorf"
-        assert result[0]["attributes"]["linked-instances"] == [
+        assert sorted(result[0]["attributes"]["linked-instances"]) == [
             linked_instance_1.pk,
             linked_instance_2.pk,
         ]
