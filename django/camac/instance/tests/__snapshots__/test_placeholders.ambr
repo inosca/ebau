@@ -11550,6 +11550,30 @@
     ]),
     'EINGEREICHTE_UNTERLAGEN': list([
       dict({
+        'BESCHREIBUNG': 'Run change street record. Boy player suddenly space according despite view officer.',
+        'CATEGORY': 'beilagen-zum-gesuch',
+        'CREATED_AT': '18.01.2024 14:37',
+        'CREATED_BY': 'Admin User',
+        'DESCRIPTION': 'Run change street record. Boy player suddenly space according despite view officer.',
+        'ERSTELLT_AM': '18.01.2024 14:37',
+        'ERSTELLT_VON': 'Admin User',
+        'GEAENDERT_AM': '18.01.2024 14:37',
+        'GEAENDERT_VON': 'Admin User',
+        'KATEGORIE': 'beilagen-zum-gesuch',
+        'MARKIERUNGEN': list([
+        ]),
+        'MARKS': list([
+        ]),
+        'MODIFIED_AT': '18.01.2024 14:37',
+        'MODIFIED_BY': 'Admin User',
+        'NAME': 'Ausnahmebewilligung',
+        'ORIGINAL_NAME': 'father.png',
+        'STICHWORTE': list([
+        ]),
+        'TAGS': list([
+        ]),
+      }),
+      dict({
         'BESCHREIBUNG': '''
           Tree executive dream carry economy. Family surface late drive.
           Condition nor like set response hand drug. Those identify sure billion force only physical leave.
@@ -11574,30 +11598,6 @@
         'MODIFIED_BY': 'Admin User',
         'NAME': 'Situationsplan',
         'ORIGINAL_NAME': 'reduce.png',
-        'STICHWORTE': list([
-        ]),
-        'TAGS': list([
-        ]),
-      }),
-      dict({
-        'BESCHREIBUNG': 'Run change street record. Boy player suddenly space according despite view officer.',
-        'CATEGORY': 'beilagen-zum-gesuch',
-        'CREATED_AT': '18.01.2024 14:37',
-        'CREATED_BY': 'Admin User',
-        'DESCRIPTION': 'Run change street record. Boy player suddenly space according despite view officer.',
-        'ERSTELLT_AM': '18.01.2024 14:37',
-        'ERSTELLT_VON': 'Admin User',
-        'GEAENDERT_AM': '18.01.2024 14:37',
-        'GEAENDERT_VON': 'Admin User',
-        'KATEGORIE': 'beilagen-zum-gesuch',
-        'MARKIERUNGEN': list([
-        ]),
-        'MARKS': list([
-        ]),
-        'MODIFIED_AT': '18.01.2024 14:37',
-        'MODIFIED_BY': 'Admin User',
-        'NAME': 'Ausnahmebewilligung',
-        'ORIGINAL_NAME': 'father.png',
         'STICHWORTE': list([
         ]),
         'TAGS': list([
@@ -12012,15 +12012,15 @@
     'GRUNDEIGENTUEMER_NAME_ADDRESS': '',
     'GRUNDEIGENTUEMER_NAME_ADRESSE': '',
     'GRUNDSTUECK': '',
-    'HEUTE': '18. Januar 2024',
+    'HEUTE': '18.01.2024',
     'JURISTIC_NAME': '',
     'JURISTISCHER_NAME': '',
     'KANTONALE_PRUEFUNG_BAUZONE': 'ausserhalb',
     'KANTONALE_PRUEFUNG_BEARBEITUNGSSTATUS': 'in Bearbeitung',
     'KANTONALE_PRUEFUNG_BEWILLIGUNGSBEHOERDE': 'örtliche Baubehörde',
     'KANTONALE_PRUEFUNG_CHECKLISTE_BAB_SO_NACH_RPG': 'A1 - standortgebunden, A2 - Weilerzone',
-    'KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP': '13. Februar 2025',
-    'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON': '8. Juli 2025',
+    'KANTONALE_PRUEFUNG_DATUM_EINGANG_ARP': '13.02.2025',
+    'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON': '08.07.2025',
     'KANTONALE_PRUEFUNG_DATUM_ENTSCHEID_KANTON_TIMESTAMP': '2025-07-08',
     'KANTONALE_PRUEFUNG_DATUM_EROEFFNUNGSART_ENTSCHEID_KANTON': 'E-Mail',
     'KANTONALE_PRUEFUNG_ENTSCHEID_KANTON': 'Ablehnung',
@@ -12040,7 +12040,7 @@
         'type': 'Info',
       }),
     ]),
-    'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE': '5. Januar 2023',
+    'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE': '05.01.2023',
     'KANTONALE_PRUEFUNG_OBJEKTSCHUTZ': 'geschützt',
     'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE': list([
       dict({
@@ -12070,7 +12070,7 @@
         'start_timestamp': '2020-01-01',
       }),
     ]),
-    'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG': '2. Januar 2023',
+    'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG': '02.01.2023',
     'KANTONALE_PRUEFUNG_VERFAHRENSSTAND': 'Entscheid',
     'KOORDINATEN': '',
     'LEITBEHOERDE_ADDRESS_1': 'Teststrasse 13',
@@ -12132,9 +12132,9 @@
         'PUBLIKATION_START': '1. Dezember 2023',
       }),
     ]),
-    'PUBLIKATION_AMTSBLATT': '29. November 2023',
-    'PUBLIKATION_ANZEIGER': '28. November 2023',
-    'PUBLIKATION_ENDE': '15. Dezember 2023',
+    'PUBLIKATION_AMTSBLATT': '29.11.2023',
+    'PUBLIKATION_ANZEIGER': '28.11.2023',
+    'PUBLIKATION_ENDE': '15.12.2023',
     'PUBLIKATION_LINK': 'http://ebau-portal.localhost/public-instances/1',
     'PUBLIKATION_ORGAN': list([
       dict({
@@ -12146,13 +12146,13 @@
         'NAME': 'Azeiger',
       }),
     ]),
-    'PUBLIKATION_START': '1. Dezember 2023',
+    'PUBLIKATION_START': '01.12.2023',
     'RECHNUNGSEMPFAENGER': 'Lisa Walker',
     'RECHNUNGSEMPFAENGER_ADRESSE_1': 'John Corners 4560',
     'RECHNUNGSEMPFAENGER_ADRESSE_2': '2014 Cindyville',
     'RECHNUNGSEMPFAENGER_NAME_ADRESSE': 'Lisa Walker, John Corners 4560, 2014 Cindyville',
     'STATUS': 'David Rangel',
-    'TODAY': '18. Januar 2024',
+    'TODAY': '18.01.2024',
     'ZIRKULATION_ALLE': list([
       dict({
         'ABLEHNENDE_BEURTEILUNGEN': 'Ablehnend',

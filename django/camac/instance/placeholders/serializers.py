@@ -21,7 +21,14 @@ from camac.utils import build_url, clean_join
 
 from ..master_data import MasterData
 from . import fields
-from .utils import datetime_timestamp, get_option_label, get_yes_no, human_readable_date
+from .utils import (
+    compact_human_readable_date,
+    datetime_timestamp,
+    get_date_parser_for_canton,
+    get_option_label,
+    get_yes_no,
+    human_readable_date,
+)
 
 
 def sanitize_value(value):
@@ -246,7 +253,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     )
     baueingabe_datum = fields.MasterDataField(
         source="submit_date",
-        parser=human_readable_date,
+        parser=get_date_parser_for_canton(),
         aliases=[_("SUBMIT_DATE")],
         description=_("Date on which the instance was submitted"),
     )
@@ -256,7 +263,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         description=_("Description of the project"),
     )
     decision_date = fields.MasterDataField(
-        parser=human_readable_date,
+        parser=get_date_parser_for_canton(),
         aliases=[_("DECISION_DATE")],
         description=_("Decision date"),
     )
@@ -742,7 +749,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         return instance.instance_state.get_name()
 
     def get_today(self, instance):
-        return human_readable_date(now().date())
+        return get_date_parser_for_canton()(now().date())
 
     class Meta:
         exclude = []
@@ -1741,7 +1748,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     publikation_start = fields.PublicationField(
         source="publikation-start",
         value_key="date",
-        parser=human_readable_date,
+        parser=compact_human_readable_date,
         only_own=False,
         aliases=[_("PUBLICATION_START")],
         description=_("Start date of the publication of the instance"),
@@ -1749,7 +1756,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     publikation_ende = fields.PublicationField(
         source="publikation-ende",
         value_key="date",
-        parser=human_readable_date,
+        parser=compact_human_readable_date,
         only_own=False,
         aliases=[_("PUBLICATION_END")],
         description=_("End date of the publication of the instance"),
@@ -1757,7 +1764,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     publikation_anzeiger = fields.PublicationField(
         source="publikation-anzeiger",
         value_key="date",
-        parser=human_readable_date,
+        parser=compact_human_readable_date,
         only_own=False,
         aliases=[_("PUBLICATION_DATE_GAZETTE")],
         description=_("Date of the publication in the gazette"),
@@ -1765,7 +1772,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     publikation_amtsblatt = fields.PublicationField(
         source="publikation-amtsblatt",
         value_key="date",
-        parser=human_readable_date,
+        parser=compact_human_readable_date,
         only_own=False,
         aliases=[_("PUBLICATION_DATE_OFFICIAL_GAZETTE")],
         description=_("Date of the publication in the official gazette"),
@@ -1986,19 +1993,19 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     )
     kantonale_pruefung_datum_eingang_arp = fields.MasterDataField(
         source="bab_date_of_receipt_arp",
-        parser=human_readable_date,
+        parser=compact_human_readable_date,
         aliases=[_("CANTONAL_EXAM_DATE_OF_RECEIPT_ARP")],
         description=_("Date of receipt ARP"),
     )
     kantonale_pruefung_terminvorgabe_bei_erfassung = fields.MasterDataField(
         source="bab_deadline_at_recording",
-        parser=human_readable_date,
+        parser=compact_human_readable_date,
         aliases=[_("CANTONAL_EXAM_DEADLINE_AT_RECORDING")],
         description=_("Deadline at recording"),
     )
     kantonale_pruefung_massgebliche_terminvorgabe = fields.MasterDataField(
         source="bab_relevant_deadline",
-        parser=human_readable_date,
+        parser=compact_human_readable_date,
         aliases=[_("CANTONAL_EXAM_RELEVANT_DEADLINE")],
         description=_(
             "Relevant deadline (e.g., after suspensions or various preliminary reviews)"
@@ -2089,7 +2096,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     )
     kantonale_pruefung_datum_entscheid_kanton = fields.MasterDataField(
         source="bab_decision_date_canton",
-        parser=human_readable_date,
+        parser=compact_human_readable_date,
         aliases=[_("CANTONAL_EXAM_DECISION_DATE_CANTON")],
         description=_("Decision date (Canton)"),
     )

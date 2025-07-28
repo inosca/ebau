@@ -1,6 +1,6 @@
 import json
 from datetime import date, datetime
-from typing import List, Union
+from typing import Callable, List, Union
 
 from babel.dates import format_date
 from caluma.caluma_form.models import Document
@@ -162,17 +162,29 @@ def clean_and_add_full_name(entry):
     return {k: v if v is not None else "" for k, v in entry.items()}
 
 
-def human_readable_date(value: Union[datetime, date, None]) -> str:
+def _readable_date(value: Union[datetime, date, None], format="long") -> str | None:
+    if not value:
+        return None
+
+    return format_date(value, format, locale=get_language())
+
+
+def human_readable_date(value: Union[datetime, date, None]) -> str | None:
     """Format date or datetime to a human readable date.
 
     >>> human_readable_date(date(2021, 10, 4))
     "4. October 2021"
     """
+    return _readable_date(value)
 
-    if not value:
-        return None
 
-    return format_date(value, "long", locale=get_language())
+def compact_human_readable_date(value: Union[datetime, date, None]) -> str | None:
+    """Format date or datetime to a compact human readable date.
+
+    >>> human_readable_date(date(2021, 10, 4))
+    "04.09.2021"
+    """
+    return _readable_date(value, format="medium")
 
 
 def datetime_timestamp(value: Union[date, datetime, None]) -> str:
@@ -185,7 +197,7 @@ def datetime_timestamp(value: Union[date, datetime, None]) -> str:
     if not value:  # pragma: no cover
         return ""
 
-    if isinstance(value, datetime):
+    if isinstance(value, datetime):  # pragma: no cover
         return value.astimezone(tz=timezone.get_default_timezone()).isoformat()
 
     return value.isoformat()
@@ -289,3 +301,11 @@ def get_yes_no(options: Union[List[bool], bool]) -> str:
         options = [options]
 
     return _("Yes") if any(options) else _("No")
+
+
+def get_date_parser_for_canton() -> Callable[[Union[datetime, date, None]], str | None]:
+    match settings.APPLICATION_NAME:
+        case "kt_so":
+            return compact_human_readable_date
+        case _:
+            return human_readable_date
