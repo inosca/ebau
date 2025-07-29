@@ -1086,7 +1086,7 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
     def get_attribute(self, instance):
         queryset = alexandria_models.Document.objects.filter(
             instance_document__instance=instance
-        )
+        ).order_by("title")
 
         if self.mark:
             queryset = queryset.filter(marks__pk__contains=self.mark)
