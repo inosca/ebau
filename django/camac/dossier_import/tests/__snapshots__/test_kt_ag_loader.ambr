@@ -101,6 +101,24 @@
       "creation_date": null,
       "custom_1": null,
       "custom_2": null,
+      "deadlines": [
+          {
+              "completed": true,
+              "date_from": "2024-06-13T00:00:00+02:00",
+              "date_to": "2024-06-13T00:00:00+02:00",
+              "notice": "Stellungnahme eBau Training FS ebau.training+fs@gmail.com",
+              "reason": "",
+              "type": "Frist"
+          },
+          {
+              "completed": true,
+              "date_from": "2024-07-12T00:00:00+02:00",
+              "date_to": "2024-07-12T00:00:00+02:00",
+              "notice": "Stellungnahme eBau extFachstelle Viktor Sch. ebau.extended+extFS@gmail.com",
+              "reason": "",
+              "type": "Auflagefrist"
+          }
+      ],
       "decision_date": null,
       "decisions": [
           {
@@ -596,6 +614,7 @@
       "creation_date": null,
       "custom_1": null,
       "custom_2": null,
+      "deadlines": [],
       "decision_date": null,
       "decisions": [],
       "description": null,
@@ -795,6 +814,7 @@
       "creation_date": null,
       "custom_1": null,
       "custom_2": null,
+      "deadlines": [],
       "decision_date": null,
       "decisions": [],
       "description": null,
@@ -986,6 +1006,7 @@
       "creation_date": null,
       "custom_1": null,
       "custom_2": null,
+      "deadlines": [],
       "decision_date": null,
       "decisions": [],
       "description": null,
