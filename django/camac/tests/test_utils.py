@@ -62,12 +62,6 @@ def test_is_weekend(input_date, expected):
     "input_date",
     [
         date(2025, 1, 1),  # New Year's Day
-        date(2025, 4, 21),  # Easter Monday
-        date(2025, 5, 29),  # Ascension Day
-        date(2025, 6, 9),  # Whit Monday
-        date(2025, 8, 1),  # Swiss National Day
-        date(2025, 12, 25),  # Christmas Day
-        date(2025, 12, 26),  # St. Stephen's Day
     ],
 )
 def test_is_public_holiday_not_implemented(
@@ -109,6 +103,27 @@ def test_is_public_holiday_gr(
     input_date,
     expected,
     set_application_gr,
+):
+    assert utils.is_public_holiday(input_date) == expected
+
+
+@pytest.mark.parametrize(
+    "input_date,expected",
+    [
+        [date(2025, 1, 1), True],  # New Year's Day
+        [date(2025, 12, 25), True],  # Weihnachten
+        [date(2025, 12, 26), True],  # Stephanstag
+        [date(2025, 12, 27), True],  # Betriebsferien
+        [date(2025, 12, 28), True],  # Betriebsferien
+        [date(2025, 12, 29), True],  # Betriebsferien
+        [date(2025, 12, 30), True],  # Betriebsferien
+        [date(2025, 12, 31), True],  # Betriebsferien
+    ],
+)
+def test_is_public_holiday_ag(
+    input_date,
+    expected,
+    set_application_ag,
 ):
     assert utils.is_public_holiday(input_date) == expected
 

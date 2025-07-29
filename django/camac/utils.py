@@ -1,7 +1,7 @@
 import io
 import itertools
 import time
-from datetime import timedelta
+from datetime import datetime, timedelta
 from typing import Any, Optional
 from urllib.parse import parse_qsl
 
@@ -17,6 +17,7 @@ from rest_framework import exceptions
 
 from camac import jinja
 from camac.constants import kt_uri as uri_constants
+from camac.rulesets.holidays import AargauAdministrationHolidays
 
 
 class DocxRenderer:
@@ -306,16 +307,26 @@ def is_public_holiday(input_date):
 
     If the subdivision is not implemented in the holidays package, the function will
     return False.
-    """
-    try:
-        public_holidays = holidays.CH(
-            subdiv=settings.APPLICATION.get("SHORT_NAME", "").upper(),
-            years=[input_date.year],
-        )
-    except NotImplementedError:
-        return False
 
-    return input_date.strftime("%Y-%m-%d") in public_holidays
+    For Aargau, the AargauAdministrationHolidays class is used to determine the public holidays,
+    taking into account the specific administration holidays for the canton of Aargau.
+    """
+    if isinstance(input_date, datetime):
+        input_date = input_date.date()
+
+    affected_years = [input_date.year]
+    if settings.APPLICATION_NAME == "kt_ag":
+        public_holidays = AargauAdministrationHolidays(years=affected_years).keys()
+    else:
+        try:
+            public_holidays = holidays.CH(
+                subdiv=settings.APPLICATION.get("SHORT_NAME", "").upper(),
+                years=affected_years,
+            ).keys()
+        except NotImplementedError:
+            return False
+
+    return input_date in public_holidays
 
 
 def is_working_day(input_date):
