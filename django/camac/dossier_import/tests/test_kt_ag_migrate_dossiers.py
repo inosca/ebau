@@ -9,6 +9,7 @@ from caluma.caluma_form.models import Answer
 from django.core.management import call_command
 from django.db.models.query_utils import Q
 
+from camac.applicants.models import Applicant
 from camac.dossier_import.conftest import JSON_INPUT_DIR, TEST_IMPORT_FILE_PATH
 from camac.dossier_import.tests.test_utils import to_sorted_json
 from camac.instance.models import Instance, JournalEntry
@@ -156,7 +157,7 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
 
     id_keyword = dossier_id_keyword.first()
     user_name = group_name = instance_state = instance_service = keywords = None
-    case_meta = work_items = answers = journal = None
+    case_meta = work_items = answers = journal = applicants = None
 
     if id_keyword is not None:
         instance: Instance = id_keyword.instances.first()
@@ -193,6 +194,12 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
             )
         )
 
+        applicants = list(
+            Applicant.objects.filter(instance=instance).values(
+                "email", "invitee_id", "role", "user_id", "username"
+            )
+        )
+
     result = to_sorted_json(
         {
             "user": user_name,
@@ -204,6 +211,7 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
             "work-items": work_items,
             "answers": answers,
             "journal": journal,
+            "applicants": applicants,
         }
     )
 
