@@ -49,7 +49,7 @@ class AnnotationsConfig(EBauConfig):
         description="Question slug for the description",
         default="beschreibung-bauvorhaben",
     )
-    applicants: PersonConfig = PersonConfig()
+    applicants: PersonConfig | None = PersonConfig()
 
 
 class WorkItemListConfig(ModuleApplicationConfig):

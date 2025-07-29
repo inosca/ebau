@@ -711,7 +711,7 @@
     'construction_duration': 18,
     'construction_start_date': None,
     'decision_date': datetime.date(2025, 3, 26),
-    'dossier_number': '2024-1',
+    'dossier_number': '2601-2024-1',
     'dwellings': list([
       dict({
         'area': '420',

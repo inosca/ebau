@@ -69,11 +69,12 @@ export default {
     correctForm: true,
     withdrawInstance: true,
   },
-  workItemList: {
-    hideImportedWorkItems: true,
-  },
   profile: {
     enabled: true,
     showDivision: true,
+  },
+  workItems: {
+    hideImportedWorkItems: true,
+    v2: true,
   },
 };

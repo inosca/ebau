@@ -53,16 +53,18 @@
         }}
         @onChange={{this.setFilter}}
       />
-      <Filter.Select
-        @name="task"
-        @searchEnabled={{true}}
-        @searchField="label"
-        @label={{t "workItems.filters.task.title"}}
-        @options={{this.availableTasks}}
-        @selected={{this.task}}
-        @onChange={{this.setFilter}}
-        class="uk-width-1-3"
-      />
+      {{#if this.workItemListConfig.showTaskFilter}}
+        <Filter.Select
+          @name="task"
+          @searchEnabled={{true}}
+          @searchField="label"
+          @label={{t "workItems.filters.task.title"}}
+          @options={{this.availableTasks}}
+          @selected={{this.task}}
+          @onChange={{this.setFilter}}
+          class="uk-width-1-3"
+        />
+      {{/if}}
     </Filters>
 
     <WorkItemListV2

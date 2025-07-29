@@ -7,6 +7,7 @@ import { query } from "ember-data-resources";
 import { trackedFunction } from "reactiveweb/function";
 
 import workItemListConfig from "ember-ebau-core/config/work-item-list";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import paginatedQuery from "ember-ebau-core/resources/paginated";
 import cleanObject from "ember-ebau-core/utils/clean-object";
 
@@ -96,14 +97,20 @@ export default class WorkItemsGlobalController extends Controller {
       responsible = this.responsible;
     }
 
-    return cleanObject({
+    const filters = {
       role: this.role,
       status: this.status.toLowerCase(),
       unread: this.type === "unread" ? 1 : null,
       task: this.task !== "all" ? this.task : null,
       preset: this.preset,
       responsible,
-    });
+    };
+
+    if (hasFeature("workItems.hideImportedWorkItems")) {
+      filters.exclude_imported = true;
+    }
+
+    return cleanObject(filters);
   }
 
   get columns() {
