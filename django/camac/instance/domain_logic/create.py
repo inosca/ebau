@@ -625,6 +625,7 @@ class CreateInstanceLogic:
         start_caluma=True,
         workflow_slug=None,
         skip_exported_form_attachment=False,
+        skip_applicant_creation=False,
     ):
         """Create an instance.
 
@@ -648,7 +649,11 @@ class CreateInstanceLogic:
 
         instance = Instance.objects.create(**data)
 
-        if not is_paper and (not source_instance or is_modification):
+        if (
+            not is_paper
+            and (not source_instance or is_modification)
+            and not skip_applicant_creation
+        ):
             new_applicant = instance.involved_applicants.create(
                 user=camac_user,
                 invitee=camac_user,

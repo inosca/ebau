@@ -610,6 +610,7 @@
               "value": "verfahrensart-ordentliches-verfahren"
           }
       ],
+      "applicants": [],
       "case-meta": {
           "dossier-number": "2022-1",
           "dossier-number-sort": 2022000001,
@@ -694,6 +695,7 @@
   '''
   {
       "answers": null,
+      "applicants": null,
       "case-meta": null,
       "group": null,
       "journal": null,
@@ -1293,6 +1295,15 @@
               "value": "verfahrensart-vereinfachtes-verfahren"
           }
       ],
+      "applicants": [
+          {
+              "email": "",
+              "invitee_id": null,
+              "role": "ADMIN",
+              "user_id": 2,
+              "username": "N414386046"
+          }
+      ],
       "case-meta": {
           "dossier-number": "2024-1",
           "dossier-number-sort": 2024000001,
@@ -1589,7 +1600,7 @@
           {
               "document__form_id": "baugesuch-migration",
               "question_id": "davon-nicht-pflichtparkplaetze-neu-migration",
-              "value": "0"
+              "value": "1"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -1599,7 +1610,7 @@
           {
               "document__form_id": "baugesuch-migration",
               "question_id": "davon-pflichtparkplaetze-neu-migration",
-              "value": "0"
+              "value": "1"
           },
           {
               "document__form_id": "baugesuch-migration",
@@ -2173,6 +2184,7 @@
               "value": 0
           }
       ],
+      "applicants": [],
       "case-meta": {
           "dossier-number": "2025-1",
           "dossier-number-sort": 2025000001,
@@ -2231,6 +2243,174 @@
           {
               "creation_date": "2025-06-17T13:27:15Z",
               "modification_date": "2025-06-17T13:27:15Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:20:24Z",
+              "modification_date": "2025-07-26T06:20:24Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:34:33Z",
+              "modification_date": "2025-07-26T06:34:33Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:35:58Z",
+              "modification_date": "2025-07-26T06:35:58Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:36:17Z",
+              "modification_date": "2025-07-26T06:36:17Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:36:24Z",
+              "modification_date": "2025-07-26T06:36:24Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:36:41Z",
+              "modification_date": "2025-07-26T06:36:41Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:37:06Z",
+              "modification_date": "2025-07-26T06:37:06Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:37:27Z",
+              "modification_date": "2025-07-26T06:37:27Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:37:49Z",
+              "modification_date": "2025-07-26T06:37:49Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:37:50Z",
+              "modification_date": "2025-07-26T06:37:50Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:38:27Z",
+              "modification_date": "2025-07-26T06:38:27Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:38:29Z",
+              "modification_date": "2025-07-26T06:38:29Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:39:33Z",
+              "modification_date": "2025-07-26T06:39:33Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:39:47Z",
+              "modification_date": "2025-07-26T06:39:47Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:41:42Z",
+              "modification_date": "2025-07-26T06:41:42Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:41:44Z",
+              "modification_date": "2025-07-26T06:41:44Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:42:25Z",
+              "modification_date": "2025-07-26T06:42:25Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:43:09Z",
+              "modification_date": "2025-07-26T06:43:09Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T06:43:40Z",
+              "modification_date": "2025-07-26T06:43:40Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T07:23:40Z",
+              "modification_date": "2025-07-26T07:23:40Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-26T07:42:57Z",
+              "modification_date": "2025-07-26T07:42:57Z",
               "service_id": 81,
               "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
               "user_id": 2,
@@ -2844,6 +3024,15 @@
               "document__form_id": "vorlaeufige-pruefung",
               "question_id": "vorlaeufige-pruefung-verfahrensart",
               "value": "verfahrensart-ordentliches-verfahren"
+          }
+      ],
+      "applicants": [
+          {
+              "email": "",
+              "invitee_id": null,
+              "role": "ADMIN",
+              "user_id": 2,
+              "username": "N414386046"
           }
       ],
       "case-meta": {
@@ -3649,6 +3838,7 @@
               "value": 1
           }
       ],
+      "applicants": [],
       "case-meta": {
           "dossier-number": "2018-1",
           "dossier-number-sort": 2018000001,
@@ -4269,6 +4459,7 @@
               "value": "verfahrensart-ordentliches-verfahren"
           }
       ],
+      "applicants": [],
       "case-meta": {
           "dossier-number": "2025-1",
           "dossier-number-sort": 2025000001,
@@ -5129,6 +5320,15 @@
               "value": 2
           }
       ],
+      "applicants": [
+          {
+              "email": "",
+              "invitee_id": null,
+              "role": "ADMIN",
+              "user_id": 2,
+              "username": "N008779961"
+          }
+      ],
       "case-meta": {
           "dossier-number": "2025-1",
           "dossier-number-sort": 2025000001,
@@ -5196,7 +5396,7 @@
               "creation_date": "2025-07-24T22:00:00Z",
               "modification_date": "2025-07-24T22:00:00Z",
               "service_id": 55,
-              "text": "FRIST                         \nVon: 25.07.2025               Bis: None                     Abgeschlossen: -              \nBemerkung: Manuelle Kontrolle Mapping\nGrund:                        \n",
+              "text": "FRIST                         \nVon: 25.07.2025               Bis: None                     Abgeschlossen: ✓              \nBemerkung: Manuelle Kontrolle Mapping\nGrund:                        \n",
               "user_id": 2,
               "visibility": "own_organization"
           },

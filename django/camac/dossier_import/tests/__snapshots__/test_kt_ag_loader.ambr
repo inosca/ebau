@@ -39,6 +39,7 @@
       ],
       "application_type": "Ordentlich",
       "attachments": null,
+      "authorizations": [],
       "building": [
           {
               "egid": "2345",
@@ -573,6 +574,7 @@
       "applicant": [],
       "application_type": null,
       "attachments": null,
+      "authorizations": [],
       "building": [],
       "building_envelope_exterior_wall_color": null,
       "building_envelope_exterior_wall_material": null,
@@ -751,6 +753,7 @@
       "applicant": [],
       "application_type": null,
       "attachments": null,
+      "authorizations": [],
       "building": [
           {
               "egid": null,
@@ -955,6 +958,7 @@
       "applicant": [],
       "application_type": null,
       "attachments": null,
+      "authorizations": [],
       "building": [
           {
               "egid": null,
