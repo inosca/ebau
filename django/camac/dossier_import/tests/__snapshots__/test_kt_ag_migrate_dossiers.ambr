@@ -1606,6 +1606,10 @@
               "task_id": "init-additional-demand"
           },
           {
+              "status": "canceled",
+              "task_id": "withdrawal-request"
+          },
+          {
               "status": "ready",
               "task_id": "cantonal-exam"
           },
@@ -3264,6 +3268,10 @@
               "task_id": "objections"
           },
           {
+              "status": "ready",
+              "task_id": "withdrawal-request"
+          },
+          {
               "status": "skipped",
               "task_id": "formal-exam"
           },
@@ -4826,6 +4834,10 @@
               "task_id": "objections"
           },
           {
+              "status": "ready",
+              "task_id": "withdrawal-request"
+          },
+          {
               "status": "skipped",
               "task_id": "formal-exam"
           },
@@ -6314,6 +6326,10 @@
           {
               "status": "canceled",
               "task_id": "init-additional-demand"
+          },
+          {
+              "status": "canceled",
+              "task_id": "withdrawal-request"
           },
           {
               "status": "ready",
@@ -8075,6 +8091,10 @@
               "task_id": "init-additional-demand"
           },
           {
+              "status": "canceled",
+              "task_id": "withdrawal-request"
+          },
+          {
               "status": "ready",
               "task_id": "cantonal-exam"
           },
@@ -8778,6 +8798,10 @@
           {
               "status": "ready",
               "task_id": "objections"
+          },
+          {
+              "status": "ready",
+              "task_id": "withdrawal-request"
           },
           {
               "status": "skipped",
@@ -10340,6 +10364,10 @@
           {
               "status": "ready",
               "task_id": "objections"
+          },
+          {
+              "status": "ready",
+              "task_id": "withdrawal-request"
           },
           {
               "status": "skipped",
@@ -11976,6 +12004,10 @@
               "task_id": "objections"
           },
           {
+              "status": "ready",
+              "task_id": "withdrawal-request"
+          },
+          {
               "status": "skipped",
               "task_id": "formal-exam"
           },
@@ -13536,6 +13568,10 @@
           {
               "status": "ready",
               "task_id": "objections"
+          },
+          {
+              "status": "ready",
+              "task_id": "withdrawal-request"
           },
           {
               "status": "skipped",

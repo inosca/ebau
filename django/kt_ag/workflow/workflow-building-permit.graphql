@@ -118,3 +118,15 @@ mutation CreateFlowAfterDecision {
     clientMutationId
   }
 }
+
+mutation CreateFlowAfterWithdrawal {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["withdrawal-request"]
+      next: "[\"withdrawal-check\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}

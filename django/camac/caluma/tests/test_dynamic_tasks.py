@@ -1414,6 +1414,7 @@ def test_dynamic_task_maybe_publication(
                 "create-manual-workitems",
                 "formal-exam",
                 "init-additional-demand",
+                "withdrawal-request",
             },
         ),
         (
@@ -1425,6 +1426,7 @@ def test_dynamic_task_maybe_publication(
                 "fill-publication",
                 "cantonal-exam",
                 "objections",
+                "withdrawal-request",
             },
         ),
         (
@@ -1437,6 +1439,7 @@ def test_dynamic_task_maybe_publication(
                 "cantonal-exam",
                 "objections",
                 "init-additional-demand",
+                "withdrawal-request",
             },
         ),
     ],

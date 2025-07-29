@@ -2601,6 +2601,8 @@ APPLICATIONS = {
                         "additional-demand",
                         "create-publication",
                         "create-information-of-neighbors",
+                        "withdrawal-request",
+                        "withdrawal-check",
                     ],
                 },
                 # Cancel manual work items after complete instance and skip AfB

@@ -167,4 +167,8 @@ export default class InstancesEditController extends Controller {
       this.#instance.retry();
     }
   }
+
+  refreshCase() {
+    this.#cases.refresh();
+  }
 }

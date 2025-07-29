@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 10:11+0200\n"
+"POT-Creation-Date: 2025-07-24 19:37+0200\n"
 "PO-Revision-Date: 2024-09-12 15:00+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1149,6 +1149,10 @@ msgstr ""
 "Das Dossier kann nicht zurückgewiesen werden solange noch Nachforderungen "
 "offen sind."
 
+#: camac/instance/domain_logic/withdrawal.py
+msgid "Withdrawal not possible."
+msgstr "Rückzug nicht möglich."
+
 #: camac/instance/export/serializers.py
 msgid "Arrival Department"
 msgstr "Eingang Fachstelle"
@@ -1698,6 +1702,10 @@ msgstr "Dossier zurückgezogen"
 #: camac/settings/modules/withdrawal.py
 msgid "Withdrawal confirmed"
 msgstr "Rückzug bestätigt"
+
+#: camac/settings/modules/withdrawal.py
+msgid "Withdrawal requested"
+msgstr "Rückzug beantragt"
 
 #: camac/templates/admin/base.html
 msgid "Back to CAMAC admin"

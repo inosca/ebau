@@ -199,6 +199,9 @@ instances:
   withdrawInstanceModal: "Sind Sie sicher, dass Sie das Dossier zurückziehen möchten?"
   withdrawInstanceError: "Das Dossier konnte nicht zurückgezogen werden"
   withdrawInstanceSuccess: "Das Dossier wurde erfolgreich zurückgezogen"
+  withdrawalRequestedSuccess: "Der Rückzug wurde beantragt"
+  withdrawalRequestedText: "Der Rückzug wurde beantragt. Die Gemeinde prüft den Rückzug und wird Ihnen Rückmeldung geben."
+  withdrawalRequest: "Rückzug beantragen"
 
   categories:
     all: "Alle"

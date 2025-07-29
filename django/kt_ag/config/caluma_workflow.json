@@ -79,6 +79,19 @@
   },
   {
     "model": "caluma_workflow.flow",
+    "pk": "2930afe1-b7c7-4adf-9f6a-594ded114027",
+    "fields": {
+      "created_at": "2025-04-25T14:04:19.964Z",
+      "modified_at": "2025-04-25T14:04:19.964Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"withdrawal-check\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "298d6c27-bea8-47f3-b234-2fce696b3d91",
     "fields": {
       "created_at": "2025-02-25T11:28:46.822Z",
@@ -557,6 +570,54 @@
     }
   },
   {
+    "model": "caluma_workflow.task",
+    "pk": "withdrawal-check",
+    "fields": {
+      "created_at": "2025-07-24T12:03:32.358Z",
+      "modified_at": "2025-07-24T12:03:32.358Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"R\\u00fcckzug pr\\u00fcfen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {
+        "is-manually-completable": true
+      },
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": "[\"municipality\"]|groups",
+      "is_archived": false,
+      "form": null,
+      "lead_time": 432000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "withdrawal-request",
+    "fields": {
+      "created_at": "2025-07-24T12:03:30.132Z",
+      "modified_at": "2025-07-24T12:03:30.132Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"R\\u00fcckzug beantragen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {},
+      "address_groups": "[\"applicant\"]",
+      "control_groups": null,
+      "is_archived": false,
+      "form": null,
+      "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
     "model": "caluma_workflow.taskflow",
     "pk": "0680b966-3f92-7494-8000-11a4a0fa11ea",
     "fields": {
@@ -665,6 +726,22 @@
       "workflow": "building-permit",
       "task": "create-publication",
       "flow": "f61df022-38b6-4573-acf2-8d8741c91930",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "3d3236d9-10ec-4f2e-a452-48465f945088",
+    "fields": {
+      "created_at": "2025-02-26T11:51:40.922Z",
+      "modified_at": "2025-02-26T11:51:40.922Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "withdrawal-request",
+      "flow": "2930afe1-b7c7-4adf-9f6a-594ded114027",
       "redoable": null
     }
   },

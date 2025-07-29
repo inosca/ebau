@@ -80,6 +80,34 @@
   },
   {
     "model": "caluma_workflow.workitem",
+    "pk": "0c6c9f1f-5ec2-4f7a-b1f6-63c02e35c645",
+    "fields": {
+      "created_at": "2025-01-14T12:21:31.822Z",
+      "modified_at": "2025-01-14T12:21:31.822Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"R\\u00fcckzug beantragen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "withdrawal-request",
+      "status": "ready",
+      "meta": {},
+      "addressed_groups": "[\"applicant\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "914d9c83-cc06-4d38-a50c-5a0974338d8d",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": "06f780d3-6004-4173-b218-584e2fa46054"
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
     "pk": "3ec0732e-e2ab-4741-bb05-e3f75505567a",
     "fields": {
       "created_at": "2025-01-14T12:21:31.822Z",

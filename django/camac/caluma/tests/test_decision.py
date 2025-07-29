@@ -12,6 +12,7 @@ from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 from django.core.management import call_command
 
 from camac.core.models import HistoryActionConfig
+from camac.ech0211.models import Message
 from camac.instance.domain_logic import DecisionLogic
 from camac.instance.models import HistoryEntryT, Instance
 from camac.instance.utils import copy_instance
@@ -486,6 +487,44 @@ def test_complete_decision_withdrawn(
     )
 
 
+@pytest.mark.parametrize("instance_state__name", ["decision"])
+def test_complete_decision_withdrawal_light(
+    db,
+    caluma_admin_user,
+    instance_state_factory,
+    ag_decision_settings,
+    ag_instance,
+    ag_withdrawal_settings,
+    ag_ech0211_settings,
+    decision_factory_ag,
+):
+    instance_state_factory(
+        name=ag_decision_settings["INSTANCE_STATE_AFTER_NEGATIVE_DECISION"]
+    )
+    decision_work_item = decision_factory_ag(
+        ag_instance,
+        ag_decision_settings["ANSWERS"]["DECISION"]["WITHDRAWAL"],
+    )
+
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=decision_work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    ag_instance.refresh_from_db()
+
+    assert (
+        ag_instance.instance_state.name
+        == ag_decision_settings["INSTANCE_STATE_AFTER_NEGATIVE_DECISION"]
+    )
+
+    # status notification (decision) and withdrawal
+    assert Message.objects.count() == 2
+
+
 @pytest.mark.parametrize(
     "service_group__name,expected_status,expected_work_items,complete_afterwards",
     [
@@ -795,9 +834,6 @@ def test_decision_work_item_name(
         ("municipality", "decision", "REJECTED", "WITH", True),
         ("municipality", "decision", "REJECTED", "WITHOUT", False),
         ("municipality", "decision", "WITHDRAWAL", None, False),
-        # If instance state is withdrawn, never continue
-        ("baugesuch", "withdrawal", "WITHDRAWAL", None, False),
-        ("baugesuch", "withdrawal", "APPROVED", None, False),
         # Municipality light instances never continue
         ("municipality-light", "decision", "APPROVED", None, False),
         ("municipality-light", "decision", "PARTIALLY_APPROVED", None, False),

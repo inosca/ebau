@@ -6,6 +6,7 @@ from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
 from django.conf import settings
 
 from camac.core.utils import canton_aware, generate_sort_key
+from camac.ech0211.signals import withdrawn
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Instance
 from camac.instance.utils import (
@@ -37,28 +38,53 @@ class DecisionLogic:
                     settings.DECISION["INSTANCE_STATE_AFTER_POSITIVE_DECISION"],
                     camac_user,
                 )
-        elif (
+            cls.handle_appeal_decision(instance, work_item, user, camac_user)
+            return
+
+        is_withdrawal_state = bool(
             settings.WITHDRAWAL
             and instance.instance_state.name == settings.WITHDRAWAL["INSTANCE_STATE"]
-        ):
+        )
+        if is_withdrawal_state:
             cls.cancel_manual_work_items(instance, user)
             instance.set_instance_state(
                 settings.WITHDRAWAL["INSTANCE_STATE_CONFIRMED"], camac_user
             )
-        elif (
+            cls.handle_appeal_decision(instance, work_item, user, camac_user)
+            return
+
+        is_kt_so_special_form = bool(
             settings.APPLICATION_NAME == "kt_so"
             and instance.case.document.form_id
             in ["voranfrage", "meldung", "meldung-pv"]
-        ):
+        )
+        if is_kt_so_special_form:
             cls.cancel_manual_work_items(instance, user)
             instance.set_instance_state("finished", camac_user)
+            cls.handle_appeal_decision(instance, work_item, user, camac_user)
+            return
 
-        else:
-            instance.set_instance_state(
-                settings.DECISION["INSTANCE_STATE_AFTER_NEGATIVE_DECISION"],
-                camac_user,
+        is_light_withdrawal = bool(
+            settings.WITHDRAWAL
+            and settings.WITHDRAWAL["TYPE"] == "light"
+            and cls.get_decision_answer(
+                question_id=settings.DECISION["QUESTIONS"]["DECISION"],
+                work_item=work_item,
+            )
+            == settings.DECISION["ANSWERS"]["DECISION"]["WITHDRAWAL"]
+        )
+        if is_light_withdrawal:
+            withdrawn.send(
+                sender="post_complete_decision_building_permit",
+                instance=instance,
+                user_pk=camac_user.pk,
+                group_pk=user.camac_group,
             )
 
+        instance.set_instance_state(
+            settings.DECISION["INSTANCE_STATE_AFTER_NEGATIVE_DECISION"],
+            camac_user,
+        )
         cls.handle_appeal_decision(instance, work_item, user, camac_user)
 
     @classmethod
@@ -146,12 +172,6 @@ class DecisionLogic:
     def should_continue_after_decision_ag(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
-        if instance.instance_state.name == settings.WITHDRAWAL["INSTANCE_STATE"]:
-            # If the current instance state is withdrawal (Zum Rückzug) we don't
-            # even care what decision is selected, the workflow is finished in
-            # every case.
-            return False
-
         if instance.responsible_service().service_group.name == "municipality-light":
             # Instances of DIBA light municipalities are finished after the
             # decision
