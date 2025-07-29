@@ -171,10 +171,9 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
 
         if needs_visibility(settings.DISTRIBUTION, task_slugs):
             # Provide additional filtering for inquiry work-items
-            filters &= ~Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"]) | (
-                Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
-                & visible_inquiries_expression(self.request.group)
-            )
+            filters &= ~Q(
+                task_id=settings.DISTRIBUTION["INQUIRY_TASK"]
+            ) | visible_inquiries_expression(self.request.group)
 
         if needs_visibility(settings.ADDITIONAL_DEMAND, task_slugs):
             filters &= self.visible_additional_demands_expression(self.request.group)
