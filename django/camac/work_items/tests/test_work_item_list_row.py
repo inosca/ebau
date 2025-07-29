@@ -129,24 +129,17 @@ def test_work_item_list_row_list_no_pagination(admin_client, setup_work_item_lis
 
 
 @pytest.mark.freeze_time("2025-07-17 14:33")
-@pytest.mark.parametrize(
-    "canton,query_count",
-    [
-        pytest.param("ag", 7, id="AG"),
-        pytest.param("so", 6, id="SO"),
-    ],
-)
+@pytest.mark.parametrize("canton", ["ag", "so"])
 def test_work_item_list_row_list(
     admin_client,
     canton,
     django_assert_num_queries,
-    query_count,
     setup_work_item_list,
     snapshot,
 ):
     setup_work_item_list(canton)
 
-    with django_assert_num_queries(query_count):
+    with django_assert_num_queries(6):
         response = admin_client.get(
             reverse("work-item-list-row-list"), {"page[number]": 1, "page[size]": 20}
         )

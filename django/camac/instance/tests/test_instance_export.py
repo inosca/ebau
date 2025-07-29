@@ -371,7 +371,7 @@ def test_caluma_export_ag(
         closed_at=make_aware(datetime.datetime(2025, 1, 30)),
     )
 
-    with django_assert_num_queries(4):
+    with django_assert_num_queries(3):
         response = admin_client.get(
             reverse("instance-export"), {"instance_id": instance.pk}
         )
