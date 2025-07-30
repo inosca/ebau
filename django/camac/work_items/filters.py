@@ -1,5 +1,6 @@
-from django.db.models import Q
+from django.db.models import F, Q
 from django_filters.rest_framework import FilterSet, filters
+from rest_framework.filters import OrderingFilter
 
 from . import models
 
@@ -27,7 +28,7 @@ class WorkItemTemplateFilterSet(FilterSet):
 class WorkItemListRowFilterSet(FilterSet):
     preset = filters.CharFilter(method="filter_preset")
     responsible = filters.CharFilter(field_name="assigned_users", lookup_expr="0")
-    role = filters.CharFilter(method="filter_role")
+    role = filters.CharFilter(method="filter_role", required=True)
     task = filters.CharFilter(method="filter_task")
     unread = filters.BooleanFilter(field_name="meta__not-viewed")
     exclude_imported = filters.BooleanFilter(method="filter_exclude_imported")
@@ -73,9 +74,13 @@ class WorkItemListRowFilterSet(FilterSet):
         if value == "active":
             return queryset.filter(addressed_groups__contains=[service_id])
         elif value == "control":
-            return queryset.exclude(addressed_groups__contains=[service_id])
+            return (
+                queryset.filter(controlling_groups__contains=[service_id])
+                .exclude(addressed_groups__contains=[service_id])
+                .exclude(addressed_groups__contains=["applicant"])
+            )
 
-        return queryset  # pragma: no cover
+        return queryset.none()
 
     def filter_task(self, queryset, name, value):
         return queryset.filter(Q(task_id=value) | Q(**{"meta__template-id": value}))
@@ -99,3 +104,43 @@ class WorkItemListRowFilterSet(FilterSet):
             "responsible",
             "preset",
         ]
+
+
+class NullsFirstOrderingFilter(OrderingFilter):
+    """Ordering backend supporting NULLS FIRST.
+
+    This ordering backend transforms regular `.order_by(field_name)` ordering to
+    a syntax that supports `nulls_first`. To enable nulls first, add the field
+    name to `ordering_nulls_first` on the view.
+    """
+
+    def get_ordering(self, request, queryset, view):
+        """Get ordering statement with nulls first support.
+
+        Instead of returning a list of strings, this will return a list of
+        F-expressions with `nulls_first` if the field is listed in
+        `ordering_nulls_first` of the respective view.
+        """
+
+        fields = super().get_ordering(request, queryset, view)
+        ordering = []
+
+        for field in fields:
+            is_desc = field.startswith("-")
+            field_name = field.lstrip("-")
+
+            args = (
+                {"nulls_first": True}
+                if field in getattr(view, "ordering_nulls_first", [])
+                else {}
+            )
+
+            expr = F(field_name)
+            if is_desc:
+                expr = expr.desc(**args)
+            else:
+                expr = expr.asc(**args)
+
+            ordering.append(expr)
+
+        return ordering

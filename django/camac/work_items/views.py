@@ -14,6 +14,7 @@ from rest_framework.decorators import action
 from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
+from rest_framework_json_api.django_filters import DjangoFilterBackend
 from rest_framework_json_api.views import ReadOnlyModelViewSet
 
 from camac.settings.modules.work_item_list_schema import WorkItemListConfig
@@ -91,20 +92,10 @@ class WorkItemListRowViewset(ReadOnlyModelViewSet):
     serializer_class = WorkItemListRowSerializer
     filterset_class = filters.WorkItemListRowFilterSet
     queryset = WorkItemListRow.objects
+    filter_backends = [filters.NullsFirstOrderingFilter, DjangoFilterBackend]
     ordering_fields = ["deadline", "created_at"]
+    ordering_nulls_first = ["deadline"]
     ordering = ["deadline"]
-
-    def get_queryset(self):
-        service_id = str(self.request.group.service_id)
-
-        return (
-            super()
-            .get_queryset()
-            .filter(
-                Q(addressed_groups__contains=[service_id])
-                | Q(controlling_groups__contains=[service_id])
-            )
-        )
 
     def paginate_queryset(self, queryset):
         """Paginate the queryset.
@@ -177,7 +168,12 @@ class WorkItemListRowViewset(ReadOnlyModelViewSet):
     def has_object_quick_complete_permission(self, obj):
         return self.has_base_permission(obj) and obj.is_manually_completable
 
-    @action(methods=["POST"], detail=True, url_path="assign-to-me")
+    @action(
+        methods=["POST"],
+        detail=True,
+        url_path="assign-to-me",
+        filterset_class=None,
+    )
     @transaction.atomic
     def assign_to_me(self, request, pk):
         """Assign work item to current user.
@@ -192,7 +188,12 @@ class WorkItemListRowViewset(ReadOnlyModelViewSet):
         obj.assign_to_user(self.request.user)
         return Response(self.get_serializer(obj).data)
 
-    @action(methods=["POST"], detail=True, url_path="toggle-read")
+    @action(
+        methods=["POST"],
+        detail=True,
+        url_path="toggle-read",
+        filterset_class=None,
+    )
     @transaction.atomic
     def toggle_read(self, request, pk):
         """Toggle read status of a work item.
@@ -206,7 +207,12 @@ class WorkItemListRowViewset(ReadOnlyModelViewSet):
         obj.toggle_read()
         return Response(self.get_serializer(obj).data)
 
-    @action(methods=["POST"], detail=True, url_path="quick-complete")
+    @action(
+        methods=["POST"],
+        detail=True,
+        url_path="quick-complete",
+        filterset_class=None,
+    )
     @transaction.atomic
     def quick_complete(self, request, pk):
         """Complete work item.
@@ -246,18 +252,10 @@ class WorkItemListTaskOptionsView(ListAPIView):
             # normal work item model instead of the work item list row proxy
             # model to simplify the query.
 
-            service_id = str(self.request.group.service_id)
             work_items = filters.WorkItemListRowFilterSet(
                 data=request.query_params,
                 request=request,
-                queryset=(
-                    WorkItem.objects.filter(
-                        Q(addressed_groups__contains=[service_id])
-                        | Q(controlling_groups__contains=[service_id])
-                    )
-                    .filter(deadline__isnull=False)
-                    .exclude(addressed_groups=["applicants"])
-                ),
+                queryset=WorkItem.objects.filter(deadline__isnull=False),
             ).qs
 
         options = get_options(

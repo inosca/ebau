@@ -186,16 +186,18 @@ class WorkItemListRowQuerySet(models.QuerySet["WorkItemListRow"]):
         displaying the model properly. However, some of those annotations can be
         a bit costly and should be avoided if not necessary. For the pagination,
         we do a count on the base queryset - for this purpose we make sure to
-        only count the PKs and avoid annotations completely.
+        only count the PKs and avoid annotations and joins completely.
         """
 
-        # We explicitly call the super function with the base queryset since
-        # otherwise, the call to `.count()` would cause an infinite loop.
+        # We explicitly create a new query that completely ignores the proxy
+        # model in order to avoid all annotations and joins.
 
-        # WARNING: If there was ever a use-case where we'd neet to group by an
-        # annotated property (don't do this, it would not perform at all) this
-        # method is very likely to return a wrong count.
-        return super(WorkItemListRowQuerySet, self.values("pk")).count()
+        # WARNING: If there was ever a use-case where we'd filter by any
+        # annotated properties (don't do this, it would not perform at all) this
+        # method would break.
+        queryset = WorkItem.objects.all()
+        queryset.query.where = self.query.where
+        return queryset.values("pk").count()
 
 
 class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
@@ -225,7 +227,6 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         queryset = (
             queryset.select_related("task")
             .filter(deadline__isnull=False)
-            .exclude(addressed_groups=["applicant"])
             .annotate(
                 instance_id=F("case__family__instance__pk"),
                 instance_name=F(

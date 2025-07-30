@@ -1,13 +1,14 @@
-from datetime import date
+from datetime import date, datetime
 
 import pytest
 from caluma.caluma_workflow.models import Task, WorkItem
 from django.urls import reverse
-from django.utils.timezone import now
+from django.utils.timezone import make_aware, now
 from faker import Faker
 from rest_framework import status
 
 from camac.caluma.utils import date_to_deadline
+from camac.gis.utils import to_query
 
 fake = Faker()
 
@@ -39,10 +40,14 @@ def work_item_list_row_factory(db, caluma_work_item_factory, service_factory, re
         addressed = addressed if addressed else service_factory()
         controlling = controlling if controlling else service_factory()
 
-        return caluma_work_item_factory(
+        created_at = kwargs.pop("created_at", None)
+
+        work_item = caluma_work_item_factory(
             case=master_data_case,
             pk=fake.uuid4(),
-            deadline=date_to_deadline(date.fromisoformat(fake.date())),
+            deadline=date_to_deadline(
+                date.fromisoformat(kwargs.pop("deadline", fake.date()))
+            ),
             child_case=None,
             addressed_groups=[str(addressed.pk)],
             controlling_groups=[str(controlling.pk)],
@@ -51,6 +56,17 @@ def work_item_list_row_factory(db, caluma_work_item_factory, service_factory, re
             meta=kwargs.pop("meta", {"not-viewed": True}),
             **kwargs,
         )
+
+        if created_at is not None:
+            work_item.created_at = make_aware(
+                datetime.combine(
+                    date.fromisoformat(created_at),
+                    datetime.min.time(),
+                )
+            )
+            work_item.save(update_fields=["created_at"])
+
+        return work_item
 
     return wrapper
 
@@ -88,18 +104,22 @@ def setup_work_item_list(
         )
         work_item_list_row_factory(
             canton=canton,
+            name="from-template-and-read",
             addressed=service,
+            created_at="2025-01-05",
+            deadline="2025-01-01",
             meta={
                 "not-viewed": False,
                 "template-id": str(template.pk),
                 "imported": True,
             },
-            name="from-template-and-read",
         )
         work_item_list_row_factory(
             canton=canton,
-            name="controlling",
-            controlling=service,
+            name="from-task",
+            addressed=service,
+            created_at="2025-01-04",
+            deadline="2025-01-02",
             task_id=task,
         )
         work_item_list_row_factory(
@@ -107,14 +127,25 @@ def setup_work_item_list(
             name="assigned",
             addressed=service,
             assigned=user,
+            created_at="2025-01-03",
+            deadline="2025-01-03",
         )
         work_item_list_row_factory(
             canton=canton,
             name="completed",
             addressed=service,
-            status=WorkItem.STATUS_COMPLETED,
-            closed_by_user=user_factory().username,
             closed_at=now(),
+            closed_by_user=user_factory().username,
+            created_at="2025-01-02",
+            deadline="2025-01-04",
+            status=WorkItem.STATUS_COMPLETED,
+        )
+        work_item_list_row_factory(
+            canton=canton,
+            name="controlling",
+            controlling=service,
+            created_at="2025-01-01",
+            deadline="2025-01-05",
         )
 
         return task, template, work_item_list_filter_preset
@@ -122,10 +153,13 @@ def setup_work_item_list(
     return wrapper
 
 
-def test_work_item_list_row_list_no_pagination(admin_client, setup_work_item_list):
+def test_work_item_list_row_list_no_pagination(
+    admin_client, setup_work_item_list, snapshot
+):
     setup_work_item_list()
-    response = admin_client.get(reverse("work-item-list-row-list"))
+    response = admin_client.get(reverse("work-item-list-row-list"), {"role": "active"})
     assert response.status_code == status.HTTP_400_BAD_REQUEST
+    assert response.json()["errors"][0]["detail"] == "Pagination is required"
 
 
 @pytest.mark.freeze_time("2025-07-17 14:33")
@@ -141,72 +175,148 @@ def test_work_item_list_row_list(
 
     with django_assert_num_queries(6):
         response = admin_client.get(
-            reverse("work-item-list-row-list"), {"page[number]": 1, "page[size]": 20}
+            reverse("work-item-list-row-list"),
+            {"page[number]": 1, "page[size]": 20, "role": "active"},
         )
 
     assert response.status_code == status.HTTP_200_OK
     assert normalize_response(response.json()) == snapshot()
 
 
-@pytest.mark.parametrize(
-    "filters,expected",
-    [
-        (
-            {},
-            {
-                "from-template-and-read",
-                "controlling",
-                "assigned",
-                "completed",
-                "controlling",
-            },
-        ),
-        ({"unread": True}, {"controlling", "assigned", "completed"}),
-        ({"unread": False}, {"from-template-and-read"}),
-        ({"role": "active"}, {"from-template-and-read", "assigned", "completed"}),
-        ({"role": "control"}, {"controlling"}),
-        ({"responsible": "placeholder"}, {"assigned"}),
-        ({"task": "task"}, {"controlling"}),
-        ({"task": "template"}, {"from-template-and-read"}),
-        ({"preset": "placeholder"}, {"from-template-and-read", "controlling"}),
-        ({"preset": "placeholder", "task": "task"}, {"controlling"}),
-        (
-            {"exclude_imported": True},
-            {"controlling", "assigned", "completed", "controlling"},
-        ),
-        (
-            {"exclude_imported": False},
-            {
-                "from-template-and-read",
-                "controlling",
-                "assigned",
-                "completed",
-                "controlling",
-            },
-        ),
-    ],
-)
-def test_work_item_list_row_list_filters(
-    admin_client, expected, filters, setup_work_item_list, user
-):
+def test_work_item_list_row_list_filters(admin_client, setup_work_item_list, user):
     task, template, preset = setup_work_item_list()
 
-    if "responsible" in filters:
-        filters["responsible"] = user.username
-    if filters.get("task") == "task":
-        filters["task"] = task.pk
-    if filters.get("task") == "template":
-        filters["task"] = template.pk
-    if "preset" in filters:
-        filters["preset"] = preset.pk
+    for filters, expected_status, expected in [
+        ({}, status.HTTP_400_BAD_REQUEST, None),
+        (
+            {"role": "active", "unread": True},
+            status.HTTP_200_OK,
+            {"assigned", "completed", "from-task"},
+        ),
+        (
+            {"role": "active", "unread": False},
+            status.HTTP_200_OK,
+            {"from-template-and-read"},
+        ),
+        (
+            {"role": "active"},
+            status.HTTP_200_OK,
+            {"assigned", "completed", "from-task", "from-template-and-read"},
+        ),
+        (
+            {"role": "control"},
+            status.HTTP_200_OK,
+            {"controlling"},
+        ),
+        (
+            {"role": "all"},
+            status.HTTP_200_OK,
+            set(),
+        ),
+        (
+            {"role": "active", "responsible": "placeholder"},
+            status.HTTP_200_OK,
+            {"assigned"},
+        ),
+        (
+            {"role": "active", "task": "task"},
+            status.HTTP_200_OK,
+            {"from-task"},
+        ),
+        (
+            {"role": "active", "task": "template"},
+            status.HTTP_200_OK,
+            {"from-template-and-read"},
+        ),
+        (
+            {"role": "active", "preset": "placeholder"},
+            status.HTTP_200_OK,
+            {"from-task", "from-template-and-read"},
+        ),
+        (
+            {"role": "active", "preset": "placeholder", "task": "task"},
+            status.HTTP_200_OK,
+            {"from-task"},
+        ),
+        (
+            {"role": "active", "exclude_imported": True},
+            status.HTTP_200_OK,
+            {"assigned", "completed", "from-task"},
+        ),
+        (
+            {"role": "active", "exclude_imported": False},
+            status.HTTP_200_OK,
+            {"assigned", "completed", "from-task", "from-template-and-read"},
+        ),
+    ]:
+        if "responsible" in filters:
+            filters["responsible"] = user.username
+        if filters.get("task") == "task":
+            filters["task"] = task.pk
+        if filters.get("task") == "template":
+            filters["task"] = template.pk
+        if "preset" in filters:
+            filters["preset"] = preset.pk
 
-    response = admin_client.get(
-        reverse("work-item-list-row-list"),
-        {"page[number]": 1, "page[size]": 20, **filters},
-    )
+        response = admin_client.get(
+            reverse("work-item-list-row-list"),
+            {"page[number]": 1, "page[size]": 20, **filters},
+        )
 
-    assert response.status_code == status.HTTP_200_OK
-    assert {r["attributes"]["task"] for r in response.json()["data"]} == expected
+        assert response.status_code == expected_status
+
+        if expected_status == status.HTTP_200_OK:
+            received = {r["attributes"]["task"] for r in response.json()["data"]}
+            assert received == expected, (
+                f"Given the query params {to_query(filters)} the following work items were expected: {', '.join(expected)} but received {', '.join(received)}"
+            )
+
+
+def test_work_item_list_row_list_ordering(
+    admin_client, django_assert_num_queries, setup_work_item_list
+):
+    setup_work_item_list()
+
+    for sort, expected_work_item, expected_ordering in [
+        (
+            None,
+            "from-template-and-read",
+            'ORDER BY "caluma_workflow_workitem"."deadline" ASC NULLS FIRST LIMIT',
+        ),
+        (
+            "deadline",
+            "from-template-and-read",
+            'ORDER BY "caluma_workflow_workitem"."deadline" ASC NULLS FIRST LIMIT',
+        ),
+        (
+            "created_at",
+            "completed",
+            'ORDER BY "caluma_workflow_workitem"."created_at" ASC LIMIT',
+        ),
+        (
+            "-created_at",
+            "from-template-and-read",
+            'ORDER BY "caluma_workflow_workitem"."created_at" DESC LIMIT',
+        ),
+    ]:
+        params = {
+            "page[number]": 1,
+            "page[size]": 20,
+            "role": "active",
+            "fields[work-item-list-rows]": "task",
+        }
+
+        if sort is not None:
+            params["sort"] = sort
+
+        with django_assert_num_queries(6) as captured:
+            response = admin_client.get(reverse("work-item-list-row-list"), params)
+
+        select_query = captured.captured_queries[2]["sql"]
+
+        assert response.status_code == status.HTTP_200_OK
+        assert response.json()["data"][0]["attributes"]["task"] == expected_work_item
+        assert expected_ordering in select_query
 
 
 @pytest.mark.parametrize(
