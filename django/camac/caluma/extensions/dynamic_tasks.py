@@ -360,13 +360,13 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     def resolve_after_submit_so(self, case, user, prev_work_item, context):
         tasks = ["create-manual-workitems"]
-
         if case.meta.get("is-appeal"):
             tasks.extend(["appeal", "distribution"])
-        elif case.document.form_id == "voranfrage":
+        elif get_unversioned_slug(case.document.form_id) in [
+            "voranfrage",
+            "meldung",
+        ]:
             tasks.append("distribution")
-        elif case.document.form_id == "meldung":
-            tasks.append("decision")
         else:
             tasks.extend(["formal-exam", "init-additional-demand"])
 

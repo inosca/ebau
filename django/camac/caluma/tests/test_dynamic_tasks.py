@@ -440,7 +440,7 @@ def test_dynamic_task_after_ebau_number(
             False,
             False,
             "meldung",
-            {"create-manual-workitems", "decision"},
+            {"create-manual-workitems", "distribution"},
         ),
         (
             False,
