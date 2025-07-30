@@ -66,7 +66,6 @@ def get_group(request) -> Optional[Group]:
             user_group = group_qs.first()
             group = user_group and user_group.group
 
-    request_logger.debug(f"group: {group and group.get_name()}")
     return group
 
 

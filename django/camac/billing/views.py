@@ -34,7 +34,6 @@ from camac.user.permissions import (
     IsWilkenClientToken,
     permission_aware,
 )
-from camac.user.utils import get_group
 
 
 class BillingV2EntryTemplateViewset(ReadOnlyModelViewSet):
@@ -143,7 +142,7 @@ class ProductNumbersView(APIView):
 
     def get(self, request):
         instance: str | None = request.query_params.get("for_instance", None)
-        group: Group | None = get_group(request)
+        group: Group | None = request.group
 
         if not instance or not group:
             return response.Response([], status=status.HTTP_400_BAD_REQUEST)

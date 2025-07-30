@@ -18,7 +18,6 @@ from camac.user.relations import (
     GroupResourceRelatedField,
 )
 from camac.user.serializers import CurrentGroupDefault
-from camac.user.utils import get_group
 
 
 class BillingV2CommonEntrySerializer(serializers.ModelSerializer):
@@ -103,7 +102,7 @@ class BillingV2EntrySerializer(BillingV2CommonEntrySerializer):
         if not config:
             return None
 
-        group = get_group(request)
+        group = request.group
         instance = self.initial_data.get("instance", {}).get("id")
 
         valid_product_numbers = [
