@@ -119,6 +119,7 @@ class InstancePermissionSerializer(serializers.ModelSerializer):
         read_only=True,
     )
     permissions = serializers.SerializerMethodField()
+    current_access_levels = serializers.SerializerMethodField()
 
     def get_root_meta(self, resource, many):
         # * permission_mode returns the active mode, which provides some lower
@@ -138,10 +139,14 @@ class InstancePermissionSerializer(serializers.ModelSerializer):
         manager = api.PermissionManager.from_request(self.context["request"])
         return manager.get_permissions(instance)
 
+    def get_current_access_levels(self, instance):
+        manager = api.PermissionManager.from_request(self.context["request"])
+        return manager.current_access_levels(instance)
+
     class Meta:
         resource_name = "instance-permissions"
         model = instance_models.Instance
-        fields = ["permissions", "instance"]
+        fields = ["permissions", "instance", "current_access_levels"]
 
 
 class AccessLevelSerializer(serializers.ModelSerializer):

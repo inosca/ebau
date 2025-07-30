@@ -8,6 +8,7 @@ nav:
   bab: "BaB"
   modification: "Projektänderung"
   suspended: "Sistiert"
+  hasOnlyReadPermission: "Leseberechtigung"
   masterData:
     label: "Erweiterte Stammdaten"
     hide: "Erweiterte Stammdaten verstecken"
