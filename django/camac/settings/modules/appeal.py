@@ -29,7 +29,6 @@ APPEAL = {
                 {
                     "template_slug": "09-beschwerde-eingegangen",
                     "recipient_types": [
-                        "involved_in_distribution",  # Involvierte Stellen in Zirkulation
                         "construction_control",  # Baukontrolle
                         "geometer_acl_services",
                     ],
