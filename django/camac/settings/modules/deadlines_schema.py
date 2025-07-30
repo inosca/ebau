@@ -15,8 +15,4 @@ class CalculationConfig(EBauConfig):
 
 
 class DeadlinesConfig(ModuleApplicationConfig):
-    enabled: bool = Field(
-        description="Enable the deadlines module.",
-        default=False,
-    )
     calculation: CalculationConfig = CalculationConfig()
