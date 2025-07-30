@@ -3297,6 +3297,7 @@ ECH_EXCLUDED_WORKFLOWS = ["internal"]
 ECH_EXCLUDED_FORMS = [
     "verlaengerung-geltungsdauer",
     "migriertes-dossier",
+    "migriertes-dossier-v2",
     "baupolizeiliches-verfahren",
     "baupolizeiliches-verfahren-v2",
     "hecken-feldgehoelze-baeume",
@@ -3311,6 +3312,7 @@ ECH_EXCLUDED_FORMS = [
     "heat-generator-v2",
     "heat-generator-v3",
     "reklamegesuch",
+    "reklamegesuch-v2",
     "benuetzung-oeffentlichem-terrain-meldung",
 ]
 ECH_THROTTLING_RATE = env.str("DJANGO_ECH_THROTTLING_RATE", default="1/min")

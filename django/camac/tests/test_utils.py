@@ -273,3 +273,12 @@ def test_readiness_endpoint_db_not_ready(client, mocker):
 
     expected_json = {"status": "db not ready"}
     assert response.json() == expected_json
+
+
+def test_get_uversioned_slug():
+    from camac.utils import get_unversioned_slug
+
+    assert get_unversioned_slug("form-slug-v3") == "form-slug"
+    assert get_unversioned_slug("form-slug") == "form-slug"
+    assert get_unversioned_slug("form-slug-abv8") == "form-slug-abv8"
+    assert get_unversioned_slug("form-slug-abv8-v3") == "form-slug-abv8"

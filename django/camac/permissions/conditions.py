@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import Callable, List, Optional
 
-from camac.utils import call_with_accepted_kwargs
+from camac.utils import call_with_accepted_kwargs, get_unversioned_slug
 
 """
 Provide some useful conditionals to build complex permissions checks.
@@ -245,6 +245,14 @@ class IsForm(Check):
 
     def __repr__(self):
         return f"IsForm({', '.join(sorted(self.forms))})"
+
+
+@dataclass
+class IsUnversionedForm(IsForm):
+    """Permission check for requiring any form of a given list ignoring versioned slugs."""
+
+    def apply(self, userinfo, instance):
+        return get_unversioned_slug(instance.case.document.form_id) in self.forms
 
 
 @dataclass

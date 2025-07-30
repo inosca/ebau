@@ -8,6 +8,7 @@ import { trackedFunction } from "reactiveweb/function";
 import mainConfig from "ember-ebau-core/config/main";
 import getCaseMetaQuery from "ember-ebau-core/gql/queries/get-case-meta.graphql";
 import getCopiesQuery from "ember-ebau-core/gql/queries/get-copies.graphql";
+import { removeVersion } from "ember-ebau-core/utils/form-filters";
 
 const PARTIAL_NOTIFICATION_CONFIG = [
   {
@@ -53,7 +54,7 @@ export default class DecisionSubmitButtonComponent extends CfFieldInputActionBut
   get isPreliminaryClarification() {
     if (macroCondition(getOwnConfig().application === "so")) {
       return ["voranfrage", "meldung", "meldung-pv"].includes(
-        this.caseInfo.value?.form,
+        removeVersion(this.caseInfo.value?.form),
       );
     }
 

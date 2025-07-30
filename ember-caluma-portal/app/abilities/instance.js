@@ -3,6 +3,7 @@ import { Ability } from "ember-can";
 import { hasInstanceState } from "ember-ebau-core/abilities/instance";
 import mainConfig from "ember-ebau-core/config/main";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { removeVersion } from "ember-ebau-core/utils/form-filters";
 
 import config from "caluma-portal/config/environment";
 
@@ -162,7 +163,7 @@ export default class InstanceAbility extends Ability {
   get canDownloadReceipt() {
     if (
       config.APPLICATION.name === "so" &&
-      this.model?.calumaForm === "voranfrage"
+      removeVersion(this.model?.calumaForm) === "voranfrage"
     ) {
       return false;
     }

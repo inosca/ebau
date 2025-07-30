@@ -2,6 +2,7 @@ import { service } from "@ember/service";
 import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Field from "@projectcaluma/ember-form/lib/field";
 import { dropTask, restartableTask } from "ember-concurrency";
+import { removeVersion } from "ember-ebau-core/utils/form-filters";
 import { trackedTask } from "reactiveweb/ember-concurrency";
 
 import workItemCaseInformationQuery from "ebau/gql/queries/work-item-case-information.graphql";
@@ -119,7 +120,9 @@ export default class CustomField extends Field {
           "entscheid-entscheid-beschwerde-geaendert",
           "entscheid-entscheid-beschwerde-zurueckgewiesen",
         ];
-      } else if (["voranfrage", "meldung", "meldung-pv"].includes(form)) {
+      } else if (
+        ["voranfrage", "meldung", "meldung-pv"].includes(removeVersion(form))
+      ) {
         return [
           "entscheid-entscheid-positiv",
           "entscheid-entscheid-negativ",

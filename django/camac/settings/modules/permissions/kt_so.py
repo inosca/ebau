@@ -4,9 +4,9 @@ from camac.permissions.conditions import (
     HasApplicantRole,
     HasRole,
     IsAppeal,
-    IsForm,
     IsPaper,
     IsServiceGroup,
+    IsUnversionedForm,
     RequireInstanceState,
     RequireWorkItem,
 )
@@ -50,7 +50,9 @@ MODULE_ADDITIONAL_DEMANDS = NO_CORRECTION & (
     # We need to check the form here because the work item will exists in
     # preliminary clarification as we allow a distribution. However, only a
     # distribution is allowed but no additional demands.
-    RequireWorkItem("init-additional-demand") & ~IsForm(["voranfrage"]) & ~IsAppeal()
+    RequireWorkItem("init-additional-demand")
+    & ~IsUnversionedForm(["voranfrage"])
+    & ~IsAppeal()
 )
 MODULE_APPEAL = (
     NO_CORRECTION
@@ -118,7 +120,7 @@ MODULE_RELATED_GWR_PROJECTS = (
         STATES_ALL
         & ~RequireInstanceState(["subm", "material-exam", "reject", "rejected"])
     )
-    & IsForm(["baugesuch", "migriertes-dossier"])
+    & IsUnversionedForm(["baugesuch", "migriertes-dossier"])
     & ROLES_MUNICIPALITY
     & ~IsAppeal()
 )

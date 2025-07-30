@@ -13,6 +13,7 @@ from django.db.models import Q
 from camac.caluma.models import Inquiry
 from camac.instance.models import Instance
 from camac.user.models import Service
+from camac.utils import get_unversioned_slug
 
 log = getLogger(__name__)
 
@@ -171,7 +172,9 @@ class CalumaApi:
 
     def is_imported(self, instance):
         """Return true if instance was imported using dossier import."""
-        return instance.case.document.form_id == "migriertes-dossier"
+        return (
+            get_unversioned_slug(instance.case.document.form_id) == "migriertes-dossier"
+        )
 
     def is_submitted(self, instance):
         """Return true if instance got submitted by the applicant."""

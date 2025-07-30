@@ -10,6 +10,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
 import {
+  removeVersion,
   getRecursiveSources,
   groupFormsByCategories,
 } from "ember-ebau-core/utils/form-filters";
@@ -172,7 +173,7 @@ export default class InstancesIndexController extends Controller {
     );
     const raw = (this.rootForms.value ?? []).filter((edge) =>
       permissions.find((perm) =>
-        perm.forms.includes(edge.node.slug.replace(/-v\d/, "")),
+        perm.forms.includes(removeVersion(edge.node.slug)),
       ),
     );
 

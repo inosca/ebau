@@ -16,6 +16,7 @@ from camac.instance.utils import (
     set_construction_control,
 )
 from camac.user.models import Group, Service
+from camac.utils import get_unversioned_slug
 
 
 class DecisionLogic:
@@ -55,7 +56,7 @@ class DecisionLogic:
 
         is_kt_so_special_form = bool(
             settings.APPLICATION_NAME == "kt_so"
-            and instance.case.document.form_id
+            and get_unversioned_slug(instance.case.document.form_id)
             in ["voranfrage", "meldung", "meldung-pv"]
         )
         if is_kt_so_special_form:
@@ -151,7 +152,7 @@ class DecisionLogic:
                 construction_tee=previous_construction_tee_answer,
             )
 
-        if work_item.case.document.form_id == "reklamegesuch":
+        if get_unversioned_slug(work_item.case.document.form_id) == "reklamegesuch":
             # Building permits for ads never continue as they do not require a
             # construction monitoring process
             return False
@@ -425,7 +426,9 @@ class DecisionLogic:
     def get_notification_config_so(cls, instance, work_item):
         if instance.case.meta.get("is-appeal") and settings.APPEAL:
             return settings.APPEAL["NOTIFICATIONS"].get("APPEAL_DECISION", [])
-        elif instance.case.document.form_id != "baugesuch":  # pragma: no cover
+        elif (
+            get_unversioned_slug(instance.case.document.form_id) != "baugesuch"
+        ):  # pragma: no cover
             return settings.APPLICATION["NOTIFICATIONS"].get(
                 "NON_BUILDING_PERMIT_DECISION", []
             )

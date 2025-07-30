@@ -24,6 +24,7 @@ from camac.instance.utils import (
     geometer_cadastral_survey_necessary_answer,
 )
 from camac.user.models import Service, User
+from camac.utils import get_unversioned_slug
 
 
 def check_gwr_relevancy(case, user, prev_work_item, context, task_slug):
@@ -101,7 +102,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
             # If the decision comes from a withdrawal, the workflow is finished
             return []
 
-        if case.document.form_id in ["voranfrage", "meldung", "meldung-pv"]:
+        if get_unversioned_slug(case.document.form_id) in [
+            "voranfrage",
+            "meldung",
+            "meldung-pv",
+        ]:
             # Preliminary clarifications and construction notifications are
             # always finished after the decision
             return []
@@ -485,7 +490,10 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if prev_work_item.task_id == "formal-exam":
             return ["material-exam"]
         elif prev_work_item.task_id == "material-exam":
-            if prev_work_item.case.document.form_id == "meldung-pv":
+            if (
+                get_unversioned_slug(prev_work_item.case.document.form_id)
+                == "meldung-pv"
+            ):
                 tasks = ["distribution"]
             else:
                 tasks = [
