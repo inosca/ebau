@@ -114,6 +114,44 @@
     }
   },
   {
+    "model": "instance.instance",
+    "pk": 7,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 2,
+      "creation_date": "2025-07-30T08:53:18.942Z",
+      "modification_date": "2025-07-30T08:53:18.942Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "06889dd7-f453-71e9-8000-15bb6bafb7f0",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 8,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 2,
+      "creation_date": "2025-07-30T09:22:51.580Z",
+      "modification_date": "2025-07-30T09:22:51.580Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "06889e46-cb92-7d81-8000-65ba048ef660",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null
+    }
+  },
+  {
     "model": "instance.historyentry",
     "pk": 1,
     "fields": {

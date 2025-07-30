@@ -232,5 +232,31 @@
       "username": "",
       "role": "READ_ONLY"
     }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 19,
+    "fields": {
+      "instance": 7,
+      "user": 1,
+      "invitee": 1,
+      "created": "2025-07-30T08:53:18.951Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 20,
+    "fields": {
+      "instance": 8,
+      "user": 1,
+      "invitee": 1,
+      "created": "2025-07-30T09:22:51.590Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
   }
 ]

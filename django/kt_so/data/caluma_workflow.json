@@ -1,5 +1,103 @@
 [
   {
+    "model": "caluma_workflow.historicalcase",
+    "pk": "1c10af53-cb18-4b9a-8308-e45910ed281e",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-07-30T08:53:19.270Z",
+      "modified_at": "2025-07-30T08:53:19.270Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "06889dd7-f453-71e9-8000-15bb6bafb7f0",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 7
+      },
+      "family": "06889dd7-f453-71e9-8000-15bb6bafb7f0",
+      "workflow": "building-permit",
+      "document": "06889dd7-ef7c-767f-8000-481e1a4d06df",
+      "history_date": "2025-07-30T08:53:19.271Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalcase",
+    "pk": "bb71238d-31b5-428d-b2e6-9b2c3317a28e",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-07-30T09:22:52.723Z",
+      "modified_at": "2025-07-30T09:22:52.723Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "06889e46-cb92-7d81-8000-65ba048ef660",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 8
+      },
+      "family": "06889e46-cb92-7d81-8000-65ba048ef660",
+      "workflow": "building-permit",
+      "document": "06889e46-b9cb-7e1f-8000-300998bbaa52",
+      "history_date": "2025-07-30T09:22:52.725Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.case",
+    "pk": "06889dd7-f453-71e9-8000-15bb6bafb7f0",
+    "fields": {
+      "created_at": "2025-07-30T08:53:19.270Z",
+      "modified_at": "2025-07-30T08:53:19.270Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "06889dd7-f453-71e9-8000-15bb6bafb7f0",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "workflow": "building-permit",
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 7
+      },
+      "document": "06889dd7-ef7c-767f-8000-481e1a4d06df"
+    }
+  },
+  {
+    "model": "caluma_workflow.case",
+    "pk": "06889e46-cb92-7d81-8000-65ba048ef660",
+    "fields": {
+      "created_at": "2025-07-30T09:22:52.723Z",
+      "modified_at": "2025-07-30T09:22:52.723Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "06889e46-cb92-7d81-8000-65ba048ef660",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "workflow": "building-permit",
+      "status": "running",
+      "meta": {
+        "camac-instance-id": 8
+      },
+      "document": "06889e46-b9cb-7e1f-8000-300998bbaa52"
+    }
+  },
+  {
     "model": "caluma_workflow.case",
     "pk": "0848e6ba-deb9-4943-aae6-8be67b549d5b",
     "fields": {
@@ -238,6 +336,146 @@
     }
   },
   {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "54b5422d-0615-4acf-8811-cb21ba511c51",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-07-30T09:22:52.769Z",
+      "modified_at": "2025-07-30T09:22:52.769Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "06889e46-cc3f-7182-8000-0e181d5f8f0a",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {},
+      "addressed_groups": "[\"applicant\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "submit",
+      "case": "06889e46-cb92-7d81-8000-65ba048ef660",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2025-07-30T09:22:52.770Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "65355edd-8551-4ca1-b5ee-5aaeeeeacdc2",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-07-30T08:53:19.302Z",
+      "modified_at": "2025-07-30T08:53:19.302Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "06889dd7-f4c7-7460-8000-a08de25cd101",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {},
+      "addressed_groups": "[\"applicant\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "submit",
+      "case": "06889dd7-f453-71e9-8000-15bb6bafb7f0",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2025-07-30T08:53:19.304Z",
+      "history_change_reason": null,
+      "history_type": "+"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "b59403f9-8871-46b1-a599-0fdd223f58b8",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-07-30T08:53:19.302Z",
+      "modified_at": "2025-07-30T08:53:19.302Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "06889dd7-f4c7-7460-8000-a08de25cd101",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"applicant\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "submit",
+      "case": "06889dd7-f453-71e9-8000-15bb6bafb7f0",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2025-07-30T08:53:19.312Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
+    "model": "caluma_workflow.historicalworkitem",
+    "pk": "da0687a1-1276-4e59-b367-609990325748",
+    "fields": {
+      "history_user_id": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_at": "2025-07-30T09:22:52.769Z",
+      "modified_at": "2025-07-30T09:22:52.769Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "id": "06889e46-cc3f-7182-8000-0e181d5f8f0a",
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"applicant\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "task": "submit",
+      "case": "06889e46-cb92-7d81-8000-65ba048ef660",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null,
+      "history_date": "2025-07-30T09:22:52.777Z",
+      "history_change_reason": null,
+      "history_type": "~"
+    }
+  },
+  {
     "model": "caluma_workflow.workitem",
     "pk": "02aa23f3-4eec-4cc5-951d-6ce37a166c22",
     "fields": {
@@ -296,6 +534,70 @@
       "controlling_groups": "[]",
       "assigned_users": "[]",
       "case": "7a7287c2-e2dd-4f34-9162-7f16398135e0",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "06889dd7-f4c7-7460-8000-a08de25cd101",
+    "fields": {
+      "created_at": "2025-07-30T08:53:19.302Z",
+      "modified_at": "2025-07-30T08:53:19.302Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "submit",
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"applicant\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "06889dd7-f453-71e9-8000-15bb6bafb7f0",
+      "child_case": null,
+      "document": null,
+      "previous_work_item": null
+    }
+  },
+  {
+    "model": "caluma_workflow.workitem",
+    "pk": "06889e46-cc3f-7182-8000-0e181d5f8f0a",
+    "fields": {
+      "created_at": "2025-07-30T09:22:52.769Z",
+      "modified_at": "2025-07-30T09:22:52.769Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gesuch einreichen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "closed_at": null,
+      "closed_by_user": null,
+      "closed_by_group": null,
+      "deadline": null,
+      "task": "submit",
+      "status": "ready",
+      "meta": {
+        "not-viewed": true,
+        "notify-deadline": true,
+        "notify-completed": false
+      },
+      "addressed_groups": "[\"applicant\"]",
+      "controlling_groups": "[]",
+      "assigned_users": "[]",
+      "case": "06889e46-cb92-7d81-8000-65ba048ef660",
       "child_case": null,
       "document": null,
       "previous_work_item": null
