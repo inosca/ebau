@@ -920,7 +920,7 @@
       "language": "de",
       "purpose": "09 Beschwerde eingegangen",
       "subject": "Beschwerde eingegangen (eBau Nr. {{EBAU_NUMBER}}) / recours reçu (n° eBau {{EBAU_NUMBER}})",
-      "body": "Guten Tag\r\n\r\nBeim Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde ein Beschwerdeverfahren initialisiert und der Entscheid wurde angefochten.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nBonjour \r\n\r\nUne procédure de recours a été initialisée pour le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) et la décision a été contestée.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
+      "body": "Guten Tag\r\n\r\nBeim Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde ein Beschwerdeverfahren initialisiert und der Entscheid wurde angefochten.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}\r\n\r\n*** version française ***\r\n\r\nBonjour \r\n\r\nUne procédure de recours a été engagée pour le dossier portant le numéro eBau {{EBAU_NUMBER}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) et la décision a été contestée.\r\n\r\nCe courriel a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME_FR}}"
     }
   },
   {
