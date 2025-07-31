@@ -90,9 +90,7 @@ def test_create_message_with_alexandria_attachment(
         "template_slug"
     ] = notification_template.slug
 
-    alexandria_file = FileFactory(
-        document__title="My Alexandria Document", name="myfile.pdf"
-    )
+    alexandria_file = FileFactory(document__title="Document", name="myfile.pdf")
 
     response = admin_client.post(
         reverse("communications-message-list"),
@@ -123,7 +121,10 @@ def test_create_message_with_alexandria_attachment(
     )
 
     assert new_message.attachments.count() == 1
-    assert new_message.attachments.first().alexandria_file == alexandria_file
+    attachment = new_message.attachments.first()
+    assert attachment.alexandria_file == alexandria_file
+    assert attachment.file_attachment.name.endswith("Document.pdf")
+    assert attachment.file_attachment.read()
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
@@ -165,7 +166,6 @@ def test_convert_to_alexandria_attachment(
     )
 
     if is_converted:
-        communications_attachment.file_attachment = None
         communications_attachment.alexandria_file = FileFactory()
 
     communications_attachment.document_attachment = None

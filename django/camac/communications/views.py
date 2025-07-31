@@ -190,10 +190,10 @@ class AttachmentView(
 
         obj = models.CommunicationsAttachment.objects.get(pk=pk)
 
-        if obj.document_attachment:
-            file = obj.document_attachment.path.file
-        elif obj.file_attachment:
+        if obj.file_attachment:
             file = obj.file_attachment.file
+        elif obj.document_attachment:
+            file = obj.document_attachment.path.file
         else:
             raise NotFound()
 
