@@ -114,7 +114,7 @@ export default class BillingNewController extends Controller {
       this.newEntry.taxMode = getMode(value);
       this.newEntry.taxRate = getRate(value);
     } else {
-      this.newEntry[camelize(name)] = value ? value : null;
+      this.newEntry[camelize(name)] = value ?? null;
     }
   }
 

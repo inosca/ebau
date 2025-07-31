@@ -314,15 +314,15 @@
         >
           <option
             value=""
-            selected="{{eq this.newEntry.organization null}}"
+            selected={{eq this.newEntry.organization ""}}
           ></option>
           <option
             value="cantonal"
-            selected="{{eq this.newEntry.organization 'cantonal'}}"
+            selected={{eq this.newEntry.organization "cantonal"}}
           >{{t "billing.organizations.cantonal"}}</option>
           <option
             value="municipal"
-            selected="{{eq this.newEntry.organization 'municipal'}}"
+            selected={{eq this.newEntry.organization "municipal"}}
           >{{t "billing.organizations.municipal"}}</option>
         </select>
       </div>

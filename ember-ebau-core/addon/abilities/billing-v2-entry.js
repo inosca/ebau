@@ -31,6 +31,9 @@ export default class BillingV2EntryAbility extends Ability {
   }
 
   async canReleaseForClearing() {
+    if (!hasFeature("billing.releaseForClearing.enabled")) {
+      return false;
+    }
     const service = await this.store.findRecord(
       "service",
       this.ebauModules.serviceId,
@@ -40,14 +43,12 @@ export default class BillingV2EntryAbility extends Ability {
       // This is purely to make mirage happy
       await service.serviceGroup;
     }
-    const isCantonal = (
-      hasFeature("billing.releaseForClearing.allowedForServiceGroups") ?? []
-    ).includes(service.serviceGroup.get("slug"));
-    return (
-      hasFeature("billing.releaseForClearing.enabled") &&
-      this.canEdit &&
-      isCantonal
+    const allowedForServiceGroups =
+      hasFeature("billing.releaseForClearing.allowedForServiceGroups") ?? [];
+    const isCantonal = allowedForServiceGroups.includes(
+      service.serviceGroup.get("slug"),
     );
+    return this.canEdit && isCantonal;
   }
 
   get canEdit() {
