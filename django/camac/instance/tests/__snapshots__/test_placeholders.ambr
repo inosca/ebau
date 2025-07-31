@@ -8761,6 +8761,18 @@
         ]),
       }),
     }),
+    'ZUSTAENDIG_ABTEILUNG': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_ABTEILUNG',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Abteilung des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ZUSTAENDIG_EMAIL': dict({
       'aliases': list([
         dict({
@@ -10200,6 +10212,7 @@
     'ZIRKULATION_GEMEINDEN[].ERSTELLT',
     'ZIRKULATION_GEMEINDEN[].FRIST',
     'ZIRKULATION_GEMEINDEN[].NAME',
+    'ZUSTAENDIG_ABTEILUNG',
     'ZUSTAENDIG_EMAIL',
     'ZUSTAENDIG_MOBILE',
     'ZUSTAENDIG_NAME',
@@ -12281,6 +12294,7 @@
     ]),
     'ZIRKULATION_GEMEINDEN': list([
     ]),
+    'ZUSTAENDIG_ABTEILUNG': '',
     'ZUSTAENDIG_EMAIL': '',
     'ZUSTAENDIG_MOBILE': '',
     'ZUSTAENDIG_NAME': '',

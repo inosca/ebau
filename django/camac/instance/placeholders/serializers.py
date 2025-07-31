@@ -2131,6 +2131,11 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("RESPONSIBLE_PHONE")],
         description=_("Phone of the responsible employee"),
     )
+    zustaendig_abteilung = fields.ResponsibleUserField(
+        source="division",
+        aliases=[_("RESPONSIBLE_DIVISION")],
+        description=_("Division of the responsible employee"),
+    )
 
     class Meta:
         exclude = [
