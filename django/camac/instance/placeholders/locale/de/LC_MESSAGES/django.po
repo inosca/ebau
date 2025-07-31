@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-28 16:57+0200\n"
+"POT-Creation-Date: 2025-07-31 12:15+0200\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2527,6 +2527,14 @@ msgstr "ZUSTAENDIG_MOBILE"
 #: camac/instance/placeholders/serializers.py
 msgid "Mobile of the responsible employee"
 msgstr "Mobilenummer des/r zuständigen/r Mitarbeiter/in"
+
+#: camac/instance/placeholders/serializers.py
+msgid "RESPONSIBLE_DIVISION"
+msgstr "ZUSTAENDIG_ABTEILUNG"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Division of the responsible employee"
+msgstr "Abteilung des/r zuständigen/r Mitarbeiter/in"
 
 #: camac/instance/placeholders/serializers.py
 msgid "ZONE"
