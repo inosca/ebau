@@ -404,7 +404,7 @@ class WorkItemListRow(WorkItem):
         return {
             "route": config["route"],
             "models": [
-                self.direct_link_models.get(placeholder.lower(), None)
+                self.direct_link_models.get(placeholder.lower(), placeholder)
                 for placeholder in config["models"]
             ],
         }

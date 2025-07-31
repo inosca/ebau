@@ -69,7 +69,7 @@ def setup_work_item_list(
         meta={
             "directLink": {
                 "route": "foo.bar.baz",
-                "models": ["INSTANCE_ID", "TASK_SLUG"],
+                "models": ["INSTANCE_ID", "TASK_SLUG", "no-placeholder"],
             }
         }
     )
