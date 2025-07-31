@@ -141,7 +141,7 @@ msgstr "Gemeinde"
 
 #: camac/billing/models.py
 msgid "Cantonal"
-msgstr "Kanonal"
+msgstr "Kantonal"
 
 #: camac/billing/models.py
 #, fuzzy

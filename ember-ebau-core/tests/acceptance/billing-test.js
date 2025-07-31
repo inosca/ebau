@@ -299,7 +299,7 @@ module("Acceptance | billing", function (hooks) {
 
       // empty by default
       assert.dom("input[name=text]").hasValue("");
-      assert.dom("select[name=organization]").hasValue("municipal");
+      assert.dom("select[name=organization]").hasValue("");
       assert.dom("select[name=billing-type]").hasValue("by_authority");
       assert.dom("select[name=calculation]").hasValue("flat");
       assert.dom("select[name=tax-mode]").hasValue("exempt:0");

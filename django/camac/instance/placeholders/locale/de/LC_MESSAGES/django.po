@@ -56,7 +56,7 @@ msgstr "GEBUEHREN_STUNDEN"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_HOURLY_RATE"
-msgstr "GEBUEHREN_STUNDESATZ"
+msgstr "GEBUEHREN_STUNDENSATZ"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_PERCENTAGE"
@@ -64,7 +64,7 @@ msgstr "GEBUEHREN_ANTEIL_PROZENT"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_TOTAL_COST"
-msgstr "GEBUEHREN_GESAMKOSTEN"
+msgstr "GEBUEHREN_GESAMTKOSTEN"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_CALCULATION"
