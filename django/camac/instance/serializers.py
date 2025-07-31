@@ -1857,10 +1857,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         user = self.context["request"].user
 
-        if instance.case.document.form_id == "voranfrage":
+        if get_unversioned_slug(instance.case.document.form_id) in [
+            "voranfrage",
+            "meldung",
+        ]:
             instance.set_instance_state("init-distribution", user)
-        elif instance.case.document.form_id == "meldung":
-            instance.set_instance_state("decision", user)
 
     def _so_handle_bab(self, instance):
         if not settings.BAB or settings.APPLICATION_NAME != "kt_so":

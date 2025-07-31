@@ -3026,8 +3026,8 @@ def test_inquiry_and_decision_data(
         ),
         (
             "meldung",
-            "decision",
-            {"create-manual-workitems", "decision"},
+            "init-distribution",
+            {"create-manual-workitems", "distribution"},
         ),
         (
             "meldung-pv",
