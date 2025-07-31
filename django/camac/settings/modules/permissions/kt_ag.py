@@ -3,6 +3,7 @@ from camac.permissions.conditions import (
     Callback,
     HasApplicantRole,
     HasRole,
+    IsForm,
     IsPaper,
     IsServiceGroup,
     RequireInstanceState,
@@ -237,6 +238,13 @@ AG_PERMISSIONS_SETTINGS = {
                 "deadlines-deadlines-write",
                 MODULE_DEADLINES_DEADLINE,
             ),
+            (
+                "deadlines-deadlines-write-custom-enddate",
+                MODULE_DEADLINES_DEADLINE
+                & IsForm(
+                    ["plangenehmigungsverfahren-gas", "plangenehmigungsverfahren-bund"],
+                ),
+            ),
         ],
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
@@ -292,6 +300,13 @@ AG_PERMISSIONS_SETTINGS = {
             (
                 "deadlines-deadlines-write",
                 MODULE_DEADLINES_DEADLINE,
+            ),
+            (
+                "deadlines-deadlines-write-custom-enddate",
+                MODULE_DEADLINES_DEADLINE
+                & IsForm(
+                    ["plangenehmigungsverfahren-gas", "plangenehmigungsverfahren-bund"],
+                ),
             ),
         ],
         "read": [

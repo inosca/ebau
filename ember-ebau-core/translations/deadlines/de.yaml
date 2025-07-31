@@ -12,6 +12,7 @@ deadlines:
     instanceSuspended: "Dossier ist aktuell sistiert."
     property:
       startDate: "Start Frist"
+      processDeadlineDate: "Verfahrensende"
       type: "Typ"
     saveSuccess: "Verfahren erfolgreich gespeichert"
     saveError: "Fehler beim Speichern des Verfahrens"

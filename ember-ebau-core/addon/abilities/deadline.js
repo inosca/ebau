@@ -23,4 +23,8 @@ export default class extends Ability {
   async canEdit() {
     return await this.hasDeadlinePermission("write");
   }
+
+  async canOverride() {
+    return await this.hasDeadlinePermission("write-custom-enddate");
+  }
 }

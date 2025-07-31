@@ -4,6 +4,7 @@ export default class DeadlinesInstanceDeadlineModel extends Model {
   @attr name;
   @attr("date") startDate;
   @attr("date") processDeadlineDate;
+  @attr("boolean") processDeadlineDateOverride;
   @attr("number") processDeadlineDays;
   @attr("number") totalDaysOfSuspension;
 

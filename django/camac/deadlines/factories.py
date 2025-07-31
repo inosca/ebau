@@ -23,6 +23,7 @@ class InstanceDeadlineFactory(DjangoModelFactory):
     start_date = Faker("date_time", tzinfo=pytz.UTC)
     total_days_of_suspension = Faker("random_int", min=1, max=30)
     process_deadline_date = Faker("date_time", tzinfo=pytz.UTC)
+    process_deadline_date_override = False
     process_deadline_days = Faker("random_int", min=1, max=30)
     created_at = Faker("past_datetime", tzinfo=pytz.UTC)
 

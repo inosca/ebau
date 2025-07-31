@@ -58,6 +58,18 @@
           {{service.name}}
         </PowerSelect>
       </f.input>
+      {{#if (await (can "override deadline" @deadline instance=@instance))}}
+        <f.input
+          @label={{t "deadlines.deadline.property.processDeadlineDate"}}
+          @name="processDeadlineDate"
+          @errorComponent={{component "input-error"}}
+          as |fi|
+        >
+          <div data-test-deadlines-deadline-process-deadline-date-input>
+            <Datepicker @value={{fi.value}} @onChange={{fi.update}} />
+          </div>
+        </f.input>
+      {{/if}}
     </modal.body>
     <modal.footer class="uk-text-right">
       <f.submit
