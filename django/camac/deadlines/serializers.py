@@ -2,6 +2,7 @@ from django.utils.translation import gettext as _
 from rest_framework_json_api import serializers
 
 from camac.deadlines import models
+from camac.permissions.api import PermissionManager
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
     GroupResourceRelatedField,
@@ -73,6 +74,19 @@ class InstanceDeadlineSerializer(serializers.ModelSerializer):
         "deadline_type": DeadlineTypeSerializer,
     }
 
+    def validate_process_deadline_date(self, value):
+        """Validate the process deadline date field."""
+
+        permissions_manager = PermissionManager.from_request(self.context["request"])
+        instance = self.instance.instance if self.instance else None
+
+        if instance:
+            permissions_manager.require_all(
+                instance, "deadlines-deadlines-write-custom-enddate"
+            )
+
+        return value
+
     class Meta:
         model = models.InstanceDeadline
         read_only_fields = (
@@ -80,11 +94,12 @@ class InstanceDeadlineSerializer(serializers.ModelSerializer):
             "service",
             "created_at",
             "total_days_of_suspension",
-            "process_deadline_date",
             "process_deadline_days",
         )
         fields = read_only_fields + (
             "instance",
             "deadline_type",
             "start_date",
+            "process_deadline_date",
+            "process_deadline_date_override",
         )

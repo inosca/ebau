@@ -12,6 +12,7 @@ deadlines:
     instanceSuspended:
     property:
       startDate:
+      processDeadlineDate:
       type:
     saveSuccess:
     saveError:

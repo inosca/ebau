@@ -310,6 +310,13 @@ class InstanceDeadline(models.Model):
         blank=True,
         null=True,
     )
+    process_deadline_date_override = models.BooleanField(
+        default=False,
+        verbose_name=_("Process deadline date override"),
+        help_text=_(
+            "If set, the process deadline date is manually set and not calculated."
+        ),
+    )
     process_deadline_days = models.PositiveIntegerField(
         blank=True,
         null=True,
@@ -397,11 +404,17 @@ class InstanceDeadline(models.Model):
         else:
             # Define the end date based on responsible/inquired service.
             responsible = instance.responsible_service()
-            self.process_deadline_date = (
-                self._get_enddate_responsible()
-                if responsible and responsible.pk == self.service.pk
-                else self._get_enddate_inquired()
-            )
+
+            # Only update the process deadline date if it is not overridden.
+            override = self.process_deadline_date_override
+            has_date = self.process_deadline_date
+
+            if not (override and has_date):
+                self.process_deadline_date = (
+                    self._get_enddate_responsible()
+                    if responsible and responsible.pk == self.service.pk
+                    else self._get_enddate_inquired()
+                )
             self.process_deadline_days = self._get_process_deadline_days()
 
         # only perform the save if any of the fields have actually changed.

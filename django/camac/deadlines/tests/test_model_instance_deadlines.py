@@ -1,3 +1,5 @@
+from datetime import date
+
 import pytest
 from django.urls import reverse
 from rest_framework import status
@@ -274,3 +276,101 @@ def test_instance_deadlines_deletion_and_update_gr(
             status.HTTP_404_NOT_FOUND,
             status.HTTP_405_METHOD_NOT_ALLOWED,
         ]
+
+
+@pytest.mark.parametrize("instance_state__name", ["subm"])
+@pytest.mark.parametrize(
+    "access_level__slug,role__name,service_group__name,process_deadline_date,expected_status",
+    [
+        (
+            "lead-authority",
+            "municipality-lead",
+            "municipality",
+            "2025-12-31",
+            status.HTTP_200_OK,
+        ),
+        (
+            "distribution-service",
+            "trusted-service-lead",
+            "service-afb",
+            "2025-12-31",
+            status.HTTP_200_OK,
+        ),
+        (
+            "distribution-service",
+            "trusted-service-read",
+            "service-afb",
+            "2025-12-31",
+            status.HTTP_403_FORBIDDEN,
+        ),
+    ],
+)
+def test_validate_process_deadline_date_ag(
+    db,
+    admin_client,
+    instance_deadline_factory,
+    service,
+    access_level,
+    role,
+    service_group,
+    service_factory,
+    ag_instance,
+    process_deadline_date,
+    expected_status,
+    set_application_ag,
+    ag_permissions_settings,
+    ag_deadlines_settings,
+    disable_deadline_progression,
+    mocker,
+):
+    """Test validation of process_deadline_date field for different roles and values."""
+    permissions_api.grant(
+        ag_instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level=access_level,
+        service=service,
+    )
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service,
+    )
+
+    ag_instance.case.document.form_id = "plangenehmigungsverfahren-gas"
+    ag_instance.case.document.save()
+
+    instance_deadline = instance_deadline_factory(
+        instance=ag_instance,
+        service=service,
+        start_date=date(2023, 6, 1),
+    )
+
+    data = {
+        "data": {
+            "type": "instance-deadlines",
+            "id": str(instance_deadline.pk),
+            "attributes": {
+                "process-deadline-date": process_deadline_date,
+            },
+            "relationships": {
+                "instance": {
+                    "data": {"type": "instances", "id": str(ag_instance.pk)},
+                },
+                "service": {
+                    "data": {"type": "services", "id": str(service.pk)},
+                },
+            },
+        }
+    }
+
+    response = admin_client.patch(
+        reverse("instance-deadlines-detail", args=[instance_deadline.pk]),
+        data,
+    )
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_200_OK:
+        instance_deadline.refresh_from_db()
+        assert (
+            instance_deadline.process_deadline_date.isoformat() == process_deadline_date
+        )

@@ -11,6 +11,7 @@ export default class DeadlineDeadlineFormModalComponent extends Component {
   @service intl;
   @service notification;
   @service store;
+  @service abilities;
 
   validations = DeadlinesDeadlineValidations;
   today = new Date();
@@ -28,6 +29,9 @@ export default class DeadlineDeadlineFormModalComponent extends Component {
         ? new Date(this.args.deadline.startDate.toDateString())
         : null,
     };
+    this.formData.processDeadlineDate = this.args.deadline.processDeadlineDate
+      ? new Date(this.args.deadline.processDeadlineDate.toDateString())
+      : null;
   }
 
   searchDeadlineTypes = task({ restartable: true }, async (search) => {
@@ -55,6 +59,10 @@ export default class DeadlineDeadlineFormModalComponent extends Component {
         instance,
         startDate,
       };
+      if (await this.abilities.can("override deadline")) {
+        data.processDeadlineDate = changeset.pendingData.processDeadlineDate;
+        data.processDeadlineDateOverride = !!data.processDeadlineDate;
+      }
 
       this.args.deadline.setProperties(data);
       await this.args.deadline.save();
