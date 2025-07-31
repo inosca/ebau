@@ -21,6 +21,7 @@ export default class WorkItemListRowModel extends Model {
   @attr isCreatedByCurrentService;
   @attr isManuallyCompletable;
   @attr isReady;
+  @attr isSuspended;
   @attr municipality;
   @attr specialId;
   @attr status;

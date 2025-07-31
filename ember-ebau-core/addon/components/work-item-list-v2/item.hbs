@@ -1,4 +1,4 @@
-<tr class={{if (and @highlight @row.unread) "uk-text-bold"}}>
+<tr class={{this.rowClasses}}>
   {{#if @highlight}}
     <td class="uk-padding-remove-right {{this.highlightClasses}}"></td>
   {{/if}}
