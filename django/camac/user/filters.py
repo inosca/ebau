@@ -46,6 +46,7 @@ class PublicServiceFilterSet(FilterSet):
     service_group_name = CharMultiValueFilter(field_name="service_group__name")
     suggestion_for_instance = NumberFilter(method="filter_suggestion_for_instance")
     exclude_own_service = BooleanFilter(method="filter_exclude_own_service")
+    exclude_other_subservices = BooleanFilter(method="filter_exclude_other_subservices")
     service_name = CharFilter(method="filter_service_name")
     available_in_distribution_for_instance = NumberFilter(
         method="filter_available_in_distribution_for_instance"
@@ -278,6 +279,15 @@ class PublicServiceFilterSet(FilterSet):
     def filter_exclude_own_service(self, queryset, name, value):
         if value and self.request.group.service_id:
             return queryset.exclude(pk=self.request.group.service_id)
+
+        return queryset
+
+    def filter_exclude_other_subservices(self, queryset, name, value):
+        if value and self.request.group.service_id:
+            return queryset.filter(
+                Q(service_parent__isnull=True)
+                | Q(service_parent=self.request.group.service_id)
+            )
 
         return queryset
 

@@ -1,16 +1,25 @@
-<CfField::Input::Date
-  @field={{@field}}
-  @onSave={{@onSave}}
-  @disabled={{this.isDisabled}}
-  @context={{@context}}
-/>
+{{#unless this.isHidden}}
+  <CfField::Input::Date
+    @field={{@field}}
+    @onSave={{@onSave}}
+    @disabled={{this.isDisabled}}
+    @context={{@context}}
+  />
+{{/unless}}
 
-{{#if this._showHint}}
-  <div class="uk-alert uk-alert-warning">
-    <p>
-      <strong>
-        {{t "distribution.inquiry-deadline-input.disabled-hint"}}
-      </strong>
-    </p>
+{{#if this.showHint}}
+  <div class="uk-alert uk-alert-warning uk-text-bold uk-margin-remove-bottom">
+    {{t "distribution.inquiry-deadline-input.disabled-hint"}}
+  </div>
+{{/if}}
+
+{{#if (and this.isHidden this.rules.length)}}
+  <div class="uk-alert uk-alert-warning uk-margin-remove-bottom">
+    <p>{{t "distribution.inquiry-deadline-input.deadlines-hint"}}</p>
+    <ul>
+      {{#each this.rules as |rule|}}
+        <li>{{rule.name}}: {{format-date rule.deadline format="date"}}</li>
+      {{/each}}
+    </ul>
   </div>
 {{/if}}

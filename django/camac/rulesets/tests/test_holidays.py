@@ -1,6 +1,4 @@
-from camac.rulesets.holidays import (
-    AargauAdministrationHolidays,
-)
+from camac.rulesets.holidays import AargauAdministrationHolidays
 
 
 def test_aargau_administration_holidays(snapshot):

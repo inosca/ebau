@@ -4,6 +4,8 @@ from holidays.countries import CH
 
 
 class AargauAdministrationHolidays(CH):
+    """Holiday class representing all holidays in the administration of Kt. AG."""
+
     def __init__(self, *args, **kwargs):
         kwargs["subdiv"] = "AG"
         kwargs["language"] = "de"

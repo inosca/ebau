@@ -1,9 +1,12 @@
+from datetime import date
+
 from caluma.caluma_form.models import Form
+from django.conf import settings
 from django.utils.translation import gettext as _
 from rest_framework.exceptions import ValidationError
 from rest_framework_json_api import serializers
 
-from camac.rulesets.models import ResponsibleUserRule
+from camac.rulesets.models import DistributionDeadlineRule, ResponsibleUserRule
 from camac.user.models import Service, User
 
 
@@ -90,3 +93,60 @@ class ResponsibleUserRuleReorderSerializer(serializers.Serializer):
 
     class Meta:
         resource_name = "responsible-user-rule-reorders"
+
+
+class DistributionDeadlineRuleSerializer(serializers.ModelSerializer):
+    exclude_holidays = serializers.SerializerMethodField()
+    deadline = serializers.SerializerMethodField()
+    target_service = serializers.ResourceRelatedField(queryset=Service.objects)
+
+    def get_exclude_holidays(self, rule: DistributionDeadlineRule) -> bool:
+        return rule.should_exclude_holidays()
+
+    def get_deadline(self, rule: DistributionDeadlineRule) -> date:
+        return rule.get_deadline()
+
+    def validate_target_service(self, service):
+        if (
+            service.service_group.name
+            in settings.DISTRIBUTION.get(
+                "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES", {}
+            ).keys()
+        ):
+            raise ValidationError(
+                _("Defining a deadline rule for this service is not allowed")
+            )
+
+        existing = DistributionDeadlineRule.objects.filter(
+            target_service=service,
+        )
+
+        if self.instance:
+            existing = existing.filter(
+                source_service=self.instance.source_service
+            ).exclude(pk=self.instance.pk)
+        else:
+            existing = existing.filter(
+                source_service=self.context["request"].group.service,
+            )
+
+        if existing.exists():
+            raise ValidationError(
+                _("There is already a deadline rule defined for this service")
+            )
+
+        return service
+
+    def create(self, validated_data: dict) -> DistributionDeadlineRule:
+        validated_data["source_service"] = self.context["request"].group.service
+
+        return super().create(validated_data)
+
+    included_serializers = {
+        "target_service": "camac.user.serializers.PublicServiceSerializer",
+    }
+
+    class Meta:
+        model = DistributionDeadlineRule
+        exclude = ["source_service"]
+        read_only_fields = ["deadline"]

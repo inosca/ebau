@@ -18,5 +18,11 @@ distribution:
   revise: "Überarbeiten"
   closed-by: "Geprüft durch"
 
+  inquiry-deadline-input:
+    disabled-hint: ""
+    deadlines-hint: |-
+      Die Bearbeitung der Frist ist deaktiviert, da unterschiedliche
+      Standardfristen für die ausgewählten Stellen hinterlegt sind:
+
 # Override default text of @projectcaluma/ember-distribution
 "caluma.distribution.inquiry.sent-at": "Startdatum"

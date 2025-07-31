@@ -6,7 +6,7 @@ from django.dispatch import receiver
 
 from camac.permissions.models import InstanceACL
 from camac.rulesets.utils import assign_responsible_user
-from camac.utils import get_dict_item
+from camac.settings.modules.rulesets_schema import ResponsibleUserRuleConfig
 
 
 @receiver(post_save, sender=InstanceACL)
@@ -17,23 +17,17 @@ def assign_responsible_user_on_acl_creation(
     **kwargs: dict,
 ) -> None:
     """Assign the responsible user for a service on ACL creation."""
+    module_settings: ResponsibleUserRuleConfig = settings.RULESETS.responsible_user_rule
+
     if (
         # Signal is emitted by loading fixtures
         # https://docs.djangoproject.com/en/4.2/ref/signals/#post-save
         kwargs.get("raw")
         # Module is disabled
-        or not get_dict_item(
-            settings.RULESETS,
-            "RESPONSIBLE_USER_RULE.AUTOMATICALLY_ASSIGN",
-            default=False,
-        )
+        or not settings.RULESETS.enabled
+        or not module_settings.automatically_assign
         # Access level is ignored
-        or instance.access_level_id
-        in get_dict_item(
-            settings.RULESETS,
-            "RESPONSIBLE_USER_RULE.IGNORED_ACCESS_LEVELS",
-            default=[],
-        )
+        or instance.access_level_id in module_settings.ignored_access_levels
         # ACL is updated
         or not created
         # ACL is not for a service

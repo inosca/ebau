@@ -333,4 +333,32 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       }),
     });
   }
+
+  async calculateDistributionDefaultDeadline(defaultLeadTime, selectedGroups) {
+    const defaultDeadline = super.calculateDistributionDefaultDeadline(
+      defaultLeadTime,
+      selectedGroups,
+    );
+
+    if (!hasFeature("distribution.deadlineRules")) {
+      return defaultDeadline;
+    }
+
+    const rules = await this.store.query("distribution-deadline-rule", {
+      target_service: selectedGroups.join(","),
+    });
+
+    const deadlines = [
+      ...new Set([
+        ...rules.map((rule) => rule.deadline),
+        ...(selectedGroups.length !== rules.length ? [defaultDeadline] : []),
+      ]),
+    ];
+
+    if (deadlines.length === 1) {
+      return deadlines[0];
+    }
+
+    return "0000-01-01";
+  }
 }

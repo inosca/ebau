@@ -1,0 +1,65 @@
+<ValidatedForm
+  @model={{changeset @model this.validations}}
+  @on-submit={{this.save.perform}}
+  as |f|
+>
+  <h3>
+    {{#if f.model.isNew}}
+      {{t "rulesets.distribution-deadline.new"}}
+    {{else}}
+      {{t "rulesets.distribution-deadline.edit"}}
+    {{/if}}
+  </h3>
+
+  <div class="uk-margin">
+    <f.input
+      @name="targetService"
+      @label={{t "rulesets.distribution-deadline.target-service"}}
+      @required={{true}}
+      @errorComponent={{this.errorComponent}}
+      as |fi|
+    >
+      <PowerSelect
+        @triggerId="targetService"
+        @selected={{fi.value}}
+        @onChange={{fi.update}}
+        @renderInPlace={{true}}
+        @loadingMessage={{t "global.loadingPrompt"}}
+        @searchEnabled={{true}}
+        @searchField="name"
+        @options={{this.services.records}}
+        @noMatchesMessage={{t "global.noMatch"}}
+        class="uk-select"
+        as |service|
+      >
+        {{service.name}}
+      </PowerSelect>
+    </f.input>
+  </div>
+
+  <f.input
+    @name="leadTime"
+    @type="number"
+    @label={{t "rulesets.distribution-deadline.lead-time"}}
+    @required={{true}}
+    @errorComponent={{this.errorComponent}}
+    min="0"
+    step="1"
+  />
+
+  <div class="uk-margin">
+    <f.submit
+      @disabled={{or f.model.isInvalid this.save.isRunning}}
+      @loading={{this.save.isRunning}}
+      @label={{t "global.save"}}
+      data-test-save
+    />
+    <LinkTo
+      @route={{module-route "rulesets" "distribution-deadline.index"}}
+      class="uk-button uk-button-default"
+      data-test-cancel
+    >
+      {{t "global.cancel"}}
+    </LinkTo>
+  </div>
+</ValidatedForm>

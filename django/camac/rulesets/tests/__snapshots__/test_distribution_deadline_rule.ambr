@@ -1,0 +1,43 @@
+# serializer version: 1
+# name: test_distribution_deadline_rule_list[Applicant-0]
+  dict({
+    'data': list([
+    ]),
+  })
+# ---
+# name: test_distribution_deadline_rule_list[Municipality-2]
+  dict({
+    'data': list([
+      dict({
+        'attributes': dict({
+          'deadline': '2025-01-17',
+          'exclude-holidays': True,
+          'lead-time': 10,
+        }),
+        'relationships': dict({
+          'target-service': dict({
+            'data': dict({
+              'type': 'public-services',
+            }),
+          }),
+        }),
+        'type': 'distribution-deadline-rules',
+      }),
+      dict({
+        'attributes': dict({
+          'deadline': '2025-01-15',
+          'exclude-holidays': False,
+          'lead-time': 10,
+        }),
+        'relationships': dict({
+          'target-service': dict({
+            'data': dict({
+              'type': 'public-services',
+            }),
+          }),
+        }),
+        'type': 'distribution-deadline-rules',
+      }),
+    ]),
+  })
+# ---
