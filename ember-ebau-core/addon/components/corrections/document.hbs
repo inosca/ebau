@@ -2,9 +2,13 @@
 {{#if (can "finish correct instance" @instance)}}
   <p>
     {{t "corrections.document.description-finish-start"}}
-    <LinkTo @route="cases.detail.form" @model={{@instance}}>
+    <a
+      href="#"
+      class="uk-link"
+      {{on "click" (fn this.ebauModules.redirectToInstanceForm @instance.id)}}
+    >
       {{t "corrections.document.description-finish-link"}}
-    </LinkTo>
+    </a>
     {{t "corrections.document.description-finish-end"}}
   </p>
   {{#if this.document.isLoading}}
@@ -24,11 +28,26 @@
           <ul class="uk-list uk-list-bullet">
             {{#each this.invalidFields as |invalidField|}}
               <li>
-                <LinkTo
-                  @route="cases.detail.form"
-                  @model={{@instance}}
-                  @query={{hash displayedForm=invalidField.fieldset.form.slug}}
-                >{{invalidField.question.raw.label}}</LinkTo>
+                {{#if (is-legacy-app)}}
+                  <a
+                    href="#"
+                    class="uk-link"
+                    {{on
+                      "click"
+                      (fn this.ebauModules.redirectToInstanceForm @instance.id)
+                    }}
+                  >
+                    {{invalidField.question.raw.label}}
+                  </a>
+                {{else}}
+                  <LinkTo
+                    @route="cases.detail.form"
+                    @model={{@instance}}
+                    @query={{hash
+                      displayedForm=invalidField.fieldset.form.slug
+                    }}
+                  >{{invalidField.question.raw.label}}</LinkTo>
+                {{/if}}
               </li>
             {{/each}}
           </ul>

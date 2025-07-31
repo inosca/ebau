@@ -14,6 +14,7 @@ export default class CorrectionsDocument extends Component {
   @service intl;
   @service router;
   @service notification;
+  @service ebauModules;
   @queryManager apollo;
 
   document = trackedFunction(this, async () => {
@@ -48,11 +49,7 @@ export default class CorrectionsDocument extends Component {
 
     try {
       await this.documentCorrection.perform();
-
-      await this.router.transitionTo(
-        "cases.detail.form",
-        this.args.instance.id,
-      );
+      await this.ebauModules.redirectToInstanceForm(this.args.instance.id);
 
       // need this to have current data on the whole page
       location.reload();
