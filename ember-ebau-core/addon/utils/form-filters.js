@@ -20,7 +20,7 @@ export const groupFormsByCategories = (
     .filter(Boolean);
 };
 
-export const removeVersion = (formSlug) => formSlug.replace(/-v\d+$/, "");
+export const removeVersion = (formSlug) => formSlug?.replace(/-v\d+$/, "");
 
 /**
  * Get versioned sources of a given form.

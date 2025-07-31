@@ -127,13 +127,14 @@ def load_fixtures_so(
     extra_fixtures = [
         settings.ROOT_DIR("kt_so/config/permissions.json"),
         settings.ROOT_DIR("kt_so/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_so/config/caluma_form_v2.json"),
         settings.ROOT_DIR("kt_so/config/caluma_form_default_answers.json"),
         settings.ROOT_DIR("kt_so/config/caluma_decision_form.json"),
         settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_form.json"),
         settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_workflow.json"),
     ]
 
-    caluma_workflow_config_so.allow_forms.add("migriertes-dossier")
+    caluma_workflow_config_so.allow_forms.add("migriertes-dossier-v2")
     service = service_factory(service_group__name="municipality")
     caluma_dynamic_option_factory(
         slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()

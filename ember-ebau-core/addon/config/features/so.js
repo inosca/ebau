@@ -1,5 +1,7 @@
 import { getOwnConfig, isDevelopingApp } from "@embroider/macros";
 
+import { removeVersion } from "ember-ebau-core/utils/form-filters";
+
 export default {
   publication: {
     showMainForm: true,
@@ -57,7 +59,8 @@ export default {
     requiredPermissions: ["instance-submit"],
     export: {
       enabled: (instance) =>
-        !instance.isPaper && instance.calumaForm !== "voranfrage",
+        !instance.isPaper &&
+        removeVersion(instance.calumaForm) !== "voranfrage",
       templateName: () => `signatures`,
     },
   },

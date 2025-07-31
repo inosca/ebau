@@ -1,4 +1,3 @@
-import re
 from collections import namedtuple
 from datetime import date, datetime, timedelta
 from html import escape
@@ -58,7 +57,13 @@ from camac.lookups import Any
 from camac.permissions.models import InstanceACL
 from camac.user.models import Group, Role, Service, User
 from camac.user.utils import get_tax_administration, unpack_service_emails
-from camac.utils import build_url, clean_join, flatten, get_responsible_koor_service_id
+from camac.utils import (
+    build_url,
+    clean_join,
+    flatten,
+    get_responsible_koor_service_id,
+    get_unversioned_slug,
+)
 
 from ..core import models as core_models
 from . import models
@@ -947,7 +952,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         for field in instance.fields.all():
             # remove versioning (-v3) from question names so the placeholders are backwards compatible
-            name_without_version = re.sub(r"(-v\d+$)", "", field.name)
+
+            name_without_version = get_unversioned_slug(field.name)
             name = inflection.underscore("field-" + name_without_version)
             value = field.value
 

@@ -74,6 +74,7 @@ from camac.user.relations import (
     ServiceResourceRelatedField,
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
+from camac.utils import get_unversioned_slug
 
 from ..utils import clean_join, get_paper_settings
 from . import document_merge_service, domain_logic, models, validators
@@ -1616,7 +1617,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             return
         if (
             settings.APPLICATION_NAME == "kt_so"
-            and case.document.form_id != "baugesuch"
+            and get_unversioned_slug(case.document.form_id) != "baugesuch"
         ):
             notification_key = "SUBMIT_OTHERS"
 

@@ -4,6 +4,7 @@ import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import apolloQuery from "ember-ebau-core/resources/apollo";
+import { removeVersion } from "ember-ebau-core/utils/form-filters";
 import { trackedFunction } from "reactiveweb/function";
 
 import config from "caluma-portal/config/environment";
@@ -62,7 +63,7 @@ export default class InstancesNewController extends Controller {
       .filter(({ node }) => node.meta["is-creatable"] && node.isPublished)
       .filter((form) =>
         permissions.find((perm) =>
-          perm.forms.includes(form.node.slug.replace(/-v\d/, "")),
+          perm.forms.includes(removeVersion(form.node.slug)),
         ),
       )
       .reduce(

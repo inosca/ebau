@@ -1,5 +1,6 @@
 import io
 import itertools
+import re
 import time
 from datetime import datetime, timedelta
 from typing import Any, Optional
@@ -390,3 +391,14 @@ def retry(fn, number_of_tries=2, sleep_between_tries=0):
 
 def choice_keys(choices: tuple):
     return [choice[0] for choice in choices]
+
+
+def get_unversioned_slug(form_slug: str) -> str:
+    """Get the unversioned slug of a caluma_form model like Form or Question.
+
+    >>> get_unversioned_slug(
+            'form-slug-v3'
+    ... )
+    'form-slug'
+    """
+    return re.sub(r"(-v\d+$)", "", form_slug)

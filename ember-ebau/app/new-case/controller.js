@@ -4,6 +4,7 @@ import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
+import { removeVersion } from "ember-ebau-core/utils/form-filters";
 import { trackedFunction } from "reactiveweb/function";
 
 import getRootFormsQuery from "ebau/gql/queries/get-root-forms.graphql";
@@ -37,8 +38,7 @@ export default class InstancesNewController extends Controller {
       .filter(({ node }) => node.meta["is-creatable"] && node.isPublished)
       .filter((form) =>
         this.permissions.some(
-          (permission) =>
-            permission.slug === form.node.slug.replace(/-v\d/, ""),
+          (permission) => permission.slug === removeVersion(form.node.slug),
         ),
       )
       .reduce((acc, form) => {

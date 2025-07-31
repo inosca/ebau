@@ -214,10 +214,9 @@ CALUMA_FORM_TYPES_SLUGS = [
     "benuetzung-oeffentlichem-terrain-meldung",
 ]
 
-CALUMA_FORM_TYPES_SLUGS_SO = [
+CALUMA_VERSIONED_FORM_TYPES_SLUGS_SO = [
     "baugesuch-v2",
     "erdwaermesonden-v2",
-    "migriertes-dossier-v2",
     "voranfrage-v2",
     "meldung-v2",
     "meldung-pv-v2",
@@ -712,7 +711,7 @@ def caluma_workflow_config_so(
     caluma_forms_so,
     caluma_config_so,
 ):
-    for slug in CALUMA_FORM_TYPES_SLUGS_SO:
+    for slug in CALUMA_VERSIONED_FORM_TYPES_SLUGS_SO:
         caluma_form_models.Form.objects.create(slug=slug)
 
     call_command(
@@ -732,7 +731,9 @@ def caluma_workflow_config_so(
     workflow.allow_forms.add(main_form)
     workflow.save()
 
-    caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
+    caluma_form_models.Form.objects.filter(
+        pk__in=CALUMA_VERSIONED_FORM_TYPES_SLUGS_SO
+    ).delete()
 
     yield workflow
 
@@ -1164,6 +1165,7 @@ def caluma_forms_so(settings):
     caluma_form_models.Form.objects.create(slug="personalien-tabelle")
     caluma_form_models.Form.objects.create(slug="beschwerdeverfahren")
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
+    caluma_form_models.Form.objects.create(slug="migriertes-dossier-v2")
     caluma_form_models.Form.objects.create(slug="voranfrage")
     caluma_form_models.Form.objects.create(slug="meldung")
     caluma_form_models.Form.objects.create(slug="meldung-pv")

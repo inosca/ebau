@@ -6,12 +6,19 @@ mutation CreateBuildingPermitWorkflow {
       startTasks: ["submit"]
       allowForms: [
         "baugesuch"
+        "baugesuch-v2"
         "erdwaermesonden"
+        "erdwaermesonden-v2"
         "migriertes-dossier"
+        "migriertes-dossier-v2"
         "voranfrage"
+        "voranfrage-v2"
         "meldung"
+        "meldung-v2"
         "meldung-pv"
+        "meldung-pv-v2"
         "reklamegesuch"
+        "reklamegesuch-v2"
       ]
       isPublished: true
     }

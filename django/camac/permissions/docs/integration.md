@@ -102,6 +102,7 @@ Several of those are available in the `camac.permissions.conditions` module:
 * `Always`: will always grant the permission
 * `Never`: will never grant the permission
 * `IsForm`: The instance's main case's document has one of the given forms
+* `IsUnversionedForm`: The instance's main case's document has one of the given forms ingoring versioned slugs
 * `Callback`: generic callback, if you need a client-specific check
 * `HasApplicantRole`: will check if user has a given applicant role (admin, editor or readonly)
 * `IsPaper`: only applies if the current instance is a "paper dossier"
@@ -115,7 +116,7 @@ possible to construct complex checks like these:
 STATES_POST_DECISION = RequireInstanceState(
     ["decided", "construction-monitoring", "finished", "withdrawn"]
 )
-FORMS_ONLY_BUILDING_PERMIT = ~IsForm(["voranfrage", "meldung"])
+FORMS_ONLY_BUILDING_PERMIT = ~IsForm(["voranfrage", "meldung"]) & ~IsUnversionedForm(["baugesuch"])
 MODULE_CONSTRUCTION_MONITORING = (
     STATES_POST_DECISION
     & FORMS_ONLY_BUILDING_PERMIT
