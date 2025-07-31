@@ -759,8 +759,22 @@ def caluma_workflow_config_ag(
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
     migration_bg_form = caluma_form_models.Form.objects.get(pk="baugesuch-migration")
     migration_uvp_form = caluma_form_models.Form.objects.get(pk="uvp-migration")
+    migration_anfrage_form = caluma_form_models.Form.objects.get(pk="anfrage-migration")
+    migration_reklame_form = caluma_form_models.Form.objects.get(pk="reklame-migration")
+    migration_vorentscheid_form = caluma_form_models.Form.objects.get(
+        pk="vorentscheid-migration"
+    )
 
-    workflow.allow_forms.set([main_form, migration_bg_form, migration_uvp_form])
+    workflow.allow_forms.set(
+        [
+            main_form,
+            migration_bg_form,
+            migration_uvp_form,
+            migration_anfrage_form,
+            migration_reklame_form,
+            migration_vorentscheid_form,
+        ]
+    )
     workflow.save()
 
     yield workflow
@@ -1203,13 +1217,16 @@ def caluma_forms_ag(settings, caluma_form_factory):
     for slug in [
         # Main forms
         "anfrage",
+        "anfrage-migration",
         "anfrage-intern",
         "baugesuch",
         "baugesuch-mit-uvp",
         "plangenehmigungsverfahren-bund",
         "plangenehmigungsverfahren-gas",
         "reklame",
+        "reklame-migration",
         "vorentscheid",
+        "vorentscheid-migration",
         "baugesuch-migration",
         "uvp-migration",
         "internes-dossier",
