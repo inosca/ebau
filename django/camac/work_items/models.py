@@ -6,6 +6,7 @@ from caluma.caluma_form.models import Answer, AnswerDocument, DynamicOption
 from caluma.caluma_workflow.models import Case as CalumaCase, WorkItem
 from django.apps import apps
 from django.conf import settings
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.db.models import Case, Exists, F, OuterRef, Q, Value, When
 from django.db.models.functions import Cast, Concat, JSONObject, Trim
@@ -240,6 +241,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
                 controlling_service=Cast(
                     F("controlling_groups__0"), output_field=models.IntegerField()
                 ),
+                suspended_services=self._annotate_suspended_services(),
                 instance_description=caluma_answer(
                     annotations.description, "case__family__document_id"
                 ),
@@ -251,6 +253,17 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         )
 
         return queryset
+
+    def _annotate_suspended_services(self) -> F | Value:
+        """Annotate for which services the work item is suspended.
+
+        If the deadlines module is disabled, this will always return an empty list.
+        """
+
+        if not settings.DEADLINES.enabled:
+            return Value([], output_field=ArrayField(base_field=models.CharField()))
+
+        return F("case__family__meta__suspended-services")
 
     def _annotate_municipality(self) -> DynamicOption:
         """Annotate the municipality name from the main form.

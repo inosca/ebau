@@ -131,6 +131,7 @@ export default class WorkItemsGlobalController extends Controller {
           "is_created_by_current_service",
           "is_manually_completable",
           "is_ready",
+          "is_suspended",
           ...(this.highlight ? ["unread"] : []),
         ],
       },

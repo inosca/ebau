@@ -89,6 +89,7 @@ class WorkItemListRowSerializer(serializers.ModelSerializer):
     is_created_by_current_service = serializers.SerializerMethodField()
     is_manually_completable = serializers.BooleanField()
     is_ready = serializers.BooleanField()
+    is_suspended = serializers.SerializerMethodField()
     municipality = serializers.CharField()
     special_id = serializers.CharField()
     task = serializers.CharField(source="name")
@@ -109,6 +110,12 @@ class WorkItemListRowSerializer(serializers.ModelSerializer):
 
     def get_is_created_by_current_service(self, obj):
         return obj.created_by_group == self.context["request"].group.service_id
+
+    def get_is_suspended(self, obj):
+        return bool(
+            obj.suspended_services
+            and str(self.context["request"].group.service_id) in obj.suspended_services
+        )
 
     included_serializers = {
         "addressed_service": "camac.user.serializers.PublicServiceSerializer",
@@ -136,6 +143,7 @@ class WorkItemListRowSerializer(serializers.ModelSerializer):
             "is_created_by_current_service",
             "is_manually_completable",
             "is_ready",
+            "is_suspended",
             "municipality",
             "special_id",
             "status",
