@@ -55,6 +55,9 @@ export default class DeadlineDeadlineFormModalComponent extends Component {
       );
       const startDate = changeset.pendingData.startDate;
       const data = {
+        "process-deadline-days": undefined,
+        processDeadlineDate: undefined,
+        "total-days-of-suspension": undefined,
         deadlineType,
         instance,
         startDate,

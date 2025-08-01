@@ -77,6 +77,9 @@ class InstanceDeadlineSerializer(serializers.ModelSerializer):
     def validate_process_deadline_date(self, value):
         """Validate the process deadline date field."""
 
+        if "process_deadline_date" not in self.initial_data or value is None:
+            return value
+
         permissions_manager = PermissionManager.from_request(self.context["request"])
         instance = self.instance.instance if self.instance else None
 

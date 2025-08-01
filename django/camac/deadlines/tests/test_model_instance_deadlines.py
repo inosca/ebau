@@ -300,6 +300,13 @@ def test_instance_deadlines_deletion_and_update_gr(
             "distribution-service",
             "trusted-service-read",
             "service-afb",
+            None,
+            status.HTTP_200_OK,
+        ),
+        (
+            "distribution-service",
+            "trusted-service-read",
+            "service-afb",
             "2025-12-31",
             status.HTTP_403_FORBIDDEN,
         ),
@@ -369,7 +376,7 @@ def test_validate_process_deadline_date_ag(
 
     assert response.status_code == expected_status
 
-    if expected_status == status.HTTP_200_OK:
+    if expected_status == status.HTTP_200_OK and process_deadline_date is not None:
         instance_deadline.refresh_from_db()
         assert (
             instance_deadline.process_deadline_date.isoformat() == process_deadline_date
