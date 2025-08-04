@@ -221,7 +221,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "entwurf-herunterladen-pdf",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -297,6 +297,21 @@
       "form": "8-freigabequittung",
       "question": "hinweis-zutrittsermaechtigung",
       "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "8-freigabequittung.pdf-herunterladen",
+    "fields": {
+      "created_at": "2025-07-30T06:45:57.694Z",
+      "modified_at": "2025-07-30T06:45:57.694Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "8-freigabequittung",
+      "question": "pdf-herunterladen",
+      "sort": 3
     }
   },
   {
@@ -2563,7 +2578,7 @@
     "pk": "entwurf-herunterladen-pdf",
     "fields": {
       "created_at": "2025-05-15T11:55:52.626Z",
-      "modified_at": "2025-05-16T11:54:42.333Z",
+      "modified_at": "2025-07-30T15:58:19.561Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2571,12 +2586,12 @@
       "label": "{\"de\": \"Entwurf herunterladen (PDF)\", \"fr\": \"T\\u00e9l\\u00e9charger le formulaire (PDF)\", \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"einreichen-button-eingereicht\" in \"einreichen-button\"|answer([])",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Entwurf herunterladen (PDF)\", \"fr\": \"T\\u00e9l\\u00e9charger le brouillon (PDF)\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "widgetOverride": "be-download-pdf"
@@ -2596,7 +2611,7 @@
     "pk": "entwurf-text",
     "fields": {
       "created_at": "2025-05-15T11:53:47.369Z",
-      "modified_at": "2025-05-16T11:55:13.414Z",
+      "modified_at": "2025-07-30T15:57:31.847Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -2604,7 +2619,7 @@
       "label": "{\"de\": \"entwurf-text\", \"fr\": \"entwurf-text\", \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"einreichen-button-eingereicht\" in \"einreichen-button\"|answer([])",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -4096,6 +4111,39 @@
         "max_length": 12
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "pdf-herunterladen",
+    "fields": {
+      "created_at": "2025-07-30T06:45:57.553Z",
+      "modified_at": "2025-07-30T15:58:59.295Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"PDF herunterladen\", \"fr\": \"T\\u00e9l\\u00e9charger le PDF\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"einreichen-button-eingereicht\" in \"einreichen-button\"|answer([]))",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"PDF herunterladen\", \"fr\": \"T\\u00e9l\\u00e9charger le PDF\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-download-pdf"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
