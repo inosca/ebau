@@ -364,6 +364,10 @@
                 }),
                 dict({
                   'checked': False,
+                  'label': 'Kleinbauten gemäss Art. 27 BewD',
+                }),
+                dict({
+                  'checked': False,
                   'label': 'Andere',
                 }),
               ]),

@@ -6192,7 +6192,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "ableitung-in-guellegrube-v2",
-      "sort": 30
+      "sort": 29
     }
   },
   {
@@ -6207,7 +6207,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "aussenlaerm",
-      "sort": 35
+      "sort": 34
     }
   },
   {
@@ -6237,7 +6237,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "bauten-mit-mehr-als-30-grossvieheinheiten",
-      "sort": 33
+      "sort": 32
     }
   },
   {
@@ -6327,7 +6327,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "brandbelastung",
-      "sort": 39
+      "sort": 38
     }
   },
   {
@@ -6342,7 +6342,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "feuerungsanlagen",
-      "sort": 34
+      "sort": 33
     }
   },
   {
@@ -6357,7 +6357,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "gefaehrliche-stoffe",
-      "sort": 37
+      "sort": 36
     }
   },
   {
@@ -6462,7 +6462,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "ist-ein-fumoir-betroffen",
-      "sort": 40
+      "sort": 39
     }
   },
   {
@@ -6492,7 +6492,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "maschinelle-arbeitsmittel",
-      "sort": 38
+      "sort": 37
     }
   },
   {
@@ -6507,7 +6507,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "maschinen-aus-den-folgenden-kategorien",
-      "sort": 29
+      "sort": 28
     }
   },
   {
@@ -6537,7 +6537,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "sind-belange-des-gewaesserschutzes-betroffen-v2",
-      "sort": 26
+      "sort": 25
     }
   },
   {
@@ -6657,7 +6657,22 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "um-was-fuer-ein-gebaeude-handelt-es-sich",
-      "sort": 41
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "triage-v5.um-was-handelt-es-sich-bei-dem-kleinbauvorhaben",
+    "fields": {
+      "created_at": "2025-05-15T12:24:30.593Z",
+      "modified_at": "2025-05-15T12:24:30.593Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "triage-v5",
+      "question": "um-was-handelt-es-sich-bei-dem-kleinbauvorhaben",
+      "sort": 43
     }
   },
   {
@@ -6672,7 +6687,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "verunreinigte-abluft",
-      "sort": 36
+      "sort": 35
     }
   },
   {
@@ -6687,7 +6702,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "was-fuer-ein-vorhaben",
-      "sort": 43
+      "sort": 42
     }
   },
   {
@@ -6702,7 +6717,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "wassergefaehrdende-explosive-stoffe",
-      "sort": 27
+      "sort": 26
     }
   },
   {
@@ -6717,7 +6732,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "weitere-vorhaben",
-      "sort": 28
+      "sort": 27
     }
   },
   {
@@ -6732,7 +6747,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "welche-art-vorhaben",
-      "sort": 42
+      "sort": 41
     }
   },
   {
@@ -6792,7 +6807,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "werden-neue-hofduengeranlagen-erstellt",
-      "sort": 32
+      "sort": 31
     }
   },
   {
@@ -6807,7 +6822,7 @@
       "modified_by_group": null,
       "form": "triage-v5",
       "question": "werden-siloanlagen-erstellt",
-      "sort": 31
+      "sort": 30
     }
   },
   {
@@ -12421,7 +12436,7 @@
     "pk": "allgemeine-angaben-zum-betrieb-v5",
     "fields": {
       "created_at": "2024-07-16T16:05:50.027Z",
-      "modified_at": "2024-07-16T16:09:57.359Z",
+      "modified_at": "2025-07-22T15:35:45.236Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -12429,10 +12444,10 @@
       "label": "{\"de\": \"Allgemeine Angaben zum Betrieb\", \"fr\": \"Indications g\\u00e9n\\u00e9rales sur l'installation\", \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!([\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe',\n  'nutzungsart-gastgewerbe',\n  'nutzungsart-lager',\n  'nutzungsart-dienstleistung',\n  'nutzungsart-andere'\n] intersects 'nutzungsart'|answer ||\n[\n  'was-fuer-ein-vorhaben-verwaltungsgebaeude',\n  'was-fuer-ein-vorhaben-grossraumbueros',\n  'was-fuer-ein-vorhaben-spitaeler',\n  'was-fuer-ein-vorhaben-beherbergungsbetriebe',\n  'was-fuer-ein-vorhaben-andere',\n  'was-fuer-ein-vorhaben-gastgewerbe',\n  'was-fuer-ein-vorhaben-verkaufsgeschaefte'\n] intersects 'was-fuer-ein-vorhaben'|answer\n)",
+      "is_hidden": "!([ 'nutzungsart-industrie', 'nutzungsart-gewerbe', 'nutzungsart-gastgewerbe', 'nutzungsart-lager', 'nutzungsart-dienstleistung', 'nutzungsart-andere' ] intersects 'nutzungsart'|answer || [ 'was-fuer-ein-vorhaben-verwaltungsgebaeude', 'was-fuer-ein-vorhaben-grossraumbueros', 'was-fuer-ein-vorhaben-spitaeler', 'was-fuer-ein-vorhaben-beherbergungsbetriebe', 'was-fuer-ein-vorhaben-andere', 'was-fuer-ein-vorhaben-gastgewerbe', 'was-fuer-ein-vorhaben-verkaufsgeschaefte' ] intersects 'was-fuer-ein-vorhaben'|answer || [ 'baubeschrieb-kleinbauten' ] intersects 'baubeschrieb'|answer )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -14060,7 +14075,7 @@
     "pk": "bestaetigung-erdbebensicherheit-neubau-anbau-v5",
     "fields": {
       "created_at": "2024-08-12T08:38:08.263Z",
-      "modified_at": "2024-08-12T08:45:25.765Z",
+      "modified_at": "2025-07-22T14:49:32.533Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -14068,7 +14083,7 @@
       "label": "{\"de\": \"Die Gesuchsteller best\\u00e4tigen, dass die aktuellen Tragwerksnormen der SIA (vgl. SIA 260 ff, insbesondere SIA 261) f\\u00fcr das gesamte Bauwerk eingehalten werden. Sie erkl\\u00e4ren sich gleichzeitig bereit, die Nutzungsvereinbarung, die Projektbasis sowie die statische Bemessung auf Verlangen offenzulegen.\", \"fr\": \"Les requ\\u00e9rants confirment que les normes actuelles de la structure porteuse de la SIA (cf. SIA 260 et suivantes, en particulier SIA 261) sont respect\\u00e9es pour l'ensemble de la construction. Ils se d\\u00e9clarent \\u00e9galement pr\\u00eats \\u00e0 divulguer, sur demande, la convention d\\u2019utilisation, la base de projet ainsi que la note de calcul.\", \"it\": null}",
       "type": "multiple_choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
-      "is_hidden": "!('baukosten-in-chf'|answer && 'baukosten-in-chf'|answer >= 500000\n&&\n[\n  'baubeschrieb-neubau',\n  'baubeschrieb-erweiterung-anbau'\n] intersects 'baubeschrieb'|answer\n&&\n!([\n  'baubeschrieb-um-ausbau',\n  'baubeschrieb-umnutzung',\n  'baubeschrieb-abbruch',\n  'baubeschrieb-technische-anlage',\n  'baubeschrieb-reklame',\n  'baubeschrieb-tiefbauanlage',\n  'baubeschrieb-andere'\n] intersects 'baubeschrieb'|answer)\n)",
+      "is_hidden": "!('baukosten-in-chf'|answer && 'baukosten-in-chf'|answer >= 500000 && [ 'baubeschrieb-neubau', 'baubeschrieb-erweiterung-anbau' ] intersects 'baubeschrieb'|answer && !([ 'baubeschrieb-um-ausbau', 'baubeschrieb-umnutzung', 'baubeschrieb-abbruch', 'baubeschrieb-technische-anlage', 'baubeschrieb-reklame', 'baubeschrieb-tiefbauanlage', 'baubeschrieb-andere', 'baubeschrieb-kleinbauten' ] intersects 'baubeschrieb'|answer) )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"#### Tragwerksnormen einhalten:\\n\\nGem\\u00e4ss Baugesetz des Kantons Bern (BSG 721, Art. 21a) sind Bauten und Anlagen nach den Anforderungen an die Erdbebensicherheit der anerkannten Regeln der Technik zu erstellen und zu unterhalten.\\n\\nWerkeigent\\u00fcmer/innen sind f\\u00fcr die Sicherheit ihrer Geb\\u00e4ude verantwortlich und haften f\\u00fcr Sch\\u00e4den an Personen und G\\u00fcter (Art. 58 OR). Bestehende Geb\\u00e4ude sind somit periodisch dem neusten Stand der Sicherheit anzupassen. Planer/innen verpflichten sich, die anerkannten Regeln der Baukunde einzuhalten, welche durch die SIA-Normen vorgegeben werden (Art. 398 OR und SIA-Ordnungen).\\n\\nEs wird vorausgesetzt, dass bei Neubau oder Anbau in jedem Fall ein/e Tragwerksplaner/in involviert ist und somit auf dessen Unterschrift verzichtet werden kann.\\n\\nWeitere Informationen zur [Erdbebensicherheit (Seite 2f.)](https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/de/Formulare-Vorlagen/Formulare-Baugesuchsteller/ebs-erdbebensicherheit-de.pdf)\", \"fr\": \"#### Conformit\\u00e9 aux normes structurelles:\\n\\nConform\\u00e9ment \\u00e0 la loi sur les constructions (RSB 721, art. 21a), les b\\u00e2timents et installations doivent \\u00eatre con\\u00e7us et entretenus conform\\u00e9ment aux normes parasismiques reconnues.\\n\\nLe propri\\u00e9taire d\\u2019un b\\u00e2timent est responsable de la s\\u00e9curit\\u00e9 et r\\u00e9pond du dommage caus\\u00e9 \\u00e0 des personnes ou \\u00e0 des choses (art. 58 CO). Les b\\u00e2timents existants doivent donc r\\u00e9guli\\u00e8rement \\u00eatre adapt\\u00e9s aux nouvelles normes de s\\u00e9curit\\u00e9. Les planificateurs/trices s\\u2019engagent \\u00e0 respecter les r\\u00e8gles de l\\u2019art reconnues dans le domaine de la construction, d\\u00e9finies par les normes SIA (art. 398 CO et r\\u00e8glements SIA).\\n\\nIl est pr\\u00e9sum\\u00e9 qu\\u2019un/e planificateur/trice des structures porteuse est impliqu\\u00e9 dans toute nouvelle construction ou extension et que par cons\\u00e9quent sa signature n\\u2019est pas requise.\\n\\nInformations suppl\\u00e9mentaires sur la [s\\u00e9curit\\u00e9 sismique (page 2 et suivantes).]([https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/fr/formulare-und-vorlagen/formulare-f\\u00fcr-baugesuchsteller/ebs-erdbebensicherheit-fr.pdf](https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/fr/formulare-und-vorlagen/formulare-f%C3%BCr-baugesuchsteller/ebs-erdbebensicherheit-fr.pdf))\", \"it\": null}",
@@ -14126,7 +14141,7 @@
     "pk": "bestaetigung-erdbebensicherheit-umbau-umnutzung-andere-v5",
     "fields": {
       "created_at": "2024-08-12T13:43:57.782Z",
-      "modified_at": "2024-08-12T13:45:32.767Z",
+      "modified_at": "2025-07-22T14:50:40.435Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -14134,7 +14149,7 @@
       "label": "{\"de\": \"Die Gesuchsteller best\\u00e4tigen die Richtigkeit der gemachten Angaben sowie ein dem SIA-Normenwerk (vgl. SIA 269 ff, insbesondere SIA 269/8) entsprechendes Vorgehen. Sie erkl\\u00e4ren sich gleichzeitig bereit, die Nutzungsvereinbarung, die Projektbasis sowie die statische Bemessung auf Verlangen offenzulegen.\", \"fr\": \"Les requ\\u00e9rants confirment l'exactitude des informations fournies ainsi qu'une approche conforme aux normes de la SIA (cf. SIA 269 et suivantes, en particulier SIA 269/8). Vous consentez aussi \\u00e0 transmettre sur demande la convention d\\u2019utilisation, la base de projet ainsi que la note de calcul.\", \"it\": null}",
       "type": "multiple_choice",
       "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
-      "is_hidden": "!('baukosten-in-chf'|answer && 'baukosten-in-chf'|answer >= 500000\n&&\n([\n  'baubeschrieb-um-ausbau',\n  'baubeschrieb-umnutzung',\n  'baubeschrieb-abbruch',\n  'baubeschrieb-technische-anlage',\n  'baubeschrieb-reklame',\n  'baubeschrieb-tiefbauanlage',\n  'baubeschrieb-andere'\n] intersects 'baubeschrieb'|answer)\n)",
+      "is_hidden": "!('baukosten-in-chf'|answer && 'baukosten-in-chf'|answer >= 500000 && ([ 'baubeschrieb-um-ausbau', 'baubeschrieb-umnutzung', 'baubeschrieb-abbruch', 'baubeschrieb-technische-anlage', 'baubeschrieb-reklame', 'baubeschrieb-tiefbauanlage', 'baubeschrieb-andere', 'baubeschrieb-kleinbauten' ] intersects 'baubeschrieb'|answer) )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"#### Entsprechendes Vorgehen:\\n\\nGem\\u00e4ss Baugesetz des Kantons Bern (BSG 721, Art. 21a) sind Bauten und Anlagen nach den Anforderungen an die Erdbebensicherheit der anerkannten Regeln der Technik zu erstellen und zu unterhalten.\\n\\nWerkeigent\\u00fcmer/innen sind f\\u00fcr die Sicherheit ihrer Geb\\u00e4ude verantwortlich und haften f\\u00fcr Sch\\u00e4den an Personen und G\\u00fcter (Art. 58 OR). Bestehende Geb\\u00e4ude sind somit periodisch dem neusten Stand der Sicherheit anzupassen.\\n\\nPlaner/innen verpflichten sich, die anerkannten Regeln der Baukunde einzuhalten, welche durch die SIA-Normen vorgegeben werden (Art. 398 OR und SIA-Ordnungen).\\n\\nBauherrschaft und Projektverfasserin oder Projektverfasser werden gezielt aufgefordert, die Erdbebensi-cherheit von bestehenden Bauten bei Bauvorhaben zu ber\\u00fccksichtigen. Dabei ist zu beachten, dass die SIA- Normen in den letzten Jahrzehnten in Bezug auf die Erdbebeneinwirkung versch\\u00e4rft wurden.\\n\\nZur Wahrung der Verh\\u00e4ltnism\\u00e4ssigkeit werden \\u00fcber drei Fragen weitere Bagatellf\\u00e4lle ausgeschieden bei denen anhand der Selbstdeklaration das Einhalten der SIA-Normen best\\u00e4tigt wird. Bei den relevanten Bauvorhaben (mindestens eine Frage positiv beantwortet) verlangt die Bewilligungsbeh\\u00f6rde den Beizug eines/r Tragwerkplaners/in (vgl. entsprechende Erl\\u00e4uterungen).\\n\\nWeitere Informationen zur [Erdbebensicherheit (Seite 2f.)](https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/de/Formulare-Vorlagen/Formulare-Baugesuchsteller/ebs-erdbebensicherheit-de.pdf)\", \"fr\": \"Conform\\u00e9ment \\u00e0 la loi sur les constructions (RSB 721, art. 21a), les b\\u00e2timents et installations doivent \\u00eatre con\\u00e7us et entretenus conform\\u00e9ment aux normes parasismiques reconnues.\\n\\nLe propri\\u00e9taire d\\u2019un b\\u00e2timent est responsable de la s\\u00e9curit\\u00e9 et r\\u00e9pond du dommage caus\\u00e9 \\u00e0 des personnes ou \\u00e0 des choses (art. 58 CO). Les b\\u00e2timents existants doivent donc r\\u00e9guli\\u00e8rement \\u00eatre adapt\\u00e9s aux nouvelles normes de s\\u00e9curit\\u00e9.\\n\\nLes planificateurs/trices s\\u2019engagent \\u00e0 respecter les r\\u00e8gles de l\\u2019art reconnues dans le domaine de la construction, d\\u00e9finies par les normes SIA (art. 398 CO et r\\u00e8glements SIA).\\n\\nIl est express\\u00e9ment demand\\u00e9 au ma\\u00eetre d\\u2019ouvrage et au/\\u00e0 la planificateur/rice de consid\\u00e9rer la s\\u00e9curit\\u00e9 sismique des ouvrages existants dans le cadre de projets de construction. Il est \\u00e0 noter que les normes SIA ont renforc\\u00e9 l\\u2019action sismique au cours des derni\\u00e8res d\\u00e9cennies.\\n\\nEn \\u00e9gard au principe de proportionnalit\\u00e9, quatre questions permettent d\\u2019\\u00e9liminer les cas de moindre importance pour lesquels la d\\u00e9claration spontan\\u00e9e confirme le respect des normes SIA. Pour les projets de construction pertinents (au moins une r\\u00e9ponse positive), l\\u2019autorit\\u00e9 d\\u2019octroi de permis exige qu\\u2019un/e planificateur/trice des structures porteuses soit impliqu\\u00e9 (voir explications pertinentes).\\n\\nInformations suppl\\u00e9mentaires sur la [s\\u00e9curit\\u00e9 sismique (page 2 et suivantes).]([https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/fr/formulare-und-vorlagen/formulare-f\\u00fcr-baugesuchsteller/ebs-erdbebensicherheit-fr.pdf](https://www.bauen.dij.be.ch/content/dam/bauen_dij/dokumente/fr/formulare-und-vorlagen/formulare-f%C3%BCr-baugesuchsteller/ebs-erdbebensicherheit-fr.pdf))\", \"it\": null}",
@@ -14396,14 +14411,14 @@
     "pk": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5",
     "fields": {
       "created_at": "2024-10-18T11:33:04.813Z",
-      "modified_at": "2025-02-19T16:53:18.277Z",
+      "modified_at": "2025-07-22T14:52:43.179Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Betrifft das Bauvorhaben einen Telekommunikationsanschluss (Gemeinschaftsantenne / Fernmeldenetz)?\", \"fr\": \"Le projet de construction concerne-t-il un raccordement de t\\u00e9l\\u00e9communication (antenne collective / r\\u00e9seau de t\\u00e9l\\u00e9communication) ?\", \"it\": null}",
       "type": "choice",
-      "is_required": "!('vorabklaerung' in form || \n  'is-paper'|answer == 'is-paper-yes'||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n  )\n)",
+      "is_required": "!( 'vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes'|| 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) )",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -14427,14 +14442,14 @@
     "pk": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5",
     "fields": {
       "created_at": "2024-10-18T11:37:32.499Z",
-      "modified_at": "2025-02-19T16:53:26.927Z",
+      "modified_at": "2025-07-22T14:54:06.408Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Betrifft das Bauvorhaben eine Trinkwasserinstallation?\", \"fr\": \"Le projet de construction concerne-t-il une installation d'eau potable ?\", \"it\": null}",
       "type": "choice",
-      "is_required": "!('vorabklaerung' in form || \n  'is-paper'|answer == 'is-paper-yes'||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n  )\n)",
+      "is_required": "!( 'vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) )",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -14458,14 +14473,14 @@
     "pk": "betrifft-das-bauvorhaben-elektroinstallationen-v5",
     "fields": {
       "created_at": "2024-10-18T11:31:09.225Z",
-      "modified_at": "2025-02-19T16:53:12.931Z",
+      "modified_at": "2025-07-22T14:54:46.696Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Betrifft das Bauvorhaben Elektroinstallationen?\", \"fr\": \"Le projet de construction concerne-t-il des installations \\u00e9lectriques ?\", \"it\": null}",
       "type": "choice",
-      "is_required": "!('vorabklaerung' in form || \n  'is-paper'|answer == 'is-paper-yes'||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n  )\n)",
+      "is_required": "!( 'vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) )",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -14489,14 +14504,14 @@
     "pk": "betrifft-das-bauvorhaben-gasinstallationen-v5",
     "fields": {
       "created_at": "2024-10-18T11:34:22.510Z",
-      "modified_at": "2025-02-19T16:53:22.551Z",
+      "modified_at": "2025-07-22T14:55:53.337Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Betrifft das Bauvorhaben Gasinstallationen?\", \"fr\": \"Le projet de construction concerne-t-il des installations de gaz ?\", \"it\": null}",
       "type": "choice",
-      "is_required": "!('vorabklaerung' in form || \n  'is-paper'|answer == 'is-paper-yes'||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n  )\n)",
+      "is_required": "!( 'vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) )",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -14520,14 +14535,14 @@
     "pk": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5",
     "fields": {
       "created_at": "2024-10-18T11:39:05.996Z",
-      "modified_at": "2025-02-19T16:53:31.320Z",
+      "modified_at": "2025-07-22T14:56:35.540Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Betrifft das Bauvorhaben Wasser- oder Abwasserinstallationen?\", \"fr\": \"Le projet de construction concerne-t-il des installations d'eau ou d'eaux us\\u00e9es ?\", \"it\": null}",
       "type": "choice",
-      "is_required": "!('vorabklaerung' in form || \n  'is-paper'|answer == 'is-paper-yes'||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n  )\n)",
+      "is_required": "!( 'vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) )",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -15511,7 +15526,7 @@
       "label": "{\"de\": \"Erdbebensicherheit\", \"fr\": \"S\\u00e9curit\\u00e9 sismique\", \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!('baukosten-in-chf'|answer && 'baukosten-in-chf'|answer >= 500000\n&&\n([\n  'baubeschrieb-um-ausbau',\n  'baubeschrieb-umnutzung',\n  'baubeschrieb-abbruch',\n  'baubeschrieb-technische-anlage',\n  'baubeschrieb-reklame',\n  'baubeschrieb-tiefbauanlage',\n  'baubeschrieb-andere'\n] intersects 'baubeschrieb'|answer)\n)",
+      "is_hidden": "!('baukosten-in-chf'|answer && 'baukosten-in-chf'|answer >= 500000\n&&\n([\n  'baubeschrieb-um-ausbau',\n  'baubeschrieb-umnutzung',\n  'baubeschrieb-abbruch',\n  'baubeschrieb-technische-anlage',\n  'baubeschrieb-reklame',\n  'baubeschrieb-tiefbauanlage',\n  'baubeschrieb-andere',\n 'baubeschrieb-kleinbauten'\n] intersects 'baubeschrieb'|answer)\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -16630,7 +16645,7 @@
     "pk": "grundriss-angabe-bodenflaeche-dokument-v5",
     "fields": {
       "created_at": "2024-12-03T18:23:13.643Z",
-      "modified_at": "2024-12-03T18:24:05.688Z",
+      "modified_at": "2025-07-22T14:21:28.295Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -16638,11 +16653,11 @@
       "label": "{\"de\": \"Grundriss (Massst\\u00e4blich (1:100 / 1:50) mit Angabe der Bodenfl\\u00e4che)\", \"fr\": \"Plan de surface (\\u00e0 l\\u2019\\u00e9chelle (1:100 / 1:50) avec indication de la surface au sol)\", \"it\": null}",
       "type": "multiple_choice",
       "is_required": "!((\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]'\n) ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n))",
-      "is_hidden": "'vorabklaerung' in form ||\n'is-paper'|answer == 'is-paper-yes' ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n) ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&  \n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-abbruchvorhaben\"]' &&  \n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-abbruch\"]'\n)",
+      "is_hidden": "'vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-abbruchvorhaben\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-abbruch\"]' )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -16700,7 +16715,7 @@
     "pk": "grundriss-dokument-v5",
     "fields": {
       "created_at": "2024-12-03T18:33:06.682Z",
-      "modified_at": "2024-12-03T18:34:01.318Z",
+      "modified_at": "2025-07-22T15:07:32.308Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -16708,11 +16723,11 @@
       "label": "{\"de\": \"Grundriss\", \"fr\": \"Vue en plan\", \"it\": null}",
       "type": "multiple_choice",
       "is_required": "!((\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]'\n) ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n))",
-      "is_hidden": "'vorabklaerung' in form ||\n'is-paper'|answer == 'is-paper-yes' ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n) ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&  \n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-abbruchvorhaben\"]' &&  \n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-abbruch\"]'\n)",
+      "is_hidden": "'vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-abbruchvorhaben\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-abbruch\"]' )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -19317,7 +19332,7 @@
     "pk": "schnitt-dokument-v5",
     "fields": {
       "created_at": "2024-12-03T18:35:34.551Z",
-      "modified_at": "2024-12-03T18:36:26.772Z",
+      "modified_at": "2025-07-22T15:09:05.480Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -19325,11 +19340,11 @@
       "label": "{\"de\": \"Schnitt\", \"fr\": \"Coupe\", \"it\": null}",
       "type": "multiple_choice",
       "is_required": "!((\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]'\n) ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n))",
-      "is_hidden": "'vorabklaerung' in form ||\n'is-paper'|answer == 'is-paper-yes' ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n) ||\n(\n  'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&  \n  'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-abbruchvorhaben\"]' &&  \n  'baubeschrieb'|answer|stringify == '[\"baubeschrieb-abbruch\"]'\n)",
+      "is_hidden": "'vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-abbruchvorhaben\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-abbruch\"]' )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -20167,14 +20182,14 @@
     "pk": "staendige-arbeitsplaetze-vorhanden-v5",
     "fields": {
       "created_at": "2024-07-16T16:59:57.197Z",
-      "modified_at": "2024-07-23T08:44:51.959Z",
+      "modified_at": "2025-07-22T15:11:12.622Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Sind st\\u00e4ndige Arbeitspl\\u00e4tze, gem\\u00e4ss Wegleitung zur Verordnung 3 zum Arbeitsgesetz, Art. 24, vorhanden?\", \"fr\": \"Le local compte-t-il des postes de travail permanents au sens du Commentaire de l\\u2019ordonnance 3 relative \\u00e0 la loi sur le travail sur l\\u2019article 24?\", \"it\": null}",
       "type": "choice",
-      "is_required": "!(\n  'vorabklaerung' in form ||\n  'is-paper'|answer == 'is-paper-yes' ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&  \n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-abbruchvorhaben\"]' &&  \n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-abbruch\"]'\n  )\n)",
+      "is_required": "!( 'vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]' ) || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]' ) || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-abbruchvorhaben\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-abbruch\"]' ) )",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -21351,14 +21366,14 @@
     "pk": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5",
     "fields": {
       "created_at": "2024-10-18T11:22:50.668Z",
-      "modified_at": "2025-02-26T16:36:12.180Z",
+      "modified_at": "2025-07-22T15:14:08.346Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Werden \\u00c4nderungen oder Grabarbeiten in Strassen, Radwegen oder Gehwegen vorgenommen?\", \"fr\": \"Des modifications ou des travaux d'excavation sont-ils effectu\\u00e9s dans les routes, les voies cyclables ou les trottoirs ?\", \"it\": null}",
       "type": "choice",
-      "is_required": "!('vorabklaerung' in form || \n  'is-paper'|answer == 'is-paper-yes'||\n  (\n    'nutzungsart'|answer([])|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer([])|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer([])|stringify == '[\"baubeschrieb-andere\"]'\n  )\n)",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) )",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -21382,14 +21397,14 @@
     "pk": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5",
     "fields": {
       "created_at": "2025-01-16T10:46:05.211Z",
-      "modified_at": "2025-05-12T13:37:38.337Z",
+      "modified_at": "2025-07-22T15:16:23.029Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Zivilschutz: Werden im Bauprojekt Wohnraum oder Pflegebauten (Spit\\u00e4ler, Heime usw.) erstellt?\", \"fr\": \"Protection civile : Si le projet de construction comprend des logements ou des b\\u00e2timents de soins (h\\u00f4pitaux, foyers, etc.) ?\", \"it\": null}",
       "type": "choice",
-      "is_required": "!(\n  'vorabklaerung' in form ||\n  'is-paper'|answer == 'is-paper-yes' ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' &&\n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]'\n  ) ||\n  (\n    'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' &&  \n    'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-abbruchvorhaben\"]' &&  \n    'baubeschrieb'|answer|stringify == '[\"baubeschrieb-abbruch\"]'\n  )\n)",
+      "is_required": "!( 'vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-erschliessungsanlagen\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-tiefbauanlage\"]' ) || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-reklamevorhaben\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-reklame\"]' ) || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-abbruchvorhaben\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-abbruch\"]' ) )",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -21413,14 +21428,14 @@
     "pk": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5",
     "fields": {
       "created_at": "2024-10-18T11:16:23.143Z",
-      "modified_at": "2025-02-26T16:36:04.780Z",
+      "modified_at": "2025-07-22T15:17:31.983Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Werden Strassen, Radwege oder Gehwege in Anspruch genommen?\", \"fr\": \"Des routes, des voies cyclables ou des trottoirs seront-ils utilis\\u00e9s ?\", \"it\": null}",
       "type": "choice",
-      "is_required": "!('vorabklaerung' in form || \n  'is-paper'|answer == 'is-paper-yes'||\n  (\n    'nutzungsart'|answer([])|stringify == '[\"nutzungsart-andere\"]' &&\n    'welche-art-vorhaben'|answer([])|stringify == '[\"welche-art-vorhaben-weitere\"]' &&\n    'baubeschrieb'|answer([])|stringify == '[\"baubeschrieb-andere\"]'\n  )\n)",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes' || 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-kleinbauten\"]' || ( 'nutzungsart'|answer|stringify == '[\"nutzungsart-andere\"]' && 'welche-art-vorhaben'|answer|stringify == '[\"welche-art-vorhaben-weitere\"]' && 'baubeschrieb'|answer|stringify == '[\"baubeschrieb-andere\"]' ) )",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -22175,8 +22190,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bestaetigung-erdbebensicherheit-neubau-anbau-v5.bestaetigung-erdbebensicherheit-neubau-anbau-v5-ja",
     "fields": {
-      "created_at": "2024-08-12T08:45:25.771Z",
-      "modified_at": "2024-08-12T08:45:25.771Z",
+      "created_at": "2025-07-22T14:49:32.537Z",
+      "modified_at": "2025-07-22T14:49:32.537Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22205,8 +22220,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bestaetigung-erdbebensicherheit-umbau-umnutzung-andere-v5.bestaetigung-erdbebensicherheit-umbau-umnutzung-andere-v5-ja",
     "fields": {
-      "created_at": "2024-08-12T13:45:32.772Z",
-      "modified_at": "2024-08-12T13:45:32.772Z",
+      "created_at": "2025-07-22T14:50:40.441Z",
+      "modified_at": "2025-07-22T14:50:40.441Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22280,8 +22295,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5.betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5-ja",
     "fields": {
-      "created_at": "2025-02-19T16:53:18.282Z",
-      "modified_at": "2025-02-19T16:53:18.282Z",
+      "created_at": "2025-07-22T14:52:43.184Z",
+      "modified_at": "2025-07-22T14:52:43.184Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22295,8 +22310,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5.betrifft-das-bauvorhaben-einen-telekommunikationsanschluss-v5-nein",
     "fields": {
-      "created_at": "2025-02-19T16:53:18.280Z",
-      "modified_at": "2025-02-19T16:53:18.280Z",
+      "created_at": "2025-07-22T14:52:43.182Z",
+      "modified_at": "2025-07-22T14:52:43.182Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22310,8 +22325,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5.betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-ja",
     "fields": {
-      "created_at": "2025-02-19T16:53:26.932Z",
-      "modified_at": "2025-02-19T16:53:26.932Z",
+      "created_at": "2025-07-22T14:54:06.413Z",
+      "modified_at": "2025-07-22T14:54:06.413Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22325,8 +22340,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5.betrifft-das-bauvorhaben-eine-trinkwasserinstallation-v5-nein",
     "fields": {
-      "created_at": "2025-02-19T16:53:26.930Z",
-      "modified_at": "2025-02-19T16:53:26.930Z",
+      "created_at": "2025-07-22T14:54:06.412Z",
+      "modified_at": "2025-07-22T14:54:06.412Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22340,8 +22355,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-elektroinstallationen-v5.betrifft-das-bauvorhaben-elektroinstallationen-v5-ja",
     "fields": {
-      "created_at": "2025-02-19T16:53:12.937Z",
-      "modified_at": "2025-02-19T16:53:12.937Z",
+      "created_at": "2025-07-22T14:54:46.705Z",
+      "modified_at": "2025-07-22T14:54:46.705Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22355,8 +22370,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-elektroinstallationen-v5.betrifft-das-bauvorhaben-elektroinstallationen-v5-nein",
     "fields": {
-      "created_at": "2025-02-19T16:53:12.935Z",
-      "modified_at": "2025-02-19T16:53:12.935Z",
+      "created_at": "2025-07-22T14:54:46.702Z",
+      "modified_at": "2025-07-22T14:54:46.702Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22370,8 +22385,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-gasinstallationen-v5.betrifft-das-bauvorhaben-gasinstallationen-v5-ja",
     "fields": {
-      "created_at": "2025-02-19T16:53:22.556Z",
-      "modified_at": "2025-02-19T16:53:22.556Z",
+      "created_at": "2025-07-22T14:55:53.344Z",
+      "modified_at": "2025-07-22T14:55:53.344Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22385,8 +22400,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-gasinstallationen-v5.betrifft-das-bauvorhaben-gasinstallationen-v5-nein",
     "fields": {
-      "created_at": "2025-02-19T16:53:22.554Z",
-      "modified_at": "2025-02-19T16:53:22.554Z",
+      "created_at": "2025-07-22T14:55:53.342Z",
+      "modified_at": "2025-07-22T14:55:53.342Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22400,8 +22415,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5.betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-ja",
     "fields": {
-      "created_at": "2025-02-19T16:53:31.325Z",
-      "modified_at": "2025-02-19T16:53:31.325Z",
+      "created_at": "2025-07-22T14:56:35.545Z",
+      "modified_at": "2025-07-22T14:56:35.545Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -22415,8 +22430,8 @@
     "model": "caluma_form.questionoption",
     "pk": "betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5.betrifft-das-bauvorhaben-wasser-abwasserinstallationen-v5-nein",
     "fields": {
-      "created_at": "2025-02-19T16:53:31.323Z",
-      "modified_at": "2025-02-19T16:53:31.323Z",
+      "created_at": "2025-07-22T14:56:35.543Z",
+      "modified_at": "2025-07-22T14:56:35.543Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -23195,8 +23210,8 @@
     "model": "caluma_form.questionoption",
     "pk": "grundriss-angabe-bodenflaeche-dokument-v5.grundriss-angabe-bodenflaeche-dokument-v5-ja",
     "fields": {
-      "created_at": "2024-12-03T18:24:05.694Z",
-      "modified_at": "2024-12-03T18:24:05.694Z",
+      "created_at": "2025-07-22T14:21:28.301Z",
+      "modified_at": "2025-07-22T14:21:28.301Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -23210,8 +23225,8 @@
     "model": "caluma_form.questionoption",
     "pk": "grundriss-angabe-bodenflaeche-dokument-v5.grundriss-angabe-bodenflaeche-dokument-v5-nein",
     "fields": {
-      "created_at": "2024-12-03T18:24:05.692Z",
-      "modified_at": "2024-12-03T18:24:05.692Z",
+      "created_at": "2025-07-22T14:21:28.299Z",
+      "modified_at": "2025-07-22T14:21:28.299Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -23225,8 +23240,8 @@
     "model": "caluma_form.questionoption",
     "pk": "grundriss-dokument-v5.grundriss-dokument-v5-ja",
     "fields": {
-      "created_at": "2024-12-03T18:34:01.325Z",
-      "modified_at": "2024-12-03T18:34:01.325Z",
+      "created_at": "2025-07-22T15:07:32.314Z",
+      "modified_at": "2025-07-22T15:07:32.314Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -23240,8 +23255,8 @@
     "model": "caluma_form.questionoption",
     "pk": "grundriss-dokument-v5.grundriss-dokument-v5-nein",
     "fields": {
-      "created_at": "2024-12-03T18:34:01.322Z",
-      "modified_at": "2024-12-03T18:34:01.322Z",
+      "created_at": "2025-07-22T15:07:32.312Z",
+      "modified_at": "2025-07-22T15:07:32.312Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -24710,8 +24725,8 @@
     "model": "caluma_form.questionoption",
     "pk": "schnitt-dokument-v5.schnitt-dokument-v5-ja",
     "fields": {
-      "created_at": "2024-12-03T18:36:26.781Z",
-      "modified_at": "2024-12-03T18:36:26.781Z",
+      "created_at": "2025-07-22T15:09:05.488Z",
+      "modified_at": "2025-07-22T15:09:05.488Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -24725,8 +24740,8 @@
     "model": "caluma_form.questionoption",
     "pk": "schnitt-dokument-v5.schnitt-dokument-v5-nein",
     "fields": {
-      "created_at": "2024-12-03T18:36:26.778Z",
-      "modified_at": "2024-12-03T18:36:26.778Z",
+      "created_at": "2025-07-22T15:09:05.485Z",
+      "modified_at": "2025-07-22T15:09:05.485Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -25040,8 +25055,8 @@
     "model": "caluma_form.questionoption",
     "pk": "staendige-arbeitsplaetze-vorhanden-v5.staendige-arbeitsplaetze-vorhanden-v5-ja",
     "fields": {
-      "created_at": "2024-07-23T08:44:51.967Z",
-      "modified_at": "2024-07-23T08:44:51.967Z",
+      "created_at": "2025-07-22T15:11:12.628Z",
+      "modified_at": "2025-07-22T15:11:12.628Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -25055,8 +25070,8 @@
     "model": "caluma_form.questionoption",
     "pk": "staendige-arbeitsplaetze-vorhanden-v5.staendige-arbeitsplaetze-vorhanden-v5-nein",
     "fields": {
-      "created_at": "2024-07-23T08:44:51.964Z",
-      "modified_at": "2024-07-23T08:44:51.964Z",
+      "created_at": "2025-07-22T15:11:12.627Z",
+      "modified_at": "2025-07-22T15:11:12.627Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -25565,8 +25580,8 @@
     "model": "caluma_form.questionoption",
     "pk": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5.werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-ja",
     "fields": {
-      "created_at": "2025-02-26T16:36:12.186Z",
-      "modified_at": "2025-02-26T16:36:12.186Z",
+      "created_at": "2025-07-22T15:14:08.352Z",
+      "modified_at": "2025-07-22T15:14:08.352Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -25580,8 +25595,8 @@
     "model": "caluma_form.questionoption",
     "pk": "werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5.werden-aenderungen-grabarbeiten-in-strassen-radwegen-gehwegen-vorgenommen-v5-nein",
     "fields": {
-      "created_at": "2025-02-26T16:36:12.184Z",
-      "modified_at": "2025-02-26T16:36:12.184Z",
+      "created_at": "2025-07-22T15:14:08.350Z",
+      "modified_at": "2025-07-22T15:14:08.350Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -25595,8 +25610,8 @@
     "model": "caluma_form.questionoption",
     "pk": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5.werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5-ja",
     "fields": {
-      "created_at": "2025-05-12T13:37:38.353Z",
-      "modified_at": "2025-05-12T13:37:38.353Z",
+      "created_at": "2025-07-22T15:16:23.037Z",
+      "modified_at": "2025-07-22T15:16:23.038Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -25610,8 +25625,8 @@
     "model": "caluma_form.questionoption",
     "pk": "werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5.werden-im-bauprojekt-wohnraum-oder-pflegebauten-erstellt-v5-nein",
     "fields": {
-      "created_at": "2025-05-12T13:37:38.348Z",
-      "modified_at": "2025-05-12T13:37:38.348Z",
+      "created_at": "2025-07-22T15:16:23.034Z",
+      "modified_at": "2025-07-22T15:16:23.034Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -25625,8 +25640,8 @@
     "model": "caluma_form.questionoption",
     "pk": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5.werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-ja",
     "fields": {
-      "created_at": "2025-02-26T16:36:04.786Z",
-      "modified_at": "2025-02-26T16:36:04.786Z",
+      "created_at": "2025-07-22T15:17:31.989Z",
+      "modified_at": "2025-07-22T15:17:31.989Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -25640,8 +25655,8 @@
     "model": "caluma_form.questionoption",
     "pk": "werden-strassen-radwege-gehwege-in-anspruch-genommen-v5.werden-strassen-radwege-gehwege-in-anspruch-genommen-v5-nein",
     "fields": {
-      "created_at": "2025-02-26T16:36:04.784Z",
-      "modified_at": "2025-02-26T16:36:04.784Z",
+      "created_at": "2025-07-22T15:17:31.987Z",
+      "modified_at": "2025-07-22T15:17:31.987Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
