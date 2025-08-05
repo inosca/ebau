@@ -708,6 +708,87 @@ def test_update_deadline_progression_days_gr(
     assert deadline.total_days_of_suspension == expected_total_days_of_suspension
 
 
+@pytest.mark.freeze_time("2025-05-29")
+@pytest.mark.parametrize(
+    "service_group__name,role__name,has_open_suspension",
+    [
+        ("municipality", "municipality-lead", False),
+        ("service-afb", "service-lead", True),
+        ("service-afb", "service-lead", False),
+    ],
+)
+def test_update_deadline_enddate_ag(
+    db,
+    ag_instance,
+    service,
+    instance_deadline_factory,
+    deadline_type_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    service_factory,
+    suspension_factory,
+    ag_deadlines_settings,
+    ag_permissions_settings,
+    ag_distribution_settings,
+    set_application_ag,
+    has_open_suspension,
+    application_settings,
+    mocker,
+):
+    """Test the api to update the deadline enddate for a AG instance."""
+    application_settings["SHORT_NAME"] = "ag"
+
+    now = datetime.now()
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service
+        if service.service_group.name == "municipality"
+        else service_factory(),
+    )
+    mocker.patch(
+        "camac.instance.models.Instance.has_inquiry",
+        return_value=service.service_group.name != "municipality",
+    )
+    mocker.patch(
+        "camac.deadlines.models.InstanceDeadline.recalculate_progression",
+        return_value=False,
+    )
+    deadline = instance_deadline_factory(
+        instance=ag_instance,
+        service=service,
+        start_date=now,
+        deadline_type=deadline_type_factory(lead_time=0),
+    )
+    inquiry_work_item = caluma_work_item_factory(
+        case=ag_instance.case,
+        task=Task.objects.get(slug=ag_distribution_settings["INQUIRY_TASK"]),
+        addressed_groups=[str(service.pk)],
+        document=caluma_document_factory(),
+        closed_at=make_aware(datetime.strptime("2025-09-01", "%Y-%m-%d")),
+    )
+    if has_open_suspension:
+        suspension_factory(
+            deadline=deadline,
+            start_date=make_aware(datetime.strptime("2025-05-25", "%Y-%m-%d")),
+            work_item=inquiry_work_item,
+            reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
+            end_date=None,
+        )
+
+    if service.service_group.name == "municipality":
+        assert deadline._get_enddate_responsible() == now, (
+            "End date should be the current time for responsible service"
+        )
+    elif has_open_suspension:
+        assert deadline._get_enddate_inquired() is None, (
+            "End date should be None for inquired service with open suspension"
+        )
+    else:
+        assert deadline._get_enddate_inquired() == inquiry_work_item.closed_at, (
+            "End date should be the inquiry work item closed date for inquired service without open suspension"
+        )
+
+
 @pytest.mark.parametrize(
     "service_group__name,role__name", [("municipality", "municipality-lead")]
 )

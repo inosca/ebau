@@ -566,6 +566,10 @@ msgid "Additional demand suspension"
 msgstr "Nachforderungssistierung"
 
 #: camac/deadlines/models.py
+msgid "Inquiry claim suspension"
+msgstr "Stellungnahme sistierung"
+
+#: camac/deadlines/models.py
 msgid "Manual suspension"
 msgstr "Manuelle Sistierung"
 
