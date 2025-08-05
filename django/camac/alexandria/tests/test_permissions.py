@@ -409,13 +409,56 @@ def test_file_permission(
 
 @pytest.mark.parametrize("role__name", ["municipality"])
 @pytest.mark.parametrize(
-    "other_group,status_code",
+    "update_permission,other_service,status_code",
     [
         (
+            {
+                "scope": "All",
+                "fields": ["files"],
+                "permission": "update",
+            },
+            True,
+            HTTP_201_CREATED,
+        ),
+        (
+            {
+                "scope": "All",
+                "fields": ["files"],
+                "permission": "update",
+            },
+            False,
+            HTTP_201_CREATED,
+        ),
+        (
+            {
+                "permission": "update",
+            },
+            True,
+            HTTP_201_CREATED,
+        ),
+        (
+            {
+                "scope": "Service",
+                "fields": ["files"],
+                "permission": "update",
+            },
             True,
             HTTP_403_FORBIDDEN,
         ),
         (
+            {
+                "scope": "Service",
+                "permission": "update",
+            },
+            True,
+            HTTP_403_FORBIDDEN,
+        ),
+        (
+            {
+                "scope": "Service",
+                "fields": ["files"],
+                "permission": "update",
+            },
             False,
             HTTP_201_CREATED,
         ),
@@ -429,7 +472,8 @@ def test_file_replace_permission(
     service,
     service_factory,
     instance,
-    other_group,
+    other_service,
+    update_permission,
     status_code,
     set_application_gr,
 ):
@@ -440,13 +484,14 @@ def test_file_replace_permission(
                     "visibility": "all",
                     "permissions": [
                         {"permission": "create", "scope": "All"},
+                        update_permission,
                     ],
                 },
             }
         }
     )
 
-    if other_group:
+    if other_service:
         service = service_factory()
 
     doc = DocumentFactory(

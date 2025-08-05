@@ -116,10 +116,21 @@ UPDATE_ALL_METADATA_UNTIL_DECISION = {
     "fields": METADATA_FIELDS,
     "permission": "update",
 }
-
 UPDATE_OWN_METADATA_UNTIL_DECISION = {
     **OWN_UNTIL_DECISION,
     "fields": METADATA_FIELDS,
+    "permission": "update",
+}
+
+REPLACE_ALL_UNTIL_DECISION = {
+    **ALL_UNTIL_DECISION,
+    "fields": ["files"],
+    "permission": "update",
+}
+
+REPLACE_OWN_UNTIL_DECISION = {
+    **OWN_UNTIL_DECISION,
+    "fields": ["files"],
     "permission": "update",
 }
 
@@ -182,6 +193,7 @@ CRU_ALL_UNTIL_DECISION_AND_DELETE_OWN_DECISION_MARK_CONDITIONS = [
     MOVE_ALL_UNTIL_DECISION,
     UPDATE_ALL_MARKS_UNTIL_DECISION,
     UPDATE_ALL_METADATA_UNTIL_DECISION,
+    REPLACE_ALL_UNTIL_DECISION,
     UPDATE_ALL_TAGS,
     DELETE_OWN_WITH_NO_DECISION_MARK,
     DELETE_OWN_UNTIL_DECISION_WITH_DECISION_MARK,
@@ -192,6 +204,7 @@ CRU_OWN_UNTIL_DECISION_AND_DELETE_OWN_DECISION_MARK_CONDITIONS = [
     CREATE_UNRESTRICTED,
     UPDATE_ALL_TAGS,
     UPDATE_OWN_METADATA_UNTIL_DECISION,
+    REPLACE_OWN_UNTIL_DECISION,
     MOVE_OWN_UNTIL_DECISION,
     DELETE_OWN_WITH_NO_DECISION_MARK,
     DELETE_OWN_UNTIL_DECISION_WITH_DECISION_MARK,
@@ -235,7 +248,14 @@ CONFIG = {
                 UPDATE_ALL_TAGS,
                 UPDATE_ALL_MARKS_UNTIL_DECISION,
                 UPDATE_ALL_METADATA_UNTIL_DECISION,
+                REPLACE_OWN_UNTIL_DECISION,
                 DELETE_OWN_UNTIL_DECISION,
+                {
+                    "scope": "All",
+                    "condition": UNTIL_SUBMIT_WITH_PAPER_CONDITION,
+                    "fields": ["files"],
+                    "permission": "update",
+                },
                 {
                     "scope": "All",
                     "condition": UNTIL_SUBMIT_WITH_PAPER_CONDITION,
@@ -256,6 +276,7 @@ CONFIG = {
                 UPDATE_ALL_MARKS_UNTIL_DECISION,
                 UPDATE_ALL_METADATA_UNTIL_DECISION,
                 MOVE_OWN_UNTIL_DECISION,
+                REPLACE_OWN_UNTIL_DECISION,
                 DELETE_OWN_UNTIL_DECISION,
             ],
         },
@@ -269,9 +290,10 @@ CONFIG = {
             "permissions": [
                 CREATE_UNTIL_DECISION,
                 MOVE_OWN_UNTIL_DECISION,
-                DELETE_OWN_UNTIL_DECISION,
                 UPDATE_ALL_TAGS,
                 UPDATE_OWN_METADATA_UNTIL_DECISION,
+                REPLACE_OWN_UNTIL_DECISION,
+                DELETE_OWN_UNTIL_DECISION,
             ],
         },
         INTERNAL_READ: VISIBILITY_ALL,
@@ -298,6 +320,7 @@ CONFIG = {
                 MOVE_OWN_UNTIL_DECISION,
                 UPDATE_ALL_MARKS_UNTIL_DECISION,
                 UPDATE_ALL_METADATA_UNTIL_DECISION,
+                REPLACE_OWN_UNTIL_DECISION,
                 UPDATE_ALL_TAGS,
                 DELETE_OWN_UNTIL_DECISION,
             ],
@@ -315,6 +338,7 @@ CONFIG = {
                 UPDATE_ALL_MARKS_UNTIL_DECISION,
                 UPDATE_ALL_METADATA_UNTIL_DECISION,
                 UPDATE_ALL_TAGS,
+                REPLACE_OWN_UNTIL_DECISION,
                 DELETE_OWN_UNTIL_DECISION,
             ],
         },
@@ -330,6 +354,7 @@ CONFIG = {
                 MOVE_OWN_UNTIL_DECISION,
                 UPDATE_OWN_METADATA_UNTIL_DECISION,
                 UPDATE_ALL_TAGS,
+                REPLACE_OWN_UNTIL_DECISION,
                 DELETE_OWN_UNTIL_DECISION,
             ],
         },

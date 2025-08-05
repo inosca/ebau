@@ -48,6 +48,18 @@
                 "permission": "update"
               },
               {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "All",
                 "fields": ["tags", "category"],
                 "condition": {
@@ -136,6 +148,18 @@
                 "permission": "update"
               },
               {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "Service",
                 "condition": {
                   "~InstanceState": [
@@ -173,6 +197,18 @@
               {
                 "scope": "Service",
                 "fields": ["title", "description", "date", "category", "files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -221,13 +257,24 @@
                 "permission": "create"
               },
               {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "All",
                 "fields": [
                   "title",
                   "description",
                   "date",
                   "category",
-                  "files",
                   "tags",
                   "marks"
                 ],
@@ -300,14 +347,19 @@
               },
               {
                 "scope": "All",
-                "fields": [
-                  "tags",
-                  "category",
-                  "title",
-                  "description",
-                  "date",
-                  "files"
-                ],
+                "fields": ["tags", "category", "title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -374,7 +426,19 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "category", "files"],
+                "fields": ["title", "description", "date", "category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -477,6 +541,14 @@
                 "permission": "update"
               },
               {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
+                "condition": {
+                  "InstanceState": ["construction-acceptance"]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "Service",
                 "condition": {
                   "InstanceState": ["construction-acceptance"]
@@ -532,6 +604,18 @@
                 "permission": "update"
               },
               {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "All",
                 "fields": ["title", "description", "date", "tags", "marks"],
                 "condition": {
@@ -545,6 +629,28 @@
               },
               {
                 "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks"
+                ],
+                "condition": {
+                  "PaperInstance": true,
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "PaperInstance": true,
                   "~InstanceState": [
@@ -676,6 +782,18 @@
                 "permission": "update"
               },
               {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "Service",
                 "condition": {
                   "~InstanceState": [
@@ -722,7 +840,41 @@
                 "permission": "update"
               },
               {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks"
+                ],
+                "condition": {
+                  "PaperInstance": true,
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "PaperInstance": true,
                   "~InstanceState": [
@@ -900,6 +1052,14 @@
                 "permission": "update"
               },
               {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "Service",
                 "condition": {
                   "~InstanceState": ["subm"]
@@ -956,7 +1116,19 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "files"],
+                "fields": ["title", "description", "date"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1031,7 +1203,19 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "category", "files"],
+                "fields": ["title", "description", "date", "category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1090,7 +1274,19 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "category", "files"],
+                "fields": ["title", "description", "date", "category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1140,6 +1336,27 @@
               },
               {
                 "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1215,6 +1432,23 @@
               },
               {
                 "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks"
+                ],
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": ["subm"]
                 },
@@ -1282,6 +1516,23 @@
               },
               {
                 "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks"
+                ],
+                "condition": {
+                  "~InstanceState": ["subm"]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": ["subm"]
                 },
@@ -1719,6 +1970,28 @@
               },
               {
                 "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks"
+                ],
+                "condition": {
+                  "PaperInstance": true,
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "PaperInstance": true,
                   "~InstanceState": [
@@ -1743,6 +2016,18 @@
               },
               {
                 "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -1881,6 +2166,18 @@
                 "permission": "update"
               },
               {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "Service",
                 "condition": {
                   "~InstanceState": [
@@ -1908,6 +2205,28 @@
               },
               {
                 "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks"
+                ],
+                "condition": {
+                  "PaperInstance": true,
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "PaperInstance": true,
                   "~InstanceState": [
@@ -1921,6 +2240,18 @@
               {
                 "scope": "All",
                 "fields": ["title", "description", "date", "tags", "marks"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -2016,6 +2347,18 @@
                 "permission": "update"
               },
               {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
                 "scope": "Service",
                 "condition": {
                   "~InstanceState": [
@@ -2053,7 +2396,19 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "category", "files"],
+                "fields": ["title", "description", "date", "category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -2125,7 +2480,19 @@
               },
               {
                 "scope": "Service",
-                "fields": ["title", "description", "date", "category", "files"],
+                "fields": ["title", "description", "date", "category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -2268,10 +2635,21 @@
                   "category",
                   "title",
                   "description",
-                  "files",
                   "date",
                   "marks"
                 ],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["files"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
