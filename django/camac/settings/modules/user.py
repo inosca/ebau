@@ -7,16 +7,16 @@ USER = ModuleConfig[UserConfig](
         enabled=True,
         question_user_attributes_mapping={
             "e-mail-gesuchstellerin": "email",
-            "name-gesuchstellerin": "name",
-            "vorname-gesuchstellerin": "surname",
+            "name-gesuchstellerin": "surname",
+            "vorname-gesuchstellerin": "name",
         },
     ),
     kt_ag=UserConfig(
         enabled=True,
         question_user_attributes_mapping={
             "e-mail-gesuchstellerin": "email",
-            "name-gesuchstellerin": "name",
-            "vorname-gesuchstellerin": "surname",
+            "name-gesuchstellerin": "surname",
+            "vorname-gesuchstellerin": "name",
             "telefon-oder-mobile-gesuchstellerin": ["phone", "mobile"],
         },
         allowed_write_attributes=[
@@ -30,8 +30,8 @@ USER = ModuleConfig[UserConfig](
         enabled=True,
         question_user_attributes_mapping={
             "e-mail-gesuchstellerin": "email",
-            "name-gesuchstellerin": "name",
-            "vorname-gesuchstellerin": "surname",
+            "name-gesuchstellerin": "surname",
+            "vorname-gesuchstellerin": "name",
         },
         allowed_write_attributes=[
             "title",
