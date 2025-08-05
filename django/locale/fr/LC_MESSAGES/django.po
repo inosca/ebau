@@ -559,6 +559,10 @@ msgid "Additional demand suspension"
 msgstr ""
 
 #: camac/deadlines/models.py
+msgid "Inquiry claim suspension"
+msgstr ""
+
+#: camac/deadlines/models.py
 msgid "Manual suspension"
 msgstr ""
 

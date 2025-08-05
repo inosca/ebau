@@ -10,6 +10,8 @@ from django.db import transaction
 from django.utils.timezone import now
 
 from camac.caluma.extensions.events.general import get_instance
+from camac.caluma.models import Inquiry
+from camac.core.utils import canton_aware
 from camac.deadlines import models as deadlines_models
 from camac.user.models import Service
 
@@ -144,12 +146,122 @@ def post_complete_publication(sender, work_item, user, context=None, **kwargs):
 @filter_by_distribution_task("INQUIRY_ANSWER_FILL_TASK")
 @filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
 @transaction.atomic
+@canton_aware
 def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
     """Create a deadline when an inquiry is sent."""
 
     instance = get_instance(work_item)
     for service in Service.objects.filter(pk__in=work_item.addressed_groups):
         instance.deadlines.create_deadline(instance=instance, service=service)
+
+
+@on(post_create_work_item, raise_exception=True)
+@filter_by_distribution_task("INQUIRY_ANSWER_FILL_TASK")
+@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@transaction.atomic
+def post_create_inquiry_ag(sender, work_item, user, context=None, **kwargs):
+    """Create a deadline when an inquiry is sent.
+
+    In AG, if the deadline already exists, close any existing open inquiry
+    claim suspensions.
+
+    If a previous inquiry exists, create a new suspension for the time between
+    the previous inquiry and the new inquiry.
+    """
+
+    instance = get_instance(work_item)
+    for service in Service.objects.filter(pk__in=work_item.addressed_groups):
+        instance.deadlines.create_deadline(instance=instance, service=service)
+
+        # If the service is re-invited (previous inquiry exists), we create a
+        # new suspension starting at the previous inquiry close date.
+        if deadline := instance.deadlines.filter(service=service).first():
+            workitem_inquiry = (
+                Inquiry.objects.addressed_to(service.pk)
+                .only_active()
+                .filter(child_case=work_item.case)
+                .order_by("-created_at")
+                .first()
+            )
+            previous_inquiry = (
+                Inquiry.objects.for_distribution_case(workitem_inquiry.case)
+                .addressed_to(work_item.addressed_groups)
+                .only_answered()
+                .exclude(pk=workitem_inquiry.pk)
+                .order_by("-created_at")
+                .first()
+            )
+            if previous_inquiry and not (
+                deadlines_models.Suspension.objects.for_deadline(deadline)
+                .for_inquiry(previous_inquiry)
+                .exists()
+            ):
+                suspension = deadlines_models.Suspension.objects.create(
+                    deadline=deadline,
+                    work_item=previous_inquiry,
+                    start_date=previous_inquiry.closed_at,
+                    reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
+                )
+                suspension.complete()
+
+            # Close any existing open inquiry claim suspensions for the deadline.
+            for suspension in deadline.suspensions.filter(
+                reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
+                end_date__isnull=True,
+            ):
+                suspension.complete()
+
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_by_distribution_task("INQUIRY_ANSWER_FILL_TASK")
+@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@transaction.atomic
+@canton_aware
+def post_complete_inquiry_fill(
+    sender, work_item, user, context=None, **kwargs
+):  # pragma: no cover
+    pass
+
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_by_distribution_task("INQUIRY_ANSWER_FILL_TASK")
+@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@transaction.atomic
+def post_complete_inquiry_fill_ag(sender, work_item, user, context=None, **kwargs):
+    """Create a suspension for inquired service based on the decision."""
+    instance = get_instance(work_item)
+    decision_answer = work_item.case.document.answers.filter(
+        question__slug=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
+    ).first()
+
+    # If the decision is not "Unterlagenergänzung", we do not create a suspension.
+    if not decision_answer or decision_answer.value != "inquiry-answer-status-claim":
+        return
+
+    for service in Service.objects.filter(pk__in=work_item.addressed_groups):
+        if deadline := instance.deadlines.filter(service=service).first():
+            workitem_inquiry = (
+                Inquiry.objects.addressed_to(service.pk)
+                .only_active()
+                .filter(child_case=work_item.case)
+                .order_by("-created_at")
+                .first()
+            )
+            if not (
+                deadline.suspensions.for_deadline(deadline)
+                .for_inquiry(workitem_inquiry)
+                .first()
+            ):
+                deadlines_models.Suspension.objects.create(
+                    deadline=deadline,
+                    work_item=workitem_inquiry,
+                    start_date=now().date(),
+                    reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
+                )
+
+            instance.deadlines.update_service_deadline(
+                instance=instance, service=service
+            )
 
 
 @on(post_complete_work_item, raise_exception=True)

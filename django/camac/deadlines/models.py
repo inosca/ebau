@@ -74,6 +74,13 @@ class SuspensionQuerySet(DeadlinePermissionMixin, models.QuerySet["Suspension"])
             reason=Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND
         )
 
+    def for_inquiry(self: TSuspension, work_item: WorkItem) -> TSuspension:
+        return self.for_workitem(
+            work_item=work_item,
+        ).filter(
+            reason=Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM
+        )
+
 
 class InstanceDeadlinesQuerySet(
     DeadlinePermissionMixin, models.QuerySet["InstanceDeadline"]
@@ -177,6 +184,10 @@ class Suspension(models.Model):
         SUSPENSION_TYPE_ADDITIONAL_DEMAND = (
             "additional_demand_suspension",
             _("Additional demand suspension"),
+        )
+        SUSPENSION_TYPE_INQUIRY_CLAIM = (
+            "inquiry_claim_suspension",
+            _("Inquiry claim suspension"),
         )
         SUSPENSION_TYPE_MANUAL = "manual_suspension", _("Manual suspension")
 
@@ -534,8 +545,34 @@ class InstanceDeadline(models.Model):
 
         return process_deadline_date
 
+    @canton_aware
     def _get_enddate_inquired(self) -> Optional[datetime]:
         """For inquired services, the end date is set to the inquiry answer date."""
+        work_item = (
+            Inquiry.objects.for_instance(self.instance)
+            .addressed_to(str(self.service.pk))
+            .order_by("-created_at")
+            .first()
+        )
+
+        return work_item.closed_at if work_item else None
+
+    def _get_enddate_inquired_ag(self) -> Optional[datetime]:
+        """For inquired services in AG, the end date is based on the decision.
+
+        If the decision is set to "Unterlagenergänzung", a suspension is created,
+        and no end date is set. For all other decisions, the end date is set to the
+        inquiry answer date.
+        """
+        has_open_claim_suspension = self.suspensions.filter(
+            deadline=self,
+            reason=Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
+            end_date__isnull=True,
+        ).exists()
+
+        if has_open_claim_suspension:
+            return None
+
         work_item = (
             Inquiry.objects.for_instance(self.instance)
             .addressed_to(str(self.service.pk))
