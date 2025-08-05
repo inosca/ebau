@@ -257,15 +257,6 @@ class CustomPermission:
     def has_permission_for_file(self, request):
         document = Document.objects.get(pk=request.data["document"])
 
-        # replacement files can only be created by same organization
-        if (
-            settings.APPLICATION_NAME == "kt_gr"
-            and request.method == "POST"
-            and document.files.filter(variant=File.Variant.ORIGINAL).count() >= 1
-            and not scopes.ServiceAndSubservice(request.group, document).evaluate()
-        ):
-            return False
-
         available_permissions = self.get_available_permissions(
             request, document.instance_document.instance, document.category, document
         )
@@ -273,7 +264,13 @@ class CustomPermission:
         if not available_permissions:
             return False
 
-        needed_permissions = {"create-files"}
+        needed_permissions = (
+            {"update-files"}
+            if request.method == "POST"
+            and document.files.filter(variant=File.Variant.ORIGINAL).count() >= 1
+            else {"create-files"}
+        )
+
         return needed_permissions.issubset(available_permissions)
 
     @object_permission_for(File)
