@@ -1,0 +1,10 @@
+# serializer version: 1
+# name: test_agis_export
+  <QuerySet [{'coordinate_x': 2641234.1234, 'coordinate_y': 1245670.121212, 'dossier_number': '2025-08', 'responsible_user': 'Admin User', 'intent': 'Test Vorhaben', 'municipality': 'Test Municipality', 'plot_number': '1338', 'status': 'Submitted', 'applicant': 'Vorname Nachname', 'submit_date': datetime.date(2025, 8, 5), 'type': 'Baugesuch'}]>
+# ---
+# name: test_agis_export.1
+  <QuerySet [{'coordinate_x': 2641234.1234, 'coordinate_y': 1245670.121212, 'dossier_number': '2025-08', 'responsible_user': 'Admin User', 'intent': 'Test Vorhaben', 'municipality': 'Test Municipality', 'plot_number': '1338', 'status': 'Submitted', 'applicant': 'Vorname Nachname', 'submit_date': datetime.date(2025, 8, 5), 'type': 'Baugesuch'}]>
+# ---
+# name: test_agis_export.2
+  <QuerySet [{'coordinate_x': 2641234.1234, 'coordinate_y': 1245670.121212, 'dossier_number': '2025-08', 'responsible_user': 'Admin User', 'intent': 'Test Vorhaben', 'municipality': 'Test Municipality', 'plot_number': '1338', 'status': 'In circulation', 'applicant': 'Firma Test', 'submit_date': datetime.date(2025, 8, 5), 'type': 'Baugesuch'}]>
+# ---

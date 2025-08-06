@@ -137,6 +137,7 @@ INSTALLED_APPS = [
     "camac.work_items.apps.WorkItemsConfig",
     "camac.rulesets.apps.RulesetsConfig",
     "camac.deadlines.apps.DeadlinesConfig",
+    "camac.gis_export.apps.GISExportConfig",
 ]
 
 if DEBUG:  # pragma: no cover
