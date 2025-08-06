@@ -60,6 +60,40 @@ def do_stuff(self, request):
 
 ```
 
+
+### Building querysets for a global context using static permissions
+
+Static permissions are like regular permissions. However, they can be checked
+in a global scope, not just within a single instance. This allows us to define
+permissions in contexts that span multiple instances.
+
+Assuming we have a static permission `documents-read-internal`, and a
+`documents-read-all` permission, each of which apply to separate categories: We
+could then build a visibility queryset like this:
+
+```python
+    mgr = PermissionManager(...)
+    internal_expr = Q(
+        #  In sections 1 and 2, the user can
+        # only see "internal" documents, meaning same/own service, if he has
+        # the "documents-read-internal" static permission on said instance.
+        mgr.static_permission_expr(
+            "documents-read-internal", instance_prefix="instance"
+        ),
+        category_id__in=[1, 2],
+        service=mgr.userinfo.service,
+    )
+    all_expr = Q(
+        # In section 3, all documents are readable if user has the
+        # `documents-read-all` static permission
+        mgr.static_permission_expr("documents-read-all", instance_prefix="instance"),
+        category_id__in=[3],
+    )
+    atts = Attachment.objects.filter(all_expr | internal_expr)
+    ...
+```
+
+
 ### Granting and revoking permissions
 
 ```python

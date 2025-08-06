@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import operator
+from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from functools import reduce
@@ -9,14 +10,14 @@ from typing import List, Optional, Union
 from django.conf import ImproperlyConfigured, settings
 from django.contrib.auth.models import AnonymousUser
 from django.core.cache import cache
-from django.db.models import Q, QuerySet, Subquery
+from django.db.models import Exists, OuterRef, Q, QuerySet, Subquery
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from rest_framework.exceptions import PermissionDenied
 
 from camac.instance.models import Instance
 from camac.permissions import models
-from camac.permissions.conditions import PermissionContext
+from camac.permissions.conditions import PermissionContext, Static
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.user import models as user_models
 from camac.user.models import Role, Service, User
@@ -259,6 +260,55 @@ class PermissionManager:
             .filter(instance=context.instance)
             .select_related("access_level")
         )
+
+    def _static_permissions_by_level(self):
+        collected = defaultdict(list)
+        for level, perms in self.permission_settings["ACCESS_LEVELS"].items():
+            for perm, check in perms:
+                if isinstance(check, Static) or check is Static:
+                    collected[level].append(perm)
+        return dict(collected)
+
+    def get_static_permission_acl_map(self) -> dict[str, models.InstanceACL.QuerySet]:
+        """
+        Return a dict that maps every static permission to an ACL queryset.
+
+        For every static permission that is configured, a QS is returned
+        that contains every `InstanceACL` where that permission is granted.
+        This allows you to build a visibility check that uses these permissions.
+        """
+        perm_info = self._static_permissions_by_level()
+
+        flipped = defaultdict(set)  # perm -> access level
+        for level, perms in perm_info.items():
+            for perm in perms:
+                flipped[perm].add(level)
+
+        base_qs = models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
+
+        return {
+            perm: base_qs.filter(access_level_id__in=levels)
+            for perm, levels in flipped.items()
+        }
+
+    def static_permission_expr(self, permission: str, instance_prefix: str = None):
+        """
+        Return a Q / Exists expression to check for a given static permission.
+
+        If the instance prefix is not given, it is assumed to be an instance
+        queryset.
+        """
+        acls = self.get_acls_for_static_permission(permission)
+
+        instance_ref = f"{instance_prefix}__pk" if instance_prefix else "pk"
+
+        return Exists(acls.filter(instance_id=OuterRef(instance_ref)))
+
+    def get_acls_for_static_permission(self, perm):
+        the_map = self.get_static_permission_acl_map()
+        if perm not in the_map:  # pragma: no cover
+            raise ImproperlyConfigured(f"Static permission '{perm}' is not configured")
+        return the_map[perm]
 
     def get_permissions(self, context: PermissionContext | Instance) -> List[str]:
         # We can globally disable the cache. By default, caching is enabled,
