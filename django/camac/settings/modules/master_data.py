@@ -2414,6 +2414,7 @@ MASTER_DATA = {
                 {"column_mapping": SO_PERSONAL_DATA_MAPPING},
             ),
             "proposal": ("answer", "umschreibung-bauprojekt"),
+            "short_proposal": ("answer", "kurzbeschreibung-bauprojekt"),
             "joined_street_and_number": ("static", False),
             "street": ("answer", "strasse-flurname"),
             "street_number": ("answer", "strasse-nummer"),

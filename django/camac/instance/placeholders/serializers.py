@@ -1715,6 +1715,11 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
 
 class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    kurzbeschreibung_bauvorhaben = fields.MasterDataField(
+        source="short_proposal",
+        aliases=[_("SHORT_PROPOSAL")],
+        description=_("Short description of the project"),
+    )
     bfs_nummer = fields.MasterDataField(
         source="bfs_number",
         aliases=[_("BFS_NUMBER")],
