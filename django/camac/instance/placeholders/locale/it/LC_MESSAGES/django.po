@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-31 12:15+0200\n"
+"POT-Creation-Date: 2025-08-07 17:36+0200\n"
 "PO-Revision-Date: 2025-05-26 15:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2118,6 +2118,14 @@ msgstr "RESPONSABILE_GQ"
 #: camac/instance/placeholders/serializers.py
 msgid "Name of the person responsible for QS"
 msgstr "Nome della persona responsabile della GQ"
+
+#: camac/instance/placeholders/serializers.py
+msgid "SHORT_PROPOSAL"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Short description of the project"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "BFS_NUMBER"

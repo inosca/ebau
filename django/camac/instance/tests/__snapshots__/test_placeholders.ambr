@@ -8035,6 +8035,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'KURZBESCHREIBUNG_BAUVORHABEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'KURZBESCHREIBUNG_BAUVORHABEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Kurzbeschreibung des Bauvorhabens',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'LEITBEHOERDE_ADDRESS_1': dict({
       'aliases': list([
         dict({
@@ -10132,6 +10144,7 @@
     'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG',
     'KANTONALE_PRUEFUNG_VERFAHRENSSTAND',
     'KOORDINATEN',
+    'KURZBESCHREIBUNG_BAUVORHABEN',
     'LEITBEHOERDE_ADRESSE_1',
     'LEITBEHOERDE_ADRESSE_2',
     'LEITBEHOERDE_EMAIL',
@@ -12086,6 +12099,7 @@
     'KANTONALE_PRUEFUNG_TERMINVORGABE_BEI_ERFASSUNG': '02.01.2023',
     'KANTONALE_PRUEFUNG_VERFAHRENSSTAND': 'Entscheid',
     'KOORDINATEN': '',
+    'KURZBESCHREIBUNG_BAUVORHABEN': '',
     'LEITBEHOERDE_ADDRESS_1': 'Teststrasse 13',
     'LEITBEHOERDE_ADDRESS_2': '3000 Musterhausen',
     'LEITBEHOERDE_ADRESSE_1': 'Teststrasse 13',

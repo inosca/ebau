@@ -909,6 +909,7 @@
     'proposal': 'Grosses Haus',
     'publication_date': None,
     'remark': 'Das Haus ist wirklich gross..',
+    'short_proposal': None,
     'street': 'Musterstrasse',
     'street_number': '4',
     'submit_date': datetime.datetime(2024, 2, 22, 13, 17, 8, tzinfo=tzutc()),
