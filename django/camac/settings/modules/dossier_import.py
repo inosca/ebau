@@ -120,7 +120,7 @@ DOSSIER_IMPORT = {
             "soap_user": "unknown",
             "soap_password": "unknown",
         },
-        "DOCS_MIGRATION_ENABLED": True,
+        "DOCS_MIGRATION_ENABLED": env.bool("EBAU_DOCS_MIGRATION_ENABLED", True),
         "EBAU_DOCUMENT_CLIENT": {
             "connection": {
                 "base_url": env.str(
