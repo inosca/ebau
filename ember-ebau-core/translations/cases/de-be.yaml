@@ -51,3 +51,5 @@ cases:
     caseCreatedDateBefore-placeholder: "01.01.2001"
     keywords-placeholder: "Musterstichwort"
     type-placeholder: "Alle Gesuchstypen"
+  submit:
+    confirm: "Wollen Sie das Dossier einreichen? Dieser Schritt kann nicht rückgängig gemacht werden."

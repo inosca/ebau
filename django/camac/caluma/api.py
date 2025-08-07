@@ -178,10 +178,10 @@ class CalumaApi:
 
     def is_submitted(self, instance):
         """Return true if instance got submitted by the applicant."""
-        return (
-            instance.case.work_items.filter(task_id="submit").first().status
-            == caluma_workflow_models.WorkItem.STATUS_COMPLETED
-        )
+        work_item = instance.case.work_items.filter(task_id="submit").first()
+        if not work_item:  # pragma: no cover
+            return False
+        return work_item.status == caluma_workflow_models.WorkItem.STATUS_COMPLETED
 
     def is_ech_submitted(self, instance):
         return instance.case.meta.get("ech0211-submitted", False)

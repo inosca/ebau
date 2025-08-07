@@ -2,6 +2,7 @@ import { assert } from "@ember/debug";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { dropTask } from "ember-concurrency";
+import { confirm } from "ember-uikit";
 
 import { hasInstanceState } from "ember-ebau-core/abilities/instance";
 import featuresConfig from "ember-ebau-core/config/features";
@@ -45,6 +46,16 @@ export default class SubmitInstanceComponent extends Component {
 
   @dropTask
   *afterValidate() {
+    const action = this.args.field.question.raw.meta.action;
+    assert("Field must have a meta property `action`", action);
+
+    // BE only: Show confirm if the translation exists.
+    const confirmKey = `cases.${action}.confirm`;
+    if (this.intl.exists(confirmKey)) {
+      if (!(yield confirm(this.intl.t(confirmKey)))) {
+        return;
+      }
+    }
     // mark instance as submitted (optimistic) because after submitting, answer cannot be saved anymore
     this.args.field.answer.value =
       this.args.field.question.raw.multipleChoiceOptions?.edges[0]?.node.slug;
@@ -52,9 +63,7 @@ export default class SubmitInstanceComponent extends Component {
 
     try {
       const instanceId = this.args.context.instanceId;
-      const action = this.args.field.question.raw.meta.action;
 
-      assert("Field must have a meta property `action`", action);
       const instance = yield this.store.peekRecord("instance", instanceId);
 
       if (
