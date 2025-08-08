@@ -1,5 +1,5 @@
 from camac.settings.ebau_schema import ModuleConfig
-from camac.settings.modules.deadlines_schema import DeadlinesConfig
+from camac.settings.modules.deadlines_schema import CalculationConfig, DeadlinesConfig
 
 DEADLINES = ModuleConfig[DeadlinesConfig](
     default=DeadlinesConfig(),
@@ -7,5 +7,10 @@ DEADLINES = ModuleConfig[DeadlinesConfig](
     kt_so=DeadlinesConfig(),
     kt_uri=DeadlinesConfig(),
     kt_schwyz=DeadlinesConfig(),
-    kt_ag=DeadlinesConfig(enabled=True),
+    kt_ag=DeadlinesConfig(
+        enabled=True,
+        calculation=CalculationConfig(
+            exclude_weekends=False,
+        ),
+    ),
 )
