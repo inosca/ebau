@@ -116,12 +116,20 @@ MODULE_WORK_ITEMS = (
     STATES_ALL & ROLES_NO_READONLY & ~IsServiceGroup(["municipality-light"])
 )
 
-MODULE_DEADLINES_SUSPENSION = STATES_ALL & (
-    (IsServiceGroup(["municipality"]) & (HasRole(["municipality-lead"]))) | ROLES_AFB
+ROLES_DEADLINES_WRITE = (
+    IsServiceGroup(["municipality"]) & (HasRole(["municipality-lead"]))
+) | ROLES_AFB
+
+ROLES_DEADLINES_READ = (
+    ROLES_DEADLINES_WRITE
+    | IsServiceGroup(["service-cantonal"])
+    | HasRole(["subservice"])
 )
-MODULE_DEADLINES_DEADLINE = STATES_ALL & (
-    (IsServiceGroup(["municipality"]) & (HasRole(["municipality-lead"]))) | ROLES_AFB
-)
+
+MODULE_DEADLINES_DEADLINE_READ = STATES_ALL & ROLES_DEADLINES_READ
+MODULE_DEADLINES_DEADLINE_WRITE = STATES_ALL & ROLES_DEADLINES_WRITE
+MODULE_DEADLINES_SUSPENSION_READ = STATES_ALL & ROLES_DEADLINES_READ
+MODULE_DEADLINES_SUSPENSION_WRITE = STATES_ALL & ROLES_DEADLINES_WRITE
 
 MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
 MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
@@ -223,24 +231,13 @@ AG_PERMISSIONS_SETTINGS = {
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
-            (
-                "deadlines-suspensions-read",
-                MODULE_DEADLINES_SUSPENSION
-                | IsServiceGroup(["service-cantonal"])
-                | HasRole(["subservice"]),
-            ),
-            (
-                "deadlines-suspensions-write",
-                MODULE_DEADLINES_SUSPENSION,
-            ),
-            ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
-            (
-                "deadlines-deadlines-write",
-                MODULE_DEADLINES_DEADLINE,
-            ),
+            ("deadlines-suspensions-read", MODULE_DEADLINES_SUSPENSION_READ),
+            ("deadlines-suspensions-write", MODULE_DEADLINES_SUSPENSION_WRITE),
+            ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE_READ),
+            ("deadlines-deadlines-write", MODULE_DEADLINES_DEADLINE_WRITE),
             (
                 "deadlines-deadlines-write-custom-enddate",
-                MODULE_DEADLINES_DEADLINE
+                MODULE_DEADLINES_DEADLINE_WRITE
                 & IsForm(
                     ["plangenehmigungsverfahren-gas", "plangenehmigungsverfahren-bund"],
                 ),
@@ -288,22 +285,16 @@ AG_PERMISSIONS_SETTINGS = {
             ("work-items-read", MODULE_WORK_ITEMS),
             ("instance-change-form", ACTION_INSTANCE_CHANGE_FORM),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
-            (
-                "deadlines-suspensions-read",
-                MODULE_DEADLINES_SUSPENSION,
-            ),
+            ("deadlines-suspensions-read", MODULE_DEADLINES_SUSPENSION_READ),
             (
                 "deadlines-suspensions-write",
-                MODULE_DEADLINES_SUSPENSION,
+                MODULE_DEADLINES_SUSPENSION_WRITE,
             ),
-            ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
-            (
-                "deadlines-deadlines-write",
-                MODULE_DEADLINES_DEADLINE,
-            ),
+            ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE_READ),
+            ("deadlines-deadlines-write", MODULE_DEADLINES_DEADLINE_WRITE),
             (
                 "deadlines-deadlines-write-custom-enddate",
-                MODULE_DEADLINES_DEADLINE
+                MODULE_DEADLINES_DEADLINE_WRITE
                 & IsForm(
                     ["plangenehmigungsverfahren-gas", "plangenehmigungsverfahren-bund"],
                 ),
