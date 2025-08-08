@@ -105,8 +105,9 @@ support:
     96">+41 31 636 99 96</a>
   selectMunicipality: "Veuillez sélectionner la commune compétente"
   infoText: "L'autorité directrice compétente vous aidera volontiers :"
-  phone: "Téléphone:"
-  email: "e-mail:"
+  phone: "Téléphone :"
+  email: "E-mail :"
+  website: "Site web :"
   linkToFaq: "Consultez la page FAQ pour plus d'informations."
 
 index:

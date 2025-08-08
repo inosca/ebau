@@ -1,5 +1,7 @@
 <h1 class="uk-margin-medium-bottom uk-text-center">{{t "support.type"}}</h1>
-<div class="uk-flex uk-flex-column uk-text-center uk-flex-middle">
+<div
+  class="uk-flex uk-flex-column uk-text-center uk-flex-middle uk-margin-medium-bottom"
+>
   <div>
     <UkButton
       @label={{t "global.yes"}}
@@ -22,23 +24,33 @@
       @selected={{this.municipality}}
       @label={{t "support.selectMunicipality"}}
     />
-    {{#if this.municipality}}
+    {{#if (and this.municipality this.service.value)}}
       <p>{{t "support.infoText"}}</p>
       <div class="uk-card uk-card-default uk-card-body">
         <h4>{{this.service.value.name}}</h4>
         <p>
-          <strong>{{t "support.email"}}</strong>
-          {{this.service.value.email}}
-          <br />
-          <strong>{{t "support.phone"}}</strong>
-          {{this.service.value.phone}}
+          {{#if this.serviceWebsite}}
+            <strong>{{t "support.website"}}</strong>
+            <a class="uk-link" href={{this.serviceWebsite}}>
+              {{this.serviceWebsite}}
+            </a>
+            <br />
+          {{/if}}
+          {{#if this.service.value.email}}
+            <strong>{{t "support.email"}}</strong>
+            {{this.service.value.email}}
+            <br />
+          {{/if}}
+          {{#if this.service.value.phone}}
+            <strong>{{t "support.phone"}}</strong>
+            {{this.service.value.phone}}
+            <br />
+          {{/if}}
         </p>
       </div>
     {{/if}}
   {{else if (eq this.showSection "technical")}}
-    <div
-      class="uk-text-center uk-flex uk-flex-column uk-flex-middle uk-margin-top"
-    >
+    <div class="uk-text-center uk-flex uk-flex-column uk-flex-middle">
       <p
         class="uk-text-large uk-width-large uk-animation-fade uk-margin-remove-top uk-margin-medium-bottom"
       >{{t (concat "support." this.showSection) htmlSafe=true}}</p>

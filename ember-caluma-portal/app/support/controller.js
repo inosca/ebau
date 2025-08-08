@@ -24,12 +24,28 @@ export default class SupportController extends Controller {
     yield Promise.resolve();
 
     try {
-      return yield this.store.findRecord("public-service", this.municipality);
+      return yield this.store.findRecord(
+        "public-municipality",
+        this.municipality,
+      );
     } catch (e) {
       console.error(e);
       this.notification.danger(
         this.intl.t("municipality-filter.serviceLoadError"),
       );
     }
+  }
+
+  get serviceWebsite() {
+    const url = this.service.value?.website;
+    if (!url) return null;
+
+    if (url.startsWith("https://") || url.startsWith("http://")) {
+      return url;
+    }
+
+    // Prefix service website urls without scheme
+    // to avoid treating them as relative links
+    return `https://${url}`;
   }
 }

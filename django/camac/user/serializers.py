@@ -466,18 +466,6 @@ class PublicServiceGroupSerializer(MultilingualSerializer, serializers.ModelSeri
 
 class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     included_serializers = {"service_group": PublicServiceGroupSerializer}
-    email = serializers.SerializerMethodField()
-    phone = serializers.SerializerMethodField()
-
-    def get_email(self, obj):
-        if obj.service_group.name == "municipality" and not obj.service_parent:
-            return obj.email
-        return None
-
-    def get_phone(self, obj):
-        if obj.service_group.name == "municipality" and not obj.service_parent:
-            return obj.phone
-        return None
 
     class Meta:
         model = models.Service
@@ -486,10 +474,20 @@ class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerialize
             "website",
             "service_group",
             "logo",
-            "phone",
-            "email",
         )
         resource_name = "public-services"
+
+
+class PublicMunicipalitySerializer(MultilingualSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = models.Service
+        fields = (
+            "name",
+            "website",
+            "email",
+            "phone",
+        )
+        resource_name = "public-municipalities"
 
 
 class PublicGroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
