@@ -762,15 +762,9 @@ class DossierWriter:
             instance.case.meta["import-id"] = import_session_id
             instance.case.save()
 
-            workflow_message = self._set_workflow_state(instance, dossier)
+            workflow_messages = self._set_workflow_state(instance, dossier)
             instance.history.all().delete()
-            dossier_summary.details.append(
-                Message(
-                    level=get_message_max_level(workflow_message),
-                    code=MessageCodes.SET_WORKFLOW_STATE.value,
-                    detail=workflow_message,
-                )
-            )
+            dossier_summary.details.extend(workflow_messages)
 
         self.write_fields(instance, dossier)
 
