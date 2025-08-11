@@ -62,6 +62,7 @@ def test_instance_list(
     instance_service_factory,
     circulation_factory,
     activation_factory,
+    gr_linked_instances_settings,
     mocker,
     snapshot,
 ):

@@ -180,6 +180,10 @@ class InstanceSerializer(
         source="get_active_service", model=Service, read_only=True
     )
 
+    parent_instance = relations.SerializerMethodResourceRelatedField(
+        source="get_parent_instance", model=models.Instance, read_only=True
+    )
+
     def get_permissions(self, instance):
         return {}
 
@@ -207,6 +211,9 @@ class InstanceSerializer(
         return "support"
 
     def get_linked_instances(self, obj):
+        if not settings.LINKED_INSTANCES.enabled:  # pragma: no cover
+            return models.Instance.objects.none()
+
         queryset = self.context["view"].get_queryset()
         if not obj.instance_group or queryset.model is not models.Instance:
             return models.Instance.objects.none()
@@ -254,6 +261,19 @@ class InstanceSerializer(
 
     def get_active_service(self, instance):
         return instance.responsible_service(filter_type="municipality")
+
+    def get_parent_instance(self, instance):
+        """
+        Return the "original version" of instances that were created as a copy of another.
+
+        e.g. project modifications or "Dossier erneut einreichen" (re-submission of
+        rejected instance)
+        """
+
+        try:
+            return instance.case.document.source.case.instance
+        except AttributeError:
+            return None
 
     included_serializers = {
         "location": "camac.user.serializers.LocationSerializer",
@@ -332,6 +352,7 @@ class InstanceSerializer(
             "linked_instances",
             "circulation_initializer_services",
             "active_service",
+            "parent_instance",
             "keywords",
         )
         read_only_fields = (
@@ -344,6 +365,7 @@ class InstanceSerializer(
             "linked_instances",
             "circulation_initializer_services",
             "active_service",
+            "parent_instance",
         )
 
 
