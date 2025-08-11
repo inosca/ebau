@@ -255,9 +255,13 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                     BillingV2Entry.CalculationModes.choices, entry.calculation
                 )
             case "MEHRWERTSTEUER":
-                return self.get_choice_label(
-                    BillingV2Entry.TaxModes.choices, entry.tax_mode
-                )
+                match entry.tax_mode:
+                    case BillingV2Entry.TaxModes.TAX_MODE_EXEMPT:
+                        return self.get_choice_label(
+                            BillingV2Entry.TaxModes.choices, entry.tax_mode
+                        )
+                    case _:
+                        return f"{self.get_choice_label(BillingV2Entry.TaxModes.choices, entry.tax_mode)} {entry.tax_rate.normalize():g} %"
             case "ART":
                 return self.get_choice_label(
                     BillingV2Entry.Organizations.choices, entry.organization
