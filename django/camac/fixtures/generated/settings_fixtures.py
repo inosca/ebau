@@ -1459,6 +1459,90 @@ def be_gever_settings(settings, request):
 
 
 @pytest.fixture
+def linked_instances_settings(settings, request):
+    """Module-specific settings for linked instances (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="linked_instances",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_linked_instances_settings(settings, request):
+    """Disable the linked instances module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="linked_instances",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def sz_linked_instances_settings(settings, request):
+    """Module-specific settings for linked instances (canton SZ)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="linked_instances",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def so_linked_instances_settings(settings, request):
+    """Module-specific settings for linked instances (canton SO)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="linked_instances",
+        canton="kt_so",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ur_linked_instances_settings(settings, request):
+    """Module-specific settings for linked instances (canton UR)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="linked_instances",
+        canton="kt_uri",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def gr_linked_instances_settings(settings, request):
+    """Module-specific settings for linked instances (canton GR)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="linked_instances",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ag_linked_instances_settings(settings, request):
+    """Module-specific settings for linked instances (canton AG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="linked_instances",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def master_data_settings(settings, request):
     """Module-specific settings for master data (default)."""
     return generate_module_settings(

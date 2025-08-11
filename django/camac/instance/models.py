@@ -189,7 +189,9 @@ class Instance(models.Model):
 
     @canton_aware
     def get_linked_instances(self, queryset=None):
-        if not self.instance_group:  # pragma: no cover
+        if (
+            not settings.LINKED_INSTANCES.enabled or not self.instance_group
+        ):  # pragma: no cover
             return Instance.objects.none()
 
         return (
@@ -216,6 +218,12 @@ class Instance(models.Model):
         )
 
     def get_linked_instances_be(self, queryset=None):
+        """
+        Get linked instances by eBau number for Kt. BE.
+
+        This is never called through the API since BE uses eBau-Numbers,
+        only thorugh eCH-0211.
+        """
         ebau_nr = self.case.meta.get("ebau-number")
         if not ebau_nr:  # pragma: no cover
             return []
