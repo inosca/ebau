@@ -107,10 +107,13 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         return { suggestion_for_instance: this.currentInstanceId };
       case "serviceGroup":
         return { service_group_name: filter.value, has_parent: false };
-      case "all":
-        return {
-          available_in_distribution_for_instance: this.currentInstanceId,
-        };
+      // TODO Kt. BE: It's not clear if we just will use the "showAllServices" config like in AG.
+      // So until we have clarified that with the customer the following lines are commented out.
+      //
+      // case "all":
+      //   return {
+      //     available_in_distribution_for_instance: this.currentInstanceId,
+      //   };
       default:
         console.error("unknown filter type: ", filter.type);
     }
@@ -192,10 +195,13 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         },
         new: {
           types: {
-            all: {
-              label: "distribution.all",
-              type: "all",
-            },
+            // TODO Kt. BE: It's not clear if we just will use the "showAllServices" config like in AG.
+            // So until we have clarified that with the customer the following lines are commented out.
+            //
+            // all: {
+            //   label: "distribution.all",
+            //   type: "all",
+            // },
             suggestions: {
               label: "caluma.distribution.new.suggestions",
               type: "suggestions",
@@ -220,7 +226,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               type: "subservice",
             },
           },
-          defaultTypes: ["all"],
+          // TODO Kt. BE: It's not clear if we just will use the "showAllServices" config like in AG.
+          // So until we have clarified that with the customer the following line is commented out.
+          //
+          // defaultTypes: ["all"],
         },
         permissions,
         hooks,
