@@ -259,6 +259,18 @@ def disable_bab_settings(settings, request):
 
 
 @pytest.fixture
+def gr_bab_settings(settings, request):
+    """Module-specific settings for bab (canton GR)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="bab",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def so_bab_settings(settings, request):
     """Module-specific settings for bab (canton SO)."""
     return generate_module_settings(

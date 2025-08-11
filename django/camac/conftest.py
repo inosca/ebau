@@ -2097,6 +2097,7 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
     gr_instance.case.meta = {
         "dossier-number": "2023-1",
         "submit-date": "2021-03-31T13:17:08+0000",
+        "is-bab": True,
     }
     gr_instance.case.save()
 
