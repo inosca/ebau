@@ -45,6 +45,7 @@ export default {
         "keywords",
         "instanceState",
         "paper",
+        "bab",
       ],
       "authority-bab": [
         "form",
@@ -82,6 +83,7 @@ export default {
         "decision",
         "paper",
         "suspended",
+        "bab",
       ],
       default: [
         "form",

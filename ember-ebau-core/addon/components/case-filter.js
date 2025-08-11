@@ -290,6 +290,19 @@ export default class CaseFilterComponent extends Component {
     ];
   }
 
+  get babOptions() {
+    return [
+      {
+        value: "bab",
+        label: this.intl.t("cases.bab.only_bab"),
+      },
+      {
+        value: "bib",
+        label: this.intl.t("cases.bab.only_bib"),
+      },
+    ];
+  }
+
   legalStateOerebOptions = trackedFunction(this, async () => {
     const response = await this.apollo.query(
       { query: oerebLegalStateAnswersQuery },

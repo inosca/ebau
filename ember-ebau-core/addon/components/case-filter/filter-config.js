@@ -189,4 +189,11 @@ export default {
     labelField: "label",
     showWithoutOptions: true,
   },
+  bab: {
+    type: "select",
+    options: "babOptions",
+    valueField: "value",
+    labelField: "label",
+    showWithoutOptions: true,
+  },
 };

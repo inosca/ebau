@@ -40,6 +40,8 @@ cases:
     street: ""
     submitDate: "Soumis"
     user: ""
+    bab: "BiB/BaB"
+    bab-placeholder: ""
 
   filter: "Rechercher un dossier"
   filters:
@@ -151,6 +153,10 @@ cases:
     none: "Pas de dossiers papier"
 
   suspended:
+    only: ""
+    none: ""
+
+  bab:
     only: ""
     none: ""
 
