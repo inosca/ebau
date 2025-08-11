@@ -39,7 +39,7 @@ export default class extends Ability {
       );
     }
 
-    return !this.ebauModules.isReadOnlyRole;
+    return !this.ebauModules.isReadOnlyRole && !this.ebauModules.isSupportRole;
   }
 
   get canInvolveEntities() {

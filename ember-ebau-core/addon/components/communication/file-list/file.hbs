@@ -40,3 +40,16 @@
     {{/if}}
   </span>
 {{/if}}
+{{#if (can "delete attachments on message")}}
+  <span>
+    <button
+      type="button"
+      class="uk-icon-button"
+      data-test-delete-attachment
+      {{uk-tooltip (t "communications.detail.delete")}}
+      {{on "click" (perform this.delete @file)}}
+    >
+      <UkIcon @icon="trash" />
+    </button>
+  </span>
+{{/if}}

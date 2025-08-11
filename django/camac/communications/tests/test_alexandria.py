@@ -127,14 +127,32 @@ def test_create_message_with_alexandria_attachment(
     assert attachment.file_attachment.read()
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "has_permission,is_converted,has_key,expected_status",
+    "role__name,has_permission,is_converted,has_key,expected_status",
     [
-        (True, False, True, status.HTTP_200_OK),
-        (False, False, True, status.HTTP_403_FORBIDDEN),  # no permission
-        (True, True, True, status.HTTP_400_BAD_REQUEST),  # already converted
-        (True, False, False, status.HTTP_400_BAD_REQUEST),  # missing key
+        ("Municipality", True, False, True, status.HTTP_200_OK),
+        (
+            "Municipality",
+            False,
+            False,
+            True,
+            status.HTTP_403_FORBIDDEN,
+        ),  # no permission
+        (
+            "Municipality",
+            True,
+            True,
+            True,
+            status.HTTP_400_BAD_REQUEST,
+        ),  # already converted
+        (
+            "Municipality",
+            True,
+            False,
+            False,
+            status.HTTP_400_BAD_REQUEST,
+        ),  # missing key
+        ("Support", True, False, True, status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_convert_to_alexandria_attachment(

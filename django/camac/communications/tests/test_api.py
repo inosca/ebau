@@ -15,6 +15,10 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.urls import reverse
 from rest_framework import status
 
+from camac.communications.models import (
+    CommunicationsAttachment,
+    entity_for_current_user,
+)
 from camac.communications.serializers import validate_mime_type
 from camac.document.tests.data import django_file
 
@@ -29,6 +33,7 @@ MS_OFFICE_MIME_TYPES = [
     [
         ("Municipality", status.HTTP_201_CREATED),
         ("Applicant", status.HTTP_201_CREATED),
+        ("Support", status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_create_topic(db, be_instance, admin_client, expect_status, role):
@@ -36,9 +41,6 @@ def test_create_topic(db, be_instance, admin_client, expect_status, role):
         be_instance.involved_applicants.create(
             invitee=admin_client.user, user=admin_client.user
         )
-        default_group = admin_client.user.get_default_group()
-        default_group.service = None
-        default_group.save()
 
     resp = admin_client.post(
         reverse("communications-topic-list"),
@@ -58,42 +60,51 @@ def test_create_topic(db, be_instance, admin_client, expect_status, role):
                         "data": {"id": str(be_instance.pk), "type": "instances"}
                     },
                 },
-            }
+            },
         },
     )
 
     assert resp.status_code == expect_status
 
-    # Check that initiator is added to involved as well as set as
-    # initiator
-    data = resp.json()
-    assert data["data"]["relationships"]["initiated-by"] == {
-        "data": {
-            "type": "users",
-            "id": str(admin_client.user.pk),
+    if expect_status != status.HTTP_403_FORBIDDEN:
+        # Check that initiator is added to involved as well as set as
+        # initiator
+        data = resp.json()
+        assert data["data"]["relationships"]["initiated-by"] == {
+            "data": {
+                "type": "users",
+                "id": str(admin_client.user.pk),
+            }
         }
-    }
 
-    if role.name == "Applicant":
-        entity_id = {"id": "APPLICANT", "name": "Gesuchsteller/in"}
-    else:
-        entity_id = {
-            "id": str(admin_client.user.get_default_group().service.pk),
-            "name": admin_client.user.get_default_group().service.get_name(),
-        }
-    assert data["data"]["attributes"]["involved-entities"] == [entity_id]
-    assert data["data"]["attributes"]["initiated-by-entity"] == entity_id
+        if role.name == "Applicant":
+            entity_id = {"id": "APPLICANT", "name": "Gesuchsteller/in"}
+        else:
+            entity_id = {
+                "id": str(admin_client.user.get_default_group().service.pk),
+                "name": admin_client.user.get_default_group().service.get_name(),
+            }
+        assert data["data"]["attributes"]["involved-entities"] == [entity_id]
+        assert data["data"]["attributes"]["initiated-by-entity"] == entity_id
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "role__name,expected_status",
+    [
+        ("Municipality", status.HTTP_201_CREATED),
+        ("Support", status.HTTP_403_FORBIDDEN),
+    ],
+)
 @pytest.mark.parametrize("with_file_attachments", [True, False])
 @pytest.mark.parametrize("with_doc_attachments", [True, False])
 def test_create_message(
     db,
     be_instance,
+    admin_user,
     admin_client,
     topic_with_admin_involved,
     tmpdir,
+    expected_status,
     with_doc_attachments,
     with_file_attachments,
     attachment_factory,
@@ -145,15 +156,19 @@ def test_create_message(
         },
         format="multipart",
     )
-    assert resp.status_code == status.HTTP_201_CREATED
+    assert resp.status_code == expected_status
 
-    new_message = topic_with_admin_involved.messages.get(pk=resp.json()["data"]["id"])
-    assert new_message.attachments.count() == len(attachments)
-    for attachment in new_message.attachments.all():
-        assert attachment.file_attachment.read()
-        if with_doc_attachments and attachment.document_attachment:
-            assert attachment.document_attachment
-            assert attachment.file_attachment.name.endswith("Doc.pdf")
+    if expected_status != status.HTTP_403_FORBIDDEN:
+        new_message = topic_with_admin_involved.messages.get(
+            pk=resp.json()["data"]["id"]
+        )
+        assert new_message.attachments.count() == len(attachments)
+        for attachment in new_message.attachments.all():
+            assert attachment.file_attachment.read()
+
+            if with_doc_attachments and attachment.document_attachment:
+                assert attachment.document_attachment
+                assert attachment.file_attachment.name.endswith("Doc.pdf")
 
 
 @pytest.mark.parametrize("role__name", ["Municipality", "Applicant"])
@@ -386,3 +401,91 @@ def test_ignore_mime_type_validation_for_ms_office(
         "detected file content application/octet-stream but is ignored because "
         "it's configured in `DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES`."
     ) in caplog.messages
+
+
+@pytest.mark.parametrize(
+    "role__name,expected_status,expected_count",
+    [
+        ("Support", status.HTTP_204_NO_CONTENT, 0),
+        ("Municipality", status.HTTP_403_FORBIDDEN, 1),
+        ("Applicant", status.HTTP_403_FORBIDDEN, 1),
+    ],
+)
+def test_delete_attachment(
+    db,
+    admin_user,
+    admin_client,
+    communications_message,
+    communications_attachment,
+    expected_status,
+    expected_count,
+):
+    communications_message.topic.involved_entities = [
+        admin_client.user.get_default_group().service_id,
+        "APPLICANT",
+    ]
+    communications_message.topic.save()
+
+    communications_attachment.file_attachment.save("test.txt", io.BytesIO(b"foobar"))
+
+    communications_attachment.document_attachment.instance.involved_applicants.update(
+        invitee=admin_user
+    )
+
+    response = admin_client.delete(
+        reverse("communications-attachment-detail", args=[communications_attachment.pk])
+    )
+
+    assert response.status_code == expected_status
+
+    assert len(CommunicationsAttachment.objects.all()) == expected_count
+
+
+def test_create_message_without_group(
+    db,
+    be_instance,
+    admin_client,
+    topic_with_admin_involved,
+    notification_template,
+    communications_settings,
+):
+    communications_settings["NOTIFICATIONS"]["APPLICANT"]["template_slug"] = (
+        notification_template.slug
+    )
+    communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
+        "template_slug"
+    ] = notification_template.slug
+    communications_settings["ALLOWED_MIME_TYPES"] = ["text/plain"]
+
+    attachments = []
+    admin_client.user.groups.set([])
+
+    resp = admin_client.post(
+        reverse("communications-message-list"),
+        data={
+            "body": "hello world",
+            "topic": json.dumps(
+                {
+                    "id": str(topic_with_admin_involved.pk),
+                    "type": "communications-topics",
+                }
+            ),
+            "attachments": attachments,
+        },
+        format="multipart",
+    )
+    assert resp.status_code == status.HTTP_403_FORBIDDEN
+
+
+@pytest.mark.parametrize("has_group", [True, False])
+def test_entity_for_current_user(db, admin_user, be_instance, has_group, rf):
+    request = rf.request()
+    request.user = admin_user
+    if has_group:
+        request.group = admin_user.get_default_group()
+        expected_result = str(request.group.service_id)
+    else:
+        request.group = None
+        expected_result = None
+
+    assert entity_for_current_user(request) == expected_result

@@ -121,6 +121,7 @@ def test_rejected_create_topic(db, be_instance, admin_client, role):
     )
 
 
+@pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize("forge_entity", [False, True])
 def test_rejected_create_topic_on_unsubmitted_instance(
     db,

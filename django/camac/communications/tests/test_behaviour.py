@@ -3,6 +3,7 @@ import io
 import pytest
 from django.urls import reverse
 from django.utils.translation import gettext
+from rest_framework import status
 from rest_framework.status import (
     HTTP_200_OK,
     HTTP_201_CREATED,
@@ -13,15 +14,19 @@ from rest_framework.status import (
 
 @pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
 @pytest.mark.parametrize(
-    "role__name, role_t__name",
+    "role__name,role_t__name,expected_status",
     [
         (
             "Administration Leitbehörde",
             "Administration Leitbehörde",
-        )
+            status.HTTP_200_OK,
+        ),
+        ("Support", "Support", status.HTTP_403_FORBIDDEN),
     ],
 )
-def test_mark_as_read(db, admin_client, communications_message, be_instance):
+def test_mark_as_read(
+    db, admin_client, communications_message, be_instance, expected_status
+):
     # Before marking as read, the message should be "unread"
     communications_message.topic.involved_entities = [
         admin_client.user.get_default_group().service_id,
@@ -33,54 +38,60 @@ def test_mark_as_read(db, admin_client, communications_message, be_instance):
     resp_before = admin_client.get(
         reverse("communications-message-detail", args=[communications_message.pk])
     )
-    assert resp_before.status_code == HTTP_200_OK
+    assert resp_before.status_code == status.HTTP_200_OK
     assert resp_before.json()["data"]["attributes"]["read-at"] is None
 
     # The modification should already return the new "read" status
     resp_mark = admin_client.patch(
         reverse("communications-message-read", args=[communications_message.pk])
     )
-    assert resp_mark.status_code == HTTP_200_OK
-    assert resp_mark.json()["data"]["attributes"]["read-at"]
+    assert resp_mark.status_code == expected_status
 
-    communications_message.read_by.create(entity="APPLICANT")
-    communications_message.save()
+    if expected_status != status.HTTP_403_FORBIDDEN:
+        assert resp_mark.json()["data"]["attributes"]["read-at"]
 
-    # Ensure the "read" mark is persisted
-    resp_after = admin_client.get(
-        reverse("communications-message-detail", args=[communications_message.pk])
-    )
-    assert resp_after.status_code == HTTP_200_OK
-    assert resp_after.json()["data"]["attributes"]["read-at"]
+        communications_message.read_by.create(entity="APPLICANT")
+        communications_message.save()
 
-    read_by_info = resp_after.json()["data"]["attributes"]["read-by-entity"]
-    expected_read_by = [
-        {
-            "name": str(admin_client.user.get_default_group().service.get_name()),
-            "id": str(admin_client.user.get_default_group().service.pk),
-        },
-        {
-            "id": "APPLICANT",
-            "name": gettext("Applicant"),
-        },
-    ]
+        # Ensure the "read" mark is persisted
+        resp_after = admin_client.get(
+            reverse("communications-message-detail", args=[communications_message.pk])
+        )
+        assert resp_after.status_code == HTTP_200_OK
+        assert resp_after.json()["data"]["attributes"]["read-at"]
 
-    assert sorted(read_by_info, key=lambda x: x["id"]) == sorted(
-        expected_read_by, key=lambda x: x["id"]
-    )
+        read_by_info = resp_after.json()["data"]["attributes"]["read-by-entity"]
+        expected_read_by = [
+            {
+                "name": str(admin_client.user.get_default_group().service.get_name()),
+                "id": str(admin_client.user.get_default_group().service.pk),
+            },
+            {
+                "id": "APPLICANT",
+                "name": gettext("Applicant"),
+            },
+        ]
+
+        assert sorted(read_by_info, key=lambda x: x["id"]) == sorted(
+            expected_read_by, key=lambda x: x["id"]
+        )
 
 
 @pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
 @pytest.mark.parametrize(
-    "role__name, role_t__name",
+    "role__name,role_t__name,expected_status",
     [
         (
             "Administration Leitbehörde",
             "Administration Leitbehörde",
-        )
+            status.HTTP_200_OK,
+        ),
+        ("Support", "Support", status.HTTP_403_FORBIDDEN),
     ],
 )
-def test_mark_as_unread(db, admin_client, communications_message, be_instance):
+def test_mark_as_unread(
+    db, admin_client, communications_message, expected_status, be_instance
+):
     communications_message.topic.involved_entities = [
         admin_client.user.get_default_group().service_id,
         "APPLICANT",
@@ -93,13 +104,16 @@ def test_mark_as_unread(db, admin_client, communications_message, be_instance):
     communications_message.read_by.get_or_create(entity=my_entity)
 
     # Mark as unread via API
-    admin_client.patch(
+    resp = admin_client.patch(
         reverse("communications-message-unread", args=[communications_message.pk])
     )
 
+    assert resp.status_code == expected_status
+
     # Read flag gone?
-    communications_message.refresh_from_db()
-    assert not communications_message.read_by.filter(entity=my_entity).exists()
+    if expected_status != HTTP_403_FORBIDDEN:
+        communications_message.refresh_from_db()
+        assert not communications_message.read_by.filter(entity=my_entity).exists()
 
 
 @pytest.mark.parametrize(

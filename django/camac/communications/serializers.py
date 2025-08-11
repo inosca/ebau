@@ -238,6 +238,12 @@ class TopicSerializer(serializers.ModelSerializer):
     def validate_involved_entities(self, value):
         my_entity = models.entity_for_current_user(self.context["request"])
 
+        if not my_entity:  # pragma: no cover
+            # Just a safeguard, permissions already deal with this
+            raise ValidationError(
+                "Topic can only be created by services and applicants"
+            )
+
         if my_entity not in value:
             # Own entity must always be added (Cannot create topic
             # where I'm not involved)
@@ -416,7 +422,8 @@ class MessageSerializer(serializers.ModelSerializer):
         return None
 
     def validate(self, data):
-        data["created_by"] = models.entity_for_current_user(self.context["request"])
+        my_entity = models.entity_for_current_user(self.context["request"])
+        data["created_by"] = my_entity
         data["sent_at"] = timezone.now()
 
         # We can only create a message if the topic allows answers or we're the
@@ -424,7 +431,7 @@ class MessageSerializer(serializers.ModelSerializer):
         if (
             not data["topic"].allow_replies
             and data["created_by_user"] != data["topic"].initiated_by
-        ):
+        ) or not my_entity:
             raise ValidationError(
                 gettext("You are not allowed to create messages on this topic")
             )

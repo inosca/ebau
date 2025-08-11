@@ -9,6 +9,8 @@ from django_presigned_url.presign_urls import (
     make_presigned_url,
 )
 
+from camac.user.permissions import get_role_name
+
 
 def entity_for_current_user(request):
     """Return Entity string for the current user.
@@ -16,8 +18,18 @@ def entity_for_current_user(request):
     This is the string "APPLICANT" if the user
     is an applicant (Ie. has no service groups)
     or the currently-relevant Service ID (also as string)
+
+    If no entity can be detected (example support) None is returned.
     """
-    return str((request.group and request.group.service_id) or "APPLICANT")
+
+    group = request.group
+    perm = get_role_name(group)
+
+    if perm == "applicant":
+        return "APPLICANT"
+    if group:
+        return str(group.service_id) if group.service_id else None
+    return None
 
 
 class CommunicationsTopic(models.Model):

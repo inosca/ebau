@@ -282,3 +282,25 @@ def test_get_uversioned_slug():
     assert get_unversioned_slug("form-slug") == "form-slug"
     assert get_unversioned_slug("form-slug-abv8") == "form-slug-abv8"
     assert get_unversioned_slug("form-slug-abv8-v3") == "form-slug-abv8"
+
+
+@pytest.mark.parametrize(
+    "has_group, expected_return_value",
+    [
+        (True, True),
+        (False, False),
+    ],
+)
+def test_is_support(
+    admin_user, rf, application_settings, has_group, expected_return_value
+):
+    application_settings["ROLE_PERMISSIONS"] = {
+        "Support": "support",
+    }
+    request = rf.request()
+    if has_group:
+        request.group = admin_user.get_default_group()
+        request.group.role.name = "Support"
+    else:
+        request.group = None
+    assert utils.is_support(request) == expected_return_value
