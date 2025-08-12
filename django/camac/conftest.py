@@ -3288,6 +3288,15 @@ def ag_access_levels(ag_permissions_settings, db, access_level_factory, role_fac
             access_level_factory(slug=access_level)
 
 
+@pytest.fixture
+def be_access_levels(be_permissions_settings, db, access_level_factory, role_factory):
+    role_factory(name="support")
+
+    for access_level in be_permissions_settings["ACCESS_LEVELS"]:
+        if not AccessLevel.objects.filter(slug=access_level).exists():
+            access_level_factory(slug=access_level)
+
+
 @pytest.fixture(autouse=True)
 def mock_celery(mocker):
     mocker.patch("django.db.transaction.on_commit", side_effect=lambda f: f())

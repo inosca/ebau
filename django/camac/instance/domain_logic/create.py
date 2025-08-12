@@ -600,6 +600,13 @@ class CreateInstanceLogic:
                 instance.form = source_instance.form
                 instance.save()
 
+            # If a copy of a extend validity instance is create we want to copy
+            # the ebau number of the source instance too.
+            if source_instance.case.document.form.slug == settings.APPLICATION[
+                "CALUMA"
+            ].get("EXTEND_VALIDITY_FORM"):
+                CreateInstanceLogic.copy_ebau_number(source_instance, instance, case)
+
         elif extend_validity_for:
             extend_validity_instance = models.Instance.objects.get(
                 pk=extend_validity_for

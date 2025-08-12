@@ -3301,6 +3301,58 @@ def test_copy_rejected_instance(
         assert new_instance.copy_source == so_instance
 
 
+@pytest.mark.parametrize("instance_state__name", ["rejected"])
+def test_copy_rejected_extend_validity_instance(
+    db,
+    admin_client,
+    admin_user,
+    applicant_factory,
+    instance_state_factory,
+    be_access_levels,
+    be_instance,
+):
+    be_instance.case.document.form = caluma_form_factories.FormFactory(
+        slug="verlaengerung-geltungsdauer"
+    )
+    be_instance.case.document.save()
+
+    be_instance.case.meta["ebau-number"] = "2025-1"
+    be_instance.case.save()
+
+    instance_state_factory(name="new")
+
+    role = ROLE_CHOICES.ADMIN.value
+    applicant_factory(instance=be_instance, invitee=admin_user, role=role)
+
+    permissions_api.grant(
+        be_instance,
+        grant_type=permissions_api.GRANT_CHOICES.USER.value,
+        access_level="applicant",
+        user=admin_user,
+    )
+
+    response = admin_client.post(
+        reverse("instance-list"),
+        {
+            "data": {
+                "type": "instances",
+                "attributes": {
+                    "copy-source": str(be_instance.pk),
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_201_CREATED
+    if response.status_code == status.HTTP_201_CREATED:
+        new_instance = Instance.objects.get(pk=response.json()["data"]["id"])
+        assert new_instance.copy_source == be_instance
+        assert (
+            new_instance.case.meta["ebau-number"]
+            == be_instance.case.meta["ebau-number"]
+        )
+
+
 @pytest.mark.parametrize(
     "has_permission,expected_status",
     [(True, status.HTTP_201_CREATED), (False, status.HTTP_403_FORBIDDEN)],
