@@ -190,10 +190,11 @@ def test_user_keycloak_apply(
             answers.get(question_id="e-mail-gesuchstellerin").value == admin_user.email
         )
         assert (
-            answers.get(question_id="vorname-gesuchstellerin").value
-            == admin_user.surname
+            answers.get(question_id="vorname-gesuchstellerin").value == admin_user.name
         )
-        assert answers.get(question_id="name-gesuchstellerin").value == admin_user.name
+        assert (
+            answers.get(question_id="name-gesuchstellerin").value == admin_user.surname
+        )
 
 
 def test_me_patch(admin_client, admin_user, user_settings, application_settings):
