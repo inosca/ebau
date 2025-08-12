@@ -200,7 +200,8 @@ instances:
   withdrawInstanceError: "Das Dossier konnte nicht zurückgezogen werden"
   withdrawInstanceSuccess: "Das Dossier wurde erfolgreich zurückgezogen"
   withdrawalRequestedSuccess: "Der Rückzug wurde beantragt"
-  withdrawalRequestedText: "Der Rückzug wurde beantragt. Die Gemeinde prüft den Rückzug und wird Ihnen Rückmeldung geben."
+  withdrawalRequestedText: "Der Rückzug wurde beantragt. Die Gemeinde prüft den Rückzug und wird Ihnen Rückmeldung geben. Falls Sie der Gemeinde zusätzlich eine Nachricht übermitteln möchten, nutzen Sie das Register "
+  withdrawalRequestCommunicationText: "\"Kommunikation\"."
   withdrawalRequest: "Rückzug beantragen"
 
   categories:
