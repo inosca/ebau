@@ -20,6 +20,7 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                 "decision",
                 "check-distribution",
                 "init-construction-monitoring",
+                "withdrawal-check",
             ],
             "service": ["inquiry", "check-inquiries"],
             "subservice": ["inquiry"],
