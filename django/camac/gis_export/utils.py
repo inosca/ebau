@@ -1,5 +1,6 @@
 from logging import getLogger
 
+from django.db import transaction
 from django.db.models import OuterRef
 from django.utils.timezone import now
 
@@ -8,6 +9,7 @@ from .models import AGGISExport, InstanceProxyAG
 log = getLogger(__name__)
 
 
+@transaction.atomic
 def export_agis():
     exported = set(AGGISExport.objects.values_list("instance_id", flat=True))
     instances = set(InstanceProxyAG.objects.values_list("instance_id", flat=True))
