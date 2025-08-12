@@ -29,6 +29,15 @@ class DistributionDeadlineRuleConfig(EBauConfig):
     )
 
 
+class AvailableServicesRuleConfig(EBauConfig):
+    """Configuration for available services in rulesets."""
+
+    service_configurations: dict[str, list[str]] = Field(
+        description="Dictionary mapping service keys to arrays of service groups that are available for that service.",
+        default_factory=dict,
+    )
+
+
 class RulesetsConfig(ModuleApplicationConfig):
     """Configuration of the rulesets module."""
 
@@ -36,3 +45,4 @@ class RulesetsConfig(ModuleApplicationConfig):
     distribution_deadline_rule: DistributionDeadlineRuleConfig = (
         DistributionDeadlineRuleConfig()
     )
+    available_services_rule: AvailableServicesRuleConfig = AvailableServicesRuleConfig()

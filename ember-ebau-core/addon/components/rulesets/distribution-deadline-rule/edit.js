@@ -26,9 +26,7 @@ export default class RulesetsDistributionDeadlineRuleEdit extends Component {
   @service notification;
 
   services = query(this, "public-service", () => ({
-    exclude_own_service: true,
-    exclude_other_subservices: true,
-    include: "service_group",
+    available_in_ruleset_for_service: true,
   }));
 
   save = task({ drop: true }, async (changeset) => {

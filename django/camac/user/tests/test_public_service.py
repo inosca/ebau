@@ -298,3 +298,108 @@ def test_public_service_filter_exclude_other_subservices(
 
     assert response.status_code == status.HTTP_200_OK
     assert {i["attributes"]["name"] for i in response.json()["data"]} == expected
+
+
+@pytest.mark.parametrize(
+    "has_rulesets_config,service_group_allowed,expected_count,expected_services",
+    [
+        (
+            False,
+            False,
+            4,
+            {"my-service", "allowed-service", "not-allowed-service", "my-subservice"},
+        ),
+        (
+            True,
+            True,
+            2,
+            {"allowed-service", "my-subservice"},
+        ),
+        (True, False, 1, {"my-subservice"}),
+    ],
+)
+def test_public_service_filter_available_in_ruleset_for_service(
+    admin_client,
+    service_factory,
+    service,
+    mocker,
+    has_rulesets_config,
+    service_group_allowed,
+    expected_count,
+    expected_services,
+):
+    service.name = "my-service"
+    service.service_group.name = "municipality"
+    service.save()
+    service.service_group.save()
+
+    service_factory(name="allowed-service", service_group__name="allowed-group")
+    service_factory(name="not-allowed-service", service_group__name="not-allowed-group")
+    service_factory(name="my-subservice", service_parent=service)
+
+    if has_rulesets_config:
+        if service_group_allowed:
+            rulesets_config = {"municipality": ["allowed-group"]}
+        else:
+            rulesets_config = {"other-group": ["some-group"]}
+
+        mock_rulesets = mocker.MagicMock()
+        mock_rulesets.available_services_rule.service_configurations = rulesets_config
+        mocker.patch("camac.user.filters.settings.RULESETS", mock_rulesets)
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        data={"available_in_ruleset_for_service": True},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()["data"]
+    assert len(data) == expected_count
+
+    actual_services = {item["attributes"]["name"] for item in data}
+    assert actual_services == expected_services
+
+
+@pytest.mark.parametrize(
+    "filter_value,expected_count",
+    [
+        (True, 2),  # When filter is applied
+        (False, 4),  # When filter is False - should return all
+        ("", 4),  # When filter is empty - should return all
+    ],
+)
+def test_public_service_filter_available_in_ruleset_for_service_value_handling(
+    admin_client,
+    service_factory,
+    service,
+    mocker,
+    filter_value,
+    expected_count,
+):
+    # Set up test data
+    service.name = "my-service"
+    service.service_group.name = "municipality"
+    service.save()
+    service.service_group.save()
+
+    service_factory(name="allowed-service", service_group__name="allowed-group")
+    service_factory(name="not-allowed-service", service_group__name="not-allowed-group")
+    service_factory(name="my-subservice", service_parent=service)
+
+    # Mock rulesets configuration
+    rulesets_config = {"municipality": ["allowed-group"]}
+    mock_rulesets = mocker.MagicMock()
+    mock_rulesets.available_services_rule.service_configurations = rulesets_config
+    mocker.patch("camac.user.filters.settings.RULESETS", mock_rulesets)
+
+    data = {}
+    if filter_value != "":  # Don't add parameter for empty string test
+        data["available_in_ruleset_for_service"] = filter_value
+
+    response = admin_client.get(reverse("publicservice-list"), data=data)
+
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()["data"]
+    assert len(data) == expected_count
