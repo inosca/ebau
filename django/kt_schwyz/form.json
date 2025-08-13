@@ -11714,9 +11714,9 @@
       }
     },
     "fruchtfolgeflache-kompensationsflache-projekt": {
-      "label": "Projektnummer (eBau-Nr.) des <a href=\"https://www.sz.ch/behoerden/verwaltung/volkswirtschaftsdepartement/amt-fuer-raumentwicklung/projekte-und-grundlagen.html/8756-8758-8802-10373-11039-12551#js-cms-accordion-header--4-0\" target=\"_blank\">Bodenaufwertungsprojekts</a>",
+      "label": "Projektnummer (eBau-Nr.) des Bodenaufwertungsprojekts",
       "type": "text",
-      "required": true,
+      "required": false,
       "active-expression": "'fruchtfolgeflache-kompensationsflache'|value == 'Bodenaufwertungsprojekt'",
       "config": {}
     }
