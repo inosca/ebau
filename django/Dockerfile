@@ -1,5 +1,5 @@
 # Remember to update volume mounts for certificates in kt_uri-prod.yml when updating version
-FROM python:3.10-slim
+FROM python:3.10-slim-bookworm
 
 # Needs to be set for users with manually set UID
 ENV HOME=/home/ebau
