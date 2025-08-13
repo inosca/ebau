@@ -154,6 +154,10 @@ class MessageView(
         has read a given message in the queryset.
         """
 
+        if not entity:  # pragma: no cover
+            # Necessary for the support role
+            return qs.annotate(read_at=Value(None))
+
         my_read = models.CommunicationsReadMarker.objects.all().filter(entity=entity)
 
         qs = qs.annotate(
@@ -161,17 +165,21 @@ class MessageView(
             .order_by("-read_at")[:1]
             .values("read_at")
         )
+
         return qs
 
     def get_queryset(self, *args, **kwargs):
         qs = super().get_queryset(*args, **kwargs)
         my_entity = models.entity_for_current_user(self.request)
 
+        qs = self._annotate_read_flag(qs, my_entity)
+
+        if is_support(self.request):
+            return qs
+
         if not my_entity:  # pragma: no cover
             # Just a safeguard. Will never happen because of permissions
             return qs.none()
-
-        qs = self._annotate_read_flag(qs, my_entity)
 
         return qs.filter(topic__involved_entities__contains=[my_entity])
 
