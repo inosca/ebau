@@ -174,7 +174,9 @@ ACTION_INSTANCE_WITHDRAW = (
 ACTION_INSTANCE_CREATE_MODIFICATION = RequireWorkItem("construction-stage", "ready") & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
-ACTION_INSTANCE_DOWNLOAD_AS_PDF = ~RequireInstanceState(["new"])
+ACTION_INSTANCE_DOWNLOAD_AS_PDF = STATES_ALL | RequireInstanceState(
+    ["correction", "new"]
+)
 
 # Actual config
 SO_PERMISSIONS_SETTINGS = {
