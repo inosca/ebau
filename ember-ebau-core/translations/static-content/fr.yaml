@@ -1,8 +1,8 @@
 static-content:
   edit: "Modifier"
   content: "Contenu"
-  saveError: ""
-  loadError: ""
+  saveError: "Impossible d'enregistrer le contenu"
+  loadError: "Impossible de charger le contenu"
   not-found:
     case:
       title: ""
