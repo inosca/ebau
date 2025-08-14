@@ -135,13 +135,6 @@ CONSTRUCTION_MONITORING_DUMP_CONFIG = {
     },
 }
 
-CELERY_DUMP_CONFIG = {
-    "celery": {
-        "django_celery_beat.PeriodicTask": ~Q(task="celery.backend_cleanup"),
-        "django_celery_beat.IntervalSchedule": Q(),
-    },
-}
-
 DUMP = {
     "default": {
         "CONFIG": {
@@ -291,6 +284,9 @@ DUMP = {
                 "caluma_workflow.TaskFlow",
                 "caluma_workflow.Flow",
                 "gis.GISDataSource",
+                "django_celery_beat.PeriodicTask",
+                "django_celery_beat.IntervalSchedule",
+                "django_celery_beat.CrontabSchedule",
             ],
             # List of models that have foreign keys referencing non-config
             # tables (directly or indirectly). All models which are not in this
@@ -667,7 +663,6 @@ DUMP = {
                     **generate_form_dump_config(regex=r"^publikation?$"),
                 },
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
-                **CELERY_DUMP_CONFIG,
                 **ADDRESS_ASSIGNMENT_CONFIG,
             },
             "EXCLUDED_MODELS": [
@@ -723,7 +718,6 @@ DUMP = {
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
-                **CELERY_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
@@ -788,7 +782,6 @@ DUMP = {
                 "caluma_objection_form": generate_form_dump_config(
                     regex=r"^einwendung(en)?"
                 ),
-                **CELERY_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
