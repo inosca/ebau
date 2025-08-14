@@ -261,7 +261,28 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                             BillingV2Entry.TaxModes.choices, entry.tax_mode
                         )
                     case _:
-                        return f"{self.get_choice_label(BillingV2Entry.TaxModes.choices, entry.tax_mode)} {entry.tax_rate.normalize():g} %"
+                        translation_map = {
+                            BillingV2Entry.TaxModes.TAX_MODE_INCLUSIVE: gettext(
+                                "inclusive_short"
+                            ),
+                            BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE: gettext(
+                                "exclusive_short"
+                            ),
+                        }
+                        tax_mode = self.get_choice_label(
+                            BillingV2Entry.TaxModes.choices, entry.tax_mode
+                        )
+
+                        if entry.tax_mode in [
+                            BillingV2Entry.TaxModes.TAX_MODE_INCLUSIVE,
+                            BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
+                        ]:
+                            tax_mode = translation_map.get(entry.tax_mode)
+
+                        return gettext("%(tax_mode)s %(tax_rate)s%% VAT") % {
+                            "tax_mode": tax_mode,
+                            "tax_rate": entry.tax_rate.normalize(),
+                        }
             case "ART":
                 return self.get_choice_label(
                     BillingV2Entry.Organizations.choices, entry.organization
