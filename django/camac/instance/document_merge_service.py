@@ -194,15 +194,15 @@ class DMSHandler:
         }
 
         if settings.DMS.get("ADD_ADDRESS_DATA"):
-            municipality = get_authority(instance)
-            address_data = {
-                "addressRecipient": municipality.get_trans_attr("name"),
-                "addressStreet": municipality.address,
-                "addressCityZip": clean_join(
-                    municipality.zip, municipality.get_trans_attr("city")
-                ),
-            }
-            data.update(address_data)
+            if municipality := get_authority(instance):
+                address_data = {
+                    "addressRecipient": municipality.get_trans_attr("name"),
+                    "addressStreet": municipality.address,
+                    "addressCityZip": clean_join(
+                        municipality.zip, municipality.get_trans_attr("city")
+                    ),
+                }
+                data.update(address_data)
 
         if settings.DMS.get("ADD_HEADER_DATA"):
             header_data = {
