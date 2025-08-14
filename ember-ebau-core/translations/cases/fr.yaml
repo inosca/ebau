@@ -45,6 +45,8 @@ cases:
   filters:
     address-placeholder: "Rue d'Exemple 1"
     address: "Adresse"
+    appeal-placeholder: ""
+    appeal: "Procédure de recours"
     applicant-placeholder: ""
     applicant: ""
     builder-placeholder: ""
@@ -177,6 +179,10 @@ cases:
   presets:
     pending: "Affaires en cours"
     paper: "Tous les dossiers papier"
+
+  appeal:
+    only: "Procédure de recours uniquement"
+    none: "Pas de procédure de recours"
 
   submit:
     success: "Le dossier a été soumise avec succès."
