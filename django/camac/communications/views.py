@@ -156,7 +156,9 @@ class MessageView(
 
         if not entity:  # pragma: no cover
             # Necessary for the support role
-            return qs.annotate(read_at=Value(None))
+            return qs.annotate(
+                read_at=models.CommunicationsReadMarker.objects.none().values("read_at")
+            )
 
         my_read = models.CommunicationsReadMarker.objects.all().filter(entity=entity)
 
