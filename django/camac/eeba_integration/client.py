@@ -37,7 +37,7 @@ class EebaClient:
         # Use the exchanged token for eEBA calls
         self.default_headers = {
             "Authorization": f"Bearer {exchanged}",
-            "X-EBAU-EEBA-SECRET": shared_secret,
+            # "X-EBAU-EEBA-SECRET": shared_secret, # commented out for now
             "Content-Type": "application/json",
         }
 
