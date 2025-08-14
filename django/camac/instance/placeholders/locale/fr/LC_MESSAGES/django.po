@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-07 17:36+0200\n"
+"POT-Creation-Date: 2025-08-14 12:05+0200\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -88,6 +88,19 @@ msgstr ""
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_SERVICE"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "inclusive_short"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+msgid "exclusive_short"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+#, python-format
+msgid "%(tax_mode)s %(tax_rate)s%% VAT"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
