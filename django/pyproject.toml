@@ -265,6 +265,7 @@ omit = [
     "camac/core/management/commands/migrate_oereb_answer_ur.py",
     "camac/core/management/commands/migrate_oereb_attachment_context_key_ur.py",
     "camac/billing/management/commands/reset_invoices.py",
+    "camac/alexandria/management/commands/restore_missing_alexandria_files.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
