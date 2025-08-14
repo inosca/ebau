@@ -4977,7 +4977,7 @@
       "modified_by_group": null,
       "form": "gebaeudetechnik-formular",
       "question": "energienachweis-erforderlich",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -5007,7 +5007,7 @@
       "modified_by_group": null,
       "form": "gebaeudetechnik-formular",
       "question": "gebaeudeheizung",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -5022,7 +5022,7 @@
       "modified_by_group": null,
       "form": "gebaeudetechnik-formular",
       "question": "heizungen",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -5037,6 +5037,21 @@
       "modified_by_group": null,
       "form": "gebaeudetechnik-formular",
       "question": "projektkennzeichnung-even",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeudetechnik-formular.projektkennzeichnung-even-hinweis",
+    "fields": {
+      "created_at": "2025-08-13T08:57:56.234Z",
+      "modified_at": "2025-08-13T08:57:56.234Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeudetechnik-formular",
+      "question": "projektkennzeichnung-even-hinweis",
       "sort": 5
     }
   },
@@ -5052,7 +5067,7 @@
       "modified_by_group": null,
       "form": "gebaeudetechnik-formular",
       "question": "solaranlage-photovoltaikanalge-geplant",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -20486,7 +20501,7 @@
     "pk": "energienachweis-erforderlich",
     "fields": {
       "created_at": "2024-11-20T16:01:57.130Z",
-      "modified_at": "2025-07-18T14:23:00.123Z",
+      "modified_at": "2025-08-13T08:52:52.163Z",
       "created_by_user": "jana.lux@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -20497,7 +20512,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Alle Hinweise rund um den Energienachweis finden Sie unter folgendem Link:\\n[Energienachweise (EVEN)](https://www.ag.ch/de/smartserviceportal/dienstleistungen?dl=energienachweise-(even)-09aa64f9-1f29-4385-9a5d-3f20bcf20441_de)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -24575,6 +24590,39 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[\"even-project-number\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "projektkennzeichnung-even-hinweis",
+    "fields": {
+      "created_at": "2025-08-13T08:57:56.052Z",
+      "modified_at": "2025-08-13T09:00:45.202Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"projektkennzeichnung-even-hinweis\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "'energienachweis-erforderlich'|answer != 'energienachweis-erforderlich-ja'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">\\n<p class=\\\"uk-margin-small-top\\\">Falls in EVEN noch kein Projekt besteht, erstellen Sie dieses bitte zuerst.<br><br>\\n\\n<a href=\\\"https://energievollzug.ch/AG/login?redirect=/projects\\\" target=\\\"_blank\\\" rel=\\\"noopener noreferrer\\\" class=\\\"uk-link\\\">Zur Projekt\\u00fcbersicht EVEN wechseln.</a><br><br>\\n\\nWechseln Sie dazu zu EVEN und melden Sie sich mit Ihrem Kantons-Login oder EVEN-Login an. Falls Sie noch kein Konto besitzen, registrieren Sie sich bitte zuerst.</p>\\n</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -29891,8 +29939,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energienachweis-erforderlich.energienachweis-erforderlich-ja",
     "fields": {
-      "created_at": "2025-07-18T14:23:00.160Z",
-      "modified_at": "2025-07-18T14:23:00.160Z",
+      "created_at": "2025-08-13T08:52:52.208Z",
+      "modified_at": "2025-08-13T08:52:52.208Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -29906,8 +29954,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energienachweis-erforderlich.energienachweis-erforderlich-nein",
     "fields": {
-      "created_at": "2025-07-18T14:23:00.147Z",
-      "modified_at": "2025-07-18T14:23:00.147Z",
+      "created_at": "2025-08-13T08:52:52.192Z",
+      "modified_at": "2025-08-13T08:52:52.192Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
