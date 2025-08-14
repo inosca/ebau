@@ -234,6 +234,8 @@ export function getCamacFilters({
       has_pending_sanction: hasPendingSanction,
       pending_sanctions_control_instance:
         filter.pendingSanctionsControlInstance,
+      has_pending_sanctions_assigned_to_service:
+        filter.hasPendingSanctionsAssignedToService,
       with_cantonal_participation: filter.withCantonalParticipation,
       oereb_legal_state: filter.legalStateOereb,
       // SZ-specific

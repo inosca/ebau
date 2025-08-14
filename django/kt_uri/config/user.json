@@ -558,7 +558,7 @@
     "model": "user.servicegroup",
     "pk": 2,
     "fields": {
-      "slug": null,
+      "slug": "fachstellen-baudirektion",
       "name": "Fachstellen Baudirektion",
       "sort": null
     }
@@ -585,7 +585,7 @@
     "model": "user.servicegroup",
     "pk": 61,
     "fields": {
-      "slug": null,
+      "slug": "fachstellen-justizdirektion",
       "name": "Fachstellen Justizdirektion",
       "sort": null
     }

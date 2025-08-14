@@ -23,7 +23,6 @@ from camac.utils import build_url, should_notify_on_manual_workitems
 from caluma.settings.caluma import *  # noqa isort:skip
 from alexandria.settings.alexandria import *  # noqa isort:skip
 
-
 # Keep Tika from creating it's own log. We're configuring it's logger
 # in our LOGGING config block below.
 os.environ["TIKA_LOG_FILE"] = ""
@@ -3543,6 +3542,7 @@ EEBA_INTEGRATION = load_module_settings("eeba_integration")
 DEADLINES = load_module_settings("deadlines")
 WORK_ITEM_LIST = load_module_settings("work_item_list")
 LINKED_INSTANCES = load_module_settings("linked_instances")
+SANCTIONS = load_module_settings("sanctions")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")

@@ -68,6 +68,7 @@ export default {
       "instanceState",
       "service",
       "pendingSanctionsControlInstance",
+      "hasPendingSanctionsAssignedToService",
       "buildingPermitType",
       "submitDateAfter",
       "submitDateBefore",
