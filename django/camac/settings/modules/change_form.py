@@ -84,4 +84,13 @@ CHANGE_FORM = {
             ],
         ],
     },
+    "kt_gr": {
+        "ENABLED": True,
+        "INTERCHANGEABLE_FORMS": [
+            [
+                "baugesuch-v6",
+                "bauanzeige-v3",
+            ],
+        ],
+    },
 }

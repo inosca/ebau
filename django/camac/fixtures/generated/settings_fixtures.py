@@ -746,6 +746,23 @@ def ag_change_form_settings(
 
 
 @pytest.fixture
+def gr_change_form_settings(
+    request,
+    settings,
+    change_form_settings,
+):
+    """Module-specific settings for change form (canton GR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=change_form_settings,
+        module_name="change_form",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def communications_settings(
     request,
     settings,
