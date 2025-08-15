@@ -177,7 +177,7 @@ flush:
 .PHONY: db_dump
 db_dump: ## Dump the databse into an SQL dump file. Needs SNAPSHOT=xyz parameter
 	@[ -z "$(SNAPSHOT)" ] && echo "Need SNAPSHOT=... make parameter to dump the DB" || true
-	@[ -n "$(SNAPSHOT)" ] && docker compose exec db pg_dump $(APPLICATION_NAME) -Ucamac -c > $(SNAPSHOT)
+	@[ -n "$(SNAPSHOT)" ] && docker compose exec db pg_dump $(APPLICATION_NAME) -Ucamac -c >"$(SNAPSHOT)"
 
 .PHONY: db_load
 db_load: ## Load an SQL dump file into the DB. Needs SNAPSHOT=xyz parameter
