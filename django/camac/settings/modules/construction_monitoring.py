@@ -52,7 +52,11 @@ CONSTRUCTION_MONITORING = {
             "complete-instance": [
                 {
                     "template_slug": "notify-complete-instance",
-                    "recipient_types": ["involved_in_construction_step", "geometer"],
+                    "recipient_types": [
+                        "involved_in_construction_step",
+                        "geometer",
+                        "tax_administration",
+                    ],
                 },
             ],
         },

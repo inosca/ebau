@@ -324,14 +324,6 @@ def post_complete_instance(
                 camac_user,
             )
 
-    if settings.APPLICATION_NAME == "kt_schwyz":
-        notifications.append(
-            {
-                "template_slug": "notify-complete-instance",
-                "recipient_types": ["tax_administration"],
-            }
-        )
-
     for config in notifications:
         send_mail_without_request(
             config["template_slug"],
