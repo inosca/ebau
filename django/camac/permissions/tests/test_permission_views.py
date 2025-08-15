@@ -76,7 +76,10 @@ def test_permissions_view(
         "data": [
             {
                 "id": str(instance.pk),
-                "attributes": {"permissions": expect_permissions},
+                "attributes": {
+                    "current-access-levels": [access_level.slug],
+                    "permissions": expect_permissions,
+                },
                 "relationships": {
                     "instance": {"data": {"id": str(instance.pk), "type": "instances"}}
                 },
@@ -134,7 +137,10 @@ def test_no_include_instance(
         assert result.json() == {
             "data": [
                 {
-                    "attributes": {"permissions": ["bar", "foo"]},
+                    "attributes": {
+                        "current-access-levels": [access_level.slug],
+                        "permissions": ["bar", "foo"],
+                    },
                     "id": str(instance.pk),
                     "relationships": {
                         "instance": {

@@ -38,6 +38,7 @@ export function isInstanceService(instance, serviceId) {
 export default class InstanceAbility extends Ability {
   @service ebauModules;
   @service permissions;
+  @service store;
 
   // BE
   get canSetEbauNumber() {
@@ -174,6 +175,19 @@ export default class InstanceAbility extends Ability {
         // Active service is passed into the permission check
         parseInt(this.activeService?.id) === this.ebauModules.serviceId)
     );
+  }
+
+  async canAccessInstanceOnLevelRead() {
+    // CAVEAT: Do NOT confuse this with a proper permission check. This ability
+    // is only meant to check whether or not the "read" access level is currently
+    // granted. No specific permissions can be inferred.
+    if (this.permissions.fullyEnabled) {
+      const instancePermission = await this.store.findRecord(
+        "instance-permission",
+        this.ebauModules.instanceId,
+      );
+      return instancePermission.currentAccessLevels.some((p) => p === "read");
+    }
   }
 
   async canUnsubscribeResponsibleService() {
