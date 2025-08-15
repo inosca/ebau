@@ -157,6 +157,8 @@ def calculate_ag_processing_fee(construction_costs: int | float | None) -> Decim
         taxed_amount = max(Decimal(0), min(remaining_construction_costs, max_tax))
         total += taxed_amount * tax_rate
         remaining_construction_costs -= taxed_amount
+        # Round to integers and format to 2 decimal places
+        total = round_decimal(Decimal(round(total)))
 
     # The maximum total fee is 60'000, the minimum is 400
     return min(max(total, Decimal(400)), Decimal(60_000))

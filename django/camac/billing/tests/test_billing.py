@@ -54,6 +54,8 @@ def test_calculate_final_rate() -> None:
         (9_000_000, 19_500),
         # Maximum of 60'000
         (40_000_000, 60_000),
+        # rounding test
+        (345_678, 1_037),
     ],
 )
 def test_calculate_final_rate_ag_processing_fee(
