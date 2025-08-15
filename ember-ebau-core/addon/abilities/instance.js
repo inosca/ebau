@@ -42,9 +42,8 @@ export default class InstanceAbility extends Ability {
   // BE
   get canSetEbauNumber() {
     return (
-      (this.ebauModules.isSupportRole ||
-        this.ebauModules.isMunicipalityLeadRole) &&
-      this.model.ebauNumber
+      (this.ebauModules.isMunicipalityLeadRole && this.model.ebauNumber) ||
+      this.ebauModules.isSupportRole
     );
   }
 
