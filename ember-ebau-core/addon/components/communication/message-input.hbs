@@ -70,6 +70,12 @@
         data-test-send
         data-test-loading={{@loading}}
       />
+      <LinkTo
+        @route={{module-route "communications" "index"}}
+        class="uk-button uk-button-default"
+      >
+        {{t "global.back"}}
+      </LinkTo>
     </div>
   {{/if}}
 </div>
