@@ -94,6 +94,17 @@ export default class InstanceAbility extends Ability {
 
   // GR & SO & BE
   get canCorrect() {
+    if (macroCondition(getOwnConfig().application === "be")) {
+      return (
+        (this.ebauModules.isSupportRole ||
+          this.ebauModules.isMunicipalityLeadRole) &&
+        hasInstanceState(
+          this.model,
+          mainConfig.correction?.allowedInstanceStates,
+        ) &&
+        !this.hasActiveDistribution
+      );
+    }
     return (
       // disabled until isMunicipalityLeadRole works in ember-ebau
       // (this.ebauModules.isSupportRole ||
@@ -103,6 +114,14 @@ export default class InstanceAbility extends Ability {
   }
 
   get canFinishCorrect() {
+    if (macroCondition(getOwnConfig().application === "be")) {
+      return (
+        ((this.ebauModules.isSupportRole ||
+          this.ebauModules.isMunicipalityLeadRole) &&
+          hasInstanceState(this.model, mainConfig.correction?.instanceState)) ||
+        hasInstanceState(this.model, "new")
+      );
+    }
     return (
       // disabled until isMunicipalityLeadRole works in ember-ebau
       // (this.ebauModules.isSupportRole ||
