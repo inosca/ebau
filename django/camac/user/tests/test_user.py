@@ -63,8 +63,10 @@ def test_me_service_municipality(
     response = admin_client.get(url, data={"include": "service.municipality"})
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
+    user_service_id = json["data"]["relationships"]["service"]["data"]["id"]
+    user_service = next((i for i in json["included"] if i["id"] == user_service_id))
     assert (
-        int(json["included"][0]["relationships"]["municipality"]["data"]["id"])
+        int(user_service["relationships"]["municipality"]["data"]["id"])
         == lead_authority.pk
     )
 
