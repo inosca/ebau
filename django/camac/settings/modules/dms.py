@@ -124,6 +124,8 @@ DMS = {
                     "lu-warmwasser-calculation-v5",
                     "bw-warmwasser-calculation-v5",
                     "spezialinstallation-calculation-v5",
+                    "pdf-herunterladen",
+                    "entwurf-herunterladen-pdf",
                 ],
             },
             "vorabklaerung": {
@@ -157,6 +159,8 @@ DMS = {
                     "lu-warmwasser-calculation-v5",
                     "bw-warmwasser-calculation-v5",
                     "spezialinstallation-calculation-v5",
+                    "pdf-herunterladen",
+                    "entwurf-herunterladen-pdf",
                 ],
             },
             "migriertes-dossier": {
@@ -179,6 +183,8 @@ DMS = {
                     "dokumente-sb1",
                     "dokumente-sb2",
                     "dokumente-platzhalter",
+                    "pdf-herunterladen",
+                    "entwurf-herunterladen-pdf",
                 ],
             },
             "regular-exams": {

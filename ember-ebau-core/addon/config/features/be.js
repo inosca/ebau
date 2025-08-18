@@ -48,6 +48,7 @@ export default {
       enabled: (instance) => !instance.isPaper,
       templateName: () => `form`,
       errorMessage: "dms.downloadError",
+      customFormSlugs: ["sb1", "sb1-v2", "sb2"],
     },
   },
   corrections: {

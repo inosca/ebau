@@ -359,7 +359,7 @@ class DMSHandler:
         visitor = DMSVisitor(document, instance, user)
         return {
             **self.get_meta_data(instance, document, service),
-            "draft": "" if caluma_api.is_submitted(instance) else _("Draft"),
+            "draft": "" if caluma_api.is_submitted(instance, document) else _("Draft"),
             "sections": visitor.build_form_structure(),
             "documents": self.prepare_documents(instance, for_additional_demand),
         }
