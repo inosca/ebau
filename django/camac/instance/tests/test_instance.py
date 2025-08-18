@@ -18,7 +18,7 @@ from camac.applicants.models import Applicant
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
-from camac.instance.filters import CaseSuspendedFilter
+from camac.instance.filters import CaseBabFilter, CaseSuspendedFilter
 from camac.instance.models import FormField, Instance, InstanceGroup, InstanceState
 from camac.permissions import api as permissions_api
 from camac.permissions.events import Trigger
@@ -2484,6 +2484,114 @@ def test_case_suspended_filter_gr(
     request.group = group
 
     suspended_filter = CaseSuspendedFilter()
+    parent_mock = mocker.MagicMock()
+    parent_mock.request = request
+    suspended_filter.parent = parent_mock
+
+    queryset = suspended_filter.filter(queryset=Instance.objects.all(), value=search)
+
+    cases_result = queryset.all()
+    assert len(cases_result) == expected
+
+
+@pytest.mark.parametrize(
+    "search,expected",
+    [
+        ("bib", 2),
+        ("bab", 1),
+        (None, 3),
+    ],
+)
+def test_case_bab_filter(
+    db,
+    service_factory,
+    group_factory,
+    instance_factory,
+    caluma_case_factory,
+    caluma_form_factory,
+    search,
+    expected,
+    rf,
+    mocker,
+    settings,
+):
+    settings.BAB = {
+        "ENABLED": True,
+    }
+    service = service_factory()
+    group = group_factory(service=service)
+    caluma_form_factory(slug="baugesuch-v1")
+
+    # generate 3 instances with BaB values True,False and None
+    instance_factory(
+        case=caluma_case_factory(
+            document__form_id="baugesuch-v1", meta={"is-bab": True}
+        )
+    )
+    instance_factory(
+        case=caluma_case_factory(
+            document__form_id="baugesuch-v1", meta={"is-bab": False}
+        )
+    )
+    instance_factory(
+        case=caluma_case_factory(document__form_id="baugesuch-v1", meta={})
+    )
+
+    request = rf.request()
+    request.group = group
+    suspended_filter = CaseBabFilter()
+    parent_mock = mocker.MagicMock()
+    parent_mock.request = request
+    suspended_filter.parent = parent_mock
+
+    queryset = suspended_filter.filter(queryset=Instance.objects.all(), value=search)
+
+    cases_result = queryset.all()
+    assert len(cases_result) == expected
+
+
+@pytest.mark.parametrize(
+    "search,formslug,expected",
+    [
+        ("bib", "example", 0),
+        ("bab", "example", 0),
+        (None, "example", 3),
+        ("bib", "baugesuch-v1", 2),
+        ("bab", "baugesuch-v1", 1),
+        (None, "baugesuch-v1", 3),
+    ],
+)
+def test_case_bab_filter_gr(
+    db,
+    service_factory,
+    group_factory,
+    instance_factory,
+    formslug,
+    caluma_case_factory,
+    caluma_form_factory,
+    search,
+    expected,
+    rf,
+    mocker,
+    gr_bab_settings,
+    set_application_gr,
+):
+    service = service_factory()
+    group = group_factory(service=service)
+    caluma_form_factory(slug=formslug)
+
+    # generate 3 instances with BaB values True,False and None
+    instance_factory(
+        case=caluma_case_factory(document__form_id=formslug, meta={"is-bab": True})
+    )
+    instance_factory(
+        case=caluma_case_factory(document__form_id=formslug, meta={"is-bab": False})
+    )
+    instance_factory(case=caluma_case_factory(document__form_id=formslug, meta={}))
+
+    request = rf.request()
+    request.group = group
+    suspended_filter = CaseBabFilter()
     parent_mock = mocker.MagicMock()
     parent_mock.request = request
     suspended_filter.parent = parent_mock

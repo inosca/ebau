@@ -33,4 +33,13 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
       y: this.centerCoordinate.y,
     });
   }
+
+  get isBib() {
+    const calumaForm = `${this.instance?.calumaForm}`;
+    return (
+      !this.meta["is-bab"] &&
+      (calumaForm.startsWith("baugesuch") ||
+        calumaForm.startsWith("vorlaeufige-beurteilung"))
+    );
+  }
 }

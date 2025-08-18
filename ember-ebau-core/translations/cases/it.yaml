@@ -40,6 +40,8 @@ cases:
     street: "Via/toponimo"
     submitDate: "Inoltrato il"
     user: "Creato da"
+    bab: "BiB/BaB"
+    bab-placeholder: ""
 
   filter: "Cerca dossier"
   filters:
@@ -165,6 +167,10 @@ cases:
   suspended:
     only: "Solo dossier sospesi"
     none: "Nessun dossier sospeso"
+
+  bab:
+    only_bib: "Solo dossier BiB"
+    only_bab: "Solo dossier BaB"
 
   modification:
     only: "Solo modifiche di progetto"

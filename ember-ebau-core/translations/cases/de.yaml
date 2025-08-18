@@ -136,6 +136,8 @@ cases:
     withCantonalParticipation: "Mit kantonaler Beteiligung"
     suspended: "Sistierte Dossiers"
     suspended-placeholder: ""
+    bab: "BiB/BaB"
+    bab-placeholder: ""
 
   miscellaneous:
     linkInstance: "Dossier verknüpfen"
@@ -171,6 +173,10 @@ cases:
   suspended:
     only: "Nur Sistierte Dossiers"
     none: "Keine Sistierten Dossiers"
+
+  bab:
+    only_bib: "Nur BiB Dossiers"
+    only_bab: "Nur BaB Dossiers"
 
   modification:
     only: "Nur Projektänderungen"

@@ -666,6 +666,42 @@ class CaseSuspendedFilter(CharFilter):
             )
 
 
+class CaseBabFilter(CharFilter):
+    @canton_aware
+    def filter(self, queryset, value):
+        if not settings.BAB or value not in ["bib", "bab"]:
+            return queryset
+
+        if value == "bib":
+            return queryset.filter(
+                (
+                    Q(**{"case__meta__is-bab__isnull": True})
+                    | Q(**{"case__meta__is-bab": False})
+                )
+            )
+        else:
+            return queryset.filter(Q(**{"case__meta__is-bab": True}))
+
+    def filter_gr(self, queryset, value):
+        if not settings.BAB or value not in ["bib", "bab"]:
+            return queryset
+
+        queryset = queryset.filter(
+            Q(case__document__form__slug__startswith="baugesuch")
+            | Q(case__document__form__slug__startswith="vorlaeufige-beurteilung")
+        )
+
+        if value == "bib":
+            return queryset.filter(
+                (
+                    Q(**{"case__meta__is-bab__isnull": True})
+                    | Q(**{"case__meta__is-bab": False})
+                )
+            )
+        else:
+            return queryset.filter(Q(**{"case__meta__is-bab": True}))
+
+
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
     identifier = CharFilter(field_name="identifier", lookup_expr="icontains")
@@ -895,6 +931,7 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
         question="projektaenderung", yes="ja", no="nein"
     )
     is_suspended = CaseSuspendedFilter()
+    is_bab = CaseBabFilter()
 
     sanction_creator = NumberFilter(field_name="sanctions__service")
     sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
@@ -906,6 +943,7 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
             "is_modification",
             "caluma_keyword_search",
             "is_suspended",
+            "is_bab",
         )
 
 

@@ -1885,8 +1885,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         ]:
             instance.set_instance_state("init-distribution", user)
 
-    def _so_handle_bab(self, instance):
-        if not settings.BAB or settings.APPLICATION_NAME != "kt_so":
+    def _handle_bab(self, instance):
+        if not settings.BAB or not settings.BAB.get("ENABLED"):
             return
 
         md = self.get_master_data(instance.case)
@@ -1944,7 +1944,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._ur_internal_submission(instance, group)
             self._ur_prepare_cantonal_instances(instance)
             self._so_handle_special_forms(instance)
-            self._so_handle_bab(instance)
+            self._handle_bab(instance)
             self._ag_handle_pgv(instance)
             self._ag_handle_special_forms(instance)
 

@@ -35,6 +35,8 @@
     {{/if}}
     {{#if @case.meta.is-bab}}
       <span class="uk-label subnav-header__label">{{t "nav.bab"}}</span>
+    {{else if @case.isBib}}
+      <span class="uk-label subnav-header__label">{{t "nav.bib"}}</span>
     {{/if}}
     {{#if @case.instance.isModification}}
       <span class="uk-label subnav-header__label">{{t
