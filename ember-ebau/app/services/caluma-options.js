@@ -56,6 +56,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     "inquiry-answer-considerations",
     "inquiry-answer-assessment",
     "inquiry-answer-ancillary-clauses",
+    "stellungnahme-in-dokumentanablage",
   ];
   static distributionInfoQuestionsSO = [
     "inquiry-answer-positive-assessments",
