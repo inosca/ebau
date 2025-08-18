@@ -1954,10 +1954,12 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._ur_link_konzession_with_bohrbewilligung(instance)
             self._set_authority(instance)
             self._set_submit_date(case, instance)
-            self._generate_and_store_pdf(instance)
             self._create_history_entry(gettext_noop("Dossier submitted"))
             self._update_rejected_instance(instance)
             self._complete_submit_work_item(instance)
+            # The pdf has to be created after the submit work-item was completed.
+            # Otherwise there will be a draft watermark in the uploaded document in the document module.
+            self._generate_and_store_pdf(instance)
             self._be_extend_validity_skip_ebau_number(case)
             self._be_copy_responsible_person(instance)
             self._ur_copy_oereb_instance_for_koor_afj(instance)

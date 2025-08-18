@@ -176,9 +176,17 @@ class CalumaApi:
             get_unversioned_slug(instance.case.document.form_id) == "migriertes-dossier"
         )
 
-    def is_submitted(self, instance):
+    def is_submitted(self, instance, document):
         """Return true if instance got submitted by the applicant."""
-        work_item = instance.case.work_items.filter(task_id="submit").first()
+        is_root_document = instance.case.document.pk == document.pk
+
+        work_item = None
+
+        if is_root_document:
+            work_item = instance.case.work_items.filter(task_id="submit").first()
+        elif hasattr(document, "work_item"):
+            work_item = document.work_item
+
         if not work_item:  # pragma: no cover
             return False
         return work_item.status == caluma_workflow_models.WorkItem.STATUS_COMPLETED

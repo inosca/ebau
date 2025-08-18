@@ -115,10 +115,14 @@ export default class SubmitInstanceComponent extends Component {
   @dropTask
   *export() {
     try {
+      const rootFormSlug = this.args.field.fieldset.document.rootForm.slug;
       yield this.dms.generatePdf(this.args.context.instanceId, {
         template: this.config?.export?.templateName(
           this.intl.primaryLocale.split("-")[0],
         ),
+        ...((this.config?.export?.customFormSlugs ?? []).includes(rootFormSlug)
+          ? { "form-slug": rootFormSlug }
+          : {}),
       });
     } catch {
       this.notification.danger(this.intl.t("dms.downloadError"));
