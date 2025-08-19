@@ -37,7 +37,10 @@ export default class AttachmentSection extends Model {
           (await this.apollo.query(
             {
               query: hasRunningInquiriesQuery,
-              variables: { serviceId, instanceId },
+              variables: {
+                serviceId: serviceId.toString(),
+                instanceId: instanceId.toString(),
+              },
             },
             "allWorkItems.totalCount",
           )) > 0
