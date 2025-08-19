@@ -27,7 +27,7 @@ def generate_module_settings(settings, request, module_name, canton, disable):
     if canton:
         new_settings = always_merger.merge(
             copy.deepcopy(request.getfixturevalue(f"{module_name}_settings")),
-            original_settings[canton]
+            copy.deepcopy(original_settings[canton])
             if isinstance(original_settings, dict)
             else getattr(original_settings, canton),
         )
@@ -35,7 +35,7 @@ def generate_module_settings(settings, request, module_name, canton, disable):
         new_settings = {}
     else:
         new_settings = copy.deepcopy(
-            original_settings["default"]
+            copy.deepcopy(original_settings["default"])
             if isinstance(original_settings, dict)
             else original_settings.default
         )
