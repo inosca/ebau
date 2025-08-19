@@ -3512,7 +3512,12 @@ def test_send_notifications(
             "municipality-light",
             "anfrage-intern",
             "subm",
-            {"create-manual-workitems", "distribution", "withdrawal-request"},
+            {
+                "cantonal-exam",
+                "create-manual-workitems",
+                "distribution",
+                "withdrawal-request",
+            },
         ),
     ],
 )

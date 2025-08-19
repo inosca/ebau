@@ -396,7 +396,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         authority_service_group = case.instance.responsible_service().service_group.name
 
         if authority_service_group == "municipality-light":
-            return [*tasks, "distribution"]
+            return [*tasks, "distribution", "cantonal-exam"]
         elif case.document.form_id == "plangenehmigungsverfahren-bund":
             return [*tasks, *pgv_tasks]
         elif case.document.form_id == "plangenehmigungsverfahren-gas":
