@@ -1,4 +1,7 @@
-query HasRunningInquiries($serviceId: String!, $instanceId: GenericScalar!) {
+query HasRunningInquiries(
+  $serviceId: GenericScalar!
+  $instanceId: GenericScalar!
+) {
   allWorkItems(
     filter: [
       { status: READY }
