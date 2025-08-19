@@ -15,6 +15,7 @@ export default class CorrectionsConvertModification extends Component {
   @service intl;
 
   @tracked showModal = false;
+  @tracked constructionDescription;
 
   @action
   toggleModal() {

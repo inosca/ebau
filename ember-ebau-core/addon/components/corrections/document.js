@@ -8,6 +8,7 @@ import { task } from "ember-concurrency";
 import { confirm } from "ember-uikit";
 import { trackedFunction } from "reactiveweb/function";
 
+import getActiveDistributionQuery from "ember-ebau-core/gql/queries/get-active-distribution.graphql";
 import getDocumentQuery from "ember-ebau-core/gql/queries/get-document.graphql";
 
 export default class CorrectionsDocument extends Component {
@@ -35,6 +36,18 @@ export default class CorrectionsDocument extends Component {
 
     const document = new Document({ raw, owner });
     return document;
+  });
+
+  hasActiveDistribution = trackedFunction(this, async () => {
+    const workItems = await this.apollo.query(
+      {
+        query: getActiveDistributionQuery,
+        fetchPolicy: "network-only",
+        variables: { instanceId: this.args.instance.id },
+      },
+      "allWorkItems",
+    );
+    return workItems.totalCount > 0;
   });
 
   get invalidFields() {

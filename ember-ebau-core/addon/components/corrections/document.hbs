@@ -69,10 +69,20 @@
     @onClick={{this.startCorrection.perform}}
     @disabled={{or
       this.documentCorrection.isRunning
-      (cannot "correct instance" @instance)
+      (cannot
+        "correct instance"
+        @instance
+        hasActiveDistribution=this.hasActiveDistribution.value
+      )
     }}
   />
-  {{#if (cannot "correct instance" @instance)}}
+  {{#if
+    (cannot
+      "correct instance"
+      @instance
+      hasActiveDistribution=this.hasActiveDistribution.value
+    )
+  }}
     <p class="uk-text-muted">{{t "corrections.not-available"}}</p>
   {{/if}}
 {{/if}}
