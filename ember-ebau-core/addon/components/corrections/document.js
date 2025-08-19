@@ -1,5 +1,6 @@
 import { getOwner } from "@ember/application";
 import { service } from "@ember/service";
+import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { parseDocument } from "@projectcaluma/ember-form/lib/parsers";
 import { queryManager } from "ember-apollo-client";
@@ -60,11 +61,18 @@ export default class CorrectionsDocument extends Component {
 
   finishCorrection = task({ drop: true }, async (validate) => {
     const valid = await validate();
-    if (
-      !valid ||
-      !(await confirm(this.intl.t("corrections.document.confirm-finish")))
-    ) {
+    if (!valid) {
       return;
+    }
+
+    // TODO: Remove this as soon as kt. Bern translations are available
+    // Disable confirm finish dialog for kt. Bern
+    if (macroCondition(getOwnConfig().application !== "be")) {
+      if (
+        !(await confirm(this.intl.t("corrections.document.confirm-finish")))
+      ) {
+        return;
+      }
     }
 
     try {
