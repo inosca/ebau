@@ -51,6 +51,9 @@ class PublicServiceFilterSet(FilterSet):
     available_in_distribution_for_instance = NumberFilter(
         method="filter_available_in_distribution_for_instance"
     )
+    available_in_ruleset_for_service = BooleanFilter(
+        method="filter_available_in_ruleset_for_service"
+    )
     is_active_service_for_instance = NumberFilter(
         method="filter_is_active_service_for_instance"
     )
@@ -316,6 +319,31 @@ class PublicServiceFilterSet(FilterSet):
         )
 
         return queryset.filter(pk__in=Subquery(providers.values("pk")))
+
+    def filter_available_in_ruleset_for_service(self, queryset, name, value):
+        """Filter services based on rulesets configuration for available services."""
+        if not value:
+            return queryset
+
+        rulesets_config = (
+            settings.RULESETS.available_services_rule.service_configurations
+        )
+
+        if not rulesets_config:
+            return queryset
+
+        service = self.request.group.service
+        service_group = service.service_group.name
+
+        allowed_service_groups = rulesets_config.get(service_group, [])
+
+        return queryset.filter(
+            Q(
+                Q(service_group__name__in=allowed_service_groups)
+                & Q(service_parent_id__isnull=True)
+            )
+            | Q(service_parent_id=self.request.group.service_id)
+        )
 
     def _filter_has_billing_entries(self, queryset, name, value):
         if not value:

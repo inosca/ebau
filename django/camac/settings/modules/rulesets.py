@@ -1,5 +1,6 @@
 from camac.settings.ebau_schema import ModuleConfig
 from camac.settings.modules.rulesets_schema import (
+    AvailableServicesRuleConfig,
     DistributionDeadlineRuleConfig,
     ResponsibleUserRuleConfig,
     RulesetsConfig,
@@ -22,6 +23,12 @@ RULESETS = ModuleConfig[RulesetsConfig](
         distribution_deadline_rule=DistributionDeadlineRuleConfig(
             exclude_holidays_for_service_groups=["service-afb", "service-cantonal"],
             allowed_roles=AG_ADMIN_ROLES,
+        ),
+        available_services_rule=AvailableServicesRuleConfig(
+            service_configurations={
+                "service-afb": ["service-cantonal", "service-external"],
+                "municipality": ["subservice"],
+            }
         ),
     ),
 )
