@@ -78,8 +78,8 @@ export default {
       "district", // Leitbehörde RSTA (Regierungsstatthalteramt)
     ],
     adminServicesForServiceGroup: {
-      // Leitbehörde RSTA (Regierungsstatthalteramt) : Regierungsstatthalteramt Seeland
-      district: ["rsta-seeland"],
+      // Leitbehörde RSTA (Regierungsstatthalteramt) : Regierungsstatthalteramt Biel/Bienne
+      district: ["rsta-biel-bienne"],
     },
   },
   correction: {
