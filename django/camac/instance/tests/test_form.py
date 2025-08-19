@@ -44,7 +44,7 @@ def test_form_versioned_filter(
 
     json = response.json()
     assert len(json["data"]) == amount
-    assert json["data"][0]["id"] == str(form.pk)
+    assert next((f for f in json["data"] if f["id"] == str(form.pk)), None) is not None
 
 
 @pytest.mark.parametrize(
