@@ -11828,7 +11828,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "anzahl-mitarbeitende-gewerbe",
-      "sort": 32
+      "sort": 24
     }
   },
   {
@@ -11843,7 +11843,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "ausserhalb-bauzone",
-      "sort": 45
+      "sort": 37
     }
   },
   {
@@ -11858,7 +11858,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "baute-oder-anlage",
-      "sort": 46
+      "sort": 38
     }
   },
   {
@@ -11873,7 +11873,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "bauvorhaben-mit-gewerbenutzung",
-      "sort": 33
+      "sort": 25
     }
   },
   {
@@ -11888,7 +11888,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-anlagen",
-      "sort": 13
+      "sort": 5
     }
   },
   {
@@ -11903,7 +11903,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-nutzung",
-      "sort": 31
+      "sort": 23
     }
   },
   {
@@ -11918,7 +11918,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-wohnnutzung",
-      "sort": 36
+      "sort": 28
     }
   },
   {
@@ -11933,7 +11933,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-kantonsstrassen",
-      "sort": 24
+      "sort": 16
     }
   },
   {
@@ -11948,7 +11948,22 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "das-bauvorhaben-befindet-sich-in",
-      "sort": 12
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "nutzung-bauvorhaben.entsorgung-triage",
+    "fields": {
+      "created_at": "2025-08-18T14:57:31.588Z",
+      "modified_at": "2025-08-18T14:57:31.588Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "nutzung-bauvorhaben",
+      "question": "entsorgung-triage",
+      "sort": 1
     }
   },
   {
@@ -11963,7 +11978,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "fallen-emissionen-an",
-      "sort": 30
+      "sort": 22
     }
   },
   {
@@ -11978,7 +11993,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "forstliche-baute",
-      "sort": 40
+      "sort": 32
     }
   },
   {
@@ -11993,7 +12008,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "haustechnische-anlagen-brandschutz",
-      "sort": 23
+      "sort": 15
     }
   },
   {
@@ -12008,7 +12023,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-denkmalpflege",
-      "sort": 16
+      "sort": 8
     }
   },
   {
@@ -12023,7 +12038,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-hindernisfreies-bauen",
-      "sort": 37
+      "sort": 29
     }
   },
   {
@@ -12038,7 +12053,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-kantonales-brandschutzgesetz",
-      "sort": 22
+      "sort": 14
     }
   },
   {
@@ -12053,7 +12068,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-laermvorbelastetes-gebiet",
-      "sort": 10
+      "sort": 2
     }
   },
   {
@@ -12068,7 +12083,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-vorabklaerungspflicht",
-      "sort": 25
+      "sort": 17
     }
   },
   {
@@ -12083,7 +12098,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-vorpruefung-gvg",
-      "sort": 11
+      "sort": 3
     }
   },
   {
@@ -12098,7 +12113,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-waldabstandsbereich",
-      "sort": 43
+      "sort": 35
     }
   },
   {
@@ -12113,7 +12128,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "industrie-und-gewerbeabwasser",
-      "sort": 28
+      "sort": 20
     }
   },
   {
@@ -12128,7 +12143,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "ist-ein-gewaesser-betroffen",
-      "sort": 20
+      "sort": 12
     }
   },
   {
@@ -12143,7 +12158,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "kantonsstrassen",
-      "sort": 26
+      "sort": 18
     }
   },
   {
@@ -12158,7 +12173,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-50-arbeitsplaetze",
-      "sort": 27
+      "sort": 19
     }
   },
   {
@@ -12173,7 +12188,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "mehr-als-vier-wohneinheiten",
-      "sort": 38
+      "sort": 30
     }
   },
   {
@@ -12188,7 +12203,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "muessen-ufervegetation-hecken-oder-feldgehoelze-entfernt-werden",
-      "sort": 18
+      "sort": 10
     }
   },
   {
@@ -12203,7 +12218,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "nichtforstliche-kleinbaute",
-      "sort": 41
+      "sort": 33
     }
   },
   {
@@ -12218,7 +12233,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "objekt-der-denkmalpflege",
-      "sort": 17
+      "sort": 9
     }
   },
   {
@@ -12233,7 +12248,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "rodung",
-      "sort": 42
+      "sort": 34
     }
   },
   {
@@ -12248,7 +12263,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "triage-brandschutz",
-      "sort": 21
+      "sort": 13
     }
   },
   {
@@ -12263,7 +12278,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "triage-titel",
-      "sort": 47
+      "sort": 39
     }
   },
   {
@@ -12278,7 +12293,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "uvp-pflicht",
-      "sort": 14
+      "sort": 6
     }
   },
   {
@@ -12293,7 +12308,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "waldareal",
-      "sort": 44
+      "sort": 36
     }
   },
   {
@@ -12308,7 +12323,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "was-verursacht-die-emissionen",
-      "sort": 29
+      "sort": 21
     }
   },
   {
@@ -12323,7 +12338,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "werden-neue-wohnungen-erstellt",
-      "sort": 35
+      "sort": 27
     }
   },
   {
@@ -12338,7 +12353,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "wie-ist-das-gewaesser-betroffen",
-      "sort": 19
+      "sort": 11
     }
   },
   {
@@ -12353,7 +12368,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "wird-material-vor-ort-aufbereitet",
-      "sort": 15
+      "sort": 7
     }
   },
   {
@@ -12368,7 +12383,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "wohnnutzung",
-      "sort": 39
+      "sort": 31
     }
   },
   {
@@ -12383,7 +12398,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "zweitwohnungsgesetz",
-      "sort": 34
+      "sort": 26
     }
   },
   {
@@ -26124,6 +26139,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entsorgung-triage-no",
+    "fields": {
+      "created_at": "2025-08-18T14:57:31.492Z",
+      "modified_at": "2025-08-18T14:57:31.492Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entsorgung-triage-yes",
+    "fields": {
+      "created_at": "2025-08-18T14:57:31.495Z",
+      "modified_at": "2025-08-18T14:57:31.495Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -41240,23 +41289,23 @@
     "pk": "abgetragener-oberboden-volumen",
     "fields": {
       "created_at": "2024-12-10T14:11:50.399Z",
-      "modified_at": "2024-12-10T14:11:50.400Z",
+      "modified_at": "2025-08-18T14:55:55.371Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Abgetragener Oberboden (m\\u00b3)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
-        "min_value": null
+        "min_value": 0
       },
       "meta": {
         "widgetOverride": "cf-field/input/number-separator"
@@ -45526,23 +45575,23 @@
     "pk": "aushub-volumen",
     "fields": {
       "created_at": "2024-12-10T14:12:10.058Z",
-      "modified_at": "2024-12-10T14:12:10.058Z",
+      "modified_at": "2025-08-18T14:56:01.333Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Aushub (m\\u00b3)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
-        "min_value": null
+        "min_value": 0
       },
       "meta": {
         "widgetOverride": "cf-field/input/number-separator"
@@ -46207,23 +46256,23 @@
     "pk": "baujahr-aeltestes-betroffenes-objekt",
     "fields": {
       "created_at": "2024-12-10T14:13:04.564Z",
-      "modified_at": "2024-12-10T14:13:04.564Z",
+      "modified_at": "2025-08-18T14:56:14.864Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Baujahr \\u00e4ltestes betroffenes Objekt\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
-        "min_value": null
+        "min_value": 0
       },
       "meta": {
         "widgetOverride": "cf-field/input/number-separator"
@@ -53777,7 +53826,7 @@
     "pk": "eeba-state",
     "fields": {
       "created_at": "2025-03-20T13:04:47.067Z",
-      "modified_at": "2025-04-03T08:48:11.360Z",
+      "modified_at": "2025-08-18T15:00:23.683Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55360,7 +55409,7 @@
     "pk": "entsorgung",
     "fields": {
       "created_at": "2025-03-17T16:58:09.351Z",
-      "modified_at": "2025-07-03T13:26:18.144Z",
+      "modified_at": "2025-08-18T14:58:47.532Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55368,7 +55417,7 @@
       "label": "{\"de\": \"Entsorgung\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!('parzelle'|answer|mapby('parzellennummer') && 'gemeinde'|answer)",
+      "is_hidden": "!('parzelle'|answer|mapby('parzellennummer') && 'gemeinde'|answer) || \"entsorgung-triage\"|answer != \"entsorgung-triage-yes\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -55541,6 +55590,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"### Entsorgung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entsorgung-triage",
+    "fields": {
+      "created_at": "2025-08-18T14:57:31.538Z",
+      "modified_at": "2025-08-19T10:53:08.794Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fallen beim Bauvorhaben Materialien aus folgenden Kategorien an: R\\u00fcckbaumaterial, Bodenabtrag, Aushub, Strassenbelag, Gleisaushub?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -59564,23 +59644,23 @@
     "pk": "gleisaushub-volumen",
     "fields": {
       "created_at": "2024-12-10T14:12:46.324Z",
-      "modified_at": "2024-12-10T14:12:46.324Z",
+      "modified_at": "2025-08-18T14:56:10.874Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Gleisaushub (m\\u00b3)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
-        "min_value": null
+        "min_value": 0
       },
       "meta": {
         "widgetOverride": "cf-field/input/number-separator"
@@ -70372,23 +70452,23 @@
     "pk": "rueckbaumaterial-volumen",
     "fields": {
       "created_at": "2024-12-10T14:11:30.987Z",
-      "modified_at": "2024-12-10T14:11:30.987Z",
+      "modified_at": "2025-08-18T14:55:48.159Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"R\\u00fcckbaumaterial (m\\u00b3)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
-        "min_value": null
+        "min_value": 0
       },
       "meta": {
         "widgetOverride": "cf-field/input/number-separator"
@@ -72476,23 +72556,23 @@
     "pk": "strasse-belag-volumen",
     "fields": {
       "created_at": "2024-12-10T14:12:28.888Z",
-      "modified_at": "2024-12-10T14:12:28.888Z",
+      "modified_at": "2025-08-18T14:56:06.412Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Strasse / Belag (m\\u00b3)\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
-        "min_value": null
+        "min_value": 0
       },
       "meta": {
         "widgetOverride": "cf-field/input/number-separator"
@@ -86153,6 +86233,36 @@
       "question": "entgegennahme-berechtigt",
       "option": "entgegennahme-berechtigt-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entsorgung-triage.entsorgung-triage-no",
+    "fields": {
+      "created_at": "2025-08-19T10:53:08.801Z",
+      "modified_at": "2025-08-19T10:53:08.801Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entsorgung-triage",
+      "option": "entsorgung-triage-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entsorgung-triage.entsorgung-triage-yes",
+    "fields": {
+      "created_at": "2025-08-19T10:53:08.802Z",
+      "modified_at": "2025-08-19T10:53:08.802Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entsorgung-triage",
+      "option": "entsorgung-triage-yes",
+      "sort": 2
     }
   },
   {
