@@ -53,6 +53,12 @@
           @value={{or this.editController.case.applicant "-"}}
         />
       {{/if}}
+      {{#if (and (is-application "ag") this.evenProjectNumber)}}
+        <EvenOverviewGridCell
+          @label={{t "instances.even"}}
+          @value={{this.evenProjectNumber}}
+        />
+      {{/if}}
     </div>
   </div>
 </div>
