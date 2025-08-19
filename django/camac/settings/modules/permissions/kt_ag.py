@@ -95,6 +95,20 @@ MODULE_DMS_GENERATE = (
 )
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL | RequireInstanceState(["correction"])
+MODULE_FORMAL_EXAM = (
+    RequireWorkItem("formal-exam")
+    & ~RequireInstanceState(
+        [
+            "finished",
+            "construction-monitoring",
+            "rejected",
+            "withdrawn",
+            "to-finish",
+            "decided",
+        ]
+    )
+    & ROLES_MUNICIPALITY
+)
 MODULE_HISTORY = STATES_ALL & ~IsServiceGroup(["municipality-light"])
 MODULE_INFORMATION_OF_NEIGHBORS = NO_CORRECTION & RequireWorkItem(
     "fill-information-of-neighbors"
@@ -262,6 +276,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-kantonale-pruefung-write", MODULE_CANTONAL_EXAM),
+            ("form-vorlaeufige-pruefung-write", MODULE_FORMAL_EXAM),
             ("form-read", MODULE_FORM),
             (
                 "form-write",

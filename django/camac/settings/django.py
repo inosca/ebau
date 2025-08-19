@@ -2578,7 +2578,12 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main", "kantonale-pruefung", "einwendungen"],
+            "FORM_PERMISSIONS": [
+                "main",
+                "kantonale-pruefung",
+                "einwendungen",
+                "vorlaeufige-pruefung",
+            ],
             "FORM_PERMISSIONS_MAPPING": {
                 "form-einwendungen-write": "legal-submissions-write",
             },
