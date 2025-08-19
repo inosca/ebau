@@ -92,7 +92,19 @@
           }}</div>
         <LinkedInstancesCounter @case={{@case}} />
       </div>
-      <div class="uk-width-1-2">
+      {{#if this.evenProjectLink}}
+        <div>
+          <div class="uk-text-bold">{{t "cases.tableHeaders.even"}}</div>
+          <a
+            href="{{this.evenProjectLink}}"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {{@case.evenProjectNumber}}
+          </a>
+        </div>
+      {{/if}}
+      <div class="{{this.keywordsCssClass}}">
         <div class="uk-text-bold">{{t "cases.header.keywords"}}</div>
         {{#if @case.instance}}
           <CaseHeader::Keywords @instance={{@case.instance}} />

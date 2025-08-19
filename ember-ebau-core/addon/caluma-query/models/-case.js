@@ -25,6 +25,7 @@ const rootQuestions = [
   answerSlugs.parcel,
   answerSlugs.coordinates,
   answerSlugs.modificationDescription,
+  answerSlugs.evenProjectNumber,
   ...mainConfig.intentSlugs,
 ]
   .filter(Boolean)
@@ -100,6 +101,10 @@ export default class CustomCaseBaseModel extends CaseModel {
 
   get form() {
     return this.instance?.name;
+  }
+
+  get evenProjectNumber() {
+    return this.getAnswerDisplayValue(answerSlugs.evenProjectNumber);
   }
 
   get inquiryCreated() {
