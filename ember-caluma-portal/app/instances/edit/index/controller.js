@@ -39,11 +39,13 @@ export default class InstancesEditIndexController extends Controller {
   }
 
   get evenProjectNumber() {
-    return getAnswerDisplayValue(
-      this.editController.case.raw.document,
-      mainConfig.answerSlugs.evenProjectNumber,
-      false,
-    );
+    return this.editController?.case?.raw?.document
+      ? getAnswerDisplayValue(
+          this.editController.case.raw.document,
+          mainConfig.answerSlugs.evenProjectNumber,
+          false,
+        )
+      : undefined;
   }
 
   @dropTask
