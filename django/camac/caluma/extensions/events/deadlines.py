@@ -43,6 +43,46 @@ def filter_by_decision_task(settings_key):
     )
 
 
+def get_inquiry_decision_answer(work_item):
+    fill_work_item = (
+        work_item
+        if work_item.task.slug == settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"]
+        else (
+            WorkItem.objects.filter(
+                case=work_item.child_case,
+                task__slug=settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"],
+            )
+            .order_by("-created_at")
+            .first()
+        )
+    )
+    decision_answer = (
+        fill_work_item.case.document.answers.filter(
+            question__slug=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
+        ).first()
+        if fill_work_item and fill_work_item.case.document
+        else None
+    )
+    return decision_answer.value if decision_answer else None
+
+
+@on(post_create_work_item, raise_exception=True)
+@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@filter_by_tasks(["withdrawal-check"])
+@transaction.atomic
+@canton_aware
+def post_create_withdrawal_check_closes_suspensions(
+    sender, work_item, user, context=None, **kwargs
+):
+    """Close all open suspensions when the withdrawal is requested."""
+    instance = get_instance(work_item)
+
+    for service in Service.objects.filter(pk__in=work_item.addressed_groups):
+        if deadline := instance.deadlines.filter(service=service).first():
+            for suspension in deadline.suspensions.for_deadline(deadline).only_open():
+                suspension.complete()
+
+
 @on(post_create_work_item, raise_exception=True)
 @filter_by_additional_demand_task("FILL_TASK")
 @filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
@@ -191,10 +231,19 @@ def post_create_inquiry_ag(sender, work_item, user, context=None, **kwargs):
                 .order_by("-created_at")
                 .first()
             )
-            if previous_inquiry and not (
-                deadlines_models.Suspension.objects.for_deadline(deadline)
-                .for_inquiry(previous_inquiry)
-                .exists()
+            if (
+                previous_inquiry
+                and get_inquiry_decision_answer(previous_inquiry)
+                in [
+                    settings.DISTRIBUTION["ANSWERS"]["STATUS"]["POSITIVE"],
+                    settings.DISTRIBUTION["ANSWERS"]["STATUS"]["POSITIVE_SANCTIONS"],
+                    settings.DISTRIBUTION["ANSWERS"]["STATUS"]["POSITIVE_PARTIALLY"],
+                ]
+                and not (
+                    deadlines_models.Suspension.objects.for_deadline(deadline)
+                    .for_inquiry(previous_inquiry)
+                    .exists()
+                )
             ):
                 suspension = deadlines_models.Suspension.objects.create(
                     deadline=deadline,
@@ -205,9 +254,8 @@ def post_create_inquiry_ag(sender, work_item, user, context=None, **kwargs):
                 suspension.complete()
 
             # Close any existing open inquiry claim suspensions for the deadline.
-            for suspension in deadline.suspensions.filter(
+            for suspension in deadline.suspensions.only_open().filter(
                 reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
-                end_date__isnull=True,
             ):
                 suspension.complete()
 
@@ -230,12 +278,10 @@ def post_complete_inquiry_fill(
 def post_complete_inquiry_fill_ag(sender, work_item, user, context=None, **kwargs):
     """Create a suspension for inquired service based on the decision."""
     instance = get_instance(work_item)
-    decision_answer = work_item.case.document.answers.filter(
-        question__slug=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
-    ).first()
+    decision_answer = get_inquiry_decision_answer(work_item)
 
     # If the decision is not "Unterlagenergänzung", we do not create a suspension.
-    if not decision_answer or decision_answer.value != "inquiry-answer-status-claim":
+    if decision_answer != settings.DISTRIBUTION["ANSWERS"]["STATUS"]["CLAIM"]:
         return
 
     for service in Service.objects.filter(pk__in=work_item.addressed_groups):

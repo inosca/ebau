@@ -670,3 +670,45 @@ def test_suspension_save_validation_gr(
     else:
         assert response.status_code == status.HTTP_400_BAD_REQUEST
         assert response.json()["errors"][0]["detail"] == error
+
+
+def test_suspension_queryset_status(
+    db,
+    service,
+    instance_deadline_factory,
+    suspension_factory,
+    instance_factory,
+    disable_deadline_progression,
+):
+    instance = instance_factory()
+    deadline = instance_deadline_factory(instance=instance, service=service)
+
+    # suspension for other instance will be ignored.
+    suspension_factory(
+        deadline=instance_deadline_factory(
+            instance=instance_factory(), service=service
+        ),
+        start_date="2023-01-01",
+        end_date="2023-02-01",
+    )
+
+    # create closed and open suspensions.
+    closed_suspensions = [
+        suspension_factory(
+            deadline=deadline, start_date="2023-01-01", end_date="2023-02-01"
+        ),
+        suspension_factory(
+            deadline=deadline, start_date="2023-01-01", end_date="2023-02-01"
+        ),
+    ]
+    open_suspensions = [
+        suspension_factory(deadline=deadline, start_date="2023-01-01", end_date=None),
+        suspension_factory(deadline=deadline, start_date="2023-01-01", end_date=None),
+    ]
+
+    assert set([s.pk for s in closed_suspensions]) == set(
+        deadline.suspensions.only_closed().values_list("pk", flat=True)
+    )
+    assert set([s.pk for s in open_suspensions]) == set(
+        deadline.suspensions.only_open().values_list("pk", flat=True)
+    )
