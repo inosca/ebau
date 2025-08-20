@@ -420,11 +420,9 @@ class InstanceView(
         return False
 
     def has_object_convert_modification_permission_for_municipality(self, instance):
-        return (
-            instance.responsible_service(filter_type="municipality")
-            == self.request.group.service
-            and not instance.case.meta["is-appeal"]
-        )
+        return instance.responsible_service(
+            filter_type="municipality"
+        ) == self.request.group.service and not instance.case.meta.get("is-appeal")
 
     def has_object_convert_modification_permission_for_support(self, instance):
         return True
