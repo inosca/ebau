@@ -154,7 +154,7 @@ def test_update_deadline_instance_meta(
         [str(service2.pk)]
     ), "Service should be removed from the suspended services"
 
-    suspension1.end_date = date(2025, 5, 29)
+    suspension1.end_date = None
     suspension1.save()
 
     deadline1.refresh_from_db()

@@ -10,6 +10,7 @@ from camac.caluma.extensions.events import deadlines
 from camac.caluma.extensions.events.deadlines import (
     post_complete_inquiry_fill_ag,
     post_create_inquiry_ag,
+    post_create_withdrawal_check_closes_suspensions,
 )
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.deadlines import models as deadlines_models
@@ -127,6 +128,7 @@ def test_events_deadlines_publication_inquiry_gr(
     db,
     admin_user,
     gr_instance,
+    caluma_case_factory,
     caluma_work_item_factory,
     test_case,
     expected_date,
@@ -181,7 +183,7 @@ def test_events_deadlines_publication_inquiry_gr(
     workitem_inquiry.save()
 
     workitem_fill_inquiry = caluma_work_item_factory(
-        case=gr_instance.case,
+        case=caluma_case_factory(family=gr_instance.case.family),
         task=Task.objects.get(slug="fill-inquiry"),
         addressed_groups=[str(service.pk)],
     )
@@ -302,6 +304,7 @@ def test_post_create_inquiry_ag_creates_deadline(
     ag_instance,
     caluma_work_item_factory,
     caluma_document_factory,
+    caluma_case_factory,
     caluma_admin_user,
     service_factory,
     ag_deadlines_settings,
@@ -322,7 +325,7 @@ def test_post_create_inquiry_ag_creates_deadline(
     )
 
     inquiry_fill_work_item = caluma_work_item_factory(
-        case=ag_instance.case,
+        case=caluma_case_factory(family=ag_instance.case.family),
         task=Task.objects.get(
             slug=ag_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]
         ),
@@ -353,7 +356,15 @@ def test_post_create_inquiry_ag_creates_deadline(
     assert deadline.instance == ag_instance
 
 
-@pytest.mark.parametrize("has_previous_inquiry", [True, False])
+@pytest.mark.parametrize(
+    "has_previous_inquiry,previous_inquiry_positive",
+    [
+        (True, False),
+        (True, True),
+        (False, False),
+        (False, True),
+    ],
+)
 @pytest.mark.parametrize("has_open_suspension", [True, False])
 @pytest.mark.parametrize(
     "service_group__name,role__name", [("service-afb", "service-lead")]
@@ -364,6 +375,7 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
     ag_instance,
     caluma_work_item_factory,
     caluma_document_factory,
+    caluma_case_factory,
     caluma_admin_user,
     service_factory,
     instance_deadline_factory,
@@ -371,6 +383,7 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
     ag_distribution_settings,
     set_application_ag,
     has_previous_inquiry,
+    previous_inquiry_positive,
     has_open_suspension,
     mocker,
 ):
@@ -395,7 +408,7 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
         service=service,
     )
     inquiry_fill_work_item = caluma_work_item_factory(
-        case=ag_instance.case,
+        case=caluma_case_factory(family=ag_instance.case.family),
         task=Task.objects.get(
             slug=ag_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]
         ),
@@ -411,10 +424,19 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
         created_at=make_aware(datetime.strptime("2025-01-02", "%Y-%m-%d")),
     )
 
-    previouw_inquiry_work_item = None
+    previous_inquiry_work_item = None
     if has_previous_inquiry:
-        previouw_inquiry_work_item = caluma_work_item_factory(
+        previous_inquiry_fill_work_item = caluma_work_item_factory(
+            case=caluma_case_factory(family=ag_instance.case.family),
+            task=Task.objects.get(
+                slug=ag_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]
+            ),
+            addressed_groups=[str(service.pk)],
+            document=caluma_document_factory(),
+        )
+        previous_inquiry_work_item = caluma_work_item_factory(
             case=ag_instance.case,
+            child_case=previous_inquiry_fill_work_item.case,
             task=Task.objects.get(slug=ag_distribution_settings["INQUIRY_TASK"]),
             addressed_groups=[str(service.pk)],
             document=caluma_document_factory(),
@@ -422,12 +444,20 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
             status=WorkItem.STATUS_COMPLETED,
             closed_at=make_aware(datetime.strptime("2025-01-01", "%Y-%m-%d")),
         )
+        previous_inquiry_fill_work_item.case.document.answers.create(
+            question=caluma_form_models.Question.objects.get(
+                slug=ag_distribution_settings["QUESTIONS"]["STATUS"]
+            ),
+            value=ag_distribution_settings["ANSWERS"]["STATUS"]["POSITIVE"]
+            if previous_inquiry_positive
+            else ag_distribution_settings["ANSWERS"]["STATUS"]["NEGATIVE"],
+        )
 
     previous_suspension = None
     if has_open_suspension:
         previous_suspension = deadlines_models.Suspension.objects.create(
             deadline=deadline,
-            work_item=previouw_inquiry_work_item,
+            work_item=previous_inquiry_work_item,
             start_date=now().date(),
             reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
         )
@@ -453,7 +483,7 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
     last_suspension = deadline.suspensions.order_by("-created_at").first()
     assert last_suspension.end_date is not None
 
-    if not has_previous_inquiry or has_open_suspension:
+    if not has_previous_inquiry or not previous_inquiry_positive or has_open_suspension:
         # the existing suspension should be closed.
         assert last_suspension.pk == suspension.pk
         assert last_suspension.start_date == suspension.start_date
@@ -461,7 +491,7 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
         # a new suspension starting at the previous inquiry close date
         # should be created.
         assert last_suspension.pk != suspension.pk
-        assert last_suspension.start_date == previouw_inquiry_work_item.closed_at.date()
+        assert last_suspension.start_date == previous_inquiry_work_item.closed_at.date()
 
     assert ag_instance.deadlines.count() == 1
 
@@ -483,6 +513,7 @@ def test_post_complete_inquiry_fill_ag_creates_deadline(
     ag_instance,
     caluma_work_item_factory,
     caluma_document_factory,
+    caluma_case_factory,
     caluma_admin_user,
     service_factory,
     instance_deadline_factory,
@@ -519,7 +550,7 @@ def test_post_complete_inquiry_fill_ag_creates_deadline(
     assert deadlines_models.Suspension.objects.count() == 0
 
     inquiry_fill_work_item = caluma_work_item_factory(
-        case=ag_instance.case,
+        case=caluma_case_factory(family=ag_instance.case.family),
         task=Task.objects.get(
             slug=ag_distribution_settings["INQUIRY_ANSWER_FILL_TASK"]
         ),
@@ -547,3 +578,95 @@ def test_post_complete_inquiry_fill_ag_creates_deadline(
         assert suspension.deadline.service == service
     else:
         assert deadlines_models.Suspension.objects.count() == 0
+
+
+@pytest.mark.parametrize(
+    "service_group__name,role__name",
+    [
+        ("municipality", "municipality-lead"),
+        ("service-afb", "service-lead"),
+    ],
+)
+def test_post_create_withdrawal_check_closes_suspensions(
+    db,
+    admin_user,
+    ag_instance,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_admin_user,
+    service_factory,
+    caluma_task_factory,
+    instance_deadline_factory,
+    suspension_factory,
+    ag_deadlines_settings,
+    ag_distribution_settings,
+    set_application_ag,
+    mocker,
+):
+    """Test open suspensions are closed when any new workitem is created."""
+    service = admin_user.groups.first().service
+
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service
+        if service.service_group.name == "municipality"
+        else service_factory(),
+    )
+    mocker.patch(
+        "camac.deadlines.models.InstanceDeadline.recalculate_progression",
+        return_value=service.service_group.name != "municipality",
+    )
+    mocker.patch(
+        "camac.deadlines.models.InstanceDeadline.recalculate_progression",
+        return_value=False,
+    )
+
+    deadline = instance_deadline_factory(
+        instance=ag_instance,
+        service=service,
+    )
+    suspension_factory(
+        deadline=deadline,
+        start_date=now().date(),
+        end_date=None,
+        reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL,
+    )
+    suspension_factory(
+        deadline=deadline,
+        start_date=now().date(),
+        end_date=now().date(),
+        reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL,
+    )
+
+    assert (
+        deadlines_models.Suspension.objects.for_deadline(deadline=deadline)
+        .only_open()
+        .count()
+        == 1
+    )
+
+    addressed_to_groups = [str(service.pk)]
+    controlling_groups = []
+    task = Task.objects.filter(slug="withdrawal-check").first() or caluma_task_factory(
+        slug="withdrawal-check"
+    )
+
+    post_create_withdrawal_check_closes_suspensions(
+        sender=None,
+        work_item=caluma_work_item_factory(
+            case=ag_instance.case,
+            task=task,
+            addressed_groups=addressed_to_groups,
+            controlling_groups=controlling_groups,
+            document=caluma_document_factory(),
+        ),
+        user=caluma_admin_user,
+        context={},
+    )
+
+    assert (
+        deadlines_models.Suspension.objects.for_deadline(deadline=deadline)
+        .only_open()
+        .count()
+        == 0
+    )

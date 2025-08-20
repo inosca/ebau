@@ -81,6 +81,14 @@ class SuspensionQuerySet(DeadlinePermissionMixin, models.QuerySet["Suspension"])
             reason=Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM
         )
 
+    def only_open(self: TSuspension) -> TSuspension:
+        """Filter to only include suspensions that are currently open."""
+        return self.filter(end_date__isnull=True)
+
+    def only_closed(self: TSuspension) -> TSuspension:
+        """Filter to only include suspensions that are currently closed."""
+        return self.filter(end_date__isnull=False)
+
 
 class InstanceDeadlinesQuerySet(
     DeadlinePermissionMixin, models.QuerySet["InstanceDeadline"]
@@ -101,10 +109,7 @@ class InstanceDeadlinesQuerySet(
         """Query deadlines open suspensions."""
         return self.annotate(
             has_open_suspension=Exists(
-                Suspension.objects.filter(
-                    deadline=OuterRef("pk"),
-                    end_date__isnull=True,
-                )
+                Suspension.objects.only_open().filter(deadline=OuterRef("pk"))
             )
         ).filter(has_open_suspension=True)
 
@@ -344,9 +349,7 @@ class InstanceDeadline(models.Model):
 
     def has_open_suspension(self) -> bool:
         """Query if an open suspension exists for the service/instance."""
-        return self.suspensions.filter(
-            (Q(end_date__isnull=True) | (Q(end_date__gt=now())))
-        ).exists()
+        return self.suspensions.only_open().exists()
 
     def save(self, *args, **kwargs):
         # fetch the original, to compare which fields have changed,
@@ -564,11 +567,13 @@ class InstanceDeadline(models.Model):
         and no end date is set. For all other decisions, the end date is set to the
         inquiry answer date.
         """
-        has_open_claim_suspension = self.suspensions.filter(
-            deadline=self,
-            reason=Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
-            end_date__isnull=True,
-        ).exists()
+        has_open_claim_suspension = (
+            self.suspensions.only_open()
+            .filter(
+                reason=Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM
+            )
+            .exists()
+        )
 
         if has_open_claim_suspension:
             return None
