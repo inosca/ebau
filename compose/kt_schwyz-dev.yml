@@ -72,6 +72,11 @@ services:
 
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
+    build:
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember-camac-ng:master
+    environment:
+      APP_ENV: development
     networks:
       - ebau.localhost
 

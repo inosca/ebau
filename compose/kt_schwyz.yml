@@ -63,12 +63,12 @@ services:
     build:
       context: ../
       dockerfile: ./Dockerfile.ember
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember-camac-ng:master
       args:
-        - APPLICATION=${APPLICATION}
-        - WORKSPACE=ember-camac-ng
-      target: prod
+        APPLICATION: ${APPLICATION}
+        APP_ENV: $${APP_ENV}
+        REPLACE_ENV: APP_ENV
+        WORKSPACE: ember-camac-ng
+      target: prod-env
 
 
   cache:
