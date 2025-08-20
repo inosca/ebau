@@ -20,6 +20,8 @@ class Command(BaseCommand):
         else:
             filters = {"file_attachment": "", "alexandria_file__isnull": False}
 
+        success = 0
+        fail = 0
         for attachment in tqdm(
             CommunicationsAttachment.objects.filter(**filters).iterator(),
             desc="Fixing file attachments",
@@ -28,7 +30,9 @@ class Command(BaseCommand):
                 if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
                     file_obj = getattr(attachment, "document_attachment")
                     orig_name = file_obj.name
-                    display_name = file_obj.context.get("displayName", orig_name)
+                    display_name = (
+                        file_obj.context.get("displayName", orig_name) or orig_name
+                    )
                     file_data = getattr(file_obj, "path")
                 else:
                     file_obj = getattr(attachment, "alexandria_file")
@@ -41,5 +45,13 @@ class Command(BaseCommand):
                 else:
                     new_name = display_name
                 attachment.file_attachment.save(new_name, file_data)
+                success += 1
             except Exception as e:
-                self.stderr.write(f"Error processing attachment {attachment.pk}: {e}")
+                self.stderr.write(
+                    f"Error processing attachment {attachment.pk} ({attachment.message.topic.instance_id}): {e}"
+                )
+                fail += 1
+
+        self.stdout.write(
+            f"Migrated {success} communications attachments, failed: {fail}"
+        )
