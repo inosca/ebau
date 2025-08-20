@@ -111,6 +111,37 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         return self._build_user(resp, accept_language_header), jwt_decoded
 
     def _update_or_create_user(self, defaults, accept_language_header):
+        # TODO: this will be removed but for time constraint will be released for
+        # kt. GR already. The code below still runs for other cantons just like
+        # before.
+        # We return the existing user if it matches the defaults so we don't
+        # lock the database user record during a long running request.
+        if settings.APPLICATION_NAME == "kt_gr":  # pragma: no cover
+            user_model = get_user_model()
+            filter_condition = Q(username=defaults["username"])
+            filter_user_values = {
+                k: v for k, v in defaults.items() if k not in ("username", "email")
+            }
+
+            # If enabled we also consider the email address
+            if settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK and defaults["email"]:
+                filter_condition |= Q(email=defaults["email"])
+
+            existing_users = user_model.objects.filter(filter_condition)
+            if not accept_language_header and existing_users:
+                defaults["language"] = existing_users[0].language
+                filter_user_values["language"] = defaults["language"]
+
+            existing_user = (
+                user_model.objects.filter(filter_condition)
+                .filter(**filter_user_values)
+                .first()
+            )
+            if existing_user:
+                return existing_user, False
+
+            return existing_users.update_or_create(defaults=defaults)
+
         user_model = get_user_model()
         filter_condition = Q(username=defaults["username"])
 
