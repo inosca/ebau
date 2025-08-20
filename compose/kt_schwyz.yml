@@ -52,11 +52,12 @@ services:
     build:
       context: ../
       dockerfile: ./Dockerfile.ember
-      cache_from:
-        - acr.run/camac-ng/camac-ng/ember:master
       args:
-        - WORKSPACE=ember
-      target: prod
+        KEYCLOAK_HOST: $${KEYCLOAK_HOST}
+        GIS_HOST: $${GIS_HOST}
+        REPLACE_ENV: KEYCLOAK_HOST,GIS_HOST
+        WORKSPACE: ember
+      target: prod-env
 
   ember-camac-ng:
     build:

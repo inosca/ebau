@@ -61,6 +61,12 @@ services:
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:master
+    build:
+      cache_from:
+        - acr.run/camac-ng/camac-ng/ember:master
+    environment:
+      KEYCLOAK_HOST: http://ebau-keycloak.localhost
+      GIS_HOST: map-t.geo.sz.ch
     networks:
       - ebau.localhost
 
