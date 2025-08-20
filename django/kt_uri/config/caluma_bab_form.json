@@ -80,7 +80,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-art-der-massnahme",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -95,7 +95,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-art-grundlage-verfahren-titel",
-      "sort": 17
+      "sort": 19
     }
   },
   {
@@ -245,7 +245,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-objektart",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -295,6 +295,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "bab.beschrieb-der-massnahme",
+    "fields": {
+      "created_at": "2025-08-20T06:32:21.708Z",
+      "modified_at": "2025-08-20T06:32:21.708Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "beschrieb-der-massnahme",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "bab-lage-flaechenbedarf-form.bab-flaechenbedarf-grundnutzung",
     "fields": {
       "created_at": "2024-06-21T07:16:49.009Z",
@@ -321,6 +336,21 @@
       "form": "bab-lage-flaechenbedarf-form",
       "question": "bab-grundnutzung",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.objektbeschrieb",
+    "fields": {
+      "created_at": "2025-08-20T06:33:31.075Z",
+      "modified_at": "2025-08-20T06:33:31.075Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "objektbeschrieb",
+      "sort": 15
     }
   },
   {
@@ -1726,6 +1756,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bab-stabilisierungsziel-keine-neuen-ver-oder-entsiegelten-flaechen",
+    "fields": {
+      "created_at": "2025-08-20T06:31:09.335Z",
+      "modified_at": "2025-08-20T06:31:09.335Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant (keine neuen ver- oder entsiegelten Fl\\u00e4chen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bab-stabilisierungsziel-nicht-relevant",
     "fields": {
       "created_at": "2024-06-21T07:36:44.057Z",
@@ -2839,10 +2886,10 @@
     "pk": "bab-stabilisierungsziel",
     "fields": {
       "created_at": "2024-06-21T07:36:44.300Z",
-      "modified_at": "2024-09-17T10:57:58.017Z",
+      "modified_at": "2025-08-20T06:31:09.509Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Stabilisierungsziel\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -2920,6 +2967,74 @@
       "configuration": {
         "max_value": null,
         "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschrieb-der-massnahme",
+    "fields": {
+      "created_at": "2025-08-20T06:32:21.596Z",
+      "modified_at": "2025-08-20T06:32:21.596Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschrieb der Massnahme\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"bab-art-der-massnahme-andere\" in \"bab-art-der-massnahme\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "objektbeschrieb",
+    "fields": {
+      "created_at": "2025-08-20T06:33:30.967Z",
+      "modified_at": "2025-08-20T06:33:30.967Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Objektbeschrieb\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!( \"bab-objektart-andere\" in \"bab-objektart\"|answer )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -4128,14 +4243,29 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-altrechtlich-bestehend",
     "fields": {
-      "created_at": "2024-09-17T10:57:58.023Z",
-      "modified_at": "2024-09-17T10:57:58.023Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-08-20T06:31:09.529Z",
+      "modified_at": "2025-08-20T06:31:09.529Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "bab-stabilisierungsziel",
       "option": "bab-stabilisierungsziel-altrechtlich-bestehend",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-keine-neuen-ver-oder-entsiegelten-flaechen",
+    "fields": {
+      "created_at": "2025-08-20T06:31:09.524Z",
+      "modified_at": "2025-08-20T06:31:09.524Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bab-stabilisierungsziel",
+      "option": "bab-stabilisierungsziel-keine-neuen-ver-oder-entsiegelten-flaechen",
       "sort": 1
     }
   },
@@ -4143,30 +4273,30 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-nicht-relevant",
     "fields": {
-      "created_at": "2024-09-17T10:57:58.030Z",
-      "modified_at": "2024-09-17T10:57:58.030Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-08-20T06:31:09.538Z",
+      "modified_at": "2025-08-20T06:31:09.539Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "bab-stabilisierungsziel",
       "option": "bab-stabilisierungsziel-nicht-relevant",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-relevant",
     "fields": {
-      "created_at": "2024-09-17T10:57:58.027Z",
-      "modified_at": "2024-09-17T10:57:58.027Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-08-20T06:31:09.534Z",
+      "modified_at": "2025-08-20T06:31:09.534Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "bab-stabilisierungsziel",
       "option": "bab-stabilisierungsziel-relevant",
-      "sort": 2
+      "sort": 3
     }
   },
   {
