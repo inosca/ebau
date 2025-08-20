@@ -90,7 +90,7 @@
       "slug": "1-gesuchsbearbeitungs-einladung-neu",
       "purpose": "1 Gesuchsbearbeitungs Einladung, Neu (Gesuchsteller und Berechtigte)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} - Sie haben Zugriff auf ein Dossier erhalten",
-      "body": "URec System Info 1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nZUGRIFFSBERECHTIGUNG WURDE ERTEILT\r\n\r\nSie haben Zugriff auf das Dossier {{ PUBLIC_DOSSIER_LINK }} erhalten.\r\n\r\nUm das Dossier einsehen und bearbeiten zu können, ist eine Registration erforderlich. Bitte registrieren Sie sich unter https://urec-portal.ur.ch/.\r\nDanach können Sie Ihre Dossiers und die von der Gemeindebaubehörde freigegebenen Dokumente (z.B. Bauentscheid) einsehen.\r\n\r\nFreundliche Grüsse",
+      "body": "\r\nURec System Info 1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nZUGRIFFSBERECHTIGUNG WURDE ERTEILT\r\n\r\nSie haben Zugriff auf das Dossier {{ PUBLIC_DOSSIER_LINK }} erhalten.\r\n\r\nUm das Dossier einsehen und bearbeiten zu können, ist eine Registration erforderlich. DIE REGISTRIERUNG IST ZWINGEND notwendig damit auch die Notifikationen (z.B. der Bauentscheid) zugestellt werden können. Bitte registrieren Sie sich unter https://urec-portal.ur.ch/.\r\nDanach können Sie Ihre Dossiers und die von der Gemeindebaubehörde freigegebenen Dokumente (z.B. Bauentscheid) einsehen.\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
