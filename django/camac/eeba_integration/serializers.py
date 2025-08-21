@@ -21,6 +21,7 @@ class EebaExportSerializer(serializers.Serializer):
     plots = serializers.SerializerMethodField()
     volumes = serializers.SerializerMethodField()
     proposal = serializers.SerializerMethodField()
+    proposalList = serializers.SerializerMethodField()
     constructionStartDate = serializers.SerializerMethodField()
     completionDate = serializers.SerializerMethodField()
 
@@ -93,6 +94,9 @@ class EebaExportSerializer(serializers.Serializer):
 
     def get_proposal(self, case):
         return self.master_data.proposal
+
+    def get_proposalList(self, case):
+        return self.master_data.proposal_list
 
     def get_constructionStartDate(self, case):
         return self.master_data.construction_start_date

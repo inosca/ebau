@@ -2110,6 +2110,9 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
     utils.add_answer(document, "plz-grundstueck-v3", 1234)
     utils.add_answer(document, "ort-grundstueck", "Testhausen")
     utils.add_answer(document, "baukosten", 4000)
+    utils.add_answer(
+        document, "vorhaben", ["vorhaben-neubau", "vorhaben-zweckaenderung"]
+    )
 
     # Municipality
     utils.add_answer(document, "gemeinde", "18")
