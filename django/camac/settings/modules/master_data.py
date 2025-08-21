@@ -2068,8 +2068,16 @@ MASTER_DATA = {
             ),
             "profile_approval_date": ("static", None),
             "nature_risk": ("static", []),
-            "construction_start_date": ("answer", "voraussichtlicher-baubeginn"),
-            "completion_date": ("answer", "voraussichtliche-fertigstellung"),
+            "construction_start_date": (
+                "answer",
+                "voraussichtlicher-baubeginn",
+                {"value_key": "date"},
+            ),
+            "completion_date": (
+                "answer",
+                "voraussichtliche-fertigstellung",
+                {"value_key": "date"},
+            ),
             "construction_duration": ("static", ""),
             "usage_type": ("static", ""),
             "usage_zone": ("answer", "zonenplan"),
