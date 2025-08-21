@@ -20,6 +20,9 @@ class EebaExportSerializer(serializers.Serializer):
     invoiceRecipient = serializers.SerializerMethodField()
     plots = serializers.SerializerMethodField()
     volumes = serializers.SerializerMethodField()
+    proposal = serializers.SerializerMethodField()
+    constructionStartDate = serializers.SerializerMethodField()
+    completionDate = serializers.SerializerMethodField()
 
     def get_ebauId(self, case):
         return case.instance.pk
@@ -87,3 +90,12 @@ class EebaExportSerializer(serializers.Serializer):
             "yearOfConstructionCases": self.master_data.year_of_construction_oldest_affected_object,
             "soilingSuspicion": self._get_soiling_suspicion(),
         }
+
+    def get_proposal(self, case):
+        return self.master_data.proposal
+
+    def get_constructionStartDate(self, case):
+        return self.master_data.construction_start_date
+
+    def get_completionDate(self, case):
+        return self.master_data.completion_date
