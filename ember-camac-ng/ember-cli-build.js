@@ -46,7 +46,7 @@ module.exports = function (defaults) {
         : null;
 
   const app = new EmberApp(defaults, {
-    storeConfigInMeta: ENV !== "be",
+    storeConfigInMeta: !["be", "sz"].includes(ENV),
     minifyCSS: {
       // https://github.com/clean-css/clean-css/issues/1280
       options: { level: { 1: { all: true, tidySelectors: false } } },
