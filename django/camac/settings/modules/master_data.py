@@ -2058,6 +2058,7 @@ MASTER_DATA = {
             "dossier_number": ("case_meta", "dossier-number"),
             "project": ("answer", "baubeschrieb", {"value_parser": "option"}),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
+            "proposal_list": ("answer", "vorhaben", {"value_parser": "option"}),
             "remark": ("answer", "beschreibung-bauvorhaben-details"),
             "proceeding_type": (
                 "answer",

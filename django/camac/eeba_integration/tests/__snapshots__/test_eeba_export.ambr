@@ -69,6 +69,10 @@
       'zip': 3600,
     }),
     'proposal': 'Einfamilienhaus',
+    'proposalList': list([
+      None,
+      None,
+    ]),
     'readOnly': True,
     'statusName': 'Pamela Horton',
     'volumes': dict({
