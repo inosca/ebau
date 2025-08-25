@@ -675,7 +675,9 @@ class CreateInstanceLogic:
             CreateInstanceLogic.update_instance_location(instance)
 
         allowed_workflows = workflow_models.Workflow.objects.filter(
-            Q(allow_forms__in=[caluma_form]) | Q(allow_all_forms=True)
+            Q(allow_all_forms=True)
+            | Q(allow_forms__in=[caluma_form])
+            | Q(allow_forms__slug__regex=rf"^{caluma_form}-v\d+$")
         )
 
         workflow = (
