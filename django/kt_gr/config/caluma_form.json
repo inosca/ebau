@@ -8563,6 +8563,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "entsorgung.eeba-id-eingeben",
+    "fields": {
+      "created_at": "2025-08-22T14:55:36.214Z",
+      "modified_at": "2025-08-22T14:55:36.214Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "eeba-id-eingeben",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "entsorgung.eeba-integration-id",
     "fields": {
       "created_at": "2025-03-17T16:56:23.022Z",
@@ -8638,6 +8653,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "entsorgung.entsorgung-info-text",
+    "fields": {
+      "created_at": "2025-08-22T13:43:33.355Z",
+      "modified_at": "2025-08-22T13:43:33.355Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "entsorgung-info-text",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "entsorgung.entsorgung-titel",
     "fields": {
       "created_at": "2025-03-17T16:53:51.092Z",
@@ -8648,7 +8678,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "entsorgung-titel",
-      "sort": 13
+      "sort": 16
     }
   },
   {
@@ -8664,6 +8694,21 @@
       "form": "entsorgung",
       "question": "gleisaushub-volumen",
       "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst",
+    "fields": {
+      "created_at": "2025-08-22T14:15:50.474Z",
+      "modified_at": "2025-08-22T14:15:50.474Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst",
+      "sort": 14
     }
   },
   {
@@ -27881,6 +27926,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja",
+    "fields": {
+      "created_at": "2025-08-22T14:15:50.338Z",
+      "modified_at": "2025-08-22T14:15:50.338Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein",
+    "fields": {
+      "created_at": "2025-08-22T14:15:50.336Z",
+      "modified_at": "2025-08-22T14:15:50.336Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "haben-sie-in-ihrem-betrieb-eine-tankstelle-ja",
     "fields": {
       "created_at": "2023-06-14T11:48:12.555Z",
@@ -41289,7 +41368,7 @@
     "pk": "abgetragener-oberboden-volumen",
     "fields": {
       "created_at": "2024-12-10T14:11:50.399Z",
-      "modified_at": "2025-08-18T14:55:55.371Z",
+      "modified_at": "2025-08-22T14:48:21.520Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -41297,7 +41376,7 @@
       "label": "{\"de\": \"Abgetragener Oberboden (m\\u00b3)\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -45575,7 +45654,7 @@
     "pk": "aushub-volumen",
     "fields": {
       "created_at": "2024-12-10T14:12:10.058Z",
-      "modified_at": "2025-08-18T14:56:01.333Z",
+      "modified_at": "2025-08-22T14:48:26.906Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45583,7 +45662,7 @@
       "label": "{\"de\": \"Aushub (m\\u00b3)\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -46256,7 +46335,7 @@
     "pk": "baujahr-aeltestes-betroffenes-objekt",
     "fields": {
       "created_at": "2024-12-10T14:13:04.564Z",
-      "modified_at": "2025-08-21T08:46:01.915Z",
+      "modified_at": "2025-08-22T14:48:41.749Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -46264,14 +46343,14 @@
       "label": "{\"de\": \"Baujahr \\u00e4ltestes betroffenes Objekt\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
-        "max_value": null,
+        "max_value": 2100,
         "min_value": 0
       },
       "meta": {},
@@ -53685,7 +53764,7 @@
     "pk": "eeba-confirmation",
     "fields": {
       "created_at": "2025-04-02T13:58:46.607Z",
-      "modified_at": "2025-08-21T08:44:24.793Z",
+      "modified_at": "2025-08-22T14:48:48.062Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -53693,7 +53772,7 @@
       "label": "{\"de\": \"eEBA confirmation\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "(!\"rueckbaumaterial-volumen\"|answer && \"rueckbaumaterial-volumen\"|answer != 0) || (!\"abgetragener-oberboden-volumen\"|answer && \"abgetragener-oberboden-volumen\"|answer != 0) || (!\"aushub-volumen\"|answer && \"aushub-volumen\"|answer != 0) || (!\"strasse-belag-volumen\"|answer && \"strasse-belag-volumen\"|answer != 0) || (!\"gleisaushub-volumen\"|answer && \"gleisaushub-volumen\"|answer != 0) || (!\"baujahr-aeltestes-betroffenes-objekt\"|answer && \"baujahr-aeltestes-betroffenes-objekt\"|answer != 0)",
+      "is_hidden": "(!\"rueckbaumaterial-volumen\"|answer && \"rueckbaumaterial-volumen\"|answer != 0) || (!\"abgetragener-oberboden-volumen\"|answer && \"abgetragener-oberboden-volumen\"|answer != 0) || (!\"aushub-volumen\"|answer && \"aushub-volumen\"|answer != 0) || (!\"strasse-belag-volumen\"|answer && \"strasse-belag-volumen\"|answer != 0) || (!\"gleisaushub-volumen\"|answer && \"gleisaushub-volumen\"|answer != 0) || (!\"baujahr-aeltestes-betroffenes-objekt\"|answer && \"baujahr-aeltestes-betroffenes-objekt\"|answer != 0) || ('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -53707,6 +53786,40 @@
         "hideLabel": true,
         "widgetOverride": "eeba-confirmation"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "eeba-id-eingeben",
+    "fields": {
+      "created_at": "2025-08-22T14:55:36.167Z",
+      "modified_at": "2025-08-22T14:56:08.633Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bitte geben Sie hier die Ihnen bereits zugewiesene ID f\\u00fcr die elektronische Entsorgungserkl\\u00e4rung f\\u00fcr Bauabf\\u00e4lle (eEBA) ein.\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja')",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"GR-EBA-ABCDEF\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"GR-EBA-ABCDEF\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -55469,6 +55582,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "entsorgung-info-text",
+    "fields": {
+      "created_at": "2025-08-22T13:43:33.291Z",
+      "modified_at": "2025-08-22T13:46:59.874Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgung Info Text\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte erfassen Sie hier die im Rahmen des Projekts anfallenden Bauabf\\u00e4lle (z.B. R\\u00fcckbaumaterial, Bodenabtrag, Aushubmaterial, etc) sowie das Baujahr des \\u00e4ltesten betroffenen Objekts. Anhand Ihrer Angaben pr\\u00fcft das System automatisch, ob f\\u00fcr Ihr Baugesuch eine elektronische Entsorgungserkl\\u00e4rung f\\u00fcr Bauabf\\u00e4lle (eEBA) erforderlich ist. Falls eine eEBA notwendig ist, wird automatisch ein eEBA Dossier er\\u00f6ffnet und Sie k\\u00f6nnen im Anschluss via eEBA Onlineservice die Entsorgungserkl\\u00e4rung vervollst\\u00e4ndigen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "entsorgung-park-und-vorplatzwasser",
     "fields": {
       "created_at": "2023-04-19T10:23:35.124Z",
@@ -55574,7 +55718,7 @@
     "pk": "entsorgung-titel",
     "fields": {
       "created_at": "2024-12-10T14:11:13.078Z",
-      "modified_at": "2025-03-17T17:14:51.492Z",
+      "modified_at": "2025-08-22T13:46:55.721Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55605,7 +55749,7 @@
     "pk": "entsorgung-triage",
     "fields": {
       "created_at": "2025-08-18T14:57:31.538Z",
-      "modified_at": "2025-08-19T10:53:08.794Z",
+      "modified_at": "2025-08-22T14:03:46.638Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -55616,7 +55760,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"In der Abbildung werden die verschiedenen Abfallkategorien dargestellt. \\n![Waste Management Map](/assets/images/waste_management_mapv2_simple_de.png)\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -59642,7 +59786,7 @@
     "pk": "gleisaushub-volumen",
     "fields": {
       "created_at": "2024-12-10T14:12:46.324Z",
-      "modified_at": "2025-08-18T14:56:10.874Z",
+      "modified_at": "2025-08-22T14:48:36.369Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -59650,7 +59794,7 @@
       "label": "{\"de\": \"Gleisaushub (m\\u00b3)\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -60298,6 +60442,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"### Geb\\u00e4ude- und Wohnungsregister\", \"fr\": \"\", \"it\": \"### Registro federale degli edifici e delle abitazioni\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst",
+    "fields": {
+      "created_at": "2025-08-22T14:15:50.403Z",
+      "modified_at": "2025-08-22T14:15:50.403Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Haben Sie bereits eine elektronische Entsorgungserkl\\u00e4rung f\\u00fcr Bauabf\\u00e4lle (eEBA) direkt auf dem eEBA Onlineservice erfasst?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -70450,7 +70625,7 @@
     "pk": "rueckbaumaterial-volumen",
     "fields": {
       "created_at": "2024-12-10T14:11:30.987Z",
-      "modified_at": "2025-08-18T14:55:48.159Z",
+      "modified_at": "2025-08-22T14:48:15.781Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70458,7 +70633,7 @@
       "label": "{\"de\": \"R\\u00fcckbaumaterial (m\\u00b3)\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -72554,7 +72729,7 @@
     "pk": "strasse-belag-volumen",
     "fields": {
       "created_at": "2024-12-10T14:12:28.888Z",
-      "modified_at": "2025-08-18T14:56:06.412Z",
+      "modified_at": "2025-08-22T14:48:31.632Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -72562,7 +72737,7 @@
       "label": "{\"de\": \"Strasse / Belag (m\\u00b3)\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -86237,8 +86412,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entsorgung-triage.entsorgung-triage-no",
     "fields": {
-      "created_at": "2025-08-19T10:53:08.801Z",
-      "modified_at": "2025-08-19T10:53:08.801Z",
+      "created_at": "2025-08-22T14:03:46.641Z",
+      "modified_at": "2025-08-22T14:03:46.641Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -86252,8 +86427,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entsorgung-triage.entsorgung-triage-yes",
     "fields": {
-      "created_at": "2025-08-19T10:53:08.802Z",
-      "modified_at": "2025-08-19T10:53:08.802Z",
+      "created_at": "2025-08-22T14:03:46.644Z",
+      "modified_at": "2025-08-22T14:03:46.644Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87761,6 +87936,36 @@
       "question": "guellelager-neubau-oder-erweiterung",
       "option": "guellelager-neubau-oder-erweiterung-neubau",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst.haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja",
+    "fields": {
+      "created_at": "2025-08-22T14:15:50.412Z",
+      "modified_at": "2025-08-22T14:15:50.412Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst",
+      "option": "haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst.haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein",
+    "fields": {
+      "created_at": "2025-08-22T14:15:50.408Z",
+      "modified_at": "2025-08-22T14:15:50.408Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst",
+      "option": "haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein",
+      "sort": 1
     }
   },
   {

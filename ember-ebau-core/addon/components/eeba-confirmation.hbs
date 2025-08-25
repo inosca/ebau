@@ -14,6 +14,7 @@
   @label={{t "eeba.integration.check"}}
   @onClick={{this.checkIntegration.perform}}
   @color="default"
+  class="eeba-button"
   data-test-eeba-check
 />
 
@@ -56,7 +57,7 @@
     target="_blank"
     href={{this.eebaWebUrlAnswer}}
     rel="noopener noreferrer"
-    class="uk-button uk-button-default"
+    class="uk-button uk-button-default eeba-button"
     data-test-eeba-web-url
   >{{t "eeba.integration.open"}}</a>
 {{/if}}

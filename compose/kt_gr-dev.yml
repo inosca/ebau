@@ -96,6 +96,7 @@ services:
       - CELERY_RDB_HOST=0.0.0.0. # to be able to telnet from outside the container
       - CELERY_WORKER_CONCURRENCY=1
       - PYTHONUNBUFFERED=1
+      - FORMAT_VALIDATOR_CLASSES=camac.caluma.extensions.format_validators.EEBADeclarationFormatValidator
     networks:
       - ebau.localhost
     tty: true
