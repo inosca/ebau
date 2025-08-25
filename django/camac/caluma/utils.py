@@ -203,11 +203,6 @@ def work_item_by_addressed_service_condition(service_condition: Q) -> Subquery:
     return Exists(filter_services_on_outerref("addressed_groups", service_condition))
 
 
-def work_item_by_controlling_service_condition(service_condition: Q) -> Subquery:
-    """Filter work_items with controlling_groups by service_condition."""
-    return Exists(filter_services_on_outerref("controlling_groups", service_condition))
-
-
 def get_additional_inquiries_filters(group: Group) -> Expression | Subquery | Q:
     current_service = group.service
     match settings.APPLICATION_NAME:
@@ -304,8 +299,22 @@ def get_direct_inquiries_filter(group):
     # Direct inquiries can only be addressed to own subservices
     current_service = group.service
     match settings.APPLICATION_NAME:
-        case "kt_so":
+        case "kt_so" if not (
+            current_service.service_parent is None
+            and current_service.service_group.name
+            in [
+                "service-cantonal",
+                "service-bab",
+            ]
+        ):
             """
+            Since cantonal services see all inquiries addressed to a service with no service parent
+            (get_additional_inquiries_filters) we can safely display all direct inquiries here.
+            All services which can create direct inquiries need to be invited first by the municipality with a normal inquiry.
+            This means, cantonal services will see this normal inquiry. Therefore they have to see the direct inquiry as well.
+            From a user perspective, direct inquiries replace the original inquiry.
+
+            The following logic is only for municipalities:
             Scenario:
                 - Current Service is Service X (Municipality)
                 - Service A is a top level service
@@ -326,24 +335,13 @@ def get_direct_inquiries_filter(group):
             I think this is fine as every open inquiry addressed to A is resolved once the direct inquiry adressed to B is answered.
             """
 
-            own_controlling_inquiries = (
-                Inquiry.objects.only_active()
+            return Exists(
+                Inquiry.objects.for_distribution_case(OuterRef("case"))
                 .controlled_by(current_service)
-                .filter(**{"meta__is-direct__isnull": True})
-            )
-            all_addressed_services = [
-                service
-                for addressed_services in own_controlling_inquiries.values_list(
-                    "addressed_groups", flat=True
+                .filter(
+                    **{"meta__is-direct__isnull": True},
+                    addressed_groups__contains=OuterRef("controlling_groups"),
                 )
-                for service in addressed_services
-            ]
-            return work_item_by_controlling_service_condition(
-                # Inquiries of services which have the same parent service as the current service
-                Q(
-                    service_id=current_service.service_parent_id,
-                )
-                | Q(service_id__in=all_addressed_services)
             )
 
         case _:
