@@ -25,3 +25,17 @@ class EvenProjectNumberFormatValidator(BaseFormatValidator):
         "en": "The marking must consist of two capital letters for the canton abbreviation, a hyphen and five letters/numbers.",
         "de": "Die Kennzeichnung muss aus zwei Grossbuchstaben für das Kantonskürzel, einen Bindestrich und fünf Buchstaben/Zahlen bestehen.",
     }
+
+
+class EEBADeclarationFormatValidator(BaseFormatValidator):
+    slug = "eeba-declaration"
+    name = {
+        "en": "eEBA Declaration format",
+        "de": "eEBA-Erklärungsformat",
+    }
+    # The declaration must start with "GR-EBA-" followed by exactly 6 uppercase letters or digits
+    regex = r"^GR-EBA-[A-Z0-9]{6}$"
+    error_msg = {
+        "en": "The declaration must start with 'GR-EBA-' followed by six capital letters or digits.",
+        "de": "Die Erklärung muss mit 'GR-EBA-' beginnen, gefolgt von sechs Großbuchstaben oder Ziffern.",
+    }
