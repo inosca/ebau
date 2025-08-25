@@ -11,5 +11,6 @@ legal-submission:
   delete-success: "Die Einsprache wurde erfolgreich gelöscht."
   delete-error: "Fehler beim Löschen der Einsprache"
 
-  hint: Das Einspracheschreiben kann im Dokumentenordner "Einsprachen" abgelegt werden. Bitte beachten Sie, dass das Register "Einsprache" lediglich eine Hilfestellung darstellt und das Einspracheverfahren nicht über eBau abgewickelt werden kann.
+  hint: Das Einspracheschreiben kann im Dokumentenordner «Einsprachen» abgelegt werden. Bitte beachten Sie, dass das Register «Einsprache» lediglich eine Hilfestellung darstellt und das Einspracheverfahren nicht über eBau abgewickelt werden kann.
+  hint-appeal: Das Beschwerdeschreiben kann im Ordner «Beschwerden» abgelegt werden. Bitte beachten Sie, dass das Register «Einsprachen/Beschwerden» lediglich eine Hilfe darstellt und das Beschwerdeverfahren nicht über eBau durchgeführt werden kann.
   header: "Einsprachen"

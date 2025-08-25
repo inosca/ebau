@@ -996,7 +996,7 @@
       "modified_by_group": null,
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"Altra documentazione di domanda\"}",
-      "description": "{\"de\": \"Unter den Begriff \\\"weitere Gesuchsunterlagen\\\" fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, L\\u00e4rmschutznachweise, Energienachweise, Bericht zur Umweltvert\\u00e4glichkeitspr\\u00fcfung (UVP), Bodenkundliches Fachgutachten, Vopr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung.\", \"fr\": \"\", \"it\": \"Con \\u00abAltra documentazione di domanda\\u00bb si intende la documentazione di domanda come ad es. i calcoli dettagliati degli indici di utilizzazione che dovranno essere applicati, gli attestati di protezione fonica, i certificati energetici, il rapporto relativo all'esame dell'impatto sull'ambiente (EIA), la perizia pedologica, la decisione dell'Assicurazione fabbricati relativa all'esame preliminare.\"}",
+      "description": "{\"de\": \"Unter den Begriff \\\"weitere Gesuchsunterlagen\\\" fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, L\\u00e4rmschutznachweise, Energienachweise, Bericht zur Umweltvert\\u00e4glichkeitspr\\u00fcfung (UVP), Bodenkundliches Fachgutachten, Vorpr\\u00fcfungsentscheid der Geb\\u00e4udeversicherung.\", \"fr\": \"\", \"it\": \"Con \\u00abAltra documentazione di domanda\\u00bb si intende la documentazione di domanda come ad es. i calcoli dettagliati degli indici di utilizzazione che dovranno essere applicati, gli attestati di protezione fonica, i certificati energetici, il rapporto relativo all'esame dell'impatto sull'ambiente (EIA), la perizia pedologica, la decisione dell'Assicurazione fabbricati relativa all'esame preliminare.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
@@ -1070,12 +1070,12 @@
           }
         }
       },
-      "name": "{\"de\": \"Beschwerden\", \"fr\": \"\", \"it\": \"Reclami\"}",
+      "name": "{\"de\": \"Beschwerden\", \"fr\": \"\", \"it\": \"Ricorso\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",
       "parent": "einsprachen-beschwerden",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -1549,7 +1549,7 @@
           }
         }
       },
-      "name": "{\"de\": \"Einsprachen / Beschwerden\", \"fr\": \"\", \"it\": \"Opposizioni / Reclami\"}",
+      "name": "{\"de\": \"Einsprachen / Beschwerden\", \"fr\": \"\", \"it\": \"Opposizioni / Ricorso\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",

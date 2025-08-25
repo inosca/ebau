@@ -20,3 +20,4 @@ legal-submission:
   delete-error: "Erreur lors de la suppression de la conclusion"
 
   hint: ""
+  hint-appeal: ""
