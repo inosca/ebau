@@ -1,22 +1,27 @@
 {{#if (maybe-translate "legal-submission.header")}}
   <h2>{{t "legal-submission.header"}}</h2>
 {{/if}}
-<LegalSubmissionTable
-  @types={{this.types}}
-  @status={{this.status}}
-  @onUpdateTypes={{fn (mut this.types)}}
-  @onUpdateStatus={{fn (mut this.status)}}
-/>
 
 {{#if (t "legal-submission.hint")}}
   <div class="uk-alert uk-alert-default uk-margin-remove">
     {{t "legal-submission.hint"}}
   </div>
+  <LegalSubmissionTable
+    @types={{this.types}}
+    @status={{this.status}}
+    @onUpdateTypes={{fn (mut this.types)}}
+    @onUpdateStatus={{fn (mut this.status)}}
+  />
 {{/if}}
 
 {{#if (await (can "view legal-appeal"))}}
   {{#if (maybe-translate "legal-appeal.header")}}
     <h2 class="uk-margin-large-top">{{t "legal-appeal.header"}}</h2>
+  {{/if}}
+  {{#if (t "legal-submission.hint-appeal")}}
+    <div class="uk-alert uk-alert-default uk-margin-remove">
+      {{t "legal-submission.hint-appeal"}}
+    </div>
   {{/if}}
   <LegalAppealTable />
 {{/if}}
