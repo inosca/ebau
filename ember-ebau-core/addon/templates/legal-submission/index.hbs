@@ -6,13 +6,14 @@
   <div class="uk-alert uk-alert-default uk-margin-remove">
     {{t "legal-submission.hint"}}
   </div>
-  <LegalSubmissionTable
-    @types={{this.types}}
-    @status={{this.status}}
-    @onUpdateTypes={{fn (mut this.types)}}
-    @onUpdateStatus={{fn (mut this.status)}}
-  />
 {{/if}}
+
+<LegalSubmissionTable
+  @types={{this.types}}
+  @status={{this.status}}
+  @onUpdateTypes={{fn (mut this.types)}}
+  @onUpdateStatus={{fn (mut this.status)}}
+/>
 
 {{#if (await (can "view legal-appeal"))}}
   {{#if (maybe-translate "legal-appeal.header")}}
