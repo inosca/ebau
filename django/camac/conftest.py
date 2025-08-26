@@ -215,11 +215,14 @@ CALUMA_FORM_TYPES_SLUGS = [
 ]
 
 CALUMA_VERSIONED_FORM_TYPES_SLUGS_SO = [
+    "baugesuch",
     "baugesuch-v2",
+    "erdwaermesonden",
     "erdwaermesonden-v2",
     "voranfrage-v2",
     "meldung-v2",
     "meldung-pv-v2",
+    "reklamegesuch",
     "reklamegesuch-v2",
 ]
 
@@ -1161,7 +1164,6 @@ def caluma_forms_so(settings):
     caluma_form_models.Form.objects.create(slug="materielle-pruefung")
     caluma_form_models.Form.objects.create(slug="entscheid")
     caluma_form_models.Form.objects.create(slug="publikation")
-    caluma_form_models.Form.objects.create(slug="erdwaermesonden")
     caluma_form_models.Form.objects.create(slug="personalien-tabelle")
     caluma_form_models.Form.objects.create(slug="beschwerdeverfahren")
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
