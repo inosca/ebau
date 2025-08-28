@@ -13157,7 +13157,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_dependents": "[\"anzahl-wohnungen-nach-bauvollendung-v5\"]"
     }
   },
   {
@@ -13256,7 +13256,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_dependents": "[\"anzahl-wohnungen-nach-bauvollendung-v5\"]"
     }
   },
   {
@@ -13290,7 +13290,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_dependents": "[\"anzahl-wohnungen-nach-bauvollendung-v5\"]"
     }
   },
   {
@@ -14302,7 +14302,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_dependents": "[\"bestand-nach-realisierung-in-quadratmeter-v5\"]"
     }
   },
   {
@@ -20606,7 +20606,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_dependents": "[\"bestand-nach-realisierung-in-quadratmeter-v5\"]"
     }
   },
   {
@@ -20641,7 +20641,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_dependents": "[\"bestand-nach-realisierung-in-quadratmeter-v5\"]"
     }
   },
   {
