@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 19:37+0200\n"
+"POT-Creation-Date: 2025-09-02 15:36+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -578,6 +578,14 @@ msgid "Manual suspension"
 msgstr ""
 
 #: camac/deadlines/models.py
+msgid "Process deadline date override"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "If set, the process deadline date is manually set and not calculated."
+msgstr ""
+
+#: camac/deadlines/models.py
 msgid "Process deadline days"
 msgstr ""
 
@@ -660,6 +668,10 @@ msgid ""
 msgstr ""
 "Questo tipo di file non può essere caricato. Nella cartella %(section_name)s "
 "è possibile caricare i seguenti tipi di file: %(allowed_mime_types)s"
+
+#: camac/document/serializers.py
+msgid "The entered name is not a valid file name"
+msgstr ""
 
 #: camac/document/serializers.py
 #, python-format

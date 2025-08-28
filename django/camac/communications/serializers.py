@@ -8,6 +8,7 @@ from alexandria.core import models as alexandria_models
 from alexandria.core.api import create_document_file as create_alexandria_document_file
 from django.conf import settings
 from django.core.cache import cache
+from django.core.files.storage import Storage
 from django.db import transaction
 from django.utils import timezone
 from django.utils.translation import get_language, gettext
@@ -366,6 +367,7 @@ class MessageSerializer(serializers.ModelSerializer):
             models.entity_for_current_user(self.context["request"])
         )
 
+        storage = Storage()
         for attachment in attachments:
             attachment.message = message
 
@@ -374,8 +376,9 @@ class MessageSerializer(serializers.ModelSerializer):
             if attachment.document_attachment:
                 file = attachment.document_attachment.path
                 original_name = attachment.document_attachment.name
-                display_name = attachment.document_attachment.context.get(
-                    "displayName", original_name
+                display_name = (
+                    attachment.document_attachment.context.get("displayName")
+                    or original_name
                 )
             elif attachment.alexandria_file:
                 file = attachment.alexandria_file.content
@@ -383,16 +386,18 @@ class MessageSerializer(serializers.ModelSerializer):
                 display_name = (
                     attachment.alexandria_file.document.title or original_name
                 )
-            else:
-                file = original_name = display_name = None
 
-            if file and original_name and display_name:
+            if attachment.document_attachment or attachment.alexandria_file:
                 _, ext = os.path.splitext(original_name)
                 new_name = (
                     f"{display_name}{ext}"
                     if not display_name.endswith(ext)
                     else display_name
                 )
+
+                # Convert invalid display names into valid ones
+                new_name = storage.get_valid_name(new_name)
+
                 attachment.file_attachment.save(new_name, file, save=False)
 
             attachment.save()

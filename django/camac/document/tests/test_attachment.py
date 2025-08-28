@@ -1710,7 +1710,7 @@ def test_attachment_update_custom_permissions(
     "role__name,instance__user,instance_state__name,acl_mode",
     [("Applicant", lf("admin_user"), "new", permissions.AdminPermission)],
 )
-def test_convert_docx_to_word(
+def test_convert_docx_to_pdf(
     admin_client,
     service,
     instance,
@@ -1728,7 +1728,12 @@ def test_convert_docx_to_word(
 
     attachments = []
 
-    for filename in ["important.docx", "important.pdf"]:
+    for filename, display_name in [
+        ("important.docx", "important.docx"),
+        ("test.docx", None),
+        ("important.pdf", "important.pdf"),
+        ("template.docx", "template//foobar.docx"),
+    ]:
         attachment = attachment_factory(
             instance=instance, service=service, path=django_file(filename)
         )
@@ -1738,12 +1743,11 @@ def test_convert_docx_to_word(
         attachment.path = test_path
         attachment.path.name = test_path
         attachment.name = filename
+        attachment.context = {"displayName": display_name} if display_name else {}
         attachment.save()
         attachments.append(attachment)
 
     attachment_section.attachments.set(attachments)
-
-    url = reverse("attachment-convert", args=[attachments[0].pk])
 
     requests_mock.register_uri(
         "POST",
@@ -1751,9 +1755,80 @@ def test_convert_docx_to_word(
         content=b"A pdf",
     )
 
+    # Test setup
+    assert models.Attachment.objects.all().count() == 4
+    assert set(models.Attachment.objects.values_list("name", flat=True)) == {
+        "important.docx",
+        "important.pdf",
+        "template.docx",
+        "test.docx",
+    }
+    assert set(
+        models.Attachment.objects.values_list("context__displayName", flat=True)
+    ) == {"important.docx", "important.pdf", "template//foobar.docx", None}
+
+    url = reverse("attachment-convert", args=[attachments[0].pk])
     response = admin_client.post(url)
 
+    # Test conversion with existing pdf
     assert response.status_code == status.HTTP_201_CREATED
+    assert models.Attachment.objects.all().count() == 4
+    assert set(models.Attachment.objects.values_list("name", flat=True)) == {
+        "important.docx",
+        "important.pdf",
+        "template.docx",
+        "test.docx",
+    }
+    assert set(
+        models.Attachment.objects.values_list("context__displayName", flat=True)
+    ) == {"important.docx", "important.pdf", "template//foobar.docx", None}
+
+    url = reverse("attachment-convert", args=[attachments[3].pk])
+    response = admin_client.post(url)
+
+    # Test conversion with invalid display name
+    assert response.status_code == status.HTTP_201_CREATED
+    assert models.Attachment.objects.all().count() == 5
+    assert set(models.Attachment.objects.values_list("name", flat=True)) == {
+        "important.docx",
+        "important.pdf",
+        "template.docx",
+        "template.pdf",
+        "test.docx",
+    }
+    assert set(
+        models.Attachment.objects.values_list("context__displayName", flat=True)
+    ) == {
+        "important.docx",
+        "important.pdf",
+        "template//foobar.docx",
+        "templatefoobar.pdf",
+        None,
+    }
+
+    url = reverse("attachment-convert", args=[attachments[1].pk])
+    response = admin_client.post(url)
+
+    # Test converstion with display name = None
+    assert response.status_code == status.HTTP_201_CREATED
+    assert models.Attachment.objects.all().count() == 6
+    assert set(models.Attachment.objects.values_list("name", flat=True)) == {
+        "important.docx",
+        "important.pdf",
+        "template.docx",
+        "template.pdf",
+        "test.docx",
+        "test.pdf",
+    }
+    assert set(
+        models.Attachment.objects.values_list("context__displayName", flat=True)
+    ) == {
+        "important.docx",
+        "important.pdf",
+        "template//foobar.docx",
+        "templatefoobar.pdf",
+        None,
+    }
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

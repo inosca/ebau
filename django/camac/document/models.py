@@ -4,6 +4,7 @@ from uuid import uuid4
 import reversion
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
+from django.core.files.storage import Storage
 from django.core.validators import MaxValueValidator
 from django.db import models
 from django.utils import timezone
@@ -114,11 +115,18 @@ class Attachment(models.Model):
         return display_name
 
     def make_copy_with_new_file(self, new_file, group, user):
+        storage = Storage()
         display_name = (
-            self.context.get("displayName").replace(".docx", ".pdf")
+            storage.get_valid_name(
+                self.context.get("displayName").replace(".docx", ".pdf")
+            )
             if self.context.get("displayName")
             else None
         )
+        if display_name:
+            context = {**self.context, "displayName": display_name}
+        else:
+            context = self.context
 
         copy = Attachment.objects.create(
             path=new_file,
@@ -130,7 +138,7 @@ class Attachment(models.Model):
             date=now(),
             group=group,
             service=group.service,
-            context={**self.context, "displayName": display_name},
+            context=context,
         )
         copy.attachment_sections.set(self.attachment_sections.all())
         copy.save()
