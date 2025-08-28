@@ -125,20 +125,14 @@ def test_all_mappings(snapshot):
             "PRGUID": "",
             "PROFIL_KTR": "20250501",
             "PROFIL_OK": "",
-            "GESART": [
-                {
-                    "MANDT": "600",
-                    "GESUCH_ID": "EBPA-6929-6843",
-                    "GESART": "Baugesuch",
-                    "FFIRST": "",
-                },
-                {
-                    "MANDT": "600",
-                    "GESUCH_ID": "EBPA-6929-6843",
-                    "GESART": "Umweltvertr\u00e4glichkeitspr\u00fcfung (UVP)",
-                    "FFIRST": "",
-                },
-            ],
+            "BAUANL_KNZ": "X",
+            "REKLAM_KNZ": "",
+            "ABRUCH_KNZ": "",
+            "UMNUTZ_KNZ": "",
+            "ANFRAG_KNZ": "",
+            "VORENT_KNZ": "",
+            "RODUNG_KNZ": "",
+            "UMWELT_KNZ": "X",
             "PARZELLEN": [
                 {
                     "SGUID": "e1a5f3d1-7126-4a7d-b355-b3ac8ad9",

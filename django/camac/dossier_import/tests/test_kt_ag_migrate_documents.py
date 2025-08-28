@@ -9,8 +9,8 @@ from camac.dossier_import.config.kt_ag.documents.dev_ebau_document_client import
 )
 from camac.dossier_import.config.kt_ag.documents.docs_importer import DocsImporter
 from camac.dossier_import.config.kt_ag.dossier_import.dossier_classes import (
+    DossierTypes,
     KtAargauDossier,
-    ValueHolder,
 )
 from camac.dossier_import.dossier_classes import Dossier
 
@@ -69,7 +69,7 @@ def _prepare_instance(dossier_ids, municipality_id):  # pragma: no cover
             id=dossier_id,
             responsible_municipality=municipality_id,
             proposal=dossier_id,
-            dossier_type=[ValueHolder("Baugesuch")],
+            dossier_types=DossierTypes(baugesuch=True),
             submit_date="20250710",
             _meta=Dossier.Meta(target_state="Verfügung erstellt"),
         )
