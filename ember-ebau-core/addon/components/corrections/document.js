@@ -33,8 +33,9 @@ export default class CorrectionsDocument extends Component {
     const owner = getOwner(this);
     const Document = owner.factoryFor("caluma-model:document").class;
     const raw = parseDocument({ ...answerDocument, form });
+    const dataSourceContext = { instanceId: this.args.instance.id };
 
-    const document = new Document({ raw, owner });
+    const document = new Document({ raw, owner, dataSourceContext });
     return document;
   });
 
