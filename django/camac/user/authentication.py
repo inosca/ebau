@@ -110,48 +110,54 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         # TODO: don't use jwt token at all, once Middleware is refactored
         return self._build_user(resp, accept_language_header), jwt_decoded
 
+    @transaction.atomic
     def _update_or_create_user(self, defaults, accept_language_header):
-        # TODO: this will be removed but for time constraint will be released for
-        # kt. GR already. The code below still runs for other cantons just like
-        # before.
-        # We return the existing user if it matches the defaults so we don't
-        # lock the database user record during a long running request.
-        if settings.APPLICATION_NAME == "kt_gr":  # pragma: no cover
-            user_model = get_user_model()
-            filter_condition = Q(username=defaults["username"])
-            filter_user_values = {
-                k: v for k, v in defaults.items() if k not in ("username", "email")
-            }
+        """Update or create a user based on the defaults.
 
-            # If enabled we also consider the email address
-            if settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK and defaults["email"]:
-                filter_condition |= Q(email=defaults["email"])
-
-            existing_users = user_model.objects.filter(filter_condition)
-            if not accept_language_header and existing_users:
-                defaults["language"] = existing_users[0].language
-                filter_user_values["language"] = defaults["language"]
-
-            existing_user = (
-                user_model.objects.filter(filter_condition)
-                .filter(**filter_user_values)
-                .first()
-            )
-            if existing_user:
-                return existing_user, False
-
-            return existing_users.update_or_create(defaults=defaults)
-
+        If the user doesn't exist, we create it with the defaults.
+        If the user already exists we check if the existing user matches
+        the defaults. If it doesn't match the defaults, we update the user
+        with the defaults and return that user. If it does, we return that
+        user without calling update_or_create to prevent locking the user
+        DB record for the duration of the request.
+        """
         user_model = get_user_model()
-        filter_condition = Q(username=defaults["username"])
 
-        # If enabled we also consider the email address
-        if settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK and defaults["email"]:
-            filter_condition |= Q(email=defaults["email"])
-        existing_users = user_model.objects.filter(filter_condition)
-        if not accept_language_header and existing_users:
-            defaults["language"] = existing_users[0].language
-        return existing_users.update_or_create(defaults=defaults)
+        existing_user = self._get_existing_user(defaults)
+
+        # Existing users will keep their saved language.
+        if not accept_language_header and existing_user:
+            defaults["language"] = existing_user.language
+
+        if existing_user:
+            return self._update_existing_user(existing_user, defaults), False
+
+        return user_model.objects.create(**defaults), True
+
+    def _get_existing_user(self, defaults):
+        user_model = get_user_model()
+        existing_user = user_model.objects.filter(username=defaults["username"]).first()
+
+        if (
+            not existing_user
+            and settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK
+            and defaults["email"]
+        ):
+            existing_user = user_model.objects.filter(email=defaults["email"]).first()
+
+        return existing_user
+
+    def _update_existing_user(self, existing_user, defaults):
+        is_changed = False
+        for key, value in defaults.items():
+            if getattr(existing_user, key) != value:
+                setattr(existing_user, key, value)
+                is_changed = True
+
+        if is_changed:
+            existing_user.save()
+
+        return existing_user
 
     def _build_user(self, data, accept_language_header):
         language = translation.get_language()

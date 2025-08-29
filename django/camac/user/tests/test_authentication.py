@@ -1,6 +1,8 @@
 import json
 
 import pytest
+from django.db import connection
+from django.test.utils import CaptureQueriesContext
 from jwcrypto.common import JWException
 from jwcrypto.jwt import JWTExpired
 from mozilla_django_oidc.contrib.drf import OIDCAuthentication
@@ -335,3 +337,148 @@ def test_authenticate_token_exchange_company_name(rf, mocker, settings, clear_ca
     user, _ = JSONWebTokenKeycloakAuthentication().authenticate(request)
 
     assert user.get_full_name() == "Acme Inc."
+
+
+@pytest.mark.parametrize(
+    "oidc_sync_user_attributes",
+    [["language", "email", "username", "name", "surname", "phone"]],
+)
+@pytest.mark.parametrize(
+    "existing_values,new_values,expected_update,expected_insert",
+    [
+        # no changes, no update
+        (
+            {"username": "testuser", "email": "", "language": "en"},
+            {"username": "testuser", "email": ""},
+            False,
+            False,
+        ),
+        # changed email, update record
+        (
+            {"username": "testuser", "email": "", "language": "en"},
+            {"username": "testuser", "email": "test@example.com"},
+            True,
+            False,
+        ),
+        # new record, created
+        (
+            None,
+            {"username": "testuser", "email": "test@example.com"},
+            False,
+            True,
+        ),
+        # change name with email fallback and update username
+        (
+            {
+                "username": "testuser",
+                "email": "test@example.com",
+                "name": "Before",
+            },
+            {
+                "username": "mismatch",
+                "email": "test@example.com",
+                "name": "After",
+            },
+            True,
+            False,
+        ),
+    ],
+)
+def test_authenticate_only_update_user_if_changed(
+    db,
+    user_factory,
+    existing_values,
+    new_values,
+    expected_insert,
+    expected_update,
+    oidc_sync_user_attributes,
+    settings,
+):
+    settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK = True
+
+    if existing_values:
+        user_factory(**existing_values)
+
+    with CaptureQueriesContext(connection) as ctx:
+        obj, _ = JSONWebTokenKeycloakAuthentication()._update_or_create_user(
+            defaults=new_values, accept_language_header="de"
+        )
+
+        for key in oidc_sync_user_attributes:
+            if key in new_values:
+                assert getattr(obj, key) == new_values[key], (
+                    f"Expected {key} to be {new_values[key]}, got {getattr(obj, key)}"
+                )
+            elif existing_values and key in existing_values:
+                assert getattr(obj, key) == existing_values.get(key, None), (
+                    f"Expected {key} to be {existing_values.get(key, None)}, got {getattr(obj, key)}"
+                )
+
+        has_insert = any(
+            'INSERT INTO "USER" ' in query["sql"] for query in ctx.captured_queries
+        )
+        has_update = any(
+            'UPDATE "USER" ' in query["sql"] for query in ctx.captured_queries
+        )
+
+        assert has_insert == expected_insert
+        assert has_update == expected_update
+
+
+@pytest.mark.parametrize(
+    "oidc_sync_user_attributes",
+    [["language", "email", "username", "name", "surname", "phone"]],
+)
+@pytest.mark.parametrize(
+    "values,use_fallback,expected_fallback",
+    [
+        # Sync by username, no fallback
+        (
+            {"username": "testuser", "email": "test@example.com", "name": "New name"},
+            False,
+            False,
+        ),
+        # Sync by username, fallback enabled but not used because user found by username
+        (
+            {
+                "username": "nonexisting",
+                "email": "test@example.com",
+                "name": "New name",
+            },
+            True,
+            True,
+        ),
+        # Sync by email, fallback enabled and used because user not found by username
+        (
+            {
+                "username": "testuser",
+                "email": "test@example.com",
+                "name": "New name",
+            },
+            True,
+            False,
+        ),
+    ],
+)
+def test_authenticate_user_email_fallback(
+    db,
+    user_factory,
+    values,
+    use_fallback,
+    expected_fallback,
+    oidc_sync_user_attributes,
+    settings,
+):
+    settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK = use_fallback
+
+    user1 = user_factory(username="testuser", name="Name")
+    user2 = user_factory(username="testuser2", email="test@example.com", name="Name")
+
+    obj, _ = JSONWebTokenKeycloakAuthentication()._update_or_create_user(
+        defaults=values, accept_language_header="de"
+    )
+
+    assert obj.name == values["name"]
+    assert obj.username == values["username"]
+    assert obj.email == values["email"]
+    assert obj.pk == (user1.pk if not expected_fallback else user2.pk)
