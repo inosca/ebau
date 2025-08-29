@@ -47774,8 +47774,8 @@
     "pk": 12000013,
     "fields": {
       "instance_resource": 12000009,
-      "language": "de",
-      "name": "Baukontrolle",
+      "language": "fr",
+      "name": "Contrôle de construction",
       "description": null
     }
   },
@@ -47806,6 +47806,36 @@
       "instance_resource": 12000011,
       "language": "fr",
       "name": "Communication",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 12000017,
+    "fields": {
+      "instance_resource": 12000009,
+      "language": "de",
+      "name": "Baukontrolle",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 12000018,
+    "fields": {
+      "instance_resource": 12000010,
+      "language": "fr",
+      "name": "Autorité directrice",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 12000019,
+    "fields": {
+      "instance_resource": 20078,
+      "language": "fr",
+      "name": "Historique procédure",
       "description": null
     }
   },
