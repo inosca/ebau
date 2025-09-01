@@ -100,13 +100,13 @@ class WithdrawalLogic:
         if not request:
             raise ValidationError(_("Withdrawal not possible."))
 
+        instance.case.meta["withdrawal-requested"] = True
+        instance.case.save()
+
         workflow_api.complete_work_item(
             request,
             user=caluma_user,
         )
-
-        instance.case.meta["withdrawal-requested"] = True
-        instance.case.save()
 
         return instance
 
