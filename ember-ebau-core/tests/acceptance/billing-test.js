@@ -23,7 +23,7 @@ module("Acceptance | billing", function (hooks) {
   hooks.beforeEach(function () {
     this.features.disableAll();
 
-    const service = this.server.create("service");
+    const service = this.server.create("service", { slug: "service-slug" });
     const publicService = this.server.create("public-service", {
       id: service.id,
     });
@@ -38,8 +38,10 @@ module("Acceptance | billing", function (hooks) {
 
     this.instance = this.server.create("instance", {
       activeService: publicService,
+      form: this.server.create("form", { name: "test-form-v3" }),
     });
     this.group = this.server.create("group", { service });
+    this.service = service;
 
     this.owner.lookup("service:ebau-modules").instanceId = this.instance.id;
     this.owner.lookup("service:ebau-modules").serviceId = service.id;
@@ -96,6 +98,11 @@ module("Acceptance | billing", function (hooks) {
     this.features.set("billing.releaseForClearing.allowedForServiceGroups", [
       this.serviceGroup.slug,
     ]);
+    this.features.set(
+      "billing.releaseForClearing.subsequentChargeAllowedForServices",
+      [this.service.slug],
+    );
+    this.features.set("billing.releaseForClearing.forms", ["test-form"]);
 
     this.server.createList("billing-v2-entry", 2, {
       group: this.group,

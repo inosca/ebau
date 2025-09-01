@@ -21,7 +21,9 @@
       {{#if
         (or
           (await (can "charge billing-v2-entries"))
-          (await (can "release-for-clearing billing-v2-entries"))
+          (await
+            (can "release-for-clearing billing-v2-entries" @entries.records)
+          )
         )
       }}
         <th data-test-charge>
