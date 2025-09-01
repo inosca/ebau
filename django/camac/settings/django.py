@@ -1189,7 +1189,6 @@ APPLICATIONS = {
                         "init-additional-demand",
                         "additional-demand",
                     ],
-                    # TODO: Remove nfd
                     "complete": ["nfd", "gever"],
                 },
                 "complete": {
