@@ -4277,6 +4277,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente.fragebogen-loeschwasserrueckhalt",
+    "fields": {
+      "created_at": "2025-09-01T08:13:11.419Z",
+      "modified_at": "2025-09-01T08:13:11.419Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente",
+      "question": "fragebogen-loeschwasserrueckhalt",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente.hinweistext-dokumente",
     "fields": {
       "created_at": "2023-05-17T08:14:52.022Z",
@@ -5337,7 +5352,7 @@
       "modified_by_group": null,
       "form": "gewerbe-form",
       "question": "bauvorhaben-stoerfallrelevant",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -5352,7 +5367,7 @@
       "modified_by_group": null,
       "form": "gewerbe-form",
       "question": "begruendung-stoerfallrelevanz",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -5367,7 +5382,7 @@
       "modified_by_group": null,
       "form": "gewerbe-form",
       "question": "betrieb-stoerfallverordnung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -5382,7 +5397,7 @@
       "modified_by_group": null,
       "form": "gewerbe-form",
       "question": "branche-gewerbe",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -5397,7 +5412,7 @@
       "modified_by_group": null,
       "form": "gewerbe-form",
       "question": "hinweistext-stoerfallvorsorge",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5412,7 +5427,7 @@
       "modified_by_group": null,
       "form": "gewerbe-form",
       "question": "industrie-und-gewerbeabwasser",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -5427,7 +5442,7 @@
       "modified_by_group": null,
       "form": "gewerbe-form",
       "question": "maximale-personenbelegung-bauphase",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5442,7 +5457,7 @@
       "modified_by_group": null,
       "form": "gewerbe-form",
       "question": "maximale-personenbelegung-betriebsphase",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5457,7 +5472,22 @@
       "modified_by_group": null,
       "form": "gewerbe-form",
       "question": "nutzungsart",
-      "sort": 9
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gewerbe-form.werden-gueter-im-gebaeude-oder-im-freien-gelagert",
+    "fields": {
+      "created_at": "2025-09-01T08:00:33.253Z",
+      "modified_at": "2025-09-01T08:00:33.253Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gewerbe-form",
+      "question": "werden-gueter-im-gebaeude-oder-im-freien-gelagert",
+      "sort": 1
     }
   },
   {
@@ -11786,6 +11816,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "fragebogen-loeschwasserrueckhalt-fragebogen-loeschwasserrueckhalt",
+    "fields": {
+      "created_at": "2025-09-01T08:13:11.023Z",
+      "modified_at": "2025-09-01T08:14:17.570Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fragebogen L\\u00f6schwasserr\\u00fcckhalt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "gebaeudeheizung-bestehend",
     "fields": {
       "created_at": "2024-11-20T15:59:30.152Z",
@@ -15773,6 +15820,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Videokameras\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-gueter-im-gebaeude-oder-im-freien-gelagert-ja",
+    "fields": {
+      "created_at": "2025-09-01T08:00:32.899Z",
+      "modified_at": "2025-09-01T08:00:32.899Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-gueter-im-gebaeude-oder-im-freien-gelagert-nein",
+    "fields": {
+      "created_at": "2025-09-01T08:00:32.878Z",
+      "modified_at": "2025-09-01T08:00:32.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -21232,6 +21313,39 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fragebogen-loeschwasserrueckhalt",
+    "fields": {
+      "created_at": "2025-09-01T08:13:11.226Z",
+      "modified_at": "2025-09-01T08:14:17.742Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fragebogen L\\u00f6schwasserr\\u00fcckhalt\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\"werden-gueter-im-gebaeude-oder-im-freien-gelagert\"|answer == \"werden-gueter-im-gebaeude-oder-im-freien-gelagert-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Den Fragebogen L\\u00f6schwasserr\\u00fcckhalt finden Sie [hier](https://www.ag.ch/de/themen/umwelt-natur/wasser-gewaesser/abwasser/industrie-und-gewerbeabwasser/loeschwasserrueckhaltung).\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -26767,6 +26881,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "werden-gueter-im-gebaeude-oder-im-freien-gelagert",
+    "fields": {
+      "created_at": "2025-09-01T08:00:33.070Z",
+      "modified_at": "2025-09-01T08:01:55.234Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden G\\u00fcter (im Geb\\u00e4ude oder im Freien) gelagert?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Weitere Informationen zum Thema L\\u00f6schwasserr\\u00fcckhalt finden Sie [hier](https://www.ag.ch/de/themen/umwelt-natur/wasser-gewaesser/abwasser/industrie-und-gewerbeabwasser/loeschwasserrueckhaltung).\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
     "fields": {
       "created_at": "2025-01-24T14:17:00.202Z",
@@ -30262,6 +30407,21 @@
       "modified_by_group": null,
       "question": "fotodokumentation",
       "option": "fotodokumentation-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fragebogen-loeschwasserrueckhalt.fragebogen-loeschwasserrueckhalt-fragebogen-loeschwasserrueckhalt",
+    "fields": {
+      "created_at": "2025-09-01T08:14:17.762Z",
+      "modified_at": "2025-09-01T08:14:17.762Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "fragebogen-loeschwasserrueckhalt",
+      "option": "fragebogen-loeschwasserrueckhalt-fragebogen-loeschwasserrueckhalt",
       "sort": 1
     }
   },
@@ -33803,6 +33963,36 @@
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-videokameras",
       "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-gueter-im-gebaeude-oder-im-freien-gelagert.werden-gueter-im-gebaeude-oder-im-freien-gelagert-ja",
+    "fields": {
+      "created_at": "2025-09-01T08:01:55.263Z",
+      "modified_at": "2025-09-01T08:01:55.263Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-gueter-im-gebaeude-oder-im-freien-gelagert",
+      "option": "werden-gueter-im-gebaeude-oder-im-freien-gelagert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-gueter-im-gebaeude-oder-im-freien-gelagert.werden-gueter-im-gebaeude-oder-im-freien-gelagert-nein",
+    "fields": {
+      "created_at": "2025-09-01T08:01:55.254Z",
+      "modified_at": "2025-09-01T08:01:55.254Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-gueter-im-gebaeude-oder-im-freien-gelagert",
+      "option": "werden-gueter-im-gebaeude-oder-im-freien-gelagert-nein",
+      "sort": 1
     }
   },
   {
