@@ -517,7 +517,7 @@ def test_get_access_levels(
             "geometer",
             "OFF",
             "Municipality",
-            2,  # BE muni: only geometer and read
+            3,  # BE muni: only geometer, read and legal-authority
         ),
         ("be", True, "geometer", "OFF", "Geometer", 0),
         ("be", False, "geometer", "OFF", "Municipality", "ALL"),

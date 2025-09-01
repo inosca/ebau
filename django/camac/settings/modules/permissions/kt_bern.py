@@ -47,6 +47,9 @@ ROLES_INTERNAL = HasRole(
         "geometer-lead",
         "geometer-clerk",
         "geometer-readonly",
+        "legal-authority-lead",
+        "legal-authority-clerk",
+        "legal-authority-readonly",
         "subservice",
         "support",
     ]
@@ -58,6 +61,7 @@ ROLES_INTERNAL_NO_READONLY = ROLES_INTERNAL & ~HasRole(
         "service-readonly",
         "construction-control-readonly",
         "geometer-readonly",
+        "legal-authority-readonly",
     ]
 )
 
@@ -70,6 +74,15 @@ MODULE_HISTORY = STATES_ALL_INTERNAL & ROLES_INTERNAL
 
 MODULE_COMMUNICATIONS_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
 MODULE_COMMUNICATIONS_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
+
+MODULE_DMS_GENERATE_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
+MODULE_DMS_GENERATE_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
+
+MODULE_JOURNAL_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
+MODULE_JOURNAL_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
+
+MODULE_RESPONSIBLE_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
+MODULE_RESPONSIBLE_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
 
 MODULE_HEADER_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
 MODULE_HEADER_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
@@ -334,6 +347,22 @@ BE_PERMISSIONS_SETTINGS = {
             ("documents-read", MODULE_DOCUMENTS_READ),
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
+        ],
+        "legal-authority": [
+            ("communications-read", MODULE_COMMUNICATIONS_READ),
+            ("communications-write", MODULE_COMMUNICATIONS_WRITE),
+            ("documents-read", MODULE_DOCUMENTS_READ),
+            ("documents-write", MODULE_DOCUMENTS_WRITE),
+            ("form-read", MODULE_FORM),
+            ("history-read", MODULE_HISTORY),
+            ("dms-generate-read", MODULE_DMS_GENERATE_READ),
+            ("dms-generate-write", MODULE_DMS_GENERATE_WRITE),
+            ("journal-read", MODULE_JOURNAL_READ),
+            ("journal-write", MODULE_JOURNAL_WRITE),
+            ("responsible-read", MODULE_RESPONSIBLE_READ),
+            ("responsible-write", MODULE_RESPONSIBLE_WRITE),
+            ("tags-read", MODULE_HEADER_READ),
+            ("tags-write", MODULE_HEADER_WRITE),
         ],
         # TODO: The following access levels have not beeen released yet
         "applicant": [

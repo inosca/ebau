@@ -51448,6 +51448,70 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 23278,
+    "fields": {
+      "role": 20014,
+      "service": 20994,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "ra-bvd@example.com",
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 23279,
+    "fields": {
+      "role": 20016,
+      "service": 20994,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "ra-bvd@example.com",
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 23280,
+    "fields": {
+      "role": 20017,
+      "service": 20994,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "ra-bvd@example.com",
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 23281,
+    "fields": {
+      "role": 20015,
+      "service": 20994,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "ra-bvd@example.com",
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 1,
     "fields": {
@@ -115688,6 +115752,86 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 26542,
+    "fields": {
+      "group": 23278,
+      "language": "de",
+      "name": "Leitung Rechtsamt Bau- und Verkehrsdirektion",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26543,
+    "fields": {
+      "group": 23278,
+      "language": "fr",
+      "name": "Office juridique direction des travaux publics et des transports",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26544,
+    "fields": {
+      "group": 23279,
+      "language": "de",
+      "name": "Administration Rechtsamt Bau- und Verkehrsdirektion",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26545,
+    "fields": {
+      "group": 23279,
+      "language": "fr",
+      "name": "Administration Office juridique direction des travaux publics et des transports",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26546,
+    "fields": {
+      "group": 23280,
+      "language": "de",
+      "name": "Sachbearbeiter Rechtsamt Bau- und Verkehrsdirektion",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26547,
+    "fields": {
+      "group": 23280,
+      "language": "fr",
+      "name": "Office juridique direction des travaux publics et des transports",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26548,
+    "fields": {
+      "group": 23281,
+      "language": "de",
+      "name": "Einsichtsberechtigte Rechtsamt Bau- und Verkehrsdirektion",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26549,
+    "fields": {
+      "group": 23281,
+      "language": "fr",
+      "name": "Office juridique direction des travaux publics et des transports",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -115959,6 +116103,50 @@
       "group": 23277,
       "default_group": 0,
       "created_at": "2025-01-22T09:31:09.214Z",
+      "created_by": 2
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 20135,
+    "fields": {
+      "user": 2,
+      "group": 23278,
+      "default_group": 0,
+      "created_at": "2025-09-10T08:43:53.710Z",
+      "created_by": 2
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 20136,
+    "fields": {
+      "user": 2,
+      "group": 23279,
+      "default_group": 0,
+      "created_at": "2025-09-10T08:46:11.050Z",
+      "created_by": 2
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 20137,
+    "fields": {
+      "user": 2,
+      "group": 23280,
+      "default_group": 0,
+      "created_at": "2025-09-10T08:47:10.596Z",
+      "created_by": 2
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 20138,
+    "fields": {
+      "user": 2,
+      "group": 23281,
+      "default_group": 0,
+      "created_at": "2025-09-10T08:48:41.781Z",
       "created_by": 2
     }
   },
@@ -138204,6 +138392,30 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 20994,
+    "fields": {
+      "slug": "ra-bvd",
+      "service_group": 20004,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 762,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "ra-bvd@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 2,
     "fields": {
@@ -160388,6 +160600,30 @@
       "name": "Feuerungskontrolle Kanton Bern - Immissionsschutz (Amt für Umwelt und Energie, Abteilung Energie)",
       "description": "Feuerungskontrolle Kanton Bern - Immissionsschutz (Amt für Umwelt und Energie, Abteilung Energie)",
       "city": "Bern",
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 21969,
+    "fields": {
+      "service": 20994,
+      "language": "de",
+      "name": "Rechtsamt Bau- und Verkehrsdirektion",
+      "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 21970,
+    "fields": {
+      "service": 20994,
+      "language": "fr",
+      "name": "Office juridique direction des travaux publics et des transports",
+      "description": null,
+      "city": null,
       "department": null
     }
   }

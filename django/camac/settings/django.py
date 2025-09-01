@@ -219,6 +219,9 @@ APPLICATIONS = {
             "service-clerk": "service",
             "subservice": "service",
             "Geometer": "geometer",
+            "legal-authority-lead": "legal_authority",
+            "legal-authority-clerk": "legal_authority",
+            "Legal-Authority": "legal_authority",
             "uso": "uso",
             "building_commission": "building_commission",
         },
@@ -845,6 +848,10 @@ APPLICATIONS = {
             "geometer-clerk": "geometer",
             "geometer-readonly": "geometer",
             "geometer-admin": "geometer",
+            "legal-authority-lead": "legal_authority",
+            "legal-authority-clerk": "legal_authority",
+            "legal-authority-readonly": "legal_authority",
+            "legal-authority-admin": "legal_authority",
         },
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "CUSTOM_NOTIFICATION_TYPES": [
@@ -1282,6 +1289,7 @@ APPLICATIONS = {
             "service-admin",
             "construction-control-admin",
             "geometer-admin",
+            "legal-authority-admin",
         ],
         # please also update django/Makefile command when changing apps here
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],

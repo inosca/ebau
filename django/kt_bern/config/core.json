@@ -109991,6 +109991,134 @@
   },
   {
     "model": "core.rroleacl",
+    "pk": 12000001,
+    "fields": {
+      "resource": 150001,
+      "role": 20015
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000002,
+    "fields": {
+      "resource": 150001,
+      "role": 20014
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000003,
+    "fields": {
+      "resource": 150001,
+      "role": 20017
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000004,
+    "fields": {
+      "resource": 20006,
+      "role": 20015
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000005,
+    "fields": {
+      "resource": 20006,
+      "role": 20014
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000006,
+    "fields": {
+      "resource": 18000000,
+      "role": 20014
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000007,
+    "fields": {
+      "resource": 20010,
+      "role": 20015
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000008,
+    "fields": {
+      "resource": 20010,
+      "role": 20014
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000009,
+    "fields": {
+      "resource": 20010,
+      "role": 20017
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000010,
+    "fields": {
+      "resource": 15000001,
+      "role": 20015
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000011,
+    "fields": {
+      "resource": 15000001,
+      "role": 20014
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000013,
+    "fields": {
+      "resource": 15000001,
+      "role": 20017
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000014,
+    "fields": {
+      "resource": 15000003,
+      "role": 20016
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000015,
+    "fields": {
+      "resource": 15000000,
+      "role": 20016
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000016,
+    "fields": {
+      "resource": 20009,
+      "role": 20016
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12000017,
+    "fields": {
+      "resource": 150003,
+      "role": 20016
+    }
+  },
+  {
+    "model": "core.rroleacl",
     "pk": 15000000,
     "fields": {
       "resource": 15000000,

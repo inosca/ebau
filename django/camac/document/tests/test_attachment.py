@@ -1956,3 +1956,58 @@ def test_accesslevel_based_permission(
     # permissions, so should only see same-service documents
 
     assert resp_ids == expect_ids
+
+
+@pytest.mark.parametrize("role__name", ["Legal-Authority"])
+@pytest.mark.parametrize(
+    "has_instance_acl, expected_response",
+    [
+        (True, status.HTTP_201_CREATED),
+        (False, status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_validate_instance(
+    db,
+    admin_client,
+    mocker,
+    has_instance_acl,
+    expected_response,
+    be_instance,
+    attachment_section,
+    access_level,
+    instance_acl_factory,
+    permissions_settings,
+):
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [("documents-write", Always())]
+    }
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS_BY_ACCESSLEVEL",
+        {
+            "test": {
+                access_level.slug: {
+                    permissions.AdminInternalPermission: (
+                        permissions._allow_always,
+                        [attachment_section.pk],
+                    ),
+                }
+            }
+        },
+    )
+    url = reverse("attachment-list")
+    path = django_file("important.pdf")
+    data = {
+        "instance": be_instance.pk,
+        "path": path.file,
+        "group": be_instance.group.pk,
+    }
+
+    if has_instance_acl:
+        instance_acl_factory(
+            service=admin_client.user.get_default_group().service,
+            access_level=access_level,
+            instance=be_instance,
+        )
+
+    response = admin_client.post(url, data=data, format="multipart")
+    assert response.status_code == expected_response

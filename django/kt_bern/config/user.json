@@ -189,6 +189,42 @@
     }
   },
   {
+    "model": "user.role",
+    "pk": 20014,
+    "fields": {
+      "role_parent": null,
+      "name": "legal-authority-lead",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20015,
+    "fields": {
+      "role_parent": null,
+      "name": "legal-authority-readonly",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20016,
+    "fields": {
+      "role_parent": null,
+      "name": "legal-authority-admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20017,
+    "fields": {
+      "role_parent": 20014,
+      "name": "legal-authority-clerk",
+      "group_prefix": null
+    }
+  },
+  {
     "model": "user.rolet",
     "pk": 1,
     "fields": {
@@ -629,6 +665,86 @@
     }
   },
   {
+    "model": "user.rolet",
+    "pk": 20035,
+    "fields": {
+      "role": 20014,
+      "language": "de",
+      "name": "Leitung Rechtsmittelbehörde",
+      "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20036,
+    "fields": {
+      "role": 20015,
+      "language": "de",
+      "name": "Einsichtsberechtigte Rechtsmittelbehörde",
+      "group_prefix": "Einsichtsberechtigte"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20037,
+    "fields": {
+      "role": 20016,
+      "language": "de",
+      "name": "Administration Rechtsmittelbehörde",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20038,
+    "fields": {
+      "role": 20017,
+      "language": "de",
+      "name": "Sachbearbeiter Rechtsmittelbehörde",
+      "group_prefix": "Sachbearbeiter"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20039,
+    "fields": {
+      "role": 20014,
+      "language": "fr",
+      "name": "Responsable: Rechtsmittelbehörde",
+      "group_prefix": "Responsable:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20040,
+    "fields": {
+      "role": 20015,
+      "language": "fr",
+      "name": "Droit de consulter le dossier: Rechtsmittelbehörde",
+      "group_prefix": "Droit de consulter le dossier:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20041,
+    "fields": {
+      "role": 20016,
+      "language": "fr",
+      "name": "Administration: Rechtsmittelbehörde",
+      "group_prefix": "Administration:"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20042,
+    "fields": {
+      "role": 20017,
+      "language": "fr",
+      "name": "Collaborateur/collaboratrice du Rechtsmittelbehörde",
+      "group_prefix": "Collaborateur/collaboratrice:"
+    }
+  },
+  {
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
@@ -679,6 +795,15 @@
     "fields": {
       "slug": "geometer",
       "name": "geometer",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 20004,
+    "fields": {
+      "slug": "legal-authority",
+      "name": "legal-authority",
       "sort": null
     }
   },
@@ -743,6 +868,24 @@
       "service_group": 20003,
       "language": "fr",
       "name": "Géomètre conservatrice ou géomètre conservateur"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20007,
+    "fields": {
+      "service_group": 20004,
+      "language": "de",
+      "name": "Rechtsmittelbehörde"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20008,
+    "fields": {
+      "service_group": 20004,
+      "language": "fr",
+      "name": null
     }
   }
 ]
