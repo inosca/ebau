@@ -6,16 +6,18 @@ from camac.permissions import api as permissions_api
 from camac.permissions.switcher import PERMISSION_MODE
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
-    "is_active,expected_result",
+    "role__name,is_active,expected_result",
     [
-        (0, status.HTTP_204_NO_CONTENT),
-        (1, status.HTTP_403_FORBIDDEN),
+        ("Municipality", 0, status.HTTP_204_NO_CONTENT),
+        ("Municipality", 1, status.HTTP_403_FORBIDDEN),
+        ("Support", 1, status.HTTP_204_NO_CONTENT),
+        ("Support", 0, status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_unsubscribe_responsible_service(
     db,
+    application_settings,
     admin_client,
     be_instance,
     be_permissions_settings,
@@ -24,7 +26,9 @@ def test_unsubscribe_responsible_service(
     expected_result,
     instance_acl_factory,
     access_level_factory,
+    service_factory,
 ):
+    application_settings["SHORT_NAME"] = "be"
     be_permissions_settings["EVENT_HANDLER"] = (
         "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
@@ -32,6 +36,12 @@ def test_unsubscribe_responsible_service(
     old_responsible = be_instance.instance_services.get(active=1).service
     old_responsible.service_group.name = "lead-authority"
     old_responsible.service_group.save()
+
+    instance_service_factory(
+        instance=be_instance,
+        service=service_factory(),
+        active=0,
+    )
 
     instance_acl_factory(
         instance=be_instance, access_level_id="lead-authority", service=old_responsible

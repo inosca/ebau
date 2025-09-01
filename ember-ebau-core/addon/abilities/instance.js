@@ -218,11 +218,12 @@ export default class InstanceAbility extends Ability {
     }
 
     return (
-      !this.ebauModules.isReadOnlyRole &&
-      // Involved services are passed into the permission check
-      (this.involvedServices ?? [])
-        .map((service) => parseInt(service.id))
-        .includes(this.ebauModules.serviceId)
+      this.ebauModules.isSupportRole ||
+      (!this.ebauModules.isReadOnlyRole &&
+        // Involved services are passed into the permission check
+        (this.involvedServices ?? [])
+          .map((service) => parseInt(service.id))
+          .includes(this.ebauModules.serviceId))
     );
   }
 }
