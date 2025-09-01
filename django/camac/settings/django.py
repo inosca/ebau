@@ -1553,7 +1553,7 @@ APPLICATIONS = {
                 ],
                 "construction-step-schlussabnahme-projekt-melden": [
                     {
-                        "event": "created",
+                        "event": "completed",
                         "notification": {
                             "template_slug": "6-71-schlussabnahme-projekt-melden",
                             "recipient_types": ["work_item_addressed"],
