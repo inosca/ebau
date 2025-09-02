@@ -43,24 +43,18 @@ body.login .box-content {
   box-sizing: border-box;
   height: 100vh;
   display: flex;
-  margin: 0 auto;
+  margin: 0 45px;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   /* max-width: 800px; */
   max-width: 1350px;
   color: #797979;
-  padding: 70px 30px;
+  padding: 22px 0px 70px;
 }
 
 body.login .box-content .header {
   width: 100%;
-}
-
-body.login .box-content .header-container {
-  width: 100%;
-  margin-bottom: 100px;
-  border-bottom: 1px solid rgba(222, 222, 222, 1);
 }
 
 body.login .box-content .header-container p {
@@ -186,38 +180,17 @@ p.divider {
   color: #000;
 }
 
-body.login .title {
-  font-size: 0.9rem;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  position: relative;
-  width: 100%;
-}
-body.login .title h1 {
-  font-family: "Roboto", sans-serif;
-  text-align: left;
-}
-
-#kc-locale {
-  position: absolute;
-  top: -30px;
-  right: -50px;
-}
+/* #kc-locale { */
+/*   position: absolute; */
+/*   top: -30px; */
+/*   right: -50px; */
+/* } */
 
 body.login .powered-by {
   color: #595959;
 }
 
 body.login .title h1 span {
-  font-size: 48px;
-  line-height: 56px;
-  margin: -9px 0 28px -2px;
-  color: #000;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 100;
-  letter-spacing: 0.01rem;
-  word-spacing: 0.025rem;
 }
 
 body.login .title h1 .german-text {
@@ -702,5 +675,68 @@ body.login #kc-form-options .french-text {
 
   body.login .login-helpertext-mobile .french-text {
     margin-left: 5px;
+  }
+
+  /* Collected atom styles */
+  h1 {
+    color: var(--black);
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 100;
+    margin: 0 0 44px -3px;
+    font-size: 54px;
+    line-height: 62px;
+    letter-spacing: 0.01rem;
+    word-spacing: 0.025rem;
+  }
+
+  @media screen and (max-width: 1119px) {
+    h1 {
+      font-size: 48px;
+      line-height: 56px;
+      margin: -9px 0 28px -2px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    h1 {
+      font-size: 32px;
+      line-height: 38px;
+      margin: 45px 0 24px -1px;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 300;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    h1 {
+      font-size: 32px;
+      line-height: 36px;
+    }
+  }
+
+  .logo-caption {
+    font-size: 16px;
+    line-height: 17px;
+    letter-spacing: 0.01rem;
+    word-spacing: 0.025rem;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    color: var(--black);
+    margin-top: 19px;
+    max-width: 335px;
+  }
+
+  @media screen and (max-width: 1119px) {
+    div.logo-caption {
+      margin-top: 12px;
+      max-width: 210px;
+      font-size: 12px;
+      line-height: 13px;
+      letter-spacing: 0.01rem;
+      word-spacing: 0.025rem;
+    }
   }
 }

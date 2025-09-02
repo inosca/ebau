@@ -4,28 +4,56 @@
   --red: $global-primary-background;
 }
 
-@media screen and (max-width: 1119px) {
-  div.service-nav.login {
-    display: none;
-  }
+header {
+  width: 100%;
 }
-div.service-nav {
-  position: absolute;
-  right: 0;
+header .header-container {
+  width: 100%;
+  /* @media screen and (max-width: 1119px) { */
+  /*   div.service-nav.login { */
+  /*     display: none; */
+  /*   } */
+  /* } */
+}
+header .header-container hr {
+  width: 100%;
+  border-top: 1px solid #DEDEDE;
+}
+header .header-container .title {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  margin-top: 45px;
+  padding-bottom: 10px;
+  position: relative;
+  width: 100%;
+}
+header .header-container .title h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 48px;
+  line-height: 56px;
+  margin: -9px 0 28px -2px;
+  color: #000;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100;
+  letter-spacing: 0.01rem;
+  word-spacing: 0.025rem;
+}
+header .header-container div.service-nav {
+  /* position: absolute; */
+  /* right: 0; */
+  float: right;
   display: flex;
 }
-
 @media screen and (max-width: 1119px) {
-  div.service-nav {
+  header .header-container div.service-nav {
     display: none;
   }
 }
-div.service-nav.login {
+header .header-container div.service-nav.login {
   font-size: 14px;
-  /* Language-Selector item */
-  /* Language-Selector active item */
 }
-div.service-nav.login a.service-menue {
+header .header-container div.service-nav.login a.service-menue {
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.01rem;
@@ -40,39 +68,19 @@ div.service-nav.login a.service-menue {
   line-height: 1.5;
   margin: 0 calc(0.25vw + 15px) 0 calc(0.25vw + 15px);
 }
-div.service-nav.login a.service-menue:after {
+header .header-container div.service-nav.login a.service-menue:after {
   display: block;
   content: "";
   border-bottom: 2px solid #000;
   transform: scaleX(0);
   transition: transform 100ms ease-in-out;
 }
-div.service-nav.login a.service-menue:hover::after,
-div.service-nav.login a.service-menue:focus::after,
-div.service-nav.login a.service-menue:active::after {
+header .header-container div.service-nav.login a.service-menue:hover::after,
+header .header-container div.service-nav.login a.service-menue:focus::after,
+header .header-container div.service-nav.login a.service-menue:active::after {
   transform: scaleX(1);
 }
-div.service-nav.login div.language-selector {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  color: var(--black);
-  margin-left: calc(0.25vw + 8px);
-  display: flex;
-}
-div.service-nav.login div.language-selector:after {
-  display: block;
-  content: "";
-  border-bottom: 2px solid #000;
-  -webkit-transform: scaleX(0);
-  -ms-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: transform 100ms ease-in-out;
-  transition: transform 100ms ease-in-out;
-}
-div.service-nav.login a.service-menue {
+header .header-container div.service-nav.login a.service-menue {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -86,7 +94,7 @@ div.service-nav.login a.service-menue {
   line-height: 1.3;
   margin: 0 calc(0.25vw + 15px) 0 calc(0.25vw + 15px);
 }
-div.service-nav.login a.service-menue:after {
+header .header-container div.service-nav.login a.service-menue:after {
   display: block;
   content: "";
   border-bottom: 2px solid #000;
@@ -96,17 +104,17 @@ div.service-nav.login a.service-menue:after {
   -webkit-transition: transform 100ms ease-in-out;
   transition: transform 100ms ease-in-out;
 }
-div.service-nav.login a.service-menue {
+header .header-container div.service-nav.login a.service-menue {
   text-decoration: none !important;
 }
-div.service-nav.login a {
+header .header-container div.service-nav.login a {
   color: var(--black);
 }
-div.service-nav.login a:hover,
-div.service-nav.login a:focus {
+header .header-container div.service-nav.login a:hover,
+header .header-container div.service-nav.login a:focus {
   color: var(--black);
 }
-div.service-nav.login div.language-selector {
+header .header-container div.service-nav.login .language-selector {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -114,24 +122,54 @@ div.service-nav.login div.language-selector {
   line-height: 18px;
   color: var(--black);
   margin-left: calc(0.25vw + 8px);
-  display: inline-block;
+  display: flex;
 }
-div.service-nav.login a.language {
+header .header-container div.service-nav.login .language-selector:after {
+  border-bottom: 2px solid #000;
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out;
+}
+header .header-container div.service-nav.login .language-selector :not(:last-child):after {
+  content: "|";
+  display: inline;
+}
+header .header-container div.service-nav.login .language-selector :last-child .language-tag {
+  margin-right: 0px;
+}
+header .header-container div.service-nav.login .language-selector .language {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
   color: var(--black);
-  display: inline-block;
+  display: flex;
   height: 20px;
   line-height: 1.3;
   letter-spacing: 0.025rem;
-  margin: 0 7px 0 7px;
   text-decoration: none !important;
 }
-div.service-nav.login a.language.active {
+header .header-container div.service-nav.login .language-selector .language .active {
   border-bottom: 2px solid rgb(234, 22, 31);
+}
+header .header-container div.service-nav.login .language-selector .language-tag {
+  text-transform: uppercase;
+  margin: 0 7px;
+}
+
+footer.footer-container {
+  width: 100vw;
+  margin-top: 30px;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+}
+footer.footer-container p {
+  margin: 0;
+  padding: 20px 30px 25px;
 }
 
 html.login-pf {
@@ -263,24 +301,18 @@ body.login .box-content {
   box-sizing: border-box;
   height: 100vh;
   display: flex;
-  margin: 0 auto;
+  margin: 0 45px;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
   /* max-width: 800px; */
   max-width: 1350px;
   color: #797979;
-  padding: 70px 30px;
+  padding: 22px 0px 70px;
 }
 
 body.login .box-content .header {
   width: 100%;
-}
-
-body.login .box-content .header-container {
-  width: 100%;
-  margin-bottom: 100px;
-  border-bottom: 1px solid rgb(222, 222, 222);
 }
 
 body.login .box-content .header-container p {
@@ -406,39 +438,13 @@ p.divider {
   color: #000;
 }
 
-body.login .title {
-  font-size: 0.9rem;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  position: relative;
-  width: 100%;
-}
-
-body.login .title h1 {
-  font-family: "Roboto", sans-serif;
-  text-align: left;
-}
-
-#kc-locale {
-  position: absolute;
-  top: -30px;
-  right: -50px;
-}
-
+/* #kc-locale { */
+/*   position: absolute; */
+/*   top: -30px; */
+/*   right: -50px; */
+/* } */
 body.login .powered-by {
   color: #595959;
-}
-
-body.login .title h1 span {
-  font-size: 48px;
-  line-height: 56px;
-  margin: -9px 0 28px -2px;
-  color: #000;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 100;
-  letter-spacing: 0.01rem;
-  word-spacing: 0.025rem;
 }
 
 body.login .title h1 .german-text {
@@ -911,6 +917,65 @@ body.login #kc-form-options .french-text {
   }
   body.login .login-helpertext-mobile .french-text {
     margin-left: 5px;
+  }
+  /* Collected atom styles */
+  h1 {
+    color: var(--black);
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 100;
+    margin: 0 0 44px -3px;
+    font-size: 54px;
+    line-height: 62px;
+    letter-spacing: 0.01rem;
+    word-spacing: 0.025rem;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 1119px) {
+  h1 {
+    font-size: 48px;
+    line-height: 56px;
+    margin: -9px 0 28px -2px;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  h1 {
+    font-size: 32px;
+    line-height: 38px;
+    margin: 45px 0 24px -1px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 300;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 360px) {
+  h1 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .logo-caption {
+    font-size: 16px;
+    line-height: 17px;
+    letter-spacing: 0.01rem;
+    word-spacing: 0.025rem;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    color: var(--black);
+    margin-top: 19px;
+    max-width: 335px;
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 1119px) {
+  div.logo-caption {
+    margin-top: 12px;
+    max-width: 210px;
+    font-size: 12px;
+    line-height: 13px;
+    letter-spacing: 0.01rem;
+    word-spacing: 0.025rem;
   }
 }
 
