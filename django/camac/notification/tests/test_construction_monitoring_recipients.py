@@ -9,48 +9,38 @@ from camac.notification.serializers import (
     "role__name,service__email", [("support", "geometer@example.com")]
 )
 @pytest.mark.parametrize(
-    "has_geometer,has_location,has_same_location,expected",
+    "has_geometer,has_configured_geometer,expected",
     [
-        (True, False, False, [{"to": "geometer@example.com"}]),
-        (True, True, True, [{"to": "geometer@example.com"}]),
-        (True, True, False, []),
-        (False, True, False, []),
+        (True, True, [{"to": "geometer@example.com"}]),
+        (True, False, []),
+        (False, True, []),
     ],
 )
-def test_recipient_localized_geometer(
+def test_recipient_geometer(
     db,
     sz_instance_with_form,
     notification_template,
     form_field_factory,
     application_settings,
-    location_factory,
     service,
     group,
+    has_configured_geometer,
     has_geometer,
-    has_location,
-    has_same_location,
     expected,
 ):
     application_settings["GEOMETER_FORM_FIELDS"] = ["geometer-v3"]
-    application_settings["LOCALIZED_GEOMETER_SERVICE_MAPPING"] = {
-        "Test Geometer": [service.pk],
-    }
-
-    if not has_location:
-        group.locations.remove(sz_instance_with_form.location)
+    application_settings["GEOMETER_SERVICE_MAPPING"] = {"Test Geometer": service.pk}
 
     if has_geometer:
-        if not has_same_location:
-            sz_instance_with_form.location = location_factory()
-            sz_instance_with_form.save()
-
         form_field_factory(
-            instance=sz_instance_with_form, name="geometer-v3", value="Test Geometer"
+            instance=sz_instance_with_form,
+            name="geometer-v3",
+            value="Test Geometer" if has_configured_geometer else "Unknown Geometer",
         )
 
     serializer = PermissionlessNotificationTemplateSendmailSerializer(
         data={
-            "recipient_types": ["localized_geometer"],
+            "recipient_types": ["geometer"],
             "instance": {"type": "instances", "id": sz_instance_with_form.pk},
             "notification_template": {
                 "type": "notification-templates",
@@ -61,9 +51,7 @@ def test_recipient_localized_geometer(
     serializer.is_valid(raise_exception=True)
     serializer.save()
 
-    assert (
-        serializer._get_recipients_localized_geometer(sz_instance_with_form) == expected
-    )
+    assert serializer._get_recipients_geometer(sz_instance_with_form) == expected
 
 
 @pytest.mark.parametrize("role__name", ["support"])

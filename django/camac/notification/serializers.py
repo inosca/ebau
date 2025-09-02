@@ -50,7 +50,7 @@ from camac.instance.placeholders import fields
 from camac.instance.utils import (
     geometer_cadastral_survey_is_necessary,
     geometer_cadastral_survey_necessary_answer,
-    get_localized_geometer,
+    get_geometer_service,
 )
 from camac.instance.validators import transform_coordinates
 from camac.lookups import Any
@@ -1214,8 +1214,8 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             [self._get_responsible(instance, acl.service) for acl in geometer_acls]
         )
 
-    def _get_recipients_localized_geometer(self, instance):
-        geometer_service = get_localized_geometer(instance)
+    def _get_recipients_geometer(self, instance):
+        geometer_service = get_geometer_service(instance)
         return self._get_responsible(instance, geometer_service)
 
     def _get_recipients_lisag(self, instance):

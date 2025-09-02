@@ -291,7 +291,7 @@ APPLICATIONS = {
             "gvg",
             # SZ
             "involved_in_construction_step",
-            "localized_geometer",
+            "geometer",
             "tax_administration",
         ],
         "ATTACHMENT_SECTION_INTERNAL": 4,
@@ -375,50 +375,25 @@ APPLICATIONS = {
             "geometer-v5",
         },
         # Important: All versions of the geometer form-field option need to be included!
-        # geometer form-field option: service ids
-        "LOCALIZED_GEOMETER_SERVICE_MAPPING": {
+        # geometer form-field option: service id
+        "GEOMETER_SERVICE_MAPPING": {
             # geometer
-            "Trigonet AG (Stans)": [
-                152,  # Trigonet AG (Geometer) - (deactivated)
-            ],
-            "Geoterra AG (Siebnen, Pfäffikon, Einsiedeln)": [
-                129,  # Geoterra AG (Geometer) - (deactivated)
-                147,  # Geoterra AG (Gde_Bez Ingenieur) - (deactivated)
-            ],
-            "GEO Netz AG (Schwyz, Lachen)": [
-                313,  # GEO Netz AG (Geometer)
-            ],
-            "HSK Ingenieur AG (Goldau, Küssnacht, Brunnen)": [
-                # No service found
-            ],
-            "geometrie plus ag (Freienbach, Einsiedeln)": [
-                154,  # geometrie plus ag (Geometer)
-            ],
-            "Wild Ingenieure AG (Küssnacht)": [
-                150,  # Wild Ingenieure AG (Geometer)
-            ],
+            "Trigonet AG (Stans)": 152,  # Trigonet AG (Geometer) - (deactivated)
+            "Geoterra AG (Siebnen, Pfäffikon, Einsiedeln)": 129,  # Geoterra AG (Geometer) - (deactivated)
+            "GEO Netz AG (Schwyz, Lachen)": 313,  # GEO Netz AG (Geometer)
+            "HSK Ingenieur AG (Goldau, Küssnacht, Brunnen)": None,  # No service found
+            "geometrie plus ag (Freienbach, Einsiedeln)": 154,  # geometrie plus ag (Geometer)
+            "Wild Ingenieure AG (Küssnacht)": 150,  # Wild Ingenieure AG (Geometer)
             # geometer-v2 (only removal)
             # geometer-v3
-            "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Goldau, Küssnacht, Brunnen)": [
-                359,  # Geometer (Geoinfra)
-            ],
-            "geometrie plus ag (Freienbach)": [
-                154,  # geometrie plus ag (Geometer)
-            ],
-            "GEO Netz AG (Lachen, Schwyz)": [
-                313,  # GEO Netz AG (Geometer)
-            ],
+            "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Goldau, Küssnacht, Brunnen)": 359,  # Geometer (Geoinfra)
+            "geometrie plus ag (Freienbach)": 154,  # geometrie plus ag (Geometer)
+            "GEO Netz AG (Lachen, Schwyz)": 313,  # GEO Netz AG (Geometer)
             # geometer-v4
-            "geometrie plus ag (Einsiedeln, Freienbach)": [
-                154,  # geometrie plus ag (Geometer)
-            ],
+            "geometrie plus ag (Einsiedeln, Freienbach)": 154,  # geometrie plus ag (Geometer)
             # geometer-v5
-            "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Oberarth, Immensee, Brunnen)": [
-                359,  # Geometer (Geoinfra)
-            ],
-            "GEO Netz AG (Lachen, Seewen)": [
-                313,  # GEO Netz AG (Geometer)
-            ],
+            "Geoinfra Ingenieure AG (Pfäffikon, Siebnen, Einsiedeln, Oberarth, Immensee, Brunnen)": 359,  # Geometer (Geoinfra)
+            "GEO Netz AG (Lachen, Seewen)": 313,  # GEO Netz AG (Geometer)
         },
         "TAX_ADMINISTRATION": "tax-administration",  # Liegenschaftenschätzung Steuerverwaltung
         "NOTIFICATIONS": {
@@ -436,7 +411,7 @@ APPLICATIONS = {
         },
         "CUSTOM_NOTIFICATION_TYPES": [
             "involved_in_construction_step",
-            "localized_geometer",
+            "geometer",
             "tax_administration",
         ],
         "PUBLICATION_DURATION": timedelta(days=20),
@@ -561,7 +536,7 @@ APPLICATIONS = {
                         "event": "completed",
                         "notification": {
                             "template_slug": "complete-make-decision",
-                            "recipient_types": ["localized_geometer"],
+                            "recipient_types": ["geometer"],
                         },
                     }
                 ],

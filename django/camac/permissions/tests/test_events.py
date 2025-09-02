@@ -608,12 +608,15 @@ def test_completed_involve_tax_administration_sz(
     assert acls.exists()
 
 
-def test_decided_involve_localized_geometer_sz(
+@pytest.mark.parametrize("have_geometer,expect_acl", [(True, True), (False, False)])
+def test_decided_involve_geometer_sz(
     db,
     application_settings,
     caluma_admin_user,
     caluma_work_item_factory,
+    expect_acl,
     form_field_factory,
+    have_geometer,
     instance_state_factory,
     mocker,
     service,
@@ -631,18 +634,20 @@ def test_decided_involve_localized_geometer_sz(
 
     application_settings["GEOMETER_FORM_FIELDS"] = ["geometer"]
     geometer_services = service_factory.create_batch(4)
-    application_settings["LOCALIZED_GEOMETER_SERVICE_MAPPING"] = {
-        service.name: [service.pk] for service in geometer_services
+    application_settings["GEOMETER_SERVICE_MAPPING"] = {
+        service.name: service.pk for service in geometer_services
     }
-    geometer_service = random.choice(geometer_services)
 
     sz_instance.instance_state = is_redac
     sz_instance.save()
-    form_field_factory.create(
-        instance=sz_instance,
-        name=random.choice(application_settings["GEOMETER_FORM_FIELDS"]),
-        value=geometer_service.name,
-    )
+    if have_geometer:
+        geometer_service = random.choice(geometer_services)
+        form_field_factory.create(
+            instance=sz_instance,
+            name=random.choice(application_settings["GEOMETER_FORM_FIELDS"]),
+            value=geometer_service.name,
+        )
+
     work_item = caluma_work_item_factory(
         task_id="make-decision",
         case=sz_instance.case,
@@ -651,20 +656,29 @@ def test_decided_involve_localized_geometer_sz(
         controlling_groups=[service.pk],
         status=WorkItem.STATUS_READY,
     )
-    acls = InstanceACL.objects.filter(
+
+    any_geometer_acls = InstanceACL.objects.filter(
         instance=sz_instance,
         grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
         access_level="read",
-        service=geometer_service,
+        service__in=geometer_services,
     )
-
-    assert not acls.exists()
+    assert not any_geometer_acls.exists()
 
     workflow_api.complete_work_item(work_item=work_item, user=caluma_admin_user)
     sz_instance.refresh_from_db()
 
     assert sz_instance.instance_state == is_done
-    assert acls.exists()
+    if expect_acl:
+        wanted_geometer_acls = InstanceACL.objects.filter(
+            instance=sz_instance,
+            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+            access_level="read",
+            service=geometer_service,
+        )
+        assert wanted_geometer_acls.exists()
+    else:
+        assert not any_geometer_acls.exists()
 
 
 @pytest.mark.parametrize("permission_mode", [PERMISSION_MODE.FULL, PERMISSION_MODE.OFF])
