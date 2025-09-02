@@ -763,6 +763,7 @@ def caluma_workflow_config_ag(
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
     migration_bg_form = caluma_form_models.Form.objects.get(pk="baugesuch-migration")
     migration_uvp_form = caluma_form_models.Form.objects.get(pk="uvp-migration")
+    migration_pgv_form = caluma_form_models.Form.objects.get(pk="pgv-migration")
     migration_anfrage_form = caluma_form_models.Form.objects.get(pk="anfrage-migration")
     migration_reklame_form = caluma_form_models.Form.objects.get(pk="reklame-migration")
     migration_vorentscheid_form = caluma_form_models.Form.objects.get(
@@ -773,6 +774,7 @@ def caluma_workflow_config_ag(
         [
             main_form,
             migration_bg_form,
+            migration_pgv_form,
             migration_uvp_form,
             migration_anfrage_form,
             migration_reklame_form,
@@ -1233,6 +1235,7 @@ def caluma_forms_ag(settings, caluma_form_factory):
         "vorentscheid-migration",
         "baugesuch-migration",
         "uvp-migration",
+        "pgv-migration",
         "internes-dossier",
         # Task forms
         "entscheid",

@@ -738,6 +738,29 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "pgv-migration",
+    "fields": {
+      "created_at": "2025-08-28T12:16:01.288Z",
+      "modified_at": "2025-08-28T12:16:07.807Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"PGV - Migration\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": false,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": "baugesuch-migration"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "plangenehmigungsverfahren-bund",
     "fields": {
       "created_at": "2024-12-05T09:01:50.763Z",
@@ -6463,6 +6486,126 @@
       "form": "personalien-brandschutz-tabelle",
       "question": "vorname-gesuchstellerin",
       "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "pgv-migration.allgemeine-informationen-migration",
+    "fields": {
+      "created_at": "2025-08-28T12:16:01.296Z",
+      "modified_at": "2025-08-28T12:16:01.296Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "pgv-migration",
+      "question": "allgemeine-informationen-migration",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "pgv-migration.bauzonen-migration-form",
+    "fields": {
+      "created_at": "2025-08-28T12:16:01.311Z",
+      "modified_at": "2025-08-28T12:16:01.311Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "pgv-migration",
+      "question": "bauzonen-migration-form",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "pgv-migration.beschreibung-form-migration",
+    "fields": {
+      "created_at": "2025-08-28T12:16:01.305Z",
+      "modified_at": "2025-08-28T12:16:01.305Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "pgv-migration",
+      "question": "beschreibung-form-migration",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "pgv-migration.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2025-08-28T12:16:01.317Z",
+      "modified_at": "2025-08-28T12:16:01.317Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "pgv-migration",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "pgv-migration.einreichen",
+    "fields": {
+      "created_at": "2025-08-28T12:16:01.321Z",
+      "modified_at": "2025-08-28T12:16:01.321Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "pgv-migration",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "pgv-migration.gebaeudetechnik-migration-form",
+    "fields": {
+      "created_at": "2025-08-28T12:16:01.308Z",
+      "modified_at": "2025-08-28T12:16:01.308Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "pgv-migration",
+      "question": "gebaeudetechnik-migration-form",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "pgv-migration.kontakte-migration",
+    "fields": {
+      "created_at": "2025-08-28T12:16:01.301Z",
+      "modified_at": "2025-08-28T12:16:01.301Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "pgv-migration",
+      "question": "kontakte-migration",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "pgv-migration.weitere-angaben-migration-form",
+    "fields": {
+      "created_at": "2025-08-28T12:16:01.314Z",
+      "modified_at": "2025-08-28T12:16:01.314Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "pgv-migration",
+      "question": "weitere-angaben-migration-form",
+      "sort": 5
     }
   },
   {

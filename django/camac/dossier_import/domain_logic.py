@@ -85,7 +85,7 @@ def perform_import(
                 # We need to catch unhandled exeptions in single dossier imports
                 # and keep it going.
                 tb = traceback.format_exc()
-                log.exception(e)
+                log.warning(e, exc_info=True)
                 msg = Message(
                     level=Severity.ERROR.value,
                     code=MessageCodes.UNHANDLED_EXCEPTION.value,
