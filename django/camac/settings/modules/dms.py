@@ -308,6 +308,7 @@ DMS = {
             "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
             "beilagen-zum-gesuch-brandschutz",
             "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+            "nachforderung",
         ],
         "FILENAME_ADDITION_MAPPING": {
             "eingabequittung-de": _("Receipt"),
