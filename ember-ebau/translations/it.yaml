@@ -14,6 +14,7 @@ nav:
     label: "Dati anagrafici estesi"
     hide: "Nascondi i dati anagrafici estesi"
     show: "Mostra i dati anagrafici estesi"
+    disabled: "I dati anagrafici estesi non possono essere visualizzati in questo modulo."
 
 global:
   title: "eBau"
