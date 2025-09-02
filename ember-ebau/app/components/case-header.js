@@ -21,6 +21,10 @@ export default class CaseHeaderComponent extends Component {
   }
 
   get toggleButtonTooltip() {
+    if (this.args.fullscreen) {
+      return "nav.masterData.disabled";
+    }
+
     return `nav.masterData.${this.compact ? "show" : "hide"}`;
   }
 
