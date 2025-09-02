@@ -17,6 +17,12 @@ from ..extensions.format_validators import (
         (EvenProjectNumberFormatValidator, "AG1234A", False),
         (EvenProjectNumberFormatValidator, "AG-123", False),
         (EvenProjectNumberFormatValidator, "1234A-AG", False),
+        (EvenProjectNumberFormatValidator, "AG-1234A,ZH-56789", True),
+        (EvenProjectNumberFormatValidator, "AG-1234A, ZH-56789", True),
+        (EvenProjectNumberFormatValidator, "AG-1234A,ZH-56789,BE-ABC12", True),
+        (EvenProjectNumberFormatValidator, "AG-1234A, ZH-56789, BE-ABC12", True),
+        (EvenProjectNumberFormatValidator, "AG-1234A,ZH-123", False),
+        (EvenProjectNumberFormatValidator, "AG-1234A,,ZH-56789", False),
     ],
 )
 def test_format_validators(test_class, user_input, result):

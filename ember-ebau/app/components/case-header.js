@@ -3,7 +3,6 @@ import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
-import mainConfig from "ember-ebau-core/config/main";
 
 const LOCAL_STORAGE_KEY = "ebau-hide-master-data";
 
@@ -37,10 +36,8 @@ export default class CaseHeaderComponent extends Component {
     return this.args?.case?.evenProjectNumber ? "uk-width-1-3" : "uk-width-1-2";
   }
 
-  get evenProjectLink() {
-    return this.args?.case?.evenProjectNumber && mainConfig.even.projectUrl
-      ? `${mainConfig.even.projectUrl}${this.args.case.evenProjectNumber}`
-      : null;
+  get evenProjectnumbers() {
+    return this.args?.case?.evenProjectNumber;
   }
 
   @action
