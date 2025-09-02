@@ -292,6 +292,8 @@ APPLICATIONS = {
             # GR
             "aib",
             "gvg",
+            "are",
+            "are_bab",
             # SZ
             "involved_in_construction_step",
             "geometer",
@@ -2134,7 +2136,11 @@ APPLICATIONS = {
                         "event": "completed",
                         "notification": {
                             "template_slug": "send-additional-demand-internal",
-                            "recipient_types": ["additional_demand_inviter"],
+                            "recipient_types": [
+                                "municipality",
+                                "additional_demand_inviter",
+                                "are_bab",
+                            ],
                         },
                     },
                 ],
@@ -2172,7 +2178,7 @@ APPLICATIONS = {
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
-        "CUSTOM_NOTIFICATION_TYPES": ["gvg", "aib"],
+        "CUSTOM_NOTIFICATION_TYPES": ["gvg", "aib", "are", "are_bab"],
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
