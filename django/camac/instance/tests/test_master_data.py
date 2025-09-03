@@ -119,8 +119,9 @@ def test_master_data_parsers(
 
     case = caluma_workflow_factories.CaseFactory(
         meta={"my-date": "2021-08-18", "my-datetime": "2021-08-18T06:58:08.397Z"},
-        instance=instance,
     )
+    instance.case = case
+    instance.save()
 
     utils.add_answer(case.document, "my-success", "my-success-yes")
     utils.add_answer(

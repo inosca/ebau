@@ -1017,11 +1017,10 @@ def test_get_notification_config_so(
         so_instance.case.document.form.slug = "not-baugesuch"
         so_instance.case.document.form.save()
     else:
-        caluma_case_factory(
-            instance=so_instance,
+        so_instance.case = caluma_case_factory(
             document=caluma_document_factory(form__slug="baugesuch"),
         )
-        so_instance.case.document.save()
+        so_instance.save()
 
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SHORT_NAME"] = "so"

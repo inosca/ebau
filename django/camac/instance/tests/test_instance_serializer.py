@@ -148,10 +148,8 @@ def test_send_notifications_gr(
     set_application_gr,
     mocker,
 ):
-    case = caluma_case_factory(
-        document__form__slug=form_slug,
-        instance=instance_factory(),
-    )
+    case = caluma_case_factory(document__form__slug=form_slug)
+    instance_factory(case=case)
 
     serializer = CalumaInstanceSubmitSerializer()
 

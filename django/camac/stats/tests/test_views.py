@@ -41,19 +41,17 @@ def test_summary_filter_period(
     caluma_form_factories.FormFactory(slug="nfd-tabelle")
 
     def make_instance(exp_meta, paper_submit_date, submit_date):
-        instance = instance_factory()
         case = caluma_case_factory(
-            instance=instance,
             meta={
                 "expected": exp_meta,
                 "submit-date": submit_date,
                 "paper-submit-date": paper_submit_date,
             },
         )
+        instance_factory(case=case)
         claim_doc = caluma_document_factory(form_id="nfd")
         caluma_document_factory(form_id="nfd-tabelle", family=claim_doc)
         caluma_work_item_factory(document=claim_doc, case=case)
-        instance.save()
 
     make_instance("first-with-paper", datetime.date(1985, 5, 15).isoformat(), None)
     make_instance("second-with-paper", datetime.date(1992, 5, 15).isoformat(), None)
@@ -115,7 +113,6 @@ def test_summary_instances(
         freezer.move_to(fake.date_time_between(start_date=upper, end_date=now()))
         instances.append(instance_factory())
 
-    cases = []
     for num, inst in enumerate(instances, start=1):
         meta = {"submit-date": inst.creation_date.date().strftime(SUBMIT_DATE_FORMAT)}
         if num % num_instances == 0:
@@ -131,13 +128,9 @@ def test_summary_instances(
                     .isoformat()
                 }
             )
-        cases.append(
-            caluma_case_factory.create(
-                instance=inst,
-                meta=meta,
-            )
-        )
+        inst.case = caluma_case_factory.create(meta=meta)
         inst.save()
+
     url = reverse("instances-summary")
     response = admin_client.get(url)
     assert response.json() == num_instances * 3

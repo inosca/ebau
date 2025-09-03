@@ -330,7 +330,7 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
         tag_names = StringAgg(
             Trim("tags__name"),
             filter=Q(tags__service_id=request.group.service_id),
-            ordering=Trim("tags__name"),
+            order_by=Trim("tags__name"),
             distinct=True,
             delimiter=", ",
             default="",
