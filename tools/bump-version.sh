@@ -8,6 +8,7 @@ if [ -z "$VERSION" ]
 fi
 
 echo "$VERSION" > VERSION.txt;
+sed -i -e "s/\"version\": \".*\",/\"version\": \"$VERSION\",/g" ember/package.json
 sed -i -e "s/\"version\": \".*\",/\"version\": \"$VERSION\",/g" ember-camac-ng/package.json
 sed -i -e "s/\"version\": \".*\",/\"version\": \"$VERSION\",/g" ember-caluma-portal/package.json
 sed -i -e "s/__version__ = \".*\"/__version__ = \"$VERSION\"/g" django/camac/camac_metadata.py
