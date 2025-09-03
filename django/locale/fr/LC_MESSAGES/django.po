@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-31 16:34+0200\n"
-"PO-Revision-Date: 2024-09-12 16:34+0200\n"
+"POT-Creation-Date: 2025-09-02 15:36+0200\n"
+"PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -567,6 +567,14 @@ msgid "Manual suspension"
 msgstr ""
 
 #: camac/deadlines/models.py
+msgid "Process deadline date override"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "If set, the process deadline date is manually set and not calculated."
+msgstr ""
+
+#: camac/deadlines/models.py
 msgid "Process deadline days"
 msgstr ""
 
@@ -651,6 +659,10 @@ msgid ""
 msgstr ""
 "Type de mime non valable pour la pièce jointe. Les types autorisés pour la "
 "section %(section_name)s sont : %(allowed_mime_types)s"
+
+#: camac/document/serializers.py
+msgid "The entered name is not a valid file name"
+msgstr "La désignation saisi n'est pas un nom de fichier valide"
 
 #: camac/document/serializers.py
 #, python-format

@@ -17,6 +17,7 @@ from rest_framework import status
 
 from camac.communications.models import (
     CommunicationsAttachment,
+    CommunicationsMessage,
     entity_for_current_user,
 )
 from camac.communications.serializers import validate_mime_type
@@ -489,3 +490,69 @@ def test_entity_for_current_user(db, admin_user, be_instance, has_group, rf):
         expected_result = None
 
     assert entity_for_current_user(request) == expected_result
+
+
+@pytest.mark.parametrize(
+    "role__name",
+    ["Municipality"],
+)
+@pytest.mark.parametrize(
+    "display_name,corrected_display_name",
+    [
+        ("foo/bar", "foobar.pdf"),
+        ("test", "test.pdf"),
+        ("fo.bär", "fo.bär.pdf"),
+        ("t e s t", "t_e_s_t.pdf"),
+        ("foo:bar", "foobar.pdf"),
+        ("is this a file?", "is_this_a_file.pdf"),
+        (None, "file.pdf"),
+    ],
+)
+def test_validation_of_display_name_by_message_creation(
+    db,
+    be_instance,
+    admin_client,
+    topic_with_admin_involved,
+    display_name,
+    corrected_display_name,
+    attachment_factory,
+    notification_template,
+    communications_settings,
+):
+    communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
+        "template_slug"
+    ] = notification_template.slug
+
+    attachment = json.dumps(
+        {
+            "id": str(
+                attachment_factory(
+                    path=django_file("multiple-pages.pdf"),
+                    context={"displayName": display_name},
+                    name="file.pdf",
+                ).pk
+            ),
+            "type": "attachments",
+        }
+    )
+
+    resp = admin_client.post(
+        reverse("communications-message-list"),
+        data={
+            "body": "hello world",
+            "topic": json.dumps(
+                {
+                    "id": str(topic_with_admin_involved.pk),
+                    "type": "communications-topics",
+                }
+            ),
+            "attachments": [attachment],
+        },
+        format="multipart",
+    )
+    assert resp.status_code == status.HTTP_201_CREATED
+
+    for attachment in CommunicationsMessage.objects.get(
+        pk=resp.json()["data"]["id"]
+    ).attachments.all():
+        assert attachment.file_attachment.name.endswith(corrected_display_name)

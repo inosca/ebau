@@ -1,6 +1,7 @@
 import os
 
 from django.conf import settings
+from django.core.files.storage import Storage
 from django.core.management.base import BaseCommand
 from tqdm import tqdm
 
@@ -20,6 +21,7 @@ class Command(BaseCommand):
         else:
             filters = {"file_attachment": "", "alexandria_file__isnull": False}
 
+        storage = Storage()
         success = 0
         fail = 0
         for attachment in tqdm(
@@ -30,9 +32,7 @@ class Command(BaseCommand):
                 if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
                     file_obj = getattr(attachment, "document_attachment")
                     orig_name = file_obj.name
-                    display_name = (
-                        file_obj.context.get("displayName", orig_name) or orig_name
-                    )
+                    display_name = file_obj.context.get("displayName") or orig_name
                     file_data = getattr(file_obj, "path")
                 else:
                     file_obj = getattr(attachment, "alexandria_file")
@@ -44,6 +44,10 @@ class Command(BaseCommand):
                     new_name = f"{display_name}{ext}"
                 else:
                     new_name = display_name
+
+                # Convert invalid display names into valid ones
+                new_name = storage.get_valid_name(new_name)
+
                 attachment.file_attachment.save(new_name, file_data)
                 success += 1
             except Exception as e:

@@ -3,6 +3,8 @@ import mimetypes
 from pathlib import Path
 
 from django.conf import settings
+from django.core.exceptions import SuspiciousFileOperation
+from django.core.files import utils
 from django.utils.translation import gettext as _
 from django_clamd.validators import validate_file_infection
 from inflection import dasherize, underscore
@@ -254,6 +256,14 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                 is_allowed_service |= attachment.instance.services.filter(
                     pk=service.pk
                 ).exists()
+            elif changed_props == ["displayName"] and context.get("displayName"):
+                # Validate if the display name is a valid filename
+                try:
+                    utils.validate_file_name(context["displayName"])
+                except SuspiciousFileOperation:
+                    raise exceptions.ValidationError(
+                        _("The entered name is not a valid file name")
+                    )
 
             allowed_decision_mime_types = settings.APPLICATION.get(
                 "DECISION_DOCUMENT_MIMETYPES"
