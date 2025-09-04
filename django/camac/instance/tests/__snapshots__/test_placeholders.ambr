@@ -8645,38 +8645,6 @@
       'nested_aliases': dict({
       }),
     }),
-    'ZIRKULATION_ALLE': dict({
-      'aliases': list([
-        dict({
-          'de': 'ZIRKULATION_ALLE',
-        }),
-      ]),
-      'description': dict({
-        'de': 'All inquiries',
-      }),
-      'nested_aliases': dict({
-        'BEANTWORTET': list([
-          dict({
-            'de': 'BEANTWORTET',
-          }),
-        ]),
-        'ERSTELLT': list([
-          dict({
-            'de': 'ERSTELLT',
-          }),
-        ]),
-        'FRIST': list([
-          dict({
-            'de': 'FRIST',
-          }),
-        ]),
-        'NAME': list([
-          dict({
-            'de': 'NAME',
-          }),
-        ]),
-      }),
-    }),
     'ZIRKULATION_ANGEFORDERT': dict({
       'aliases': list([
         dict({
