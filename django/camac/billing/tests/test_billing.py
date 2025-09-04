@@ -16,6 +16,7 @@ from camac.billing.utils import (
 from camac.billing.views import BillingV2EntryViewset
 from camac.instance.models import Instance
 from camac.settings.modules.billing_schema import BillingConfig, ProductNumberConfig
+from camac.utils import get_unversioned_slug
 
 
 def test_calculate_final_rate() -> None:
@@ -378,6 +379,11 @@ def test_billing_entry_create_with_ag_processing_fee(
             status.HTTP_201_CREATED,
         ),
         (
+            [ProductNumberConfig(number=1, name="test", only_forms=["nonexistent"])],
+            None,
+            status.HTTP_201_CREATED,
+        ),
+        (
             None,
             None,
             status.HTTP_201_CREATED,
@@ -392,7 +398,7 @@ def test_billing_entry_create_with_ag_processing_fee(
 def test_billing_entry_create_with_product_number(
     db,
     admin_client,
-    sz_instance,
+    sz_instance_with_form,
     sz_billing_settings: BillingConfig,
     product_number_config: list[ProductNumberConfig],
     product_number: str | int | None,
@@ -411,7 +417,9 @@ def test_billing_entry_create_with_product_number(
                 "text": "Test",
             },
             "relationships": {
-                "instance": {"data": {"id": sz_instance.pk, "type": "instances"}}
+                "instance": {
+                    "data": {"id": sz_instance_with_form.pk, "type": "instances"}
+                }
             },
         }
     }
@@ -426,7 +434,7 @@ def test_billing_entry_create_with_product_number(
 def test_product_numbers(
     db,
     admin_client,
-    sz_instance,
+    sz_instance_with_form,
     sz_billing_settings,
     service_factory,
     invoice_factory,
@@ -460,11 +468,27 @@ def test_product_numbers(
             name="test5",
             only_for_service_groups=["test_sg"],
         ),
+        ProductNumberConfig(
+            number=6,
+            name="test6",
+            only_forms=[get_unversioned_slug(sz_instance_with_form.form.name)],
+        ),
+        ProductNumberConfig(
+            number=7,
+            name="test7",
+            not_for_services=["test"],
+            only_for_service_groups=["test_sg"],
+            only_forms=["form_mrof"],
+            only_subsequent_charge=True,
+        ),
     ]
     url = reverse("product-numbers")
     response = admin_client.get(
         url,
-        {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
+        {
+            "for_instance": sz_instance_with_form.pk,
+            "group": admin_client.user.groups.first().pk,
+        },
     )
 
     assert response.status_code == status.HTTP_200_OK
@@ -474,13 +498,20 @@ def test_product_numbers(
             "number": 3,
             "name": "test3",
         },
+        {
+            "number": 6,
+            "name": "test6",
+        },
     ]
 
-    invoice = invoice_factory(instance=sz_instance)
+    invoice = invoice_factory(instance=sz_instance_with_form)
 
     response = admin_client.get(
         url,
-        {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
+        {
+            "for_instance": sz_instance_with_form.pk,
+            "group": admin_client.user.groups.first().pk,
+        },
     )
     assert response.status_code == status.HTTP_200_OK
     assert response.json()["data"] == [
@@ -495,7 +526,8 @@ def test_product_numbers(
     )
     assert response.status_code == status.HTTP_400_BAD_REQUEST
 
-    invoice.delete()
+    sz_instance_with_form.form.name = "form_mrof"
+    sz_instance_with_form.form.save()
     service.slug = None
     service.save()
     service.service_group.slug = "test_sg"
@@ -503,7 +535,30 @@ def test_product_numbers(
 
     response = admin_client.get(
         url,
-        {"for_instance": sz_instance.pk, "group": admin_client.user.groups.first().pk},
+        {
+            "for_instance": sz_instance_with_form.pk,
+            "group": admin_client.user.groups.first().pk,
+        },
+    )
+    assert response.json()["data"] == [
+        {
+            "number": 4,
+            "name": "test4",
+        },
+        {
+            "number": 7,
+            "name": "test7",
+        },
+    ]
+
+    invoice.delete()
+
+    response = admin_client.get(
+        url,
+        {
+            "for_instance": sz_instance_with_form.pk,
+            "group": admin_client.user.groups.first().pk,
+        },
     )
     assert response.json()["data"] == [
         {"number": 1, "name": ""},

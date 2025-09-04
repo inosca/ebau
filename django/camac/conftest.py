@@ -1352,6 +1352,7 @@ def sz_instance(instance, caluma_workflow_config_sz, instance_with_case):
 def sz_instance_with_form(sz_instance, form_factory):
     form = form_factory(name="baugesuch-reklamegesuch")
     sz_instance.form = form_factory(name="baugesuch-reklamegesuch-v2", family=form)
+    sz_instance.save()
     return sz_instance
 
 

@@ -9,6 +9,7 @@ from camac.billing.models import BillingV2Entry, Invoice
 from camac.instance.models import Instance
 from camac.settings.modules.billing_schema import ProductNumberConfig
 from camac.user.models import Group, Service
+from camac.utils import get_unversioned_slug
 
 
 class OrganizationTotals(TypedDict):
@@ -222,9 +223,9 @@ def validate_product_number_conditions(
     product_number_config: ProductNumberConfig,
     service: Service,
     has_previous_invoice: bool,
+    form_slug: str,
 ) -> bool:
     """Validate if the conditions configured for a product number are met."""
-
     # All config options we need to check for validity with their default values
     config = {
         "number": product_number_config.number,
@@ -232,6 +233,7 @@ def validate_product_number_conditions(
         "only_for_service_groups": product_number_config.only_for_service_groups,
         "not_for_services": product_number_config.not_for_services,
         "only_subsequent_charge": product_number_config.only_subsequent_charge,
+        "only_forms": product_number_config.only_forms,
     }
 
     def test_condition(key, value):
@@ -250,6 +252,8 @@ def validate_product_number_conditions(
                 if not service.slug:
                     return True
                 return service.slug not in services
+            case ("only_forms", allowed_form_slugs) if allowed_form_slugs:
+                return form_slug in allowed_form_slugs
             # In case any of the properties don't match up with the datatype
             # we excpect, we just ignore them instead of failing.
             case _:
@@ -260,6 +264,8 @@ def validate_product_number_conditions(
 
 def validate_product_number(group: Group, instance: str) -> list[ProductNumberConfig]:
     config: list[ProductNumberConfig] = settings.BILLING.product_numbers
+    # Schwyz (old canton) specific in case any of the newer cantons want to use this.
+    form_slug = get_unversioned_slug(Instance.objects.get(pk=instance).form.name)
 
     if not config:
         return []
@@ -270,8 +276,6 @@ def validate_product_number(group: Group, instance: str) -> list[ProductNumberCo
         product_number_config
         for product_number_config in config
         if validate_product_number_conditions(
-            product_number_config,
-            group.service,
-            has_previous_invoice,
+            product_number_config, group.service, has_previous_invoice, form_slug
         )
     ]

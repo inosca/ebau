@@ -27,6 +27,10 @@ class ProductNumberConfig(EBauConfig):
         description="Should this product number be only available if an invoice exists already.",
         default=False,
     )
+    only_forms: list[str] = Field(
+        description="Unversioned form slugs for which this product number should be used.",
+        default=[],
+    )
 
 
 class WilkenConfig(EBauConfig):

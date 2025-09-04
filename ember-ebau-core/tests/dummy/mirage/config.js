@@ -21,6 +21,7 @@ export default function makeServer(config) {
       this.resource("journal-entries");
       this.resource("attachments");
       this.resource("instances", { only: ["index", "show"] });
+      this.resource("forms", { only: ["show"] });
       this.resource("instance-states", { only: ["index", "show"] });
       this.resource("services");
       this.resource("users");

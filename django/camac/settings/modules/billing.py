@@ -11,10 +11,17 @@ CANTONAL_SERVICE_GROUP_SLUGS = [
     "fachstellen",
 ]
 
+ALLOWED_FORMS_FOR_PRODUCT_NUMBERS = [
+    "baugesuch-reklamegesuch",
+    "projektanderung",
+    "vorentscheid-gemass-ss84-pbg",
+    "technische-bewilligung",
+]
 
 BILLING = ModuleConfig[BillingConfig](
     default=BillingConfig(),
     kt_schwyz=BillingConfig(
+        # Keep this config in sync with ember-ebau-core/addon/config/features/sz.js
         enabled=True,
         product_numbers=[
             ProductNumberConfig(
@@ -22,22 +29,26 @@ BILLING = ModuleConfig[BillingConfig](
                 name="ARE BGZ, kant. Baubewilligung, Gebühren",
                 not_for_services=["amfz-brandschutz", "laboratorium-urkantone"],
                 only_for_service_groups=CANTONAL_SERVICE_GROUP_SLUGS,
+                only_forms=ALLOWED_FORMS_FOR_PRODUCT_NUMBERS,
             ),
             ProductNumberConfig(
                 number=150000,
                 name="AMFZ Brandschutz, kant. Baubewilligung Gebühren",
                 only_for_services=["amfz-brandschutz"],
+                only_forms=ALLOWED_FORMS_FOR_PRODUCT_NUMBERS,
             ),
             ProductNumberConfig(
                 number=900000,
                 name="Laburk, Bearbeitungsgebühren Baubewilligung",
                 only_for_services=["laboratorium-urkantone"],
+                only_forms=ALLOWED_FORMS_FOR_PRODUCT_NUMBERS,
             ),
             ProductNumberConfig(
                 number=300000,
                 name="AMFZ Brandschutz, Baubegleitung und -Abnahme",
                 only_subsequent_charge=True,
                 only_for_services=["amfz-brandschutz"],
+                only_forms=ALLOWED_FORMS_FOR_PRODUCT_NUMBERS,
             ),
             ProductNumberConfig(
                 number=310000,
@@ -49,6 +60,7 @@ BILLING = ModuleConfig[BillingConfig](
                     "afg-industrie-gewerbeabwasser",
                     "afg-entwaesserung",
                 ],
+                only_forms=ALLOWED_FORMS_FOR_PRODUCT_NUMBERS,
             ),
         ],
         wilken=WilkenConfig(
