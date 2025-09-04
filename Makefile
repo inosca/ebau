@@ -260,17 +260,6 @@ next-version: ## Determine next version number
 	@pnpm -C tools -s install
 	@node tools/bin/next-version.js
 
-.PHONY: release
-release: ## Draft a new release
-	@tools/bump-version.sh $(version)
-
-.PHONY: release-folder
-release-folder: ## Add a template for a release folder
-	@if [ -z $(version) ]; then echo "Please pass a version: make release-folder version=x.x.x"; exit 1; fi
-	@mkdir -p "releases/$(version)"
-	@printf '# Neu\n-\n# Korrekturen\n-\n' >> "releases/$(version)/CHANGELOG.md"
-	@printf '# Änderungen\n## Ansible (Rolle / Variablen)\n-\n## DB\n-\n## Apache\n-\n' >> "releases/$(version)/MANUAL.md"
-
 .PHONY: django-shell
 django-shell:
 	@docker compose exec django python manage.py shell
