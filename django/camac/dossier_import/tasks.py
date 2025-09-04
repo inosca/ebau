@@ -39,12 +39,6 @@ if settings.APPLICATION_NAME == "kt_ag":  # pragma: no cover
             )
             return
 
-        from camac.dossier_import.config.kt_ag.task_dispatcher import (
-            publish_export_done,
-        )
-
-        publish_export_done(municipality)
-
     @shared_task
     def import_s3_docs_task(
         municipality: str, dossier_ids: List[str], segment_name: str, start_time: str
