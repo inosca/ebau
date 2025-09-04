@@ -797,7 +797,7 @@ class DMSVisitor:
             # we check if a value is bigger than a threshold and then convert to int.
             # Here, it's used to prevent scientific notation on coordinates.
             if value > convert_to_int_if_bigger_than:
-                value = int(value)
+                value = round(value)
             value = f"{value:n}"
 
         return {"value": value}
