@@ -119,7 +119,7 @@ services:
     command: celery-beat
 
 volumes:
-  pgdata:
+  pg15data:
   redis_data:
   djangomedia:
   djangotmpmedia:
