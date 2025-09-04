@@ -4,6 +4,8 @@ from uuid import uuid4
 import reversion
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
+from django.core.exceptions import SuspiciousFileOperation
+from django.core.files import utils
 from django.core.files.storage import Storage
 from django.core.validators import MaxValueValidator
 from django.db import models
@@ -115,15 +117,14 @@ class Attachment(models.Model):
         return display_name
 
     def make_copy_with_new_file(self, new_file, group, user):
-        storage = Storage()
-        display_name = (
-            storage.get_valid_name(
-                self.context.get("displayName").replace(".docx", ".pdf")
-            )
-            if self.context.get("displayName")
-            else None
-        )
-        if display_name:
+        if display_name := self.context.get("displayName"):
+            display_name = display_name.replace(".docx", ".pdf")
+            try:
+                utils.validate_file_name(display_name)
+            except SuspiciousFileOperation:
+                storage = Storage()
+                display_name = storage.get_valid_name(display_name)
+
             context = {**self.context, "displayName": display_name}
         else:
             context = self.context
