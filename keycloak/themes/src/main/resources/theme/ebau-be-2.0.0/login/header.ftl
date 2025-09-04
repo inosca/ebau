@@ -26,7 +26,7 @@
       </div>
       <div class="header-logo"></div>
       <p class="logo-caption">
-        ${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}
+        ${kcSanitize(msg("realmInfo",(realm.displayNameHtml!'')))?no_esc}
       </p>
       <hr>
       <div class="title">

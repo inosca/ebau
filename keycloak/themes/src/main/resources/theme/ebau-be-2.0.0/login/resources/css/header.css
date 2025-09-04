@@ -19,6 +19,24 @@ header .header-container hr {
   width: 100%;
   border-top: 1px solid #DEDEDE;
 }
+header .header-container p {
+  line-height: 17px;
+  letter-spacing: 0.01rem;
+  word-spacing: 0.025rem;
+  color: #000;
+  font-style: normal;
+  font-weight: 300;
+  margin-top: 19px;
+  margin-bottom: 24px;
+}
+header .header-container .header-logo {
+  background-image: url(../img/kanton-bern-logo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 68.5px;
+  width: 150px;
+}
 header .header-container .title {
   font-size: 0.9rem;
   margin-bottom: 20px;

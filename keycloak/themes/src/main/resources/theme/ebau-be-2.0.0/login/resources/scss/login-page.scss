@@ -1,26 +1,22 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
-:root {
-  --black: black;
-  --red: $global-primary-background;
-}
+@use "variables";
 
 html.login {
-  font-size: 16px;
-  font-family: "Roboto", sans-serif !important;
+  font-size: variables.$global-font-size;
+  font-family: variables.$global-font-family;
 }
 
 body.login {
-  margin: 0px;
+  margin: 0px auto;
 }
 
 body.login button,
-body.login input[type=submit] {
+body.login input[type="submit"] {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 181px;
   height: 49px;
-  background-color: rgb(78, 78, 78);
+  background-color: rgba(78, 78, 78, 1);
   border-radius: 49px;
   color: #fff;
   font-size: 16px;
@@ -45,9 +41,10 @@ body.login .login-box {
 
 body.login .box-content {
   box-sizing: border-box;
-  height: 100vh;
   display: flex;
-  margin: 0 45px;
+  height: 100vh;
+  width: calc(100vw - 90px)
+  margin: 0 auto;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
@@ -55,43 +52,6 @@ body.login .box-content {
   max-width: 1350px;
   color: #797979;
   padding: 22px 0px 70px;
-}
-
-body.login .box-content .header {
-  width: 100%;
-}
-
-body.login .box-content .header-container p {
-  line-height: 17px;
-  letter-spacing: 0.01rem;
-  word-spacing: 0.025rem;
-  color: #000;
-  font-style: normal;
-  font-weight: 300;
-  margin-top: 19px;
-  margin-bottom: 24px;
-  max-width: 335px;
-}
-
-body.login .kc-logo-text {
-  font-size: 16px;
-  line-height: 17px;
-  letter-spacing: 0.01rem;
-  word-spacing: 0.025rem;
-  color: #000;
-  font-style: normal;
-  font-weight: 400;
-  margin-top: 19px;
-  max-width: 335px;
-}
-
-body.login .box-content .header-container .header-logo {
-  background-image: url(../img/kanton-bern-logo.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  height: 68.5px;
-  width: 150px;
 }
 
 body.login .content {
@@ -135,18 +95,6 @@ body.login .login-helpertext {
   color: #000;
 }
 
-.login-helpertext .german-text {
-  color: #5f5f5f;
-  margin-right: 5px;
-  white-space: nowrap;
-}
-
-.login-helpertext .french-text {
-  margin-left: 5px;
-  word-wrap: unset;
-  white-space: nowrap;
-}
-
 p.divider {
   color: #000;
   font-style: normal;
@@ -180,17 +128,17 @@ p.divider {
   text-align: center;
 }
 
-.divider .german-text {
-  color: #000;
-}
-
 /* #kc-locale { */
 /*   position: absolute; */
 /*   top: -30px; */
 /*   right: -50px; */
 /* } */
+
 body.login .powered-by {
   color: #595959;
+}
+
+body.login .title h1 span {
 }
 
 body.login .title h1 .german-text {
@@ -269,16 +217,16 @@ body.login #kc-register-form {
   width: 100%;
 }
 
-body.login .sign-in-form input[name=username],
-body.login .sign-in-form input[name=password],
-body.login #kc-reset-password-form input[name=username],
-body.login #kc-reset-password-form input[name=password],
-body.login #kc-register-form input[name=firstName],
-body.login #kc-register-form input[name=lastName],
-body.login #kc-register-form input[name=email],
-body.login #kc-register-form input[name=username],
-body.login #kc-register-form input[name=password],
-body.login #kc-register-form input[name=password-confirm] {
+body.login .sign-in-form input[name="username"],
+body.login .sign-in-form input[name="password"],
+body.login #kc-reset-password-form input[name="username"],
+body.login #kc-reset-password-form input[name="password"],
+body.login #kc-register-form input[name="firstName"],
+body.login #kc-register-form input[name="lastName"],
+body.login #kc-register-form input[name="email"],
+body.login #kc-register-form input[name="username"],
+body.login #kc-register-form input[name="password"],
+body.login #kc-register-form input[name="password-confirm"] {
   border: none;
   background-color: #fefefe;
   height: 30px;
@@ -299,42 +247,42 @@ body.login #kc-register-form input[name=password-confirm] {
   color: #000 !important;
 }
 
-body.login #kc-register-form input[name=firstName],
-body.login #kc-register-form input[name=lastName],
-body.login #kc-register-form input[name=email],
-body.login #kc-register-form input[name=username],
-body.login #kc-register-form input[name=password],
-body.login #kc-register-form input[name=password-confirm] {
+body.login #kc-register-form input[name="firstName"],
+body.login #kc-register-form input[name="lastName"],
+body.login #kc-register-form input[name="email"],
+body.login #kc-register-form input[name="username"],
+body.login #kc-register-form input[name="password"],
+body.login #kc-register-form input[name="password-confirm"] {
   margin-bottom: 5px;
   margin-top: 5px;
 }
 
-body.login .sign-in-form input[name=username]:focus,
-body.login .sign-in-form input[name=password]:focus,
-body.login #kc-reset-password-form input[name=username]:focus,
-body.login #kc-reset-password-form input[name=password]:focus,
-body.login #kc-register-form input[name=firstName]:focus,
-body.login #kc-register-form input[name=lastName]:focus,
-body.login #kc-register-form input[name=email]:focus,
-body.login #kc-register-form input[name=username]:focus,
-body.login #kc-register-form input[name=password]:focus,
-body.login #kc-register-form input[name=password-confirm]:focus {
+body.login .sign-in-form input[name="username"]:focus,
+body.login .sign-in-form input[name="password"]:focus,
+body.login #kc-reset-password-form input[name="username"]:focus,
+body.login #kc-reset-password-form input[name="password"]:focus,
+body.login #kc-register-form input[name="firstName"]:focus,
+body.login #kc-register-form input[name="lastName"]:focus,
+body.login #kc-register-form input[name="email"]:focus,
+body.login #kc-register-form input[name="username"]:focus,
+body.login #kc-register-form input[name="password"]:focus,
+body.login #kc-register-form input[name="password-confirm"]:focus {
   border: 1px solid #000;
   border-left: 6px solid #000;
 }
 
-body.login #kc-reset-password-form input[name=username]:focus-visible,
-body.login #kc-reset-password-form input[name=password]:focus-visible,
-body.login #kc-register-form input[name=firstName]:focus-visible,
-body.login #kc-register-form input[name=lastName]:focus-visible,
-body.login #kc-register-form input[name=email]:focus-visible,
-body.login #kc-register-form input[name=username]:focus-visible,
-body.login #kc-register-form input[name=password]:focus-visible,
-body.login #kc-register-form input[name=password-confirm]:focus-visible {
+body.login #kc-reset-password-form input[name="username"]:focus-visible,
+body.login #kc-reset-password-form input[name="password"]:focus-visible,
+body.login #kc-register-form input[name="firstName"]:focus-visible,
+body.login #kc-register-form input[name="lastName"]:focus-visible,
+body.login #kc-register-form input[name="email"]:focus-visible,
+body.login #kc-register-form input[name="username"]:focus-visible,
+body.login #kc-register-form input[name="password"]:focus-visible,
+body.login #kc-register-form input[name="password-confirm"]:focus-visible {
   outline: none;
 }
 
-body.login .sign-in-form input[name=username] {
+body.login .sign-in-form input[name="username"] {
   margin-top: 0px;
 }
 
@@ -437,7 +385,7 @@ body.login .sign-in-form button {
   justify-content: center;
   width: 181px;
   height: 49px;
-  background-color: rgb(78, 78, 78);
+  background-color: rgba(78, 78, 78, 1);
   border-radius: 49px;
   color: #fff;
   font-size: 0.8rem;
@@ -490,11 +438,11 @@ body.login .additionalOptions .optionLinks a {
 }
 
 body.login .additionalOptions .optionLinks span {
-  border-bottom: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
 body.login .additionalOptions .optionLinks span:hover {
-  border-bottom: 1px solid rgb(234, 22, 31);
+  border-bottom: 1px solid rgba(234, 22, 31, 1);
 }
 
 body.login .additionalOptions .optionLinks .german-text {
@@ -573,7 +521,7 @@ div.sign-in-icon {
 }
 
 .footer-container {
-  background-color: rgb(252, 248, 243);
+  background-color: rgba(252, 248, 243, 1);
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -597,12 +545,12 @@ body.login #kc-form-options a {
 
 body.login .back-to-login span,
 body.login #kc-form-options span {
-  border-bottom: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
 body.login .back-to-login span:hover,
 body.login #kc-form-options span:hover {
-  border-bottom: 1px solid rgb(234, 22, 31);
+  border-bottom: 1px solid rgba(234, 22, 31, 1);
 }
 
 body.login .back-to-login .german-text,
@@ -623,47 +571,60 @@ body.login #kc-form-options .french-text {
   .content {
     flex-direction: column;
   }
+
   body.login .title {
     padding-bottom: 0px;
     margin-bottom: 0px;
   }
+
   body.login .title h1 span {
     font-size: 32px;
     font-weight: 300;
   }
+
   body.login .first-helpertext {
     text-align: left;
     margin: 10px 0px 30px 0px;
   }
+
   body.login .sign-in-form {
     order: 2;
   }
+
   body.login .login-helpertext {
     display: none;
   }
+
   body.login .one-click-login {
     width: 100%;
     order: 1;
   }
+
   body.login .one-click-login-only {
     display: block;
   }
+
   body.login .one-click-login-only .button-wrapper {
     width: 100% !important;
   }
+
   body.login .sign-in-form {
     width: 100%;
   }
+
   body.login .login-helpertext-mobile {
     display: block;
   }
+
   body.login .login-helpertext-mobile .german-text {
     color: #5f5f5f;
     margin-right: 5px;
   }
+
   body.login .login-helpertext-mobile .french-text {
     margin-left: 5px;
   }
+
   /* Collected atom styles */
   h1 {
     color: var(--black);
@@ -676,31 +637,33 @@ body.login #kc-form-options .french-text {
     letter-spacing: 0.01rem;
     word-spacing: 0.025rem;
   }
-}
-@media screen and (max-width: 767px) and (max-width: 1119px) {
-  h1 {
-    font-size: 48px;
-    line-height: 56px;
-    margin: -9px 0 28px -2px;
+
+  @media screen and (max-width: 1119px) {
+    h1 {
+      font-size: 48px;
+      line-height: 56px;
+      margin: -9px 0 28px -2px;
+    }
   }
-}
-@media screen and (max-width: 767px) and (max-width: 767px) {
-  h1 {
-    font-size: 32px;
-    line-height: 38px;
-    margin: 45px 0 24px -1px;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 300;
+
+  @media screen and (max-width: 767px) {
+    h1 {
+      font-size: 32px;
+      line-height: 38px;
+      margin: 45px 0 24px -1px;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 300;
+    }
   }
-}
-@media screen and (max-width: 767px) and (max-width: 360px) {
-  h1 {
-    font-size: 32px;
-    line-height: 36px;
+
+  @media screen and (max-width: 360px) {
+    h1 {
+      font-size: 32px;
+      line-height: 36px;
+    }
   }
-}
-@media screen and (max-width: 767px) {
+
   .logo-caption {
     font-size: 16px;
     line-height: 17px;
@@ -713,16 +676,15 @@ body.login #kc-form-options .french-text {
     margin-top: 19px;
     max-width: 335px;
   }
-}
-@media screen and (max-width: 767px) and (max-width: 1119px) {
-  div.logo-caption {
-    margin-top: 12px;
-    max-width: 210px;
-    font-size: 12px;
-    line-height: 13px;
-    letter-spacing: 0.01rem;
-    word-spacing: 0.025rem;
+
+  @media screen and (max-width: 1119px) {
+    div.logo-caption {
+      margin-top: 12px;
+      max-width: 210px;
+      font-size: 12px;
+      line-height: 13px;
+      letter-spacing: 0.01rem;
+      word-spacing: 0.025rem;
+    }
   }
 }
-
-/*# sourceMappingURL=login_page.css.map */
