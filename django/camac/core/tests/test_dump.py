@@ -62,8 +62,8 @@ def test_dump_and_load(
             # This can be useful if you added a new property on a model and
             # don't want to start up all the cantons separately.
 
-            with open(test_filepath, "r") as test_dumped, open(filepath, "w") as dumped:
-                dumped.write(test_dumped.read())
+            # with open(test_filepath, "r") as test_dumped, open(filepath, "w") as dumped:
+            #     dumped.write(test_dumped.read())
 
             with open(test_filepath, "r") as test_dumped, open(filepath, "r") as dumped:
                 #  verify that dump is still the same
