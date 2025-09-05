@@ -3,8 +3,10 @@
 header {
   width: 100%;
 
-  .header-container {
-    width: 100%;
+  .inner {
+    max-width: variables.$page-inner-max-width;
+    padding: 0 variables.$page-header-margin-horizontal;
+    padding-top: variables.$page-header-padding-top;
 
     hr {
       width: 100%;
@@ -67,11 +69,11 @@ header {
       display: flex;
     }
 
-    @media screen and (max-width: 1119px) {
-      div.service-nav {
-        display: none;
-      }
-    }
+    /* @media screen and (max-width: 1119px) { */
+    /*   div.service-nav { */
+    /*     display: none; */
+    /*   } */
+    /* } */
 
     div.service-nav.login {
       font-size: 14px;
@@ -119,6 +121,10 @@ header {
         height: 20px;
         line-height: 1.3;
         margin: 0 calc(0.25vw + 15px) 0 calc(0.25vw + 15px);
+
+        &.active {
+          border-bottom: 2px solid rgba(234, 22, 31, 1);
+        }
       }
 
       a.service-menue:after {

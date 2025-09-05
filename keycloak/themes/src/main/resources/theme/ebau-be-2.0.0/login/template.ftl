@@ -48,28 +48,32 @@
             </#if>
         </head>
     <body class="login">
-        <main>
-            <div class="login-box">
-                <div class="box-content">
-                    <@header.content />
-                    <div class="content">
-                        <#if displayMessage && message?has_content>
-                            <div class="alert alert-${message.type}">
-                                <#if message.type='success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
-                                <#if message.type='warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
-                                <#if message.type='error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
-                                <#if message.type='info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
-                                <span class="kc-feedback-text">
-                                    ${kcSanitize(message.summary)?no_esc}
-                                </span>
-                            </div>
-                        </#if>
-                        <#nested "form">
+        <div class="box-content">
+            <@header.content />
+            <main class="content">
+                <div class="main-column">
+                    <div class="title">
+                        <h1>${msg("login")}</h1>
                     </div>
-                    <@footer.content />
+                    <#if displayMessage && message?has_content>
+                        <div class="alert alert-${message.type}">
+                            <#if message.type='success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
+                            <#if message.type='warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
+                            <#if message.type='error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
+                            <#if message.type='info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
+                            <span class="kc-feedback-text">
+                                ${kcSanitize(message.summary)?no_esc}
+                            </span>
+                        </div>
+                    </#if>
+                    <#nested "form">
                 </div>
-            </div>
-        </main>
+                <div class="context-column">
+                    <p>context-column</p>
+                </div>
+            </main>
+            <@footer.content />
+        </div>
     </body>
 </html>
 </#macro>

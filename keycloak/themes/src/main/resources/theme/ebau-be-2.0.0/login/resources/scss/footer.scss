@@ -1,9 +1,14 @@
+@use "variables";
+
 footer.footer-container {
-  width: 100vw;
+  width: 100%;
   margin-top: 30px;
-  position: absolute;
-  bottom: 0;
-  z-index: -1;
+  background-color: variables.$global-background-sand;
+
+  .inner {
+    max-width: variables.$page-inner-max-width;
+    padding: variables.$page-footer-padding;
+  }
 
   p {
     margin: 0;

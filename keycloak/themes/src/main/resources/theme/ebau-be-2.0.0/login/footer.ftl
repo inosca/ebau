@@ -1,5 +1,7 @@
 <#macro content>
     <footer class="footer-container">
-        <p>© ${msg("kantonBern")}</p>
+        <div class="inner">
+            <p>© ${msg("kantonBern")}</p>
+        </div>
     </footer>
 </#macro>
