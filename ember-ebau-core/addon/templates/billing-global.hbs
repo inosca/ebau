@@ -17,10 +17,11 @@
   />
   <Filters::Select
     @filterName="service"
+    @name="serviceId"
     @label={{t "billing.filters.service"}}
     @options={{this.services.value}}
-    @selected={{this.selectedService}}
-    @onChange={{fn this.updateSelectFilter "serviceId"}}
+    @selected={{this.serviceId}}
+    @onChange={{this.updateSelectFilter}}
     @allowClear={{true}}
     @searchEnabled={{true}}
     @searchField="label"
