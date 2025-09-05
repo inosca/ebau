@@ -6,7 +6,7 @@
 # ---
 # name: test_eeba_export[kt_gr-gr_master_data_case-shared_secret--403-Applicant-admin_user]
   dict({
-    'detail': 'Sie sind nicht berechtigt diese Aktion durchzuführen.',
+    'detail': 'Sie sind nicht berechtigt, diese Aktion durchzuführen.',
   })
 # ---
 # name: test_eeba_export[kt_gr-gr_master_data_case-shared_secret-eeba-export-200-Applicant-admin_user]
@@ -88,6 +88,6 @@
 # ---
 # name: test_eeba_export[kt_so-so_master_data_case-shared_secret-eeba-export-403-Applicant-admin_user]
   dict({
-    'detail': 'Sie sind nicht berechtigt diese Aktion durchzuführen.',
+    'detail': 'Sie sind nicht berechtigt, diese Aktion durchzuführen.',
   })
 # ---

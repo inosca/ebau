@@ -71,7 +71,7 @@ class Sanction(BaseSanction):
     class Meta:
         constraints = [
             models.CheckConstraint(
-                check=models.Q(
+                condition=models.Q(
                     controlled_at__isnull=True,
                     controlled_by_user__isnull=True,
                 )

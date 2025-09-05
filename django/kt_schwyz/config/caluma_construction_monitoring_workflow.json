@@ -603,7 +603,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Schlussabnahme Geb\\u00e4ude (Bezugsbewilligung)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Schlussabnahme Gebäude (Bezugsbewilligung)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -634,7 +634,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Meldung \\\"Bereit zur Schlussabnahme Geb\\u00e4ude\\\" (Bezugsbewilligung)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Schlussabnahme Gebäude\\\" (Bezugsbewilligung)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -757,7 +757,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Meldung \\\"Bereit zur Schnurger\\u00fcstabnahme\\\"\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Schnurgerüstabnahme\\\"\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -788,7 +788,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Schnurger\\u00fcstabnahme planen\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Schnurgerüstabnahme planen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -818,7 +818,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Schnurger\\u00fcst kontrollieren\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Schnurgerüst kontrollieren\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {

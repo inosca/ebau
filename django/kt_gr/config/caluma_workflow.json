@@ -231,7 +231,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": null, \"it\": \"Disponi decisione\"}",
+      "name": "{\"de\": \"Entscheid verfügen\", \"fr\": null, \"it\": \"Disponi decisione\"}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -283,7 +283,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "name": "{\"de\": \"Vorl\\u00e4ufige Pr\\u00fcfung\", \"fr\": null, \"it\": \"Esame preliminare\"}",
+      "name": "{\"de\": \"Vorläufige Prüfung\", \"fr\": null, \"it\": \"Esame preliminare\"}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {

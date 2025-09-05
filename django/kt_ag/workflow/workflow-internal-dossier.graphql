@@ -1,4 +1,4 @@
-mutation CreateInternalDossierWorkflow{
+mutation CreateInternalDossierWorkflow {
   saveWorkflow(
     input: {
       slug: "internal-dossier"
@@ -12,7 +12,7 @@ mutation CreateInternalDossierWorkflow{
   }
 }
 
-mutation CreateInternalDossierFlowAfter{
+mutation CreateInternalDossierFlowAfter {
   addWorkflowFlow(
     input: {
       workflow: "internal-dossier"

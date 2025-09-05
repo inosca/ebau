@@ -3447,10 +3447,10 @@ def test_send_notifications(
         config_1
     )
     application_settings["NOTIFICATIONS"]["SUBMIT_HEAT_GENERATOR"] = config_2
-    caluma_case_factory(
-        instance=instance,
+    instance.case = caluma_case_factory(
         document=caluma_document_factory(form__slug="heat-generator-v3"),
     )
+    instance.save()
 
     if allow_notification:
         caluma_answer_factory(

@@ -98,7 +98,6 @@ mutation ConstructionStepBaufreigabeTask {
   }
 }
 
-
 mutation ConstructionStepBaubeginnMeldenTask {
   saveCompleteTaskFormTask(
     input: {
@@ -291,7 +290,6 @@ mutation ConstructionStepSchlussabnahmeGebaeudeTask {
   }
 }
 
-
 mutation ConstructionStepSchlussabnahmeProjektMeldenTask {
   saveCompleteTaskFormTask(
     input: {
@@ -345,9 +343,7 @@ mutation ConstructionStageWorkflow {
     input: {
       slug: "construction-stage"
       name: "Bauetappe"
-      startTasks: [
-        "construction-step-plan-construction-stage"
-      ]
+      startTasks: ["construction-step-plan-construction-stage"]
       isPublished: true
     }
   ) {

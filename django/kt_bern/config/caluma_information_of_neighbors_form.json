@@ -205,7 +205,7 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Startdatum\", \"fr\": \"Date de d\\u00e9but\", \"it\": null}",
+      "label": "{\"de\": \"Startdatum\", \"fr\": \"Date de début\", \"it\": null}",
       "type": "date",
       "is_required": "true",
       "is_hidden": "false",

@@ -1,5 +1,5 @@
 # Remember to update volume mounts for certificates in kt_uri-prod.yml when updating version
-FROM python:3.10-slim-bookworm
+FROM python:3.12-slim
 
 # Needs to be set for users with manually set UID
 ENV HOME=/home/ebau
@@ -32,7 +32,7 @@ RUN \
   locales \
   libreoffice \
   # manabi dependencies
-  libsodium23=1.0.18-1 \
+  libsodium23 \
   # alexandria dependencies
   ffmpeg \
   libgettextpo-dev \
@@ -54,7 +54,7 @@ RUN \
   && dpkg-reconfigure --frontend=noninteractive locales \
   && update-locale LANG=de_CH.UTF-8 \
   # Fix ImageMagick policy for creating thumbnails
-  && sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read | write" pattern="PDF" \/>/' /etc/ImageMagick-6/policy.xml
+  && sed -i '/<\/policymap>/i \  <policy domain="coder" rights="read | write" pattern="PDF" />' /etc/ImageMagick-7/policy.xml
 
 # Fix magic definitions for MS Office files
 COPY ms_office_magicfile /tmp/ms_office_magicfile

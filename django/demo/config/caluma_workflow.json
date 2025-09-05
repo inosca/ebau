@@ -35,7 +35,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Dossier pr\\u00fcfen\", \"fr\": \"V\\u00e9rifier le dossier\", \"it\": null}",
+      "name": "{\"de\": \"Dossier prüfen\", \"fr\": \"Vérifier le dossier\", \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {},
@@ -58,7 +58,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": \"Saisie des t\\u00e2ches manuelles\", \"it\": null}",
+      "name": "{\"de\": \"Manuelle Aufgaben erfassen\", \"fr\": \"Saisie des tâches manuelles\", \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
       "meta": {
@@ -83,7 +83,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": \"Rendre la d\\u00e9cision\", \"it\": null}",
+      "name": "{\"de\": \"Entscheid verfügen\", \"fr\": \"Rendre la décision\", \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {

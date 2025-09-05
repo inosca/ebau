@@ -445,11 +445,12 @@ def test_can_perform_construction_monitoring_allow_forms(
     should_be_allowed,
 ):
     instance.form.family = form_factory(name="building-permit-camac")
-    instance.save()
-    caluma_case_factory(
-        instance=instance,
+    instance.form.save()
+
+    instance.case = caluma_case_factory(
         document=caluma_document_factory(form__slug="building-permit-caluma"),
     )
+    instance.save()
 
     construction_monitoring_settings["ALLOW_FORMS"] = allow_forms_setting
     construction_monitoring_settings["ALLOW_CALUMA_FORMS"] = allow_caluma_forms_setting
@@ -480,7 +481,8 @@ def test_can_perform_construction_monitoring_ur(
     expected_value,
     decision_answer,
 ):
-    caluma_case_factory(instance=instance)
+    instance.case = caluma_case_factory()
+    instance.save()
     complete_check_work_item = caluma_work_item_factory(
         case=instance.case,
         task__slug="complete-check",

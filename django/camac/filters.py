@@ -3,7 +3,8 @@ import re
 from functools import reduce
 
 from django.conf import settings
-from django.db.models import Exists, OuterRef, Q
+from django.db import models
+from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
 from django.utils.translation import get_language
 from django_filters.constants import EMPTY_VALUES
@@ -85,7 +86,7 @@ class MultilingualSearchFilter(SearchFilter):
 
     def filter_queryset(self, request, queryset, view):
         # WARNING: This whole method is copy pasted from
-        # https://github.com/encode/django-rest-framework/blob/3.15.1/rest_framework/filters.py
+        # https://github.com/encode/django-rest-framework/blob/3.16.1/rest_framework/filters.py#L147
         # except the line that is marked as changed. If the upstream code
         # changes, we need to update the content of this method as well!
         search_fields = self.get_search_fields(view, request)
@@ -106,6 +107,8 @@ class MultilingualSearchFilter(SearchFilter):
                 operator.or_,
                 # ATTENTION: LINE DIFFERENT TO UPSTREAM
                 (self.generate_query(orm_lookup, term) for orm_lookup in orm_lookups),
+                # ORIGINAL LINE:
+                # (models.Q(**{orm_lookup: term}) for orm_lookup in orm_lookups)
             )
             for term in search_terms
         )
@@ -116,6 +119,6 @@ class MultilingualSearchFilter(SearchFilter):
             # inspired by django.contrib.admin
             # this is more accurate than .distinct form M2M relationship
             # also is cross-database
-            queryset = queryset.filter(pk=OuterRef("pk"))
-            queryset = base.filter(Exists(queryset))
+            queryset = queryset.filter(pk=models.OuterRef("pk"))
+            queryset = base.filter(models.Exists(queryset))
         return queryset

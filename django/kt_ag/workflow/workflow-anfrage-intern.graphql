@@ -1,4 +1,4 @@
-mutation CreateInternalDossierWorkflow{
+mutation CreateInternalDossierWorkflow {
   saveWorkflow(
     input: {
       slug: "anfrage-intern"
@@ -12,8 +12,7 @@ mutation CreateInternalDossierWorkflow{
   }
 }
 
-
-mutation CreateInternalDossierFlowAfterSubmit{
+mutation CreateInternalDossierFlowAfterSubmit {
   addWorkflowFlow(
     input: {
       workflow: "anfrage-intern"
@@ -25,7 +24,7 @@ mutation CreateInternalDossierFlowAfterSubmit{
   }
 }
 
-mutation CreateInternalDossierFlowAfterFormalExam{
+mutation CreateInternalDossierFlowAfterFormalExam {
   addWorkflowFlow(
     input: {
       workflow: "anfrage-intern"
@@ -37,7 +36,7 @@ mutation CreateInternalDossierFlowAfterFormalExam{
   }
 }
 
-mutation CreateInternalDossierFlowAfterDistribution{
+mutation CreateInternalDossierFlowAfterDistribution {
   addWorkflowFlow(
     input: {
       workflow: "anfrage-intern"
