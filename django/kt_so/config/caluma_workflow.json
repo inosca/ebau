@@ -184,7 +184,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Entscheid verf\\u00fcgen\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Entscheid verfügen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -213,7 +213,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Publikation ausf\\u00fcllen\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Publikation ausfüllen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {},
@@ -236,7 +236,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Formelle Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Formelle Prüfung\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -265,7 +265,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Materielle Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Materielle Prüfung\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -294,7 +294,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Kantonale Pr\\u00fcfung\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Kantonale Prüfung\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -379,7 +379,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Dossier zur\\u00fcckweisen\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Dossier zurückweisen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
       "meta": {

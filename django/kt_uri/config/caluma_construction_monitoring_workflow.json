@@ -343,7 +343,7 @@
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"GWR Status nachf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"GWR Status nachführen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -368,7 +368,7 @@
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Projektabschluss)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"GWR Status nachführen (Projektabschluss)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -416,7 +416,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"AV definitiv nachf\\u00fchren (Teil/Gesamtprojekt)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"AV definitiv nachführen (Teil/Gesamtprojekt)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -448,7 +448,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"AV nachf\\u00fchren (Geb\\u00e4ude)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"AV nachführen (Gebäude)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -480,7 +480,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"AV nachf\\u00fchren (Geb\\u00e4udeabbruch)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"AV nachführen (Gebäudeabbruch)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -512,7 +512,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"AV nachf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"AV nachführen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -642,7 +642,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Geb\\u00e4udeabbruch melden\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Gebäudeabbruch melden\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -673,7 +673,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"GWR Bauprojekt Status nachf\\u00fchren (Projekt abgeschlossen)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"GWR Bauprojekt Status nachführen (Projekt abgeschlossen)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -698,7 +698,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"GWR Bauprojekt Status nachf\\u00fchren (Projekt baubegonnen)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"GWR Bauprojekt Status nachführen (Projekt baubegonnen)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -723,7 +723,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"GWR Bauprojekt Status nachf\\u00fchren (Geb\\u00e4udeabbruch)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"GWR Bauprojekt Status nachführen (Gebäudeabbruch)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -748,7 +748,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"GWR Status nachf\\u00fchren (Gesamtprojekt)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"GWR Status nachführen (Gesamtprojekt)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -928,7 +928,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Schlussabnahme Geb\\u00e4ude (Bezugsbewilligung)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Schlussabnahme Gebäude (Bezugsbewilligung)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -959,7 +959,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Meldung \\\"Bereit zur Schlussabnahme Geb\\u00e4ude\\\" (Bezugsbewilligung)\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Schlussabnahme Gebäude\\\" (Bezugsbewilligung)\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -1082,7 +1082,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Meldung \\\"Bereit zur Schnurger\\u00fcstabnahme\\\"\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Meldung \\\"Bereit zur Schnurgerüstabnahme\\\"\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -1113,7 +1113,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Schnurger\\u00fcstabnahme durchf\\u00fchren\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Schnurgerüstabnahme durchführen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
@@ -1144,7 +1144,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Kontrolle Schnurger\\u00fcst-Abnahmeprotokoll\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Kontrolle Schnurgerüst-Abnahmeprotokoll\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {

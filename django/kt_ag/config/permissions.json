@@ -23,8 +23,8 @@
     "model": "permissions.accesslevel",
     "pk": "lead-authority",
     "fields": {
-      "name": "{\"de\": \"Leitbeh\\u00f6rde\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Leitbeh\\u00f6rde\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Leitbehörde\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Leitbehörde\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
     }

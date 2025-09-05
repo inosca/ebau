@@ -3,7 +3,7 @@
     "model": "permissions.accesslevel",
     "pk": "applicant",
     "fields": {
-      "name": "{\"de\": \"Gesuchsteller/in\", \"fr\": \"Personne requ\\u00e9rante\", \"it\": \"\"}",
+      "name": "{\"de\": \"Gesuchsteller/in\", \"fr\": \"Personne requérante\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": null,
       "applicable_area": "APPLICANT"
@@ -13,7 +13,7 @@
     "model": "permissions.accesslevel",
     "pk": "construction-control",
     "fields": {
-      "name": "{\"de\": \"Baukontrolle\", \"fr\": \"Contr\\u00f4le construction\", \"it\": \"\"}",
+      "name": "{\"de\": \"Baukontrolle\", \"fr\": \"Contrôle construction\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
@@ -33,7 +33,7 @@
     "model": "permissions.accesslevel",
     "pk": "geometer",
     "fields": {
-      "name": "{\"de\": \"Nachf\\u00fchrungsgeometer\", \"fr\": \"G\\u00e9om\\u00e8tre conservatrice ou g\\u00e9om\\u00e8tre conservateur\", \"it\": \"\"}",
+      "name": "{\"de\": \"Nachführungsgeometer\", \"fr\": \"Géomètre conservatrice ou géomètre conservateur\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
@@ -43,7 +43,7 @@
     "model": "permissions.accesslevel",
     "pk": "involved-authority",
     "fields": {
-      "name": "{\"de\": \"Involvierte Leitbeh\\u00f6rde\", \"fr\": \"Autorit\\u00e9 impliqu\\u00e9e\", \"it\": \"\"}",
+      "name": "{\"de\": \"Involvierte Leitbehörde\", \"fr\": \"Autorité impliquée\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
@@ -53,7 +53,7 @@
     "model": "permissions.accesslevel",
     "pk": "involved-construction-control",
     "fields": {
-      "name": "{\"de\": \"Involvierte Baukontrolle\", \"fr\": \"Contr\\u00f4le construction impliqu\\u00e9e\", \"it\": \"\"}",
+      "name": "{\"de\": \"Involvierte Baukontrolle\", \"fr\": \"Contrôle construction impliquée\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
@@ -63,7 +63,7 @@
     "model": "permissions.accesslevel",
     "pk": "lead-authority",
     "fields": {
-      "name": "{\"de\": \"Leitbeh\\u00f6rde\", \"fr\": \"Responsable autorit\\u00e9\", \"it\": \"\"}",
+      "name": "{\"de\": \"Leitbehörde\", \"fr\": \"Responsable autorité\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"

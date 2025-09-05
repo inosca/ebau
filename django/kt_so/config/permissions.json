@@ -23,7 +23,7 @@
     "model": "permissions.accesslevel",
     "pk": "lead-authority",
     "fields": {
-      "name": "{\"de\": \"Leitbeh\\u00f6rde\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Leitbehörde\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
@@ -33,8 +33,8 @@
     "model": "permissions.accesslevel",
     "pk": "municipality-before-submission",
     "fields": {
-      "name": "{\"de\": \"Lesezugriff f\\u00fcr Gemeinde vor Einreichung\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"Ein Lesezugriff der von Gesuchstellenden an die zust\\u00e4ndige Gemeinde vor der Einreichung vergeben werden kann, damit die Gemeinde bei der Erfassung des Dossiers unterst\\u00fctzen kann. Der Zugriff wird nach der Einreichung des Dossiers widerrufen.\", \"fr\": \"\", \"it\": \"\"}",
+      "name": "{\"de\": \"Lesezugriff für Gemeinde vor Einreichung\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Ein Lesezugriff der von Gesuchstellenden an die zuständige Gemeinde vor der Einreichung vergeben werden kann, damit die Gemeinde bei der Erfassung des Dossiers unterstützen kann. Der Zugriff wird nach der Einreichung des Dossiers widerrufen.\", \"fr\": \"\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "ANY"
     }
