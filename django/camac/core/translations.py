@@ -17,7 +17,7 @@ def get_available_languages():
 
 
 def get_translation_in(language, s):
-    with translation.override(language, True):
+    with translation.override(language):
         return translation.gettext(s)
 
 
