@@ -16,15 +16,12 @@ services:
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
 
   db:
-    build:
-      context: ../db
-      cache_from:
-        - acr.run/camac-ng/camac-ng/db:master
+    image: postgres:15-bullseye
     environment:
       - POSTGRES_USER=camac
       - POSTGRES_DATABASE=${APPLICATION}
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      - pg15data:/var/lib/postgresql/data
 
   django: &django
     build:
@@ -158,7 +155,7 @@ services:
 
 
 volumes:
-  pgdata:
+  pg15data:
   djangomedia:
   djangotmpmedia:
   minio_data:
