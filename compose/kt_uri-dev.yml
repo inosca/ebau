@@ -38,17 +38,13 @@ services:
       - ebau.localhost
 
   db:
-    # Workaround, same name of image as cache_from
-    # better be named differently once following is fixed:
-    # https://github.com/docker/compose/issues/5458
-    # see also other services below
-    image: acr.run/camac-ng/camac-ng/db:master
     ports:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=camac
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
+      - pg15data:/var/lib/postgresql/data
     networks:
       - ebau.localhost
 
@@ -155,3 +151,6 @@ services:
 
 networks:
   ebau.localhost:
+
+volumes:
+  pg15data:
