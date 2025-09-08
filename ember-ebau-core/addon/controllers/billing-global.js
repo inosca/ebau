@@ -40,12 +40,6 @@ export default class BillingGlobalController extends Controller {
     }));
   });
 
-  get selectedService() {
-    return this.services.value?.find(
-      (service) => service.value === this.serviceId,
-    );
-  }
-
   @action
   loadMore() {
     this.page += 1;
@@ -60,6 +54,6 @@ export default class BillingGlobalController extends Controller {
   @action
   updateSelectFilter(name, value) {
     this.page = 1;
-    this[name] = value?.value;
+    this[name] = value;
   }
 }
