@@ -23,6 +23,7 @@ from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
 from camac.responsible.models import ResponsibleService
+from camac.utils import get_unversioned_slug
 
 from . import models
 from .permissions import get_permission_func, permission_aware
@@ -223,6 +224,9 @@ class PublicServiceFilterSet(FilterSet):
             return False
 
         return instance.case.meta.get("is-appeal", False)
+
+    def _condition_is_preliminary_inquiry(self, instance):
+        return get_unversioned_slug(instance.case.document.form_id) == "voranfrage"
 
     def _condition_publication_is_done(self, instance):
         publication_work_items = WorkItem.objects.filter(

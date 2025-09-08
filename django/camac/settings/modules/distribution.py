@@ -341,11 +341,12 @@ DISTRIBUTION = {
                         )
                     ],
                 },
-                # Only show ARP BaB service in BaB dossier if the publication is done
+                # Only show ARP BaB service in BaB dossier if the publication is done except for preliminary_inquiry (voranfrage)
                 {
                     "conditions": [
                         {"name": "is_bab"},
                         {"name": "is_appeal", "invert": True},
+                        {"name": "is_preliminary_inquiry", "invert": True},
                         {"name": "publication_is_done", "invert": True},
                         {"name": "is_imported", "invert": True},
                     ],
