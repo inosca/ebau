@@ -27,6 +27,7 @@ DJANGO_ADMIN = {
             "gis.GISDataSource",
             "notification.NotificationTemplate",
             "deadlines.DeadlineType",
+            "ech0211.Message",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "notification.NotificationTemplate",
@@ -45,6 +46,7 @@ DJANGO_ADMIN = {
             "django_q.Success",
             "django_q.Failure",
             "django_q.OrmQ",
+            "ech0211.Message",
         ],
         "CUSTOMER_MANAGED_MODELS": ["gis.GISDataSource"],
     },
@@ -57,6 +59,7 @@ DJANGO_ADMIN = {
             "django_q.OrmQ",
             "gever.CMIConstantValue",
             "gever.CMIObjectTemplate",
+            "ech0211.Message",
         ],
     },
     "kt_schwyz": {"ENABLED": True},
@@ -73,6 +76,7 @@ DJANGO_ADMIN = {
             "work_items.WorkItemTemplate",
             "work_items.WorkItemListFilterPreset",
             "deadlines.DeadlineType",
+            "ech0211.Message",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "billing.BillingV2EntryTemplate",
