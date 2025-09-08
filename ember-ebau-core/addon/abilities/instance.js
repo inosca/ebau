@@ -205,7 +205,7 @@ export default class InstanceAbility extends Ability {
         "instance-permission",
         this.ebauModules.instanceId,
       );
-      return instancePermission.currentAccessLevels.some((p) => p === "read");
+      return instancePermission.currentAccessLevels.every((p) => p === "read");
     }
   }
 
