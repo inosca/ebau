@@ -20497,7 +20497,7 @@
     "pk": "eingabequittung",
     "fields": {
       "created_at": "2025-07-11T08:40:30.507Z",
-      "modified_at": "2025-07-15T13:40:15.525Z",
+      "modified_at": "2025-09-08T13:41:30.568Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -20505,7 +20505,7 @@
       "label": "{\"de\": \"Eingabequittung\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "'is-paper'|answer == 'is-paper-yes'",
+      "is_hidden": "'is-paper'|answer == 'is-paper-yes' || !('weitere-personen-grundeigentumerin' in 'weitere-personen'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",

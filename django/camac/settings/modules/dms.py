@@ -441,7 +441,6 @@ DMS = {
                     "personalien-vertreterin-mit-vollmacht",
                     "personalien-grundeigentumerin",
                     "personalien-gebaudeeigentumerin",
-                    "personalien-projektverfasserin",
                 ],
                 "people_names": {
                     "name-gesuchstellerin": "familyName",
