@@ -6,6 +6,7 @@ import faker
 import pytest
 from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFactory
 from caluma.caluma_form.models import DynamicOption, Question
+from caluma.caluma_form.validators import CustomValidationError
 from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.core.management import call_command
@@ -111,6 +112,11 @@ def test_document_merge_service_snapshot(
 
             visitor = DMSVisitor(root_document, instance, BaseUser())
             snapshot.assert_match(visitor.build_form_structure())
+
+        if kwargs.get("instance_id") == 1:
+            assert DMSVisitor(root_document, instance, BaseUser()).is_valid()
+            root_document.answers.all().delete()
+            assert not DMSVisitor(root_document, instance, BaseUser()).is_valid()
 
 
 def test_document_merge_service_client(db, requests_mock):
@@ -655,3 +661,49 @@ def test_print_meta_attributes(
 
     data = visitor.build_form_structure()
     snapshot.assert_match(data)
+
+
+@pytest.mark.parametrize(
+    "check_validity_for_draft,is_valid,is_submitted,expected_draft_output",
+    [
+        # no validity check and form was submitted
+        (False, False, True, ""),
+        # validity check and is valid
+        (True, True, False, ""),
+        # no validity check and form is not submitted
+        (False, False, False, "Entwurf"),
+        # validity check and is not valid
+        (True, False, False, "Entwurf"),
+    ],
+)
+def test_is_draft(
+    db,
+    dms_settings,
+    be_instance,
+    group,
+    check_validity_for_draft,
+    is_valid,
+    is_submitted,
+    expected_draft_output,
+    mocker,
+):
+    check_validity_setting = (
+        {"check_validity_for_draft": True} if check_validity_for_draft else {}
+    )
+    dms_settings["FORM"] = {
+        "regular-exams": {
+            "forms": [be_instance.case.document.form.slug],
+            **check_validity_setting,
+        },
+    }
+
+    mocker.patch(
+        "caluma.caluma_form.validators.DocumentValidator.validate",
+        side_effect=CustomValidationError("Not valid") if not is_valid else None,
+    )
+    mocker.patch("camac.caluma.api.CalumaApi.is_submitted", return_value=is_submitted)
+
+    data = DMSHandler().get_data(
+        be_instance, be_instance.case.document, BaseUser(), group.service
+    )
+    assert data["draft"] == expected_draft_output

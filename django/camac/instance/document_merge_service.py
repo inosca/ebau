@@ -9,7 +9,7 @@ from alexandria.core.models import (
     File as AlexandriaFile,
 )
 from caluma.caluma_form.models import Document, Question
-from caluma.caluma_form.validators import DocumentValidator
+from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
@@ -357,9 +357,17 @@ class DMSHandler:
 
     def get_data(self, instance, document, user, service, for_additional_demand=None):
         visitor = DMSVisitor(document, instance, user)
+
+        if get_form_type_config(document.form.slug).get(
+            "check_validity_for_draft", False
+        ):
+            is_draft = not visitor.is_valid()
+        else:
+            is_draft = not caluma_api.is_submitted(instance, document)
+
         return {
             **self.get_meta_data(instance, document, service),
-            "draft": "" if caluma_api.is_submitted(instance, document) else _("Draft"),
+            "draft": _("Draft") if is_draft else "",
             "sections": visitor.build_form_structure(),
             "documents": self.prepare_documents(instance, for_additional_demand),
         }
@@ -663,6 +671,18 @@ class DMSVisitor:
         ]
 
         return {"children": children}
+
+    def is_valid(self):
+        try:
+            self.validator.validate(
+                self.root_document,
+                self.user,
+                self.validation_context,
+                self.data_source_context,
+            )
+            return True
+        except CustomValidationError:
+            return False
 
     def _is_non_static_or_static_title(self, field):
         if field.question.type != Question.TYPE_STATIC:

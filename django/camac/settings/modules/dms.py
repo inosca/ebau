@@ -194,10 +194,12 @@ DMS = {
                     "bab-01-07-1972-um-und-ausgebaut-meldung",
                     "bab-naehe-von-schutzenswerten-gebaeuden-meldung",
                 ],
+                "check_validity_for_draft": True,
             },
             "material-exam": {
                 "forms": ["mp-form"],
                 "template": "form",
+                "check_validity_for_draft": True,
             },
         },
     },
