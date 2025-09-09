@@ -14,15 +14,10 @@ services:
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
 
   db:
-    build:
-      context: ../db
-      cache_from:
-        - acr.run/camac-ng/camac-ng/db:master
+    image: postgres:15-bullseye
     environment:
       - POSTGRES_USER=camac
       - POSTGRES_DATABASE=${APPLICATION}
-    volumes:
-      - pgdata:/var/lib/postgresql/data
 
   ember-camac-ng:
     build:
