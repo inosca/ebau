@@ -1,5 +1,5 @@
 Babel==2.17.0
-boto3==1.40.22
+boto3==1.40.26
 caluma==12.0.0
 caluma-alexandria==8.0.1
 celery==5.5.3
@@ -9,7 +9,7 @@ dataclasses-json==0.6.7
 deepmerge==2.0
 defusedxml==0.7.1
 # check camac/admin.py MultilingualAdminMixin.get_search_result before updating
-Django==5.2.5
+Django==5.2.6
 django-admin-sortable2==2.2.8
 django-celery-beat==2.8.1
 django-clamd==1.0.0
@@ -43,7 +43,7 @@ manabi==2.0.1
 mozilla-django-oidc==4.0.1
 openpyxl==3.1.5
 Pillow==11.3.0
-psycopg==3.2.9
+psycopg==3.2.10
 pydantic==2.11.7
 pyexcel-io==0.6.7
 pyexcel-webio==0.1.4
@@ -58,7 +58,7 @@ python-dotenv==1.1.1
 python-keycloak==5.8.1
 PyXB-X==1.2.6.3
 qrcode==8.2
-rapidfuzz==3.14.0
+rapidfuzz==3.14.1
 redis==6.4.0
 requests==2.32.5
 requests_oauthlib==2.0.0
