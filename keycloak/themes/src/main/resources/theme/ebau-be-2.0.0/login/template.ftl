@@ -57,23 +57,42 @@
                     </div>
                     <#if displayMessage && message?has_content>
                         <div class="alert alert-${message.type}">
-                            <#if message.type='success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
-                            <#if message.type='warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
-                            <#if message.type='error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
-                            <#if message.type='info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
-                            <span class="kc-feedback-text">
-                                ${kcSanitize(message.summary)?no_esc}
-                            </span>
-                        </div>
-                    </#if>
-                    <#nested "form">
+                            <#if message.type=' success'><span class="${properties.kcFeedbackSuccessIcon!}"></span>
+                </#if>
+                <#if message.type='warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
+                <#if message.type='error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
+                <#if message.type='info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
+                <span class="kc-feedback-text">
+                    ${kcSanitize(message.summary)?no_esc}
+                </span>
                 </div>
-                <div class="context-column">
-                    <p>context-column</p>
-                </div>
-            </main>
-            <@footer.content />
-        </div>
-    </body>
-</html>
-</#macro>
+                </#if>
+                <#nested "form">
+                    </div>
+                    <div class="context-column">
+                        <ul class='box-beige open' data-accordion data-allow-all-closed='true'
+                            data-multi-expand='false'>
+                            <li class="default infobox-wrapper is-active" data-accordion-item>
+                                <h4 class="infobox-title">Fragen & Antworten</h4>
+                                <div class="accordion-content" data-tab-content>
+                                    <hr class="accordion">
+                                    <h4>Welche Anmeldedienste wähle ich aus?</h4>
+                                    <p>Nec fusce nullam tristique hac morbi. A dapibus metus sed tincidunt. Id placerat
+                                        eu purus platea torquent tellus duis porttitor convallis volutpat.</p>
+                                    <h4>Wo erhalte ich Hilfe?</h4>
+                                    <p>Nec fusce nullam tristique hac morbi. A dapibus metus sed tincidunt. Id placerat
+                                        eu purus platea torquent tellus duis porttitor convallis volutpat.</p>
+                                    <div class='arrow-link'>
+                                        <span class='link-arrow'></span>
+                                        <a class='text-link-2'>Support Informationen</a>
+                                    </div>
+                                </div>
+                            </li>
+                    </div>
+                    </main>
+                    <@footer.content />
+                    </div>
+                    </body>
+
+            </html>
+        </#macro>

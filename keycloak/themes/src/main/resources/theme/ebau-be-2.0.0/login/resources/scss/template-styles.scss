@@ -105,6 +105,34 @@ h3 {
   }
 }
 
+h4 {
+  margin: 0 0 12px -1px;
+  max-width: 800px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0.01rem;
+  word-spacing: 0.025rem;
+  color: var(--black);
+  font-size: 24px;
+  line-height: 28px;
+  margin-left: -1px;
+}
+
+@media screen and (max-width: 1119px) {
+  h4 {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  h4 {
+    font-size: 21px;
+    line-height: 25px;
+    margin-left: 0px;
+  }
+}
+
 p {
   color: var(--black);
   font-weight: 300;
@@ -171,6 +199,8 @@ button.secondary {
 *  Web-Style-Guide: https://kantonbern.snowflake.ch/styleguides/1/Kanton-Bern/#moleculs
 */
 
+// Service-Menue
+// https://kantonbern.snowflake.ch/styleguides/1/Kanton-Bern/#Am4143
 a.service-menue {
   font-size: 14px;
   line-height: 16px;
@@ -242,6 +272,188 @@ a {
 a:hover,
 a:focus {
   color: var(--black);
+}
+
+// Infobox
+// https://kantonbern.snowflake.ch/styleguides/1/Kanton-Bern/#Am5572
+ul.box-beige {
+  background-color: variables.$global-background-dark-sand;
+  float: left;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  width: 100%;
+  max-width: 400px;
+  padding: 0;
+
+  &:nth-child(odd) {
+    margin-right: 0 !important;
+  }
+
+  &.open {
+    margin-bottom: 30px;
+  }
+
+  &.open:nth-child(odd) {
+    margin-right: 0 !important;
+  }
+
+  @media screen and (max-width: 1119px) {
+    &.open {
+      margin-right: 2%;
+      width: 49%;
+      max-width: none;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    &.open {
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+
+  li {
+    list-style-type: none;
+
+    /* Infobox Title */
+    .infobox-title {
+      position: relative;
+      display: block;
+      text-decoration: none;
+      border: none;
+      letter-spacing: 0.01rem;
+      word-spacing: 0.025rem;
+      padding-top: 25px;
+      padding-bottom: 20px;
+      padding-left: 25px;
+      padding-right: 65px;
+      max-width: 800px;
+      background-color: rgba(247, 233, 210, 1);
+      color: var(--black);
+      font-size: 24px;
+      line-height: 28px;
+    }
+
+    .accordion-content {
+      padding: 25px;
+
+      /* Line (HR Accordion) */
+      hr.accordion {
+        border: none;
+        background-color: variables.$global-color-light-grey;
+        margin-top: -25px;
+        margin-right: 0px;
+        margin-bottom: 25px;
+        margin-left: 0px;
+        width: auto;
+        height: 1px;
+      }
+    }
+  }
+
+  a.infobox-title[aria-selected="true"] {
+    background-color: variables.$global-background-sand !important;
+  }
+
+  a.infobox-title[aria-selected="true"]::before {
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    transition: all 250ms ease-in-out;
+  }
+
+  a.infobox-title[aria-selected="true"] {
+    background-color: rgba(250, 241, 227, 1) !important;
+  }
+
+  a.infobox-title[aria-selected="true"]::before {
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    transition: all 250ms ease-in-out;
+  }
+}
+
+@media screen and (max-width: 1119px) {
+  ul.box-beige {
+    margin-right: 2%;
+    width: 49%;
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  ul.box-beige {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+// Arrow-Link
+// https://kantonbern.snowflake.ch/styleguides/1/Kanton-Bern/#Mm1169
+@media screen and (max-width: 1119px) {
+  div.arrow-link {
+    margin-top: 1px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  div.arrow-link {
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+}
+
+span.link-arrow {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20"><path d="M11.4,17.3c-0.3-0.3-0.3-0.8,0-1.1l6.2-6.2l-6.2-6.2c-0.3-0.3-0.3-0.8,0-1.1s0.7-0.3,1,0l6.7,6.7 c0.1,0.1,0.2,0.3,0.2,0.5s-0.1,0.4-0.2,0.5l-6.6,6.9C12.2,17.6,11.7,17.6,11.4,17.3z"/></svg>');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: auto;
+  display: inline-block;
+  margin-right: 4px;
+  margin-left: -4px;
+  width: 15px;
+  height: 12px;
+}
+
+div.arrow-link > span.link-arrow {
+  float: left;
+  margin-top: 6px;
+}
+
+div.arrow-link > a.text-link-2 {
+  margin-top: 0px;
+}
+
+a {
+  color: var(--black);
+}
+
+a:hover,
+a:focus {
+  color: var(--black);
+}
+
+a.text-link-2 {
+  text-decoration: none;
+  color: var(--black);
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  display: inline-block;
+  cursor: pointer;
+  line-height: 125%;
+  vertical-align: top;
+  margin-top: 10px;
+}
+
+a.text-link-2:hover,
+a.text-link-2:focus {
+  border-bottom: var(--bottom-line-1px-red);
 }
 
 /* Layout
