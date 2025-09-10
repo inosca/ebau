@@ -19,6 +19,7 @@ instances:
   activateFurtherPersons: "Weitere Personen für dieses Dossier freischalten"
   rejectionInfoText: ""
   downloadReceipt: "Unterschriftenblatt herunterladen"
+  downloadFormAsPdf: "Formular herunterladen"
 
   new:
     preliminary-clarification:
