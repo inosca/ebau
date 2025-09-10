@@ -2,18 +2,22 @@
 
 // Layout
 $page-inner-max-width: 1440px;
-$page-content-margin-horizontal: 45px;
+$page-content-margin-horizontal-l: 45px;
 $page-content-margin-horizontal-m: 30px;
 $page-content-margin-horizontal-s: 20px;
+$page-content-margin-vertical-l: 45px;
+$page-content-margin-vertical-m: 30px;
+$page-content-margin-vertical-s: 20px;
 $page-header-inner-max-height: 140px;
-$page-header-margin-horizontal: $page-content-margin-horizontal;
+$page-header-margin-horizontal: $page-content-margin-horizontal-l;
 $page-header-padding-top: 12px;
 $page-footer-inner-max-height: 120px;
 $page-footer-padding-bottom: 25px;
-$page-footer-padding-horizontal: $page-content-margin-horizontal;
+$page-footer-padding-horizontal: $page-content-margin-horizontal-l;
 $page-footer-padding-top: 20px;
 $page-footer-padding: $page-footer-padding-top $page-footer-padding-horizontal
   $page-footer-padding-bottom;
+
 
 // Font
 $global-font-family: "Roboto", sans-serif !important;
@@ -32,6 +36,10 @@ $global-color-anthrazit: #4e4e4e;
 $global-color-blue: #1775d3;
 $global-color-white: #ffffff;
 $global-color-grey: #707070;
+$global-color-light-red: rgba($global-color-red, 0.1);
+$global-color-light-green: rgba($global-color-green, 0.15);
+$global-color-light-orange: rgba($global-color-orange, 0.1);
+$global-color-light-blue: rgba($global-color-blue, 0.1);
 $global-color-light-grey: rgba($global-color-grey, 0.68);
 
 $global-background-red: $global-color-red;
@@ -49,16 +57,22 @@ $global-border-color: #dedede;
   --black: #{$global-color-black};
   --white: #{$global-color-white};
   --red: #{$global-color-red};
+  --dark-red: #{$global-color-dark-red};
+  --blue: #{$global-color-blue};
+  --orange: #{$global-color-orange};
+  --green: #{$global-color-green};
   --anthrazit: #{$global-color-anthrazit};
   --global-font-size: #{$global-font-size};
   --global-font-family: #{$global-font-family};
   --global-line-height: #{$global-line-height};
-  --page-content-margin-horizontal: #{$page-content-margin-horizontal};
+  --page-content-margin-horizontal: #{$page-content-margin-horizontal-l};
+  --page-content-margin-vertical: #{$page-content-margin-vertical-l};
 }
 
 @media screen and (max-width: 1119px) {
   :root {
     --page-content-margin-horizontal: #{$page-content-margin-horizontal-m};
+    --page-content-margin-vertical: #{$page-content-margin-vertical-m};
   }
 }
 
@@ -67,5 +81,6 @@ $global-border-color: #dedede;
     --global-font-size: #{$global-font-size-s};
     --global-line-height: #{$global-line-height-s};
     --page-content-margin-horizontal: #{$page-content-margin-horizontal-s};
+    --page-content-margin-vertical: #{$page-content-margin-vertical-s};
   }
 }

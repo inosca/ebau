@@ -1,22 +1,22 @@
 <#import "template.ftl" as layout>
     <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username') displayInfo=(realm.password &&
         realm.registrationAllowed && !registrationDisabled??); section>
-        <div class="login-helpertext">
-            <p>${msg("loginProviderHint")}</p>
-        </div>
         <#if section="form">
-            <form id="kc-form-login" class="${properties.kcFormClass!}"
-                onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+            <div class="title">
+                <h1>${msg("login")}</h1>
+            </div>
+            <div class="login-helpertext">
+                <p>${msg("loginProviderHint")}</p>
+            </div>
+            <form id="kc-form-login" class="${properties.kcFormClass!}" onsubmit="login.disabled = true; return true;"
+                action="${url.loginAction}" method="post">
                 <fieldset>
                     <#if realm.password && social.providers??>
                         <div id="kc-social-providers">
                             <div id="kc-social-providers-buttons">
                                 <#list social.providers as p>
-                                    <button
-                                        type="button"
-                                        class="secondary"
-                                        onclick="window.location='${p.loginUrl}'; return false;"
-                                        id="zocial-${p.alias}">
+                                    <button type="button" class="secondary"
+                                        onclick="window.location='${p.loginUrl}'; return false;" id="zocial-${p.alias}">
                                         <span>
                                             <#if msg(p.alias)=p.alias>
                                                 ${msg(p.displayName)}
@@ -31,5 +31,25 @@
                     </#if>
                 </fieldset>
             </form>
+        </#if>
+        <#if section="context">
+            <ul class='box-beige open' data-accordion data-allow-all-closed='true' data-multi-expand='false'>
+                <li class="default infobox-wrapper is-active" data-accordion-item>
+                    <h4 class="infobox-title">Fragen & Antworten</h4>
+                    <div class="accordion-content" data-tab-content>
+                        <hr class="accordion">
+                        <h4>Welche Anmeldedienste wähle ich aus?</h4>
+                        <p>Nec fusce nullam tristique hac morbi. A dapibus metus sed tincidunt. Id placerat
+                            eu purus platea torquent tellus duis porttitor convallis volutpat.</p>
+                        <h4>Wo erhalte ich Hilfe?</h4>
+                        <p>Nec fusce nullam tristique hac morbi. A dapibus metus sed tincidunt. Id placerat
+                            eu purus platea torquent tellus duis porttitor convallis volutpat.</p>
+                        <div class='arrow-link'>
+                            <span class='link-arrow'></span>
+                            <a class='text-link-2'>Support Informationen</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </#if>
     </@layout.registrationLayout>
