@@ -176,8 +176,12 @@ def test_direct_inquiry_visibility(
     )
 
     municipality_service = service
-    parent_service = service_factory()
-    child_service = service_factory(service_parent=parent_service)
+    parent_service = service_factory(slug="parent_service")
+    child_service = service_factory(slug="child_service", service_parent=parent_service)
+    unrelated_service = service_factory(slug="unrelated_service")
+    unrelated_child_service = service_factory(
+        slug="unrelated_child_service", service_parent=parent_service
+    )
 
     parent_inquiry = inquiry_factory_so(
         to_service=parent_service, from_service=municipality_service, sent=True
@@ -187,6 +191,20 @@ def test_direct_inquiry_visibility(
     )
     indirect_child_inquiry = inquiry_factory_so(
         to_service=child_service, from_service=parent_service, sent=True
+    )
+    unrelated_inquiry = inquiry_factory_so(
+        to_service=unrelated_service, from_service=parent_service, sent=True
+    )
+    unrelated_child_inquiry = inquiry_factory_so(
+        to_service=unrelated_child_service,
+        from_service=unrelated_service,
+        sent=True,
+    )
+    unrelated_direct_child_inquiry = inquiry_factory_so(
+        to_service=unrelated_child_service,
+        from_service=unrelated_service,
+        sent=True,
+        direct=True,
     )
 
     result = caluma_admin_schema_executor(
@@ -204,3 +222,6 @@ def test_direct_inquiry_visibility(
     assert str(parent_inquiry.pk) in ids
     assert str(direct_child_inquiry.pk) in ids
     assert str(indirect_child_inquiry.pk) not in ids
+    assert str(unrelated_inquiry.pk) not in ids
+    assert str(unrelated_child_inquiry.pk) not in ids
+    assert str(unrelated_direct_child_inquiry.pk) not in ids

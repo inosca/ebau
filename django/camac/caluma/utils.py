@@ -32,6 +32,7 @@ from django.utils.translation import get_language
 from jwt import decode as jwt_decode
 from rest_framework.authentication import get_authorization_header
 
+from camac.caluma.models import Inquiry
 from camac.lookups import Any
 from camac.user.models import Group, Service, User
 from camac.user.utils import get_group
@@ -202,6 +203,11 @@ def work_item_by_addressed_service_condition(service_condition: Q) -> Subquery:
     return Exists(filter_services_on_outerref("addressed_groups", service_condition))
 
 
+def work_item_by_controlling_service_condition(service_condition: Q) -> Subquery:
+    """Filter work_items with controlling_groups by service_condition."""
+    return Exists(filter_services_on_outerref("controlling_groups", service_condition))
+
+
 def get_additional_inquiries_filters(group: Group) -> Expression | Subquery | Q:
     current_service = group.service
     match settings.APPLICATION_NAME:
@@ -256,28 +262,8 @@ def get_additional_inquiries_filters(group: Group) -> Expression | Subquery | Q:
                     | Q(service_parent__isnull=True),
                 )
 
-            return Exists(
-                filter_services_on_outerref("addressed_groups", filters)
-                # Show only additional inquiries which are not controlled
-                # by a cantonal or bab service.
-                | (
-                    filter_services_on_outerref(
-                        "controlling_groups",
-                        ~Q(
-                            service_group__name__in=[
-                                "service-cantonal",
-                                "service-bab",
-                            ],
-                        ),
-                    )
-                    & filter_services_on_outerref(
-                        "addressed_groups",
-                        Q(
-                            service_parent__isnull=False,
-                        ),
-                    )
-                )
-            )
+            return work_item_by_addressed_service_condition(filters)
+
         case "kt_ag" if (
             current_service.service_parent is None
             and current_service.service_group.name
@@ -313,6 +299,57 @@ def get_additional_inquiries_filters(group: Group) -> Expression | Subquery | Q:
             return Value(False)
 
 
+def get_direct_inquiries_filter(group):
+    # A subservice can never be a controlling group for a direct inquiry
+    # Direct inquiries can only be addressed to own subservices
+    current_service = group.service
+    match settings.APPLICATION_NAME:
+        case "kt_so":
+            """
+            Scenario:
+                - Current Service is Service X (Municipality)
+                - Service A is a top level service
+                - Service B is a sub service of A
+                - Service Y is another top level service
+
+            Direct inquiry is controlled by service A and adressed to sub service B.
+            Now we need to see direct inquires if:
+                - Current service has an open inquiry to service A
+
+            The issue with this is, that we would also see direct inquiries related to other
+            inquiries in the following scenario:
+            X -> A
+            Y -> A -> B
+
+            Since X has an open inquiry to A, X would see the direct inquiry to B eventough it might not be related.
+
+            I think this is fine as every open inquiry addressed to A is resolved once the direct inquiry adressed to B is answered.
+            """
+
+            own_controlling_inquiries = (
+                Inquiry.objects.only_active()
+                .controlled_by(current_service)
+                .filter(**{"meta__is-direct__isnull": True})
+            )
+            all_addressed_services = [
+                service
+                for addressed_services in own_controlling_inquiries.values_list(
+                    "addressed_groups", flat=True
+                )
+                for service in addressed_services
+            ]
+            return work_item_by_controlling_service_condition(
+                # Inquiries of services which have the same parent service as the current service
+                Q(
+                    service_id=current_service.service_parent_id,
+                )
+                | Q(service_id__in=all_addressed_services)
+            )
+
+        case _:
+            return Value(True)
+
+
 def visible_inquiries_expression(group: Group) -> Q | Expression:
     """
     Filter to query inquiries visible to a certain group.
@@ -328,15 +365,21 @@ def visible_inquiries_expression(group: Group) -> Q | Expression:
     additional_inquiries_filter = get_additional_inquiries_filters(group)
     service = group.service
 
-    direct_inquiries_when = Value(False)
+    not_own_inquiries_filter = ~Q(addressed_groups__contains=[service.pk]) & ~Q(
+        controlling_groups__contains=[service.pk]
+    )
+
+    direct_inquiries = Value(False)
     if settings.DISTRIBUTION["QUESTIONS"].get("DIRECT"):
-        direct_inquiries_when = Q(**{"meta__is-direct": True})
+        direct_inquiries = Q(**{"meta__is-direct": True})
 
     return Case(
-        When(direct_inquiries_when, then=Value(True)),
         When(
-            ~Q(addressed_groups__contains=[service.pk])
-            & ~Q(controlling_groups__contains=[service.pk]),
+            not_own_inquiries_filter & direct_inquiries,
+            then=get_direct_inquiries_filter(group),
+        ),
+        When(
+            not_own_inquiries_filter,
             then=additional_inquiries_filter,
         ),
         default=True,
