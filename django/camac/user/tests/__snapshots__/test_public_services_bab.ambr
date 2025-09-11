@@ -7,6 +7,15 @@
     'some-municipality',
   })
 # ---
+# name: test_so_distribution_services[authority_bab_for_preliminary_inqury]
+  set({
+    'arp-bab',
+    'my-subservice',
+    'some-cantonal-service',
+    'some-extra-cantonal-service',
+    'some-municipality',
+  })
+# ---
 # name: test_so_distribution_services[authority_bab_with_appeal]
   set({
     'arp-bab',

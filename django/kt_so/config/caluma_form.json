@@ -988,6 +988,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "vorhaben-voranfrage",
+    "fields": {
+      "created_at": "2025-09-08T12:05:38.193Z",
+      "modified_at": "2025-09-08T14:42:36.806Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Vorhaben Voranfrage mit BaB\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "vorhaben"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "wohnungen-tabelle",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -17712,6 +17730,141 @@
       "form": "vorhaben",
       "question": "umschreibung-bauprojekt",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-voranfrage.aushublagerplaetze-oder-baupisten",
+    "fields": {
+      "created_at": "2025-09-08T12:05:38.212Z",
+      "modified_at": "2025-09-08T12:05:38.212Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-voranfrage",
+      "question": "aushublagerplaetze-oder-baupisten",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-voranfrage.bab",
+    "fields": {
+      "created_at": "2025-09-08T12:05:38.219Z",
+      "modified_at": "2025-09-08T12:05:38.219Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-voranfrage",
+      "question": "bab",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-voranfrage.bab-titel",
+    "fields": {
+      "created_at": "2025-09-08T12:05:38.209Z",
+      "modified_at": "2025-09-08T12:05:38.209Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-voranfrage",
+      "question": "bab-titel",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-voranfrage.bemerkungen",
+    "fields": {
+      "created_at": "2025-09-08T12:05:38.204Z",
+      "modified_at": "2025-09-08T12:05:38.204Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-voranfrage",
+      "question": "bemerkungen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-voranfrage.beschreibung-voranfrage",
+    "fields": {
+      "created_at": "2025-09-08T12:05:38.206Z",
+      "modified_at": "2025-09-08T12:05:38.206Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-voranfrage",
+      "question": "beschreibung-voranfrage",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-voranfrage.datum-bis-zu-welchem-der-rueckbau-erfolgt",
+    "fields": {
+      "created_at": "2025-09-08T12:05:38.214Z",
+      "modified_at": "2025-09-08T12:05:38.214Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-voranfrage",
+      "question": "datum-bis-zu-welchem-der-rueckbau-erfolgt",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-voranfrage.hinweis-aushublagerplaetze-sowie-baupisten",
+    "fields": {
+      "created_at": "2025-09-08T12:05:38.217Z",
+      "modified_at": "2025-09-08T12:05:38.217Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-voranfrage",
+      "question": "hinweis-aushublagerplaetze-sowie-baupisten",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-voranfrage.umschreibung-bauprojekt",
+    "fields": {
+      "created_at": "2025-09-08T12:05:38.202Z",
+      "modified_at": "2025-09-08T12:05:38.202Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-voranfrage",
+      "question": "umschreibung-bauprojekt",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben-voranfrage.vorhaben-titel",
+    "fields": {
+      "created_at": "2025-09-08T12:05:38.199Z",
+      "modified_at": "2025-09-08T12:05:38.199Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "vorhaben-voranfrage",
+      "question": "vorhaben-titel",
+      "sort": 10
     }
   },
   {
@@ -37673,7 +37826,7 @@
     "pk": "aushublagerplaetze-oder-baupisten",
     "fields": {
       "created_at": "2023-11-09T14:40:54.576Z",
-      "modified_at": "2024-04-29T11:28:55.425Z",
+      "modified_at": "2025-09-08T10:46:19.425Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38022,7 +38175,7 @@
     "pk": "bab",
     "fields": {
       "created_at": "2023-11-09T13:31:12.402Z",
-      "modified_at": "2024-01-04T13:14:35.153Z",
+      "modified_at": "2025-09-08T10:46:34.900Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -38208,10 +38361,10 @@
     "pk": "bab-titel",
     "fields": {
       "created_at": "2024-04-29T11:30:22.492Z",
-      "modified_at": "2024-04-29T11:30:22.493Z",
+      "modified_at": "2025-09-08T10:46:07.378Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"BaB Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -66382,6 +66535,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorhaben-voranfrage",
+    "fields": {
+      "created_at": "2025-09-08T12:12:36.356Z",
+      "modified_at": "2025-09-08T12:12:36.356Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "vorhaben-voranfrage",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,

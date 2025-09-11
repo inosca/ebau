@@ -66,6 +66,12 @@ def so_services(service_factory, service):
         ),
         pytest.param(
             "municipality",
+            ["authority", "bab", "is_preliminary_inquiry"],
+            5,
+            id="authority_bab_for_preliminary_inqury",
+        ),
+        pytest.param(
+            "municipality",
             ["authority", "bab", "running_publication"],
             4,
             id="authority_bab_with_running_publication",
@@ -112,6 +118,10 @@ def test_so_distribution_services(
     if "appeal" in conditions:
         so_instance.case.meta["is-appeal"] = True
         so_instance.case.save()
+
+    if "is_preliminary_inquiry" in conditions:
+        so_instance.case.document.form_id = "voranfrage"
+        so_instance.case.document.save()
 
     if "completed_publication" in conditions:
         work_item = caluma_work_item_factory(
