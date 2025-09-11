@@ -1,0 +1,9 @@
+import { faker } from "@faker-js/faker";
+import { Factory } from "miragejs";
+
+export default Factory.extend({
+  name: () => faker.lorem.word(),
+  department: () => faker.company.name(),
+  accountNumber: () => faker.lorem.word(),
+  accountType: () => faker.helpers.arrayElement(["bew", "bgl"]),
+});

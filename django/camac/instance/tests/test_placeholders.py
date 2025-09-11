@@ -1301,13 +1301,12 @@ def test_dms_placeholders_billing_account_invoice(
 ):
     # Billing Account
     municipality = service_factory(service_group__name="municipality")
-    billing_v2_accounts = billing_v2_account_factory.create_batch(
-        1,
+    billing_v2_account = billing_v2_account_factory(
         name="Testgebühr",
         department="Dept.",
         service_group=municipality.service_group,
         account_number=2222,
-        account_type="BEW",
+        account_type="bew",
     )
 
     # Billing Entry
@@ -1317,7 +1316,7 @@ def test_dms_placeholders_billing_account_invoice(
         instance=so_instance,
         legal_basis=None,
         cost_center=None,
-        billing_v2_account=billing_v2_accounts[0],
+        billing_v2_account=billing_v2_account,
     )
 
     # Documents

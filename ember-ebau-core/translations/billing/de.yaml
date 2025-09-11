@@ -1,8 +1,10 @@
 billing:
   info: |-
     Im Menü «Gebühren» können die Gebühren, die im Zusammenhang mit dem Dossier entstehen, erfasst werden. Die erfassten Einträge werden aber nicht automatisch an die Verrechnungsstellen der Organisation weitergleitet. Die Rechnungsstellung muss jede beteiligte Organisation wie bisher vornehmen.
+  info-new: ""
   position: Position
   legal-basis: Rechtsgrundlage
+  billing-account: Verrechnungskonto
   cost-center: Kostenstelle
   cost-center-short: KST
   service: Organisation
@@ -64,6 +66,7 @@ billing:
       percentage: prozentual
       hourly: nach Aufwand
       ag_processing_fee: Behandlungsgebühr BG BVUAFB
+      account: Kostenstelle
 
   tax-modes:
     exempt: nicht MWSt-pflichtig
@@ -116,15 +119,6 @@ billing:
       </li>
     </ul>
 
-  billing-type-info-nocharge:
-    title: |-
-      Bitte beachten:
-    body1: |-
-      Politische Gemeinden, Kirchgemeinden, kantonale Amtsstellen, Kooperationsbürgergemeinden sowie die beiden Korporationen Uri und Ursern sind gemäss Gebührenverordnung in der Regel von Gebühren befreit.
-    body2: |-
-      Bei Spezialverfahren (z.B. Interne Mitberichtsverfahren oder PGVs) bei denen eine kantonale Behörde oder eine Bundesstelle Leitbehörde ist, werden ebenfalls keine Gebühren erhoben
-
-
   billing-types:
     by_authority: Weiter zu verrechnen
     forwarded: Rechnung zu eröffnen
@@ -137,23 +131,7 @@ billing:
     createdBefore: Erstellung bis
     service: Organisation
 
-  billing-account:
-    Gebührenart
-  billing-account-laufend:
-    Gebühren laufendes Verfahren
-  billing-account-nachtraeglich:
-    Nachträgliche Gebühren
-
-  charge-merge-save:
-    Verrechnen und Rechnung ablegen
-
-
-  basics:
-    title: Grundgebühr
-    .5: halbe Grundgebühr (CHF 55.- inkl. MWSt)
-    1: ganze Grundgebühr (CHF 110.- inkl. MWSt)
-    2: doppelte Grundgebühr (CHF 220.- inkl. MWSt)
-
-  amount-inkl-mwst: Betrag (CHF inkl. MWSt)
-  hourly-rate-inkl-mwst: Ansatz (CHF inkl. MWSt)
-  cost-center-billing-account: Konto
+  templates:
+    info: Eine Vorlage anwenden
+    select: Vorlage auswählen
+    apply: Vorlage anwenden

@@ -12,17 +12,6 @@ from camac.django_admin.utils import display_color
 from camac.user.models import Service
 
 
-@register(BillingV2Account)
-class BillingV2AccountAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
-    list_display = [
-        "name",
-        "department",
-        "account_number",
-        "account_type",
-        "service_group",
-    ]
-
-
 @register(Category)
 class CategoryAdmin(
     EbauAdminMixin, SortableAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin

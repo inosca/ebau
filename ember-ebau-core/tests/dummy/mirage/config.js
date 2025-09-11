@@ -76,6 +76,7 @@ export default function makeServer(config) {
         return schema.notificationTemplates.create(attrs);
       });
 
+      this.resource("billing-v2-accounts", { only: ["index"] });
       this.resource("billing-v2-entries");
       this.resource("billing-v2-entry-templates", { only: ["index"] });
 
@@ -144,8 +145,6 @@ export default function makeServer(config) {
           { number: 310000, name: "Product number 310000" },
         ],
       });
-
-      this.resource("billing-v2-accounts");
 
       this.resource("communications-topics");
       this.resource("communications-messages");

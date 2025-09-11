@@ -197,7 +197,6 @@ class BillingV2Entry(BillingV2CommonEntry):
     group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
     user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
 
-    text = models.TextField()
     billing_v2_account = models.ForeignKey(
         "BillingV2Account",
         related_name="billing_v2_entries",
@@ -223,6 +222,9 @@ class BillingV2EntryTemplate(BillingV2CommonEntry):
 
     # Visual representation name of the template
     name = models.TextField(verbose_name=_("Name"))
+
+    # On the template the text can be empty
+    text = models.TextField(verbose_name=_("Position"), blank=True, null=True)
 
     # Hint to describe the template's purpose
     hint = models.TextField(blank=True, null=True, verbose_name=_("Hint"))
@@ -281,23 +283,36 @@ class LineItem(models.Model):
 
 
 class BillingV2Account(models.Model):
-    name = models.CharField(max_length=500)
-    account_number = models.CharField(max_length=50, blank=True, null=True)
-    department = models.CharField(max_length=255, blank=True, null=True)
+    name = models.TextField(verbose_name=_("Name"))
+    account_number = models.CharField(
+        max_length=50, blank=True, null=True, verbose_name=_("Account number")
+    )
+    department = models.CharField(
+        max_length=255, blank=True, null=True, verbose_name=_("Department")
+    )
     service_group = models.ForeignKey(
         "user.ServiceGroup",
         models.CASCADE,
         related_name="+",
+        verbose_name=_("Service group"),
     )
-    BEW = "BEW"
-    BGL = "BGL"
-    ACCOUNT_TYPE_CHOICES = (
-        (BEW, "Baubewilligung"),
-        (BGL, "Baubegleitung"),
+    instance_states = models.ManyToManyField(
+        "instance.InstanceState",
+        blank=True,
+        verbose_name=_("Instance states"),
     )
-    account_type = models.CharField(max_length=3, choices=ACCOUNT_TYPE_CHOICES)
+
+    class BillingAccountTypes(models.TextChoices):
+        BILLING_ACCOUNT_TYPE_BEW = "bew", _("Building permit")
+        BILLING_TYPE_FORWARDED = "bgl", _("Construction monitoring")
+
+    account_type = models.CharField(
+        max_length=3,
+        choices=BillingAccountTypes.choices,
+        verbose_name=_("Account type"),
+    )
 
     class Meta:
         ordering = ["name"]
-        verbose_name = "Gebührenart"
-        verbose_name_plural = "Gebührenarten"
+        verbose_name = _("Billing account")
+        verbose_name_plural = _("Billing accounts")

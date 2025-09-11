@@ -959,18 +959,30 @@ def test_notification_placeholders(
         timezone.make_aware(datetime(2019, 10, 24, 10)),
     )
 
-    kommunal_amount = billing_v2_entry_factory(
-        instance=sz_instance, organization="municipal", date_charged="2023-04-13"
-    ).final_rate
-    kanton_amount = billing_v2_entry_factory(
-        instance=sz_instance, organization="cantonal", date_charged="2023-04-13"
-    ).final_rate
-    uncharged_amount_kommunal = billing_v2_entry_factory(
-        instance=sz_instance, organization="municipal", date_charged=None
-    ).final_rate
-    uncharged_amount_kantonal = billing_v2_entry_factory(
-        instance=sz_instance, organization="cantonal", date_charged=None
-    ).final_rate
+    kommunal_amount = (
+        billing_v2_entry_factory(
+            instance=sz_instance, organization="municipal", date_charged="2023-04-13"
+        ).final_rate
+        or 0
+    )
+    kanton_amount = (
+        billing_v2_entry_factory(
+            instance=sz_instance, organization="cantonal", date_charged="2023-04-13"
+        ).final_rate
+        or 0
+    )
+    uncharged_amount_kommunal = (
+        billing_v2_entry_factory(
+            instance=sz_instance, organization="municipal", date_charged=None
+        ).final_rate
+        or 0
+    )
+    uncharged_amount_kantonal = (
+        billing_v2_entry_factory(
+            instance=sz_instance, organization="cantonal", date_charged=None
+        ).final_rate
+        or 0
+    )
 
     objection_participant_factory(objection=objection, representative=1)
 

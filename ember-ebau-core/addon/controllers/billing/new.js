@@ -32,14 +32,20 @@ export default class BillingNewController extends Controller {
   @tracked productNumbers;
   @tracked selectedTemplate = null;
 
-  billingV2Accounts = findAll(this, "billing-v2-account");
-
-  instance = findRecord(this, "instance", () => [
+  @tracked instance = findRecord(this, "instance", () => [
     this.ebauModules.instanceId,
     {
       include: "instance_state",
     },
   ]);
+
+  billingV2Accounts = trackedFunction(this, async () => {
+    return await this.store.query("billing-v2-account", {
+      filter: {
+        instance_states: this.instance?.record?.instanceState?.id,
+      },
+    });
+  });
 
   taxRates = hasFeature("billing.reducedTaxRate") ? [8.1, 2.6] : [8.1];
 
@@ -59,9 +65,6 @@ export default class BillingNewController extends Controller {
 
   get calculations() {
     const calculations = ["flat", "hourly", "percentage"];
-    if (hasFeature("billing.billingAccount")) {
-      calculations.unshift("percentage");
-    }
 
     if (isApplication("ag") && this.ebauModules.serviceSlug === "afb") {
       calculations.push("ag_processing_fee");
@@ -138,17 +141,6 @@ export default class BillingNewController extends Controller {
   }
 
   @action
-  isBaubegleitung(instanceStateId) {
-    const instanceStatesBaubegleitungArr = hasFeature(
-      "billing.instanceStatesBaubegleitung",
-    );
-    if (Array.isArray(instanceStatesBaubegleitungArr)) {
-      return instanceStatesBaubegleitungArr.includes(Number(instanceStateId));
-    }
-    return false;
-  }
-
-  @action
   update({ target: { value, name } }) {
     if (name === "tax-mode") {
       this.newEntry.taxMode = getMode(value);
@@ -159,17 +151,10 @@ export default class BillingNewController extends Controller {
         const account = this.store.peekRecord("billing-v2-account", accountId);
         this.newEntry.billingV2Account = account;
         this.newEntry.text = account.name;
-        this.newEntry.costCenter = account.account_number;
-      }
-    } else if (name === "basic") {
-      if (value !== "") {
-        this.newEntry.basic = value;
-        this.newEntry.calculation = "basic";
-      } else {
-        this.newEntry.calculation = "flat";
+        this.newEntry.costCenter = account.accountNumber;
       }
     } else {
-      this.newEntry[camelize(name)] = value ? value : null;
+      this.newEntry[camelize(name)] = value ?? null;
     }
   }
 
@@ -219,11 +204,6 @@ export default class BillingNewController extends Controller {
     if (this.newEntry.calculation !== "hourly") {
       this.newEntry.hours = null;
       this.newEntry.hourlyRate = null;
-    }
-    if (hasFeature("billing.basicCharge") && this.newEntry.basic) {
-      this.newEntry.totalCost =
-        this.newEntry.basic * hasFeature("billing.basicCharge");
-      this.newEntry.calculation = "flat";
     }
 
     try {

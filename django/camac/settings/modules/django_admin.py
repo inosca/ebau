@@ -46,7 +46,6 @@ DJANGO_ADMIN = {
         "ENABLED_MODELS": [
             "alexandria_core.Category",
             "alexandria_core.Mark",
-            "billing.BillingV2Account",
             "core.InstanceResource",
             "core.Resource",
             "gis.GISDataSource",

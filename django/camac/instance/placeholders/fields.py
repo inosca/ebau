@@ -537,11 +537,17 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                     else entry.group.get_name()
                 )
             case "DEPARTMENT":
-                if entry.billing_v2_account:
-                    return entry.billing_v2_account.department
+                return (
+                    entry.billing_v2_account.department
+                    if entry.billing_v2_account
+                    else ""
+                )
             case "KONTO":
-                if entry.billing_v2_account:
-                    return entry.billing_v2_account.account_number
+                return (
+                    entry.billing_v2_account.account_number
+                    if entry.billing_v2_account
+                    else ""
+                )
             case _:  # pragma: no cover
                 return None
 

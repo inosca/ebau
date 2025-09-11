@@ -98,6 +98,16 @@ msgid "BILLING_ENTRY_ORGANISATION"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
+#| msgid "BILLING_ENTRIES"
+msgid "BILLING_ACCOUNT"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
+#| msgid "BILLING_ENTRIES"
+msgid "BILLING_DEPARTMENT"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
 msgid "inclusive_short"
 msgstr ""
 

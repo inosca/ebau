@@ -118,7 +118,9 @@ class BillingV2AccountFactory(DjangoModelFactory):
     name = Faker("word")
     account_number = Faker("word")
     department = Faker("word")
-    account_type = str(Faker("word"))[:2]
+    account_type = fuzzy.FuzzyChoice(
+        choice_keys(BillingV2Account.BillingAccountTypes.choices)
+    )
 
     class Meta:
         model = BillingV2Account

@@ -8,6 +8,17 @@ export default {
     disableAuthentication: true,
     showPrintButton: true,
   },
+  billing: {
+    charge: true,
+    organization: false,
+    reducedTaxRate: false,
+    orderTaxByRate: false,
+    displayService: true,
+    billingType: true,
+    legalBasis: false,
+    costCenter: true,
+    account: true,
+  },
   rejection: {
     revert: true,
   },

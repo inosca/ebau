@@ -3,7 +3,7 @@ import pytest
 from camac.billing.models import BillingV2Entry
 
 
-@pytest.mark.parametrize("canton", ["be", "sz", "so"])
+@pytest.mark.parametrize("canton", ["be", "sz", "so", "uri"])
 @pytest.mark.django_db
 def test_billing_entry_manager(
     application_settings,

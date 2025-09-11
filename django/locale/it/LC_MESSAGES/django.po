@@ -119,6 +119,15 @@ msgstr "Organizzazioni"
 msgid "Service groups"
 msgstr "Tipi di organizzazione"
 
+#: camac/billing/admin.py camac/billing/models.py camac/user/admin/views.py
+#: camac/user/models.py
+msgid "Service group"
+msgstr "Tipo di organizzazione"
+
+#: camac/billing/admin.py camac/billing/models.py
+msgid "Instance states"
+msgstr "Stati del dossier"
+
 #: camac/billing/apps.py
 msgid "Billing"
 msgstr ""
@@ -240,6 +249,34 @@ msgstr ""
 
 #: camac/billing/models.py
 msgid "Billing entry templates"
+msgstr "Procedura"
+
+#: camac/billing/models.py
+msgid "Account number"
+msgstr ""
+
+#: camac/billing/models.py camac/user/models.py
+msgid "Department"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Building permit"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Construction monitoring"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Account type"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Billing account"
+msgstr ""
+
+#: camac/billing/models.py
+msgid "Billing accounts"
 msgstr ""
 
 #: camac/billing/serializers.py
@@ -2426,10 +2463,6 @@ msgstr "Disattiva gruppi selezionati"
 msgid "Enable selected groups"
 msgstr "Attiva gruppi selezionati"
 
-#: camac/user/admin/views.py camac/user/models.py
-msgid "Service group"
-msgstr "Tipo di organizzazione"
-
 #: camac/user/admin/views.py
 msgid "Disable selected services"
 msgstr "Disattiva servizi selezionati"
@@ -2571,10 +2604,6 @@ msgstr "Logo"
 #: camac/user/models.py
 msgid "Apply responsibility in construction control?"
 msgstr "Assumere la responsabilità per il controllo dei lavori?"
-
-#: camac/user/models.py
-msgid "Department"
-msgstr ""
 
 #: camac/user/models.py
 msgid "External identifier"

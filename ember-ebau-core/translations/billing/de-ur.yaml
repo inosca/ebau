@@ -1,0 +1,14 @@
+billing:
+  info-new: |-
+    <div class="uk-text-danger">
+      <span>Bitte beachten:</span>
+      <ul>
+        <li>
+          Politische Gemeinden, Kirchgemeinden, kantonale Amtsstellen, Kooperationsbürgergemeinden sowie die beiden Korporationen Uri und Ursern sind gemäss Gebührenverordnung in der Regel von Gebühren befreit.
+        </li>
+        <li>
+          Bei Spezialverfahren (z.B. Interne Mitberichtsverfahren oder PGVs) bei denen eine kantonale Behörde oder eine Bundesstelle Leitbehörde ist, werden ebenfalls keine Gebühren erhoben.
+        </li>
+      </ul>
+    </div>
+  position: Gebührenart

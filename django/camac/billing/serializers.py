@@ -22,7 +22,7 @@ from camac.user.relations import (
     CurrentUserResourceRelatedField,
     GroupResourceRelatedField,
 )
-from camac.user.serializers import CurrentGroupDefault, PublicServiceGroupSerializer
+from camac.user.serializers import CurrentGroupDefault
 
 if TYPE_CHECKING:
     from camac.settings.modules.billing_schema import ProductNumberConfig
@@ -287,15 +287,6 @@ class BillingV2BulkEntryIdsSerializer(serializers.Serializer):
 
 
 class BillingV2AccountSerializer(serializers.ModelSerializer):
-    included_serializers = {"service_group": PublicServiceGroupSerializer}
-
     class Meta:
         model = BillingV2Account
-        fields = (
-            "name",
-            "account_number",
-            "department",
-            "account_type",
-            "billing_v2_entries",
-            "service_group",
-        )
+        exclude = ("service_group",)

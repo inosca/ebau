@@ -1,10 +1,10 @@
 import {
-  visit,
-  settled,
-  waitFor,
   click,
   currentURL,
   fillIn,
+  settled,
+  visit,
+  waitFor,
 } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { t } from "ember-intl/test-support";
@@ -484,66 +484,39 @@ module("Acceptance | billing account selection", function (hooks) {
     });
 
     this.serviceGroup = publicService.serviceGroup;
-
-    this.billingV2Accounts = [
-      this.server.create("billing-v2-account", {
-        name: "BEW Account A",
-        account_type: "BEW",
-        serviceGroup: this.serviceGroup,
-        department: "DeptA",
-      }),
-      this.server.create("billing-v2-account", {
-        name: "BGL Account B",
-        account_type: "BGL",
-        serviceGroup: this.serviceGroup,
-        department: "DeptA",
-      }),
-    ];
+    this.server.create("billing-v2-account", {
+      name: "BEW Account A",
+      accountType: "bew",
+      department: "DeptA",
+    });
+    this.server.create("billing-v2-account", {
+      name: "BGL Account B",
+      accountType: "bgl",
+      department: "DeptB",
+    });
   });
 
-  test("only billing accounts matching serviceGroup and instanceState are selectable", async function (assert) {
-    this.features.enable("billing.billingAccount");
-    this.features.set("billing.instanceStatesBaubegleitung", [2]);
+  test("can select billing account", async function (assert) {
+    this.features.enable("billing.account");
 
-    const baubewilligungState = this.server.create("instance-state", {
-      id: 1,
-      name: "Status Baubewilligung",
-    });
     this.instance = this.server.create("instance", {
       activeService: this.serviceGroup,
-      instanceState: baubewilligungState,
     });
     this.owner.lookup("service:ebau-modules").instanceId = this.instance.id;
 
     await visit("/billing/new");
 
-    // Only BEW Account A should be visible in the select
-    await click("select#billing_v2_account");
-    assert.dom("select#billing_v2_account option").exists({ count: 2 }); // one empty, one valid
-    assert
-      .dom("select#billing_v2_account option:nth-child(2)")
-      .hasTextContaining("BEW");
-    assert
-      .dom("select#billing_v2_account option")
-      .doesNotHaveTextContaining("BGL");
+    await click('select[name="billing_v2_account"]');
+    assert.dom('select[name="billing_v2_account"] option').exists({ count: 3 }); // one empty, two valid
 
-    // Now switch instanceState to 'BGL' (simulate by updating the instance record)
-    const baubegleitungState = this.server.create("instance-state", {
-      id: 2,
-      name: "Status Baubegleitung",
-    });
-    this.instance.update({ instanceState: baubegleitungState });
-    this.owner.lookup("service:ebau-modules").instanceId = this.instance.id;
-
-    await visit("/billing/new");
-    // Only BGL Account A should be visible now
-    await click("select#billing_v2_account");
-    assert.dom("select#billing_v2_account option").exists({ count: 2 });
     assert
-      .dom("select#billing_v2_account option:nth-child(2)")
-      .hasTextContaining("BGL");
+      .dom('select[name="billing_v2_account"] option:nth-child(1)')
+      .hasTextContaining("");
     assert
-      .dom("select#billing_v2_account option")
-      .doesNotHaveTextContaining("BEW");
+      .dom('select[name="billing_v2_account"] option:nth-child(2)')
+      .hasTextContaining("bew");
+    assert
+      .dom('select[name="billing_v2_account"] option:nth-child(3)')
+      .hasTextContaining("bgl");
   });
 });
