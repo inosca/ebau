@@ -293,16 +293,17 @@ def _get_default_deadline(settings, work_item):
 
 
 def _get_deadline_override(settings, work_item):
-    if settings.DISTRIBUTION.get("DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"):
-        addressed_service = Service.objects.get(pk=work_item.addressed_groups[0])
-        default_deadline_for_service = settings.DISTRIBUTION[
-            "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"
-        ].get(addressed_service.service_group.name)
+    addressed_service = Service.objects.get(pk=work_item.addressed_groups[0])
 
-        if default_deadline_for_service:
-            return delay_next_workingday(
-                now().date() + timedelta(default_deadline_for_service)
-            )
+    if lead_time := settings.DISTRIBUTION.get(
+        "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES", {}
+    ).get(addressed_service.slug):
+        return lead_time
+
+    if settings.DISTRIBUTION.get("DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS"):
+        return settings.DISTRIBUTION[
+            "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS"
+        ].get(addressed_service.service_group.name)
 
 
 @on(post_create_work_item, raise_exception=True)
@@ -320,7 +321,9 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
     if deadline_override := _get_deadline_override(settings, work_item):
         # If there's an override (fixed leadtime for certain services) we always
         # take that deadline
-        answers[deadline_question] = deadline_override.isoformat()
+        answers[deadline_question] = delay_next_workingday(
+            now().date() + timedelta(deadline_override)
+        ).isoformat()
     elif deadline_question not in answers or answers[deadline_question] == "0000-01-01":
         # If the deadline was not passed from the frontend or the frontend
         # passed "0000-01-01" we take the default deadline. This will consider

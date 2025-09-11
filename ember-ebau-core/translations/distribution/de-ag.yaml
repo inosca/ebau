@@ -1,3 +1,3 @@
 distribution:
   inquiry-deadline-input:
-    disabled-hint: "Wenn die Abteilung für Baubewilligungen zur Teilnahme an der Zirkulation eingeladen wird, kann keine manuelle Frist festgelegt werden; stattdessen wird die im System hinterlegte Frist (60 Tage) verwendet."
+    disabled-hint: "Es wurde eine Fachstelle zur Teilnahme an der Zirkulation eingeladen, für die keine manuelle Frist festgelegt werden kann; stattdessen wird die im System hinterlegte Frist verwendet."
