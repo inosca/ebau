@@ -1,8 +1,10 @@
-(function (window, document, undefined) {
+(function(window, document, undefined) {
   window.onload = init;
 
   function init() {
     // Ensure DOM is loaded
+
+    const menuButton = document.getElementById("mobile-menu-toggle");
 
     let passwordIcon = document.getElementById("passwordIcon");
     let passwordConfirmIcon = document.getElementById("passwordConfirmIcon");
@@ -11,15 +13,31 @@
     let passwordConfirmInput = document.getElementById("password-confirm");
 
     // Add event listeners only if elements exist
+
+    if (menuButton) {
+      menuButton.addEventListener("click", function() {
+        toggleMenu();
+      });
+    }
+
     if (passwordIcon && passwordInput) {
-      passwordIcon.addEventListener("click", function () {
+      passwordIcon.addEventListener("click", function() {
         toggleShowPassword();
       });
     }
 
     if (passwordConfirmIcon && passwordConfirmInput) {
-      passwordConfirmIcon.addEventListener("click", function () {
+      passwordConfirmIcon.addEventListener("click", function() {
         toggleShowPasswordConfirm();
+      });
+    }
+
+    function toggleMenu() {
+      ["mobile-menu", "mobile-menu-toggle"].forEach((id) => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.classList.toggle("open");
+        }
       });
     }
 
@@ -33,7 +51,7 @@
     function toggleShowPasswordConfirm() {
       passwordConfirmIcon.classList.toggle("hidePassword");
       passwordConfirmInput.type = passwordConfirmIcon.classList.contains(
-        "hidePassword"
+        "hidePassword",
       )
         ? "text"
         : "password";
