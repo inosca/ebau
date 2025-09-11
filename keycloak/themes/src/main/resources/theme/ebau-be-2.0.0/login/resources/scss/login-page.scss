@@ -2,16 +2,16 @@
 
 #kc-social-providers-buttons {
   display: flex;
+  flex-direction: column;
+  max-width: 50%;
 
   button {
-    flex-basis: 50%;
+    margin: 0 0 25px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1119px) {
   #kc-social-providers-buttons {
-    button {
-      flex-basis: 100%;
-    }
+    max-width: 100%;
   }
 }

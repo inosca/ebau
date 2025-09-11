@@ -1,9 +1,9 @@
 <#import "template.ftl" as layout>
-    <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username') displayInfo=(realm.password &&
+    <@layout.registrationLayout pageId="login" displayMessage=!messagesPerField.existsError('username') displayInfo=(realm.password &&
         realm.registrationAllowed && !registrationDisabled??); section>
         <#if section="header">
             <div class="title">
-                <h1>${msg("login")}</h1>
+                <h1>${msg("loginHeading")}</h1>
             </div>
         </#if>
         <#if section="form">
@@ -37,18 +37,13 @@
         <#if section="context">
             <ul class='box-beige open' data-accordion data-allow-all-closed='true' data-multi-expand='false'>
                 <li class="default infobox-wrapper is-active" data-accordion-item>
-                    <h4 class="infobox-title">Fragen & Antworten</h4>
+                    <h4 class="infobox-title">${msg("loginFaqHeading")}</h4>
                     <div class="accordion-content" data-tab-content>
                         <hr class="accordion">
-                        <h4>Welche Anmeldedienste wähle ich aus?</h4>
-                        <p>Nec fusce nullam tristique hac morbi. A dapibus metus sed tincidunt. Id placerat
-                            eu purus platea torquent tellus duis porttitor convallis volutpat.</p>
-                        <h4>Wo erhalte ich Hilfe?</h4>
-                        <p>Nec fusce nullam tristique hac morbi. A dapibus metus sed tincidunt. Id placerat
-                            eu purus platea torquent tellus duis porttitor convallis volutpat.</p>
+                        ${kcSanitize(msg("loginFaqContent"))?no_esc}
                         <div class='arrow-link'>
                             <span class='link-arrow'></span>
-                            <a class='text-link-2'>Support Informationen</a>
+                            <a class='text-link-2' href="${msg('loginFaqLinkTarget')}">${msg("loginFaqLinkText")}</a>
                         </div>
                     </div>
                 </li>

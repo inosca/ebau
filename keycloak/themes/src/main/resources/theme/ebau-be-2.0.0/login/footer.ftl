@@ -1,12 +1,14 @@
-<#macro content>
+<#macro content pageId="">
     <footer class="footer-container">
         <div class="inner">
             <div class="footer-nav">
-                <a href="#" class="service-menue">Kontakt</a>
-                <a href="#" class="service-menue">Datenschutz</a>
-                <a href="#" class="service-menue">Impressum</a>
+                <#list ["Department","Contact","Privacy","Impressum"] as site>
+                    <#if msg("nav"+site) !="nav" + site && msg("nav"+site)?has_content>
+                        <a href="${msg('nav'+site+'Link')}" class="service-menue">${msg("nav"+site)}</a>
+                    </#if>
+                </#list>
             </div>
-            <span class="copyright">© ${msg("kantonBern")}</span>
+            <span class="copyright">© ${msg("copyright")}</span>
         </div>
     </footer>
 </#macro>

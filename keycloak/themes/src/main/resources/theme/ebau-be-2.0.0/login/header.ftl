@@ -1,4 +1,4 @@
-<#macro content>
+<#macro content pageId="">
   <header>
     <div class="inner">
       <div class="mobile-menu-nav">
@@ -9,9 +9,14 @@
         <div id="mobile-menu">
           <div class="mobile-menu-container sand">
             <ul class="mobile-menu-list">
-              <li><a class="service-menue item active" href="#">Login</a></li>
-              <li><a class='service-menue item' href='https://www.be.ch/de/start/ueber-uns/kontaktformular.html'
-                  role='listitem'>Support</a></li>
+              <#list ["Login","Support"] as site>
+                <#if msg("nav"+site) !="nav" + site && msg("nav"+site)?has_content>
+                  <li><a role='listitem' href="${msg('nav'+site+'Link')}" class="item service-menue
+              <#if pageId == msg('nav' + site + 'Id')>
+                active
+              </#if>">${msg("nav"+site)}</a></li>
+                </#if>
+              </#list>
             </ul>
             <#if realm.internationalizationEnabled && locale.supported?size gt 1>
               <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
@@ -31,14 +36,18 @@
                 </div>
               </div>
             </#if>
-
           </div>
         </div>
       </div>
       <div class='service-nav login' role='list'>
-        <a class='service-menue active' href='#' role='listitem'>Login</a>
-        <a class='service-menue' href='https://www.be.ch/de/start/ueber-uns/kontaktformular.html'
-          role='listitem'>Support</a>
+        <#list ["Login","Support"] as site>
+          <#if msg("nav"+site) !="nav" + site && msg("nav"+site)?has_content>
+            <a role='listitem' href="${msg('nav'+site+'Link')}" class="service-menue
+              <#if pageId == msg('nav' + site + 'Id')>
+                active
+              </#if>">${msg("nav"+site)}</a>
+          </#if>
+        </#list>
         <#if realm.internationalizationEnabled && locale.supported?size gt 1>
           <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
             <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
@@ -57,7 +66,6 @@
             </div>
           </div>
         </#if>
-
       </div>
       <div class="header-logo"></div>
       <p class="logo-caption">

@@ -1,6 +1,6 @@
 <#import "footer.ftl" as footer>
     <#import "header.ftl" as header>
-        <#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false
+        <#macro registrationLayout pageId bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false
             hideOtherWays=false>
             <!DOCTYPE html
                 PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -47,9 +47,9 @@
                 </#list>
             </#if>
         </head>
-    <body class="login">
+    <body class="login" data-page-id="login-${pageId}">
         <div class="box-content">
-            <@header.content></@header.content>
+            <@header.content pageId></@header.content>
             <main class="content">
                 <#nested "header">
                 <div class="main-column">
