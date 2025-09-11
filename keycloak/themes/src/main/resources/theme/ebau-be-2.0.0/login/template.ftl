@@ -49,24 +49,33 @@
         </head>
     <body class="login">
         <div class="box-content">
-            <@header.content />
+            <@header.content></@header.content>
             <main class="content">
-                <#if displayMessage && message?has_content>
-                    <div class="feedback feedback-${message.type}">
-                        <span class="feedback-icon"></span>
-                        <span class="feedback-text">
-                            ${kcSanitize(message.summary)?no_esc}
-                        </span>
-                    </div>
-                </#if>
+                <#nested "header">
                 <div class="main-column">
+                    <#if displayMessage && message?has_content>
+                        <div class="feedback feedback-${message.type}">
+                            <span class="feedback-icon"></span>
+                            <span class="feedback-text">
+                                ${kcSanitize(message.summary)?no_esc}
+                            </span>
+                        </div>
+                    </#if>
+                    <#if msg("feedbackbox-message") != "feedbackbox-message" && msg("feedbackbox-message")?has_content>
+                        <div class="feedback feedback-${msg("feedbackbox-type")}">
+                            <span class="feedback-icon"></span>
+                            <span class="feedback-text">
+                                ${kcSanitize(msg("feedbackbox-message"))?no_esc}
+                            </span>
+                        </div>
+                    </#if>
                     <#nested "form">
                 </div>
                 <div class="context-column">
                     <#nested "context">
                 </div>
             </main>
-            <@footer.content />
+            <@footer.content></@footer.content>
         </div>
     </body>
 </html>

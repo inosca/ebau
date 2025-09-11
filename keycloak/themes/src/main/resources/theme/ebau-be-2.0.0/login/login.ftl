@@ -1,10 +1,12 @@
 <#import "template.ftl" as layout>
     <@layout.registrationLayout displayMessage=!messagesPerField.existsError('username') displayInfo=(realm.password &&
         realm.registrationAllowed && !registrationDisabled??); section>
-        <#if section="form">
+        <#if section="header">
             <div class="title">
                 <h1>${msg("login")}</h1>
             </div>
+        </#if>
+        <#if section="form">
             <div class="login-helpertext">
                 <p>${msg("loginProviderHint")}</p>
             </div>
