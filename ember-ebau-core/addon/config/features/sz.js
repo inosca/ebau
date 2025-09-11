@@ -10,7 +10,7 @@ export default {
     costCenter: false,
     // Keep this config in sync with django/camac/settings/modules/billing.py
     releaseForClearing: {
-      enabled: false,
+      enabled: true,
       forms: [
         "baugesuch-reklamegesuch",
         "projektanderung",
@@ -26,7 +26,7 @@ export default {
         "afg-entwaesserung",
       ],
     },
-    productNumber: false,
+    productNumber: true,
   },
   cases: {
     createPaper: false,
