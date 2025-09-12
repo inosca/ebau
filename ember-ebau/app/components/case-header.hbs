@@ -95,16 +95,10 @@
           }}</div>
         <LinkedInstancesCounter @case={{@case}} />
       </div>
-      {{#if this.evenProjectLink}}
+      {{#if this.evenProjectnumbers}}
         <div>
           <div class="uk-text-bold">{{t "cases.tableHeaders.even"}}</div>
-          <a
-            href="{{this.evenProjectLink}}"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            {{@case.evenProjectNumber}}
-          </a>
+          <EvenProjectnumberList @value={{this.evenProjectnumbers}} />
         </div>
       {{/if}}
       <div class="{{this.keywordsCssClass}}">
