@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-02 15:36+0200\n"
+"POT-Creation-Date: 2025-09-12 15:25+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -195,8 +195,8 @@ msgstr "Registrato il"
 msgid "Group"
 msgstr "Gruppo"
 
-#: camac/billing/serializers.py camac/user/admin/inlines.py
-#: camac/user/models.py
+#: camac/billing/serializers.py camac/core/tests/test_translations.py
+#: camac/user/admin/inlines.py camac/user/models.py
 msgid "User"
 msgstr "Utente"
 
@@ -286,15 +286,6 @@ msgstr ""
 #: camac/caluma/extensions/dynamic_tasks.py
 msgid "Construction step completed"
 msgstr "concluso"
-
-#: camac/caluma/extensions/events/address_assignment.py
-#, python-brace-format
-msgid ""
-"Address suggestion accepted and address updated in form from "
-"{old_street_value} to {new_street_value}"
-msgstr ""
-"Suggerimento di indirizzo accettato e indirizzo aggiornato nel modulo da "
-"{old_street_value} a {new_street_value}"
 
 #: camac/caluma/extensions/events/audit.py
 msgid "Exam skipped"
@@ -388,6 +379,44 @@ msgstr "Trasmetti modulo di notifica all'AWA"
 #: camac/caluma/extensions/events/sb.py
 msgid "Inform load compensation bodies"
 msgstr "Informare chi ha presentato domanda di compensazione degli oneri"
+
+#: camac/caluma/extensions/format_validators.py
+msgid "Comma separated list of integers"
+msgstr ""
+
+#: camac/caluma/extensions/format_validators.py
+msgid "Only comma separated intergers are permited"
+msgstr ""
+
+#: camac/caluma/extensions/format_validators.py
+msgid "EVEN project number format"
+msgstr ""
+
+#: camac/caluma/extensions/format_validators.py
+msgid ""
+"The marking must consist of two capital letters for the canton abbreviation, "
+"a hyphen and five letters/numbers. Multiple project numbers can be separated "
+"by commas."
+msgstr ""
+
+#: camac/caluma/extensions/format_validators.py
+msgid "eEBA Declaration format"
+msgstr ""
+
+#: camac/caluma/extensions/format_validators.py
+msgid ""
+"The declaration must start with 'GR-EBA-' followed by six capital letters or "
+"digits."
+msgstr ""
+
+#: camac/caluma/extensions/format_validators.py
+msgid "Date after"
+msgstr "Data dopo"
+
+#: camac/caluma/extensions/format_validators.py
+#, python-format
+msgid "Date must be after \"%(after_question)s\""
+msgstr "La data deve essere successiva alla \"%(after_question)s\""
 
 #: camac/caluma/extensions/validations.py
 msgid "Issue statement on appeal"
@@ -612,8 +641,8 @@ msgid ""
 "                `{\n"
 "                    \"key\": \"key_in_context_json\",\n"
 "                    \"value\": \"value to be searched for\",\n"
-"                    \"lookup\": \"any of EXACT,STARTSWITH,CONTAINS,ICONTAINS,"
-"GTE,GT,LTE,LT (defaults to EXACT)\",\n"
+"                    \"lookup\": \"any of "
+"EXACT,STARTSWITH,CONTAINS,ICONTAINS,GTE,GT,LTE,LT (defaults to EXACT)\",\n"
 "                    \"invert\": \"boolean (defaults to false). Negates the "
 "lookup\"\n"
 "                }`\n"
@@ -625,8 +654,9 @@ msgstr ""
 "                `{\n"
 "                    \"key\": \"key_in_context_json\",\n"
 "                    \"valore\": \"valore da ricercare\",\n"
-"                    \"lookup\": \"uno tra EXACT,STARTSWITH,CONTAINS,"
-"ICONTAINS,GTE,GT,LTE,LT (valore standard EXACT)\",\n"
+"                    \"lookup\": \"uno tra "
+"EXACT,STARTSWITH,CONTAINS,ICONTAINS,GTE,GT,LTE,LT (valore standard EXACT)"
+"\",\n"
 "                    \"invert\": \"valore booleano (valore predefinito è "
 "false). Non permette la ricerca\"\n"
 "                }`\n"
@@ -743,8 +773,8 @@ msgstr "hanno lo stesso ID"
 
 #: camac/dossier_import/messages.py
 msgid ""
-"have an invalid value in date field. Please use the format \"DD.MM.YYYY\" (e."
-"g. \"13.04.2021\")"
+"have an invalid value in date field. Please use the format \"DD.MM.YYYY\" "
+"(e.g. \"13.04.2021\")"
 msgstr ""
 "hanno una data non valida. Indicare la data nel formato \"DD.MM.YYYY\" (ad "
 "es. \"13.04.2021\")"
@@ -816,8 +846,8 @@ msgstr "Il file caricato non ha un formato .zip valido."
 #: camac/dossier_import/validation.py
 msgid "No metadata file 'dossiers.xlsx' found in uploaded archive."
 msgstr ""
-"Nella cartella caricata non è stato trovato un file di metadati 'dossiers."
-"xlsx'."
+"Nella cartella caricata non è stato trovato un file di metadati "
+"'dossiers.xlsx'."
 
 #: camac/dossier_import/validation.py
 msgid "Metadata file `dossiers.xlsx` is not a valid .xlsx file."
@@ -1007,23 +1037,23 @@ msgstr "Attiva servizi selezionati"
 #, python-format
 msgid "Error %(code)s while fetching data from the geo.admin.ch API"
 msgstr ""
-"Errore %(code)s nel corso dell'interrogazione dei dati dall'interfaccia geo."
-"admin.ch"
+"Errore %(code)s nel corso dell'interrogazione dei dati dall'interfaccia "
+"geo.admin.ch"
 
 #: camac/gis/clients/ag.py
 #, fuzzy
 #| msgid "Error %(code)s while fetching data from the geo.so.ch API"
 msgid "An error occured while fetching data from the AGIS API."
 msgstr ""
-"Errore %(code)s nel corso dell'interrogazione dei dati dall'interfaccia geo."
-"so.ch"
+"Errore %(code)s nel corso dell'interrogazione dei dati dall'interfaccia "
+"geo.so.ch"
 
 #: camac/gis/clients/sogis.py
 #, python-format
 msgid "Error %(code)s while fetching data from the geo.so.ch API"
 msgstr ""
-"Errore %(code)s nel corso dell'interrogazione dei dati dall'interfaccia geo."
-"so.ch"
+"Errore %(code)s nel corso dell'interrogazione dei dati dall'interfaccia "
+"geo.so.ch"
 
 #: camac/gis/models.py
 msgid "GIS Canton Solothurn"
@@ -1159,13 +1189,6 @@ msgstr ""
 #: camac/user/authentication.py
 msgid "Signature has expired."
 msgstr "La firma è scaduta."
-
-#: camac/instance/domain_logic/address_assignment.py
-#, python-brace-format
-msgid ""
-"Address suggestion accepted and address updated in form from {master_data."
-"street} to {new_street_value}"
-msgstr ""
 
 #: camac/instance/domain_logic/rejection.py
 msgid "Instance can't be rejected while there is an open circulation"
