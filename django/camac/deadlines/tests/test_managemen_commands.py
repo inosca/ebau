@@ -7,6 +7,7 @@ from django.utils.timezone import make_aware
 from camac.deadlines import models as deadlines_models
 
 
+@pytest.mark.freeze_time("2025-05-28")
 @pytest.mark.parametrize(
     "service_group__name,role__name", [("municipality", "municipality-lead")]
 )
@@ -20,6 +21,7 @@ def test_management_command_deadline_progression(
     verbosity,
     has_stdout,
     gr_deadlines_settings,
+    disable_deadline_progression,
     caplog,
 ):
     """Test the management command execution for updating deadline progression."""
@@ -27,6 +29,7 @@ def test_management_command_deadline_progression(
         instance=gr_instance,
         service=service,
         start_date=make_aware(datetime.strptime("2025-05-20", "%Y-%m-%d")),
+        process_deadline_date=make_aware(datetime.strptime("2025-06-28", "%Y-%m-%d")),
     )
     suspension_factory(
         deadline=deadline,
@@ -45,12 +48,15 @@ def test_management_command_deadline_progression(
     assert deadline.process_deadline_days == 4
 
 
+@pytest.mark.freeze_time("2025-05-28")
 def test_management_command_deadline_progression_query(
     db,
     service_factory,
     suspension_factory,
     instance_deadline_factory,
     instance_factory,
+    disable_deadline_progression,
+    gr_deadlines_settings,
 ):
     """Test the management command query to only select deadlines with open suspensions."""
     service1 = service_factory()
@@ -59,9 +65,25 @@ def test_management_command_deadline_progression_query(
     instance1 = instance_factory()
     instance2 = instance_factory()
 
-    deadline1 = instance_deadline_factory(instance=instance1, service=service1)
-    deadline2 = instance_deadline_factory(instance=instance1, service=service2)
-    deadline3 = instance_deadline_factory(instance=instance2, service=service2)
+    deadline1 = instance_deadline_factory(
+        instance=instance1,
+        service=service1,
+        start_date=make_aware(datetime.strptime("2025-05-20", "%Y-%m-%d")),
+        process_deadline_date=make_aware(datetime.strptime("2025-06-28", "%Y-%m-%d")),
+    )
+    deadline2 = instance_deadline_factory(
+        instance=instance1,
+        service=service2,
+        start_date=make_aware(datetime.strptime("2025-05-20", "%Y-%m-%d")),
+        process_deadline_date=make_aware(datetime.strptime("2025-06-28", "%Y-%m-%d")),
+    )
+    # deadline ended already
+    deadline3 = instance_deadline_factory(
+        instance=instance2,
+        service=service2,
+        start_date=make_aware(datetime.strptime("2025-05-20", "%Y-%m-%d")),
+        process_deadline_date=make_aware(datetime.strptime("2025-05-21", "%Y-%m-%d")),
+    )
     instance_deadline_factory(instance=instance_factory(), service=service1)
     instance_deadline_factory(instance=instance1, service=service_factory())
 
@@ -93,13 +115,16 @@ def test_management_command_deadline_progression_query(
     updates = [
         v
         for v in (
-            deadlines_models.InstanceDeadline.objects.with_open_suspensions()
+            deadlines_models.InstanceDeadline.objects.only_running()
             .order_by("instance__pk", "service__pk")
             .values_list("instance__pk", "service__pk")
         )
     ]
+
     assert [
         (instance1.pk, service1.pk),
         (instance1.pk, service2.pk),
         (instance2.pk, service2.pk),
-    ] == updates, "The query should only return deadlines with open suspensions."
+    ] == updates, (
+        "The query should only return deadlines with open suspensions or not ended."
+    )

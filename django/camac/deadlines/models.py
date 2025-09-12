@@ -5,7 +5,7 @@ import uuid_extensions
 from caluma.caluma_workflow.models import WorkItem
 from dateutil.parser import parse as dateutil_parse
 from django.conf import settings
-from django.db import models
+from django.db import models, transaction
 from django.db.models import Exists, OuterRef, Q
 from django.utils.timezone import is_naive, make_aware, now
 from django.utils.translation import gettext_lazy as _
@@ -105,13 +105,19 @@ class InstanceDeadlinesQuerySet(
     def for_instance(self: TInstanceDeadline, instance: Instance) -> TInstanceDeadline:
         return self.filter(instance=instance)
 
-    def with_open_suspensions(self: TInstanceDeadline) -> TInstanceDeadline:
-        """Query deadlines open suspensions."""
+    def only_running(self: TInstanceDeadline) -> TInstanceDeadline:
+        """Query deadlines that are still running."""
         return self.annotate(
             has_open_suspension=Exists(
                 Suspension.objects.only_open().filter(deadline=OuterRef("pk"))
             )
-        ).filter(has_open_suspension=True)
+        ).filter(
+            Q(
+                process_deadline_date__isnull=True,
+            )
+            | Q(process_deadline_date__gt=now().date())
+            | Q(has_open_suspension=True)
+        )
 
     def create_deadline(
         self, instance: Instance, service: Service
@@ -145,9 +151,11 @@ class InstanceDeadlinesQuerySet(
         if deadline := instance.deadlines.filter(service=service).first():
             deadline.recalculate_progression()
 
-    def recalculate_deadlines(self):
+    def recalculate_deadlines(self, process_all=False):
         updated = []
-        for deadline in InstanceDeadline.objects.with_open_suspensions():
+        qs_deadlines = self.all() if process_all else self.only_running()
+
+        for deadline in qs_deadlines.iterator():
             deadline.update_progression()
             updated.append(deadline)
 
@@ -390,6 +398,7 @@ class InstanceDeadline(models.Model):
         if old_start_date != self.start_date:
             self.save(update_fields=["start_date"])
 
+    @transaction.atomic
     def update_progression(self):
         """Update the deadline progression based on the current state.
 
@@ -408,6 +417,7 @@ class InstanceDeadline(models.Model):
         old_start_date = self.start_date
         old_process_deadline_date = self.process_deadline_date
         old_process_deadline_days = self.process_deadline_days
+        old_total_days_of_suspension = self.total_days_of_suspension
 
         self.total_days_of_suspension = len(self.get_suspension_dates())
 
@@ -436,9 +446,11 @@ class InstanceDeadline(models.Model):
             old_start_date != self.start_date
             or old_process_deadline_date != self.process_deadline_date
             or old_process_deadline_days != self.process_deadline_days
+            or old_total_days_of_suspension != self.total_days_of_suspension
         ):
             self.save(
                 update_fields=[
+                    "start_date",
                     "total_days_of_suspension",
                     "process_deadline_date",
                     "process_deadline_days",
