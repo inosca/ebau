@@ -1,5 +1,6 @@
 import { action } from "@ember/object";
 import { service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
@@ -110,6 +111,12 @@ export default class WorkItemDetailNewComponent extends Component {
         ? { controllingGroups: [this.args.serviceId.toString()] }
         : {}),
     };
+
+    // In Uri we always set a controlling group because otherwise no
+    // notifications are sent for manual work-items.
+    if (macroCondition(getOwnConfig().application === "ur")) {
+      extra.controllingGroups = [this.args.serviceId.toString()];
+    }
 
     try {
       const caseId = (yield this.apollo.query(
