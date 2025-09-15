@@ -1918,7 +1918,7 @@ def test_instance_finalize(
 
 
 @pytest.mark.parametrize("paper", [(True, False)])
-@pytest.mark.parametrize("form_slug", [(None), ("nfd")])
+@pytest.mark.parametrize("form_slug", [(None)])
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 def test_generate_and_store_pdf(
     db,
@@ -1970,7 +1970,6 @@ def test_generate_and_store_pdf(
 
     dms_settings["FORM"] = {
         "main-form": {"template": "some-template"},
-        "nfd": {"template": "some-template"},
     }
 
     be_instance.case.document.answers.create(
@@ -2270,7 +2269,6 @@ def test_has_pending_sanction_filter(
     [
         (None, False, status.HTTP_200_OK),
         (None, True, status.HTTP_200_OK),
-        ("nfd", False, status.HTTP_200_OK),
         ("something", False, status.HTTP_400_BAD_REQUEST),
     ],
 )
@@ -2310,7 +2308,6 @@ def test_generate_pdf_action(
 
     dms_settings["FORM"] = {
         "main-form": {"template": "some-template"},
-        "nfd": {"template": "some-template"},
         "mp-form": {"template": "some-template"},
     }
 
