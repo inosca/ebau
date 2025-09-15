@@ -124,6 +124,7 @@ def test_journal_entry_visible_for(
         ("Service", status.HTTP_200_OK),
         ("Coordination", status.HTTP_200_OK),
         ("Geometer", status.HTTP_200_OK),
+        ("Legal-Authority", status.HTTP_200_OK),
     ],
 )
 def test_journal_entry_update(
@@ -137,7 +138,7 @@ def test_journal_entry_update(
 ):
     url = reverse("journal-entry-detail", args=[journal_entry.pk])
 
-    if role.name == "Geometer":
+    if role.name in ["Geometer", "Legal-Authority"]:
         instance_acl_factory(
             instance=journal_entry.instance,
             grant_type="SERVICE",
@@ -159,6 +160,7 @@ def test_journal_entry_update(
         ("Commission", status.HTTP_403_FORBIDDEN),
         ("Coordination", status.HTTP_201_CREATED),
         ("Geometer", status.HTTP_201_CREATED),
+        ("Legal-Authority", status.HTTP_201_CREATED),
     ],
 )
 def test_journal_entry_create(
@@ -202,6 +204,7 @@ def test_journal_entry_create(
         ("Canton", status.HTTP_204_NO_CONTENT),
         ("Service", status.HTTP_204_NO_CONTENT),
         ("Geometer", status.HTTP_204_NO_CONTENT),
+        ("Legal-Authority", status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_journal_entry_destroy(
@@ -215,7 +218,7 @@ def test_journal_entry_destroy(
 ):
     url = reverse("journal-entry-detail", args=[journal_entry.pk])
 
-    if role.name == "Geometer":
+    if role.name in ["Geometer", "Legal-Authority"]:
         instance_acl_factory(
             instance=journal_entry.instance,
             grant_type="SERVICE",

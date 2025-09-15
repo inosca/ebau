@@ -1225,6 +1225,9 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     def has_create_permission_for_geometer(self):
         return True
 
+    def has_create_permission_for_legal_authority(self):
+        return True
+
     @permission_aware
     def has_object_update_permission(self, obj):  # pragma: no cover
         # only needed as entry for permission aware decorator
@@ -1249,6 +1252,9 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     def has_object_update_permission_for_geometer(self, obj):
         return self.has_object_update_permission_for_canton(obj)
 
+    def has_object_update_permission_for_legal_authority(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
     @permission_aware
     def has_object_destroy_permission(self, obj):  # pragma: no cover
         # see comment has_object_update_permission
@@ -1264,6 +1270,9 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
         return self.has_object_update_permission_for_canton(obj)
 
     def has_object_destroy_permission_for_geometer(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_destroy_permission_for_legal_authority(self, obj):
         return self.has_object_update_permission_for_canton(obj)
 
 

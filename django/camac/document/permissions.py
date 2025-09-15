@@ -467,6 +467,11 @@ PERMISSIONS_BY_ACCESSLEVEL = {
             AdminInternalPermission: (_has_documents_write_permission, [4]),
             ReadWriteDuringSB1: (_has_documents_write_permission, [10]),
         },
+        "legal-authority": {
+            ReadPermission: (_allow_always, [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14]),
+            ReadInternalPermission: (_allow_always, [4]),
+            AdminInternalPermission: (_has_documents_write_permission, [4]),
+        },
     },
     "kt_schwyz": {
         "read": {

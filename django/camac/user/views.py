@@ -67,6 +67,10 @@ class UserView(ReadOnlyModelViewSet):
         queryset = super().get_queryset()
         return queryset.filter(groups__service=self.request.group.service).distinct()
 
+    def get_queryset_for_legal_authority(self):
+        queryset = super().get_queryset()
+        return queryset.filter(groups__service=self.request.group.service).distinct()
+
     def get_queryset_for_support(self):
         return super().get_queryset()
 
@@ -121,6 +125,9 @@ class ServiceView(MultilangMixin, ModelViewSet):
         return super().get_queryset()
 
     def get_queryset_for_geometer(self):
+        return super().get_queryset()
+
+    def get_queryset_for_legal_authority(self):
         return super().get_queryset()
 
     def get_queryset_for_building_commission(self):

@@ -148,6 +148,9 @@ class InstanceQuerysetMixin(object):
     def get_queryset_for_geometer(self, group=None):
         return self.get_base_queryset_acl()
 
+    def get_queryset_for_legal_authority(self, group=None):
+        return self.get_base_queryset_acl()
+
     def get_queryset_for_coordination(self, group=None):
         # In Uri coordination services are allowed to see all instances.
         # This is also partly a performance work-around as running this mixin
@@ -489,6 +492,9 @@ class InstanceEditableMixin(AttributeMixin):
     def get_editable_for_geometer(self, instance):
         return self.permissions_manager().get_permissions(instance)
 
+    def get_editable_for_legal_authority(self, instance):
+        return self.permissions_manager().get_permissions(instance)
+
     def get_editable_for_support(self, instance):
         return {"instance", "form", "document"}
 
@@ -590,6 +596,9 @@ class InstanceEditableMixin(AttributeMixin):
         return self._validate_instance_editablity(instance)
 
     def validate_instance_for_geometer(self, instance):
+        return self._validate_instance_editablity(instance)
+
+    def validate_instance_for_legal_authority(self, instance):
         return self._validate_instance_editablity(instance)
 
     def validate_instance_for_support(self, instance):

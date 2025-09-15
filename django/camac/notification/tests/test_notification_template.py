@@ -60,6 +60,7 @@ def test_notification_template_list(
         ("Canton", status.HTTP_200_OK),
         ("Service", status.HTTP_200_OK),
         ("Geometer", status.HTTP_200_OK),
+        ("Legal-Authority", status.HTTP_200_OK),
     ],
 )
 def test_notification_template_update(admin_client, notification_template, status_code):
@@ -76,6 +77,7 @@ def test_notification_template_update(admin_client, notification_template, statu
         ("Service", status.HTTP_201_CREATED),
         ("Municipality", status.HTTP_201_CREATED),
         ("Geometer", status.HTTP_201_CREATED),
+        ("Legal-Authority", status.HTTP_201_CREATED),
     ],
 )
 def test_notification_template_create(admin_client, notification_template, status_code):
@@ -110,6 +112,7 @@ def test_notification_template_create(admin_client, notification_template, statu
         ("Canton", status.HTTP_204_NO_CONTENT),
         ("Service", status.HTTP_204_NO_CONTENT),
         ("Geometer", status.HTTP_204_NO_CONTENT),
+        ("Legal-Authority", status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_notification_template_destroy(

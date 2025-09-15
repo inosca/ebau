@@ -57,7 +57,7 @@ class AccessLevelFilterset(FilterSet):
     def filter_assignable_in_instance_rbac_for_municipality_be(self, qs, name, value):
         # Bern currently only allows geometer and read access level to be assigned by
         # municipality
-        qs = qs.filter(pk__in=["geometer", "read"])
+        qs = qs.filter(pk__in=["geometer", "read", "legal-authority"])
         return qs
 
     def filter_assignable_in_instance_rbac_for_municipality_so(self, qs, name, value):

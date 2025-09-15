@@ -26,6 +26,7 @@ def test_responsible_service_list(admin_client, responsible_service):
         ("Coordination", lf("admin_user"), status.HTTP_201_CREATED),
         ("Applicant", lf("admin_user"), status.HTTP_403_FORBIDDEN),
         ("Geometer", lf("admin_user"), status.HTTP_201_CREATED),
+        ("Legal-Authority", lf("admin_user"), status.HTTP_201_CREATED),
     ],
 )
 def test_responsible_service_create(
@@ -88,6 +89,7 @@ def test_responsible_service_create(
         ("Coordination", lf("admin_user"), status.HTTP_200_OK),
         ("Applicant", lf("admin_user"), status.HTTP_403_FORBIDDEN),
         ("Geometer", lf("admin_user"), status.HTTP_200_OK),
+        ("Legal-Authority", lf("admin_user"), status.HTTP_200_OK),
     ],
 )
 def test_responsible_service_update(
