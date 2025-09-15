@@ -20,7 +20,10 @@ from camac.caluma.api import CalumaApi
 from camac.constants import kt_gr as gr_constants
 from camac.core.translations import get_translations_canton_aware
 from camac.instance.models import Instance
-from camac.instance.placeholders.utils import format_gis_center_coordinates
+from camac.instance.placeholders.utils import (
+    format_gis_center_coordinates,
+    to_configured_case,
+)
 from camac.user.models import Service
 from camac.utils import build_url, clean_join
 
@@ -86,11 +89,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_aliased_field(self, key, value):
         field = self.fields[key]
-        keys = set([key.upper()])
+        keys = set([to_configured_case(key)])
 
         for alias_config in field.aliases:
             for alias in get_translations_canton_aware(alias_config).values():
-                keys.add(alias.upper())
+                keys.add(to_configured_case(alias))
 
         if field.nested_aliases:
             value = self.get_aliased_value(value, field.nested_aliases)
@@ -102,7 +105,10 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
             key: list(
                 itertools.chain(
                     *[
-                        get_translations_canton_aware(alias).values()
+                        map(
+                            to_configured_case,
+                            get_translations_canton_aware(alias).values(),
+                        )
                         for alias in alias_config
                     ]
                 )
@@ -115,7 +121,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     def get_aliased_value_item(self, item, aliases):
         """Recursively enrich complex placeholder data.
 
-        Enreich one item of a list value based on the available aliases for all
+        Enrich one item of a list value based on the available aliases for all
         configured languages.
 
         item = {
@@ -2310,6 +2316,10 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             # number for the user
             "zustaendig_phone",
         ]
+
+
+class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    pass
 
 
 class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):

@@ -14,8 +14,10 @@ from camac.instance.placeholders.serializers import (
     DMSPlaceholdersSerializer,
     GrDMSPlaceholdersSerializer,
     SoDMSPlaceholdersSerializer,
+    SzDMSPlaceholdersSerializer,
     UrDMSPlaceholdersSerializer,
 )
+from camac.instance.placeholders.utils import to_configured_case
 
 
 class DMSPlaceholdersDocsView(RetrieveAPIView):
@@ -32,17 +34,28 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
             return SoDMSPlaceholdersSerializer
         elif settings.APPLICATION_NAME == "kt_uri":  # pragma: todo cover
             return UrDMSPlaceholdersSerializer
+        elif settings.APPLICATION_NAME == "kt_schwyz":
+            return SzDMSPlaceholdersSerializer
 
         return DMSPlaceholdersSerializer  # pragma: no cover
 
     def get_field_docs(self, field):
         return {
             "aliases": [
-                get_translations_canton_aware(alias) for alias in field.aliases
+                {
+                    lang: to_configured_case(t_alias)
+                    for lang, t_alias in get_translations_canton_aware(alias).items()
+                }
+                for alias in field.aliases
             ],
             "nested_aliases": {
                 nested_name: [
-                    get_translations_canton_aware(nested_alias)
+                    {
+                        lang: to_configured_case(t_alias)
+                        for lang, t_alias in get_translations_canton_aware(
+                            nested_alias
+                        ).items()
+                    }
                     for nested_alias in nested_aliases
                 ]
                 for nested_name, nested_aliases in field.nested_aliases.items()
@@ -58,7 +71,7 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
         serializer = self.get_serializer_class()
 
         docs = {
-            field_name.upper(): self.get_field_docs(field)
+            to_configured_case(field_name): self.get_field_docs(field)
             for field_name, field in serializer._declared_fields.items()
             if field_name not in serializer.Meta.exclude
         }

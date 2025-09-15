@@ -27,6 +27,7 @@ PLACEHOLDERS = {
             "answer": ("inquiry-answer", "STATUS"),
         },
         "BILLING_ENTRY_FIELDS": ["POSITION", "BETRAG"],
+        "PLACEHOLDER_CASE": "upper",  # one of "upper" or "lower"
     },
     "kt_so": {
         "ENABLED": True,
@@ -139,5 +140,6 @@ PLACEHOLDERS = {
             "VERRECHNET_AM",
         ],
     },
+    "kt_schwyz": {"ENABLED": True, "PLACEHOLDER_CASE": "lower"},
     "test": {"ENABLED": True},
 }
