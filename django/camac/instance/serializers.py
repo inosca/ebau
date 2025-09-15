@@ -2910,8 +2910,10 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
                 settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"],
                 settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"],
             ]:
-                work_item = instance.case.work_items.filter(task_id=task).first()
-
+                work_item = instance.case.work_items.filter(
+                    task_id=task,
+                    status=workflow_models.WorkItem.STATUS_READY,
+                ).first()
                 if work_item:
                     workflow_api.complete_work_item(
                         work_item=work_item,
