@@ -25,8 +25,8 @@
       "allowed_mime_types": {
         "image/png": null,
         "image/jpeg": null,
-        "application/pdf": null,
         "text/plain": null,
+        "application/pdf": null,
         "application/octet-stream": null
       },
       "color": "hsl(13 7% 40%)",
@@ -426,8 +426,8 @@
         "image/png": null,
         "image/jpeg": null,
         "application/pdf": null,
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null,
-        "application/msword": null
+        "application/msword": null,
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": null
       },
       "color": "hsl(307 63% 40%)",
       "parent": null,
@@ -505,15 +505,15 @@
       "name": "{\"de\": \"Lisag\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Nutzungsplandokumente, ITF Dateien\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": {
+        "text/xml": null,
         "image/png": null,
         "image/jpeg": null,
-        "application/pdf": null,
         "text/plain": null,
-        "application/octet-stream": null,
+        "application/pdf": null,
         "application/zip": null,
-        "application/x-zip-compressed": null,
         "multipart/x-zip": null,
-        "text/xml": null
+        "application/octet-stream": null,
+        "application/x-zip-compressed": null
       },
       "color": "hsl(269 54% 40%)",
       "parent": null,
@@ -546,8 +546,8 @@
       "allowed_mime_types": {
         "image/png": null,
         "image/jpeg": null,
-        "application/pdf": null,
         "text/plain": null,
+        "application/pdf": null,
         "application/octet-stream": null
       },
       "color": "hsl(47 34% 40%)",

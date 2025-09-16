@@ -168,5 +168,15 @@
       "engine": "docx-template",
       "meta": {}
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "invoice_1133_bew",
+    "fields": {
+      "description": "Invoice 1133 BEW",
+      "template": "invoice_1133_bew.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
   }
 ]

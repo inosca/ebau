@@ -7,7 +7,6 @@ from django_celery_beat import admin as dcb_admin, models as dcb_models
 from localized_fields.admin import LocalizedFieldsAdminMixin
 
 from camac.admin import EbauAdminMixin
-from camac.billing.models import BillingV2Account
 from camac.django_admin.utils import display_color
 from camac.user.models import Service
 

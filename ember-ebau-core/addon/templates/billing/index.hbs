@@ -1,6 +1,4 @@
-{{#if (t "billing.info")}}
-  <div class="uk-alert" data-test-billing-info>{{t "billing.info"}}</div>
-{{/if}}
+{{maybe-translate "billing.info" htmlSafe=true}}
 
 <BillingTable
   @entries={{this.entries}}
@@ -45,4 +43,39 @@
       />
     {{/if}}
   </div>
+
+  {{#if
+    (and
+      (await (can "invoice billing-v2-entries"))
+      (gt this.notChargedEntries.value.length 0)
+    )
+  }}
+    <div class="uk-margin">
+      {{#if this.invoiceTypes.length}}
+        <label for="invoice-type">{{t "billing.invoice-type"}}:</label>
+        <select
+          class="uk-select uk-form-width-medium uk-margin-left uk-margin-right"
+          id="invoice-type"
+          data-test-invoice-type
+          required
+          {{on "change" this.updateInvoiceType}}
+        >
+          <option value=""></option>
+          {{#each this.invoiceTypes as |type|}}
+            <option value={{type}} selected={{eq type this.invoiceType}}>
+              {{type}}
+            </option>
+          {{/each}}
+        </select>
+      {{/if}}
+
+      <UkButton
+        @label={{t "billing.invoice"}}
+        @loading={{this.invoice.isRunning}}
+        @disabled={{this.invoice.isRunning}}
+        @onClick={{perform this.invoice}}
+        data-test-invoice-submit
+      />
+    </div>
+  {{/if}}
 {{/if}}

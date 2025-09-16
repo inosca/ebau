@@ -75,6 +75,14 @@
         'VERRECHNET_AM': '',
       }),
     ]),
+    'GEBUEHREN_NICHT_VERRECHNET': list([
+      dict({
+        'BEMERKUNG': 'Nr. 1234',
+        'BETRAG': '200.00',
+        'POSITION': 'Nutzungsbewilligung',
+        'VERRECHNET_AM': '',
+      }),
+    ]),
     'GEBUEHREN_TOTAL': '200.00',
     'GEBUEHREN_TOTAL_NICHT_VERRECHNET': '200.00',
     'GEMEINDE': 'Aarburg',
@@ -558,9 +566,7 @@
         'POSITION': 'exactly',
       }),
       dict({
-        'BETRAG': '',
-        'GEBUEHREN_BETRAG': '',
-        'GEBUEHREN_POSITION': 'front',
+        'BETRAG': '400.00',
         'POSITION': 'front',
       }),
       dict({
@@ -568,7 +574,7 @@
         'POSITION': 'issue',
       }),
     ]),
-    'EMOLUMENTS_TOTAL': '1’813.39',
+    'EMOLUMENTS_TOTAL': '2’213.39',
     'ENSEMBLE_BÂTI': 'Ja',
     'ENSEMBLE_BÂTI_DÉNOMINATION': 'Test Baugruppe',
     'ERHALTENSWERT': 'Nein',
@@ -698,9 +704,7 @@
         'POSITION': 'exactly',
       }),
       dict({
-        'BETRAG': '',
-        'GEBUEHREN_BETRAG': '',
-        'GEBUEHREN_POSITION': 'front',
+        'BETRAG': '400.00',
         'POSITION': 'front',
       }),
       dict({
@@ -708,7 +712,26 @@
         'POSITION': 'issue',
       }),
     ]),
-    'GEBUEHREN_TOTAL': '1’813.39',
+    'GEBUEHREN_NICHT_VERRECHNET': list([
+      dict({
+        'BETRAG': '1’338.00',
+        'POSITION': 'when',
+      }),
+      dict({
+        'BETRAG': '127.03',
+        'POSITION': 'exactly',
+      }),
+      dict({
+        'BETRAG': '400.00',
+        'POSITION': 'front',
+      }),
+      dict({
+        'BETRAG': '348.36',
+        'POSITION': 'issue',
+      }),
+    ]),
+    'GEBUEHREN_TOTAL': '2’213.39',
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET': '2’213.39',
     'GEFAEHRLICHE_STOFFE': list([
       dict({
         'BETRAG': 500,
@@ -1736,6 +1759,323 @@
     'ZUSTAENDIG_TELEFON': '',
   })
 # ---
+# name: test_dms_placeholders_billing_account_invoice[Municipality]
+  dict({
+    'ADDRESS': '',
+    'ADRESSE': '',
+    'ALLE_GESUCHSTELLER': '',
+    'ALLE_GESUCHSTELLER_NAME_ADDRESS': '',
+    'ALLE_GESUCHSTELLER_NAME_ADRESSE': '',
+    'ALLE_GRUNDEIGENTUEMER': '',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': '',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE': '',
+    'ALLE_PROJEKTVERFASSER': '',
+    'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': '',
+    'ALLE_PROJEKTVERFASSER_NAME_ADRESSE': '',
+    'AUJOURD_HUI': '30. August 2021',
+    'AUTEUR_PROJET': '',
+    'AUTEUR_PROJET_ADRESSE_1': '',
+    'AUTEUR_PROJET_ADRESSE_2': '',
+    'AUTEUR_PROJET_NOM_ADRESSE': '',
+    'AUTEUR_PROJET_TOUS': '',
+    'AUTEUR_PROJET_TOUS_NOM_ADRESSE': '',
+    'AUTORITE_DIRECTRICE_ADRESSE_1': '',
+    'AUTORITE_DIRECTRICE_ADRESSE_2': '',
+    'AUTORITE_DIRECTRICE_EMAIL': 'michelleboone@example.org',
+    'AUTORITE_DIRECTRICE_LIEU': '',
+    'AUTORITE_DIRECTRICE_NOM': 'Alex Smith',
+    'AUTORITE_DIRECTRICE_NOM_ABR': 'Alex Smith',
+    'AUTORITE_DIRECTRICE_TELEPHONE': '',
+    'AUTORITÀ_DIRETTRICE_EMAIL': 'michelleboone@example.org',
+    'AUTORITÀ_DIRETTRICE_INDIRIZZO_1': '',
+    'AUTORITÀ_DIRETTRICE_INDIRIZZO_2': '',
+    'AUTORITÀ_DIRETTRICE_LOCALITÀ': '',
+    'AUTORITÀ_DIRETTRICE_NOME': 'Alex Smith',
+    'AUTORITÀ_DIRETTRICE_NOME_BREVE': 'Alex Smith',
+    'AUTORITÀ_DIRETTRICE_NOME_INDIRIZZO': 'Alex Smith',
+    'AUTORITÀ_DIRETTRICE_SITO_WEB': '',
+    'AUTORITÀ_DIRETTRICE_TELEFONO': '',
+    'BASE_URL': 'http://ebau.localhost',
+    'BAUEINGABE_DATUM': '',
+    'BAUENTSCHEID_DATUM': '',
+    'BESCHREIBUNG_BAUVORHABEN': '',
+    'BESCHREIBUNG_PROJEKTAENDERUNG': '',
+    'CIRCOLAZIONE_COMUNI': list([
+    ]),
+    'CIRCOLAZIONE_RICHIESTA': list([
+    ]),
+    'CIRCOLAZIONE_RISCONTRI': list([
+    ]),
+    'CIRCOLAZIONE_SERVIZI': list([
+    ]),
+    'CIRCOLAZIONE_TUTTI': list([
+    ]),
+    'CIRCULATION_COMMUNES': list([
+    ]),
+    'CIRCULATION_DEMANDEE': list([
+    ]),
+    'CIRCULATION_PREAVIS': list([
+    ]),
+    'CIRCULATION_SERVICES': list([
+    ]),
+    'COMMUNE': '',
+    'COMMUNE_ADRESSE': '',
+    'COMMUNE_EMAIL': '',
+    'COMMUNE_LIEU': '',
+    'COMMUNE_NOM_ADRESSE': '',
+    'COMMUNE_TELEPHONE': '',
+    'COMUNE': '',
+    'COMUNE_INDIRIZZO': '',
+    'COMUNE_LOCALITÀ': '',
+    'COMUNE_NOME_INDIRIZZO': '',
+    'COMUNE_SITO_WEB': '',
+    'COMUNE_TELEFONO': '',
+    'COORDINATE': '',
+    'COORDONEE': '',
+    'DATA_DECISIONE': '',
+    'DATA_PRESENTAZIONE': '',
+    'DECISION_DATE': '',
+    'DENOMINAZIONE_GIURIDICA': '',
+    'DEPOT_DEMANDE_DATE': '',
+    'DESCRIPTION_MODIFICATION': '',
+    'DESCRIZIONE_MODIFICA': '',
+    'DESCRIZIONE_PROGETTO': '',
+    'DISPOSITIONS_ACCESSOIRES': '',
+    'DISPOSITIONS_ANNEXES': '',
+    'DISPOSIZIONI_ACCESSORIE': '',
+    'DISPOSIZIONI_ACCESSORIE_MAPPED': list([
+    ]),
+    'DOSSIER_NUMBER': '',
+    'DOSSIER_NUMERO': '',
+    'DOSSIER_NUMMER': '',
+    'DOSSIER_TYP': 'Baugesuch',
+    'DOSSIER_TYPE': 'Baugesuch',
+    'EBAU_URL': 'http://ebau.localhost',
+    'EIGENE_GEBUEHREN': list([
+    ]),
+    'EIGENE_GEBUEHREN_TOTAL': '0.00',
+    'EIGENE_NEBENBESTIMMUNGEN': '',
+    'EIGENE_STELLUNGNAHMEN': '',
+    'EMAIL_COMUNE': '',
+    'EMOLUMENTS': list([
+      dict({
+        'BETRAG': '406.98',
+        'POSITION': 'task',
+      }),
+      dict({
+        'BETRAG': '400.00',
+        'POSITION': 'how',
+      }),
+    ]),
+    'EMOLUMENTS_TOTAL': '806.98',
+    'ETAT': 'David Rangel',
+    'FACHSTELLEN_KANTONAL': list([
+    ]),
+    'FORM_NAME': 'Baugesuch',
+    'GEBUEHREN': list([
+      dict({
+        'BETRAG': '406.98',
+        'POSITION': 'task',
+      }),
+      dict({
+        'BETRAG': '400.00',
+        'POSITION': 'how',
+      }),
+    ]),
+    'GEBUEHREN_NICHT_VERRECHNET': list([
+      dict({
+        'BETRAG': '406.98',
+        'POSITION': 'task',
+      }),
+      dict({
+        'BETRAG': '400.00',
+        'POSITION': 'how',
+      }),
+    ]),
+    'GEBUEHREN_TOTAL': '806.98',
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET': '806.98',
+    'GEMEINDE': '',
+    'GEMEINDE_ADRESSE': '',
+    'GEMEINDE_EMAIL': '',
+    'GEMEINDE_NAME_ADRESSE': '',
+    'GEMEINDE_ORT': '',
+    'GEMEINDE_TELEFON': '',
+    'GEMEINDE_WEBSEITE': '',
+    'GESUCHSTELLER': '',
+    'GESUCHSTELLER_ADDRESS_1': '',
+    'GESUCHSTELLER_ADDRESS_2': '',
+    'GESUCHSTELLER_ADRESSE_1': '',
+    'GESUCHSTELLER_ADRESSE_2': '',
+    'GESUCHSTELLER_NAME_ADDRESS': '',
+    'GESUCHSTELLER_NAME_ADRESSE': '',
+    'GRUNDEIGENTUEMER': '',
+    'GRUNDEIGENTUEMER_ADDRESS_1': '',
+    'GRUNDEIGENTUEMER_ADDRESS_2': '',
+    'GRUNDEIGENTUEMER_ADRESSE_1': '',
+    'GRUNDEIGENTUEMER_ADRESSE_2': '',
+    'GRUNDEIGENTUEMER_NAME_ADDRESS': '',
+    'GRUNDEIGENTUEMER_NAME_ADRESSE': '',
+    'HEUTE': '30. August 2021',
+    'INDIRIZZO': '',
+    'JURISTIC_NAME': '',
+    'JURISTISCHER_NAME': '',
+    'KOORDINATEN': '',
+    'LANGUAGE': 'de',
+    'LANGUE': 'de',
+    'LEITBEHOERDE_ADDRESS_1': '',
+    'LEITBEHOERDE_ADDRESS_2': '',
+    'LEITBEHOERDE_ADRESSE_1': '',
+    'LEITBEHOERDE_ADRESSE_2': '',
+    'LEITBEHOERDE_CITY': '',
+    'LEITBEHOERDE_EMAIL': 'michelleboone@example.org',
+    'LEITBEHOERDE_NAME': 'Alex Smith',
+    'LEITBEHOERDE_NAME_ADRESSE': 'Alex Smith',
+    'LEITBEHOERDE_NAME_KURZ': 'Alex Smith',
+    'LEITBEHOERDE_PHONE': '',
+    'LEITBEHOERDE_STADT': '',
+    'LEITBEHOERDE_TELEFON': '',
+    'LEITBEHOERDE_WEBSEITE': '',
+    'LIEN_PUBLICATION': 'http://ebau-portal.localhost/public-instances/1',
+    'LINGUA': 'de',
+    'MEINE_ORGANISATION_ADRESSE_1': '',
+    'MEINE_ORGANISATION_ADRESSE_2': '',
+    'MEINE_ORGANISATION_EMAIL': 'michelleboone@example.org',
+    'MEINE_ORGANISATION_NAME': 'Alex Smith',
+    'MEINE_ORGANISATION_NAME_ADRESSE': 'Alex Smith',
+    'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
+    'MEINE_ORGANISATION_ORT': '',
+    'MEINE_ORGANISATION_TELEFON': '',
+    'MEINE_ORGANISATION_WEBSEITE': '',
+    'MES_EMOLUMENTS': list([
+    ]),
+    'MES_EMOLUMENTS_TOTAL': '0.00',
+    'MIA_ORGANIZZAZIONE_EMAIL': 'michelleboone@example.org',
+    'MIA_ORGANIZZAZIONE_INDIRIZZO_1': '',
+    'MIA_ORGANIZZAZIONE_INDIRIZZO_2': '',
+    'MIA_ORGANIZZAZIONE_LOCALITÀ': '',
+    'MIA_ORGANIZZAZIONE_NOME': 'Alex Smith',
+    'MIA_ORGANIZZAZIONE_NOME_BREVE': 'Alex Smith',
+    'MIA_ORGANIZZAZIONE_NOME_INDIRIZZO': 'Alex Smith',
+    'MIA_ORGANIZZAZIONE_SITO_WEB': '',
+    'MIA_ORGANIZZAZIONE_TELEFONO': '',
+    'MON_ORGANISATION_ADRESSE_1': '',
+    'MON_ORGANISATION_ADRESSE_2': '',
+    'MON_ORGANISATION_EMAIL': 'michelleboone@example.org',
+    'MON_ORGANISATION_LIEU': '',
+    'MON_ORGANISATION_NOM': 'Alex Smith',
+    'MON_ORGANISATION_NOM_ABR': 'Alex Smith',
+    'MON_ORGANISATION_NOM_ADRESSE': 'Alex Smith',
+    'MON_ORGANISATION_TELEPHONE': '',
+    'MUNICIPALITY': '',
+    'MUNICIPALITY_ADDRESS': '',
+    'NAME': '',
+    'NEBENBESTIMMUNGEN': '',
+    'NEBENBESTIMMUNGEN_MAPPED': list([
+    ]),
+    'NOM_LEGAL': '',
+    'NUMERO_DU_DOSSIER': '',
+    'OFFICES_CANTONAUX': list([
+    ]),
+    'OGGI': '30. August 2021',
+    'ORT': '',
+    'PARCELLE': '',
+    'PARTICELLA': '',
+    'PARZELLE': '',
+    'PERSONA_PROPRIETARIA_DEL_FONDO': '',
+    'PERSONA_RICHIEDENTE': '',
+    'POINT_DE_VUE': '',
+    'PRESE_DI_POSIZIONE': '',
+    'PRISE_DE_POSITION': '',
+    'PROGETTISTA': '',
+    'PROGETTISTA_INDIRIZZO_1': '',
+    'PROGETTISTA_INDIRIZZO_2': '',
+    'PROGETTISTA_NOME_INDIRIZZO': '',
+    'PROJEKTVERFASSER': '',
+    'PROJEKTVERFASSER_ADDRESS_1': '',
+    'PROJEKTVERFASSER_ADDRESS_2': '',
+    'PROJEKTVERFASSER_ADRESSE_1': '',
+    'PROJEKTVERFASSER_ADRESSE_2': '',
+    'PROJEKTVERFASSER_NAME_ADDRESS': '',
+    'PROJEKTVERFASSER_NAME_ADRESSE': '',
+    'PROJET_CONSTR_DESCR': '',
+    'PROPRIETAIRE_FONC': '',
+    'PROPRIETAIRE_FONC_ADRESSE_1': '',
+    'PROPRIETAIRE_FONC_ADRESSE_2': '',
+    'PROPRIETAIRE_FONC_NOM_ADRESSE': '',
+    'PROPRIETAIRE_FONC_TOUS': '',
+    'PROPRIETAIRE_FONC_TOUS_NOM_ADRESSE': '',
+    'PROPRIETARIO_FONDIARIO_INDIRIZZO_1': '',
+    'PROPRIETARIO_FONDIARIO_INDIRIZZO_2': '',
+    'PROPRIETARIO_FONDIARIO_NOME_INDIRIZZO': '',
+    'PROPRIE_DISPOSIZIONI_ACCESSORIE': '',
+    'PROPRIE_PRESE_DI_POSIZIONE': '',
+    'PUBBLICAZIONE_LINK': 'http://ebau-portal.localhost/public-instances/1',
+    'PUBBLICAZIONE_TESTO': '',
+    'PUBLICATION_TEXTE': '',
+    'PUBLIKATION_LINK': 'http://ebau-portal.localhost/public-instances/1',
+    'PUBLIKATION_TEXT': '',
+    'REQUERANT': '',
+    'REQUERANT_ADRESSE_1': '',
+    'REQUERANT_ADRESSE_2': '',
+    'REQUERANT_NOM_ADRESSE': '',
+    'REQUERANT_TOUS': '',
+    'REQUERANT_TOUS_NOM_ADRESSE': '',
+    'RESPONSABILE_EMAIL': '',
+    'RESPONSABILE_NOME': '',
+    'RESPONSABILE_TELEFONO': '',
+    'RESPONSABLE_EMAIL': '',
+    'RESPONSABLE_NOM': '',
+    'RESPONSABLE_TELEPHONE': '',
+    'RICHIEDENTE_INDIRIZZO_1': '',
+    'RICHIEDENTE_INDIRIZZO_2': '',
+    'RICHIEDENTE_NOME_INDIRIZZO': '',
+    'SERVIZI_CANTONALI': list([
+    ]),
+    'SPRACHE': 'de',
+    'STATO': 'David Rangel',
+    'STATUS': 'David Rangel',
+    'STELLUNGNAHME': '',
+    'STRASSE': '',
+    'TASSE': list([
+      dict({
+        'BETRAG': '406.98',
+        'POSITION': 'task',
+      }),
+      dict({
+        'BETRAG': '400.00',
+        'POSITION': 'how',
+      }),
+    ]),
+    'TASSE_PROPRIE': list([
+    ]),
+    'TASSE_TOTALI': '806.98',
+    'TIPO_DOSSIER': 'Baugesuch',
+    'TODAY': '30. August 2021',
+    'TOTALE_TASSE_PROPRIE': '0.00',
+    'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO': '',
+    'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO_NOME_INDIRIZZO': '',
+    'TUTTE_LE_PERSONE_RICHIEDENTI': '',
+    'TUTTE_LE_PERSONE_RICHIEDENTI_NOME_INDIRIZZO': '',
+    'TUTTI_I_PROGETTISTI': '',
+    'TUTTI_I_PROGETTISTI_NOME_INDIRIZZO': '',
+    'UBICAZIONE': '',
+    'VIA': '',
+    'ZIRKULATION_ALLE': list([
+    ]),
+    'ZIRKULATION_ANGEFORDERT': list([
+    ]),
+    'ZIRKULATION_FACHSTELLEN': list([
+    ]),
+    'ZIRKULATION_GEMEINDEN': list([
+    ]),
+    'ZIRKULATION_RUECKMELDUNGEN': list([
+    ]),
+    'ZUSTAENDIG_EMAIL': '',
+    'ZUSTAENDIG_NAME': '',
+    'ZUSTAENDIG_PHONE': '',
+    'ZUSTAENDIG_TELEFON': '',
+  })
+# ---
 # name: test_dms_placeholders_docs[demo]
   dict({
     'ADDRESS': dict({
@@ -2069,6 +2409,36 @@
         'de': 'Gebühren des Dossiers',
         'fr': 'Les frais officiels de procédure',
         'it': 'Tasse legate al dossier',
+      }),
+      'nested_aliases': dict({
+        'BETRAG': list([
+          dict({
+            'de': 'BETRAG',
+            'fr': 'BETRAG',
+            'it': 'BETRAG',
+          }),
+        ]),
+        'POSITION': list([
+          dict({
+            'de': 'POSITION',
+            'fr': 'POSITION',
+            'it': 'POSITION',
+          }),
+        ]),
+      }),
+    }),
+    'GEBUEHREN_NICHT_VERRECHNET': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN_NICHT_VERRECHNET',
+          'fr': 'GEBUEHREN_NICHT_VERRECHNET',
+          'it': 'GEBUEHREN_NICHT_VERRECHNET',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Totalbetrag aller Gebühren des Dossiers',
+        'fr': 'Montant total de tous les frais de procédure',
+        'it': 'Importo totale di tutte le tasse legate al dossier',
       }),
       'nested_aliases': dict({
         'BETRAG': list([
@@ -3174,81 +3544,222 @@
 # ---
 # name: test_dms_placeholders_docs[kt_ag]
   dict({
-    'ADDRESS': '',
-    'ADRESSE': '',
-    'ALLE_GESUCHSTELLER': '',
-    'ALLE_GESUCHSTELLER_LISTE': list([
-    ]),
-    'ALLE_GESUCHSTELLER_NAME_ADDRESS': '',
-    'ALLE_GESUCHSTELLER_NAME_ADRESSE': '',
-    'ALLE_GESUCHSTELLER_VERTRETER': '',
-    'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE': '',
-    'ALLE_GRUNDEIGENTUEMER': '',
-    'ALLE_GRUNDEIGENTUEMER_LISTE': list([
-    ]),
-    'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': '',
-    'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE': '',
-    'ALLE_PROJEKTVERFASSER': '',
-    'ALLE_PROJEKTVERFASSER_LISTE': list([
-    ]),
-    'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': '',
-    'ALLE_PROJEKTVERFASSER_NAME_ADRESSE': '',
-    'ALLE_RECHNUNGSEMPFAENGER': '',
-    'ALLE_RECHNUNGSEMPFAENGER_LISTE': list([
-    ]),
-    'ALLE_RECHNUNGSEMPFAENGER_NAME_ADRESSE': '',
-    'ANGEMELDET_ABTEILUNG': '',
-    'ANGEMELDET_EMAIL': 'admin@example.com',
-    'ANGEMELDET_MOBILE': '',
-    'ANGEMELDET_NAME': 'Admin User',
-    'ANGEMELDET_POSITION': '',
-    'ANGEMELDET_TELEFON': '',
-    'ANGEMELDET_TITEL': '',
-    'BAFU_BUNDESINVENTARE': '',
-    'BASE_URL': 'http://ember-ebau.localhost',
-    'BAUEINGABE_DATUM': '',
-    'BAUENTSCHEID_DATUM': '',
-    'BESCHREIBUNG_BAUVORHABEN': '',
-    'BFS_NUMMER': '',
-    'DECISION_DATE': '',
-    'DOSSIER_NUMBER': '',
-    'DOSSIER_NUMMER': '',
-    'DOSSIER_TYP': 'Baugesuch',
-    'EBAU_URL': 'http://ember-ebau.localhost',
-    'EIGENE_GEBUEHREN': list([
-    ]),
-    'EIGENE_GEBUEHREN_TOTAL': '0.00',
-    'EINGEREICHTE_PLAENE': list([
-    ]),
-    'EINGEREICHTE_UNTERLAGEN': list([
-      dict({
-        'BESCHREIBUNG': '''
-          Same season natural think Mr course tree. Within never whose five hold food.
-          South which general eight government build PM. Task believe oil unit itself close again affect.
-        ''',
-        'CATEGORY': 'beilagen-zum-gesuch',
-        'CREATED_AT': '30.08.2021 02:00',
-        'CREATED_BY': 'Admin User',
-        'DESCRIPTION': '''
-          Same season natural think Mr course tree. Within never whose five hold food.
-          South which general eight government build PM. Task believe oil unit itself close again affect.
-        ''',
-        'ERSTELLT_AM': '30.08.2021 02:00',
-        'ERSTELLT_VON': 'Admin User',
-        'GEAENDERT_AM': '30.08.2021 02:00',
-        'GEAENDERT_VON': 'Admin User',
-        'KATEGORIE': 'beilagen-zum-gesuch',
-        'MARKIERUNGEN': list([
+    'ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresse des betroffenen Grundstückes',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GESUCHSTELLER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GESUCHSTELLER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen aller Gesuchsteller/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GESUCHSTELLER_NAME_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GESUCHSTELLER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Gesuchsteller/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GESUCHSTELLER_REFERENZNUMMER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GESUCHSTELLER_REFERENZNUMMER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Referenznummern aller Gesuchsteller/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GRUNDEIGENTUEMER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GRUNDEIGENTUEMER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen aller Grundeigentümer/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Grundeigentümer/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_PROJEKTVERFASSER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_PROJEKTVERFASSER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen aller Projektverfasser/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Projektverfasser/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_VERTRETER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_VERTRETER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen aller Vertreter/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_VERTRETER_NAME_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_VERTRETER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Vertreter/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_MOBILE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_MOBILE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Mobilenummer des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_NAME',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_POSITION': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_POSITION',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Position des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_TELEFON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_TITEL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_TITEL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Titel des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'AUSWAERTIGE_ANSTOESSER': dict({
+      'aliases': list([
+        dict({
+          'de': 'AUSWAERTIGE_ANSTOESSER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Auswärtige Anstösser',
+      }),
+      'nested_aliases': dict({
+        'ADDRESS_1': list([
+          dict({
+            'de': 'ADRESSE_1',
+          }),
         ]),
-        'MARKS': list([
+        'ADDRESS_2': list([
+          dict({
+            'de': 'ADRESSE_2',
+          }),
         ]),
-        'MODIFIED_AT': '30.08.2021 02:00',
-        'MODIFIED_BY': 'Admin User',
-        'NAME': 'Ausnahmebewilligung',
-        'ORIGINAL_NAME': 'real.png',
-        'STICHWORTE': list([
-        ]),
-        'TAGS': list([
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
         ]),
       }),
     }),
@@ -3514,6 +4025,38 @@
       ]),
       'description': dict({
         'de': 'Gebühren des Dossiers',
+      }),
+      'nested_aliases': dict({
+        'BEMERKUNG': list([
+          dict({
+            'de': 'BEMERKUNG',
+          }),
+        ]),
+        'BETRAG': list([
+          dict({
+            'de': 'BETRAG',
+          }),
+        ]),
+        'POSITION': list([
+          dict({
+            'de': 'POSITION',
+          }),
+        ]),
+        'VERRECHNET_AM': list([
+          dict({
+            'de': 'VERRECHNET_AM',
+          }),
+        ]),
+      }),
+    }),
+    'GEBUEHREN_NICHT_VERRECHNET': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN_NICHT_VERRECHNET',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Totalbetrag aller Gebühren des Dossiers',
       }),
       'nested_aliases': dict({
         'BEMERKUNG': list([
@@ -5310,6 +5853,32 @@
       'description': dict({
         'de': 'Gebühren des Dossiers',
         'fr': 'Les frais officiels de procédure',
+      }),
+      'nested_aliases': dict({
+        'BETRAG': list([
+          dict({
+            'de': 'BETRAG',
+            'fr': 'BETRAG',
+          }),
+        ]),
+        'POSITION': list([
+          dict({
+            'de': 'POSITION',
+            'fr': 'POSITION',
+          }),
+        ]),
+      }),
+    }),
+    'GEBUEHREN_NICHT_VERRECHNET': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN_NICHT_VERRECHNET',
+          'fr': 'GEBUEHREN_NICHT_VERRECHNET',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Totalbetrag aller Gebühren des Dossiers',
+        'fr': 'Montant total de tous les frais de procédure',
       }),
       'nested_aliases': dict({
         'BETRAG': list([
@@ -10719,6 +11288,28 @@
         ]),
       }),
     }),
+    'GEBUEHREN_NICHT_VERRECHNET': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN_NICHT_VERRECHNET',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Totalbetrag aller Gebühren des Dossiers',
+      }),
+      'nested_aliases': dict({
+        'BETRAG': list([
+          dict({
+            'de': 'BETRAG',
+          }),
+        ]),
+        'POSITION': list([
+          dict({
+            'de': 'POSITION',
+          }),
+        ]),
+      }),
+    }),
     'GEBUEHREN_TOTAL': dict({
       'aliases': list([
         dict({
@@ -12406,19 +12997,9 @@
             'de': 'BETRAG',
           }),
         ]),
-        'DEPARTMENT': list([
-          dict({
-            'de': 'GEBUEHREN_DEPARTMENT',
-          }),
-        ]),
         'GESAMTKOSTEN': list([
           dict({
             'de': 'GESAMTKOSTEN',
-          }),
-        ]),
-        'KONTO': list([
-          dict({
-            'de': 'GEBUEHREN_KONTO',
           }),
         ]),
         'KOSTENSTELLE': list([
@@ -12985,19 +13566,86 @@
             'de': 'BETRAG',
           }),
         ]),
-        'DEPARTMENT': list([
-          dict({
-            'de': 'GEBUEHREN_DEPARTMENT',
-          }),
-        ]),
         'GESAMTKOSTEN': list([
           dict({
             'de': 'GESAMTKOSTEN',
           }),
         ]),
-        'KONTO': list([
+        'KOSTENSTELLE': list([
           dict({
-            'de': 'GEBUEHREN_KONTO',
+            'de': 'KOSTENSTELLE',
+          }),
+        ]),
+        'MEHRWERTSTEUER': list([
+          dict({
+            'de': 'MEHRWERTSTEUER',
+          }),
+        ]),
+        'ORGANISATION': list([
+          dict({
+            'de': 'ORGANISATION',
+          }),
+        ]),
+        'POSITION': list([
+          dict({
+            'de': 'POSITION',
+          }),
+        ]),
+        'RECHTSGRUNDLAGE': list([
+          dict({
+            'de': 'RECHTSGRUNDLAGE',
+          }),
+        ]),
+        'STUNDEN': list([
+          dict({
+            'de': 'STUNDEN',
+          }),
+        ]),
+        'STUNDENSATZ': list([
+          dict({
+            'de': 'STUNDENSATZ',
+          }),
+        ]),
+        'VERRECHNUNG': list([
+          dict({
+            'de': 'VERRECHNUNG',
+          }),
+        ]),
+      }),
+    }),
+    'GEBUEHREN_NICHT_VERRECHNET': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN_NICHT_VERRECHNET',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Totalbetrag aller Gebühren des Dossiers',
+      }),
+      'nested_aliases': dict({
+        'ANTEIL_PROZENT': list([
+          dict({
+            'de': 'ANTEIL_PROZENT',
+          }),
+        ]),
+        'ART': list([
+          dict({
+            'de': 'ART',
+          }),
+        ]),
+        'BERECHNUNG': list([
+          dict({
+            'de': 'BERECHNUNG',
+          }),
+        ]),
+        'BETRAG': list([
+          dict({
+            'de': 'BETRAG',
+          }),
+        ]),
+        'GESAMTKOSTEN': list([
+          dict({
+            'de': 'GESAMTKOSTEN',
           }),
         ]),
         'KOSTENSTELLE': list([
@@ -14791,14 +15439,69 @@
         'de': 'Eigene Gebühren des Dossiers',
       }),
       'nested_aliases': dict({
+        'ANTEIL_PROZENT': list([
+          dict({
+            'de': 'ANTEIL_PROZENT',
+          }),
+        ]),
+        'ART': list([
+          dict({
+            'de': 'ART',
+          }),
+        ]),
+        'BERECHNUNG': list([
+          dict({
+            'de': 'BERECHNUNG',
+          }),
+        ]),
         'BETRAG': list([
           dict({
             'de': 'BETRAG',
           }),
         ]),
+        'DEPARTEMENT': list([
+          dict({
+            'de': 'GEBUEHREN_DEPARTEMENT',
+          }),
+        ]),
+        'GESAMTKOSTEN': list([
+          dict({
+            'de': 'GESAMTKOSTEN',
+          }),
+        ]),
+        'KONTO': list([
+          dict({
+            'de': 'GEBUEHREN_KONTO',
+          }),
+        ]),
+        'KOSTENSTELLE': list([
+          dict({
+            'de': 'KOSTENSTELLE',
+          }),
+        ]),
+        'MEHRWERTSTEUER': list([
+          dict({
+            'de': 'MEHRWERTSTEUER',
+          }),
+        ]),
         'POSITION': list([
           dict({
             'de': 'POSITION',
+          }),
+        ]),
+        'RECHTSGRUNDLAGE': list([
+          dict({
+            'de': 'RECHTSGRUNDLAGE',
+          }),
+        ]),
+        'STUNDEN': list([
+          dict({
+            'de': 'STUNDEN',
+          }),
+        ]),
+        'STUNDENSATZ': list([
+          dict({
+            'de': 'STUNDENSATZ',
           }),
         ]),
       }),
@@ -14872,14 +15575,146 @@
         'de': 'Gebühren des Dossiers',
       }),
       'nested_aliases': dict({
+        'ANTEIL_PROZENT': list([
+          dict({
+            'de': 'ANTEIL_PROZENT',
+          }),
+        ]),
+        'ART': list([
+          dict({
+            'de': 'ART',
+          }),
+        ]),
+        'BERECHNUNG': list([
+          dict({
+            'de': 'BERECHNUNG',
+          }),
+        ]),
         'BETRAG': list([
           dict({
             'de': 'BETRAG',
           }),
         ]),
+        'DEPARTEMENT': list([
+          dict({
+            'de': 'GEBUEHREN_DEPARTEMENT',
+          }),
+        ]),
+        'GESAMTKOSTEN': list([
+          dict({
+            'de': 'GESAMTKOSTEN',
+          }),
+        ]),
+        'KONTO': list([
+          dict({
+            'de': 'GEBUEHREN_KONTO',
+          }),
+        ]),
+        'KOSTENSTELLE': list([
+          dict({
+            'de': 'KOSTENSTELLE',
+          }),
+        ]),
+        'MEHRWERTSTEUER': list([
+          dict({
+            'de': 'MEHRWERTSTEUER',
+          }),
+        ]),
         'POSITION': list([
           dict({
             'de': 'POSITION',
+          }),
+        ]),
+        'RECHTSGRUNDLAGE': list([
+          dict({
+            'de': 'RECHTSGRUNDLAGE',
+          }),
+        ]),
+        'STUNDEN': list([
+          dict({
+            'de': 'STUNDEN',
+          }),
+        ]),
+        'STUNDENSATZ': list([
+          dict({
+            'de': 'STUNDENSATZ',
+          }),
+        ]),
+      }),
+    }),
+    'GEBUEHREN_NICHT_VERRECHNET': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN_NICHT_VERRECHNET',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Totalbetrag aller Gebühren des Dossiers',
+      }),
+      'nested_aliases': dict({
+        'ANTEIL_PROZENT': list([
+          dict({
+            'de': 'ANTEIL_PROZENT',
+          }),
+        ]),
+        'ART': list([
+          dict({
+            'de': 'ART',
+          }),
+        ]),
+        'BERECHNUNG': list([
+          dict({
+            'de': 'BERECHNUNG',
+          }),
+        ]),
+        'BETRAG': list([
+          dict({
+            'de': 'BETRAG',
+          }),
+        ]),
+        'DEPARTEMENT': list([
+          dict({
+            'de': 'GEBUEHREN_DEPARTEMENT',
+          }),
+        ]),
+        'GESAMTKOSTEN': list([
+          dict({
+            'de': 'GESAMTKOSTEN',
+          }),
+        ]),
+        'KONTO': list([
+          dict({
+            'de': 'GEBUEHREN_KONTO',
+          }),
+        ]),
+        'KOSTENSTELLE': list([
+          dict({
+            'de': 'KOSTENSTELLE',
+          }),
+        ]),
+        'MEHRWERTSTEUER': list([
+          dict({
+            'de': 'MEHRWERTSTEUER',
+          }),
+        ]),
+        'POSITION': list([
+          dict({
+            'de': 'POSITION',
+          }),
+        ]),
+        'RECHTSGRUNDLAGE': list([
+          dict({
+            'de': 'RECHTSGRUNDLAGE',
+          }),
+        ]),
+        'STUNDEN': list([
+          dict({
+            'de': 'STUNDEN',
+          }),
+        ]),
+        'STUNDENSATZ': list([
+          dict({
+            'de': 'STUNDENSATZ',
           }),
         ]),
       }),
@@ -16140,6 +16975,36 @@
         ]),
       }),
     }),
+    'GEBUEHREN_NICHT_VERRECHNET': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN_NICHT_VERRECHNET',
+          'fr': 'GEBUEHREN_NICHT_VERRECHNET',
+          'it': 'GEBUEHREN_NICHT_VERRECHNET',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Totalbetrag aller Gebühren des Dossiers',
+        'fr': 'Montant total de tous les frais de procédure',
+        'it': 'Importo totale di tutte le tasse legate al dossier',
+      }),
+      'nested_aliases': dict({
+        'BETRAG': list([
+          dict({
+            'de': 'BETRAG',
+            'fr': 'BETRAG',
+            'it': 'BETRAG',
+          }),
+        ]),
+        'POSITION': list([
+          dict({
+            'de': 'POSITION',
+            'fr': 'POSITION',
+            'it': 'POSITION',
+          }),
+        ]),
+      }),
+    }),
     'GEBUEHREN_TOTAL': dict({
       'aliases': list([
         dict({
@@ -17289,6 +18154,12 @@
     'GEBUEHREN[].BETRAG',
     'GEBUEHREN[].POSITION',
     'GEBUEHREN[].VERRECHNET_AM',
+    'GEBUEHREN_NICHT_VERRECHNET',
+    'GEBUEHREN_NICHT_VERRECHNET[]',
+    'GEBUEHREN_NICHT_VERRECHNET[].BEMERKUNG',
+    'GEBUEHREN_NICHT_VERRECHNET[].BETRAG',
+    'GEBUEHREN_NICHT_VERRECHNET[].POSITION',
+    'GEBUEHREN_NICHT_VERRECHNET[].VERRECHNET_AM',
     'GEBUEHREN_TOTAL',
     'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
     'GEMEINDE',
@@ -17644,6 +18515,10 @@
     'GEBUEHREN[]',
     'GEBUEHREN[].BETRAG',
     'GEBUEHREN[].POSITION',
+    'GEBUEHREN_NICHT_VERRECHNET',
+    'GEBUEHREN_NICHT_VERRECHNET[]',
+    'GEBUEHREN_NICHT_VERRECHNET[].BETRAG',
+    'GEBUEHREN_NICHT_VERRECHNET[].POSITION',
     'GEBUEHREN_TOTAL',
     'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
     'GEFAEHRLICHE_STOFFE',
@@ -18621,6 +19496,10 @@
     'GEBUEHREN[]',
     'GEBUEHREN[].BETRAG',
     'GEBUEHREN[].POSITION',
+    'GEBUEHREN_NICHT_VERRECHNET',
+    'GEBUEHREN_NICHT_VERRECHNET[]',
+    'GEBUEHREN_NICHT_VERRECHNET[].BETRAG',
+    'GEBUEHREN_NICHT_VERRECHNET[].POSITION',
     'GEBUEHREN_TOTAL',
     'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
     'GEMEINDE',
@@ -18854,21 +19733,19 @@
     'EBAU_URL',
     'EIGENE_GEBUEHREN',
     'EIGENE_GEBUEHREN[]',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_ANTEIL_PROZENT',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_ART',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_BERECHNUNG',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_BETRAG',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_DEPARTMENT',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_GESAMTKOSTEN',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_KONTO',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_KOSTENSTELLE',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_MEHRWERTSTEUER',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_ORGANISATION',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_POSITION',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_RECHTSGRUNDLAGE',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_STUNDEN',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_STUNDENSATZ',
-    'EIGENE_GEBUEHREN[].GEBUEHREN_VERRECHNUNG',
+    'EIGENE_GEBUEHREN[].ANTEIL_PROZENT',
+    'EIGENE_GEBUEHREN[].ART',
+    'EIGENE_GEBUEHREN[].BERECHNUNG',
+    'EIGENE_GEBUEHREN[].BETRAG',
+    'EIGENE_GEBUEHREN[].GESAMTKOSTEN',
+    'EIGENE_GEBUEHREN[].KOSTENSTELLE',
+    'EIGENE_GEBUEHREN[].MEHRWERTSTEUER',
+    'EIGENE_GEBUEHREN[].ORGANISATION',
+    'EIGENE_GEBUEHREN[].POSITION',
+    'EIGENE_GEBUEHREN[].RECHTSGRUNDLAGE',
+    'EIGENE_GEBUEHREN[].STUNDEN',
+    'EIGENE_GEBUEHREN[].STUNDENSATZ',
+    'EIGENE_GEBUEHREN[].VERRECHNUNG',
     'EIGENE_GEBUEHREN_TOTAL',
     'EINGEREICHTE_PLAENE',
     'EINGEREICHTE_PLAENE[]',
@@ -18964,21 +19841,34 @@
     'FACHSTELLEN_KANTONAL[].ZUSTIMMENDE_BEURTEILUNGEN',
     'GEBUEHREN',
     'GEBUEHREN[]',
-    'GEBUEHREN[].GEBUEHREN_ANTEIL_PROZENT',
-    'GEBUEHREN[].GEBUEHREN_ART',
-    'GEBUEHREN[].GEBUEHREN_BERECHNUNG',
-    'GEBUEHREN[].GEBUEHREN_BETRAG',
-    'GEBUEHREN[].GEBUEHREN_DEPARTMENT',
-    'GEBUEHREN[].GEBUEHREN_GESAMTKOSTEN',
-    'GEBUEHREN[].GEBUEHREN_KONTO',
-    'GEBUEHREN[].GEBUEHREN_KOSTENSTELLE',
-    'GEBUEHREN[].GEBUEHREN_MEHRWERTSTEUER',
-    'GEBUEHREN[].GEBUEHREN_ORGANISATION',
-    'GEBUEHREN[].GEBUEHREN_POSITION',
-    'GEBUEHREN[].GEBUEHREN_RECHTSGRUNDLAGE',
-    'GEBUEHREN[].GEBUEHREN_STUNDEN',
-    'GEBUEHREN[].GEBUEHREN_STUNDENSATZ',
-    'GEBUEHREN[].GEBUEHREN_VERRECHNUNG',
+    'GEBUEHREN[].ANTEIL_PROZENT',
+    'GEBUEHREN[].ART',
+    'GEBUEHREN[].BERECHNUNG',
+    'GEBUEHREN[].BETRAG',
+    'GEBUEHREN[].GESAMTKOSTEN',
+    'GEBUEHREN[].KOSTENSTELLE',
+    'GEBUEHREN[].MEHRWERTSTEUER',
+    'GEBUEHREN[].ORGANISATION',
+    'GEBUEHREN[].POSITION',
+    'GEBUEHREN[].RECHTSGRUNDLAGE',
+    'GEBUEHREN[].STUNDEN',
+    'GEBUEHREN[].STUNDENSATZ',
+    'GEBUEHREN[].VERRECHNUNG',
+    'GEBUEHREN_NICHT_VERRECHNET',
+    'GEBUEHREN_NICHT_VERRECHNET[]',
+    'GEBUEHREN_NICHT_VERRECHNET[].ANTEIL_PROZENT',
+    'GEBUEHREN_NICHT_VERRECHNET[].ART',
+    'GEBUEHREN_NICHT_VERRECHNET[].BERECHNUNG',
+    'GEBUEHREN_NICHT_VERRECHNET[].BETRAG',
+    'GEBUEHREN_NICHT_VERRECHNET[].GESAMTKOSTEN',
+    'GEBUEHREN_NICHT_VERRECHNET[].KOSTENSTELLE',
+    'GEBUEHREN_NICHT_VERRECHNET[].MEHRWERTSTEUER',
+    'GEBUEHREN_NICHT_VERRECHNET[].ORGANISATION',
+    'GEBUEHREN_NICHT_VERRECHNET[].POSITION',
+    'GEBUEHREN_NICHT_VERRECHNET[].RECHTSGRUNDLAGE',
+    'GEBUEHREN_NICHT_VERRECHNET[].STUNDEN',
+    'GEBUEHREN_NICHT_VERRECHNET[].STUNDENSATZ',
+    'GEBUEHREN_NICHT_VERRECHNET[].VERRECHNUNG',
     'GEBUEHREN_TOTAL',
     'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
     'GEMEINDE',
@@ -19569,6 +20459,8 @@
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE': '',
     'GEBAEUDEEIGENTUEMER_VORNAME': '',
     'GEBUEHREN': list([
+    ]),
+    'GEBUEHREN_NICHT_VERRECHNET': list([
     ]),
     'GEBUEHREN_TOTAL': '0.00',
     'GEBUEHREN_TOTAL_NICHT_VERRECHNET': '0.00',
@@ -22418,24 +23310,7 @@
         'ART': 'Kommunal',
         'BERECHNUNG': 'pauschal',
         'BETRAG': '1’043.44',
-        'DEPARTMENT': '',
-        'GEBUEHREN_ANTEIL_PROZENT': '',
-        'GEBUEHREN_ART': 'Kommunal',
-        'GEBUEHREN_BERECHNUNG': 'pauschal',
-        'GEBUEHREN_BETRAG': '1’043.44',
-        'GEBUEHREN_DEPARTMENT': '',
-        'GEBUEHREN_GESAMTKOSTEN': '968.84',
-        'GEBUEHREN_KONTO': '',
-        'GEBUEHREN_KOSTENSTELLE': '061370449',
-        'GEBUEHREN_MEHRWERTSTEUER': 'exkl. 7.7% MwSt.',
-        'GEBUEHREN_ORGANISATION': 'John Thomas',
-        'GEBUEHREN_POSITION': 'what',
-        'GEBUEHREN_RECHTSGRUNDLAGE': 'behavior',
-        'GEBUEHREN_STUNDEN': '',
-        'GEBUEHREN_STUNDENSATZ': '',
-        'GEBUEHREN_VERRECHNUNG': 'Rechnung zu eröffnen',
         'GESAMTKOSTEN': '968.84',
-        'KONTO': '',
         'KOSTENSTELLE': '061370449',
         'MEHRWERTSTEUER': 'exkl. 7.7% MwSt.',
         'ORGANISATION': 'John Thomas',
@@ -22448,26 +23323,9 @@
       dict({
         'ANTEIL_PROZENT': '',
         'ART': 'Kommunal',
-        'BERECHNUNG': 'nach Konto',
-        'BETRAG': '',
-        'DEPARTMENT': '',
-        'GEBUEHREN_ANTEIL_PROZENT': '',
-        'GEBUEHREN_ART': 'Kommunal',
-        'GEBUEHREN_BERECHNUNG': 'nach Konto',
-        'GEBUEHREN_BETRAG': '',
-        'GEBUEHREN_DEPARTMENT': '',
-        'GEBUEHREN_GESAMTKOSTEN': '',
-        'GEBUEHREN_KONTO': '',
-        'GEBUEHREN_KOSTENSTELLE': '032990777',
-        'GEBUEHREN_MEHRWERTSTEUER': 'inkl. 7.7% MwSt.',
-        'GEBUEHREN_ORGANISATION': 'John Thomas',
-        'GEBUEHREN_POSITION': 'write',
-        'GEBUEHREN_RECHTSGRUNDLAGE': 'almost',
-        'GEBUEHREN_STUNDEN': '',
-        'GEBUEHREN_STUNDENSATZ': '',
-        'GEBUEHREN_VERRECHNUNG': 'Weiter zu verrechnen',
+        'BERECHNUNG': 'Behandlungsgebühr BG BVUAFB',
+        'BETRAG': '400.00',
         'GESAMTKOSTEN': '',
-        'KONTO': '',
         'KOSTENSTELLE': '032990777',
         'MEHRWERTSTEUER': 'inkl. 7.7% MwSt.',
         'ORGANISATION': 'John Thomas',
@@ -22478,7 +23336,7 @@
         'VERRECHNUNG': 'Weiter zu verrechnen',
       }),
     ]),
-    'EIGENE_GEBUEHREN_TOTAL': '1’043.44',
+    'EIGENE_GEBUEHREN_TOTAL': '1’443.44',
     'EINGEREICHTE_PLAENE': list([
     ]),
     'EINGEREICHTE_UNTERLAGEN': list([
@@ -22720,24 +23578,7 @@
         'ART': 'Kantonal',
         'BERECHNUNG': 'nach Aufwand',
         'BETRAG': '2’090.00',
-        'DEPARTMENT': '',
-        'GEBUEHREN_ANTEIL_PROZENT': '',
-        'GEBUEHREN_ART': 'Kantonal',
-        'GEBUEHREN_BERECHNUNG': 'nach Aufwand',
-        'GEBUEHREN_BETRAG': '2’090.00',
-        'GEBUEHREN_DEPARTMENT': '',
-        'GEBUEHREN_GESAMTKOSTEN': '',
-        'GEBUEHREN_KONTO': '',
-        'GEBUEHREN_KOSTENSTELLE': '',
-        'GEBUEHREN_MEHRWERTSTEUER': 'nicht MwSt-pflichtig',
-        'GEBUEHREN_ORGANISATION': 'Christopher Smith',
-        'GEBUEHREN_POSITION': 'act',
-        'GEBUEHREN_RECHTSGRUNDLAGE': '',
-        'GEBUEHREN_STUNDEN': 5.0,
-        'GEBUEHREN_STUNDENSATZ': '418.00',
-        'GEBUEHREN_VERRECHNUNG': 'Rechnung zu eröffnen',
         'GESAMTKOSTEN': '',
-        'KONTO': '',
         'KOSTENSTELLE': '',
         'MEHRWERTSTEUER': 'nicht MwSt-pflichtig',
         'ORGANISATION': 'Christopher Smith',
@@ -22752,24 +23593,7 @@
         'ART': 'Kommunal',
         'BERECHNUNG': 'pauschal',
         'BETRAG': '1’043.44',
-        'DEPARTMENT': '',
-        'GEBUEHREN_ANTEIL_PROZENT': '',
-        'GEBUEHREN_ART': 'Kommunal',
-        'GEBUEHREN_BERECHNUNG': 'pauschal',
-        'GEBUEHREN_BETRAG': '1’043.44',
-        'GEBUEHREN_DEPARTMENT': '',
-        'GEBUEHREN_GESAMTKOSTEN': '968.84',
-        'GEBUEHREN_KONTO': '',
-        'GEBUEHREN_KOSTENSTELLE': '061370449',
-        'GEBUEHREN_MEHRWERTSTEUER': 'exkl. 7.7% MwSt.',
-        'GEBUEHREN_ORGANISATION': 'John Thomas',
-        'GEBUEHREN_POSITION': 'what',
-        'GEBUEHREN_RECHTSGRUNDLAGE': 'behavior',
-        'GEBUEHREN_STUNDEN': '',
-        'GEBUEHREN_STUNDENSATZ': '',
-        'GEBUEHREN_VERRECHNUNG': 'Rechnung zu eröffnen',
         'GESAMTKOSTEN': '968.84',
-        'KONTO': '',
         'KOSTENSTELLE': '061370449',
         'MEHRWERTSTEUER': 'exkl. 7.7% MwSt.',
         'ORGANISATION': 'John Thomas',
@@ -22782,26 +23606,9 @@
       dict({
         'ANTEIL_PROZENT': '',
         'ART': 'Kommunal',
-        'BERECHNUNG': 'nach Konto',
-        'BETRAG': '',
-        'DEPARTMENT': '',
-        'GEBUEHREN_ANTEIL_PROZENT': '',
-        'GEBUEHREN_ART': 'Kommunal',
-        'GEBUEHREN_BERECHNUNG': 'nach Konto',
-        'GEBUEHREN_BETRAG': '',
-        'GEBUEHREN_DEPARTMENT': '',
-        'GEBUEHREN_GESAMTKOSTEN': '',
-        'GEBUEHREN_KONTO': '',
-        'GEBUEHREN_KOSTENSTELLE': '032990777',
-        'GEBUEHREN_MEHRWERTSTEUER': 'inkl. 7.7% MwSt.',
-        'GEBUEHREN_ORGANISATION': 'John Thomas',
-        'GEBUEHREN_POSITION': 'write',
-        'GEBUEHREN_RECHTSGRUNDLAGE': 'almost',
-        'GEBUEHREN_STUNDEN': '',
-        'GEBUEHREN_STUNDENSATZ': '',
-        'GEBUEHREN_VERRECHNUNG': 'Weiter zu verrechnen',
+        'BERECHNUNG': 'Behandlungsgebühr BG BVUAFB',
+        'BETRAG': '400.00',
         'GESAMTKOSTEN': '',
-        'KONTO': '',
         'KOSTENSTELLE': '032990777',
         'MEHRWERTSTEUER': 'inkl. 7.7% MwSt.',
         'ORGANISATION': 'John Thomas',
@@ -22816,24 +23623,7 @@
         'ART': 'Kommunal',
         'BERECHNUNG': 'prozentual',
         'BETRAG': '758.82',
-        'DEPARTMENT': '',
-        'GEBUEHREN_ANTEIL_PROZENT': 73.97,
-        'GEBUEHREN_ART': 'Kommunal',
-        'GEBUEHREN_BERECHNUNG': 'prozentual',
-        'GEBUEHREN_BETRAG': '758.82',
-        'GEBUEHREN_DEPARTMENT': '',
-        'GEBUEHREN_GESAMTKOSTEN': '952.57',
-        'GEBUEHREN_KONTO': '',
-        'GEBUEHREN_KOSTENSTELLE': '',
-        'GEBUEHREN_MEHRWERTSTEUER': 'exkl. 7.7% MwSt.',
-        'GEBUEHREN_ORGANISATION': 'Christopher Smith',
-        'GEBUEHREN_POSITION': 'author',
-        'GEBUEHREN_RECHTSGRUNDLAGE': '',
-        'GEBUEHREN_STUNDEN': '',
-        'GEBUEHREN_STUNDENSATZ': '',
-        'GEBUEHREN_VERRECHNUNG': 'Kantonale Gebührenrechnung für Bauen ausserhalb Bauzone',
         'GESAMTKOSTEN': '952.57',
-        'KONTO': '',
         'KOSTENSTELLE': '',
         'MEHRWERTSTEUER': 'exkl. 7.7% MwSt.',
         'ORGANISATION': 'Christopher Smith',
@@ -22844,7 +23634,70 @@
         'VERRECHNUNG': 'Kantonale Gebührenrechnung für Bauen ausserhalb Bauzone',
       }),
     ]),
-    'GEBUEHREN_TOTAL': '3’892.26',
+    'GEBUEHREN_NICHT_VERRECHNET': list([
+      dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'Kantonal',
+        'BERECHNUNG': 'nach Aufwand',
+        'BETRAG': '2’090.00',
+        'GESAMTKOSTEN': '',
+        'KOSTENSTELLE': '',
+        'MEHRWERTSTEUER': 'nicht MwSt-pflichtig',
+        'ORGANISATION': 'Christopher Smith',
+        'POSITION': 'act',
+        'RECHTSGRUNDLAGE': '',
+        'STUNDEN': 5.0,
+        'STUNDENSATZ': '418.00',
+        'VERRECHNUNG': 'Rechnung zu eröffnen',
+      }),
+      dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'Kommunal',
+        'BERECHNUNG': 'pauschal',
+        'BETRAG': '1’043.44',
+        'GESAMTKOSTEN': '968.84',
+        'KOSTENSTELLE': '061370449',
+        'MEHRWERTSTEUER': 'exkl. 7.7% MwSt.',
+        'ORGANISATION': 'John Thomas',
+        'POSITION': 'what',
+        'RECHTSGRUNDLAGE': 'behavior',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+        'VERRECHNUNG': 'Rechnung zu eröffnen',
+      }),
+      dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'Kommunal',
+        'BERECHNUNG': 'Behandlungsgebühr BG BVUAFB',
+        'BETRAG': '400.00',
+        'GESAMTKOSTEN': '',
+        'KOSTENSTELLE': '032990777',
+        'MEHRWERTSTEUER': 'inkl. 7.7% MwSt.',
+        'ORGANISATION': 'John Thomas',
+        'POSITION': 'write',
+        'RECHTSGRUNDLAGE': 'almost',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+        'VERRECHNUNG': 'Weiter zu verrechnen',
+      }),
+      dict({
+        'ANTEIL_PROZENT': 73.97,
+        'ART': 'Kommunal',
+        'BERECHNUNG': 'prozentual',
+        'BETRAG': '758.82',
+        'GESAMTKOSTEN': '952.57',
+        'KOSTENSTELLE': '',
+        'MEHRWERTSTEUER': 'exkl. 7.7% MwSt.',
+        'ORGANISATION': 'Christopher Smith',
+        'POSITION': 'author',
+        'RECHTSGRUNDLAGE': '',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+        'VERRECHNUNG': 'Kantonale Gebührenrechnung für Bauen ausserhalb Bauzone',
+      }),
+    ]),
+    'GEBUEHREN_TOTAL': '4’292.26',
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET': '4’292.26',
     'GEMEINDE': 'Allen Mathis',
     'GEMEINDE_ADRESSE': 'North April',
     'GEMEINDE_EMAIL': 'lortega@example.org',
@@ -23338,7 +24191,7 @@
     'field_standort_adresse': '',
     'field_standort_koordinaten': '''
       2693525; 1210987
-
+  
     ''',
     'field_standort_ort': '',
     'field_standort_spezialbezeichnung': '',
@@ -23411,6 +24264,181 @@
   dict({
     'DATUM_DOSSIER_VOLLSTAENDIG': '1. Januar 2023',
     'DATUM_PRUEFUNG_DURCH_GEMEINDE': '1. Januar 2023',
+    'GEBUEHREN': list([
+      dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'Kantonal',
+        'BERECHNUNG': 'nach Aufwand',
+        'BETRAG': '1’948.00',
+        'DEPARTEMENT': 'either',
+        'GEBUEHREN_DEPARTEMENT': 'either',
+        'GEBUEHREN_KONTO': 'professor',
+        'GESAMTKOSTEN': '',
+        'KONTO': 'professor',
+        'KOSTENSTELLE': '100060403',
+        'MEHRWERTSTEUER': 'nicht MwSt-pflichtig',
+        'POSITION': 'each',
+        'RECHTSGRUNDLAGE': 'movie',
+        'STUNDEN': 2.0,
+        'STUNDENSATZ': '974.00',
+      }),
+      dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'Kantonal',
+        'BERECHNUNG': 'nach Aufwand',
+        'BETRAG': '4’446.00',
+        'DEPARTEMENT': 'either',
+        'GEBUEHREN_DEPARTEMENT': 'either',
+        'GEBUEHREN_KONTO': 'professor',
+        'GESAMTKOSTEN': '',
+        'KONTO': 'professor',
+        'KOSTENSTELLE': '124582446',
+        'MEHRWERTSTEUER': 'nicht MwSt-pflichtig',
+        'POSITION': 'over',
+        'RECHTSGRUNDLAGE': 'beyond',
+        'STUNDEN': 6.0,
+        'STUNDENSATZ': '741.00',
+      }),
+      dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'Kommunal',
+        'BERECHNUNG': 'pauschal',
+        'BETRAG': '362.45',
+        'DEPARTEMENT': 'either',
+        'GEBUEHREN_DEPARTEMENT': 'either',
+        'GEBUEHREN_KONTO': 'professor',
+        'GESAMTKOSTEN': '336.54',
+        'KONTO': 'professor',
+        'KOSTENSTELLE': '108213155',
+        'MEHRWERTSTEUER': 'exkl. 7.7% MwSt.',
+        'POSITION': 'choice',
+        'RECHTSGRUNDLAGE': 'full',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+      }),
+      dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'Kommunal',
+        'BERECHNUNG': 'Behandlungsgebühr BG BVUAFB',
+        'BETRAG': '400.00',
+        'DEPARTEMENT': 'either',
+        'GEBUEHREN_DEPARTEMENT': 'either',
+        'GEBUEHREN_KONTO': 'professor',
+        'GESAMTKOSTEN': '',
+        'KONTO': 'professor',
+        'KOSTENSTELLE': '017890274',
+        'MEHRWERTSTEUER': 'inkl. 7.7% MwSt.',
+        'POSITION': 'deep',
+        'RECHTSGRUNDLAGE': 'whom',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+      }),
+      dict({
+        'ANTEIL_PROZENT': 78.4,
+        'ART': 'Kommunal',
+        'BERECHNUNG': 'prozentual',
+        'BETRAG': '841.72',
+        'DEPARTEMENT': 'either',
+        'GEBUEHREN_DEPARTEMENT': 'either',
+        'GEBUEHREN_KONTO': 'professor',
+        'GESAMTKOSTEN': '996.86',
+        'KONTO': 'professor',
+        'KOSTENSTELLE': '065523289',
+        'MEHRWERTSTEUER': 'exkl. 7.7% MwSt.',
+        'POSITION': 'present',
+        'RECHTSGRUNDLAGE': 'field',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+      }),
+      dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'Kommunal',
+        'BERECHNUNG': 'pauschal',
+        'BETRAG': '410.52',
+        'DEPARTEMENT': 'either',
+        'GEBUEHREN_DEPARTEMENT': 'either',
+        'GEBUEHREN_KONTO': 'professor',
+        'GESAMTKOSTEN': '400.51',
+        'KONTO': 'professor',
+        'KOSTENSTELLE': '107175401',
+        'MEHRWERTSTEUER': 'exkl. 2.5% MwSt.',
+        'POSITION': 'true',
+        'RECHTSGRUNDLAGE': 'seven',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+      }),
+    ]),
+    'GEBUEHREN_NICHT_VERRECHNET': list([
+      dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'Kantonal',
+        'BERECHNUNG': 'nach Aufwand',
+        'BETRAG': '1’948.00',
+        'DEPARTEMENT': 'either',
+        'GEBUEHREN_DEPARTEMENT': 'either',
+        'GEBUEHREN_KONTO': 'professor',
+        'GESAMTKOSTEN': '',
+        'KONTO': 'professor',
+        'KOSTENSTELLE': '100060403',
+        'MEHRWERTSTEUER': 'nicht MwSt-pflichtig',
+        'POSITION': 'each',
+        'RECHTSGRUNDLAGE': 'movie',
+        'STUNDEN': 2.0,
+        'STUNDENSATZ': '974.00',
+      }),
+      dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'Kantonal',
+        'BERECHNUNG': 'nach Aufwand',
+        'BETRAG': '4’446.00',
+        'DEPARTEMENT': 'either',
+        'GEBUEHREN_DEPARTEMENT': 'either',
+        'GEBUEHREN_KONTO': 'professor',
+        'GESAMTKOSTEN': '',
+        'KONTO': 'professor',
+        'KOSTENSTELLE': '124582446',
+        'MEHRWERTSTEUER': 'nicht MwSt-pflichtig',
+        'POSITION': 'over',
+        'RECHTSGRUNDLAGE': 'beyond',
+        'STUNDEN': 6.0,
+        'STUNDENSATZ': '741.00',
+      }),
+      dict({
+        'ANTEIL_PROZENT': 78.4,
+        'ART': 'Kommunal',
+        'BERECHNUNG': 'prozentual',
+        'BETRAG': '841.72',
+        'DEPARTEMENT': 'either',
+        'GEBUEHREN_DEPARTEMENT': 'either',
+        'GEBUEHREN_KONTO': 'professor',
+        'GESAMTKOSTEN': '996.86',
+        'KONTO': 'professor',
+        'KOSTENSTELLE': '065523289',
+        'MEHRWERTSTEUER': 'exkl. 7.7% MwSt.',
+        'POSITION': 'present',
+        'RECHTSGRUNDLAGE': 'field',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+      }),
+      dict({
+        'ANTEIL_PROZENT': '',
+        'ART': 'Kommunal',
+        'BERECHNUNG': 'pauschal',
+        'BETRAG': '410.52',
+        'DEPARTEMENT': 'either',
+        'GEBUEHREN_DEPARTEMENT': 'either',
+        'GEBUEHREN_KONTO': 'professor',
+        'GESAMTKOSTEN': '400.51',
+        'KONTO': 'professor',
+        'KOSTENSTELLE': '107175401',
+        'MEHRWERTSTEUER': 'exkl. 2.5% MwSt.',
+        'POSITION': 'true',
+        'RECHTSGRUNDLAGE': 'seven',
+        'STUNDEN': '',
+        'STUNDENSATZ': '',
+      }),
+    ]),
+    'GEBUEHREN_TOTAL': '8’408.69',
     'GEMEINDE': 'Altdorf',
     'HAUSNUMMER': 4,
     'NAME_GEMEINDEBAUBEHOERDE': 'Gemeindebaubehörde Altdorf',

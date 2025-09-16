@@ -655,6 +655,10 @@ DUMP = {
                 "caluma_construction_control_form": generate_form_dump_config(
                     regex=r"^construction-control"
                 ),
+                "billing": {
+                    "billing.BillingV2Account": Q(),
+                    "billing.BillingV2EntryTemplate": Q(services__isnull=True),
+                },
                 "caluma_einfache_anfrage_form": generate_form_dump_config(
                     regex=r"^einfache-anfrage"
                 ),

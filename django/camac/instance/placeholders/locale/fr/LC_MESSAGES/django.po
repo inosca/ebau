@@ -95,13 +95,11 @@ msgid "BILLING_ENTRY_ORGANISATION"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-#| msgid "BILLING_ENTRIES"
 msgid "BILLING_ACCOUNT"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
-#| msgid "BILLING_ENTRIES"
-msgid "BILLING_DEPARTMENT"
+msgid "BILLING_DEPARTEMENT"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
@@ -1068,6 +1066,14 @@ msgstr "EMOLUMENTS"
 #: camac/instance/placeholders/serializers.py
 msgid "Billing entries of the instance"
 msgstr "Les frais officiels de procédure"
+
+#: camac/instance/placeholders/serializers.py
+msgid "BILLING_ENTRIES_NOT_CHARGED"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Not charged billing entries of the instance"
+msgstr "Montant total de tous les frais de procédure"
 
 #: camac/instance/placeholders/serializers.py
 msgid "DOSSIER_NUMBER"

@@ -13,7 +13,7 @@ from camac.billing.models import (
 )
 from camac.billing.utils import add_taxes_to_final_rate, calculate_final_rate
 from camac.instance.factories import InstanceFactory
-from camac.user.factories import GroupFactory, UserFactory
+from camac.user.factories import GroupFactory, ServiceGroupFactory, UserFactory
 from camac.utils import choice_keys
 
 
@@ -118,9 +118,7 @@ class BillingV2AccountFactory(DjangoModelFactory):
     name = Faker("word")
     account_number = Faker("word")
     department = Faker("word")
-    account_type = fuzzy.FuzzyChoice(
-        choice_keys(BillingV2Account.BillingAccountTypes.choices)
-    )
+    service_group = SubFactory(ServiceGroupFactory)
 
     class Meta:
         model = BillingV2Account

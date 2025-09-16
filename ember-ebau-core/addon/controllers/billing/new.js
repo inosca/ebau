@@ -5,6 +5,7 @@ import { camelize } from "@ember/string";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { findAll, findRecord } from "ember-data-resources";
+import { trackedFunction } from "reactiveweb/function";
 
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import { isApplication } from "ember-ebau-core/helpers/is-application";
@@ -31,6 +32,7 @@ export default class BillingNewController extends Controller {
   @tracked entryTemplates = findAll(this, "billing-v2-entry-template");
   @tracked productNumbers;
   @tracked selectedTemplate = null;
+  @tracked selectedAccount = null;
 
   @tracked instance = findRecord(this, "instance", () => [
     this.ebauModules.instanceId,
@@ -121,7 +123,7 @@ export default class BillingNewController extends Controller {
       billingType: hasFeature("billing.billingType") ? "by_authority" : null,
     });
 
-    if (hasFeature("billing.billingAccount")) {
+    if (hasFeature("billing.account")) {
       this.newEntry.hourlyRate = 110;
     }
 
@@ -147,11 +149,17 @@ export default class BillingNewController extends Controller {
       this.newEntry.taxRate = getRate(value);
     } else if (name === "billing_v2_account") {
       const accountId = value;
-      if (value !== "") {
+      if (!value) {
+        this.newEntry.billingV2Account = null;
+        this.selectedAccount = null;
+        this.newEntry.text = null;
+        this.newEntry.costCenter = null;
+      } else {
         const account = this.store.peekRecord("billing-v2-account", accountId);
         this.newEntry.billingV2Account = account;
-        this.newEntry.text = account.name;
+        this.newEntry.text = `${account.department} / ${account.name}`;
         this.newEntry.costCenter = account.accountNumber;
+        this.selectedAccount = account;
       }
     } else {
       this.newEntry[camelize(name)] = value ?? null;

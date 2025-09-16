@@ -1,10 +1,15 @@
 billing:
   info: |-
-    Nel menu «Tasse» è possibile registrare le tasse che risultano in relazione al dossier. Le voci registrate non vengono però trasmesse automaticamente ai servizi di fatturazione dell'organizzazione. La fatturazione deve avvenire come finora da parte di ogni organizzazione coinvolta.
+    <div class="uk-alert" data-test-billing-info>
+      Nel menu «Tasse» è possibile registrare le tasse che risultano in relazione al dossier. Le voci registrate non vengono però trasmesse automaticamente ai servizi di fatturazione dell'organizzazione. La fatturazione deve avvenire come finora da parte di ogni organizzazione coinvolta.
+    </div>
   info-new: ""
+  entry-type:
   position: Posizione
   legal-basis: Base giuridica
   billing-account:
+    account: Conto di fatturazione
+    other: Altra prestazione
   cost-center: Centro di costo
   cost-center-short: CdC
   service: Organizzazione
@@ -14,9 +19,11 @@ billing:
   total: Totale (CHF)
   created-at: Registrato il
   charged-at: Fatturato il
+  invoice-text: Tipo di fattura
   dossier: N. dossier
   organization: Tipo
   charge: Fatturare
+  invoice: Creare fattura
   hide-charged: Nascondi le tasse fatturate
   calculation: Calcolo
   hours: Ore
@@ -30,10 +37,14 @@ billing:
   confirm-delete: Cancella davvero la tassa?
   confirm-charge: |-
     Accertarsi che la fattura sia stata creata prima di impostare la tassa su «fatturata».
+  confirm-invoice: |-
+    Accertarsi che la fattura sia stata creata prima di impostare la tassa su «fatturata».
   add-success: Tassa aggiunta con successo
+  invoice-success: La fattura è stata generata con successo e archiviata sotto "Documenti".
   add-error: Errore nel tentativo di aggiungere la tassa
   delete-error: Errore nel tentativo di eliminare la tassa
   charge-error: Errore nel tentativo di fatturare la tassa
+  invoice-error: Errore nel tentativo di fatturare la tassa
   paginationInfo: "<strong>{count}</strong> su {total}"
   apply-construction-costs: Adottare i costi di costruzione dal modulo
   apply-construction-costs-empty: Non è stato possibile reperire i costi di costruzione nel modulo
@@ -92,6 +103,8 @@ billing:
     by_authority: Da fatturare
     forwarded: Fattura da notificare
     direct: Fatturazione diretta
+    construction_outside_zone:
+    cantonal_construction_administration:
 
   filters:
     createdAfter:

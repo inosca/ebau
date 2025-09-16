@@ -95,7 +95,6 @@ class BillingV2AccountForm(ModelForm):
         }
         fields = (
             "name",
-            "account_type",
             "account_number",
             "department",
             "service_group",
@@ -107,7 +106,6 @@ class BillingV2AccountForm(ModelForm):
 class BillingV2AccountAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
     list_display = [
         "name",
-        "account_type",
         "account_number",
         "department",
         "get_service_group_name",

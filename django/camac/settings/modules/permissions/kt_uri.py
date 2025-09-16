@@ -55,6 +55,36 @@ ROLES_INTERNAL = HasRole(
 # 2. Form rules
 # 3. Role rules
 # 4. Other
+MODULE_BILLING = RequireInstanceState(
+    [
+        "comm",
+        "ext",
+        "circ",
+        "redac",
+        "done",
+        "arch",
+        "del",
+        "nfd",
+        "subm",
+        "control",
+    ]
+) & HasRole(
+    [
+        "Gemeinde als Vernehmlassungsstelle",
+        "Koordinationsstelle Amt für das Grundbuch AfG",
+        "Koordinationsstelle Baudirektion BD",
+        "Koordinationsstelle Baugesuche BG",
+        "Koordinationsstelle Energie AfE",
+        "Koordinationsstelle Forst und Jagd AFJ",
+        "Koordinationsstelle Landwirtschaft ALA",
+        "Koordinationsstelle Nutzungsplanung NP",
+        "Koordinationsstelle Sicherheitsdirektion SD",
+        "Koordinationsstelle Umwelt AfU",
+        "Vernehmlassungsstelle mit Koordinationsaufgaben",
+        "Vernehmlassungsstelle ohne Koordinationsaufgaben",
+    ]
+)
+
 MODULE_COMMUNICATIONS = (
     STATES_ALL_INTERNAL
     & ROLES_INTERNAL
@@ -73,6 +103,8 @@ MODULE_HISTORY = STATES_ALL_INTERNAL & ROLES_INTERNAL
 UR_PERMISSIONS_SETTINGS = {
     "ACCESS_LEVELS": {
         "read": [
+            ("billing-read", MODULE_BILLING),
+            ("billing-write", MODULE_BILLING),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("dashboard-read", MODULE_DASHBOARD_READ),

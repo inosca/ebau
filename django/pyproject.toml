@@ -196,6 +196,7 @@ omit = [
     # One off commands
     "camac/document/management/commands/generate_test_documents.py",
     "camac/billing/management/commands/fix_uri_billing_entries.py",
+    "camac/billing/management/commands/migrate_billing_uri_v2.py",
     "camac/core/management/commands/fix_incorrectly_created_geometer_workitems.py",
     "camac/dossier_import/management/commands/fix_identifiers_schuebelbach.py",
     "camac/dossier_import/management/commands/fix_addresses_schuebelbach.py",

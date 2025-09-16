@@ -231,6 +231,10 @@ msgstr ""
 msgid "Remark"
 msgstr "Remarque"
 
+#: camac/billing/models.py
+msgid "Entry Type"
+msgstr ""
+
 #: camac/billing/models.py camac/core/admin/views.py camac/deadlines/models.py
 #: camac/user/admin/views.py camac/user/models.py camac/work_items/models.py
 msgid "Name"
@@ -255,18 +259,6 @@ msgstr ""
 #: camac/billing/models.py camac/user/models.py
 msgid "Department"
 msgstr "Département"
-
-#: camac/billing/models.py
-msgid "Building permit"
-msgstr ""
-
-#: camac/billing/models.py
-msgid "Construction monitoring"
-msgstr "Contrôle construction"
-
-#: camac/billing/models.py
-msgid "Account type"
-msgstr ""
 
 #: camac/billing/models.py
 msgid "Billing account"
@@ -347,6 +339,10 @@ msgstr ""
 #: camac/billing/views.py
 msgid "All entries to charge must belong to the same instance"
 msgstr "Toutes les entrées à facturer doivent appartenir au même dossier"
+
+#: camac/billing/views.py
+msgid "No unbilled entries found"
+msgstr "Aucune entrée non facturée trouvée"
 
 #: camac/billing/views.py
 msgid "All entries to release must belong to the same instance"

@@ -29,8 +29,43 @@ module("Integration | Component | billing-table", function (hooks) {
     this.noop = () => {};
   });
 
-  test("it renders", async function (assert) {
+  test("it renders with invoice feature", async function (assert) {
     this.features.enable(
+      "billing.entryType",
+      "billing.invoice",
+      "billing.charge",
+      "billing.organization",
+      "billing.billingType",
+    );
+    this.features.disable("billing.displayService");
+
+    await render(hbs`<BillingTable
+  @entries={{this.entries}}
+  @onToggleAll={{this.noop}}
+  @onToggleRow={{this.noop}}
+  @onRefresh={{this.noop}}
+  @canSelect={{false}}
+  @canEdit={{true}}
+/>`);
+
+    assert.dom("thead tr th").exists({ count: 12 });
+    assert
+      .dom(
+        "thead tr th[data-test-charge] input[data-test-toggle-all][type=checkbox]",
+      )
+      .doesNotExist();
+    assert
+      .dom("thead tr th[data-test-invoice-text]")
+      .hasText(t("billing.invoice-text"));
+
+    assert.dom("tbody tr").exists({ count: 5 });
+    assert.dom("tfoot tr").exists({ count: 9 });
+  });
+
+  test("it renders", async function (assert) {
+    this.features.disable("billing.invoice");
+    this.features.enable(
+      "billing.entryType",
       "billing.charge",
       "billing.organization",
       "billing.billingType",
@@ -46,12 +81,15 @@ module("Integration | Component | billing-table", function (hooks) {
   @canEdit={{true}}
 />`);
 
-    assert.dom("thead tr th").exists({ count: 11 });
+    assert.dom("thead tr th").exists({ count: 12 });
     assert
       .dom(
         "thead tr th[data-test-charge] input[data-test-toggle-all][type=checkbox]",
       )
       .exists();
+    assert
+      .dom("thead tr th[data-test-entry-type]")
+      .hasText(t("billing.entry-type"));
     assert.dom("thead tr th[data-test-text]").hasText(t("billing.position"));
     assert.dom("thead tr th[data-test-user]").hasText(t("billing.user"));
     assert.dom("thead tr th[data-test-group]").hasText(t("billing.group"));

@@ -1,11 +1,4 @@
-{{#let
-  (maybe-translate "billing.info-new" htmlSafe=true)
-  as |billingNewDescription|
-}}
-  {{#if billingNewDescription}}
-    {{billingNewDescription}}
-  {{/if}}
-{{/let}}
+{{maybe-translate "billing.info-new" htmlSafe=true}}
 
 {{#if this.entryTemplates.records.length}}
   <form class="uk-form-stacked" aria-label={{t "billing.templates.select"}}>
@@ -61,11 +54,7 @@
   {{#if (has-feature "billing.account")}}
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="account">
-        {{#if (this.isBaubegleitung this.instance.record.instanceState.id)}}
-          {{t "billing.billing-account-nachtraeglich"}}
-        {{else}}
-          {{t "billing.billing-account-laufend"}}
-        {{/if}}
+        {{t "billing.billing-account.account"}}
         <span class="mandatory-asterisk">*</span>
       </label>
       <div class="uk-form-controls">
@@ -76,16 +65,15 @@
           required
           {{on "change" this.update}}
         >
-          <option></option>
+          <option>{{t "billing.billing-account.please-choose"}}</option>
           {{#each this.billingV2Accounts.value as |account|}}
             <option value={{account.id}}>
               {{account.department}}
               /
-              {{account.accountType}}
-              /
               {{account.name}}
             </option>
           {{/each}}
+          <option value="">{{t "billing.billing-account.other"}}</option>
         </select>
       </div>
     </div>
@@ -158,7 +146,13 @@
         <Input
           @type="text"
           @value={{this.newEntry.costCenter}}
-          disabled={{if (has-feature "billing.account") "disabled"}}
+          disabled={{if
+            (and
+              (has-feature "billing.account")
+              (not (eq this.selectedAccount null))
+            )
+            "disabled"
+          }}
           id="cost-center"
           name="cost-center"
           class="uk-input"
@@ -241,7 +235,7 @@
 
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="hourly-rate">
-        {{#if (has-feature "billing.billingAccount")}}
+        {{#if (has-feature "billing.account")}}
           {{t "billing.hourly-rate-inkl-mwst"}}
         {{else}}
           {{t "billing.hourly-rate"}}

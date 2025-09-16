@@ -1,4 +1,4 @@
-<tr>
+<tr class={{if @entry.dateCharged "uk-text-muted"}} data-test-billing-table-row>
   {{#if @canSelect}}
     <td data-test-entry-charge>
       <input
@@ -12,6 +12,9 @@
         {{on "change" this.toggle}}
       />
     </td>
+  {{/if}}
+  {{#if (has-feature "billing.entryType")}}
+    <td data-test-entry-type>{{@entry.entryType}}</td>
   {{/if}}
   <td data-test-entry-text>
     {{@entry.text}}
@@ -36,16 +39,29 @@
   </td>
   <td data-test-entry-added>{{format-date @entry.dateAdded format="date"}}</td>
   {{#if (has-feature "billing.releaseForClearing")}}
-    <td data-test-entry-released-for-clearing>{{format-date
-        @entry.releasedForClearing
-        format="date"
+    <td data-test-entry-released-for-clearing>
+      {{or
+        (if
+          @entry.releasedForClearing
+          (format-date @entry.releasedForClearing format="date")
+          "-"
+        )
       }}</td>
   {{/if}}
   {{#if (has-feature "billing.charge")}}
-    <td data-test-entry-charged>{{format-date
-        @entry.dateCharged
-        format="date"
-      }}</td>
+
+    <td data-test-entry-charged>
+      {{or
+        (if
+          @entry.dateCharged (format-date @entry.dateCharged format="date") "-"
+        )
+      }}
+    </td>
+  {{/if}}
+  {{#if (has-feature "billing.invoice")}}
+    <td data-test-entry-invoice-text>
+      {{or (if @entry.invoice @entry.invoice.invoiceText) "-"}}
+    </td>
   {{/if}}
   {{#if (has-feature "billing.organization")}}
     <td data-test-entry-organization>{{if

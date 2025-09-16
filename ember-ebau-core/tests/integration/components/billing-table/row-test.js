@@ -1,4 +1,4 @@
-import { click, settled, waitFor, render } from "@ember/test-helpers";
+import { click, render, settled, waitFor } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { module, test } from "qunit";
@@ -29,6 +29,9 @@ module("Integration | Component | billing-table/row", function (hooks) {
       dateAdded: "2023-11-01",
       dateCharged: null,
       group: this.server.create("group", { service }),
+      invoice: this.server.create("invoice", {
+        invoiceText: "test invoice",
+      }),
     });
 
     this.entry = await this.owner
@@ -40,8 +43,45 @@ module("Integration | Component | billing-table/row", function (hooks) {
     this.owner.lookup("service:ebau-modules").serviceId = service.id;
   });
 
-  test("it renders", async function (assert) {
+  test("it renders with invoice feature", async function (assert) {
     this.features.enable(
+      "billing.entryType",
+      "billing.invoice",
+      "billing.charge",
+      "billing.organization",
+      "billing.billingType",
+      "billing.legalBasis",
+      "billing.costCenter",
+    );
+    this.features.disable("billing.displayService");
+    await render(hbs`<BillingTable::Row
+  @entry={{this.entry}}
+  @canSelect={{false}}
+  @canEdit={{true}}
+/>`);
+
+    assert.dom("tr").exists({ count: 1 });
+    assert.dom("td").exists({ count: 12 });
+
+    assert
+      .dom("td[data-test-entry-charge] input[data-test-toggle][type=checkbox]")
+      .doesNotExist();
+    assert
+      .dom("td[data-test-entry-invoice-text]")
+      .hasText(this.entry.get("invoice.invoiceText"));
+
+    await render(hbs`<BillingTable::Row
+  @entry={{this.entry}}
+  @canSelect={{false}}
+  @canEdit={{false}}
+/>`);
+    assert.dom("td[data-test-entry-delete]").doesNotExist();
+  });
+
+  test("it renders", async function (assert) {
+    this.features.disable("billing.invoice");
+    this.features.enable(
+      "billing.entryType",
       "billing.charge",
       "billing.organization",
       "billing.billingType",
@@ -56,11 +96,12 @@ module("Integration | Component | billing-table/row", function (hooks) {
 />`);
 
     assert.dom("tr").exists({ count: 1 });
-    assert.dom("td").exists({ count: 11 });
+    assert.dom("td").exists({ count: 12 });
 
     assert
       .dom("td[data-test-entry-charge] input[data-test-toggle][type=checkbox]")
       .exists();
+    assert.dom("td[data-test-entry-type]").hasText(`${this.entry.entryType}`);
     assert
       .dom("td[data-test-entry-text]")
       .hasText(`${this.entry.text} (${this.entry.legalBasis})`);

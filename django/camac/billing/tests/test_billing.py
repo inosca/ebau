@@ -271,6 +271,49 @@ def test_billing_entry_create_acl(
 
 
 @pytest.mark.parametrize(
+    ("instance_state__name", "expected_entry_type"),
+    [
+        ("control", "BGL"),
+        ("done", "BGL"),
+        ("arch", "BGL"),
+        ("new", "BEW"),
+        ("subm", "BEW"),
+    ],
+)
+def test_billing_entry_create_uri(
+    db,
+    admin_client,
+    instance,
+    expected_entry_type,
+    set_application_ur,
+) -> None:
+    url = reverse("billing-v2-entry-list")
+    response = admin_client.post(
+        url,
+        data={
+            "data": {
+                "type": "billing-v2-entries",
+                "attributes": {
+                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+                    "total-cost": 1050,
+                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
+                    "tax-rate": 7.7,
+                    "text": "Test",
+                },
+                "relationships": {
+                    "instance": {"data": {"id": instance.pk, "type": "instances"}}
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_201_CREATED
+    result = response.json()
+
+    assert result["data"]["attributes"]["entry-type"] == expected_entry_type
+
+
+@pytest.mark.parametrize(
     ("role__name", "method", "has_access", "expected_count"),
     [
         ("Municipality", "get_queryset_for_municipality", True, 1),
@@ -888,7 +931,7 @@ def test_product_numbers_empty(
 
 
 @pytest.mark.parametrize(
-    "role__name,expected_status,expected_count",
+    ("role__name", "expected_status", "expected_count"),
     [
         ("Applicant", status.HTTP_200_OK, 0),
         ("Municipality", status.HTTP_200_OK, 1),
@@ -896,8 +939,8 @@ def test_product_numbers_empty(
         ("Public", status.HTTP_403_FORBIDDEN, 0),
     ],
 )
+@pytest.mark.django_db
 def test_billing_account_list(
-    db,
     billing_v2_account_factory,
     admin_client,
     service_factory,

@@ -3,6 +3,7 @@ from camac.settings.env import env
 from camac.settings.modules.billing_schema import (
     BillingConfig,
     BillingDjangoAdminConfig,
+    InvoiceConfig,
     ProductNumberConfig,
     RapagConfig,
     WilkenConfig,
@@ -158,5 +159,13 @@ BILLING = ModuleConfig[BillingConfig](
     kt_sg=BillingConfig(
         enabled=True,
         admin=BillingDjangoAdminConfig(hidden_fields=["organization"]),
+    ),
+    kt_uri=BillingConfig(
+        enabled=True,
+        invoice=InvoiceConfig(
+            enabled=True,
+            # Category - Gebühren
+            document_category=12000006,
+        ),
     ),
 )

@@ -3,8 +3,10 @@ from uuid import uuid4
 
 from django.db import models
 from django.db.models import Q
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
+from camac.constants.kt_uri import SERVICE_GROUP_KOOR as URI_SERVICE_GROUP_KOOR
 from camac.core.utils import canton_aware
 from camac.user.models import Service
 
@@ -181,8 +183,25 @@ class BillingV2EntryQuerySet(models.QuerySet["BillingV2Entry"]):
             Q(group__service=service) | Q(group__service__service_parent=service)
         )
 
+    def visible_for_ur(self, service: Service | None) -> Self:
+        """Return billing entries visible for a given service (Kt. URI)."""
+
+        if not service or not service.service_group:  # pragma: no cover
+            return self.none()
+
+        return (
+            self.all()
+            if service.service_group.pk == URI_SERVICE_GROUP_KOOR
+            else self.filter(
+                Q(group__service=service) | Q(group__service__service_parent=service)
+            )
+        )
+
 
 class BillingV2Entry(BillingV2CommonEntry):
+    # Type of billing entry, e.g. "bew" for building permit or "bgl" for construction monitoring
+    entry_type = models.TextField(verbose_name=_("Entry Type"), blank=True, null=True)
+
     # Final rate: is always calculated on creation of the billing entry.
     # We store it for easier handling in the output however.
     final_rate = models.DecimalField(**DECIMAL_FORMAT)
@@ -209,12 +228,47 @@ class BillingV2Entry(BillingV2CommonEntry):
         "instance.Instance", models.CASCADE, related_name="billing_v2_entries"
     )
 
+    # Structural: To which invoice is the item assigned?
+    invoice = models.ForeignKey(
+        "Invoice",
+        models.SET_NULL,
+        related_name="billing_v2_entries",
+        null=True,
+    )
     # If the entry should be included in the next invoice, this date is set
     # to when the entry was marked to bill.
     released_for_clearing = models.DateField(null=True)
 
     # Custom manager
     objects: BillingV2EntryQuerySet = BillingV2EntryQuerySet.as_manager()
+
+
+class InvoiceQuerySet(models.QuerySet["Invoice"]):
+    """Custom queryset to query billing invoices."""
+
+    def invoice_entries(
+        self, entries: models.QuerySet[BillingV2Entry], invoice_text=None
+    ) -> "Invoice":
+        """Create an invoice for the given entries."""
+
+        first_entry = entries.first()
+        invoice = Invoice.objects.create(
+            invoice_text=invoice_text,
+            instance=first_entry.instance,
+        )
+        for entry in entries:
+            LineItem.objects.create(
+                invoice=invoice,
+                billing_v2_entry=entry,
+                designation=entry.text,
+                product_number="",
+                created_on=entry.date_added,
+                amount=entry.final_rate,
+            )
+
+        entries.update(date_charged=timezone.now().date(), invoice=invoice)
+
+        return invoice
 
 
 class BillingV2EntryTemplate(BillingV2CommonEntry):
@@ -262,6 +316,26 @@ class Invoice(models.Model):
         "instance.Instance", models.SET_NULL, related_name="invoices", null=True
     )
 
+    document_attachment = models.ForeignKey(
+        "document.Attachment",
+        on_delete=models.SET_NULL,
+        related_name="+",
+        blank=True,
+        null=True,
+        default=None,
+    )
+    alexandria_file = models.ForeignKey(
+        "alexandria_core.File",
+        on_delete=models.SET_NULL,
+        related_name="+",
+        blank=True,
+        null=True,
+        default=None,
+    )
+
+    # Custom manager
+    objects: InvoiceQuerySet = InvoiceQuerySet.as_manager()
+
 
 class LineItem(models.Model):
     date_added = models.DateField(auto_now_add=True)
@@ -295,21 +369,13 @@ class BillingV2Account(models.Model):
         models.CASCADE,
         related_name="+",
         verbose_name=_("Service group"),
+        blank=True,
+        null=True,
     )
     instance_states = models.ManyToManyField(
         "instance.InstanceState",
         blank=True,
         verbose_name=_("Instance states"),
-    )
-
-    class BillingAccountTypes(models.TextChoices):
-        BILLING_ACCOUNT_TYPE_BEW = "bew", _("Building permit")
-        BILLING_TYPE_FORWARDED = "bgl", _("Construction monitoring")
-
-    account_type = models.CharField(
-        max_length=3,
-        choices=BillingAccountTypes.choices,
-        verbose_name=_("Account type"),
     )
 
     class Meta:

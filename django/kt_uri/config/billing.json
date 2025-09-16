@@ -1,0 +1,74 @@
+[
+  {
+    "model": "billing.billingv2entrytemplate",
+    "pk": "6fcc7a05-b637-44c2-adba-03b85f8d16d4",
+    "fields": {
+      "tax_mode": "inclusive",
+      "cost_center": null,
+      "legal_basis": null,
+      "calculation": "flat",
+      "tax_rate": "8.10",
+      "hours": null,
+      "hourly_rate": null,
+      "percentage": null,
+      "total_cost": "55.00",
+      "organization": null,
+      "billing_type": null,
+      "product_number": null,
+      "remark": "",
+      "name": "halbe Grundgebühr (CHF 55.- inkl. MWSt)",
+      "text": "",
+      "hint": "",
+      "services": [],
+      "service_groups": [1]
+    }
+  },
+  {
+    "model": "billing.billingv2entrytemplate",
+    "pk": "8f4fd0a3-1c88-4738-afe0-61b988bcf3da",
+    "fields": {
+      "tax_mode": "inclusive",
+      "cost_center": null,
+      "legal_basis": null,
+      "calculation": "flat",
+      "tax_rate": "8.10",
+      "hours": null,
+      "hourly_rate": null,
+      "percentage": null,
+      "total_cost": "110.00",
+      "organization": null,
+      "billing_type": null,
+      "product_number": null,
+      "remark": "",
+      "name": "ganze Grundgebühr (CHF 110.- inkl. MWSt)",
+      "text": "",
+      "hint": "",
+      "services": [],
+      "service_groups": [1]
+    }
+  },
+  {
+    "model": "billing.billingv2entrytemplate",
+    "pk": "988d4455-9517-436b-b9bd-e10e17a4548a",
+    "fields": {
+      "tax_mode": "inclusive",
+      "cost_center": null,
+      "legal_basis": null,
+      "calculation": "flat",
+      "tax_rate": "8.10",
+      "hours": null,
+      "hourly_rate": null,
+      "percentage": null,
+      "total_cost": "220.00",
+      "organization": null,
+      "billing_type": null,
+      "product_number": null,
+      "remark": "",
+      "name": "doppelte Grundgebühr (CHF 220.- inkl. MWSt)",
+      "text": "",
+      "hint": "",
+      "services": [],
+      "service_groups": [1]
+    }
+  }
+]

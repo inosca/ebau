@@ -772,6 +772,24 @@ def sz_billing_settings(
 
 
 @pytest.fixture
+def ur_billing_settings(
+    request,
+    settings,
+    billing_settings,
+):
+    """Module-specific settings for billing (canton UR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=billing_settings,
+        settings_name="BILLING",
+        import_path="camac.settings.modules.billing.BILLING",
+        canton="kt_uri",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def ag_billing_settings(
     request,
     settings,

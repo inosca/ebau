@@ -1,13 +1,17 @@
 from logging import Logger, getLogger
 from typing import TYPE_CHECKING
 
+from alexandria.core import models as alexandria_models
+from alexandria.core.api import create_document_file as create_alexandria_document_file
 from django.conf import settings
+from django.core.files.base import ContentFile
 from django.db import transaction
 from django.db.models import Q
 from django.http.response import FileResponse
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import response, status
+from rest_framework.authentication import get_authorization_header
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, PermissionDenied, ValidationError
 from rest_framework.permissions import IsAuthenticated
@@ -31,7 +35,13 @@ from camac.billing.utils import (
     validate_product_number,
 )
 from camac.billing.wilken.domain_logic import generate_invoices
+from camac.core.utils import (
+    canton_aware,
+)
+from camac.document.models import AttachmentSection
+from camac.instance.document_merge_service import DMSClient
 from camac.instance.mixins import InstanceQuerysetMixin
+from camac.instance.models import Instance
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import (
     is_permission_module_fully_enabled,
@@ -42,8 +52,10 @@ from camac.user.permissions import (
     IsWilkenClientToken,
     permission_aware,
 )
+from camac.utils import get_dict_item
 
 if TYPE_CHECKING:
+    from camac.settings.modules.billing_schema import InvoiceConfig
     from camac.user.models import Group
 
 
@@ -73,7 +85,9 @@ class BillingV2AccountViewset(ReadOnlyModelViewSet):
 
     @permission_aware
     def get_queryset(self):
-        # todo: specific filter for KOOR_SERVICE_IDS ?
+        if not self.request.group or not self.request.group.service:  # pragma: no cover
+            return self.queryset.none()
+
         return self.queryset.filter(
             service_group=self.request.group.service.service_group
         )
@@ -175,6 +189,93 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
 
+    @action(methods=["POST"], detail=False, url_path="invoice", url_name="invoice")
+    @transaction.atomic
+    def invoice(self, request):
+        invoice_text = get_dict_item(self.request.data, "text") or ""
+        placeholders = get_dict_item(self.request.data, "placeholders", default={})
+        instance = Instance.objects.get(pk=request.data.get("instance", None))
+
+        invoice_config: InvoiceConfig | None = settings.BILLING.invoice
+        if not instance or not invoice_config or not invoice_config.enabled:
+            raise PermissionDenied
+
+        entries = self.get_queryset().filter(
+            instance=instance,
+            date_charged__isnull=True,
+        )
+        if entries.count() == 0:
+            raise ValidationError(_("No unbilled entries found"))
+
+        instance = entries.first().instance
+        template = self._get_invoice_template(instance)
+
+        auth = get_authorization_header(request)
+        dms_client = DMSClient(auth)
+
+        pdf = ContentFile(
+            dms_client.merge(
+                placeholders,
+                template,
+                [],
+                add_headers={"x-camac-group": str(request.group.pk)},
+            ),
+            f"{template}.pdf",
+        )
+        pdf.content_type = "application/pdf"
+
+        alexandria_file = None
+        document_attachment = None
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+            alexandria_document, alexandria_file = create_alexandria_document_file(
+                user=request.user.pk,
+                group=request.group.service_id,
+                category=alexandria_models.Category.objects.get(
+                    pk=invoice_config.document_category
+                ),
+                document_title=pdf.name,
+                file_name=pdf.name,
+                file_content=pdf,
+                mime_type=pdf.content_type,
+                file_size=pdf.size,
+                additional_document_attributes={
+                    "metainfo": {
+                        "camac-instance-id": str(instance.pk),
+                        "system-generated": True,
+                    },
+                },
+            )
+            for mark in settings.ALEXANDRIA["MARK_VISIBILITY"].get("SENSITIVE", []):
+                alexandria_document.marks.add(mark)
+        else:
+            attachment_section = AttachmentSection.objects.get(
+                pk=invoice_config.document_category
+            )
+            document_attachment = attachment_section.attachments.create(
+                instance=instance,
+                path=pdf,
+                name=pdf.name,
+                size=pdf.size,
+                mime_type=pdf.content_type,
+                user=request.user,
+                group=request.group,
+                service=request.group.service,
+            )
+
+        invoice = instance.invoices.invoice_entries(
+            entries=entries,
+            invoice_text=invoice_text,
+        )
+
+        if alexandria_file:
+            invoice.alexandria_file = alexandria_file
+            invoice.save(update_fields=["alexandria_file"])
+        if document_attachment:
+            invoice.document_attachment = document_attachment
+            invoice.save(update_fields=["document_attachment"])
+
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
+
     @action(methods=["POST"], detail=False, url_path="release-for-clearing-bulk")
     @transaction.atomic
     def release_for_clearing_bulk(self, request):
@@ -217,6 +318,27 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
         entries.update(released_for_clearing=timezone.now().date())
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+    @canton_aware
+    def _get_invoice_template(self, instance: Instance) -> str:
+        invoice_config: InvoiceConfig | None = settings.BILLING.invoice
+        return (
+            invoice_config.template
+            if invoice_config and invoice_config.enabled
+            else None
+        )
+
+    def _get_invoice_template_ur(self, instance: Instance) -> str:
+        invoice_config: InvoiceConfig | None = settings.BILLING.invoice
+        if not invoice_config or not invoice_config.enabled:
+            return None
+
+        instance_state_key = (
+            "bgl" if instance.instance_state.name == "control" else "bew"
+        )
+        role_key = self.request.group.role.pk
+
+        return f"invoice_{role_key}_{instance_state_key}"
 
 
 class ProductNumbersView(APIView):

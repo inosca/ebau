@@ -99,8 +99,8 @@ msgid "BILLING_ACCOUNT"
 msgstr "GEBUEHREN_KONTO"
 
 #: camac/instance/placeholders/fields.py
-msgid "BILLING_DEPARTMENT"
-msgstr "GEBUEHREN_DEPARTMENT"
+msgid "BILLING_DEPARTEMENT"
+msgstr "GEBUEHREN_DEPARTEMENT"
 
 #: camac/instance/placeholders/fields.py
 msgid "inclusive_short"
@@ -1064,6 +1064,14 @@ msgstr "GEBUEHREN"
 #: camac/instance/placeholders/serializers.py
 msgid "Billing entries of the instance"
 msgstr "Gebühren des Dossiers"
+
+#: camac/instance/placeholders/serializers.py
+msgid "BILLING_ENTRIES_NOT_CHARGED"
+msgstr "GEBUEHREN_NICHT_VERRECHNET"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Not charged billing entries of the instance"
+msgstr "Totalbetrag aller Gebühren des Dossiers"
 
 #: camac/instance/placeholders/serializers.py
 msgid "DOSSIER_NUMBER"

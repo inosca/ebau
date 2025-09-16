@@ -1287,14 +1287,12 @@ def test_dms_placeholders_empty(
     transaction=True, reset_sequences=True
 )  # always reset instance id
 def test_dms_placeholders_billing_account_invoice(
-    db,
     admin_client,
     billing_v2_entry_factory,
     billing_v2_account_factory,
     group_factory,
     group,
     application_settings,
-    so_dms_config,
     so_instance,
     service_factory,
     snapshot,
@@ -1306,7 +1304,6 @@ def test_dms_placeholders_billing_account_invoice(
         department="Dept.",
         service_group=municipality.service_group,
         account_number=2222,
-        account_type="bew",
     )
 
     # Billing Entry
@@ -1317,6 +1314,7 @@ def test_dms_placeholders_billing_account_invoice(
         legal_basis=None,
         cost_center=None,
         billing_v2_account=billing_v2_account,
+        entry_type="bgl",
     )
 
     # Documents
@@ -1403,6 +1401,7 @@ def test_dms_placeholders_ur(
     ur_permissions_settings,
     admin_client,
     ur_instance,
+    service,
     ur_distribution_settings,
     caluma_dynamic_option_factory,
     service_factory,
@@ -1414,6 +1413,9 @@ def test_dms_placeholders_ur(
     caluma_document_factory,
     publication_entry_factory,
     caluma_work_item_factory,
+    billing_v2_entry_factory,
+    billing_v2_account_factory,
+    mocker,
     active_inquiry_factory,
 ):
     # Municipality
@@ -1425,6 +1427,8 @@ def test_dms_placeholders_ur(
     group = group_factory()
     group.locations.set([location])
     municipality.groups.set([group])
+    service_group = service.service_group
+    mocker.patch("camac.billing.models.URI_SERVICE_GROUP_KOOR", service_group.pk)
 
     form_api.save_answer(
         caluma_form_models.Question.objects.get(pk="municipality"),
@@ -1467,6 +1471,32 @@ def test_dms_placeholders_ur(
         closed_at=make_aware(faker.Faker().date_time()),
     )
 
+    # Billing
+    billing_v2_account = billing_v2_account_factory(
+        name="Testgebühr",
+        service_group=service_group,
+    )
+    billing_v2_entry_factory.create_batch(
+        2,
+        billing_v2_account=billing_v2_account,
+        group=service.groups.first(),
+        instance=ur_instance,
+        date_charged=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
+    )
+    billing_v2_entry_factory.create_batch(
+        2,
+        billing_v2_account=billing_v2_account,
+        group=service.groups.first(),
+        instance=ur_instance,
+        date_charged=None,
+    )
+    billing_v2_entry_factory.create_batch(
+        2,
+        billing_v2_account=billing_v2_account,
+        group=group_factory(),
+        instance=ur_instance,
+    )
+
     url = reverse("instance-dms-placeholders", args=[ur_instance.pk])
 
     response = admin_client.get(url)
@@ -1480,6 +1510,10 @@ def test_dms_placeholders_ur(
         "PUBLIKATIONSDATUM",
         "DATUM_PRUEFUNG_DURCH_GEMEINDE",
         "DATUM_DOSSIER_VOLLSTAENDIG",
+        "GEBUEHREN",
+        "GEBUEHREN_NICHT_VERRECHNET",
+        "GEBUEHREN_TOTAL",
+        "GEBUEHREN_NICHT_VERRECHNET_TOTAL",
         "NAME_GEMEINDEBAUBEHOERDE",
     ]
 

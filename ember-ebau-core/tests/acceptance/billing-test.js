@@ -85,7 +85,7 @@ module("Acceptance | billing", function (hooks) {
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(1) td:nth-of-type(8)",
       )
-      .hasNoText();
+      .hasText("-");
     assert
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(2) td:nth-of-type(8)",
@@ -129,7 +129,7 @@ module("Acceptance | billing", function (hooks) {
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(1) td:nth-of-type(8)",
       )
-      .hasNoText();
+      .hasText("-");
     assert
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(2) td:nth-of-type(8)",
@@ -174,7 +174,7 @@ module("Acceptance | billing", function (hooks) {
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(1) td:nth-of-type(8)",
       )
-      .hasNoText();
+      .hasText("-");
     assert
       .dom(
         "table[data-test-billing-table] tbody tr:nth-of-type(2) td:nth-of-type(8)",
@@ -317,6 +317,7 @@ module("Acceptance | billing", function (hooks) {
       ];
 
       this.features.enable(
+        "billing.entryType",
         "billing.organization",
         "billing.billingType",
         "billing.legalBasis",
@@ -485,13 +486,11 @@ module("Acceptance | billing account selection", function (hooks) {
 
     this.serviceGroup = publicService.serviceGroup;
     this.server.create("billing-v2-account", {
-      name: "BEW Account A",
-      accountType: "bew",
+      name: "Account A",
       department: "DeptA",
     });
     this.server.create("billing-v2-account", {
-      name: "BGL Account B",
-      accountType: "bgl",
+      name: "Account B",
       department: "DeptB",
     });
   });
@@ -507,16 +506,21 @@ module("Acceptance | billing account selection", function (hooks) {
     await visit("/billing/new");
 
     await click('select[name="billing_v2_account"]');
-    assert.dom('select[name="billing_v2_account"] option').exists({ count: 3 }); // one empty, two valid
+
+    // one empty, two valid, one "other"
+    assert.dom('select[name="billing_v2_account"] option').exists({ count: 4 });
 
     assert
       .dom('select[name="billing_v2_account"] option:nth-child(1)')
       .hasTextContaining("");
     assert
       .dom('select[name="billing_v2_account"] option:nth-child(2)')
-      .hasTextContaining("bew");
+      .hasTextContaining("Account A");
     assert
       .dom('select[name="billing_v2_account"] option:nth-child(3)')
-      .hasTextContaining("bgl");
+      .hasTextContaining("Account B");
+    assert
+      .dom('select[name="billing_v2_account"] option:nth-child(4)')
+      .hasTextContaining("Andere");
   });
 });
