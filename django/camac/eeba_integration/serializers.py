@@ -20,10 +20,11 @@ class EebaExportSerializer(serializers.Serializer):
     invoiceRecipient = serializers.SerializerMethodField()
     plots = serializers.SerializerMethodField()
     volumes = serializers.SerializerMethodField()
-    proposal = serializers.SerializerMethodField()
+    proposalTitle = serializers.SerializerMethodField()
     proposalList = serializers.SerializerMethodField()
     constructionStartDate = serializers.SerializerMethodField()
     completionDate = serializers.SerializerMethodField()
+    proposal = serializers.SerializerMethodField()
 
     def get_ebauId(self, case):
         return case.instance.pk
@@ -74,29 +75,28 @@ class EebaExportSerializer(serializers.Serializer):
         ]
 
     def _get_soiling_suspicion(self):
-        construction_zone = self.master_data.construction_zone
-        return (
-            construction_zone
-            and "das-bauvorhaben-befindet-sich-in-kataster-belasteter-standorte"
-            in construction_zone
-        )
+        return self.master_data.soiling_suspicion
 
     def get_volumes(self, case):
         return {
-            "deconstructionMaterial": self.master_data.deconstruction_material,
-            "removedTopsoil": self.master_data.removed_topsoil,
-            "excavation": self.master_data.excavation,
-            "roadSurface": self.master_data.road_surface,
-            "trackExcavation": self.master_data.track_excavation,
-            "yearOfConstructionCases": self.master_data.year_of_construction_oldest_affected_object,
+            "deconstructionMaterial": self.master_data.deconstruction_material or 0,
+            "removedTopsoil": self.master_data.removed_topsoil or 0,
+            "excavation": self.master_data.excavation or 0,
+            "roadSurface": self.master_data.road_surface or 0,
+            "trackExcavation": self.master_data.track_excavation or 0,
+            "yearOfConstructionCases": self.master_data.year_of_construction_oldest_affected_object
+            or 0,
             "soilingSuspicion": self._get_soiling_suspicion(),
         }
 
-    def get_proposal(self, case):
+    def get_proposalTitle(self, case):
         return self.master_data.proposal
 
     def get_proposalList(self, case):
         return self.master_data.proposal_list
+
+    def get_proposal(self, case):
+        return self.master_data.remark
 
     def get_constructionStartDate(self, case):
         return self.master_data.construction_start_date

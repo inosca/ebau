@@ -2415,6 +2415,21 @@ MASTER_DATA = {
                     )
                 },
             ),
+            "soiling_suspicion": (
+                "answer",
+                "verdacht-verschmutzung",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "verdacht-verschmutzung-ja": True,
+                                "verdacht-verschmutzung-nein": False,
+                            }
+                        },
+                    )
+                },
+            ),
         },
     },
     "kt_so": {
