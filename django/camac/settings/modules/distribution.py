@@ -217,7 +217,7 @@ DISTRIBUTION = {
             },
         },
         "INQUIRY_TASK": "inquiry",
-        "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES": {
+        "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS": {
             "uso": 7,
             "authority-bab": 90,
         },
@@ -438,8 +438,21 @@ DISTRIBUTION = {
         "REDO_INQUIRY": {
             "REOPEN_TASKS": ["fill-inquiry"],
         },
-        "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES": {
+        "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS": {
             "service-afb": 60,
+        },
+        "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES": {
+            "amb": 30,
+            "agv-bs": 30,
+            "agv-esp": 30,
+            "bks-dp": 10,
+            "bks-ka": 10,
+            "dvi-awa-iga": 10,
+            "aew": 10,
+            "axpo": 10,
+            "gvm": 10,
+            "dgs-avs-vet": 10,
+            "dgs-avs-lmi": 10,
         },
         "AVAILABLE_SERVICES_FOR_INQUIRY": {
             "authority": [

@@ -110,6 +110,10 @@ class DistributionDeadlineRuleSerializer(serializers.ModelSerializer):
         if (
             service.service_group.name
             in settings.DISTRIBUTION.get(
+                "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS", {}
+            ).keys()
+            or service.slug
+            in settings.DISTRIBUTION.get(
                 "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES", {}
             ).keys()
         ):

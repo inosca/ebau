@@ -8869,7 +8869,7 @@
     "model": "user.service",
     "pk": 43,
     "fields": {
-      "slug": "dgb-avs-vet",
+      "slug": "dgs-avs-vet",
       "service_group": 1,
       "service_parent": null,
       "name": null,

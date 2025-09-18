@@ -8,6 +8,7 @@ import { trackedFunction } from "reactiveweb/function";
 import mainConfig from "ember-ebau-core/config/main";
 
 const specialServiceGroups = mainConfig.customDeadlineServiceGroupSlugs;
+const specialServices = mainConfig.customDeadlineServiceSlugs;
 export default class InquiryDeadlineInputComponent extends Component {
   @service store;
 
@@ -30,33 +31,48 @@ export default class InquiryDeadlineInputComponent extends Component {
       return true;
     }
 
-    const slugs = this.serviceGroupSlugs.value ?? [];
-    return !slugs.length
-      ? false
-      : slugs.every((sg) => specialServiceGroups.includes(sg));
+    if (!this.services?.value) {
+      return false;
+    }
+
+    return this.services?.value?.every(
+      (service) =>
+        specialServiceGroups.includes(service.serviceGroup.get("slug")) ||
+        specialServices.includes(service.get("slug")),
+    );
   }
 
   get showHint() {
-    const slugs = this.serviceGroupSlugs.value ?? [];
-    return slugs.some((sg) => specialServiceGroups.includes(sg));
+    return (
+      this.serviceSlugs.some((s) => specialServices.includes(s)) ||
+      this.serviceGroupSlugs.some((sg) => specialServiceGroups.includes(sg))
+    );
   }
 
-  serviceGroupSlugs = trackedFunction(this, async () => {
+  services = trackedFunction(this, async () => {
     await Promise.resolve();
 
     if (!this.serviceIds) {
       return [];
     }
 
-    const services = await this.store.query("service", {
+    return await this.store.query("service", {
       service_id: this.serviceIds.toString(),
       include: "service_group",
     });
-
-    return services.map((service) => {
-      return service.serviceGroup.get("slug");
-    });
   });
+
+  get serviceGroupSlugs() {
+    return (
+      this.services?.value?.map((service) =>
+        service.serviceGroup.get("slug"),
+      ) ?? []
+    );
+  }
+
+  get serviceSlugs() {
+    return this.services?.value?.map((service) => service.get("slug")) ?? [];
+  }
 
   get isHidden() {
     return this.isBulk && this.args.field.value === "0000-01-01";

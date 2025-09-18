@@ -807,7 +807,7 @@ def test_reopen_redo_unread(
         ("service", date(2023, 1, 8)),
     ],
 )
-def test_role_dependent_default_leadtime(
+def test_role_dependent_default_leadtime_service_groups(
     caluma_admin_user,
     application_settings,
     caluma_work_item_factory,
@@ -831,9 +831,63 @@ def test_role_dependent_default_leadtime(
         "NOTIFICATIONS"
     ] = {}  # this short-circuits the notification logic which we dont want to test here
     settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"] = 30
-    settings.DISTRIBUTION["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"] = {
+    settings.DISTRIBUTION["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS"] = {
         "municipality": 10,
         "service": 7,
+    }
+
+    assert work_item.document.answers.count() == 0
+
+    send_event(
+        post_create_work_item,
+        sender="post_create_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    deadline_answer = work_item.document.answers.get(
+        question__pk=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+    )
+
+    assert deadline_answer.date == expected_deadline
+
+
+@pytest.mark.freeze_time("2023-01-01")
+@pytest.mark.parametrize(
+    "service_slug,expected_deadline",
+    [
+        ("afb", date(2023, 1, 31)),
+        ("aew", date(2023, 1, 11)),
+    ],
+)
+def test_role_dependent_default_leadtime_services(
+    caluma_admin_user,
+    application_settings,
+    caluma_work_item_factory,
+    settings,
+    be_distribution_settings,
+    be_instance,
+    service_factory,
+    service_slug,
+    expected_deadline,
+):
+    inquiry_task = Task.objects.get(slug=settings.DISTRIBUTION["INQUIRY_TASK"])
+    addressed_service = service_factory(
+        slug=service_slug,
+    )
+    work_item = caluma_work_item_factory(
+        task=inquiry_task,
+        addressed_groups=[str(addressed_service.pk)],
+    )
+
+    settings.DISTRIBUTION[
+        "NOTIFICATIONS"
+    ] = {}  # this short-circuits the notification logic which we dont want to test here
+    settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"] = 30
+    settings.DISTRIBUTION["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"] = {
+        "afb": 30,
+        "aew": 10,
     }
 
     assert work_item.document.answers.count() == 0
