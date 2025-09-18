@@ -17,10 +17,7 @@ services:
           - ebau-keycloak.localhost
 
   django: &django
-    image: acr.run/camac-ng/camac-ng/django:master
     build:
-      cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
       args:
         REQUIREMENTS: requirements-dev.txt
     ports:
@@ -60,12 +57,15 @@ services:
     ports: []
 
   ember:
-    image: acr.run/camac-ng/camac-ng/ember:master
+    environment:
+      KEYCLOAK_HOST: http://ebau-keycloak.localhost
+      GIS_HOST: map-t.geo.sz.ch
     networks:
       - ebau.localhost
 
   ember-camac-ng:
-    image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
+    environment:
+      APP_ENV: development
     networks:
       - ebau.localhost
 

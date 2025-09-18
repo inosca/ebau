@@ -13,8 +13,11 @@ services:
       - djangotmpmedia:/tmp/external-tmp:ro
 
   django: &django
+    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
     build:
       context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
       args:
         APPLICATION: ${APPLICATION}
     depends_on:
@@ -49,25 +52,32 @@ services:
     <<: *django
 
   ember:
+    image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_TAG:-master}
     build:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember:master
+        - acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_TAG:-master}
       args:
-        - WORKSPACE=ember
-      target: prod
+        KEYCLOAK_HOST: $${KEYCLOAK_HOST}
+        GIS_HOST: $${GIS_HOST}
+        REPLACE_ENV: KEYCLOAK_HOST,GIS_HOST
+        WORKSPACE: ember
+      target: prod-env
 
   ember-camac-ng:
+    image: acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_TAG:-master}
     build:
       context: ../
       dockerfile: ./Dockerfile.ember
       cache_from:
-        - acr.run/camac-ng/camac-ng/ember-camac-ng:master
+        - acr.run/camac-ng/camac-ng/ember-camac-ng:${CI_COMMIT_TAG:-master}
       args:
-        - APPLICATION=${APPLICATION}
-        - WORKSPACE=ember-camac-ng
-      target: prod
+        APPLICATION: ${APPLICATION}
+        APP_ENV: $${APP_ENV}
+        REPLACE_ENV: APP_ENV
+        WORKSPACE: ember-camac-ng
+      target: prod-env
 
 
   cache:
@@ -84,10 +94,11 @@ services:
       - STREAM_MAX_LENGTH=60M
 
   keycloak:
+    image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
     build:
       context: ../keycloak
       cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak:master
+        - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
 
   metabase:
     image: metabase/metabase:v0.45.3
