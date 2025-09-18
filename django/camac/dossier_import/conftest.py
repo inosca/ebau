@@ -307,7 +307,10 @@ def setup_dossier_import_ag(
     request,
     settings,
     set_application_ag,
+    ag_distribution_settings,
+    disable_ech0211_settings,
     role_factory,
+    mocker,
 ):
     config = "kt_ag"
     # Needed for permissions module `instance_created` trigger
@@ -334,3 +337,5 @@ def setup_dossier_import_ag(
     settings.DOSSIER_IMPORT["EBAU_DOCUMENT_CLIENT"][
         "check_replication_interval_seconds"
     ] = 1
+
+    mocker.patch("camac.notification.utils.send_mail")
