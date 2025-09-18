@@ -543,6 +543,11 @@
               "value": "typ-der-waermepumpe-heizung-bodenwasser"
           },
           {
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
+          },
+          {
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "56"
@@ -805,40 +810,115 @@
           }
       ],
       "keywords": [
-          "1665654427762",
-          "EBPA-0219-7779"
+          {
+              "name": "1665654427762",
+              "service_id": 1
+          },
+          {
+              "name": "1665654427762",
+              "service_id": 56
+          },
+          {
+              "name": "EBPA-0219-7779",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-0219-7779",
+              "service_id": 56
+          }
       ],
       "service": 56,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "create-inquiry"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "ready",
+              "task_id": "complete-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -1244,6 +1324,11 @@
               "value": "typ-der-waermepumpe-heizung-bodenwasser"
           },
           {
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
+          },
+          {
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "56"
@@ -1506,40 +1591,115 @@
           }
       ],
       "keywords": [
-          "1665654427762",
-          "EBPA-0219-7779"
+          {
+              "name": "1665654427762",
+              "service_id": 1
+          },
+          {
+              "name": "1665654427762",
+              "service_id": 56
+          },
+          {
+              "name": "EBPA-0219-7779",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-0219-7779",
+              "service_id": 56
+          }
       ],
       "service": 56,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "create-inquiry"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "ready",
+              "task_id": "complete-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -2312,53 +2472,123 @@
           }
       ],
       "keywords": [
-          "2024 - 111",
-          "BVUAFB.24.5",
-          "EBPA-1720-6526"
+          {
+              "name": "2024 - 111",
+              "service_id": 1
+          },
+          {
+              "name": "2024 - 111",
+              "service_id": 55
+          },
+          {
+              "name": "BVUAFB.24.5",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.24.5",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-1720-6526",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-1720-6526",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "construction-monitoring",
       "user": "Migration",
       "work-items": [
           {
-              "status": "canceled",
-              "task_id": "init-additional-demand"
-          },
-          {
-              "status": "canceled",
-              "task_id": "withdrawal-request"
-          },
-          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "complete-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "complete-instance"
           },
           {
-              "status": "ready",
-              "task_id": "create-manual-workitems"
-          },
-          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "decision"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
+              "status": "canceled",
+              "task_id": "withdrawal-request"
+          },
+          {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -2798,6 +3028,11 @@
               "document__form_id": "heizungen-migration-tabelle",
               "question_id": "typ-der-heizung",
               "value": "typ-der-heizung-oel"
+          },
+          {
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
           },
           {
               "document__form_id": "parzelle-tabelle",
@@ -3277,41 +3512,123 @@
           }
       ],
       "keywords": [
-          "BVUAFB.25.3",
-          "EBPA-4406-5058",
-          "dibaext-2025-1"
+          {
+              "name": "BVUAFB.25.3",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.25.3",
+              "service_id": 81
+          },
+          {
+              "name": "EBPA-4406-5058",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-4406-5058",
+              "service_id": 81
+          },
+          {
+              "name": "dibaext-2025-1",
+              "service_id": 1
+          },
+          {
+              "name": "dibaext-2025-1",
+              "service_id": 81
+          }
       ],
       "service": 81,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "create-inquiry"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "ready",
+              "task_id": "complete-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -3952,44 +4269,93 @@
           }
       ],
       "keywords": [
-          "2024-374",
-          "EBPA-5494-8955"
+          {
+              "name": "2024-374",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-5494-8955",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
-              "status": "ready",
-              "task_id": "withdrawal-request"
-          },
-          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
+              "status": "ready",
+              "task_id": "withdrawal-request"
+          },
+          {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -4706,40 +5072,86 @@
           }
       ],
       "keywords": [
-          "2018WFAS-25766",
-          "EBPA-6929-6843"
+          {
+              "name": "2018WFAS-25766",
+              "service_id": 68
+          },
+          {
+              "name": "EBPA-6929-6843",
+              "service_id": 68
+          }
       ],
       "service": 68,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -5295,41 +5707,90 @@
           }
       ],
       "keywords": [
-          "000",
-          "BVUAFB.23.10",
-          "EBPA-8161-2380"
+          {
+              "name": "000",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.23.10",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-8161-2380",
+              "service_id": 1
+          }
       ],
       "service": 1,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -5885,40 +6346,86 @@
       "group": "support",
       "journal": [],
       "keywords": [
-          "2025-120",
-          "EBPA-8318-3681"
+          {
+              "name": "2025-120",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-8318-3681",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -6828,44 +7335,93 @@
           }
       ],
       "keywords": [
-          "2025-381",
-          "EBPA-9651-5967"
+          {
+              "name": "2025-381",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-9651-5967",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
-              "status": "ready",
-              "task_id": "withdrawal-request"
-          },
-          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
+              "status": "ready",
+              "task_id": "withdrawal-request"
+          },
+          {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -7433,41 +7989,90 @@
           }
       ],
       "keywords": [
-          "123",
-          "BVUAFB.22.171",
-          "EBPA-9856-7205"
+          {
+              "name": "123",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.22.171",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-9856-7205",
+              "service_id": 1
+          }
       ],
       "service": 1,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -8224,53 +8829,123 @@
           }
       ],
       "keywords": [
-          "2024 - 111",
-          "BVUAFB.24.5",
-          "EBPA-1720-6526"
+          {
+              "name": "2024 - 111",
+              "service_id": 1
+          },
+          {
+              "name": "2024 - 111",
+              "service_id": 55
+          },
+          {
+              "name": "BVUAFB.24.5",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.24.5",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-1720-6526",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-1720-6526",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "construction-monitoring",
       "user": "Migration",
       "work-items": [
           {
-              "status": "canceled",
-              "task_id": "init-additional-demand"
-          },
-          {
-              "status": "canceled",
-              "task_id": "withdrawal-request"
-          },
-          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "complete-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "complete-instance"
           },
           {
-              "status": "ready",
-              "task_id": "create-manual-workitems"
-          },
-          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "decision"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
+              "status": "canceled",
+              "task_id": "withdrawal-request"
+          },
+          {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -8660,6 +9335,11 @@
               "value": "typ-der-waermepumpe-heizung-bodenwasser"
           },
           {
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
+          },
+          {
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "56"
@@ -8922,40 +9602,115 @@
           }
       ],
       "keywords": [
-          "1665654427762",
-          "EBPA-0219-7779"
+          {
+              "name": "1665654427762",
+              "service_id": 1
+          },
+          {
+              "name": "1665654427762",
+              "service_id": 56
+          },
+          {
+              "name": "EBPA-0219-7779",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-0219-7779",
+              "service_id": 56
+          }
       ],
       "service": 56,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "create-inquiry"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "ready",
+              "task_id": "complete-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "56"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -9728,53 +10483,123 @@
           }
       ],
       "keywords": [
-          "2024 - 111",
-          "BVUAFB.24.5",
-          "EBPA-1720-6526"
+          {
+              "name": "2024 - 111",
+              "service_id": 1
+          },
+          {
+              "name": "2024 - 111",
+              "service_id": 55
+          },
+          {
+              "name": "BVUAFB.24.5",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.24.5",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-1720-6526",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-1720-6526",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "construction-monitoring",
       "user": "Migration",
       "work-items": [
           {
-              "status": "canceled",
-              "task_id": "init-additional-demand"
-          },
-          {
-              "status": "canceled",
-              "task_id": "withdrawal-request"
-          },
-          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "complete-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "init-additional-demand"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "canceled",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "complete-instance"
           },
           {
-              "status": "ready",
-              "task_id": "create-manual-workitems"
-          },
-          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "decision"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
+              "status": "canceled",
+              "task_id": "withdrawal-request"
+          },
+          {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -10214,6 +11039,11 @@
               "document__form_id": "heizungen-migration-tabelle",
               "question_id": "typ-der-heizung",
               "value": "typ-der-heizung-oel"
+          },
+          {
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
           },
           {
               "document__form_id": "parzelle-tabelle",
@@ -10693,41 +11523,123 @@
           }
       ],
       "keywords": [
-          "BVUAFB.25.3",
-          "EBPA-4406-5058",
-          "dibaext-2025-1"
+          {
+              "name": "BVUAFB.25.3",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.25.3",
+              "service_id": 81
+          },
+          {
+              "name": "EBPA-4406-5058",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-4406-5058",
+              "service_id": 81
+          },
+          {
+              "name": "dibaext-2025-1",
+              "service_id": 1
+          },
+          {
+              "name": "dibaext-2025-1",
+              "service_id": 81
+          }
       ],
       "service": 81,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "create-inquiry"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "ready",
+              "task_id": "complete-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -11368,44 +12280,93 @@
           }
       ],
       "keywords": [
-          "2024-374",
-          "EBPA-5494-8955"
+          {
+              "name": "2024-374",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-5494-8955",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
-              "status": "ready",
-              "task_id": "withdrawal-request"
-          },
-          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
+              "status": "ready",
+              "task_id": "withdrawal-request"
+          },
+          {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -12122,40 +13083,86 @@
           }
       ],
       "keywords": [
-          "2018WFAS-25766",
-          "EBPA-6929-6843"
+          {
+              "name": "2018WFAS-25766",
+              "service_id": 68
+          },
+          {
+              "name": "EBPA-6929-6843",
+              "service_id": 68
+          }
       ],
       "service": 68,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -12711,41 +13718,90 @@
           }
       ],
       "keywords": [
-          "000",
-          "BVUAFB.23.10",
-          "EBPA-8161-2380"
+          {
+              "name": "000",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.23.10",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-8161-2380",
+              "service_id": 1
+          }
       ],
       "service": 1,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -13301,40 +14357,86 @@
       "group": "support",
       "journal": [],
       "keywords": [
-          "2025-120",
-          "EBPA-8318-3681"
+          {
+              "name": "2025-120",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-8318-3681",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -14244,44 +15346,93 @@
           }
       ],
       "keywords": [
-          "2025-381",
-          "EBPA-9651-5967"
+          {
+              "name": "2025-381",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-9651-5967",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
-              "status": "ready",
-              "task_id": "withdrawal-request"
-          },
-          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
+              "status": "ready",
+              "task_id": "withdrawal-request"
+          },
+          {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -14849,41 +16000,90 @@
           }
       ],
       "keywords": [
-          "123",
-          "BVUAFB.22.171",
-          "EBPA-9856-7205"
+          {
+              "name": "123",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.22.171",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-9856-7205",
+              "service_id": 1
+          }
       ],
       "service": 1,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -15323,6 +16523,11 @@
               "document__form_id": "heizungen-migration-tabelle",
               "question_id": "typ-der-heizung",
               "value": "typ-der-heizung-oel"
+          },
+          {
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
           },
           {
               "document__form_id": "parzelle-tabelle",
@@ -15802,41 +17007,123 @@
           }
       ],
       "keywords": [
-          "BVUAFB.25.3",
-          "EBPA-4406-5058",
-          "dibaext-2025-1"
+          {
+              "name": "BVUAFB.25.3",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.25.3",
+              "service_id": 81
+          },
+          {
+              "name": "EBPA-4406-5058",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-4406-5058",
+              "service_id": 81
+          },
+          {
+              "name": "dibaext-2025-1",
+              "service_id": 1
+          },
+          {
+              "name": "dibaext-2025-1",
+              "service_id": 81
+          }
       ],
       "service": 81,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "create-inquiry"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "ready",
+              "task_id": "complete-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "81"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -16477,44 +17764,93 @@
           }
       ],
       "keywords": [
-          "2024-374",
-          "EBPA-5494-8955"
+          {
+              "name": "2024-374",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-5494-8955",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
-              "status": "ready",
-              "task_id": "withdrawal-request"
-          },
-          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
+              "status": "ready",
+              "task_id": "withdrawal-request"
+          },
+          {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -17231,40 +18567,86 @@
           }
       ],
       "keywords": [
-          "2018WFAS-25766",
-          "EBPA-6929-6843"
+          {
+              "name": "2018WFAS-25766",
+              "service_id": 68
+          },
+          {
+              "name": "EBPA-6929-6843",
+              "service_id": 68
+          }
       ],
       "service": 68,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "68"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -17820,41 +19202,90 @@
           }
       ],
       "keywords": [
-          "000",
-          "BVUAFB.23.10",
-          "EBPA-8161-2380"
+          {
+              "name": "000",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.23.10",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-8161-2380",
+              "service_id": 1
+          }
       ],
       "service": 1,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -18410,40 +19841,86 @@
       "group": "support",
       "journal": [],
       "keywords": [
-          "2025-120",
-          "EBPA-8318-3681"
+          {
+              "name": "2025-120",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-8318-3681",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -19353,44 +20830,93 @@
           }
       ],
       "keywords": [
-          "2025-381",
-          "EBPA-9651-5967"
+          {
+              "name": "2025-381",
+              "service_id": 55
+          },
+          {
+              "name": "EBPA-9651-5967",
+              "service_id": 55
+          }
       ],
       "service": 55,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "55"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
-              "status": "ready",
-              "task_id": "withdrawal-request"
-          },
-          {
+              "addressed_groups": [
+                  "55"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
+              "status": "ready",
+              "task_id": "withdrawal-request"
+          },
+          {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }
@@ -19958,41 +21484,90 @@
           }
       ],
       "keywords": [
-          "123",
-          "BVUAFB.22.171",
-          "EBPA-9856-7205"
+          {
+              "name": "123",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.22.171",
+              "service_id": 1
+          },
+          {
+              "name": "EBPA-9856-7205",
+              "service_id": 1
+          }
       ],
       "service": 1,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
-              "task_id": "create-manual-workitems"
+              "task_id": "complete-distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "objections"
           },
           {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "skipped",
               "task_id": "formal-exam"
           },
           {
+              "addressed_groups": [
+                  "applicant"
+              ],
               "status": "skipped",
               "task_id": "submit"
+          },
+          {
+              "addressed_groups": [],
+              "status": "ready",
+              "task_id": "create-manual-workitems"
           }
       ]
   }

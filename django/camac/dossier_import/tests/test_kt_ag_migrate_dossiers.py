@@ -168,13 +168,27 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
         instance_service = instance.responsible_service().service_id
 
         keywords = list(
-            Keyword.objects.filter(instances=instance).values_list("name", flat=True)
+            Keyword.objects.filter(instances=instance).values("name", "service_id")
         )
         case_meta = _remove_keys(
             dict(instance.case.meta),
             ["camac-instance-id", "import-id", "updated-with-import"],
         )
-        work_items = list(instance.case.work_items.all().values("status", "task_id"))
+        work_items = list(
+            instance.case.work_items.all().values(
+                "status", "task_id", "addressed_groups"
+            )
+        )
+        work_items.extend(
+            [
+                child
+                for parent in instance.case.work_items.filter(child_case__isnull=False)
+                for child in parent.child_case.work_items.values(
+                    "status", "task_id", "addressed_groups"
+                )
+            ]
+        )
+
         answers = list(
             Answer.objects.filter(
                 Q(document__family=instance.case.document)
