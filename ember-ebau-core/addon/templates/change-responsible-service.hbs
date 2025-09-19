@@ -70,7 +70,10 @@
     }}
       <UkButton
         @onClick={{this.unsubscribe.perform}}
-        @disabled={{this.unsubscribe.isRunning}}
+        @disabled={{or
+          this.unsubscribe.isRunning
+          (not this.involvedServices.value)
+        }}
         @loading={{this.unsubscribe.isRunning}}
         @color="default"
       >
