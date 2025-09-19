@@ -225,7 +225,7 @@
     "pk": "beginn-publikation-kantonsamtsblatt",
     "fields": {
       "created_at": "2023-06-26T07:57:48.612Z",
-      "modified_at": "2025-09-12T07:40:19.939Z",
+      "modified_at": "2025-09-19T09:02:18.825Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -242,7 +242,7 @@
       "configuration": {},
       "meta": {
         "fill-end-date": {
-          "delta": 30,
+          "delta": 29,
           "question": "ende-publikation-kantonsamtsblatt",
           "minDateFromNow": 1
         },
@@ -263,7 +263,7 @@
     "pk": "beginn-publikationsorgan-gemeinde",
     "fields": {
       "created_at": "2023-06-26T07:52:09.957Z",
-      "modified_at": "2025-09-12T07:40:07.757Z",
+      "modified_at": "2025-09-19T09:02:05.028Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -280,7 +280,7 @@
       "configuration": {},
       "meta": {
         "fill-end-date": {
-          "delta": 30,
+          "delta": 29,
           "question": "ende-publikationsorgan-gemeinde",
           "minDateFromNow": 1
         },
