@@ -7,8 +7,8 @@ import { trackedFunction } from "reactiveweb/function";
 
 import mainConfig from "ember-ebau-core/config/main";
 
-const specialServiceGroups = mainConfig.customDeadlineServiceGroupSlugs;
-const specialServices = mainConfig.customDeadlineServiceSlugs;
+const specialServiceGroups = mainConfig.customDeadlineServiceGroupSlugs || [];
+const specialServices = mainConfig.customDeadlineServiceSlugs || [];
 export default class InquiryDeadlineInputComponent extends Component {
   @service store;
 
