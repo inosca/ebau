@@ -526,5 +526,29 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1502,
+    "fields": {
+      "slug": "6-72-meldung-bereit-zur-schlussabnahme-gebaeude",
+      "purpose": "6.72 Meldung bereit zur Schlussabnahme Gebäude (Gemeinde)",
+      "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Meldung bereit zur Schlussabnahme Gebäude",
+      "body": "URec System Info 6.72 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSCHLUSSABNAHME GEBÄUDE\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nINFORMATIONEN ZUM DOSSIER:\r\n\r\n- Gesuchsteller: {{GESUCHSTELLER}}    \r\n- Vorhaben: {{VORHABEN}}\r\n- Parzelle: {{PARZELLE}}, {{STREET}}\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1503,
+    "fields": {
+      "slug": "6-73-meldung-bereit-zur-schlussabnahme-gesamtprojekt",
+      "purpose": "6.73 Meldung bereit zur Schlussabnahme Gesamtprojekt (Gesuchsteller)",
+      "subject": "URec Dossier ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} - Meldung bereit zur Schlussabnahme Teil-/Gesamtprojekt",
+      "body": "URec System Info 6.73 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nMELDUNG BEREIT ZUR SCHLUSSABNAHME TEIL-/ GESAMTPROJEKT\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID {{INSTANCE_ID}} Dossier-Nr. {{DOSSIER_NR}} haben Sie eine neue Aufgabe erhalten.\r\n\r\nMit folgendem Link gelangen Sie direkt auf das URec Portal:\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
   }
 ]

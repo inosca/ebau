@@ -1532,9 +1532,23 @@ APPLICATIONS = {
                             "template_slug": "6-7-schlussabnahme-melden",
                             "recipient_types": ["applicant"],
                         },
-                    }
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "6-72-meldung-bereit-zur-schlussabnahme-gebaeude",
+                            "recipient_types": ["municipality_users"],
+                        },
+                    },
                 ],
                 "construction-step-schlussabnahme-projekt-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "6-73-meldung-bereit-zur-schlussabnahme-gesamtprojekt",
+                            "recipient_types": ["applicant"],
+                        },
+                    },
                     {
                         "event": "completed",
                         "notification": {
@@ -1580,7 +1594,7 @@ APPLICATIONS = {
                         "event": "created",
                         "notification": {
                             "template_slug": "6-42-schnurgeruest-kontrollieren",
-                            "recipient_types": ["schnurgeruestabnahme_uri"],
+                            "recipient_types": ["municipality_users"],
                         },
                     },
                 ],
