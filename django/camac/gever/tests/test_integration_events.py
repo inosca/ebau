@@ -2,6 +2,7 @@ import pytest
 from caluma.caluma_workflow.api import complete_work_item
 
 from camac.document.models import Attachment
+from camac.gever import events as gever_events
 
 
 @pytest.mark.vcr
@@ -70,3 +71,8 @@ def test_decision_decreed(
         # Ensure the "new" attachments have been sent to GEVER
         att.refresh_from_db()
         assert att.context["gever_document_id"]
+
+
+def test_events_gever_disabled(db, disable_gever_settings, instance):
+    assert gever_events.decision_decreed(instance) is False
+    assert gever_events.sync_button_pressed(instance) is False
