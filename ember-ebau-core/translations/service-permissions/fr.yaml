@@ -33,3 +33,4 @@ service-permissions:
   sub-services: "Unité d'un service spécialisé"
   sub-services-add: "Ajouter une unité d'un service spécialisé"
   sub-services-add-warning: ""
+  publication-reference: "Les données saisies seront publiées (p. ex. sous l'onglet «Support»)."

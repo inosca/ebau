@@ -478,6 +478,18 @@ class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerialize
         resource_name = "public-services"
 
 
+class PublicMunicipalitySerializer(MultilingualSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = models.Service
+        fields = (
+            "name",
+            "website",
+            "email",
+            "phone",
+        )
+        resource_name = "public-municipalities"
+
+
 class PublicGroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
     included_serializers = {
         "service": PublicServiceSerializer,

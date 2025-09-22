@@ -22,6 +22,7 @@ from rest_framework_json_api.views import (
 )
 
 from camac.caluma.extensions.permissions import CustomPermission
+from camac.core.utils import canton_aware
 from camac.core.views import MultilangMixin
 from camac.swagger.utils import get_operation_description, group_param
 from camac.token_exchange.permissions import RequireLoT
@@ -168,6 +169,26 @@ class PublicServiceView(MultilangMixin, ReadOnlyModelViewSet):
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
+
+
+class PublicMunicipalityView(MultilangMixin, RetrieveModelMixin, GenericViewSet):
+    serializer_class = serializers.PublicMunicipalitySerializer
+    queryset = models.Service.objects.all()
+
+    @canton_aware
+    def get_queryset(self):
+        return super().get_queryset().none()
+
+    def get_queryset_be(self):
+        return (
+            super()
+            .get_queryset()
+            .filter(
+                disabled=False,
+                service_group__name="municipality",
+                service_parent__isnull=True,
+            )
+        )
 
 
 class MeView(
