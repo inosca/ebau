@@ -7348,7 +7348,7 @@
       "hint": "Der ÖREB-Kataster kann über das WebGIS des Kantons SZ aufgerufen werden ([https://map.geo.sz.ch/] (https://map.geo.sz.ch/) → Geokategorie *ÖREB-Kataster*).",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.status.gwszone' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.status.gwszone' in 'layer'|value|mapby('name') || 'ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.gwszone.inkraft' in 'layer'|value|mapby('name') || 'ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.gwszone.provisorisch' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Erledigt"]
       }
