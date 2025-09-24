@@ -31,15 +31,21 @@ class Command(BaseCommand):
             action="store_true",
             help="Dossier files that are successfully imported are deleted.",
         )
+        parser.add_argument(
+            "--quiet",
+            action="store_true",
+            help="Dossier files that are successfully imported are deleted.",
+        )
 
     def handle(self, *args, **options):
         skip_existing = options.get("skip_existing")
         rm_file = options.get("rm")
+        quiet = options.get("quiet")
         source_paths = options.get("source_path") or [None]
         dossier = (options.get("dossier") or [None])[0]
         start_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
         for source_path in source_paths:
             KtAargauMigrator(
-                source_path, start_time, dossier, skip_existing, rm_file
+                source_path, start_time, dossier, skip_existing, rm_file, quiet
             ).migrate()

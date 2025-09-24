@@ -21,6 +21,7 @@ from django.db import IntegrityError, transaction
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from future.moves import itertools
+from graphql import GraphQLError
 from rest_framework.exceptions import ValidationError
 
 from camac.core.models import WorkflowEntry
@@ -474,11 +475,20 @@ class CalumaListAnswerWriter(FieldWriter):
                                 group=self.owner._group.pk,
                             ),
                         )
-                    except ValidationError:  # pragma: no cover
+                    except (ValidationError, GraphQLError):  # pragma: no cover
                         self.context.get("dossier")._meta.errors.append(
                             Message(
                                 level=Severity.WARNING.value,
                                 code=MessageCodes.FIELD_VALIDATION_ERROR.value,
+                                detail=f"Failed to write {value} for field {field_name} to {self.target} for dossier {instance}.",
+                            )
+                        )
+                        continue
+                    except Exception:  # pragma: no cover
+                        self.context.get("dossier")._meta.errors.append(
+                            Message(
+                                level=Severity.WARNING.value,
+                                code=MessageCodes.UNHANDLED_EXCEPTION.value,
                                 detail=f"Failed to write {value} for field {field_name} to {self.target} for dossier {instance}.",
                             )
                         )
@@ -541,10 +551,6 @@ class CaseMetaWriter(FieldWriter):
         formatted_value = value
         if self.formatter == "datetime-to-string":
             formatted_value = datetime.strftime(value, SUBMIT_DATE_FORMAT)
-        if self.formatter == "yyyymmdd":
-            formatted_value = datetime.strftime(
-                datetime.strptime(value, "%Y%m%d"), SUBMIT_DATE_FORMAT
-            )
         instance.case.meta[self.target] = formatted_value
         instance.case.save()
 

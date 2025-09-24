@@ -95,7 +95,7 @@ def test_migrate_from_zip_and_update(db, setup_dossier_import_ag, snapshot):
     basepath = f"{TEST_IMPORT_FILE_PATH}/kt_ag_json_zip"
     call_command(
         "kt_ag_migrate_dossiers",
-        [f"--source-path={basepath}.zip"],
+        [f"--source-path={basepath}.zip", "--quiet"],
         stdout=out,
         stderr=err,
     )

@@ -772,7 +772,7 @@
       "case-meta": {
           "dossier-number": "2022-1",
           "dossier-number-sort": 2022000001,
-          "submit-date": "2022-10-13T00:00:00"
+          "submit-date": "2022-10-13T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -1553,7 +1553,7 @@
       "case-meta": {
           "dossier-number": "2022-1",
           "dossier-number-sort": 2022000001,
-          "submit-date": "2022-10-13T00:00:00"
+          "submit-date": "2022-10-13T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -2314,7 +2314,7 @@
       "case-meta": {
           "dossier-number": "2024-1",
           "dossier-number-sort": 2024000001,
-          "submit-date": "2024-02-14T00:00:00"
+          "submit-date": "2024-02-14T00:00:00+0100"
       },
       "group": "support",
       "journal": [
@@ -3274,7 +3274,7 @@
       "case-meta": {
           "dossier-number": "2025-3",
           "dossier-number-sort": 2025000003,
-          "submit-date": "2025-01-02T00:00:00"
+          "submit-date": "2025-01-02T00:00:00+0100"
       },
       "group": "support",
       "journal": [
@@ -4199,7 +4199,7 @@
       "case-meta": {
           "dossier-number": "2024-2",
           "dossier-number-sort": 2024000002,
-          "submit-date": "2024-11-15T00:00:00"
+          "submit-date": "2024-11-15T00:00:00+0100"
       },
       "group": "support",
       "journal": [
@@ -5042,7 +5042,7 @@
       "case-meta": {
           "dossier-number": "2018-1",
           "dossier-number-sort": 2018000001,
-          "submit-date": "2018-10-22T00:00:00"
+          "submit-date": "2018-10-22T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -5677,7 +5677,7 @@
       "case-meta": {
           "dossier-number": "2023-1",
           "dossier-number-sort": 2023000001,
-          "submit-date": "2023-05-24T00:00:00"
+          "submit-date": "2023-05-24T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -6341,7 +6341,7 @@
       "case-meta": {
           "dossier-number": "2025-1",
           "dossier-number-sort": 2025000001,
-          "submit-date": "2025-01-31T00:00:00"
+          "submit-date": "2025-01-31T00:00:00+0100"
       },
       "group": "support",
       "journal": [],
@@ -7249,7 +7249,7 @@
       "case-meta": {
           "dossier-number": "2025-2",
           "dossier-number-sort": 2025000002,
-          "submit-date": "2025-04-02T00:00:00"
+          "submit-date": "2025-04-02T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -7959,7 +7959,7 @@
       "case-meta": {
           "dossier-number": "2022-2",
           "dossier-number-sort": 2022000002,
-          "submit-date": "2022-12-16T00:00:00"
+          "submit-date": "2022-12-16T00:00:00+0100"
       },
       "group": "support",
       "journal": [
@@ -8671,7 +8671,7 @@
       "case-meta": {
           "dossier-number": "2024-1",
           "dossier-number-sort": 2024000001,
-          "submit-date": "2024-02-14T00:00:00"
+          "submit-date": "2024-02-14T00:00:00+0100"
       },
       "group": "support",
       "journal": [
@@ -9564,7 +9564,7 @@
       "case-meta": {
           "dossier-number": "2022-1",
           "dossier-number-sort": 2022000001,
-          "submit-date": "2022-10-13T00:00:00"
+          "submit-date": "2022-10-13T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -10325,7 +10325,7 @@
       "case-meta": {
           "dossier-number": "2024-1",
           "dossier-number-sort": 2024000001,
-          "submit-date": "2024-02-14T00:00:00"
+          "submit-date": "2024-02-14T00:00:00+0100"
       },
       "group": "support",
       "journal": [
@@ -11285,7 +11285,7 @@
       "case-meta": {
           "dossier-number": "2025-3",
           "dossier-number-sort": 2025000003,
-          "submit-date": "2025-01-02T00:00:00"
+          "submit-date": "2025-01-02T00:00:00+0100"
       },
       "group": "support",
       "journal": [
@@ -12210,7 +12210,7 @@
       "case-meta": {
           "dossier-number": "2024-2",
           "dossier-number-sort": 2024000002,
-          "submit-date": "2024-11-15T00:00:00"
+          "submit-date": "2024-11-15T00:00:00+0100"
       },
       "group": "support",
       "journal": [
@@ -13053,7 +13053,7 @@
       "case-meta": {
           "dossier-number": "2018-1",
           "dossier-number-sort": 2018000001,
-          "submit-date": "2018-10-22T00:00:00"
+          "submit-date": "2018-10-22T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -13688,7 +13688,7 @@
       "case-meta": {
           "dossier-number": "2023-1",
           "dossier-number-sort": 2023000001,
-          "submit-date": "2023-05-24T00:00:00"
+          "submit-date": "2023-05-24T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -14352,7 +14352,7 @@
       "case-meta": {
           "dossier-number": "2025-1",
           "dossier-number-sort": 2025000001,
-          "submit-date": "2025-01-31T00:00:00"
+          "submit-date": "2025-01-31T00:00:00+0100"
       },
       "group": "support",
       "journal": [],
@@ -15260,7 +15260,7 @@
       "case-meta": {
           "dossier-number": "2025-2",
           "dossier-number-sort": 2025000002,
-          "submit-date": "2025-04-02T00:00:00"
+          "submit-date": "2025-04-02T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -15970,7 +15970,7 @@
       "case-meta": {
           "dossier-number": "2022-2",
           "dossier-number-sort": 2022000002,
-          "submit-date": "2022-12-16T00:00:00"
+          "submit-date": "2022-12-16T00:00:00+0100"
       },
       "group": "support",
       "journal": [
@@ -16769,7 +16769,7 @@
       "case-meta": {
           "dossier-number": "2025-3",
           "dossier-number-sort": 2025000003,
-          "submit-date": "2025-01-02T00:00:00"
+          "submit-date": "2025-01-02T00:00:00+0100"
       },
       "group": "support",
       "journal": [
@@ -17694,7 +17694,7 @@
       "case-meta": {
           "dossier-number": "2024-2",
           "dossier-number-sort": 2024000002,
-          "submit-date": "2024-11-15T00:00:00"
+          "submit-date": "2024-11-15T00:00:00+0100"
       },
       "group": "support",
       "journal": [
@@ -18537,7 +18537,7 @@
       "case-meta": {
           "dossier-number": "2018-1",
           "dossier-number-sort": 2018000001,
-          "submit-date": "2018-10-22T00:00:00"
+          "submit-date": "2018-10-22T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -19172,7 +19172,7 @@
       "case-meta": {
           "dossier-number": "2023-1",
           "dossier-number-sort": 2023000001,
-          "submit-date": "2023-05-24T00:00:00"
+          "submit-date": "2023-05-24T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -19836,7 +19836,7 @@
       "case-meta": {
           "dossier-number": "2025-1",
           "dossier-number-sort": 2025000001,
-          "submit-date": "2025-01-31T00:00:00"
+          "submit-date": "2025-01-31T00:00:00+0100"
       },
       "group": "support",
       "journal": [],
@@ -20744,7 +20744,7 @@
       "case-meta": {
           "dossier-number": "2025-2",
           "dossier-number-sort": 2025000002,
-          "submit-date": "2025-04-02T00:00:00"
+          "submit-date": "2025-04-02T00:00:00+0200"
       },
       "group": "support",
       "journal": [
@@ -21454,7 +21454,7 @@
       "case-meta": {
           "dossier-number": "2022-2",
           "dossier-number-sort": 2022000002,
-          "submit-date": "2022-12-16T00:00:00"
+          "submit-date": "2022-12-16T00:00:00+0100"
       },
       "group": "support",
       "journal": [
