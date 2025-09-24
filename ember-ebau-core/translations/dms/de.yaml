@@ -89,7 +89,7 @@ dms:
     </table>
     <p>Beispiel für Listen:</p>
     '{%p for FACHSTELLE in ZIRKULATION_ALLE %'}
-    <ul class=''uk-list uk-list-bullet uk-margin-remove''>
+    <ul class=''uk-list uk-list-disc uk-margin-remove''>
       <li>
         '{{ FACHSTELLE.NAME '}} (Frist: '{{ FACHSTELLE.FRIST '}})
       </li>

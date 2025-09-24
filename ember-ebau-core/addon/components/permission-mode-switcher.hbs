@@ -1,5 +1,5 @@
 {{#unless this.hidden}}
-  <div
+  <footer
     class="uk-background-muted uk-border uk-padding-small uk-position-fixed uk-position-bottom-right"
   >
     <label for="permission-mode" class="uk-text-small uk-text-bold">
@@ -15,5 +15,5 @@
         <option selected={{if (eq this.mode mode) "selected"}}>{{mode}}</option>
       {{/each}}
     </select>
-  </div>
+  </footer>
 {{/unless}}

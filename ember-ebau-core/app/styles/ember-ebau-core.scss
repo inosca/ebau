@@ -29,6 +29,7 @@ $custom-muted-color-light: color.adjust(
 @import "construction-monitoring";
 @import "diff";
 @import "components/eeba-confirmation";
+@import "components/notification";
 
 .multi-line-text {
   overflow-wrap: break-word;

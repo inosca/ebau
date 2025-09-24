@@ -146,6 +146,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "after": "ember-can"
+    "after": ["ember-can", "ember-uikit"]
   }
 }

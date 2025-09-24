@@ -25,7 +25,7 @@
             <UkIcon @icon="warning" class="uk-margin-small-right" />
             {{t "document-validity-button.error"}}
           </div>
-          <ul class="uk-list uk-list-bullet">
+          <ul class="uk-list uk-list-disc">
             {{#each this.invalidFields as |invalidField|}}
               <li>
                 {{#if (is-legacy-app)}}

@@ -19,6 +19,7 @@ communications:
     readByEveryone: Von allen gelesen
     readByYou: Von Ihnen gelesen
     readBy: Gelesen von
+    readStatus: Gelesenheitsstatus
     createdBy: "Erstellt von {entity} ({user})"
     empty: Keine Nachrichten vorhanden.
     markAsRead: Als Gelesen markieren
@@ -35,7 +36,6 @@ communications:
     delete: Löschen
     deleteError: Beim Löschen der Datei ist etwas schief gelaufen
     deleteConfirm: Wollen Sie die Datei wirklich löschen?
-    
 
   new:
     linkFile: Sie können auch Dateien aus

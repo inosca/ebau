@@ -1,8 +1,8 @@
 {{#if (has-feature "watermark")}}
-  <div
+  <header
     class="watermark {{unless this.isPortal 'watermark--internal'}}"
     ...attributes
   >
     {{macroGetOwnConfig "watermark"}}
-  </div>
+  </header>
 {{/if}}

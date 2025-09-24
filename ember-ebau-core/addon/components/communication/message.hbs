@@ -39,6 +39,7 @@
             @loading={{this.markAsUnread.isRunning}}
             @disabled={{this.markAsUnread.isRunning}}
             class={{if this.readByEveryone "uk-text-success"}}
+            title={{t "communications.detail.readStatus"}}
             data-test-read-details-trigger
           />
           <div
@@ -75,6 +76,7 @@
           @onClick={{perform this.markAsRead}}
           @loading={{this.markAsRead.isRunning}}
           @disabled={{this.markAsRead.isRunning}}
+          title={{t "communications.detail.markAsRead"}}
           data-test-mark-read
           {{uk-tooltip (t "communications.detail.markAsRead")}}
         />

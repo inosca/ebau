@@ -1,7 +1,5 @@
 <BasicDropdown as |dd|>
-  <dd.Trigger>
-    {{yield}}
-  </dd.Trigger>
+  {{yield dd}}
   <dd.Content class="uk-box-shadow-medium uk-padding-small">
     {{#if this.suggestions.isRunning}}
       <div class="uk-padding">

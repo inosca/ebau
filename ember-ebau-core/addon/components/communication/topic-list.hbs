@@ -69,19 +69,23 @@
         {{on "click" (fn this.transitionToTopic topic)}}
       >
         <td class="communications-status-cell uk-padding-remove-right">
-          <FaIcon
-            @fixedWidth={{true}}
-            @icon={{if topic.hasUnread "envelope" "envelope-open"}}
-            {{uk-tooltip
-              (t
-                (concat
-                  "communications.list."
-                  (if topic.hasUnread "has" "no")
-                  "-unread"
-                )
+          {{#let
+            (t
+              (concat
+                "communications.list." (if topic.hasUnread "has" "no") "-unread"
               )
-            }}
-          />
+            )
+            as |title|
+          }}
+            <FaIcon
+              @fixedWidth={{true}}
+              @icon={{if topic.hasUnread "envelope" "envelope-open"}}
+              aria-hidden="false"
+              focusable="true"
+              title={{title}}
+              {{uk-tooltip title}}
+            />
+          {{/let}}
         </td>
         {{#unless @instanceId}}
           <td class="uk-text-nowrap" data-test-dossier-number>

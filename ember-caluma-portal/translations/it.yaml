@@ -15,6 +15,7 @@ global:
   urec: "URec"
   yes: "Sì"
   no: "No"
+  stampIcon: "Documento con timbro"
 
 nav:
   form: "Modulo"
@@ -326,14 +327,14 @@ claims:
 
 notfound:
   title: "Non dispone dei diritti per accedere a questo dossier."
-  subtitle: 'Verifichi che il n. del dossier coincida e che nel menu «Diritti» le siano stati attribuiti i relativi diritti di accesso.'
+  subtitle: "Verifichi che il n. del dossier coincida e che nel menu «Diritti» le siano stati attribuiti i relativi diritti di accesso."
   link: "Torna alla"
   home: "Pagina iniziale"
 
 paper:
   type: "Su carta"
   noteTitle: "Nota:"
-  noteBody: 'sta per creare un dossier che nel suo comune è stato inoltrato in forma cartacea (dossier cartaceo). Per creare un dossier normale in veste di persona richiedente selezionare «Richiedente» nel menu in alto a destra dove sono indicati i vari ruoli.'
+  noteBody: "sta per creare un dossier che nel suo comune è stato inoltrato in forma cartacea (dossier cartaceo). Per creare un dossier normale in veste di persona richiedente selezionare «Richiedente» nel menu in alto a destra dove sono indicati i vari ruoli."
 
 modification:
   type: "Modifica del progetto"
@@ -341,7 +342,7 @@ modification:
 dashboard:
   edit: "modifica"
   content: "Contenuto"
-  no-content: 'Non è ancora stato creato un contenuto. Clicca su «Modifica» per creare un nuovo contenuto.'
+  no-content: "Non è ancora stato creato un contenuto. Clicca su «Modifica» per creare un nuovo contenuto."
   load-error: "Errore nel tentativo di caricare il contenuto"
   save-error: "Errore nel tentativo di salvare il contenuto"
 

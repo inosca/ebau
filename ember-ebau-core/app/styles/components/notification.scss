@@ -1,0 +1,34 @@
+.uk-notification-message {
+  --sidebanner-width: #{$notification-message-padding * 2 + 20px};
+
+  padding-left: calc(var(--sidebanner-width) + $notification-message-padding);
+  color: $global-color;
+  border: 1px solid $global-border;
+  box-shadow:
+    inset var(--sidebanner-width) 0 0 0 var(--notification-message-color),
+    $global-medium-box-shadow;
+
+  span.uk-icon {
+    color: $global-inverse-color;
+    position: absolute;
+    left: $notification-message-padding;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.uk-notification-message-primary {
+  --notification-message-color: #{$global-primary-background};
+}
+
+.uk-notification-message-success {
+  --notification-message-color: #{$global-success-background};
+}
+
+.uk-notification-message-danger {
+  --notification-message-color: #{$global-danger-background};
+}
+
+.uk-notification-message-warning {
+  --notification-message-color: #{$global-warning-background};
+}

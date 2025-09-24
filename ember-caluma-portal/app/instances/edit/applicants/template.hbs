@@ -88,6 +88,7 @@
             @instanceId={{this.editController.model}}
             @usedEmails={{this.usedEmails}}
             @onSelect={{fn (mut this.email)}}
+            as |dropdown|
           >
             <UkIcon @icon="mail" class="uk-form-icon" />
             <Input
@@ -98,6 +99,7 @@
               required={{true}}
               @type="email"
               @value={{this.email}}
+              {{basic-dropdown-trigger dropdown=dropdown}}
             />
           </PersonalSuggestions>
         </div>
