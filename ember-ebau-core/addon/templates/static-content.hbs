@@ -1,7 +1,7 @@
 {{#let (or this.technicalSupport this.myServiceSupport) as |withSidebar|}}
   <div class="uk-grid-small" uk-grid>
     <div class={{if withSidebar "uk-width-2-3" "uk-width-1"}}>
-      <StaticContent @type={{this.model.type}} @unsafe={{true}} />
+      <StaticContent @type={{this.model.type}} />
     </div>
     {{#if withSidebar}}
       <div class="uk-width-1-3">

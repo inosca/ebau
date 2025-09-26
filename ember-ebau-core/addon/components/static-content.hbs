@@ -29,7 +29,7 @@
     <MarkdownToHtml
       class="markdown-content"
       @markdown={{or this.data.value.content}}
-      @extensions={{unless @unsafe "DOMPurify"}}
+      @extensions="DOMPurify"
     />
   </div>
 {{/if}}
