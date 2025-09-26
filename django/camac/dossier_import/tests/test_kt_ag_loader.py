@@ -2,7 +2,6 @@ from dataclasses import asdict
 from datetime import datetime
 
 import pytest
-import pytz
 from django.utils.timezone import make_aware
 
 from camac.dossier_import.config.kt_ag.dossier_import.dossier_loader import (
@@ -104,7 +103,6 @@ def test_mapping_for_multiple_locations(snapshot):
 
 
 @pytest.mark.order(1)
-@pytest.mark.timezone(pytz.FixedOffset(120))
 def test_all_mappings(snapshot):
     result: Dossier = KtAargauDossierLoader.map_data(
         {

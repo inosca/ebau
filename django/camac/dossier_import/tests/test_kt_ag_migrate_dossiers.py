@@ -4,7 +4,6 @@ from io import StringIO
 from typing import Any, Dict, List
 
 import pytest
-import pytz
 from caluma.caluma_form.models import Answer
 from django.core.management import call_command
 from django.db.models.query_utils import Q
@@ -25,7 +24,7 @@ def get_test_files():
 
 @pytest.mark.skip(reason="not productive execution that is tested")
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
-@pytest.mark.timezone(pytz.FixedOffset(120))
+@pytest.mark.django_db(transaction=True)
 def test_migrate_json_file_again(
     db, setup_dossier_import_ag, snapshot
 ):  # pragma: no cover
@@ -51,7 +50,7 @@ def _migrate_from_file_and_assert(input_file, snapshot):  # pragma: no cover
 
 @pytest.mark.skip(reason="not productive execution that is tested")
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
-@pytest.mark.timezone(pytz.FixedOffset(120))
+@pytest.mark.django_db(transaction=True)
 def test_migrate_and_update_all(
     db, setup_dossier_import_ag, snapshot
 ):  # pragma: no cover
@@ -88,7 +87,7 @@ def test_migrate_and_update_all(
 
 @pytest.mark.order(1)  # Slow tests should run first
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
-@pytest.mark.timezone(pytz.FixedOffset(120))
+@pytest.mark.django_db(transaction=True)
 def test_migrate_from_zip_and_update(db, setup_dossier_import_ag, snapshot):
     out = StringIO()
     err = StringIO()
@@ -127,7 +126,7 @@ def test_migrate_from_zip_and_update(db, setup_dossier_import_ag, snapshot):
 
 
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
-@pytest.mark.timezone(pytz.FixedOffset(120))
+@pytest.mark.django_db(transaction=True)
 def test_migrate_from_wrong_zip(db, setup_dossier_import_ag, snapshot):
     out = StringIO()
     err = StringIO()
