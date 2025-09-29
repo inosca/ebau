@@ -242,7 +242,7 @@ class StaticContentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.StaticContent
-        fields = ("content", "slug")
+        fields = ("content", "slug", "disable_xss_protection")
 
 
 class ServiceContentSerializer(serializers.ModelSerializer):

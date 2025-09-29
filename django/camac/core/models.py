@@ -4276,6 +4276,7 @@ class IrTaskform(models.Model):
 
 class StaticContent(models.Model):
     slug = models.SlugField(primary_key=True)
+    disable_xss_protection = models.BooleanField(default=False)
     content = LocalizedTextField()
 
 
