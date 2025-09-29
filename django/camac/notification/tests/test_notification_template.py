@@ -472,6 +472,61 @@ def test_notification_template_gvg(
     assert mailoutbox[0].recipients() == ["versicherung@gvg.gr.ch"]
 
 
+@pytest.mark.parametrize(
+    "role__name,status_code",
+    [
+        ("Municipality", status.HTTP_204_NO_CONTENT),
+    ],
+)
+@pytest.mark.parametrize(
+    "recipient_types,is_bab,expected_recipients",
+    [
+        (["are"], False, ["are@test.gr.ch"]),
+        (["are"], True, ["are@test.gr.ch"]),
+        (["are_bab"], False, []),
+        (["are_bab"], True, ["are@test.gr.ch"]),
+    ],
+)
+def test_notification_template_are(
+    admin_client,
+    notification_template,
+    gr_instance,
+    status_code,
+    mailoutbox,
+    service_factory,
+    recipient_types,
+    is_bab,
+    expected_recipients,
+):
+    service_factory(name="are", slug="are", email="are@test.gr.ch")
+    url = reverse("notificationtemplate-sendmail")
+
+    gr_instance.case.document.save()
+    gr_instance.case.meta["is-bab"] = is_bab
+    gr_instance.case.save()
+
+    data = {
+        "data": {
+            "type": "notification-template-sendmails",
+            "id": None,
+            "attributes": {
+                "template-slug": notification_template.slug,
+                "body": "Test body",
+                "recipient-types": recipient_types,
+            },
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": gr_instance.pk}},
+            },
+        }
+    }
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status_code
+    if len(expected_recipients):
+        assert mailoutbox[0].recipients() == expected_recipients
+    else:
+        assert mailoutbox == []
+
+
 def test_recipient_abwasser_uri(db, service_factory):
     serializer = serializers.NotificationTemplateSendmailSerializer()
     awu_service = service_factory(slug="awu")
