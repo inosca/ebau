@@ -135,7 +135,7 @@
     "pk": "nachbarschaftsorientierung-beginn",
     "fields": {
       "created_at": "2025-02-25T08:55:37.052Z",
-      "modified_at": "2025-02-25T09:00:21.872Z",
+      "modified_at": "2025-09-24T08:25:04.288Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -152,8 +152,9 @@
       "configuration": {},
       "meta": {
         "fill-end-date": {
-          "delta": 31,
-          "question": "nachbarschaftsorientierung-ende"
+          "delta": 29,
+          "question": "nachbarschaftsorientierung-ende",
+          "minDateFromNow": 1
         },
         "widgetOverride": "publication-fill-end-date"
       },

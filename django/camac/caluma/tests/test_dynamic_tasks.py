@@ -1422,7 +1422,6 @@ def test_dynamic_task_maybe_publication(
             {
                 "create-manual-workitems",
                 "distribution",
-                "publication",
                 "cantonal-exam",
                 "objections",
                 "withdrawal-request",
@@ -1433,7 +1432,6 @@ def test_dynamic_task_maybe_publication(
             {
                 "create-manual-workitems",
                 "distribution",
-                "publication",
                 "cantonal-exam",
                 "objections",
                 "init-additional-demand",

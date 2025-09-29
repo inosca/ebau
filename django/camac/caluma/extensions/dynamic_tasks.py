@@ -387,7 +387,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
         pgv_tasks = [
             "distribution",
-            "publication",
             "cantonal-exam",
             "objections",
         ]
