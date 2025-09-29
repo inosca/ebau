@@ -114,7 +114,8 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
     def _update_or_create_user(self, defaults, accept_language_header):
         """Update or create a user based on the defaults.
 
-        If the user doesn't exist, we create it with the defaults.
+        If the user doesn't exist, we create it with the defaults, using
+        the locking update_or_create method.
         If the user already exists we check if the existing user matches
         the defaults. If it doesn't match the defaults, we update the user
         with the defaults and return that user. If it does, we return that
@@ -132,7 +133,8 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         if existing_user:
             return self._update_existing_user(existing_user, defaults), False
 
-        return user_model.objects.create(**defaults), True
+        created_user, _ = user_model.objects.update_or_create(**defaults)
+        return created_user, True
 
     def _get_existing_user(self, defaults):
         user_model = get_user_model()

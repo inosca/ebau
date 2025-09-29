@@ -344,12 +344,13 @@ def test_authenticate_token_exchange_company_name(rf, mocker, settings, clear_ca
     [["language", "email", "username", "name", "surname", "phone"]],
 )
 @pytest.mark.parametrize(
-    "existing_values,new_values,expected_update,expected_insert",
+    "existing_values,new_values,expected_update,expected_insert,expected_lock",
     [
         # no changes, no update
         (
             {"username": "testuser", "email": "", "language": "en"},
             {"username": "testuser", "email": ""},
+            False,
             False,
             False,
         ),
@@ -359,12 +360,14 @@ def test_authenticate_token_exchange_company_name(rf, mocker, settings, clear_ca
             {"username": "testuser", "email": "test@example.com"},
             True,
             False,
+            False,
         ),
         # new record, created
         (
             None,
             {"username": "testuser", "email": "test@example.com"},
             False,
+            True,
             True,
         ),
         # change name with email fallback and update username
@@ -381,6 +384,7 @@ def test_authenticate_token_exchange_company_name(rf, mocker, settings, clear_ca
             },
             True,
             False,
+            False,
         ),
     ],
 )
@@ -391,6 +395,7 @@ def test_authenticate_only_update_user_if_changed(
     new_values,
     expected_insert,
     expected_update,
+    expected_lock,
     oidc_sync_user_attributes,
     settings,
 ):
@@ -420,9 +425,11 @@ def test_authenticate_only_update_user_if_changed(
         has_update = any(
             'UPDATE "USER" ' in query["sql"] for query in ctx.captured_queries
         )
+        has_lock = any(" FOR UPDATE" in query["sql"] for query in ctx.captured_queries)
 
         assert has_insert == expected_insert
         assert has_update == expected_update
+        assert has_lock == expected_lock
 
 
 @pytest.mark.parametrize(
