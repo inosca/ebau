@@ -2682,6 +2682,170 @@ APPLICATIONS = {
                 },
                 "DEFAULT": "inProcedure",
             },
+            "CALUMA_WORKFLOW_NOTIFICATIONS": {
+                "construction-step-baubeginn-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-baufreigabe": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung-leitbehoerde",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-baufreigabe-beantragen": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-kanalisation-kontrollieren": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung-leitbehoerde",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-kanalisationsabnahme-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-plan-construction-stage": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung-leitbehoerde",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-rohbauabnahme-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-rohbau-kontrollieren": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung-leitbehoerde",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-gebaeude": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung-leitbehoerde",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-gebaeude-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-projekt": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung-leitbehoerde",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-projekt-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-schlussabnahme-projekt-planen": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung-leitbehoerde",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-schnurgeruestabnahme-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+                "construction-step-schnurgeruestabnahme-planen": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung-leitbehoerde",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-schnurgeruest-kontrollieren": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung-leitbehoerde",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-zwischenkontrolle": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung-leitbehoerde",
+                            "recipient_types": ["leitbehoerde"],
+                        },
+                    }
+                ],
+                "construction-step-zwischenkontrolle-melden": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "baubegleitung",
+                            "recipient_types": ["applicant"],
+                        },
+                    }
+                ],
+            },
         },
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "USE_INSTANCE_SERVICE": True,

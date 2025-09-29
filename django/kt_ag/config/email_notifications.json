@@ -289,6 +289,18 @@
   },
   {
     "model": "notification.notificationtemplate",
+    "pk": 26,
+    "fields": {
+      "slug": "baubegleitung-leitbehoerde",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
     "pk": 100,
     "fields": {
       "slug": "invited-via-permission-acl",
@@ -585,6 +597,18 @@
       "purpose": "Baubegleitung (Gesuchsteller)",
       "subject": "Information zur Baubegleitung (Dossier-Nr. {{ DOSSIER_NR }})",
       "body": "Guten Tag\r\n\r\nZu Ihrem Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) ist in eBau eine Information zur Baubegleitung durch die Baubewilligungsbehörde ({{ LEITBEHOERDE_NAME_DE }}) eingegangen. \r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/construction-monitoring\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n{{LEITBEHOERDE_NAME_DE}}"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 26,
+    "fields": {
+      "template": 26,
+      "template_slug": "baubegleitung-leitbehoerde",
+      "language": "de",
+      "purpose": "Baubegleitung (Leitbehörde)",
+      "subject": "Information zur Baubegleitung (Dossier-Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\r\nZu dem Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) ist in eBau eine Information zur Baubegleitung durch den Gesuchsteller ({{GESUCHSTELLER}}) eingegangen. \r\n\r\n{{ PUBLIC_DOSSIER_LINK }}/construction-monitoring\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   },
   {
