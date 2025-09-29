@@ -133,6 +133,7 @@ PLACEHOLDERS = {
             "POSITION",
             "BETRAG",
             "BEMERKUNG",
+            "VERRECHNET_AM",
         ],
     },
     "test": {"ENABLED": True},

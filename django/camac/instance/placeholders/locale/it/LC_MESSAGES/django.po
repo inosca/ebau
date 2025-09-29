@@ -86,6 +86,10 @@ msgid "BILLING_ENTRY_BILLING_TYPE"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
+msgid "BILLING_ENTRY_CHARGED_AT"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_REMARK"
 msgstr ""
 
@@ -1066,6 +1070,10 @@ msgstr "Tasse proprie legate al dossier"
 #: camac/instance/placeholders/serializers.py
 msgid "BILLING_ENTRIES_TOTAL"
 msgstr "TASSE_TOTALI"
+
+#: camac/instance/placeholders/serializers.py
+msgid "BILLING_ENTRIES_TOTAL_NOT_CHARGED"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "Total of all billing entries of the instance"

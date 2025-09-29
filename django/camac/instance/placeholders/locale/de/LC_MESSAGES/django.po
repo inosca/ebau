@@ -83,6 +83,10 @@ msgid "BILLING_ENTRY_BILLING_TYPE"
 msgstr "VERRECHNUNG"
 
 #: camac/instance/placeholders/fields.py
+msgid "BILLING_ENTRY_CHARGED_AT"
+msgstr "VERRECHNET_AM"
+
+#: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_REMARK"
 msgstr "BEMERKUNG"
 
@@ -1011,6 +1015,10 @@ msgstr "Eigene Gebühren des Dossiers"
 #: camac/instance/placeholders/serializers.py
 msgid "BILLING_ENTRIES_TOTAL"
 msgstr "GEBUEHREN_TOTAL"
+
+#: camac/instance/placeholders/serializers.py
+msgid "BILLING_ENTRIES_TOTAL_NOT_CHARGED"
+msgstr "GEBUEHREN_TOTAL_NICHT_VERRECHNET"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Total of all billing entries of the instance"

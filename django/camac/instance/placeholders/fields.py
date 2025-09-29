@@ -173,11 +173,12 @@ class CurrentUserField(UserField):
 
 
 class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
-    def __init__(self, own=False, total=False, **kwargs):
+    def __init__(self, own=False, total=False, only_not_charged=False, **kwargs):
         super().__init__(**kwargs)
 
         self.own = own
         self.total = total
+        self.only_not_charged = only_not_charged
 
     @property
     def nested_aliases(self):
@@ -197,6 +198,7 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
             "MEHRWERTSTEUER": [_("BILLING_ENTRY_VAT")],
             "ART": [_("BILLING_ENTRY_TYPE")],
             "VERRECHNUNG": [_("BILLING_ENTRY_BILLING_TYPE")],
+            "VERRECHNET_AM": [_("BILLING_ENTRY_CHARGED_AT")],
             "BEMERKUNG": [_("BILLING_ENTRY_REMARK")],
             "ORGANISATION": [_("BILLING_ENTRY_ORGANISATION")],
         }
@@ -291,6 +293,8 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
                 return self.get_choice_label(
                     BillingV2Entry.BillingTypes.choices, entry.billing_type
                 )
+            case "VERRECHNET_AM":
+                return human_readable_date(entry.date_charged)
             case "BEMERKUNG":
                 return entry.remark
             case "ORGANISATION":
@@ -314,6 +318,9 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
 
         if self.own:
             queryset = queryset.filter(group__service=service)
+
+        if self.only_not_charged:
+            queryset = queryset.filter(date_charged__isnull=True)
 
         return queryset.order_by("organization", "pk")
 

@@ -83,6 +83,10 @@ msgid "BILLING_ENTRY_BILLING_TYPE"
 msgstr ""
 
 #: camac/instance/placeholders/fields.py
+msgid "BILLING_ENTRY_CHARGED_AT"
+msgstr ""
+
+#: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_REMARK"
 msgstr ""
 
@@ -1105,6 +1109,11 @@ msgstr "Les frais propres du dossier"
 #: camac/instance/placeholders/serializers.py
 msgid "BILLING_ENTRIES_TOTAL"
 msgstr "EMOLUMENTS_TOTAL"
+
+#: camac/instance/placeholders/serializers.py
+msgid "BILLING_ENTRIES_TOTAL_NOT_CHARGED"
+msgstr ""
+
 
 #: camac/instance/placeholders/serializers.py
 msgid "Total of all billing entries of the instance"
