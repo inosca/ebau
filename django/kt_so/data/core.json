@@ -23,6 +23,7 @@
     "model": "core.staticcontent",
     "pk": "news",
     "fields": {
+      "disable_xss_protection": false,
       "content": "{\"de\": \"#News\\n\\n##Ankündigung Wartung\\nAm Freitag, 12.12.1912 findet zwischen 00:00 und 00:00 eine Systemwartung statt. Daher kann es in eBau in dieser Zeit zu Unterbrüchen kommen. Wir bitte um Ihr Verständnis. Vielen Dank im Voraus.\", \"fr\": \"\", \"it\": \"\"}"
     }
   },
@@ -30,6 +31,7 @@
     "model": "core.staticcontent",
     "pk": "portal-contact",
     "fields": {
+      "disable_xss_protection": true,
       "content": "{\"de\": \"# Support\\n\\n<iframe\\n  src=\\\"https://formulare-a.so.ch/bjdds_inter/start.do?event=view&generalid=Kontakt_eBauso&wfjs_enabled=true\\\"\\n  class=\\\"uk-width-1\\\"\\n  height=\\\"800\\\"\\n/>\", \"fr\": \"\", \"it\": \"\"}"
     }
   },
@@ -37,6 +39,7 @@
     "model": "core.staticcontent",
     "pk": "portal-news",
     "fields": {
+      "disable_xss_protection": false,
       "content": "{\"de\": \"<div class=\\\"uk-text-large\\\">\\n  <strong>\\n    Bitte beachten Sie, dass das digitale Baugesuchsverfahren zunächst nur für\\n    die folgenden Gemeinden möglich ist:\\n  </strong>\\n  <ul>\\n    <li>Breitenbach</li>\\n    <li>Derendingen</li>\\n    <li>Messen</li>\\n    <li>Olten</li>\\n    <li>Selzach</li>\\n    <li>Solothurn</li>\\n  </ul>\\n</div>\", \"fr\": \"\", \"it\": \"\"}"
     }
   }
