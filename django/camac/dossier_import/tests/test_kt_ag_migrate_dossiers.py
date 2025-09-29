@@ -192,7 +192,7 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
             Answer.objects.filter(
                 Q(document__family=instance.case.document)
                 | Q(document__family__work_item__case__family=instance.case)
-            ).values("question_id", "value", "document__form_id")
+            ).values("question_id", "value", "date", "document__form_id")
         )
         journal = list(
             JournalEntry.objects.filter(instance=instance)

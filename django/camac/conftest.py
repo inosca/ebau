@@ -756,7 +756,8 @@ def caluma_workflow_config_ag(
         settings.ROOT_DIR("kt_ag/config/caluma_distribution.json"),
         settings.ROOT_DIR("kt_ag/config/caluma_additional_demand.json"),
         settings.ROOT_DIR("kt_ag/config/caluma_construction_monitoring_workflow.json"),
-        settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_form.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_construction_monitoring_form.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_cantonal_exam_form.json"),
     )
 
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
@@ -769,6 +770,9 @@ def caluma_workflow_config_ag(
     migration_vorentscheid_form = caluma_form_models.Form.objects.get(
         pk="vorentscheid-migration"
     )
+    migration_cantonal_exam_form = caluma_form_models.Form.objects.get(
+        pk="kantonale-pruefung"
+    )
 
     workflow.allow_forms.set(
         [
@@ -779,6 +783,7 @@ def caluma_workflow_config_ag(
             migration_anfrage_form,
             migration_reklame_form,
             migration_vorentscheid_form,
+            migration_cantonal_exam_form,
         ]
     )
     workflow.save()
