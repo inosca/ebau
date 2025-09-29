@@ -38,7 +38,9 @@
           {{/if}}
           {{#if this.service.value.email}}
             <strong>{{t "support.email"}}</strong>
-            {{this.service.value.email}}
+            <a href="mailto:{{this.service.value.email}}">
+              {{this.service.value.email}}
+            </a>
             <br />
           {{/if}}
           {{#if this.service.value.phone}}
