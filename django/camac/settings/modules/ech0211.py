@@ -598,6 +598,10 @@ ECH0211 = {
                 "new_state": "decided",
                 "type": ECH_STATUS_NOTIFICATION_ENTSCHIEDEN,
             },
+            {
+                "new_state": "withdrawn",
+                "type": ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
+            },
         ],
         "TASK_MAP": {
             "circulation": {
