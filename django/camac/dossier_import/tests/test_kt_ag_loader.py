@@ -782,6 +782,45 @@ def test_all_mappings(snapshot):
                     "ABGS": "X",
                 },
             ],
+            "KANTON_EINGANG": "20250612",
+            "KANTON_BEARBEITUNGSFRIST": "20250811",
+            "KANTON_GRUPPE": "DIBA Test Team",
+            "KANTON_GRUPPE2": "DIBA Test Team",
+            "KANTON_SACHBEARBEITER": "EMARHUB001",
+            "KANTON_VORL_ABSCHLUSS": "20250930",
+            "KANTON_ABSCHLUSSCODE": "teilweise Zustimmung",
+            "KANTON_DAUER": 108,
+            "KANTON_LWAG_NR": "1111111",
+            "KANTON_STATUSVERLAUF": [
+                {
+                    "SOURCE": "S",
+                    "TSTAMPL": 20230315101228,
+                    "WHOTXT": "Kantons Admin eBau extended",
+                    "KOMMENTAR": "Dokument hinzugef\u00fcgt mit der ID 0000000000000010001687849",
+                    "DOC_ID": "0000000000000000000000000",
+                    "DOC_VERSION": "",
+                    "ACTION_TXT": "Dokument hinzugef\u00fcgt",
+                    "STEP_TXT": "Gesuch in Bearbeitung",
+                },
+                {
+                    "SOURCE": "S",
+                    "TSTAMPL": 20230315102239,
+                    "WHOTXT": "Kantons Admin eBau extended",
+                    "KOMMENTAR": 'Gesuchsstatus wurde in "Freigabeverfahren" ge\u00e4ndert.',
+                    "DOC_ID": "0000000000000000000000000",
+                    "DOC_VERSION": "",
+                    "ACTION_TXT": "Status \u00c4nderung",
+                    "STEP_TXT": "Status \u00c4nderung",
+                },
+            ],
+            "KANTON_KOMMENTARE": [
+                {"TIMESTAMP": 20221020163137, "USER_ID": "EB2_AFB_02", "TEXT": ""},
+                {
+                    "TIMESTAMP": 20221020163153,
+                    "USER_ID": "EB2_AFB_02",
+                    "TEXT": "UE einfordern",
+                },
+            ],
         }
     )
 
