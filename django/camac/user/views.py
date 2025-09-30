@@ -179,7 +179,7 @@ class PublicMunicipalityView(MultilangMixin, RetrieveModelMixin, GenericViewSet)
     def get_queryset(self):
         return super().get_queryset().none()
 
-    def get_queryset_be(self):
+    def get_active_municipalities(self):
         return (
             super()
             .get_queryset()
@@ -189,6 +189,12 @@ class PublicMunicipalityView(MultilangMixin, RetrieveModelMixin, GenericViewSet)
                 service_parent__isnull=True,
             )
         )
+
+    def get_queryset_be(self):
+        return self.get_active_municipalities()
+
+    def get_queryset_ag(self):
+        return self.get_active_municipalities()
 
 
 class MeView(

@@ -16,3 +16,15 @@ instances:
       title: "Weitere Verfahren"
       info: "**Anfrage**  \nUnverbindliche Vorabklärung über die Bewilligungsfähigkeit eines Bauvorhabens. Weitere Informationen finden Sie [hier](https://www.ag.ch/de/verwaltung/bvu/bauen/baubewilligungen/bewilligungsablauf/informationen-rund-ums-bauen/verfahrensuebersicht).\n\n**Reklame**  \nGesuch für Strassenreklamen (wie Firmenanschriften, Fassadenreklamen, freistehende Werbeträger, etc.). Weitere Informationen finden Sie [hier](https://www.ag.ch/de/verwaltung/bvu/bauen/baubewilligungen/bewilligungsablauf/strassenreklamen).\n\n**Plangenehmigungsverfahren Gas**  \nGesuch für Gasleitungen, für die gemäss Bundesrecht der Kanton zuständig ist; in der Regel Gasleitungen 1-5 bar. Weitere Informationen finden Sie [hier](https://www.ag.ch/de/verwaltung/bvu/bauen/baubewilligungen/plangenehmigungsverfahren/gasleitungen)."
   even: "EVEN"
+
+support:
+  technical: |-
+    Bei technischen Problemen mit eBau prüfen Sie bitte die <a href="static-content/portal-faq">FAQ Seite</a>.
+  selectMunicipality: "Wählen Sie die zuständige Gemeinde aus"
+  infoText: "Die zuständige Leitbehörde wird Ihnen gerne weiterhelfen:"
+  phone: "Telefon:"
+  email: "E-Mail:"
+  website: "Webseite:"
+
+municipality-filter:
+  serviceLoadError: "Die Information zu der Gemeinde konnte nicht geladen werden."

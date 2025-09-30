@@ -18,15 +18,21 @@ def test_public_municipality(
     assert response.status_code == status.HTTP_404_NOT_FOUND
 
 
-def test_public_municipality_be(
+@pytest.mark.parametrize(
+    "application_name,short_name",
+    [("kt_bern", "be"), ("kt_ag", "ag")],
+)
+def test_public_municipality_canton_aware(
     admin_client,
     service_factory,
     service_group_factory,
     settings,
     application_settings,
+    application_name,
+    short_name,
 ):
-    settings.APPLICATION_NAME = "kt_bern"
-    application_settings["SHORT_NAME"] = "be"
+    settings.APPLICATION_NAME = application_name
+    application_settings["SHORT_NAME"] = short_name
 
     service_group = service_group_factory(name="municipality")
     municipality = service_factory(service_group=service_group)
