@@ -1,8 +1,10 @@
+from caluma.caluma_form import validators
 from caluma.caluma_form.models import Answer, Document, Question
-from caluma.caluma_form.utils import update_or_create_calc_answer
+from caluma.caluma_form.utils import recalculate_field
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.db.models import Exists, OuterRef
+from tqdm import tqdm
 
 FALLBACK_QUESTION_SLUGS = [
     "anzahl-wohnungen-nach-bauvollendung-v5",
@@ -34,8 +36,13 @@ class Command(BaseCommand):
                 "If none are provided, a default list will be used."
             ),
         )
+        parser.add_argument(
+            "--commit", dest="commit", action="store_true", default=False
+        )
 
-    def handle(self, *args, **options):
+    @transaction.atomic
+    def handle(self, *args, **options):  # noqa: C901
+        sid = transaction.savepoint()
         questions_to_recalculate = options["questions"]
 
         # If no question slugs were provided, use the fallback list.
@@ -74,24 +81,62 @@ class Command(BaseCommand):
 
         recalculated_count = 0
         failed_count = 0
-        with transaction.atomic():
-            questions = Question.objects.filter(slug__in=questions_to_recalculate)
-            for document in documents_to_recalculate.iterator():
-                for question in questions:
-                    try:
-                        update_or_create_calc_answer(question, document)
-                        recalculated_count += 1
-                    except Exception as e:  # pragma: no cover
-                        failed_count += 1
-                        self.stdout.write(
-                            f"  - Document ID: {document.id}, "
-                            f"Question Slug: {question.slug}', "
-                            f"Error: {str(e)}"
-                        )
+        skipped_count = 0
+
+        questions = Question.objects.filter(
+            slug__in=questions_to_recalculate, type="calculated_float"
+        )
+        for document in tqdm(documents_to_recalculate.iterator()):
+            root = validators.DocumentValidator().get_validation_context(
+                document.family
+            )
+            for question in questions:
+                try:
+                    for field in root.find_all_fields_by_slug(question.slug):
+                        # Use answer value instead of field value to also
+                        # check hidden fields
+                        old_value = field.answer.value if field.answer else None
+                        new_value = field.calculate()
+
+                        # Only update answer if the new calculated value can be
+                        # determined (may fail for example if the calc
+                        # dependendencies are hidden, in which case None is
+                        # returned, which shouldn't overwrite a correct answer).
+                        if new_value is None:
+                            tqdm.write(
+                                f'- Not recalculating answer (old value: {old_value}, new value: {new_value}) (question: "{question.slug}", is_hidden: {field.is_hidden()}, instance: {document.case.instance.pk}, answer: {field.answer.pk})'
+                            )
+                            skipped_count += 1
+                            continue
+
+                        # Only update calculated answer if current calculated
+                        # value is incorrect
+                        if old_value != new_value:
+                            tqdm.write(
+                                f'- Recalculating answer (old value: {old_value}, new value: {new_value}) (question: "{question.slug}", instance: {document.case.instance.pk}, answer: {field.answer.pk})'
+                            )
+                            recalculate_field(field)
+                            recalculated_count += 1
+
+                except Exception as e:  # pragma: no cover
+                    failed_count += 1
+                    tqdm.write(
+                        f"  - Document ID: {document.id}, "
+                        f"Question Slug: {question.slug}, "
+                        f"Instance ID: {document.case.instance.pk}, "
+                        f"Error: {str(e)}"
+                    )
 
         if failed_count:  # pragma: no cover
             self.stdout.write(
                 self.style.ERROR(f"{failed_count} recalculations failed.")
+            )
+
+        if skipped_count:  # pragma: no cover
+            self.stdout.write(
+                self.style.WARNING(
+                    f"{skipped_count} answers not recalculated (skipped)."
+                )
             )
 
         self.stdout.write(
@@ -99,3 +144,10 @@ class Command(BaseCommand):
                 f"Successfully performed {recalculated_count} recalculations."
             )
         )
+
+        if options["commit"]:  # pragma: no cover
+            transaction.savepoint_commit(sid)
+            self.stdout.write("Committed changes to database.")
+        else:  # pragma: no cover
+            transaction.savepoint_rollback(sid)
+            self.stdout.write("Rolled back - no changes committed to DB.")
