@@ -1,0 +1,59 @@
+<h1 class="uk-margin-medium-bottom uk-text-center">{{t "support.type"}}</h1>
+<div
+  class="uk-flex uk-flex-column uk-text-center uk-flex-middle uk-margin-medium-bottom"
+>
+  <div>
+    <UkButton
+      @label={{t "global.yes"}}
+      @size="large"
+      @color={{if (eq this.showSection "professional") "primary"}}
+      @onClick={{fn (mut this.showSection) "professional"}}
+    />
+    <UkButton
+      @label={{t "global.no"}}
+      @size="large"
+      @color={{if (eq this.showSection "technical") "primary"}}
+      @onClick={{fn (mut this.showSection) "technical"}}
+    />
+  </div>
+</div>
+<div class="uk-margin-auto uk-padding-small uk-width-1-3">
+  {{#if (eq this.showSection "professional")}}
+    <MunicipalityFilter
+      @onChange={{this.updateMunicipality}}
+      @selected={{this.municipality}}
+      @label={{t "support.selectMunicipality"}}
+    />
+    {{#if (and this.municipality this.service.value)}}
+      <p>{{t "support.infoText"}}</p>
+      <div class="uk-card uk-card-default uk-card-body">
+        <h4>{{this.service.value.name}}</h4>
+        <p>
+          {{#if this.serviceWebsite}}
+            <strong>{{t "support.website"}}</strong>
+            <a class="uk-link" href={{this.serviceWebsite}}>
+              {{this.serviceWebsite}}
+            </a>
+            <br />
+          {{/if}}
+          {{#if this.service.value.email}}
+            <strong>{{t "support.email"}}</strong>
+            {{this.service.value.email}}
+            <br />
+          {{/if}}
+          {{#if this.service.value.phone}}
+            <strong>{{t "support.phone"}}</strong>
+            {{this.service.value.phone}}
+            <br />
+          {{/if}}
+        </p>
+      </div>
+    {{/if}}
+  {{else if (eq this.showSection "technical")}}
+    <div class="uk-text-center uk-flex uk-flex-column uk-flex-middle">
+      <p
+        class="uk-text-large uk-width-large uk-animation-fade uk-margin-remove-top uk-margin-medium-bottom"
+      >{{t (concat "support." this.showSection) htmlSafe=true}}</p>
+    </div>
+  {{/if}}
+</div>
