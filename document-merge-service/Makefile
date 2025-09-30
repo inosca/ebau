@@ -6,10 +6,10 @@ help:
 
 .PHONY: install-dev
 install-dev: ## Install development environment
-	@poetry install --all-extras
+	@poetry install --all-extras --with dev
 
 .PHONY: test
-test: ## Test the extensions
+test: install-dev ## Test the extensions
 	@poetry run ruff check document_merge_service/extensions/
 	@poetry run ruff format --check document_merge_service/extensions/
 	@poetry run pytest -vv --cov document_merge_service/extensions --cov-report term --cov-report xml:artifacts/cobertura.xml --junitxml=artifacts/junit.xml document_merge_service/extensions/
