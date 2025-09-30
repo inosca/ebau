@@ -26,7 +26,7 @@
     />
     {{#if (and this.municipality this.service.value)}}
       <p>{{t "support.infoText"}}</p>
-      <div class="uk-card uk-card-default uk-card-body">
+      <div class="uk-card uk-card-default uk-card-body uk-text-break">
         <h4>{{this.service.value.name}}</h4>
         <p>
           {{#if this.serviceWebsite}}
@@ -38,7 +38,9 @@
           {{/if}}
           {{#if this.service.value.email}}
             <strong>{{t "support.email"}}</strong>
-            {{this.service.value.email}}
+            <a href="mailto:{{this.service.value.email}}">
+              {{this.service.value.email}}
+            </a>
             <br />
           {{/if}}
           {{#if this.service.value.phone}}
