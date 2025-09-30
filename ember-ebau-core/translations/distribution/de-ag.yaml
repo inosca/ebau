@@ -1,3 +1,9 @@
 distribution:
   inquiry-deadline-input:
     disabled-hint: "Es wurde eine Fachstelle zur Teilnahme an der Zirkulation eingeladen, für die keine manuelle Frist festgelegt werden kann; stattdessen wird die im System hinterlegte Frist verwendet."
+
+caluma:
+  distribution:
+    reopen-inquiry:
+      confirm: "Mit dieser Funktion kann eine abgeschlossene Stellungnahme nochmals zur Korrektur freigegeben werden. Es handelt sich um eine reine Korrekturfunktion; eine neue Zirkulation an Unterfachstellen ist nicht möglich. Soll bei einer Fachstelle eine zweite Stellungnahme eingeholt werden, ist eine neue Zirkulation zu starten."
+      link: "Zur Korrektur freigeben"
