@@ -1555,7 +1555,7 @@ APPLICATIONS = {
                         "event": "completed",
                         "notification": {
                             "template_slug": "6-71-schlussabnahme-projekt-melden",
-                            "recipient_types": ["work_item_addressed"],
+                            "recipient_types": ["municipality_users"],
                         },
                     },
                     {

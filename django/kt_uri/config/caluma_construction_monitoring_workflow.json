@@ -462,7 +462,7 @@
         "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['geometer-ur']|groups",
-      "control_groups": "['municipality', '']|groups",
+      "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-av-status-building",
       "lead_time": 2592000,
@@ -1154,8 +1154,7 @@
           "total": 3,
           "needs-approval": "construction-step-schnurgeruestabnahme-is-approved"
         },
-        "construction-step-id": "construction-step-schnurgeruestabnahme",
-        "is-actionable-for-control": false
+        "construction-step-id": "construction-step-schnurgeruestabnahme"
       },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
