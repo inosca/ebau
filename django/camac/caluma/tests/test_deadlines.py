@@ -11,6 +11,7 @@ from camac.caluma.extensions.events.deadlines import (
     post_complete_inquiry_fill_ag,
     post_create_inquiry_ag,
     post_create_withdrawal_check_closes_suspensions,
+    post_redo_inquiry_ag,
 )
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.deadlines import models as deadlines_models
@@ -356,20 +357,22 @@ def test_post_create_inquiry_ag_creates_deadline(
     assert deadline.instance == ag_instance
 
 
+@pytest.mark.parametrize("has_open_suspension", [False, True])
 @pytest.mark.parametrize(
-    "has_previous_inquiry,previous_inquiry_positive",
+    "trigger_action,has_previous_inquiry,inquiry_answer_claim",
     [
-        (True, False),
-        (True, True),
-        (False, False),
-        (False, True),
+        ("redo", False, False),
+        ("redo", False, True),
+        ("create", False, False),
+        ("create", True, False),
+        ("create", False, True),
+        ("create", True, True),
     ],
 )
-@pytest.mark.parametrize("has_open_suspension", [True, False])
 @pytest.mark.parametrize(
     "service_group__name,role__name", [("service-afb", "service-lead")]
 )
-def test_post_create_inquiry_ag_inquiry_claim_suspensions(
+def test_post_create_or_redo_inquiry_ag_claim_suspensions(
     db,
     admin_user,
     ag_instance,
@@ -383,8 +386,9 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
     ag_distribution_settings,
     set_application_ag,
     has_previous_inquiry,
-    previous_inquiry_positive,
+    inquiry_answer_claim,
     has_open_suspension,
+    trigger_action,
     mocker,
 ):
     """Test suspension end date when post_create_inquiry is triggered.
@@ -414,6 +418,15 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
         ),
         addressed_groups=[str(service.pk)],
         document=caluma_document_factory(),
+        closed_at=make_aware(datetime.strptime("2025-01-02", "%Y-%m-%d")),
+    )
+    inquiry_fill_work_item.case.document.answers.create(
+        question=caluma_form_models.Question.objects.get(
+            slug=ag_distribution_settings["QUESTIONS"]["STATUS"]
+        ),
+        value=ag_distribution_settings["ANSWERS"]["STATUS"]["CLAIM"]
+        if inquiry_answer_claim
+        else ag_distribution_settings["ANSWERS"]["STATUS"]["POSITIVE"],
     )
     inquiry_work_item = caluma_work_item_factory(
         child_case=inquiry_fill_work_item.case,
@@ -422,6 +435,8 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
         addressed_groups=[str(service.pk)],
         document=caluma_document_factory(),
         created_at=make_aware(datetime.strptime("2025-01-02", "%Y-%m-%d")),
+        status=WorkItem.STATUS_COMPLETED,
+        closed_at=make_aware(datetime.strptime("2025-01-01", "%Y-%m-%d")),
     )
 
     previous_inquiry_work_item = None
@@ -448,23 +463,27 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
             question=caluma_form_models.Question.objects.get(
                 slug=ag_distribution_settings["QUESTIONS"]["STATUS"]
             ),
-            value=ag_distribution_settings["ANSWERS"]["STATUS"]["POSITIVE"]
-            if previous_inquiry_positive
-            else ag_distribution_settings["ANSWERS"]["STATUS"]["NEGATIVE"],
+            value=ag_distribution_settings["ANSWERS"]["STATUS"]["CLAIM"]
+            if inquiry_answer_claim
+            else ag_distribution_settings["ANSWERS"]["STATUS"]["POSITIVE"],
         )
 
     previous_suspension = None
     if has_open_suspension:
         previous_suspension = deadlines_models.Suspension.objects.create(
             deadline=deadline,
-            work_item=previous_inquiry_work_item,
+            work_item=previous_inquiry_work_item
+            if trigger_action == "create"
+            else inquiry_work_item,
             start_date=now().date(),
             reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
         )
 
     suspension = deadlines_models.Suspension.objects.create(
         deadline=deadline,
-        work_item=inquiry_work_item,
+        work_item=inquiry_work_item
+        if trigger_action == "create"
+        else previous_inquiry_work_item,
         start_date=now().date(),
         reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
     )
@@ -472,26 +491,41 @@ def test_post_create_inquiry_ag_inquiry_claim_suspensions(
     assert suspension.end_date is None
     assert deadline.suspensions.count() == (2 if previous_suspension else 1)
 
-    post_create_inquiry_ag(
-        sender=None,
-        work_item=inquiry_fill_work_item,
-        user=caluma_admin_user,
-        context={},
-    )
+    if trigger_action == "create":
+        post_create_inquiry_ag(
+            sender=None,
+            work_item=inquiry_fill_work_item,
+            user=caluma_admin_user,
+            context={},
+        )
+    else:
+        post_redo_inquiry_ag(
+            sender=None,
+            work_item=inquiry_work_item,
+            user=caluma_admin_user,
+            context={},
+        )
 
     suspension.refresh_from_db()
     last_suspension = deadline.suspensions.order_by("-created_at").first()
     assert last_suspension.end_date is not None
 
-    if not has_previous_inquiry or not previous_inquiry_positive or has_open_suspension:
-        # the existing suspension should be closed.
-        assert last_suspension.pk == suspension.pk
+    if (
+        (trigger_action == "create" and not has_previous_inquiry)
+        or inquiry_answer_claim
+        or has_open_suspension
+    ):
+        # new suspension should only be created if the answer was not claim
+        # and no open suspension already exists for the workitem.
+        assert str(last_suspension.pk == suspension.pk)
         assert last_suspension.start_date == suspension.start_date
     else:
-        # a new suspension starting at the previous inquiry close date
-        # should be created.
-        assert last_suspension.pk != suspension.pk
-        assert last_suspension.start_date == previous_inquiry_work_item.closed_at.date()
+        assert str(last_suspension.pk != suspension.pk)
+        assert last_suspension.start_date == (
+            previous_inquiry_work_item.closed_at.date()
+            if trigger_action == "create"
+            else inquiry_fill_work_item.closed_at.date()
+        )
 
     assert ag_instance.deadlines.count() == 1
 
