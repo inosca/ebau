@@ -1,4 +1,4 @@
-FROM ghcr.io/adfinis/document-merge-service:7.3.7
+FROM ghcr.io/adfinis/document-merge-service:8.0.3
 
 # Only root user can install packages
 USER root
@@ -17,16 +17,20 @@ ENV DMS_VISIBILITY_CLASSES=document_merge_service.extensions.visibilities.Custom
 ENV DMS_PERMISSION_CLASSES=document_merge_service.extensions.permissions.CustomPermission
 ENV DATA_UPLOAD_MAX_NUMBER_FIELDS=2000
 
+# We will migrate to a startup task in K8s soon, this is
+# just in preparation for it
+ENV MIGRATE_ON_STARTUP=true
+ENV LOAD_TEMPLATES_ON_STARTUP=true
+ENV DISABLE_WEB_SERVICE=false
+
 ARG APPLICATION
 
 COPY Makefile .
-COPY uwsgi.ini .
 COPY fonts /usr/local/share/fonts
 COPY extensions document_merge_service/extensions
 COPY $APPLICATION /tmp/document-merge-service/
 
-CMD /bin/sh -c "poetry run python ./manage.py migrate \
-  && poetry run python manage.py loaddata /tmp/document-merge-service/dump.json \
-  && poetry run python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.docx' \
-  && poetry run python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.xlsx' \
-  && poetry run uwsgi"
+COPY entrypoint.sh /app/
+
+CMD "gunicorn"
+ENTRYPOINT ["/app/entrypoint.sh"]

@@ -108,12 +108,6 @@ services:
     # https://github.com/unoconv/unoconv/issues/241#issuecomment-549434601
     # https://superuser.com/questions/564534/only-root-user-is-able-to-open-libreoffice
     # user: "${UID:?Set UID env variable to your user id}"
-    command:
-      [
-        "/bin/sh",
-        "-c",
-        "wait-for-it.sh db:5432 -- poetry run python manage.py migrate && poetry run uwsgi",
-      ]
 
   alexandria:
     ports:

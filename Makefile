@@ -71,13 +71,13 @@ loadconfig-camac: ## Load the camac configuration
 .PHONY: loadconfig-dms
 loadconfig-dms: ## Load the DMS configuration
 	@if docker compose config|grep -q document-merge-service; then \
-		docker compose exec document-merge-service poetry run python manage.py loaddata /tmp/document-merge-service/dump.json; \
+		docker compose exec document-merge-service python manage.py loaddata /tmp/document-merge-service/dump.json; \
 	fi
 
 .PHONY: dumpconfig-dms
 dumpconfig-dms: ## Dump the DMS configuration
 	@if docker compose config|grep -q document-merge-service; then \
-		docker compose exec -u root document-merge-service bash -c "poetry run python manage.py dumpdata api.Template > /tmp/document-merge-service/dump.json" ; \
+		docker compose exec -u root document-merge-service bash -c "python manage.py dumpdata api.Template > /tmp/document-merge-service/dump.json" ; \
 		npx --yes prettier@3.0.3 --log-level silent --write "document-merge-service/${APPLICATION}/dump.json"; \
 	fi
 
@@ -294,7 +294,7 @@ debug-django-q: ## start a api container with service ports for debugging
 .PHONY: debug-dms
 debug-dms: ## start a dms container with service ports for debugging
 	@docker compose stop document-merge-service
-	@echo "Run 'poetry run python manage.py runserver 0:8000' to start the debugging server"
+	@echo "Run 'python manage.py runserver 0:8000' to start the debugging server"
 	@docker compose run --user root --use-aliases --service-ports document-merge-service bash
 
 .PHONY: debug-webdav

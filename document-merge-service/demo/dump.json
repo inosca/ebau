@@ -5,8 +5,7 @@
     "fields": {
       "description": "",
       "template": "form.docx",
-      "engine": "docx-template",
-      "group": null
+      "engine": "docx-template"
     }
   }
 ]
