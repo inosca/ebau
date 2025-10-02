@@ -32,6 +32,7 @@ dms:
   merge-error: "Errore nel tentativo di creare il modello"
   save-error-placeholder: "{count, plural, one {Il segnaposto {placeholders} non esiste} other {I segnaposto {placeholders} non esistono}}."
   save-error-syntax: 'Il modello ha una sintassi non valida. Maggiori informazioni alla voce «Dettagli tecnici».'
+  save-error-syntax-placeholder: "Errore di sintassi nel modello: «-» non è consentito nei segnaposto."
   save-error: "Errore nel tentativo di salvare il modello."
   validation-error: "È possibile caricare solo file .docx e .xlsx"
 
