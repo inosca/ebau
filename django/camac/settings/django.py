@@ -2728,15 +2728,6 @@ APPLICATIONS = {
                         },
                     }
                 ],
-                "construction-step-plan-construction-stage": [
-                    {
-                        "event": "created",
-                        "notification": {
-                            "template_slug": "baubegleitung-leitbehoerde",
-                            "recipient_types": ["leitbehoerde"],
-                        },
-                    }
-                ],
                 "construction-step-rohbauabnahme-melden": [
                     {
                         "event": "created",
