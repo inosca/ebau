@@ -42,6 +42,7 @@ export default class CustomField extends Field {
           "bauanzeige-v3",
           "vorlaeufige-beurteilung",
           "vorlaeufige-beurteilung-v3",
+          "vorlaeufige-beurteilung-v4",
         ].includes(this.caseInformation?.value?.form);
       }
     }
