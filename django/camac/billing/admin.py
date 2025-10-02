@@ -1,5 +1,7 @@
+from django.conf import settings
 from django.contrib.admin import ModelAdmin, display, register
 from django.forms import ModelForm, TextInput
+from django.forms.widgets import HiddenInput
 from django.utils.translation import gettext as _
 from localized_fields.admin import LocalizedFieldsAdminMixin
 
@@ -15,6 +17,20 @@ class BillingV2EntryTemplateForm(ModelForm):
         # required in the DB
         self.fields["calculation"].required = True
         self.fields["tax_mode"].required = True
+
+        for field_name in settings.BILLING.admin.hidden_fields:
+            # Hide fields that are not relevant for the current canton. Can be
+            # configured per canton in the module settings.
+            self.fields[field_name].widget = HiddenInput()
+
+        if settings.BILLING.admin.hidden_calculation_modes:
+            # Hide calculation modes that are not relevant for the current
+            # canton. Can be configured per canton in the module settings.
+            self.fields["calculation"].widget.choices = [
+                choice
+                for choice in self.fields["calculation"].widget.choices
+                if choice[0] not in settings.BILLING.admin.hidden_calculation_modes
+            ]
 
     class Meta:
         model = BillingV2EntryTemplate
@@ -36,6 +52,7 @@ class BillingV2EntryTemplateForm(ModelForm):
             "total_cost",
             "tax_mode",
             "tax_rate",
+            "organization",
         )
 
 

@@ -2,6 +2,7 @@ from camac.settings.ebau_schema import ModuleConfig
 from camac.settings.env import env
 from camac.settings.modules.billing_schema import (
     BillingConfig,
+    BillingDjangoAdminConfig,
     ProductNumberConfig,
     WilkenConfig,
 )
@@ -20,6 +21,7 @@ ALLOWED_FORMS_FOR_PRODUCT_NUMBERS = [
 
 BILLING = ModuleConfig[BillingConfig](
     default=BillingConfig(),
+    kt_ag=BillingConfig(admin=BillingDjangoAdminConfig(hidden_fields=["organization"])),
     kt_schwyz=BillingConfig(
         # Keep this config in sync with ember-ebau-core/addon/config/features/sz.js
         enabled=True,
@@ -105,5 +107,8 @@ BILLING = ModuleConfig[BillingConfig](
             keycloak_client="wilken",
         ),
         cantonal_service_group_slugs=CANTONAL_SERVICE_GROUP_SLUGS,
+        admin=BillingDjangoAdminConfig(
+            hidden_fields=["remark"], hidden_calculation_modes=["ag_processing_fee"]
+        ),
     ),
 )
