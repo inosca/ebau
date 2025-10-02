@@ -1,63 +1,70 @@
 <CfField::Input::Hidden @field={{@field}} @context={{@context}} />
 
-{{#if this.showRecheck}}
-  <p data-test-eeba-recheck>{{t "eeba.integration.re_check"}}</p>
-{{/if}}
+{{#unless this.hasExistingEeba}}
+  {{#if this.showRecheck}}
+    <p data-test-eeba-recheck>{{t "eeba.integration.re_check"}}</p>
+  {{/if}}
 
-<UkButton
-  @type="button"
-  @loading={{this.checkIntegration.isRunning}}
-  @disabled={{or
-    this.checkIntegration.isRunning
-    (not this.canCheckIntegration)
-  }}
-  @label={{t "eeba.integration.check"}}
-  @onClick={{this.checkIntegration.perform}}
-  @color="default"
-  class="eeba-button"
-  data-test-eeba-check
-/>
+  {{#if (or (not this.hasEebaRequiredAnswer) this.showRecheck)}}
+    <UkButton
+      @type="button"
+      @loading={{this.checkIntegration.isRunning}}
+      @disabled={{or
+        this.checkIntegration.isRunning
+        (not this.canCheckIntegration)
+      }}
+      @label={{t "eeba.integration.check"}}
+      @onClick={{this.checkIntegration.perform}}
+      @color="default"
+      class="eeba-button"
+      data-test-eeba-check
+    />
+  {{/if}}
 
-{{#if this.hasEebaRequiredAnswer}}
-  {{#let
-    (maybe-translate
-      (concat
-        "eeba.integration.description."
-        (if this.eebaRequiredAnswer "required" "not_required")
+  {{#if (and this.hasEebaRequiredAnswer (not this.showRecheck))}}
+    {{#let
+      (maybe-translate
+        (concat
+          "eeba.integration.description."
+          (if this.eebaRequiredAnswer "required" "not_required")
+        )
+        htmlSafe=true
       )
-      htmlSafe=true
-    )
-    as |eebaDescription|
-  }}
-    {{#if eebaDescription}}
-      <p data-test-eeba-description>{{eebaDescription}}</p>
-    {{/if}}
-  {{/let}}
-{{/if}}
+      as |eebaDescription|
+    }}
+      {{#if eebaDescription}}
+        <p data-test-eeba-description>{{eebaDescription}}</p>
+      {{/if}}
+    {{/let}}
 
-<p data-test-eeba-status>
-  {{t "eeba.integration.status_eeba"}}:
-  <span class={{this.eebaStateClass}}>
-    <UkIcon @icon="info" />
-  </span>
-  {{#let
-    (maybe-translate
-      (concat "eeba.integration.status." this.eebaStateAnswer) htmlSafe=true
-    )
-    as |eebaStatus|
-  }}
-    {{#if eebaStatus}}
-      <strong>{{eebaStatus}}</strong>
-    {{/if}}
-  {{/let}}
-</p>
+    {{#if this.eebaRequiredAnswer}}
+      <p data-test-eeba-status>
+        {{t "eeba.integration.status_eeba"}}:
+        <span class={{this.eebaStateClass}}>
+          <UkIcon @icon="info" />
+        </span>
+        {{#let
+          (maybe-translate
+            (concat "eeba.integration.status." this.eebaStateAnswer)
+            htmlSafe=true
+          )
+          as |eebaStatus|
+        }}
+          {{#if eebaStatus}}
+            <strong>{{eebaStatus}}</strong>
+          {{/if}}
+        {{/let}}
+      </p>
 
-{{#if this.eebaWebUrlAnswer}}
-  <a
-    target="_blank"
-    href={{this.eebaWebUrlAnswer}}
-    rel="noopener noreferrer"
-    class="uk-button uk-button-default eeba-button"
-    data-test-eeba-web-url
-  >{{t "eeba.integration.open"}}</a>
-{{/if}}
+      {{#if this.eebaWebUrlAnswer}}
+        <a
+          target="_blank"
+          href={{this.eebaWebUrlAnswer}}
+          rel="noopener noreferrer"
+          class="uk-button uk-button-default eeba-button"
+          data-test-eeba-web-url
+        >{{t "eeba.integration.open"}}</a>
+      {{/if}}
+    {{/if}}
+  {{/if}}
+{{/unless}}
