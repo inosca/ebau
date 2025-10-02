@@ -1,4 +1,4 @@
-from camac.constants.kt_gr import ARE_SERVICE_GROUP
+from camac.constants.kt_gr import ARE_SERVICE_GROUP, BAUGESUCH_FORMS
 from camac.permissions.conditions import (
     Always,
     HasApplicantRole,
@@ -11,8 +11,6 @@ from camac.permissions.conditions import (
 )
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.settings.env import env
-
-BAUGESUCH_VERSIONS = ["baugesuch", "baugesuch-v2", "baugesuch-v3"]
 
 # Instance state rules
 STATES_ALL = RequireInstanceState(
@@ -33,7 +31,7 @@ STATES_ACCESSIBLE = STATES_ALL & ~RequireInstanceState(["rejected"])
 STATES_POST_DECISION = RequireInstanceState(["construction-acceptance", "finished"])
 
 # Form rules
-FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_VERSIONS, "solaranlage"])
+FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_FORMS, "solaranlage"])
 
 # Role rules
 ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
@@ -76,11 +74,11 @@ MODULE_AUDIT = (ROLES_MUNICIPALITY & RequireWorkItem("formal-exam")) | (
 )
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
-MODULE_LEGAL_SUBMISSIONS = IsForm(BAUGESUCH_VERSIONS) & (
+MODULE_LEGAL_SUBMISSIONS = IsForm(BAUGESUCH_FORMS) & (
     RequireWorkItem("objections", addressed_to_current_service=True)
     | IsServiceGroup(["authority-bab"])
 )
-MODULE_LEGAL_APPEALS = IsForm(BAUGESUCH_VERSIONS) & (
+MODULE_LEGAL_APPEALS = IsForm(BAUGESUCH_FORMS) & (
     RequireWorkItem("appeals", addressed_to_current_service=True)
     | IsServiceGroup(["authority-bab"])
 )
@@ -130,7 +128,7 @@ MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
 ACTION_INSTANCE_CREATE_MODIFICATION = (
     HasApplicantRole(["ADMIN"])
     & STATES_POST_DECISION
-    & IsForm(BAUGESUCH_VERSIONS)
+    & IsForm(BAUGESUCH_FORMS)
     & (
         RequireWorkItem("construction-acceptance")
         | RequireWorkItem("init-construction-monitoring")

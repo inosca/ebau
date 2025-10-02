@@ -1242,6 +1242,7 @@ def test_submit_send_handler(
     call_command(
         "loaddata",
         settings.ROOT_DIR("kt_gr/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form_v2.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_form_common.json"),
     )
     response = Mock(spec=requests.models.Response)

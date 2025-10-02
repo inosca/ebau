@@ -60,6 +60,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.573Z",
+      "modified_at": "2025-07-17T11:13:28.354Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Lageranlagen mit wassergefährdenden Flüssigkeiten\", \"fr\": null, \"it\": \"Impianti di deposito con liquidi che costituiscono un pericolo per le acque\"}",
+      "description": "{\"de\": \"Version 2\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "spezialformulare-v2",
     "fields": {
       "created_at": "2025-02-03T09:34:39.494Z",
@@ -872,6 +890,51 @@
       "form": "komplexe-erdwaermesonden-v2",
       "question": "waermeentzug-aus-erdwaermesonde-v2",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten-v2.hinweis-zustaendigkeit-anu-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.855Z",
+      "modified_at": "2025-07-17T11:07:16.855Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lageranlagen-wassergefaehrdenden-fluessigkeiten-v2",
+      "question": "hinweis-zustaendigkeit-anu-v2",
+      "sort": 39
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten-v2.lageranlagen-titel-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.929Z",
+      "modified_at": "2025-07-17T11:07:16.929Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lageranlagen-wassergefaehrdenden-fluessigkeiten-v2",
+      "question": "lageranlagen-titel-v2",
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lageranlagen-wassergefaehrdenden-fluessigkeiten-v2.table-lageranlagen",
+    "fields": {
+      "created_at": "2025-07-17T14:07:04.784Z",
+      "modified_at": "2025-07-17T14:07:04.784Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lageranlagen-wassergefaehrdenden-fluessigkeiten-v2",
+      "question": "table-lageranlagen",
+      "sort": 1
     }
   },
   {
@@ -1896,6 +1959,210 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "abscheideranlage-ma-mit-selbsttaetigem-abschluss-fuer-tankstellen-zwingend-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.602Z",
+      "modified_at": "2025-07-17T11:07:16.602Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"MA mit selbsttätigem Abschluss (Für Tankstellen zwingend)\", \"fr\": null, \"it\": \"SOM con chiusura automatica (obbligatorio per stazioni di rifornimento)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abscheideranlage-ma-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.597Z",
+      "modified_at": "2025-07-17T11:07:16.597Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mineralölabscheider (MA)\", \"fr\": null, \"it\": \"Separatore di oli minerali (SOM)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "abscheideranlage-v2-nicht-vorhanden",
+    "fields": {
+      "created_at": "2025-07-17T11:32:53.490Z",
+      "modified_at": "2025-07-17T11:32:53.490Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"nicht vorhanden\", \"fr\": null, \"it\": \"non presente\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-anlage-andere-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.628Z",
+      "modified_at": "2025-07-17T11:07:16.628Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": \"Altro\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-anlage-gebinde-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.631Z",
+      "modified_at": "2025-07-17T11:07:16.631Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebinde (bis 450 l)\", \"fr\": null, \"it\": \"Contenitore (fino a 450 l)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-anlage-grosstank-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.635Z",
+      "modified_at": "2025-07-17T11:07:16.635Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grosstank (>250'000 l)\", \"fr\": null, \"it\": \"Grande serbatoio (>250'000 l)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-anlage-kleintank-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.638Z",
+      "modified_at": "2025-07-17T11:07:16.638Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kleintank (451-2’000 l)\", \"fr\": null, \"it\": \"Piccolo serbatoio (451-2'000 l)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-anlage-mittelgrosser-tank-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.648Z",
+      "modified_at": "2025-07-17T11:07:16.648Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"mittelgrosser Tank (>2'000 l)\", \"fr\": null, \"it\": \"Serbatoio di media capienza (>2'000 l)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-anlage-mobiltank-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.652Z",
+      "modified_at": "2025-07-17T11:07:16.652Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mobiltank (Baustellentank)\", \"fr\": null, \"it\": \"Serbatoio mobile (serbatoio da cantiere)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-entwaesserung-abflusslos-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.672Z",
+      "modified_at": "2025-07-17T11:07:16.672Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"abflusslos\", \"fr\": null, \"it\": \"Senza scarico\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-entwaesserung-direkt-in-gewaesser-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.676Z",
+      "modified_at": "2025-07-17T11:07:16.676Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"direkt in Gewässer\", \"fr\": null, \"it\": \"Direttamente nelle acque\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-entwaesserung-ueber-kanalisation-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.680Z",
+      "modified_at": "2025-07-17T11:07:16.680Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"über Kanalisation in ARA\", \"fr\": null, \"it\": \"Nell'IDA attraverso la canalizzazione\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-der-waermepumpe-erdregister-v2",
     "fields": {
       "created_at": "2025-01-31T12:11:01.019Z",
@@ -2083,6 +2350,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "form-des-behaelters-kugelfoermig-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.823Z",
+      "modified_at": "2025-07-17T11:07:16.823Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"kugelförmig\", \"fr\": null, \"it\": \"Sferica\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-des-behaelters-prismatisch-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.827Z",
+      "modified_at": "2025-07-17T11:07:16.827Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"prismatisch\", \"fr\": null, \"it\": \"A prisma\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-des-behaelters-zylindrisch-liegend-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.831Z",
+      "modified_at": "2025-07-17T11:07:16.831Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"zylindrisch, liegend\", \"fr\": null, \"it\": \"Cilindrica, orizzontale\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-des-behaelters-zylindrisch-stehend-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.835Z",
+      "modified_at": "2025-07-17T11:07:16.835Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"zylindrisch, stehend\", \"fr\": null, \"it\": \"Cilindrica, verticale\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "komplexe-erdwaermesonden-anlage-ja-v2",
     "fields": {
       "created_at": "2025-01-31T12:11:01.209Z",
@@ -2143,6 +2478,278 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Komplexe Erdwärmesonden Dimensionierungsberechnung\", \"fr\": null, \"it\": \"Calcolo complesso del dimensionamento delle sonde geotermiche\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-gewaesserschutzbereich-au-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.884Z",
+      "modified_at": "2025-07-17T11:07:16.884Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aᵤ\", \"fr\": null, \"it\": \"Settori di protezione delle acque Aᵤ\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-gewaesserschutzbereich-nicht-betroffen-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.888Z",
+      "modified_at": "2025-07-17T11:07:16.888Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht betroffen\", \"fr\": null, \"it\": \"Non interessato\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-nicht-betroffen-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.900Z",
+      "modified_at": "2025-07-17T11:07:16.900Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht betroffen\", \"fr\": null, \"it\": \"Non interessata\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-s1-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.904Z",
+      "modified_at": "2025-07-17T11:07:16.904Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"S1\", \"fr\": null, \"it\": \"S1\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-s2-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.908Z",
+      "modified_at": "2025-07-17T11:07:16.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"S2\", \"fr\": null, \"it\": \"S2\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-s3-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.911Z",
+      "modified_at": "2025-07-17T11:07:16.911Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"S3\", \"fr\": null, \"it\": \"S3\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-sh-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.914Z",
+      "modified_at": "2025-07-17T11:07:16.914Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sh\", \"fr\": null, \"it\": \"Sh\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-s-kantonaleart-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.918Z",
+      "modified_at": "2025-07-17T11:07:16.918Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Summarische Grundwasserschutzzone (provisorisch)\", \"fr\": null, \"it\": \"Zona di protezione delle acque di falda sommaria (provisoria)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lageranlagen-grundwasserschutzzone-sm-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.922Z",
+      "modified_at": "2025-07-17T11:07:16.922Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sm\", \"fr\": null, \"it\": \"Sm\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lagergut-andere-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.938Z",
+      "modified_at": "2025-07-17T11:07:16.938Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": \"Altro\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lagergut-diesel-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.942Z",
+      "modified_at": "2025-07-17T11:07:16.942Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Diesel\", \"fr\": null, \"it\": \"Diesel\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lagergut-heizoel-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.946Z",
+      "modified_at": "2025-07-17T11:07:16.946Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Heizöl\", \"fr\": null, \"it\": \"Olio da riscaldamento\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lagergut-v2-benzin",
+    "fields": {
+      "created_at": "2025-07-17T11:25:10.181Z",
+      "modified_at": "2025-07-17T11:25:10.181Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Benzin\", \"fr\": null, \"it\": \"Benzina\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "platzierung-der-anlage-andere-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.957Z",
+      "modified_at": "2025-07-17T11:07:16.957Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": \"Altro\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "platzierung-der-anlage-erdverlegt-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.961Z",
+      "modified_at": "2025-07-17T11:07:16.961Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erdverlegt\", \"fr\": null, \"it\": \"Posa interrata\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "platzierung-der-anlage-im-gebaeude-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.965Z",
+      "modified_at": "2025-07-17T11:07:16.965Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Im Gebäude\", \"fr\": null, \"it\": \"Nell'edificio\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -2286,6 +2893,155 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "werkstoff-behaelter-kunststoff-gfk-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:17.066Z",
+      "modified_at": "2025-07-17T11:07:17.066Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kunststoff (GFK)\", \"fr\": null, \"it\": \"Sintetico (GFK)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkstoff-behaelter-kunststoff-kleintank-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:17.069Z",
+      "modified_at": "2025-07-17T11:07:17.069Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kunststoff (Kleintank)\", \"fr\": null, \"it\": \"Sintetico (piccolo serbatoio)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werkstoff-behaelter-stahl-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:17.072Z",
+      "modified_at": "2025-07-17T11:07:17.072Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stahl\", \"fr\": null, \"it\": \"Acciaio\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "100-prozent-volumen-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.581Z",
+      "modified_at": "2025-07-17T11:15:54.784Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"100% Volumen (Liter)\", \"fr\": null, \"it\": \"100% volume (litri)\"}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abscheideranlage-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.589Z",
+      "modified_at": "2025-07-17T11:32:53.558Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abscheideranlage\", \"fr\": null, \"it\": \"Separatore\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anlagedaten-titel-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.606Z",
+      "modified_at": "2025-07-17T11:14:18.150Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagedaten Titel\", \"fr\": null, \"it\": \"Parametri del serbatoio\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Tankparameter\", \"fr\": \"\", \"it\": \"#### Parametri del serbatoio\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "anzahl-beruecksichtigter-nachbarsonden-im-umkreis-von-50-m-v2",
     "fields": {
@@ -2359,6 +3115,42 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anzahl-kammern-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.612Z",
+      "modified_at": "2025-07-17T11:27:44.930Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Kammern\", \"fr\": null, \"it\": \"Numero di camere / cisterne\"}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-sondenbohrungen-v2",
     "fields": {
       "created_at": "2025-01-31T12:11:01.071Z",
@@ -2383,6 +3175,68 @@
       "meta": {
         "widgetOverride": "cf-field/input/number-separator"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-der-anlage-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.622Z",
+      "modified_at": "2025-07-17T11:15:13.838Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Anlage\", \"fr\": null, \"it\": \"Tipo di impianto\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-der-entwaesserung-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.665Z",
+      "modified_at": "2025-07-17T11:07:16.665Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Entwässerung\", \"fr\": null, \"it\": \"Tipo di smaltimento delle acque\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -2444,6 +3298,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-des-belags-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.684Z",
+      "modified_at": "2025-07-17T11:07:16.684Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art des Belags\", \"fr\": null, \"it\": \"Tipo di pavimentazione\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -2583,6 +3471,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-art-der-anlage-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.785Z",
+      "modified_at": "2025-07-17T13:03:56.305Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": \"Descrizione\"}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!(\"art-der-anlage-andere-v2\" in \"art-der-anlage-v2\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-art-der-waermequelle-v2",
     "fields": {
       "created_at": "2025-01-31T12:11:01.100Z",
@@ -2595,6 +3517,74 @@
       "type": "textarea",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "!(\"art-der-waermepumpe-nutzung-der-wasserwaerme-v2\" == \"art-der-waermepumpe-v2\"|answer && \"art-der-waermequelle-andere-v2\" in \"art-der-waermequelle-v2\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-lagergut-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.789Z",
+      "modified_at": "2025-07-17T13:44:35.237Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": \"Descrizione\"}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!(\"lagergut-andere-v2\" in \"lagergut-v2\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Sicherheitsdatenblatt beilegen\", \"fr\": null, \"it\": \"Allegare la scheda di dati di sicurezza\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-platzierung-der-anlage-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.795Z",
+      "modified_at": "2025-07-17T13:44:14.011Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": \"Descrizione\"}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!(\"platzierung-der-anlage-andere-v2\" in \"platzierung-der-anlage-v2\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -3397,6 +4387,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "form-des-behaelters-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.813Z",
+      "modified_at": "2025-07-17T11:28:26.824Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Form des Behälters\", \"fr\": null, \"it\": \"Forma del serbatoio\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "fuellmenge-erdregister-v2",
     "fields": {
       "created_at": "2025-01-31T12:11:01.170Z",
@@ -3574,6 +4595,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hersteller-des-tanks-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.845Z",
+      "modified_at": "2025-07-17T11:22:08.293Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hersteller des Tanks\", \"fr\": null, \"it\": \"Fabbricante serbatoio\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-luft-wasser-waermepumpe-v2",
     "fields": {
       "created_at": "2025-01-31T12:11:01.179Z",
@@ -3638,8 +4693,8 @@
     "model": "caluma_form.question",
     "pk": "hinweis-zustaendigkeit-anu-v2",
     "fields": {
-      "created_at": "2025-01-31T12:11:01.184Z",
-      "modified_at": "2025-01-31T12:11:01.184Z",
+      "created_at": "2023-10-19T13:09:50.314Z",
+      "modified_at": "2025-07-17T11:07:16.851Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4035,6 +5090,161 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "lageranlagen-gewaesserschutzbereich-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.878Z",
+      "modified_at": "2025-07-17T11:07:16.878Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gewässerschutzbereich\", \"fr\": null, \"it\": \"Settore di protezione delle acque\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lageranlagen-grundwasserschutzzone-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.893Z",
+      "modified_at": "2025-07-17T11:07:16.893Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundwasserschutzzone\", \"fr\": null, \"it\": \"Zona di protezione delle acque sotterranee\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lageranlagen-mit-wassergefaehrdenden-fluessigkeiten-v2",
+    "fields": {
+      "created_at": "2023-04-19T10:30:25.810Z",
+      "modified_at": "2025-07-17T14:23:26.481Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wassergefährdende Flüssigkeiten\", \"fr\": null, \"it\": \"Liquidi che costituiscono un pericolo per le acque\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"beschreibung-der-nutzung-lageranlage\" in \"beschreibung-der-nutzung\"|answer || \"beschreibung-der-anlagen-lageranlage\" in \"beschreibung-der-anlagen\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "lageranlagen-wassergefaehrdenden-fluessigkeiten-v2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lageranlagen-titel-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.926Z",
+      "modified_at": "2025-07-17T11:07:16.926Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lageranlagen Titel\", \"fr\": null, \"it\": \"Impianto di deposito titolo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Lageranlagen mit wassergefährdenden Flüssigkeiten\", \"fr\": \"\", \"it\": \"### Impianti di deposito con liquidi che costituiscono un pericolo per le acque\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lagergut-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.932Z",
+      "modified_at": "2025-07-17T11:26:07.775Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lagergut\", \"fr\": null, \"it\": \"Sostanza depositata\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "lastprofil-spezifische-sondenbelastung-v2",
     "fields": {
       "created_at": "2025-01-31T12:17:08.478Z",
@@ -4280,6 +5490,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "platzierung-der-anlage-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.950Z",
+      "modified_at": "2025-07-17T11:28:13.071Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Platzierung der Anlage\", \"fr\": null, \"it\": \"Posizione dell'impianto\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "projektplaene-v2",
     "fields": {
       "created_at": "2025-01-31T14:30:10.131Z",
@@ -4470,6 +5711,37 @@
       "meta": {
         "widgetOverride": "cf-field/input/number-separator"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "schutzmassnahmen-titel-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.987Z",
+      "modified_at": "2025-07-17T13:06:17.485Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzbauwerk Titel\", \"fr\": null, \"it\": \"Opere di protezione titolo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Schutzbauwerk für die Leckerkennung und das Zurückhalten von Flüssigkeitsverlusten\", \"fr\": null, \"it\": \"Opere di protezione per il rilevamento delle perdite e la ritenzione delle perdite di liquidi\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n#### Schutzbauwerk\", \"fr\": \"\", \"it\": \"#### Opere di protezione\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -4678,6 +5950,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "spezialformulare-v2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "spezifikation-umschlageplatz-titel-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.993Z",
+      "modified_at": "2025-07-17T13:15:04.013Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umschlag Titel\", \"fr\": null, \"it\": \"Travaso titolo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Übersichtsplan mit Umschlag-/Betankungsplatz beilegen, nicht erforderlich für private Heizöltanks\", \"fr\": null, \"it\": \"Allegare un piano d'insieme con il sito di trasbordo/rifornimento, non richiesto per i serbatoi privati di gasolio da riscaldamento.\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n#### Umschlag\", \"fr\": \"\", \"it\": \"---\\n#### Travaso\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -5380,6 +6683,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "werkstoff-behaelter-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:17.061Z",
+      "modified_at": "2025-07-17T11:28:35.635Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werkstoff Behälter\", \"fr\": null, \"it\": \"Materiale del contenitore\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "zusatzbewilligung-naturgefahren-v2",
     "fields": {
       "created_at": "2025-01-31T14:30:10.195Z",
@@ -5409,6 +6743,186 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abscheideranlage-v2.abscheideranlage-ma-mit-selbsttaetigem-abschluss-fuer-tankstellen-zwingend-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:32:53.563Z",
+      "modified_at": "2025-07-17T11:32:53.563Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "abscheideranlage-v2",
+      "option": "abscheideranlage-ma-mit-selbsttaetigem-abschluss-fuer-tankstellen-zwingend-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abscheideranlage-v2.abscheideranlage-ma-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:32:53.564Z",
+      "modified_at": "2025-07-17T11:32:53.564Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "abscheideranlage-v2",
+      "option": "abscheideranlage-ma-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "abscheideranlage-v2.abscheideranlage-v2-nicht-vorhanden",
+    "fields": {
+      "created_at": "2025-07-17T11:32:53.561Z",
+      "modified_at": "2025-07-17T11:32:53.561Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "abscheideranlage-v2",
+      "option": "abscheideranlage-v2-nicht-vorhanden",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-anlage-v2.art-der-anlage-andere-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:15:13.842Z",
+      "modified_at": "2025-07-17T11:15:13.842Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-anlage-v2",
+      "option": "art-der-anlage-andere-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-anlage-v2.art-der-anlage-gebinde-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:15:13.853Z",
+      "modified_at": "2025-07-17T11:15:13.853Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-anlage-v2",
+      "option": "art-der-anlage-gebinde-v2",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-anlage-v2.art-der-anlage-grosstank-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:15:13.849Z",
+      "modified_at": "2025-07-17T11:15:13.849Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-anlage-v2",
+      "option": "art-der-anlage-grosstank-v2",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-anlage-v2.art-der-anlage-kleintank-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:15:13.852Z",
+      "modified_at": "2025-07-17T11:15:13.852Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-anlage-v2",
+      "option": "art-der-anlage-kleintank-v2",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-anlage-v2.art-der-anlage-mittelgrosser-tank-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:15:13.850Z",
+      "modified_at": "2025-07-17T11:15:13.850Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-anlage-v2",
+      "option": "art-der-anlage-mittelgrosser-tank-v2",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-anlage-v2.art-der-anlage-mobiltank-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:15:13.847Z",
+      "modified_at": "2025-07-17T11:15:13.847Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-anlage-v2",
+      "option": "art-der-anlage-mobiltank-v2",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-entwaesserung-v2.art-der-entwaesserung-abflusslos-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.674Z",
+      "modified_at": "2025-07-17T11:07:16.674Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "art-der-entwaesserung-v2",
+      "option": "art-der-entwaesserung-abflusslos-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-entwaesserung-v2.art-der-entwaesserung-direkt-in-gewaesser-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.678Z",
+      "modified_at": "2025-07-17T11:07:16.678Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "art-der-entwaesserung-v2",
+      "option": "art-der-entwaesserung-direkt-in-gewaesser-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-entwaesserung-v2.art-der-entwaesserung-ueber-kanalisation-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.682Z",
+      "modified_at": "2025-07-17T11:07:16.682Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "art-der-entwaesserung-v2",
+      "option": "art-der-entwaesserung-ueber-kanalisation-v2",
+      "sort": 2
     }
   },
   {
@@ -5578,6 +7092,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "form-des-behaelters-v2.form-des-behaelters-kugelfoermig-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:28:26.829Z",
+      "modified_at": "2025-07-17T11:28:26.829Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "form-des-behaelters-v2",
+      "option": "form-des-behaelters-kugelfoermig-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-des-behaelters-v2.form-des-behaelters-prismatisch-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:28:26.831Z",
+      "modified_at": "2025-07-17T11:28:26.831Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "form-des-behaelters-v2",
+      "option": "form-des-behaelters-prismatisch-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-des-behaelters-v2.form-des-behaelters-zylindrisch-liegend-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:28:26.836Z",
+      "modified_at": "2025-07-17T11:28:26.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "form-des-behaelters-v2",
+      "option": "form-des-behaelters-zylindrisch-liegend-v2",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-des-behaelters-v2.form-des-behaelters-zylindrisch-stehend-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:28:26.834Z",
+      "modified_at": "2025-07-17T11:28:26.834Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "form-des-behaelters-v2",
+      "option": "form-des-behaelters-zylindrisch-stehend-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "komplexe-erdwaermesonden-anlage-v2.komplexe-erdwaermesonden-anlage-ja-v2",
     "fields": {
       "created_at": "2025-01-31T12:19:46.560Z",
@@ -5634,6 +7208,246 @@
       "question": "komplexe-erdwaermesonden-dimensionierungsberechnung-v2",
       "option": "komplexe-erdwaermesonden-dimensionierungsberechnung-dimensionierungsberechnung",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-gewaesserschutzbereich-v2.lageranlagen-gewaesserschutzbereich-au-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.886Z",
+      "modified_at": "2025-07-17T11:07:16.886Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lageranlagen-gewaesserschutzbereich-v2",
+      "option": "lageranlagen-gewaesserschutzbereich-au-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-gewaesserschutzbereich-v2.lageranlagen-gewaesserschutzbereich-nicht-betroffen-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.891Z",
+      "modified_at": "2025-07-17T11:07:16.891Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lageranlagen-gewaesserschutzbereich-v2",
+      "option": "lageranlagen-gewaesserschutzbereich-nicht-betroffen-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone-v2.lageranlagen-grundwasserschutzzone-nicht-betroffen-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.902Z",
+      "modified_at": "2025-07-17T11:07:16.902Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone-v2",
+      "option": "lageranlagen-grundwasserschutzzone-nicht-betroffen-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone-v2.lageranlagen-grundwasserschutzzone-s1-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.906Z",
+      "modified_at": "2025-07-17T11:07:16.906Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone-v2",
+      "option": "lageranlagen-grundwasserschutzzone-s1-v2",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone-v2.lageranlagen-grundwasserschutzzone-s2-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.909Z",
+      "modified_at": "2025-07-17T11:07:16.909Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone-v2",
+      "option": "lageranlagen-grundwasserschutzzone-s2-v2",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone-v2.lageranlagen-grundwasserschutzzone-s3-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.912Z",
+      "modified_at": "2025-07-17T11:07:16.912Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone-v2",
+      "option": "lageranlagen-grundwasserschutzzone-s3-v2",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone-v2.lageranlagen-grundwasserschutzzone-sh-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.916Z",
+      "modified_at": "2025-07-17T11:07:16.916Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone-v2",
+      "option": "lageranlagen-grundwasserschutzzone-sh-v2",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone-v2.lageranlagen-grundwasserschutzzone-s-kantonaleart-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.920Z",
+      "modified_at": "2025-07-17T11:07:16.920Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone-v2",
+      "option": "lageranlagen-grundwasserschutzzone-s-kantonaleart-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lageranlagen-grundwasserschutzzone-v2.lageranlagen-grundwasserschutzzone-sm-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:07:16.924Z",
+      "modified_at": "2025-07-17T11:07:16.924Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lageranlagen-grundwasserschutzzone-v2",
+      "option": "lageranlagen-grundwasserschutzzone-sm-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lagergut-v2.lagergut-andere-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:26:07.778Z",
+      "modified_at": "2025-07-17T11:26:07.778Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lagergut-v2",
+      "option": "lagergut-andere-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lagergut-v2.lagergut-diesel-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:26:07.782Z",
+      "modified_at": "2025-07-17T11:26:07.782Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lagergut-v2",
+      "option": "lagergut-diesel-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lagergut-v2.lagergut-heizoel-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:26:07.784Z",
+      "modified_at": "2025-07-17T11:26:07.784Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lagergut-v2",
+      "option": "lagergut-heizoel-v2",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lagergut-v2.lagergut-v2-benzin",
+    "fields": {
+      "created_at": "2025-07-17T11:26:07.780Z",
+      "modified_at": "2025-07-17T11:26:07.780Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lagergut-v2",
+      "option": "lagergut-v2-benzin",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "platzierung-der-anlage-v2.platzierung-der-anlage-andere-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:28:13.075Z",
+      "modified_at": "2025-07-17T11:28:13.075Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "platzierung-der-anlage-v2",
+      "option": "platzierung-der-anlage-andere-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "platzierung-der-anlage-v2.platzierung-der-anlage-erdverlegt-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:28:13.078Z",
+      "modified_at": "2025-07-17T11:28:13.078Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "platzierung-der-anlage-v2",
+      "option": "platzierung-der-anlage-erdverlegt-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "platzierung-der-anlage-v2.platzierung-der-anlage-im-gebaeude-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:28:13.080Z",
+      "modified_at": "2025-07-17T11:28:13.080Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "platzierung-der-anlage-v2",
+      "option": "platzierung-der-anlage-im-gebaeude-v2",
+      "sort": 3
     }
   },
   {
@@ -5754,6 +7568,51 @@
       "question": "waermepumpen-standortplan-v2",
       "option": "waermepumpen-standortplan-waermepumpen-standortplan-v2",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkstoff-behaelter-v2.werkstoff-behaelter-kunststoff-gfk-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:28:35.644Z",
+      "modified_at": "2025-07-17T11:28:35.644Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werkstoff-behaelter-v2",
+      "option": "werkstoff-behaelter-kunststoff-gfk-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkstoff-behaelter-v2.werkstoff-behaelter-kunststoff-kleintank-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:28:35.640Z",
+      "modified_at": "2025-07-17T11:28:35.640Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werkstoff-behaelter-v2",
+      "option": "werkstoff-behaelter-kunststoff-kleintank-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werkstoff-behaelter-v2.werkstoff-behaelter-stahl-v2",
+    "fields": {
+      "created_at": "2025-07-17T11:28:35.647Z",
+      "modified_at": "2025-07-17T11:28:35.647Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werkstoff-behaelter-v2",
+      "option": "werkstoff-behaelter-stahl-v2",
+      "sort": 3
     }
   }
 ]

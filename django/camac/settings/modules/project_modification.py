@@ -1,3 +1,5 @@
+from camac.constants import kt_gr as gr_constants
+
 PROJECT_MODIFICATION = {
     "default": {},
     "kt_bern": {
@@ -25,7 +27,7 @@ PROJECT_MODIFICATION = {
     },
     "kt_gr": {
         "ENABLED": True,
-        "ALLOW_FORMS": ["baugesuch", "baugesuch-v2", "baugesuch-v3"],
+        "ALLOW_FORMS": gr_constants.BAUGESUCH_FORMS,
         "DISALLOW_STATES": ["new"],
     },
     "kt_so": {

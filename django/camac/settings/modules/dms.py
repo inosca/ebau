@@ -1,5 +1,7 @@
 from django.utils.translation import gettext_lazy as _
 
+from camac.constants import kt_gr as gr_constants
+
 DMS = {
     "default": {
         "ADD_ADDRESS_DATA": False,
@@ -238,11 +240,7 @@ DMS = {
                 },
             },
             "baugesuch": {
-                "forms": [
-                    "baugesuch",
-                    "baugesuch-v2",
-                    "baugesuch-v3",
-                ],
+                "forms": gr_constants.BAUGESUCH_FORMS,
                 "template": "form",
                 "personalien": "personalien",
                 "exclude_slugs": [
@@ -262,10 +260,7 @@ DMS = {
                 ],
             },
             "bauanzeige": {
-                "forms": [
-                    "bauanzeige",
-                    "bauanzeige-v3",
-                ],
+                "forms": gr_constants.BAUANZEIGE_FORMS,
                 "template": "form",
                 "personalien": "personalien",
                 "exclude_slugs": [
@@ -279,10 +274,7 @@ DMS = {
                 ],
             },
             "vorlaeufige-beurteilung": {
-                "forms": [
-                    "vorlaeufige-beurteilung",
-                    "vorlaeufige-beurteilung-v3",
-                ],
+                "forms": gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
                 "template": "form",
                 "personalien": "personalien",
                 "exclude_slugs": [

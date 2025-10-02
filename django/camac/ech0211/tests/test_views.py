@@ -674,6 +674,7 @@ def test_send_submit(
     call_command(
         "loaddata",
         settings.ROOT_DIR("kt_gr/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form_v2.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_form_common.json"),
     )
     notification_template_factory(slug="empfang-anfragebaugesuch-gesuchsteller")

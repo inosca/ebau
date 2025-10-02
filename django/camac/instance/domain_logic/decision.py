@@ -1,3 +1,4 @@
+from itertools import chain
 from typing import Optional, Union
 
 from caluma.caluma_form.models import Answer
@@ -5,6 +6,7 @@ from caluma.caluma_workflow import models as workflow_models
 from caluma.caluma_workflow.api import cancel_work_item, skip_work_item
 from django.conf import settings
 
+from camac.constants import kt_gr as gr_constants
 from camac.core.utils import canton_aware, generate_sort_key
 from camac.ech0211.signals import withdrawn
 from camac.instance.domain_logic import CreateInstanceLogic
@@ -410,12 +412,9 @@ class DecisionLogic:
     @classmethod
     def get_notification_config_gr(cls, instance, work_item):
         # TODO(GR): replace by preliminary clarification workflow
-        if instance.case.document.form.slug in [
-            "bauanzeige",
-            "bauanzeige-v3",
-            "vorlaeufige-beurteilung",
-            "vorlaeufige-beurteilung-v3",
-        ]:
+        if instance.case.document.form.slug in chain(
+            gr_constants.BAUANZEIGE_FORMS, gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS
+        ):
             return settings.APPLICATION["NOTIFICATIONS"].get(
                 "NON_BUILDING_PERMIT_DECISION", []
             )

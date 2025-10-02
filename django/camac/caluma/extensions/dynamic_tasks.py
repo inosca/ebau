@@ -16,6 +16,7 @@ from camac.caluma.extensions.events.construction_monitoring import (
 )
 from camac.caluma.extensions.events.general import get_instance
 from camac.caluma.models import Inquiry
+from camac.constants import kt_gr as gr_constants
 from camac.core.utils import canton_aware, create_history_entry
 from camac.instance import domain_logic
 from camac.instance.master_data import MasterData
@@ -619,15 +620,15 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_formal_exam(self, case, user, prev_work_item, context):
         tasks = [settings.DISTRIBUTION["DISTRIBUTION_TASK"]]
 
-        if settings.PUBLICATION.get(
-            "AFTER_FORMAL_EXAM_PUBLICATION_TASKS", []
-        ) and case.document.form.slug not in [
-            "bauanzeige",
-            "bauanzeige-v3",
-            "vorlaeufige-beurteilung",
-            "vorlaeufige-beurteilung-v3",
-            "solaranlage",
-        ]:
+        form_slugs = chain(
+            gr_constants.BAUANZEIGE_FORMS,
+            gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
+            gr_constants.SOLARANLAGE_FORMS,
+        )
+        if (
+            settings.PUBLICATION.get("AFTER_FORMAL_EXAM_PUBLICATION_TASKS", [])
+            and case.document.form.slug not in form_slugs
+        ):
             tasks += settings.PUBLICATION["AFTER_FORMAL_EXAM_PUBLICATION_TASKS"]
 
         if settings.ADDRESS_ASSIGNMENT:

@@ -1,4 +1,5 @@
 from datetime import timedelta
+from itertools import chain
 
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
@@ -40,12 +41,9 @@ def _gr_include_special_service(instance, service_name):
         # GVG can only be included in "building permit"-type decisions
         # TODO(GR): replace this once preliminary clarification workflow
         # has been introduced
-        if instance.case.document.form.slug in [
-            "bauanzeige",
-            "bauanzeige-v3",
-            "vorlaeufige-beurteilung",
-            "vorlaeufige-beurteilung-v3",
-        ]:  # pragma: no cover
+        if instance.case.document.form.slug in chain(
+            gr_constants.BAUANZEIGE_FORMS, gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS
+        ):  # pragma: no cover
             return False
         task_id = settings.DECISION["TASK"]
         question_id = "fuer-gvg-freigeben"
