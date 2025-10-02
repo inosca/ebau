@@ -80,7 +80,7 @@ def test_handle_missing_integration_success(
     completed_response = {
         "status": "completed",
         "relation": {
-            "declarationOfWasteDisposalRequired": True,
+            "eEbaRequired": True,
             "webUrl": "http://completed.example.com",
         },
         "hint": "",
@@ -132,7 +132,7 @@ def test_handle_missing_integration_failed_response_timeout(
         document=gr_instance.case.document, question__slug="eeba-integration-id"
     )
     assert integration_answer.value == integration_id
-    assert state_value == "retry"
+    assert state_value == "rerun"
     assert required_value is None
     assert web_url_value is None
 
@@ -166,7 +166,7 @@ def test_handle_missing_integration_failed_response_server_exception(
         document=gr_instance.case.document, question__slug="eeba-integration-id"
     )
     assert integration_answer.value == integration_id
-    assert state_value == "retry"
+    assert state_value == "rerun"
     assert required_value is None
     assert web_url_value is None
 
@@ -272,7 +272,7 @@ def test_check_eeba_needed_missing_integration(
     completed_response = {
         "status": "completed",
         "relation": {
-            "declarationOfWasteDisposalRequired": True,
+            "eEbaRequired": True,
             "webUrl": "http://missing.example.com",
         },
         "hint": "",
@@ -330,7 +330,7 @@ def test_get_eeba_needed_completed(
     completed_response = {
         "status": "completed",
         "relation": {
-            "declarationOfWasteDisposalRequired": True,
+            "eEbaRequired": True,
             "webUrl": "http://completed.com",
         },
         "hint": "",

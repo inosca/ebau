@@ -19,7 +19,7 @@ def create_resource_with_id(integration_id, ebau_id=None):
             "type": ".eBau",
             "eBauId": ebau_id or 123,
             "webUrl": resource_url(integration_id),
-            "declarationOfWasteDisposalRequired": True,
+            "eEbaRequired": True,
         },
         "hint": None,
     }

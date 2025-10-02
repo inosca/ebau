@@ -252,6 +252,13 @@ DMS = {
                     "einreichen",
                     "bestaetigung",
                     "gis-map",
+                    # eeba questions
+                    "eeba-confirmation",
+                    "eeba-state",
+                    "eeba-error",
+                    "eeba-integration-id",
+                    "eeba-is-dirty",
+                    "eeba-link",
                 ],
             },
             "bauanzeige": {

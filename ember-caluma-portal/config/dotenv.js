@@ -20,6 +20,7 @@ module.exports = function (environment) {
       "ENABLE_TOKEN_EXCHANGE",
       "ENABLE_WATERMARK",
       "WATERMARK",
+      "EEBA_BASE_URL",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
     enabled: environment !== "production",

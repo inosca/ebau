@@ -142,7 +142,7 @@ class EebaHandler:
             EebaHandlerServerException,
             TimeoutError,
         ):
-            return self._process_failed_response(action="retry")
+            return self._process_failed_response(action="rerun")
 
     def _handle_existing_integration(self, integration_id, timeout):
         """
@@ -150,9 +150,11 @@ class EebaHandler:
 
         Return updated state, required, and web_url answer values.
         """
-        current_state_value = self.state_manager.get_state()
+        # current_state_value = self.state_manager.get_state()
 
-        action = "rerun" if current_state_value in ("completed", "rerun") else "retry"
+        # This was changed to always call "rerun" as requested by eEBA
+        # action = "rerun" if current_state_value in ("completed", "rerun") else "retry"
+        action = "rerun"
 
         try:
             self.eeba_client.make_request(
@@ -166,7 +168,7 @@ class EebaHandler:
             EebaHandlerServerException,
             TimeoutError,
         ):
-            return self._process_failed_response(action="retry")
+            return self._process_failed_response(action="rerun")
 
     def check_eeba_needed(
         self, timeout=settings.EEBA_INTEGRATION.get("EEBA_TIMEOUT_SECONDS")
@@ -202,9 +204,7 @@ class EebaHandler:
         """
         self.state_manager.set_state("completed")
 
-        eeba_required = response_data.get("relation", {}).get(
-            "declarationOfWasteDisposalRequired"
-        )
+        eeba_required = response_data.get("relation", {}).get("eEbaRequired")
 
         required_value = (
             "eeba-required-ja"
@@ -338,6 +338,10 @@ class EebaHandler:
     def poll_action(
         self, action, uuid=None, extra_headers=None, timeout=60, interval=5
     ):
+        # this sleep was requested by eeba to avoid a potential incorrect
+        # result due to polling too soon after the post request
+        time.sleep(1)
+
         start_time = time.time()
         while time.time() - start_time < timeout:
             response = self.eeba_client.make_request(

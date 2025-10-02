@@ -82,14 +82,25 @@ export default class EebaConfirmationComponent extends Component {
       return;
     }
 
-    const result = await this.eebaClient.checkIntegration(this.instanceId, {});
-    const isDirtyField = this.args.field.document.findField(
-      EEBA_ANSWER_QUESTIONS.IS_DIRTY,
-    );
-    isDirtyField.answer.value = `${EEBA_ANSWER_QUESTIONS.IS_DIRTY}-nein`;
-    // saving the dirty field will also trigger the refresh of all linked fields.
-    await isDirtyField.save.perform();
+    try {
+      const result = await this.eebaClient.checkIntegration(
+        this.instanceId,
+        {},
+      );
+      const isDirtyField = this.args.field.document.findField(
+        EEBA_ANSWER_QUESTIONS.IS_DIRTY,
+      );
+      isDirtyField.answer.value = `${EEBA_ANSWER_QUESTIONS.IS_DIRTY}-nein`;
+      // saving the dirty field will also trigger the refresh of all linked fields.
+      await isDirtyField.save.perform();
 
-    return result;
+      return result;
+    } catch {
+      this.eebaClient.onSaveEebaRefresh(
+        this.args.field.document,
+        this.args.field.document.findField(EEBA_ANSWER_QUESTIONS.CONFIRMATION)
+          .question.raw,
+      );
+    }
   });
 }

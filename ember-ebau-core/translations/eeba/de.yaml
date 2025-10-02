@@ -1,6 +1,6 @@
 eeba:
   integration:
-    re_check: "Seit der letzten Prüfung wurden Änderungen an relevanten Fragen vorgenommen. Bitte prüfen Sie erneut, ob eine Entsorgungserklärung für Ihr Gesuch eingereicht werden muss."
+    re_check: "Es wurden Änderungen an eEBA-relevanten Fragen vorgenommen. Bitte prüfen Sie, ob eine Entsorgungserklärung für Ihr Gesuch eingereicht werden muss."
     check: "Prüfen, ob eEBA nötig"
     open: "eEBA öffnen"
     status_eeba: "Status der eEBA"
@@ -11,6 +11,8 @@ eeba:
       retry: "Wiederholen"
     description:
       required: |-
-        Basierend auf Ihren Eingaben ist die Eingabe einer elektronischen Entsorgungserklärung (eEBA) <strong>nötig</strong>. Es wurde bereits eine eEBA für diese Gesuch vorbereitet. Bitte vergessen Sia nach Eingabe der eEBA   nicht, dieses Gesuch zu vervollständigen und einzureichen.
+        Für Ihr Baugesuch ist eine elektronische Entsorgungserklärung für Bauabfälle (eEBA) <strong>nötig</strong>. Die eEBA wurde bereits im Hintergrund vorbereitet. Bitte melden Sie sich am <strong>eEBA-Onlineservice</strong> an, prüfen Sie die Angaben (anfallenden Abfallkategorien und -mengen) und ergänzen oder korrigieren Sie diese falls nötig.
+
+        Vergessen Sie danach nicht, die eEBA einzureichen und anschliessend Ihr Baugesuch im eBau-Portal zu vervollständigen.
       not_required: |-
         Basierend auf Ihren Eingaben ist die Eingabe einer elektronischen Entsorgungserklärung (eEBA) <strong>nicht nötig</strong>. Falls die Lokalisierung oder die oben gemachten Eingaben ändern, können Sie die Notwendigkeit einer eEBA hier erneut prüfen.

@@ -2,10 +2,14 @@ import logging
 from functools import wraps
 
 import requests
+from caluma.caluma_form.api import save_answer
+from caluma.caluma_form.models import Question
 from django.http import response as http_response
 from rest_framework import status
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.response import Response
+
+from camac.instance.models import Instance
 
 logger = logging.getLogger(__name__)
 
@@ -43,7 +47,7 @@ def handle_eeba_client_exceptions(function):
                 ("Bad request in %s: %s") % (operation_name, e)
             ) from e
         except (requests.exceptions.RequestException, TimeoutError) as e:
-            logger.exception(("Server error in %s: %s"), operation_name, e)
+            save_eeba_error_to_form(kwargs)
             raise EebaHandlerServerException(
                 ("Server error in %s: %s") % (operation_name, e)
             ) from e
@@ -54,6 +58,18 @@ def handle_eeba_client_exceptions(function):
             ) from e
 
     return wrapper
+
+
+def save_eeba_error_to_form(args):  # pragma: no cover
+    if args.get("data") and args.get("data").get("relation"):
+        if instance_id := args.get("data").get("relation").get("eBauId"):
+            document = Instance.objects.get(pk=instance_id).case.document
+
+            save_answer(
+                document=document,
+                question=Question.objects.get(slug="eeba-state"),
+                value="error",
+            )
 
 
 def handle_view_exceptions(view_method):

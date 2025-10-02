@@ -55,6 +55,8 @@ module.exports = {
         eGovPrestationPath: process.env.EGOV_PRESTATION_PATH ?? "/prestation/1",
         eGovPublicPrestationPath:
           process.env.EGOV_PUBLIC_PRESTATION_PATH ?? "/prestation/5",
+        eebaBaseUrl:
+          process.env.EEBA_BASE_URL || "http://dummy-eeba:9000/dummy-eeba",
       },
     },
     babel: {
