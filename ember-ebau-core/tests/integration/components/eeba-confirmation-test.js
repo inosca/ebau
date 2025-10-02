@@ -112,7 +112,10 @@ module("Integration | Component | eeba-confirmation", function (hooks) {
     "it shows the correct description or hidden if eeba-required is empty",
     [
       ["", ""],
-      ["eeba-required-ja", "Entsorgungserklärung (eEBA) nötig"],
+      [
+        "eeba-required-ja",
+        "Für Ihr Baugesuch ist eine elektronische Entsorgungserklärung für Bauabfälle (eEBA) nötig. Die eEBA wurde bereits im Hintergrund vorbereitet. Bitte melden Sie sich am eEBA-Onlineservice an, prüfen Sie die Angaben (anfallenden Abfallkategorien und -mengen) und ergänzen oder korrigieren Sie diese falls nötig. Vergessen Sie danach nicht, die eEBA einzureichen und anschliessend Ihr Baugesuch im eBau-Portal zu vervollständigen.",
+      ],
       ["eeba-required-nein", "Entsorgungserklärung (eEBA) nicht nötig"],
     ],
     async function (assert, [isRequired, descriptionText]) {

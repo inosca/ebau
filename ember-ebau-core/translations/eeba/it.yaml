@@ -1,14 +1,18 @@
 eeba:
   integration:
-    re_check: ""
-    check: ""
-    open: ""
-    status_eeba: ""
+    re_check: "Sono state apportate modifiche a questioni rilevanti per la DESRE. La preghiamo di verificare se per la Sua domanda occorre inoltrare una dichiarazione di smaltimento."
+    check: "Verificare se è necessaria una DESRE"
+    open: "Aprire la DESRE"
+    status_eeba: "Stato della DESRE"
     status:
-      none: ""
-      completed: ""
-      rerun: ""
-      retry: ""
+      none: "Bozza"
+      completed: "DESRE creata"
+      rerun: "Ripetere"
+      retry: "Ripetere"
     description:
-      required: ""
-      not_required: ""
+      required: |-
+        Per la Sua domanda di costruzione è <strong>necessaria</strong> una dichiarazione elettronica di smaltimento per rifiuti edili (DESRE). La DESRE è già stata preparata in background. La preghiamo di effettuare l'accesso al <strong>servizio online DESRE</strong>, di verificare le indicazioni (categorie e quantità di rifiuti prodotti) e se necessario di completarle o correggerle.
+
+        In seguito non dimentichi di inoltrare la DESRE e poi di completare la Sua domanda di costruzione nel portale eBau.
+      not_required: |-
+        In base ai dati inseriti <strong>non è necessario</strong> inoltrare una dichiarazione elettronica di smaltimento (DESRE). Se la localizzazione o le indicazioni fornite sopra dovessero cambiare, può verificare nuovamente la necessità di una DESRE qui.

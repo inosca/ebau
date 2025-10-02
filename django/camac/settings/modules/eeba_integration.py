@@ -24,7 +24,7 @@ EEBA_INTEGRATION = {
             "web_url": "eeba-web-url",
         },
         "EEBA_BASE_URL": build_url(
-            env.str("EEBA_BASE_URL", default="https://eba-int2.gr.ch/api/v1")
+            env.str("EEBA_BASE_URL", default="http://dummy-eeba:9000/dummy-eeba")
         ),
         "EEBA_SHARED_SECRET": env.str(
             "EEBA_SHARED_SECRET", "4z5hKJ2eQYXaGxvG9B8JfQ6C5L4A2mX5k7P0dQvNc4g="

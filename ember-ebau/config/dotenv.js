@@ -17,6 +17,7 @@ module.exports = function (environment) {
       "WATERMARK",
       "ALEXANDRIA_MANABI_ALLOWED_MIMETYPES",
       "LOCALES",
+      "EEBA_BASE_URL",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
     enabled: environment !== "production",

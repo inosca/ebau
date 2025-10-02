@@ -8513,7 +8513,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "abgetragener-oberboden-volumen",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -8528,7 +8528,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "aushub-volumen",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -8543,7 +8543,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "baujahr-aeltestes-betroffenes-objekt",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -8558,6 +8558,21 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "eeba-confirmation",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.eeba-error",
+    "fields": {
+      "created_at": "2025-09-04T11:39:26.344Z",
+      "modified_at": "2025-09-04T11:39:26.344Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "eeba-error",
       "sort": 1
     }
   },
@@ -8573,7 +8588,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "eeba-id-eingeben",
-      "sort": 13
+      "sort": 16
     }
   },
   {
@@ -8588,7 +8603,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "eeba-integration-id",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -8603,7 +8618,22 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "eeba-is-dirty",
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.eeba-link",
+    "fields": {
+      "created_at": "2025-08-27T07:41:29.088Z",
+      "modified_at": "2025-08-27T07:41:29.088Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "eeba-link",
+      "sort": 15
     }
   },
   {
@@ -8618,7 +8648,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "eeba-required",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -8633,7 +8663,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "eeba-state",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -8648,7 +8678,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "eeba-web-url",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -8663,7 +8693,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "entsorgung-info-text",
-      "sort": 15
+      "sort": 18
     }
   },
   {
@@ -8678,7 +8708,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "entsorgung-titel",
-      "sort": 16
+      "sort": 19
     }
   },
   {
@@ -8693,7 +8723,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "gleisaushub-volumen",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -8708,7 +8738,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst",
-      "sort": 14
+      "sort": 17
     }
   },
   {
@@ -8723,7 +8753,7 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "rueckbaumaterial-volumen",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -8738,7 +8768,22 @@
       "modified_by_group": null,
       "form": "entsorgung",
       "question": "strasse-belag-volumen",
-      "sort": 9
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.verdacht-verschmutzung",
+    "fields": {
+      "created_at": "2025-08-27T07:08:25.975Z",
+      "modified_at": "2025-08-27T07:08:25.975Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "verdacht-verschmutzung",
+      "sort": 8
     }
   },
   {
@@ -24391,12 +24436,12 @@
     "pk": "eeba-required-ja",
     "fields": {
       "created_at": "2024-12-10T14:18:39.088Z",
-      "modified_at": "2024-12-10T14:18:39.088Z",
+      "modified_at": "2025-09-23T07:40:42.653Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"Sì\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -24408,12 +24453,12 @@
     "pk": "eeba-required-nein",
     "fields": {
       "created_at": "2024-12-10T14:18:39.094Z",
-      "modified_at": "2024-12-10T14:18:39.094Z",
+      "modified_at": "2025-09-23T07:40:42.655Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -26210,12 +26255,12 @@
     "pk": "entsorgung-triage-no",
     "fields": {
       "created_at": "2025-08-18T14:57:31.492Z",
-      "modified_at": "2025-08-18T14:57:31.492Z",
+      "modified_at": "2025-09-04T09:12:20.374Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -26227,12 +26272,12 @@
     "pk": "entsorgung-triage-yes",
     "fields": {
       "created_at": "2025-08-18T14:57:31.495Z",
-      "modified_at": "2025-08-18T14:57:31.495Z",
+      "modified_at": "2025-09-04T09:12:20.375Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"Sì\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -27944,12 +27989,12 @@
     "pk": "haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja",
     "fields": {
       "created_at": "2025-08-22T14:15:50.338Z",
-      "modified_at": "2025-08-22T14:15:50.338Z",
+      "modified_at": "2025-09-04T09:14:37.292Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"Sì\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -27961,12 +28006,12 @@
     "pk": "haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein",
     "fields": {
       "created_at": "2025-08-22T14:15:50.336Z",
-      "modified_at": "2025-08-22T14:15:50.336Z",
+      "modified_at": "2025-09-04T09:14:37.293Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -35727,6 +35772,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "verdacht-verschmutzung-ja",
+    "fields": {
+      "created_at": "2025-08-27T07:08:25.861Z",
+      "modified_at": "2025-09-04T09:18:41.554Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"Sì\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "verdacht-verschmutzung-nein",
+    "fields": {
+      "created_at": "2025-08-27T07:08:25.857Z",
+      "modified_at": "2025-09-04T09:18:41.555Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "verdampferanlage-ja",
     "fields": {
       "created_at": "2023-04-24T10:15:30.945Z",
@@ -41383,19 +41462,19 @@
     "pk": "abgetragener-oberboden-volumen",
     "fields": {
       "created_at": "2024-12-10T14:11:50.399Z",
-      "modified_at": "2025-08-22T14:48:21.520Z",
+      "modified_at": "2025-09-08T13:00:44.686Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Abgetragener Oberboden (m³)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Abgetragener Oberboden (m³)\", \"fr\": null, \"it\": \"Strato attivo asportato (m³)\"}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein') || \"eeba-required\"|answer == \"eeba-required-ja\" || \"eeba-state\"|answer == \"error\"",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -45669,19 +45748,19 @@
     "pk": "aushub-volumen",
     "fields": {
       "created_at": "2024-12-10T14:12:10.058Z",
-      "modified_at": "2025-08-22T14:48:26.906Z",
+      "modified_at": "2025-09-08T13:00:50.737Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Aushub (m³)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Aushub (m³)\", \"fr\": null, \"it\": \"Materiale di scavo (m³)\"}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein') || \"eeba-required\"|answer == \"eeba-required-ja\" || \"eeba-state\"|answer == \"error\"",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -46350,23 +46429,23 @@
     "pk": "baujahr-aeltestes-betroffenes-objekt",
     "fields": {
       "created_at": "2024-12-10T14:13:04.564Z",
-      "modified_at": "2025-08-22T14:48:41.749Z",
+      "modified_at": "2025-09-22T11:17:43.308Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Baujahr ältestes betroffenes Objekt\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Baujahr des ältesten betroffenen (Teil-)Objektes (bzw. Baubeginn bei Neubauten)\", \"fr\": null, \"it\": \"Anno di costruzione (anno di costruzione dell'oggetto interessato più vecchio, ad esempio edificio)\"}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein') || \"eeba-required\"|answer == \"eeba-required-ja\" || \"eeba-state\"|answer == \"error\"",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": 2100,
-        "min_value": 0
+        "min_value": 1000
       },
       "meta": {},
       "data_source": null,
@@ -48687,7 +48766,7 @@
     "pk": "beschreibung-bauvorhaben-details",
     "fields": {
       "created_at": "2023-11-16T15:43:37.230Z",
-      "modified_at": "2024-09-11T14:58:35.843Z",
+      "modified_at": "2025-09-04T08:41:56.032Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -48703,7 +48782,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
-        "min_length": null
+        "min_length": 10
       },
       "meta": {},
       "data_source": null,
@@ -53813,19 +53892,19 @@
     "pk": "eeba-confirmation",
     "fields": {
       "created_at": "2025-04-02T13:58:46.607Z",
-      "modified_at": "2025-08-22T14:48:48.062Z",
+      "modified_at": "2025-09-23T07:41:14.323Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"eEBA confirmation\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"eEBA confirmation\", \"fr\": null, \"it\": \"eEBA confirmation\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "(!\"rueckbaumaterial-volumen\"|answer && \"rueckbaumaterial-volumen\"|answer != 0) || (!\"abgetragener-oberboden-volumen\"|answer && \"abgetragener-oberboden-volumen\"|answer != 0) || (!\"aushub-volumen\"|answer && \"aushub-volumen\"|answer != 0) || (!\"strasse-belag-volumen\"|answer && \"strasse-belag-volumen\"|answer != 0) || (!\"gleisaushub-volumen\"|answer && \"gleisaushub-volumen\"|answer != 0) || (!\"baujahr-aeltestes-betroffenes-objekt\"|answer && \"baujahr-aeltestes-betroffenes-objekt\"|answer != 0) || ('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
+      "is_hidden": "!\"eeba-required\"|answer && ( (!\"rueckbaumaterial-volumen\"|answer && \"rueckbaumaterial-volumen\"|answer != 0) || (!\"abgetragener-oberboden-volumen\"|answer && \"abgetragener-oberboden-volumen\"|answer != 0) || (!\"aushub-volumen\"|answer && \"aushub-volumen\"|answer != 0) || (!\"strasse-belag-volumen\"|answer && \"strasse-belag-volumen\"|answer != 0) || (!\"gleisaushub-volumen\"|answer && \"gleisaushub-volumen\"|answer != 0) || (!\"baujahr-aeltestes-betroffenes-objekt\"|answer && \"baujahr-aeltestes-betroffenes-objekt\"|answer != 0) || (!\"verdacht-verschmutzung\"|answer) ) || ('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein' || \"eeba-state\"|answer == \"error\")",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -53847,22 +53926,53 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "eeba-id-eingeben",
+    "pk": "eeba-error",
     "fields": {
-      "created_at": "2025-08-22T14:55:36.167Z",
-      "modified_at": "2025-08-25T08:08:36.217Z",
+      "created_at": "2025-09-04T11:39:26.303Z",
+      "modified_at": "2025-09-23T07:41:19.766Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bitte geben Sie hier die Ihnen bereits zugewiesene ID für die elektronische Entsorgungserklärung für Bauabfälle (eEBA) ein.\", \"fr\": null, \"it\": null}",
-      "type": "text",
+      "label": "{\"de\": \"eeba-error\", \"fr\": null, \"it\": \"eeba-error\"}",
+      "type": "static",
       "is_required": "false",
+      "is_hidden": "!(\"eeba-state\"|answer == \"error\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">\\nHinweis: Der eEBA-Onlineservice ist momentan nicht erreichbar.\\n\\nBitte öffnen Sie den eEBA-Onlineservice direkt über <a href=\\\"https://eba.gr.ch\\\" target=\\\"_blank\\\">https://eba.gr.ch</a>, erfassen Sie dort direkt Ihre eEBA. Tragen Sie danach die erhaltene eEBA-ID in der eBau-Plattform unter <strong>„Haben Sie bereits eine elektronische Entsorgungserklärung erfasst?“</strong> ein.\\n</div>\", \"fr\": \"\", \"it\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">\\nNota: il servizio online DESRE non è al momento raggiungibile. Vi preghiamo di aprire il servizio online DESRE direttamente tramite <a href=\\\"https://eba.gr.ch\\\" target=\\\"_blank\\\">https://eba.gr.ch</a>, di registrare direttamente la vostra DESRE. In seguito inserisca l'ID DESRE ricevuto nella piattaforma eBau alla voce <strong>«Ha già registrato una dichiarazione elettronica di smaltimento per rifiuti edili?»</strong>\\n</div>\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "eeba-id-eingeben",
+    "fields": {
+      "created_at": "2025-08-22T14:55:36.167Z",
+      "modified_at": "2025-09-04T09:17:17.203Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bitte geben Sie hier die Ihnen bereits zugewiesene ID für die elektronische Entsorgungserklärung für Bauabfälle (eEBA) ein\", \"fr\": null, \"it\": \"La preghiamo di inserire qui l'ID per la dichiarazione elettronica di smaltimento per rifiuti edili (DESRE) che Le è già stato attribuito\"}",
+      "type": "text",
+      "is_required": "\"haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst\"|answer == \"haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja\"",
       "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja')",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"Beispiel: GR-EBA-ABCDEF\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"GR-EBA-ABCDEF\", \"fr\": null, \"it\": \"GR-EBA-ABCDEF\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"Beispiel: GR-EBA-ABCDEF\", \"fr\": null, \"it\": \"Esempio: GR-EBA-ABCDEF\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -53884,19 +53994,19 @@
     "pk": "eeba-integration-id",
     "fields": {
       "created_at": "2024-12-10T14:13:29.068Z",
-      "modified_at": "2024-12-10T14:13:29.068Z",
+      "modified_at": "2025-09-23T07:39:29.420Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"eEBA Integration ID\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"eEBA Abfrage\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -53920,19 +54030,19 @@
     "pk": "eeba-is-dirty",
     "fields": {
       "created_at": "2025-04-02T13:58:18.621Z",
-      "modified_at": "2025-04-02T13:58:18.621Z",
+      "modified_at": "2025-09-23T07:41:04.772Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"eEBA is dirty\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"eEBA is dirty\", \"fr\": null, \"it\": \"eEBA is dirty\"}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -53950,22 +54060,59 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "eeba-link",
+    "fields": {
+      "created_at": "2025-08-27T07:41:29.049Z",
+      "modified_at": "2025-09-23T07:37:26.736Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"eeba link\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "eeba-link"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "eeba-required",
     "fields": {
       "created_at": "2024-12-10T14:18:39.154Z",
-      "modified_at": "2024-12-10T14:18:39.154Z",
+      "modified_at": "2025-09-23T07:40:42.726Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"eEBA Required\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"eEBA nötig?\", \"fr\": null, \"it\": \"DESRE necessario?\"}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -53986,19 +54133,19 @@
     "pk": "eeba-state",
     "fields": {
       "created_at": "2025-03-20T13:04:47.067Z",
-      "modified_at": "2025-08-18T15:00:23.683Z",
+      "modified_at": "2025-09-23T07:40:57.425Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"eEBA State\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"eEBA Abfrage\", \"fr\": null, \"it\": \"eEBA Abfrage\"}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "\"haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst\"|answer == \"haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein\"",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -54048,19 +54195,19 @@
     "pk": "eeba-web-url",
     "fields": {
       "created_at": "2025-03-20T14:30:50.052Z",
-      "modified_at": "2025-03-20T14:30:50.052Z",
+      "modified_at": "2025-09-23T07:42:27.925Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"eEBA Web Url\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"eEBA Link\", \"fr\": null, \"it\": \"DESRE Link\"}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -55569,18 +55716,18 @@
     "pk": "entsorgung",
     "fields": {
       "created_at": "2025-03-17T16:58:09.351Z",
-      "modified_at": "2025-08-18T14:58:47.532Z",
+      "modified_at": "2025-09-04T09:13:05.359Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entsorgung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Entsorgung\", \"fr\": null, \"it\": \"Smaltimento\"}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!('parzelle'|answer|mapby('parzellennummer') && 'gemeinde'|answer) || \"entsorgung-triage\"|answer != \"entsorgung-triage-yes\"",
+      "is_hidden": "!( 'parzelle'|answer|mapby('parzellennummer') && 'parzelle'|answer|mapby('parzellennummer')|length > 0 && 'gemeinde'|answer && 'vorhaben'|answer && 'vorhaben'|answer|length > 0 && 'beschreibung-bauvorhaben'|answer && 'beschreibung-bauvorhaben-details'|answer && 'voraussichtlicher-baubeginn'|answer && 'voraussichtliche-fertigstellung'|answer && \"entsorgung-triage\"|answer == \"entsorgung-triage-yes\" )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -55634,20 +55781,20 @@
     "pk": "entsorgung-info-text",
     "fields": {
       "created_at": "2025-08-22T13:43:33.291Z",
-      "modified_at": "2025-08-22T13:46:59.874Z",
+      "modified_at": "2025-09-04T09:14:06.373Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entsorgung Info Text\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Entsorgung Info Text\", \"fr\": null, \"it\": \"Entsorgung Info Text\"}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Bitte erfassen Sie hier die im Rahmen des Projekts anfallenden Bauabfälle (z.B. Rückbaumaterial, Bodenabtrag, Aushubmaterial, etc) sowie das Baujahr des ältesten betroffenen Objekts. Anhand Ihrer Angaben prüft das System automatisch, ob für Ihr Baugesuch eine elektronische Entsorgungserklärung für Bauabfälle (eEBA) erforderlich ist. Falls eine eEBA notwendig ist, wird automatisch ein eEBA Dossier eröffnet und Sie können im Anschluss via eEBA Onlineservice die Entsorgungserklärung vervollständigen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Bitte erfassen Sie hier die geforderten Angaben zu den anfallenden Bauabfällen (z.B. Rückbaumaterial, Bodenabtrag, Aushubmaterial, etc.). Anhand Ihrer Angaben prüft das System automatisch, ob für Ihr Baugesuch eine elektronische Entsorgungserklärung für Bauabfälle (eEBA) erforderlich ist. Falls eine eEBA notwendig ist, wird automatisch ein eEBA Dossier eröffnet und Sie können im Anschluss via eEBA-Onlineservice die Entsorgungserklärung vervollständigen und, falls nötig, Anpassungen an den anfallenden Abfallkategorien und -mengen vornehmen.\\n\\nIn der Abbildung werden die verschiedenen Abfallkategorien dargestellt.\\n\\n\\n![Waste Management Map](/assets/images/waste_management_mapv2_simple_de.png)\\n\\nBauabfälle sind Abfälle, die bei Neubau-, Umbau- oder Rückbauarbeiten von ortsfesten Anlagen anfallen. Hierzu zählen z.B. Rückbaumaterial, Ausbauasphalt ebenso wie Bodenabtrag oder Aushub. Ob das Material später vor Ort wiederverwendet, einem Recyclingunternehmen oder einer Deponie zugeführt wird, spielt hierbei keine Rolle.\", \"fr\": \"\", \"it\": \"La preghiamo di registrare qui le indicazioni richieste relative ai rifiuti edili prodotti (ad es. materiale di demolizione, suolo asportato, materiale di scavo, ecc.). Sulla base delle vostre indicazioni, il sistema verifica automaticamente se per la vostra domanda di costruzione sia necessaria una dichiarazione elettronica di smaltimento per rifiuti edili (DESRE). Se è necessaria una DESRE, viene aperto automaticamente un dossier DESRE e in seguito tramite il servizio online DESRE potrà completare la dichiarazione di smaltimento e, se necessario, procedere ad adeguamenti delle categorie e delle quantità di rifiuti prodotti.\\n\\nNell'illustrazione sono rappresentate le diverse categorie di rifiuti.\\n\\n\\n![Waste Management Map](/assets/images/waste_management_mapv2_simple_it.png)\\n\\nI rifiuti edili sono rifiuti che vengono prodotti nel quadro di lavori di nuova costruzione, di ristrutturazione o di demolizione di impianti fissi. Tra questi rientrano ad es. il materiale di demolizione, il conglomerato bituminoso da demolizione, così come suolo asportato o il materiale di scavo. A questo proposito, non ha importanza se il materiale sarà poi riutilizzato sul posto oppure se sarà portato a un'impresa di riciclaggio o in una discarica.\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -55767,20 +55914,20 @@
     "pk": "entsorgung-titel",
     "fields": {
       "created_at": "2024-12-10T14:11:13.078Z",
-      "modified_at": "2025-08-22T13:46:55.721Z",
+      "modified_at": "2025-09-04T09:13:42.070Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entsorgung Titel\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Entsorgung Titel\", \"fr\": null, \"it\": \"Entsorgung Titel\"}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Entsorgung\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"### Entsorgung\", \"fr\": \"\", \"it\": \"### Smaltimento\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -55798,19 +55945,19 @@
     "pk": "entsorgung-triage",
     "fields": {
       "created_at": "2025-08-18T14:57:31.538Z",
-      "modified_at": "2025-08-22T14:03:46.638Z",
+      "modified_at": "2025-09-04T09:12:20.436Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Fallen beim Bauvorhaben Materialien aus folgenden Kategorien an: Rückbaumaterial, Bodenabtrag, Aushub, Strassenbelag, Gleisaushub?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Fallen beim Bauvorhaben Materialien aus folgenden Kategorien an: Rückbaumaterial, Bodenabtrag, Aushub, Strassenbelag, Gleisaushub?\", \"fr\": null, \"it\": \"Dal progetto di costruzione risultano materiali delle seguenti categorie: materiale di demolizione, suolo asportato, materiale di scavo, pavimentazione stradale, materiale di scavo da binari?\"}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"In der Abbildung werden die verschiedenen Abfallkategorien dargestellt. \\n![Waste Management Map](/assets/images/waste_management_mapv2_simple_de.png)\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"In der Abbildung werden die verschiedenen Abfallkategorien dargestellt. \\n![Waste Management Map](/assets/images/waste_management_mapv2_simple_de.png)\\n\\nBauabfälle sind Abfälle, die bei Neubau-, Umbau- oder Rückbauarbeiten von ortsfesten Anlagen anfallen. Hierzu zählen z.B. Rückbaumaterial, Ausbauasphalt ebenso wie Bodenabtrag oder Aushub. Ob das Material später vor Ort wiederverwendet, einem Recyclingunternehmen oder einer Deponie zugeführt wird spielt hierbei keine Rolle.\", \"fr\": null, \"it\": \"Nell'illustrazione sono rappresentate le diverse categorie di rifiuti. \\n![Waste Management Map](/assets/images/waste_management_mapv2_simple_it.png)\\n\\nI rifiuti edili sono rifiuti che vengono prodotti nel quadro di lavori di nuova costruzione, di ristrutturazione o di demolizione di impianti fissi. Tra questi rientrano ad es. il materiale di demolizione, il conglomerato bituminoso da demolizione, così come suolo asportato o il materiale di scavo. A questo proposito, non ha importanza se il materiale sarà poi riutilizzato sul posto oppure se sarà portato a un'impresa di riciclaggio o in una discarica.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -59835,19 +59982,19 @@
     "pk": "gleisaushub-volumen",
     "fields": {
       "created_at": "2024-12-10T14:12:46.324Z",
-      "modified_at": "2025-08-22T14:48:36.369Z",
+      "modified_at": "2025-09-08T13:00:59.914Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gleisaushub (m³)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Gleisaushub (m³)\", \"fr\": null, \"it\": \"Materiale di scavo da binari (m³)\"}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein') || \"eeba-required\"|answer == \"eeba-required-ja\" || \"eeba-state\"|answer == \"error\"",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -60508,19 +60655,19 @@
     "pk": "haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst",
     "fields": {
       "created_at": "2025-08-22T14:15:50.403Z",
-      "modified_at": "2025-08-22T14:15:50.403Z",
+      "modified_at": "2025-09-04T09:14:37.353Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Haben Sie bereits eine elektronische Entsorgungserklärung für Bauabfälle (eEBA) direkt auf dem eEBA Onlineservice erfasst?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Haben Sie bereits eine elektronische Entsorgungserklärung für Bauabfälle (eEBA) direkt auf dem eEBA Onlineservice erfasst?\", \"fr\": null, \"it\": \"Ha già registrato una dichiarazione elettronica di smaltimento per rifiuti edili (DESRE) direttamente sul servizio online DESRE?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -70674,19 +70821,19 @@
     "pk": "rueckbaumaterial-volumen",
     "fields": {
       "created_at": "2024-12-10T14:11:30.987Z",
-      "modified_at": "2025-08-22T14:48:15.781Z",
+      "modified_at": "2025-09-08T13:00:40.356Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Rückbaumaterial (m³)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Rückbaumaterial (m³)\", \"fr\": null, \"it\": \"Materiale di demolizione (m³)\"}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
+      "is_hidden": "'haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein' || \"eeba-required\"|answer == \"eeba-required-ja\" || \"eeba-state\"|answer == \"error\"",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -72778,19 +72925,19 @@
     "pk": "strasse-belag-volumen",
     "fields": {
       "created_at": "2024-12-10T14:12:28.888Z",
-      "modified_at": "2025-08-22T14:48:31.632Z",
+      "modified_at": "2025-09-08T13:00:55.644Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Strasse / Belag (m³)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Strasse / Belag (m³)\", \"fr\": null, \"it\": \"Strada / pavimentazione (m³)\"}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein')",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein') || \"eeba-required\"|answer == \"eeba-required-ja\" || \"eeba-state\"|answer == \"error\"",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -75157,6 +75304,37 @@
       "meta": {
         "widgetOverride": "cf-field/input/number-separator"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verdacht-verschmutzung",
+    "fields": {
+      "created_at": "2025-08-27T07:08:25.918Z",
+      "modified_at": "2025-09-08T13:01:08.088Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Es besteht ein begründeter Verdacht auf nutzungsbedingte Belastungen (z.B. Ölverschmutzung der Bodenplatte in einer Werkstatt)\", \"fr\": null, \"it\": \"Sussiste un fondato sospetto di deterioramenti dovuti all'utilizzazione (ad es. pavimento di un'officina sporco di olio)\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein') || \"eeba-required\"|answer == \"eeba-required-ja\" || \"eeba-state\"|answer == \"error\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -85368,8 +85546,8 @@
     "model": "caluma_form.questionoption",
     "pk": "eeba-is-dirty.eeba-is-dirty-ja",
     "fields": {
-      "created_at": "2025-04-02T13:58:18.627Z",
-      "modified_at": "2025-04-02T13:58:18.627Z",
+      "created_at": "2025-09-23T07:41:04.779Z",
+      "modified_at": "2025-09-23T07:41:04.779Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85383,8 +85561,8 @@
     "model": "caluma_form.questionoption",
     "pk": "eeba-is-dirty.eeba-is-dirty-nein",
     "fields": {
-      "created_at": "2025-04-02T13:58:18.624Z",
-      "modified_at": "2025-04-02T13:58:18.624Z",
+      "created_at": "2025-09-23T07:41:04.778Z",
+      "modified_at": "2025-09-23T07:41:04.778Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85398,8 +85576,8 @@
     "model": "caluma_form.questionoption",
     "pk": "eeba-required.eeba-required-ja",
     "fields": {
-      "created_at": "2024-12-10T14:18:39.165Z",
-      "modified_at": "2024-12-10T14:18:39.165Z",
+      "created_at": "2025-09-23T07:40:42.731Z",
+      "modified_at": "2025-09-23T07:40:42.731Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -85413,8 +85591,8 @@
     "model": "caluma_form.questionoption",
     "pk": "eeba-required.eeba-required-nein",
     "fields": {
-      "created_at": "2024-12-10T14:18:39.160Z",
-      "modified_at": "2024-12-10T14:18:39.160Z",
+      "created_at": "2025-09-23T07:40:42.729Z",
+      "modified_at": "2025-09-23T07:40:42.729Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -86463,8 +86641,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entsorgung-triage.entsorgung-triage-no",
     "fields": {
-      "created_at": "2025-08-22T14:03:46.641Z",
-      "modified_at": "2025-08-22T14:03:46.641Z",
+      "created_at": "2025-09-04T09:12:20.439Z",
+      "modified_at": "2025-09-04T09:12:20.439Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -86478,8 +86656,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entsorgung-triage.entsorgung-triage-yes",
     "fields": {
-      "created_at": "2025-08-22T14:03:46.644Z",
-      "modified_at": "2025-08-22T14:03:46.644Z",
+      "created_at": "2025-09-04T09:12:20.441Z",
+      "modified_at": "2025-09-04T09:12:20.441Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -87993,8 +88171,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst.haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja",
     "fields": {
-      "created_at": "2025-08-22T14:15:50.412Z",
-      "modified_at": "2025-08-22T14:15:50.412Z",
+      "created_at": "2025-09-04T09:14:37.357Z",
+      "modified_at": "2025-09-04T09:14:37.357Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -88008,8 +88186,8 @@
     "model": "caluma_form.questionoption",
     "pk": "haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst.haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein",
     "fields": {
-      "created_at": "2025-08-22T14:15:50.408Z",
-      "modified_at": "2025-08-22T14:15:50.408Z",
+      "created_at": "2025-09-04T09:14:37.356Z",
+      "modified_at": "2025-09-04T09:14:37.356Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -94856,6 +95034,36 @@
       "modified_by_group": null,
       "question": "uvp-pflicht",
       "option": "uvp-pflicht-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verdacht-verschmutzung.verdacht-verschmutzung-ja",
+    "fields": {
+      "created_at": "2025-09-08T13:01:08.100Z",
+      "modified_at": "2025-09-08T13:01:08.100Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "verdacht-verschmutzung",
+      "option": "verdacht-verschmutzung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "verdacht-verschmutzung.verdacht-verschmutzung-nein",
+    "fields": {
+      "created_at": "2025-09-08T13:01:08.093Z",
+      "modified_at": "2025-09-08T13:01:08.093Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "verdacht-verschmutzung",
+      "option": "verdacht-verschmutzung-nein",
       "sort": 1
     }
   },
