@@ -647,7 +647,7 @@
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-awaiting-municipality",
-      "sort": 0
+      "sort": 8
     }
   },
   {
@@ -692,7 +692,7 @@
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-final",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -722,7 +722,7 @@
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-inspection",
-      "sort": 8
+      "sort": 9
     }
   },
   {
