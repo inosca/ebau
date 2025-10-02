@@ -11978,7 +11978,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "beschreibung-der-anlagen",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -12038,7 +12038,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "das-bauvorhaben-befindet-sich-in",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -12053,7 +12053,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "entsorgung-triage",
-      "sort": 1
+      "sort": 6
     }
   },
   {
@@ -12158,7 +12158,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-laermvorbelastetes-gebiet",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -12188,7 +12188,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "hinweis-vorpruefung-gvg",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -12383,7 +12383,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben",
       "question": "uvp-pflicht",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -53968,6 +53968,7 @@
       "label": "{\"de\": \"Bitte geben Sie hier die Ihnen bereits zugewiesene ID für die elektronische Entsorgungserklärung für Bauabfälle (eEBA) ein\", \"fr\": null, \"it\": \"La preghiamo di inserire qui l'ID per la dichiarazione elettronica di smaltimento per rifiuti edili (DESRE) che Le è già stato attribuito\"}",
       "type": "text",
       "is_required": "\"haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst\"|answer == \"haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja\"",
+      "is_required": "\"haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst\"|answer == \"haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja\"",
       "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja')",
       "is_archived": false,
       "placeholder": "{\"de\": \"GR-EBA-ABCDEF\", \"fr\": null, \"it\": \"GR-EBA-ABCDEF\"}",
@@ -53998,12 +53999,17 @@
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
+      "label": "{\"de\": \"eEBA Abfrage\", \"fr\": null, \"it\": null}",
       "label": "{\"de\": \"eEBA Abfrage\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -54141,6 +54147,7 @@
       "label": "{\"de\": \"eEBA Abfrage\", \"fr\": null, \"it\": \"eEBA Abfrage\"}",
       "type": "text",
       "is_required": "\"haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst\"|answer == \"haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein\"",
+      "is_required": "\"haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst\"|answer == \"haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein\"",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
@@ -54177,7 +54184,8 @@
           "baujahr-aeltestes-betroffenes-objekt",
           "das-bauvorhaben-befindet-sich-in-kataster-belasteter-standorte",
           "eeba-is-dirty",
-          "eeba-confirmation"
+          "eeba-confirmation",
+          "verdacht-verschmutzung"
         ]
       },
       "data_source": null,
@@ -55724,6 +55732,7 @@
       "label": "{\"de\": \"Entsorgung\", \"fr\": null, \"it\": \"Smaltimento\"}",
       "type": "form",
       "is_required": "false",
+      "is_hidden": "!( 'parzelle'|answer|mapby('parzellennummer') && 'parzelle'|answer|mapby('parzellennummer')|length > 0 && 'gemeinde'|answer && 'vorhaben'|answer && 'vorhaben'|answer|length > 0 && 'beschreibung-bauvorhaben'|answer && 'beschreibung-bauvorhaben-details'|answer && 'voraussichtlicher-baubeginn'|answer && 'voraussichtliche-fertigstellung'|answer && \"entsorgung-triage\"|answer == \"entsorgung-triage-yes\" )",
       "is_hidden": "!( 'parzelle'|answer|mapby('parzellennummer') && 'parzelle'|answer|mapby('parzellennummer')|length > 0 && 'gemeinde'|answer && 'vorhaben'|answer && 'vorhaben'|answer|length > 0 && 'beschreibung-bauvorhaben'|answer && 'beschreibung-bauvorhaben-details'|answer && 'voraussichtlicher-baubeginn'|answer && 'voraussichtliche-fertigstellung'|answer && \"entsorgung-triage\"|answer == \"entsorgung-triage-yes\" )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",

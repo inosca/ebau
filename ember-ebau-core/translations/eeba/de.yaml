@@ -6,7 +6,7 @@ eeba:
     status_eeba: "Status der eEBA"
     status:
       none: "Entwurf"
-      completed: "Abgeschlossen"
+      completed: "eEBA erstellt"
       rerun: "Wiederholen"
       retry: "Wiederholen"
     description:

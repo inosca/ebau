@@ -19,6 +19,7 @@ import DirectInquiryInfoComponent from "ember-ebau-core/components/direct-inquir
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import EebaConfirmationComponent from "ember-ebau-core/components/eeba-confirmation";
+import EebaLinkComponent from "ember-ebau-core/components/eeba-link";
 import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-textarea";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
@@ -117,6 +118,11 @@ export default class ApplicationRoute extends Route {
       label: "Eeba Bestätigung",
       component: "eeba-confirmation",
       componentClass: EebaConfirmationComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Eeba Link",
+      component: "eeba-link",
+      componentClass: EebaLinkComponent,
     });
     this.calumaOptions.registerComponentOverride({
       label: "GIS-Karte (Kt. GR)",

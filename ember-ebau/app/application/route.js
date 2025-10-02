@@ -13,6 +13,7 @@ import DirectInquiryCheckboxComponent from "ember-ebau-core/components/direct-in
 import DirectInquiryInfoComponent from "ember-ebau-core/components/direct-inquiry-info";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import EebaConfirmationComponent from "ember-ebau-core/components/eeba-confirmation";
+import EebaLinkComponent from "ember-ebau-core/components/eeba-link";
 import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-textarea";
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
@@ -70,6 +71,11 @@ export default class ApplicationRoute extends Route {
       label: "GIS-Karte (Kt. AG)",
       component: "ag-gis",
       componentClass: AgGisComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Eeba Link",
+      component: "eeba-link",
+      componentClass: EebaLinkComponent,
     });
     this.calumaOptions.registerComponentOverride({
       label: "Eeba Bestätigung",

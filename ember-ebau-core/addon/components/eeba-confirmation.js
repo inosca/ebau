@@ -32,6 +32,15 @@ export default class EebaConfirmationComponent extends Component {
     return this.getAnswer(EEBA_ANSWER_QUESTIONS.INTEGRATION_ID);
   }
 
+  get hasExistingEeba() {
+    return (
+      this.getAnswer(
+        "haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst",
+      ) ===
+      "haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja"
+    );
+  }
+
   get eebaWebUrlAnswer() {
     return this.getAnswer(EEBA_ANSWER_QUESTIONS.WEB_URL);
   }
@@ -65,7 +74,7 @@ export default class EebaConfirmationComponent extends Component {
   }
 
   get showRecheck() {
-    return this.eebaIsDirtyAnswer && this.eebaStateAnswer !== EEBA_STATE.NONE;
+    return this.eebaIsDirtyAnswer && this.eebaStateAnswer !== EEBA_STATE.RERUN;
   }
 
   getAnswer(slug) {

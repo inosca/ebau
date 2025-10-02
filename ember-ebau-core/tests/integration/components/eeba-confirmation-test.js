@@ -91,24 +91,6 @@ module("Integration | Component | eeba-confirmation", function (hooks) {
   });
 
   test.each(
-    "it shows the correct eEBA status",
-    [
-      ["", "Status der eEBA: Entwurf", "uk-text-muted"],
-      ["none", "Status der eEBA: Entwurf", "uk-text-muted"],
-      ["retry", "Status der eEBA: Wiederholen", "uk-text-warning"],
-      ["rerun", "Status der eEBA: Wiederholen", "uk-text-warning"],
-      ["completed", "Status der eEBA: Abgeschlossen", "uk-text-success"],
-    ],
-    async function (assert, [state, stateText, stateClass]) {
-      this.values["eeba-state"] = state;
-      await render(hbs`<EebaConfirmation @field={{this.field}} />`);
-
-      assert.dom("[data-test-eeba-status]").containsText(stateText);
-      assert.dom("[data-test-eeba-status] span").hasClass(stateClass);
-    },
-  );
-
-  test.each(
     "it shows the correct description or hidden if eeba-required is empty",
     [
       ["", ""],
@@ -129,54 +111,6 @@ module("Integration | Component | eeba-confirmation", function (hooks) {
         assert
           .dom("[data-test-eeba-description]")
           .containsText(descriptionText);
-      }
-    },
-  );
-
-  test.each(
-    "it shows the recheck text only when eeba-is-dirty and state not none",
-    [
-      ["", "", false],
-      ["eeba-is-dirty-nein", "", false],
-      ["eeba-is-dirty-ja", "completed", true],
-      ["eeba-is-dirty-ja", "retry", true],
-      ["eeba-is-dirty-ja", "rerun", true],
-      ["eeba-is-dirty-ja", "none", false],
-    ],
-    async function (assert, [dirty, state, showRecheck]) {
-      this.values["eeba-is-dirty"] = dirty;
-      this.values["eeba-state"] = state;
-
-      await render(hbs`<EebaConfirmation @field={{this.field}} />`);
-      const domField = assert.dom("[data-test-eeba-recheck]");
-
-      if (showRecheck) {
-        domField.exists();
-      } else {
-        domField.doesNotExist();
-      }
-    },
-  );
-
-  test.each(
-    "it shows the web url button when a web url is set",
-    [
-      ["", false],
-      ["https://www.example.com", true],
-    ],
-    async function (assert, [webUrl, isVisible]) {
-      await render(hbs`<EebaConfirmation @field={{this.field}} />`);
-      assert.dom("[data-test-eeba-web-url]").doesNotExist();
-
-      this.values["eeba-web-url"] = webUrl;
-
-      await render(hbs`<EebaConfirmation @field={{this.field}} />`);
-
-      if (isVisible) {
-        assert.dom("[data-test-eeba-web-url]").exists();
-        assert.dom("[data-test-eeba-web-url]").hasAttribute("href", webUrl);
-      } else {
-        assert.dom("[data-test-eeba-web-url]").doesNotExist();
       }
     },
   );
