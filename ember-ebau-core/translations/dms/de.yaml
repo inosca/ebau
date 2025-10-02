@@ -31,6 +31,7 @@ dms:
   merge-error: "Beim Generieren der Vorlage ist ein Fehler aufgetreten"
   save-error-placeholder: "{count, plural, one {Der Platzhalzer {placeholders} existiert} other {Die Platzhalter {placeholders} existieren}} nicht."
   save-error-syntax: 'Die Vorlage enthält ungültige Syntax. Weitere Informationen finden Sie unter "Technische Details".'
+  save-error-syntax-placeholder: 'Syntaxfehler in der Vorlage: "-" ist in Platzhaltern nicht zulässig.'
   save-error: "Fehler beim Speichern der Vorlage"
   validation-error: "Es können nur .docx und .xlsx Dateien hochgeladen werden"
 

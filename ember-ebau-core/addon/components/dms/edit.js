@@ -107,6 +107,9 @@ export default class DmsEditComponent extends Component {
           err.includes("unavailable placeholders"),
         );
         const syntaxError = errors.find((err) => err.includes("Syntax error"));
+        const syntaxErrorInPlaceholder = errors.find((err) =>
+          err.includes("not allowed in placeholders"),
+        );
 
         if (placeholderError) {
           const placeholders = placeholderError
@@ -120,9 +123,11 @@ export default class DmsEditComponent extends Component {
               placeholders: placeholders.join(", "),
             }),
           );
-        }
-
-        if (syntaxError) {
+        } else if (syntaxErrorInPlaceholder) {
+          this.notification.danger(
+            this.intl.t("dms.save-error-syntax-placeholder"),
+          );
+        } else if (syntaxError) {
           this.notification.danger(this.intl.t("dms.save-error-syntax"), {
             technicalInfo: syntaxError.replace(/^.*:/, "").trim(),
           });
