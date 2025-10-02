@@ -28,6 +28,8 @@ DJANGO_ADMIN = {
             "notification.NotificationTemplate",
             "deadlines.DeadlineType",
             "ech0211.Message",
+            "django_celery_beat.PeriodicTask",
+            "django_celery_beat.CrontabSchedule",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "notification.NotificationTemplate",
@@ -77,6 +79,8 @@ DJANGO_ADMIN = {
             "work_items.WorkItemListFilterPreset",
             "deadlines.DeadlineType",
             "ech0211.Message",
+            "django_celery_beat.PeriodicTask",
+            "django_celery_beat.CrontabSchedule",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "billing.BillingV2EntryTemplate",

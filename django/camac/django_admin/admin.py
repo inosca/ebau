@@ -2,6 +2,7 @@ from alexandria.core.models import Category
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.contrib.admin import ModelAdmin, display, register
 from django.db.models import JSONField
+from django_celery_beat import admin as dcb_admin, models as dcb_models
 from django_json_widget.widgets import JSONEditorWidget
 from django_q import admin as q_admin, models as q_models
 from localized_fields.admin import LocalizedFieldsAdminMixin
@@ -177,3 +178,13 @@ class FailAdmin(EbauAdminMixin, q_admin.FailAdmin):
 @register(q_models.OrmQ)
 class OrmQAdmin(EbauAdminMixin, q_admin.QueueAdmin):
     list_display = ("id", "key", "task_id", "name", "func", "lock")
+
+
+@register(dcb_models.PeriodicTask)
+class PeriodicTaskAdmin(EbauAdminMixin, dcb_admin.PeriodicTaskAdmin):
+    pass
+
+
+@register(dcb_models.CrontabSchedule)
+class CrontabScheduleAdmin(EbauAdminMixin, dcb_admin.CrontabScheduleAdmin):
+    pass
