@@ -90,7 +90,6 @@ INSTALLED_APPS = [
     "localized_fields",
     "psqlextra",
     "simple_history",
-    "django_celery_beat",
     # Camac and it's dependencies
     "drf_yasg",
     "camac.core.apps.DefaultConfig",
@@ -118,6 +117,7 @@ INSTALLED_APPS = [
     "sorl.thumbnail",
     "django_clamd",
     "django_q",
+    "django_celery_beat",
     "reversion",
     "rest_framework_xml",
     "camac.django_admin.apps.DjangoAdminConfig",
