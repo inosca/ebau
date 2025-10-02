@@ -1,35 +1,22 @@
-import Service from "@ember/service";
 import { visit, click } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { t } from "ember-intl/test-support";
 import { selectChoose } from "ember-power-select/test-support";
-import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
-import { setupApplicationTest } from "camac-ng/tests/helpers";
-
-const SERVICE_ID = 1;
+import { setupApplicationTest } from "dummy/tests/helpers";
 
 module("Acceptance | responsible", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function () {
-    await authenticateSession({ token: "sometoken" });
-
-    this.server.create("service", { id: SERVICE_ID });
+    this.service = this.server.create("service");
     this.instance = this.server.create("instance");
 
-    const instanceId = this.instance.id;
-
-    this.owner.register(
-      "service:shoebox",
-      class extends Service {
-        get content() {
-          return { serviceId: SERVICE_ID, instanceId };
-        }
-      },
-    );
+    const ebauModules = this.owner.lookup("service:ebau-modules");
+    ebauModules.serviceId = this.service.id;
+    ebauModules.instanceId = this.instance.id;
   });
 
   test("it can list responsible entires", async function (assert) {
@@ -50,7 +37,9 @@ module("Acceptance | responsible", function (hooks) {
   });
 
   test("it can save a responsible user", async function (assert) {
-    const users = this.server.createList("user", 3, { serviceId: SERVICE_ID });
+    const users = this.server.createList("user", 3, {
+      serviceId: this.service.id,
+    });
 
     await visit(`/responsible`);
 
