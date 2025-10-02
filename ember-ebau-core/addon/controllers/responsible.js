@@ -14,6 +14,7 @@ export default class ResponsibleController extends Controller {
 
   users = query(this, "user", () => ({
     service: this.ebauModules.serviceId,
+    sort: "name,surname",
   }));
 
   responsibilities = query(this, "responsible-service", () => ({
