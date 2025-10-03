@@ -1010,7 +1010,7 @@
       "created_at": "2025-06-30T06:32:58.562Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-07-03T12:03:08.949Z",
+      "modified_at": "2025-10-03T15:37:18.332Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -1071,7 +1071,7 @@
         }
       },
       "name": "{\"de\": \"Beschwerden\", \"fr\": \"\", \"it\": \"Ricorso\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"La lettera di ricorso può essere archiviata nella cartella «ricorso». Vi preghiamo di tenere presente che il registro «Opposizioni/Ricorso» rappresenta solamente un aiuto e che la procedura di ricorso non può essere svolta tramite eBau.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",
       "parent": "einsprachen-beschwerden",
@@ -1396,7 +1396,7 @@
       "created_at": "2023-11-23T00:00:00Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-07-03T12:02:40.646Z",
+      "modified_at": "2025-10-03T15:36:40.626Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -1466,7 +1466,7 @@
         }
       },
       "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"Opposizioni\"}",
-      "description": "{\"de\": \"Hier können Sie die Einsprachen und den Schriftenverkehr zur Einsprache ablegen. Keine andere Organisation hat Zugriff auf diesen Ordner (Ausnahme: ARE im BAB-Verfahren im Lesemodus).\", \"fr\": \"\", \"it\": \"Qui è possibile deporre le opposizioni e lo scambio degli scritti legati alle opposizioni. Nessun'altra organizzazione ha accesso a questa cartella (ad eccezione dell'UST in modalità di lettura nell'ambito della procedura EFZ).\"}",
+      "description": "{\"de\": \"Hier können Sie die Einsprachen und den Schriftenverkehr zur Einsprache ablegen. Keine andere Organisation hat Zugriff auf diesen Ordner (Ausnahme: ARE im BAB-Verfahren im Lesemodus)\", \"fr\": \"\", \"it\": \"Lo scritto dell'opposizione può essere archiviato nella cartella «opposizioni». Si prega di notare che il registro «Opposizioni/Ricorso» rappresenta solamente un aiuto, la procedura di opposizione non può essere svolta sulla piattaforma eBau.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",
       "parent": "einsprachen-beschwerden",
