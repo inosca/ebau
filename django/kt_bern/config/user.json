@@ -710,7 +710,7 @@
     "fields": {
       "role": 20014,
       "language": "fr",
-      "name": "Responsable: Rechtsmittelbehörde",
+      "name": "Responsable: Autorité de recours",
       "group_prefix": "Responsable:"
     }
   },
@@ -720,7 +720,7 @@
     "fields": {
       "role": 20015,
       "language": "fr",
-      "name": "Droit de consulter le dossier: Rechtsmittelbehörde",
+      "name": "Droit de consulter le dossier: Autorité de recours",
       "group_prefix": "Droit de consulter le dossier:"
     }
   },
@@ -730,7 +730,7 @@
     "fields": {
       "role": 20016,
       "language": "fr",
-      "name": "Administration: Rechtsmittelbehörde",
+      "name": "Administration: Autorité de recours",
       "group_prefix": "Administration:"
     }
   },
@@ -740,7 +740,7 @@
     "fields": {
       "role": 20017,
       "language": "fr",
-      "name": "Collaborateur/collaboratrice du Rechtsmittelbehörde",
+      "name": "Collaborateur/collaboratrice du Autorité de recours",
       "group_prefix": "Collaborateur/collaboratrice:"
     }
   },

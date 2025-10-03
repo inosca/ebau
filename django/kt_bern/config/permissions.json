@@ -73,8 +73,8 @@
     "model": "permissions.accesslevel",
     "pk": "legal-authority",
     "fields": {
-      "name": "{\"de\": \"Rechtsmittelbehörde\", \"fr\": \"Rechtsmittelbehörde\", \"it\": \"\"}",
-      "description": "{\"de\": \"Rechtsmittelbehörde\", \"fr\": \"Rechtsmittelbehörde\", \"it\": \"\"}",
+      "name": "{\"de\": \"Rechtsmittelbehörde\", \"fr\": \"Autorité de recours\", \"it\": \"\"}",
+      "description": "{\"de\": \"Rechtsmittelbehörde\", \"fr\": \"Autorité de recours\", \"it\": \"\"}",
       "required_grant_type": "SERVICE",
       "applicable_area": "INTERNAL"
     }
